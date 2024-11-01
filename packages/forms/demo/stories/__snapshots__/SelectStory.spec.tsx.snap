@@ -1,0 +1,9182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectStory Component renders SelectStory with a disabled select 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #848f99;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rc:--input"
+    id=":rc:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rc:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-disabled="true"
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rc:--hint"
+      aria-invalid="false"
+      aria-labelledby=":rc:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      disabled=""
+      id=":rc:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a hidden label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c10 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3[readonly],
+.c3[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c9 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+.c7 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c7 + .c8 {
+  top: 11px;
+  right: 12px;
+}
+
+.c7:hover + .c8,
+.c7:focus + .c8,
+.c7:focus-visible + .c8 {
+  color: #39434b;
+}
+
+.c7:disabled + .c8 {
+  color: #848f99;
+}
+
+.c7::-ms-expand {
+  display: none;
+}
+
+.c7::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c7:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c7 + .c8 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c5 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c5 > .c6 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c5 > .c6:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r3:--input"
+    hidden=""
+    id=":r3:--label"
+  >
+    Select an option
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4 c5"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r3:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r3:--label"
+      class="c2 c6 c3 c7"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r3:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c8  c9"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c10"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r3:--hint"
+  >
+    Hint
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a hint 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r4:--input"
+    id=":r4:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r4:--hint"
+  >
+    Choose wisely
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r4:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r4:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r4:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r1:--input"
+    id=":r1:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r1:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r1:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r1:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r1:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a label, hidden label, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c10 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3[readonly],
+.c3[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c9 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+.c7 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c7 + .c8 {
+  top: 11px;
+  right: 12px;
+}
+
+.c7:hover + .c8,
+.c7:focus + .c8,
+.c7:focus-visible + .c8 {
+  color: #39434b;
+}
+
+.c7:disabled + .c8 {
+  color: #848f99;
+}
+
+.c7::-ms-expand {
+  display: none;
+}
+
+.c7::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c7:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c7 + .c8 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c5 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c5 > .c6 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c5 > .c6:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r8:--input"
+    hidden=""
+    id=":r8:--label"
+  >
+    Select an option
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4 c5"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r8:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r8:--label"
+      class="c2 c6 c3 c7"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r8:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c8  c9"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c10"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r8:--hint"
+  >
+    Hint
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a label, hidden label, hint, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c10 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3[readonly],
+.c3[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c9 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+.c7 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c7 + .c8 {
+  top: 11px;
+  right: 12px;
+}
+
+.c7:hover + .c8,
+.c7:focus + .c8,
+.c7:focus-visible + .c8 {
+  color: #39434b;
+}
+
+.c7:disabled + .c8 {
+  color: #848f99;
+}
+
+.c7::-ms-expand {
+  display: none;
+}
+
+.c7::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c7:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c7 + .c8 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c5 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c5 > .c6 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c5 > .c6:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":ra:--input"
+    hidden=""
+    id=":ra:--label"
+  >
+    Select an option
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4 c5"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":ra:--hint"
+      aria-invalid="false"
+      aria-labelledby=":ra:--label"
+      class="c2 c6 c3 c7"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":ra:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c8  c9"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c10"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":ra:--hint"
+  >
+    Choose wisely
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a label, hint, and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c13 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c13 {
+  display: block;
+}
+
+.c6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c13 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c13 {
+  margin-top: 8px;
+}
+
+.c6::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c12 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+.c10 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c10 + .c11 {
+  top: 11px;
+  right: 12px;
+}
+
+.c10:hover + .c11,
+.c10:focus + .c11,
+.c10:focus-visible + .c11 {
+  color: #39434b;
+}
+
+.c10:disabled + .c11 {
+  color: #848f99;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c10::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c10:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c10 + .c11 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c8 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c8 > .c9 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c8 > .c9:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r7:--input"
+    id=":r7:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r7:--hint"
+  >
+    Choose wisely
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7 c8"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r7:--hint :r7:--message"
+      aria-invalid="false"
+      aria-labelledby=":r7:--label"
+      class="c5 c9 c6 c10"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r7:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c11  c12"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.1.1"
+    id=":r7:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a label, regular label, hint, and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c13 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c13 {
+  display: block;
+}
+
+.c6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c13 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c13 {
+  margin-top: 8px;
+}
+
+.c6::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c12 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+.c10 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c10 + .c11 {
+  top: 11px;
+  right: 12px;
+}
+
+.c10:hover + .c11,
+.c10:focus + .c11,
+.c10:focus-visible + .c11 {
+  color: #39434b;
+}
+
+.c10:disabled + .c11 {
+  color: #848f99;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c10::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c10:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c10 + .c11 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c8 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c8 > .c9 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c8 > .c9:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r9:--input"
+    id=":r9:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r9:--hint"
+  >
+    Choose wisely
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7 c8"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r9:--hint :r9:--message"
+      aria-invalid="false"
+      aria-labelledby=":r9:--label"
+      class="c5 c9 c6 c10"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r9:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c11  c12"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.1.1"
+    id=":r9:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a label, regular label, hint, message, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c13 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c13 {
+  display: block;
+}
+
+.c6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c13 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c13 {
+  margin-top: 8px;
+}
+
+.c6::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c12 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+.c10 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c10 + .c11 {
+  top: 11px;
+  right: 12px;
+}
+
+.c10:hover + .c11,
+.c10:focus + .c11,
+.c10:focus-visible + .c11 {
+  color: #39434b;
+}
+
+.c10:disabled + .c11 {
+  color: #848f99;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c10::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c10:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c10 + .c11 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c8 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c8 > .c9 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c8 > .c9:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rb:--input"
+    id=":rb:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rb:--hint"
+  >
+    Choose wisely
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7 c8"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rb:--hint :rb:--message"
+      aria-invalid="false"
+      aria-labelledby=":rb:--label"
+      class="c5 c9 c6 c10"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rb:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c11  c12"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.1.1"
+    id=":rb:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c13 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c13 {
+  display: block;
+}
+
+.c6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c13 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c13 {
+  margin-top: 8px;
+}
+
+.c6::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c12 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+.c10 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c10 + .c11 {
+  top: 11px;
+  right: 12px;
+}
+
+.c10:hover + .c11,
+.c10:focus + .c11,
+.c10:focus-visible + .c11 {
+  color: #39434b;
+}
+
+.c10:disabled + .c11 {
+  color: #848f99;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c10::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c10:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c10 + .c11 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c8 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c8 > .c9 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c8 > .c9:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r5:--input"
+    id=":r5:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r5:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7 c8"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r5:--hint :r5:--message"
+      aria-invalid="false"
+      aria-labelledby=":r5:--label"
+      class="c5 c9 c6 c10"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r5:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c11  c12"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.1.1"
+    id=":r5:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a regular label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r2:--input"
+    id=":r2:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r2:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r2:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r2:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r2:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with a validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r6:--input"
+    id=":r6:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r6:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r6:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r6:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r6:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with bare styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1em;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":re:--input"
+    id=":re:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":re:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":re:--hint"
+      aria-invalid="false"
+      aria-labelledby=":re:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":re:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.42857142857142855em 0.8571428571428571em;
+  min-height: 32px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 11px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 32px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 7px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 32px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rd:--input"
+    id=":rd:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rd:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rd:--hint"
+      aria-invalid="false"
+      aria-labelledby=":rd:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rd:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with focus inset 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rg:--input"
+    id=":rg:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rg:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rg:--hint"
+      aria-invalid="false"
+      aria-labelledby=":rg:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rg:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with label, hidden label, validation label, and bare select 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c8 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1em;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+.c7 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+}
+
+.c7::-ms-expand {
+  display: none;
+}
+
+.c7::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c7:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c5 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c5 > .c6 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c5 > .c6:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rl:--input"
+    hidden=""
+    id=":rl:--label"
+  >
+    Select an option
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4 c5"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rl:--hint"
+      aria-invalid="false"
+      aria-labelledby=":rl:--label"
+      class="c2 c6 c3 c7"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rl:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+  </div>
+  <div
+    class="c8"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rl:--hint"
+  >
+    Hint
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with label, hint, message, and compact select 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c13 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c13 {
+  display: block;
+}
+
+.c6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.42857142857142855em 0.8571428571428571em;
+  min-height: 32px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 11px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 32px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c13 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c13 {
+  margin-top: 4px;
+}
+
+.c6::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c12 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+.c10 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c10 + .c11 {
+  top: 7px;
+  right: 12px;
+}
+
+.c10:hover + .c11,
+.c10:focus + .c11,
+.c10:focus-visible + .c11 {
+  color: #39434b;
+}
+
+.c10:disabled + .c11 {
+  color: #848f99;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c10::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c10:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c10 + .c11 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c8 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 32px;
+}
+
+.c8 > .c9 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c8 > .c9:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rk:--input"
+    id=":rk:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rk:--hint"
+  >
+    Choose wisely
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7 c8"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rk:--hint :rk:--message"
+      aria-invalid="false"
+      aria-labelledby=":rk:--label"
+      class="c5 c9 c6 c10"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rk:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c11  c12"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.1.1"
+    id=":rk:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with label, regular label, hint, message, validation label, and disabled select 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c14 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c13 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c13 {
+  display: block;
+}
+
+.c6 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c13 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c13 {
+  margin-top: 8px;
+}
+
+.c6::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c12 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #848f99;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+.c10 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c10 + .c11 {
+  top: 11px;
+  right: 12px;
+}
+
+.c10:hover + .c11,
+.c10:focus + .c11,
+.c10:focus-visible + .c11 {
+  color: #39434b;
+}
+
+.c10:disabled + .c11 {
+  color: #848f99;
+}
+
+.c10::-ms-expand {
+  display: none;
+}
+
+.c10::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c10:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c10 + .c11 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c8 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c8 > .c9 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c8 > .c9:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rm:--input"
+    id=":rm:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rm:--hint"
+  >
+    Choose wisely
+  </div>
+  <div
+    aria-disabled="true"
+    aria-invalid="false"
+    class="c5 c6 c7 c8"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rm:--hint :rm:--message"
+      aria-invalid="false"
+      aria-labelledby=":rm:--label"
+      class="c5 c9 c6 c10"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      disabled=""
+      id=":rm:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c11  c12"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+  <div
+    class="c13 c14"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.1.1"
+    id=":rm:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with the select open 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rf:--input"
+    id=":rf:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rf:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rf:--hint"
+      aria-invalid="false"
+      aria-labelledby=":rf:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rf:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with validation error 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #cd3642;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  border-color: #cd3642;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  border-color: #cd3642;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":ri:--input"
+    id=":ri:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":ri:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="true"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":ri:--hint"
+      aria-invalid="true"
+      aria-labelledby=":ri:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":ri:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with validation success 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #037f52;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #037f52;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  border-color: #037f52;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  border-color: #037f52;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rh:--input"
+    id=":rh:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rh:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rh:--hint"
+      aria-invalid="false"
+      aria-labelledby=":rh:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rh:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders SelectStory with validation warning 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #ac5918;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #ac5918;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  border-color: #ac5918;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  border-color: #ac5918;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":rj:--input"
+    id=":rj:--label"
+  >
+    Select an option
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":rj:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="true"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":rj:--hint"
+      aria-invalid="true"
+      aria-labelledby=":rj:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":rj:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;
+
+exports[`SelectStory Component renders default SelectStory 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  -webkit-clip: rect(0 0 0 0);
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::-webkit-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-moz-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4:-ms-input-placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c10 {
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin: 1px 0 auto 8px;
+  width: 16px;
+  height: 16px;
+  color: #5c6970;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+.c8 {
+  opacity: 1;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  padding-right: 36px;
+}
+
+.c8 + .c9 {
+  top: 11px;
+  right: 12px;
+}
+
+.c8:hover + .c9,
+.c8:focus + .c9,
+.c8:focus-visible + .c9 {
+  color: #39434b;
+}
+
+.c8:disabled + .c9 {
+  color: #848f99;
+}
+
+.c8::-ms-expand {
+  display: none;
+}
+
+.c8::-ms-value {
+  background-color: transparent;
+  color: inherit;
+}
+
+.c8:-moz-focusring {
+  -webkit-transition: none;
+  transition: none;
+  text-shadow: 0 0 0 #293239;
+  color: transparent;
+}
+
+.c8 + .c9 {
+  position: absolute;
+  pointer-events: none;
+}
+
+.c6 {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+  max-height: 40px;
+}
+
+.c6 > .c7 {
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.c6 > .c7:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.1.1"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.1.1"
+    for=":r0:--input"
+    id=":r0:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.1.1"
+    id=":r0:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5 c6"
+    data-garden-id="forms.select_wrapper"
+    data-garden-version="9.1.1"
+  >
+    <select
+      aria-describedby=":r0:--hint"
+      aria-invalid="false"
+      aria-labelledby=":r0:--label"
+      class="c3 c7 c4 c8"
+      data-garden-container-id="containers.field.input"
+      data-garden-container-version="3.0.19"
+      data-garden-id="forms.select"
+      data-garden-version="9.1.1"
+      id=":r0:--input"
+    >
+      <option
+        value="0"
+      >
+        Option 1
+      </option>
+      <option
+        value="1"
+      >
+        Option 2
+      </option>
+      <option
+        value="2"
+      >
+        Option 3
+      </option>
+    </select>
+    <svg
+      aria-hidden="true"
+      class="c9  c10"
+      data-garden-id="forms.media_figure"
+      data-garden-version="9.1.1"
+      focusable="false"
+      height="16"
+      viewBox="0 0 16 16"
+      width="16"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+        fill="currentColor"
+      />
+    </svg>
+  </div>
+</div>
+`;

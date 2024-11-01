@@ -1,0 +1,4090 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDialogStory with a checkbox group and the dialog open 1`] = `
+.c7 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c20 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c20::before,
+.c20::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c20::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c20::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c20::before,
+.c20::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c20[aria-hidden='true'] {
+  display: none;
+}
+
+.c19 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 10ms;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1;
+}
+
+.c19[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c8 {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active {
+  pointer-events: none;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active div {
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.c9 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c9 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c9 > *:focus {
+  outline: none;
+}
+
+.c9.is-animated > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c10 {
+  padding: 20px;
+  width: 400px;
+}
+
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+  padding-right: 32px;
+}
+
+.c12 {
+  display: block;
+  margin: 0;
+  padding-top: 6px;
+  line-height: 1.4285714285714286;
+  color-scheme: only light;
+  color: #293239;
+  font-size: 14px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+.c11 {
+  width: auto !important;
+}
+
+.c13 {
+  padding: 0;
+}
+
+.c14 {
+  border-collapse: collapse;
+  line-height: normal;
+}
+
+.c18 {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c16 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #293239;
+}
+
+.c16:focus {
+  outline: none;
+}
+
+.c16:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c23 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.c23:focus {
+  outline: none;
+}
+
+.c23:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c17:checked ~ .c21 {
+  opacity: 1;
+}
+
+.c15 {
+  padding: 4px;
+  font-size: 0;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.1.1"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.1.1"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.1.1"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.1.1"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.1.1"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.1.1"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        class="c8 garden-tooltip-modal-transition-enter garden-tooltip-modal-transition-enter-active"
+        data-garden-container-id="containers.modal"
+        data-garden-container-version="1.0.19"
+        data-garden-id="modals.tooltip_dialog.backdrop"
+        data-garden-version="9.1.1"
+      >
+        <div
+          class="c9 is-animated"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            aria-label="Color swatch"
+            aria-modal="true"
+            class="c10 c11 is-animated"
+            data-garden-container-id="containers.focusjail"
+            data-garden-container-version="2.0.19"
+            data-garden-id="modals.tooltip_dialog"
+            data-garden-version="9.1.1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="c12 c13"
+              data-garden-id="modals.tooltip_dialog.body"
+              data-garden-version="9.1.1"
+              id=":r3:__content"
+            >
+              <table
+                class="c14"
+                data-garden-id="colorpickers.color_swatch"
+                data-garden-version="9.1.1"
+                role="grid"
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="5val-tooltip_1.0.20"
+                          aria-label="Red"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r4:--R1C1"
+                          name="color-swatch"
+                          tabindex="0"
+                          type="checkbox"
+                          value="#ff0000"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="5val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Red
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="6val-tooltip_1.0.20"
+                          aria-label="Green"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r4:--R1C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="checkbox"
+                          value="#00ff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="6val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Green
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c23"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="7val-tooltip_1.0.20"
+                          aria-label="Blue"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r4:--R2C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="checkbox"
+                          value="#0000ff"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="7val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Blue
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="8val-tooltip_1.0.20"
+                          aria-label="Yellow"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r4:--R2C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="checkbox"
+                          value="#ffff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="8val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Yellow
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDialogStory with a combination of custom props and the dialog open 1`] = `
+.c7 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c20 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c20::before,
+.c20::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c20::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c20::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c20::before,
+.c20::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c20[aria-hidden='true'] {
+  display: none;
+}
+
+.c19 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 10ms;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1;
+}
+
+.c19[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c8 {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active {
+  pointer-events: none;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active div {
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.c9 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 2000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c9 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c9 > *:focus {
+  outline: none;
+}
+
+.c9.is-animated > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c10 {
+  padding: 20px;
+  width: 400px;
+}
+
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+  padding-right: 32px;
+}
+
+.c12 {
+  display: block;
+  margin: 0;
+  padding-top: 6px;
+  line-height: 1.4285714285714286;
+  color-scheme: only light;
+  color: #293239;
+  font-size: 14px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+.c11 {
+  width: auto !important;
+}
+
+.c13 {
+  padding: 0;
+}
+
+.c14 {
+  border-collapse: collapse;
+  line-height: normal;
+}
+
+.c18 {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c16 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #293239;
+}
+
+.c16:focus {
+  outline: none;
+}
+
+.c16:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c23 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.c23:focus {
+  outline: none;
+}
+
+.c23:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c17:checked ~ .c21 {
+  opacity: 1;
+}
+
+.c15 {
+  padding: 4px;
+  font-size: 0;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.1.1"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.1.1"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.1.1"
+    >
+      <button
+        aria-label="Custom button"
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.1.1"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.1.1"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.1.1"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        class="c8 garden-tooltip-modal-transition-enter garden-tooltip-modal-transition-enter-active"
+        data-garden-container-id="containers.modal"
+        data-garden-container-version="1.0.19"
+        data-garden-id="modals.tooltip_dialog.backdrop"
+        data-garden-version="9.1.1"
+      >
+        <div
+          class="c9 is-animated"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            aria-label="Color swatch"
+            aria-modal="true"
+            class="c10 c11 is-animated"
+            data-garden-container-id="containers.focusjail"
+            data-garden-container-version="2.0.19"
+            data-garden-id="modals.tooltip_dialog"
+            data-garden-version="9.1.1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="c12 c13"
+              data-garden-id="modals.tooltip_dialog.body"
+              data-garden-version="9.1.1"
+              id=":rc:__content"
+            >
+              <table
+                class="c14"
+                data-garden-id="colorpickers.color_swatch"
+                data-garden-version="9.1.1"
+                role="grid"
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="17val-tooltip_1.0.20"
+                          aria-label="Red"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":rd:--R1C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ff0000"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="17val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Red
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="18val-tooltip_1.0.20"
+                          aria-label="Green"
+                          checked=""
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":rd:--R1C2"
+                          name="color-swatch"
+                          tabindex="0"
+                          type="radio"
+                          value="#00ff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="18val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Green
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c23"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="19val-tooltip_1.0.20"
+                          aria-label="Blue"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":rd:--R2C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#0000ff"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="19val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Blue
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="20val-tooltip_1.0.20"
+                          aria-label="Yellow"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":rd:--R2C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ffff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="20val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Yellow
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDialogStory with a controlled color swatch and the dialog open 1`] = `
+.c7 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c20 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c20::before,
+.c20::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c20::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c20::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c20::before,
+.c20::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c20[aria-hidden='true'] {
+  display: none;
+}
+
+.c19 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 10ms;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1;
+}
+
+.c19[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c8 {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active {
+  pointer-events: none;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active div {
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.c9 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c9 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c9 > *:focus {
+  outline: none;
+}
+
+.c9.is-animated > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c10 {
+  padding: 20px;
+  width: 400px;
+}
+
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+  padding-right: 32px;
+}
+
+.c12 {
+  display: block;
+  margin: 0;
+  padding-top: 6px;
+  line-height: 1.4285714285714286;
+  color-scheme: only light;
+  color: #293239;
+  font-size: 14px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+.c11 {
+  width: auto !important;
+}
+
+.c13 {
+  padding: 0;
+}
+
+.c14 {
+  border-collapse: collapse;
+  line-height: normal;
+}
+
+.c18 {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c16 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #293239;
+}
+
+.c16:focus {
+  outline: none;
+}
+
+.c16:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c23 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.c23:focus {
+  outline: none;
+}
+
+.c23:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c17:checked ~ .c21 {
+  opacity: 1;
+}
+
+.c15 {
+  padding: 4px;
+  font-size: 0;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.1.1"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.1.1"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.1.1"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.1.1"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.1.1"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.1.1"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        class="c8 garden-tooltip-modal-transition-enter garden-tooltip-modal-transition-enter-active"
+        data-garden-container-id="containers.modal"
+        data-garden-container-version="1.0.19"
+        data-garden-id="modals.tooltip_dialog.backdrop"
+        data-garden-version="9.1.1"
+      >
+        <div
+          class="c9 is-animated"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            aria-label="Color swatch"
+            aria-modal="true"
+            class="c10 c11 is-animated"
+            data-garden-container-id="containers.focusjail"
+            data-garden-container-version="2.0.19"
+            data-garden-id="modals.tooltip_dialog"
+            data-garden-version="9.1.1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="c12 c13"
+              data-garden-id="modals.tooltip_dialog.body"
+              data-garden-version="9.1.1"
+              id=":r0:__content"
+            >
+              <table
+                class="c14"
+                data-garden-id="colorpickers.color_swatch"
+                data-garden-version="9.1.1"
+                role="grid"
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="1val-tooltip_1.0.20"
+                          aria-label="Red"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r1:--R1C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ff0000"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="1val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Red
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="2val-tooltip_1.0.20"
+                          aria-label="Green"
+                          checked=""
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r1:--R1C2"
+                          name="color-swatch"
+                          tabindex="0"
+                          type="radio"
+                          value="#00ff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="2val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Green
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c23"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="3val-tooltip_1.0.20"
+                          aria-label="Blue"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r1:--R2C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#0000ff"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="3val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Blue
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="4val-tooltip_1.0.20"
+                          aria-label="Yellow"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r1:--R2C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ffff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="4val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Yellow
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDialogStory with a custom onSelect handler and the dialog open 1`] = `
+.c7 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c20 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c20::before,
+.c20::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c20::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c20::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c20::before,
+.c20::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c20[aria-hidden='true'] {
+  display: none;
+}
+
+.c19 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 10ms;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1;
+}
+
+.c19[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c8 {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active {
+  pointer-events: none;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active div {
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.c9 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c9 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c9 > *:focus {
+  outline: none;
+}
+
+.c9.is-animated > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c10 {
+  padding: 20px;
+  width: 400px;
+}
+
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+  padding-right: 32px;
+}
+
+.c12 {
+  display: block;
+  margin: 0;
+  padding-top: 6px;
+  line-height: 1.4285714285714286;
+  color-scheme: only light;
+  color: #293239;
+  font-size: 14px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+.c11 {
+  width: auto !important;
+}
+
+.c13 {
+  padding: 0;
+}
+
+.c14 {
+  border-collapse: collapse;
+  line-height: normal;
+}
+
+.c18 {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c16 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #293239;
+}
+
+.c16:focus {
+  outline: none;
+}
+
+.c16:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c23 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.c23:focus {
+  outline: none;
+}
+
+.c23:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c17:checked ~ .c21 {
+  opacity: 1;
+}
+
+.c15 {
+  padding: 4px;
+  font-size: 0;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.1.1"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.1.1"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.1.1"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.1.1"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.1.1"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.1.1"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        class="c8 garden-tooltip-modal-transition-enter garden-tooltip-modal-transition-enter-active"
+        data-garden-container-id="containers.modal"
+        data-garden-container-version="1.0.19"
+        data-garden-id="modals.tooltip_dialog.backdrop"
+        data-garden-version="9.1.1"
+      >
+        <div
+          class="c9 is-animated"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            aria-label="Color swatch"
+            aria-modal="true"
+            class="c10 c11 is-animated"
+            data-garden-container-id="containers.focusjail"
+            data-garden-container-version="2.0.19"
+            data-garden-id="modals.tooltip_dialog"
+            data-garden-version="9.1.1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="c12 c13"
+              data-garden-id="modals.tooltip_dialog.body"
+              data-garden-version="9.1.1"
+              id=":r9:__content"
+            >
+              <table
+                class="c14"
+                data-garden-id="colorpickers.color_swatch"
+                data-garden-version="9.1.1"
+                role="grid"
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="13val-tooltip_1.0.20"
+                          aria-label="Red"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":ra:--R1C1"
+                          name="color-swatch"
+                          tabindex="0"
+                          type="radio"
+                          value="#ff0000"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="13val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Red
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="14val-tooltip_1.0.20"
+                          aria-label="Green"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":ra:--R1C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#00ff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="14val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Green
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c23"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="15val-tooltip_1.0.20"
+                          aria-label="Blue"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":ra:--R2C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#0000ff"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="15val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Blue
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="16val-tooltip_1.0.20"
+                          aria-label="Yellow"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":ra:--R2C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ffff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="16val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Yellow
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDialogStory with default selected row and column and the dialog open 1`] = `
+.c7 {
+  -webkit-transform: rotate(+180deg);
+  -ms-transform: rotate(+180deg);
+  transform: rotate(+180deg);
+  -webkit-transition: -webkit-transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  -webkit-transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  -webkit-transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c20 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c20::before,
+.c20::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c20::before {
+  border-color: inherit;
+  -webkit-clip-path: polygon(100% 2px,2px 100%,100% 100%);
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c20::after {
+  border-color: transparent;
+  background-clip: content-box;
+  -webkit-clip-path: polygon(100% 0px,0px 100%,100% 100%);
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c20::before,
+.c20::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c20[aria-hidden='true'] {
+  display: none;
+}
+
+.c19 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 10ms;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1;
+}
+
+.c19[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  -webkit-flex-basis: 0;
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  box-sizing: border-box;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c8 {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active {
+  pointer-events: none;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active div {
+  -webkit-transition: opacity 200ms;
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.c9 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c9 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c9 > *:focus {
+  outline: none;
+}
+
+.c9.is-animated > * {
+  -webkit-animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c10 {
+  padding: 20px;
+  width: 400px;
+}
+
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+  padding-right: 32px;
+}
+
+.c12 {
+  display: block;
+  margin: 0;
+  padding-top: 6px;
+  line-height: 1.4285714285714286;
+  color-scheme: only light;
+  color: #293239;
+  font-size: 14px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+.c11 {
+  width: auto !important;
+}
+
+.c13 {
+  padding: 0;
+}
+
+.c14 {
+  border-collapse: collapse;
+  line-height: normal;
+}
+
+.c18 {
+  position: absolute;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c16 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #293239;
+}
+
+.c16:focus {
+  outline: none;
+}
+
+.c16:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c23 {
+  position: relative;
+  top: 0;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.c23:focus {
+  outline: none;
+}
+
+.c23:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.c17:checked ~ .c21 {
+  opacity: 1;
+}
+
+.c15 {
+  padding: 4px;
+  font-size: 0;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.1.1"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.1.1"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.1.1"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.1.1"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.1.1"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.1.1"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        class="c8 garden-tooltip-modal-transition-enter garden-tooltip-modal-transition-enter-active"
+        data-garden-container-id="containers.modal"
+        data-garden-container-version="1.0.19"
+        data-garden-id="modals.tooltip_dialog.backdrop"
+        data-garden-version="9.1.1"
+      >
+        <div
+          class="c9 is-animated"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            aria-label="Color swatch"
+            aria-modal="true"
+            class="c10 c11 is-animated"
+            data-garden-container-id="containers.focusjail"
+            data-garden-container-version="2.0.19"
+            data-garden-id="modals.tooltip_dialog"
+            data-garden-version="9.1.1"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="c12 c13"
+              data-garden-id="modals.tooltip_dialog.body"
+              data-garden-version="9.1.1"
+              id=":r6:__content"
+            >
+              <table
+                class="c14"
+                data-garden-id="colorpickers.color_swatch"
+                data-garden-version="9.1.1"
+                role="grid"
+              >
+                <tbody>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="9val-tooltip_1.0.20"
+                          aria-label="Red"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r7:--R1C1"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ff0000"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="9val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Red
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="10val-tooltip_1.0.20"
+                          aria-label="Green"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r7:--R1C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#00ff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="10val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Green
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c23"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="11val-tooltip_1.0.20"
+                          aria-label="Blue"
+                          checked=""
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r7:--R2C1"
+                          name="color-swatch"
+                          tabindex="0"
+                          type="radio"
+                          value="#0000ff"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="11val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Blue
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                    <td
+                      class="c15"
+                      data-garden-id="colorpickers.swatch_cell"
+                      data-garden-version="9.1.1"
+                      role="gridcell"
+                    >
+                      <label
+                        class="c5 c16"
+                        data-garden-id="colorpickers.color_swatch_label"
+                        data-garden-version="9.1.1"
+                        data-test-id="dialog-preview"
+                      >
+                        <input
+                          aria-describedby="12val-tooltip_1.0.20"
+                          aria-label="Yellow"
+                          class="c17 c18"
+                          data-garden-container-id="containers.grid.cell"
+                          data-garden-container-version="3.0.18"
+                          data-garden-id="colorpickers.color_swatch_input"
+                          data-garden-version="9.1.1"
+                          id=":r7:--R2C2"
+                          name="color-swatch"
+                          tabindex="-1"
+                          type="radio"
+                          value="#ffff00"
+                        />
+                        <div
+                          aria-hidden="true"
+                          class="c19"
+                          style="transform: translate(0px, 0px);"
+                        >
+                          <div
+                            aria-hidden="true"
+                            class="c20"
+                            data-garden-id="tooltip.tooltip"
+                            data-garden-version="9.1.1"
+                            id="12val-tooltip_1.0.20"
+                            role="tooltip"
+                            type="dark"
+                          >
+                            Yellow
+                          </div>
+                        </div>
+                        <svg
+                          aria-hidden="true"
+                          class="c21 c22"
+                          data-garden-id="colorpickers.colorswatch_check"
+                          data-garden-version="9.1.1"
+                          focusable="false"
+                          height="12"
+                          viewBox="0 0 12 12"
+                          width="12"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M3 6l2 2 4-4"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                          />
+                        </svg>
+                      </label>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

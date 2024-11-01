@@ -1,0 +1,5077 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DropzoneStory Component renders DropzoneStory with a custom tag 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with active state 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #1f73b7;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with an icon 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+.c1 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <p
+    class="c1"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children and an icon 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #1f73b7;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, and danger styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, and vertical alignment 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #1f73b7;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, danger styling, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, danger styling, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, danger styling, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, danger styling, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, danger styling, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, danger styling, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #1f73b7;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, and danger styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, danger styling, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, active state, vertical alignment, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, and active state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #1f73b7;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, and danger styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, and vertical alignment 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, danger styling, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, and danger styling 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, and disabled state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, danger styling, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: rgba(205,54,66,0.08);
+  color: #671219;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, disabled state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, disabled state, and highlighted state 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</div>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, disabled state, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with children, icon, vertical alignment, highlighted state, and custom tag 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  text-align: center;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+.c2 {
+  margin: 0;
+  line-height: 1.4285714285714286;
+  color: inherit;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 16px;
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+<section
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+>
+  <div
+    aria-hidden="true"
+    class="c1"
+    data-garden-id="dropzone.icon"
+    data-garden-version="9.1.1"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+    />
+  </div>
+  <p
+    class="c2"
+    data-garden-id="dropzone.message"
+    data-garden-version="9.1.1"
+  >
+    Drop files here
+  </p>
+</section>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with danger styling 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with disabled state 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+<div
+  aria-disabled="true"
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with highlighted state 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 4px;
+  padding: 15px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+  color: #0f3655;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;
+
+exports[`DropzoneStory Component renders DropzoneStory with vertical alignment 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;
+
+exports[`DropzoneStory Component renders default DropzoneStory 1`] = `
+.c0 {
+  -webkit-transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: dashed;
+  border-radius: 4px;
+  padding: 16px;
+  width: 100%;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+  font-size: 14px;
+  border-color: #848f99;
+  background-color: transparent;
+  color: #5c6970;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropzone"
+  data-garden-version="9.1.1"
+/>
+`;

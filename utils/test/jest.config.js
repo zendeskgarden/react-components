@@ -20,7 +20,7 @@ module.exports = {
     '!**/node_modules/**',
     '!**/vendor/**'
   ],
-  testMatch: ['<rootDir>/packages/*/src/**/?(*.)+(spec|test).[jt]s?(x)'],
+  testMatch: ['<rootDir>/packages/*/(demo|src)/**/?(*.)+(spec|test).[jt]s?(x)'],
   testPathIgnorePatterns: ['/node_modules/', '<rootDir>/packages/.template'],
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/utils/test/jest.setup.js'],
@@ -46,6 +46,7 @@ module.exports = {
     'garden-test-utils': '<rootDir>/utils/test/garden-test-utils.tsx',
     '\\.(svg)$': '<rootDir>/utils/test/svg-mock.tsx',
     'use-resize-observer': 'use-resize-observer/polyfilled'
+    // '^@zendeskgarden/react-(.*)$': '<rootDir>/packages/$1/src/index.ts'
   },
   globals: {
     PACKAGE_VERSION: 'version'
