@@ -14,15 +14,12 @@ import { Row } from './Row';
 import { Col } from './Col';
 
 export const GridComponent = React.forwardRef<HTMLDivElement, IGridProps>(
-  ({ columns, debug, ...props }, ref) => {
-    const value = useMemo(
-      () => ({ columns, gutters: props.gutters!, debug }),
-      [columns, props.gutters, debug]
-    );
+  ({ columns, gutters, debug, ...other }, ref) => {
+    const value = useMemo(() => ({ columns, gutters: gutters!, debug }), [columns, gutters, debug]);
 
     return (
       <GridContext.Provider value={value}>
-        <StyledGrid debug={debug} ref={ref} {...props} />
+        <StyledGrid $debug={debug} $gutters={gutters} ref={ref} {...other} />
       </GridContext.Provider>
     );
   }

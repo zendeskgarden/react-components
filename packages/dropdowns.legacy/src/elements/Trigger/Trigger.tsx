@@ -220,7 +220,7 @@ export const Trigger = ({ children, refKey, ...triggerProps }: ITriggerProps) =>
           <StyledInput
             {...getInputProps({
               readOnly: true,
-              isHidden: true,
+              $isHidden: true,
               tabIndex: -1,
               ref: hiddenInputRef,
               value: '',

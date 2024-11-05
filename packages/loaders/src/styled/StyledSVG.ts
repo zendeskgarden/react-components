@@ -10,16 +10,16 @@ import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming'
 
 interface IStyledSVGProps {
   $dataGardenId: string;
-  color?: string;
-  fontSize?: string | number;
+  $color?: string;
+  $fontSize?: string | number;
   width: number | string;
   height: number | string;
   $containerWidth?: string;
   $containerHeight?: string;
 }
 
-const colorStyles = ({ theme, color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
-  const options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
+  const options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
 
   return css`
     color: ${getColor(options)};
@@ -37,7 +37,7 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
 }))<IStyledSVGProps>`
   width: ${props => props.$containerWidth || '1em'};
   height: ${props => props.$containerHeight || '0.9em'};
-  font-size: ${props => props.fontSize || 'inherit'};
+  font-size: ${props => props.$fontSize || 'inherit'};
 
   ${colorStyles};
 

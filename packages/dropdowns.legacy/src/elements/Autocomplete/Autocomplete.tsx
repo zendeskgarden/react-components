@@ -111,7 +111,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
             {!isOpen && <StyledSelect>{children}</StyledSelect>}
             <StyledInput
               {...getInputProps({
-                isHidden: !isOpen,
+                $isHidden: !isOpen,
                 disabled: props.disabled,
                 onFocus: () => {
                   setIsFocused(true);

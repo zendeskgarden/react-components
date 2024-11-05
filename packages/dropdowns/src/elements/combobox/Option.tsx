@@ -25,7 +25,22 @@ import { OptionMeta } from './OptionMeta';
 import { toOption } from './utils';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
-  ({ children, icon, isDisabled, isHidden, isSelected, label, type, value, ...props }, ref) => {
+  (
+    {
+      children,
+      icon,
+      isDisabled,
+      isHidden,
+      isSelected,
+      label,
+      type,
+      value,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      tagProps,
+      ...props
+    },
+    ref
+  ) => {
     const contextValue = useMemo(() => ({ isDisabled, type }), [isDisabled, type]);
     const { activeValue, getOptionProps, isCompact } = useComboboxContext();
     const isActive = value === activeValue;
