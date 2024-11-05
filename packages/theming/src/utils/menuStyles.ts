@@ -145,7 +145,7 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
 
       ${colorStyles(theme)};
 
-      :focus {
+      &:focus {
         outline: none;
       }
     }
