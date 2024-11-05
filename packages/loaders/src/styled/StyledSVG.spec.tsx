@@ -15,7 +15,7 @@ type Args = ['light' | 'dark', string];
 describe('StyledSVG', () => {
   it('applies font-size if provided', () => {
     const { container } = render(
-      <StyledSVG width="0" height="0" fontSize="12px" $dataGardenId="StyledSVG" />
+      <StyledSVG width="0" height="0" $fontSize="12px" $dataGardenId="StyledSVG" />
     );
 
     expect(container.firstChild).toHaveStyleRule('font-size', '12px');
@@ -29,7 +29,7 @@ describe('StyledSVG', () => {
 
   it('applies color if provided', () => {
     const { container } = render(
-      <StyledSVG width="0" height="0" color="red" $dataGardenId="StyledSVG" />
+      <StyledSVG width="0" height="0" $color="red" $dataGardenId="StyledSVG" />
     );
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);

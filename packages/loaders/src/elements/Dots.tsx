@@ -64,7 +64,7 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
         $dataGardenId={COMPONENT_ID}
         ref={ref}
         fontSize={size!}
-        color={color!}
+        $color={color!}
         width="80"
         height="72"
         {...other}
