@@ -23,11 +23,11 @@ import { ITagProps } from '../types';
 const COMPONENT_ID = 'tags.tag_view';
 
 interface IStyledTagProps extends ThemeProps<DefaultTheme> {
-  $hue: ITagProps['hue'];
-  $isPill: ITagProps['isPill'];
-  $isRegular: ITagProps['isRegular'];
-  $isRound: ITagProps['isRound'];
-  $size: ITagProps['size'];
+  $hue?: ITagProps['hue'];
+  $isPill?: ITagProps['isPill'];
+  $isRegular?: ITagProps['isRegular'];
+  $isRound?: ITagProps['isRound'];
+  $size?: ITagProps['size'];
 }
 
 /*
