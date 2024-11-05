@@ -12,9 +12,19 @@ import { StyledTag } from '../styled';
 import { Close } from './Close';
 import { Avatar } from './Avatar';
 
-const TagComponent = forwardRef<HTMLDivElement, ITagProps>(({ size, hue, ...otherProps }, ref) => (
-  <StyledTag ref={ref} size={size} hue={hue} {...otherProps} />
-));
+const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
+  ({ isPill, isRound, isRegular, size, hue, ...other }, ref) => (
+    <StyledTag
+      $hue={hue}
+      $isPill={isPill}
+      $isRegular={isRegular}
+      $isRound={isRound}
+      $size={size}
+      ref={ref}
+      {...other}
+    />
+  )
+);
 
 TagComponent.displayName = 'Tag';
 
