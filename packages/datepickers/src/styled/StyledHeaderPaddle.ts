@@ -56,12 +56,12 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   return css`
     color: ${foreground};
 
-    :hover {
+    &:hover {
       background-color: ${backgroundHover};
       color: ${foregroundHover};
     }
 
-    :active {
+    &:active {
       background-color: ${backgroundActive};
       color: ${foregroundActive};
     }

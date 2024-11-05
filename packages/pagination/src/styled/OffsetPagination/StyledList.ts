@@ -34,7 +34,7 @@ export const StyledList = styled.ul.attrs({
 
   ${colorStyles}
 
-  :focus {
+  &:focus {
     outline: none;
   }
 

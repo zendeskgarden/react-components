@@ -69,6 +69,12 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       inset: true
     })}
 
+    &:disabled,
+    [aria-disabled='true'] {
+      background-color: transparent;
+      color: ${disabledColor};
+    }
+
     &:active,
     &:focus-visible:active {
       background-color: ${activeBackgroundColor};
@@ -86,12 +92,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
     &[aria-current='page']:active {
       background-color: ${currentActiveBackgroundColor};
-    }
-
-    :disabled,
-    [aria-disabled='true'] {
-      background-color: transparent;
-      color: ${disabledColor};
     }
   `;
 };
@@ -144,7 +144,7 @@ export const StyledPageBase = styled.button.attrs({
     border: 0; /* [2] */
   }
 
-  :disabled,
+  &:disabled,
   [aria-disabled='true'] {
     cursor: default;
   }

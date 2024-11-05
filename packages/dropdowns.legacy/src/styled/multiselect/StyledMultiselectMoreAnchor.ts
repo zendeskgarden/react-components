@@ -34,7 +34,7 @@ export const StyledMultiselectMoreAnchor = styled.div.attrs({
       variable: props.$isDisabled ? 'foreground.disabled' : 'foreground.primary'
     })};
 
-  :hover {
+  &:hover {
     text-decoration: ${props => !props.$isDisabled && 'underline'};
   }
 

@@ -28,7 +28,7 @@ const colorStyles = (props: IStyled{{capitalize component}}Props) => {
     background-color: ${backgroundColor};
     color: ${foregroundColor};
 
-    :hover {
+    &:hover {
       background-color: ${hoverBackgroundColor};
     }
 
@@ -65,7 +65,7 @@ export const Styled{{capitalize component}} = styled.div.attrs<IStyled{{capitali
 
   ${props => sizeStyles(props)};
 
-  :focus {
+  &:focus {
     outline: none;
   }
 
