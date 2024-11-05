@@ -12,21 +12,21 @@ import { IGridProps } from '../types';
 
 const COMPONENT_ID = 'grid.grid';
 
-const colorStyles = ({ theme, debug }: IStyledGridProps) => {
+const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
   const borderColor =
-    debug &&
+    $debug &&
     getColor({
       theme,
       hue: 'crimson',
       shade: 700,
       transparency: theme.opacity[600]
     });
-  const borderWidth = debug && math(`${theme.borderWidths.sm} * 2`);
+  const borderWidth = $debug && math(`${theme.borderWidths.sm} * 2`);
 
   return css`
     color-scheme: only ${theme.colors.base};
     /* prettier-ignore */
-    box-shadow: ${debug &&
+    box-shadow: ${$debug &&
     `
       -${borderWidth} 0 0 0 ${borderColor},
       ${borderWidth} 0 0 0 ${borderColor}
@@ -34,8 +34,8 @@ const colorStyles = ({ theme, debug }: IStyledGridProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, gutters }: IStyledGridProps) => {
-  const padding = gutters ? math(`${theme.space[gutters!]} / 2`) : 0;
+const sizeStyles = ({ theme, $gutters }: IStyledGridProps) => {
+  const padding = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
 
   return css`
     padding-right: ${padding};
@@ -43,7 +43,10 @@ const sizeStyles = ({ theme, gutters }: IStyledGridProps) => {
   `;
 };
 
-interface IStyledGridProps extends Omit<IGridProps, 'columns'>, ThemeProps<DefaultTheme> {}
+interface IStyledGridProps extends ThemeProps<DefaultTheme> {
+  $debug?: IGridProps['debug'];
+  $gutters?: IGridProps['gutters'];
+}
 
 export const StyledGrid = styled.div.attrs<IStyledGridProps>({
   'data-garden-id': COMPONENT_ID,
@@ -63,6 +66,6 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>({
 `;
 
 StyledGrid.defaultProps = {
-  gutters: 'md',
+  $gutters: 'md',
   theme: DEFAULT_THEME
 };

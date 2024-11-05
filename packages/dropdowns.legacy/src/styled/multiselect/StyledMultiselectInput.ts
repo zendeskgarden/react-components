@@ -13,22 +13,26 @@ const COMPONENT_ID = 'dropdowns.multiselect_input';
 
 interface IStyledMultiselectInputProps {
   isCompact: boolean;
-  isVisible: boolean;
+  $isVisible: boolean;
 }
 
-const visibleStyling = (props: IStyledMultiselectInputProps & ThemeProps<DefaultTheme>) => {
-  const margin = props.isVisible ? `${props.theme.space.base / 2}px` : 0;
-  const minWidth = props.isVisible ? `${props.theme.space.base * 15}px` : 0;
+const visibleStyling = ({
+  $isVisible,
+  isCompact,
+  theme
+}: IStyledMultiselectInputProps & ThemeProps<DefaultTheme>) => {
+  const margin = $isVisible ? `${theme.space.base / 2}px` : 0;
+  const minWidth = $isVisible ? `${theme.space.base * 15}px` : 0;
   let height = '0';
 
-  if (props.isVisible) {
-    height = `${props.theme.space.base * (props.isCompact ? 5 : 8)}px`;
+  if ($isVisible) {
+    height = `${theme.space.base * (isCompact ? 5 : 8)}px`;
   }
 
   return css`
-    opacity: ${!props.isVisible && 0};
+    opacity: ${!$isVisible && 0};
     margin: ${margin};
-    width: ${!props.isVisible && 0};
+    width: ${!$isVisible && 0};
     min-width: ${minWidth};
     height: ${height};
   `;

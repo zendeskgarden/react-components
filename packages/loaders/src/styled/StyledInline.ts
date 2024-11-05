@@ -12,11 +12,11 @@ const COMPONENT_ID = 'loaders.inline';
 
 interface IStyledInlineProps {
   $size: number;
-  color: string;
+  $color: string;
 }
 
-const colorStyles = ({ theme, color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
-  const options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+const colorStyles = ({ theme, $color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
+  const options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
 
   return css`
     color: ${getColor(options)};

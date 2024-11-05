@@ -18,7 +18,7 @@ export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTML
   (props, ref) => {
     const { isLarge } = useModalContext();
 
-    return <StyledFooter ref={ref} isLarge={isLarge} {...props} />;
+    return <StyledFooter ref={ref} $isLarge={isLarge} {...props} />;
   }
 );
 

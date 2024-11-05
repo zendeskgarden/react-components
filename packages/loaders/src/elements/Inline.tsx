@@ -29,7 +29,7 @@ export const Inline = forwardRef<SVGSVGElement, IInlineProps>(({ size, color, ..
     <StyledInline
       ref={ref}
       $size={size!}
-      color={color!}
+      $color={color!}
       aria-label={ariaLabel}
       role="img"
       {...other}
