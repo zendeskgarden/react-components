@@ -9773,6 +9773,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     class="c20 c26"
                     data-garden-id="forms.field"
                     data-garden-version="9.1.1"
+                    spellcheck="false"
                   >
                     <label
                       class="c27 c28"
