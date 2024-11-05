@@ -1,0 +1,2604 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagStory Component renders TagStory with a close button 1`] = `
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:hover {
+  opacity: 0.88;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0 .c1 {
+  margin-right: -8px;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  Tag with Close
+  <button
+    aria-label="Remove"
+    class="c1 c2"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with a close button and aria-label 1`] = `
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:hover {
+  opacity: 0.88;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0 .c1 {
+  margin-right: -8px;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  Tag with Close and Aria Label
+  <button
+    aria-label="Close Tag"
+    class="c1 c2"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with a custom hue 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #ff0000;
+  color: #151a1e;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #151a1e;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Custom Hue Tag
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with a large size 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 4px;
+  padding: 0 12px;
+  min-width: calc(24px + 1ch);
+  height: 32px;
+  line-height: 2.6666666666666665;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Large Tag
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with a small size 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 4px;
+  min-width: calc(8px + 1ch);
+  height: 16px;
+  line-height: 1.6;
+  font-size: 10px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Small Tag
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with an avatar 1`] = `
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: 0;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0 .c1 {
+  margin-left: -6px;
+  margin-right: 4px;
+  border-radius: 2px;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  <img
+    alt=""
+    class="c1  c2"
+    data-garden-id="tags.avatar"
+    data-garden-version="9.1.1"
+    src="images/avatars/system.png"
+  />
+  Tag with Avatar
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with an avatar and close button 1`] = `
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: 0;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.88;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0 .c1 {
+  margin-left: -6px;
+  margin-right: 4px;
+  border-radius: 2px;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c3 {
+  margin-right: -8px;
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  <img
+    alt=""
+    class="c1  c2"
+    data-garden-id="tags.avatar"
+    data-garden-version="9.1.1"
+    src="images/avatars/system.png"
+  />
+  Tag with Avatar and Close
+  <button
+    aria-label="Remove"
+    class="c3 c4"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with pill styling 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 100px;
+  padding: 0 8px;
+  min-width: 30px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 14px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Pill Tag
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with pill styling and an avatar 1`] = `
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: 0;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 100px;
+  padding: 0 8px;
+  min-width: 30px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 14px;
+}
+
+.c0 .c1 {
+  margin-left: -6px;
+  margin-right: 4px;
+  border-radius: 50%;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  <img
+    alt=""
+    class="c1  c2"
+    data-garden-id="tags.avatar"
+    data-garden-version="9.1.1"
+    src="images/avatars/user.png"
+  />
+  Pill Tag with Avatar
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with pill styling, an avatar, a close button, and aria-label 1`] = `
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: 0;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.88;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 100px;
+  padding: 0 8px;
+  min-width: 30px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 14px;
+}
+
+.c0 .c1 {
+  margin-left: -6px;
+  margin-right: 4px;
+  border-radius: 50%;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c3 {
+  margin-right: -8px;
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  <img
+    alt=""
+    class="c1  c2"
+    data-garden-id="tags.avatar"
+    data-garden-version="9.1.1"
+    src="images/avatars/user.png"
+  />
+  Pill Tag with Avatar, Close, and Aria Label
+  <button
+    aria-label="Close Tag"
+    class="c3 c4"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with pill styling, an avatar, and a close button 1`] = `
+.c2 {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  font-size: 0;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c4:hover {
+  opacity: 0.88;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 100px;
+  padding: 0 8px;
+  min-width: 30px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 14px;
+}
+
+.c0 .c1 {
+  margin-left: -6px;
+  margin-right: 4px;
+  border-radius: 50%;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c0 .c3 {
+  margin-right: -8px;
+  border-radius: 100px;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  <img
+    alt=""
+    class="c1  c2"
+    data-garden-id="tags.avatar"
+    data-garden-version="9.1.1"
+    src="images/avatars/user.png"
+  />
+  Pill Tag with Avatar and Close
+  <button
+    aria-label="Remove"
+    class="c3 c4"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with regular font weight 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Regular Font Tag
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with regular font weight and a custom hue 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #00ff00;
+  color: #151a1e;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #151a1e;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Regular Font Tag with Custom Hue
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with regular font weight, a custom hue, a large size, and pill styling 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  direction: ltr;
+  border-radius: 100px;
+  padding: 0 12px;
+  min-width: 48px;
+  height: 32px;
+  line-height: 2.6666666666666665;
+  font-size: 12px;
+  background-color: #ff00ff;
+  color: #151a1e;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 24px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #151a1e;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Regular Font Tag with Custom Hue, Large Size, and Pill Styling
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with regular font weight, a custom hue, and a large size 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  direction: ltr;
+  border-radius: 4px;
+  padding: 0 12px;
+  min-width: calc(24px + 1ch);
+  height: 32px;
+  line-height: 2.6666666666666665;
+  font-size: 12px;
+  background-color: #0000ff;
+  color: #fff;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #fff;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Regular Font Tag with Custom Hue and Large Size
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with round styling 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 50%;
+  padding: 0 0px;
+  min-width: 20px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Round Tag
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with round styling and a close button 1`] = `
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:hover {
+  opacity: 0.88;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 50%;
+  padding: 0 0px;
+  min-width: 20px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 20px;
+}
+
+.c0 .c1 {
+  margin-right: -0px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+.c0 .c1 {
+  display: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  Round Tag with Close
+  <button
+    aria-label="Remove"
+    class="c1 c2"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with round styling, a close button, and aria-label 1`] = `
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:hover {
+  opacity: 0.88;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 50%;
+  padding: 0 0px;
+  min-width: 20px;
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 20px;
+}
+
+.c0 .c1 {
+  margin-right: -0px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+.c0 .c1 {
+  display: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  Round Tag with Close and Aria Label
+  <button
+    aria-label="Close Tag"
+    class="c1 c2"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders TagStory with round styling, a close button, aria-label, and a small size 1`] = `
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font-size: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.c2:hover {
+  opacity: 0.88;
+}
+
+.c2:focus {
+  outline: none;
+}
+
+.c2:active {
+  opacity: 0.96;
+}
+
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 50%;
+  padding: 0 0px;
+  min-width: 16px;
+  height: 16px;
+  line-height: 1.6;
+  font-size: 10px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 16px;
+}
+
+.c0 .c1 {
+  margin-right: -0px;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+.c0 .c1 {
+  display: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+  tabindex="0"
+>
+  Round Tag with Close, Aria Label, and Small Size
+  <button
+    aria-label="Close Tag"
+    class="c1 c2"
+    data-garden-id="tags.close"
+    data-garden-version="9.1.1"
+    tabindex="-1"
+    type="button"
+  >
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      height="12"
+      viewBox="0 0 12 12"
+      width="12"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M3 9l6-6m0 6L3 3"
+        stroke="currentColor"
+        stroke-linecap="round"
+      />
+    </svg>
+  </button>
+</div>
+`;
+
+exports[`TagStory Component renders default TagStory 1`] = `
+.c0 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-transition: box-shadow 0.1s ease-in-out;
+  transition: box-shadow 0.1s ease-in-out;
+  box-sizing: border-box;
+  border: 0;
+  max-width: 100%;
+  overflow: hidden;
+  vertical-align: middle;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 600;
+  direction: ltr;
+  border-radius: 2px;
+  padding: 0 8px;
+  min-width: calc(16px + 1ch);
+  height: 20px;
+  line-height: 1.6666666666666667;
+  font-size: 12px;
+  background-color: #e8eaec;
+  color: #293239;
+}
+
+.c0 > * {
+  width: 100%;
+  min-width: 1ch;
+}
+
+.c0:hover {
+  cursor: default;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:link:hover,
+.c0:visited:hover {
+  cursor: pointer;
+}
+
+.c0:any-link:hover {
+  cursor: pointer;
+}
+
+.c0:focus-visible {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0:hover {
+  color: #293239;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus {
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+}
+
+.c0 > * {
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c0 b {
+  font-weight: 600;
+}
+
+<div
+  class="c0"
+  data-garden-id="tags.tag_view"
+  data-garden-version="9.1.1"
+>
+  Default Tag
+</div>
+`;
