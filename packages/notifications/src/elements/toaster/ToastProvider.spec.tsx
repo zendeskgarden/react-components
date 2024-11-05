@@ -79,7 +79,7 @@ describe('ToastProvider', () => {
     const notificationElements = getAllByText('notification');
 
     for (let x = 0; x < 6; x++) {
-      expect(notificationElements[x].parentElement).toHaveStyleRule('opacity', '0 !important');
+      expect(notificationElements[x].parentElement).toHaveStyleRule('opacity', '0!important');
     }
 
     for (let x = 6; x < 10; x++) {

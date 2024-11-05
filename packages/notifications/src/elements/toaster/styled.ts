@@ -13,12 +13,12 @@ export const TRANSITION_CLASS = 'garden-toast-transition';
 
 const DEFAULT_DURATION = '400ms';
 
-export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement: Placement }>`
+export const StyledFadeInTransition = styled.div<{ $isHidden: boolean; placement: Placement }>`
   transition: opacity ${DEFAULT_DURATION} ease-in 300ms;
-  opacity: ${p => (p.isHidden ? '0 !important' : 1)};
+  opacity: ${p => (p.$isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
 
-  ${p => p.isHidden && hideVisually()}
+  ${p => p.$isHidden && hideVisually()}
 
   &.${TRANSITION_CLASS}-enter {
     transform: translateY(
@@ -65,8 +65,8 @@ export const StyledFadeInTransition = styled.div<{ isHidden: boolean; placement:
 `;
 
 interface IStyledTransitionContainerProps {
-  toastPlacement: Placement;
-  toastZIndex?: number;
+  $toastPlacement: Placement;
+  $toastZIndex?: number;
 }
 
 const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionContainerProps) => {
@@ -105,7 +105,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionCont
     bottom: ${verticalDistance};
   `;
 
-  switch (props.toastPlacement) {
+  switch (props.$toastPlacement) {
     case 'top-start':
       if (props.theme.rtl) {
         return topRightStyles;
@@ -142,7 +142,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionCont
 
 export const StyledTransitionContainer = styled.div<IStyledTransitionContainerProps>`
   position: fixed;
-  z-index: ${props => props.toastZIndex};
+  z-index: ${props => props.$toastZIndex};
 
   ${placementStyles};
 `;
