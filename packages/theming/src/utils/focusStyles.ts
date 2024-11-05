@@ -29,11 +29,11 @@ export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
  *
  * @returns CSS structured as follows, with `{values}` determined by the options provided:
  * ```css
- * :focus {
+ * &:focus {
  *   outline: none;
  * }
  *
- * :focus-visible {
+ * &:focus-visible {
  *   box-shadow: 0 0 0 {1px} #fff,
  *               0 0 0 {3px} {blue};
  *   outline: {2px} solid transparent;
