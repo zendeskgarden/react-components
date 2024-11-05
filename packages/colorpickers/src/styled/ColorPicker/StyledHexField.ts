@@ -17,7 +17,7 @@ const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
 export const StyledHexField = styled(Field as unknown as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  spellcheck: false
+  spellCheck: false
 })`
   display: flex;
   flex-basis: 0; /* [1] */
