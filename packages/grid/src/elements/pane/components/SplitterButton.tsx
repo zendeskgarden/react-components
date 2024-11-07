@@ -69,6 +69,7 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       >
         <Tooltip
           content={label}
+          placement="auto"
           zIndex={2}
           style={{ cursor: 'default' }}
           onMouseDown={e => e.stopPropagation()}
