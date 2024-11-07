@@ -181,8 +181,7 @@ const toColor = (
     colors[hue as keyof typeof colors] /* ex. `hue` = 'primaryHue' */ ||
     hue; /* ex. `hue` = '#fd5a1e' */
 
-  // eslint-disable-next-line n/no-unsupported-features/es-builtins
-  if (Object.hasOwn(palette, _hue)) {
+  if (Object.prototype.hasOwnProperty.call(palette, _hue)) {
     _hue = palette[_hue]; /* ex. `hue` = 'grey' */
   }
 
