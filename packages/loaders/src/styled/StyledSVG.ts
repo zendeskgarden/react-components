@@ -12,8 +12,8 @@ interface IStyledSVGProps {
   'data-garden-id': string;
   $color?: string;
   $fontSize?: string | number;
-  width: number | string;
-  height: number | string;
+  $width: number | string;
+  $height: number | string;
   $containerWidth?: string;
   $containerHeight?: string;
 }
@@ -29,10 +29,8 @@ const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
-  width: props.width,
-  height: props.height,
   focusable: 'false',
-  viewBox: `0 0 ${props.width} ${props.height}`,
+  viewBox: `0 0 ${props.$width} ${props.$height}`,
   role: 'img'
 }))<IStyledSVGProps>`
   width: ${props => props.$containerWidth || '1em'};

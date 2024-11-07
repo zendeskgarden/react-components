@@ -65,8 +65,8 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
         ref={ref}
         $fontSize={size!}
         $color={color!}
-        width="80"
-        height="72"
+        $width="80"
+        $height="72"
         {...other}
       >
         <g fill="currentColor">
