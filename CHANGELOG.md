@@ -13,6 +13,20 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.1.2 (2024-11-07)
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1970](https://github.com/zendeskgarden/react-components/pull/1970) fix(theming): swap `hasOwn` for `hasOwnProperty` call in `getColor` ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1969](https://github.com/zendeskgarden/react-components/pull/1969) fix(grid): use `auto` tooltip positioning for `Pane.SplitterButton` ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `.template`, `avatars`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tags`, `theming`, `tooltips`
+  * [#1968](https://github.com/zendeskgarden/react-components/pull/1968) refactor(colorpickers, grid, loaders, notifications, tags tooltips): use transient props where appropriate  ([@ze-flo](https://github.com/ze-flo))
+* `draggable`, `modals`, `typography`
+  * [#1963](https://github.com/zendeskgarden/react-components/pull/1963) refactor(draggable, modals, typography): use transient props where appropriate  ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.1.1 (2024-10-31)
 
 #### :bug: Bug Fix
