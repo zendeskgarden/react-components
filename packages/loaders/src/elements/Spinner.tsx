@@ -79,9 +79,9 @@ export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
         $containerWidth="1em"
         $fontSize={size}
         data-garden-id={COMPONENT_ID}
-        height={HEIGHT}
+        $height={HEIGHT}
         ref={ref}
-        width={WIDTH}
+        $width={WIDTH}
         {...other}
       >
         <StyledSpinnerCircle

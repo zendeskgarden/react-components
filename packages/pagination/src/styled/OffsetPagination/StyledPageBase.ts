@@ -69,12 +69,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       inset: true
     })}
 
-    &:disabled,
-    [aria-disabled='true'] {
-      background-color: transparent;
-      color: ${disabledColor};
-    }
-
     &:active,
     &:focus-visible:active {
       background-color: ${activeBackgroundColor};
@@ -92,6 +86,13 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
     &[aria-current='page']:active {
       background-color: ${currentActiveBackgroundColor};
+    }
+
+    /* stylelint-disable-next-line no-descending-specificity */
+    &:disabled,
+    &[aria-disabled='true'] {
+      background-color: transparent;
+      color: ${disabledColor};
     }
   `;
 };
