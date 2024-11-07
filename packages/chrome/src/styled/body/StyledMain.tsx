@@ -19,7 +19,7 @@ export const StyledMain = styled.main.attrs({
   background-color: ${props => getColor({ theme: props.theme, variable: 'background.default' })};
   overflow: auto;
 
-  :focus {
+  &:focus {
     outline: none;
   }
 

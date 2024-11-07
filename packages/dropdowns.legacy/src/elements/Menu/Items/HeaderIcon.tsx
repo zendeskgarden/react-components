@@ -7,16 +7,13 @@
 
 import React, { HTMLAttributes } from 'react';
 import { StyledHeaderIcon } from '../../../styled';
-import useMenuContext from '../../../utils/useMenuContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const HeaderIcon = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    const { isCompact } = useMenuContext();
-
-    return <StyledHeaderIcon ref={ref} isCompact={isCompact} {...props} />;
+    return <StyledHeaderIcon ref={ref} {...props} />;
   }
 );
 

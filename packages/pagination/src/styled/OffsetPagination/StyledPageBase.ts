@@ -88,8 +88,9 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${currentActiveBackgroundColor};
     }
 
-    :disabled,
-    [aria-disabled='true'] {
+    /* stylelint-disable-next-line no-descending-specificity */
+    &:disabled,
+    &[aria-disabled='true'] {
       background-color: transparent;
       color: ${disabledColor};
     }
@@ -144,7 +145,7 @@ export const StyledPageBase = styled.button.attrs({
     border: 0; /* [2] */
   }
 
-  :disabled,
+  &:disabled,
   [aria-disabled='true'] {
     cursor: default;
   }

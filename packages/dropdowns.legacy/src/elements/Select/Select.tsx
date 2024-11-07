@@ -220,7 +220,7 @@ export const Select = React.forwardRef<HTMLDivElement, ISelectProps>(
             <StyledInput
               {...getInputProps({
                 readOnly: true,
-                isHidden: true,
+                $isHidden: true,
                 tabIndex: -1,
                 ref: hiddenInputRef,
                 value: '',

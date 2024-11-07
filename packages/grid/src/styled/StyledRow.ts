@@ -12,10 +12,27 @@ import { AlignItems, IGridProps, IRowProps, JustifyContent, Wrap } from '../type
 
 const COMPONENT_ID = 'grid.row';
 
-interface IStyledRowProps extends Omit<IRowProps, 'wrap'>, ThemeProps<DefaultTheme> {
-  gutters?: IGridProps['gutters'];
-  wrapAll?: IRowProps['wrap'];
-  debug?: IGridProps['debug'];
+interface IStyledRowProps extends ThemeProps<DefaultTheme> {
+  $gutters?: IGridProps['gutters'];
+  $debug?: IGridProps['debug'];
+  $alignItems?: AlignItems;
+  $alignItemsXs?: AlignItems;
+  $alignItemsSm?: AlignItems;
+  $alignItemsMd?: AlignItems;
+  $alignItemsLg?: AlignItems;
+  $alignItemsXl?: AlignItems;
+  $justifyContent?: JustifyContent;
+  $justifyContentXs?: JustifyContent;
+  $justifyContentSm?: JustifyContent;
+  $justifyContentMd?: JustifyContent;
+  $justifyContentLg?: JustifyContent;
+  $justifyContentXl?: JustifyContent;
+  $wrapAll?: IRowProps['wrap'];
+  $wrapXs?: Wrap;
+  $wrapSm?: Wrap;
+  $wrapMd?: Wrap;
+  $wrapLg?: Wrap;
+  $wrapXl?: Wrap;
 }
 
 const colorStyles = ({ theme }: IStyledRowProps) => {
@@ -73,8 +90,8 @@ const mediaStyles = (
   `;
 };
 
-const sizeStyles = ({ theme, gutters }: IStyledRowProps) => {
-  const margin = gutters ? math(`${theme.space[gutters!]} / 2`) : 0;
+const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
+  const margin = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
 
   return css`
     margin-right: -${margin};
@@ -89,56 +106,56 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
   display: flex;
   box-sizing: border-box;
 
-  ${props => flexStyles(props.alignItems, props.justifyContent, props.wrapAll)}
+  ${props => flexStyles(props.$alignItems, props.$justifyContent, props.$wrapAll)}
 
   ${sizeStyles};
 
-  ${props => props.debug && colorStyles(props)};
+  ${props => props.$debug && colorStyles(props)};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.xs,
-      props.alignItemsXs,
-      props.justifyContentXs,
-      props.wrapXs
+      props.$alignItemsXs,
+      props.$justifyContentXs,
+      props.$wrapXs
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.sm,
-      props.alignItemsSm,
-      props.justifyContentSm,
-      props.wrapSm
+      props.$alignItemsSm,
+      props.$justifyContentSm,
+      props.$wrapSm
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.md,
-      props.alignItemsMd,
-      props.justifyContentMd,
-      props.wrapMd
+      props.$alignItemsMd,
+      props.$justifyContentMd,
+      props.$wrapMd
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.lg,
-      props.alignItemsLg,
-      props.justifyContentLg,
-      props.wrapLg
+      props.$alignItemsLg,
+      props.$justifyContentLg,
+      props.$wrapLg
     )};
 
   ${props =>
     mediaStyles(
       props.theme.breakpoints.xl,
-      props.alignItemsXl,
-      props.justifyContentXl,
-      props.wrapXl
+      props.$alignItemsXl,
+      props.$justifyContentXl,
+      props.$wrapXl
     )};
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;
 
 StyledRow.defaultProps = {
-  wrapAll: 'wrap',
+  $wrapAll: 'wrap',
   theme: DEFAULT_THEME
 };

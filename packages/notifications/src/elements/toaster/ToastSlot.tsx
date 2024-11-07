@@ -68,8 +68,8 @@ export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToast
   return (
     <StyledTransitionContainer
       key={placement}
-      toastPlacement={placement}
-      toastZIndex={zIndex}
+      $toastPlacement={placement}
+      $toastZIndex={zIndex}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       {...props}
@@ -89,7 +89,7 @@ export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToast
               <StyledFadeInTransition
                 ref={transitionRef}
                 placement={placement}
-                isHidden={isHidden(index)}
+                $isHidden={isHidden(index)}
               >
                 <Toast toast={toast} pauseTimers={pauseTimers || isHidden(index)} />
               </StyledFadeInTransition>

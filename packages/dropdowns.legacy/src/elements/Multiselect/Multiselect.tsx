@@ -373,7 +373,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
                       }
                     }
                   },
-                  isVisible: isFocused || inputValue || selectedItems.length === 0,
+                  $isVisible: isFocused || inputValue || selectedItems.length === 0,
                   isCompact: props.isCompact,
                   role: 'combobox',
                   ref: mergeRefs([inputRef, externalInputRef]),

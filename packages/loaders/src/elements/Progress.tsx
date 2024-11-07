@@ -23,7 +23,7 @@ const COMPONENT_ID = 'loaders.progress';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
-  ({ value, size, 'aria-label': label, ...other }, ref) => {
+  ({ color, value, size, 'aria-label': label, ...other }, ref) => {
     const percentage = Math.max(0, Math.min(100, value!));
 
     const ariaLabel = useText(Progress, { 'aria-label': label }, 'aria-label', 'Progress');
@@ -38,12 +38,13 @@ export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
         aria-valuemin={0}
         aria-valuenow={percentage}
         role="progressbar"
-        size={size!}
+        $size={size!}
+        $color={color}
         ref={ref}
         aria-label={ariaLabel}
         {...other}
       >
-        <StyledProgressIndicator value={percentage} size={size!} />
+        <StyledProgressIndicator $value={percentage} $size={size!} />
       </StyledProgressBackground>
     );
   }

@@ -19,7 +19,7 @@ describe('StyledFooter', () => {
   });
 
   it('renders large styling if provided', () => {
-    const { container } = render(<StyledFooter isLarge />);
+    const { container } = render(<StyledFooter $isLarge />);
 
     expect(container.firstChild).toHaveStyleRule(
       'border-top',

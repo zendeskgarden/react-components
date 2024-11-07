@@ -29,7 +29,7 @@ describe('StyledGrid', () => {
   });
 
   it('renders debug styling if provided', () => {
-    const { container } = render(<StyledGrid debug />);
+    const { container } = render(<StyledGrid $debug />);
 
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.any(String));
   });
@@ -38,7 +38,7 @@ describe('StyledGrid', () => {
     it('renders gutters', () => {
       SPACE.forEach(size => {
         if (typeof size === 'string') {
-          const { container } = render(<StyledGrid gutters={size} />);
+          const { container } = render(<StyledGrid $gutters={size} />);
           const padding = math(`${DEFAULT_THEME.space[size]} / 2`);
 
           expect(container.firstChild).toHaveStyleRule('padding-right', padding);
@@ -48,7 +48,7 @@ describe('StyledGrid', () => {
     });
 
     it('collapses gutters', () => {
-      const { container } = render(<StyledGrid gutters={false} />);
+      const { container } = render(<StyledGrid $gutters={false} />);
 
       expect(container.firstChild).toHaveStyleRule('padding-right', '0');
       expect(container.firstChild).toHaveStyleRule('padding-left', '0');

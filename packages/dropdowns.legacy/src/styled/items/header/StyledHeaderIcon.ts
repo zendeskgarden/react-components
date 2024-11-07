@@ -10,14 +10,10 @@ import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming'
 
 const COMPONENT_ID = 'dropdowns.header_icon';
 
-interface IStyledHeaderIcon {
-  isCompact?: boolean;
-}
-
 export const StyledHeaderIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledHeaderIcon>`
+})`
   display: flex;
   position: absolute;
   top: 0;

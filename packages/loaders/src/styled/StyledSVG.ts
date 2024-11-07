@@ -9,17 +9,17 @@ import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 interface IStyledSVGProps {
-  dataGardenId: string;
-  color?: string;
-  fontSize?: string | number;
-  width: number | string;
-  height: number | string;
-  containerWidth?: string;
-  containerHeight?: string;
+  'data-garden-id': string;
+  $color?: string;
+  $fontSize?: string | number;
+  $width: number | string;
+  $height: number | string;
+  $containerWidth?: string;
+  $containerHeight?: string;
 }
 
-const colorStyles = ({ theme, color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
-  const options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
+  const options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
 
   return css`
     color: ${getColor(options)};
@@ -29,17 +29,15 @@ const colorStyles = ({ theme, color = 'inherit' }: IStyledSVGProps & ThemeProps<
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
-  width: props.width,
-  height: props.height,
   focusable: 'false',
-  viewBox: `0 0 ${props.width} ${props.height}`,
+  viewBox: `0 0 ${props.$width} ${props.$height}`,
   role: 'img'
 }))<IStyledSVGProps>`
-  width: ${props => props.containerWidth || '1em'};
-  height: ${props => props.containerHeight || '0.9em'};
-  font-size: ${props => props.fontSize || 'inherit'};
+  width: ${props => props.$containerWidth || '1em'};
+  height: ${props => props.$containerHeight || '0.9em'};
+  font-size: ${props => props.$fontSize || 'inherit'};
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(props.dataGardenId, props)};
+  ${props => retrieveComponentStyles(props['data-garden-id'], props)};
 `;

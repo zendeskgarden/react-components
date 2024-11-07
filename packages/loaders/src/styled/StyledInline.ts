@@ -11,12 +11,12 @@ import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming'
 const COMPONENT_ID = 'loaders.inline';
 
 interface IStyledInlineProps {
-  size: number;
-  color: string;
+  $size: number;
+  $color: string;
 }
 
-const colorStyles = ({ theme, color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
-  const options = color.includes('.') ? { variable: color, theme } : { hue: color, theme };
+const colorStyles = ({ theme, $color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
+  const options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
 
   return css`
     color: ${getColor(options)};
@@ -45,8 +45,8 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   viewBox: '0 0 16 4',
-  width: props.size,
-  height: props.size * 0.25
+  width: props.$size,
+  height: props.$size * 0.25
 }))<IStyledInlineProps>`
   ${colorStyles};
 
