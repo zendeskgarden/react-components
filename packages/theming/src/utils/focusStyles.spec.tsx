@@ -7,18 +7,50 @@
 
 import React from 'react';
 import { render, renderDark } from 'garden-test-utils';
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 import { focusStyles } from './focusStyles';
 import { FocusStylesParameters } from '../types';
 import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
 
-interface IStyledDivProps extends ThemeProps<DefaultTheme>, FocusStylesParameters {
+interface IStyledDivProps {
+  $boxShadow?: FocusStylesParameters['boxShadow'];
   $color?: FocusStylesParameters['color'];
+  $condition?: FocusStylesParameters['condition'];
+  $inset?: FocusStylesParameters['inset'];
+  $selector?: FocusStylesParameters['selector'];
+  $shadowWidth?: FocusStylesParameters['shadowWidth'];
+  $spacerColor?: FocusStylesParameters['spacerColor'];
+  $spacerWidth?: FocusStylesParameters['spacerWidth'];
+  $styles?: FocusStylesParameters['styles'];
+  theme: FocusStylesParameters['theme'];
 }
 
 const StyledDiv = styled.div<IStyledDivProps>`
-  ${({ $color, ...props }) => focusStyles({ color: $color, ...props })}
+  ${({
+    $boxShadow,
+    $color,
+    $condition,
+    $inset,
+    $selector,
+    $shadowWidth,
+    $spacerColor,
+    $spacerWidth,
+    $styles,
+    theme
+  }) =>
+    focusStyles({
+      color: $color,
+      condition: $condition,
+      inset: $inset,
+      selector: $selector,
+      shadowWidth: $shadowWidth,
+      spacerColor: $spacerColor,
+      spacerWidth: $spacerWidth,
+      styles: $styles,
+      theme,
+      ...($boxShadow && { boxShadow: $boxShadow }) // prevent an undefined boxShadow from overriding styles.boxShadow
+    })}
 `;
 
 describe('focusStyles', () => {
@@ -56,7 +88,7 @@ describe('focusStyles', () => {
   });
 
   it('renders inset as expected', () => {
-    const { container } = render(<StyledDiv inset />);
+    const { container } = render(<StyledDiv $inset />);
 
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
       modifier: '&:focus-visible'
@@ -76,7 +108,7 @@ describe('focusStyles', () => {
   });
 
   it('renders spacer color as expected', () => {
-    const { container } = render(<StyledDiv spacerColor={{ hue: 'red', shade: 400 }} />);
+    const { container } = render(<StyledDiv $spacerColor={{ hue: 'red', shade: 400 }} />);
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
@@ -88,7 +120,7 @@ describe('focusStyles', () => {
   });
 
   it('renders selector as expected', () => {
-    const { container } = render(<StyledDiv selector="&:focus-within" />);
+    const { container } = render(<StyledDiv $selector="&:focus-within" />);
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
@@ -100,7 +132,7 @@ describe('focusStyles', () => {
   });
 
   it('renders size as expected', () => {
-    const { container } = render(<StyledDiv shadowWidth="sm" spacerWidth="sm" />);
+    const { container } = render(<StyledDiv $shadowWidth="sm" $spacerWidth="sm" />);
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
@@ -119,7 +151,7 @@ describe('focusStyles', () => {
   });
 
   it('conditionally renders without `box-shadow`', () => {
-    const { container } = render(<StyledDiv condition={false} />);
+    const { container } = render(<StyledDiv $condition={false} />);
 
     expect(container.firstChild).not.toHaveStyleRule('box-shadow', undefined, {
       modifier: '&:focus-visible'
@@ -127,7 +159,7 @@ describe('focusStyles', () => {
   });
 
   it('knocks out spacer as expected', () => {
-    const { container } = render(<StyledDiv spacerWidth={null} />);
+    const { container } = render(<StyledDiv $spacerWidth={null} />);
 
     expect(container.firstChild).not.toHaveStyleRule('outline-offset', undefined, {
       modifier: '&:focus-visible'
@@ -137,7 +169,7 @@ describe('focusStyles', () => {
   it('renders user provided styles', () => {
     const dropShadow = DEFAULT_THEME.shadows.lg('4px', '8px', PALETTE.black);
     const { container } = render(
-      <StyledDiv styles={{ backgroundColor: 'black', boxShadow: dropShadow, color: 'white' }} />
+      <StyledDiv $styles={{ backgroundColor: 'black', boxShadow: dropShadow, color: 'white' }} />
     );
 
     expect(container.firstChild).toHaveStyleRule('background-color', 'black', {
@@ -146,6 +178,7 @@ describe('focusStyles', () => {
     expect(container.firstChild).toHaveStyleRule('color', 'white', {
       modifier: '&:focus-visible'
     });
+
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
       expect.stringContaining(dropShadow),

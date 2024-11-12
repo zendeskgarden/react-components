@@ -72,7 +72,7 @@ describe('StyledRow', () => {
             'align-items',
             expect.stringContaining(alignItems),
             {
-              media: `(min-width: ${minWidth})`
+              media: `(min-width:  ${minWidth})`
             }
           );
         });
@@ -105,7 +105,7 @@ describe('StyledRow', () => {
             'justify-content',
             expect.stringContaining(justifyContent),
             {
-              media: `(min-width: ${minWidth})`
+              media: `(min-width:  ${minWidth})`
             }
           );
         });
@@ -133,7 +133,7 @@ describe('Wrap', () => {
         const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
 
         expect(container.firstChild).toHaveStyleRule('flex-wrap', expect.stringContaining(wrap), {
-          media: `(min-width: ${minWidth})`
+          media: `(min-width:  ${minWidth})`
         });
       });
     });

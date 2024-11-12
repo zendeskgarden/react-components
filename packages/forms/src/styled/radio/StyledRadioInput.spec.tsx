@@ -34,7 +34,7 @@ describe('StyledRadioInput', () => {
     const { container } = render(<StyledRadioInput defaultChecked />);
 
     expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.blue[700], {
-      modifier: `:checked ~ ${StyledRadioLabel}::before`
+      modifier: `:checked~${StyledRadioLabel}::before`
     });
   });
 
@@ -42,7 +42,7 @@ describe('StyledRadioInput', () => {
     const { container } = render(<StyledRadioInput $isCompact />);
 
     expect(container.firstChild).toHaveStyleRule('margin-top', '4px', {
-      modifier: `&& ~ ${StyledRadioLabel} ~ ${StyledMessage}`
+      modifier: `&&~${StyledRadioLabel}~${StyledMessage}`
     });
   });
 
@@ -53,7 +53,7 @@ describe('StyledRadioInput', () => {
       'background-color',
       rgba(PALETTE.grey[700], 0.24),
       {
-        modifier: `&:disabled ~ ${StyledRadioLabel}::before`
+        modifier: `&:disabled~${StyledRadioLabel}::before`
       }
     );
   });
@@ -62,7 +62,7 @@ describe('StyledRadioInput', () => {
     const { container } = renderRtl(<StyledRadioInput />);
 
     expect(container.firstChild).toHaveStyleRule('right', '0', {
-      modifier: `& ~ ${StyledRadioLabel}::before`
+      modifier: `&~${StyledRadioLabel}::before`
     });
   });
 });

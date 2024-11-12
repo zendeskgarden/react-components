@@ -12,22 +12,22 @@ import menuStyles from './menuStyles';
 import { MenuPosition, MENU_POSITION } from '../types';
 
 interface IStyledMenuProps extends ThemeProps<DefaultTheme> {
-  menuPosition?: MenuPosition;
-  menuHidden?: boolean;
-  menuMargin?: string;
-  menuZIndex?: number;
-  menuAnimationModifier?: string;
-  menuChildSelector?: string;
+  $menuPosition?: MenuPosition;
+  $menuHidden?: boolean;
+  $menuMargin?: string;
+  $menuZIndex?: number;
+  $menuAnimationModifier?: string;
+  $menuChildSelector?: string;
 }
 
 const StyledMenu = styled.div<IStyledMenuProps>`
   ${props =>
-    menuStyles(props.menuPosition || 'top', {
-      hidden: props.menuHidden,
-      margin: props.menuMargin,
-      zIndex: props.menuZIndex,
-      childSelector: props.menuChildSelector,
-      animationModifier: props.menuAnimationModifier,
+    menuStyles(props.$menuPosition || 'top', {
+      hidden: props.$menuHidden,
+      margin: props.$menuMargin,
+      zIndex: props.$menuZIndex,
+      childSelector: props.$menuChildSelector,
+      animationModifier: props.$menuAnimationModifier,
       ...props
     })}
 `;
@@ -52,22 +52,22 @@ describe('menuStyles', () => {
   it('renders expected RTL styling', () => {
     const { container } = renderRtl(<StyledMenu />);
 
-    expect(container.firstChild).toHaveStyleRule('direction', 'rtl', { modifier: '& > *' });
+    expect(container.firstChild).toHaveStyleRule('direction', 'rtl', { modifier: '&>*' });
   });
 
   it('renders with animation', () => {
-    const { container } = render(<StyledMenu menuAnimationModifier=".animate" />);
+    const { container } = render(<StyledMenu $menuAnimationModifier=".animate" />);
 
     expect(container.firstChild).toHaveStyleRule(
       'animation',
       expect.stringContaining('cubic-bezier'),
-      { modifier: '&.animate > *' }
+      { modifier: '&.animate>*' }
     );
   });
 
   it('renders with the expected child selector', () => {
     const StyledChild = styled.div``;
-    const { container } = render(<StyledMenu menuChildSelector={`${StyledChild}`} />);
+    const { container } = render(<StyledMenu $menuChildSelector={`${StyledChild}`} />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'inline-block', {
       modifier: `& ${StyledChild}`
@@ -78,7 +78,7 @@ describe('menuStyles', () => {
     it('renders with the expected positions', () => {
       MENU_POSITION.forEach(position => {
         const { container } = render(
-          <StyledMenu menuPosition={position} menuMargin="0" menuAnimationModifier=".animate" />
+          <StyledMenu $menuPosition={position} $menuMargin="0" $menuAnimationModifier=".animate" />
         );
         const marginProperty = getMarginProperty(position);
 
@@ -95,7 +95,7 @@ describe('menuStyles', () => {
     });
 
     it('renders expected hidden styling', () => {
-      const { container } = render(<StyledMenu menuHidden />);
+      const { container } = render(<StyledMenu $menuHidden />);
 
       expect(container.firstChild).toHaveStyleRule('visibility', 'hidden');
     });
@@ -104,7 +104,7 @@ describe('menuStyles', () => {
   describe('margin', () => {
     it('renders wit the expected margins', () => {
       ['4px', '8px'].forEach(margin => {
-        const { container } = render(<StyledMenu menuMargin={margin} />);
+        const { container } = render(<StyledMenu $menuMargin={margin} />);
 
         expect(container.firstChild).toHaveStyleRule('margin-bottom', margin);
       });
@@ -119,7 +119,7 @@ describe('menuStyles', () => {
     });
 
     it('renders expected z-index', () => {
-      const { container } = render(<StyledMenu menuZIndex={100} />);
+      const { container } = render(<StyledMenu $menuZIndex={100} />);
 
       expect(container.firstChild).toHaveStyleRule('z-index', '100');
     });

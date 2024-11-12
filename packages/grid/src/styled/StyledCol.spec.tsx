@@ -92,7 +92,7 @@ describe('StyledCol', () => {
             const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
 
             expect(container.firstChild).toHaveStyleRule('max-width', `${(size / 12) * 100}%`, {
-              media: `(min-width: ${minWidth})`
+              media: `(min-width:  ${minWidth})`
             });
           });
         });
@@ -125,7 +125,7 @@ describe('StyledCol', () => {
             'align-self',
             expect.stringContaining(alignSelf),
             {
-              media: `(min-width: ${minWidth})`
+              media: `(min-width:  ${minWidth})`
             }
           );
         });
@@ -166,7 +166,7 @@ describe('StyledCol', () => {
           const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
 
           expect(container.firstChild).toHaveStyleRule('text-align', alignments[textAlign], {
-            media: `(min-width: ${minWidth})`
+            media: `(min-width:  ${minWidth})`
           });
         });
       });
@@ -215,7 +215,7 @@ describe('StyledCol', () => {
           const minWidth = (DEFAULT_THEME.breakpoints as any)[breakpoint];
 
           expect(container.firstChild).toHaveStyleRule('margin-left', `${(offset / 12) * 100}%`, {
-            media: `(min-width: ${minWidth})`
+            media: `(min-width:  ${minWidth})`
           });
         });
       });
@@ -248,7 +248,7 @@ describe('StyledCol', () => {
               'order',
               expect.stringContaining(order.toString()),
               {
-                media: `(min-width: ${minWidth})`
+                media: `(min-width:  ${minWidth})`
               }
             );
           });

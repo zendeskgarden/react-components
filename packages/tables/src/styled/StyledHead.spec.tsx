@@ -33,7 +33,7 @@ describe('StyledHead', () => {
 
     expect(getByTestId('head')).toHaveStyleRule('position', 'sticky');
     expect(getByTestId('head')).toHaveStyleRule('border-bottom-color', 'transparent', {
-      modifier: `& > ${StyledHeaderRow}:last-child`
+      modifier: `&>${StyledHeaderRow}:last-child`
     });
   });
 });

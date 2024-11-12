@@ -64,6 +64,7 @@ describe('StyledIcon', () => {
 
     it('throws if rendered with no child', () => {
       expect(() => {
+        // @ts-expect-error Testing with no children
         render(<StyledIcon />);
       }).toThrow();
     });

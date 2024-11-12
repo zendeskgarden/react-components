@@ -82,12 +82,13 @@ const animationStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const gradientStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
   return css`
+    /* prettier-ignore */
     background-image: linear-gradient(
-      ${props.theme.rtl ? '-45deg' : '45deg'},
-      transparent,
-      ${getBackgroundColor},
-      transparent
-    );
+${props.theme.rtl ? '-45deg' : '45deg'},
+transparent,
+${getBackgroundColor},
+transparent
+);
   `;
 };
 
