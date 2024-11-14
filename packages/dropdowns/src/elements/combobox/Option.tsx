@@ -12,6 +12,7 @@ import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import SelectionIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
 import { IOptionProps, OPTION_TYPE, OptionType } from '../../types';
 import useComboboxContext from '../../context/useComboboxContext';
 import { OptionContext } from '../../context/useOptionContext';
@@ -19,6 +20,7 @@ import {
   StyledOption,
   StyledOptionContent,
   StyledOptionIcon,
+  StyledOptionSelectionIcon,
   StyledOptionTypeIcon
 } from '../../views';
 import { OptionMeta } from './OptionMeta';
@@ -28,6 +30,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
   (
     {
       children,
+      hasSelection,
       icon,
       isDisabled,
       isHidden,
@@ -78,6 +81,10 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
       option,
       ref: mergeRefs([optionRef, ref])
     }) as LiHTMLAttributes<HTMLLIElement>;
+    const ariaSelected =
+      type === 'add' || type === 'next' || type === 'previous'
+        ? undefined
+        : optionProps['aria-selected'];
 
     return (
       <OptionContext.Provider value={contextValue}>
@@ -87,7 +94,13 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           $type={type}
           {...props}
           {...optionProps}
+          aria-selected={ariaSelected}
         >
+          {!!hasSelection && type === 'next' && (
+            <StyledOptionSelectionIcon $isCompact={isCompact}>
+              <SelectionIcon />
+            </StyledOptionSelectionIcon>
+          )}
           <StyledOptionTypeIcon $isCompact={isCompact} $type={type}>
             {renderActionIcon(type)}
           </StyledOptionTypeIcon>
@@ -106,6 +119,7 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
 OptionComponent.displayName = 'Option';
 
 OptionComponent.propTypes = {
+  hasSelection: PropTypes.bool,
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
