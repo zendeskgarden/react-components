@@ -81,10 +81,6 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
       option,
       ref: mergeRefs([optionRef, ref])
     }) as LiHTMLAttributes<HTMLLIElement>;
-    const ariaSelected =
-      type === 'add' || type === 'next' || type === 'previous'
-        ? undefined
-        : optionProps['aria-selected'];
 
     return (
       <OptionContext.Provider value={contextValue}>
@@ -94,7 +90,6 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
           $type={type}
           {...props}
           {...optionProps}
-          aria-selected={ariaSelected}
         >
           {!!hasSelection && type === 'next' && (
             <StyledOptionSelectionIcon $isCompact={isCompact}>
