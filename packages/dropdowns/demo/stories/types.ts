@@ -11,6 +11,7 @@ import {
   IOptGroupProps,
   IOptionProps
 } from '@zendeskgarden/react-dropdowns';
+import { BUTTON_TYPE } from './data';
 
 export interface IOption extends Omit<IOptionProps, 'icon'> {
   icon?: boolean;
@@ -36,3 +37,5 @@ export interface IItemGroup extends Omit<IItemGroupProps, 'icon'> {
 export type Options = (IOption | IOptGroup)[];
 
 export type Items = (IItem | IItemGroup)[];
+
+export type ButtonType = (typeof BUTTON_TYPE)[number];

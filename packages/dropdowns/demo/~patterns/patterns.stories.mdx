@@ -1,8 +1,6 @@
 import { useCallback } from 'react';
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { Combobox } from '@zendeskgarden/react-dropdowns';
-import { MenuButtonStory } from './stories/MenuButtonStory';
 import { MenuNestedStory } from './stories/MenuNestedStory';
 import { PortalStory } from './stories/PortalStory';
 import { BASE_ITEMS, NESTED_ITEMS } from './stories/data';
@@ -10,17 +8,6 @@ import { BASE_ITEMS, NESTED_ITEMS } from './stories/data';
 <Meta title="Packages/Dropdowns/[patterns]" />
 
 # Patterns
-
-## Render menu with custom button
-
-The `button` property can alternatively be set as a callback function that returns
-custom button JSX. By default, `Menu` will use a Garden `Button` internally.
-
-This is an option for things like icon buttons.
-
-<Canvas>
-  <Story name="Menu button">{args => <MenuButtonStory {...args} />}</Story>
-</Canvas>
 
 ## Menu with nested items
 
