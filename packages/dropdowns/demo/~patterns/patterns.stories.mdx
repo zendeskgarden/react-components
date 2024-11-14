@@ -1,38 +1,32 @@
 import { useCallback } from 'react';
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
-import { MenuNestedStory } from './stories/MenuNestedStory';
+import { NestedStory } from './stories/NestedStory';
 import { PortalStory } from './stories/PortalStory';
-import { BASE_ITEMS, NESTED_ITEMS } from './stories/data';
 
 <Meta title="Packages/Dropdowns/[patterns]" />
 
 # Patterns
 
-## Menu with nested items
+## Nested
 
-Adding an `Item` with `type="next"` will enable nested menu
-behavior. It can be implemented with or without controlled focus.
+### Listbox
 
-The subsequent nested menu will then need an `Item` with `type="previous"`
-to allow backwards navigation to the previous menu.
+A `Combobox` with `<Option type="next">` can be controlled to enable nested
+listbox behavior. The nested listbox will then need an `<Option
+type="previous">` to allow backwards navigation to the previous listbox. Use
+`<Option type="next" hasSelection>` to indicate that the nested listbox contains
+one or more selected options.
+
+### Menu
+
+Adding an `Item` with `type="next"` will enable nested menu behavior. It can be
+implemented with or without controlled focus. The subsequent nested menu will
+then need an `Item` with `type="previous"` to allow backwards navigation to the
+previous menu.
 
 <Canvas>
-  <Story name="Menu nested" args={{ items: BASE_ITEMS }}>
-    {args => {
-      const [_, updateArgs, resetArgs] = useArgs();
-      const onChange = useCallback(({ type, isExpanded }) => {
-        const isNext = type.includes('next');
-        const isPrev = type.includes('previous');
-        if (isNext || isPrev) {
-          updateArgs({ items: isNext ? NESTED_ITEMS : BASE_ITEMS });
-        } else if (isExpanded === false) {
-          resetArgs(['items']);
-        }
-      }, []);
-      return <MenuNestedStory {...args} onChange={onChange} />;
-    }}
-  </Story>
+  <Story name="Nested">{args => <NestedStory {...args} />}</Story>
 </Canvas>
 
 ## Portal
@@ -43,11 +37,11 @@ You typically will need to portal if you are using dropdown components inside an
 element with `overflow: hidden` / `auto` / `scroll` CSS styles. See in these
 examples that the dropdowns are currently getting cropped.
 
-### Listbox
+### Listbox portal
 
 Enable the `listboxAppendToNode` property to see the full listbox.
 
-### Menu
+### Menu portal
 
 Enable the `appendToNode` property to see the full menu.
 
