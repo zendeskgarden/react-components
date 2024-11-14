@@ -2,59 +2,14 @@ import { useCallback } from 'react';
 import { Meta, Canvas, Story } from '@storybook/addon-docs';
 import { useArgs } from '@storybook/client-api';
 import { Combobox } from '@zendeskgarden/react-dropdowns';
-import { ListboxStory } from './stories/ListboxStory';
-import { MenuAppendStory } from './stories/MenuAppendStory';
 import { MenuButtonStory } from './stories/MenuButtonStory';
 import { MenuNestedStory } from './stories/MenuNestedStory';
+import { PortalStory } from './stories/PortalStory';
 import { BASE_ITEMS, NESTED_ITEMS } from './stories/data';
 
 <Meta title="Packages/Dropdowns/[patterns]" />
 
 # Patterns
-
-## Render listbox in a root level React portal
-
-The `listboxAppendToNode` property can be used to render the listbox in a
-different DOM location than inline with the Combobox component. This is done via
-React portals under the hood.
-
-You typically will need to set this property if you are using the `Combobox`
-inside an element with `overflow: hidden` / `auto` / `scroll` CSS styles.
-
-See in this example, that the listbox is currently getting cropped. Enable the
-`listboxAppendToNode` property to see the full listbox.
-
-<Canvas>
-  <Story
-    name="Listbox"
-    args={{ listboxAppendToNode: false }}
-    argTypes={{ listboxAppendToNode: { control: 'boolean' } }}
-  >
-    {args => <ListboxStory {...args} />}
-  </Story>
-</Canvas>
-
-## Render menu in a root level React portal
-
-The `appendToNode` property can be used to render the menu popover in a
-different DOM location than inline with the menu button. This is done via
-React portals under the hood.
-
-You typically will need to set this property if you are using `Menu` inside an
-element with `overflow: hidden` / `auto` / `scroll` CSS styles.
-
-See in this example that the menu will attempt to reposition, however it's
-ultimately still cropped. Enable the `appendToNode` property to see the full menu.
-
-<Canvas>
-  <Story
-    name="Menu portal"
-    args={{ appendToNode: false }}
-    argTypes={{ appendToNode: { control: 'boolean' } }}
-  >
-    {args => <MenuAppendStory {...args} />}
-  </Story>
-</Canvas>
 
 ## Render menu with custom button
 
@@ -90,5 +45,34 @@ to allow backwards navigation to the previous menu.
       }, []);
       return <MenuNestedStory {...args} onChange={onChange} />;
     }}
+  </Story>
+</Canvas>
+
+## Portal
+
+Dropdowns can be rendered in a different DOM location than inline with their
+associated trigger component. This is done via React portals under the hood.
+You typically will need to portal if you are using dropdown components inside an
+element with `overflow: hidden` / `auto` / `scroll` CSS styles. See in these
+examples that the dropdowns are currently getting cropped.
+
+### Listbox
+
+Enable the `listboxAppendToNode` property to see the full listbox.
+
+### Menu
+
+Enable the `appendToNode` property to see the full menu.
+
+<Canvas>
+  <Story
+    name="Portal"
+    args={{ listboxAppendToNode: false, menuAppendToNode: false }}
+    argTypes={{
+      listboxAppendToNode: { control: 'boolean', name: 'Combobox listboxAppendToNode' },
+      menuAppendToNode: { control: 'boolean', name: 'Menu appendToNode' }
+    }}
+  >
+    {args => <PortalStory {...args} />}
   </Story>
 </Canvas>
