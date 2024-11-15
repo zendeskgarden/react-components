@@ -18,7 +18,7 @@ describe('MessageIcon', () => {
 
       expect(icon.nodeName).toBe('svg');
       expect(icon).toHaveAttribute('role', 'img');
-      expect(icon).not.toHaveAttribute('aria-hidden');
+      expect(icon).toHaveAttribute('aria-hidden', 'false');
     });
   });
 });

@@ -56,17 +56,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1250ms linear infinite;
           animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1250ms linear infinite;
           animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1250ms linear infinite;
           animation: bDxIcz 1250ms linear infinite;
         }
 
@@ -107,17 +104,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1250ms linear infinite;
           animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1250ms linear infinite;
           animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1250ms linear infinite;
           animation: bDxIcz 1250ms linear infinite;
         }
 
@@ -156,17 +150,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1250ms linear infinite;
           animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1250ms linear infinite;
           animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1250ms linear infinite;
           animation: bDxIcz 1250ms linear infinite;
         }
 
@@ -207,17 +198,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1125ms linear infinite;
           animation: kVOdef 1125ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1125ms linear infinite;
           animation: idDvaf 1125ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1125ms linear infinite;
           animation: bDxIcz 1125ms linear infinite;
         }
 
@@ -256,17 +244,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1125ms linear infinite;
           animation: kVOdef 1125ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1125ms linear infinite;
           animation: idDvaf 1125ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1125ms linear infinite;
           animation: bDxIcz 1125ms linear infinite;
         }
 
@@ -307,17 +292,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1375ms linear infinite;
           animation: kVOdef 1375ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1375ms linear infinite;
           animation: idDvaf 1375ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1375ms linear infinite;
           animation: bDxIcz 1375ms linear infinite;
         }
 
@@ -356,17 +338,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1375ms linear infinite;
           animation: kVOdef 1375ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1375ms linear infinite;
           animation: idDvaf 1375ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1375ms linear infinite;
           animation: bDxIcz 1375ms linear infinite;
         }
 
