@@ -34,12 +34,8 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
-    "@types/react-beautiful-dnd": "13.1.8",
-    "@types/react-window": "1.8.8",
     "@zendeskgarden/react-theming": "^9.1.2",
-    "@zendeskgarden/svg-icons": "7.3.0",
-    "react-beautiful-dnd": "13.1.1",
-    "react-window": "1.8.10"
+    "@zendeskgarden/svg-icons": "7.3.0"
   },
   "keywords": [
     "components",
