@@ -25,8 +25,8 @@ export const NavComponent = React.forwardRef<HTMLElement, INavProps>(
     return (
       <ThemeProvider
         theme={parentTheme => ({
-          ...parentTheme,
-          colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
+          ...parentTheme!,
+          colors: { ...parentTheme!.colors, base: isLight ? 'light' : 'dark' }
         })}
       >
         <NavContext.Provider value={navContextValue}>

@@ -20,12 +20,12 @@ export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
     if (hasLogo) {
       return (
         <StyledLogoHeaderItem
-          ref={ref}
+          ref={ref as React.RefObject<HTMLDivElement>}
           $isRound={isRound}
           $maxX={maxX}
           $maxY={maxY}
           $product={product}
-          {...other}
+          {...(other as React.HTMLAttributes<HTMLDivElement>)}
         />
       );
     }

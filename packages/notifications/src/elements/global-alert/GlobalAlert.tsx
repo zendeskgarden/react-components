@@ -38,7 +38,7 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
 
     return (
       /* [1] */
-      <ThemeProvider theme={theme => ({ ...theme, colors: { ...theme.colors, base: 'light' } })}>
+      <ThemeProvider theme={theme => ({ ...theme!, colors: { ...theme!.colors, base: 'light' } })}>
         <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
           {/* [2] */}
           {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}

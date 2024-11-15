@@ -232,7 +232,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
   style: {
-    backgroundSize: props.$hasLowerTrack && props.$backgroundSize
+    backgroundSize: props.$hasLowerTrack ? props.$backgroundSize : undefined
   }
 }))<IStyledRangeInputProps>`
   appearance: none;

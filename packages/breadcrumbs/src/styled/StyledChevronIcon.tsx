@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import styled from 'styled-components';
+import styled, { ExecutionProps } from 'styled-components';
 import { em } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
@@ -14,10 +14,12 @@ import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-righ
 /**
  * Accepts all `<svg>` props
  */
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-export const StyledChevronIcon = styled(({ children, theme, ...props }) => (
-  <ChevronRightStrokeIcon {...props} />
-)).attrs({
+export const StyledChevronIcon = styled(
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+  ({ children, theme, ...props }: React.SVGProps<SVGSVGElement> & ExecutionProps) => (
+    <ChevronRightStrokeIcon {...props} />
+  )
+).attrs({
   role: 'presentation',
   'aria-hidden': 'true'
 })`

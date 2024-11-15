@@ -23,7 +23,7 @@ interface IStyledMenuWrapperProps {
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.$isAnimated && 'is-animated'
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledMenuWrapperProps>`
   ${props =>
     menuStyles(getMenuPosition(props.$placement), {

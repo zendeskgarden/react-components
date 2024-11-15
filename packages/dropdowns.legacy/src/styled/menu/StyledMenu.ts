@@ -27,7 +27,7 @@ interface IStyledMenuProps {
 export const StyledMenu = styled.ul.attrs<IStyledMenuProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.$isAnimated && 'is-animated'
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledMenuProps>`
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */

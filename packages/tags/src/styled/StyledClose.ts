@@ -15,7 +15,7 @@ const COMPONENT_ID = 'tags.close';
  * 2. text content reset
  */
 
-export const StyledClose = styled.button.attrs<unknown>({
+export const StyledClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

@@ -27,7 +27,7 @@ const marginStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon)`
+export const StyledIcon = styled(StyledBaseIcon)<IStyledIcon>`
   ${marginStyles}
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
 `;

@@ -13,7 +13,7 @@ import { StyledIcon } from './StyledIcon';
 describe('StyledIcon', () => {
   it('does not render styling to rotate icon', () => {
     const { container } = render(
-      <StyledIcon>
+      <StyledIcon $type="first">
         <ChevronLeft />
       </StyledIcon>
     );
@@ -23,7 +23,7 @@ describe('StyledIcon', () => {
 
   it('render styling to rotate icon in RTL', () => {
     const { container } = renderRtl(
-      <StyledIcon>
+      <StyledIcon $type="first">
         <ChevronLeft />
       </StyledIcon>
     );
@@ -32,7 +32,7 @@ describe('StyledIcon', () => {
   });
 
   it('renders icon types with the correct margin', () => {
-    const types = ['first', 'previous', 'next', 'last'];
+    const types = ['first', 'previous', 'next', 'last'] as const;
 
     types.forEach(type => {
       const { container } = render(
@@ -52,7 +52,7 @@ describe('StyledIcon', () => {
   });
 
   it('renders icon types with the correct margin in RTL', () => {
-    const types = ['first', 'previous', 'next', 'last'];
+    const types = ['first', 'previous', 'next', 'last'] as const;
 
     types.forEach(type => {
       const { container } = renderRtl(

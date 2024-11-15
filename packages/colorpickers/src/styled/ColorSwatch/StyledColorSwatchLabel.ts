@@ -44,7 +44,7 @@ export const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
   as: 'label',
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledColorSwatchLabelProps>`
   position: relative;
   top: 0;
   border-radius: ${props => props.theme.borderRadii.md};

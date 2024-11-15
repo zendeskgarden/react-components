@@ -39,7 +39,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
   ) => {
     const fieldContext = useFieldContext();
     const textAreaRef = useRef<HTMLTextAreaElement>();
-    const shadowTextAreaRef = useRef<HTMLInputElement | null>(null);
+    const shadowTextAreaRef = useRef<HTMLTextAreaElement | null>(null);
     const [state, setState] = useState<{ overflow: boolean; height: number }>({
       overflow: false,
       height: 0
@@ -127,7 +127,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     }
 
     const onSelectHandler = other.readOnly
-      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
           event.currentTarget.select();
         })
       : onSelect;

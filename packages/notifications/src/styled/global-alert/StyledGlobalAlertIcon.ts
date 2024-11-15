@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css, DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import { getColor, retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { Type } from '../../types';
@@ -58,10 +58,10 @@ const colorStyles = ({
   `;
 };
 
-export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs({
+export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledGlobalAlertIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};
