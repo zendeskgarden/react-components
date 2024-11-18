@@ -3,18 +3,24 @@ import { useArgs } from '@storybook/client-api';
 import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
 import { MenuStory } from './stories/MenuStory';
 import README from '../README.md';
-import { ITEMS } from './stories/data';
+import { BUTTON_TYPE, ITEMS } from './stories/data';
 
 <Meta
   title="Packages/Dropdowns/Menu"
   component={Menu}
   subcomponents={{ Item, 'Item.Meta': Item.Meta, Separator, ItemGroup }}
   argTypes={{
-    appendToNode: { control: false }
+    appendToNode: { control: false },
+    button: {
+      control: 'radio',
+      options: BUTTON_TYPE
+    },
+    label: { name: 'Button label', table: { category: 'Story' } }
   }}
   args={{
-    button: 'Menu',
+    button: BUTTON_TYPE[0],
     items: ITEMS,
+    label: 'Menu',
     placement: Menu.defaultProps.placement,
     maxHeight: Menu.defaultProps.maxHeight,
     zIndex: Menu.defaultProps.zIndex

@@ -5,16 +5,34 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export const BASE_ITEMS = [
-  { value: 'Orange' },
+import { IItem, IOptGroup, Options } from './types';
+
+export const ITEMS: IItem[] = [
+  { value: 'Apple' },
   { value: 'Berry', type: 'next' },
-  { value: 'Apple' }
+  { value: 'Orange' }
 ];
 
-export const NESTED_ITEMS = [
+export const SUB_ITEMS: IItem[] = [
   { value: 'Fruits', type: 'previous' },
   { value: 'separator', isSeparator: true },
   { value: 'Strawberry' },
   { value: 'Loganberry' },
   { value: 'Boysenberry' }
 ];
+
+export const OPTIONS: Options = [
+  { value: 'Apple' },
+  { value: 'Berry', type: 'next' },
+  { value: 'Orange' }
+];
+
+export const SUB_OPTIONS: Options = [
+  { value: 'Fruits', type: 'previous' },
+  {
+    'aria-label': 'Berries',
+    options: [{ value: 'Strawberry' }, { value: 'Loganberry' }, { value: 'Boysenberry' }]
+  }
+];
+
+export const SUB_OPTION_VALUES = (SUB_OPTIONS[1] as IOptGroup).options.map(option => option.value);

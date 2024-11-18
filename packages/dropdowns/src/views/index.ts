@@ -22,6 +22,7 @@ export * from './combobox/StyledOption';
 export * from './combobox/StyledOptionContent';
 export * from './combobox/StyledOptionIcon';
 export * from './combobox/StyledOptionMeta';
+export * from './combobox/StyledOptionSelectionIcon';
 export * from './combobox/StyledOptionTypeIcon';
 export * from './combobox/StyledTag';
 export * from './combobox/StyledTagsButton';
