@@ -154,7 +154,7 @@ describe('StyledTag', () => {
     it.each([['light'], ['dark']])('renders using a custom hue for %s mode', mode => {
       const renderFn = mode === 'light' ? render : renderDark;
       const { container } = renderFn(<StyledTag $hue="azure" />);
-      const backgroundColor = mode === 'dark' ? PALETTE.azure[500] : PALETTE.azure[700];
+      const backgroundColor = mode === 'dark' ? PALETTE.azure[600] : PALETTE.azure[700];
 
       expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor);
     });
