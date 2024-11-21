@@ -24,11 +24,18 @@ const adjust = (color: string, expected: number, actual: number) => {
 };
 
 /* convert the optional shade + offset to a shade for the given scheme */
-const toShade = (shade?: number | string, offset?: number, scheme?: 'dark' | 'light') => {
+const toShade = (
+  shade?: number | string,
+  offset?: number,
+  transparency?: number,
+  scheme?: 'dark' | 'light'
+) => {
   let _shade;
 
   if (shade === undefined) {
-    _shade = scheme === 'dark' ? 500 : 700;
+    const darkShade = transparency === undefined ? 600 : 500;
+
+    _shade = scheme === 'dark' ? darkShade : 700;
   } else {
     _shade = parseInt(shade.toString(), 10);
 
@@ -45,9 +52,10 @@ const toHex = (
   hue: Record<string | number, string>,
   shade?: number | string,
   offset?: number,
+  transparency?: number,
   scheme?: 'dark' | 'light'
 ) => {
-  const _shade = toShade(shade, offset, scheme);
+  const _shade = toShade(shade, offset, transparency, scheme);
   let retVal = hue[_shade];
 
   if (!retVal) {
@@ -186,14 +194,14 @@ const toColor = (
   }
 
   if (typeof _hue === 'object') {
-    retVal = toHex(_hue, shade, offset, scheme);
+    retVal = toHex(_hue, shade, offset, transparency, scheme);
   } else if (isValidColor(_hue)) {
     if (shade === undefined) {
       retVal = _hue;
     } else {
       _hue = generateColorScale(_hue);
 
-      retVal = toHex(_hue, shade, offset, scheme);
+      retVal = toHex(_hue, shade, offset, transparency, scheme);
     }
   }
 

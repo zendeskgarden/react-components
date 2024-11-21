@@ -77,7 +77,7 @@ describe('Span', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'color',
-        (PALETTE as any)[hue][mode === 'light' ? 700 : 500]
+        (PALETTE as any)[hue][mode === 'light' ? 700 : 600]
       );
     });
 
