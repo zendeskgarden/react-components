@@ -13,6 +13,25 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.2.0 (2024-11-21)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#1971](https://github.com/zendeskgarden/react-components/pull/1971) feat(dropdowns): add `hasSelection` prop for use with `<Option type="next">` ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `tags`, `theming`, `typography`
+  * [#1979](https://github.com/zendeskgarden/react-components/pull/1979) fix(theming): `getColor` shade default depends on transparency ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1977](https://github.com/zendeskgarden/react-components/pull/1977) chore(deps): bump serve-static, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1976](https://github.com/zendeskgarden/react-components/pull/1976) chore(deps): bump send, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1975](https://github.com/zendeskgarden/react-components/pull/1975) chore(deps): bump body-parser, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1974](https://github.com/zendeskgarden/react-components/pull/1974) chore(deps): bump cookie, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `tables`
+  * [#1972](https://github.com/zendeskgarden/react-components/pull/1972) chore(config): migrate renovate config ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v9.1.2 (2024-11-07)
 
 #### :bug: Bug Fix
