@@ -2,7 +2,7 @@
   "extends": ["config:recommended"],
   "rebaseWhen": "behind-base-branch",
   "ignorePaths": ["**/node_modules/**", "packages/dropdowns.legacy/**"],
-  "schedule": ["on Monday every 9 weeks of the year starting on the 5th week"],
+  "schedule": ["on Monday every 9 weeks of the year starting on the 6th week"],
   "labels": ["PR: Internal :seedling:"],
   "postUpdateOptions": ["npmDedupe"],
   "packageRules": [
