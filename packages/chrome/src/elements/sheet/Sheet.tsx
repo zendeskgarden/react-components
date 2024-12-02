@@ -7,7 +7,7 @@
 
 import React, { useRef, useMemo, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useUIDSeed } from 'react-uid';
+import { useId } from '@zendeskgarden/container-utilities';
 import { mergeRefs } from 'react-merge-refs';
 
 import { ISheetProps, PLACEMENT } from '../../types';
@@ -29,10 +29,8 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
     ref
   ) => {
     const sheetRef = useRef<HTMLElement>(null);
-
-    const seed = useUIDSeed();
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
-    const idPrefix = useMemo<string>(() => id || seed(`sheet_${PACKAGE_VERSION}`), [id, seed]);
+    const idPrefix = useId(id);
     const titleId = `${idPrefix}--title`;
     const descriptionId = `${idPrefix}--description`;
 

@@ -8,12 +8,13 @@
 import React, { useRef } from 'react';
 import { StoryFn } from '@storybook/react';
 import styled from 'styled-components';
-import { Combobox, Field, Option } from '@zendeskgarden/react-dropdowns';
+import { Combobox, Field, Item, Menu, Option } from '@zendeskgarden/react-dropdowns';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
 
 interface IArgs {
   listboxAppendToNode: boolean;
+  menuAppendToNode: boolean;
 }
 
 export const StyledContainer = styled.div`
@@ -26,7 +27,7 @@ export const StyledContainer = styled.div`
   overflow: clip;
 `;
 
-export const ListboxStory: StoryFn<IArgs> = ({ listboxAppendToNode }) => {
+export const PortalStory: StoryFn<IArgs> = ({ listboxAppendToNode, menuAppendToNode }) => {
   const portalNode = useRef<HTMLDivElement>(null);
 
   return (
@@ -34,7 +35,7 @@ export const ListboxStory: StoryFn<IArgs> = ({ listboxAppendToNode }) => {
       <div ref={portalNode} />
       <StyledContainer>
         <Field>
-          <Field.Label>Listbox portal pattern</Field.Label>
+          <Field.Label>Listbox portal</Field.Label>
           <Combobox
             isAutocomplete
             isEditable={false}
@@ -52,6 +53,32 @@ export const ListboxStory: StoryFn<IArgs> = ({ listboxAppendToNode }) => {
             <Option value="Nine" />
           </Combobox>
         </Field>
+        <Paragraph style={{ marginTop: 20 }}>
+          Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth
+          water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato
+          scallion desert raisin horseradish spinach carrot soko. Lotus root water spinach fennel
+          kombu maize bamboo shoot green bean swiss chard seakale pumpkin onion chickpea gram corn
+          pea. Brussels sprout coriander water chestnut gourd swiss chard wakame kohlrabi beetroot
+          carrot watercress. Corn amaranth salsify bunya nuts nori azuki bean chickweed potato bell
+          pepper artichoke.
+        </Paragraph>
+      </StyledContainer>
+      <StyledContainer style={{ marginTop: 40 }}>
+        <Menu
+          button="Menu portal"
+          appendToNode={menuAppendToNode ? portalNode.current || undefined : undefined}
+          minHeight="fit-content"
+        >
+          <Item value="One" />
+          <Item value="Two" />
+          <Item value="Three" />
+          <Item value="Four" />
+          <Item value="Five" />
+          <Item value="Six" />
+          <Item value="Seven" />
+          <Item value="Eight" />
+          <Item value="Nine" />
+        </Menu>
         <Paragraph style={{ marginTop: 20 }}>
           Turnip greens yarrow ricebean rutabaga endive cauliflower sea lettuce kohlrabi amaranth
           water spinach avocado daikon napa cabbage asparagus winter purslane kale. Celery potato

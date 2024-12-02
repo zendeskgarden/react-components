@@ -10,11 +10,16 @@ import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.field';
 
+/*
+ * 1. Prevent grid or other container alignment from impacting Combobox label
+ *    and value alignemnt.
+ */
 export const StyledField = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
+  text-align: start; /* [1] */
 
   ${props => retrieveComponentStyles(COMPONENT_ID, props)};
 `;

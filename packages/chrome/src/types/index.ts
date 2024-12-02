@@ -85,6 +85,8 @@ export interface INavItemTextProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
+  /** Identifies the sheet */
+  id?: string;
   /** Opens the sheet */
   isOpen?: boolean;
   /** Determines whether animation for opening and closing the sheet is used */

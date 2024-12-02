@@ -161,6 +161,8 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {
+  /** Indicates that one or more sub-options are selected (only valid for `type="next"`) */
+  hasSelection?: boolean;
   /** Accepts an icon to display */
   icon?: ReactElement;
   /** Indicates that the option is not interactive */

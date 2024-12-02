@@ -153,6 +153,19 @@ describe('Option', () => {
 
       expect(option).toHaveStyleRule('color', PALETTE.red[700]);
     });
+
+    it('renders "hasSelection" as expected', () => {
+      const { getByTestId, rerender } = render(<TestOption hasSelection />);
+      const option = getByTestId('option');
+
+      // Icon doesn't render when `type` is missing
+      expect(option.firstChild).not.toHaveStyleRule('width', '12px');
+
+      rerender(<TestOption hasSelection type="next" />);
+
+      // Icon renders when `type` is "next"
+      expect(option.firstChild).toHaveStyleRule('width', '12px');
+    });
   });
 
   describe('Option.Meta', () => {
