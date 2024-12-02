@@ -10,10 +10,14 @@ import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden
 
 const COMPONENT_ID = 'accordions.step_inner_content';
 
-export const StyledInnerContent = styled.div.attrs<ThemeProps<DefaultTheme>>({
+interface IStyledInnerContentProps extends ThemeProps<DefaultTheme> {
+  inert?: string;
+}
+
+export const StyledInnerContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledInnerContentProps>`
   overflow: hidden;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
