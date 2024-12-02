@@ -16,7 +16,9 @@ const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
 
     return isHorizontal === false ? (
       <StyledContent ref={ref} $isActive={isActive} {...props}>
-        <StyledInnerContent aria-hidden={!isActive}>{props.children}</StyledInnerContent>
+        <StyledInnerContent aria-hidden={!isActive} inert={isActive ? undefined : ''}>
+          {props.children}
+        </StyledInnerContent>
       </StyledContent>
     ) : null;
   }
