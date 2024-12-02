@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav_item_icon';
@@ -19,7 +19,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledNavItemIcon = styled(StyledBaseIcon).attrs({
+export const StyledNavItemIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`

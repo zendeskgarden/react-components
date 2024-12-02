@@ -7,6 +7,7 @@
 
 import 'styled-components';
 import type { IGardenTheme } from '../../packages/theming/src/index';
+import type { ReactNode, Context } from 'react';
 
 declare module 'styled-components' {
   // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -16,9 +17,9 @@ declare module 'styled-components' {
     theme: T;
   }
 
-  export const ThemeContext: React.Context<DefaultTheme>;
+  export const ThemeContext: Context<DefaultTheme>;
   export interface ThemeProviderProps<T extends object, U extends object = T> {
-    children?: React.ReactNode | undefined;
+    children?: ReactNode | undefined;
     theme: T | ((theme: U) => T);
   }
 }

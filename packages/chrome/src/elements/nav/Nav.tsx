@@ -6,7 +6,7 @@
  */
 
 import React, { useMemo } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
 import { INavProps } from '../../types';
 import { useChromeContext } from '../../utils/useChromeContext';
@@ -25,8 +25,8 @@ export const NavComponent = React.forwardRef<HTMLElement, INavProps>(
     return (
       <ThemeProvider
         theme={parentTheme => ({
-          ...parentTheme!,
-          colors: { ...parentTheme!.colors, base: isLight ? 'light' : 'dark' }
+          ...parentTheme,
+          colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
         })}
       >
         <NavContext.Provider value={navContextValue}>

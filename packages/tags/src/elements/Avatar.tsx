@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 import { StyledAvatar } from '../styled';
+import { IStyledBaseIconProps } from '@zendeskgarden/react-theming';
 
-const AvatarComponent = (props: HTMLAttributes<HTMLElement>) => <StyledAvatar {...props} />;
+const AvatarComponent = (props: IStyledBaseIconProps) => <StyledAvatar {...props} />;
 
 AvatarComponent.displayName = 'Tag.Avatar';
 

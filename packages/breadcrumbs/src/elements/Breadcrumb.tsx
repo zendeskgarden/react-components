@@ -6,6 +6,7 @@
  */
 
 import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
+import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
 import { useText } from '@zendeskgarden/react-theming';
 import {
@@ -38,7 +39,9 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
       <>
         <StyledBreadcrumbItem>{child}</StyledBreadcrumbItem>
         <StyledCenteredBreadcrumbItem>
-          <StyledChevronIcon />
+          <StyledChevronIcon>
+            <ChevronRightStrokeIcon />
+          </StyledChevronIcon>
         </StyledCenteredBreadcrumbItem>
       </>
     );
