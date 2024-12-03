@@ -24,13 +24,14 @@ export { useWindow } from './utils/useWindow';
 export { useText } from './utils/useText';
 export { default as menuStyles } from './utils/menuStyles';
 export { focusStyles, SELECTOR_FOCUS_VISIBLE } from './utils/focusStyles';
-export { StyledBaseIcon, type IStyledBaseIconProps } from './utils/StyledBaseIcon';
+export { StyledBaseIcon } from './utils/StyledBaseIcon';
 
 export {
   ARROW_POSITION,
   MENU_POSITION,
   PLACEMENT,
   type IGardenTheme,
+  type IStyledBaseIconProps,
   type IThemeProviderProps,
   type ArrowPosition,
   type CheckeredBackgroundParameters,

@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme } from 'styled-components';
-import { Children, cloneElement, PropsWithChildren, ReactElement, SVGAttributes } from 'react';
-export interface IStyledBaseIconProps extends PropsWithChildren<SVGAttributes<SVGElement>> {
-  theme?: DefaultTheme;
-}
+import styled from 'styled-components';
+import { Children, cloneElement, ReactElement } from 'react';
+import { IStyledBaseIconProps } from '../types';
+
 export const StyledBaseIcon = styled(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({ children, theme, ...props }: IStyledBaseIconProps) =>

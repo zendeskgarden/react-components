@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { CSSObject, ThemeProviderProps } from 'styled-components';
+import { PropsWithChildren, SVGAttributes } from 'react';
+import { CSSObject, DefaultTheme, ThemeProviderProps } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -211,4 +212,8 @@ export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenT
    * for details.
    */
   theme?: IGardenTheme | ((theme: IGardenTheme) => IGardenTheme);
+}
+
+export interface IStyledBaseIconProps extends PropsWithChildren<SVGAttributes<SVGElement>> {
+  theme?: DefaultTheme;
 }
