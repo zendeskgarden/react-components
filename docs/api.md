@@ -33,7 +33,7 @@ ensuring the details live up to expectations.
 - Styling should endeavor to support the most canonical HTML form(s)
   possible.
 - Components extend the most appropriate semantic HTML element, e.g.
-  `` const Button = styled.button`...`; ``. <!-- markdownlint-disable -->
+  ``const Button = styled.button`...`;``. <!-- markdownlint-disable -->
 - Analytics `attrs` are added for `data-garden-id` and `data-garden-version`.
 - [Concentric](https://github.com/brandon-rhodes/Concentric-CSS) CSS order is
   maintained with the help of `stylelint`.
@@ -43,7 +43,7 @@ ensuring the details live up to expectations.
   for an ideal example):
   - "Base" properties: display, position, flex, transition, direction, etc
     (anything NOT related to size or color)
-  - `${sizeStyles(props)}`: a function that contains all properties related
+  - `${sizeStyles}`: a function that contains all properties related
     to component sizing (usually based on calculated relationships), i.e.
     margin, padding, width, height, line-height, font-size – all grouped
     ordering (including pseudos, children, etc) applies within the
@@ -52,7 +52,7 @@ ensuring the details live up to expectations.
     - `:hover`
     - `:focus`
     - `:active`
-  - `${colorStyles(props)}`: a function that contains all properties related
+  - `${colorStyles}`: a function that contains all properties related
     to component color, i.e. border-color, background-color, color, box-shadow
     – including any color modifications based on pseudo-class states, in the
     order shown above – all grouped ordering (including psuedos, children,
@@ -63,8 +63,7 @@ ensuring the details live up to expectations.
     property groupings – note that children styled components should contain
     all their CSS properties, when possible
 - The last declaration in any view component is
-  `${retrieveComponentStyles(COMPONENT_ID, props)}` which allows an
-  implementer to leverage the
+  `${componentStyles}` which allows an implementer to leverage the
   [`theme`](https://zendeskgarden.github.io/react-components/theming/)
   "components" object to override specific component styles.
 - The view component `defaultProps` must contain `theme: DEFAULT_THEME` for
