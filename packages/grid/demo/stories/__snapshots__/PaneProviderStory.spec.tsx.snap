@@ -1,0 +1,1263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaneProviderStory Component renders PaneProviderStory with RTL direction 1`] = `
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with columnValues and rowValues 1`] = `
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%; grid-template-rows: 1fr 2fr; grid-template-columns: 1fr 2fr;"
+/>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with custom gridTemplateColumns and gridTemplateRows 1`] = `
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%; grid-template-rows: 1fr 2fr; grid-template-columns: 1fr 2fr;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with custom totalPanesWidth and totalPanesHeight 1`] = `
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 500px; height: 300px;"
+/>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with defaultColumnValues and defaultRowValues 1`] = `
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%; grid-template-rows: 1fr 2fr; grid-template-columns: 1fr 2fr;"
+/>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with multiple panes and splitters 1`] = `
+.c10 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c6 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c6::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c6:focus-visible {
+  text-decoration: none;
+}
+
+.c6:hover {
+  text-decoration: none;
+}
+
+.c6:active,
+.c6[aria-pressed='true'],
+.c6[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c6:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:active,
+.c6[aria-pressed='true'],
+.c6[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c6:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled .c9 {
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c6 .c9 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c7 {
+  border: none;
+  padding: 0;
+  width: 32px;
+  min-width: 32px;
+  color: #5c6970;
+}
+
+.c7:hover {
+  color: #39434b;
+}
+
+.c7:active,
+.c7[aria-pressed='true'],
+.c7[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c7:disabled {
+  background-color: transparent;
+}
+
+.c7 .c9 {
+  width: 16px;
+  height: 16px;
+}
+
+.c7 .c9 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c12 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c12::before,
+.c12::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c12::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c12::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c12::before,
+.c12::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c12[aria-hidden='true'] {
+  display: none;
+}
+
+.c11 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 2;
+}
+
+.c11[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  user-select: none;
+  top: 0;
+  right: -3px;
+  cursor: col-resize;
+  width: 6px;
+  height: 100%;
+}
+
+.c4::before {
+  width: 1px;
+  height: 100%;
+}
+
+.c4:hover::before {
+  width: 2px;
+}
+
+.c4:focus::before,
+.c4:focus-visible::before {
+  width: 2px;
+}
+
+.c4:focus-visible::before {
+  border-radius: 4px;
+}
+
+.c4:focus-visible {
+  z-index: 2;
+}
+
+.c4::before {
+  position: absolute;
+  transition: box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out;
+  z-index: -1;
+  content: '';
+}
+
+.c4::before {
+  background-color: #d8dcde;
+}
+
+.c4:hover::before {
+  background-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c4:active::before {
+  background-color: #0f3655;
+}
+
+.c8 {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+}
+
+.c8 > svg {
+  transform: rotate(90deg);
+}
+
+.c5 {
+  display: none;
+  position: absolute;
+  transition: box-shadow 0.1s ease-in-out,opacity 0.25s ease-in-out 0.1s;
+  opacity: 0;
+  z-index: 2;
+  top: -12px;
+  right: -12px;
+  border-radius: 24px;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+}
+
+.c5:hover,
+.c5:focus-within,
+.c3:hover ~ .c5,
+.c3:focus-visible ~ .c5 {
+  opacity: 1;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+    id=":ra:--primary-pane"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+    <div
+      aria-controls=":ra:--primary-pane"
+      aria-label="vertical splitter"
+      aria-orientation="vertical"
+      aria-valuemax="NaN"
+      aria-valuemin="NaN"
+      aria-valuenow="NaN"
+      class="c3 c4"
+      data-garden-container-id="containers.splitter.separator"
+      data-garden-container-version="2.0.20"
+      data-garden-id="pane.splitter"
+      data-garden-version="9.2.0"
+      role="separator"
+      tabindex="0"
+    />
+  </div>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+    id=":rb:--primary-pane"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 2
+    </div>
+    <div
+      aria-controls=":rb:--primary-pane"
+      aria-label="vertical splitter"
+      aria-orientation="vertical"
+      aria-valuemax="NaN"
+      aria-valuemin="NaN"
+      aria-valuenow="NaN"
+      class="c3 c4"
+      data-garden-container-id="containers.splitter.separator"
+      data-garden-container-version="2.0.20"
+      data-garden-id="pane.splitter"
+      data-garden-version="9.2.0"
+      role="separator"
+      tabindex="0"
+    />
+    <div
+      class="c5"
+    >
+      <button
+        aria-describedby="2val-tooltip_1.0.20"
+        aria-label="Expand"
+        class="c6 c7 c8"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        label="Expand"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="c9  c10"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        aria-hidden="true"
+        class="c11"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          aria-hidden="true"
+          class="c12"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="2val-tooltip_1.0.20"
+          role="tooltip"
+          style="cursor: default;"
+        >
+          Expand
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with onChange handler 1`] = `
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c3 {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  user-select: none;
+  top: 0;
+  right: -3px;
+  cursor: col-resize;
+  width: 6px;
+  height: 100%;
+}
+
+.c3::before {
+  width: 1px;
+  height: 100%;
+}
+
+.c3:hover::before {
+  width: 2px;
+}
+
+.c3:focus::before,
+.c3:focus-visible::before {
+  width: 2px;
+}
+
+.c3:focus-visible::before {
+  border-radius: 4px;
+}
+
+.c3:focus-visible {
+  z-index: 2;
+}
+
+.c3::before {
+  position: absolute;
+  transition: box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out;
+  z-index: -1;
+  content: '';
+}
+
+.c3::before {
+  background-color: #d8dcde;
+}
+
+.c3:hover::before {
+  background-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c3:active::before {
+  background-color: #0f3655;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+    id=":rd:--primary-pane"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+    <div
+      aria-controls=":rd:--primary-pane"
+      aria-label="vertical splitter"
+      aria-orientation="vertical"
+      aria-valuemax="NaN"
+      aria-valuemin="NaN"
+      aria-valuenow="NaN"
+      class="c3"
+      data-garden-container-id="containers.splitter.separator"
+      data-garden-container-version="2.0.20"
+      data-garden-id="pane.splitter"
+      data-garden-version="9.2.0"
+      role="separator"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with panes containing content 1`] = `
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+  </div>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 2
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with panes containing splitters 1`] = `
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c3 {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  user-select: none;
+  top: 0;
+  right: -3px;
+  cursor: col-resize;
+  width: 6px;
+  height: 100%;
+}
+
+.c3::before {
+  width: 1px;
+  height: 100%;
+}
+
+.c3:hover::before {
+  width: 2px;
+}
+
+.c3:focus::before,
+.c3:focus-visible::before {
+  width: 2px;
+}
+
+.c3:focus-visible::before {
+  border-radius: 4px;
+}
+
+.c3:focus-visible {
+  z-index: 2;
+}
+
+.c3::before {
+  position: absolute;
+  transition: box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out;
+  z-index: -1;
+  content: '';
+}
+
+.c3::before {
+  background-color: #d8dcde;
+}
+
+.c3:hover::before {
+  background-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c3:active::before {
+  background-color: #0f3655;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+    id=":r6:--primary-pane"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+    <div
+      aria-controls=":r6:--primary-pane"
+      aria-label="vertical splitter"
+      aria-orientation="vertical"
+      aria-valuemax="NaN"
+      aria-valuemin="NaN"
+      aria-valuenow="NaN"
+      class="c3"
+      data-garden-container-id="containers.splitter.separator"
+      data-garden-container-version="2.0.20"
+      data-garden-id="pane.splitter"
+      data-garden-version="9.2.0"
+      role="separator"
+      tabindex="0"
+    />
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders PaneProviderStory with panes containing splitters and buttons 1`] = `
+.c10 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c6 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c6::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c6:focus-visible {
+  text-decoration: none;
+}
+
+.c6:hover {
+  text-decoration: none;
+}
+
+.c6:active,
+.c6[aria-pressed='true'],
+.c6[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c6:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:active,
+.c6[aria-pressed='true'],
+.c6[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c6:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled .c9 {
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c6 .c9 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+.c7 {
+  border: none;
+  padding: 0;
+  width: 32px;
+  min-width: 32px;
+  color: #5c6970;
+}
+
+.c7:hover {
+  color: #39434b;
+}
+
+.c7:active,
+.c7[aria-pressed='true'],
+.c7[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c7:disabled {
+  background-color: transparent;
+}
+
+.c7 .c9 {
+  width: 16px;
+  height: 16px;
+}
+
+.c7 .c9 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c12 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c12::before,
+.c12::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c12::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c12::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c12::before,
+.c12::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c12[aria-hidden='true'] {
+  display: none;
+}
+
+.c11 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 2;
+}
+
+.c11[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c1 {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+}
+
+.c2 {
+  height: 100%;
+  overflow: auto;
+  color-scheme: only light;
+}
+
+.c2[hidden] {
+  display: none;
+}
+
+.c4 {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  user-select: none;
+  top: 0;
+  right: -3px;
+  cursor: col-resize;
+  width: 6px;
+  height: 100%;
+}
+
+.c4::before {
+  width: 1px;
+  height: 100%;
+}
+
+.c4:hover::before {
+  width: 2px;
+}
+
+.c4:focus::before,
+.c4:focus-visible::before {
+  width: 2px;
+}
+
+.c4:focus-visible::before {
+  border-radius: 4px;
+}
+
+.c4:focus-visible {
+  z-index: 2;
+}
+
+.c4::before {
+  position: absolute;
+  transition: box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out;
+  z-index: -1;
+  content: '';
+}
+
+.c4::before {
+  background-color: #d8dcde;
+}
+
+.c4:hover::before {
+  background-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible::before {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  background-color: #1f73b7;
+}
+
+.c4:active::before {
+  background-color: #0f3655;
+}
+
+.c8 {
+  width: 24px;
+  min-width: 24px;
+  height: 24px;
+}
+
+.c8 > svg {
+  transform: rotate(90deg);
+}
+
+.c5 {
+  display: none;
+  position: absolute;
+  transition: box-shadow 0.1s ease-in-out,opacity 0.25s ease-in-out 0.1s;
+  opacity: 0;
+  z-index: 2;
+  top: -12px;
+  right: -12px;
+  border-radius: 24px;
+  width: 24px;
+  height: 24px;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+}
+
+.c5:hover,
+.c5:focus-within,
+.c3:hover ~ .c5,
+.c3:focus-visible ~ .c5 {
+  opacity: 1;
+}
+
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+>
+  <div
+    class="c1"
+    data-garden-id="pane"
+    data-garden-version="9.2.0"
+    id=":r8:--primary-pane"
+  >
+    <div
+      class="c2"
+      data-garden-id="pane.content"
+      data-garden-version="9.2.0"
+    >
+      Pane 1
+    </div>
+    <div
+      aria-controls=":r8:--primary-pane"
+      aria-label="vertical splitter"
+      aria-orientation="vertical"
+      aria-valuemax="NaN"
+      aria-valuemin="NaN"
+      aria-valuenow="NaN"
+      class="c3 c4"
+      data-garden-container-id="containers.splitter.separator"
+      data-garden-container-version="2.0.20"
+      data-garden-id="pane.splitter"
+      data-garden-version="9.2.0"
+      role="separator"
+      tabindex="0"
+    />
+    <div
+      class="c5"
+    >
+      <button
+        aria-describedby="1val-tooltip_1.0.20"
+        aria-label="Toggle"
+        class="c6 c7 c8"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        label="Toggle"
+        tabindex="0"
+        type="button"
+      >
+        <svg
+          aria-hidden="true"
+          class="c9  c10"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        aria-hidden="true"
+        class="c11"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          aria-hidden="true"
+          class="c12"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="1val-tooltip_1.0.20"
+          role="tooltip"
+          style="cursor: default;"
+        >
+          Toggle
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PaneProviderStory Component renders default PaneProviderStory 1`] = `
+.c0 {
+  display: grid;
+  direction: ltr;
+}
+
+<div
+  class="c0"
+  style="width: 100%; height: 100%;"
+/>
+`;
