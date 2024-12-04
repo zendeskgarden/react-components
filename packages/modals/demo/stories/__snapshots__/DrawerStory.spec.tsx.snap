@@ -1,0 +1,2071 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DrawerStory Component renders DrawerStory with a body 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a body and aria-label for the dialog 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a body and custom footer items 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a close button 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a custom tag for the header 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a footer 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a footer and aria-label for the dialog 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header and aria-label for the dialog 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header and custom footer items 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, and custom footer items 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, and footer 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, footer, and close button 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, footer, and custom close button aria-label 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, footer, and custom dialog aria-label 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, footer, close button, and aria-label for the dialog 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders DrawerStory with a header, body, footer, close button, and custom dialog aria-label 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`DrawerStory Component renders default DrawerStory 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Open
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;

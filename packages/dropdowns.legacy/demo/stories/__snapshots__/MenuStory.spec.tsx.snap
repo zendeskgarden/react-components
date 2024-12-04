@@ -1,0 +1,755 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled and isCompact) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-12-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-12-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-6-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-6-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (isActive) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-9-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-9-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompact and isActive) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-11-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-11-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompact) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-10-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-10-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (isFocused) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-7-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-7-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom itemProps (isHovered) 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-8-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-8-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-3-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-3-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom maxHeight and compact styling 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-4-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-4-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom maxHeight, compact styling, and animated transitions 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-5-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-5-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-2-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-2-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-1-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-1-menu"
+    role="listbox"
+  />
+</div>
+`;
+
+exports[`MenuStory Component renders default MenuStory 1`] = `
+.c1 {
+  position: static!important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.c0 {
+  position: absolute;
+  z-index: 1000;
+  margin-top: 4px;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c0>* {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c0>*:focus {
+  outline: none;
+}
+
+<div
+  class="c0"
+  data-garden-id="dropdowns.menu_wrapper"
+  data-garden-version="9.2.0"
+  style="position: absolute; top: 0px; left: 0px; opacity: 0; pointer-events: none;"
+>
+  <ul
+    aria-labelledby="downshift-0-label"
+    class="c1"
+    data-garden-id="dropdowns.menu"
+    data-garden-version="9.2.0"
+    id="downshift-0-menu"
+    role="listbox"
+  />
+</div>
+`;

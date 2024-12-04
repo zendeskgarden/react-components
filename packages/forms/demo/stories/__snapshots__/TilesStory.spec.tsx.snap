@@ -1,0 +1,2665 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TilesStory Component renders TilesStory with a disabled tile 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <input
+            class="c8"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders TilesStory with centered tiles 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <input
+            class="c8"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders TilesStory with centered tiles and a disabled tile 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <input
+            class="c8"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders TilesStory with centered tiles and description 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c7 {
+  display: block;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c9 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean.
+          </span>
+          <input
+            class="c9"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders TilesStory with centered tiles, description, and a disabled tile 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c7 {
+  display: block;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c9 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean.
+          </span>
+          <input
+            class="c9"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders TilesStory with description 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c7 {
+  display: block;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c9 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean.
+          </span>
+          <input
+            class="c9"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders TilesStory with description and a disabled tile 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c7 {
+  display: block;
+  text-align: center;
+  margin-top: 4px;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c9 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean.
+          </span>
+          <input
+            class="c9"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <span
+            class="c7"
+            data-garden-id="forms.tile_description"
+            data-garden-version="9.2.0"
+          >
+            Veggies es bonus vobis, proinde vos postulo essum magis kohlrabi welsh onion daikon.
+          </span>
+          <input
+            class="c8"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TilesStory Component renders default TilesStory 1`] = `
+.c4 {
+  display: block;
+  position: relative;
+  transition: border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;
+  border-radius: 4px;
+  word-break: break-word;
+  border: 1px solid;
+  padding: 20px;
+  min-width: 132px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:has(:focus-visible) {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4:active {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c4:has(:checked) {
+  border-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c4:hover:has(:checked) {
+  background-color: #13456d;
+}
+
+.c4:active:has(:checked) {
+  background-color: #0f3655;
+}
+
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5 {
+  display: block;
+  transition: color 0.25s ease-in-out;
+  text-align: center;
+  line-height: 0;
+  color: #5c6970;
+}
+
+.c5>* {
+  width: 32px;
+  height: 32px;
+}
+
+.c3:hover .c5.c5 {
+  color: #39434b;
+}
+
+.c3:active .c5.c5 {
+  color: #293239;
+}
+
+.c3:has(:checked) .c5.c5 {
+  color: #fff;
+}
+
+.c3[aria-disabled='true'] .c5.c5 {
+  color: #848f99;
+}
+
+.c7 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+.c8 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 1;
+  margin: 0;
+  cursor: default;
+  width: 100%;
+  height: 100%;
+}
+
+.c6 {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+  margin-top: 8px;
+  line-height: 1.4285714285714286;
+  font-size: 14px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 0;
+  padding-left: 0;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -0;
+  margin-left: -0;
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 25%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+}
+
+<div
+  role="radiogroup"
+>
+  <div
+    class="c0"
+    data-garden-id="grid.grid"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="grid.row"
+      data-garden-version="9.2.0"
+    >
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile one"
+          >
+            Tile one
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="one"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile two"
+          >
+            Tile two
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="two"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="true"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile three"
+          >
+            Tile three
+          </span>
+          <input
+            class="c8"
+            disabled=""
+            type="radio"
+            value="three"
+          />
+        </label>
+      </div>
+      <div
+        class="c2"
+        data-garden-id="grid.col"
+        data-garden-version="9.2.0"
+      >
+        <label
+          aria-disabled="false"
+          class="c3 c4"
+          data-garden-id="forms.tile"
+          data-garden-version="9.2.0"
+          style="margin: 10px;"
+        >
+          <span
+            class="c5"
+            data-garden-id="forms.tile_icon"
+            data-garden-version="9.2.0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+            />
+          </span>
+          <span
+            class="c6"
+            data-garden-id="forms.tile_label"
+            data-garden-version="9.2.0"
+            title="Tile four"
+          >
+            Tile four
+          </span>
+          <input
+            class="c7"
+            type="radio"
+            value="four"
+          />
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,1129 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonStory Component renders SkeletonStory with 2x-large typescale 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 32px;
+  font-size: 26px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with 2x-large typescale, custom background color, and multiple skeletons 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 32px;
+  font-size: 26px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(240, 240, 240); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with 3x-large typescale 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 44px;
+  font-size: 36px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with 3x-large typescale, light mode, and custom background color 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 44px;
+  font-size: 36px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(255,255,255,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(240, 240, 240); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with a custom background color 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(240, 240, 240); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with custom background color and light mode 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(255,255,255,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(240, 240, 240); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with custom background color and multiple skeletons 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(240, 240, 240); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with extra-large typescale 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 28px;
+  font-size: 22px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with extra-large typescale, light mode, and multiple skeletons 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 28px;
+  font-size: 22px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(255,255,255,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(22, 73, 79); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with large typescale 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with large typescale and custom background color 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 24px;
+  font-size: 18px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(240, 240, 240); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with light mode and multiple skeletons 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(255,255,255,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(22, 73, 79); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with light mode enabled 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(255,255,255,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(22, 73, 79); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with medium typescale 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with medium typescale and light mode 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(255,255,255,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(255,255,255,0.16),transparent );
+}
+
+<div
+  style="background-color: rgb(22, 73, 79); padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with multiple skeletons (count = 3) 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with small typescale 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders SkeletonStory with small typescale and multiple skeletons 1`] = `
+.c0 {
+  transition: color 0.1s ease-in-out;
+  line-height: 16px;
+  font-size: 12px;
+  font-weight: 400;
+  direction: ltr;
+}
+
+.c0[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c1 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c1::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+  <div
+    class="c0"
+    data-garden-id="typography.font"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c1"
+      data-garden-id="loaders.skeleton"
+      data-garden-version="9.2.0"
+    >
+       
+    </div>
+  </div>
+</div>
+`;
+
+exports[`SkeletonStory Component renders default SkeletonStory 1`] = `
+.c0 {
+  display: inline-block;
+  position: relative;
+  animation: iYdYjw 750ms linear;
+  border-radius: 4px;
+  background-color: rgba(92,105,112,0.16);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  line-height: 0.6;
+}
+
+.c0::before {
+  position: absolute;
+  top: 0;
+  width: 1000px;
+  height: 100%;
+  content: '';
+  animation: cstNsr 1.5s ease-in-out 300ms infinite;
+  background-image: linear-gradient( 45deg,transparent,rgba(92,105,112,0.16),transparent );
+}
+
+<div
+  style="padding: 20px;"
+>
+  <div
+    class="c0"
+    data-garden-id="loaders.skeleton"
+    data-garden-version="9.2.0"
+  >
+     
+  </div>
+</div>
+`;

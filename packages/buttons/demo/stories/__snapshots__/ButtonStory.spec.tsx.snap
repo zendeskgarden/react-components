@@ -1,0 +1,2850 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonStory Component renders ButtonStory with a rotated end icon 1`] = `
+.c2 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with a rotated start icon 1`] = `
+.c2 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with a start icon 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with an end icon 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with basic styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with both rotated start and end icons 1`] = `
+.c2 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with both start and end icons 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with danger styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with focus inset styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with large size 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.3571428571428572em;
+  height: 48px;
+  line-height: 46px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with link styling 1`] = `
+.c0 {
+  display: inline;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: underline;
+  text-overflow: ellipsis;
+  font-family: inherit;
+  font-weight: inherit;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  -webkit-touch-callout: none;
+  padding: 0;
+  font-size: inherit;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: underline;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: underline;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  color: #1f73b7;
+  outline-color: #1f73b7;
+}
+
+.c0:hover {
+  color: #13456d;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  color: #0f3655;
+}
+
+.c0:disabled {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+  text-decoration: none;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with neutral styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with pill styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with primary styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  background-color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  background-color: #0f3655;
+}
+
+.c0:disabled {
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with small size 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and danger styling 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and focus inset styling 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and large size 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.3571428571428572em;
+  height: 48px;
+  line-height: 46px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and pill styling 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and primary styling 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  background-color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  background-color: #0f3655;
+}
+
+.c0:disabled {
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and small size 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 0.9166666666666666em;
+  height: 32px;
+  line-height: 30px;
+  font-size: 12px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 12px;
+  min-width: 12px;
+  height: 12px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, and stretched styling 1`] = `
+.c2 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, rotated icons, and danger styling 1`] = `
+.c2 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #cd3642;
+  background-color: transparent;
+  color: #cd3642;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #7e1d25;
+  background-color: rgba(205,54,66,0.08);
+  color: #7e1d25;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #671219;
+  background-color: rgba(205,54,66,0.16);
+  color: #671219;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled .c1 {
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with start icon, end icon, rotated icons, and primary styling 1`] = `
+.c2 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-right: 8px;
+}
+
+.c3 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: #1f73b7;
+  color: #fff;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  background-color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  background-color: #0f3655;
+}
+
+.c0:disabled {
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+.c0 .c1 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  <svg
+    class="c1 c2"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+  Button
+  <svg
+    class="c1 c3"
+    data-garden-id="buttons.icon"
+    data-garden-version="9.2.0"
+    xmlns="http://www.w3.org/2000/svg"
+  />
+</button>
+`;
+
+exports[`ButtonStory Component renders ButtonStory with stretched styling 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;
+
+exports[`ButtonStory Component renders default ButtonStory 1`] = `
+.c0 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #1f73b7;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c0::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c0:focus-visible {
+  text-decoration: none;
+}
+
+.c0:hover {
+  text-decoration: none;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c0:hover {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c0:focus {
+  outline: none;
+}
+
+.c0:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0:active,
+.c0[aria-pressed='true'],
+.c0[aria-pressed='mixed'] {
+  border-color: #0f3655;
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c0:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c0:disabled {
+  cursor: default;
+}
+
+<button
+  class="c0"
+  data-garden-id="buttons.button"
+  data-garden-version="9.2.0"
+  type="button"
+>
+  Button
+</button>
+`;

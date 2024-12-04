@@ -1,0 +1,2333 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with all custom props and isVisible 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(-135deg);
+  top: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 3000;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="tooltip-all-props"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="tooltip-all-props"
+          maxwidth="350px"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="1val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="1val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and  1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="3val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="3val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and a custom id 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="custom-tooltip-id"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="custom-tooltip-id"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and a custom maxWidth 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="8val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="8val-tooltip_1.0.20"
+          maxwidth="300px"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and hasArrow 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="5val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="5val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and isAnimated 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="6val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="6val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and placement 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="2val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="2val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible and zIndex 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1000;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="4val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="4val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible, and zIndex 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1500;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="9val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="9val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible, hasArrow, and placement 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(-45deg);
+  top: 50%;
+  right: -4.94px;
+  margin-top: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="10val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="10val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible, isAnimated, and placement 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(-135deg);
+  top: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="11val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="11val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible, placement, and zIndex 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(135deg);
+  top: 50%;
+  bottom: 10.49px;
+  left: -4.94px;
+  margin-top: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+  z-index: 1500;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="12val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="12val-tooltip_1.0.20"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isVisible, placement, isAnimated, and maxWidth 1`] = `
+.c6 {
+  margin: 0;
+}
+
+.c5 {
+  display: none;
+  margin: 0;
+  font-weight: 600;
+}
+
+.c4 {
+  display: inline-block;
+  border: 1px solid;
+  box-sizing: border-box;
+  text-align: left;
+  font-weight: 400;
+  margin: 6px;
+  border-radius: 2px;
+  padding: 0 1em;
+  line-height: 1.6666666666666667;
+  white-space: nowrap;
+  font-size: 12px;
+  position: relative;
+  border-color: #293239;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #293239;
+  color: #fff;
+}
+
+.c4::before,
+.c4::after {
+  position: absolute;
+  border-width: inherit;
+  border-style: inherit;
+  background-color: inherit;
+  width: 10.49px;
+  height: 10.49px;
+  content: '';
+  box-sizing: inherit;
+}
+
+.c4::before {
+  border-color: inherit;
+  clip-path: polygon(100% 2px,2px 100%,100% 100%);
+}
+
+.c4::after {
+  border-color: transparent;
+  background-clip: content-box;
+  clip-path: polygon(100% 0px,0px 100%,100% 100%);
+}
+
+.c4::before,
+.c4::after {
+  transform: rotate(45deg);
+  bottom: -4.94px;
+  left: 50%;
+  margin-left: -5.245px;
+}
+
+.c4[aria-hidden='true'] {
+  display: none;
+}
+
+.c3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 10ms;
+  opacity: 1;
+}
+
+.c3[aria-hidden='true'] {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <span
+        aria-describedby="13val-tooltip_1.0.20"
+        data-garden-container-id="containers.tooltip"
+        data-garden-container-version="1.0.20"
+        style="background-color: rgb(248, 249, 249); padding: 1em;"
+        tabindex="0"
+      >
+        Target
+      </span>
+      <div
+        aria-hidden="false"
+        class="c3"
+      >
+        <div
+          aria-hidden="false"
+          class="c4"
+          data-garden-id="tooltip.tooltip"
+          data-garden-version="9.2.0"
+          id="13val-tooltip_1.0.20"
+          maxwidth="250px"
+          role="tooltip"
+        >
+          <strong
+            class="c5"
+            data-garden-id="tooltip.title"
+            data-garden-version="9.2.0"
+          >
+            Tooltip Title
+          </strong>
+          <p
+            class="c6"
+            data-garden-id="tooltip.paragraph"
+            data-garden-version="9.2.0"
+          >
+            This is a tooltip paragraph.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
