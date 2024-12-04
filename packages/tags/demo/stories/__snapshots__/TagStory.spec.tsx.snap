@@ -53,7 +53,7 @@ exports[`TagStory Component renders TagStory with a close button 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -94,10 +94,10 @@ exports[`TagStory Component renders TagStory with a close button 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -194,7 +194,7 @@ exports[`TagStory Component renders TagStory with a close button and aria-label 
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -235,10 +235,10 @@ exports[`TagStory Component renders TagStory with a close button and aria-label 
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -307,7 +307,7 @@ exports[`TagStory Component renders TagStory with a custom hue 1`] = `
   color: #151a1e;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -341,10 +341,10 @@ exports[`TagStory Component renders TagStory with a custom hue 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -389,7 +389,7 @@ exports[`TagStory Component renders TagStory with a large size 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -423,10 +423,10 @@ exports[`TagStory Component renders TagStory with a large size 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -471,7 +471,7 @@ exports[`TagStory Component renders TagStory with a small size 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -505,10 +505,10 @@ exports[`TagStory Component renders TagStory with a small size 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -558,7 +558,7 @@ exports[`TagStory Component renders TagStory with an avatar 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -601,10 +601,10 @@ exports[`TagStory Component renders TagStory with an avatar 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -622,7 +622,7 @@ exports[`TagStory Component renders TagStory with an avatar 1`] = `
 >
   <img
     alt=""
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="tags.avatar"
     data-garden-version="9.2.0"
     src="images/avatars/system.png"
@@ -689,7 +689,7 @@ exports[`TagStory Component renders TagStory with an avatar and close button 1`]
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -739,10 +739,10 @@ exports[`TagStory Component renders TagStory with an avatar and close button 1`]
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -761,7 +761,7 @@ exports[`TagStory Component renders TagStory with an avatar and close button 1`]
 >
   <img
     alt=""
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="tags.avatar"
     data-garden-version="9.2.0"
     src="images/avatars/system.png"
@@ -818,7 +818,7 @@ exports[`TagStory Component renders TagStory with pill styling 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 14px;
 }
@@ -852,10 +852,10 @@ exports[`TagStory Component renders TagStory with pill styling 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -905,7 +905,7 @@ exports[`TagStory Component renders TagStory with pill styling and an avatar 1`]
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 14px;
 }
@@ -948,10 +948,10 @@ exports[`TagStory Component renders TagStory with pill styling and an avatar 1`]
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -969,7 +969,7 @@ exports[`TagStory Component renders TagStory with pill styling and an avatar 1`]
 >
   <img
     alt=""
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="tags.avatar"
     data-garden-version="9.2.0"
     src="images/avatars/user.png"
@@ -1036,7 +1036,7 @@ exports[`TagStory Component renders TagStory with pill styling, an avatar, a clo
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 14px;
 }
@@ -1086,10 +1086,10 @@ exports[`TagStory Component renders TagStory with pill styling, an avatar, a clo
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1108,7 +1108,7 @@ exports[`TagStory Component renders TagStory with pill styling, an avatar, a clo
 >
   <img
     alt=""
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="tags.avatar"
     data-garden-version="9.2.0"
     src="images/avatars/user.png"
@@ -1198,7 +1198,7 @@ exports[`TagStory Component renders TagStory with pill styling, an avatar, and a
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 14px;
 }
@@ -1248,10 +1248,10 @@ exports[`TagStory Component renders TagStory with pill styling, an avatar, and a
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1270,7 +1270,7 @@ exports[`TagStory Component renders TagStory with pill styling, an avatar, and a
 >
   <img
     alt=""
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="tags.avatar"
     data-garden-version="9.2.0"
     src="images/avatars/user.png"
@@ -1326,7 +1326,7 @@ exports[`TagStory Component renders TagStory with regular font weight 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -1360,10 +1360,10 @@ exports[`TagStory Component renders TagStory with regular font weight 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1407,7 +1407,7 @@ exports[`TagStory Component renders TagStory with regular font weight and a cust
   color: #151a1e;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -1441,10 +1441,10 @@ exports[`TagStory Component renders TagStory with regular font weight and a cust
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1488,7 +1488,7 @@ exports[`TagStory Component renders TagStory with regular font weight, a custom 
   color: #151a1e;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 24px;
 }
@@ -1522,10 +1522,10 @@ exports[`TagStory Component renders TagStory with regular font weight, a custom 
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1569,7 +1569,7 @@ exports[`TagStory Component renders TagStory with regular font weight, a custom 
   color: #fff;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -1603,10 +1603,10 @@ exports[`TagStory Component renders TagStory with regular font weight, a custom 
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1652,7 +1652,7 @@ exports[`TagStory Component renders TagStory with round styling 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 20px;
 }
@@ -1686,10 +1686,10 @@ exports[`TagStory Component renders TagStory with round styling 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1763,7 +1763,7 @@ exports[`TagStory Component renders TagStory with round styling and a close butt
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 20px;
 }
@@ -1804,10 +1804,10 @@ exports[`TagStory Component renders TagStory with round styling and a close butt
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -1909,7 +1909,7 @@ exports[`TagStory Component renders TagStory with round styling, a close button,
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 20px;
 }
@@ -1950,10 +1950,10 @@ exports[`TagStory Component renders TagStory with round styling, a close button,
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -2055,7 +2055,7 @@ exports[`TagStory Component renders TagStory with round styling, a close button,
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 16px;
 }
@@ -2096,10 +2096,10 @@ exports[`TagStory Component renders TagStory with round styling, a close button,
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -2172,7 +2172,7 @@ exports[`TagStory Component renders default TagStory 1`] = `
   color: #293239;
 }
 
-.c0 > * {
+.c0>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -2206,10 +2206,10 @@ exports[`TagStory Component renders default TagStory 1`] = `
 .c0:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c0 > * {
+.c0>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;

@@ -68,7 +68,7 @@ exports[`DrawerStory Component renders DrawerStory with a body 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -107,7 +107,7 @@ exports[`DrawerStory Component renders DrawerStory with a body 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -183,7 +183,7 @@ exports[`DrawerStory Component renders DrawerStory with a body and aria-label fo
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -222,7 +222,7 @@ exports[`DrawerStory Component renders DrawerStory with a body and aria-label fo
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -298,7 +298,7 @@ exports[`DrawerStory Component renders DrawerStory with a body and custom footer
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -337,7 +337,7 @@ exports[`DrawerStory Component renders DrawerStory with a body and custom footer
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -413,7 +413,7 @@ exports[`DrawerStory Component renders DrawerStory with a close button 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -452,7 +452,7 @@ exports[`DrawerStory Component renders DrawerStory with a close button 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -528,7 +528,7 @@ exports[`DrawerStory Component renders DrawerStory with a custom tag for the hea
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -567,7 +567,7 @@ exports[`DrawerStory Component renders DrawerStory with a custom tag for the hea
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -643,7 +643,7 @@ exports[`DrawerStory Component renders DrawerStory with a footer 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -682,7 +682,7 @@ exports[`DrawerStory Component renders DrawerStory with a footer 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -758,7 +758,7 @@ exports[`DrawerStory Component renders DrawerStory with a footer and aria-label 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -797,7 +797,7 @@ exports[`DrawerStory Component renders DrawerStory with a footer and aria-label 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -873,7 +873,7 @@ exports[`DrawerStory Component renders DrawerStory with a header 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -912,7 +912,7 @@ exports[`DrawerStory Component renders DrawerStory with a header 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -988,7 +988,7 @@ exports[`DrawerStory Component renders DrawerStory with a header and aria-label 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1027,7 +1027,7 @@ exports[`DrawerStory Component renders DrawerStory with a header and aria-label 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1103,7 +1103,7 @@ exports[`DrawerStory Component renders DrawerStory with a header and custom foot
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1142,7 +1142,7 @@ exports[`DrawerStory Component renders DrawerStory with a header and custom foot
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1218,7 +1218,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, and cust
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1257,7 +1257,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, and cust
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1333,7 +1333,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, and foot
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1372,7 +1372,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, and foot
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1448,7 +1448,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1487,7 +1487,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1563,7 +1563,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1602,7 +1602,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1678,7 +1678,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1717,7 +1717,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1793,7 +1793,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1832,7 +1832,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1908,7 +1908,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1947,7 +1947,7 @@ exports[`DrawerStory Component renders DrawerStory with a header, body, footer, 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2023,7 +2023,7 @@ exports[`DrawerStory Component renders default DrawerStory 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2062,7 +2062,7 @@ exports[`DrawerStory Component renders default DrawerStory 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"

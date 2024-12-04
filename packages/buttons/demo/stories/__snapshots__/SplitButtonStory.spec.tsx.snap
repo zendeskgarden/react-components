@@ -75,7 +75,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with a rotated chev
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -164,7 +164,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with a rotated chev
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -189,7 +189,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with a rotated chev
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -281,7 +281,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with aria-label 1`]
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -370,7 +370,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with aria-label 1`]
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -396,7 +396,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with aria-label 1`]
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -486,7 +486,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -524,7 +524,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
 
 .c0 .c2.c2:focus-visible {
   border-color: #1f73b7;
-  box-shadow: inset 0 0 0 1px #1f73b7, inset 0 0 0 3px transparent;
+  box-shadow: inset 0 0 0 1px #1f73b7,inset 0 0 0 3px transparent;
 }
 
 .c0 .c2.c2:hover,
@@ -587,7 +587,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -612,7 +612,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -703,7 +703,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -741,7 +741,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
 
 .c0 .c2.c2:focus-visible {
   border-color: #1f73b7;
-  box-shadow: inset 0 0 0 1px #1f73b7, inset 0 0 0 3px transparent;
+  box-shadow: inset 0 0 0 1px #1f73b7,inset 0 0 0 3px transparent;
 }
 
 .c0 .c2.c2:hover,
@@ -804,7 +804,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -829,7 +829,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with basic styling 
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -921,7 +921,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -1010,7 +1010,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1035,7 +1035,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -1128,7 +1128,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -1217,7 +1217,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1242,7 +1242,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with danger styling
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -1334,7 +1334,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -1423,7 +1423,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1448,7 +1448,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -1541,7 +1541,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -1630,7 +1630,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1655,7 +1655,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with focus inset st
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -1747,7 +1747,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size 1`]
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -1836,7 +1836,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size 1`]
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1861,7 +1861,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size 1`]
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -1954,7 +1954,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size and
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -2043,7 +2043,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size and
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2068,7 +2068,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with large size and
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -2159,7 +2159,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2261,7 +2261,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2286,7 +2286,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -2378,7 +2378,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2480,7 +2480,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2505,7 +2505,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with neutral stylin
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -2597,7 +2597,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling 1
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -2694,7 +2694,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling 1
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2719,7 +2719,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling 1
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -2812,7 +2812,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling a
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -2909,7 +2909,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling a
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2934,7 +2934,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with pill styling a
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -3023,7 +3023,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
 .c2:focus-visible {
   outline: 0px solid transparent;
   outline-offset: 2px;
-  box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 2px #1f73b7;
+  box-shadow: inset 0 0 0 2px #fff,inset 0 0 0 2px #1f73b7;
 }
 
 .c2:active,
@@ -3100,7 +3100,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3125,7 +3125,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -3215,7 +3215,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
 .c2:focus-visible {
   outline: 0px solid transparent;
   outline-offset: 2px;
-  box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 2px #1f73b7;
+  box-shadow: inset 0 0 0 2px #fff,inset 0 0 0 2px #1f73b7;
 }
 
 .c2:active,
@@ -3292,7 +3292,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3317,7 +3317,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with primary stylin
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -3409,7 +3409,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size 1`]
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -3498,7 +3498,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size 1`]
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3523,7 +3523,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size 1`]
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -3616,7 +3616,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size and
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -3705,7 +3705,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size and
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3730,7 +3730,7 @@ exports[`SplitButtonStory Component renders SplitButtonStory with small size and
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"
@@ -3822,7 +3822,7 @@ exports[`SplitButtonStory Component renders default SplitButtonStory 1`] = `
 .c2:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 .c2:active,
@@ -3911,7 +3911,7 @@ exports[`SplitButtonStory Component renders default SplitButtonStory 1`] = `
   height: 16px;
 }
 
-.c3 .c4 > svg {
+.c3 .c4>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3936,7 +3936,7 @@ exports[`SplitButtonStory Component renders default SplitButtonStory 1`] = `
   >
     <svg
       aria-hidden="true"
-      class="c4  c5"
+      class="c4 c5"
       data-garden-id="buttons.icon"
       data-garden-version="9.2.0"
       focusable="false"

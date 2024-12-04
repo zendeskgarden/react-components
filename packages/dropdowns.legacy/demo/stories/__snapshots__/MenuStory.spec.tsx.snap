@@ -2,7 +2,7 @@
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled and isCompact) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -18,7 +18,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -37,7 +37,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -60,7 +60,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -76,7 +76,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -95,7 +95,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -118,7 +118,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (disabled
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (isActive) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -134,7 +134,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isActive
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -153,7 +153,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isActive
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -176,7 +176,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isActive
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompact and isActive) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -192,7 +192,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -211,7 +211,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -234,7 +234,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompact) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -250,7 +250,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -269,7 +269,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -292,7 +292,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isCompac
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (isFocused) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -308,7 +308,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isFocuse
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -327,7 +327,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isFocuse
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -350,7 +350,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isFocuse
 
 exports[`MenuStory Component renders MenuStory with a custom itemProps (isHovered) 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -366,7 +366,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isHovere
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -385,7 +385,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isHovere
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -408,7 +408,7 @@ exports[`MenuStory Component renders MenuStory with a custom itemProps (isHovere
 
 exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 200px;
   overflow-y: auto;
 }
@@ -424,7 +424,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -443,7 +443,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -466,7 +466,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
 
 exports[`MenuStory Component renders MenuStory with a custom maxHeight and compact styling 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 200px;
   overflow-y: auto;
 }
@@ -482,7 +482,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight and compa
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -501,7 +501,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight and compa
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -524,7 +524,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight and compa
 
 exports[`MenuStory Component renders MenuStory with a custom maxHeight, compact styling, and animated transitions 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 200px;
   overflow-y: auto;
 }
@@ -540,7 +540,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight, compact 
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -559,7 +559,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight, compact 
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -582,7 +582,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight, compact 
 
 exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -598,7 +598,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -617,7 +617,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -640,7 +640,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
 
 exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -656,7 +656,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -675,7 +675,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 
@@ -698,7 +698,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
 
 exports[`MenuStory Component renders default MenuStory 1`] = `
 .c1 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -714,7 +714,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
   opacity: 0;
 }
 
-.c0 > * {
+.c0>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -733,7 +733,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
   color: #293239;
 }
 
-.c0 > *:focus {
+.c0>*:focus {
   outline: none;
 }
 

@@ -65,7 +65,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -122,7 +122,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -169,17 +169,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -192,7 +192,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -206,29 +206,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -238,34 +237,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -293,7 +264,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`]
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -376,7 +347,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -433,7 +404,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -480,17 +451,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -503,7 +474,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -517,29 +488,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -549,34 +519,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -604,7 +546,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a close bu
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -687,7 +629,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -744,7 +686,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -791,17 +733,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -814,7 +756,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -828,29 +770,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -860,34 +801,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -915,7 +828,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -998,7 +911,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1055,7 +968,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1102,17 +1015,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -1125,7 +1038,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -1139,29 +1052,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -1171,34 +1083,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1226,7 +1110,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom p
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -1309,7 +1193,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1366,7 +1250,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1413,17 +1297,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -1436,7 +1320,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -1450,29 +1334,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -1482,34 +1365,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1537,7 +1392,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom t
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -1620,7 +1475,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1677,7 +1532,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1724,17 +1579,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -1747,7 +1602,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -1761,29 +1616,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -1793,34 +1647,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1848,7 +1674,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom z
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -1931,7 +1757,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1988,7 +1814,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2035,17 +1861,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -2058,7 +1884,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -2072,29 +1898,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -2104,34 +1929,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2159,7 +1956,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -2242,7 +2039,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -2299,7 +2096,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2346,17 +2143,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -2369,7 +2166,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -2383,29 +2180,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -2415,34 +2211,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2470,7 +2238,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -2553,7 +2321,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -2610,7 +2378,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2657,17 +2425,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -2680,7 +2448,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -2694,29 +2462,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -2726,34 +2493,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2781,7 +2520,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -2864,7 +2603,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -2921,7 +2660,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2968,17 +2707,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -2991,7 +2730,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -3005,29 +2744,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -3037,34 +2775,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3092,7 +2802,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -3175,7 +2885,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -3232,7 +2942,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3279,17 +2989,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -3302,7 +3012,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -3316,29 +3026,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -3348,34 +3057,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3403,7 +3084,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -3486,7 +3167,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -3543,7 +3224,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3590,17 +3271,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -3613,7 +3294,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -3627,29 +3308,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -3659,34 +3339,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3714,7 +3366,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -3797,7 +3449,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -3854,7 +3506,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3901,17 +3553,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -3924,7 +3576,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -3938,29 +3590,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -3970,34 +3621,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4025,7 +3648,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -4108,7 +3731,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -4165,7 +3788,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -4212,17 +3835,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -4235,7 +3858,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -4249,29 +3872,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -4281,34 +3903,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4336,7 +3930,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -4419,7 +4013,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -4476,7 +4070,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -4523,17 +4117,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -4546,7 +4140,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -4560,29 +4154,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -4592,34 +4185,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4647,7 +4212,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, b
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -4730,7 +4295,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -4787,7 +4352,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -4834,17 +4399,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -4857,7 +4422,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -4871,29 +4436,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -4903,34 +4467,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4958,7 +4494,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5041,7 +4577,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -5098,7 +4634,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -5145,17 +4681,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -5168,7 +4704,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -5182,29 +4718,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -5214,34 +4749,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5269,7 +4776,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5297,7 +4804,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5325,7 +4832,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5408,7 +4915,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -5465,7 +4972,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -5512,17 +5019,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -5535,7 +5042,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -5549,29 +5056,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -5581,34 +5087,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5636,7 +5114,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5664,7 +5142,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5692,7 +5170,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -5775,7 +5253,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -5832,7 +5310,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -5879,17 +5357,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -5902,7 +5380,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -5916,29 +5394,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -5948,34 +5425,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6003,7 +5452,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6031,7 +5480,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6059,7 +5508,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6142,7 +5591,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -6199,7 +5648,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -6246,17 +5695,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -6269,7 +5718,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -6283,29 +5732,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -6315,34 +5763,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6370,7 +5790,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6398,7 +5818,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6426,7 +5846,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6509,7 +5929,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -6566,7 +5986,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -6613,17 +6033,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -6636,7 +6056,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -6650,29 +6070,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -6682,34 +6101,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6737,7 +6128,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6765,7 +6156,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6793,7 +6184,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -6876,7 +6267,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -6933,7 +6324,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -6980,17 +6371,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -7003,7 +6394,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -7017,29 +6408,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -7049,34 +6439,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7104,7 +6466,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7132,7 +6494,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7160,7 +6522,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7243,7 +6605,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -7300,7 +6662,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -7347,17 +6709,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -7370,7 +6732,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -7384,29 +6746,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -7416,34 +6777,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7471,7 +6804,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7499,7 +6832,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7527,7 +6860,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7610,7 +6943,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -7667,7 +7000,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -7714,17 +7047,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -7737,7 +7070,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -7751,29 +7084,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -7783,34 +7115,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7838,7 +7142,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7866,7 +7170,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7894,7 +7198,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -7977,7 +7281,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -8034,7 +7338,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -8081,17 +7385,17 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -8104,7 +7408,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -8118,29 +7422,28 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -8150,34 +7453,6 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -8205,7 +7480,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -8233,7 +7508,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -8261,7 +7536,7 @@ exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple a
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >
@@ -8344,7 +7619,7 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -8401,7 +7676,7 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
   height: 16px;
 }
 
-.c4 .c6 > svg {
+.c4 .c6>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -8448,17 +7723,17 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
   vertical-align: middle;
   box-sizing: border-box;
   border-radius: 50%;
-  width: 40px !important;
-  height: 40px !important;
+  width: 40px!important;
+  height: 40px!important;
   box-shadow: 0 0 0 2px transparent;
   background-color: transparent;
 }
 
-.c5::before {
+.c5 ::before {
   box-shadow: inset 0 0 0 2px;
 }
 
-.c5 > svg {
+.c5>svg {
   font-size: 16px;
 }
 
@@ -8471,7 +7746,7 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
   color: transparent;
 }
 
-.c5 > svg,
+.c5>svg,
 .c5 .c8 {
   color: #293239;
 }
@@ -8485,29 +7760,28 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
 }
 
 .c5::before,
-.c5.c5 > img {
+.c5.c5>img {
   border-radius: inherit;
   width: 100%;
   height: 100%;
 }
 
-.c5.c5 > img {
+.c5.c5>img {
   box-sizing: inherit;
   vertical-align: bottom;
   object-fit: cover;
 }
 
-.c5.c5 > svg {
+.c5.c5>svg {
   width: 1em;
   height: 1em;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
+.c5>.StyledStatusIndicator-sc-16t9if3-0 {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  transition: all 0.25s ease-in-out;
 }
 
 @media (min-width:768px) {
@@ -8517,34 +7791,6 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
     flex-shrink: 0;
     max-width: 33.33333333333333%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -8572,7 +7818,7 @@ exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
         <figure
           aria-atomic="true"
           aria-live="polite"
-          class="c5 c6  c7"
+          class="c5 c6 c7"
           data-garden-id="avatars.avatar"
           data-garden-version="9.2.0"
         >

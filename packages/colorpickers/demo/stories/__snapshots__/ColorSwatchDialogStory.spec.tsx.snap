@@ -68,7 +68,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -238,7 +238,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color-scheme: only light;
 }
 
-.c9 > * {
+.c9>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -257,11 +257,11 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color: #293239;
 }
 
-.c9 > *:focus {
+.c9>*:focus {
   outline: none;
 }
 
-.c9.is-animated > * {
+.c9.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -270,7 +270,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   width: 400px;
 }
 
-.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0)>:first-child {
   padding-right: 32px;
 }
 
@@ -291,8 +291,8 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -305,7 +305,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c11 {
-  width: auto !important;
+  width: auto!important;
 }
 
 .c13 {
@@ -341,27 +341,27 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c16:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c23 {
+.c22 {
   position: relative;
   top: 0;
   border-radius: 4px;
   color: #fff;
 }
 
-.c23:focus {
+.c22:focus {
   outline: none;
 }
 
-.c23:has(:focus-visible) {
+.c22:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22 {
+.c21 {
   position: absolute;
   top: 0;
   left: 0;
@@ -371,53 +371,13 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   height: 100%;
 }
 
-.c17:checked ~ .c21 {
+.c17:checked~.c21 {
   opacity: 1;
 }
 
 .c15 {
   padding: 4px;
   font-size: 0;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -450,7 +410,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -479,7 +439,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
           <div
             aria-label="Color swatch"
             aria-modal="true"
-            class="c10 c11 is-animated"
+            class="c10 is-animated c11"
             data-garden-container-id="containers.focusjail"
             data-garden-container-version="2.0.19"
             data-garden-id="modals.tooltip_dialog"
@@ -545,7 +505,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -609,7 +569,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -638,7 +598,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                       role="gridcell"
                     >
                       <label
-                        class="c5 c23"
+                        class="c5 c22"
                         data-garden-id="colorpickers.color_swatch_label"
                         data-garden-version="9.2.0"
                         data-test-id="dialog-preview"
@@ -675,7 +635,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -739,7 +699,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -839,7 +799,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1009,7 +969,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color-scheme: only light;
 }
 
-.c9 > * {
+.c9>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1028,11 +988,11 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color: #293239;
 }
 
-.c9 > *:focus {
+.c9>*:focus {
   outline: none;
 }
 
-.c9.is-animated > * {
+.c9.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -1041,7 +1001,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   width: 400px;
 }
 
-.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0)>:first-child {
   padding-right: 32px;
 }
 
@@ -1062,8 +1022,8 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -1076,7 +1036,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c11 {
-  width: auto !important;
+  width: auto!important;
 }
 
 .c13 {
@@ -1112,27 +1072,27 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c16:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c23 {
+.c22 {
   position: relative;
   top: 0;
   border-radius: 4px;
   color: #fff;
 }
 
-.c23:focus {
+.c22:focus {
   outline: none;
 }
 
-.c23:has(:focus-visible) {
+.c22:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22 {
+.c21 {
   position: absolute;
   top: 0;
   left: 0;
@@ -1142,53 +1102,13 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   height: 100%;
 }
 
-.c17:checked ~ .c21 {
+.c17:checked~.c21 {
   opacity: 1;
 }
 
 .c15 {
   padding: 4px;
   font-size: 0;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1222,7 +1142,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -1251,7 +1171,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
           <div
             aria-label="Color swatch"
             aria-modal="true"
-            class="c10 c11 is-animated"
+            class="c10 is-animated c11"
             data-garden-container-id="containers.focusjail"
             data-garden-container-version="2.0.19"
             data-garden-id="modals.tooltip_dialog"
@@ -1317,7 +1237,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -1382,7 +1302,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -1411,7 +1331,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                       role="gridcell"
                     >
                       <label
-                        class="c5 c23"
+                        class="c5 c22"
                         data-garden-id="colorpickers.color_swatch_label"
                         data-garden-version="9.2.0"
                         data-test-id="dialog-preview"
@@ -1448,7 +1368,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -1512,7 +1432,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -1612,7 +1532,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1782,7 +1702,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color-scheme: only light;
 }
 
-.c9 > * {
+.c9>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1801,11 +1721,11 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color: #293239;
 }
 
-.c9 > *:focus {
+.c9>*:focus {
   outline: none;
 }
 
-.c9.is-animated > * {
+.c9.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -1814,7 +1734,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   width: 400px;
 }
 
-.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0)>:first-child {
   padding-right: 32px;
 }
 
@@ -1835,8 +1755,8 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -1849,7 +1769,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c11 {
-  width: auto !important;
+  width: auto!important;
 }
 
 .c13 {
@@ -1885,27 +1805,27 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c16:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c23 {
+.c22 {
   position: relative;
   top: 0;
   border-radius: 4px;
   color: #fff;
 }
 
-.c23:focus {
+.c22:focus {
   outline: none;
 }
 
-.c23:has(:focus-visible) {
+.c22:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22 {
+.c21 {
   position: absolute;
   top: 0;
   left: 0;
@@ -1915,53 +1835,13 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   height: 100%;
 }
 
-.c17:checked ~ .c21 {
+.c17:checked~.c21 {
   opacity: 1;
 }
 
 .c15 {
   padding: 4px;
   font-size: 0;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1994,7 +1874,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -2023,7 +1903,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
           <div
             aria-label="Color swatch"
             aria-modal="true"
-            class="c10 c11 is-animated"
+            class="c10 is-animated c11"
             data-garden-container-id="containers.focusjail"
             data-garden-container-version="2.0.19"
             data-garden-id="modals.tooltip_dialog"
@@ -2089,7 +1969,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -2154,7 +2034,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -2183,7 +2063,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                       role="gridcell"
                     >
                       <label
-                        class="c5 c23"
+                        class="c5 c22"
                         data-garden-id="colorpickers.color_swatch_label"
                         data-garden-version="9.2.0"
                         data-test-id="dialog-preview"
@@ -2220,7 +2100,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -2284,7 +2164,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -2384,7 +2264,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2554,7 +2434,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color-scheme: only light;
 }
 
-.c9 > * {
+.c9>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -2573,11 +2453,11 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color: #293239;
 }
 
-.c9 > *:focus {
+.c9>*:focus {
   outline: none;
 }
 
-.c9.is-animated > * {
+.c9.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -2586,7 +2466,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   width: 400px;
 }
 
-.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0)>:first-child {
   padding-right: 32px;
 }
 
@@ -2607,8 +2487,8 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -2621,7 +2501,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c11 {
-  width: auto !important;
+  width: auto!important;
 }
 
 .c13 {
@@ -2657,27 +2537,27 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c16:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c23 {
+.c22 {
   position: relative;
   top: 0;
   border-radius: 4px;
   color: #fff;
 }
 
-.c23:focus {
+.c22:focus {
   outline: none;
 }
 
-.c23:has(:focus-visible) {
+.c22:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22 {
+.c21 {
   position: absolute;
   top: 0;
   left: 0;
@@ -2687,53 +2567,13 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   height: 100%;
 }
 
-.c17:checked ~ .c21 {
+.c17:checked~.c21 {
   opacity: 1;
 }
 
 .c15 {
   padding: 4px;
   font-size: 0;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2766,7 +2606,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -2795,7 +2635,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
           <div
             aria-label="Color swatch"
             aria-modal="true"
-            class="c10 c11 is-animated"
+            class="c10 is-animated c11"
             data-garden-container-id="containers.focusjail"
             data-garden-container-version="2.0.19"
             data-garden-id="modals.tooltip_dialog"
@@ -2861,7 +2701,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -2925,7 +2765,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -2954,7 +2794,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                       role="gridcell"
                     >
                       <label
-                        class="c5 c23"
+                        class="c5 c22"
                         data-garden-id="colorpickers.color_swatch_label"
                         data-garden-version="9.2.0"
                         data-test-id="dialog-preview"
@@ -2991,7 +2831,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -3055,7 +2895,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -3155,7 +2995,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3325,7 +3165,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color-scheme: only light;
 }
 
-.c9 > * {
+.c9>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -3344,11 +3184,11 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   color: #293239;
 }
 
-.c9 > *:focus {
+.c9>*:focus {
   outline: none;
 }
 
-.c9.is-animated > * {
+.c9.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -3357,7 +3197,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   width: 400px;
 }
 
-.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0)>:first-child {
   padding-right: 32px;
 }
 
@@ -3378,8 +3218,8 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -3392,7 +3232,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 }
 
 .c11 {
-  width: auto !important;
+  width: auto!important;
 }
 
 .c13 {
@@ -3428,27 +3268,27 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
 .c16:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c23 {
+.c22 {
   position: relative;
   top: 0;
   border-radius: 4px;
   color: #fff;
 }
 
-.c23:focus {
+.c22:focus {
   outline: none;
 }
 
-.c23:has(:focus-visible) {
+.c22:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22 {
+.c21 {
   position: absolute;
   top: 0;
   left: 0;
@@ -3458,53 +3298,13 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
   height: 100%;
 }
 
-.c17:checked ~ .c21 {
+.c17:checked~.c21 {
   opacity: 1;
 }
 
 .c15 {
   padding: 4px;
   font-size: 0;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3537,7 +3337,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -3566,7 +3366,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
           <div
             aria-label="Color swatch"
             aria-modal="true"
-            class="c10 c11 is-animated"
+            class="c10 is-animated c11"
             data-garden-container-id="containers.focusjail"
             data-garden-container-version="2.0.19"
             data-garden-id="modals.tooltip_dialog"
@@ -3632,7 +3432,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -3696,7 +3496,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -3725,7 +3525,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                       role="gridcell"
                     >
                       <label
-                        class="c5 c23"
+                        class="c5 c22"
                         data-garden-id="colorpickers.color_swatch_label"
                         data-garden-version="9.2.0"
                         data-test-id="dialog-preview"
@@ -3763,7 +3563,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
@@ -3827,7 +3627,7 @@ exports[`ColorSwatchDialogStory Component (isOpen: true) renders ColorSwatchDial
                         </div>
                         <svg
                           aria-hidden="true"
-                          class="c21 c22"
+                          class="c21"
                           data-garden-id="colorpickers.colorswatch_check"
                           data-garden-version="9.2.0"
                           focusable="false"
