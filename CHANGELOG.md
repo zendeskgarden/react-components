@@ -13,6 +13,24 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.3.0 (2024-12-05)
+
+#### :rocket: New Feature
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1978](https://github.com/zendeskgarden/react-components/pull/1978) feat(peer-deps): extend `styled-components` support to v6 ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1982](https://github.com/zendeskgarden/react-components/pull/1982) fix(accordions): set `inert` for hidden `Stepper` content ([@jzempel](https://github.com/jzempel))
+* `chrome`
+  * [#1981](https://github.com/zendeskgarden/react-components/pull/1981) fix(chrome): provide missing `useId` container dependency for `Sheet` component ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#1983](https://github.com/zendeskgarden/react-components/pull/1983) chore(dropdowns): fix multiselectable combobox tags ([@jzempel](https://github.com/jzempel))
+* Other
+  * [#1980](https://github.com/zendeskgarden/react-components/pull/1980) chore: adjust renovate schedule ([@jzempel](https://github.com/jzempel))
+
 ## v9.2.0 (2024-11-21)
 
 #### :rocket: New Feature
