@@ -67,7 +67,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -148,8 +148,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -159,46 +159,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -231,7 +191,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -318,7 +278,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -399,8 +359,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -410,46 +370,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -482,7 +402,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -569,7 +489,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -650,8 +570,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -661,46 +581,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -733,7 +613,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -820,7 +700,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -901,8 +781,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -912,46 +792,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -984,7 +824,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -1071,7 +911,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1152,8 +992,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -1163,46 +1003,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1235,7 +1035,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -1322,7 +1122,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1403,8 +1203,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -1414,46 +1214,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1486,7 +1246,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -1573,7 +1333,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1654,8 +1414,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -1665,46 +1425,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1738,7 +1458,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -1825,7 +1545,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1906,8 +1626,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -1917,46 +1637,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1989,7 +1669,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -2076,7 +1756,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2157,8 +1837,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -2168,46 +1848,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2240,7 +1880,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -2327,7 +1967,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2408,8 +2048,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -2419,46 +2059,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2491,7 +2091,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -2578,7 +2178,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2659,8 +2259,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -2670,46 +2270,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2742,7 +2302,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -2829,7 +2389,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2910,8 +2470,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -2921,46 +2481,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2993,7 +2513,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -3080,7 +2600,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3161,8 +2681,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -3172,46 +2692,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3245,7 +2725,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -3332,7 +2812,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3413,8 +2893,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -3424,46 +2904,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3496,7 +2936,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -3583,7 +3023,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3664,8 +3104,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -3675,46 +3115,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3748,7 +3148,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -3835,7 +3235,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3916,8 +3316,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -3927,46 +3327,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3999,7 +3359,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -4086,7 +3446,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4167,8 +3527,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -4178,46 +3538,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4250,7 +3570,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -4337,7 +3657,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4418,8 +3738,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -4429,46 +3749,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4501,7 +3781,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -4588,7 +3868,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4669,8 +3949,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -4680,46 +3960,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4753,7 +3993,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -4840,7 +4080,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4921,8 +4161,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -4932,46 +4172,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5004,7 +4204,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -5091,7 +4291,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5172,8 +4372,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -5183,46 +4383,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5256,7 +4416,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -5343,7 +4503,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5424,8 +4584,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -5435,46 +4595,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5507,7 +4627,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -5594,7 +4714,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5675,8 +4795,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -5686,46 +4806,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5758,7 +4838,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -5845,7 +4925,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5926,8 +5006,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -5937,46 +5017,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6009,7 +5049,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a 
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -6096,7 +5136,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6177,8 +5217,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -6188,46 +5228,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6260,7 +5260,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -6347,7 +5347,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6428,8 +5428,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -6439,46 +5439,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6511,7 +5471,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -6598,7 +5558,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6679,8 +5639,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -6690,46 +5650,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6763,7 +5683,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -6850,7 +5770,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6931,8 +5851,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -6942,46 +5862,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7014,7 +5894,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with cu
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -7101,7 +5981,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with fo
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -7182,8 +6062,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with fo
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -7193,46 +6073,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with fo
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7265,7 +6105,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with fo
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -7352,7 +6192,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with op
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -7433,8 +6273,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with op
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -7444,46 +6284,6 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with op
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7516,7 +6316,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with op
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -7604,7 +6404,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -7687,7 +6487,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   font-size: 0;
 }
 
-.c21 {
+.c22 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -7695,7 +6495,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   font-weight: 600;
 }
 
-.c21[hidden] {
+.c22[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -7708,7 +6508,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   width: 1px;
 }
 
-.c27 {
+.c28 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -7716,7 +6516,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   font-weight: 400;
 }
 
-.c27[hidden] {
+.c28[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -7729,7 +6529,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   width: 1px;
 }
 
-.c29 {
+.c30 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -7747,77 +6547,77 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   color: #293239;
 }
 
-.c29::-ms-browse {
+.c30::-ms-browse {
   border-radius: 2px;
 }
 
-.c29::-ms-clear,
-.c29::-ms-reveal {
+.c30::-ms-clear,
+.c30::-ms-reveal {
   display: none;
 }
 
-.c29::-moz-color-swatch {
+.c30::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c29::-webkit-color-swatch {
+.c30::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c29::-webkit-color-swatch-wrapper {
+.c30::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c29::-webkit-clear-button,
-.c29::-webkit-inner-spin-button,
-.c29::-webkit-search-cancel-button,
-.c29::-webkit-search-results-button {
+.c30::-webkit-clear-button,
+.c30::-webkit-inner-spin-button,
+.c30::-webkit-search-cancel-button,
+.c30::-webkit-search-results-button {
   display: none;
 }
 
-.c29::-webkit-datetime-edit {
+.c30::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c29::-webkit-calendar-picker-indicator {
+.c30::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c29:invalid {
+.c30:invalid {
   box-shadow: none;
 }
 
-.c29[type='file']::-ms-value {
+.c30[type='file']::-ms-value {
   display: none;
 }
 
-.c29::-ms-browse {
+.c30::-ms-browse {
   font-size: 11px;
 }
 
-.c29[type='date'],
-.c29[type='datetime-local'],
-.c29[type='file'],
-.c29[type='month'],
-.c29[type='time'],
-.c29[type='week'] {
+.c30[type='date'],
+.c30[type='datetime-local'],
+.c30[type='file'],
+.c30[type='month'],
+.c30[type='time'],
+.c30[type='week'] {
   max-height: 32px;
 }
 
-.c29[type='file'] {
+.c30[type='file'] {
   line-height: 1;
 }
 
-.c29::-moz-color-swatch {
+.c30::-moz-color-swatch {
   margin-top: -3px;
   margin-left: -9px;
   width: calc(100% + 18px);
   height: 24px;
 }
 
-.c29::-webkit-calendar-picker-indicator {
+.c30::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -7825,65 +6625,73 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   height: 20px;
 }
 
-.c29::-webkit-color-swatch {
+.c30::-webkit-color-swatch {
   margin: -3px -9px;
 }
 
-.c29::placeholder {
+.c21:not([hidden])+.c30.c30,
+.StyledHint-sc-17c2wu8-0+.c30.c30,
+.StyledMessage-sc-30hgg7-0+.c30.c30,
+.c30.c30+.StyledHint-sc-17c2wu8-0,
+.c30.c30~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 4px;
+}
+
+.c30::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c29::-webkit-datetime-edit {
+.c30::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c29::-webkit-calendar-picker-indicator {
+.c30::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c29[readonly],
-.c29[aria-readonly='true'] {
+.c30[readonly],
+.c30[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c29:hover {
+.c30:hover {
   border-color: #1f73b7;
 }
 
-.c29:focus {
+.c30:focus {
   outline: none;
 }
 
-.c29:focus-visible {
+.c30:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c29::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c30::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c29::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c30::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c29:disabled,
-.c29[aria-disabled='true'] {
+.c30:disabled,
+.c30[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c29:disabled {
+.c30:disabled {
   cursor: default;
 }
 
-.c22 {
+.c23 {
   appearance: none;
   margin: 0;
   background-color: inherit;
@@ -7893,7 +6701,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   vertical-align: middle;
 }
 
-.c22::-moz-range-track {
+.c23::-moz-range-track {
   appearance: none;
   border-color: transparent;
   background-repeat: repeat-y;
@@ -7904,7 +6712,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   box-sizing: border-box;
 }
 
-.c22::-ms-track {
+.c23::-ms-track {
   appearance: none;
   border-color: transparent;
   background-repeat: repeat-y;
@@ -7915,7 +6723,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   box-sizing: border-box;
 }
 
-.c22::-webkit-slider-runnable-track {
+.c23::-webkit-slider-runnable-track {
   appearance: none;
   border-color: transparent;
   background-repeat: repeat-y;
@@ -7926,60 +6734,68 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   box-sizing: border-box;
 }
 
-.c22::-webkit-slider-container,
-.c22::-webkit-slider-runnable-track {
+.c23::-webkit-slider-container,
+.c23::-webkit-slider-runnable-track {
   background-size: inherit;
 }
 
-.c22::-moz-range-track {
+.c21:not([hidden])+.c23,
+.StyledHint-sc-17c2wu8-0+.c23,
+.StyledMessage-sc-30hgg7-0+.c23,
+.c23+.StyledHint-sc-17c2wu8-0,
+.c23+.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c23::-moz-range-track {
   margin: 10px 0;
   border-radius: 6px;
   height: 6px;
 }
 
-.c22::-ms-track {
+.c23::-ms-track {
   margin: 10px 0;
   border-radius: 6px;
   height: 6px;
 }
 
-.c22::-webkit-slider-runnable-track {
+.c23::-webkit-slider-runnable-track {
   margin: 10px 0;
   border-radius: 6px;
   height: 6px;
 }
 
-.c22::-moz-range-thumb {
+.c23::-moz-range-thumb {
   margin: -7px 0;
   width: 20px;
   height: 20px;
 }
 
-.c22::-ms-thumb {
+.c23::-ms-thumb {
   margin: -7px 0;
   width: 20px;
   height: 20px;
 }
 
-.c22::-webkit-slider-thumb {
+.c23::-webkit-slider-thumb {
   margin: -7px 0;
   width: 20px;
   height: 20px;
 }
 
-.c22::-moz-range-progress {
+.c23::-moz-range-progress {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   height: 6px;
 }
 
-.c22::-ms-fill-lower {
+.c23::-ms-fill-lower {
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
   height: 6px;
 }
 
-.c22::-moz-range-thumb {
+.c23::-moz-range-thumb {
   appearance: none;
   transition: box-shadow .1s ease-in-out;
   border: 3px solid;
@@ -7987,7 +6803,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   box-sizing: border-box;
 }
 
-.c22::-ms-thumb {
+.c23::-ms-thumb {
   appearance: none;
   transition: box-shadow .1s ease-in-out;
   border: 3px solid;
@@ -7995,7 +6811,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   box-sizing: border-box;
 }
 
-.c22::-webkit-slider-thumb {
+.c23::-webkit-slider-thumb {
   appearance: none;
   transition: box-shadow .1s ease-in-out;
   border: 3px solid;
@@ -8003,124 +6819,124 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   box-sizing: border-box;
 }
 
-.c22::-moz-range-track {
+.c23::-moz-range-track {
   background-color: #b0b8be;
 }
 
-.c22::-ms-track {
+.c23::-ms-track {
   background-color: #b0b8be;
 }
 
-.c22::-webkit-slider-runnable-track {
+.c23::-webkit-slider-runnable-track {
   background-color: #b0b8be;
 }
 
-.c22::-moz-range-thumb {
+.c23::-moz-range-thumb {
   border-color: #1f73b7;
   box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
   background-color: #1f73b7;
 }
 
-.c22::-ms-thumb {
+.c23::-ms-thumb {
   border-color: #1f73b7;
   box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
   background-color: #1f73b7;
 }
 
-.c22::-webkit-slider-thumb {
+.c23::-webkit-slider-thumb {
   border-color: #1f73b7;
   box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
   background-color: #1f73b7;
 }
 
-.c22:hover::-moz-range-thumb {
-  transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+.c23:hover::-moz-range-thumb {
+  transition: border-color .25s ease-in-out,background-color .25s ease-in-out;
   border-color: #13456d;
   background-color: #13456d;
 }
 
-.c22:hover::-ms-thumb {
-  transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+.c23:hover::-ms-thumb {
+  transition: border-color .25s ease-in-out,background-color .25s ease-in-out;
   border-color: #13456d;
   background-color: #13456d;
 }
 
-.c22:hover::-webkit-slider-thumb {
-  transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+.c23:hover::-webkit-slider-thumb {
+  transition: border-color .25s ease-in-out,background-color .25s ease-in-out;
   border-color: #13456d;
   background-color: #13456d;
 }
 
-.c22:focus-visible::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+.c23:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22:focus-visible::-ms-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+.c23:focus-visible::-ms-thumb {
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22:focus-visible::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+.c23:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c22:active::-moz-range-thumb {
+.c23:active::-moz-range-thumb {
   border-color: #1f73b7;
   background-color: #0f3655;
 }
 
-.c22:active::-ms-thumb {
+.c23:active::-ms-thumb {
   border-color: #1f73b7;
   background-color: #0f3655;
 }
 
-.c22:active::-webkit-slider-thumb {
+.c23:active::-webkit-slider-thumb {
   border-color: #1f73b7;
   background-color: #0f3655;
 }
 
-.c22:disabled::-moz-range-track {
+.c23:disabled::-moz-range-track {
   background-color: rgba(92,105,112,0.16);
 }
 
-.c22:disabled::-ms-track {
+.c23:disabled::-ms-track {
   background-color: rgba(92,105,112,0.16);
 }
 
-.c22:disabled::-webkit-slider-runnable-track {
+.c23:disabled::-webkit-slider-runnable-track {
   background-color: rgba(92,105,112,0.16);
 }
 
-.c22:disabled::-moz-range-thumb {
+.c23:disabled::-moz-range-thumb {
   border-color: #848f99;
   box-shadow: none;
   background-color: #848f99;
 }
 
-.c22:disabled::-ms-thumb {
+.c23:disabled::-ms-thumb {
   border-color: #848f99;
   box-shadow: none;
   background-color: #848f99;
 }
 
-.c22:disabled::-webkit-slider-thumb {
+.c23:disabled::-webkit-slider-thumb {
   border-color: #848f99;
   box-shadow: none;
   background-color: #848f99;
 }
 
-.c22::-moz-focus-outer {
+.c23::-moz-focus-outer {
   border: 0;
 }
 
-.c22::-ms-tooltip {
+.c23::-ms-tooltip {
   display: none;
 }
 
-.c22:focus {
+.c23:focus {
   outline: none;
 }
 
-.c22:disabled {
+.c23:disabled {
   cursor: default;
 }
 
@@ -8152,7 +6968,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   color-scheme: only light;
 }
 
-.c9 > * {
+.c9>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -8171,11 +6987,11 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   color: #293239;
 }
 
-.c9 > *:focus {
+.c9>*:focus {
   outline: none;
 }
 
-.c9.is-animated > * {
+.c9.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -8184,7 +7000,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   width: 400px;
 }
 
-.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0)>:first-child {
   padding-right: 32px;
 }
 
@@ -8203,142 +7019,142 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   min-width: 312px;
 }
 
-.c23 {
-  margin-top: 0 !important;
+.c24 {
+  margin-top: 0!important;
   height: 22px;
   box-sizing: content-box;
   border-radius: undefined;
 }
 
-.c23::-moz-range-track {
+.c24::-moz-range-track {
   margin: 5px -4px;
   height: 12px;
 }
 
-.c23::-ms-track {
+.c24::-ms-track {
   margin: 5px -4px;
   height: 12px;
 }
 
-.c23::-webkit-slider-runnable-track {
+.c24::-webkit-slider-runnable-track {
   margin: 5px -4px;
   height: 12px;
 }
 
-.c23::-moz-range-thumb {
+.c24::-moz-range-thumb {
   margin: -2px 0;
   border-width: 1px;
   height: 16px;
   width: 16px;
 }
 
-.c23::-ms-thumb {
+.c24::-ms-thumb {
   margin: -2px 0;
   border-width: 1px;
   height: 16px;
   width: 16px;
 }
 
-.c23::-webkit-slider-thumb {
+.c24::-webkit-slider-thumb {
   margin: -2px 0;
   border-width: 1px;
   height: 16px;
   width: 16px;
 }
 
-.c23::-moz-range-track {
+.c24::-moz-range-track {
   border-radius: 0;
 }
 
-.c23::-ms-track {
+.c24::-ms-track {
   border-radius: 0;
 }
 
-.c23::-webkit-slider-runnable-track {
+.c24::-webkit-slider-runnable-track {
   border-radius: 0;
 }
 
-.c23::-moz-range-track {
+.c24::-moz-range-track {
   background-color: transparent;
 }
 
-.c23::-ms-track {
+.c24::-ms-track {
   background-color: transparent;
 }
 
-.c23::-webkit-slider-runnable-track {
+.c24::-webkit-slider-runnable-track {
   background-color: transparent;
 }
 
-.c23::-moz-range-thumb {
+.c24::-moz-range-thumb {
   border-color: #b0b8be;
   background-color: #fff;
 }
 
-.c23::-ms-thumb {
+.c24::-ms-thumb {
   border-color: #b0b8be;
   background-color: #fff;
 }
 
-.c23::-webkit-slider-thumb {
+.c24::-webkit-slider-thumb {
   border-color: #b0b8be;
   background-color: #fff;
 }
 
-.c23::-moz-range-progress {
+.c24::-moz-range-progress {
   background-color: transparent;
 }
 
-.c23::-ms-fill-lower {
+.c24::-ms-fill-lower {
   background-color: transparent;
 }
 
-.c23:hover::-moz-range-thumb {
+.c24:hover::-moz-range-thumb {
   border-color: #1f73b7;
   background-color: #f8f9f9;
 }
 
-.c23:hover::-ms-thumb {
+.c24:hover::-ms-thumb {
   border-color: #1f73b7;
   background-color: #f8f9f9;
 }
 
-.c23:hover::-webkit-slider-thumb {
+.c24:hover::-webkit-slider-thumb {
   border-color: #1f73b7;
   background-color: #f8f9f9;
 }
 
-.c23:focus-visible::-moz-range-thumb {
+.c24:focus-visible::-moz-range-thumb {
   background-color: #fff;
   border-color: #1f73b7;
 }
 
-.c23:focus-visible::-ms-thumb {
+.c24:focus-visible::-ms-thumb {
   background-color: #fff;
   border-color: #1f73b7;
 }
 
-.c23:focus-visible::-webkit-slider-thumb {
+.c24:focus-visible::-webkit-slider-thumb {
   background-color: #fff;
   border-color: #1f73b7;
 }
 
-.c23:active::-moz-range-thumb {
+.c24:active::-moz-range-thumb {
   border-color: #1f73b7;
   background-color: #fff;
 }
 
-.c23:active::-ms-thumb {
+.c24:active::-ms-thumb {
   border-color: #1f73b7;
   background-color: #fff;
 }
 
-.c23:active::-webkit-slider-thumb {
+.c24:active::-webkit-slider-thumb {
   border-color: #1f73b7;
   background-color: #fff;
 }
 
-.c24 {
+.c25 {
   background: linear-gradient( to right,#f00 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,#f00 100% ) no-repeat;
   background-position: 0 5px;
   background-size: 100% 12px;
@@ -8379,7 +7195,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   margin-bottom: 8px;
 }
 
-.c26 {
+.c27 {
   display: flex;
   flex-basis: 0;
   flex-direction: column;
@@ -8388,26 +7204,26 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   text-align: center;
 }
 
-.c26 input {
+.c27 input {
   direction: ltr;
 }
 
-.c28 {
+.c29 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c30 {
+.c31 {
   text-align: center;
 }
 
-.c25 {
+.c26 {
   display: flex;
   justify-content: space-between;
 }
 
-.c31 {
+.c32 {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -8422,17 +7238,17 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
   width: 100%;
 }
 
-.c19 > * {
+.c19>* {
   position: absolute;
   width: 100%;
   height: 22px;
 }
 
-.c19 > :first-child {
+.c19>:first-child {
   top: -5px;
 }
 
-.c19 > :last-child {
+.c19>:last-child {
   bottom: -5px;
 }
 
@@ -8443,8 +7259,8 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -8457,61 +7273,21 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
 }
 
 .c11 {
-  width: auto !important;
+  width: auto!important;
 }
 
 .c13 {
   padding: 0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c29[type='number'] {
+  .c30[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c29[type='color'] {
+  .c30[type='color'] {
     padding: 0 2px;
   }
 }
@@ -8546,7 +7322,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -8575,7 +7351,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
           <div
             aria-label="Color picker"
             aria-modal="true"
-            class="c10 c11 is-animated"
+            class="c10 is-animated c11"
             data-garden-container-id="containers.focusjail"
             data-garden-container-version="2.0.19"
             data-garden-id="modals.tooltip_dialog"
@@ -8631,7 +7407,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                       data-garden-version="9.2.0"
                     >
                       <label
-                        class="c21"
+                        class="c21 c22"
                         data-garden-container-id="containers.field.label"
                         data-garden-container-version="3.0.19"
                         data-garden-id="forms.input_label"
@@ -8644,7 +7420,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                       </label>
                       <input
                         aria-labelledby=":rc:--label"
-                        class="c22 c23 c24"
+                        class="c23 c24 c25"
                         data-garden-container-id="containers.field.input"
                         data-garden-container-version="3.0.19"
                         data-garden-id="forms.range"
@@ -8663,7 +7439,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                       data-garden-version="9.2.0"
                     >
                       <label
-                        class="c21"
+                        class="c21 c22"
                         data-garden-container-id="containers.field.label"
                         data-garden-container-version="3.0.19"
                         data-garden-id="forms.input_label"
@@ -8676,7 +7452,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                       </label>
                       <input
                         aria-labelledby=":rd:--label"
-                        class="c22 c23"
+                        class="c23 c24"
                         data-garden-container-id="containers.field.input"
                         data-garden-container-version="3.0.19"
                         data-garden-id="forms.range"
@@ -8692,18 +7468,18 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                   </div>
                 </div>
                 <div
-                  class="c25"
+                  class="c26"
                   data-garden-id="colorpickers.colorpicker_input_group"
                   data-garden-version="9.2.0"
                 >
                   <div
-                    class="c20 c26"
+                    class="c20 c27"
                     data-garden-id="forms.field"
                     data-garden-version="9.2.0"
                     spellcheck="false"
                   >
                     <label
-                      class="c27 c28"
+                      class="c21 c28 c29"
                       data-garden-container-id="containers.field.label"
                       data-garden-container-version="3.0.19"
                       data-garden-id="colorpickers.colorpicker_label"
@@ -8716,7 +7492,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     <input
                       aria-invalid="false"
                       aria-labelledby=":re:--label"
-                      class="c29 c30"
+                      class="c30 c31"
                       data-garden-container-id="containers.field.input"
                       data-garden-container-version="3.0.19"
                       data-garden-id="forms.input"
@@ -8728,12 +7504,12 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     />
                   </div>
                   <div
-                    class="c20 c31"
+                    class="c20 c32"
                     data-garden-id="forms.field"
                     data-garden-version="9.2.0"
                   >
                     <label
-                      class="c27 c28"
+                      class="c21 c28 c29"
                       data-garden-container-id="containers.field.label"
                       data-garden-container-version="3.0.19"
                       data-garden-id="colorpickers.colorpicker_label"
@@ -8746,7 +7522,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     <input
                       aria-invalid="false"
                       aria-labelledby=":rf:--label"
-                      class="c29 c30"
+                      class="c30 c31"
                       data-garden-container-id="containers.field.input"
                       data-garden-container-version="3.0.19"
                       data-garden-id="forms.input"
@@ -8760,12 +7536,12 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     />
                   </div>
                   <div
-                    class="c20 c31"
+                    class="c20 c32"
                     data-garden-id="forms.field"
                     data-garden-version="9.2.0"
                   >
                     <label
-                      class="c27 c28"
+                      class="c21 c28 c29"
                       data-garden-container-id="containers.field.label"
                       data-garden-container-version="3.0.19"
                       data-garden-id="colorpickers.colorpicker_label"
@@ -8778,7 +7554,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     <input
                       aria-invalid="false"
                       aria-labelledby=":rg:--label"
-                      class="c29 c30"
+                      class="c30 c31"
                       data-garden-container-id="containers.field.input"
                       data-garden-container-version="3.0.19"
                       data-garden-id="forms.input"
@@ -8792,12 +7568,12 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     />
                   </div>
                   <div
-                    class="c20 c31"
+                    class="c20 c32"
                     data-garden-id="forms.field"
                     data-garden-version="9.2.0"
                   >
                     <label
-                      class="c27 c28"
+                      class="c21 c28 c29"
                       data-garden-container-id="containers.field.label"
                       data-garden-container-version="3.0.19"
                       data-garden-id="colorpickers.colorpicker_label"
@@ -8810,7 +7586,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     <input
                       aria-invalid="false"
                       aria-labelledby=":rh:--label"
-                      class="c29 c30"
+                      class="c30 c31"
                       data-garden-container-id="containers.field.input"
                       data-garden-container-version="3.0.19"
                       data-garden-id="forms.input"
@@ -8824,12 +7600,12 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     />
                   </div>
                   <div
-                    class="c20 c31"
+                    class="c20 c32"
                     data-garden-id="forms.field"
                     data-garden-version="9.2.0"
                   >
                     <label
-                      class="c27 c28"
+                      class="c21 c28 c29"
                       data-garden-container-id="containers.field.label"
                       data-garden-container-version="3.0.19"
                       data-garden-id="colorpickers.colorpicker_label"
@@ -8842,7 +7618,7 @@ exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with th
                     <input
                       aria-invalid="false"
                       aria-labelledby=":ri:--label"
-                      class="c29 c30"
+                      class="c30 c31"
                       data-garden-container-id="containers.field.input"
                       data-garden-container-version="3.0.19"
                       data-garden-id="forms.input"
@@ -8932,7 +7708,7 @@ exports[`ColorpickerDialogStory Component renders default ColorpickerDialogStory
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -9013,8 +7789,8 @@ exports[`ColorpickerDialogStory Component renders default ColorpickerDialogStory
 }
 
 .c4:last-of-type:not(:first-child) {
-  border-top-right-radius: 4px !important;
-  border-bottom-right-radius: 4px !important;
+  border-top-right-radius: 4px!important;
+  border-bottom-right-radius: 4px!important;
 }
 
 .c5 {
@@ -9024,46 +7800,6 @@ exports[`ColorpickerDialogStory Component renders default ColorpickerDialogStory
   box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
   width: 20px;
   height: 20px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -9096,7 +7832,7 @@ exports[`ColorpickerDialogStory Component renders default ColorpickerDialogStory
         />
         <svg
           aria-hidden="true"
-          class="c6  c7"
+          class="c6 c7"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
