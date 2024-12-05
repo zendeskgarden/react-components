@@ -36,7 +36,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
 export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.$isAnimated && 'is-animated'
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledTooltipDialogProps>`
   ${props => {
     const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.$placement), {

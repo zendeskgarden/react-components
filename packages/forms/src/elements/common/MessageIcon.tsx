@@ -19,7 +19,7 @@ export const MessageIcon: FC<PropsWithChildren<IMessageIconProps>> = ({
   ...props
 }) => (
   /* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */
-  <StyledMessageIcon aria-hidden={null} role="img" {...props}>
+  <StyledMessageIcon aria-hidden={false} role="img" {...props}>
     {validation
       ? {
           error: <ErrorIcon />,

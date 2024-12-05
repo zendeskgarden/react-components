@@ -118,7 +118,7 @@ function sizeStyles(props: ThemeProps<DefaultTheme>) {
 export const StyledGlobalAlertButton = styled(Button).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledGlobalAlertButtonProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

@@ -59,21 +59,21 @@ describe('InputGroup', () => {
       const inputGroupElement = getByText('A').parentElement!;
 
       expect(inputGroupElement).toHaveStyleRule('margin-left', '-1px', {
-        modifier: '& > *:not(:first-child)'
+        modifier: '&>*:not(:first-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '& > *:first-child:not(:last-child)'
+        modifier: '&>*:first-child:not(:last-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '& > *:first-child:not(:last-child)'
+        modifier: '&>*:first-child:not(:last-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '& > *:last-child:not(:first-child)'
+        modifier: '&>*:last-child:not(:first-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '& > *:last-child:not(:first-child)'
+        modifier: '&>*:last-child:not(:first-child)'
       });
     });
 
@@ -92,21 +92,21 @@ describe('InputGroup', () => {
       const inputGroupElement = getByText('A').parentElement!;
 
       expect(inputGroupElement).toHaveStyleRule('margin-right', '-1px', {
-        modifier: '& > *:not(:first-child)'
+        modifier: '&>*:not(:first-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-left-radius', '0', {
-        modifier: '& > *:first-child:not(:last-child)'
+        modifier: '&>*:first-child:not(:last-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-left-radius', '0', {
-        modifier: '& > *:first-child:not(:last-child)'
+        modifier: '&>*:first-child:not(:last-child)'
       });
 
       expect(inputGroupElement).toHaveStyleRule('border-top-right-radius', '0', {
-        modifier: '& > *:last-child:not(:first-child)'
+        modifier: '&>*:last-child:not(:first-child)'
       });
       expect(inputGroupElement).toHaveStyleRule('border-bottom-right-radius', '0', {
-        modifier: '& > *:last-child:not(:first-child)'
+        modifier: '&>*:last-child:not(:first-child)'
       });
     });
   });

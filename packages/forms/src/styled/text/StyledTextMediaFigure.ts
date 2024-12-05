@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
 import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.media_figure';
@@ -15,7 +15,7 @@ interface IStyledTextMediaFigureProps {
   $isHovered?: boolean;
   $isFocused?: boolean;
   $isDisabled?: boolean;
-  $position: 'start' | 'end';
+  $position?: 'start' | 'end';
 }
 
 const colorStyles = ({
@@ -62,7 +62,7 @@ const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme
   `;
 };
 
-export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs({
+export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTextMediaFigureProps>`

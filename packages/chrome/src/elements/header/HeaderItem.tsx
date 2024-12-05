@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes, RefObject } from 'react';
 import PropTypes from 'prop-types';
 import { IHeaderItemProps, PRODUCTS } from '../../types';
 import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
@@ -20,12 +20,12 @@ export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
     if (hasLogo) {
       return (
         <StyledLogoHeaderItem
-          ref={ref}
+          ref={ref as RefObject<HTMLDivElement>}
           $isRound={isRound}
           $maxX={maxX}
           $maxY={maxY}
           $product={product}
-          {...other}
+          {...(other as HTMLAttributes<HTMLDivElement>)}
         />
       );
     }

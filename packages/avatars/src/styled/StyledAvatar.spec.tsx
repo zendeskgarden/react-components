@@ -83,14 +83,14 @@ describe('StyledAvatar', () => {
     it('renders foreground color as expected', () => {
       const { container } = render(<StyledAvatar $foregroundColor="red" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', 'red', { modifier: '> svg' });
+      expect(container.firstChild).toHaveStyleRule('color', 'red', { modifier: '&>svg' });
     });
 
     it('renders foreground color variable as expected', () => {
       const { container } = render(<StyledAvatar $foregroundColor="foreground.default" />);
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900], {
-        modifier: '> svg'
+        modifier: '&>svg'
       });
     });
   });
@@ -99,37 +99,37 @@ describe('StyledAvatar', () => {
     it('renders extraextrasmall', () => {
       const { container } = render(<StyledAvatar $size="extraextrasmall" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '16px !important');
+      expect(container.firstChild).toHaveStyleRule('width', '16px!important');
     });
 
     it('renders extrasmall', () => {
       const { container } = render(<StyledAvatar $size="extrasmall" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '24px !important');
+      expect(container.firstChild).toHaveStyleRule('width', '24px!important');
     });
 
     it('renders small', () => {
       const { container } = render(<StyledAvatar $size="small" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '32px !important');
+      expect(container.firstChild).toHaveStyleRule('width', '32px!important');
     });
 
     it('renders medium', () => {
       const { container } = render(<StyledAvatar $size="medium" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '40px !important');
+      expect(container.firstChild).toHaveStyleRule('width', '40px!important');
     });
 
     it('renders large', () => {
       const { container } = render(<StyledAvatar $size="large" />);
 
-      expect(container.firstChild).toHaveStyleRule('width', '48px !important');
+      expect(container.firstChild).toHaveStyleRule('width', '48px!important');
     });
   });
 
   describe('badge', () => {
     const styleRuleOptions = {
-      modifier: `& > ${StyledStatusIndicator}`
+      modifier: `&>${StyledStatusIndicator}`
     };
 
     it('renders the status indicator correctly', () => {

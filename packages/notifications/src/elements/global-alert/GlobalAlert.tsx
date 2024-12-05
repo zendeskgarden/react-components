@@ -7,7 +7,7 @@
 
 import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';

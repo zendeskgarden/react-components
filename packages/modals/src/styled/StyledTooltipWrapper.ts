@@ -19,7 +19,7 @@ interface IStyledTooltipWrapperProps {
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
 export const StyledTooltipWrapper = styled.div.attrs<IStyledTooltipWrapperProps>(props => ({
-  className: props.$isAnimated && 'is-animated'
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledTooltipWrapperProps>`
   top: 0; /* [1] */
   left: 0; /* [1] */

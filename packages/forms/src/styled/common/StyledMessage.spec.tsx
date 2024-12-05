@@ -53,7 +53,7 @@ describe('StyledMessage', () => {
     const message = getByTestId('message');
 
     expect(message).toHaveStyleRule('margin-top', '4px', {
-      modifier: `${StyledLabel}:not([hidden]) + &`
+      modifier: `${StyledLabel}:not([hidden])+&`
     });
   });
 });

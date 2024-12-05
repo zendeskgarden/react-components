@@ -52,7 +52,7 @@ describe('StyledRangeInput', () => {
       const range = getByTestId('range');
 
       expect(range).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel}:not([hidden]) + &`
+        modifier: `${StyledLabel}:not([hidden])+&`
       });
     });
 
@@ -66,7 +66,7 @@ describe('StyledRangeInput', () => {
       const range = getByTestId('range');
 
       expect(range).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel}:not([hidden]) + &`
+        modifier: `${StyledLabel}:not([hidden])+&`
       });
     });
 
@@ -80,7 +80,7 @@ describe('StyledRangeInput', () => {
       const range = getByTestId('range');
 
       expect(range).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel}:not([hidden]) + &`
+        modifier: `${StyledLabel}:not([hidden])+&`
       });
     });
   });

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
 import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
@@ -38,7 +38,7 @@ const colorStyles = ({
   `;
 };
 
-export const StyledRotateIcon = styled(StyledBaseIcon).attrs({
+export const StyledRotateIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRotateIcon>`

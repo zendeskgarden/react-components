@@ -16,7 +16,7 @@ describe('StyledToggleInput', () => {
 
     expect(container.firstChild!.nodeName).toBe('INPUT');
     expect(container.firstChild).toHaveStyleRule('border-radius', '100px', {
-      modifier: `& ~ ${StyledToggleLabel}::before`
+      modifier: `&~${StyledToggleLabel}::before`
     });
   });
 
@@ -24,7 +24,7 @@ describe('StyledToggleInput', () => {
     const { container } = renderRtl(<StyledToggleInput />);
 
     expect(container.firstChild).toHaveStyleRule('right', expect.any(String), {
-      modifier: `& ~ ${StyledToggleLabel} > svg`
+      modifier: `&~${StyledToggleLabel}>svg`
     });
   });
 });

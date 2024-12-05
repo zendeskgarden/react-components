@@ -31,6 +31,7 @@ export {
   MENU_POSITION,
   PLACEMENT,
   type IGardenTheme,
+  type IStyledBaseIconProps,
   type IThemeProviderProps,
   type ArrowPosition,
   type CheckeredBackgroundParameters,

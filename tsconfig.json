@@ -40,6 +40,7 @@
   },
   "files": [
     "utils/build/declarations.d.ts",
+    "utils/build/react.d.ts",
     "utils/build/styled.d.ts",
     "utils/build/Intl.d.ts",
     "utils/test/jest.d.ts"

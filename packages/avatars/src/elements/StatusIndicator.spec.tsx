@@ -44,8 +44,8 @@ describe('StatusIndicator', () => {
   it('renders in RTL mode', () => {
     const { getByRole } = renderRtl(<StatusIndicator type="transfers">Caption</StatusIndicator>);
 
-    expect(getByRole('img')).toHaveStyleRule('transform', 'scale(-1,1)', {
-      modifier: "& > svg[data-icon-status='transfers']"
+    expect(getByRole('img')).toHaveStyleRule('transform', 'scale(-1, 1)', {
+      modifier: "&>svg[data-icon-status='transfers']"
     });
   });
 

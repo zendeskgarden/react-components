@@ -73,7 +73,7 @@ describe('Option', () => {
 
     expect(option).toHaveAttribute('aria-selected', 'true');
     expect(option.firstChild).toHaveStyleRule('opacity', '1', {
-      modifier: `${StyledOption}[aria-selected='true'] > &`
+      modifier: `${StyledOption}[aria-selected='true']>&`
     });
     expect(tag).toHaveAttribute('tabindex', '0');
   });

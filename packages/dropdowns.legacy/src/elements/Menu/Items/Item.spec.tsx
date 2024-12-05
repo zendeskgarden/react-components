@@ -112,7 +112,7 @@ describe('Item', () => {
     );
 
     await user.click(getByTestId('trigger'));
-    expect(getByTestId('item-icon')).toHaveStyleRule('width', '16px', { modifier: '& > *' });
+    expect(getByTestId('item-icon')).toHaveStyleRule('width', '16px', { modifier: '&>*' });
   });
 
   describe('States', () => {

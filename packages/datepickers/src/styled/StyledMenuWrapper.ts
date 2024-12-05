@@ -24,7 +24,7 @@ interface IStyledMenuWrapperProps {
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.$isAnimated && 'is-animated'
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledMenuWrapperProps>`
   top: 0; /* [1] */
   left: 0; /* [1] */

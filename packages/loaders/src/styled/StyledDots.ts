@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { Keyframes, css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { dotOneKeyframes, dotTwoKeyframes, dotThreeKeyframes } from '../utils/animations';
 
 const StyledDotsCircle = styled.circle.attrs({
@@ -19,7 +19,7 @@ interface IStyledDotProps {
   $duration: number;
 }
 
-const animationStyles = (animationName: Keyframes, props: IStyledDotProps) => {
+const animationStyles = (animationName: ReturnType<typeof keyframes>, props: IStyledDotProps) => {
   return css`
     animation: ${animationName} ${props.$duration}ms linear infinite;
   `;

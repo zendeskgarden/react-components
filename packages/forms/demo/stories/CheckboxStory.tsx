@@ -14,12 +14,24 @@ import { renderHint, renderLabel, renderMessage } from './common';
 
 interface IArgs extends ICheckboxProps, IFieldArgs {}
 
-export const CheckboxStory: StoryFn<IArgs> = ({ hasLabel = true, ...args }) => (
+export const CheckboxStory: StoryFn<IArgs> = ({
+  hasHint,
+  hasLabel = true,
+  hasMessage,
+  hint,
+  isLabelHidden,
+  isLabelRegular,
+  label,
+  message,
+  validation,
+  validationLabel,
+  ...args
+}) => (
   <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
     <Checkbox {...args}>
-      {renderLabel({ hasLabel, ...args })}
-      {renderHint(args)}
-      {renderMessage(args)}
+      {renderLabel({ hasLabel, label, isLabelHidden, isLabelRegular })}
+      {renderHint({ hasHint, hint })}
+      {renderMessage({ hasMessage, message, validation, validationLabel })}
     </Checkbox>
   </FieldStory>
 );

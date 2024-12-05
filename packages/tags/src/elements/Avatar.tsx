@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import React, { SVGAttributes } from 'react';
 import { StyledAvatar } from '../styled';
 
-const AvatarComponent = (props: HTMLAttributes<HTMLElement>) => <StyledAvatar {...props} />;
+const AvatarComponent = (props: SVGAttributes<SVGElement>) => <StyledAvatar {...props} />;
 
 AvatarComponent.displayName = 'Tag.Avatar';
 
 /**
- * @extends HTMLAttributes<HTMLElement>
+ * @extends SVGAttributes<SVGElement>
  */
 export const Avatar = AvatarComponent;

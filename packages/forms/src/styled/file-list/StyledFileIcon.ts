@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { StyledBaseIcon, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
 import { FileValidation } from '../../types';
 
@@ -34,10 +34,10 @@ const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & ThemeProps<Def
   `;
 };
 
-export const StyledFileIcon = styled(StyledBaseIcon).attrs({
+export const StyledFileIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledFileIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

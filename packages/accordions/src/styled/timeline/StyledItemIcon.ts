@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
@@ -36,7 +36,7 @@ const colorStyles = ({ $surfaceColor, theme }: IStyledItemIcon & ThemeProps<Defa
 /**
  * 1. Odd sizing allows the timeline line to center respective of the circle icon.
  */
-export const StyledItemIcon = styled(StyledBaseIcon).attrs({
+export const StyledItemIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledItemIcon>`

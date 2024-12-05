@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
 import { math } from 'polished';
 import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { getHeight as getInputHeight } from './StyledInput';
@@ -62,7 +62,7 @@ const sizeStyles = (props: IStyledInputIconProps) => {
   `;
 };
 
-export const StyledInputIcon = styled(StyledBaseIcon).attrs({
+export const StyledInputIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInputIconProps>`
