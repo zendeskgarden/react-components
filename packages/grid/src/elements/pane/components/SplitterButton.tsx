@@ -14,8 +14,7 @@ import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
 
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
-  (props, ref) => {
-    const { label, placement: defaultPlacement } = props;
+  ({ label, placement: defaultPlacement, ...other }, ref) => {
     const { orientation, layoutKey, min, max, isRow, valueNow, size, providerId } =
       usePaneSplitterContext();
     const paneProviderContext = usePaneProviderContextData(providerId);
@@ -43,7 +42,7 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
       [isRow, isTop, isStart, layoutKey, paneProviderContext]
     );
 
-    const onClick = composeEventHandlers(props.onClick, () => {
+    const onClick = composeEventHandlers(other.onClick, () => {
       if (isMin) {
         setValue(max);
       } else {
@@ -52,12 +51,12 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
     });
 
     const onKeyDown = composeEventHandlers(
-      props.onKeyDown,
+      other.onKeyDown,
       (event: KeyboardEvent) => event.stopPropagation() // prevent splitter movement with cursor keys
     );
 
     const onMouseDown = composeEventHandlers(
-      props.onMouseDown,
+      other.onMouseDown,
       (event: MouseEvent) => event.stopPropagation() // prevent splitter movement on button drag
     );
 
@@ -76,7 +75,7 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
         >
           <StyledPaneSplitterButton
             aria-label={label}
-            {...props}
+            {...other}
             $orientation={orientation!}
             $isRotated={isMin}
             ref={ref}
