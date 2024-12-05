@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`FileListStory Component renders FileListStory with a file that has progress 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -15,15 +15,15 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -40,34 +40,34 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -78,36 +78,41 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -116,24 +121,24 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -154,7 +159,7 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -180,13 +185,13 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -197,7 +202,7 @@ exports[`FileListStory Component renders FileListStory with a file that has prog
 `;
 
 exports[`FileListStory Component renders FileListStory with a single item 1`] = `
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -214,28 +219,34 @@ exports[`FileListStory Component renders FileListStory with a single item 1`] = 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1:focus {
+.c3>.StyledFileClose-sc-1m31jbf-0 {
+  width: 40px;
+  height: 40px;
+  margin-right: -12px;
+}
+
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -246,33 +257,38 @@ exports[`FileListStory Component renders FileListStory with a single item 1`] = 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
     >
@@ -285,7 +301,7 @@ exports[`FileListStory Component renders FileListStory with a single item 1`] = 
 `;
 
 exports[`FileListStory Component renders FileListStory with all file types 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -299,15 +315,15 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -324,34 +340,34 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -362,40 +378,45 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c12 {
+.c14 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -403,7 +424,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   height: 6px;
 }
 
-.c7 {
+.c9 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -411,7 +432,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   height: 6px;
 }
 
-.c8 {
+.c10 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -419,7 +440,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   height: 6px;
 }
 
-.c9 {
+.c11 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -427,7 +448,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   height: 6px;
 }
 
-.c10 {
+.c12 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -435,7 +456,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   height: 6px;
 }
 
-.c11 {
+.c13 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -443,7 +464,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
   height: 6px;
 }
 
-.c13 {
+.c15 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -452,17 +473,17 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
     >
@@ -472,19 +493,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -504,7 +525,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -530,13 +551,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -544,19 +565,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -577,7 +598,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -603,13 +624,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c7"
+          class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -617,19 +638,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -656,7 +677,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -682,13 +703,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="32"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c8"
+          class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -696,19 +717,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -738,7 +759,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -764,13 +785,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="48"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c9"
+          class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -778,19 +799,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -810,7 +831,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -836,13 +857,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="64"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c10"
+          class="c12"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -850,19 +871,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -883,7 +904,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -909,13 +930,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="80"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c11"
+          class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -923,19 +944,19 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -956,7 +977,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c12"
+        class="c5 c6 c14"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -983,13 +1004,13 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c13"
+          class="c15"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1000,7 +1021,7 @@ exports[`FileListStory Component renders FileListStory with all file types 1`] =
 `;
 
 exports[`FileListStory Component renders FileListStory with an item that has a close button 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -1014,15 +1035,15 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -1039,34 +1060,34 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1077,36 +1098,41 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -1115,24 +1141,24 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1152,7 +1178,7 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1178,13 +1204,13 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1195,7 +1221,7 @@ exports[`FileListStory Component renders FileListStory with an item that has a c
 `;
 
 exports[`FileListStory Component renders FileListStory with an item that has a delete button 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -1209,15 +1235,15 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -1234,34 +1260,34 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1272,40 +1298,45 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c5 {
+.c7 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c6 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c8 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c7 {
+.c9 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -1314,24 +1345,24 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1352,7 +1383,7 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c5"
+        class="c5 c6 c7"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1379,13 +1410,13 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c6"
+        class="c8"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c7"
+          class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1396,7 +1427,7 @@ exports[`FileListStory Component renders FileListStory with an item that has a d
 `;
 
 exports[`FileListStory Component renders FileListStory with compact styling 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -1410,15 +1441,15 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -1435,34 +1466,34 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 28px;
   height: 28px;
   margin-right: -8px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1473,40 +1504,45 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c12 {
+.c14 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 12px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 1px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1514,7 +1550,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   height: 2px;
 }
 
-.c7 {
+.c9 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1522,7 +1558,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   height: 2px;
 }
 
-.c8 {
+.c10 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1530,7 +1566,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   height: 2px;
 }
 
-.c9 {
+.c11 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1538,7 +1574,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   height: 2px;
 }
 
-.c10 {
+.c12 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1546,7 +1582,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   height: 2px;
 }
 
-.c11 {
+.c13 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1554,7 +1590,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
   height: 2px;
 }
 
-.c13 {
+.c15 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -1563,17 +1599,17 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
     >
@@ -1583,19 +1619,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1615,7 +1651,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1641,13 +1677,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1655,19 +1691,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1688,7 +1724,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1714,13 +1750,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c7"
+          class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1728,19 +1764,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1768,7 +1804,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1794,13 +1830,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="32"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c8"
+          class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1808,19 +1844,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1850,7 +1886,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1876,13 +1912,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="48"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c9"
+          class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1890,19 +1926,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1922,7 +1958,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -1948,13 +1984,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="64"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c10"
+          class="c12"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -1962,19 +1998,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -1995,7 +2031,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2021,13 +2057,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="80"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c11"
+          class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2035,19 +2071,19 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2068,7 +2104,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c12"
+        class="c5 c6 c14"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2095,13 +2131,13 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c13"
+          class="c15"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2112,7 +2148,7 @@ exports[`FileListStory Component renders FileListStory with compact styling 1`] 
 `;
 
 exports[`FileListStory Component renders FileListStory with compact styling and a close button 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -2126,15 +2162,15 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -2151,34 +2187,34 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 28px;
   height: 28px;
   margin-right: -8px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2189,36 +2225,41 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 12px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 1px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2227,24 +2268,24 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2264,7 +2305,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2290,13 +2331,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2307,7 +2348,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 `;
 
 exports[`FileListStory Component renders FileListStory with compact styling and a delete button 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -2321,15 +2362,15 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -2346,34 +2387,34 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 28px;
   height: 28px;
   margin-right: -8px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2384,40 +2425,45 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c5 {
+.c7 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 12px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c6 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c8 {
   margin: 8px 0;
   border-radius: 1px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c7 {
+.c9 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2426,24 +2472,24 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2464,7 +2510,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c5"
+        class="c5 c6 c7"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2491,13 +2537,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c6"
+        class="c8"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c7"
+          class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2508,7 +2554,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 `;
 
 exports[`FileListStory Component renders FileListStory with compact styling and multiple items 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -2522,15 +2568,15 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -2547,34 +2593,34 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 28px;
   height: 28px;
   margin-right: -8px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -2585,40 +2631,45 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c12 {
+.c14 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 12px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 1px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2626,7 +2677,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   height: 2px;
 }
 
-.c7 {
+.c9 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2634,7 +2685,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   height: 2px;
 }
 
-.c8 {
+.c10 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2642,7 +2693,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   height: 2px;
 }
 
-.c9 {
+.c11 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2650,7 +2701,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   height: 2px;
 }
 
-.c10 {
+.c12 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2658,7 +2709,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   height: 2px;
 }
 
-.c11 {
+.c13 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2666,7 +2717,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   height: 2px;
 }
 
-.c13 {
+.c15 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -2675,17 +2726,17 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
     >
@@ -2695,19 +2746,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2727,7 +2778,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2753,13 +2804,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2767,19 +2818,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2800,7 +2851,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2826,13 +2877,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c7"
+          class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2840,19 +2891,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2880,7 +2931,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2906,13 +2957,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="32"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c8"
+          class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -2920,19 +2971,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -2962,7 +3013,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -2988,13 +3039,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="48"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c9"
+          class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3002,19 +3053,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3034,7 +3085,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3060,13 +3111,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="64"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c10"
+          class="c12"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3074,19 +3125,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3107,7 +3158,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3133,13 +3184,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="80"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c11"
+          class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3147,19 +3198,19 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3180,7 +3231,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c12"
+        class="c5 c6 c14"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3207,13 +3258,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c13"
+          class="c15"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3224,7 +3275,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 `;
 
 exports[`FileListStory Component renders FileListStory with compact styling and progress 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -3238,15 +3289,15 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -3263,34 +3314,34 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 28px;
   height: 28px;
   margin-right: -8px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3301,36 +3352,41 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 12px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 1px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 1px;
   background: currentcolor;
@@ -3339,24 +3395,24 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3377,7 +3433,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3403,13 +3459,13 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3420,7 +3476,7 @@ exports[`FileListStory Component renders FileListStory with compact styling and 
 `;
 
 exports[`FileListStory Component renders FileListStory with multiple items 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -3434,15 +3490,15 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -3459,34 +3515,34 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -3497,40 +3553,45 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c12 {
+.c14 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3538,7 +3599,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   height: 6px;
 }
 
-.c7 {
+.c9 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3546,7 +3607,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   height: 6px;
 }
 
-.c8 {
+.c10 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3554,7 +3615,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   height: 6px;
 }
 
-.c9 {
+.c11 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3562,7 +3623,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   height: 6px;
 }
 
-.c10 {
+.c12 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3570,7 +3631,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   height: 6px;
 }
 
-.c11 {
+.c13 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3578,7 +3639,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
   height: 6px;
 }
 
-.c13 {
+.c15 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -3587,17 +3648,17 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
     >
@@ -3607,19 +3668,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3639,7 +3700,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3665,13 +3726,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3679,19 +3740,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3712,7 +3773,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3738,13 +3799,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c7"
+          class="c9"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3752,19 +3813,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3791,7 +3852,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3817,13 +3878,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="32"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c8"
+          class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3831,19 +3892,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3873,7 +3934,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3899,13 +3960,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="48"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c9"
+          class="c11"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3913,19 +3974,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -3945,7 +4006,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -3971,13 +4032,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="64"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c10"
+          class="c12"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -3985,19 +4046,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -4018,7 +4079,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -4044,13 +4105,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="80"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c11"
+          class="c13"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -4058,19 +4119,19 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -4091,7 +4152,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c12"
+        class="c5 c6 c14"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -4118,13 +4179,13 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c13"
+          class="c15"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -4135,7 +4196,7 @@ exports[`FileListStory Component renders FileListStory with multiple items 1`] =
 `;
 
 exports[`FileListStory Component renders FileListStory with multiple items, one with close and one with delete 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -4149,15 +4210,15 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -4174,34 +4235,34 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4212,40 +4273,45 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c7 {
+.c9 {
   color: #cd3642;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -4253,7 +4319,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   height: 6px;
 }
 
-.c8 {
+.c10 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -4262,24 +4328,24 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -4299,7 +4365,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -4325,13 +4391,13 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -4339,19 +4405,19 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -4372,7 +4438,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
       </span>
       <button
         aria-label="Delete file"
-        class="c3 c4 c7"
+        class="c5 c6 c9"
         data-garden-id="forms.file.delete"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -4399,13 +4465,13 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="100"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c8"
+          class="c10"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />
@@ -4416,7 +4482,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
 `;
 
 exports[`FileListStory Component renders FileListStory with multiple items, one with progress and one without 1`] = `
-.c4 {
+.c6 {
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -4430,15 +4496,15 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   appearance: none;
 }
 
-.c4:hover {
+.c6:hover {
   opacity: 0.9;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c1 {
+.c3 {
   display: flex;
   position: relative;
   flex-wrap: nowrap;
@@ -4455,34 +4521,34 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   color: #293239;
 }
 
-.c1 > span {
+.c3>span {
   width: 100%;
 }
 
-.c1 > .c3 {
+.c3>.c5 {
   width: 40px;
   height: 40px;
   margin-right: -12px;
 }
 
-.c1:focus {
+.c3:focus {
   outline: none;
 }
 
-.c1:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c1 > span {
+.c3>span {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.c1 > [role='progressbar'] {
+.c3>[role='progressbar'] {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -4493,36 +4559,41 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
   width: 100%;
 }
 
-.c1 > [role='progressbar'] > div {
+.c3>[role='progressbar']>div {
   border-top-left-radius: 0;
 }
 
-.c1 > [role='progressbar'][aria-valuenow='0'],
-.c1 > [role='progressbar'][aria-valuenow='100'] {
+.c3>[role='progressbar'][aria-valuenow='0'],
+.c3>[role='progressbar'][aria-valuenow='100'] {
   opacity: 0;
 }
 
-.c2 {
+.c4 {
   flex-shrink: 0;
   width: 16px;
   margin-right: 8px;
   color: #5c6970;
 }
 
-.c0 {
+.c1 {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.c5 {
+.c2:not(:first-child),
+.StyledFileUpload-sc-1rodjgn-0~.c0>.c2:first-child {
+  margin-top: 8px;
+}
+
+.c7 {
   margin: 8px 0;
   border-radius: 3px;
   background-color: rgba(92,105,112,0.16);
   color: #037f52;
 }
 
-.c6 {
+.c8 {
   transition: width 0.1s ease-in-out;
   border-radius: 3px;
   background: currentcolor;
@@ -4531,17 +4602,17 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
 }
 
 <ul
-  class="c0"
+  class="c0 c1"
   data-garden-id="forms.file_list"
   data-garden-version="9.2.0"
 >
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
     >
@@ -4551,19 +4622,19 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
     </div>
   </li>
   <li
-    class=""
+    class="c2"
     data-garden-id="forms.file_list.item"
     data-garden-version="9.2.0"
   >
     <div
-      class="c1"
+      class="c3"
       data-garden-id="forms.file"
       data-garden-version="9.2.0"
       tabindex="0"
     >
       <svg
         aria-hidden="true"
-        class=" c2"
+        class="c4"
         data-garden-id="forms.file.icon"
         data-garden-version="9.2.0"
         focusable="false"
@@ -4584,7 +4655,7 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
       </span>
       <button
         aria-label="Close file"
-        class="c3 c4"
+        class="c5 c6"
         data-garden-id="forms.file.close"
         data-garden-version="9.2.0"
         tabindex="-1"
@@ -4610,13 +4681,13 @@ exports[`FileListStory Component renders FileListStory with multiple items, one 
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="16"
-        class="c5"
+        class="c7"
         data-garden-id="loaders.progress_background"
         data-garden-version="9.2.0"
         role="progressbar"
       >
         <div
-          class="c6"
+          class="c8"
           data-garden-id="loaders.progress_indicator"
           data-garden-version="9.2.0"
         />

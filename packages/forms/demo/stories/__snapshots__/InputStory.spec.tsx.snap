@@ -10,7 +10,7 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -18,7 +18,7 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -31,7 +31,261 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
   width: 1px;
 }
 
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c5 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c5::-ms-browse {
+  border-radius: 2px;
+}
+
+.c5::-ms-clear,
+.c5::-ms-reveal {
+  display: none;
+}
+
+.c5::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c5::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c5::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
+  display: none;
+}
+
+.c5::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c5:invalid {
+  box-shadow: none;
+}
+
+.c5[type='file']::-ms-value {
+  display: none;
+}
+
+.c5::-ms-browse {
+  font-size: 12px;
+}
+
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
+  max-height: 40px;
+}
+
+.c5[type='file'] {
+  line-height: 1;
+}
+
+.c5::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c5::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c5::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c5[readonly],
+.c5[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c5:hover {
+  border-color: #1f73b7;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c5:disabled,
+.c5[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5:disabled {
+  cursor: default;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c5[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c5[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":re:--input"
+    id=":re:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":re:--hint"
+  >
+    Hint
+  </div>
+  <input
+    aria-describedby=":re:--hint"
+    aria-invalid="false"
+    aria-labelledby=":re:--label"
+    class="c5"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input"
+    data-garden-version="9.2.0"
+    disabled=""
+    id=":re:--input"
+  />
+</div>
+`;
+
+exports[`InputStory Component renders InputStory with a hidden label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
 .c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -139,6 +393,14 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
   margin: -5px -7px;
 }
 
+.c1:not([hidden])+.c3.c3,
+.c4+.c3.c3,
+.StyledMessage-sc-30hgg7-0+.c3.c3,
+.c3.c3+.c4,
+.c3.c3~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
 .c3::placeholder {
   opacity: 1;
   color: #848f99;
@@ -168,7 +430,7 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -179,7 +441,7 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
 .c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:disabled,
@@ -211,253 +473,7 @@ exports[`InputStory Component renders InputStory with a disabled input 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
-    data-garden-container-id="containers.field.label"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_label"
-    data-garden-version="9.2.0"
-    for=":re:--input"
-    id=":re:--label"
-  >
-    Label
-  </label>
-  <div
-    class="c2"
-    data-garden-container-id="containers.field.hint"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_hint"
-    data-garden-version="9.2.0"
-    id=":re:--hint"
-  >
-    Hint
-  </div>
-  <input
-    aria-describedby=":re:--hint"
-    aria-invalid="false"
-    aria-labelledby=":re:--label"
-    class="c3"
-    data-garden-container-id="containers.field.input"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input"
-    data-garden-version="9.2.0"
-    disabled=""
-    id=":re:--input"
-  />
-</div>
-`;
-
-exports[`InputStory Component renders InputStory with a hidden label 1`] = `
-.c0 {
-  position: relative;
-  direction: ltr;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font-size: 0;
-}
-
-.c1 {
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #293239;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.c1[hidden] {
-  display: inline;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c3 {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #5c6970;
-  font-size: 14px;
-}
-
-.c2 {
-  appearance: none;
-  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
-  border: 1px solid;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  vertical-align: middle;
-  font-family: inherit;
-  padding: 0.7142857142857143em 0.8571428571428571em;
-  min-height: 40px;
-  line-height: 1.2857142857142858;
-  font-size: 14px;
-  border-color: #b0b8be;
-  background-color: #fff;
-  color: #293239;
-}
-
-.c2::-ms-browse {
-  border-radius: 2px;
-}
-
-.c2::-ms-clear,
-.c2::-ms-reveal {
-  display: none;
-}
-
-.c2::-moz-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c2::-webkit-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c2::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.c2::-webkit-clear-button,
-.c2::-webkit-inner-spin-button,
-.c2::-webkit-search-cancel-button,
-.c2::-webkit-search-results-button {
-  display: none;
-}
-
-.c2::-webkit-datetime-edit {
-  line-height: 1;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  border-radius: 100%;
-}
-
-.c2:invalid {
-  box-shadow: none;
-}
-
-.c2[type='file']::-ms-value {
-  display: none;
-}
-
-.c2::-ms-browse {
-  font-size: 12px;
-}
-
-.c2[type='date'],
-.c2[type='datetime-local'],
-.c2[type='file'],
-.c2[type='month'],
-.c2[type='time'],
-.c2[type='week'] {
-  max-height: 40px;
-}
-
-.c2[type='file'] {
-  line-height: 1;
-}
-
-.c2::-moz-color-swatch {
-  margin-top: -5px;
-  margin-left: -7px;
-  width: calc(100% + 14px);
-  height: 28px;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  background-position: center;
-  background-size: 16px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.c2::-webkit-color-swatch {
-  margin: -5px -7px;
-}
-
-.c2::placeholder {
-  opacity: 1;
-  color: #848f99;
-}
-
-.c2::-webkit-datetime-edit {
-  color: #848f99;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
-}
-
-.c2[readonly],
-.c2[aria-readonly='true'] {
-  background-color: rgba(92,105,112,0.08);
-}
-
-.c2:hover {
-  border-color: #1f73b7;
-}
-
-.c2:focus {
-  outline: none;
-}
-
-.c2:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c2:disabled,
-.c2[aria-disabled='true'] {
-  border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
-  color: #848f99;
-}
-
-.c2:disabled {
-  cursor: default;
-}
-
-@media screen and (min--moz-device-pixel-ratio:0) {
-  .c2[type='number'] {
-    appearance: textfield;
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .c2[type='color'] {
-    padding: 1px 3px;
-  }
-}
-
-<div
-  class="c0"
-  data-garden-id="forms.field"
-  data-garden-version="9.2.0"
->
-  <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -472,7 +488,7 @@ exports[`InputStory Component renders InputStory with a hidden label 1`] = `
     aria-describedby=":r3:--hint"
     aria-invalid="false"
     aria-labelledby=":r3:--label"
-    class="c2"
+    class="c3"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -480,7 +496,7 @@ exports[`InputStory Component renders InputStory with a hidden label 1`] = `
     id=":r3:--input"
   />
   <div
-    class="c3"
+    class="c4 c5"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -502,7 +518,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -510,7 +526,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -523,7 +539,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -531,7 +547,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -549,77 +565,77 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -627,72 +643,80 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -703,7 +727,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -714,7 +738,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
     Username
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -727,7 +751,7 @@ exports[`InputStory Component renders InputStory with a hint 1`] = `
     aria-describedby=":r4:--hint"
     aria-invalid="false"
     aria-labelledby=":r4:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -747,7 +771,7 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -755,7 +779,7 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -768,7 +792,260 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
   width: 1px;
 }
 
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c5 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c5::-ms-browse {
+  border-radius: 2px;
+}
+
+.c5::-ms-clear,
+.c5::-ms-reveal {
+  display: none;
+}
+
+.c5::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c5::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c5::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
+  display: none;
+}
+
+.c5::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c5:invalid {
+  box-shadow: none;
+}
+
+.c5[type='file']::-ms-value {
+  display: none;
+}
+
+.c5::-ms-browse {
+  font-size: 12px;
+}
+
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
+  max-height: 40px;
+}
+
+.c5[type='file'] {
+  line-height: 1;
+}
+
+.c5::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c5::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c5::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c5[readonly],
+.c5[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c5:hover {
+  border-color: #1f73b7;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c5:disabled,
+.c5[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5:disabled {
+  cursor: default;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c5[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c5[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r1:--input"
+    id=":r1:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r1:--hint"
+  >
+    Hint
+  </div>
+  <input
+    aria-describedby=":r1:--hint"
+    aria-invalid="false"
+    aria-labelledby=":r1:--label"
+    class="c5"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input"
+    data-garden-version="9.2.0"
+    id=":r1:--input"
+  />
+</div>
+`;
+
+exports[`InputStory Component renders InputStory with a label, hidden label, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
 .c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -876,6 +1153,14 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
   margin: -5px -7px;
 }
 
+.c1:not([hidden])+.c3.c3,
+.c4+.c3.c3,
+.StyledMessage-sc-30hgg7-0+.c3.c3,
+.c3.c3+.c4,
+.c3.c3~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
 .c3::placeholder {
   opacity: 1;
   color: #848f99;
@@ -905,7 +1190,7 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -916,7 +1201,7 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
 .c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:disabled,
@@ -948,252 +1233,7 @@ exports[`InputStory Component renders InputStory with a label 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
-    data-garden-container-id="containers.field.label"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_label"
-    data-garden-version="9.2.0"
-    for=":r1:--input"
-    id=":r1:--label"
-  >
-    Username
-  </label>
-  <div
-    class="c2"
-    data-garden-container-id="containers.field.hint"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_hint"
-    data-garden-version="9.2.0"
-    id=":r1:--hint"
-  >
-    Hint
-  </div>
-  <input
-    aria-describedby=":r1:--hint"
-    aria-invalid="false"
-    aria-labelledby=":r1:--label"
-    class="c3"
-    data-garden-container-id="containers.field.input"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input"
-    data-garden-version="9.2.0"
-    id=":r1:--input"
-  />
-</div>
-`;
-
-exports[`InputStory Component renders InputStory with a label, hidden label, and validation label 1`] = `
-.c0 {
-  position: relative;
-  direction: ltr;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font-size: 0;
-}
-
-.c1 {
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #293239;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.c1[hidden] {
-  display: inline;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c3 {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #5c6970;
-  font-size: 14px;
-}
-
-.c2 {
-  appearance: none;
-  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
-  border: 1px solid;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  vertical-align: middle;
-  font-family: inherit;
-  padding: 0.7142857142857143em 0.8571428571428571em;
-  min-height: 40px;
-  line-height: 1.2857142857142858;
-  font-size: 14px;
-  border-color: #b0b8be;
-  background-color: #fff;
-  color: #293239;
-}
-
-.c2::-ms-browse {
-  border-radius: 2px;
-}
-
-.c2::-ms-clear,
-.c2::-ms-reveal {
-  display: none;
-}
-
-.c2::-moz-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c2::-webkit-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c2::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.c2::-webkit-clear-button,
-.c2::-webkit-inner-spin-button,
-.c2::-webkit-search-cancel-button,
-.c2::-webkit-search-results-button {
-  display: none;
-}
-
-.c2::-webkit-datetime-edit {
-  line-height: 1;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  border-radius: 100%;
-}
-
-.c2:invalid {
-  box-shadow: none;
-}
-
-.c2[type='file']::-ms-value {
-  display: none;
-}
-
-.c2::-ms-browse {
-  font-size: 12px;
-}
-
-.c2[type='date'],
-.c2[type='datetime-local'],
-.c2[type='file'],
-.c2[type='month'],
-.c2[type='time'],
-.c2[type='week'] {
-  max-height: 40px;
-}
-
-.c2[type='file'] {
-  line-height: 1;
-}
-
-.c2::-moz-color-swatch {
-  margin-top: -5px;
-  margin-left: -7px;
-  width: calc(100% + 14px);
-  height: 28px;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  background-position: center;
-  background-size: 16px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.c2::-webkit-color-swatch {
-  margin: -5px -7px;
-}
-
-.c2::placeholder {
-  opacity: 1;
-  color: #848f99;
-}
-
-.c2::-webkit-datetime-edit {
-  color: #848f99;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
-}
-
-.c2[readonly],
-.c2[aria-readonly='true'] {
-  background-color: rgba(92,105,112,0.08);
-}
-
-.c2:hover {
-  border-color: #1f73b7;
-}
-
-.c2:focus {
-  outline: none;
-}
-
-.c2:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c2:disabled,
-.c2[aria-disabled='true'] {
-  border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
-  color: #848f99;
-}
-
-.c2:disabled {
-  cursor: default;
-}
-
-@media screen and (min--moz-device-pixel-ratio:0) {
-  .c2[type='number'] {
-    appearance: textfield;
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .c2[type='color'] {
-    padding: 1px 3px;
-  }
-}
-
-<div
-  class="c0"
-  data-garden-id="forms.field"
-  data-garden-version="9.2.0"
->
-  <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -1208,7 +1248,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, and
     aria-describedby=":r8:--hint"
     aria-invalid="false"
     aria-labelledby=":r8:--label"
-    class="c2"
+    class="c3"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -1216,7 +1256,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, and
     id=":r8:--input"
   />
   <div
-    class="c3"
+    class="c4 c5"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -1238,7 +1278,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -1246,7 +1286,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -1259,7 +1299,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   width: 1px;
 }
 
-.c3 {
+.c5 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -1267,7 +1307,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   font-size: 14px;
 }
 
-.c2 {
+.c3 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -1285,77 +1325,77 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   color: #293239;
 }
 
-.c2::-ms-browse {
+.c3::-ms-browse {
   border-radius: 2px;
 }
 
-.c2::-ms-clear,
-.c2::-ms-reveal {
+.c3::-ms-clear,
+.c3::-ms-reveal {
   display: none;
 }
 
-.c2::-moz-color-swatch {
+.c3::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c2::-webkit-color-swatch {
+.c3::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c2::-webkit-color-swatch-wrapper {
+.c3::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c2::-webkit-clear-button,
-.c2::-webkit-inner-spin-button,
-.c2::-webkit-search-cancel-button,
-.c2::-webkit-search-results-button {
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
   display: none;
 }
 
-.c2::-webkit-datetime-edit {
+.c3::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c2::-webkit-calendar-picker-indicator {
+.c3::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c2:invalid {
+.c3:invalid {
   box-shadow: none;
 }
 
-.c2[type='file']::-ms-value {
+.c3[type='file']::-ms-value {
   display: none;
 }
 
-.c2::-ms-browse {
+.c3::-ms-browse {
   font-size: 12px;
 }
 
-.c2[type='date'],
-.c2[type='datetime-local'],
-.c2[type='file'],
-.c2[type='month'],
-.c2[type='time'],
-.c2[type='week'] {
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
   max-height: 40px;
 }
 
-.c2[type='file'] {
+.c3[type='file'] {
   line-height: 1;
 }
 
-.c2::-moz-color-swatch {
+.c3::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c2::-webkit-calendar-picker-indicator {
+.c3::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -1363,72 +1403,80 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   height: 20px;
 }
 
-.c2::-webkit-color-swatch {
+.c3::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c2::placeholder {
+.c1:not([hidden])+.c3.c3,
+.c4+.c3.c3,
+.StyledMessage-sc-30hgg7-0+.c3.c3,
+.c3.c3+.c4,
+.c3.c3~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c3::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c2::-webkit-datetime-edit {
+.c3::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c2::-webkit-calendar-picker-indicator {
+.c3::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c2[readonly],
-.c2[aria-readonly='true'] {
+.c3[readonly],
+.c3[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c2:hover {
+.c3:hover {
   border-color: #1f73b7;
 }
 
-.c2:focus {
+.c3:focus {
   outline: none;
 }
 
-.c2:focus-visible {
+.c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c2:disabled,
-.c2[aria-disabled='true'] {
+.c3:disabled,
+.c3[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c2:disabled {
+.c3:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c2[type='number'] {
+  .c3[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c2[type='color'] {
+  .c3[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -1439,7 +1487,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -1454,7 +1502,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
     aria-describedby=":ra:--hint"
     aria-invalid="false"
     aria-labelledby=":ra:--label"
-    class="c2"
+    class="c3"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -1462,7 +1510,7 @@ exports[`InputStory Component renders InputStory with a label, hidden label, hin
     id=":ra:--input"
   />
   <div
-    class="c3"
+    class="c4 c5"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -1522,11 +1570,11 @@ exports[`InputStory Component renders InputStory with a label, hint, and message
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   display: block;
 }
 
@@ -1630,11 +1678,11 @@ exports[`InputStory Component renders InputStory with a label, hint, and message
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c5.c5,
-.c3 + .c5.c5,
-.c6 + .c5.c5,
-.c5.c5 + .c3,
-.c5.c5 ~ .c6 {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.c6+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.c6 {
   margin-top: 8px;
 }
 
@@ -1667,7 +1715,7 @@ exports[`InputStory Component renders InputStory with a label, hint, and message
 .c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1678,7 +1726,7 @@ exports[`InputStory Component renders InputStory with a label, hint, and message
 .c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c5:disabled,
@@ -1803,11 +1851,11 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   display: block;
 }
 
@@ -1911,11 +1959,11 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c5.c5,
-.c3 + .c5.c5,
-.c6 + .c5.c5,
-.c5.c5 + .c3,
-.c5.c5 ~ .c6 {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.c6+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.c6 {
   margin-top: 8px;
 }
 
@@ -1948,7 +1996,7 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
 .c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1959,7 +2007,7 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
 .c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c5:disabled,
@@ -2084,11 +2132,11 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   display: block;
 }
 
@@ -2192,11 +2240,11 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c5.c5,
-.c3 + .c5.c5,
-.c6 + .c5.c5,
-.c5.c5 + .c3,
-.c5.c5 ~ .c6 {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.c6+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.c6 {
   margin-top: 8px;
 }
 
@@ -2229,7 +2277,7 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
 .c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2240,7 +2288,7 @@ exports[`InputStory Component renders InputStory with a label, regular label, hi
 .c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c5:disabled,
@@ -2365,11 +2413,11 @@ exports[`InputStory Component renders InputStory with a message 1`] = `
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   display: block;
 }
 
@@ -2473,11 +2521,11 @@ exports[`InputStory Component renders InputStory with a message 1`] = `
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c5.c5,
-.c3 + .c5.c5,
-.c6 + .c5.c5,
-.c5.c5 + .c3,
-.c5.c5 ~ .c6 {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.c6+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.c6 {
   margin-top: 8px;
 }
 
@@ -2510,7 +2558,7 @@ exports[`InputStory Component renders InputStory with a message 1`] = `
 .c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2521,7 +2569,7 @@ exports[`InputStory Component renders InputStory with a message 1`] = `
 .c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c5:disabled,
@@ -2608,7 +2656,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -2616,7 +2664,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -2629,7 +2677,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -2637,7 +2685,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -2655,77 +2703,77 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -2733,72 +2781,80 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -2809,7 +2865,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -2820,7 +2876,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -2833,7 +2889,7 @@ exports[`InputStory Component renders InputStory with a placeholder 1`] = `
     aria-describedby=":rc:--hint"
     aria-invalid="false"
     aria-labelledby=":rc:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -2854,7 +2910,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -2862,7 +2918,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -2875,7 +2931,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -2883,7 +2939,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -2901,77 +2957,77 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -2979,72 +3035,80 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3055,7 +3119,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3066,7 +3130,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3079,7 +3143,7 @@ exports[`InputStory Component renders InputStory with a read-only input 1`] = `
     aria-describedby=":ri:--hint"
     aria-invalid="false"
     aria-labelledby=":ri:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -3100,7 +3164,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3108,7 +3172,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   font-weight: 400;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3121,7 +3185,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3129,7 +3193,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3147,77 +3211,77 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3225,72 +3289,80 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3301,7 +3373,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3312,7 +3384,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
     Username
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3325,7 +3397,7 @@ exports[`InputStory Component renders InputStory with a regular label 1`] = `
     aria-describedby=":r2:--hint"
     aria-invalid="false"
     aria-labelledby=":r2:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -3345,7 +3417,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3353,7 +3425,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3366,7 +3438,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3374,7 +3446,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3392,77 +3464,77 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3470,72 +3542,80 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3546,7 +3626,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3557,7 +3637,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3570,7 +3650,7 @@ exports[`InputStory Component renders InputStory with a required input 1`] = `
     aria-describedby=":rj:--hint"
     aria-invalid="false"
     aria-labelledby=":rj:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -3591,7 +3671,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3599,7 +3679,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3612,7 +3692,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3620,7 +3700,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3638,77 +3718,77 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3716,72 +3796,80 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3792,7 +3880,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3803,7 +3891,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
     Username
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3816,7 +3904,7 @@ exports[`InputStory Component renders InputStory with a validation label 1`] = `
     aria-describedby=":r6:--hint"
     aria-invalid="false"
     aria-labelledby=":r6:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -3836,7 +3924,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3844,7 +3932,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3857,7 +3945,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3865,7 +3953,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3883,77 +3971,77 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3961,72 +4049,80 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -4037,7 +4133,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -4048,7 +4144,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -4061,7 +4157,7 @@ exports[`InputStory Component renders InputStory with a value 1`] = `
     aria-describedby=":rd:--hint"
     aria-invalid="false"
     aria-labelledby=":rd:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -4082,7 +4178,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -4090,7 +4186,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -4103,7 +4199,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -4111,7 +4207,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: none;
@@ -4129,77 +4225,77 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -4207,65 +4303,73 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -4276,7 +4380,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -4287,7 +4391,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -4300,7 +4404,7 @@ exports[`InputStory Component renders InputStory with bare styling 1`] = `
     aria-describedby=":rg:--hint"
     aria-invalid="false"
     aria-labelledby=":rg:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -4320,7 +4424,7 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -4328,7 +4432,7 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -4341,7 +4445,7 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -4349,7 +4453,7 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -4364,6 +4468,259 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
   font-size: 14px;
   border-color: #b0b8be;
   background-color: #fff;
+  color: #293239;
+}
+
+.c5::-ms-browse {
+  border-radius: 2px;
+}
+
+.c5::-ms-clear,
+.c5::-ms-reveal {
+  display: none;
+}
+
+.c5::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c5::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c5::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
+  display: none;
+}
+
+.c5::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c5:invalid {
+  box-shadow: none;
+}
+
+.c5[type='file']::-ms-value {
+  display: none;
+}
+
+.c5::-ms-browse {
+  font-size: 11px;
+}
+
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
+  max-height: 32px;
+}
+
+.c5[type='file'] {
+  line-height: 1;
+}
+
+.c5::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c5::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 4px;
+}
+
+.c5::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c5::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c5::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c5[readonly],
+.c5[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c5:hover {
+  border-color: #1f73b7;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c5:disabled,
+.c5[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c5:disabled {
+  cursor: default;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c5[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c5[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rf:--input"
+    id=":rf:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rf:--hint"
+  >
+    Hint
+  </div>
+  <input
+    aria-describedby=":rf:--hint"
+    aria-invalid="false"
+    aria-labelledby=":rf:--label"
+    class="c5"
+    data-garden-container-id="containers.field.input"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input"
+    data-garden-version="9.2.0"
+    id=":rf:--input"
+  />
+</div>
+`;
+
+exports[`InputStory Component renders InputStory with label, hidden label, validation label, and bare input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1em;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: transparent;
   color: #293239;
 }
 
@@ -4414,7 +4771,7 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 }
 
 .c3::-ms-browse {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .c3[type='date'],
@@ -4423,7 +4780,7 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 .c3[type='month'],
 .c3[type='time'],
 .c3[type='week'] {
-  max-height: 32px;
+  max-height: 40px;
 }
 
 .c3[type='file'] {
@@ -4431,10 +4788,10 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 }
 
 .c3::-moz-color-swatch {
-  margin-top: -3px;
-  margin-left: -9px;
-  width: calc(100% + 18px);
-  height: 24px;
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
 }
 
 .c3::-webkit-calendar-picker-indicator {
@@ -4446,7 +4803,15 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 }
 
 .c3::-webkit-color-swatch {
-  margin: -3px -9px;
+  margin: -5px -7px;
+}
+
+.c1:not([hidden])+.c3.c3,
+.c4+.c3.c3,
+.StyledMessage-sc-30hgg7-0+.c3.c3,
+.c3.c3+.c4,
+.c3.c3~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
 }
 
 .c3::placeholder {
@@ -4462,11 +4827,6 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
-  background-color: rgba(92,105,112,0.08);
-}
-
 .c3:hover {
   border-color: #1f73b7;
 }
@@ -4478,7 +4838,6 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4489,13 +4848,12 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 .c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:disabled,
 .c3[aria-disabled='true'] {
   border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
@@ -4511,244 +4869,6 @@ exports[`InputStory Component renders InputStory with compact styling 1`] = `
 
 @supports (-ms-ime-align:auto) {
   .c3[type='color'] {
-    padding: 0 2px;
-  }
-}
-
-<div
-  class="c0"
-  data-garden-id="forms.field"
-  data-garden-version="9.2.0"
->
-  <label
-    class="c1"
-    data-garden-container-id="containers.field.label"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_label"
-    data-garden-version="9.2.0"
-    for=":rf:--input"
-    id=":rf:--label"
-  >
-    Label
-  </label>
-  <div
-    class="c2"
-    data-garden-container-id="containers.field.hint"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_hint"
-    data-garden-version="9.2.0"
-    id=":rf:--hint"
-  >
-    Hint
-  </div>
-  <input
-    aria-describedby=":rf:--hint"
-    aria-invalid="false"
-    aria-labelledby=":rf:--label"
-    class="c3"
-    data-garden-container-id="containers.field.input"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input"
-    data-garden-version="9.2.0"
-    id=":rf:--input"
-  />
-</div>
-`;
-
-exports[`InputStory Component renders InputStory with label, hidden label, validation label, and bare input 1`] = `
-.c0 {
-  position: relative;
-  direction: ltr;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font-size: 0;
-}
-
-.c1 {
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #293239;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.c1[hidden] {
-  display: inline;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c3 {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #5c6970;
-  font-size: 14px;
-}
-
-.c2 {
-  appearance: none;
-  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
-  border: none;
-  border-radius: 0;
-  width: 100%;
-  box-sizing: border-box;
-  vertical-align: middle;
-  font-family: inherit;
-  padding: 0;
-  min-height: 1em;
-  line-height: 1.2857142857142858;
-  font-size: 14px;
-  border-color: #b0b8be;
-  background-color: transparent;
-  color: #293239;
-}
-
-.c2::-ms-browse {
-  border-radius: 2px;
-}
-
-.c2::-ms-clear,
-.c2::-ms-reveal {
-  display: none;
-}
-
-.c2::-moz-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c2::-webkit-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c2::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.c2::-webkit-clear-button,
-.c2::-webkit-inner-spin-button,
-.c2::-webkit-search-cancel-button,
-.c2::-webkit-search-results-button {
-  display: none;
-}
-
-.c2::-webkit-datetime-edit {
-  line-height: 1;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  border-radius: 100%;
-}
-
-.c2:invalid {
-  box-shadow: none;
-}
-
-.c2[type='file']::-ms-value {
-  display: none;
-}
-
-.c2::-ms-browse {
-  font-size: 12px;
-}
-
-.c2[type='date'],
-.c2[type='datetime-local'],
-.c2[type='file'],
-.c2[type='month'],
-.c2[type='time'],
-.c2[type='week'] {
-  max-height: 40px;
-}
-
-.c2[type='file'] {
-  line-height: 1;
-}
-
-.c2::-moz-color-swatch {
-  margin-top: -5px;
-  margin-left: -7px;
-  width: calc(100% + 14px);
-  height: 28px;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  background-position: center;
-  background-size: 16px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.c2::-webkit-color-swatch {
-  margin: -5px -7px;
-}
-
-.c2::placeholder {
-  opacity: 1;
-  color: #848f99;
-}
-
-.c2::-webkit-datetime-edit {
-  color: #848f99;
-}
-
-.c2::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
-}
-
-.c2:hover {
-  border-color: #1f73b7;
-}
-
-.c2:focus {
-  outline: none;
-}
-
-.c2:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  border-color: #1f73b7;
-}
-
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c2::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c2:disabled,
-.c2[aria-disabled='true'] {
-  border-color: #d8dcde;
-  color: #848f99;
-}
-
-.c2:disabled {
-  cursor: default;
-}
-
-@media screen and (min--moz-device-pixel-ratio:0) {
-  .c2[type='number'] {
-    appearance: textfield;
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .c2[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -4759,7 +4879,7 @@ exports[`InputStory Component renders InputStory with label, hidden label, valid
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -4774,7 +4894,7 @@ exports[`InputStory Component renders InputStory with label, hidden label, valid
     aria-describedby=":ro:--hint"
     aria-invalid="false"
     aria-labelledby=":ro:--label"
-    class="c2"
+    class="c3"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -4782,7 +4902,7 @@ exports[`InputStory Component renders InputStory with label, hidden label, valid
     id=":ro:--input"
   />
   <div
-    class="c3"
+    class="c4 c5"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -4842,11 +4962,11 @@ exports[`InputStory Component renders InputStory with label, hint, message, and 
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   display: block;
 }
 
@@ -4950,11 +5070,11 @@ exports[`InputStory Component renders InputStory with label, hint, message, and 
   margin: -3px -9px;
 }
 
-.c1:not([hidden]) + .c5.c5,
-.c3 + .c5.c5,
-.c6 + .c5.c5,
-.c5.c5 + .c3,
-.c5.c5 ~ .c6 {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.c6+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.c6 {
   margin-top: 4px;
 }
 
@@ -4987,7 +5107,7 @@ exports[`InputStory Component renders InputStory with label, hint, message, and 
 .c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4998,7 +5118,7 @@ exports[`InputStory Component renders InputStory with label, hint, message, and 
 .c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c5:disabled,
@@ -5123,11 +5243,11 @@ exports[`InputStory Component renders InputStory with label, regular label, hint
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c6 {
+.c1:not([hidden])+.c7 {
   display: block;
 }
 
@@ -5231,11 +5351,11 @@ exports[`InputStory Component renders InputStory with label, regular label, hint
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c5.c5,
-.c3 + .c5.c5,
-.c6 + .c5.c5,
-.c5.c5 + .c3,
-.c5.c5 ~ .c6 {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.c6+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.c6 {
   margin-top: 8px;
 }
 
@@ -5268,7 +5388,7 @@ exports[`InputStory Component renders InputStory with label, regular label, hint
 .c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5279,7 +5399,7 @@ exports[`InputStory Component renders InputStory with label, regular label, hint
 .c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c5:disabled,
@@ -5367,7 +5487,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -5375,7 +5495,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -5388,7 +5508,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -5396,7 +5516,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -5414,77 +5534,77 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -5492,72 +5612,80 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -5568,7 +5696,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -5579,7 +5707,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -5592,7 +5720,7 @@ exports[`InputStory Component renders InputStory with type password 1`] = `
     aria-describedby=":rh:--hint"
     aria-invalid="false"
     aria-labelledby=":rh:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -5613,7 +5741,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -5621,7 +5749,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -5634,7 +5762,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -5642,7 +5770,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -5660,77 +5788,77 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -5738,72 +5866,80 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #cd3642;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #cd3642;
   border-color: #cd3642;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -5814,7 +5950,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -5825,7 +5961,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -5838,7 +5974,7 @@ exports[`InputStory Component renders InputStory with validation error 1`] = `
     aria-describedby=":rl:--hint"
     aria-invalid="true"
     aria-labelledby=":rl:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -5858,7 +5994,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -5866,7 +6002,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -5879,7 +6015,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -5887,7 +6023,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -5905,77 +6041,77 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -5983,72 +6119,80 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #037f52;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #037f52;
   border-color: #037f52;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6059,7 +6203,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6070,7 +6214,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6083,7 +6227,7 @@ exports[`InputStory Component renders InputStory with validation success 1`] = `
     aria-describedby=":rk:--hint"
     aria-invalid="false"
     aria-labelledby=":rk:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -6103,7 +6247,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -6111,7 +6255,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -6124,7 +6268,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -6132,7 +6276,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -6150,77 +6294,77 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -6228,72 +6372,80 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #ac5918;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #ac5918;
   border-color: #ac5918;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6304,7 +6456,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6315,7 +6467,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6328,7 +6480,7 @@ exports[`InputStory Component renders InputStory with validation warning 1`] = `
     aria-describedby=":rm:--hint"
     aria-invalid="true"
     aria-labelledby=":rm:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"
@@ -6348,7 +6500,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -6356,7 +6508,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -6369,7 +6521,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -6377,7 +6529,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
   font-size: 14px;
 }
 
-.c3 {
+.c5 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -6395,77 +6547,77 @@ exports[`InputStory Component renders default InputStory 1`] = `
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c5::-ms-clear,
+.c5::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c5::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c5::-webkit-clear-button,
+.c5::-webkit-inner-spin-button,
+.c5::-webkit-search-cancel-button,
+.c5::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c5:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c5[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c5::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c5[type='date'],
+.c5[type='datetime-local'],
+.c5[type='file'],
+.c5[type='month'],
+.c5[type='time'],
+.c5[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c5[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c5::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -6473,72 +6625,80 @@ exports[`InputStory Component renders default InputStory 1`] = `
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c5::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c5.c5,
+.c3+.c5.c5,
+.StyledMessage-sc-30hgg7-0+.c5.c5,
+.c5.c5+.c3,
+.c5.c5~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c5::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c5::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c5::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c5[readonly],
+.c5[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c5:hover {
   border-color: #1f73b7;
 }
 
-.c3:focus {
+.c5:focus {
   outline: none;
 }
 
-.c3:focus-visible {
+.c5:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c5::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c3:disabled,
-.c3[aria-disabled='true'] {
+.c5:disabled,
+.c5[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c3:disabled {
+.c5:disabled {
   cursor: default;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c5[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c5[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6549,7 +6709,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6560,7 +6720,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6573,7 +6733,7 @@ exports[`InputStory Component renders default InputStory 1`] = `
     aria-describedby=":r0:--hint"
     aria-invalid="false"
     aria-labelledby=":r0:--label"
-    class="c3"
+    class="c5"
     data-garden-container-id="containers.field.input"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input"

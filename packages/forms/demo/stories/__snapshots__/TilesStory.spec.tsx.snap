@@ -27,7 +27,7 @@ exports[`TilesStory Component renders TilesStory with a disabled tile 1`] = `
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -64,7 +64,7 @@ exports[`TilesStory Component renders TilesStory with a disabled tile 1`] = `
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -143,14 +143,6 @@ exports[`TilesStory Component renders TilesStory with a disabled tile 1`] = `
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -158,34 +150,6 @@ exports[`TilesStory Component renders TilesStory with a disabled tile 1`] = `
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -378,7 +342,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles 1`] = `
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -415,7 +379,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles 1`] = `
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -494,14 +458,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles 1`] = `
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -509,34 +465,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles 1`] = `
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -729,7 +657,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles and a disab
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -766,7 +694,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles and a disab
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -845,14 +773,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles and a disab
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -860,34 +780,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles and a disab
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1080,7 +972,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles and descrip
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1125,7 +1017,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles and descrip
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -1204,14 +1096,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles and descrip
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -1219,34 +1103,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles and descrip
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1467,7 +1323,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles, descriptio
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1512,7 +1368,7 @@ exports[`TilesStory Component renders TilesStory with centered tiles, descriptio
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -1591,14 +1447,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles, descriptio
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -1606,34 +1454,6 @@ exports[`TilesStory Component renders TilesStory with centered tiles, descriptio
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1854,7 +1674,7 @@ exports[`TilesStory Component renders TilesStory with description 1`] = `
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1899,7 +1719,7 @@ exports[`TilesStory Component renders TilesStory with description 1`] = `
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -1978,14 +1798,6 @@ exports[`TilesStory Component renders TilesStory with description 1`] = `
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -1993,34 +1805,6 @@ exports[`TilesStory Component renders TilesStory with description 1`] = `
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2241,7 +2025,7 @@ exports[`TilesStory Component renders TilesStory with description and a disabled
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2286,7 +2070,7 @@ exports[`TilesStory Component renders TilesStory with description and a disabled
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -2365,14 +2149,6 @@ exports[`TilesStory Component renders TilesStory with description and a disabled
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -2380,34 +2156,6 @@ exports[`TilesStory Component renders TilesStory with description and a disabled
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2628,7 +2376,7 @@ exports[`TilesStory Component renders default TilesStory 1`] = `
 .c4:has(:focus-visible) {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2665,7 +2413,7 @@ exports[`TilesStory Component renders default TilesStory 1`] = `
   color: #5c6970;
 }
 
-.c5 > * {
+.c5>* {
   width: 32px;
   height: 32px;
 }
@@ -2744,14 +2492,6 @@ exports[`TilesStory Component renders default TilesStory 1`] = `
   margin-left: -0;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
 @media (min-width:768px) {
   .c2 {
     flex-basis: 25%;
@@ -2759,34 +2499,6 @@ exports[`TilesStory Component renders default TilesStory 1`] = `
     flex-shrink: 0;
     max-width: 25%;
   }
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div

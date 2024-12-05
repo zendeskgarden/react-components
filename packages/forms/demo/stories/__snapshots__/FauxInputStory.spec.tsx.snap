@@ -10,7 +10,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -18,7 +18,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -31,7 +31,281 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
   width: 1px;
 }
 
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7>.c5 {
+  vertical-align: baseline;
+}
+
+.c7>.c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":re:--input"
+    id=":re:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":re:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-disabled="true"
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
 .c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c7 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -139,6 +413,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
   margin: -5px -7px;
 }
 
+.c1:not([hidden])+.c4.c4,
+.c6+.c4.c4,
+.StyledMessage-sc-30hgg7-0+.c4.c4,
+.c4.c4+.c6,
+.c4.c4~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
 .c4::placeholder {
   opacity: 1;
   color: #848f99;
@@ -168,7 +450,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
 .c4:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -179,7 +461,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
 .c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c4:disabled,
@@ -206,15 +488,15 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
 .c5:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c5>.c3 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c5>.c3:focus-visible {
   box-shadow: unset;
 }
 
@@ -236,273 +518,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
-    data-garden-container-id="containers.field.label"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_label"
-    data-garden-version="9.2.0"
-    for=":re:--input"
-    id=":re:--label"
-  >
-    Label
-  </label>
-  <div
-    class="c2"
-    data-garden-container-id="containers.field.hint"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_hint"
-    data-garden-version="9.2.0"
-    id=":re:--hint"
-  >
-    Hint
-  </div>
-  <div
-    aria-disabled="true"
-    aria-invalid="false"
-    class="c3 c4 c5"
-    data-garden-id="forms.faux_input"
-    data-garden-version="9.2.0"
-  />
-</div>
-`;
-
-exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`] = `
-.c0 {
-  position: relative;
-  direction: ltr;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font-size: 0;
-}
-
-.c1 {
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #293239;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.c1[hidden] {
-  display: inline;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c5 {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #5c6970;
-  font-size: 14px;
-}
-
-.c3 {
-  appearance: none;
-  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
-  border: 1px solid;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  vertical-align: middle;
-  font-family: inherit;
-  padding: 0.7142857142857143em 0.8571428571428571em;
-  min-height: 40px;
-  line-height: 1.2857142857142858;
-  font-size: 14px;
-  border-color: #b0b8be;
-  background-color: #fff;
-  color: #293239;
-}
-
-.c3::-ms-browse {
-  border-radius: 2px;
-}
-
-.c3::-ms-clear,
-.c3::-ms-reveal {
-  display: none;
-}
-
-.c3::-moz-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c3::-webkit-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c3::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
-  display: none;
-}
-
-.c3::-webkit-datetime-edit {
-  line-height: 1;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  border-radius: 100%;
-}
-
-.c3:invalid {
-  box-shadow: none;
-}
-
-.c3[type='file']::-ms-value {
-  display: none;
-}
-
-.c3::-ms-browse {
-  font-size: 12px;
-}
-
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
-  max-height: 40px;
-}
-
-.c3[type='file'] {
-  line-height: 1;
-}
-
-.c3::-moz-color-swatch {
-  margin-top: -5px;
-  margin-left: -7px;
-  width: calc(100% + 14px);
-  height: 28px;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  background-position: center;
-  background-size: 16px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.c3::-webkit-color-swatch {
-  margin: -5px -7px;
-}
-
-.c3::placeholder {
-  opacity: 1;
-  color: #848f99;
-}
-
-.c3::-webkit-datetime-edit {
-  color: #848f99;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
-}
-
-.c3[readonly],
-.c3[aria-readonly='true'] {
-  background-color: rgba(92,105,112,0.08);
-}
-
-.c3:hover {
-  border-color: #1f73b7;
-}
-
-.c3:focus {
-  outline: none;
-}
-
-.c3:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c3:disabled,
-.c3[aria-disabled='true'] {
-  border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
-  color: #848f99;
-}
-
-.c3:disabled {
-  cursor: default;
-}
-
-.c4 {
-  display: inline-block;
-  cursor: default;
-  overflow: hidden;
-}
-
-.c4:focus {
-  outline: none;
-}
-
-.c4:focus-within {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c4 > .c2 {
-  vertical-align: baseline;
-}
-
-.c4 > .c2:focus-visible {
-  box-shadow: unset;
-}
-
-@media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
-    appearance: textfield;
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
-    padding: 1px 3px;
-  }
-}
-
-<div
-  class="c0"
-  data-garden-id="forms.field"
-  data-garden-version="9.2.0"
->
-  <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -515,13 +531,13 @@ exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`]
   </label>
   <div
     aria-invalid="false"
-    class="c2 c3 c4"
+    class="c3 c4 c5"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
   />
   <div
-    class="c5"
+    class="c6 c7"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -543,7 +559,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -551,7 +567,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -564,7 +580,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -572,7 +588,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -590,77 +606,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -668,97 +684,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -769,7 +793,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -780,7 +804,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
     Username
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -791,7 +815,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -809,7 +833,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -817,7 +841,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -830,7 +854,281 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
   width: 1px;
 }
 
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7>.c5 {
+  vertical-align: baseline;
+}
+
+.c7>.c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r1:--input"
+    id=":r1:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r1:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label, hidden label, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
 .c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c7 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -938,6 +1236,14 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
   margin: -5px -7px;
 }
 
+.c1:not([hidden])+.c4.c4,
+.c6+.c4.c4,
+.StyledMessage-sc-30hgg7-0+.c4.c4,
+.c4.c4+.c6,
+.c4.c4~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
 .c4::placeholder {
   opacity: 1;
   color: #848f99;
@@ -967,7 +1273,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
 .c4:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -978,7 +1284,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
 .c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c4:disabled,
@@ -1005,15 +1311,15 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
 .c5:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c5>.c3 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c5>.c3:focus-visible {
   box-shadow: unset;
 }
 
@@ -1035,273 +1341,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
-    data-garden-container-id="containers.field.label"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_label"
-    data-garden-version="9.2.0"
-    for=":r1:--input"
-    id=":r1:--label"
-  >
-    Username
-  </label>
-  <div
-    class="c2"
-    data-garden-container-id="containers.field.hint"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_hint"
-    data-garden-version="9.2.0"
-    id=":r1:--hint"
-  >
-    Hint
-  </div>
-  <div
-    aria-invalid="false"
-    class="c3 c4 c5"
-    data-garden-id="forms.faux_input"
-    data-garden-version="9.2.0"
-    tabindex="0"
-  />
-</div>
-`;
-
-exports[`FauxInputStory Component renders FauxInputStory with a label, hidden label, and validation label 1`] = `
-.c0 {
-  position: relative;
-  direction: ltr;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font-size: 0;
-}
-
-.c1 {
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #293239;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.c1[hidden] {
-  display: inline;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c5 {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #5c6970;
-  font-size: 14px;
-}
-
-.c3 {
-  appearance: none;
-  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
-  border: 1px solid;
-  border-radius: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  vertical-align: middle;
-  font-family: inherit;
-  padding: 0.7142857142857143em 0.8571428571428571em;
-  min-height: 40px;
-  line-height: 1.2857142857142858;
-  font-size: 14px;
-  border-color: #b0b8be;
-  background-color: #fff;
-  color: #293239;
-}
-
-.c3::-ms-browse {
-  border-radius: 2px;
-}
-
-.c3::-ms-clear,
-.c3::-ms-reveal {
-  display: none;
-}
-
-.c3::-moz-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c3::-webkit-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c3::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
-  display: none;
-}
-
-.c3::-webkit-datetime-edit {
-  line-height: 1;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  border-radius: 100%;
-}
-
-.c3:invalid {
-  box-shadow: none;
-}
-
-.c3[type='file']::-ms-value {
-  display: none;
-}
-
-.c3::-ms-browse {
-  font-size: 12px;
-}
-
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
-  max-height: 40px;
-}
-
-.c3[type='file'] {
-  line-height: 1;
-}
-
-.c3::-moz-color-swatch {
-  margin-top: -5px;
-  margin-left: -7px;
-  width: calc(100% + 14px);
-  height: 28px;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  background-position: center;
-  background-size: 16px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.c3::-webkit-color-swatch {
-  margin: -5px -7px;
-}
-
-.c3::placeholder {
-  opacity: 1;
-  color: #848f99;
-}
-
-.c3::-webkit-datetime-edit {
-  color: #848f99;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
-}
-
-.c3[readonly],
-.c3[aria-readonly='true'] {
-  background-color: rgba(92,105,112,0.08);
-}
-
-.c3:hover {
-  border-color: #1f73b7;
-}
-
-.c3:focus {
-  outline: none;
-}
-
-.c3:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c3:disabled,
-.c3[aria-disabled='true'] {
-  border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
-  color: #848f99;
-}
-
-.c3:disabled {
-  cursor: default;
-}
-
-.c4 {
-  display: inline-block;
-  cursor: default;
-  overflow: hidden;
-}
-
-.c4:focus {
-  outline: none;
-}
-
-.c4:focus-within {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c4 > .c2 {
-  vertical-align: baseline;
-}
-
-.c4 > .c2:focus-visible {
-  box-shadow: unset;
-}
-
-@media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
-    appearance: textfield;
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
-    padding: 1px 3px;
-  }
-}
-
-<div
-  class="c0"
-  data-garden-id="forms.field"
-  data-garden-version="9.2.0"
->
-  <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -1314,13 +1354,13 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   </label>
   <div
     aria-invalid="false"
-    class="c2 c3 c4"
+    class="c3 c4 c5"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
   />
   <div
-    class="c5"
+    class="c6 c7"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -1342,7 +1382,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -1350,7 +1390,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -1363,7 +1403,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   width: 1px;
 }
 
-.c5 {
+.c7 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -1371,7 +1411,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   font-size: 14px;
 }
 
-.c3 {
+.c4 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -1389,77 +1429,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   color: #293239;
 }
 
-.c3::-ms-browse {
+.c4::-ms-browse {
   border-radius: 2px;
 }
 
-.c3::-ms-clear,
-.c3::-ms-reveal {
+.c4::-ms-clear,
+.c4::-ms-reveal {
   display: none;
 }
 
-.c3::-moz-color-swatch {
+.c4::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch {
+.c4::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c3::-webkit-color-swatch-wrapper {
+.c4::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
   display: none;
 }
 
-.c3::-webkit-datetime-edit {
+.c4::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c4::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c3:invalid {
+.c4:invalid {
   box-shadow: none;
 }
 
-.c3[type='file']::-ms-value {
+.c4[type='file']::-ms-value {
   display: none;
 }
 
-.c3::-ms-browse {
+.c4::-ms-browse {
   font-size: 12px;
 }
 
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
   max-height: 40px;
 }
 
-.c3[type='file'] {
+.c4[type='file'] {
   line-height: 1;
 }
 
-.c3::-moz-color-swatch {
+.c4::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c4::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -1467,97 +1507,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   height: 20px;
 }
 
-.c3::-webkit-color-swatch {
+.c4::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c3::placeholder {
+.c1:not([hidden])+.c4.c4,
+.c6+.c4.c4,
+.StyledMessage-sc-30hgg7-0+.c4.c4,
+.c4.c4+.c6,
+.c4.c4~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c4::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c3::-webkit-datetime-edit {
+.c4::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c3::-webkit-calendar-picker-indicator {
+.c4::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c3[readonly],
-.c3[aria-readonly='true'] {
+.c4[readonly],
+.c4[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c3:hover {
+.c4:hover {
   border-color: #1f73b7;
-}
-
-.c3:focus {
-  outline: none;
-}
-
-.c3:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-  border-color: #1f73b7;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c3:disabled,
-.c3[aria-disabled='true'] {
-  border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
-  color: #848f99;
-}
-
-.c3:disabled {
-  cursor: default;
-}
-
-.c4 {
-  display: inline-block;
-  cursor: default;
-  overflow: hidden;
 }
 
 .c4:focus {
   outline: none;
 }
 
-.c4:focus-within {
+.c4:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4 > .c2 {
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5>.c3 {
   vertical-align: baseline;
 }
 
-.c4 > .c2:focus-visible {
+.c5>.c3:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
+  .c4[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
+  .c4[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -1568,7 +1616,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -1581,13 +1629,13 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hidden la
   </label>
   <div
     aria-invalid="false"
-    class="c2 c3 c4"
+    class="c3 c4 c5"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
   />
   <div
-    class="c5"
+    class="c6 c7"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -1647,11 +1695,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   display: block;
 }
 
@@ -1755,11 +1803,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c6.c6,
-.c3 + .c6.c6,
-.c8 + .c6.c6,
-.c6.c6 + .c3,
-.c6.c6 ~ .c8 {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.c8+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.c8 {
   margin-top: 8px;
 }
 
@@ -1792,7 +1840,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1803,7 +1851,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
 .c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:disabled,
@@ -1830,15 +1878,15 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and
 .c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c7 > .c5 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c7 > .c5:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
@@ -1949,11 +1997,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   display: block;
 }
 
@@ -2057,11 +2105,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c6.c6,
-.c3 + .c6.c6,
-.c8 + .c6.c6,
-.c6.c6 + .c3,
-.c6.c6 ~ .c8 {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.c8+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.c8 {
   margin-top: 8px;
 }
 
@@ -2094,7 +2142,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2105,7 +2153,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 .c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:disabled,
@@ -2132,15 +2180,15 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 .c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c7 > .c5 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c7 > .c5:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
@@ -2251,11 +2299,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   display: block;
 }
 
@@ -2359,11 +2407,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c6.c6,
-.c3 + .c6.c6,
-.c8 + .c6.c6,
-.c6.c6 + .c3,
-.c6.c6 ~ .c8 {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.c8+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.c8 {
   margin-top: 8px;
 }
 
@@ -2396,7 +2444,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2407,7 +2455,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 .c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:disabled,
@@ -2434,15 +2482,15 @@ exports[`FauxInputStory Component renders FauxInputStory with a label, regular l
 .c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c7 > .c5 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c7 > .c5:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
@@ -2553,11 +2601,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   display: block;
 }
 
@@ -2661,11 +2709,11 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c6.c6,
-.c3 + .c6.c6,
-.c8 + .c6.c6,
-.c6.c6 + .c3,
-.c6.c6 ~ .c8 {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.c8+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.c8 {
   margin-top: 8px;
 }
 
@@ -2698,7 +2746,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2709,7 +2757,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
 .c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:disabled,
@@ -2736,15 +2784,15 @@ exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
 .c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c7 > .c5 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c7 > .c5:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
@@ -2817,7 +2865,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -2825,7 +2873,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -2838,7 +2886,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -2846,7 +2894,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -2864,77 +2912,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -2942,97 +2990,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3043,7 +3099,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3054,7 +3110,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3065,7 +3121,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] 
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     placeholder="Enter your username"
@@ -3084,7 +3140,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3092,7 +3148,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3105,7 +3161,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3113,7 +3169,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3131,77 +3187,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3209,97 +3265,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3310,7 +3374,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3321,7 +3385,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3333,7 +3397,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a read-only input 
   <div
     aria-invalid="false"
     aria-readonly="true"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -3351,7 +3415,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3359,7 +3423,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   font-weight: 400;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3372,7 +3436,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3380,7 +3444,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3398,77 +3462,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3476,97 +3540,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3577,7 +3649,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3588,7 +3660,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
     Username
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3599,7 +3671,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -3617,7 +3689,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3625,7 +3697,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3638,7 +3710,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3646,7 +3718,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3664,77 +3736,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -3742,97 +3814,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -3843,7 +3923,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -3854,7 +3934,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -3865,7 +3945,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a required input 1
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     required=""
@@ -3884,7 +3964,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -3892,7 +3972,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -3905,7 +3985,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -3913,7 +3993,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -3931,77 +4011,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -4009,97 +4089,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -4110,7 +4198,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -4121,7 +4209,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
     Username
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -4132,7 +4220,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a validation label
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -4150,7 +4238,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -4158,7 +4246,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -4171,7 +4259,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -4179,7 +4267,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -4197,77 +4285,77 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -4275,97 +4363,105 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -4376,7 +4472,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -4387,7 +4483,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -4398,7 +4494,7 @@ exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -4417,7 +4513,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -4425,7 +4521,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -4438,7 +4534,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -4446,7 +4542,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: none;
@@ -4464,77 +4560,77 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -4542,89 +4638,97 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -4635,7 +4739,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -4646,7 +4750,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -4657,7 +4761,7 @@ exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] =
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -4675,7 +4779,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -4683,7 +4787,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -4696,7 +4800,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -4704,7 +4808,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -4719,6 +4823,280 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
   font-size: 14px;
   border-color: #b0b8be;
   background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 11px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 32px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 4px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7>.c5 {
+  vertical-align: baseline;
+}
+
+.c7>.c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rf:--input"
+    id=":rf:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rf:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with label, hidden label, validation label, and bare input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c7 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1em;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: transparent;
   color: #293239;
 }
 
@@ -4769,7 +5147,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 }
 
 .c4::-ms-browse {
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .c4[type='date'],
@@ -4778,7 +5156,7 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 .c4[type='month'],
 .c4[type='time'],
 .c4[type='week'] {
-  max-height: 32px;
+  max-height: 40px;
 }
 
 .c4[type='file'] {
@@ -4786,10 +5164,10 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 }
 
 .c4::-moz-color-swatch {
-  margin-top: -3px;
-  margin-left: -9px;
-  width: calc(100% + 18px);
-  height: 24px;
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
 }
 
 .c4::-webkit-calendar-picker-indicator {
@@ -4801,7 +5179,15 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 }
 
 .c4::-webkit-color-swatch {
-  margin: -3px -9px;
+  margin: -5px -7px;
+}
+
+.c1:not([hidden])+.c4.c4,
+.c6+.c4.c4,
+.StyledMessage-sc-30hgg7-0+.c4.c4,
+.c4.c4+.c6,
+.c4.c4~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
 }
 
 .c4::placeholder {
@@ -4817,11 +5203,6 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
-  background-color: rgba(92,105,112,0.08);
-}
-
 .c4:hover {
   border-color: #1f73b7;
 }
@@ -4833,7 +5214,6 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 .c4:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4844,13 +5224,12 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 .c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c4:disabled,
 .c4[aria-disabled='true'] {
   border-color: #d8dcde;
-  background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
@@ -4871,15 +5250,14 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 .c5:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c5>.c3 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c5>.c3:focus-visible {
   box-shadow: unset;
 }
 
@@ -4891,264 +5269,6 @@ exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`
 
 @supports (-ms-ime-align:auto) {
   .c4[type='color'] {
-    padding: 0 2px;
-  }
-}
-
-<div
-  class="c0"
-  data-garden-id="forms.field"
-  data-garden-version="9.2.0"
->
-  <label
-    class="c1"
-    data-garden-container-id="containers.field.label"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_label"
-    data-garden-version="9.2.0"
-    for=":rf:--input"
-    id=":rf:--label"
-  >
-    Label
-  </label>
-  <div
-    class="c2"
-    data-garden-container-id="containers.field.hint"
-    data-garden-container-version="3.0.19"
-    data-garden-id="forms.input_hint"
-    data-garden-version="9.2.0"
-    id=":rf:--hint"
-  >
-    Hint
-  </div>
-  <div
-    aria-invalid="false"
-    class="c3 c4 c5"
-    data-garden-id="forms.faux_input"
-    data-garden-version="9.2.0"
-    tabindex="0"
-  />
-</div>
-`;
-
-exports[`FauxInputStory Component renders FauxInputStory with label, hidden label, validation label, and bare input 1`] = `
-.c0 {
-  position: relative;
-  direction: ltr;
-  margin: 0;
-  border: 0;
-  padding: 0;
-  font-size: 0;
-}
-
-.c1 {
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #293239;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.c1[hidden] {
-  display: inline;
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c5 {
-  display: block;
-  vertical-align: middle;
-  line-height: 1.4285714285714286;
-  color: #5c6970;
-  font-size: 14px;
-}
-
-.c3 {
-  appearance: none;
-  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
-  border: none;
-  border-radius: 0;
-  width: 100%;
-  box-sizing: border-box;
-  vertical-align: middle;
-  font-family: inherit;
-  padding: 0;
-  min-height: 1em;
-  line-height: 1.2857142857142858;
-  font-size: 14px;
-  border-color: #b0b8be;
-  background-color: transparent;
-  color: #293239;
-}
-
-.c3::-ms-browse {
-  border-radius: 2px;
-}
-
-.c3::-ms-clear,
-.c3::-ms-reveal {
-  display: none;
-}
-
-.c3::-moz-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c3::-webkit-color-swatch {
-  border: none;
-  border-radius: 2px;
-}
-
-.c3::-webkit-color-swatch-wrapper {
-  padding: 0;
-}
-
-.c3::-webkit-clear-button,
-.c3::-webkit-inner-spin-button,
-.c3::-webkit-search-cancel-button,
-.c3::-webkit-search-results-button {
-  display: none;
-}
-
-.c3::-webkit-datetime-edit {
-  line-height: 1;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  border-radius: 100%;
-}
-
-.c3:invalid {
-  box-shadow: none;
-}
-
-.c3[type='file']::-ms-value {
-  display: none;
-}
-
-.c3::-ms-browse {
-  font-size: 12px;
-}
-
-.c3[type='date'],
-.c3[type='datetime-local'],
-.c3[type='file'],
-.c3[type='month'],
-.c3[type='time'],
-.c3[type='week'] {
-  max-height: 40px;
-}
-
-.c3[type='file'] {
-  line-height: 1;
-}
-
-.c3::-moz-color-swatch {
-  margin-top: -5px;
-  margin-left: -7px;
-  width: calc(100% + 14px);
-  height: 28px;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  background-position: center;
-  background-size: 16px;
-  padding: 0;
-  width: 20px;
-  height: 20px;
-}
-
-.c3::-webkit-color-swatch {
-  margin: -5px -7px;
-}
-
-.c3::placeholder {
-  opacity: 1;
-  color: #848f99;
-}
-
-.c3::-webkit-datetime-edit {
-  color: #848f99;
-}
-
-.c3::-webkit-calendar-picker-indicator {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
-}
-
-.c3:hover {
-  border-color: #1f73b7;
-}
-
-.c3:focus {
-  outline: none;
-}
-
-.c3:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  border-color: #1f73b7;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
-  outline: none;
-}
-
-.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
-}
-
-.c3:disabled,
-.c3[aria-disabled='true'] {
-  border-color: #d8dcde;
-  color: #848f99;
-}
-
-.c3:disabled {
-  cursor: default;
-}
-
-.c4 {
-  display: inline-block;
-  cursor: default;
-  overflow: hidden;
-}
-
-.c4:focus {
-  outline: none;
-}
-
-.c4:focus-within {
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  border-color: #1f73b7;
-}
-
-.c4 > .c2 {
-  vertical-align: baseline;
-}
-
-.c4 > .c2:focus-visible {
-  box-shadow: unset;
-}
-
-@media screen and (min--moz-device-pixel-ratio:0) {
-  .c3[type='number'] {
-    appearance: textfield;
-  }
-}
-
-@supports (-ms-ime-align:auto) {
-  .c3[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -5159,7 +5279,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hidden labe
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -5172,13 +5292,13 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hidden labe
   </label>
   <div
     aria-invalid="false"
-    class="c2 c3 c4"
+    class="c3 c4 c5"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
   />
   <div
-    class="c5"
+    class="c6 c7"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -5238,11 +5358,11 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   display: block;
 }
 
@@ -5346,11 +5466,11 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
   margin: -3px -9px;
 }
 
-.c1:not([hidden]) + .c6.c6,
-.c3 + .c6.c6,
-.c8 + .c6.c6,
-.c6.c6 + .c3,
-.c6.c6 ~ .c8 {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.c8+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.c8 {
   margin-top: 4px;
 }
 
@@ -5383,7 +5503,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5394,7 +5514,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
 .c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:disabled,
@@ -5421,15 +5541,15 @@ exports[`FauxInputStory Component renders FauxInputStory with label, hint, messa
 .c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c7 > .c5 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c7 > .c5:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
@@ -5540,11 +5660,11 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
   color: #5c6970;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   margin-top: 4px;
 }
 
-.c1:not([hidden]) + .c8 {
+.c1:not([hidden])+.c9 {
   display: block;
 }
 
@@ -5648,11 +5768,11 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
   margin: -5px -7px;
 }
 
-.c1:not([hidden]) + .c6.c6,
-.c3 + .c6.c6,
-.c8 + .c6.c6,
-.c6.c6 + .c3,
-.c6.c6 ~ .c8 {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.c8+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.c8 {
   margin-top: 8px;
 }
 
@@ -5685,7 +5805,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5696,7 +5816,7 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
 .c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:disabled,
@@ -5723,15 +5843,15 @@ exports[`FauxInputStory Component renders FauxInputStory with label, regular lab
 .c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c7 > .c5 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c7 > .c5:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
@@ -5804,7 +5924,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -5812,7 +5932,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -5825,7 +5945,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -5833,7 +5953,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -5851,77 +5971,77 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -5929,97 +6049,105 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #cd3642;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #cd3642;
   border-color: #cd3642;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #cd3642;
   border-color: #cd3642;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6030,7 +6158,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6041,7 +6169,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6052,7 +6180,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation error 1
   </div>
   <div
     aria-invalid="true"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -6070,7 +6198,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -6078,7 +6206,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -6091,7 +6219,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -6099,7 +6227,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -6117,77 +6245,77 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -6195,97 +6323,105 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #037f52;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #037f52;
   border-color: #037f52;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #037f52;
   border-color: #037f52;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6296,7 +6432,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6307,7 +6443,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6318,7 +6454,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation success
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -6336,7 +6472,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -6344,7 +6480,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -6357,7 +6493,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -6365,7 +6501,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -6383,77 +6519,77 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -6461,97 +6597,105 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #ac5918;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #ac5918;
   border-color: #ac5918;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #ac5918;
   border-color: #ac5918;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6562,7 +6706,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6573,7 +6717,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6584,7 +6728,7 @@ exports[`FauxInputStory Component renders FauxInputStory with validation warning
   </div>
   <div
     aria-invalid="true"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
@@ -6602,7 +6746,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   font-size: 0;
 }
 
-.c1 {
+.c2 {
   vertical-align: middle;
   line-height: 1.4285714285714286;
   color: #293239;
@@ -6610,7 +6754,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   font-weight: 600;
 }
 
-.c1[hidden] {
+.c2[hidden] {
   display: inline;
   border: 0;
   clip: rect(0 0 0 0);
@@ -6623,7 +6767,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   width: 1px;
 }
 
-.c2 {
+.c4 {
   display: block;
   vertical-align: middle;
   line-height: 1.4285714285714286;
@@ -6631,7 +6775,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   font-size: 14px;
 }
 
-.c4 {
+.c6 {
   appearance: none;
   transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
   border: 1px solid;
@@ -6649,77 +6793,77 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   color: #293239;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   border-radius: 2px;
 }
 
-.c4::-ms-clear,
-.c4::-ms-reveal {
+.c6::-ms-clear,
+.c6::-ms-reveal {
   display: none;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   border: none;
   border-radius: 2px;
 }
 
-.c4::-webkit-color-swatch-wrapper {
+.c6::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 
-.c4::-webkit-clear-button,
-.c4::-webkit-inner-spin-button,
-.c4::-webkit-search-cancel-button,
-.c4::-webkit-search-results-button {
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
   display: none;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   line-height: 1;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   border-radius: 100%;
 }
 
-.c4:invalid {
+.c6:invalid {
   box-shadow: none;
 }
 
-.c4[type='file']::-ms-value {
+.c6[type='file']::-ms-value {
   display: none;
 }
 
-.c4::-ms-browse {
+.c6::-ms-browse {
   font-size: 12px;
 }
 
-.c4[type='date'],
-.c4[type='datetime-local'],
-.c4[type='file'],
-.c4[type='month'],
-.c4[type='time'],
-.c4[type='week'] {
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
   max-height: 40px;
 }
 
-.c4[type='file'] {
+.c6[type='file'] {
   line-height: 1;
 }
 
-.c4::-moz-color-swatch {
+.c6::-moz-color-swatch {
   margin-top: -5px;
   margin-left: -7px;
   width: calc(100% + 14px);
   height: 28px;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-position: center;
   background-size: 16px;
   padding: 0;
@@ -6727,97 +6871,105 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   height: 20px;
 }
 
-.c4::-webkit-color-swatch {
+.c6::-webkit-color-swatch {
   margin: -5px -7px;
 }
 
-.c4::placeholder {
+.c1:not([hidden])+.c6.c6,
+.c3+.c6.c6,
+.StyledMessage-sc-30hgg7-0+.c6.c6,
+.c6.c6+.c3,
+.c6.c6~.StyledMessage-sc-30hgg7-0 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
   opacity: 1;
   color: #848f99;
 }
 
-.c4::-webkit-datetime-edit {
+.c6::-webkit-datetime-edit {
   color: #848f99;
 }
 
-.c4::-webkit-calendar-picker-indicator {
+.c6::-webkit-calendar-picker-indicator {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
 }
 
-.c4[readonly],
-.c4[aria-readonly='true'] {
+.c6[readonly],
+.c6[aria-readonly='true'] {
   background-color: rgba(92,105,112,0.08);
 }
 
-.c4:hover {
+.c6:hover {
   border-color: #1f73b7;
 }
 
-.c4:focus {
+.c6:focus {
   outline: none;
 }
 
-.c4:focus-visible {
+.c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
   outline: none;
 }
 
-.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c4:disabled,
-.c4[aria-disabled='true'] {
+.c6:disabled,
+.c6[aria-disabled='true'] {
   border-color: #d8dcde;
   background-color: rgba(92,105,112,0.08);
   color: #848f99;
 }
 
-.c4:disabled {
+.c6:disabled {
   cursor: default;
 }
 
-.c5 {
+.c7 {
   display: inline-block;
   cursor: default;
   overflow: hidden;
 }
 
-.c5:focus {
+.c7:focus {
   outline: none;
 }
 
-.c5:focus-within {
+.c7:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c5 > .c3 {
+.c7>.c5 {
   vertical-align: baseline;
 }
 
-.c5 > .c3:focus-visible {
+.c7>.c5:focus-visible {
   box-shadow: unset;
 }
 
 @media screen and (min--moz-device-pixel-ratio:0) {
-  .c4[type='number'] {
+  .c6[type='number'] {
     appearance: textfield;
   }
 }
 
 @supports (-ms-ime-align:auto) {
-  .c4[type='color'] {
+  .c6[type='color'] {
     padding: 1px 3px;
   }
 }
@@ -6828,7 +6980,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   data-garden-version="9.2.0"
 >
   <label
-    class="c1"
+    class="c1 c2"
     data-garden-container-id="containers.field.label"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_label"
@@ -6839,7 +6991,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
     Label
   </label>
   <div
-    class="c2"
+    class="c3 c4"
     data-garden-container-id="containers.field.hint"
     data-garden-container-version="3.0.19"
     data-garden-id="forms.input_hint"
@@ -6850,7 +7002,7 @@ exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
   </div>
   <div
     aria-invalid="false"
-    class="c3 c4 c5"
+    class="c5 c6 c7"
     data-garden-id="forms.faux_input"
     data-garden-version="9.2.0"
     tabindex="0"
