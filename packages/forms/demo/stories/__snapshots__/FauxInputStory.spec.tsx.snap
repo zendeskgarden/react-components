@@ -1,0 +1,6859 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FauxInputStory Component renders FauxInputStory with a disabled input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":re:--input"
+    id=":re:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":re:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-disabled="true"
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a hidden label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3[readonly],
+.c3[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r3:--input"
+    hidden=""
+    id=":r3:--label"
+  >
+    Username
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c5"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r3:--hint"
+  >
+    Hint
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a hint 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r4:--input"
+    id=":r4:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r4:--hint"
+  >
+    Enter your username
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r1:--input"
+    id=":r1:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r1:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label, hidden label, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3[readonly],
+.c3[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r8:--input"
+    hidden=""
+    id=":r8:--label"
+  >
+    Username
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c5"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r8:--hint"
+  >
+    Hint
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label, hidden label, hint, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3[readonly],
+.c3[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":ra:--input"
+    hidden=""
+    id=":ra:--label"
+  >
+    Username
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c5"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":ra:--hint"
+  >
+    Enter your username
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label, hint, and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c8 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c8 {
+  display: block;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c8 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c8 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r7:--input"
+    id=":r7:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r7:--hint"
+  >
+    Enter your username
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.2.0"
+    id=":r7:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label, regular label, hint, and message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c8 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c8 {
+  display: block;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c8 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c8 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r9:--input"
+    id=":r9:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r9:--hint"
+  >
+    Enter your username
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.2.0"
+    id=":r9:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a label, regular label, hint, message, and validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c8 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c8 {
+  display: block;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c8 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c8 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rb:--input"
+    id=":rb:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rb:--hint"
+  >
+    Enter your username
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.2.0"
+    id=":rb:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a message 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c8 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c8 {
+  display: block;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c8 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c8 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r5:--input"
+    id=":r5:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r5:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.2.0"
+    id=":r5:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a placeholder 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rc:--input"
+    id=":rc:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rc:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    placeholder="Enter your username"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a read-only input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rh:--input"
+    id=":rh:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rh:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    aria-readonly="true"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a regular label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r2:--input"
+    id=":r2:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r2:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a required input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":ri:--input"
+    id=":ri:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":ri:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    required=""
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a validation label 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r6:--input"
+    id=":r6:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r6:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with a value 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rd:--input"
+    id=":rd:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rd:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+    value="JohnDoe"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with bare styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1em;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rg:--input"
+    id=":rg:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rg:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with compact styling 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.42857142857142855em 0.8571428571428571em;
+  min-height: 32px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 11px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 32px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rf:--input"
+    id=":rf:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rf:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with label, hidden label, validation label, and bare input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c5 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c3 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0;
+  min-height: 1em;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-ms-browse {
+  border-radius: 2px;
+}
+
+.c3::-ms-clear,
+.c3::-ms-reveal {
+  display: none;
+}
+
+.c3::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c3::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c3::-webkit-clear-button,
+.c3::-webkit-inner-spin-button,
+.c3::-webkit-search-cancel-button,
+.c3::-webkit-search-results-button {
+  display: none;
+}
+
+.c3::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c3:invalid {
+  box-shadow: none;
+}
+
+.c3[type='file']::-ms-value {
+  display: none;
+}
+
+.c3::-ms-browse {
+  font-size: 12px;
+}
+
+.c3[type='date'],
+.c3[type='datetime-local'],
+.c3[type='file'],
+.c3[type='month'],
+.c3[type='time'],
+.c3[type='week'] {
+  max-height: 40px;
+}
+
+.c3[type='file'] {
+  line-height: 1;
+}
+
+.c3::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c3::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c3::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c3::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c3::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c3::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:disabled,
+.c3[aria-disabled='true'] {
+  border-color: #d8dcde;
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c4 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  border-color: #1f73b7;
+}
+
+.c4 > .c2 {
+  vertical-align: baseline;
+}
+
+.c4 > .c2:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c3[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c3[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rn:--input"
+    hidden=""
+    id=":rn:--label"
+  >
+    Username
+  </label>
+  <div
+    aria-invalid="false"
+    class="c2 c3 c4"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c5"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rn:--hint"
+  >
+    Hint
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with label, hint, message, and compact input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c8 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c8 {
+  display: block;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.42857142857142855em 0.8571428571428571em;
+  min-height: 32px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 11px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 32px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c8 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c8 {
+  margin-top: 4px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rm:--input"
+    id=":rm:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rm:--hint"
+  >
+    Enter your username
+  </div>
+  <div
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.2.0"
+    id=":rm:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with label, regular label, hint, message, validation label, and disabled input 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c2 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c2[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c4 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c9 {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  line-height: 1.3333333333333333;
+  font-size: 12px;
+  color: #5c6970;
+}
+
+.c1:not([hidden]) + .c8 {
+  margin-top: 4px;
+}
+
+.c1:not([hidden]) + .c8 {
+  display: block;
+}
+
+.c6 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c6::-ms-browse {
+  border-radius: 2px;
+}
+
+.c6::-ms-clear,
+.c6::-ms-reveal {
+  display: none;
+}
+
+.c6::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c6::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c6::-webkit-clear-button,
+.c6::-webkit-inner-spin-button,
+.c6::-webkit-search-cancel-button,
+.c6::-webkit-search-results-button {
+  display: none;
+}
+
+.c6::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c6:invalid {
+  box-shadow: none;
+}
+
+.c6[type='file']::-ms-value {
+  display: none;
+}
+
+.c6::-ms-browse {
+  font-size: 12px;
+}
+
+.c6[type='date'],
+.c6[type='datetime-local'],
+.c6[type='file'],
+.c6[type='month'],
+.c6[type='time'],
+.c6[type='week'] {
+  max-height: 40px;
+}
+
+.c6[type='file'] {
+  line-height: 1;
+}
+
+.c6::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c6::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c1:not([hidden]) + .c6.c6,
+.c3 + .c6.c6,
+.c8 + .c6.c6,
+.c6.c6 + .c3,
+.c6.c6 ~ .c8 {
+  margin-top: 8px;
+}
+
+.c6::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c6::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c6::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c6[readonly],
+.c6[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c6:hover {
+  border-color: #1f73b7;
+}
+
+.c6:focus {
+  outline: none;
+}
+
+.c6:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c6::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c6:disabled,
+.c6[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c6:disabled {
+  cursor: default;
+}
+
+.c7 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c7:focus {
+  outline: none;
+}
+
+.c7:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c7 > .c5 {
+  vertical-align: baseline;
+}
+
+.c7 > .c5:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c6[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c6[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1 c2"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":ro:--input"
+    id=":ro:--label"
+  >
+    Username
+  </label>
+  <div
+    class="c3 c4"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":ro:--hint"
+  >
+    Enter your username
+  </div>
+  <div
+    aria-disabled="true"
+    aria-invalid="false"
+    class="c5 c6 c7"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+  />
+  <div
+    class="c8 c9"
+    data-garden-container-id="containers.field.message"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_message"
+    data-garden-version="9.2.0"
+    id=":ro:--message"
+    role="alert"
+  >
+    This field is required
+  </div>
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with validation error 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #cd3642;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #cd3642;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  border-color: #cd3642;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #cd3642;
+  border-color: #cd3642;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rk:--input"
+    id=":rk:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rk:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="true"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with validation success 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #037f52;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #037f52;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  border-color: #037f52;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #037f52;
+  border-color: #037f52;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rj:--input"
+    id=":rj:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rj:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders FauxInputStory with validation warning 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #ac5918;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #ac5918;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  border-color: #ac5918;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #ac5918;
+  border-color: #ac5918;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":rl:--input"
+    id=":rl:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":rl:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="true"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;
+
+exports[`FauxInputStory Component renders default FauxInputStory 1`] = `
+.c0 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c1 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c1[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c2 {
+  display: block;
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #5c6970;
+  font-size: 14px;
+}
+
+.c4 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.7142857142857143em 0.8571428571428571em;
+  min-height: 40px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c4::-ms-browse {
+  border-radius: 2px;
+}
+
+.c4::-ms-clear,
+.c4::-ms-reveal {
+  display: none;
+}
+
+.c4::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c4::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c4::-webkit-clear-button,
+.c4::-webkit-inner-spin-button,
+.c4::-webkit-search-cancel-button,
+.c4::-webkit-search-results-button {
+  display: none;
+}
+
+.c4::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c4:invalid {
+  box-shadow: none;
+}
+
+.c4[type='file']::-ms-value {
+  display: none;
+}
+
+.c4::-ms-browse {
+  font-size: 12px;
+}
+
+.c4[type='date'],
+.c4[type='datetime-local'],
+.c4[type='file'],
+.c4[type='month'],
+.c4[type='time'],
+.c4[type='week'] {
+  max-height: 40px;
+}
+
+.c4[type='file'] {
+  line-height: 1;
+}
+
+.c4::-moz-color-swatch {
+  margin-top: -5px;
+  margin-left: -7px;
+  width: calc(100% + 14px);
+  height: 28px;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c4::-webkit-color-swatch {
+  margin: -5px -7px;
+}
+
+.c4::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c4::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c4::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c4[readonly],
+.c4[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c4:hover {
+  border-color: #1f73b7;
+}
+
+.c4:focus {
+  outline: none;
+}
+
+.c4:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c4::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c4:disabled,
+.c4[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c4:disabled {
+  cursor: default;
+}
+
+.c5 {
+  display: inline-block;
+  cursor: default;
+  overflow: hidden;
+}
+
+.c5:focus {
+  outline: none;
+}
+
+.c5:focus-within {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c5 > .c3 {
+  vertical-align: baseline;
+}
+
+.c5 > .c3:focus-visible {
+  box-shadow: unset;
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c4[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c4[type='color'] {
+    padding: 1px 3px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="forms.field"
+  data-garden-version="9.2.0"
+>
+  <label
+    class="c1"
+    data-garden-container-id="containers.field.label"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_label"
+    data-garden-version="9.2.0"
+    for=":r0:--input"
+    id=":r0:--label"
+  >
+    Label
+  </label>
+  <div
+    class="c2"
+    data-garden-container-id="containers.field.hint"
+    data-garden-container-version="3.0.19"
+    data-garden-id="forms.input_hint"
+    data-garden-version="9.2.0"
+    id=":r0:--hint"
+  >
+    Hint
+  </div>
+  <div
+    aria-invalid="false"
+    class="c3 c4 c5"
+    data-garden-id="forms.faux_input"
+    data-garden-version="9.2.0"
+    tabindex="0"
+  />
+</div>
+`;

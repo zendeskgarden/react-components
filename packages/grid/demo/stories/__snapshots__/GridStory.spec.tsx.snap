@@ -1,0 +1,1047 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridStory Component renders GridStory with alignItems 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with alignItems for different screen sizes 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+  .c1 {
+    align-items: flex-start;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    align-items: center;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    align-items: flex-end;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    align-items: baseline;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    align-items: stretch;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with alignItems, justifyContent, and wrap combined 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with alignItems, justifyContent, and wrap for different screen sizes 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+  .c1 {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    flex-wrap: wrap-reverse;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-around;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    flex-wrap: nowrap;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with justifyContent 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with justifyContent for different screen sizes 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+  .c1 {
+    justify-content: flex-start;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    justify-content: center;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    justify-content: space-around;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    justify-content: space-between;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with multiple rows and columns 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 33.33333333333333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 33.33333333333333%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c3 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c3"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c3"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with wrap 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders GridStory with wrap for different screen sizes 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+  .c1 {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width:576px) {
+  .c1 {
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width:768px) {
+  .c1 {
+    flex-wrap: wrap-reverse;
+  }
+}
+
+@media (min-width:992px) {
+  .c1 {
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width:1200px) {
+  .c1 {
+    flex-wrap: nowrap;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;
+
+exports[`GridStory Component renders default GridStory 1`] = `
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 50%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  max-width: 50%;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    />
+  </div>
+</div>
+`;

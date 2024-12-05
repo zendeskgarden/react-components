@@ -1,0 +1,8591 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a body 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a close button 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom aria-label for the dialog 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom tag for the title 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a custom zIndex 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a footer 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, and footer 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, footer, and close button 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, footer, close button, and arrow 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, footer, close button, and custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, footer, close button, and custom zIndex 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, footer, close button, arrow, and custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with a title, body, footer, close button, arrow, custom placement, and custom zIndex 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with an arrow 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars (count = 3) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars and a title 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, and a body 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, body, and footer 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, body, footer, and close button 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, body, footer, close button, and custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, body, footer, close button, and custom zIndex 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, body, footer, close button, arrow, and custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders TooltipDialogStory with multiple avatars, a title, body, footer, close button, arrow, custom placement, and custom zIndex 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            2
+          </span>
+        </figure>
+      </button>
+    </div>
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            3
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TooltipDialogStory Component renders default TooltipDialogStory 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  background-color: transparent;
+  color: #1f73b7;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  background-color: rgba(31,115,183,0.08);
+  color: #13456d;
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  background-color: rgba(31,115,183,0.16);
+  color: #0f3655;
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c4 {
+  border: none;
+  padding: 0;
+  width: 40px;
+  min-width: 40px;
+  color: #5c6970;
+}
+
+.c4:hover {
+  color: #39434b;
+}
+
+.c4:active,
+.c4[aria-pressed='true'],
+.c4[aria-pressed='mixed'] {
+  color: #293239;
+}
+
+.c4:disabled {
+  background-color: transparent;
+}
+
+.c4 .c6 {
+  width: 16px;
+  height: 16px;
+}
+
+.c4 .c6 > svg {
+  transition: opacity 0.15s ease-in-out;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  align-self: center;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c9 {
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.c5 {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.25s ease-in-out,color 0.1s ease-in-out;
+  margin: 0;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
+  box-shadow: 0 0 0 2px transparent;
+  background-color: transparent;
+}
+
+.c5::before {
+  box-shadow: inset 0 0 0 2px;
+}
+
+.c5 > svg {
+  font-size: 16px;
+}
+
+.c5 .c8 {
+  line-height: 40px;
+  font-size: 18px;
+}
+
+.c5.c5 {
+  color: transparent;
+}
+
+.c5 > svg,
+.c5 .c8 {
+  color: #293239;
+}
+
+.c5::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: box-shadow 0.25s ease-in-out;
+  content: '';
+}
+
+.c5::before,
+.c5.c5 > img {
+  border-radius: inherit;
+  width: 100%;
+  height: 100%;
+}
+
+.c5.c5 > img {
+  box-sizing: inherit;
+  vertical-align: bottom;
+  object-fit: cover;
+}
+
+.c5.c5 > svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+  .c2 {
+    flex-basis: 33.33333333333333%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    max-width: 33.33333333333333%;
+  }
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.icon_button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <figure
+          aria-atomic="true"
+          aria-live="polite"
+          class="c5 c6  c7"
+          data-garden-id="avatars.avatar"
+          data-garden-version="9.2.0"
+        >
+          <span
+            class="c8 c9"
+            data-garden-id="avatars.text"
+            data-garden-version="9.2.0"
+          >
+            1
+          </span>
+        </figure>
+      </button>
+    </div>
+  </div>
+</div>
+`;

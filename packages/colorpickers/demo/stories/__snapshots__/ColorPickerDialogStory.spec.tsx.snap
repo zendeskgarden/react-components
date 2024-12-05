@@ -1,0 +1,9117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a controlled color (IColor object) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a controlled color (string) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a custom button label 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a default color (IColor object) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a default color (string) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a disabled state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a hidden label 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label and custom button label 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label and hidden label 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, custom button label, and custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, custom button label, and disabled state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, custom button label, and read-only state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, custom button label, custom placement, and disabled state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, custom button label, custom placement, and read-only state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, hidden label, and custom button label 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, hidden label, custom button label, and custom placement 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, hidden label, custom button label, and disabled state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, hidden label, custom button label, and read-only state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, hidden label, custom button label, custom placement, and disabled state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        disabled=""
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a label, hidden label, custom button label, custom placement, and read-only state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a read-only state 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with a zIndex 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with an arrow (hasArrow) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with animation (isAnimated) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with custom button props 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        aria-label="Custom button"
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with custom labels 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with focus inset (focusInset) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with opaque color (isOpaque) 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders ColorpickerDialogStory with the dialog open (isOpen) 1`] = `
+.c7 {
+  transform: rotate(+180deg);
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c20 {
+  position: relative;
+  direction: ltr;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.c21 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.c21[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c27 {
+  vertical-align: middle;
+  line-height: 1.4285714285714286;
+  color: #293239;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.c27[hidden] {
+  display: inline;
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c29 {
+  appearance: none;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;
+  border: 1px solid;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: inherit;
+  padding: 0.42857142857142855em 0.8571428571428571em;
+  min-height: 32px;
+  line-height: 1.2857142857142858;
+  font-size: 14px;
+  border-color: #b0b8be;
+  background-color: #fff;
+  color: #293239;
+}
+
+.c29::-ms-browse {
+  border-radius: 2px;
+}
+
+.c29::-ms-clear,
+.c29::-ms-reveal {
+  display: none;
+}
+
+.c29::-moz-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c29::-webkit-color-swatch {
+  border: none;
+  border-radius: 2px;
+}
+
+.c29::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.c29::-webkit-clear-button,
+.c29::-webkit-inner-spin-button,
+.c29::-webkit-search-cancel-button,
+.c29::-webkit-search-results-button {
+  display: none;
+}
+
+.c29::-webkit-datetime-edit {
+  line-height: 1;
+}
+
+.c29::-webkit-calendar-picker-indicator {
+  border-radius: 100%;
+}
+
+.c29:invalid {
+  box-shadow: none;
+}
+
+.c29[type='file']::-ms-value {
+  display: none;
+}
+
+.c29::-ms-browse {
+  font-size: 11px;
+}
+
+.c29[type='date'],
+.c29[type='datetime-local'],
+.c29[type='file'],
+.c29[type='month'],
+.c29[type='time'],
+.c29[type='week'] {
+  max-height: 32px;
+}
+
+.c29[type='file'] {
+  line-height: 1;
+}
+
+.c29::-moz-color-swatch {
+  margin-top: -3px;
+  margin-left: -9px;
+  width: calc(100% + 18px);
+  height: 24px;
+}
+
+.c29::-webkit-calendar-picker-indicator {
+  background-position: center;
+  background-size: 16px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c29::-webkit-color-swatch {
+  margin: -3px -9px;
+}
+
+.c29::placeholder {
+  opacity: 1;
+  color: #848f99;
+}
+
+.c29::-webkit-datetime-edit {
+  color: #848f99;
+}
+
+.c29::-webkit-calendar-picker-indicator {
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20focusable%3D%22false%22%20viewBox%3D%220%200%2016%2016%22%20aria-hidden%3D%22true%22%20color%3D%22%235c6970%22%3E%3Cpath%20fill%3D%22currentColor%22%20d%3D%22M12.688%205.61a.5.5%200%2001.69.718l-.066.062-5%204a.5.5%200%2001-.542.054l-.082-.054-5-4a.5.5%200%2001.55-.83l.074.05L8%209.359l4.688-3.75z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E");
+}
+
+.c29[readonly],
+.c29[aria-readonly='true'] {
+  background-color: rgba(92,105,112,0.08);
+}
+
+.c29:hover {
+  border-color: #1f73b7;
+}
+
+.c29:focus {
+  outline: none;
+}
+
+.c29:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c29::-webkit-calendar-picker-indicator:focus-visible:focus {
+  outline: none;
+}
+
+.c29::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c29:disabled,
+.c29[aria-disabled='true'] {
+  border-color: #d8dcde;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c29:disabled {
+  cursor: default;
+}
+
+.c22 {
+  appearance: none;
+  margin: 0;
+  background-color: inherit;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+  vertical-align: middle;
+}
+
+.c22::-moz-range-track {
+  appearance: none;
+  border-color: transparent;
+  background-repeat: repeat-y;
+  background-size: 0;
+  background-position: 0% 0%;
+  width: 99.8%;
+  color: transparent;
+  box-sizing: border-box;
+}
+
+.c22::-ms-track {
+  appearance: none;
+  border-color: transparent;
+  background-repeat: repeat-y;
+  background-size: 0;
+  background-position: 0% 0%;
+  width: 99.8%;
+  color: transparent;
+  box-sizing: border-box;
+}
+
+.c22::-webkit-slider-runnable-track {
+  appearance: none;
+  border-color: transparent;
+  background-repeat: repeat-y;
+  background-size: 0;
+  background-position: 0% 0%;
+  width: 99.8%;
+  color: transparent;
+  box-sizing: border-box;
+}
+
+.c22::-webkit-slider-container,
+.c22::-webkit-slider-runnable-track {
+  background-size: inherit;
+}
+
+.c22::-moz-range-track {
+  margin: 10px 0;
+  border-radius: 6px;
+  height: 6px;
+}
+
+.c22::-ms-track {
+  margin: 10px 0;
+  border-radius: 6px;
+  height: 6px;
+}
+
+.c22::-webkit-slider-runnable-track {
+  margin: 10px 0;
+  border-radius: 6px;
+  height: 6px;
+}
+
+.c22::-moz-range-thumb {
+  margin: -7px 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c22::-ms-thumb {
+  margin: -7px 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c22::-webkit-slider-thumb {
+  margin: -7px 0;
+  width: 20px;
+  height: 20px;
+}
+
+.c22::-moz-range-progress {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  height: 6px;
+}
+
+.c22::-ms-fill-lower {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+  height: 6px;
+}
+
+.c22::-moz-range-thumb {
+  appearance: none;
+  transition: box-shadow .1s ease-in-out;
+  border: 3px solid;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+
+.c22::-ms-thumb {
+  appearance: none;
+  transition: box-shadow .1s ease-in-out;
+  border: 3px solid;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+
+.c22::-webkit-slider-thumb {
+  appearance: none;
+  transition: box-shadow .1s ease-in-out;
+  border: 3px solid;
+  border-radius: 100%;
+  box-sizing: border-box;
+}
+
+.c22::-moz-range-track {
+  background-color: #b0b8be;
+}
+
+.c22::-ms-track {
+  background-color: #b0b8be;
+}
+
+.c22::-webkit-slider-runnable-track {
+  background-color: #b0b8be;
+}
+
+.c22::-moz-range-thumb {
+  border-color: #1f73b7;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #1f73b7;
+}
+
+.c22::-ms-thumb {
+  border-color: #1f73b7;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #1f73b7;
+}
+
+.c22::-webkit-slider-thumb {
+  border-color: #1f73b7;
+  box-shadow: 0 4px 8px 0 rgba(10,13,14,0.16);
+  background-color: #1f73b7;
+}
+
+.c22:hover::-moz-range-thumb {
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c22:hover::-ms-thumb {
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c22:hover::-webkit-slider-thumb {
+  transition: border-color .25s ease-in-out, background-color .25s ease-in-out;
+  border-color: #13456d;
+  background-color: #13456d;
+}
+
+.c22:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22:focus-visible::-ms-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+}
+
+.c22:active::-moz-range-thumb {
+  border-color: #1f73b7;
+  background-color: #0f3655;
+}
+
+.c22:active::-ms-thumb {
+  border-color: #1f73b7;
+  background-color: #0f3655;
+}
+
+.c22:active::-webkit-slider-thumb {
+  border-color: #1f73b7;
+  background-color: #0f3655;
+}
+
+.c22:disabled::-moz-range-track {
+  background-color: rgba(92,105,112,0.16);
+}
+
+.c22:disabled::-ms-track {
+  background-color: rgba(92,105,112,0.16);
+}
+
+.c22:disabled::-webkit-slider-runnable-track {
+  background-color: rgba(92,105,112,0.16);
+}
+
+.c22:disabled::-moz-range-thumb {
+  border-color: #848f99;
+  box-shadow: none;
+  background-color: #848f99;
+}
+
+.c22:disabled::-ms-thumb {
+  border-color: #848f99;
+  box-shadow: none;
+  background-color: #848f99;
+}
+
+.c22:disabled::-webkit-slider-thumb {
+  border-color: #848f99;
+  box-shadow: none;
+  background-color: #848f99;
+}
+
+.c22::-moz-focus-outer {
+  border: 0;
+}
+
+.c22::-ms-tooltip {
+  display: none;
+}
+
+.c22:focus {
+  outline: none;
+}
+
+.c22:disabled {
+  cursor: default;
+}
+
+.c8 {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active {
+  pointer-events: none;
+}
+
+.c8.garden-tooltip-modal-transition-exit-active div {
+  transition: opacity 200ms;
+  opacity: 0;
+}
+
+.c9 {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 1000;
+  line-height: 0;
+  font-size: 0.01px;
+  color-scheme: only light;
+}
+
+.c9 > * {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+  box-sizing: border-box;
+  border: 1px solid;
+  border-radius: 4px;
+  cursor: default;
+  padding: 0;
+  text-align: left;
+  white-space: normal;
+  font-size: 14px;
+  font-weight: 400;
+  border-color: #d8dcde;
+  box-shadow: 0 20px 24px 0 rgba(10,13,14,0.16);
+  background-color: #fff;
+  color: #293239;
+}
+
+.c9 > *:focus {
+  outline: none;
+}
+
+.c9.is-animated > * {
+  animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
+}
+
+.c10 {
+  padding: 20px;
+  width: 400px;
+}
+
+.c10:has(.StyledTooltipDialogClose-sc-18xlgfi-0) > :first-child {
+  padding-right: 32px;
+}
+
+.c12 {
+  display: block;
+  margin: 0;
+  padding-top: 6px;
+  line-height: 1.4285714285714286;
+  color-scheme: only light;
+  color: #293239;
+  font-size: 14px;
+}
+
+.c14 {
+  width: 312px;
+  min-width: 312px;
+}
+
+.c23 {
+  margin-top: 0 !important;
+  height: 22px;
+  box-sizing: content-box;
+  border-radius: undefined;
+}
+
+.c23::-moz-range-track {
+  margin: 5px -4px;
+  height: 12px;
+}
+
+.c23::-ms-track {
+  margin: 5px -4px;
+  height: 12px;
+}
+
+.c23::-webkit-slider-runnable-track {
+  margin: 5px -4px;
+  height: 12px;
+}
+
+.c23::-moz-range-thumb {
+  margin: -2px 0;
+  border-width: 1px;
+  height: 16px;
+  width: 16px;
+}
+
+.c23::-ms-thumb {
+  margin: -2px 0;
+  border-width: 1px;
+  height: 16px;
+  width: 16px;
+}
+
+.c23::-webkit-slider-thumb {
+  margin: -2px 0;
+  border-width: 1px;
+  height: 16px;
+  width: 16px;
+}
+
+.c23::-moz-range-track {
+  border-radius: 0;
+}
+
+.c23::-ms-track {
+  border-radius: 0;
+}
+
+.c23::-webkit-slider-runnable-track {
+  border-radius: 0;
+}
+
+.c23::-moz-range-track {
+  background-color: transparent;
+}
+
+.c23::-ms-track {
+  background-color: transparent;
+}
+
+.c23::-webkit-slider-runnable-track {
+  background-color: transparent;
+}
+
+.c23::-moz-range-thumb {
+  border-color: #b0b8be;
+  background-color: #fff;
+}
+
+.c23::-ms-thumb {
+  border-color: #b0b8be;
+  background-color: #fff;
+}
+
+.c23::-webkit-slider-thumb {
+  border-color: #b0b8be;
+  background-color: #fff;
+}
+
+.c23::-moz-range-progress {
+  background-color: transparent;
+}
+
+.c23::-ms-fill-lower {
+  background-color: transparent;
+}
+
+.c23:hover::-moz-range-thumb {
+  border-color: #1f73b7;
+  background-color: #f8f9f9;
+}
+
+.c23:hover::-ms-thumb {
+  border-color: #1f73b7;
+  background-color: #f8f9f9;
+}
+
+.c23:hover::-webkit-slider-thumb {
+  border-color: #1f73b7;
+  background-color: #f8f9f9;
+}
+
+.c23:focus-visible::-moz-range-thumb {
+  background-color: #fff;
+  border-color: #1f73b7;
+}
+
+.c23:focus-visible::-ms-thumb {
+  background-color: #fff;
+  border-color: #1f73b7;
+}
+
+.c23:focus-visible::-webkit-slider-thumb {
+  background-color: #fff;
+  border-color: #1f73b7;
+}
+
+.c23:active::-moz-range-thumb {
+  border-color: #1f73b7;
+  background-color: #fff;
+}
+
+.c23:active::-ms-thumb {
+  border-color: #1f73b7;
+  background-color: #fff;
+}
+
+.c23:active::-webkit-slider-thumb {
+  border-color: #1f73b7;
+  background-color: #fff;
+}
+
+.c24 {
+  background: linear-gradient( to right,#f00 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,#f00 100% ) no-repeat;
+  background-position: 0 5px;
+  background-size: 100% 12px;
+}
+
+.c18 {
+  flex-shrink: 0;
+  border-radius: 4px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 32px;
+  height: 32px;
+}
+
+.c15 {
+  position: relative;
+  margin-bottom: 8px;
+  cursor: pointer;
+  height: 208px;
+  overflow: hidden;
+}
+
+.c16 {
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+  transform: translate(-10px,-10px);
+  box-sizing: border-box;
+  border-width: 2px;
+  width: 20px;
+  height: 20px;
+  border-color: #fff;
+  box-shadow: 0 0 0 1px #000;
+}
+
+.c17 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.c26 {
+  display: flex;
+  flex-basis: 0;
+  flex-direction: column;
+  flex-grow: 1;
+  width: auto;
+  text-align: center;
+}
+
+.c26 input {
+  direction: ltr;
+}
+
+.c28 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.c30 {
+  text-align: center;
+}
+
+.c25 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.c31 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-left: 6px;
+  width: 51px;
+  min-width: 51px;
+}
+
+.c19 {
+  position: relative;
+  margin-left: 8px;
+  width: 100%;
+}
+
+.c19 > * {
+  position: absolute;
+  width: 100%;
+  height: 22px;
+}
+
+.c19 > :first-child {
+  top: -5px;
+}
+
+.c19 > :last-child {
+  bottom: -5px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+.c11 {
+  width: auto !important;
+}
+
+.c13 {
+  padding: 0;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media screen and (min--moz-device-pixel-ratio:0) {
+  .c29[type='number'] {
+    appearance: textfield;
+  }
+}
+
+@supports (-ms-ime-align:auto) {
+  .c29[type='color'] {
+    padding: 0 2px;
+  }
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <div
+        class="c8 garden-tooltip-modal-transition-enter garden-tooltip-modal-transition-enter-active"
+        data-garden-container-id="containers.modal"
+        data-garden-container-version="1.0.19"
+        data-garden-id="modals.tooltip_dialog.backdrop"
+        data-garden-version="9.2.0"
+      >
+        <div
+          class="c9 is-animated"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            aria-label="Color picker"
+            aria-modal="true"
+            class="c10 c11 is-animated"
+            data-garden-container-id="containers.focusjail"
+            data-garden-container-version="2.0.19"
+            data-garden-id="modals.tooltip_dialog"
+            data-garden-version="9.2.0"
+            role="dialog"
+            tabindex="-1"
+          >
+            <div
+              class="c12 c13"
+              data-garden-id="modals.tooltip_dialog.body"
+              data-garden-version="9.2.0"
+              id=":rb:__content"
+            >
+              <div
+                class="c14"
+                data-garden-id="colorpickers.colorpicker"
+                data-garden-version="9.2.0"
+              >
+                <div
+                  class="c15"
+                  data-garden-id="colorpickers.colorpicker_colorwell"
+                  data-garden-version="9.2.0"
+                  data-test-id="colorwell"
+                  role="presentation"
+                >
+                  <div
+                    class="c16"
+                    data-garden-id="colorpickers.colorpicker_colorwell_thumb"
+                    data-garden-version="9.2.0"
+                    data-test-id="colorwell-thumb"
+                    style="top: 0%; left: 0%;"
+                  />
+                </div>
+                <div
+                  class="c17"
+                  data-garden-id="colorpickers.colorpicker_slider_group"
+                  data-garden-version="9.2.0"
+                >
+                  <div
+                    class="c18"
+                    data-garden-id="colorpickers.colorpicker_preview_box"
+                    data-garden-version="9.2.0"
+                    data-test-id="preview-box"
+                  />
+                  <div
+                    class="c19"
+                    data-garden-id="colorpickers.colorpicker_sliders"
+                    data-garden-version="9.2.0"
+                  >
+                    <div
+                      class="c20"
+                      data-garden-id="forms.field"
+                      data-garden-version="9.2.0"
+                    >
+                      <label
+                        class="c21"
+                        data-garden-container-id="containers.field.label"
+                        data-garden-container-version="3.0.19"
+                        data-garden-id="forms.input_label"
+                        data-garden-version="9.2.0"
+                        for=":rc:--input"
+                        hidden=""
+                        id=":rc:--label"
+                      >
+                        Hue slider
+                      </label>
+                      <input
+                        aria-labelledby=":rc:--label"
+                        class="c22 c23 c24"
+                        data-garden-container-id="containers.field.input"
+                        data-garden-container-version="3.0.19"
+                        data-garden-id="forms.range"
+                        data-garden-version="9.2.0"
+                        id=":rc:--input"
+                        max="360"
+                        min="0"
+                        step="1"
+                        type="range"
+                        value="0"
+                      />
+                    </div>
+                    <div
+                      class="c20"
+                      data-garden-id="forms.field"
+                      data-garden-version="9.2.0"
+                    >
+                      <label
+                        class="c21"
+                        data-garden-container-id="containers.field.label"
+                        data-garden-container-version="3.0.19"
+                        data-garden-id="forms.input_label"
+                        data-garden-version="9.2.0"
+                        for=":rd:--input"
+                        hidden=""
+                        id=":rd:--label"
+                      >
+                        Alpha slider
+                      </label>
+                      <input
+                        aria-labelledby=":rd:--label"
+                        class="c22 c23"
+                        data-garden-container-id="containers.field.input"
+                        data-garden-container-version="3.0.19"
+                        data-garden-id="forms.range"
+                        data-garden-version="9.2.0"
+                        id=":rd:--input"
+                        max="1"
+                        min="0"
+                        step="0.01"
+                        type="range"
+                        value="1"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="c25"
+                  data-garden-id="colorpickers.colorpicker_input_group"
+                  data-garden-version="9.2.0"
+                >
+                  <div
+                    class="c20 c26"
+                    data-garden-id="forms.field"
+                    data-garden-version="9.2.0"
+                    spellcheck="false"
+                  >
+                    <label
+                      class="c27 c28"
+                      data-garden-container-id="containers.field.label"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="colorpickers.colorpicker_label"
+                      data-garden-version="9.2.0"
+                      for=":re:--input"
+                      id=":re:--label"
+                    >
+                      Hex
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-labelledby=":re:--label"
+                      class="c29 c30"
+                      data-garden-container-id="containers.field.input"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="forms.input"
+                      data-garden-version="9.2.0"
+                      id=":re:--input"
+                      maxlength="7"
+                      spellcheck="false"
+                      value="#fff"
+                    />
+                  </div>
+                  <div
+                    class="c20 c31"
+                    data-garden-id="forms.field"
+                    data-garden-version="9.2.0"
+                  >
+                    <label
+                      class="c27 c28"
+                      data-garden-container-id="containers.field.label"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="colorpickers.colorpicker_label"
+                      data-garden-version="9.2.0"
+                      for=":rf:--input"
+                      id=":rf:--label"
+                    >
+                      R
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-labelledby=":rf:--label"
+                      class="c29 c30"
+                      data-garden-container-id="containers.field.input"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="forms.input"
+                      data-garden-version="9.2.0"
+                      id=":rf:--input"
+                      max="255"
+                      maxlength="3"
+                      min="0"
+                      type="number"
+                      value="255"
+                    />
+                  </div>
+                  <div
+                    class="c20 c31"
+                    data-garden-id="forms.field"
+                    data-garden-version="9.2.0"
+                  >
+                    <label
+                      class="c27 c28"
+                      data-garden-container-id="containers.field.label"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="colorpickers.colorpicker_label"
+                      data-garden-version="9.2.0"
+                      for=":rg:--input"
+                      id=":rg:--label"
+                    >
+                      G
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-labelledby=":rg:--label"
+                      class="c29 c30"
+                      data-garden-container-id="containers.field.input"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="forms.input"
+                      data-garden-version="9.2.0"
+                      id=":rg:--input"
+                      max="255"
+                      maxlength="3"
+                      min="0"
+                      type="number"
+                      value="255"
+                    />
+                  </div>
+                  <div
+                    class="c20 c31"
+                    data-garden-id="forms.field"
+                    data-garden-version="9.2.0"
+                  >
+                    <label
+                      class="c27 c28"
+                      data-garden-container-id="containers.field.label"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="colorpickers.colorpicker_label"
+                      data-garden-version="9.2.0"
+                      for=":rh:--input"
+                      id=":rh:--label"
+                    >
+                      B
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-labelledby=":rh:--label"
+                      class="c29 c30"
+                      data-garden-container-id="containers.field.input"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="forms.input"
+                      data-garden-version="9.2.0"
+                      id=":rh:--input"
+                      max="255"
+                      maxlength="3"
+                      min="0"
+                      type="number"
+                      value="255"
+                    />
+                  </div>
+                  <div
+                    class="c20 c31"
+                    data-garden-id="forms.field"
+                    data-garden-version="9.2.0"
+                  >
+                    <label
+                      class="c27 c28"
+                      data-garden-container-id="containers.field.label"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="colorpickers.colorpicker_label"
+                      data-garden-version="9.2.0"
+                      for=":ri:--input"
+                      id=":ri:--label"
+                    >
+                      A
+                    </label>
+                    <input
+                      aria-invalid="false"
+                      aria-labelledby=":ri:--label"
+                      class="c29 c30"
+                      data-garden-container-id="containers.field.input"
+                      data-garden-container-version="3.0.19"
+                      data-garden-id="forms.input"
+                      data-garden-version="9.2.0"
+                      id=":ri:--input"
+                      max="100"
+                      min="0"
+                      type="number"
+                      value="100"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`ColorpickerDialogStory Component renders default ColorpickerDialogStory 1`] = `
+.c7 {
+  transition: transform 0.25s ease-in-out,color 0.25s ease-in-out;
+  margin-left: 8px;
+}
+
+.c3 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  margin: 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: inherit;
+  font-weight: 400;
+  -webkit-font-smoothing: subpixel-antialiased;
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  padding: 0 1.0714285714285714em;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  outline-color: transparent;
+  border-color: #b0b8be;
+  background-color: transparent;
+  color: #293239;
+}
+
+.c3::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.c3:focus-visible {
+  text-decoration: none;
+}
+
+.c3:hover {
+  text-decoration: none;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  transition: border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;
+  text-decoration: none;
+}
+
+.c3:hover {
+  border-color: #1f73b7;
+  background-color: rgba(31,115,183,0.08);
+}
+
+.c3:focus {
+  outline: none;
+}
+
+.c3:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 1px;
+  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  border-color: #1f73b7;
+}
+
+.c3:active,
+.c3[aria-pressed='true'],
+.c3[aria-pressed='mixed'] {
+  border-color: #13456d;
+  background-color: rgba(31,115,183,0.16);
+}
+
+.c3:disabled {
+  border-color: transparent;
+  background-color: rgba(92,105,112,0.08);
+  color: #848f99;
+}
+
+.c3 .c6 {
+  color: #5c6970;
+}
+
+.c3:hover .c6,
+.c3:focus-visible .c6 {
+  color: #39434b;
+}
+
+.c3:active .c6 {
+  color: #293239;
+}
+
+.c3:disabled .c6 {
+  color: #848f99;
+}
+
+.c3:disabled {
+  cursor: default;
+}
+
+.c3 .c6 {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+}
+
+.c2 {
+  box-sizing: border-box;
+  width: 100%;
+  flex-basis: 0;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 100%;
+  text-align: center;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.c0 {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  color-scheme: only light;
+}
+
+.c1 {
+  display: flex;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.c4 {
+  padding: 0;
+  width: 68px;
+  max-width: 68px;
+}
+
+.c4:last-of-type:not(:first-child) {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px !important;
+}
+
+.c5 {
+  display: inline-block;
+  bottom: 4px;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.19);
+  width: 20px;
+  height: 20px;
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+@media (min-width:0px) {
+
+}
+
+@media (min-width:576px) {
+
+}
+
+@media (min-width:768px) {
+
+}
+
+@media (min-width:992px) {
+
+}
+
+@media (min-width:1200px) {
+
+}
+
+<div
+  class="c0"
+  data-garden-id="grid.grid"
+  data-garden-version="9.2.0"
+>
+  <div
+    class="c1"
+    data-garden-id="grid.row"
+    data-garden-version="9.2.0"
+    style="height: calc(100vh - 80px);"
+  >
+    <div
+      class="c2"
+      data-garden-id="grid.col"
+      data-garden-version="9.2.0"
+    >
+      <button
+        class="c3 c4"
+        data-garden-id="buttons.button"
+        data-garden-version="9.2.0"
+        type="button"
+      >
+        <span
+          class="c5"
+          data-garden-id="colorpickers.colordialog_preview"
+          data-garden-version="9.2.0"
+          data-test-id="dialog-preview"
+        />
+        <svg
+          aria-hidden="true"
+          class="c6  c7"
+          data-garden-id="buttons.icon"
+          data-garden-version="9.2.0"
+          focusable="false"
+          height="16"
+          viewBox="0 0 16 16"
+          width="16"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
