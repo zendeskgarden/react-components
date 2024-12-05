@@ -68,7 +68,7 @@ exports[`ModalStory Component renders ModalStory with a body 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -99,7 +99,7 @@ exports[`ModalStory Component renders ModalStory with a body 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -119,7 +119,7 @@ exports[`ModalStory Component renders ModalStory with a body 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +195,7 @@ exports[`ModalStory Component renders ModalStory with a centered modal 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -226,7 +226,7 @@ exports[`ModalStory Component renders ModalStory with a centered modal 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -246,7 +246,7 @@ exports[`ModalStory Component renders ModalStory with a centered modal 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -322,7 +322,7 @@ exports[`ModalStory Component renders ModalStory with a close button 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -368,11 +368,11 @@ exports[`ModalStory Component renders ModalStory with a close button 1`] = `
   height: 16px;
 }
 
-.c4 .c1 > svg {
+.c4 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -392,7 +392,7 @@ exports[`ModalStory Component renders ModalStory with a close button 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -468,7 +468,7 @@ exports[`ModalStory Component renders ModalStory with a custom tag in the header
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -499,7 +499,7 @@ exports[`ModalStory Component renders ModalStory with a custom tag in the header
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -519,7 +519,7 @@ exports[`ModalStory Component renders ModalStory with a custom tag in the header
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -595,7 +595,7 @@ exports[`ModalStory Component renders ModalStory with a danger footer 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -642,7 +642,7 @@ exports[`ModalStory Component renders ModalStory with a danger footer 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -662,7 +662,7 @@ exports[`ModalStory Component renders ModalStory with a danger footer 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -738,7 +738,7 @@ exports[`ModalStory Component renders ModalStory with a danger header 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -769,7 +769,7 @@ exports[`ModalStory Component renders ModalStory with a danger header 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -789,7 +789,7 @@ exports[`ModalStory Component renders ModalStory with a danger header 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -865,7 +865,7 @@ exports[`ModalStory Component renders ModalStory with a dialog aria label 1`] = 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -896,7 +896,7 @@ exports[`ModalStory Component renders ModalStory with a dialog aria label 1`] = 
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -916,7 +916,7 @@ exports[`ModalStory Component renders ModalStory with a dialog aria label 1`] = 
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -992,7 +992,7 @@ exports[`ModalStory Component renders ModalStory with a footer 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1039,7 +1039,7 @@ exports[`ModalStory Component renders ModalStory with a footer 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1059,7 +1059,7 @@ exports[`ModalStory Component renders ModalStory with a footer 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1135,7 +1135,7 @@ exports[`ModalStory Component renders ModalStory with a header 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1166,7 +1166,7 @@ exports[`ModalStory Component renders ModalStory with a header 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1186,7 +1186,7 @@ exports[`ModalStory Component renders ModalStory with a header 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1262,7 +1262,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, and footer
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1309,7 +1309,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, and footer
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1329,7 +1329,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, and footer
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1405,7 +1405,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, an
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1467,11 +1467,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, an
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1491,7 +1491,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, an
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1567,7 +1567,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1629,11 +1629,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1653,7 +1653,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1729,7 +1729,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1791,11 +1791,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1815,7 +1815,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -1891,7 +1891,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -1953,11 +1953,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -1977,7 +1977,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2053,7 +2053,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2115,11 +2115,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -2139,7 +2139,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2215,7 +2215,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2277,11 +2277,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
 
 }
 
@@ -2301,7 +2301,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2377,7 +2377,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2439,11 +2439,11 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
   height: 16px;
 }
 
-.c6 .c1 > svg {
+.c6 .c1>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -2463,7 +2463,7 @@ exports[`ModalStory Component renders ModalStory with a header, body, footer, cl
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2539,7 +2539,7 @@ exports[`ModalStory Component renders ModalStory with a large button 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2570,7 +2570,7 @@ exports[`ModalStory Component renders ModalStory with a large button 1`] = `
   height: 16px;
 }
 
-@media (min-width:768px) {
+@media (min-width: 768px) {
 
 }
 
@@ -2590,7 +2590,7 @@ exports[`ModalStory Component renders ModalStory with a large button 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2666,7 +2666,7 @@ exports[`ModalStory Component renders ModalStory with an animated modal 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2697,7 +2697,7 @@ exports[`ModalStory Component renders ModalStory with an animated modal 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -2717,7 +2717,7 @@ exports[`ModalStory Component renders ModalStory with an animated modal 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2793,7 +2793,7 @@ exports[`ModalStory Component renders ModalStory with focus on mount 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2824,7 +2824,7 @@ exports[`ModalStory Component renders ModalStory with focus on mount 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -2844,7 +2844,7 @@ exports[`ModalStory Component renders ModalStory with focus on mount 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -2920,7 +2920,7 @@ exports[`ModalStory Component renders ModalStory with restore focus on close 1`]
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -2951,7 +2951,7 @@ exports[`ModalStory Component renders ModalStory with restore focus on close 1`]
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -2971,7 +2971,7 @@ exports[`ModalStory Component renders ModalStory with restore focus on close 1`]
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -3047,7 +3047,7 @@ exports[`ModalStory Component renders ModalStory with visible modal 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -3078,7 +3078,7 @@ exports[`ModalStory Component renders ModalStory with visible modal 1`] = `
   height: 16px;
 }
 
-@media (min-width:576px) {
+@media (min-width: 576px) {
 
 }
 
@@ -3098,7 +3098,7 @@ exports[`ModalStory Component renders ModalStory with visible modal 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
@@ -3174,7 +3174,7 @@ exports[`ModalStory Component renders default ModalStory 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c0:active,
@@ -3213,7 +3213,7 @@ exports[`ModalStory Component renders default ModalStory 1`] = `
 >
   Open
   <svg
-    class="c1  c2"
+    class="c1 c2"
     data-garden-id="buttons.icon"
     data-garden-version="9.2.0"
     xmlns="http://www.w3.org/2000/svg"
