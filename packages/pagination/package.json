@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-pagination",
-  "version": "9.2.0",
+  "version": "9.3.0",
   "description": "Components relating to pagination in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -32,7 +32,7 @@
     "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^9.2.0",
+    "@zendeskgarden/react-theming": "^9.3.0",
     "@zendeskgarden/svg-icons": "7.3.0"
   },
   "keywords": [
