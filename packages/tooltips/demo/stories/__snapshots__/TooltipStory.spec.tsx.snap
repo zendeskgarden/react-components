@@ -109,46 +109,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with all
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -313,46 +273,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -521,46 +441,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -725,46 +605,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -933,46 +773,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -1139,46 +939,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -1343,46 +1103,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1552,46 +1272,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -1757,46 +1437,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1965,46 +1605,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -2171,46 +1771,6 @@ exports[`TooltipStory Component (isVisible = true) renders TooltipStory with isV
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
