@@ -48,11 +48,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c21 {
+.c4:not([hidden])+.c22 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c21 {
+.c4:not([hidden])+.c22 {
   display: block;
 }
 
@@ -156,11 +156,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c21 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c21 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c21+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c21 {
   margin-top: 8px;
 }
 
@@ -193,7 +193,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -204,7 +204,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -318,11 +318,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c17.c17,
-.c6 + .c17.c17,
-.c21 + .c17.c17,
-.c17.c17 + .c6,
-.c17.c17 ~ .c21 {
+.c4:not([hidden])+.c17.c17,
+.c6+.c17.c17,
+.c21+.c17.c17,
+.c17.c17+.c6,
+.c17.c17~.c21 {
   margin-top: 8px;
 }
 
@@ -360,7 +360,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
 .c17::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c17:disabled,
@@ -395,20 +395,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c19 {
+.c10>.c19 {
   flex-shrink: 0;
 }
 
 .c24 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -424,7 +424,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   opacity: 0;
 }
 
-.c23 > * {
+.c23>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -443,7 +443,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   color: #293239;
 }
 
-.c23 > *:focus {
+.c23>*:focus {
   outline: none;
 }
 
@@ -562,7 +562,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   color: #293239;
 }
 
-.c14 > * {
+.c14>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -603,10 +603,10 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
 .c14:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c14 > * {
+.c14>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -639,46 +639,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
   .c17[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -882,7 +842,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom "show
           </div>
           <svg
             aria-hidden="true"
-            class="c19  c20"
+            class="c19 c20"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -977,11 +937,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -1085,11 +1045,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -1122,7 +1082,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1133,7 +1093,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -1247,11 +1207,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -1289,7 +1249,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -1324,20 +1284,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -1353,7 +1313,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1372,7 +1332,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -1454,46 +1414,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -1572,7 +1492,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom input
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -1667,11 +1587,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -1775,11 +1695,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -1812,7 +1732,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1823,7 +1743,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -1937,11 +1857,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -1979,7 +1899,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -2014,20 +1934,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -2043,7 +1963,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -2062,7 +1982,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -2144,46 +2064,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -2262,7 +2142,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a custom place
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -2357,11 +2237,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -2465,11 +2345,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c15 + .c7.c7,
-.c17 + .c7.c7,
-.c7.c7 + .c15,
-.c7.c7 ~ .c17 {
+.c4:not([hidden])+.c7.c7,
+.c15+.c7.c7,
+.c17+.c7.c7,
+.c7.c7+.c15,
+.c7.c7~.c17 {
   margin-top: 8px;
 }
 
@@ -2502,7 +2382,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2513,7 +2393,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -2627,11 +2507,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c15 + .c11.c11,
-.c17 + .c11.c11,
-.c11.c11 + .c15,
-.c11.c11 ~ .c17 {
+.c4:not([hidden])+.c11.c11,
+.c15+.c11.c11,
+.c17+.c11.c11,
+.c11.c11+.c15,
+.c11.c11~.c17 {
   margin-top: 8px;
 }
 
@@ -2669,7 +2549,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -2704,20 +2584,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
 }
 
-.c8 > .c13 {
+.c8>.c13 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -2733,7 +2613,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -2752,7 +2632,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -2834,46 +2714,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -2943,7 +2783,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hidden label
           </div>
           <svg
             aria-hidden="true"
-            class="c13  c14"
+            class="c13 c14"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -3048,11 +2888,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -3156,11 +2996,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -3193,7 +3033,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3204,7 +3044,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -3318,11 +3158,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -3360,7 +3200,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -3395,20 +3235,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -3424,7 +3264,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -3443,7 +3283,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -3525,46 +3365,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -3643,7 +3443,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a hint 1`] = `
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -3738,11 +3538,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -3846,11 +3646,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -3883,7 +3683,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3894,7 +3694,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -4008,11 +3808,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -4050,7 +3850,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -4085,20 +3885,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -4114,7 +3914,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -4133,7 +3933,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -4215,46 +4015,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -4333,7 +4093,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label 1`] = 
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -4428,11 +4188,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -4536,11 +4296,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c15 + .c7.c7,
-.c17 + .c7.c7,
-.c7.c7 + .c15,
-.c7.c7 ~ .c17 {
+.c4:not([hidden])+.c7.c7,
+.c15+.c7.c7,
+.c17+.c7.c7,
+.c7.c7+.c15,
+.c7.c7~.c17 {
   margin-top: 8px;
 }
 
@@ -4573,7 +4333,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4584,7 +4344,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -4698,11 +4458,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c15 + .c11.c11,
-.c17 + .c11.c11,
-.c11.c11 + .c15,
-.c11.c11 ~ .c17 {
+.c4:not([hidden])+.c11.c11,
+.c15+.c11.c11,
+.c17+.c11.c11,
+.c11.c11+.c15,
+.c11.c11~.c17 {
   margin-top: 8px;
 }
 
@@ -4740,7 +4500,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -4775,20 +4535,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
 }
 
-.c8 > .c13 {
+.c8>.c13 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -4804,7 +4564,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -4823,7 +4583,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -4905,46 +4665,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -5014,7 +4734,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           </div>
           <svg
             aria-hidden="true"
-            class="c13  c14"
+            class="c13 c14"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -5119,11 +4839,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -5227,11 +4947,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c15 + .c7.c7,
-.c17 + .c7.c7,
-.c7.c7 + .c15,
-.c7.c7 ~ .c17 {
+.c4:not([hidden])+.c7.c7,
+.c15+.c7.c7,
+.c17+.c7.c7,
+.c7.c7+.c15,
+.c7.c7~.c17 {
   margin-top: 8px;
 }
 
@@ -5264,7 +4984,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5275,7 +4995,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -5389,11 +5109,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c15 + .c11.c11,
-.c17 + .c11.c11,
-.c11.c11 + .c15,
-.c11.c11 ~ .c17 {
+.c4:not([hidden])+.c11.c11,
+.c15+.c11.c11,
+.c17+.c11.c11,
+.c11.c11+.c15,
+.c11.c11~.c17 {
   margin-top: 8px;
 }
 
@@ -5431,7 +5151,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -5466,20 +5186,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
 }
 
-.c8 > .c13 {
+.c8>.c13 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -5495,7 +5215,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -5514,7 +5234,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -5596,46 +5316,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -5705,7 +5385,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           </div>
           <svg
             aria-hidden="true"
-            class="c13  c14"
+            class="c13 c14"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -5810,11 +5490,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -5918,11 +5598,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c15 + .c7.c7,
-.c17 + .c7.c7,
-.c7.c7 + .c15,
-.c7.c7 ~ .c17 {
+.c4:not([hidden])+.c7.c7,
+.c15+.c7.c7,
+.c17+.c7.c7,
+.c7.c7+.c15,
+.c7.c7~.c17 {
   margin-top: 8px;
 }
 
@@ -5955,7 +5635,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5966,7 +5646,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -6080,11 +5760,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c15 + .c11.c11,
-.c17 + .c11.c11,
-.c11.c11 + .c15,
-.c11.c11 ~ .c17 {
+.c4:not([hidden])+.c11.c11,
+.c15+.c11.c11,
+.c17+.c11.c11,
+.c11.c11+.c15,
+.c11.c11~.c17 {
   margin-top: 8px;
 }
 
@@ -6122,7 +5802,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -6157,20 +5837,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
 }
 
-.c8 > .c13 {
+.c8>.c13 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -6186,7 +5866,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -6205,7 +5885,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -6287,46 +5967,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -6396,7 +6036,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hidde
           </div>
           <svg
             aria-hidden="true"
-            class="c13  c14"
+            class="c13 c14"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -6501,11 +6141,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -6609,11 +6249,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -6646,7 +6286,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6657,7 +6297,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -6771,11 +6411,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -6813,7 +6453,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -6848,20 +6488,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -6877,7 +6517,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -6896,7 +6536,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -6978,46 +6618,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -7096,7 +6696,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -7191,11 +6791,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -7299,11 +6899,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 4px;
 }
 
@@ -7336,7 +6936,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -7347,7 +6947,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -7461,11 +7061,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 4px;
 }
 
@@ -7503,7 +7103,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -7538,20 +7138,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -7567,7 +7167,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -7586,7 +7186,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -7668,46 +7268,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -7786,7 +7346,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, hint,
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -7881,11 +7441,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -7989,11 +7549,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -8026,7 +7586,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -8037,7 +7597,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -8151,11 +7711,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -8193,7 +7753,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -8228,20 +7788,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -8257,7 +7817,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -8276,7 +7836,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -8358,46 +7918,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -8476,7 +7996,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -8571,11 +8091,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -8679,11 +8199,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -8716,7 +8236,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -8727,7 +8247,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -8841,11 +8361,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -8883,7 +8403,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -8918,20 +8438,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -8947,7 +8467,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -8966,7 +8486,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -9048,46 +8568,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -9166,7 +8646,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -9261,11 +8741,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c18 {
+.c4:not([hidden])+.c19 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c18 {
+.c4:not([hidden])+.c19 {
   display: block;
 }
 
@@ -9369,11 +8849,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c18 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c18 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c18+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c18 {
   margin-top: 8px;
 }
 
@@ -9406,7 +8886,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -9417,7 +8897,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -9531,11 +9011,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c15.c15,
-.c6 + .c15.c15,
-.c18 + .c15.c15,
-.c15.c15 + .c6,
-.c15.c15 ~ .c18 {
+.c4:not([hidden])+.c15.c15,
+.c6+.c15.c15,
+.c18+.c15.c15,
+.c15.c15+.c6,
+.c15.c15~.c18 {
   margin-top: 8px;
 }
 
@@ -9573,7 +9053,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c15::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c15:disabled,
@@ -9616,20 +9096,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c12 {
+.c10>.c12 {
   flex-shrink: 0;
 }
 
 .c21 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -9645,7 +9125,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   opacity: 0;
 }
 
-.c20 > * {
+.c20>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -9664,7 +9144,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   color: #293239;
 }
 
-.c20 > *:focus {
+.c20>*:focus {
   outline: none;
 }
 
@@ -9746,46 +9226,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -9842,7 +9282,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           tabindex="-1"
         >
           <svg
-            class="c12  c13"
+            class="c12 c13"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -9870,7 +9310,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a label, regul
           </div>
           <svg
             aria-hidden="true"
-            class="c12  c17"
+            class="c12 c17"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -9965,11 +9405,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -10073,11 +9513,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -10110,7 +9550,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -10121,7 +9561,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -10235,11 +9675,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -10277,7 +9717,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -10312,20 +9752,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -10341,7 +9781,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -10360,7 +9800,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -10442,46 +9882,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -10560,7 +9960,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a message 1`] 
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -10655,11 +10055,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -10763,11 +10163,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -10800,7 +10200,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -10811,7 +10211,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -10925,11 +10325,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -10967,7 +10367,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -11002,20 +10402,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -11031,7 +10431,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -11050,7 +10450,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -11132,46 +10532,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -11251,7 +10611,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a placeholder 
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -11346,11 +10706,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -11454,11 +10814,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -11491,7 +10851,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -11502,7 +10862,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -11616,11 +10976,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -11658,7 +11018,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -11693,20 +11053,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -11722,7 +11082,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -11741,7 +11101,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -11823,46 +11183,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -11941,7 +11261,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a regular labe
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -12036,11 +11356,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -12144,11 +11464,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -12181,7 +11501,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -12192,7 +11512,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -12306,11 +11626,11 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -12348,7 +11668,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -12383,20 +11703,20 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -12412,7 +11732,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -12431,7 +11751,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -12513,46 +11833,6 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -12631,7 +11911,7 @@ exports[`MultiselectStory Component renders MultiselectStory with a validation l
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -12726,11 +12006,11 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c18 {
+.c4:not([hidden])+.c19 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c18 {
+.c4:not([hidden])+.c19 {
   display: block;
 }
 
@@ -12834,11 +12114,11 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c18 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c18 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c18+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c18 {
   margin-top: 8px;
 }
 
@@ -12871,7 +12151,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -12882,7 +12162,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -12996,11 +12276,11 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c15.c15,
-.c6 + .c15.c15,
-.c18 + .c15.c15,
-.c15.c15 + .c6,
-.c15.c15 ~ .c18 {
+.c4:not([hidden])+.c15.c15,
+.c6+.c15.c15,
+.c18+.c15.c15,
+.c15.c15+.c6,
+.c15.c15~.c18 {
   margin-top: 8px;
 }
 
@@ -13038,7 +12318,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
 .c15::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c15:disabled,
@@ -13081,20 +12361,20 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c12 {
+.c10>.c12 {
   flex-shrink: 0;
 }
 
 .c21 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -13110,7 +12390,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
   opacity: 0;
 }
 
-.c20 > * {
+.c20>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -13129,7 +12409,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
   color: #293239;
 }
 
-.c20 > *:focus {
+.c20>*:focus {
   outline: none;
 }
 
@@ -13211,46 +12491,6 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -13307,7 +12547,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
           tabindex="-1"
         >
           <svg
-            class="c12  c13"
+            class="c12 c13"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -13335,7 +12575,7 @@ exports[`MultiselectStory Component renders MultiselectStory with an icon 1`] = 
           </div>
           <svg
             aria-hidden="true"
-            class="c12  c17"
+            class="c12 c17"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -13430,11 +12670,11 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -13538,11 +12778,11 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 4px;
 }
 
@@ -13575,7 +12815,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -13586,7 +12826,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -13700,11 +12940,11 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 4px;
 }
 
@@ -13742,7 +12982,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -13777,20 +13017,20 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -13806,7 +13046,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -13825,7 +13065,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -13907,46 +13147,6 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -14025,7 +13225,7 @@ exports[`MultiselectStory Component renders MultiselectStory with compact stylin
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -14120,11 +13320,11 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c21 {
+.c4:not([hidden])+.c22 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c21 {
+.c4:not([hidden])+.c22 {
   display: block;
 }
 
@@ -14228,11 +13428,11 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c21 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c21 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c21+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c21 {
   margin-top: 8px;
 }
 
@@ -14265,7 +13465,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -14276,7 +13476,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -14390,11 +13590,11 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c17.c17,
-.c6 + .c17.c17,
-.c21 + .c17.c17,
-.c17.c17 + .c6,
-.c17.c17 ~ .c21 {
+.c4:not([hidden])+.c17.c17,
+.c6+.c17.c17,
+.c21+.c17.c17,
+.c17.c17+.c6,
+.c17.c17~.c21 {
   margin-top: 8px;
 }
 
@@ -14432,7 +13632,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
 .c17::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c17:disabled,
@@ -14467,20 +13667,20 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c19 {
+.c10>.c19 {
   flex-shrink: 0;
 }
 
 .c24 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -14496,7 +13696,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   opacity: 0;
 }
 
-.c23 > * {
+.c23>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -14515,7 +13715,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   color: #293239;
 }
 
-.c23 > *:focus {
+.c23>*:focus {
   outline: none;
 }
 
@@ -14634,7 +13834,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   color: #293239;
 }
 
-.c14 > * {
+.c14>* {
   width: 100%;
   min-width: 1ch;
 }
@@ -14675,10 +13875,10 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
 .c14:focus {
   outline: 1px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 2px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 2px #1f73b7;
 }
 
-.c14 > * {
+.c14>* {
   overflow: hidden;
   text-align: center;
   text-overflow: ellipsis;
@@ -14711,46 +13911,6 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
   .c17[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -14913,7 +14073,7 @@ exports[`MultiselectStory Component renders MultiselectStory with selected items
           </div>
           <svg
             aria-hidden="true"
-            class="c19  c20"
+            class="c19 c20"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"
@@ -15008,11 +14168,11 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c17 {
+.c4:not([hidden])+.c18 {
   display: block;
 }
 
@@ -15116,11 +14276,11 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c17 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c17 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c17+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c17 {
   margin-top: 8px;
 }
 
@@ -15153,7 +14313,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -15164,7 +14324,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -15278,11 +14438,11 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c17 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c17 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c17+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c17 {
   margin-top: 8px;
 }
 
@@ -15320,7 +14480,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -15355,20 +14515,20 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c15 {
+.c10>.c15 {
   flex-shrink: 0;
 }
 
 .c20 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -15384,7 +14544,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
   opacity: 0;
 }
 
-.c19 > * {
+.c19>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -15403,7 +14563,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
   color: #293239;
 }
 
-.c19 > *:focus {
+.c19>*:focus {
   outline: none;
 }
 
@@ -15485,46 +14645,6 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -15603,7 +14723,7 @@ exports[`MultiselectStory Component renders default MultiselectStory 1`] = `
           </div>
           <svg
             aria-hidden="true"
-            class="c15  c16"
+            class="c15 c16"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             focusable="false"

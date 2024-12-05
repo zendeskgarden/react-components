@@ -48,11 +48,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -156,11 +156,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 4px;
 }
 
@@ -193,7 +193,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -204,7 +204,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -318,11 +318,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -360,7 +360,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -387,12 +387,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -400,7 +404,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -416,7 +420,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -435,7 +439,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -491,46 +495,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a compact menu 1`] =
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -681,11 +645,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -789,11 +753,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -826,7 +790,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -837,7 +801,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -951,11 +915,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -993,7 +957,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -1020,12 +984,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -1033,7 +1001,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -1049,7 +1017,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1068,7 +1036,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -1124,46 +1092,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled input v
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -1314,11 +1242,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -1422,11 +1350,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -1459,7 +1387,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -1470,7 +1398,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -1584,11 +1512,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -1626,7 +1554,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -1653,12 +1581,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -1666,7 +1598,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -1680,7 +1612,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
   color-scheme: only light;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1699,11 +1631,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
-.c15.is-animated > * {
+.c15.is-animated>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -1799,46 +1731,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a controlled open st
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2143,11 +2035,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -2251,11 +2143,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -2288,7 +2180,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2299,7 +2191,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -2413,11 +2305,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -2455,7 +2347,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -2482,12 +2374,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -2495,7 +2391,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -2511,7 +2407,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -2530,7 +2426,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -2586,46 +2482,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a custom placement 1
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2776,11 +2632,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -2884,11 +2740,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -2921,7 +2777,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -2932,7 +2788,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -3046,11 +2902,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -3088,7 +2944,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -3115,12 +2971,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -3128,7 +2988,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -3144,7 +3004,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -3163,7 +3023,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -3219,46 +3079,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a disabled input 1`]
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3411,11 +3231,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -3519,11 +3339,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c11 + .c7.c7,
-.c13 + .c7.c7,
-.c7.c7 + .c11,
-.c7.c7 ~ .c13 {
+.c4:not([hidden])+.c7.c7,
+.c11+.c7.c7,
+.c13+.c7.c7,
+.c7.c7+.c11,
+.c7.c7~.c13 {
   margin-top: 8px;
 }
 
@@ -3556,7 +3376,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -3567,7 +3387,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -3681,11 +3501,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c11 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c11,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c11+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c11,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -3723,7 +3543,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -3750,12 +3570,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
+}
+
+.c8>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c10 {
@@ -3763,7 +3587,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -3779,7 +3603,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -3798,7 +3622,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -3854,46 +3678,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a hidden label 1`] =
   .c9[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4045,11 +3829,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -4153,11 +3937,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -4190,7 +3974,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4201,7 +3985,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -4315,11 +4099,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -4357,7 +4141,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -4384,12 +4168,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -4397,7 +4185,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -4413,7 +4201,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -4432,7 +4220,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -4488,46 +4276,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a hint 1`] = `
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -4678,11 +4426,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -4786,11 +4534,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -4823,7 +4571,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -4834,7 +4582,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -4948,11 +4696,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -4990,7 +4738,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -5017,12 +4765,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -5030,7 +4782,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -5046,7 +4798,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -5065,7 +4817,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -5121,46 +4873,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label 1`] = `
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5311,11 +5023,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   display: block;
 }
 
@@ -5419,11 +5131,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c13 + .c7.c7,
-.c15 + .c7.c7,
-.c7.c7 + .c13,
-.c7.c7 ~ .c15 {
+.c4:not([hidden])+.c7.c7,
+.c13+.c7.c7,
+.c15+.c7.c7,
+.c7.c7+.c13,
+.c7.c7~.c15 {
   margin-top: 8px;
 }
 
@@ -5456,7 +5168,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -5467,7 +5179,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -5581,11 +5293,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c13 + .c11.c11,
-.c15 + .c11.c11,
-.c11.c11 + .c13,
-.c11.c11 ~ .c15 {
+.c4:not([hidden])+.c11.c11,
+.c13+.c11.c11,
+.c15+.c11.c11,
+.c11.c11+.c13,
+.c11.c11~.c15 {
   margin-top: 8px;
 }
 
@@ -5623,7 +5335,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -5658,15 +5370,15 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
 }
 
-.c8 > .c9 {
+.c8>.c9 {
   flex-shrink: 0;
 }
 
@@ -5675,7 +5387,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 }
 
 .c18 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -5691,7 +5403,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   opacity: 0;
 }
 
-.c17 > * {
+.c17>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -5710,7 +5422,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #293239;
 }
 
-.c17 > *:focus {
+.c17>*:focus {
   outline: none;
 }
 
@@ -5768,46 +5480,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -5852,7 +5524,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
           data-toggle="true"
         >
           <svg
-            class="c9  c10"
+            class="c9 c10"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -5963,11 +5635,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   display: block;
 }
 
@@ -6071,11 +5743,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c13 + .c7.c7,
-.c15 + .c7.c7,
-.c7.c7 + .c13,
-.c7.c7 ~ .c15 {
+.c4:not([hidden])+.c7.c7,
+.c13+.c7.c7,
+.c15+.c7.c7,
+.c7.c7+.c13,
+.c7.c7~.c15 {
   margin-top: 8px;
 }
 
@@ -6108,7 +5780,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6119,7 +5791,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -6233,11 +5905,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c13 + .c9.c9,
-.c15 + .c9.c9,
-.c9.c9 + .c13,
-.c9.c9 ~ .c15 {
+.c4:not([hidden])+.c9.c9,
+.c13+.c9.c9,
+.c15+.c9.c9,
+.c9.c9+.c13,
+.c9.c9~.c15 {
   margin-top: 8px;
 }
 
@@ -6275,7 +5947,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -6310,15 +5982,15 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
 }
 
-.c8 > .c11 {
+.c8>.c11 {
   flex-shrink: 0;
 }
 
@@ -6327,7 +5999,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 }
 
 .c18 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -6343,7 +6015,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   opacity: 0;
 }
 
-.c17 > * {
+.c17>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -6362,7 +6034,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #293239;
 }
 
-.c17 > *:focus {
+.c17>*:focus {
   outline: none;
 }
 
@@ -6418,46 +6090,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   .c9[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -6519,7 +6151,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
             value=""
           />
           <svg
-            class="c11  c12"
+            class="c11 c12"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -6615,11 +6247,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -6723,11 +6355,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c11 + .c7.c7,
-.c13 + .c7.c7,
-.c7.c7 + .c11,
-.c7.c7 ~ .c13 {
+.c4:not([hidden])+.c7.c7,
+.c11+.c7.c7,
+.c13+.c7.c7,
+.c7.c7+.c11,
+.c7.c7~.c13 {
   margin-top: 8px;
 }
 
@@ -6760,7 +6392,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -6771,7 +6403,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -6885,11 +6517,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c11 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c11,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c11+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c11,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -6927,7 +6559,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -6954,12 +6586,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
+}
+
+.c8>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c10 {
@@ -6967,7 +6603,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -6983,7 +6619,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -7002,7 +6638,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -7058,46 +6694,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   .c9[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7249,11 +6845,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -7357,11 +6953,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c7.c7,
-.c11 + .c7.c7,
-.c13 + .c7.c7,
-.c7.c7 + .c11,
-.c7.c7 ~ .c13 {
+.c4:not([hidden])+.c7.c7,
+.c11+.c7.c7,
+.c13+.c7.c7,
+.c7.c7+.c11,
+.c7.c7~.c13 {
   margin-top: 4px;
 }
 
@@ -7394,7 +6990,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -7405,7 +7001,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c7::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c7:disabled,
@@ -7519,11 +7115,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c11 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c11,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c11+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c11,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -7561,7 +7157,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -7588,12 +7184,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 .c8:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c8 > .c6:focus-visible {
+.c8>.c6:focus-visible {
   box-shadow: unset;
+}
+
+.c8>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c10 {
@@ -7601,7 +7201,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -7617,7 +7217,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -7636,7 +7236,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -7692,46 +7292,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hidden labe
   .c9[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -7883,11 +7443,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -7991,11 +7551,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -8028,7 +7588,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -8039,7 +7599,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -8153,11 +7713,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -8195,7 +7755,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -8222,12 +7782,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -8235,7 +7799,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -8251,7 +7815,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -8270,7 +7834,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -8326,46 +7890,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, hint, and m
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -8516,11 +8040,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -8624,11 +8148,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -8661,7 +8185,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -8672,7 +8196,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -8786,11 +8310,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -8828,7 +8352,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -8855,12 +8379,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -8868,7 +8396,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -8884,7 +8412,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -8903,7 +8431,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -8959,46 +8487,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -9149,11 +8637,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -9257,11 +8745,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   margin: -3px -9px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 4px;
 }
 
@@ -9294,7 +8782,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -9305,7 +8793,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -9419,11 +8907,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -9461,7 +8949,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -9488,12 +8976,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -9501,7 +8993,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -9517,7 +9009,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -9536,7 +9028,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -9592,46 +9084,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -9782,11 +9234,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c16 {
+.c4:not([hidden])+.c17 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c16 {
+.c4:not([hidden])+.c17 {
   display: block;
 }
 
@@ -9890,11 +9342,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c16 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c16 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c16+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c16 {
   margin-top: 8px;
 }
 
@@ -9927,7 +9379,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -9938,7 +9390,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -10052,11 +9504,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c16 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c16 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c16+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c16 {
   margin-top: 8px;
 }
 
@@ -10094,7 +9546,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -10137,15 +9589,15 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c11 {
+.c10>.c11 {
   flex-shrink: 0;
 }
 
@@ -10154,7 +9606,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
 }
 
 .c19 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -10170,7 +9622,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   opacity: 0;
 }
 
-.c18 > * {
+.c18>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -10189,7 +9641,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   color: #293239;
 }
 
-.c18 > *:focus {
+.c18>*:focus {
   outline: none;
 }
 
@@ -10247,46 +9699,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -10340,7 +9752,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
           data-toggle="true"
         >
           <svg
-            class="c11  c12"
+            class="c11 c12"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -10361,7 +9773,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a label, regular lab
             value=""
           />
           <svg
-            class="c11  c15"
+            class="c11 c15"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -10447,11 +9859,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -10555,11 +9967,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -10592,7 +10004,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -10603,7 +10015,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -10717,11 +10129,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -10759,7 +10171,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -10786,12 +10198,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -10799,7 +10215,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -10815,7 +10231,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -10834,7 +10250,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -10890,46 +10306,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a message 1`] = `
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -11080,11 +10456,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -11188,11 +10564,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -11225,7 +10601,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -11236,7 +10612,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -11350,11 +10726,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -11392,7 +10768,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -11419,12 +10795,16 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -11432,7 +10812,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -11448,7 +10828,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -11467,7 +10847,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -11523,46 +10903,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a regular label 1`] 
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -11713,11 +11053,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   display: block;
 }
 
@@ -11821,11 +11161,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c15 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c15 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c15+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c15 {
   margin-top: 8px;
 }
 
@@ -11858,7 +11198,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -11869,7 +11209,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -11983,11 +11323,11 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c15 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c15 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c15+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c15 {
   margin-top: 8px;
 }
 
@@ -12025,7 +11365,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -12060,15 +11400,15 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c11 {
+.c10>.c11 {
   flex-shrink: 0;
 }
 
@@ -12077,7 +11417,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
 }
 
 .c18 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -12093,7 +11433,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
   opacity: 0;
 }
 
-.c17 > * {
+.c17>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -12112,7 +11452,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
   color: #293239;
 }
 
-.c17 > *:focus {
+.c17>*:focus {
   outline: none;
 }
 
@@ -12170,46 +11510,6 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -12263,7 +11563,7 @@ exports[`ComboboxStory Component renders ComboboxStory with a start icon 1`] = `
           data-toggle="true"
         >
           <svg
-            class="c11  c12"
+            class="c11 c12"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -12364,11 +11664,11 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c15 {
+.c4:not([hidden])+.c16 {
   display: block;
 }
 
@@ -12472,11 +11772,11 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c15 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c15 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c15+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c15 {
   margin-top: 8px;
 }
 
@@ -12509,7 +11809,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -12520,7 +11820,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -12634,11 +11934,11 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c15 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c15 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c15+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c15 {
   margin-top: 8px;
 }
 
@@ -12676,7 +11976,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -12711,15 +12011,15 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c13 {
+.c10>.c13 {
   flex-shrink: 0;
 }
 
@@ -12728,7 +12028,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
 }
 
 .c18 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -12744,7 +12044,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
   opacity: 0;
 }
 
-.c17 > * {
+.c17>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -12763,7 +12063,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
   color: #293239;
 }
 
-.c17 > *:focus {
+.c17>*:focus {
   outline: none;
 }
 
@@ -12819,46 +12119,6 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -12929,7 +12189,7 @@ exports[`ComboboxStory Component renders ComboboxStory with an end icon 1`] = `
             value=""
           />
           <svg
-            class="c13  c14"
+            class="c13 c14"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -13015,11 +12275,11 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c16 {
+.c4:not([hidden])+.c17 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c16 {
+.c4:not([hidden])+.c17 {
   display: block;
 }
 
@@ -13123,11 +12383,11 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c16 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c16 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c16+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c16 {
   margin-top: 8px;
 }
 
@@ -13160,7 +12420,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -13171,7 +12431,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -13285,11 +12545,11 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c13.c13,
-.c6 + .c13.c13,
-.c16 + .c13.c13,
-.c13.c13 + .c6,
-.c13.c13 ~ .c16 {
+.c4:not([hidden])+.c13.c13,
+.c6+.c13.c13,
+.c16+.c13.c13,
+.c13.c13+.c6,
+.c13.c13~.c16 {
   margin-top: 8px;
 }
 
@@ -13327,7 +12587,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
 .c13::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c13:disabled,
@@ -13370,15 +12630,15 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
 }
 
-.c10 > .c11 {
+.c10>.c11 {
   flex-shrink: 0;
 }
 
@@ -13387,7 +12647,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
 }
 
 .c19 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -13403,7 +12663,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
   opacity: 0;
 }
 
-.c18 > * {
+.c18>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -13422,7 +12682,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
   color: #293239;
 }
 
-.c18 > *:focus {
+.c18>*:focus {
   outline: none;
 }
 
@@ -13480,46 +12740,6 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
   }
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -13573,7 +12793,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
           data-toggle="true"
         >
           <svg
-            class="c11  c12"
+            class="c11 c12"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -13594,7 +12814,7 @@ exports[`ComboboxStory Component renders ComboboxStory with both start and end i
             value=""
           />
           <svg
-            class="c11  c15"
+            class="c11 c15"
             data-garden-id="forms.media_figure"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -13680,11 +12900,11 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
   color: #5c6970;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   margin-top: 4px;
 }
 
-.c4:not([hidden]) + .c13 {
+.c4:not([hidden])+.c14 {
   display: block;
 }
 
@@ -13788,11 +13008,11 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c9.c9,
-.c6 + .c9.c9,
-.c13 + .c9.c9,
-.c9.c9 + .c6,
-.c9.c9 ~ .c13 {
+.c4:not([hidden])+.c9.c9,
+.c6+.c9.c9,
+.c13+.c9.c9,
+.c9.c9+.c6,
+.c9.c9~.c13 {
   margin-top: 8px;
 }
 
@@ -13825,7 +13045,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
 .c9:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
@@ -13836,7 +13056,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
 .c9::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c9:disabled,
@@ -13950,11 +13170,11 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
   margin: -5px -7px;
 }
 
-.c4:not([hidden]) + .c11.c11,
-.c6 + .c11.c11,
-.c13 + .c11.c11,
-.c11.c11 + .c6,
-.c11.c11 ~ .c13 {
+.c4:not([hidden])+.c11.c11,
+.c6+.c11.c11,
+.c13+.c11.c11,
+.c11.c11+.c6,
+.c11.c11~.c13 {
   margin-top: 8px;
 }
 
@@ -13992,7 +13212,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
 .c11::-webkit-calendar-picker-indicator:focus-visible:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c11:disabled,
@@ -14019,12 +13239,16 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
 .c10:focus-within {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   border-color: #1f73b7;
 }
 
-.c10 > .c8:focus-visible {
+.c10>.c8:focus-visible {
   box-shadow: unset;
+}
+
+.c10>.StyledTextMediaFigure-sc-1qepknj-0 {
+  flex-shrink: 0;
 }
 
 .c12 {
@@ -14032,7 +13256,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
 }
 
 .c16 {
-  position: static !important;
+  position: static!important;
   max-height: 400px;
   overflow-y: auto;
 }
@@ -14048,7 +13272,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
   opacity: 0;
 }
 
-.c15 > * {
+.c15>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -14067,7 +13291,7 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
   color: #293239;
 }
 
-.c15 > *:focus {
+.c15>*:focus {
   outline: none;
 }
 
@@ -14123,46 +13347,6 @@ exports[`ComboboxStory Component renders default ComboboxStory 1`] = `
   .c11[type='color'] {
     padding: 1px 3px;
   }
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
