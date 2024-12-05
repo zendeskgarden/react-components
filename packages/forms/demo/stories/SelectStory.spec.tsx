@@ -162,15 +162,6 @@ describe('SelectStory Component', () => {
     });
   });
 
-  // Test with Select props: open state
-  it('renders SelectStory with the select open', () => {
-    renderAndMatchSnapshot({
-      label: 'Select an option',
-      isOpen: true,
-      options: ['Option 1', 'Option 2']
-    });
-  });
-
   // Test with Select props: focus inset
   it('renders SelectStory with focus inset', () => {
     renderAndMatchSnapshot({

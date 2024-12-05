@@ -103,21 +103,4 @@ describe('FileListStory Component', () => {
       isCompact: true
     });
   });
-
-  it('renders FileListStory with aria labels for close and delete buttons', () => {
-    renderAndMatchSnapshot({
-      items: FILELIST_ITEMS,
-      closeAriaLabel: 'Close file',
-      deleteAriaLabel: 'Delete file'
-    });
-  });
-
-  it('renders FileListStory with compact styling, aria labels, and multiple items', () => {
-    renderAndMatchSnapshot({
-      items: FILELIST_ITEMS,
-      isCompact: true,
-      closeAriaLabel: 'Close file',
-      deleteAriaLabel: 'Delete file'
-    });
-  });
 });

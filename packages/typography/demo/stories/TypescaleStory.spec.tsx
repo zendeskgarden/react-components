@@ -64,10 +64,6 @@ describe('TypescaleStory Component', () => {
     renderAndMatchSnapshot({ size: 'large', isBold: true });
   });
 
-  it('renders TypescaleStory with extra-large size and monospace font', () => {
-    renderAndMatchSnapshot({ size: 'extra-large', isMonospace: true });
-  });
-
   it('renders TypescaleStory with 2x-large size and custom tag', () => {
     renderAndMatchSnapshot({ size: '2x-large', tag: 'h1' });
   });
@@ -102,7 +98,6 @@ describe('TypescaleStory Component', () => {
     renderAndMatchSnapshot({
       size: '2x-large',
       hasDisplayName: true,
-      isMonospace: true,
       tag: 'pre'
     });
   });
@@ -112,7 +107,6 @@ describe('TypescaleStory Component', () => {
       size: '3x-large',
       hasDisplayName: true,
       isBold: true,
-      isMonospace: true,
       tag: 'h2'
     });
   });

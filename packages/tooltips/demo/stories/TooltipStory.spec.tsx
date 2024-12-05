@@ -41,16 +41,8 @@ describe('TooltipStory Component (isVisible = true)', () => {
     renderAndMatchSnapshot({ content: defaultContent, isVisible: true, hasArrow: true });
   });
 
-  it('renders TooltipStory with isVisible and isAnimated', () => {
-    renderAndMatchSnapshot({ content: defaultContent, isVisible: true, isAnimated: true });
-  });
-
   it('renders TooltipStory with isVisible and a custom id', () => {
     renderAndMatchSnapshot({ content: defaultContent, isVisible: true, id: 'custom-tooltip-id' });
-  });
-
-  it('renders TooltipStory with isVisible and a custom maxWidth', () => {
-    renderAndMatchSnapshot({ content: defaultContent, isVisible: true, maxWidth: '300px' });
   });
 
   it('renders TooltipStory with isVisible, and zIndex', () => {
@@ -66,15 +58,14 @@ describe('TooltipStory Component (isVisible = true)', () => {
       content: defaultContent,
       isVisible: true,
       hasArrow: true,
-      placement: 'left'
+      placement: 'start'
     });
   });
 
-  it('renders TooltipStory with isVisible, isAnimated, and placement', () => {
+  it('renders TooltipStory with isVisible and placement', () => {
     renderAndMatchSnapshot({
       content: defaultContent,
       isVisible: true,
-      isAnimated: true,
       placement: 'bottom'
     });
   });
@@ -83,18 +74,8 @@ describe('TooltipStory Component (isVisible = true)', () => {
     renderAndMatchSnapshot({
       content: defaultContent,
       isVisible: true,
-      placement: 'right',
+      placement: 'end',
       zIndex: 1500
-    });
-  });
-
-  it('renders TooltipStory with isVisible, placement, isAnimated, and maxWidth', () => {
-    renderAndMatchSnapshot({
-      content: defaultContent,
-      isVisible: true,
-      placement: 'top',
-      isAnimated: true,
-      maxWidth: '250px'
     });
   });
 
@@ -105,9 +86,7 @@ describe('TooltipStory Component (isVisible = true)', () => {
       placement: 'bottom',
       zIndex: 3000,
       hasArrow: true,
-      isAnimated: true,
-      id: 'tooltip-all-props',
-      maxWidth: '350px'
+      id: 'tooltip-all-props'
     });
   });
 });

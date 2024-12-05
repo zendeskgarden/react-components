@@ -11,7 +11,7 @@ import 'jest-styled-components';
 import { ColorPickerDialogStory } from './ColorPickerDialogStory';
 
 const renderAndMatchSnapshot = (props: any) => {
-  const { container } = render(<ColorPickerDialogStory P {...props} />);
+  const { container } = render(<ColorPickerDialogStory {...props} />);
   expect(container.firstChild).toMatchSnapshot();
 };
 

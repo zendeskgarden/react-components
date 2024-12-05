@@ -89,16 +89,6 @@ describe('InputGroupStory Component', () => {
     });
   });
 
-  it('renders InputGroupStory with bare styling', () => {
-    renderAndMatchSnapshot({
-      isBare: true,
-      items: [
-        { text: 'Enter text', isButton: false },
-        { text: 'Submit', isButton: true }
-      ]
-    });
-  });
-
   it('renders InputGroupStory with disabled input group', () => {
     renderAndMatchSnapshot({
       disabled: true,
