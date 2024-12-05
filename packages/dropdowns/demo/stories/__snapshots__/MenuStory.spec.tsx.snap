@@ -65,7 +65,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -122,7 +122,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -170,7 +170,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -189,11 +189,11 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -214,47 +214,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -290,7 +250,7 @@ exports[`MenuStory Component renders MenuStory with a custom maxHeight 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -386,7 +346,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -443,7 +403,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -491,7 +451,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -510,11 +470,11 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -535,47 +495,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -611,7 +531,7 @@ exports[`MenuStory Component renders MenuStory with a custom minHeight 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -707,7 +627,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -764,7 +684,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -812,7 +732,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -831,11 +751,11 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) dVyxoq;
 }
 
@@ -856,47 +776,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -932,7 +812,7 @@ exports[`MenuStory Component renders MenuStory with a custom placement 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -1028,7 +908,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1085,7 +965,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1133,7 +1013,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1152,11 +1032,11 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -1177,47 +1057,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -1253,7 +1093,7 @@ exports[`MenuStory Component renders MenuStory with a custom triggerRef 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -1349,7 +1189,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1406,7 +1246,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1454,7 +1294,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1473,11 +1313,11 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -1498,47 +1338,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -1574,7 +1374,7 @@ exports[`MenuStory Component renders MenuStory with a custom zIndex 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -1670,7 +1470,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -1727,7 +1527,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1772,7 +1572,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   color-scheme: only light;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -1791,11 +1591,11 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) ivZgAS;
 }
 
@@ -1839,7 +1639,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   width: 1px;
 }
 
-.c20 {
+.c19 {
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;
@@ -1849,6 +1649,46 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   user-select: none;
   box-sizing: border-box;
   padding: 0 0;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: flex;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 4px 36px;
   min-height: 28px;
   line-height: 20px;
   color: #293239;
@@ -1879,59 +1719,19 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   width: 1px;
 }
 
-.c21 {
-  display: flex;
-  position: relative;
-  transition: color 0.25s ease-in-out;
-  cursor: default;
-  overflow-wrap: anywhere;
-  font-weight: 600;
-  user-select: none;
-  box-sizing: border-box;
-  padding: 4px 36px;
-  min-height: 28px;
-  line-height: 20px;
-  color: #293239;
-}
-
-.c21:focus {
-  outline: none;
-}
-
-.c21[aria-disabled='true'] {
-  background-color: transparent;
-  color: #848f99;
-}
-
-.c21[aria-disabled='true'] {
-  cursor: default;
-}
-
-.c21[aria-hidden='true'] {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c17 {
+.c16 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.c23 {
+.c22 {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.c25 {
+.c24 {
   cursor: default;
   margin: 4px 0;
   height: 1px;
@@ -1954,11 +1754,11 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   display: block;
 }
 
-.c8 .c10:first-child .c16 .c22:first-child .c24[role='none']:first-child {
+.c8 .c10:first-child .c15 .c21:first-child .c23[role='none']:first-child {
   display: none;
 }
 
-.c18 {
+.c17 {
   flex-shrink: 0;
   margin-top: 2px;
   margin-right: 8px;
@@ -1967,7 +1767,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   color: #5c6970;
 }
 
-.c19 {
+.c18 {
   transition: color 0.25s ease-in-out;
   font-weight: 400;
   line-height: 16px;
@@ -1975,7 +1775,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   color: #5c6970;
 }
 
-.c15 {
+.c13 {
   position: absolute;
   transition: opacity 0.1s ease-in-out;
   top: 6px;
@@ -1986,16 +1786,16 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   color: #1f73b7;
 }
 
-.c10[aria-selected='true'] > .c13 {
+.c10[aria-selected='true']>.c13 {
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] > .c13 {
+.c10[aria-disabled='true']>.c13 {
   color: inherit;
 }
 
 .c9 {
-  position: static !important;
+  position: static!important;
   position: relative;
 }
 
@@ -2036,48 +1836,8 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
   animation: 0.3s ease-in-out jKmejG;
 }
 
-.c11[aria-checked='true'] > .c14 {
+.c11[aria-checked='true']>.c14 {
   opacity: 1;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -2113,7 +1873,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -2148,7 +1908,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -2166,7 +1926,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -2184,7 +1944,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -2202,13 +1962,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 />
               </svg>
               <svg
-                class=" c18 "
+                class="c17 "
                 data-garden-id="dropdowns.menu.item.icon"
                 data-garden-version="9.2.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -2226,7 +1986,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -2244,13 +2004,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 Item 3
                 <div
-                  class="c19 "
+                  class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
                   data-garden-version="9.2.0"
                 >
@@ -2259,18 +2019,18 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               </div>
             </li>
             <li
-              class="c10 c11 c20 "
+              class="c10 c11 c19 "
               data-garden-id="dropdowns.menu.item"
               data-garden-version="9.2.0"
               role="none"
             >
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 <div
-                  class="c10 c11 c21 "
+                  class="c10 c11 c20 "
                   data-garden-id="dropdowns.menu.item"
                   data-garden-version="9.2.0"
                 >
@@ -2278,7 +2038,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 </div>
                 <ul
                   aria-label="Group 1"
-                  class="c22 c23 "
+                  class="c21 c22 "
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
@@ -2286,7 +2046,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                   role="group"
                 >
                   <li
-                    class="c24 c25 "
+                    class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
                     data-garden-version="9.2.0"
                     role="none"
@@ -2302,7 +2062,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -2320,7 +2080,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                       />
                     </svg>
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -2338,7 +2098,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -2356,13 +2116,13 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                       />
                     </svg>
                     <svg
-                      class=" c18 "
+                      class="c17 "
                       data-garden-id="dropdowns.menu.item.icon"
                       data-garden-version="9.2.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -2373,7 +2133,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
               </div>
             </li>
             <li
-              class="c24 c25 "
+              class="c23 c24 "
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
@@ -2391,7 +2151,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -2409,7 +2169,7 @@ exports[`MenuStory Component renders MenuStory with all custom props 1`] = `
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -2489,7 +2249,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -2546,7 +2306,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2594,7 +2354,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -2613,11 +2373,11 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -2638,7 +2398,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
 }
 
 .c9 {
-  position: static !important;
+  position: static!important;
   position: relative;
 }
 
@@ -2677,46 +2437,6 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
   animation: 0.3s ease-in-out jAsLVO;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -2750,7 +2470,7 @@ exports[`MenuStory Component renders MenuStory with an arrow 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -2846,7 +2566,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -2903,7 +2623,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -2951,7 +2671,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -2970,11 +2690,11 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -2995,47 +2715,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -3071,7 +2751,7 @@ exports[`MenuStory Component renders MenuStory with compact styling 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -3167,7 +2847,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -3224,7 +2904,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3272,7 +2952,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -3291,11 +2971,11 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -3316,7 +2996,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
 }
 
 .c9 {
-  position: static !important;
+  position: static!important;
   position: relative;
 }
 
@@ -3355,46 +3035,6 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
   animation: 0.3s ease-in-out jAsLVO;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -3428,7 +3068,7 @@ exports[`MenuStory Component renders MenuStory with compact styling and an arrow
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -3524,7 +3164,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -3581,7 +3221,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -3626,7 +3266,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   color-scheme: only light;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -3645,11 +3285,11 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -3693,7 +3333,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   width: 1px;
 }
 
-.c20 {
+.c19 {
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;
@@ -3703,6 +3343,46 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   user-select: none;
   box-sizing: border-box;
   padding: 0 0;
+  min-height: 28px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: flex;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 4px 36px;
   min-height: 28px;
   line-height: 20px;
   color: #293239;
@@ -3733,59 +3413,19 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   width: 1px;
 }
 
-.c21 {
-  display: flex;
-  position: relative;
-  transition: color 0.25s ease-in-out;
-  cursor: default;
-  overflow-wrap: anywhere;
-  font-weight: 600;
-  user-select: none;
-  box-sizing: border-box;
-  padding: 4px 36px;
-  min-height: 28px;
-  line-height: 20px;
-  color: #293239;
-}
-
-.c21:focus {
-  outline: none;
-}
-
-.c21[aria-disabled='true'] {
-  background-color: transparent;
-  color: #848f99;
-}
-
-.c21[aria-disabled='true'] {
-  cursor: default;
-}
-
-.c21[aria-hidden='true'] {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c17 {
+.c16 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.c23 {
+.c22 {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.c25 {
+.c24 {
   cursor: default;
   margin: 4px 0;
   height: 1px;
@@ -3808,11 +3448,11 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   display: block;
 }
 
-.c8 .c10:first-child .c16 .c22:first-child .c24[role='none']:first-child {
+.c8 .c10:first-child .c15 .c21:first-child .c23[role='none']:first-child {
   display: none;
 }
 
-.c18 {
+.c17 {
   flex-shrink: 0;
   margin-top: 2px;
   margin-right: 8px;
@@ -3821,7 +3461,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   color: #5c6970;
 }
 
-.c19 {
+.c18 {
   transition: color 0.25s ease-in-out;
   font-weight: 400;
   line-height: 16px;
@@ -3829,7 +3469,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   color: #5c6970;
 }
 
-.c15 {
+.c13 {
   position: absolute;
   transition: opacity 0.1s ease-in-out;
   top: 6px;
@@ -3840,16 +3480,16 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   color: #1f73b7;
 }
 
-.c10[aria-selected='true'] > .c13 {
+.c10[aria-selected='true']>.c13 {
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] > .c13 {
+.c10[aria-disabled='true']>.c13 {
   color: inherit;
 }
 
 .c9 {
-  position: static !important;
+  position: static!important;
   position: relative;
 }
 
@@ -3888,48 +3528,8 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
   animation: 0.3s ease-in-out jAsLVO;
 }
 
-.c11[aria-checked='true'] > .c14 {
+.c11[aria-checked='true']>.c14 {
   opacity: 1;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -3965,7 +3565,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -4000,7 +3600,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -4018,7 +3618,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -4036,7 +3636,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -4054,13 +3654,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 />
               </svg>
               <svg
-                class=" c18 "
+                class="c17 "
                 data-garden-id="dropdowns.menu.item.icon"
                 data-garden-version="9.2.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -4078,7 +3678,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -4096,13 +3696,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 Item 3
                 <div
-                  class="c19 "
+                  class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
                   data-garden-version="9.2.0"
                 >
@@ -4111,18 +3711,18 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               </div>
             </li>
             <li
-              class="c10 c11 c20 "
+              class="c10 c11 c19 "
               data-garden-id="dropdowns.menu.item"
               data-garden-version="9.2.0"
               role="none"
             >
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 <div
-                  class="c10 c11 c21 "
+                  class="c10 c11 c20 "
                   data-garden-id="dropdowns.menu.item"
                   data-garden-version="9.2.0"
                 >
@@ -4130,7 +3730,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 </div>
                 <ul
                   aria-label="Group 1"
-                  class="c22 c23 "
+                  class="c21 c22 "
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
@@ -4138,7 +3738,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                   role="group"
                 >
                   <li
-                    class="c24 c25 "
+                    class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
                     data-garden-version="9.2.0"
                     role="none"
@@ -4154,7 +3754,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -4172,7 +3772,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                       />
                     </svg>
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -4190,7 +3790,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -4208,13 +3808,13 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                       />
                     </svg>
                     <svg
-                      class=" c18 "
+                      class="c17 "
                       data-garden-id="dropdowns.menu.item.icon"
                       data-garden-version="9.2.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -4225,7 +3825,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
               </div>
             </li>
             <li
-              class="c24 c25 "
+              class="c23 c24 "
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
@@ -4243,7 +3843,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -4261,7 +3861,7 @@ exports[`MenuStory Component renders MenuStory with compact styling, an arrow, a
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -4341,7 +3941,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -4398,7 +3998,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -4446,7 +4046,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -4465,11 +4065,11 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -4490,47 +4090,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -4566,7 +4126,7 @@ exports[`MenuStory Component renders MenuStory with custom maxHeight, minHeight,
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -4662,7 +4222,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -4719,7 +4279,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -4764,7 +4324,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   color-scheme: only light;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -4783,11 +4343,11 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -4831,7 +4391,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   width: 1px;
 }
 
-.c20 {
+.c19 {
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;
@@ -4841,6 +4401,46 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   user-select: none;
   box-sizing: border-box;
   padding: 0 0;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: flex;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px 36px;
   min-height: 36px;
   line-height: 20px;
   color: #293239;
@@ -4871,59 +4471,19 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   width: 1px;
 }
 
-.c21 {
-  display: flex;
-  position: relative;
-  transition: color 0.25s ease-in-out;
-  cursor: default;
-  overflow-wrap: anywhere;
-  font-weight: 600;
-  user-select: none;
-  box-sizing: border-box;
-  padding: 8px 36px;
-  min-height: 36px;
-  line-height: 20px;
-  color: #293239;
-}
-
-.c21:focus {
-  outline: none;
-}
-
-.c21[aria-disabled='true'] {
-  background-color: transparent;
-  color: #848f99;
-}
-
-.c21[aria-disabled='true'] {
-  cursor: default;
-}
-
-.c21[aria-hidden='true'] {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c17 {
+.c16 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.c23 {
+.c22 {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.c25 {
+.c24 {
   cursor: default;
   margin: 4px 0;
   height: 1px;
@@ -4946,11 +4506,11 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   display: block;
 }
 
-.c8 .c10:first-child .c16 .c22:first-child .c24[role='none']:first-child {
+.c8 .c10:first-child .c15 .c21:first-child .c23[role='none']:first-child {
   display: none;
 }
 
-.c18 {
+.c17 {
   flex-shrink: 0;
   margin-top: 2px;
   margin-right: 8px;
@@ -4959,7 +4519,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   color: #5c6970;
 }
 
-.c19 {
+.c18 {
   transition: color 0.25s ease-in-out;
   font-weight: 400;
   line-height: 16px;
@@ -4967,7 +4527,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   color: #5c6970;
 }
 
-.c15 {
+.c13 {
   position: absolute;
   transition: opacity 0.1s ease-in-out;
   top: 10px;
@@ -4978,60 +4538,20 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
   color: #1f73b7;
 }
 
-.c10[aria-selected='true'] > .c13 {
+.c10[aria-selected='true']>.c13 {
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] > .c13 {
+.c10[aria-disabled='true']>.c13 {
   color: inherit;
 }
 
 .c9 {
-  position: static !important;
+  position: static!important;
 }
 
-.c11[aria-checked='true'] > .c14 {
+.c11[aria-checked='true']>.c14 {
   opacity: 1;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5067,7 +4587,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -5102,7 +4622,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5120,7 +4640,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -5138,7 +4658,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5156,13 +4676,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 />
               </svg>
               <svg
-                class=" c18 "
+                class="c17 "
                 data-garden-id="dropdowns.menu.item.icon"
                 data-garden-version="9.2.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -5180,7 +4700,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5198,13 +4718,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 Item 3
                 <div
-                  class="c19 "
+                  class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
                   data-garden-version="9.2.0"
                 >
@@ -5213,18 +4733,18 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               </div>
             </li>
             <li
-              class="c10 c11 c20 "
+              class="c10 c11 c19 "
               data-garden-id="dropdowns.menu.item"
               data-garden-version="9.2.0"
               role="none"
             >
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 <div
-                  class="c10 c11 c21 "
+                  class="c10 c11 c20 "
                   data-garden-id="dropdowns.menu.item"
                   data-garden-version="9.2.0"
                 >
@@ -5232,7 +4752,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 </div>
                 <ul
                   aria-label="Group 1"
-                  class="c22 c23 "
+                  class="c21 c22 "
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
@@ -5240,7 +4760,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                   role="group"
                 >
                   <li
-                    class="c24 c25 "
+                    class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
                     data-garden-version="9.2.0"
                     role="none"
@@ -5256,7 +4776,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -5274,7 +4794,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                       />
                     </svg>
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -5292,7 +4812,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -5310,13 +4830,13 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                       />
                     </svg>
                     <svg
-                      class=" c18 "
+                      class="c17 "
                       data-garden-id="dropdowns.menu.item.icon"
                       data-garden-version="9.2.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -5327,7 +4847,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
               </div>
             </li>
             <li
-              class="c24 c25 "
+              class="c23 c24 "
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
@@ -5345,7 +4865,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5363,7 +4883,7 @@ exports[`MenuStory Component renders MenuStory with expanded state 1`] = `
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -5443,7 +4963,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -5500,7 +5020,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -5545,7 +5065,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   color-scheme: only light;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -5564,11 +5084,11 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -5612,7 +5132,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   width: 1px;
 }
 
-.c20 {
+.c19 {
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;
@@ -5622,6 +5142,46 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   user-select: none;
   box-sizing: border-box;
   padding: 0 0;
+  min-height: 36px;
+  line-height: 20px;
+  color: #293239;
+}
+
+.c19:focus {
+  outline: none;
+}
+
+.c19[aria-disabled='true'] {
+  background-color: transparent;
+  color: #848f99;
+}
+
+.c19[aria-disabled='true'] {
+  cursor: default;
+}
+
+.c19[aria-hidden='true'] {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.c20 {
+  display: flex;
+  position: relative;
+  transition: color 0.25s ease-in-out;
+  cursor: default;
+  overflow-wrap: anywhere;
+  font-weight: 600;
+  user-select: none;
+  box-sizing: border-box;
+  padding: 8px 36px;
   min-height: 36px;
   line-height: 20px;
   color: #293239;
@@ -5652,59 +5212,19 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   width: 1px;
 }
 
-.c21 {
-  display: flex;
-  position: relative;
-  transition: color 0.25s ease-in-out;
-  cursor: default;
-  overflow-wrap: anywhere;
-  font-weight: 600;
-  user-select: none;
-  box-sizing: border-box;
-  padding: 8px 36px;
-  min-height: 36px;
-  line-height: 20px;
-  color: #293239;
-}
-
-.c21:focus {
-  outline: none;
-}
-
-.c21[aria-disabled='true'] {
-  background-color: transparent;
-  color: #848f99;
-}
-
-.c21[aria-disabled='true'] {
-  cursor: default;
-}
-
-.c21[aria-hidden='true'] {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.c17 {
+.c16 {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.c23 {
+.c22 {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
 
-.c25 {
+.c24 {
   cursor: default;
   margin: 4px 0;
   height: 1px;
@@ -5727,11 +5247,11 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   display: block;
 }
 
-.c8 .c10:first-child .c16 .c22:first-child .c24[role='none']:first-child {
+.c8 .c10:first-child .c15 .c21:first-child .c23[role='none']:first-child {
   display: none;
 }
 
-.c18 {
+.c17 {
   flex-shrink: 0;
   margin-top: 2px;
   margin-right: 8px;
@@ -5740,7 +5260,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   color: #5c6970;
 }
 
-.c19 {
+.c18 {
   transition: color 0.25s ease-in-out;
   font-weight: 400;
   line-height: 16px;
@@ -5748,7 +5268,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   color: #5c6970;
 }
 
-.c15 {
+.c13 {
   position: absolute;
   transition: opacity 0.1s ease-in-out;
   top: 10px;
@@ -5759,60 +5279,20 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
   color: #1f73b7;
 }
 
-.c10[aria-selected='true'] > .c13 {
+.c10[aria-selected='true']>.c13 {
   opacity: 1;
 }
 
-.c10[aria-disabled='true'] > .c13 {
+.c10[aria-disabled='true']>.c13 {
   color: inherit;
 }
 
 .c9 {
-  position: static !important;
+  position: static!important;
 }
 
-.c11[aria-checked='true'] > .c14 {
+.c11[aria-checked='true']>.c14 {
   opacity: 1;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div
@@ -5848,7 +5328,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -5883,7 +5363,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5901,7 +5381,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -5919,7 +5399,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5937,13 +5417,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 />
               </svg>
               <svg
-                class=" c18 "
+                class="c17 "
                 data-garden-id="dropdowns.menu.item.icon"
                 data-garden-version="9.2.0"
                 xmlns="http://www.w3.org/2000/svg"
               />
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -5961,7 +5441,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -5979,13 +5459,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 Item 3
                 <div
-                  class="c19 "
+                  class="c18 "
                   data-garden-id="dropdowns.menu.item.meta"
                   data-garden-version="9.2.0"
                 >
@@ -5994,18 +5474,18 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               </div>
             </li>
             <li
-              class="c10 c11 c20 "
+              class="c10 c11 c19 "
               data-garden-id="dropdowns.menu.item"
               data-garden-version="9.2.0"
               role="none"
             >
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
                 <div
-                  class="c10 c11 c21 "
+                  class="c10 c11 c20 "
                   data-garden-id="dropdowns.menu.item"
                   data-garden-version="9.2.0"
                 >
@@ -6013,7 +5493,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 </div>
                 <ul
                   aria-label="Group 1"
-                  class="c22 c23 "
+                  class="c21 c22 "
                   data-garden-container-id="containers.menu.item_group"
                   data-garden-container-version="0.5.0"
                   data-garden-id="dropdowns.menu.item_group"
@@ -6021,7 +5501,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                   role="group"
                 >
                   <li
-                    class="c24 c25 "
+                    class="c23 c24 "
                     data-garden-id="dropdowns.menu.separator"
                     data-garden-version="9.2.0"
                     role="none"
@@ -6037,7 +5517,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -6055,7 +5535,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                       />
                     </svg>
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -6073,7 +5553,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                   >
                     <svg
                       aria-hidden="true"
-                      class="c13 c14  c15 "
+                      class="c13 c14"
                       data-garden-id="dropdowns.menu.item.type_icon"
                       data-garden-version="9.2.0"
                       focusable="false"
@@ -6091,13 +5571,13 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                       />
                     </svg>
                     <svg
-                      class=" c18 "
+                      class="c17 "
                       data-garden-id="dropdowns.menu.item.icon"
                       data-garden-version="9.2.0"
                       xmlns="http://www.w3.org/2000/svg"
                     />
                     <div
-                      class="c16 c17 "
+                      class="c15 c16 "
                       data-garden-id="dropdowns.menu.item.content"
                       data-garden-version="9.2.0"
                     >
@@ -6108,7 +5588,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
               </div>
             </li>
             <li
-              class="c24 c25 "
+              class="c23 c24 "
               data-garden-container-id="containers.menu.separator"
               data-garden-container-version="0.5.0"
               data-garden-id="dropdowns.menu.separator"
@@ -6126,7 +5606,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
             >
               <svg
                 aria-hidden="true"
-                class="c13 c14  c15 "
+                class="c13 c14"
                 data-garden-id="dropdowns.menu.item.type_icon"
                 data-garden-version="9.2.0"
                 focusable="false"
@@ -6144,7 +5624,7 @@ exports[`MenuStory Component renders MenuStory with expanded state and custom pl
                 />
               </svg>
               <div
-                class="c16 c17 "
+                class="c15 c16 "
                 data-garden-id="dropdowns.menu.item.content"
                 data-garden-version="9.2.0"
               >
@@ -6224,7 +5704,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -6281,7 +5761,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -6329,7 +5809,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -6348,11 +5828,11 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -6373,47 +5853,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -6449,7 +5889,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -6545,7 +5985,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -6602,7 +6042,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -6650,7 +6090,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -6669,11 +6109,11 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -6694,47 +6134,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -6770,7 +6170,7 @@ exports[`MenuStory Component renders MenuStory with fallback placements and a cu
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
@@ -6866,7 +6266,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
 .c3:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c3:active,
@@ -6923,7 +6323,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
   height: 16px;
 }
 
-.c4 .c5 > svg {
+.c4 .c5>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -6971,7 +6371,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
   opacity: 0;
 }
 
-.c7 > * {
+.c7>* {
   display: inline-block;
   position: relative;
   margin: 0;
@@ -6990,11 +6390,11 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
   color: #293239;
 }
 
-.c7 > *:focus {
+.c7>*:focus {
   outline: none;
 }
 
-.c7[data-garden-animate="true"] > * {
+.c7[data-garden-animate="true"]>* {
   animation: 0.2s cubic-bezier(0.15,0.85,0.35,1.2) gSzxJj;
 }
 
@@ -7015,47 +6415,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
 }
 
 .c9 {
-  position: static !important;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
+  position: static!important;
 }
 
 <div
@@ -7091,7 +6451,7 @@ exports[`MenuStory Component renders default MenuStory 1`] = `
           type="button"
         >
           <svg
-            class="c5  c6"
+            class="c5 c6"
             data-garden-id="buttons.icon"
             data-garden-version="9.2.0"
             xmlns="http://www.w3.org/2000/svg"
