@@ -28,7 +28,11 @@ exports[`DraggableStory Component renders DraggableStory as disabled 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0 >.StyledGrip-sc-13uv9iv-0 {
+  color: #848f99;
 }
 
 <div
@@ -72,7 +76,7 @@ exports[`DraggableStory Component renders DraggableStory as grabbed 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
 }
 
 <div
@@ -110,10 +114,10 @@ exports[`DraggableStory Component renders DraggableStory as placeholder 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c0 > * {
+.c0 >* {
   visibility: hidden;
 }
 
@@ -157,7 +161,7 @@ exports[`DraggableStory Component renders DraggableStory with a custom tag 1`] =
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <section
@@ -208,7 +212,7 @@ exports[`DraggableStory Component renders DraggableStory with a custom tag and g
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <section
@@ -323,10 +327,10 @@ exports[`DraggableStory Component renders DraggableStory with all props 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
 }
 
-.c0 > .c1 {
+.c0 >.c1 {
   color: #848f99;
 }
 
@@ -451,7 +455,7 @@ exports[`DraggableStory Component renders DraggableStory with children 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c1 {
@@ -508,7 +512,7 @@ exports[`DraggableStory Component renders DraggableStory with compact styling 1`
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <div
@@ -551,7 +555,7 @@ exports[`DraggableStory Component renders DraggableStory with focusInset 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 <div
@@ -602,7 +606,7 @@ exports[`DraggableStory Component renders DraggableStory with focusInset and gri
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 3px #1f73b7;
+  box-shadow: inset 0 0 0 1px #fff,inset 0 0 0 3px #1f73b7;
 }
 
 <div
@@ -721,7 +725,7 @@ exports[`DraggableStory Component renders DraggableStory with grip 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <div
@@ -840,7 +844,7 @@ exports[`DraggableStory Component renders DraggableStory with grip and children 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c2 {
@@ -964,7 +968,7 @@ exports[`DraggableStory Component renders DraggableStory with isBare and childre
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c1 {
@@ -1021,7 +1025,7 @@ exports[`DraggableStory Component renders DraggableStory with isBare styling 1`]
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <div
@@ -1072,7 +1076,7 @@ exports[`DraggableStory Component renders DraggableStory with isCompact and grip
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <div
@@ -1179,7 +1183,11 @@ exports[`DraggableStory Component renders DraggableStory with isDisabled and chi
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
+}
+
+.c0 >.StyledGrip-sc-13uv9iv-0 {
+  color: #848f99;
 }
 
 .c1 {
@@ -1245,7 +1253,7 @@ exports[`DraggableStory Component renders DraggableStory with isGrabbed and grip
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7,0 20px 28px 0 rgba(10,13,14,0.16);
 }
 
 <div
@@ -1351,10 +1359,10 @@ exports[`DraggableStory Component renders DraggableStory with isPlaceholder and 
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
-.c0 > * {
+.c0 >* {
   visibility: hidden;
 }
 
@@ -1412,7 +1420,7 @@ exports[`DraggableStory Component renders default DraggableStory 1`] = `
 .c0:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 <div
