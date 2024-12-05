@@ -31,46 +31,6 @@ exports[`GridStory Component renders GridStory with alignItems 1`] = `
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -123,26 +83,6 @@ exports[`GridStory Component renders GridStory with alignItems for different scr
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 @media (min-width:0px) {
@@ -231,46 +171,6 @@ exports[`GridStory Component renders GridStory with alignItems, justifyContent, 
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -323,26 +223,6 @@ exports[`GridStory Component renders GridStory with alignItems, justifyContent, 
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 @media (min-width:0px) {
@@ -440,46 +320,6 @@ exports[`GridStory Component renders GridStory with justifyContent 1`] = `
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -532,26 +372,6 @@ exports[`GridStory Component renders GridStory with justifyContent for different
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 @media (min-width:0px) {
@@ -649,66 +469,6 @@ exports[`GridStory Component renders GridStory with multiple rows and columns 1`
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -784,46 +544,6 @@ exports[`GridStory Component renders GridStory with wrap 1`] = `
   margin-left: -10px;
 }
 
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
 <div
   class="c0"
   data-garden-id="grid.grid"
@@ -876,26 +596,6 @@ exports[`GridStory Component renders GridStory with wrap for different screen si
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 @media (min-width:0px) {
@@ -980,46 +680,6 @@ exports[`GridStory Component renders default GridStory 1`] = `
   flex-wrap: wrap;
   margin-right: -10px;
   margin-left: -10px;
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
-}
-
-@media (min-width:0px) {
-
-}
-
-@media (min-width:576px) {
-
-}
-
-@media (min-width:768px) {
-
-}
-
-@media (min-width:992px) {
-
-}
-
-@media (min-width:1200px) {
-
 }
 
 <div

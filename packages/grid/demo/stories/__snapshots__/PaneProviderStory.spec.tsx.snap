@@ -185,7 +185,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:active,
@@ -242,7 +242,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
   height: 16px;
 }
 
-.c7 .c9 > svg {
+.c7 .c9>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -388,7 +388,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
 .c4:focus-visible::before {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   background-color: #1f73b7;
 }
 
@@ -402,7 +402,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
   height: 24px;
 }
 
-.c8 > svg {
+.c8>svg {
   transform: rotate(90deg);
 }
 
@@ -423,8 +423,8 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
 
 .c5:hover,
 .c5:focus-within,
-.c3:hover ~ .c5,
-.c3:focus-visible ~ .c5 {
+.c3:hover~.c5,
+.c3:focus-visible~.c5 {
   opacity: 1;
 }
 
@@ -505,13 +505,12 @@ exports[`PaneProviderStory Component renders PaneProviderStory with multiple pan
         data-garden-container-version="1.0.20"
         data-garden-id="buttons.icon_button"
         data-garden-version="9.2.0"
-        label="Expand"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="c9  c10"
+          class="c9 c10"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
@@ -623,7 +622,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with onChange han
 .c3:focus-visible::before {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   background-color: #1f73b7;
 }
 
@@ -802,7 +801,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
 .c3:focus-visible::before {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   background-color: #1f73b7;
 }
 
@@ -916,7 +915,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
 .c6:focus-visible {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
 }
 
 .c6:active,
@@ -973,7 +972,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
   height: 16px;
 }
 
-.c7 .c9 > svg {
+.c7 .c9>svg {
   transition: opacity 0.15s ease-in-out;
 }
 
@@ -1119,7 +1118,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
 .c4:focus-visible::before {
   outline: 2px solid transparent;
   outline-offset: 1px;
-  box-shadow: 0 0 0 1px #fff, 0 0 0 3px #1f73b7;
+  box-shadow: 0 0 0 1px #fff,0 0 0 3px #1f73b7;
   background-color: #1f73b7;
 }
 
@@ -1133,7 +1132,7 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
   height: 24px;
 }
 
-.c8 > svg {
+.c8>svg {
   transform: rotate(90deg);
 }
 
@@ -1154,8 +1153,8 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
 
 .c5:hover,
 .c5:focus-within,
-.c3:hover ~ .c5,
-.c3:focus-visible ~ .c5 {
+.c3:hover~.c5,
+.c3:focus-visible~.c5 {
   opacity: 1;
 }
 
@@ -1207,13 +1206,12 @@ exports[`PaneProviderStory Component renders PaneProviderStory with panes contai
         data-garden-container-version="1.0.20"
         data-garden-id="buttons.icon_button"
         data-garden-version="9.2.0"
-        label="Toggle"
         tabindex="0"
         type="button"
       >
         <svg
           aria-hidden="true"
-          class="c9  c10"
+          class="c9 c10"
           data-garden-id="buttons.icon"
           data-garden-version="9.2.0"
           focusable="false"
