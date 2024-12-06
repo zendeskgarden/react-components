@@ -7,7 +7,7 @@
 
 import { ThemeProps, DefaultTheme } from 'styled-components';
 
-/** @component */
+/** @deprecated Use `componentStyles` instead. */
 export default function retrieveComponentStyles(
   componentId: string,
   props: Partial<ThemeProps<Partial<DefaultTheme>>>
