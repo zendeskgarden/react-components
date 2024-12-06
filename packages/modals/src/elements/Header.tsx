@@ -17,7 +17,7 @@ import { IHeaderProps } from '../types';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
-  ({ children, tag, ...other }, ref) => {
+  ({ children, isDanger, tag, ...other }, ref) => {
     const { isCloseButtonPresent, hasHeader, setHasHeader, getTitleProps } = useModalContext();
 
     useEffect(() => {
@@ -37,9 +37,10 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
         {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
         as={tag}
         $isCloseButtonPresent={isCloseButtonPresent}
+        $isDanger={isDanger}
         ref={ref}
       >
-        {!!other.isDanger && <StyledDangerIcon />}
+        {!!isDanger && <StyledDangerIcon />}
         {children}
       </StyledHeader>
     );

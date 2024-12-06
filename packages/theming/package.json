@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-theming",
-  "version": "9.2.0",
+  "version": "9.3.0",
   "description": "Theming utilities and components within the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -31,7 +31,7 @@
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": "^4.2.0 || ^5.3.1"
+    "styled-components": "^4.2.0 || ^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
     "@types/lodash.get": "4.4.9",

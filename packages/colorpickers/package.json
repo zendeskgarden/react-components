@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-colorpickers",
-  "version": "9.2.0",
+  "version": "9.3.0",
   "description": "Components related to color pickers in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -23,10 +23,10 @@
   "dependencies": {
     "@zendeskgarden/container-grid": "^3.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "@zendeskgarden/react-buttons": "^9.2.0",
-    "@zendeskgarden/react-forms": "^9.2.0",
-    "@zendeskgarden/react-modals": "^9.2.0",
-    "@zendeskgarden/react-tooltips": "^9.2.0",
+    "@zendeskgarden/react-buttons": "^9.3.0",
+    "@zendeskgarden/react-forms": "^9.3.0",
+    "@zendeskgarden/react-modals": "^9.3.0",
+    "@zendeskgarden/react-tooltips": "^9.3.0",
     "lodash.isequal": "^4.5.0",
     "lodash.throttle": "^4.1.1",
     "polished": "^4.3.1",
@@ -37,12 +37,12 @@
     "@zendeskgarden/react-theming": ">=9.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
     "@types/lodash.isequal": "4.5.8",
     "@types/lodash.throttle": "4.1.9",
-    "@zendeskgarden/react-theming": "^9.2.0",
+    "@zendeskgarden/react-theming": "^9.3.0",
     "@zendeskgarden/svg-icons": "7.3.0"
   },
   "keywords": [

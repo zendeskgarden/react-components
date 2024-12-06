@@ -14,12 +14,26 @@ import { renderHint, renderLabel, renderMessage } from './common';
 
 interface IArgs extends IRadioProps, IFieldArgs {}
 
-export const RadioStory: StoryFn<IArgs> = ({ hasLabel = true, ...args }) => (
-  <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
-    <Radio {...args}>
-      {renderLabel({ hasLabel, ...args })}
-      {renderHint(args)}
-      {renderMessage(args)}
-    </Radio>
-  </FieldStory>
-);
+export const RadioStory: StoryFn<IArgs> = ({
+  hasHint,
+  hasLabel = true,
+  hasMessage,
+  hint,
+  isLabelHidden,
+  isLabelRegular,
+  label,
+  message,
+  validation,
+  validationLabel,
+  ...args
+}) => {
+  return (
+    <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
+      <Radio {...args}>
+        {renderLabel({ hasLabel, label, isLabelHidden, isLabelRegular })}
+        {renderHint({ hasHint, hint })}
+        {renderMessage({ hasMessage, message, validation, validationLabel })}
+      </Radio>
+    </FieldStory>
+  );
+};

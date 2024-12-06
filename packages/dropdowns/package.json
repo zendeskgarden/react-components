@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-dropdowns",
-  "version": "9.2.0",
+  "version": "9.3.0",
   "description": "Components related to dropdowns in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -25,10 +25,10 @@
     "@zendeskgarden/container-combobox": "^2.0.0",
     "@zendeskgarden/container-menu": "^0.5.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
-    "@zendeskgarden/react-buttons": "^9.2.0",
-    "@zendeskgarden/react-forms": "^9.2.0",
-    "@zendeskgarden/react-tags": "^9.2.0",
-    "@zendeskgarden/react-tooltips": "^9.2.0",
+    "@zendeskgarden/react-buttons": "^9.3.0",
+    "@zendeskgarden/react-forms": "^9.3.0",
+    "@zendeskgarden/react-tags": "^9.3.0",
+    "@zendeskgarden/react-tooltips": "^9.3.0",
     "polished": "^4.3.1",
     "prop-types": "^15.7.2",
     "react-merge-refs": "^2.0.0"
@@ -37,10 +37,10 @@
     "@zendeskgarden/react-theming": ">=9.0.0",
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^9.2.0",
+    "@zendeskgarden/react-theming": "^9.3.0",
     "@zendeskgarden/svg-icons": "7.3.0"
   },
   "keywords": [

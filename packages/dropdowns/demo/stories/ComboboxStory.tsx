@@ -109,7 +109,7 @@ export const ComboboxStory: Story<IArgs> = ({
             <Svg />
           </span>
         </Tag.Avatar>{' '}
-        {option.tagProps?.children || toLabel(option)}
+        <span>{option.tagProps?.children || toLabel(option)}</span>
       </>
     ) : undefined;
 
