@@ -512,6 +512,26 @@ describe('Combobox', () => {
       expect(input).toHaveAttribute('aria-expanded', 'false');
     });
 
+    it('sets the correct aria attributes on `ListBox` when expanded or collapsed', async () => {
+      const { getByTestId } = render(
+        <TestCombobox isAutocomplete>
+          <Option data-test-id="option" value="test" />
+        </TestCombobox>
+      );
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+
+      await user.click(trigger);
+
+      const listbox = combobox.querySelector('[role="listbox"]') as HTMLElement;
+
+      expect(listbox).toHaveAttribute('aria-hidden', 'false');
+
+      await user.click(trigger);
+
+      expect(listbox).toHaveAttribute('aria-hidden', 'true');
+    });
+
     it('retains expansion on `OptGroup` click', async () => {
       const { getByTestId } = render(
         <TestCombobox isAutocomplete>
