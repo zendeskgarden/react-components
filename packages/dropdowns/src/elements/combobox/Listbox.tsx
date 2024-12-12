@@ -133,6 +133,10 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
           $isCompact={isCompact}
           $maxHeight={maxHeight}
           $minHeight={minHeight}
+          aria-hidden={
+            // Hide from NVDA when collapsed to prevent incorrect / missing announcements caused by animation
+            !isExpanded
+          }
           onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
           style={{ height }}
           {...props}
