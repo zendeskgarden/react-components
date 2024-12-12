@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
+import { DataAttributes, DefaultTheme } from 'styled-components';
 
 /**
  * CSS for component customizations based on `theme.components[componentId]`.
@@ -16,16 +16,16 @@ import { DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
  *
  * @returns component CSS styles
  */
-export const componentStyles = (props: ThemeProps<DefaultTheme> & { componentId?: string }) => {
+export const componentStyles = (props: { theme: DefaultTheme; componentId?: string }) => {
   let retVal: string | undefined;
-  const components = props.theme?.components;
+  const components = props.theme.components;
   const componentId = props.componentId || (props as unknown as DataAttributes)['data-garden-id'];
 
   if (components && componentId) {
     retVal = components[componentId];
 
     if (typeof retVal === 'function') {
-      const fn = retVal as (p: ThemeProps<DefaultTheme> & unknown) => string;
+      const fn = retVal as (p: { theme: DefaultTheme } & unknown) => string;
 
       retVal = fn(props);
     }

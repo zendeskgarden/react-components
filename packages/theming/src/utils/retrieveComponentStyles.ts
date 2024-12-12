@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components';
 
 /** @deprecated Use `componentStyles` instead. */
 export default function retrieveComponentStyles(
   componentId: string,
-  props: Partial<ThemeProps<Partial<DefaultTheme>>>
+  props: { theme?: Partial<DefaultTheme> }
 ) {
-  const components = props.theme && props.theme.components;
+  const components = props.theme?.components;
 
   if (!components) {
     return undefined;
