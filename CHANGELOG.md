@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.4.0 (2024-12-12)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1986](https://github.com/zendeskgarden/react-components/pull/1986) feat(theming): add componentStyles utility ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1987](https://github.com/zendeskgarden/react-components/pull/1987) fix(Combobox): improve screen reader experience for Select-Only combobox w NVDA ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.3.0 (2024-12-05)
 
 #### :rocket: New Feature
