@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_text';
 
@@ -23,5 +23,5 @@ export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps
 
   ${props => props.$isClipped && hideVisually()}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

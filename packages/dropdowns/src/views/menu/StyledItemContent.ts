@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionContent } from '../combobox/StyledOptionContent';
 
 const COMPONENT_ID = 'dropdowns.menu.item.content';
@@ -15,5 +15,5 @@ export const StyledItemContent = styled(StyledOptionContent).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

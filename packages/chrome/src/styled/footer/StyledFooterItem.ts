@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.footer_item';
 
@@ -19,5 +19,5 @@ export const StyledFooterItem = styled.div.attrs({
 })`
   margin: ${props => `0 ${props.theme.space.base}px`};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

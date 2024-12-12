@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'dropdowns.combobox.label';
@@ -17,5 +17,5 @@ export const StyledLabel = styled(Field.Label).attrs({
 })`
   vertical-align: revert;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -8,7 +8,7 @@
 import styled, { css, keyframes, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE,
@@ -127,5 +127,5 @@ export const StyledSkipNav = styled.a.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

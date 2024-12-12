@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   getColor,
   IGardenTheme,
   getLineHeight,
@@ -147,5 +147,5 @@ export const StyledDraggable = styled.div.attrs({
     visibility: ${p => p.$isPlaceholder && !p.$isDisabled && 'hidden'};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

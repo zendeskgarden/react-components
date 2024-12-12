@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   $isPreviousMonth?: boolean;
@@ -104,5 +104,5 @@ export const StyledDay = styled.div.attrs<IStyledDayProps>({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

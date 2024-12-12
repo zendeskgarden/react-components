@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.color_swatch_input';
 
@@ -25,5 +25,5 @@ export const StyledColorSwatchInput = styled.input.attrs({
   width: 100%;
   height: 100%;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

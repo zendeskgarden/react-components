@@ -8,7 +8,7 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE,
   getColor
@@ -161,5 +161,5 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

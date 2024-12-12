@@ -7,7 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledBaseRow } from './StyledBaseRow';
 import { IStyledRowProps } from './StyledRow';
 import { StyledCell } from './StyledCell';
@@ -55,5 +55,5 @@ export const StyledGroupRow = styled(StyledBaseRow).attrs({
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

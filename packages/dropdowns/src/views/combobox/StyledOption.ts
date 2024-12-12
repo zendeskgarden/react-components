@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option';
@@ -107,5 +107,5 @@ export const StyledOption = styled.li.attrs({
     ${hideVisually()};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

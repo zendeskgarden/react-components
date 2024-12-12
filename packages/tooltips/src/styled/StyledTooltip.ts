@@ -8,7 +8,7 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import {
   arrowStyles,
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   getArrowPosition,
   getColor
@@ -186,5 +186,5 @@ export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

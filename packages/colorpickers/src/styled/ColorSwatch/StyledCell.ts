@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.swatch_cell';
 
@@ -17,5 +17,5 @@ export const StyledCell = styled.td.attrs({
   padding: ${props => props.theme.space.base}px;
   font-size: 0;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

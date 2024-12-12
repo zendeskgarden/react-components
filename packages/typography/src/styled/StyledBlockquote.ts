@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { IBlockquoteProps } from '../types';
 import { THEME_SIZES } from './StyledFont';
 
@@ -30,5 +30,5 @@ export const StyledBlockquote = styled.blockquote.attrs({
     margin-top: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

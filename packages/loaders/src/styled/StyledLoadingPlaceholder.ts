@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.loading_placeholder';
 
@@ -26,5 +26,5 @@ export const StyledLoadingPlaceholder = styled.div.attrs({
   height: ${props => props.height || '0.9em'};
   font-size: ${props => props.fontSize};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
+  ${componentStyles}
 `;

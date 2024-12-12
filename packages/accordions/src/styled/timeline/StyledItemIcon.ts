@@ -7,7 +7,7 @@
 
 import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.icon';
 
@@ -49,5 +49,5 @@ export const StyledItemIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

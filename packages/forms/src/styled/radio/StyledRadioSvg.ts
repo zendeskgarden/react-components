@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
@@ -24,5 +24,5 @@ export const StyledRadioSvg = styled(CircleIcon).attrs({
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone';
 
@@ -107,5 +107,5 @@ export const StyledDropzone = styled.div.attrs({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

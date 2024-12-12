@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.global_alert.content';
 
@@ -16,5 +16,5 @@ export const StyledGlobalAlertContent = styled.div.attrs({
 })`
   flex-grow: 1;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

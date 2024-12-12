@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledField } from './StyledField';
 
 const COMPONENT_ID = 'forms.fieldset';
@@ -23,5 +23,5 @@ export const StyledFieldset = styled(StyledField as 'fieldset').attrs({
   ${StyledField} {
     margin-top: ${props => props.theme.space.base * (props.$isCompact ? 1 : 2)}px;
   }
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

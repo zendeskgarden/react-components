@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.well';
@@ -49,5 +49,5 @@ export const StyledWell = styled(StyledBase).attrs({
 })<IStyledWellProps>`
   ${colorStyles}
 
-  ${p => retrieveComponentStyles(COMPONENT_ID, p)};
+  ${componentStyles};
 `;

@@ -7,7 +7,7 @@
 
 import styled, { css } from 'styled-components';
 import { Input } from '@zendeskgarden/react-forms';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.input';
 
@@ -33,5 +33,5 @@ export const StyledInput = styled(Input).attrs({
 })<IStyledInputProps>`
   ${props => props.$isHidden && hiddenStyling};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

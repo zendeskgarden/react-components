@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
-import { mediaQuery, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { mediaQuery, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
 
@@ -109,7 +109,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     transform: ${props => props.$isCentered && 'translate(50%, 50%)'}; /* [1] */
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledModal.propTypes = {

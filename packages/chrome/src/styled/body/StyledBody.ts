@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.body';
 
@@ -19,5 +19,5 @@ export const StyledBody = styled.div.attrs({
   background-color: ${props => getColor({ theme: props.theme, variable: 'background.default' })};
   min-width: 0;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

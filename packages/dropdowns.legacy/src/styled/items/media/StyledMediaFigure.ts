@@ -7,7 +7,7 @@
 
 import React, { Children, HTMLAttributes, PropsWithChildren } from 'react';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.media_figure';
 
@@ -39,5 +39,5 @@ export const StyledMediaFigure = styled(
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -13,7 +13,7 @@ import {
   focusStyles,
   getColor,
   getFocusBoxShadow,
-  retrieveComponentStyles
+  componentStyles
 } from '@zendeskgarden/react-theming';
 import { IButtonProps } from '../types';
 import { StyledSplitButton } from './StyledSplitButton';
@@ -517,5 +517,5 @@ export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
     ${props => groupStyles(props)}
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
+  ${componentStyles}
 `;

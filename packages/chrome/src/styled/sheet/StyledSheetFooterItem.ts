@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_footer_item';
 
@@ -16,5 +16,5 @@ export const StyledSheetFooterItem = styled.div.attrs({
 })`
   ${props => `margin-${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 5}px;`}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

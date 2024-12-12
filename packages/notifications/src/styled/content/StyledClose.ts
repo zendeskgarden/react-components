@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { Type } from '../../types';
 import { validationTypes } from '../../utils/icons';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -74,5 +74,5 @@ export const StyledClose = styled(IconButton).attrs({
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

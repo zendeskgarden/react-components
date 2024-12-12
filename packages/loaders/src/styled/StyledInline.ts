@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css, keyframes } from 'styled-components';
-import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.inline';
 
@@ -69,5 +69,5 @@ export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
     }
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
+  ${componentStyles}
 `;

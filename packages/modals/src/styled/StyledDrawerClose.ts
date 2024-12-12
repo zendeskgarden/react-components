@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledClose, BASE_MULTIPLIERS as styledCloseBaseMultipliers } from './StyledClose';
 
 const COMPONENT_ID = 'modals.drawer_modal.close';
@@ -24,5 +24,5 @@ export const StyledDrawerClose = styled(StyledClose).attrs({
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

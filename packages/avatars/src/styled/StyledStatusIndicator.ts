@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -97,7 +97,7 @@ export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledStatusIndicator.defaultProps = {

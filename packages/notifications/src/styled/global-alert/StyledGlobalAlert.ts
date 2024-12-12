@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   focusStyles,
   getColor
@@ -137,5 +137,5 @@ export const StyledGlobalAlert = styled.div.attrs({
     text-decoration: underline;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

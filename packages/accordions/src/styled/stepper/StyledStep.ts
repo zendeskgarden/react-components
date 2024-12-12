@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
@@ -37,5 +37,5 @@ export const StyledStep = styled.li.attrs<IStyledStep>({
     border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

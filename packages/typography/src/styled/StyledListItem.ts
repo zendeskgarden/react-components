@@ -7,11 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import {
-  DEFAULT_THEME,
-  getLineHeight,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
@@ -65,9 +61,9 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * 1px`)};
 
-  ${props => listItemStyles(props)};
+  ${listItemStyles};
 
-  ${props => retrieveComponentStyles(ORDERED_ID, props)};
+  ${componentStyles};
 `;
 
 StyledOrderedListItem.defaultProps = {
@@ -82,9 +78,9 @@ export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'li'
 })<IStyledListItemProps>`
-  ${props => listItemStyles(props)};
+  ${listItemStyles};
 
-  ${props => retrieveComponentStyles(UNORDERED_ID, props)};
+  ${componentStyles};
 `;
 
 StyledUnorderedListItem.defaultProps = {

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 interface IStyledHeaderPaddleProps {
   $isCompact: boolean;
@@ -88,5 +88,5 @@ export const StyledHeaderPaddle = styled.div.attrs({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_description';
 
@@ -17,5 +17,5 @@ export const StyledSheetDescription = styled.div.attrs({
   line-height: ${p => getLineHeight(p.theme.space.base * 4, p.theme.fontSizes.md)};
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

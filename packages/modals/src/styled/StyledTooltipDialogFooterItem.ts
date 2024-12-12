@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFooterItem } from './StyledFooterItem';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.footer_item';
@@ -15,5 +15,5 @@ export const StyledTooltipDialogFooterItem = styled(StyledFooterItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

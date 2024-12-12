@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_slider_group';
 
@@ -18,5 +18,5 @@ export const StyledSliderGroup = styled.div.attrs({
   justify-content: space-between;
   margin-bottom: ${props => props.theme.space.base * 2}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

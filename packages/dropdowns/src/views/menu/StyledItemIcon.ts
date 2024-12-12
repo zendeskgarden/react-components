@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionIcon } from '../combobox/StyledOptionIcon';
 
 const COMPONENT_ID = 'dropdowns.menu.item.icon';
@@ -15,5 +15,5 @@ export const StyledItemIcon = styled(StyledOptionIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 import { IAnchorProps } from './../types';
 
@@ -25,5 +25,5 @@ export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
 }))`
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${props => retrieveComponentStyles((props as any)['data-garden-id'], props)};
+  ${componentStyles};
 `;

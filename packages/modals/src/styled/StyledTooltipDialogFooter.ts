@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.footer';
 
@@ -20,5 +20,5 @@ export const StyledTooltipDialogFooter = styled.div.attrs({
   justify-content: flex-end;
   padding-top: ${p => p.theme.space.base * 5}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

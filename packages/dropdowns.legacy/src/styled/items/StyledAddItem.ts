@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 import { StyledItem } from './StyledItem';
 
@@ -22,5 +22,5 @@ export const StyledAddItem = styled(StyledItem).attrs({
   color: ${props =>
     !props.disabled && getColor({ theme: props.theme, variable: 'foreground.primary' })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

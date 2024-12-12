@@ -6,7 +6,7 @@
  */
 
 import styled, { DataAttributes } from 'styled-components';
-import { retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_message_icon';
 
@@ -17,5 +17,5 @@ export const StyledMessageIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

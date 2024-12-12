@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, stripUnit } from 'polished';
-import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 import { getSize } from './StyledPaneSplitterButton';
 import { Orientation, PLACEMENT } from '../../types';
@@ -155,7 +155,10 @@ const minimumSplitterSize = (theme: DefaultTheme) =>
 /**
  * 1. Match focused `Splitter` z-index
  */
-export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButtonContainerProps>`
+export const StyledPaneSplitterButtonContainer = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledSplitterButtonContainerProps>`
   display: ${props =>
     props.$splitterSize <= minimumSplitterSize(props.theme) ? 'none' : undefined};
   position: absolute;
@@ -179,5 +182,5 @@ export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButto
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

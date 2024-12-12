@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import CircleIcon from '@zendeskgarden/svg-icons/src/16/circle-sm-fill.svg';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.toggle_svg';
 
@@ -17,5 +17,5 @@ export const StyledToggleSvg = styled(CircleIcon).attrs({
 })`
   transition: all 0.15s ease-in-out;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

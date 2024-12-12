@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, focusStyles } from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'accordions.header';
@@ -36,5 +36,5 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
       selector: `&:has(${StyledButton}:focus-visible)`
     })}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

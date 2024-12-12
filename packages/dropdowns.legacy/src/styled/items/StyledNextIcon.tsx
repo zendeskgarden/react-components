@@ -8,7 +8,7 @@
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
 import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.next_item_icon';
 
@@ -31,5 +31,5 @@ export const StyledNextIcon = styled(NextIconComponent)<IStyledNextIconProps>`
       ? 'inherit'
       : getColor({ theme: props.theme, variable: 'foreground.disabled' })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

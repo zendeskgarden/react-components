@@ -10,7 +10,7 @@ import { math } from 'polished';
 import {
   focusStyles,
   getColor,
-  retrieveComponentStyles,
+  componentStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { Orientation } from '../../types';
@@ -188,5 +188,5 @@ export const StyledPaneSplitter = styled.div.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
