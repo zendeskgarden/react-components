@@ -12,6 +12,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v8.76.9 (2024-12-12)
+
+#### :bug: Bug Fix
+* `dropdowns.next`
+  * [#1988](https://github.com/zendeskgarden/react-components/pull/1988) fix(Combobox): improve screen reader experience for Select-Only combobox w NVDA  ([@ze-flo](https://github.com/ze-flo))
+
 ## v8.76.8 (2024-10-03)
 
 #### :bug: Bug Fix
