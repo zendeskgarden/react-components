@@ -10,8 +10,6 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { Orientation } from '../../types';
 
-const COMPONENT_ID = 'pane.splitter_button';
-
 interface IStyledSplitterButtonProps {
   $orientation: Orientation;
   $isRotated: boolean;
@@ -56,7 +54,6 @@ const transformStyles = ({
 };
 
 export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplitterButtonProps>({
-  'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   isBasic: true,
   isPill: true,
