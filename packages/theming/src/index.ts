@@ -9,6 +9,7 @@ export { ThemeProvider } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
 export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
+export { componentStyles } from './utils/componentStyles';
 export { getArrowPosition } from './utils/getArrowPosition';
 export { getCheckeredBackground } from './utils/getCheckeredBackground';
 export { getColor } from './utils/getColor';
