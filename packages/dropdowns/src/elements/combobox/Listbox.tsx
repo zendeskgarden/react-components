@@ -22,9 +22,6 @@ import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 
-/**
- * 1. Hide from NVDA when collapsed to avoid incorrect / missing announcements caused by animation
- */
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (
     {
@@ -136,7 +133,10 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
           $isCompact={isCompact}
           $maxHeight={maxHeight}
           $minHeight={minHeight}
-          aria-hidden={!isExpanded} /* [1] */
+          aria-hidden={
+            // Hide from NVDA when collapsed to prevent incorrect / missing announcements caused by animation
+            !isExpanded
+          }
           onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
           style={{ height }}
           {...props}
