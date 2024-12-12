@@ -130,6 +130,10 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         ref={floatingRef}
       >
         <StyledListbox
+          aria-hidden={
+            // Hide from NVDA when collapsed to prevent incorrect / missing announcements caused by animation
+            !isExpanded
+          }
           isCompact={isCompact}
           maxHeight={maxHeight}
           minHeight={minHeight}
