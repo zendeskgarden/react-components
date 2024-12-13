@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
 import { getLineHeight } from './StyledTable';
@@ -58,5 +58,5 @@ export const StyledHeaderCell = styled(StyledCell).attrs({
 
   ${props => props.$isTruncated && truncatedStyling}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'modals.close';
@@ -26,5 +26,5 @@ export const StyledClose = styled(IconButton).attrs({
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

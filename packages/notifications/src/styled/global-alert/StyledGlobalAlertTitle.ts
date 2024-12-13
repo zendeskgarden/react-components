@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global_alert.title';
@@ -53,5 +53,5 @@ export const StyledGlobalAlertTitle = styled.div.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

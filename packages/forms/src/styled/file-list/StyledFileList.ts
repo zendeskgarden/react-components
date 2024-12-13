@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.file_list';
 
@@ -21,5 +21,5 @@ export const StyledFileList = styled.ul.attrs({
   padding: 0; /* [1] */
   list-style: none; /* [1] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

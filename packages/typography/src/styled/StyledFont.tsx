@@ -7,7 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types';
 
 const COMPONENT_ID = 'typography.font';
@@ -103,7 +103,7 @@ export const StyledFont = styled.div.attrs({
     ${hideVisually()};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledFont.defaultProps = {

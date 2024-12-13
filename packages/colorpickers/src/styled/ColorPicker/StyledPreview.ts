@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { rgba } from 'polished';
-import { retrieveComponentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
+import { componentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { IRGBColorProps } from '../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';
@@ -46,5 +46,5 @@ export const StyledPreview = styled.div.attrs<IStyledColorPreviewProps>(props =>
   width: ${props => props.theme.space.base * (props.$isOpaque ? 6 : 8)}px;
   height: ${props => props.theme.space.base * (props.$isOpaque ? 6 : 8)}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

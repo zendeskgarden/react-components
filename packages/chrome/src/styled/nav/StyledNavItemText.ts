@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { StyledNavButton } from './StyledNavButton';
 import { getNavWidth } from '../utils';
 
@@ -64,5 +64,5 @@ export const StyledNavItemText = styled.span.attrs<IStyledNavItemTextProps>({
 
   ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

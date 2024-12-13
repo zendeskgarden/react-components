@@ -10,7 +10,7 @@ import { renderToString } from 'react-dom/server';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { em, math } from 'polished';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   focusStyles,
   getColor
@@ -311,5 +311,5 @@ export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props =
     cursor: default;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

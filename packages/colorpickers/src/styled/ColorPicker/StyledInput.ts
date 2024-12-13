@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { Input } from '@zendeskgarden/react-forms';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_input';
 
@@ -18,5 +18,5 @@ export const StyledInput = styled(Input as any).attrs({
 })`
   text-align: center;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFileList } from './StyledFileList';
 import { StyledFileUpload } from '../file-upload/StyledFileUpload';
 
@@ -21,5 +21,5 @@ export const StyledFileListItem = styled.li.attrs({
     margin-top: ${props => props.theme.space.base * 2}px;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

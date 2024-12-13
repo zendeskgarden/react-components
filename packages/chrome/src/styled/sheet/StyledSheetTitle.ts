@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_title';
 
@@ -17,5 +17,5 @@ export const StyledSheetTitle = styled.div.attrs({
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

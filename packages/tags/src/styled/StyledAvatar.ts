@@ -6,7 +6,7 @@
  */
 
 import styled, { DataAttributes } from 'styled-components';
-import { StyledBaseIcon, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.avatar';
 
@@ -17,5 +17,5 @@ export const StyledAvatar = styled(StyledBaseIcon).attrs<DataAttributes>({
   flex-shrink: 0;
   font-size: 0; /* text content reset */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

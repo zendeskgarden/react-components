@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from '../radio/StyledRadioInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
@@ -66,5 +66,5 @@ export const StyledCheckInput = styled(StyledRadioInput).attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

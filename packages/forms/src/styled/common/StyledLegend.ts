@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from './StyledLabel';
 
 const COMPONENT_ID = 'forms.fieldset_legend';
@@ -21,5 +21,5 @@ export const StyledLegend = styled(StyledLabel as 'legend').attrs({
 })`
   padding: 0; /* [1] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

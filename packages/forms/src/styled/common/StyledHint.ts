@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_hint';
 
@@ -21,5 +21,5 @@ export const StyledHint = styled.div.attrs(props => ({
   color: ${props => getColor({ theme: props.theme, variable: 'foreground.subtle' })};
   font-size: ${props => props.theme.fontSizes.md};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

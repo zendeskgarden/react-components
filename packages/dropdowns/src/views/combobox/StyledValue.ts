@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { sizeStyles } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.value';
@@ -55,5 +55,5 @@ export const StyledValue = styled.div.attrs({
     display: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

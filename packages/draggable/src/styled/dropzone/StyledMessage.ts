@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone.message';
 
@@ -20,5 +20,5 @@ export const StyledMessage = styled.p.attrs({
   font-size: ${p => p.theme.fontSizes.md};
   font-weight: ${p => p.theme.fontWeights.regular};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

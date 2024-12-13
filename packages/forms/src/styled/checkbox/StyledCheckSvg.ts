@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
@@ -29,5 +29,5 @@ export const StyledCheckSvg = styled(CheckIcon).attrs({
     opacity: 0;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

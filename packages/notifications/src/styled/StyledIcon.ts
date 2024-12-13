@@ -6,7 +6,7 @@
  */
 
 import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
-import { getColor, StyledBaseIcon, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 import { Type } from '../types';
 import { validationTypes } from '../utils/icons';
 
@@ -61,5 +61,5 @@ export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
+  ${componentStyles}
 `;

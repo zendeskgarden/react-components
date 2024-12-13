@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getLineHeight, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getLineHeight, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { Type } from '../types';
 import { validationTypes } from '../utils/icons';
 
@@ -92,5 +92,5 @@ export const StyledBase = styled.div.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)}
+  ${componentStyles}
 `;

@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
@@ -182,5 +182,5 @@ export const StyledRadioInput = styled.input.attrs({
     cursor: default;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

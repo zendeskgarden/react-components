@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'draggable.content';
 
@@ -18,5 +18,5 @@ export const StyledContent = styled.div.attrs({
   word-wrap: break-word;
   overflow-wrap: anywhere;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

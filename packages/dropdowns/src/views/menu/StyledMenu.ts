@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, arrowStyles, ArrowPosition } from '@zendeskgarden/react-theming';
+import { componentStyles, arrowStyles, ArrowPosition } from '@zendeskgarden/react-theming';
 import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
 
 const COMPONENT_ID = 'dropdowns.menu';
@@ -33,5 +33,5 @@ export const StyledMenu = styled(StyledListbox).attrs({
       animationModifier: '[data-garden-animate-arrow="true"]'
     })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

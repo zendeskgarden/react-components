@@ -7,11 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { Placement } from '@floating-ui/react-dom';
-import {
-  arrowStyles,
-  retrieveComponentStyles,
-  getArrowPosition
-} from '@zendeskgarden/react-theming';
+import { arrowStyles, componentStyles, getArrowPosition } from '@zendeskgarden/react-theming';
 import { StyledTooltipDialogClose } from '../styled/StyledTooltipDialogClose';
 import { TransitionStatus } from 'react-transition-group';
 
@@ -54,5 +50,5 @@ export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(p
 
   ${sizeStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

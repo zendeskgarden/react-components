@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
 import { BASE_MULTIPLIERS } from './StyledDrawerClose';
 
@@ -27,5 +27,5 @@ export const StyledDrawerHeader = styled(StyledHeader).attrs({
       props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`} /* [1] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

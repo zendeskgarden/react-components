@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from '../StyledItem';
 
 const COMPONENT_ID = 'dropdowns.media_item';
@@ -22,5 +22,5 @@ export const StyledMediaItem = styled(StyledItem).attrs<IStyledMediaItem>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledMediaItem>`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

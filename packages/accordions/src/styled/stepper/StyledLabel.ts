@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getLineHeight, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_label';
 
@@ -34,5 +34,5 @@ export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.$isActive && 600};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

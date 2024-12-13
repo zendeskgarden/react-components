@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = '{{pluralize (lowercase component)}}.{{lowercase component}}';
 
@@ -63,13 +63,13 @@ export const Styled{{capitalize component}} = styled.div.attrs<IStyled{{capitali
   white-space: nowrap;
   box-sizing: border-box;
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
   &:focus {
     outline: none;
   }
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   & > * {
     display: block;
@@ -78,7 +78,7 @@ export const Styled{{capitalize component}} = styled.div.attrs<IStyled{{capitali
     text-overflow: ellipsis;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 Styled{{capitalize component}}.defaultProps = {

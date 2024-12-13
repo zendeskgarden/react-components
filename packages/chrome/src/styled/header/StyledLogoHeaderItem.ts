@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { hideVisually } from 'polished';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { Product } from '../../types';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
@@ -80,5 +80,5 @@ export const StyledLogoHeaderItem = styled(StyledBaseHeaderItem).attrs({
     ${hideVisually()}
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

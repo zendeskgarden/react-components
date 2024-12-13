@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 const COMPONENT_ID = 'forms.textarea';
@@ -35,5 +35,5 @@ export const StyledTextarea = styled(StyledTextInput).attrs({
   overflow: auto;
   ${props => props.$isHidden && hiddenStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

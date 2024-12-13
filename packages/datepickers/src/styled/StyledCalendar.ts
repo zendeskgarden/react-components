@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.calendar';
 
@@ -21,5 +21,5 @@ export const StyledCalendar = styled.div.attrs({
   width: ${props =>
     props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 import { StyledItem } from '../StyledItem';
 
@@ -38,5 +38,5 @@ export const StyledHeaderItem = styled(StyledItem).attrs<IStyledHeaderItemProps>
   padding-left: ${props => getHorizontalPadding(props)};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

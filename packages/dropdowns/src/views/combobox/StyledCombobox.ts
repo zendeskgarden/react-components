@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from './StyledLabel';
 import { StyledHint } from './StyledHint';
 import { StyledMessage } from './StyledMessage';
@@ -40,5 +40,5 @@ export const StyledCombobox = styled.div.attrs({
 })<IStyledComboboxProps>`
   ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

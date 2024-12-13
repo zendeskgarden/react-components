@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont, IStyledFontProps } from './StyledFont';
 import { ICodeProps } from '../types';
 
@@ -69,7 +69,7 @@ export const StyledCode = styled(StyledFont as 'code').attrs({
 
   ${props => colorStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledCode.defaultProps = {

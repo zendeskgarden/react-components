@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { hsl, rgba } from 'polished';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
 
@@ -40,5 +40,5 @@ export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>(props => 
   height: 208px;
   overflow: hidden;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledTitle } from './content/StyledTitle';
 import { IStyledBaseProps, StyledBase } from './StyledBase';
 import { validationTypes } from '../utils/icons';
@@ -56,5 +56,5 @@ export const StyledAlert = styled(StyledBase).attrs({
 })<IStyledAlertProps>`
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

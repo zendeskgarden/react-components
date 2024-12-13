@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
 
@@ -40,5 +40,5 @@ export const StyledLabel = styled.label.attrs(props => ({
     ${props => !props.$isRadio && hideVisually()};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

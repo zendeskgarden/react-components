@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   focusStyles,
   getColor
@@ -130,5 +130,5 @@ export const StyledFile = styled.div.attrs({
     opacity: 0;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

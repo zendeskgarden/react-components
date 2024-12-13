@@ -7,7 +7,7 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.backdrop';
 
@@ -64,7 +64,7 @@ export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
 
   ${animationStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledBackdrop.propTypes = {

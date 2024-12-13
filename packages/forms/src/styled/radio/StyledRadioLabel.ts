@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel';
 
 const COMPONENT_ID = 'forms.radio_label';
@@ -40,5 +40,5 @@ export const StyledRadioLabel = styled(StyledLabel).attrs({
 
   ${props => sizeStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

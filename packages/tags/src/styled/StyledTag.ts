@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, readableColor } from 'polished';
 import {
   DEFAULT_THEME,
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
@@ -271,7 +271,7 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
     display: ${props => props.$isRound && 'none'};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledTag.defaultProps = {

@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { getTrackHeight, getTrackMargin } from '../common/StyledRange';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_sliders';
@@ -50,5 +50,5 @@ export const StyledSliders = styled.div.attrs({
 
   ${sizeStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

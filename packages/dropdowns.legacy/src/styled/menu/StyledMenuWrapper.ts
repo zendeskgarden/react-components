@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { menuStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { PopperPlacement } from '../../types';
 import { getMenuPosition } from '../../utils/garden-placements';
 
@@ -34,5 +34,5 @@ export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props
       animationModifier: props.$isAnimated ? '.is-animated' : undefined
     })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

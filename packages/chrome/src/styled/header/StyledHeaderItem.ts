@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
 import { StyledBaseHeaderItem, IStyledBaseHeaderItemProps } from './StyledBaseHeaderItem';
 import { StyledHeaderItemText } from './StyledHeaderItemText';
@@ -90,5 +90,5 @@ export const StyledHeaderItem = styled(StyledBaseHeaderItem as 'button').attrs({
       color 0.1s ease-in-out;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
