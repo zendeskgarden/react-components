@@ -20,6 +20,7 @@ export { default as getLineHeight } from './utils/getLineHeight';
 export { getMenuPosition } from './utils/getMenuPosition';
 export { default as mediaQuery } from './utils/mediaQuery';
 export { default as arrowStyles } from './utils/arrowStyles';
+export { useColorScheme } from './utils/useColorScheme';
 export { useDocument } from './utils/useDocument';
 export { useWindow } from './utils/useWindow';
 export { useText } from './utils/useText';
@@ -31,12 +32,14 @@ export {
   ARROW_POSITION,
   MENU_POSITION,
   PLACEMENT,
+  type IColorSchemeContext,
   type IGardenTheme,
   type IStyledBaseIconProps,
   type IThemeProviderProps,
   type ArrowPosition,
   type CheckeredBackgroundParameters,
   type ColorParameters,
+  type ColorScheme,
   type FocusBoxShadowParameters,
   type FocusStylesParameters,
   type MenuPosition,

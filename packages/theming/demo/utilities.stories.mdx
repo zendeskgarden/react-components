@@ -27,7 +27,9 @@ import README from '../README.md';
     args={{ palette: PALETTE }}
     argTypes={{
       palette: { control: { type: 'object' }, name: 'PALETTE' },
-      theme: { control: false }
+      colorSchemeKey: { table: { disable: true } },
+      initialColorScheme: { table: { disable: true } },
+      theme: { table: { disable: true } }
     }}
   >
     {args => <PaletteStory {...args} />}
@@ -51,7 +53,9 @@ import README from '../README.md';
       position: { control: 'select', options: ARROW_POSITIONS },
       size: { control: { type: 'range', min: 2, max: 10, step: 1 } },
       inset: { control: { type: 'range', min: -4, max: 4, step: 1 } },
-      theme: { control: false }
+      colorSchemeKey: { table: { disable: true } },
+      initialColorScheme: { table: { disable: true } },
+      theme: { table: { disable: true } }
     }}
   >
     {args => <ArrowStylesStory {...args} />}
@@ -82,7 +86,9 @@ import README from '../README.md';
       transparency: { control: { type: 'number', min: 100, max: 1200, step: 100 } },
       variable: { control: { type: 'text' } },
       'colors.dark': { control: false, table: { disable: true } },
-      'colors.light': { control: false, table: { disable: true } }
+      'colors.light': { control: false, table: { disable: true } },
+      colorSchemeKey: { table: { disable: true } },
+      initialColorScheme: { table: { disable: true } }
     }}
   >
     {args => <GetColorStory {...args} />}
@@ -100,7 +106,9 @@ import README from '../README.md';
     }}
     argTypes={{
       position: { control: 'radio', options: MENU_POSITIONS },
-      theme: { control: false }
+      colorSchemeKey: { table: { disable: true } },
+      initialColorScheme: { table: { disable: true } },
+      theme: { table: { disable: true } }
     }}
   >
     {args => <MenuStylesStory {...args} />}
