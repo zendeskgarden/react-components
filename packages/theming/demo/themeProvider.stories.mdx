@@ -1,0 +1,48 @@
+import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { ThemeProviderStory } from './stories/ThemeProviderStory';
+import { PaletteStory } from './stories/PaletteStory';
+import README from '../README.md';
+
+<Meta
+  title="Packages/Theming/ThemeProvider"
+  component={ThemeProvider}
+  subcomponents={{ DEFAULT_THEME, PALETTE }}
+/>
+
+# API
+
+<ArgsTable />
+
+# Demo
+
+## ThemeProvider
+
+<Canvas>
+  <Story
+    name="ThemeProvider"
+    args={{ initialColorScheme: 'system' }}
+    argTypes={{ theme: { control: false } }}
+  >
+    {args => <ThemeProviderStory {...args} />}
+  </Story>
+</Canvas>
+
+## PALETTE
+
+<Canvas>
+  <Story
+    name="PALETTE"
+    args={{ palette: PALETTE }}
+    argTypes={{
+      palette: { control: { type: 'object' }, name: 'PALETTE' },
+      colorSchemeKey: { table: { disable: true } },
+      initialColorScheme: { table: { disable: true } },
+      theme: { table: { disable: true } }
+    }}
+  >
+    {args => <PaletteStory {...args} />}
+  </Story>
+</Canvas>
+
+<Markdown>{README}</Markdown>
