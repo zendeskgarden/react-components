@@ -22,6 +22,7 @@
   "command": {
     "publish": {
       "distTag": "v8",
+      "preDistTag": "next",
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
