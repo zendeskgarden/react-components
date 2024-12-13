@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.caption';
 
@@ -17,5 +17,5 @@ export const StyledCaption = styled.caption.attrs({
   display: table-caption;
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

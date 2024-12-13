@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { AlignItems, IGridProps, IRowProps, JustifyContent, Wrap } from '../types';
 
 const COMPONENT_ID = 'grid.row';
@@ -152,7 +152,7 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
       props.$wrapXl
     )};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledRow.defaultProps = {

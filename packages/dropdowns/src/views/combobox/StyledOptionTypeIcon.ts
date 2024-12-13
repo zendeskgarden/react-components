@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { OptionType } from '../../types';
 
@@ -77,5 +77,5 @@ export const StyledOptionTypeIcon = styled(StyledBaseIcon).attrs<DataAttributes>
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

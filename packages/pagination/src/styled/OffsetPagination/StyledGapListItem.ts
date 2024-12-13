@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { StyledListItem } from './StyledListItem';
 
 const COMPONENT_ID = 'pagination.gap';
@@ -50,5 +50,5 @@ export const StyledGapListItem = styled(StyledListItem).attrs({
     color: inherit;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

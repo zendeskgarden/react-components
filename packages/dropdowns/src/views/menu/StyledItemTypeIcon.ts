@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionTypeIcon } from '../combobox/StyledOptionTypeIcon';
 import { StyledItem } from './StyledItem';
 
@@ -20,5 +20,5 @@ export const StyledItemTypeIcon = styled(StyledOptionTypeIcon).attrs({
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -8,7 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getLineHeight,
-  retrieveComponentStyles,
+  componentStyles,
   DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -70,7 +70,7 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledPanel.defaultProps = {

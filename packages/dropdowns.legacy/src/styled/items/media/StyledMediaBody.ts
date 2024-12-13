@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.media_body';
 
@@ -26,5 +26,5 @@ export const StyledMediaBody = styled.div.attrs({
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.space.base * 2}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

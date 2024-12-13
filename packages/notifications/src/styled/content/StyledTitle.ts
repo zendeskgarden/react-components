@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.title';
 
@@ -26,5 +26,5 @@ export const StyledTitle = styled.div.attrs({
   font-weight: ${props =>
     props.$isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

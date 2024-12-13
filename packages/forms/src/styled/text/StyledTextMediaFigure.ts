@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
-import { retrieveComponentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.media_figure';
 
@@ -76,5 +76,5 @@ export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs<DataAttributes
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

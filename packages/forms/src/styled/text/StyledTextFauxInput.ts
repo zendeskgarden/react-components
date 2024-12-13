@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
-  retrieveComponentStyles,
+  componentStyles,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
   getColor
@@ -91,5 +91,5 @@ export const StyledTextFauxInput = styled(
     flex-shrink: ${props => props.$mediaLayout && '0'};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

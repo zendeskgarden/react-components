@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 const COMPONENT_ID = 'forms.media_input';
@@ -18,5 +18,5 @@ export const StyledTextMediaInput = styled(StyledTextInput).attrs({
 })`
   flex-grow: 1;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

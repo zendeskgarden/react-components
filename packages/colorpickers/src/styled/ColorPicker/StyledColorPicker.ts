@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker';
 
@@ -25,5 +25,5 @@ export const StyledColorPicker = styled.div.attrs({
   width: ${getColorPickerWidth}px;
   min-width: ${getColorPickerWidth}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

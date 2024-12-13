@@ -7,7 +7,7 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { getHeight as getInputHeight } from './StyledInput';
 
@@ -161,5 +161,5 @@ export const StyledTrigger = styled.div.attrs({
     cursor: default;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

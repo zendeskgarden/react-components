@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.ellipsis';
 
@@ -19,5 +19,5 @@ export const StyledEllipsis = styled.div.attrs({
   white-space: nowrap;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

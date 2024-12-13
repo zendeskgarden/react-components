@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { getLineHeight, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'avatars.status-indicator.caption';
 
@@ -28,5 +28,5 @@ export const StyledStandaloneStatusCaption = styled.figcaption.attrs({
 })<ThemeProps<DefaultTheme>>`
   ${sizeStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

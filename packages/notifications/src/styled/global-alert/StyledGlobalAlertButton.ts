@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   getColor,
   focusStyles,
-  retrieveComponentStyles,
+  componentStyles,
   ColorParameters
 } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
@@ -125,5 +125,5 @@ export const StyledGlobalAlertButton = styled(Button).attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_icon';
 
@@ -30,5 +30,5 @@ export const StyledHeaderItemIcon = styled(StyledBaseIcon).attrs<DataAttributes>
 
   ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

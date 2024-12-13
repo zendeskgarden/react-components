@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPanel } from './StyledPanel';
 
 const COMPONENT_ID = 'accordions.section';
@@ -19,5 +19,5 @@ export const StyledSection = styled.div.attrs({
     border: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -7,7 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { parseToRgb, readableColor } from 'polished';
-import { focusStyles, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { focusStyles, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
 import { IRGBColor } from '../../types';
 
@@ -53,5 +53,5 @@ export const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
 
   ${props => focusStyles({ theme: props.theme, selector: '&:has(:focus-visible)' })}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

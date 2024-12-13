@@ -6,7 +6,7 @@
  */
 
 import styled, { DataAttributes } from 'styled-components';
-import { retrieveComponentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';
@@ -27,5 +27,5 @@ export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

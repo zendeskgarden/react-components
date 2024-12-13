@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { getMenuPosition, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getMenuPosition, menuStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { Placement } from '@floating-ui/react-dom';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';
@@ -38,5 +38,5 @@ export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props
       animationModifier: props.$isAnimated ? '.is-animated' : undefined
     })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

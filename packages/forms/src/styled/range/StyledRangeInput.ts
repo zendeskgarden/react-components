@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
   getFocusBoxShadow,
-  retrieveComponentStyles,
+  componentStyles,
   DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -290,7 +290,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
     cursor: default;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledRangeInput.defaultProps = {

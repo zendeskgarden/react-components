@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
-import { StyledBaseIcon, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'typography.icon';
 
@@ -35,5 +35,5 @@ export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
 
   ${props => sizeStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
 import { getHeaderHeight } from '../utils';
 
@@ -65,5 +65,5 @@ export const StyledHeader = styled.header.attrs<IStyledHeaderProps>({
     display: ${props => props.$isStandalone && 'inline-flex'};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;

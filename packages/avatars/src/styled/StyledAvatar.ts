@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -229,7 +229,7 @@ export const StyledAvatar = styled.figure.attrs({
     ${badgeStyles};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledAvatar.defaultProps = {

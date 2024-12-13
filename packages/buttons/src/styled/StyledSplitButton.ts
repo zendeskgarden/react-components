@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.button_group_view';
 
@@ -23,5 +23,5 @@ export const StyledSplitButton = styled.div.attrs({
   direction: ${props => props.theme.rtl && 'rtl'};
   white-space: nowrap;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
