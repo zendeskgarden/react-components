@@ -11,7 +11,7 @@ import { ColorScheme, IGardenTheme, IThemeProviderProps } from '../types';
 import { ColorSchemeProvider } from './ColorSchemeProvider';
 import DEFAULT_THEME from './theme';
 
-export const useColorScheme = (initialState?: ColorScheme, colorSchemeKey = 'color-scheme') => {
+const useColorScheme = (initialState?: ColorScheme, colorSchemeKey = 'color-scheme') => {
   /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
   const localStorage = typeof window === 'undefined' ? undefined : window.localStorage;
   const mediaQuery =
@@ -40,6 +40,7 @@ export const useColorScheme = (initialState?: ColorScheme, colorSchemeKey = 'col
 
   useEffect(() => {
     // Listen for changes to the system color scheme
+    /* istanbul ignore next */
     const eventListener = () => {
       setState(getState('system'));
     };

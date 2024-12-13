@@ -65,7 +65,7 @@ const Content = ({
   }, [colorSchemeKey, colorScheme, localStorage]);
 
   return (
-    <StyledGrid>
+    <StyledGrid gutters="xl">
       <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
         <Grid.Col alignSelf="center" sm={5}>
           <div style={{ position: 'relative' }}>
