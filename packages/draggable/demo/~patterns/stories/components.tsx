@@ -85,7 +85,8 @@ const SortableItem = ({
   } = useSortable({
     animateLayoutChanges,
     id: data.id,
-    disabled: data.isDisabled
+    disabled: data.isDisabled,
+    resizeObserverConfig: {}
   });
 
   const isActiveItem = active?.id === data.id;
