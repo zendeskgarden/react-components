@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export { ColorSchemeProvider } from './elements/ColorSchemeProvider';
 export { ThemeProvider } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
@@ -33,6 +34,7 @@ export {
   MENU_POSITION,
   PLACEMENT,
   type IColorSchemeContext,
+  type IColorSchemeProviderProps,
   type IGardenTheme,
   type IStyledBaseIconProps,
   type IThemeProviderProps,

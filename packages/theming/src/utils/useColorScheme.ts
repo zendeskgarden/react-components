@@ -17,9 +17,7 @@ export const useColorScheme = () => {
   const context = useContext(ColorSchemeContext);
 
   if (!context) {
-    throw new Error(
-      'Error: this component must be rendered within a <ThemeProvider initialColorScheme={colorScheme}>.'
-    );
+    throw new Error('Error: this component must be rendered within a <ColorSchemeProvider>.');
   }
 
   return context;

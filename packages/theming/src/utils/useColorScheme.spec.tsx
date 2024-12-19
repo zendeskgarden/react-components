@@ -8,7 +8,7 @@
 import React, { useEffect } from 'react';
 import { render } from 'garden-test-utils';
 import { useColorScheme } from './useColorScheme';
-import { ThemeProvider } from '../elements/ThemeProvider';
+import { ColorSchemeProvider } from '../elements/ColorSchemeProvider';
 
 const ColorSchemeConsumer = () => {
   const { colorScheme, setColorScheme } = useColorScheme();
@@ -37,11 +37,11 @@ describe('useColorScheme', () => {
     });
   });
 
-  it('works as expected when called within `<ThemeProvider initialColorScheme={...}>`', () => {
+  it('sets the color scheme as expected', () => {
     const Test = () => (
-      <ThemeProvider initialColorScheme="light">
+      <ColorSchemeProvider initialColorScheme="light">
         <ColorSchemeConsumer />
-      </ThemeProvider>
+      </ColorSchemeProvider>
     );
 
     expect(() => {
@@ -60,20 +60,8 @@ describe('useColorScheme', () => {
       console.error = jest.fn();
     });
 
-    it('throws if called outside of `ThemeProvider`', () => {
+    it('throws if called outside of `ColorSchemeProvider`', () => {
       const Test = () => <ColorSchemeConsumer />;
-
-      expect(() => {
-        render(<Test />);
-      }).toThrow();
-    });
-
-    it('throws if called inside of `ThemeProvider` without `initialColorScheme`', () => {
-      const Test = () => (
-        <ThemeProvider>
-          <ColorSchemeConsumer />
-        </ThemeProvider>
-      );
 
       expect(() => {
         render(<Test />);
