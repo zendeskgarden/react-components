@@ -32,7 +32,6 @@ export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEleme
       };
     }, [hasHint, setHasHint]);
 
-    /* eslint-disable no-useless-assignment */
     let HintComponent;
 
     if (type === 'checkbox') {

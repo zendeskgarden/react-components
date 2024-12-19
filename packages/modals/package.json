@@ -37,9 +37,9 @@
     "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
-    "@types/react-transition-group": "4.4.11",
+    "@types/react-transition-group": "4.4.12",
     "@zendeskgarden/react-theming": "^9.4.0",
-    "@zendeskgarden/svg-icons": "7.3.0"
+    "@zendeskgarden/svg-icons": "7.5.0"
   },
   "keywords": [
     "components",

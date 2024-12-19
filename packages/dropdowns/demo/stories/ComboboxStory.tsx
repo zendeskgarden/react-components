@@ -26,7 +26,6 @@ import { IOption, Options } from './types';
 const toLabel = (option: IOption) => option.label || option.value;
 
 const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
-  /* eslint-disable-next-line no-useless-assignment */
   const Svg = props.tagProps?.isPill ? Avatar : Icon;
 
   return (
