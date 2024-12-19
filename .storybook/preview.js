@@ -45,11 +45,14 @@ export const parameters = {
 };
 
 const GlobalPreviewStyling = createGlobalStyle`
-  body {
+  html {
     background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+    color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
+  }
+
+  body {
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
-    color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
     font-family: ${p => p.theme.fonts.system};
   }
 `;
