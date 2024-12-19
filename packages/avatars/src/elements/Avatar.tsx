@@ -36,7 +36,6 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   ) => {
     const computedStatus = badge === undefined ? status : 'active';
 
-    /* eslint-disable no-useless-assignment */
     let ClockIcon = ClockIcon12;
     let ArrowLeftIcon = ArrowLeftIcon12;
 
