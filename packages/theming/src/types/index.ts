@@ -219,8 +219,8 @@ export interface IColorSchemeContext {
 export interface IColorSchemeProviderProps {
   /**
    * Sets the initial color scheme and provides `localStorage` persistence (see
-   * the `useColorScheme` hook). Once a user's preference is stored, it will be
-   * used as the default.
+   * the `useColorScheme` hook). A user's stored preference overrides this
+   * value.
    */
   initialColorScheme?: ColorScheme;
   /**
