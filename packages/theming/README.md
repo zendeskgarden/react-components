@@ -42,7 +42,37 @@ complex, depending on your needs:
   behavior and RTL layout of Garden's tabs component with an alternate visual
   design (i.e. closer to the look of browser tabs).
 
-### RTL
+#### Color scheme
+
+The `ColorSchemeProvider` and `useColorScheme` hook add the capability for a
+user to persist a preferred system color scheme (`'light'`, `'dark'`, or
+`'system'`). See
+[Storybook](https://zendeskgarden.github.io/react-components/?path=/docs/packages-theming-colorschemeprovider--color-scheme-provider)
+for more details.
+
+```jsx
+import {
+  useColorScheme,
+  ColorSchemeProvider,
+  ThemeProvider,
+  DEFAULT_THEME
+} from '@zendeskgarden/react-theming';
+
+const ThemedApp = ({ children }) => {
+  const { colorScheme } = useColorScheme();
+  const theme = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: colorScheme } };
+
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
+
+const App = ({ children }) => (
+  <ColorSchemeProvider>
+    <ThemedApp>{children}</ThemedApp>
+  </ColorSchemeProvider>
+);
+```
+
+#### RTL
 
 ```jsx
 import { ThemeProvider, DEFAULT_THEME } from '@zendeskgarden/react-theming';
