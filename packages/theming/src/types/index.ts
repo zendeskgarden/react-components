@@ -205,6 +205,31 @@ export interface IGardenTheme {
   };
 }
 
+export type ColorScheme = IGardenTheme['colors']['base'] | 'system';
+
+export interface IColorSchemeContext {
+  /** Returns the current color scheme */
+  colorScheme: IGardenTheme['colors']['base'];
+  /** Indicates whether the `colorScheme` is determined by the system */
+  isSystem: boolean;
+  /** Provides the mechanism for updating the current color scheme */
+  setColorScheme: (colorScheme: ColorScheme) => void;
+}
+
+export interface IColorSchemeProviderProps {
+  /**
+   * Sets the initial color scheme and provides `localStorage` persistence (see
+   * the `useColorScheme` hook). A user's stored preference overrides this
+   * value.
+   */
+  initialColorScheme?: ColorScheme;
+  /**
+   * Specifies the key used to store the user's preferred color scheme in
+   * `localStorage`
+   */
+  colorSchemeKey?: string;
+}
+
 export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
   /**
    * Provides values for component styling. See styled-components
