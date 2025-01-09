@@ -69,7 +69,6 @@ const Color = ({
     const hues = [...Object.keys(theme.colors), ...Object.keys(theme.palette)].filter(
       _hue => _hue !== 'base' && _hue !== 'variables'
     );
-
     const selectedHue = (theme.colors.base === 'dark' ? dark?.hue : light?.hue) || hue || '';
 
     if (!(variable || hues.includes(selectedHue))) {
