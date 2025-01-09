@@ -13,6 +13,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.5.0 (2025-01-09)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1991](https://github.com/zendeskgarden/react-components/pull/1991) feat(theming): add `ColorSchemeProvider` ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `avatars`, `draggable`, `dropdowns`, `forms`, `notifications`, `tables`
+  * [#1994](https://github.com/zendeskgarden/react-components/pull/1994) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1993](https://github.com/zendeskgarden/react-components/pull/1993) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `draggable`
+  * [#1995](https://github.com/zendeskgarden/react-components/pull/1995) chore(deps): update dependency @dnd-kit/sortable to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`
+  * [#1998](https://github.com/zendeskgarden/react-components/pull/1998) chore(deps): update dependency @zendeskgarden/eslint-config to v45 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1992](https://github.com/zendeskgarden/react-components/pull/1992) chore(deps): update coverallsapp/github-action action to v2.3.4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1996](https://github.com/zendeskgarden/react-components/pull/1996) chore(deps): update dependency @rollup/plugin-node-resolve to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1989](https://github.com/zendeskgarden/react-components/pull/1989) chore: replace deprecated `retrieveComponentStyles` with `componentStyles` utility ([@jzempel](https://github.com/jzempel))
+
 ## v9.4.0 (2024-12-12)
 
 #### :rocket: New Feature
