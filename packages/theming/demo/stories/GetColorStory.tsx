@@ -66,22 +66,24 @@ const Color = ({
       </Tag>
     );
 
-    const hues = [...Object.keys(theme.colors), ...Object.keys(theme.palette)].filter(
-      _hue => _hue !== 'base' && _hue !== 'variables'
-    );
-    const selectedHue = (theme.colors.base === 'dark' ? dark?.hue : light?.hue) || hue || '';
+    if (!variable) {
+      const hues = [...Object.keys(theme.colors), ...Object.keys(theme.palette)].filter(
+        _hue => _hue !== 'base' && _hue !== 'variables'
+      );
+      const selectedHue = (theme.colors.base === 'dark' ? dark?.hue : light?.hue) || hue || '';
 
-    if (!(variable || hues.includes(selectedHue))) {
-      generatedHue = [...Array(12).keys()].reduce<Record<number, string>>((retVal, index) => {
-        const _shade = (index + 1) * 100;
+      if (!hues.includes(selectedHue)) {
+        generatedHue = [...Array(12).keys()].reduce<Record<number, string>>((retVal, index) => {
+          const _shade = (index + 1) * 100;
 
-        retVal[_shade] = getColor({ theme, hue: opacify(backgroundColor, 1), shade: _shade });
+          retVal[_shade] = getColor({ theme, hue: opacify(backgroundColor, 1), shade: _shade });
 
-        return retVal;
-      }, {});
+          return retVal;
+        }, {});
 
-      /* eslint-disable-next-line no-console */
-      console.log(generatedHue);
+        /* eslint-disable-next-line no-console */
+        console.log(generatedHue);
+      }
     }
   } catch (error) {
     background = 'transparent';
