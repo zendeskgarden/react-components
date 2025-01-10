@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getScale, parseToRgba } from 'color2k';
+import { getScale, parseToRgba, toHex as _toHex } from 'color2k';
 import { darken, getContrast, lighten, rgba } from 'polished';
 import get from 'lodash.get';
 import memoize from 'lodash.memoize';
@@ -151,7 +151,7 @@ const generateColorScale = memoize((color: string) => {
   const contrastRatios = [];
 
   for (let i = 0; i <= scaleSize; i++) {
-    const _color = scale(i);
+    const _color = _toHex(scale(i));
     colors.push(_color);
     contrastRatios.push(getContrast('#FFF', _color));
   }

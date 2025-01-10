@@ -8,32 +8,40 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react';
 import styled, { useTheme } from 'styled-components';
-import { IGardenTheme, getCheckeredBackground, getColor } from '@zendeskgarden/react-theming';
+import { opacify } from 'color2k';
+import {
+  ColorParameters,
+  IGardenTheme,
+  getCheckeredBackground,
+  getColor
+} from '@zendeskgarden/react-theming';
+import { LG, SM } from '@zendeskgarden/react-typography';
+import { Grid } from '@zendeskgarden/react-grid';
 import { Tag } from '@zendeskgarden/react-tags';
 
-const StyledDiv = styled.div.attrs<{ background: string }>(p => ({
-  style: { background: p.background }
-}))<{ background: string }>`
+const StyledDiv = styled.div.attrs<{ $background: string }>(p => ({
+  style: { background: p.$background }
+}))`
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 32px;
   height: 208px;
 `;
 
-interface IColorProps {
-  dark?: object;
-  hue?: string;
-  light?: object;
-  offset?: number;
-  shade?: number;
-  theme: IGardenTheme;
-  transparency?: number;
-  variable?: string;
-}
-
-const Color = ({ dark, hue, light, offset, shade, theme, transparency, variable }: IColorProps) => {
+const Color = ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}: ColorParameters) => {
   let background;
   let tag;
+  let generatedHue;
 
   try {
     const backgroundColor = getColor({
@@ -57,19 +65,65 @@ const Color = ({ dark, hue, light, offset, shade, theme, transparency, variable 
         {backgroundColor}
       </Tag>
     );
+
+    if (!variable) {
+      const hues = [...Object.keys(theme.colors), ...Object.keys(theme.palette)].filter(
+        _hue => _hue !== 'base' && _hue !== 'variables'
+      );
+      const selectedHue = (theme.colors.base === 'dark' ? dark?.hue : light?.hue) || hue || '';
+
+      if (!hues.includes(selectedHue)) {
+        generatedHue = [...Array(12).keys()].reduce<Record<number, string>>((retVal, index) => {
+          const _shade = (index + 1) * 100;
+
+          retVal[_shade] = getColor({ theme, hue: opacify(backgroundColor, 1), shade: _shade });
+
+          return retVal;
+        }, {});
+
+        /* eslint-disable-next-line no-console */
+        console.log(generatedHue);
+      }
+    }
   } catch (error) {
     background = 'transparent';
     tag = (
-      <Tag hue="red" size="large">
+      <Tag hue="dangerHue" size="large">
         {error instanceof Error ? error.message : String(error)}
       </Tag>
     );
   }
 
-  return <StyledDiv background={background}>{tag}</StyledDiv>;
+  return (
+    <>
+      <StyledDiv $background={background}>{tag}</StyledDiv>
+      {!!generatedHue && (
+        <>
+          <LG style={{ margin: '20px 0 12px' }}>Generated hue</LG>
+          <Grid gutters={false}>
+            <Grid.Row wrap="nowrap">
+              {Object.entries(generatedHue).map(([_shade, backgroundColor], index) => (
+                <Grid.Col key={index} textAlign="center">
+                  <StyledDiv $background={backgroundColor}>
+                    <Tag
+                      hue={getColor({ theme, variable: 'background.default' })}
+                      style={{ position: 'absolute', transform: 'rotate(-90deg)' }}
+                    >
+                      {backgroundColor}
+                    </Tag>
+                  </StyledDiv>
+                  <SM>{_shade}</SM>
+                </Grid.Col>
+              ))}
+            </Grid.Row>
+          </Grid>
+        </>
+      )}
+    </>
+  );
 };
 
-interface IArgs extends Omit<IColorProps, 'theme'> {
+interface IArgs extends Omit<ColorParameters, 'theme'> {
   theme: {
     colors: Omit<IGardenTheme['colors'], 'base'>;
     opacity: IGardenTheme['opacity'];
