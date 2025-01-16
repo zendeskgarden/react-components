@@ -13,6 +13,7 @@ import React, {
   useMemo,
   useState
 } from 'react';
+import PropTypes from 'prop-types';
 import {
   ColorScheme,
   IColorSchemeContext,
@@ -23,7 +24,7 @@ import {
 const mediaQuery =
   typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
 
-const useColorScheme = (initialState?: ColorScheme, colorSchemeKey = 'color-scheme') => {
+const useColorScheme = (initialState: ColorScheme, colorSchemeKey: string) => {
   /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
   const localStorage = typeof window === 'undefined' ? undefined : window.localStorage;
 
@@ -59,8 +60,8 @@ export const ColorSchemeContext = createContext<IColorSchemeContext | undefined>
 
 export const ColorSchemeProvider = ({
   children,
-  colorSchemeKey,
-  initialColorScheme
+  colorSchemeKey = 'color-scheme',
+  initialColorScheme = 'system'
 }: PropsWithChildren<IColorSchemeProviderProps>) => {
   const { isSystem, colorScheme, setColorScheme } = useColorScheme(
     initialColorScheme,
@@ -90,4 +91,9 @@ export const ColorSchemeProvider = ({
   }, [isSystem, setColorScheme]);
 
   return <ColorSchemeContext.Provider value={contextValue}>{children}</ColorSchemeContext.Provider>;
+};
+
+ColorSchemeProvider.propTypes = {
+  colorSchemeKey: PropTypes.string,
+  initialColorScheme: PropTypes.oneOf(['light', 'dark', 'system'])
 };
