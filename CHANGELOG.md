@@ -13,6 +13,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.5.1 (2025-01-16)
+
+#### :bug: Bug Fix
+* `theming`
+  * [#2000](https://github.com/zendeskgarden/react-components/pull/2000) fix(theming): nested `ColorSchemeProvider` system color scheme handling ([@jzempel](https://github.com/jzempel))
+  * [#1999](https://github.com/zendeskgarden/react-components/pull/1999) fix(theming): return hex from generated `getColor` values ([@jzempel](https://github.com/jzempel))
+
 ## v9.5.0 (2025-01-09)
 
 #### :rocket: New Feature
