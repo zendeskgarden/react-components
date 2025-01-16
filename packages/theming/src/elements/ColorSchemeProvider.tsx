@@ -20,6 +20,9 @@ import {
   IGardenTheme
 } from '../types';
 
+const mediaQuery =
+  typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
+
 const useColorScheme = (initialState?: ColorScheme, colorSchemeKey = 'color-scheme') => {
   /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
   const localStorage = typeof window === 'undefined' ? undefined : window.localStorage;
@@ -29,11 +32,6 @@ const useColorScheme = (initialState?: ColorScheme, colorSchemeKey = 'color-sche
     let colorScheme: IGardenTheme['colors']['base'];
 
     if (isSystem) {
-      const mediaQuery =
-        typeof window === 'undefined'
-          ? undefined
-          : window.matchMedia('(prefers-color-scheme: dark)');
-
       colorScheme = mediaQuery?.matches ? 'dark' : 'light';
     } else {
       colorScheme = _state;
@@ -75,9 +73,6 @@ export const ColorSchemeProvider = ({
 
   useEffect(() => {
     // Listen for changes to the system color scheme
-    const mediaQuery =
-      typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
-
     /* istanbul ignore next */
     const eventListener = () => {
       setColorScheme('system');
