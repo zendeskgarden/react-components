@@ -56,7 +56,7 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
     });
 
     if (!delayComplete && delayMS !== 0) {
-      return <StyledLoadingPlaceholder fontSize={size!}>&nbsp;</StyledLoadingPlaceholder>;
+      return <StyledLoadingPlaceholder $fontSize={size!}>&nbsp;</StyledLoadingPlaceholder>;
     }
 
     return (
