@@ -15,13 +15,13 @@ const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });
 const LIGHT = getColor({ theme: DEFAULT_THEME, variable: 'background.default' });
 
 export const args = {
-  'colors.dark': DEFAULT_THEME.colors.variables.dark,
-  'colors.light': DEFAULT_THEME.colors.variables.light
+  '$colors.dark': DEFAULT_THEME.colors.variables.dark,
+  '$colors.light': DEFAULT_THEME.colors.variables.light
 };
 
 export const argTypes = {
-  'colors.dark': { table: { category: 'Variables' } },
-  'colors.light': { table: { category: 'Variables' } }
+  '$colors.dark': { name: 'colors.dark', table: { category: 'Variables' } },
+  '$colors.light': { name: 'colors.light', table: { category: 'Variables' } }
 };
 
 export const parameters = {
@@ -76,8 +76,8 @@ const withThemeProvider = (story, context) => {
     primaryHue: context.globals.primaryHue,
     variables: {
       ...DEFAULT_THEME.colors.variables,
-      dark: context.args['colors.dark'],
-      light: context.args['colors.light']
+      dark: context.args['$colors.dark'],
+      light: context.args['$colors.light']
     }
   };
 

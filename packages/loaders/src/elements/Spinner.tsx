@@ -66,7 +66,7 @@ export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
 
     if (!delayComplete && delayMS !== 0) {
       return (
-        <StyledLoadingPlaceholder width="1em" height="1em" fontSize={size!}>
+        <StyledLoadingPlaceholder $width="1em" $height="1em" $fontSize={size!}>
           &nbsp;
         </StyledLoadingPlaceholder>
       );

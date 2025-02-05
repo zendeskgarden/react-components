@@ -6,6 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { getValueAndUnit } from 'polished';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
 interface IStyledSVGProps {
@@ -26,6 +27,27 @@ const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps
   `;
 };
 
+const sizeStyles = ({
+  $containerWidth = '1em',
+  $containerHeight = '0.9em',
+  $fontSize = 'inherit'
+}: IStyledSVGProps) => {
+  const [value, unit] = getValueAndUnit($fontSize);
+  let fontSize;
+
+  if (unit === undefined) {
+    fontSize = $fontSize;
+  } else {
+    fontSize = `${value}${unit === '' ? 'px' : unit}`;
+  }
+
+  return css`
+    width: ${$containerWidth};
+    height: ${$containerHeight};
+    font-size: ${fontSize};
+  `;
+};
+
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
@@ -33,9 +55,7 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   viewBox: `0 0 ${props.$width} ${props.$height}`,
   role: 'img'
 }))<IStyledSVGProps>`
-  width: ${props => props.$containerWidth || '1em'};
-  height: ${props => props.$containerHeight || '0.9em'};
-  font-size: ${props => props.$fontSize || 'inherit'};
+  ${sizeStyles};
 
   ${colorStyles};
 
