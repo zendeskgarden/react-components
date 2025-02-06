@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.5.2 (2025-02-06)
+
+#### :bug: Bug Fix
+* `chrome`, `loaders`
+  * [#2007](https://github.com/zendeskgarden/react-components/pull/2007) fix(chrome,loaders): ferry props to view component transient props ([@jzempel](https://github.com/jzempel))
+
 ## v9.5.1 (2025-01-16)
 
 #### :bug: Bug Fix
