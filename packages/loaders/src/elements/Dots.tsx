@@ -25,7 +25,7 @@ const COMPONENT_ID = 'loaders.dots';
  * @extends SVGAttributes<SVGSVGElement>
  */
 export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
-  ({ size, color, duration, delayMS, ...other }, ref) => {
+  ({ size = 'inherit', color = 'inherit', duration = 1250, delayMS = 750, ...other }, ref) => {
     const theme = useContext(ThemeContext);
     const environment = useDocument(theme);
     const canTransformSVG = useRef<boolean | null>(null);
@@ -86,11 +86,4 @@ Dots.propTypes = {
   duration: PropTypes.number,
   color: PropTypes.string,
   delayMS: PropTypes.number
-};
-
-Dots.defaultProps = {
-  size: 'inherit',
-  color: 'inherit',
-  duration: 1250,
-  delayMS: 750
 };

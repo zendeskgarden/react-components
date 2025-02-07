@@ -14,7 +14,7 @@ import { StyledSkeleton } from '../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Skeleton = forwardRef<HTMLDivElement, ISkeletonProps>(
-  ({ width, height, isLight, ...other }, ref) => {
+  ({ width = '100%', height = '100%', isLight, ...other }, ref) => {
     return (
       <StyledSkeleton ref={ref} $isLight={isLight} $width={width} $height={height} {...other}>
         &nbsp;
@@ -29,9 +29,4 @@ Skeleton.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   isLight: PropTypes.bool
-};
-
-Skeleton.defaultProps = {
-  width: '100%',
-  height: '100%'
 };

@@ -24,7 +24,7 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
       isPill,
       isPrimary,
       isStretched,
-      size,
+      size = 'medium',
       ...other
     },
     ref
@@ -62,10 +62,6 @@ ButtonComponent.propTypes = {
   isPrimary: PropTypes.bool,
   isStretched: PropTypes.bool,
   size: PropTypes.oneOf(SIZE)
-};
-
-ButtonComponent.defaultProps = {
-  size: 'medium'
 };
 
 /**

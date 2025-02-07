@@ -49,7 +49,7 @@ const computeFrames = (
  * @extends SVGAttributes<SVGSVGElement>
  */
 export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
-  ({ size, duration, color, delayMS, ...other }, ref) => {
+  ({ size = 'inherit', duration = 1250, color = 'inherit', delayMS = 750, ...other }, ref) => {
     const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration!);
     const rotationValues = computeFrames(ROTATION_FRAMES, duration!);
     const dasharrayValues = computeFrames(DASHARRAY_FRAMES, duration!);
@@ -101,11 +101,4 @@ Spinner.propTypes = {
   duration: PropTypes.number,
   color: PropTypes.string,
   delayMS: PropTypes.number
-};
-
-Spinner.defaultProps = {
-  size: 'inherit',
-  duration: 1250,
-  color: 'inherit',
-  delayMS: 750
 };

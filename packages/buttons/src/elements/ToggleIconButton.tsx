@@ -14,8 +14,15 @@ import { IconButton } from './IconButton';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const ToggleIconButton = forwardRef<HTMLButtonElement, IToggleIconButtonProps>(
-  ({ isPressed, ...otherProps }, ref) => (
-    <IconButton aria-pressed={isPressed} ref={ref} {...otherProps} />
+  ({ isPill = true, isBasic = true, size = 'medium', isPressed, ...otherProps }, ref) => (
+    <IconButton
+      isPill={isPill}
+      isBasic={isBasic}
+      size={size}
+      aria-pressed={isPressed}
+      ref={ref}
+      {...otherProps}
+    />
   )
 );
 
@@ -24,10 +31,4 @@ ToggleIconButton.displayName = 'ToggleIconButton';
 ToggleIconButton.propTypes = {
   ...IconButton.propTypes,
   isPressed: PropTypes.oneOf([true, false, 'mixed'])
-};
-
-ToggleIconButton.defaultProps = {
-  isPill: true,
-  isBasic: true,
-  size: 'medium'
 };

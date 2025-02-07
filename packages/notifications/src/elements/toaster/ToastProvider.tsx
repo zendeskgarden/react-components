@@ -13,7 +13,7 @@ import { ToastContext } from './ToastContext';
 import { ToastSlot } from './ToastSlot';
 
 export const ToastProvider = ({
-  limit,
+  limit = 4,
   zIndex,
   placementProps = {},
   children
@@ -57,10 +57,6 @@ export const ToastProvider = ({
 };
 
 ToastProvider.displayName = 'ToastProvider';
-
-ToastProvider.defaultProps = {
-  limit: 4
-};
 
 ToastProvider.propTypes = {
   limit: PropTypes.number,

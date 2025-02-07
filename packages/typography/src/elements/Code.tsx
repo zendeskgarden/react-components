@@ -13,18 +13,15 @@ import { StyledCode } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Code = forwardRef<HTMLElement, ICodeProps>(({ hue, size, ...other }, ref) => (
-  <StyledCode ref={ref} $hue={hue} $size={size} {...other} />
-));
+export const Code = forwardRef<HTMLElement, ICodeProps>(
+  ({ hue = 'grey', size = 'inherit', ...other }, ref) => (
+    <StyledCode ref={ref} $hue={hue} $size={size} {...other} />
+  )
+);
 
 Code.displayName = 'Code';
 
 Code.propTypes = {
   hue: PropTypes.oneOf(HUE),
   size: PropTypes.oneOf(INHERIT_SIZE)
-};
-
-Code.defaultProps = {
-  hue: 'grey',
-  size: 'inherit'
 };

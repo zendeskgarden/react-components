@@ -27,8 +27,8 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
     {
       currentPage: controlledCurrentPage,
       totalPages,
-      pagePadding,
-      pageGap,
+      pagePadding = 2,
+      pageGap = 2,
       onChange,
       'aria-label': ariaLabel,
       labels,
@@ -213,11 +213,6 @@ OffsetPagination.propTypes = {
   pageGap: PropTypes.number,
   onChange: PropTypes.func,
   labels: PropTypes.any
-};
-
-OffsetPagination.defaultProps = {
-  pagePadding: 2,
-  pageGap: 2
 };
 
 OffsetPagination.displayName = 'OffsetPagination';

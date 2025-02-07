@@ -59,14 +59,14 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       isBare,
       isCompact,
       isDisabled,
-      isEditable,
+      isEditable = true,
       isExpanded: _isExpanded,
       isMultiselectable,
       listboxAppendToNode,
       listboxAriaLabel,
-      listboxMaxHeight,
+      listboxMaxHeight = '400px',
       listboxMinHeight,
-      listboxZIndex,
+      listboxZIndex = 1000,
       maxHeight,
       maxTags = MAX_TAGS,
       onChange,
@@ -385,11 +385,4 @@ Combobox.propTypes = {
   selectionValue: PropTypes.any,
   startIcon: PropTypes.any,
   validation: PropTypes.oneOf(VALIDATION)
-};
-
-Combobox.defaultProps = {
-  isEditable: true,
-  listboxMaxHeight: '400px',
-  listboxZIndex: 1000,
-  maxTags: MAX_TAGS
 };

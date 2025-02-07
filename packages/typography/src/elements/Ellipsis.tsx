@@ -14,7 +14,7 @@ import { IEllipsisProps } from '../types';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Ellipsis = forwardRef<HTMLDivElement, IEllipsisProps>(
-  ({ children, title, tag, ...other }, ref) => {
+  ({ children, title, tag = 'div', ...other }, ref) => {
     let textContent = undefined;
 
     if (title !== undefined) {
@@ -36,8 +36,4 @@ Ellipsis.displayName = 'Ellipsis';
 Ellipsis.propTypes = {
   title: PropTypes.string,
   tag: PropTypes.any
-};
-
-Ellipsis.defaultProps = {
-  tag: 'div'
 };

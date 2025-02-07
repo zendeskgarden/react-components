@@ -13,7 +13,7 @@ import { StartIcon } from './StartIcon';
 import { Icon } from './Icon';
 
 const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(
-  ({ hue, isBold, isMonospace, tag, ...other }, ref) => (
+  ({ hue, isBold, isMonospace, tag = 'span', ...other }, ref) => (
     <StyledFont
       $hue={hue}
       $isBold={isBold}
@@ -33,10 +33,6 @@ SpanComponent.propTypes = {
   isBold: PropTypes.bool,
   isMonospace: PropTypes.bool,
   hue: PropTypes.string
-};
-
-SpanComponent.defaultProps = {
-  tag: 'span'
 };
 
 /**
