@@ -37,17 +37,17 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const {
     appendToNode,
     children,
-    placement: _placement,
-    zIndex,
-    isAnimated,
-    refKey,
+    placement = PLACEMENT_DEFAULT,
+    zIndex = 1000,
+    isAnimated = true,
+    refKey = 'ref',
     value,
     isCompact,
     onChange,
     formatDate,
     minValue,
     maxValue,
-    locale,
+    locale = 'en-US',
     weekStartsOn,
     customParseDate,
     ...menuProps
@@ -65,12 +65,12 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
   const [floatingPlacement] = getFloatingPlacements(
     theme,
-    _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+    placement === 'auto' ? PLACEMENT_DEFAULT : placement!
   );
 
   const {
     refs,
-    placement,
+    placement: $placement,
     update,
     floatingStyles: { transform }
   } = useFloating({
@@ -80,7 +80,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     },
     elements: { reference: triggerRef?.current, floating: floatingRef?.current },
     placement: floatingPlacement,
-    middleware: [_placement === 'auto' ? autoPlacement() : flip()]
+    middleware: [placement === 'auto' ? autoPlacement() : flip()]
   });
 
   const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLInputElement>>(
@@ -131,7 +131,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       ref={floatingRef}
       style={{ transform }}
       $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
-      $placement={placement}
+      $placement={$placement}
       $zIndex={zIndex}
       aria-hidden={!state.isOpen || undefined}
       data-test-id="datepicker-menu"
@@ -187,12 +187,4 @@ DatePicker.propTypes = {
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
   zIndex: PropTypes.number
-};
-
-DatePicker.defaultProps = {
-  placement: PLACEMENT_DEFAULT,
-  refKey: 'ref',
-  isAnimated: true,
-  zIndex: 1000,
-  locale: 'en-US'
 };

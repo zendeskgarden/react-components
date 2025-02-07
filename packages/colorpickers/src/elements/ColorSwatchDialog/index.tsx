@@ -43,11 +43,11 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
       selectedColIndex,
       defaultSelectedRowIndex,
       defaultSelectedColIndex,
-      placement,
+      placement = 'bottom-start',
       onSelect,
-      hasArrow,
-      isAnimated,
-      zIndex,
+      hasArrow = false,
+      isAnimated = true,
+      zIndex = 1000,
       isOpen,
       focusInset,
       disabled,
@@ -198,13 +198,6 @@ ColorSwatchDialog.propTypes = {
   isAnimated: PropTypes.bool,
   focusInset: PropTypes.bool,
   isOpen: PropTypes.bool
-};
-
-ColorSwatchDialog.defaultProps = {
-  placement: 'bottom-start',
-  isAnimated: true,
-  zIndex: 1000,
-  hasArrow: false /* TooltipDialog override */
 };
 
 ColorSwatchDialog.displayName = 'ColorSwatchDialog';

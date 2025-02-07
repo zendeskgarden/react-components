@@ -19,13 +19,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
     {
       children,
       focusInset,
-      isBasic,
+      isBasic = true,
       isDanger,
       isNeutral,
-      isPill,
+      isPill = true,
       isPrimary,
       isRotated,
-      size,
+      size = 'medium',
       ...other
     },
     ref
@@ -61,10 +61,4 @@ IconButton.propTypes = {
   isPrimary: PropTypes.bool,
   isRotated: PropTypes.bool,
   size: PropTypes.oneOf(SIZE)
-};
-
-IconButton.defaultProps = {
-  isPill: true,
-  isBasic: true,
-  size: 'medium'
 };

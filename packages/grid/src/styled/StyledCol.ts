@@ -150,10 +150,12 @@ const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
   `;
 };
 
-export const StyledCol = styled.div.attrs<IStyledColProps>({
+export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledColProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $columns: props.$columns ?? 12,
+  theme: props.theme ?? DEFAULT_THEME
+}))`
   box-sizing: border-box;
   width: 100%;
 
@@ -230,8 +232,3 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
 
   ${componentStyles};
 `;
-
-StyledCol.defaultProps = {
-  $columns: 12,
-  theme: DEFAULT_THEME
-};

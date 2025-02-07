@@ -227,14 +227,19 @@ interface IStyledRangeInputProps {
   $hasLowerTrack?: boolean;
 }
 
-export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'range',
-  style: {
-    backgroundSize: props.$hasLowerTrack ? props.$backgroundSize : undefined
-  }
-}))<IStyledRangeInputProps>`
+export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(
+  ({ $hasLowerTrack = true, $backgroundSize = '0%', ...props }) => ({
+    'data-garden-id': COMPONENT_ID,
+    'data-garden-version': PACKAGE_VERSION,
+    type: 'range',
+    style: {
+      backgroundSize: $hasLowerTrack ? $backgroundSize : undefined
+    },
+    $backgroundSize,
+    $hasLowerTrack,
+    theme: props.theme ?? DEFAULT_THEME
+  })
+)`
   appearance: none;
   direction: ${props => props.theme.rtl && 'rtl'};
   margin: 0; /* reset for WebKit & Firefox */
@@ -292,9 +297,3 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
 
   ${componentStyles};
 `;
-
-StyledRangeInput.defaultProps = {
-  $backgroundSize: '0%',
-  $hasLowerTrack: true,
-  theme: DEFAULT_THEME
-};

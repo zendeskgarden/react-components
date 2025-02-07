@@ -6,17 +6,20 @@
  */
 
 import styled from 'styled-components';
-import { componentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 import { getStatusSize, IStyledStatusIndicatorProps } from './utility';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 
 const COMPONENT_ID = 'avatars.status-indicator.indicator';
 
-export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase).attrs({
+export const StyledStandaloneStatusIndicator = styled(
+  StyledStatusIndicatorBase
+).attrs<IStyledStatusIndicatorProps>(({ $type = 'offline' }) => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledStatusIndicatorProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $type
+}))`
   position: relative;
   box-sizing: content-box;
   margin-top: ${props =>
@@ -24,8 +27,3 @@ export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase)
 
   ${componentStyles};
 `;
-
-StyledStandaloneStatusIndicator.defaultProps = {
-  $type: 'offline',
-  theme: DEFAULT_THEME
-};

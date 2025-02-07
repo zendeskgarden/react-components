@@ -45,7 +45,7 @@ export const Multiselect = React.forwardRef<HTMLDivElement, IMultiselectProps>(
     {
       renderItem,
       placeholder,
-      maxItems,
+      maxItems = 4,
       renderShowMore,
       inputRef: externalInputRef = null,
       start,
@@ -407,9 +407,4 @@ Multiselect.propTypes = {
   maxItems: PropTypes.number,
   validation: PropTypes.oneOf(['success', 'warning', 'error'])
 };
-
-Multiselect.defaultProps = {
-  maxItems: 4
-};
-
 Multiselect.displayName = 'Multiselect';

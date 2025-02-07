@@ -36,6 +36,9 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       selectedItems,
       onChange,
       onMouseLeave,
+      maxHeight = '400px',
+      placement = 'bottom-start',
+      zIndex = 1000,
       ...props
     },
     ref
@@ -120,6 +123,9 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
           {...props}
           {...getMenuProps({ onMouseLeave })}
           ref={mergeRefs([menuRef, ref])}
+          maxHeight={maxHeight}
+          placement={placement}
+          zIndex={zIndex}
           isCompact={isCompact}
           isExpanded={isExpanded}
           triggerRef={triggerRef}
@@ -151,10 +157,4 @@ Menu.propTypes = {
   restoreFocus: PropTypes.bool,
   selectedItems: PropTypes.arrayOf(PropTypes.any),
   zIndex: PropTypes.number
-};
-
-Menu.defaultProps = {
-  maxHeight: '400px',
-  placement: 'bottom-start',
-  zIndex: 1000
 };

@@ -24,15 +24,15 @@ export const PLACEMENT_DEFAULT = 'top';
 
 export const TooltipComponent = ({
   id,
-  delayMS,
+  delayMS = 500,
   isInitialVisible,
   content,
-  refKey,
-  placement: _placement,
+  refKey = 'ref',
+  placement = PLACEMENT_DEFAULT,
   children,
-  hasArrow,
+  hasArrow = true,
   size,
-  type,
+  type = 'dark',
   appendToNode,
   zIndex,
   isVisible: externalIsVisible,
@@ -53,12 +53,12 @@ export const TooltipComponent = ({
   const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
   const [floatingPlacement] = getFloatingPlacements(
     theme,
-    _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+    placement === 'auto' ? PLACEMENT_DEFAULT : placement!
   );
 
   const {
     refs,
-    placement,
+    placement: $placement,
     update,
     floatingStyles: { transform }
   } = useFloating({
@@ -68,7 +68,7 @@ export const TooltipComponent = ({
     },
     elements: { reference: triggerRef?.current, floating: floatingRef?.current },
     placement: floatingPlacement,
-    middleware: _placement === 'auto' ? [autoPlacement()] : undefined
+    middleware: placement === 'auto' ? [autoPlacement()] : undefined
   });
 
   useEffect(() => {
@@ -99,7 +99,7 @@ export const TooltipComponent = ({
         {...(getTooltipProps({
           'aria-hidden': !controlledIsVisible,
           $hasArrow: hasArrow,
-          $placement: placement,
+          $placement,
           $size: toSize(size, type),
           $type: type,
           onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
@@ -140,14 +140,6 @@ TooltipComponent.propTypes = {
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isInitialVisible: PropTypes.bool,
   refKey: PropTypes.string
-};
-
-TooltipComponent.defaultProps = {
-  hasArrow: true,
-  type: 'dark',
-  placement: PLACEMENT_DEFAULT,
-  delayMS: 500,
-  refKey: 'ref'
 };
 
 /**

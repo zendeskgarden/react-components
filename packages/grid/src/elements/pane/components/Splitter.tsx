@@ -39,7 +39,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
       layoutKey,
       min,
       max,
-      orientation,
+      orientation = 'end',
       isFixed,
       onMouseDown,
       onTouchStart,
@@ -150,10 +150,6 @@ SplitterComponent.propTypes = {
   max: PropTypes.number.isRequired,
   orientation: PropTypes.oneOf(ORIENTATION),
   isFixed: PropTypes.bool
-};
-
-SplitterComponent.defaultProps = {
-  orientation: 'end'
 };
 
 /**

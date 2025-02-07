@@ -211,10 +211,12 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   `;
 };
 
-export const StyledTag = styled.div.attrs<IStyledTagProps>({
+export const StyledTag = styled.div.attrs<IStyledTagProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTagProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  theme: props.theme ?? DEFAULT_THEME,
+  $size: props.$size ?? 'medium'
+}))<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -273,8 +275,3 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
 
   ${componentStyles};
 `;
-
-StyledTag.defaultProps = {
-  $size: 'medium',
-  theme: DEFAULT_THEME
-};

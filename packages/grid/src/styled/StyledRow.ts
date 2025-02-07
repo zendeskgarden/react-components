@@ -99,10 +99,12 @@ const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
   `;
 };
 
-export const StyledRow = styled.div.attrs<IStyledRowProps>({
+export const StyledRow = styled.div.attrs<IStyledRowProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledRowProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $wrapAll: props.$wrapAll ?? 'wrap',
+  theme: props.theme ?? DEFAULT_THEME
+}))`
   display: flex;
   box-sizing: border-box;
 
@@ -154,8 +156,3 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
 
   ${componentStyles};
 `;
-
-StyledRow.defaultProps = {
-  $wrapAll: 'wrap',
-  theme: DEFAULT_THEME
-};

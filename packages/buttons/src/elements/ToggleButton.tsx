@@ -14,8 +14,8 @@ import { Button } from './Button';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const ToggleButton = forwardRef<HTMLButtonElement, IToggleButtonProps>(
-  ({ isPressed, ...otherProps }, ref) => (
-    <Button aria-pressed={isPressed} ref={ref} {...otherProps} />
+  ({ isPressed, size = 'medium', ...otherProps }, ref) => (
+    <Button aria-pressed={isPressed} ref={ref} size={size} {...otherProps} />
   )
 );
 
@@ -24,8 +24,4 @@ ToggleButton.displayName = 'ToggleButton';
 ToggleButton.propTypes = {
   ...Button.propTypes,
   isPressed: PropTypes.oneOf([true, false, 'mixed'])
-};
-
-ToggleButton.defaultProps = {
-  size: 'medium'
 };

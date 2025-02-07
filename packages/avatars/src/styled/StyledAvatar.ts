@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
-import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -180,10 +180,11 @@ export interface IStyledAvatarProps {
 /**
  * Accepts all `<figure>` props
  */
-export const StyledAvatar = styled.figure.attrs({
+export const StyledAvatar = styled.figure.attrs<IStyledAvatarProps>(({ $size = 'medium' }) => ({
+  $size,
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledAvatarProps>`
+}))`
   display: inline-flex;
   position: relative;
   align-items: center;
@@ -231,8 +232,3 @@ export const StyledAvatar = styled.figure.attrs({
 
   ${componentStyles};
 `;
-
-StyledAvatar.defaultProps = {
-  $size: 'medium',
-  theme: DEFAULT_THEME
-};

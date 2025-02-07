@@ -14,7 +14,7 @@ import { StyledSkipNav, StyledSkipNavIcon } from '../styled';
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
-  ({ targetId, zIndex, children, ...props }, ref) => (
+  ({ targetId, zIndex = 1, children, ...props }, ref) => (
     <StyledSkipNav href={`#${targetId}`} $zIndex={zIndex} ref={ref} {...props}>
       <StyledSkipNavIcon />
       {children}
@@ -27,8 +27,4 @@ SkipNav.displayName = 'SkipNav';
 SkipNav.propTypes = {
   targetId: PropTypes.string.isRequired,
   zIndex: PropTypes.number
-};
-
-SkipNav.defaultProps = {
-  zIndex: 1
 };
