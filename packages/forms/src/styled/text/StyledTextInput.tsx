@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { renderToString } from 'react-dom/server';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { em, math } from 'polished';
 import {
@@ -15,7 +13,6 @@ import {
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
-import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Validation } from '../../types';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
@@ -75,7 +72,13 @@ const colorStyles = ({
   const placeholderColor = disabledForegroundColor;
   const readOnlyBackgroundColor = disabledBackgroundColor;
   const calendarPickerColor = getColor({ theme, variable: 'foreground.subtle' });
-  const calendarPickerIcon = renderToString(<ChevronIcon color={calendarPickerColor} />);
+  // HACK [jz]: removing the one-off `import { renderToString } from 'react-dom/server'` due to pitfalls
+  // https://react.dev/reference/react-dom/server/renderToString#removing-rendertostring-from-the-client-code
+  // const calendarPickerIcon = renderToString(<ChevronIcon color={calendarPickerColor} />);
+  const calendarPickerIcon = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewBox="0 0 16 16" aria-hidden="true" color="${calendarPickerColor}">
+      <path fill="currentColor" d="M12.688 5.61a.5.5 0 01.69.718l-.066.062-5 4a.5.5 0 01-.542.054l-.082-.054-5-4a.5.5 0 01.55-.83l.074.05L8 9.359l4.688-3.75z"/>
+    </svg>`;
   const calendarPickerBackgroundImage = `url("data:image/svg+xml,${encodeURIComponent(calendarPickerIcon)}")`;
 
   return css`
