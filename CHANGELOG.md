@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.5.3 (2025-03-21)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#2009](https://github.com/zendeskgarden/react-components/pull/2009) fix(forms): remove `renderToString` for the calendar picker icon ([@jzempel](https://github.com/jzempel))
+
 ## v9.5.2 (2025-02-06)
 
 #### :bug: Bug Fix
