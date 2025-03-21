@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-avatars",
-  "version": "9.5.2",
+  "version": "9.5.3",
   "description": "Components relating to avatars in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -31,8 +31,8 @@
     "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-dropdowns": "^9.5.2",
-    "@zendeskgarden/react-theming": "^9.5.2",
+    "@zendeskgarden/react-dropdowns": "^9.5.3",
+    "@zendeskgarden/react-theming": "^9.5.3",
     "@zendeskgarden/svg-icons": "7.5.0"
   },
   "keywords": [
