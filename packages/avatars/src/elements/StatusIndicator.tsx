@@ -31,7 +31,7 @@ import {
  * @extends HTMLAttributes<HTMLElement>
  */
 export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
-  ({ children, type, isCompact, 'aria-label': label, ...props }, ref) => {
+  ({ children, type = 'offline', isCompact, 'aria-label': label, ...props }, ref) => {
     let ClockIcon = ClockIcon16;
     let ArrowLeftIcon = ArrowLeftIcon16;
 
@@ -71,8 +71,4 @@ StatusIndicator.displayName = 'StatusIndicator';
 StatusIndicator.propTypes = {
   type: PropTypes.oneOf(STATUS),
   isCompact: PropTypes.bool
-};
-
-StatusIndicator.defaultProps = {
-  type: 'offline'
 };
