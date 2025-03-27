@@ -2,6 +2,7 @@ import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs'
 import { useArgs } from '@storybook/client-api';
 import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
 import { MenuStory } from './stories/MenuStory';
+import { Nested } from './stories/Nested';
 import README from '../README.md';
 import { BUTTON_TYPE, ITEMS } from './stories/data';
 
@@ -43,6 +44,21 @@ import { BUTTON_TYPE, ITEMS } from './stories/data';
     }}
   >
     {args => <MenuStory {...args} />}
+  </Story>
+</Canvas>
+
+# Nested
+
+<Canvas>
+  <Story
+    name="Nested"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Nested {...args} />}
   </Story>
 </Canvas>
 
