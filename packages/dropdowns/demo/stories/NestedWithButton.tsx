@@ -65,6 +65,8 @@ const Example = () => {
             )
           )}
         </Menu>
+
+        <button type="button">Click me</button>
       </Grid.Col>
     </Grid.Row>
   );
