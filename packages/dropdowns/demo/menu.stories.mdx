@@ -14,7 +14,6 @@ import GroupedItems from './stories/GroupedItems';
 import Media from './stories/Media';
 import MetaStory from './stories/Meta';
 import Nested from './stories/Nested';
-import NestedWithButton from './stories/NestedWithButton';
 import Placement from './stories/Placement';
 import Size from './stories/Size';
 
@@ -55,7 +54,12 @@ import Size from './stories/Size';
       selectedItems: { control: false }
     }}
   >
-    {args => <MenuStory {...args} />}
+    {args => (
+      <>
+        <MenuStory button={BUTTON_TYPE[0]} items={ITEMS} label="Menu" />
+        <button>Click me</button>
+      </>
+    )}
   </Story>
 </Canvas>
 
@@ -81,7 +85,12 @@ import Size from './stories/Size';
         const { type, ...rest } = changes;
         updateArgs(rest);
       };
-      return <MenuStory {...args} onChange={handleChange} />;
+      return (
+        <>
+          <MenuStory {...args} onChange={handleChange} />
+          <button>Click me</button>
+        </>
+      );
     }}
   </Story>
 </Canvas>
@@ -232,7 +241,12 @@ import Size from './stories/Size';
       selectedItems: { control: false }
     }}
   >
-    {args => <NestedWithButton {...args} />}
+    {args => (
+      <>
+        <Nested {...args} />
+        <button>Click me</button>
+      </>
+    )}
   </Story>
 </Canvas>
 
