@@ -5,6 +5,18 @@ import { MenuStory } from './stories/MenuStory';
 import README from '../README.md';
 import { BUTTON_TYPE, ITEMS } from './stories/data';
 
+import Arrow from './stories/Arrow';
+import Button from './stories/Button';
+import Danger from './stories/Danger';
+import Default from './stories/Default';
+import Disabled from './stories/Disabled';
+import GroupedItems from './stories/GroupedItems';
+import Media from './stories/Media';
+import MetaStory from './stories/Meta';
+import Nested from './stories/Nested';
+import Placement from './stories/Placement';
+import Size from './stories/Size';
+
 <Meta
   title="Packages/Dropdowns/Menu"
   component={Menu}
@@ -42,7 +54,12 @@ import { BUTTON_TYPE, ITEMS } from './stories/data';
       selectedItems: { control: false }
     }}
   >
-    {args => <MenuStory {...args} />}
+    {args => (
+      <>
+        <MenuStory button={BUTTON_TYPE[0]} items={ITEMS} label="Menu" />
+        <button>Click me</button>
+      </>
+    )}
   </Story>
 </Canvas>
 
@@ -68,8 +85,198 @@ import { BUTTON_TYPE, ITEMS } from './stories/data';
         const { type, ...rest } = changes;
         updateArgs(rest);
       };
-      return <MenuStory {...args} onChange={handleChange} />;
+      return (
+        <>
+          <MenuStory {...args} onChange={handleChange} />
+          <button>Click me</button>
+        </>
+      );
     }}
+  </Story>
+</Canvas>
+
+# Arrow
+
+<Canvas>
+  <Story
+    name="Arrow"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Arrow {...args} />}
+  </Story>
+</Canvas>
+
+# Button
+
+<Canvas>
+  <Story
+    name="Button"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Button {...args} />}
+  </Story>
+</Canvas>
+
+# Danger
+
+<Canvas>
+  <Story
+    name="Danger"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Danger {...args} />}
+  </Story>
+</Canvas>
+
+# Default
+
+<Canvas>
+  <Story
+    name="Default"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Default {...args} />}
+  </Story>
+</Canvas>
+
+# Disabled
+
+<Canvas>
+  <Story
+    name="Disabled"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Disabled {...args} />}
+  </Story>
+</Canvas>
+
+# Grouped Items
+
+<Canvas>
+  <Story
+    name="Grouped Items"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <GroupedItems {...args} />}
+  </Story>
+</Canvas>
+
+# Media
+
+<Canvas>
+  <Story
+    name="Media"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Media {...args} />}
+  </Story>
+</Canvas>
+
+# Meta
+
+<Canvas>
+  <Story
+    name="Meta"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <MetaStory {...args} />}
+  </Story>
+</Canvas>
+
+# Nested
+
+<Canvas>
+  <Story
+    name="Nested"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Nested {...args} />}
+  </Story>
+</Canvas>
+
+# Nested with adjacent button
+
+<Canvas>
+  <Story
+    name="Nested with adjacent button"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => (
+      <>
+        <Nested {...args} />
+        <button>Click me</button>
+      </>
+    )}
+  </Story>
+</Canvas>
+
+# Placement
+
+<Canvas>
+  <Story
+    name="Placement"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Placement {...args} />}
+  </Story>
+</Canvas>
+
+# Size
+
+<Canvas>
+  <Story
+    name="Size"
+    argTypes={{
+      isExpanded: { control: false },
+      focusedValue: { control: false },
+      selectedItems: { control: false }
+    }}
+  >
+    {args => <Size {...args} />}
   </Story>
 </Canvas>
 
