@@ -69,7 +69,7 @@
     "core-js": "3.39.0",
     "envalid": "8.0.0",
     "eslint": "9.17.0",
-    "eslint-config-prettier": "9.1.0",
+    "eslint-config-prettier": "10.1.2",
     "execa": "9.5.2",
     "husky": "9.1.7",
     "identity-obj-proxy": "3.0.0",
