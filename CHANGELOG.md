@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.5.4 (2025-04-10)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2014](https://github.com/zendeskgarden/react-components/pull/2014) fix(dropdowns): ensure iframed Menu dropdowns close correctly when clicking outside the iframe ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.5.3 (2025-03-21)
 
 #### :bug: Bug Fix
