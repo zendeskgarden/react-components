@@ -7,22 +7,18 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import {
-  DEFAULT_THEME,
-  getLineHeight,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
 
 interface IStyledListItemProps {
-  space?: Size;
+  $space?: Size;
 }
 
 const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
   const base = props.theme.space.base;
-  const paddingTop = props.space === 'large' ? `${base * 2}px` : `${base}px`;
+  const paddingTop = props.$space === 'large' ? `${base * 2}px` : `${base}px`;
 
   /**
    * 1. Prevent padding the very first list item.
@@ -31,7 +27,6 @@ const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultT
   return css`
     padding-top: ${paddingTop};
 
-    /* stylelint-disable */
     ${StyledOrderedList} > &:first-child,
     ${StyledUnorderedList} > &:first-child {
       padding-top: 0; /* [1] */
@@ -40,10 +35,9 @@ const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultT
     ${StyledOrderedList} ${StyledOrderedList} > &:first-child,
     ${StyledOrderedList} ${StyledUnorderedList} > &:first-child,
     ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child,
-    ${StyledUnorderedList} ${StyledUnorderedList} > &:first-child {
+    ${StyledUnorderedList} ${StyledOrderedList} > &:first-child {
       padding-top: ${paddingTop}; /* [2] */
     }
-    /* stylelint-enable */
   `;
 };
 
@@ -51,7 +45,7 @@ const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) 
   return css`
     line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
 
-    ${props.space !== 'small' && listItemPaddingStyles(props)};
+    ${props.$space !== 'small' && listItemPaddingStyles(props)};
   `;
 };
 
@@ -62,20 +56,18 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'li'
 })<IStyledListItemProps>`
-  /* stylelint-disable */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * 1px`)};
-  /* stylelint-enable */
 
-  ${props => listItemStyles(props)};
+  ${listItemStyles};
 
-  ${props => retrieveComponentStyles(ORDERED_ID, props)};
+  ${componentStyles};
 `;
 
 StyledOrderedListItem.defaultProps = {
-  space: 'medium',
+  $space: 'medium',
   theme: DEFAULT_THEME
 };
 
@@ -86,12 +78,12 @@ export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'li'
 })<IStyledListItemProps>`
-  ${props => listItemStyles(props)};
+  ${listItemStyles};
 
-  ${props => retrieveComponentStyles(UNORDERED_ID, props)};
+  ${componentStyles};
 `;
 
 StyledUnorderedListItem.defaultProps = {
-  space: 'medium',
+  $space: 'medium',
   theme: DEFAULT_THEME
 };

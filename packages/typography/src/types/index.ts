@@ -26,37 +26,18 @@ export const TYPE_UNORDERED_LIST = ['circle', 'disc', 'square'] as const;
 
 /* until https://github.com/FormidableLabs/prism-react-renderer/pull/127 is available */
 export const LANGUAGES = [
-  'markup',
   'bash',
-  'clike',
-  'c',
-  'cpp',
   'css',
-  'javascript',
-  'jsx',
-  'coffeescript',
-  'actionscript',
-  'css-extr',
   'diff',
-  'git',
-  'go',
   'graphql',
-  'handlebars',
+  'javascript',
   'json',
-  'less',
-  'makefile',
+  'jsx',
   'markdown',
-  'objectivec',
-  'ocaml',
+  'markup',
   'python',
-  'reason',
-  'sass',
-  'scss',
-  'sql',
-  'stylus',
-  'tsx',
   'typescript',
-  'wasm',
+  'tsx',
   'yaml'
 ] as const;
 
@@ -137,8 +118,10 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   /** Renders with monospace font */
   isMonospace?: boolean;
   /**
-   * Applies a font color. Use [PALETTE](/components/palette#palette) colors
-   * when possible. Accepts all hex values.
+   * Applies a font color. Use a [color
+   * variable](/components/theme-object#colors) key (i.e. `foreground.subtle`)
+   * or [PALETTE](/components/palette#palette) colors when possible. Accepts all
+   * hex values.
    */
   hue?: string;
   /** Hides the span visually without hiding it from screen readers */

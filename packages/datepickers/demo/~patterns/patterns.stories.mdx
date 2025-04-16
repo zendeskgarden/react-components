@@ -1,0 +1,28 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { CalendarStory } from './stories/CalendarStory';
+
+<Meta title="Packages/DatePickers/[patterns]" />
+
+# Patterns
+
+## Render calendar in a root level React portal
+
+The `appendToNode` property can be used to render the calendar in a different
+DOM location than inline with the DatePicker component. This is done via React
+portals under the hood.
+
+You typically will need to set this property if you are using the `DatePicker`
+inside an element with `overflow: hidden` / `auto` / `scroll` CSS styles.
+
+See in this example, that the calendar is currently getting cropped. Enable the
+`appendToNode` property to see the full calendar.
+
+<Canvas>
+  <Story
+    name="Calendar"
+    args={{ appendToNode: false }}
+    argTypes={{ appendToNode: { control: 'boolean' } }}
+  >
+    {args => <CalendarStory {...args} />}
+  </Story>
+</Canvas>

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { IStyledOptionProps, StyledOption } from '../combobox/StyledOption';
 
 const COMPONENT_ID = 'dropdowns.menu.item';
@@ -21,9 +21,5 @@ export const StyledItem = styled(StyledOption).attrs({
 })<IStyledItemProps>`
   padding: ${p => p.$hasAnchor && 0};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

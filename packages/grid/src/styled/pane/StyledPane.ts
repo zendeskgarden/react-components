@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pane';
 
@@ -18,9 +18,5 @@ export const StyledPane = styled.div.attrs({
   min-width: 0;
   min-height: 0;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledPane.defaultProps = {
-  theme: DEFAULT_THEME
-};

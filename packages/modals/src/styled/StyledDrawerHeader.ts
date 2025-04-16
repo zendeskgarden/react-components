@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader';
 import { BASE_MULTIPLIERS } from './StyledDrawerClose';
 
@@ -22,14 +22,10 @@ export const StyledDrawerHeader = styled(StyledHeader).attrs({
 })`
   padding: ${props => props.theme.space.base * 5}px;
   ${props =>
-    props.isCloseButtonPresent &&
+    props.$isCloseButtonPresent &&
     `padding-${props.theme.rtl ? 'left' : 'right'}: ${
       props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
     }px;`} /* [1] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledDrawerHeader.defaultProps = {
-  theme: DEFAULT_THEME
-};

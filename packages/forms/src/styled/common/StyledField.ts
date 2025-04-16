@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.field';
 
@@ -26,9 +26,5 @@ export const StyledField = styled.div.attrs({
   padding: 0; /* [2] */
   font-size: 0; /* [3] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledField.defaultProps = {
-  theme: DEFAULT_THEME
-};

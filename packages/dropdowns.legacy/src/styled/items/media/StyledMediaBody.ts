@@ -6,12 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.media_body';
 
 interface IStyledMediaBodyProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 /**
@@ -23,13 +23,8 @@ export const StyledMediaBody = styled.div.attrs({
 })<IStyledMediaBodyProps>`
   display: block;
   overflow: hidden;
-  /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.space.base * 2}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMediaBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

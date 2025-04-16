@@ -16,7 +16,7 @@ export const MediaBody = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDiv
   (props, ref) => {
     const { isCompact } = useMenuContext();
 
-    return <StyledMediaBody ref={ref} isCompact={isCompact} {...props} />;
+    return <StyledMediaBody ref={ref} $isCompact={isCompact} {...props} />;
   }
 );
 

@@ -7,6 +7,8 @@
 
 import { Items, Options } from './types';
 
+export const BUTTON_TYPE = ['string', 'icon'];
+
 export const ITEMS: Items = [
   {
     value: 'item',

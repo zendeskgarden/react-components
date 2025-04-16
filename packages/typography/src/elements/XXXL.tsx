@@ -13,9 +13,11 @@ import { ITypescaleProps } from '../types';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const XXXL = forwardRef<HTMLDivElement, ITypescaleProps>(({ tag, ...other }, ref) => (
-  <StyledFont as={tag} ref={ref} size="3xlarge" {...other} />
-));
+export const XXXL = forwardRef<HTMLDivElement, ITypescaleProps>(
+  ({ isBold, tag, ...other }, ref) => (
+    <StyledFont $isBold={isBold} $size="3xlarge" {...other} as={tag} ref={ref} />
+  )
+);
 
 XXXL.displayName = 'XXXL';
 

@@ -1,0 +1,153 @@
+name: CI
+
+on:
+  pull_request:
+
+  push:
+    branches:
+      - main
+      - next
+
+permissions:
+  contents: read
+
+jobs:
+  initialize:
+    runs-on: ubuntu-latest
+    outputs:
+      teams: ${{ steps.get-teams.outputs.teams }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - id: get-teams
+        run: echo "teams=$(npm exec garden github-teams -- --user ${{ github.triggering_actor }} --token $GH_TOKEN)" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - run: npm exec -- lerna run build --concurrency=2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages/**/dist
+
+  lint:
+    needs: [initialize]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - run: npm run lint:ci
+
+  test:
+    needs: [initialize]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages
+
+      - run: npm run test:ci
+      - uses: coverallsapp/github-action@cfd0633edbd2411b532b808ba7a8b5e04f76d2c8 # v2.3.4
+        with:
+          file: .cache/coverage/lcov.info
+
+  deploy-staging:
+    if: >
+      github.ref != 'refs/heads/main' &&
+      (contains(needs.initialize.outputs.teams, 'Writers') ||
+       github.actor == 'dependabot[bot]' ||
+       github.actor == 'renovate[bot]')
+    needs: [initialize]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - run: npm run build:demo
+      - run: utils/scripts/deploy.mjs
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+  deploy:
+    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main')
+    needs: [initialize, lint, test]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    concurrency:
+      group: 'gh-pages'
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci --ignore-scripts
+      - run: npm run build:demo
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: './demo'
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  publish:
+    needs: [initialize, lint, test]
+    runs-on: ubuntu-latest
+    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Lerna requires the full history, including tags
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
+
+      - run: npm ci --ignore-scripts
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist-artifact
+          path: packages
+
+      - run: npm exec -- lerna publish from-git --ignore-scripts --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

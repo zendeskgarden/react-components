@@ -6,16 +6,16 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker';
 
 interface IStyledColorPickerProps {
-  isOpaque?: boolean;
+  $isOpaque?: boolean;
 }
 
 export const getColorPickerWidth = (props: IStyledColorPickerProps) => {
-  return props.isOpaque ? 268 : 312;
+  return props.$isOpaque ? 268 : 312;
 };
 
 export const StyledColorPicker = styled.div.attrs({
@@ -25,9 +25,5 @@ export const StyledColorPicker = styled.div.attrs({
   width: ${getColorPickerWidth}px;
   min-width: ${getColorPickerWidth}px;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledColorPicker.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 const COMPONENT_ID = 'forms.media_input';
@@ -14,13 +14,9 @@ const COMPONENT_ID = 'forms.media_input';
 export const StyledTextMediaInput = styled(StyledTextInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  isBare: true
+  $isBare: true
 })`
   flex-grow: 1;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTextMediaInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

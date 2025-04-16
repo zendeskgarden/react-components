@@ -28,102 +28,96 @@ import { ILabelProps } from '../../types';
  *
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
-export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>((props, ref) => {
-  const fieldContext = useFieldContext();
-  const fieldsetContext = useFieldsetContext();
-  const type = useInputContext();
+export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
+  ({ children, isRegular, ...other }, ref) => {
+    const fieldContext = useFieldContext();
+    const fieldsetContext = useFieldsetContext();
+    const type = useInputContext();
 
-  let combinedProps = props;
+    const $isRegular = fieldsetContext && isRegular === undefined ? true : isRegular;
+    let combinedProps = other;
 
-  if (fieldContext) {
-    combinedProps = fieldContext.getLabelProps(combinedProps);
+    if (fieldContext) {
+      combinedProps = fieldContext.getLabelProps(combinedProps);
 
-    if (type === undefined) {
-      const { setIsLabelActive, setIsLabelHovered } = fieldContext;
+      if (type === undefined) {
+        const { setIsLabelActive, setIsLabelHovered } = fieldContext;
 
-      combinedProps = {
-        ...combinedProps,
-        onMouseUp: composeEventHandlers(props.onMouseUp, () => {
+        combinedProps.onMouseUp = composeEventHandlers(other.onMouseUp, () => {
           setIsLabelActive(false);
-        }),
-        onMouseDown: composeEventHandlers(props.onMouseDown, () => {
+        });
+        combinedProps.onMouseDown = composeEventHandlers(other.onMouseDown, () => {
           setIsLabelActive(true);
-        }),
-        onMouseEnter: composeEventHandlers(props.onMouseEnter, () => {
+        });
+        combinedProps.onMouseEnter = composeEventHandlers(other.onMouseEnter, () => {
           setIsLabelHovered(true);
-        }),
-        onMouseLeave: composeEventHandlers(props.onMouseLeave, () => {
+        });
+        combinedProps.onMouseLeave = composeEventHandlers(other.onMouseLeave, () => {
           setIsLabelHovered(false);
-        })
-      };
-    }
-  }
-
-  if (fieldsetContext) {
-    combinedProps = {
-      ...combinedProps,
-      isRegular: combinedProps.isRegular === undefined ? true : combinedProps.isRegular
-    };
-  }
-
-  if (type === 'radio') {
-    return (
-      <StyledRadioLabel ref={ref} {...(combinedProps as any)}>
-        <StyledRadioSvg />
-        {props.children}
-      </StyledRadioLabel>
-    );
-  } else if (type === 'checkbox') {
-    /**
-     * `onLabelSelect` is a workaround for checkbox label `shift + click` bug in Firefox
-     * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
-     */
-    const onLabelSelect = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      // eslint-disable-next-line n/no-unsupported-features/node-builtins
-      const isFirefox = navigator?.userAgent.toLowerCase().indexOf('firefox') > -1;
-
-      if (fieldContext && isFirefox && e.target instanceof Element) {
-        const inputId = e.target.getAttribute('for');
-
-        if (!inputId) return;
-
-        const input = document.getElementById(inputId) as HTMLInputElement | null;
-
-        if (input && input.type === 'checkbox') {
-          if (e.shiftKey) {
-            input.click();
-            input.checked = true;
-          }
-          input.focus();
-        }
+        });
       }
-    };
+    }
 
-    combinedProps = {
-      ...combinedProps,
-      onClick: composeEventHandlers(combinedProps.onClick, onLabelSelect)
-    };
+    if (type === 'radio') {
+      return (
+        <StyledRadioLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
+          <StyledRadioSvg />
+          {children}
+        </StyledRadioLabel>
+      );
+    } else if (type === 'checkbox') {
+      /**
+       * `onLabelSelect` is a workaround for checkbox label `shift + click` bug in Firefox
+       * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
+       */
+      const onLabelSelect = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        // eslint-disable-next-line n/no-unsupported-features/node-builtins
+        const isFirefox = navigator?.userAgent.toLowerCase().indexOf('firefox') > -1;
+
+        if (fieldContext && isFirefox && e.target instanceof Element) {
+          const inputId = e.target.getAttribute('for');
+
+          if (!inputId) return;
+
+          const input = document.getElementById(inputId) as HTMLInputElement | null;
+
+          if (input && input.type === 'checkbox') {
+            if (e.shiftKey) {
+              input.click();
+              input.checked = true;
+            }
+            input.focus();
+          }
+        }
+      };
+
+      combinedProps.onClick = composeEventHandlers(combinedProps.onClick, onLabelSelect);
+
+      return (
+        <StyledCheckLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
+          <StyledCheckSvg />
+          <StyledDashSvg />
+          {children}
+        </StyledCheckLabel>
+      );
+    } else if (type === 'toggle') {
+      return (
+        <StyledToggleLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
+          <StyledToggleSvg />
+          {children}
+        </StyledToggleLabel>
+      );
+    }
 
     return (
-      <StyledCheckLabel ref={ref} {...(combinedProps as any)}>
-        <StyledCheckSvg />
-        <StyledDashSvg />
-        {props.children}
-      </StyledCheckLabel>
-    );
-  } else if (type === 'toggle') {
-    return (
-      <StyledToggleLabel ref={ref} {...(combinedProps as any)}>
-        <StyledToggleSvg />
-        {props.children}
-      </StyledToggleLabel>
+      <StyledLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
+        {children}
+      </StyledLabel>
     );
   }
+);
 
-  return <StyledLabel ref={ref} {...(combinedProps as any)} />;
-});
-
-Label.displayName = 'Label';
+Label.displayName = 'Field.Label';
 
 Label.propTypes = {
   isRegular: PropTypes.bool

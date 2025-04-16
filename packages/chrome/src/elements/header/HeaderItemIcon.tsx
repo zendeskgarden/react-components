@@ -5,15 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  Children,
-  cloneElement,
-  isValidElement,
-  PropsWithChildren,
-  SVGAttributes,
-  ReactSVGElement
-} from 'react';
-import { DefaultTheme, ThemeProps } from 'styled-components';
+import React, { PropsWithChildren, SVGAttributes } from 'react';
 import { StyledHeaderItemIcon } from '../../styled';
 
 /**
@@ -24,19 +16,8 @@ import { StyledHeaderItemIcon } from '../../styled';
 export const HeaderItemIcon = ({
   children,
   ...props
-}: PropsWithChildren<SVGAttributes<SVGElement>>) => {
-  const element = Children.only(children) as ReactSVGElement;
+}: PropsWithChildren<SVGAttributes<SVGElement>>) => (
+  <StyledHeaderItemIcon {...props}>{children}</StyledHeaderItemIcon>
+);
 
-  if (isValidElement(element)) {
-    const Icon = ({
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      theme,
-      ...iconProps
-    }: ThemeProps<DefaultTheme> & SVGAttributes<SVGElement>) =>
-      cloneElement<SVGAttributes<SVGElement>, SVGElement>(element, { ...props, ...iconProps });
-
-    return <StyledHeaderItemIcon as={Icon} {...props} />;
-  }
-
-  return null;
-};
+HeaderItemIcon.displayName = 'Header.ItemIcon';

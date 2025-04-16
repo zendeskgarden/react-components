@@ -192,10 +192,14 @@ describe('Combobox', () => {
   });
 
   it('renders `isBare` styling as expected', () => {
-    const { getByTestId } = render(<TestCombobox isBare />);
+    const { getByTestId, rerender } = render(<TestCombobox isBare />);
     const combobox = getByTestId('combobox');
 
     expect(combobox.firstChild).toHaveStyleRule('border', 'none');
+    expect(combobox.firstChild).toHaveStyleRule('overflow-y', 'visible');
+
+    rerender(<TestCombobox isBare isMultiselectable />);
+    expect(combobox.firstChild).toHaveStyleRule('overflow-y', 'auto');
   });
 
   it('renders `isCompact` styling as expected', () => {
@@ -506,6 +510,26 @@ describe('Combobox', () => {
       await user.click(getByTestId('option'));
 
       expect(input).toHaveAttribute('aria-expanded', 'false');
+    });
+
+    it('sets the correct aria attributes on `ListBox` when expanded or collapsed', async () => {
+      const { getByTestId } = render(
+        <TestCombobox isAutocomplete>
+          <Option data-test-id="option" value="test" />
+        </TestCombobox>
+      );
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+
+      await user.click(trigger);
+
+      const listbox = combobox.querySelector('[role="listbox"]') as HTMLElement;
+
+      expect(listbox).toHaveAttribute('aria-hidden', 'false');
+
+      await user.click(trigger);
+
+      expect(listbox).toHaveAttribute('aria-hidden', 'true');
     });
 
     it('retains expansion on `OptGroup` click', async () => {

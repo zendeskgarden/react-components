@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css, DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import {
-  DEFAULT_THEME,
-  retrieveComponentStyles,
-  StyledBaseIcon
-} from '@zendeskgarden/react-theming';
+import { getColor, componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { Type } from '../../types';
 
-const COMPONENT_ID = 'notifications.global-alert.icon';
+const COMPONENT_ID = 'notifications.global_alert.icon';
+
+interface IStyledGlobalAlertIconProps {
+  $alertType: Type;
+}
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const size = props.theme.iconSizes.md;
@@ -23,24 +24,49 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     margin-top: ${marginTop};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${marginHorizontal};
     width: ${size};
     height: ${size};
   `;
 };
 
-export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs({
+const colorStyles = ({
+  theme,
+  $alertType
+}: ThemeProps<DefaultTheme> & IStyledGlobalAlertIconProps) => {
+  let color;
+
+  switch ($alertType) {
+    case 'success':
+      color = getColor({ variable: 'foreground.success', offset: -400, theme });
+      break;
+    case 'error':
+      color = getColor({ variable: 'foreground.danger', offset: -400, theme });
+      break;
+
+    case 'warning':
+      color = getColor({ variable: 'foreground.warning', theme });
+      break;
+
+    case 'info':
+      color = getColor({ variable: 'foreground.primary', theme });
+      break;
+  }
+
+  return css`
+    color: ${color};
+  `;
+};
+
+export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledGlobalAlertIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
+  ${colorStyles};
 
-StyledGlobalAlertIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};
+  ${componentStyles};
+`;

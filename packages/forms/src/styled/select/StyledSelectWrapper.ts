@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { DEFAULT_THEME, SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
+import { SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
 import { IStyledTextFauxInputProps, StyledTextFauxInput } from '../text/StyledTextFauxInput';
 import { StyledSelect } from './StyledSelect';
 
@@ -15,8 +15,11 @@ const COMPONENT_ID = 'forms.select_wrapper';
 /*
  * 1. Prevent a 2px height bump between `Select` and `Input` due to the faux wrapper border
  */
-const sizeStyles = ({ theme, isCompact }: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
-  const height = `${theme.space.base * (isCompact ? 8 : 10)}px`;
+const sizeStyles = ({
+  theme,
+  $isCompact
+}: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
+  const height = `${theme.space.base * ($isCompact ? 8 : 10)}px`;
 
   return css`
     max-height: ${height}; /* [1] */
@@ -42,7 +45,3 @@ export const StyledSelectWrapper = styled(StyledTextFauxInput).attrs({
     }
   }
 `;
-
-StyledSelectWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

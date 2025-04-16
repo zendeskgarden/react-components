@@ -6,12 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  retrieveComponentStyles,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.tile';
 
@@ -112,9 +107,5 @@ export const StyledTile = styled.label.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTile.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -50,6 +50,8 @@ export const MultiselectStory: Story<IArgs> = ({
   hasIcon,
   items,
   showMore,
+  validation,
+  validationLabel,
   ...args
 }) => {
   const [filteredItems, setFilteredItems] = useState(items);
@@ -77,8 +79,8 @@ export const MultiselectStory: Story<IArgs> = ({
       hint={hint}
       hasMessage={hasMessage}
       message={message}
-      validation={args.validation}
-      validationLabel={args.validationLabel}
+      validation={validation}
+      validationLabel={validationLabel}
       menuProps={{ isCompact: args.isCompact, placement }}
       items={
         filteredItems.length === 0

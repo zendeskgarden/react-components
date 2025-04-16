@@ -7,7 +7,7 @@
 
 import styled, { css } from 'styled-components';
 import { Input } from '@zendeskgarden/react-forms';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.input';
 
@@ -23,7 +23,7 @@ const hiddenStyling = css`
 `;
 
 export interface IStyledInputProps {
-  isHidden?: boolean;
+  $isHidden?: boolean;
 }
 
 export const StyledInput = styled(Input).attrs({
@@ -31,11 +31,7 @@ export const StyledInput = styled(Input).attrs({
   'data-garden-version': PACKAGE_VERSION,
   isBare: true
 })<IStyledInputProps>`
-  ${props => props.isHidden && hiddenStyling};
+  ${props => props.$isHidden && hiddenStyling};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

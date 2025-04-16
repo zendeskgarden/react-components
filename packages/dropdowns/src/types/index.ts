@@ -161,6 +161,8 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IOptionProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value'> {
+  /** Indicates that one or more sub-options are selected (only valid for `type="next"`) */
+  hasSelection?: boolean;
   /** Accepts an icon to display */
   icon?: ReactElement;
   /** Indicates that the option is not interactive */
@@ -269,6 +271,8 @@ export interface IMenuProps extends HTMLAttributes<HTMLUListElement> {
    * @param {string | null} [changes.focusedValue] The updated focused value
    */
   onChange?: IUseMenuProps['onChange'];
+  /** Returns keyboard focus to the element that triggered the menu */
+  restoreFocus?: IUseMenuProps['restoreFocus'];
   /** Sets the selected items in a controlled menu */
   selectedItems?: IUseMenuProps['selectedItems'];
   /** Adjusts the placement of the menu */

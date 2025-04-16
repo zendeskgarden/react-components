@@ -6,13 +6,13 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.multiselect_items_container';
 
 interface IStyledMultiselectItemsContainerProps {
-  isCompact?: boolean;
-  isBare?: boolean;
+  $isCompact?: boolean;
+  $isBare?: boolean;
 }
 
 /**
@@ -23,14 +23,14 @@ const sizeStyles = (props: IStyledMultiselectItemsContainerProps & ThemeProps<De
   let margin;
   let padding;
 
-  if (!props.isBare) {
-    const marginVertical = props.isCompact
+  if (!props.$isBare) {
+    const marginVertical = props.$isCompact
       ? `-${props.theme.space.base * 1.5}px`
       : `-${props.theme.space.base * 2.5}px`;
 
     margin = `${marginVertical} 0`; /* [1] */
 
-    const paddingVertical = props.isCompact ? '3px' : '1px';
+    const paddingVertical = props.$isCompact ? '3px' : '1px';
     const paddingEnd = `${props.theme.space.base}px`;
 
     padding = `${paddingVertical} ${props.theme.rtl ? 0 : paddingEnd} ${paddingVertical} ${
@@ -55,9 +55,5 @@ export const StyledMultiselectItemsContainer = styled.div.attrs({
 
   ${props => sizeStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMultiselectItemsContainer.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { CSSObject, ThemeProviderProps } from 'styled-components';
+import { PropsWithChildren, SVGAttributes } from 'react';
+import { CSSObject, DefaultTheme, ThemeProviderProps } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -131,11 +132,13 @@ export interface IGardenTheme {
         background: Record<string, string>;
         border: Record<string, string>;
         foreground: Record<string, string>;
+        shadow: Record<string, string>;
       };
       light: {
         background: Record<string, string>;
         border: Record<string, string>;
         foreground: Record<string, string>;
+        shadow: Record<string, string>;
       };
     };
   };
@@ -202,6 +205,31 @@ export interface IGardenTheme {
   };
 }
 
+export type ColorScheme = IGardenTheme['colors']['base'] | 'system';
+
+export interface IColorSchemeContext {
+  /** Returns the current color scheme */
+  colorScheme: IGardenTheme['colors']['base'];
+  /** Indicates whether the `colorScheme` is determined by the system */
+  isSystem: boolean;
+  /** Provides the mechanism for updating the current color scheme */
+  setColorScheme: (colorScheme: ColorScheme) => void;
+}
+
+export interface IColorSchemeProviderProps {
+  /**
+   * Sets the initial color scheme and provides `localStorage` persistence (see
+   * the `useColorScheme` hook). A user's stored preference overrides this
+   * value.
+   */
+  initialColorScheme?: ColorScheme;
+  /**
+   * Specifies the key used to store the user's preferred color scheme in
+   * `localStorage`
+   */
+  colorSchemeKey?: string;
+}
+
 export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
   /**
    * Provides values for component styling. See styled-components
@@ -209,4 +237,8 @@ export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenT
    * for details.
    */
   theme?: IGardenTheme | ((theme: IGardenTheme) => IGardenTheme);
+}
+
+export interface IStyledBaseIconProps extends PropsWithChildren<SVGAttributes<SVGElement>> {
+  theme?: DefaultTheme;
 }

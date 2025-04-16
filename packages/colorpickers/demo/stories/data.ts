@@ -10,7 +10,7 @@ import { ILabeledColor } from '@zendeskgarden/react-colorpickers';
 
 type Hue = 'blue' | 'green' | 'red' | 'yellow';
 
-const SHADES = [100, 200, 300, 400, 500, 600, 700, 800] as const;
+const SHADES = Object.keys(PALETTE.blue) as unknown as (keyof typeof PALETTE.blue)[];
 
 const toLabeledValues = (hue: Hue) => {
   const colors = PALETTE[hue];

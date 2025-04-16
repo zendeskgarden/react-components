@@ -7,13 +7,14 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { DEFAULT_THEME, retrieveComponentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types';
 
 const COMPONENT_ID = 'typography.font';
 
 const TYPOGRAPHY_SIZE = [...SIZE, 'extralarge', '2xlarge', '3xlarge'] as const;
 
+/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
 const FONT_SIZE = ['inherit', ...TYPOGRAPHY_SIZE] as const;
 
 type TypographySize = (typeof TYPOGRAPHY_SIZE)[number];
@@ -30,13 +31,13 @@ export const THEME_SIZES: Record<TypographySize, ThemeSize> = {
 };
 
 const fontStyles = ({
-  hue,
-  isBold,
-  isMonospace,
-  size,
+  $hue,
+  $isBold,
+  $isMonospace,
+  $size,
   theme
 }: IStyledFontProps & ThemeProps<DefaultTheme>) => {
-  const monospace = isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf(size!) !== -1;
+  const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf($size!) !== -1;
   const fontFamily = monospace && theme.fonts.mono;
   const direction = theme.rtl ? 'rtl' : 'ltr';
   let fontSize;
@@ -45,33 +46,36 @@ const fontStyles = ({
   let color;
 
   if (monospace) {
-    if (size === 'inherit') {
+    if ($size === 'inherit') {
       fontSize = 'calc(1em - 1px)';
       lineHeight = 'normal';
     } else {
-      const themeSize = THEME_SIZES[size!];
+      const themeSize = THEME_SIZES[$size!];
 
       fontSize = math(`${theme.fontSizes[themeSize]} - 1px`);
       lineHeight = math(`${theme.lineHeights[themeSize]} - 1px`);
     }
-  } else if (size !== 'inherit') {
-    const themeSize = THEME_SIZES[size!];
+  } else if ($size !== 'inherit') {
+    const themeSize = THEME_SIZES[$size!];
 
     fontSize = theme.fontSizes[themeSize];
     lineHeight = theme.lineHeights[themeSize];
   }
 
-  if (isBold === true) {
+  if ($isBold === true) {
     fontWeight = theme.fontWeights.semibold;
-  } else if (isBold === false || size !== 'inherit') {
+  } else if ($isBold === false || $size !== 'inherit') {
     fontWeight = theme.fontWeights.regular;
   }
 
-  if (hue) {
-    color = getColor({ hue, theme });
+  if ($hue) {
+    const options = $hue.includes('.') ? { variable: $hue, theme } : { hue: $hue, theme };
+
+    color = getColor(options);
   }
 
   return css`
+    transition: color 0.1s ease-in-out;
     line-height: ${lineHeight};
     color: ${color};
     font-family: ${fontFamily};
@@ -82,10 +86,10 @@ const fontStyles = ({
 };
 
 export interface IStyledFontProps {
-  isBold?: boolean;
-  isMonospace?: boolean;
-  size?: (typeof FONT_SIZE)[number];
-  hue?: string;
+  $isBold?: boolean;
+  $isMonospace?: boolean;
+  $size?: (typeof FONT_SIZE)[number];
+  $hue?: string;
 }
 
 export const StyledFont = styled.div.attrs({
@@ -99,10 +103,9 @@ export const StyledFont = styled.div.attrs({
     ${hideVisually()};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledFont.defaultProps = {
-  theme: DEFAULT_THEME,
-  size: 'inherit'
+  $size: 'inherit'
 };

@@ -95,14 +95,20 @@ describe('getColor', () => {
   describe('by hue', () => {
     it.each([['light'], ['dark']])('gets the %s mode color specified by string', mode => {
       const color = getColor({ theme: mode === 'dark' ? DARK_THEME : DEFAULT_THEME, hue: 'red' });
-      const expected = mode === 'dark' ? PALETTE.red[500] : PALETTE.red[700];
+      const expected = mode === 'dark' ? PALETTE.red[600] : PALETTE.red[700];
 
       expect(color).toBe(expected);
     });
 
+    it('accepts CSS keywords', () => {
+      expect(getColor({ theme: DEFAULT_THEME, hue: 'currentcolor' })).toBe('currentcolor');
+      expect(getColor({ theme: DEFAULT_THEME, hue: 'inherit' })).toBe('inherit');
+      expect(getColor({ theme: DEFAULT_THEME, hue: 'transparent' })).toBe('transparent');
+    });
+
     it('applies mode hue as expected', () => {
       const color = getColor({ theme: DARK_THEME, hue: 'red', dark: { hue: 'green' } });
-      const expected = PALETTE.green[500];
+      const expected = PALETTE.green[600];
 
       expect(color).toBe(expected);
     });
@@ -130,8 +136,35 @@ describe('getColor', () => {
         ['chromeHue', 'dark']
       ])('gets the default %s for %s mode', (hue, mode) => {
         const color = getColor({ theme: mode === 'dark' ? DARK_THEME : DEFAULT_THEME, hue });
-        const shade = mode === 'dark' ? 500 : 700;
+        const shade = mode === 'dark' ? 600 : 700;
         const expected = (PALETTE as any)[(DEFAULT_THEME as any).colors[hue]][shade];
+
+        expect(color).toBe(expected);
+      });
+
+      it.each([
+        ['primaryHue', 'light'],
+        ['primaryHue', 'dark'],
+        ['successHue', 'light'],
+        ['successHue', 'dark'],
+        ['dangerHue', 'light'],
+        ['dangerHue', 'dark'],
+        ['warningHue', 'light'],
+        ['warningHue', 'dark'],
+        ['neutralHue', 'light'],
+        ['neutralHue', 'dark'],
+        ['chromeHue', 'light'],
+        ['chromeHue', 'dark']
+      ])('gets the default %s with transparency for %s mode', (hue, mode) => {
+        const transparency = 0.5;
+        const color = getColor({
+          theme: mode === 'dark' ? DARK_THEME : DEFAULT_THEME,
+          hue,
+          transparency
+        });
+        const shade = mode === 'dark' ? 500 : 700;
+        const rgbColor = (PALETTE as any)[(DEFAULT_THEME as any).colors[hue]][shade];
+        const expected = rgba(rgbColor, transparency);
 
         expect(color).toBe(expected);
       });
@@ -226,7 +259,7 @@ describe('getColor', () => {
         offset: 100,
         dark: { offset: -100 }
       });
-      const expected = PALETTE.blue[400];
+      const expected = PALETTE.blue[500];
 
       expect(color).toBe(expected);
     });
@@ -385,6 +418,12 @@ describe('getColor', () => {
       console.error = consoleError;
     });
 
+    it('does not throw a memoization key error when the theme is invalid', () => {
+      const test = () => getColor({ theme: {} as any, variable: 'background.default' });
+
+      expect(test).not.toThrow('Invalid value used as weak map key');
+    });
+
     it('throws an error if color arguments are missing', () => {
       expect(() => getColor({ theme: DEFAULT_THEME })).toThrow(Error);
     });
@@ -401,6 +440,10 @@ describe('getColor', () => {
 
     it('throws an error when hue is off palette', () => {
       expect(() => getColor({ theme: DEFAULT_THEME, hue: 'missing' })).toThrow(Error);
+    });
+
+    it('throws an error if a shade cannot be combined with a hue keyword', () => {
+      expect(() => getColor({ theme: DEFAULT_THEME, hue: 'inherit', shade: 500 })).toThrow(Error);
     });
 
     it('throws an error if shade is invalid', () => {

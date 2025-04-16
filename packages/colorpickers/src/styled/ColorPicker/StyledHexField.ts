@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
@@ -17,7 +17,7 @@ const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
 export const StyledHexField = styled(Field as unknown as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  spellcheck: false
+  spellCheck: false
 })`
   display: flex;
   flex-basis: 0; /* [1] */
@@ -30,9 +30,5 @@ export const StyledHexField = styled(Field as unknown as 'div').attrs({
     direction: ltr;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledHexField.defaultProps = {
-  theme: DEFAULT_THEME
-};

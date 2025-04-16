@@ -15,19 +15,18 @@ config.disabled = true;
 
 jest.useFakeTimers();
 
-const ToastExample = () => {
-  const NotificationExample = () => {
-    const { addToast } = useToast();
+const NotificationExample = () => {
+  const { addToast } = useToast();
 
-    return <button onClick={() => addToast(() => <div>notification</div>)}>Add</button>;
-  };
-
-  return (
-    <ToastProvider zIndex={100}>
-      <NotificationExample />
-    </ToastProvider>
-  );
+  /* eslint-disable-next-line react/no-unstable-nested-components */
+  return <button onClick={() => addToast(() => <div>notification</div>)}>Add</button>;
 };
+
+const ToastExample = () => (
+  <ToastProvider zIndex={100}>
+    <NotificationExample />
+  </ToastProvider>
+);
 
 describe('ToastSlot', () => {
   const user = userEvent.setup({ delay: null });

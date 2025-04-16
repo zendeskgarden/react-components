@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { OptionType } from '../../types';
 
@@ -39,12 +34,10 @@ const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
     opacity: ${opacity};
     color: ${color};
 
-    /* stylelint-disable-next-line */
     ${StyledOption}[aria-selected='true'] > & {
       opacity: 1;
     }
 
-    /* stylelint-disable-next-line */
     ${StyledOption}[aria-disabled='true'] > & {
       color: inherit;
     }
@@ -71,7 +64,7 @@ const sizeStyles = (props: IStyledOptionTypeIconProps) => {
   `;
 };
 
-export const StyledOptionTypeIcon = styled(StyledBaseIcon).attrs({
+export const StyledOptionTypeIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledOptionTypeIconProps>`
@@ -84,9 +77,5 @@ export const StyledOptionTypeIcon = styled(StyledBaseIcon).attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledOptionTypeIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

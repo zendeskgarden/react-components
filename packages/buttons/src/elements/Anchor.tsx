@@ -20,8 +20,8 @@ import { useText } from '@zendeskgarden/react-theming';
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
-  ({ children, isExternal, externalIconLabel, ...otherProps }, ref) => {
-    let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = otherProps;
+  ({ children, externalIconLabel, isDanger, isExternal, isUnderlined = true, ...other }, ref) => {
+    let anchorProps: AnchorHTMLAttributes<HTMLAnchorElement> = other;
 
     if (isExternal) {
       anchorProps = {
@@ -41,9 +41,14 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
     );
 
     return (
-      <StyledAnchor ref={ref} {...(anchorProps as any)}>
+      <StyledAnchor
+        ref={ref}
+        $isDanger={isDanger}
+        $isUnderlined={isUnderlined}
+        {...(anchorProps as any)}
+      >
         {children}
-        {isExternal && (
+        {!!isExternal && (
           /* [1] */
           // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
           <StyledExternalIcon role="img" aria-label={iconAriaLabel} aria-hidden={undefined} />
@@ -58,5 +63,6 @@ Anchor.displayName = 'Anchor';
 Anchor.propTypes = {
   isExternal: PropTypes.bool,
   isDanger: PropTypes.bool,
+  isUnderlined: PropTypes.bool,
   externalIconLabel: PropTypes.string
 };

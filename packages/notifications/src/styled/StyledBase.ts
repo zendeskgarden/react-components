@@ -6,42 +6,65 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { getColorV8, getLineHeight, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getLineHeight, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { Type } from '../types';
+import { validationTypes } from '../utils/icons';
 
-export interface IStyledBaseProps {
-  isFloating?: boolean;
-  hue?: string;
-  type?: Type;
+const COMPONENT_ID = 'notifications.base_container';
+
+export interface IStyledBaseProps extends ThemeProps<DefaultTheme> {
+  $isFloating?: boolean;
+  $type?: Type;
 }
 
-const boxShadow = (props: ThemeProps<DefaultTheme>) => {
-  const { theme } = props;
+const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
   const { space, shadows } = theme;
+  let bgVariable;
+  let borderVariable;
+  let fgVariable;
+
+  if (!$isFloating && $type && !!(validationTypes as any)[$type]) {
+    switch ($type) {
+      case validationTypes.success:
+        bgVariable = 'background.success';
+        borderVariable = 'border.success';
+        fgVariable = 'foreground.success';
+        break;
+      case validationTypes.error:
+        bgVariable = 'background.danger';
+        borderVariable = 'border.danger';
+        fgVariable = 'foreground.danger';
+        break;
+      case validationTypes.warning:
+        bgVariable = 'background.warning';
+        borderVariable = 'border.warning';
+        fgVariable = 'foreground.warning';
+        break;
+      case validationTypes.info:
+        bgVariable = 'background.subtle';
+        borderVariable = 'border.default';
+        fgVariable = 'foreground.subtle';
+        break;
+    }
+  } else {
+    bgVariable = 'background.raised';
+    borderVariable = 'border.default';
+    fgVariable = 'foreground.default';
+  }
+
+  const backgroundColor = getColor({ variable: bgVariable, theme });
+  const borderColor = getColor({ variable: borderVariable, theme });
+  const foregroundColor = getColor({ variable: fgVariable, theme });
+
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
-  const color = getColorV8('chromeHue', 600, theme, 0.15);
-
-  return shadows.lg(offsetY, blurRadius, color as string);
-};
-
-const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledBaseProps) => {
-  let backgroundColor;
-  let borderColor;
-  let foregroundColor;
-
-  if (props.hue) {
-    backgroundColor = getColorV8(props.hue, 100, props.theme);
-    borderColor = getColorV8(props.hue, 300, props.theme);
-    foregroundColor = getColorV8(props.hue, props.type === 'info' ? 600 : 700, props.theme);
-  } else {
-    backgroundColor = getColorV8('background', 600 /* default shade */, props.theme);
-    borderColor = getColorV8('neutralHue', 300, props.theme);
-    foregroundColor = getColorV8('neutralHue', 800, props.theme);
-  }
+  const boxShadow = $isFloating
+    ? shadows.lg(offsetY, blurRadius, getColor({ variable: 'shadow.large', theme }))
+    : undefined;
 
   return css`
     border-color: ${borderColor};
+    box-shadow: ${boxShadow};
     background-color: ${backgroundColor};
     color: ${foregroundColor};
   `;
@@ -55,19 +78,19 @@ const padding = (props: ThemeProps<DefaultTheme>) => {
   return `${paddingVertical} ${paddingHorizontal}`;
 };
 
-export const StyledBase = styled.div`
+export const StyledBase = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledBaseProps>`
   position: relative;
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
-  box-shadow: ${props => props.isFloating && boxShadow};
   padding: ${padding};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${colorStyles};
-`;
 
-StyledBase.defaultProps = {
-  theme: DEFAULT_THEME
-};
+  ${componentStyles}
+`;

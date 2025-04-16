@@ -15,12 +15,12 @@ import { StyledInputGroup } from '../../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
-  ({ isCompact, ...props }, ref) => {
+  ({ isCompact, ...other }, ref) => {
     const contextValue = useMemo(() => ({ isCompact }), [isCompact]);
 
     return (
       <InputGroupContext.Provider value={contextValue}>
-        <StyledInputGroup ref={ref} isCompact={isCompact} {...props} />
+        <StyledInputGroup ref={ref} $isCompact={isCompact} {...other} />
       </InputGroupContext.Provider>
     );
   }

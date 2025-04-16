@@ -16,13 +16,63 @@ import { StyledRow } from '../styled';
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Row = React.forwardRef<HTMLDivElement, IRowProps>(({ wrap, ...props }, ref) => {
-  const { gutters, debug } = useGridContext();
+export const Row = React.forwardRef<HTMLDivElement, IRowProps>(
+  (
+    {
+      alignItems,
+      alignItemsXs,
+      alignItemsSm,
+      alignItemsMd,
+      alignItemsLg,
+      alignItemsXl,
+      justifyContent,
+      justifyContentXs,
+      justifyContentSm,
+      justifyContentMd,
+      justifyContentLg,
+      justifyContentXl,
+      wrap,
+      wrapXs,
+      wrapSm,
+      wrapMd,
+      wrapLg,
+      wrapXl,
+      ...props
+    },
+    ref
+  ) => {
+    const { gutters, debug } = useGridContext();
 
-  return <StyledRow gutters={gutters} debug={debug} wrapAll={wrap} ref={ref} {...props} />;
-});
+    return (
+      <StyledRow
+        $gutters={gutters}
+        $debug={debug}
+        $alignItems={alignItems}
+        $alignItemsXs={alignItemsXs}
+        $alignItemsSm={alignItemsSm}
+        $alignItemsMd={alignItemsMd}
+        $alignItemsLg={alignItemsLg}
+        $alignItemsXl={alignItemsXl}
+        $justifyContent={justifyContent}
+        $justifyContentXs={justifyContentXs}
+        $justifyContentSm={justifyContentSm}
+        $justifyContentMd={justifyContentMd}
+        $justifyContentLg={justifyContentLg}
+        $justifyContentXl={justifyContentXl}
+        $wrapAll={wrap}
+        $wrapXs={wrapXs}
+        $wrapSm={wrapSm}
+        $wrapMd={wrapMd}
+        $wrapLg={wrapLg}
+        $wrapXl={wrapXl}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
 
-Row.displayName = 'Row';
+Row.displayName = 'Grid.Row';
 
 Row.propTypes = {
   alignItems: PropTypes.oneOf(ALIGN_ITEMS),

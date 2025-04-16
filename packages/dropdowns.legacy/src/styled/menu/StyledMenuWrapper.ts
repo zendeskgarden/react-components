@@ -6,37 +6,33 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, menuStyles, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { menuStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { PopperPlacement } from '../../types';
 import { getMenuPosition } from '../../utils/garden-placements';
 
 const COMPONENT_ID = 'dropdowns.menu_wrapper';
 
 interface IStyledMenuWrapperProps {
-  hasArrow?: boolean;
-  placement?: PopperPlacement;
-  isHidden?: boolean;
-  zIndex?: number;
-  isAnimated?: boolean;
+  $hasArrow?: boolean;
+  $placement?: PopperPlacement;
+  $isHidden?: boolean;
+  $zIndex?: number;
+  $isAnimated?: boolean;
 }
 
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  className: props.isAnimated && 'is-animated'
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledMenuWrapperProps>`
   ${props =>
-    menuStyles(getMenuPosition(props.placement), {
+    menuStyles(getMenuPosition(props.$placement), {
       theme: props.theme,
-      hidden: props.isHidden,
-      margin: `${props.theme.space.base * (props.hasArrow ? 2 : 1)}px`,
-      zIndex: props.zIndex,
-      animationModifier: props.isAnimated ? '.is-animated' : undefined
+      hidden: props.$isHidden,
+      margin: `${props.theme.space.base * (props.$hasArrow ? 2 : 1)}px`,
+      zIndex: props.$zIndex,
+      animationModifier: props.$isAnimated ? '.is-animated' : undefined
     })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMenuWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

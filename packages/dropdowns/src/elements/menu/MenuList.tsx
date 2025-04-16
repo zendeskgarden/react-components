@@ -138,26 +138,29 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       ]
     );
 
+    /**
+     * 1. Use whichever value is `false` first to prevent empty menu state
+     */
     const Node = (
       <StyledFloatingMenu
         data-garden-animate={isVisible}
-        isHidden={!isExpanded}
-        position={getMenuPosition(placement)}
-        zIndex={zIndex}
+        $isHidden={!isExpanded || !isVisible} /* [1] */
+        $position={getMenuPosition(placement)}
+        $zIndex={zIndex}
         style={{ transform }}
         ref={floatingRef}
       >
         <StyledMenu
           data-garden-animate-arrow={isVisible}
-          arrowPosition={hasArrow ? getArrowPosition(theme, placement) : undefined}
-          isCompact={isCompact}
-          minHeight={minHeight}
-          maxHeight={maxHeight}
+          $arrowPosition={hasArrow ? getArrowPosition(theme, placement) : undefined}
+          $isCompact={isCompact}
+          $minHeight={minHeight}
+          $maxHeight={maxHeight}
           style={{ height }}
           {...props}
           ref={ref}
         >
-          {isVisible && children}
+          {!!isVisible && children}
         </StyledMenu>
       </StyledFloatingMenu>
     );

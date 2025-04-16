@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.color_swatch';
 
@@ -20,9 +20,5 @@ export const StyledColorSwatch = styled.table.attrs({
   border-collapse: collapse;
   line-height: normal; /* [1] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledColorSwatch.defaultProps = {
-  theme: DEFAULT_THEME
-};

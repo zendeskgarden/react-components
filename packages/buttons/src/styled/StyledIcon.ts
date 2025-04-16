@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
+import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'buttons.icon';
 
 interface IStyledIconProps {
-  $isRotated: boolean;
+  $isRotated?: boolean;
   $position?: 'start' | 'end';
 }
 
@@ -36,7 +32,7 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   );
 };
 
-export const StyledIcon = styled(StyledBaseIcon).attrs({
+export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledIconProps>`
@@ -47,9 +43,5 @@ export const StyledIcon = styled(StyledBaseIcon).attrs({
 
   ${props => sizeStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -39,6 +39,6 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
   }
 );
 
-HeaderCell.displayName = 'HeaderCell';
+HeaderCell.displayName = 'Table.HeaderCell';
 
 HeaderCell.propTypes = Cell.propTypes;

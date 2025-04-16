@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { HTMLAttributes, RefObject } from 'react';
 import PropTypes from 'prop-types';
 import { IHeaderItemProps, PRODUCTS } from '../../types';
 import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
@@ -16,16 +16,25 @@ import { StyledHeaderItem, StyledLogoHeaderItem } from '../../styled';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const HeaderItem = React.forwardRef<HTMLButtonElement, IHeaderItemProps>(
-  ({ hasLogo, product, ...other }, ref) => {
+  ({ hasLogo, isRound, maxX, maxY, product, ...other }, ref) => {
     if (hasLogo) {
-      return <StyledLogoHeaderItem ref={ref} product={product} {...other} />;
+      return (
+        <StyledLogoHeaderItem
+          ref={ref as RefObject<HTMLDivElement>}
+          $isRound={isRound}
+          $maxX={maxX}
+          $maxY={maxY}
+          $product={product}
+          {...(other as HTMLAttributes<HTMLDivElement>)}
+        />
+      );
     }
 
-    return <StyledHeaderItem ref={ref} {...other} />;
+    return <StyledHeaderItem ref={ref} $isRound={isRound} $maxX={maxX} $maxY={maxY} {...other} />;
   }
 );
 
-HeaderItem.displayName = 'HeaderItem';
+HeaderItem.displayName = 'Header.Item';
 
 HeaderItem.propTypes = {
   maxX: PropTypes.bool,

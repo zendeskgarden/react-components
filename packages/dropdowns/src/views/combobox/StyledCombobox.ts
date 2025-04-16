@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from './StyledLabel';
 import { StyledHint } from './StyledHint';
 import { StyledMessage } from './StyledMessage';
@@ -14,17 +14,16 @@ import { StyledMessage } from './StyledMessage';
 const COMPONENT_ID = 'dropdowns.combobox';
 
 interface IStyledComboboxProps extends ThemeProps<DefaultTheme> {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 const sizeStyles = (props: IStyledComboboxProps) => {
-  const minWidth = `${props.isCompact ? 100 : 144}px`;
-  const marginTop = `${props.theme.space.base * (props.isCompact ? 1 : 2)}px`;
+  const minWidth = `${props.$isCompact ? 100 : 144}px`;
+  const marginTop = `${props.theme.space.base * (props.$isCompact ? 1 : 2)}px`;
 
   return css`
     min-width: ${minWidth};
 
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
@@ -32,7 +31,6 @@ const sizeStyles = (props: IStyledComboboxProps) => {
     && + ${StyledMessage} {
       margin-top: ${marginTop};
     }
-    /* stylelint-enable */
   `;
 };
 
@@ -42,9 +40,5 @@ export const StyledCombobox = styled.div.attrs({
 })<IStyledComboboxProps>`
   ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledCombobox.defaultProps = {
-  theme: DEFAULT_THEME
-};

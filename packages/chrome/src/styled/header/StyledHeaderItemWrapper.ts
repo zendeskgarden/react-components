@@ -6,8 +6,8 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
+import { componentStyles } from '@zendeskgarden/react-theming';
+import { IStyledBaseHeaderItemProps, StyledBaseHeaderItem } from './StyledBaseHeaderItem';
 
 const COMPONENT_ID = 'chrome.header_item_wrapper';
 
@@ -15,10 +15,6 @@ export const StyledHeaderItemWrapper = styled(StyledBaseHeaderItem as 'div').att
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'div'
-})`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+})<IStyledBaseHeaderItemProps>`
+  ${componentStyles};
 `;
-
-StyledHeaderItemWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

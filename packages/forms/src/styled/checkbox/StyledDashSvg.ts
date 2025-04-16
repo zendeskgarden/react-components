@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import DashIcon from '@zendeskgarden/svg-icons/src/12/dash-fill.svg';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
@@ -25,9 +25,5 @@ export const StyledDashSvg = styled(DashIcon).attrs({
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledDashSvg.defaultProps = {
-  theme: DEFAULT_THEME
-};

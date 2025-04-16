@@ -22,7 +22,7 @@ describe('StyledRangeInput', () => {
   });
 
   it('renders expected background-size styling', () => {
-    const { container } = render(<StyledRangeInput backgroundSize="50%" />);
+    const { container } = render(<StyledRangeInput $backgroundSize="50%" />);
 
     expect((container.firstChild as any).style.backgroundSize).toBe('50%');
   });
@@ -52,7 +52,7 @@ describe('StyledRangeInput', () => {
       const range = getByTestId('range');
 
       expect(range).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel}:not([hidden]) + &`
+        modifier: `${StyledLabel}:not([hidden])+&`
       });
     });
 
@@ -66,7 +66,7 @@ describe('StyledRangeInput', () => {
       const range = getByTestId('range');
 
       expect(range).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel}:not([hidden]) + &`
+        modifier: `${StyledLabel}:not([hidden])+&`
       });
     });
 
@@ -80,7 +80,7 @@ describe('StyledRangeInput', () => {
       const range = getByTestId('range');
 
       expect(range).toHaveStyleRule('margin-top', '8px', {
-        modifier: `${StyledLabel}:not([hidden]) + &`
+        modifier: `${StyledLabel}:not([hidden])+&`
       });
     });
   });

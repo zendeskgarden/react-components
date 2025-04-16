@@ -17,4 +17,4 @@ export const Paragraph = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLPar
   (props, ref) => <StyledParagraph ref={ref} {...props} />
 );
 
-Paragraph.displayName = 'Paragraph';
+Paragraph.displayName = 'Tooltip.Paragraph';

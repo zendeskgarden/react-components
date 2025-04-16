@@ -6,32 +6,25 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { Product } from '../../types';
+import { getProductColor } from '../utils';
 
 const COMPONENT_ID = 'chrome.logo_nav_list_item';
 
-const retrieveProductColor = (product?: Product) => {
-  switch (product) {
-    case 'chat':
-      return PALETTE.product.chat;
-    case 'explore':
-      return PALETTE.product.explore;
-    case 'guide':
-      return PALETTE.product.guide;
-    case 'support':
-      return PALETTE.product.support;
-    case 'talk':
-      return PALETTE.product.talk;
-    default:
-      return 'inherit';
-  }
-};
+export interface IStyledLogoNavItemProps {
+  $hue: string;
+  $product?: Product;
+}
 
-const colorStyles = (props: IStyledLogoNavItemProps) => {
-  const fillColor = props.isLight ? props.theme.palette.grey[800] : props.theme.palette.white;
-  const color = props.isLight || props.isDark ? fillColor : retrieveProductColor(props.product);
+const colorStyles = ({
+  theme,
+  $hue,
+  $product
+}: IStyledLogoNavItemProps & ThemeProps<DefaultTheme>) => {
+  const fillColor = getColor({ theme, variable: 'foreground.default' });
+  const color = $hue === 'chromeHue' ? getProductColor($product) : fillColor;
 
   return css`
     color: ${color};
@@ -39,13 +32,7 @@ const colorStyles = (props: IStyledLogoNavItemProps) => {
   `;
 };
 
-export interface IStyledLogoNavItemProps extends ThemeProps<DefaultTheme> {
-  product?: Product;
-  isDark?: boolean;
-  isLight?: boolean;
-}
-
-/**
+/*
  * 1. Overrides flex default `min-height: auto`
  */
 export const StyledLogoNavItem = styled(StyledBaseNavItem as 'button').attrs({
@@ -57,9 +44,5 @@ export const StyledLogoNavItem = styled(StyledBaseNavItem as 'button').attrs({
   cursor: default;
   min-height: 0; /* [1] */
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 `;
-
-StyledLogoNavItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

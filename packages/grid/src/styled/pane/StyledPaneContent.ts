@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pane.content';
 
@@ -16,14 +16,11 @@ export const StyledPaneContent = styled.div.attrs({
 })`
   height: 100%;
   overflow: auto;
+  color-scheme: only ${p => p.theme.colors.base};
 
   &[hidden] {
     display: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledPaneContent.defaultProps = {
-  theme: DEFAULT_THEME
-};

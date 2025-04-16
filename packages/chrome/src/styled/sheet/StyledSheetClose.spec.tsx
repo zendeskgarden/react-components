@@ -8,12 +8,17 @@
 import React from 'react';
 import { renderRtl, render, screen } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import Icon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 
 import { StyledSheetClose } from './StyledSheetClose';
 
 describe('StyledSheetClose', () => {
   it('renders default styling', () => {
-    render(<StyledSheetClose />);
+    render(
+      <StyledSheetClose>
+        <Icon />
+      </StyledSheetClose>
+    );
 
     expect(screen.getByRole('button')).toHaveStyleRule(
       'right',
@@ -22,7 +27,11 @@ describe('StyledSheetClose', () => {
   });
 
   it('renders correctly in rtl mode', () => {
-    renderRtl(<StyledSheetClose />);
+    renderRtl(
+      <StyledSheetClose>
+        <Icon />
+      </StyledSheetClose>
+    );
 
     expect(screen.getByRole('button')).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 2}px`);
   });

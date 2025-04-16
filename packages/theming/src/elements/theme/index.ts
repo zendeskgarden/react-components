@@ -52,7 +52,6 @@ const colors = {
         recessed: 'neutralHue.1200',
         subtle: 'neutralHue.1000',
         emphasis: 'neutralHue.600',
-        primary: 'primaryHue.900',
         success: 'successHue.1000',
         warning: 'warningHue.1000',
         danger: 'dangerHue.1000',
@@ -66,9 +65,9 @@ const colors = {
         default: 'neutralHue.800',
         emphasis: 'neutralHue.600',
         subtle: 'neutralHue.900',
-        success: 'successHue.800',
-        warning: 'warningHue.800',
-        danger: 'dangerHue.800',
+        success: 'successHue.900',
+        warning: 'warningHue.900',
+        danger: 'dangerHue.900',
         primaryEmphasis: 'primaryHue.600',
         successEmphasis: 'successHue.600',
         warningEmphasis: 'warningHue.600',
@@ -87,6 +86,11 @@ const colors = {
         warningEmphasis: 'warningHue.300',
         dangerEmphasis: 'dangerHue.300',
         disabled: 'neutralHue.700'
+      },
+      shadow: {
+        small: 'rgba(neutralHue.1200, 1100)',
+        medium: 'rgba(neutralHue.1200, 800)',
+        large: 'rgba(neutralHue.1200, 1000)'
       }
     },
     light: {
@@ -96,7 +100,6 @@ const colors = {
         recessed: 'neutralHue.100',
         subtle: 'neutralHue.100',
         emphasis: 'neutralHue.700',
-        primary: 'primaryHue.100',
         success: 'successHue.100',
         warning: 'warningHue.100',
         danger: 'dangerHue.100',
@@ -131,6 +134,11 @@ const colors = {
         warningEmphasis: 'warningHue.900',
         dangerEmphasis: 'dangerHue.900',
         disabled: 'neutralHue.600'
+      },
+      shadow: {
+        small: 'rgba(neutralHue.1200, 200)',
+        medium: 'rgba(neutralHue.1200, 200)',
+        large: 'rgba(neutralHue.1200, 200)'
       }
     }
   }

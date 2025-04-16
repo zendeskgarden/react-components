@@ -21,7 +21,7 @@ export * from './ColorPicker/StyledSliders';
 
 export * from './ColorPickerDialog/StyledButton';
 export * from './ColorPickerDialog/StyledButtonPreview';
-export * from './ColorPickerDialog/StyledTooltipModal';
+export * from './ColorPickerDialog/StyledTooltipDialog';
 export * from './ColorPickerDialog/StyledTooltipBody';
 
 export * from './ColorSwatch/StyledColorSwatch';

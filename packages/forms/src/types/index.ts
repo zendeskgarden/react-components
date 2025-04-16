@@ -59,12 +59,17 @@ export interface IMessageProps extends HTMLAttributes<HTMLDivElement> {
   validationLabel?: string;
 }
 
+export interface IMessageIconProps {
+  /** Applies validation state styling */
+  validation?: Validation;
+}
+
 export interface IRadioProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Applies compact styling */
   isCompact?: IFieldsetProps['isCompact'];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface IToggleProps extends IRadioProps {}
 
 export interface ICheckboxProps extends IRadioProps {
@@ -106,6 +111,8 @@ export interface IFauxInputProps
   isFocused?: boolean;
   /** Applies hover stying */
   isHovered?: boolean;
+  /** @ignore Internal use only */
+  mediaLayout?: boolean;
 }
 
 export interface IFauxInputIconProps

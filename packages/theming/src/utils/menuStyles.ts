@@ -40,6 +40,10 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
     0% {
       /* stylelint-disable-next-line function-name-case */
       transform: ${transformFunction}(${translateValue});
+      pointer-events: none;
+    }
+    100% {
+      pointer-events: auto;
     }
   `;
 
@@ -53,13 +57,7 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
 const colorStyles = (theme: DefaultTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
-  const boxShadowColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    shade: 1200,
-    dark: { transparency: theme.opacity[800] },
-    light: { transparency: theme.opacity[200] }
-  });
+  const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
   const boxShadowBlurRadius = `${theme.space.base * (theme.colors.base === 'dark' ? 5 : 6)}px`;
   const boxShadowOffsetY = `${theme.space.base * (theme.colors.base === 'dark' ? 4 : 5)}px`;
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
@@ -128,6 +126,7 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
     ${marginProperty}: ${options.margin};
     line-height: 0;
     font-size: 0.01px; /* [1] */
+    color-scheme: only ${p => p.theme.colors.base};
 
     & ${options.childSelector || '> *'} {
       display: inline-block;
@@ -146,8 +145,7 @@ export default function menuStyles(position: MenuPosition, options: MenuOptions 
 
       ${colorStyles(theme)};
 
-      /* stylelint-disable-next-line selector-max-compound-selectors */
-      :focus {
+      &:focus {
         outline: none;
       }
     }

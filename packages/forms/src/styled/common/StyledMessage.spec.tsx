@@ -26,19 +26,19 @@ describe('StyledMessage', () => {
 
   describe('Validation', () => {
     it('renders "success" styling if provided', () => {
-      const { container } = render(<StyledMessage validation="success" />);
+      const { container } = render(<StyledMessage $validation="success" />);
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.green[700]);
     });
 
     it('renders "warning" styling if provided', () => {
-      const { container } = render(<StyledMessage validation="warning" />);
+      const { container } = render(<StyledMessage $validation="warning" />);
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.yellow[700]);
     });
 
     it('renders "error" styling if provided', () => {
-      const { container } = render(<StyledMessage validation="error" />);
+      const { container } = render(<StyledMessage $validation="error" />);
 
       expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700]);
     });
@@ -53,7 +53,7 @@ describe('StyledMessage', () => {
     const message = getByTestId('message');
 
     expect(message).toHaveStyleRule('margin-top', '4px', {
-      modifier: `${StyledLabel}:not([hidden]) + &`
+      modifier: `${StyledLabel}:not([hidden])+&`
     });
   });
 });

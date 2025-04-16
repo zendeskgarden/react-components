@@ -15,11 +15,13 @@ import { StyledHeaderItemText } from '../../styled';
  *
  * @extends HTMLAttributes<HTMLSpanElement>
  */
-export const HeaderItemText = React.forwardRef<HTMLElement, IHeaderItemTextProps>((props, ref) => (
-  <StyledHeaderItemText ref={ref} {...props} />
-));
+export const HeaderItemText = React.forwardRef<HTMLElement, IHeaderItemTextProps>(
+  ({ isClipped, ...other }, ref) => (
+    <StyledHeaderItemText ref={ref} $isClipped={isClipped} {...other} />
+  )
+);
 
-HeaderItemText.displayName = 'HeaderItemText';
+HeaderItemText.displayName = 'Header.ItemText';
 
 HeaderItemText.propTypes = {
   isClipped: PropTypes.bool

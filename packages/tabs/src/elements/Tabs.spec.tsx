@@ -7,7 +7,6 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render as baseRender } from '@testing-library/react';
 import { render } from 'garden-test-utils';
 
 import { Tabs, ITabsProps, ITabProps } from '../';
@@ -70,12 +69,6 @@ describe('Tabs', () => {
     );
 
     expect(container.firstChild).toBe(ref.current);
-  });
-
-  it('renders without a parent ThemeProvider', () => {
-    const test = () => baseRender(<BasicExample />);
-
-    expect(test).not.toThrow();
   });
 
   describe('Tab', () => {

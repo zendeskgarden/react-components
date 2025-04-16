@@ -7,30 +7,25 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { Validation } from '../../types';
 import { StyledMessageIcon } from './StyledMessageIcon';
 import { StyledLabel } from './StyledLabel';
 
 export interface IStyledMessageProps {
-  validation?: Validation;
+  $validation?: Validation;
 }
 
 const COMPONENT_ID = 'forms.input_message';
 
-const colorStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
   let variable;
 
-  if (validation === 'error') {
+  if ($validation === 'error') {
     variable = 'foreground.danger';
-  } else if (validation === 'success') {
+  } else if ($validation === 'success') {
     variable = 'foreground.success';
-  } else if (validation === 'warning') {
+  } else if ($validation === 'warning') {
     variable = 'foreground.warning';
   } else {
     variable = 'foreground.subtle';
@@ -43,21 +38,19 @@ const colorStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<Def
   `;
 };
 
-const sizeStyles = ({ theme, validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
-  const paddingHorizontal = validation
+  const paddingHorizontal = $validation
     ? math(`${theme.space.base * 2} + ${theme.iconSizes.md}`)
     : undefined;
 
   return css`
-    /* stylelint-disable-next-line property-no-unknown */
     padding-${theme.rtl ? 'right' : 'left'}: ${paddingHorizontal};
     line-height: ${lineHeight};
     font-size: ${fontSize};
 
-    /* stylelint-disable-next-line */
     ${StyledLabel}:not([hidden]) + & {
       margin-top: ${marginTop};
     }
@@ -83,14 +76,9 @@ export const StyledMessage = styled.div.attrs(props => ({
     ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
   }
 
-  /* stylelint-disable-next-line */
   ${StyledLabel}:not([hidden]) + & {
     display: block;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMessage.defaultProps = {
-  theme: DEFAULT_THEME
-};

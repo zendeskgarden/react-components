@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.body';
 
@@ -16,12 +16,8 @@ export const StyledBody = styled.div.attrs({
 })`
   flex: 1;
   order: 1;
-  background-color: ${props => getColorV8('neutralHue', 100, props.theme)};
+  background-color: ${props => getColor({ theme: props.theme, variable: 'background.default' })};
   min-width: 0;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

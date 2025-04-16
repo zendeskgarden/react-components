@@ -14,6 +14,7 @@ import React, {
   useRef,
   useState
 } from 'react';
+import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
@@ -135,8 +136,8 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
 
                 return (
                   <StyledCell key={value} role={role}>
-                    <StyledColorSwatchLabel backgroundColor={value}>
-                      <Tooltip content={label}>
+                    <StyledColorSwatchLabel $backgroundColor={value}>
+                      <Tooltip content={label} zIndex={1}>
                         <StyledColorSwatchInput
                           aria-label={label}
                           name={name}
@@ -149,7 +150,9 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                           {...(gridCellProps as InputHTMLAttributes<HTMLInputElement>)}
                         />
                       </Tooltip>
-                      <StyledIcon />
+                      <StyledIcon>
+                        <CheckIcon />
+                      </StyledIcon>
                     </StyledColorSwatchLabel>
                   </StyledCell>
                 );

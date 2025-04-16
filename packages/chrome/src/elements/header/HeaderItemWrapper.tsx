@@ -15,7 +15,9 @@ import { StyledHeaderItemWrapper } from '../../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const HeaderItemWrapper = React.forwardRef<HTMLDivElement, IHeaderItemWrapperProps>(
-  (props, ref) => <StyledHeaderItemWrapper ref={ref} {...props} />
+  ({ isRound, maxX, maxY, ...other }, ref) => (
+    <StyledHeaderItemWrapper ref={ref} $isRound={isRound} $maxX={maxX} $maxY={maxY} {...other} />
+  )
 );
 
-HeaderItemWrapper.displayName = 'HeaderItemWrapper';
+HeaderItemWrapper.displayName = 'Header.ItemWrapper';

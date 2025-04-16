@@ -73,7 +73,7 @@ describe('Option', () => {
 
     expect(option).toHaveAttribute('aria-selected', 'true');
     expect(option.firstChild).toHaveStyleRule('opacity', '1', {
-      modifier: `${StyledOption}[aria-selected='true'] > &`
+      modifier: `${StyledOption}[aria-selected='true']>&`
     });
     expect(tag).toHaveAttribute('tabindex', '0');
   });
@@ -152,6 +152,19 @@ describe('Option', () => {
       const option = getByTestId('option');
 
       expect(option).toHaveStyleRule('color', PALETTE.red[700]);
+    });
+
+    it('renders "hasSelection" as expected', () => {
+      const { getByTestId, rerender } = render(<TestOption hasSelection />);
+      const option = getByTestId('option');
+
+      // Icon doesn't render when `type` is missing
+      expect(option.firstChild).not.toHaveStyleRule('width', '12px');
+
+      rerender(<TestOption hasSelection type="next" />);
+
+      // Icon renders when `type` is "next"
+      expect(option.firstChild).toHaveStyleRule('width', '12px');
     });
   });
 

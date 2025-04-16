@@ -5,15 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import path from 'path';
-import fs from 'fs';
+import path from 'node:path';
+import fs from 'node:fs';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import nodeResolve from '@rollup/plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
 import { babel } from '@rollup/plugin-babel';
-// import { sizeSnapshot } from '@brodybits/rollup-plugin-size-snapshot';
 import analyze from 'rollup-plugin-analyzer';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
@@ -84,13 +83,6 @@ export default [
        * Remove comments from source files
        */
       cleanup({ extensions: ['js', 'jsx', 'ts', 'tsx'] }),
-      /**
-       * Only enforce matching size snapshot files in CI environments
-       */
-      // sizeSnapshot({
-      //   matchSnapshot: !!process.env.CI,
-      //   printInfo: !!process.env.CI || !!process.env.ANALYZE_BUNDLE
-      // }),
       !!process.env.ANALYZE_BUNDLE && analyze({ summaryOnly: true })
     ],
     output: [

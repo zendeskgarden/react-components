@@ -6,12 +6,12 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.optgroup';
 
 export interface IStyledOptGroupProps extends ThemeProps<DefaultTheme> {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 export const StyledOptGroup = styled.ul.attrs({
@@ -22,9 +22,5 @@ export const StyledOptGroup = styled.ul.attrs({
   padding: 0;
   list-style-type: none;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledOptGroup.defaultProps = {
-  theme: DEFAULT_THEME
-};

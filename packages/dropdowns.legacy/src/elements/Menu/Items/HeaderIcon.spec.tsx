@@ -53,7 +53,7 @@ describe('HeaderIcon', () => {
     );
 
     expect(getByTestId('header-icon')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
-      modifier: '& > *'
+      modifier: '&>*'
     });
   });
 
@@ -75,7 +75,7 @@ describe('HeaderIcon', () => {
     );
 
     expect(getByTestId('header-icon')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
-      modifier: '& > *'
+      modifier: '&>*'
     });
   });
 });

@@ -6,10 +6,9 @@
  */
 
 import { createContext, useContext } from 'react';
+import { Type } from '../types';
 
-export type Hue = 'successHue' | 'warningHue' | 'dangerHue' | 'neutralHue';
-
-export const NotificationsContext = createContext<Hue | undefined>(undefined);
+export const NotificationsContext = createContext<Type | undefined>(undefined);
 
 export const useNotificationsContext = () => {
   return useContext(NotificationsContext);

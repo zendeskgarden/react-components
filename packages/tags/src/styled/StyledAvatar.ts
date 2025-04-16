@@ -5,25 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import {
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import styled, { DataAttributes } from 'styled-components';
+import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.avatar';
 
-export const StyledAvatar = styled(StyledBaseIcon).attrs({
+export const StyledAvatar = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   flex-shrink: 0;
   font-size: 0; /* text content reset */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledAvatar.defaultProps = {
-  theme: DEFAULT_THEME
-};

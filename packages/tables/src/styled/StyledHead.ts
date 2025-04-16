@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledHeaderRow } from './StyledHeaderRow';
 
 const COMPONENT_ID = 'tables.head';
@@ -51,9 +51,5 @@ export const StyledHead = styled.thead.attrs({
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledHead.defaultProps = {
-  theme: DEFAULT_THEME
-};

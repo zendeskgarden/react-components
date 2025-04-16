@@ -6,11 +6,10 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 interface IStyledSpinnerCircleProps {
-  dasharrayValue: number;
-  strokeWidthValue: number;
+  $dasharrayValue: number;
+  $strokeWidthValue: number;
   transform: string;
 }
 
@@ -21,13 +20,9 @@ export const StyledSpinnerCircle = styled.circle.attrs<IStyledSpinnerCircleProps
   fill: 'none',
   stroke: 'currentColor',
   strokeLinecap: 'round',
-  strokeWidth: props.strokeWidthValue,
-  strokeDasharray: `${props.dasharrayValue} 250`,
+  strokeWidth: props.$strokeWidthValue,
+  strokeDasharray: `${props.$dasharrayValue} 250`,
   transform: props.transform
 }))<IStyledSpinnerCircleProps>`
-  /* stylelint-disable no-empty-source */
+  /* empty-source */
 `;
-
-StyledSpinnerCircle.defaultProps = {
-  theme: DEFAULT_THEME
-};

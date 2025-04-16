@@ -7,12 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
@@ -81,7 +76,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${checkedBackgroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
     &:enabled:checked ~ ${StyledRadioLabel}:hover::before {
       border-color: ${checkedHoverBorderColor};
       background-color: ${checkedHoverBackgroundColor};
@@ -91,7 +85,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       border-color: ${checkedActiveBorderColor};
       background-color: ${checkedActiveBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
 
     &:disabled ~ ${StyledRadioLabel}::before {
       border-color: transparent;
@@ -100,14 +93,14 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme, isCompact }: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
   const lineHeight = `${theme.space.base * 5}px`; /* from StyledLabel */
   const size = `${theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
   const iconSize = theme.iconSizes.sm;
   const iconPosition = math(`(${size} - ${iconSize}) / 2`);
   const iconTop = math(`${iconPosition} + ${top}`);
-  const marginTop = `${theme.space.base * (isCompact ? 1 : 2)}px`;
+  const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
 
   return css`
     top: ${top};
@@ -137,7 +130,7 @@ const sizeStyles = ({ theme, isCompact }: IStyledRadioInputProps & ThemeProps<De
 };
 
 export interface IStyledRadioInputProps {
-  isCompact?: boolean;
+  $isCompact?: boolean;
 }
 
 export const StyledRadioInput = styled.input.attrs({
@@ -189,9 +182,5 @@ export const StyledRadioInput = styled.input.attrs({
     cursor: default;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRadioInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

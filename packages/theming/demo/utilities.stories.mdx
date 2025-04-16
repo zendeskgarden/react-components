@@ -1,38 +1,14 @@
-import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
-import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { PaletteStory } from './stories/PaletteStory';
+import { Meta, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
 import { GetColorStory } from './stories/GetColorStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
 import README from '../README.md';
 
-<Meta
-  title="Packages/Theming"
-  component={ThemeProvider}
-  subcomponents={{ DEFAULT_THEME, PALETTE }}
-/>
-
-# API
-
-<ArgsTable />
+<Meta title="Packages/Theming/utilities" />
 
 # Demo
-
-## PALETTE
-
-<Canvas>
-  <Story
-    name="PALETTE"
-    args={{ palette: PALETTE }}
-    argTypes={{
-      palette: { control: { type: 'object' }, name: 'PALETTE' },
-      theme: { control: false }
-    }}
-  >
-    {args => <PaletteStory {...args} />}
-  </Story>
-</Canvas>
 
 ## arrowStyles()
 
@@ -50,8 +26,7 @@ import README from '../README.md';
     argTypes={{
       position: { control: 'select', options: ARROW_POSITIONS },
       size: { control: { type: 'range', min: 2, max: 10, step: 1 } },
-      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } },
-      theme: { control: false }
+      inset: { control: { type: 'range', min: -4, max: 4, step: 1 } }
     }}
   >
     {args => <ArrowStylesStory {...args} />}
@@ -99,8 +74,7 @@ import README from '../README.md';
       isAnimated: true
     }}
     argTypes={{
-      position: { control: 'radio', options: MENU_POSITIONS },
-      theme: { control: false }
+      position: { control: 'radio', options: MENU_POSITIONS }
     }}
   >
     {args => <MenuStylesStory {...args} />}

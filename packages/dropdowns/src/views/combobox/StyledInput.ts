@@ -7,20 +7,15 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.combobox.input';
 
 interface IStyledInputProps extends ThemeProps<DefaultTheme> {
-  isBare?: boolean;
-  isCompact?: boolean;
-  isEditable?: boolean;
-  isMultiselectable?: boolean;
+  $isBare?: boolean;
+  $isCompact?: boolean;
+  $isEditable?: boolean;
+  $isMultiselectable?: boolean;
 }
 
 const colorStyles = ({ theme }: IStyledInputProps) => {
@@ -38,11 +33,11 @@ const colorStyles = ({ theme }: IStyledInputProps) => {
 };
 
 export const getHeight = (props: IStyledInputProps) => {
-  if (props.isBare && !props.isMultiselectable) {
+  if (props.$isBare && !props.$isMultiselectable) {
     return props.theme.space.base * 5;
   }
 
-  return props.theme.space.base * (props.isCompact ? 5 : 8);
+  return props.theme.space.base * (props.$isCompact ? 5 : 8);
 };
 
 export const sizeStyles = (props: IStyledInputProps) => {
@@ -85,16 +80,12 @@ export const StyledInput = styled.input.attrs({
 
   &[hidden] {
     display: revert;
-    ${props => props.isEditable && hideVisually()}
+    ${props => props.$isEditable && hideVisually()}
   }
 
   &[aria-hidden='true'] {
     display: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

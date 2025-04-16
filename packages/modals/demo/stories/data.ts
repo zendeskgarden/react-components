@@ -38,7 +38,7 @@ export const MODAL_FOOTER_ITEMS: IFooterItem[] = [
   }
 ];
 
-export const TOOLTIP_MODAL_BODY = `Gumbo beet greens corn soko endive gumbo
+export const TOOLTIP_DIALOG_BODY = `Gumbo beet greens corn soko endive gumbo
 gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens
 dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko
 zucchini.`;

@@ -24,4 +24,4 @@ export const NavList = React.forwardRef<HTMLUListElement, HTMLAttributes<HTMLULi
   }
 );
 
-NavList.displayName = 'Nav';
+NavList.displayName = 'Nav.List';

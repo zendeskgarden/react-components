@@ -14,17 +14,18 @@ import React, {
   forwardRef,
   ReactElement
 } from 'react';
+import { useTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
-import { useText } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { ColorSwatch } from '../ColorSwatch';
 import {
   StyledButton,
   StyledButtonPreview,
-  StyledTooltipModal,
+  StyledTooltipDialog,
   StyledTooltipBody
 } from '../../styled';
 import { IColorSwatchDialogProps } from '../../types';
@@ -65,6 +66,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
     const [rowIndex, setRowIndex] = useState<number | undefined>(defaultSelectedRowIndex);
     const [colIndex, setColIndex] = useState<number | undefined>(defaultSelectedColIndex);
+    const theme = useTheme() || DEFAULT_THEME;
     let backgroundColor;
 
     if (isControlled) {
@@ -147,18 +149,19 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
             onClick={onClick}
             {...buttonProps}
           >
-            <StyledButtonPreview backgroundColor={backgroundColor} />
+            <StyledButtonPreview $backgroundColor={backgroundColor} />
             <Button.EndIcon isRotated={referenceElement !== null}>
               <Chevron />
             </Button.EndIcon>
           </StyledButton>
         )}
-        <StyledTooltipModal
+        <StyledTooltipDialog
           ref={ref}
           zIndex={zIndex}
           hasArrow={hasArrow}
           focusOnMount={false}
           placement={placement}
+          offset={theme.space.base}
           isAnimated={isAnimated}
           referenceElement={referenceElement}
           onClose={closeDialog}
@@ -178,7 +181,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
               onSelect={handleSelect}
             />
           </StyledTooltipBody>
-        </StyledTooltipModal>
+        </StyledTooltipDialog>
       </>
     );
   }
@@ -201,7 +204,7 @@ ColorSwatchDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
   zIndex: 1000,
-  hasArrow: false /* TooltipModal override */
+  hasArrow: false /* TooltipDialog override */
 };
 
 ColorSwatchDialog.displayName = 'ColorSwatchDialog';

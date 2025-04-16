@@ -27,13 +27,14 @@ const StepperComponent = forwardRef<HTMLOListElement, IStepperProps>(
 
     return (
       <StepperContext.Provider value={stepperContext}>
-        <StyledStepper ref={ref} isHorizontal={isHorizontal} {...props}>
+        <StyledStepper ref={ref} $isHorizontal={isHorizontal} {...props}>
           {useMemo(
             () =>
               Children.toArray(children)
                 .filter(isValidElement)
                 .map((child, index) => (
                   <StepContext.Provider
+                    // eslint-disable-next-line react/no-array-index-key
                     key={index}
                     // eslint-disable-next-line react/jsx-no-constructed-context-values
                     value={{

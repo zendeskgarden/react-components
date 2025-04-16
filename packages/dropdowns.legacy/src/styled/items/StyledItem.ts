@@ -6,21 +6,20 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
-import { rgba } from 'polished';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.item';
 
 export interface IStyledItemProps {
-  isFocused?: boolean;
-  isCompact?: boolean;
-  isDanger?: boolean;
+  $isFocused?: boolean;
+  $isCompact?: boolean;
+  $isDanger?: boolean;
   disabled?: boolean;
   checked?: boolean;
 }
 
 export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
-  if (props.isCompact) {
+  if (props.$isCompact) {
     return `${props.theme.space.base}px`;
   }
 
@@ -28,19 +27,21 @@ export const getItemPaddingVertical = (props: IStyledItemProps & ThemeProps<Defa
 };
 
 const getColorStyles = (props: IStyledItemProps & ThemeProps<DefaultTheme>) => {
+  const backgroundColor = props.$isFocused
+    ? getColor({
+        theme: props.theme,
+        variable: 'background.primaryEmphasis',
+        transparency: props.theme.opacity[100]
+      })
+    : 'inherit';
   let foregroundColor;
-  let backgroundColor;
 
   if (props.disabled) {
-    foregroundColor = getColorV8('neutralHue', 400, props.theme);
-  } else if (props.isDanger) {
-    foregroundColor = getColorV8('dangerHue', 600, props.theme);
-    backgroundColor = props.isFocused ? rgba(foregroundColor as string, 0.08) : 'inherit';
+    foregroundColor = getColor({ theme: props.theme, variable: 'foreground.disabled' });
+  } else if (props.$isDanger) {
+    foregroundColor = getColor({ theme: props.theme, variable: 'foreground.danger' });
   } else {
-    foregroundColor = getColorV8('foreground', 600 /* default shade */, props.theme);
-    backgroundColor = props.isFocused
-      ? getColorV8('primaryHue', 600, props.theme, 0.08)
-      : 'inherit';
+    foregroundColor = getColor({ theme: props.theme, variable: 'foreground.default' });
   }
 
   return css`
@@ -87,7 +88,6 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
     outline: none;
   }
 
-  /* stylelint-disable no-descending-specificity */
   & a,
   & a:hover,
   & a:focus,
@@ -97,9 +97,5 @@ export const StyledItem = styled.li.attrs<IStyledItemProps>(props => ({
 
   ${props => getColorStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

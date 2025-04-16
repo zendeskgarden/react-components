@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -21,15 +21,15 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
 
   let position = `${props.theme.space.base * -1}px`;
 
-  switch (props.size) {
-    case s:
-    case m:
-      position = math(`${position}  + 2`);
-      break;
+  switch (props.$size) {
     case xxs:
     case xs:
-    case l:
       position = math(`${position}  + 3`);
+      break;
+    case s:
+    case m:
+    case l:
+      position = math(`${position}  + 2`);
       break;
   }
 
@@ -45,25 +45,56 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     bottom: ${position};
     transition: all ${TRANSITION_DURATION}s ease-in-out;
 
-    ${props.status === 'active' &&
+    ${props.$status === 'active' &&
     css`
       animation: ${animation} ${TRANSITION_DURATION * 1.5}s ease-in-out;
     `}
   `;
 };
 
-const colorStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  const statusColor = getStatusColor(props.status, props.theme);
-  const backgroundColor = props.backgroundColor || 'transparent';
-  const foregroundColor = props.foregroundColor || props.theme.palette.white;
-  const surfaceColor = props.status
-    ? props.surfaceColor || getColorV8('background', 600 /* default shade */, props.theme)
-    : 'transparent';
+/**
+ * 1. Increased specificity so `StyledBaseIcon` doesn't override in menus
+ */
+const colorStyles = ({
+  theme,
+  $foregroundColor,
+  $surfaceColor,
+  $backgroundColor,
+  $status
+}: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+  const statusColor = getStatusColor(theme, $status);
+  let backgroundColor = 'transparent';
+  let foregroundColor = theme.palette.white;
+  let surfaceColor;
+
+  if ($backgroundColor) {
+    backgroundColor = $backgroundColor.includes('.')
+      ? getColor({ theme, variable: $backgroundColor })
+      : $backgroundColor;
+  }
+
+  if ($foregroundColor) {
+    foregroundColor = $foregroundColor.includes('.')
+      ? getColor({ theme, variable: $foregroundColor })
+      : $foregroundColor;
+  }
+
+  if ($status) {
+    surfaceColor = $surfaceColor?.includes('.')
+      ? getColor({ variable: $surfaceColor, theme })
+      : $surfaceColor || getColor({ variable: 'background.default', theme });
+  } else {
+    surfaceColor = 'transparent';
+  }
 
   return css`
-    box-shadow: ${props.theme.shadows.sm(statusColor)};
+    box-shadow: ${theme.shadows.sm(statusColor)};
     background-color: ${backgroundColor};
-    color: ${surfaceColor};
+
+    /* [1] */
+    && {
+      color: ${surfaceColor};
+    }
 
     & > svg,
     & ${StyledText} {
@@ -79,33 +110,33 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   let fontSize;
   let svgSize;
 
-  if (props.size === 'extraextrasmall') {
+  if (props.$size === 'extraextrasmall') {
     boxShadow = `0 0 0 ${math(`${props.theme.shadowWidths.sm} - 1`)}`;
-    borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
+    borderRadius = props.$isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
     size = `${props.theme.space.base * 4}px`;
     fontSize = 0;
     svgSize = `${props.theme.space.base * 3}px`;
-  } else if (props.size === 'extrasmall') {
+  } else if (props.$size === 'extrasmall') {
     boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
-    borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
+    borderRadius = props.$isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
     size = `${props.theme.space.base * 6}px`;
     fontSize = props.theme.fontSizes.sm;
     svgSize = `${props.theme.space.base * 3}px`;
-  } else if (props.size === 'small') {
+  } else if (props.$size === 'small') {
     boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
-    borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
+    borderRadius = props.$isSystem ? math(`${props.theme.borderRadii.md} - 1`) : '50%';
     size = `${props.theme.space.base * 8}px`;
     fontSize = props.theme.fontSizes.md;
     svgSize = `${props.theme.space.base * 3}px`;
-  } else if (props.size === 'large') {
+  } else if (props.$size === 'large') {
     boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
-    borderRadius = props.isSystem ? math(`${props.theme.borderRadii.md} + 1`) : '50%';
+    borderRadius = props.$isSystem ? math(`${props.theme.borderRadii.md} + 1`) : '50%';
     size = `${props.theme.space.base * 12}px`;
     fontSize = props.theme.fontSizes.xl;
     svgSize = `${props.theme.space.base * 6}px`;
   } else {
     boxShadow = `inset 0 0 0 ${props.theme.shadowWidths.sm}`;
-    borderRadius = props.isSystem ? props.theme.borderRadii.md : '50%';
+    borderRadius = props.$isSystem ? props.theme.borderRadii.md : '50%';
     size = `${props.theme.space.base * 10}px`;
     fontSize = props.theme.fontSizes.lg;
     svgSize = `${props.theme.space.base * 4}px`;
@@ -137,12 +168,13 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export interface IStyledAvatarProps
-  extends Pick<
-    IAvatarProps,
-    'backgroundColor' | 'foregroundColor' | 'surfaceColor' | 'isSystem' | 'size'
-  > {
-  status?: IAvatarProps['status'] | 'active';
+export interface IStyledAvatarProps {
+  $status?: IAvatarProps['status'] | 'active';
+  $backgroundColor?: IAvatarProps['backgroundColor'];
+  $foregroundColor?: IAvatarProps['foregroundColor'];
+  $surfaceColor?: IAvatarProps['surfaceColor'];
+  $isSystem?: IAvatarProps['isSystem'];
+  $size?: IAvatarProps['size'];
 }
 
 /**
@@ -197,10 +229,10 @@ export const StyledAvatar = styled.figure.attrs({
     ${badgeStyles};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledAvatar.defaultProps = {
-  size: 'medium',
+  $size: 'medium',
   theme: DEFAULT_THEME
 };

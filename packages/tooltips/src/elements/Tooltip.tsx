@@ -92,18 +92,18 @@ export const TooltipComponent = ({
     <StyledTooltipWrapper
       ref={floatingRef}
       style={{ transform }}
-      zIndex={zIndex}
+      $zIndex={zIndex}
       aria-hidden={!controlledIsVisible}
     >
       <StyledTooltip
         {...(getTooltipProps({
-          hasArrow,
-          placement,
-          size: toSize(size, type),
-          onFocus: composeEventHandlers(onFocus, openTooltip),
-          onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
           'aria-hidden': !controlledIsVisible,
-          type,
+          $hasArrow: hasArrow,
+          $placement: placement,
+          $size: toSize(size, type),
+          $type: type,
+          onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
+          onFocus: composeEventHandlers(onFocus, openTooltip),
           ...props
         }) as any)}
       >

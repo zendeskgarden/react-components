@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPageBase } from '../OffsetPagination/StyledPageBase';
 
 const COMPONENT_ID = 'cursor_pagination.cursor';
@@ -30,9 +30,5 @@ export const StyledCursor = styled(StyledPageBase as 'button').attrs({
     margin-right: ${props => props.theme.space.base}px;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledCursor.defaultProps = {
-  theme: DEFAULT_THEME
-};

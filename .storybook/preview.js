@@ -15,13 +15,13 @@ const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });
 const LIGHT = getColor({ theme: DEFAULT_THEME, variable: 'background.default' });
 
 export const args = {
-  'colors.dark': DEFAULT_THEME.colors.variables.dark,
-  'colors.light': DEFAULT_THEME.colors.variables.light
+  '$colors.dark': DEFAULT_THEME.colors.variables.dark,
+  '$colors.light': DEFAULT_THEME.colors.variables.light
 };
 
 export const argTypes = {
-  'colors.dark': { table: { category: 'Variables' } },
-  'colors.light': { table: { category: 'Variables' } }
+  '$colors.dark': { name: 'colors.dark', table: { category: 'Variables' } },
+  '$colors.light': { name: 'colors.light', table: { category: 'Variables' } }
 };
 
 export const parameters = {
@@ -45,11 +45,14 @@ export const parameters = {
 };
 
 const GlobalPreviewStyling = createGlobalStyle`
-  body {
+  html {
     background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
+    color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
+  }
+
+  body {
     /* stylelint-disable-next-line declaration-no-important */
     padding: 0 !important;
-    color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
     font-family: ${p => p.theme.fonts.system};
   }
 `;
@@ -73,8 +76,8 @@ const withThemeProvider = (story, context) => {
     primaryHue: context.globals.primaryHue,
     variables: {
       ...DEFAULT_THEME.colors.variables,
-      dark: context.args['colors.dark'],
-      light: context.args['colors.light']
+      dark: context.args['$colors.dark'],
+      light: context.args['$colors.light']
     }
   };
 

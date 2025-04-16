@@ -6,44 +6,37 @@
  */
 
 import styled from 'styled-components';
-import {
-  DEFAULT_THEME,
-  getMenuPosition,
-  menuStyles,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import { getMenuPosition, menuStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { Placement } from '@floating-ui/react-dom';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';
 
 interface IStyledMenuWrapperProps {
-  isHidden?: boolean;
-  isAnimated?: boolean;
-  zIndex?: number;
-  placement: Placement;
+  $isAnimated?: boolean;
+  $zIndex?: number;
+  'aria-hidden'?: boolean;
+  $placement: Placement;
 }
 
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
-  className: props.isAnimated && 'is-animated'
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledMenuWrapperProps>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 
   ${props =>
-    menuStyles(getMenuPosition(props.placement), {
+    menuStyles(getMenuPosition(props.$placement), {
       theme: props.theme,
-      hidden: props.isHidden,
+      hidden: props['aria-hidden'],
       margin: `${props.theme.space.base}px`,
-      zIndex: props.zIndex,
-      animationModifier: props.isAnimated ? '.is-animated' : undefined
+      zIndex: props.$zIndex,
+      animationModifier: props.$isAnimated ? '.is-animated' : undefined
     })};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMenuWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

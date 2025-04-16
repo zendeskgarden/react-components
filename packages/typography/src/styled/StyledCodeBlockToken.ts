@@ -6,38 +6,65 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCodeBlock } from './StyledCodeBlock';
 
 const COMPONENT_ID = 'typography.codeblock_token';
 
-/**
+/*
  * 1. Isolate the tag name.
  * 2. Target opening/closing `<`, `/>`.
  * 3. Override string tokenization of `=` after an attribute name.
  */
-const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme>) => {
-  const palette = props.theme.palette;
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const colors = {
-    boolean: props.isLight ? palette.royal[600] : palette.azure[400],
-    builtin: palette.teal[400],
-    comment: props.isLight ? palette.lime[600] : palette.mint[400],
-    constant: props.isLight ? palette.azure[400] : palette.blue[500],
-    coord: props.isLight ? palette.purple[600] : palette.blue[200],
-    deleted: props.isLight ? palette.red[700] : palette.red[200],
-    diff: props.isLight ? palette.yellow[800] : palette.yellow[200],
-    function: props.isLight ? palette.orange['M600' as any] : palette.yellow[300],
-    inserted: props.isLight ? palette.green[700] : palette.green[200],
-    keyword: palette.fuschia['M400' as any],
-    name: props.isLight ? palette.crimson[400] : palette.blue[300],
-    number: props.isLight ? palette.green[600] : palette.green[300],
-    punctuation: props.isLight ? palette.red[800] : palette.grey[600],
-    regex: palette.red[400],
-    value: props.isLight ? palette.red[700] : palette.crimson['M400' as any]
+    boolean: getColor({
+      theme,
+      dark: { hue: 'azure', shade: 600 },
+      light: { hue: 'royal', shade: 700 }
+    }),
+    builtin: getColor({ theme, hue: 'teal', dark: { shade: 600 }, light: { shade: 700 } }),
+    comment: getColor({
+      theme,
+      dark: { hue: 'mint', shade: 600 },
+      light: { hue: 'lime', shade: 700 }
+    }),
+    constant: getColor({
+      theme,
+      dark: { hue: 'blue', shade: 600 },
+      light: { hue: 'azure', shade: 700 }
+    }),
+    coord: getColor({ theme, hue: 'blue', dark: { shade: 200 }, light: { shade: 800 } }),
+    deleted: getColor({ theme, hue: 'red', dark: { shade: 200 }, light: { shade: 800 } }),
+    diff: getColor({ theme, hue: 'yellow', dark: { shade: 200 }, light: { shade: 800 } }),
+    function: getColor({
+      theme,
+      dark: { hue: 'yellow', shade: 300 },
+      light: { hue: 'orange', shade: 700 }
+    }),
+    inserted: getColor({ theme, hue: 'green', dark: { shade: 200 }, light: { shade: 800 } }),
+    keyword: getColor({ theme, hue: 'fuschia', dark: { shade: 600 }, light: { shade: 700 } }),
+    name: getColor({
+      theme,
+      dark: { hue: 'blue', shade: 400 },
+      light: { hue: 'crimson', shade: 700 }
+    }),
+    number: getColor({ theme, hue: 'green', dark: { shade: 400 }, light: { shade: 700 } }),
+    punctuation: getColor({
+      theme,
+      dark: { hue: 'grey', shade: 700 },
+      light: { hue: 'red', shade: 900 }
+    }),
+    regex: getColor({ theme, hue: 'red', shade: 600 }),
+    value: getColor({
+      theme,
+      dark: { hue: 'crimson', shade: 600 },
+      light: { hue: 'red', shade: 800 }
+    })
   };
 
   return css`
-    /* stylelint-disable selector-max-specificity, max-line-length */
+    /* stylelint-disable selector-max-specificity */
     &.builtin,
     &.class-name,
     &.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script) /* [1] */ {
@@ -114,7 +141,6 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
       color: ${colors.comment};
     }
 
-    /* stylelint-disable declaration-block-semicolon-newline-after, rule-empty-line-before  */
     ${StyledCodeBlock}.language-css &&.plain {
       color: ${colors.value};
     }
@@ -134,21 +160,14 @@ const colorStyles = (props: IStyledCodeBlockTokenProps & ThemeProps<DefaultTheme
     ${StyledCodeBlock}.language-diff &&.inserted {
       color: ${colors.inserted};
     }
-    /* stylelint-enable selector-max-specificity,
-       max-line-length,
-       declaration-block-semicolon-newline-after,
-       rule-empty-line-before */
+    /* stylelint-enable selector-max-specificity */
   `;
 };
-
-export interface IStyledCodeBlockTokenProps {
-  isLight?: boolean;
-}
 
 export const StyledCodeBlockToken = styled.span.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledCodeBlockTokenProps>`
+})`
   display: inline-block;
 
   &.bold:not(.diff) {
@@ -168,11 +187,7 @@ export const StyledCodeBlockToken = styled.span.attrs({
     text-align: center;
   }
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledCodeBlockToken.defaultProps = {
-  theme: DEFAULT_THEME
-};

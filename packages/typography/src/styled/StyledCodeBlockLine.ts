@@ -7,41 +7,49 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { Language } from 'prism-react-renderer';
-import { DEFAULT_THEME, retrieveComponentStyles, getColorV8 } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { Diff, Size } from '../types';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 
 const COMPONENT_ID = 'typography.codeblock_code';
 
-const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
+export interface IStyledCodeBlockLineProps {
+  $language?: Language;
+  $isHighlighted?: boolean;
+  $isNumbered?: boolean;
+  $diff?: Diff;
+  $size?: Size;
+}
+
+const colorStyles = ({
+  theme,
+  $diff,
+  $isHighlighted
+}: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
   let backgroundColor;
 
-  if (props.diff) {
-    let hue;
+  if ($diff) {
+    const hues = {
+      hunk: 'royal',
+      add: 'lime',
+      delete: 'crimson',
+      change: 'lemon'
+    };
 
-    switch (props.diff) {
-      case 'hunk':
-        hue = 'royal';
-        break;
-
-      case 'add':
-        hue = 'lime';
-        break;
-
-      case 'delete':
-        hue = 'crimson';
-        break;
-
-      case 'change':
-        hue = 'lemon';
-        break;
-    }
-
-    backgroundColor = getColorV8(hue, 400, props.theme, 0.2);
-  } else if (props.isHighlighted) {
-    const hue = props.isLight ? props.theme.palette.black : props.theme.palette.white;
-
-    backgroundColor = getColorV8(hue, 600, props.theme, 0.1);
+    backgroundColor = getColor({
+      theme,
+      hue: hues[$diff],
+      dark: { shade: 600 },
+      light: { shade: 400 },
+      transparency: theme.opacity[300]
+    });
+  } else if ($isHighlighted) {
+    backgroundColor = getColor({
+      theme,
+      dark: { hue: 'white' },
+      light: { hue: 'neutralHue', shade: 700 },
+      transparency: theme.opacity[100]
+    });
   }
 
   return css`
@@ -49,18 +57,22 @@ const colorStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>
   `;
 };
 
-const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
-  const color = getColorV8('neutralHue', props.isLight ? 600 : 500, props.theme);
+const lineNumberStyles = ({
+  theme,
+  $language,
+  $size
+}: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
+  const color = getColor({ theme, variable: 'foreground.subtle', light: { offset: -100 } });
   let padding;
 
-  if (props.language && props.language === 'diff') {
+  if ($language && $language === 'diff') {
     padding = 0;
-  } else if (props.size === 'small') {
-    padding = props.theme.space.base * 4;
-  } else if (props.size === 'large') {
-    padding = props.theme.space.base * 7;
+  } else if ($size === 'small') {
+    padding = theme.space.base * 4;
+  } else if ($size === 'large') {
+    padding = theme.space.base * 7;
   } else {
-    padding = props.theme.space.base * 6;
+    padding = theme.space.base * 6;
   }
 
   return `
@@ -76,16 +88,7 @@ const lineNumberStyles = (props: IStyledCodeBlockLineProps & ThemeProps<DefaultT
   `;
 };
 
-export interface IStyledCodeBlockLineProps {
-  language?: Language;
-  isHighlighted?: boolean;
-  isLight?: boolean;
-  isNumbered?: boolean;
-  diff?: Diff;
-  size?: Size;
-}
-
-/**
+/*
  * 1. Fix line display for mobile.
  * 2. Match parent padding for overflow scroll.
  */
@@ -93,15 +96,15 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
-  isMonospace: true
+  $isMonospace: true
 })<IStyledCodeBlockLineProps>`
   display: table-row;
-  height: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]}; /* [1] */
+  height: ${props => props.theme.lineHeights[THEME_SIZES[props.$size!]]}; /* [1] */
   direction: ltr;
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
-  ${props => props.isNumbered && lineNumberStyles(props)};
+  ${props => props.$isNumbered && lineNumberStyles(props)};
 
   &::after {
     display: inline-block;
@@ -109,9 +112,5 @@ export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
     content: '';
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledCodeBlockLine.defaultProps = {
-  theme: DEFAULT_THEME
-};

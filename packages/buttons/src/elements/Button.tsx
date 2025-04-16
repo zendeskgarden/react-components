@@ -13,27 +13,53 @@ import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 import { StartIcon } from './components/StartIcon';
 import { EndIcon } from './components/EndIcon';
 
-const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>((props, ref) => {
-  const splitButtonContext = useSplitButtonContext();
+const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
+  (
+    {
+      focusInset,
+      isBasic,
+      isDanger,
+      isLink,
+      isNeutral,
+      isPill,
+      isPrimary,
+      isStretched,
+      size,
+      ...other
+    },
+    ref
+  ) => {
+    const splitButtonFocusInset = useSplitButtonContext();
 
-  const computedProps = {
-    ...props,
-    focusInset: props.focusInset || splitButtonContext
-  };
-
-  return <StyledButton {...computedProps} ref={ref} />;
-});
+    return (
+      <StyledButton
+        {...other}
+        $focusInset={focusInset || splitButtonFocusInset}
+        $isBasic={isBasic}
+        $isDanger={isDanger}
+        $isLink={isLink}
+        $isNeutral={isNeutral}
+        $isPill={isPill}
+        $isPrimary={isPrimary}
+        $isStretched={isStretched}
+        $isUnderlined={isLink}
+        $size={size}
+        ref={ref}
+      />
+    );
+  }
+);
 
 ButtonComponent.displayName = 'Button';
 
 ButtonComponent.propTypes = {
-  isNeutral: PropTypes.bool,
-  isPrimary: PropTypes.bool,
-  isDanger: PropTypes.bool,
-  isPill: PropTypes.bool,
-  isBasic: PropTypes.bool,
   focusInset: PropTypes.bool,
+  isBasic: PropTypes.bool,
+  isDanger: PropTypes.bool,
   isLink: PropTypes.bool,
+  isNeutral: PropTypes.bool,
+  isPill: PropTypes.bool,
+  isPrimary: PropTypes.bool,
   isStretched: PropTypes.bool,
   size: PropTypes.oneOf(SIZE)
 };

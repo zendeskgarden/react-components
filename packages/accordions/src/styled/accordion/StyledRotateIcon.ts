@@ -5,13 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getColorV8,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  StyledBaseIcon
-} from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
 
@@ -22,13 +17,17 @@ interface IStyledRotateIcon {
   $isCollapsible?: boolean;
 }
 
-const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
-  const showColor = props.$isCollapsible || !props.$isRotated;
-  let color = getColorV8('neutralHue', 600, props.theme);
-
-  if (showColor && props.$isHovered) {
-    color = getColorV8('primaryHue', 600, props.theme);
-  }
+const colorStyles = ({
+  $isCollapsible,
+  $isHovered,
+  $isRotated,
+  theme
+}: ThemeProps<DefaultTheme> & any) => {
+  const showColor = $isCollapsible || !$isRotated;
+  const color = getColor({
+    theme,
+    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.subtle'
+  });
 
   return css`
     color: ${color};
@@ -39,7 +38,7 @@ const colorStyles = (props: ThemeProps<DefaultTheme> & any) => {
   `;
 };
 
-export const StyledRotateIcon = styled(StyledBaseIcon).attrs({
+export const StyledRotateIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRotateIcon>`
@@ -59,9 +58,5 @@ export const StyledRotateIcon = styled(StyledBaseIcon).attrs({
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRotateIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

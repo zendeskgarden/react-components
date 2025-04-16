@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tags.close';
 
@@ -15,7 +15,7 @@ const COMPONENT_ID = 'tags.close';
  * 2. text content reset
  */
 
-export const StyledClose = styled.button.attrs<unknown>({
+export const StyledClose = styled.button.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -45,9 +45,5 @@ export const StyledClose = styled.button.attrs<unknown>({
     opacity: ${props => props.theme.opacity[1200]};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

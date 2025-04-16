@@ -6,12 +6,12 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.stepper';
 
 interface IStyledStepper {
-  isHorizontal?: boolean;
+  $isHorizontal?: boolean;
 }
 
 /**
@@ -21,14 +21,10 @@ export const StyledStepper = styled.ol.attrs<IStyledStepper>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStepper>`
-  display: ${props => props.isHorizontal && 'flex'};
+  display: ${props => props.$isHorizontal && 'flex'};
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledStepper.defaultProps = {
-  theme: DEFAULT_THEME
-};

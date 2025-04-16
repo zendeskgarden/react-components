@@ -6,13 +6,13 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont, IStyledFontProps } from './StyledFont';
 import { ICodeProps } from '../types';
 
 const COMPONENT_ID = 'typography.code';
 
-const colorStyles = ({ hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ $hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
   const bgColorArgs: Parameters<typeof getColor>[0] = {
     theme,
     light: { offset: 100 },
@@ -20,7 +20,7 @@ const colorStyles = ({ hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>
   };
   const fgColorArgs: Parameters<typeof getColor>[0] = { theme };
 
-  switch (hue) {
+  switch ($hue) {
     case 'green':
       bgColorArgs.variable = 'background.success';
       fgColorArgs.variable = 'foreground.successEmphasis';
@@ -54,26 +54,26 @@ const colorStyles = ({ hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>
 };
 
 interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
-  hue?: ICodeProps['hue'];
-  size?: ICodeProps['size'];
+  $hue?: ICodeProps['hue'];
+  $size?: ICodeProps['size'];
 }
 
 export const StyledCode = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
-  isMonospace: true
+  $isMonospace: true
 })<IStyledCodeProps>`
   border-radius: ${props => props.theme.borderRadii.sm};
   padding: 1.5px;
 
   ${props => colorStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledCode.defaultProps = {
   theme: DEFAULT_THEME,
-  hue: 'grey',
-  size: 'inherit'
+  $hue: 'grey',
+  $size: 'inherit'
 };

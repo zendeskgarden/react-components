@@ -25,6 +25,12 @@ describe('Button', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('renders link styling if provided', () => {
+    const { container } = render(<Button isLink />);
+
+    expect(container.firstChild).toHaveStyleRule('text-decoration', 'underline');
+  });
+
   describe('`data-garden-id` attribute', () => {
     it('sets a default data-garden-id attribute', () => {
       const { getByRole } = render(<Button />);

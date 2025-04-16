@@ -16,9 +16,9 @@ import {
   StyledMessage,
   StyledCheckMessage,
   StyledRadioMessage,
-  StyledToggleMessage,
-  StyledMessageIcon
+  StyledToggleMessage
 } from '../../styled';
+import { MessageIcon } from './MessageIcon';
 
 /**
  * @deprecated use `Field.Message` instead
@@ -26,7 +26,7 @@ import {
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
-  ({ validation, validationLabel, children, ...props }, ref) => {
+  ({ validation, validationLabel, children, ...other }, ref) => {
     const { hasMessage, setHasMessage, getMessageProps } = useFieldContext() || {};
     const type = useInputContext();
 
@@ -54,7 +54,7 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
       MessageComponent = StyledMessage;
     }
 
-    let combinedProps = { validation, validationLabel, ...props };
+    let combinedProps = { $validation: validation, $validationLabel: validationLabel, ...other };
 
     if (getMessageProps) {
       combinedProps = getMessageProps(combinedProps);
@@ -63,21 +63,21 @@ export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
     const ariaLabel = useText(
       Message,
       combinedProps,
-      'validationLabel',
+      '$validationLabel',
       validation as string,
       validation !== undefined
     );
 
     return (
       <MessageComponent ref={ref} {...combinedProps}>
-        {validation && <StyledMessageIcon validation={validation} aria-label={ariaLabel} />}
+        {!!validation && <MessageIcon validation={validation} aria-label={ariaLabel} />}
         {children}
       </MessageComponent>
     );
   }
 );
 
-Message.displayName = 'Message';
+Message.displayName = 'Field.Message';
 
 Message.propTypes = {
   validation: PropTypes.oneOf(VALIDATION),

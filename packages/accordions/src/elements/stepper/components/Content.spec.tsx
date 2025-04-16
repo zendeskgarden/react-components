@@ -58,8 +58,12 @@ describe('Content', () => {
         </Stepper.Step>
       </Stepper>
     );
+    const visibleElement = queryByText('Blueberry');
+    const hiddenElement = queryByText('Strawberry');
 
-    expect(queryByText('Blueberry')).toHaveAttribute('aria-hidden', 'false');
-    expect(queryByText('Strawberry')).toHaveAttribute('aria-hidden', 'true');
+    expect(visibleElement).toHaveAttribute('aria-hidden', 'false');
+    expect(visibleElement).not.toHaveAttribute('inert');
+    expect(hiddenElement).toHaveAttribute('aria-hidden', 'true');
+    expect(hiddenElement).toHaveAttribute('inert');
   });
 });

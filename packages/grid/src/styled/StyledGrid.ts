@@ -7,30 +7,35 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { IGridProps } from '../types';
 
 const COMPONENT_ID = 'grid.grid';
 
-const colorStyles = ({ theme }: IStyledGridProps) => {
-  const borderColor = getColor({
-    theme,
-    hue: 'crimson',
-    shade: 700,
-    transparency: theme.opacity[600]
-  });
-  const borderWidth = math(`${theme.borderWidths.sm} * 2`);
+const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
+  const borderColor =
+    $debug &&
+    getColor({
+      theme,
+      hue: 'crimson',
+      shade: 700,
+      transparency: theme.opacity[600]
+    });
+  const borderWidth = $debug && math(`${theme.borderWidths.sm} * 2`);
 
   return css`
+    color-scheme: only ${theme.colors.base};
     /* prettier-ignore */
-    box-shadow:
+    box-shadow: ${$debug &&
+    `
       -${borderWidth} 0 0 0 ${borderColor},
-      ${borderWidth} 0 0 0 ${borderColor};
+      ${borderWidth} 0 0 0 ${borderColor}
+    `};
   `;
 };
 
-const sizeStyles = ({ theme, gutters }: IStyledGridProps) => {
-  const padding = gutters ? math(`${theme.space[gutters!]} / 2`) : 0;
+const sizeStyles = ({ theme, $gutters }: IStyledGridProps) => {
+  const padding = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
 
   return css`
     padding-right: ${padding};
@@ -38,7 +43,10 @@ const sizeStyles = ({ theme, gutters }: IStyledGridProps) => {
   `;
 };
 
-interface IStyledGridProps extends Omit<IGridProps, 'columns'>, ThemeProps<DefaultTheme> {}
+interface IStyledGridProps extends ThemeProps<DefaultTheme> {
+  $debug?: IGridProps['debug'];
+  $gutters?: IGridProps['gutters'];
+}
 
 export const StyledGrid = styled.div.attrs<IStyledGridProps>({
   'data-garden-id': COMPONENT_ID,
@@ -52,12 +60,12 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>({
 
   ${sizeStyles};
 
-  ${props => props.debug && colorStyles(props)};
+  ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledGrid.defaultProps = {
-  gutters: 'md',
+  $gutters: 'md',
   theme: DEFAULT_THEME
 };

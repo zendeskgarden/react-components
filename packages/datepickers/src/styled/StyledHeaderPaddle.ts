@@ -6,68 +6,87 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const retrieveSizing = ({
-  isCompact,
-  theme
-}: { isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
-  let size = theme.space.base * 10;
+interface IStyledHeaderPaddleProps {
+  $isCompact: boolean;
+  'aria-hidden'?: boolean;
+}
 
-  if (isCompact) {
-    size = theme.space.base * 8;
-  }
+const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
+  const iconSize = theme.iconSizes.md;
+  const size = theme.space.base * ($isCompact ? 8 : 10);
 
   return css`
     width: ${size}px;
     height: ${size}px;
+
+    svg {
+      width: ${iconSize};
+      height: ${iconSize};
+    }
   `;
 };
 
-const retrieveColor = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const foreground = getColor({ variable: 'foreground.subtle', theme });
+  const foregroundHover = getColor({
+    variable: 'foreground.subtle',
+    light: { offset: 100 },
+    dark: { offset: -100 },
+    theme
+  });
+  const backgroundHover = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[100]
+  });
+  const foregroundActive = getColor({
+    variable: 'foreground.subtle',
+    light: { offset: 200 },
+    dark: { offset: -200 },
+    theme
+  });
+  const backgroundActive = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[200]
+  });
+
   return css`
-    :hover {
-      background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
-      color: ${getColorV8('foreground', 600 /* default shade */, theme)};
+    color: ${foreground};
+
+    &:hover {
+      background-color: ${backgroundHover};
+      color: ${foregroundHover};
     }
 
-    :active {
-      background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
-      color: ${getColorV8('foreground', 600 /* default shade */, theme)};
+    &:active {
+      background-color: ${backgroundActive};
+      color: ${foregroundActive};
     }
-
-    color: ${getColorV8('neutralHue', 600, theme)};
   `;
 };
 
 const COMPONENT_ID = 'datepickers.header_paddle';
 
 export const StyledHeaderPaddle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
-})<{
-  isCompact: boolean;
-  isHidden?: boolean;
-}>`
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledHeaderPaddleProps>`
   display: flex;
   align-items: center;
   justify-content: center;
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
-  visibility: ${props => props.isHidden && 'hidden'};
   border-radius: 50%;
   cursor: pointer;
 
-  ${/* sc-block */ retrieveSizing}
-
-  ${retrieveColor}
-
-  svg {
-    width: ${props => `${props.theme.iconSizes.md}`};
-    height: ${props => `${props.theme.iconSizes.md}`};
+  &[aria-hidden] {
+    visibility: hidden;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
-`;
+  ${sizeStyles}
+  ${colorStyles}
 
-StyledHeaderPaddle.defaultProps = {
-  theme: DEFAULT_THEME
-};
+  ${componentStyles};
+`;

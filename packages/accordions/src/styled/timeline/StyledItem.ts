@@ -6,12 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColorV8
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledSeparator } from './StyledSeparator';
 import { StyledTimelineContent } from './StyledContent';
 import { StyledOppositeContent } from './StyledOppositeContent';
@@ -19,9 +14,8 @@ import { StyledOppositeContent } from './StyledOppositeContent';
 const COMPONENT_ID = 'timeline.item';
 
 interface IStyledTimelineItem {
-  surfaceColor?: string;
-  isAlternate?: boolean;
-  hasOppositeContent?: boolean;
+  $isAlternate?: boolean;
+  $hasOppositeContent?: boolean;
 }
 
 export const StyledTimelineItem = styled.li.attrs({
@@ -31,7 +25,7 @@ export const StyledTimelineItem = styled.li.attrs({
   display: flex;
   position: relative;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
 
   &:last-of-type ${StyledSeparator}::after {
@@ -39,8 +33,8 @@ export const StyledTimelineItem = styled.li.attrs({
   }
 
   ${props =>
-    !props.hasOppositeContent &&
-    props.isAlternate &&
+    !props.$hasOppositeContent &&
+    props.$isAlternate &&
     css`
       &::before {
         flex: 1;
@@ -50,7 +44,7 @@ export const StyledTimelineItem = styled.li.attrs({
     `}
 
   ${props =>
-    props.isAlternate &&
+    props.$isAlternate &&
     css`
       &:nth-child(even) {
         flex-direction: row-reverse;
@@ -63,9 +57,5 @@ export const StyledTimelineItem = styled.li.attrs({
       }
     `}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTimelineItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

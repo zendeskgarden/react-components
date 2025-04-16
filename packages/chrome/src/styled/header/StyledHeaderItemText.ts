@@ -5,36 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+import { hideVisually } from 'polished';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.header_item_text';
 
 export interface IStyledHeaderItemTextProps {
-  isClipped?: boolean;
+  $isClipped?: boolean;
 }
-
-export const clippedStyling = css`
-  position: absolute;
-  margin: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  white-space: nowrap;
-`;
 
 export const StyledHeaderItemText = styled.span.attrs<IStyledHeaderItemTextProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHeaderItemTextProps>`
-  margin: 0 3px;
+  margin: ${props => `0 ${props.theme.space.base * 0.75}px`};
 
-  ${props => props.isClipped && clippedStyling}
+  ${props => props.$isClipped && hideVisually()}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledHeaderItemText.defaultProps = {
-  theme: DEFAULT_THEME
-};

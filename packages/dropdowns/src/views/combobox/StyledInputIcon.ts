@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { getHeight as getInputHeight } from './StyledInput';
 import { StyledTrigger } from './StyledTrigger';
 
@@ -35,15 +30,12 @@ const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
   return css`
     color: ${$isLabelHovered ? focusColor : color};
 
-    /* stylelint-disable selector-no-qualifying-type */
     ${StyledTrigger}:hover &&,
     ${StyledTrigger}:focus-within &&,
     ${StyledTrigger}:focus && {
       color: ${focusColor};
     }
-    /* stylelint-enable selector-no-qualifying-type */
 
-    /* stylelint-disable-next-line */
     ${StyledTrigger}[aria-disabled='true'] && {
       color: ${disabledColor};
     }
@@ -64,14 +56,13 @@ const sizeStyles = (props: IStyledInputIconProps) => {
 
   return css`
     top: ${position};
-    /* stylelint-disable-next-line */
     margin-${side}: ${margin}; 
     width: ${size};
     height: ${size};
   `;
 };
 
-export const StyledInputIcon = styled(StyledBaseIcon).attrs({
+export const StyledInputIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInputIconProps>`
@@ -87,9 +78,5 @@ export const StyledInputIcon = styled(StyledBaseIcon).attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledInputIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

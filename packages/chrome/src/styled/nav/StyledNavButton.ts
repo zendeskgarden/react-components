@@ -6,83 +6,108 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, rgba } from 'polished';
-import {
-  retrieveComponentStyles,
-  getColorV8,
-  focusStyles,
-  DEFAULT_THEME,
-  SELECTOR_FOCUS_VISIBLE
-} from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 import { StyledNavItemIcon } from './StyledNavItemIcon';
-import { getNavWidth } from './StyledNav';
+import { getNavWidth } from '../utils';
 
 const COMPONENT_ID = 'chrome.nav_button';
 
-/**
- * 1. Use outline for focus styling to work with transparent backgrounds
+interface IStyledNavItemProps {
+  $isExpanded?: boolean;
+  $hue: string;
+}
+
+/*
+ * 1. Anchor reset
  */
-const colorStyles = (props: IStyledNavItemProps) => {
-  const { theme, hue, isLight, isDark, isCurrent } = props;
-  const DARK = theme.palette.black as string;
-  const LIGHT = theme.palette.white as string;
-
-  let currentColor;
-  let hoverColor;
-
-  if (isCurrent) {
-    if (isLight) {
-      currentColor = rgba(DARK, 0.4);
-    } else if (isDark) {
-      currentColor = rgba(LIGHT, 0.4);
-    } else {
-      currentColor = getColorV8(hue, 500, theme);
-    }
-  } else {
-    hoverColor = rgba(isLight ? LIGHT : DARK, 0.1);
-  }
-
-  const activeColor = rgba(isLight ? DARK : LIGHT, 0.1);
-  const focusColor = isLight ? DARK : LIGHT;
+const colorStyles = ({ theme, $hue }: IStyledNavItemProps & ThemeProps<DefaultTheme>) => {
+  const activeBackgroundColor = getColor({
+    theme,
+    dark: { hue: 'white' },
+    light: { hue: 'black' },
+    transparency: theme.opacity[100]
+  });
+  const currentBackgroundColor =
+    $hue === 'chromeHue'
+      ? getColor({ theme, hue: $hue, shade: 700 })
+      : getColor({
+          theme,
+          dark: { hue: 'white' },
+          light: { hue: 'black' },
+          transparency: theme.opacity[500]
+        });
+  const focusOutlineColor = getColor({ theme, dark: { hue: 'white' }, light: { hue: 'black' } });
+  const focusOutlineOffset = `-${theme.borderWidths.md}`;
+  const hoverBackgroundColor = getColor({
+    theme,
+    dark: { hue: 'black' },
+    light: { hue: 'white' },
+    transparency: theme.opacity[100]
+  });
 
   return css`
-    opacity: ${isCurrent ? 1 : 0.6};
+    opacity: ${theme.opacity[700]};
     outline-color: transparent;
-    background-color: ${currentColor};
+    background-color: transparent;
+    color: inherit; /* [1] */
 
     &:hover {
       opacity: 1;
-      background-color: ${hoverColor};
+      background-color: ${hoverBackgroundColor};
+    }
+
+    &:hover,
+    &:focus {
+      color: inherit; /* [1] */
     }
 
     ${focusStyles({
       theme,
-      condition: false /* [1] */,
-      styles: { opacity: 1, outlineColor: focusColor }
+      condition: false, // use outline styling to work with transparent backgrounds
+      styles: {
+        opacity: 1,
+        outlineColor: focusOutlineColor,
+        outlineOffset: focusOutlineOffset
+      }
     })}
 
     &:active {
-      background-color: ${activeColor};
+      background-color: ${activeBackgroundColor};
+    }
+
+    &[aria-current='true'] {
+      opacity: 1;
+      background-color: ${currentBackgroundColor};
     }
   `;
 };
 
-interface IStyledNavItemProps extends ThemeProps<DefaultTheme> {
-  isCurrent?: boolean;
-  isExpanded?: boolean;
-  isDark?: boolean;
-  isLight?: boolean;
-  hue: string;
-}
+/*
+ * 1. Button reset
+ * 2. Overrides flex default `min-width: auto`
+ */
+const sizeStyles = ({ theme, $isExpanded }: IStyledNavItemProps & ThemeProps<DefaultTheme>) => {
+  const iconMargin = $isExpanded
+    ? `0 ${math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}`
+    : undefined;
 
-/**
+  return css`
+    margin: 0; /* [1] */
+    border: none; /* [1] */
+    box-sizing: border-box;
+    min-width: 0; /* [2] */
+    font-size: inherit; /* [1] */
+
+    ${StyledNavItemIcon} {
+      margin: ${iconMargin};
+    }
+  `;
+};
+
+/*
  * 1. Anchor reset
- * 2. Button reset
- * 3. Override `focusStyles` outline (in `colorStyles`)
- * 4. Use of negative offset to create an inset outline
- * 5. Overrides flex default `min-width: auto`
- *    https://ishadeed.com/article/min-max-css/#setting-min-width-to-zero-with-flexbox
  */
 export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   'data-garden-id': COMPONENT_ID,
@@ -90,44 +115,23 @@ export const StyledNavButton = styled(StyledBaseNavItem as 'button').attrs({
   as: 'button'
 })<IStyledNavItemProps>`
   flex: 1;
-  justify-content: ${props => props.isExpanded && 'start'};
-  margin: 0; /* [2] */
-  border: none; /* [2] */
-  box-sizing: border-box;
-  background: transparent; /* [2] */
-  cursor: ${props => (props.isCurrent ? 'default' : 'pointer')};
-  min-width: 0; /* [5] */
-  text-align: ${props => props.isExpanded && 'inherit'};
+  justify-content: ${props => props.$isExpanded && 'start'};
+  cursor: pointer;
+  text-align: ${props => props.$isExpanded && 'inherit'};
   text-decoration: none; /* [1] */
-  color: inherit; /* [1] */
-  font-size: inherit; /* [2] */
+
+  ${sizeStyles};
 
   &:hover,
   &:focus {
     text-decoration: none; /* [1] */
-    color: inherit; /* [1] */
+  }
+
+  &[aria-current='true'] {
+    cursor: default;
   }
 
   ${colorStyles};
 
-  &:focus-visible:hover,
-  &:focus-visible:active,
-  ${SELECTOR_FOCUS_VISIBLE} {
-    outline: ${props => math(`${props.theme.borderWidths.md} - 1`)} solid; /* [3] */
-    outline-offset: -${props => props.theme.borderWidths.md}; /* [4] */
-  }
-
-  ${props =>
-    props.isExpanded &&
-    `
-    ${StyledNavItemIcon} {
-      margin: 0 ${math(`(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4`)};
-    }
-  `}
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledNavButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,18 +6,14 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.header_icon';
-
-interface IStyledHeaderIcon {
-  isCompact?: boolean;
-}
 
 export const StyledHeaderIcon = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledHeaderIcon>`
+})`
   display: flex;
   position: absolute;
   top: 0;
@@ -25,16 +21,12 @@ export const StyledHeaderIcon = styled.div.attrs({
   align-items: center;
   justify-content: center;
   ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 3}px;
-  color: ${props => getColorV8('neutralHue', 600, props.theme)};
+  color: ${props => getColor({ theme: props.theme, variable: 'foreground.subtle' })};
 
   & > * {
     width: ${props => props.theme.iconSizes.md};
     height: ${props => props.theme.iconSizes.md};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledHeaderIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

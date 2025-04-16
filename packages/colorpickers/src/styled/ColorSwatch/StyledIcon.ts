@@ -5,14 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes } from 'styled-components';
+import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';
 
-export const StyledIcon = styled(CheckIcon as 'svg').attrs({
+export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
@@ -28,9 +27,5 @@ export const StyledIcon = styled(CheckIcon as 'svg').attrs({
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { IParagraphProps } from '../types';
 import { THEME_SIZES } from './StyledFont';
 
@@ -25,9 +25,5 @@ export const StyledParagraph = styled.p.attrs({
     margin-top: ${props => props.theme.lineHeights[THEME_SIZES[props.size!]]};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledParagraph.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { getStatusSize, IStyledStatusIndicatorProps } from './utility';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
@@ -22,10 +22,10 @@ export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase)
   margin-top: ${props =>
     `calc((${props.theme.lineHeights.md} - ${getStatusSize(props, '0')}) / 2)`};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledStandaloneStatusIndicator.defaultProps = {
-  type: 'offline',
+  $type: 'offline',
   theme: DEFAULT_THEME
 };

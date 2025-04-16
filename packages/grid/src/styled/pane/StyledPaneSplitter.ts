@@ -8,10 +8,9 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { math } from 'polished';
 import {
-  DEFAULT_THEME,
   focusStyles,
   getColor,
-  retrieveComponentStyles,
+  componentStyles,
   SELECTOR_FOCUS_VISIBLE
 } from '@zendeskgarden/react-theming';
 import { Orientation } from '../../types';
@@ -19,8 +18,8 @@ import { Orientation } from '../../types';
 const COMPONENT_ID = 'pane.splitter';
 
 interface IStyledPaneSplitterProps {
-  orientation?: Orientation;
-  isFixed?: boolean;
+  $orientation?: Orientation;
+  $isFixed?: boolean;
 }
 
 const colorStyles = ({ theme }: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
@@ -52,8 +51,8 @@ const colorStyles = ({ theme }: IStyledPaneSplitterProps & ThemeProps<DefaultThe
 
 const sizeStyles = ({
   theme,
-  orientation,
-  isFixed
+  $orientation,
+  $isFixed
 }: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
   const size = math(`${theme.shadowWidths.md} * 2`);
   const separatorSize = math(`${theme.borderWidths.sm} * 2`);
@@ -68,7 +67,7 @@ const sizeStyles = ({
   let separatorWidth;
   let separatorHeight;
 
-  switch (orientation) {
+  switch ($orientation) {
     case 'top':
       cursor = 'row-resize';
       top = offset;
@@ -131,7 +130,7 @@ const sizeStyles = ({
     right: ${right};
     bottom: ${bottom};
     left: ${left};
-    cursor: ${isFixed ? 'pointer' : cursor};
+    cursor: ${$isFixed ? 'pointer' : cursor};
     width: ${width};
     height: ${height};
 
@@ -189,9 +188,5 @@ export const StyledPaneSplitter = styled.div.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledPaneSplitter.defaultProps = {
-  theme: DEFAULT_THEME
-};

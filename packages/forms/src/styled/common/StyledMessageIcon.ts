@@ -5,51 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import React, { Children, PropsWithChildren } from 'react';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import AlertError from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-import AlertWarning from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
-import CheckCircle from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
-import { Validation } from '../../types';
-
-const MessageIcon: React.FC<PropsWithChildren<IStyledMessageIconProps>> = ({
-  children,
-  validation,
-  ...props
-}) => {
-  let retVal;
-
-  if (validation === 'error') {
-    retVal = React.createElement(AlertError, props);
-  } else if (validation === 'success') {
-    retVal = React.createElement(CheckCircle, props);
-  } else if (validation === 'warning') {
-    retVal = React.createElement(AlertWarning, props);
-  } else {
-    retVal = React.cloneElement(Children.only(children as any));
-  }
-
-  return retVal;
-};
+import styled, { DataAttributes } from 'styled-components';
+import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_message_icon';
 
-interface IStyledMessageIconProps {
-  validation?: Validation;
-}
-
-export const StyledMessageIcon = styled(MessageIcon).attrs({
+export const StyledMessageIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'aria-hidden': null
-})<IStyledMessageIconProps>`
+  'data-garden-version': PACKAGE_VERSION
+})`
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMessageIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

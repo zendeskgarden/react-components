@@ -17,7 +17,7 @@
       "@zendeskgarden/react-chrome": ["./packages/chrome/src/index.ts"],
       "@zendeskgarden/react-colorpickers": ["./packages/colorpickers/src/index.ts"],
       "@zendeskgarden/react-datepickers": ["./packages/datepickers/src/index.ts"],
-      "@zendeskgarden/react-drag-drop": ["./packages/drag-drop/src/index.ts"],
+      "@zendeskgarden/react-draggable": ["./packages/draggable/src/index.ts"],
       "@zendeskgarden/react-dropdowns.legacy": ["./packages/dropdowns.legacy/src/index.ts"],
       "@zendeskgarden/react-dropdowns": ["./packages/dropdowns/src/index.ts"],
       "@zendeskgarden/react-forms": ["./packages/forms/src/index.ts"],
@@ -40,6 +40,7 @@
   },
   "files": [
     "utils/build/declarations.d.ts",
+    "utils/build/react.d.ts",
     "utils/build/styled.d.ts",
     "utils/build/Intl.d.ts",
     "utils/test/jest.d.ts"

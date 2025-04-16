@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+export { ColorSchemeProvider } from './elements/ColorSchemeProvider';
 export { ThemeProvider } from './elements/ThemeProvider';
 export { default as DEFAULT_THEME } from './elements/theme';
 export { default as PALETTE } from './elements/palette';
-export { default as PALETTE_V8 } from './elements/palette/v8';
 export { default as retrieveComponentStyles } from './utils/retrieveComponentStyles';
+export { componentStyles } from './utils/componentStyles';
 export { getArrowPosition } from './utils/getArrowPosition';
 export { getCheckeredBackground } from './utils/getCheckeredBackground';
 export { getColor } from './utils/getColor';
@@ -20,6 +21,7 @@ export { default as getLineHeight } from './utils/getLineHeight';
 export { getMenuPosition } from './utils/getMenuPosition';
 export { default as mediaQuery } from './utils/mediaQuery';
 export { default as arrowStyles } from './utils/arrowStyles';
+export { useColorScheme } from './utils/useColorScheme';
 export { useDocument } from './utils/useDocument';
 export { useWindow } from './utils/useWindow';
 export { useText } from './utils/useText';
@@ -31,11 +33,15 @@ export {
   ARROW_POSITION,
   MENU_POSITION,
   PLACEMENT,
+  type IColorSchemeContext,
+  type IColorSchemeProviderProps,
   type IGardenTheme,
+  type IStyledBaseIconProps,
   type IThemeProviderProps,
   type ArrowPosition,
   type CheckeredBackgroundParameters,
   type ColorParameters,
+  type ColorScheme,
   type FocusBoxShadowParameters,
   type FocusStylesParameters,
   type MenuPosition,

@@ -18,11 +18,18 @@ import { StyledFileUpload } from '../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
-  ({ disabled, ...props }, ref) => {
+  ({ disabled, isCompact, isDragging, ...other }, ref) => {
     return (
       /* [1] */
       // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
-      <StyledFileUpload ref={ref} aria-disabled={disabled} {...props} role="button" />
+      <StyledFileUpload
+        ref={ref}
+        aria-disabled={disabled}
+        $isCompact={isCompact}
+        $isDragging={isDragging}
+        {...other}
+        role="button"
+      />
     );
   }
 );

@@ -6,80 +6,103 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
-  isPreviousMonth?: boolean;
-  isToday?: boolean;
-  isDisabled?: boolean;
-  isSelected?: boolean;
-  isCompact: boolean;
+  $isPreviousMonth?: boolean;
+  $isToday?: boolean;
+  $isCompact: boolean;
+  'aria-selected'?: boolean;
+  'aria-disabled'?: boolean;
 }
 
-const retrieveStyledDayColors = ({
-  isSelected,
-  isDisabled,
-  isToday,
-  isPreviousMonth,
-  theme
-}: IStyledDayProps) => {
+const sizeStyles = () => {
+  return css`
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+  `;
+};
+
+const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDayProps) => {
+  const isSelected = props['aria-selected'];
+  const isDisabled = props['aria-disabled'];
+
   let backgroundColor = 'inherit';
-  let color = getColorV8('primaryHue', 600, theme);
+  let foreground;
+  const backgroundHover = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[100]
+  });
+  const foregroundHover =
+    !$isToday &&
+    getColor({
+      variable: 'foreground.primary',
+      light: { offset: 100 },
+      dark: { offset: -100 },
+      theme
+    });
+  const backgroundActive = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[200]
+  });
+  const foregroundActive =
+    !$isToday &&
+    getColor({
+      variable: 'foreground.primary',
+      light: { offset: 200 },
+      dark: { offset: -200 },
+      theme
+    });
 
   if (isSelected && !isDisabled) {
-    backgroundColor = getColorV8('primaryHue', 600, theme)!;
-    color = getColorV8('background', 600 /* default shade */, theme);
+    backgroundColor = getColor({ variable: 'background.primaryEmphasis', theme });
+    foreground = getColor({ variable: 'foreground.onEmphasis', theme });
   } else if (isDisabled) {
-    color = getColorV8('neutralHue', 400, theme);
-  } else if (isToday) {
-    color = 'inherit';
-  } else if (isPreviousMonth) {
-    color = getColorV8('neutralHue', 600, theme);
+    foreground = getColor({ variable: 'foreground.disabled', theme });
+  } else if ($isToday) {
+    foreground = 'inherit';
+  } else if ($isPreviousMonth) {
+    foreground = getColor({ variable: 'foreground.subtle', theme });
+  } else {
+    foreground = getColor({ variable: 'foreground.primary', theme });
   }
 
   return css`
     background-color: ${backgroundColor};
-    color: ${color};
+    color: ${foreground};
 
-    ${!isSelected &&
-    !isDisabled &&
-    `
-      :hover {
-        background-color: ${getColorV8('primaryHue', 600, theme, 0.08)};
-        color: ${getColorV8('primaryHue', 800, theme)};
-      }
+    &:not([aria-disabled]):not([aria-selected]):hover {
+      background-color: ${backgroundHover};
+      color: ${foregroundHover};
+    }
 
-      :active {
-        background-color: ${getColorV8('primaryHue', 600, theme, 0.2)};
-        color: ${getColorV8('primaryHue', 800, theme)};
-      }
-  `}
+    &:not([aria-disabled]):not([aria-selected]):active {
+      background-color: ${backgroundActive};
+      color: ${foregroundActive};
+    }
   `;
 };
 
 const COMPONENT_ID = 'datepickers.day';
 
-export const StyledDay = styled.div.attrs<IStyledDayProps>(props => ({
+export const StyledDay = styled.div.attrs<IStyledDayProps>({
   'data-garden-id': COMPONENT_ID,
-  'aria-disabled': props.isDisabled ? 'true' : 'false'
-}))<IStyledDayProps>`
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledDayProps>`
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  cursor: ${props => (props.isDisabled ? 'inherit' : 'pointer')};
-  width: 100%;
-  height: 100%;
-  font-size: ${props => (props.isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
+  cursor: ${props => (props['aria-disabled'] ? 'inherit' : 'pointer')};
+  font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
-    props.isToday && !props.isDisabled ? props.theme.fontWeights.semibold : 'inherit'};
+    props.$isToday && !props['aria-disabled'] ? props.theme.fontWeights.semibold : 'inherit'};
 
-  ${retrieveStyledDayColors}
+  ${sizeStyles}
+  ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledDay.defaultProps = {
-  theme: DEFAULT_THEME
-};

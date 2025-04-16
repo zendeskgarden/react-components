@@ -56,23 +56,23 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
     });
 
     if (!delayComplete && delayMS !== 0) {
-      return <StyledLoadingPlaceholder fontSize={size!}>&nbsp;</StyledLoadingPlaceholder>;
+      return <StyledLoadingPlaceholder $fontSize={size!}>&nbsp;</StyledLoadingPlaceholder>;
     }
 
     return (
       <StyledSVG
+        data-garden-id={COMPONENT_ID}
         ref={ref}
-        fontSize={size!}
-        color={color!}
-        width="80"
-        height="72"
-        dataGardenId={COMPONENT_ID}
+        $fontSize={size!}
+        $color={color!}
+        $width="80"
+        $height="72"
         {...other}
       >
         <g fill="currentColor">
-          <StyledDotsCircleOne duration={duration!} ref={dotOne} />
-          <StyledDotsCircleTwo duration={duration!} ref={dotTwo} />
-          <StyledDotsCircleThree duration={duration!} ref={dotThree} />
+          <StyledDotsCircleOne $duration={duration!} ref={dotOne} />
+          <StyledDotsCircleTwo $duration={duration!} ref={dotTwo} />
+          <StyledDotsCircleThree $duration={duration!} ref={dotThree} />
         </g>
       </StyledSVG>
     );

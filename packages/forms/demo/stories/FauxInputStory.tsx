@@ -46,7 +46,7 @@ export const FauxInputStory: StoryFn<IArgs> = ({
     validationLabel={validationLabel}
   >
     <FauxInput {...args}>
-      {hasStartIcon && (
+      {!!hasStartIcon && (
         <FauxInput.StartIcon
           isRotated={isStartIconRotated}
           isDisabled={args.disabled}
@@ -57,7 +57,7 @@ export const FauxInputStory: StoryFn<IArgs> = ({
         </FauxInput.StartIcon>
       )}
       {args.children}
-      {hasEndIcon && (
+      {!!hasEndIcon && (
         <FauxInput.EndIcon
           isRotated={isEndIconRotated}
           isDisabled={args.disabled}

@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
 const COMPONENT_ID = 'dropdowns.combobox.hint';
@@ -15,9 +15,5 @@ export const StyledHint = styled(Field.Hint).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledHint.defaultProps = {
-  theme: DEFAULT_THEME
-};

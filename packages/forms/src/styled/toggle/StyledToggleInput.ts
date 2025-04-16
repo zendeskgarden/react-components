@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
@@ -32,7 +32,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${backgroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
     &:enabled ~ ${StyledToggleLabel}:hover::before {
       background-color: ${hoverBackgroundColor};
     }
@@ -40,7 +39,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     &:enabled ~ ${StyledToggleLabel}:active::before {
       background-color: ${activeBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
   `;
 };
 
@@ -93,9 +91,5 @@ export const StyledToggleInput = styled(StyledCheckInput).attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledToggleInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

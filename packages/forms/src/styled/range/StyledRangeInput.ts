@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
   getFocusBoxShadow,
-  retrieveComponentStyles,
+  componentStyles,
   DEFAULT_THEME,
   getColor
 } from '@zendeskgarden/react-theming';
@@ -68,7 +68,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
  */
 const colorStyles = ({
   theme,
-  hasLowerTrack
+  $hasLowerTrack
 }: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
   const options = { theme, variable: 'background.primaryEmphasis' };
   const thumbBackgroundColor = getColor(options);
@@ -76,13 +76,7 @@ const colorStyles = ({
   const thumbBoxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
     `${theme.space.base * 2}px`,
-    getColor({
-      theme,
-      hue: 'neutralHue',
-      shade: 1200,
-      dark: { transparency: theme.opacity[1100] },
-      light: { transparency: theme.opacity[200] }
-    })
+    getColor({ variable: 'shadow.small', theme })
   );
   const thumbFocusBoxShadow = getFocusBoxShadow({ theme });
   const thumbActiveBackgroundColor = getColor({
@@ -105,8 +99,8 @@ const colorStyles = ({
     dark: { offset: 100 },
     light: { offset: -200 }
   });
-  const trackLowerBackgroundColor = hasLowerTrack ? thumbBackgroundColor : '';
-  const trackBackgroundImage = hasLowerTrack
+  const trackLowerBackgroundColor = $hasLowerTrack ? thumbBackgroundColor : '';
+  const trackBackgroundImage = $hasLowerTrack
     ? `linear-gradient(${trackLowerBackgroundColor}, ${trackLowerBackgroundColor})`
     : '';
   const trackDisabledBackgroundColor = getColor({
@@ -114,10 +108,10 @@ const colorStyles = ({
     variable: 'background.disabled',
     transparency: theme.opacity[200]
   });
-  const trackDisabledLowerBackgroundColor = hasLowerTrack
+  const trackDisabledLowerBackgroundColor = $hasLowerTrack
     ? getColor({ theme, variable: 'border.emphasis' })
     : '';
-  const trackDisabledBackgroundImage = hasLowerTrack
+  const trackDisabledBackgroundImage = $hasLowerTrack
     ? `linear-gradient(${trackDisabledLowerBackgroundColor}, ${trackDisabledLowerBackgroundColor})`
     : '';
 
@@ -200,7 +194,6 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const thumbMargin = math(`(${trackHeight} - ${thumbSize}) / 2`);
 
   return css`
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &,
     ${StyledHint} + &,
     ${StyledMessage} + &,
@@ -208,7 +201,6 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     & + ${StyledMessage} {
       margin-top: ${`${theme.space.base * 2}px`};
     }
-    /* stylelint-enable */
 
     ${trackStyles(`
       margin: ${trackMargin} 0;
@@ -231,8 +223,8 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 };
 
 interface IStyledRangeInputProps {
-  backgroundSize?: number | string;
-  hasLowerTrack?: boolean;
+  $backgroundSize?: number | string;
+  $hasLowerTrack?: boolean;
 }
 
 export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props => ({
@@ -240,7 +232,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
   style: {
-    backgroundSize: props.hasLowerTrack && props.backgroundSize
+    backgroundSize: props.$hasLowerTrack ? props.$backgroundSize : undefined
   }
 }))<IStyledRangeInputProps>`
   appearance: none;
@@ -298,11 +290,11 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
     cursor: default;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledRangeInput.defaultProps = {
-  backgroundSize: '0%',
-  hasLowerTrack: true,
+  $backgroundSize: '0%',
+  $hasLowerTrack: true,
   theme: DEFAULT_THEME
 };

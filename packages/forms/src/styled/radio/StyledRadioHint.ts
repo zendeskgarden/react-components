@@ -7,7 +7,7 @@
 
 import styled from 'styled-components';
 import { math } from 'polished';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint';
 
 const COMPONENT_ID = 'forms.radio_hint';
@@ -16,13 +16,8 @@ export const StyledRadioHint = styled(StyledHint).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  /* stylelint-disable-next-line */
   padding-${props => (props.theme.rtl ? 'right' : 'left')}:
     ${props => math(`${props.theme.space.base} * 6px`)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRadioHint.defaultProps = {
-  theme: DEFAULT_THEME
-};

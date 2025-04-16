@@ -17,35 +17,32 @@ import { StyledTextInput } from '../styled';
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
-  ({ onSelect, ...props }, ref) => {
+  ({ onSelect, isBare, isCompact, focusInset, validation, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const inputGroupContext = useInputGroupContext();
+    let combinedProps = other;
 
-    const onSelectHandler = props.readOnly
+    if (fieldContext) {
+      combinedProps = fieldContext.getInputProps<HTMLInputElement>(combinedProps);
+    }
+
+    const onSelectHandler = other.readOnly
       ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
           event.currentTarget.select();
         })
       : onSelect;
 
-    let combinedProps = {
-      ref,
-      onSelect: onSelectHandler,
-      ...props
-    } as any;
-
-    if (inputGroupContext) {
-      combinedProps = {
-        ...combinedProps,
-        isCompact: inputGroupContext.isCompact || combinedProps.isCompact,
-        focusInset: props.focusInset === undefined ? true : props.focusInset
-      };
-    }
-
-    if (fieldContext) {
-      combinedProps = fieldContext.getInputProps(combinedProps);
-    }
-
-    return <StyledTextInput {...combinedProps} />;
+    return (
+      <StyledTextInput
+        ref={ref}
+        onSelect={onSelectHandler}
+        {...combinedProps}
+        $isBare={isBare}
+        $isCompact={inputGroupContext ? inputGroupContext.isCompact : isCompact}
+        $focusInset={inputGroupContext && focusInset === undefined ? true : focusInset}
+        $validation={validation}
+      />
+    );
   }
 );
 

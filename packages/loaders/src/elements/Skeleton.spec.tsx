@@ -23,7 +23,7 @@ describe('Skeleton', () => {
     expect(container.firstChild).toHaveStyleRule('background-color', color);
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      `linear-gradient( 45deg, transparent, ${color}, transparent )`,
+      `linear-gradient(       45deg,       transparent,       ${color},       transparent     )`,
       {
         modifier: '&::before'
       }
@@ -39,7 +39,7 @@ describe('Skeleton', () => {
     expect(container.firstChild).toHaveStyleRule('background-color', color);
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      `linear-gradient( 45deg, transparent, ${color}, transparent )`,
+      `linear-gradient(       45deg,       transparent,       ${color},       transparent     )`,
       {
         modifier: '&::before'
       }
@@ -63,7 +63,7 @@ describe('Skeleton', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'background-image',
-      `linear-gradient( -45deg, transparent, ${rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200])}, transparent )`,
+      `linear-gradient(       -45deg,       transparent,       ${rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200])},       transparent     )`,
       {
         modifier: '&::before'
       }

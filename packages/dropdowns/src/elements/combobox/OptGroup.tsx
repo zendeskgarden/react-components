@@ -42,7 +42,7 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
 
     return (
       <StyledOption
-        isCompact={isCompact}
+        $isCompact={isCompact}
         $type="group"
         onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
         role="none"
@@ -50,9 +50,9 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
         ref={ref}
       >
         <StyledOptionContent>
-          {(content || legend) && (
-            <StyledOption as="div" isCompact={isCompact} $type="header">
-              {icon && (
+          {!!(content || legend) && (
+            <StyledOption as="div" $isCompact={isCompact} $type="header">
+              {!!icon && (
                 <StyledOptionTypeIcon $isCompact={isCompact} $type="header">
                   {icon}
                 </StyledOptionTypeIcon>
@@ -60,7 +60,7 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
               {content || legend}
             </StyledOption>
           )}
-          <StyledOptGroup isCompact={isCompact} {...optGroupProps}>
+          <StyledOptGroup $isCompact={isCompact} {...optGroupProps}>
             <StyledListboxSeparator role="none" />
             {children}
           </StyledOptGroup>

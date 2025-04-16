@@ -9,7 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, readableColor } from 'polished';
 import {
   DEFAULT_THEME,
-  retrieveComponentStyles,
+  componentStyles,
   getLineHeight,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
@@ -22,18 +22,26 @@ import { ITagProps } from '../types';
 
 const COMPONENT_ID = 'tags.tag_view';
 
+interface IStyledTagProps extends ThemeProps<DefaultTheme> {
+  $hue?: ITagProps['hue'];
+  $isPill?: ITagProps['isPill'];
+  $isRegular?: ITagProps['isRegular'];
+  $isRound?: ITagProps['isRound'];
+  $size?: ITagProps['size'];
+}
+
 /*
  * 1. Anchor element reset
  * 2. Tags show focus state whether performed by mouse or keyboard
  */
-const colorStyles = ({ theme, hue }: ITagProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $hue }: IStyledTagProps) => {
   let backgroundColor;
   let foregroundColor;
 
-  if (hue) {
+  if ($hue) {
     foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
-    switch (hue) {
+    switch ($hue) {
       case 'grey':
       case 'neutralHue':
         backgroundColor = getColor({
@@ -84,7 +92,7 @@ const colorStyles = ({ theme, hue }: ITagProps & ThemeProps<DefaultTheme>) => {
         const darkTheme = { ...theme, colors: { ...theme.colors, base: 'dark' } } as IGardenTheme;
         const variable = 'foreground.onEmphasis';
 
-        backgroundColor = getColor({ theme, hue });
+        backgroundColor = getColor({ theme, hue: $hue });
         foregroundColor = readableColor(
           backgroundColor,
           getColor({ theme: darkTheme, variable }),
@@ -121,7 +129,7 @@ const colorStyles = ({ theme, hue }: ITagProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   let borderRadius;
   let padding;
   let height;
@@ -129,46 +137,46 @@ const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   let minWidth;
   let avatarSize;
 
-  if (props.size === 'small') {
-    borderRadius = props.theme.borderRadii.sm;
-    padding = props.theme.space.base;
-    height = props.theme.space.base * 4;
-    fontSize = props.theme.fontSizes.xs;
+  if ($size === 'small') {
+    borderRadius = theme.borderRadii.sm;
+    padding = theme.space.base;
+    height = theme.space.base * 4;
+    fontSize = theme.fontSizes.xs;
     avatarSize = 0;
-  } else if (props.size === 'large') {
-    borderRadius = props.theme.borderRadii.md;
-    padding = props.theme.space.base * 3;
-    height = props.theme.space.base * 8;
-    fontSize = props.theme.fontSizes.sm;
-    avatarSize = props.theme.space.base * 6;
+  } else if ($size === 'large') {
+    borderRadius = theme.borderRadii.md;
+    padding = theme.space.base * 3;
+    height = theme.space.base * 8;
+    fontSize = theme.fontSizes.sm;
+    avatarSize = theme.space.base * 6;
   } else {
-    borderRadius = props.theme.borderRadii.sm;
-    padding = props.theme.space.base * 2;
-    height = props.theme.space.base * 5;
-    fontSize = props.theme.fontSizes.sm;
-    avatarSize = props.theme.space.base * 4;
+    borderRadius = theme.borderRadii.sm;
+    padding = theme.space.base * 2;
+    height = theme.space.base * 5;
+    fontSize = theme.fontSizes.sm;
+    avatarSize = theme.space.base * 4;
   }
 
-  let avatarBorderRadius = props.size === 'large' ? math(`${borderRadius} - 1`) : borderRadius;
+  let avatarBorderRadius = $size === 'large' ? math(`${borderRadius} - 1`) : borderRadius;
   const avatarMargin = (height - avatarSize) / 2;
-  const avatarTextMargin = props.isRound ? avatarMargin : avatarMargin * 2;
+  const avatarTextMargin = $isRound ? avatarMargin : avatarMargin * 2;
 
-  if (props.isRound) {
+  if ($isRound) {
     borderRadius = '50%';
     padding = 0;
     minWidth = height;
     avatarBorderRadius = '50%';
-  } else if (props.isPill) {
+  } else if ($isPill) {
     borderRadius = '100px';
     avatarBorderRadius = '50%';
 
-    if (props.size === 'small') {
-      padding = props.theme.space.base * 1.5;
-      minWidth = props.theme.space.base * 6;
-    } else if (props.size === 'large') {
-      minWidth = props.theme.space.base * 12;
+    if ($size === 'small') {
+      padding = theme.space.base * 1.5;
+      minWidth = theme.space.base * 6;
+    } else if ($size === 'large') {
+      minWidth = theme.space.base * 12;
     } else {
-      minWidth = props.theme.space.base * 7.5;
+      minWidth = theme.space.base * 7.5;
     }
   }
 
@@ -186,10 +194,8 @@ const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     }
 
     & ${StyledAvatar} {
-      /* stylelint-disable-next-line property-no-unknown */
-      margin-${props.theme.rtl ? 'right' : 'left'}: -${padding - avatarMargin}px;
-      /* stylelint-disable-next-line property-no-unknown */
-      margin-${props.theme.rtl ? 'left' : 'right'}: ${avatarTextMargin}px;
+      margin-${theme.rtl ? 'right' : 'left'}: -${padding - avatarMargin}px;
+      margin-${theme.rtl ? 'left' : 'right'}: ${avatarTextMargin}px;
       border-radius: ${avatarBorderRadius};
       width: ${avatarSize}px;
       min-width: ${avatarSize}px; /* prevent flex shrink */
@@ -197,8 +203,7 @@ const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
     }
 
     & ${StyledClose} {
-      /* stylelint-disable-next-line property-no-unknown */
-      margin-${props.theme.rtl ? 'left' : 'right'}: -${padding}px;
+      margin-${theme.rtl ? 'left' : 'right'}: -${padding}px;
       border-radius: ${borderRadius};
       width: ${height}px;
       height: ${height}px;
@@ -206,14 +211,14 @@ const sizeStyles = (props: ITagProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledTag = styled.div.attrs<ITagProps>({
+export const StyledTag = styled.div.attrs<IStyledTagProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ITagProps>`
+})<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: ${props => props.isRound && 'center'};
+  justify-content: ${props => props.$isRound && 'center'};
   transition: box-shadow 0.1s ease-in-out;
   box-sizing: border-box;
   border: 0; /* <button> element reset */
@@ -222,7 +227,7 @@ export const StyledTag = styled.div.attrs<ITagProps>({
   vertical-align: middle;
   text-decoration: none; /* <a> element reset */
   white-space: nowrap;
-  font-weight: ${props => !props.isRegular && props.theme.fontWeights.semibold};
+  font-weight: ${props => !props.$isRegular && props.theme.fontWeights.semibold};
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 
   ${props => sizeStyles(props)};
@@ -259,17 +264,17 @@ export const StyledTag = styled.div.attrs<ITagProps>({
   }
 
   & ${StyledAvatar} {
-    display: ${props => (props.isRound || props.size === 'small') && 'none'};
+    display: ${props => (props.$isRound || props.$size === 'small') && 'none'};
   }
 
   & ${StyledClose} {
-    display: ${props => props.isRound && 'none'};
+    display: ${props => props.$isRound && 'none'};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledTag.defaultProps = {
-  size: 'medium',
+  $size: 'medium',
   theme: DEFAULT_THEME
 };

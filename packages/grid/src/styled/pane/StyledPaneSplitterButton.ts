@@ -6,13 +6,13 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 import { Orientation } from '../../types';
 
 interface IStyledSplitterButtonProps {
-  orientation: Orientation;
-  isRotated: boolean;
+  $orientation: Orientation;
+  $isRotated: boolean;
 }
 
 export const getSize = (theme: DefaultTheme) => theme.space.base * 6;
@@ -27,18 +27,22 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const transformStyles = (props: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
+const transformStyles = ({
+  $isRotated,
+  $orientation,
+  theme
+}: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
   let degrees = 0;
 
-  if (props.isRotated) {
-    degrees = props.theme.rtl ? -180 : 180;
+  if ($isRotated) {
+    degrees = theme.rtl ? -180 : 180;
   }
 
-  if (props.orientation === 'end') {
-    degrees += props.theme.rtl ? -90 : 90;
-  } else if (props.orientation === 'start') {
-    degrees += props.theme.rtl ? 90 : -90;
-  } else if (props.orientation === 'bottom') {
+  if ($orientation === 'end') {
+    degrees += theme.rtl ? -90 : 90;
+  } else if ($orientation === 'start') {
+    degrees += theme.rtl ? 90 : -90;
+  } else if ($orientation === 'bottom') {
     degrees += 180;
   }
 
@@ -58,8 +62,6 @@ export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplit
   ${sizeStyles};
 
   ${transformStyles};
-`;
 
-StyledPaneSplitterButton.defaultProps = {
-  theme: DEFAULT_THEME
-};
+  ${componentStyles};
+`;

@@ -7,24 +7,20 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import {
-  DEFAULT_THEME,
-  retrieveComponentStyles,
-  getLineHeight
-} from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.tile_description';
 
 interface IStyledTileDescriptionProps {
-  isCentered?: boolean;
+  $isCentered?: boolean;
 }
 
 const sizeStyles = ({
   theme,
-  isCentered
+  $isCentered
 }: IStyledTileDescriptionProps & ThemeProps<DefaultTheme>) => {
   const marginTop = `${theme.space.base}px`;
-  const marginHorizontal = isCentered
+  const marginHorizontal = $isCentered
     ? undefined
     : math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
   const fontSize = theme.fontSizes.sm;
@@ -32,7 +28,6 @@ const sizeStyles = ({
 
   return css`
     margin-top: ${marginTop};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     line-height: ${lineHeight};
     font-size: ${fontSize};
@@ -44,13 +39,9 @@ export const StyledTileDescription = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTileDescriptionProps>`
   display: block;
-  text-align: ${props => props.isCentered && 'center'};
+  text-align: ${props => props.$isCentered && 'center'};
 
   ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTileDescription.defaultProps = {
-  theme: DEFAULT_THEME
-};

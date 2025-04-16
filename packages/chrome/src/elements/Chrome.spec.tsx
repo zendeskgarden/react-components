@@ -37,14 +37,12 @@ describe('Chrome', () => {
       const { container } = render(<Chrome hue={PALETTE.green[100]} />);
 
       expect(container.firstChild).toHaveAttribute('data-test-light', 'true');
-      expect(container.firstChild).toHaveAttribute('data-test-dark', 'false');
     });
 
     it('applies dark styling if hue is above luminance threshold', () => {
       const { container } = render(<Chrome hue={PALETTE.green[800]} />);
 
       expect(container.firstChild).toHaveAttribute('data-test-light', 'false');
-      expect(container.firstChild).toHaveAttribute('data-test-dark', 'true');
     });
   });
 });

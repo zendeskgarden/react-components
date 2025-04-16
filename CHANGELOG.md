@@ -13,6 +13,422 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.5.4 (2025-04-10)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2014](https://github.com/zendeskgarden/react-components/pull/2014) fix(dropdowns): ensure iframed Menu dropdowns close correctly when clicking outside the iframe ([@ze-flo](https://github.com/ze-flo))
+
+## v9.5.3 (2025-03-21)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#2009](https://github.com/zendeskgarden/react-components/pull/2009) fix(forms): remove `renderToString` for the calendar picker icon ([@jzempel](https://github.com/jzempel))
+
+## v9.5.2 (2025-02-06)
+
+#### :bug: Bug Fix
+* `chrome`, `loaders`
+  * [#2007](https://github.com/zendeskgarden/react-components/pull/2007) fix(chrome,loaders): ferry props to view component transient props ([@jzempel](https://github.com/jzempel))
+
+## v9.5.1 (2025-01-16)
+
+#### :bug: Bug Fix
+* `theming`
+  * [#2000](https://github.com/zendeskgarden/react-components/pull/2000) fix(theming): nested `ColorSchemeProvider` system color scheme handling ([@jzempel](https://github.com/jzempel))
+  * [#1999](https://github.com/zendeskgarden/react-components/pull/1999) fix(theming): return hex from generated `getColor` values ([@jzempel](https://github.com/jzempel))
+
+## v9.5.0 (2025-01-09)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1991](https://github.com/zendeskgarden/react-components/pull/1991) feat(theming): add `ColorSchemeProvider` ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `avatars`, `draggable`, `dropdowns`, `forms`, `notifications`, `tables`
+  * [#1994](https://github.com/zendeskgarden/react-components/pull/1994) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1993](https://github.com/zendeskgarden/react-components/pull/1993) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `draggable`
+  * [#1995](https://github.com/zendeskgarden/react-components/pull/1995) chore(deps): update dependency @dnd-kit/sortable to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`
+  * [#1998](https://github.com/zendeskgarden/react-components/pull/1998) chore(deps): update dependency @zendeskgarden/eslint-config to v45 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1992](https://github.com/zendeskgarden/react-components/pull/1992) chore(deps): update coverallsapp/github-action action to v2.3.4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1996](https://github.com/zendeskgarden/react-components/pull/1996) chore(deps): update dependency @rollup/plugin-node-resolve to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1989](https://github.com/zendeskgarden/react-components/pull/1989) chore: replace deprecated `retrieveComponentStyles` with `componentStyles` utility ([@jzempel](https://github.com/jzempel))
+
+## v9.4.0 (2024-12-12)
+
+#### :rocket: New Feature
+* `theming`
+  * [#1986](https://github.com/zendeskgarden/react-components/pull/1986) feat(theming): add componentStyles utility ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1987](https://github.com/zendeskgarden/react-components/pull/1987) fix(Combobox): improve screen reader experience for Select-Only combobox w NVDA ([@ze-flo](https://github.com/ze-flo))
+
+## v9.3.0 (2024-12-05)
+
+#### :rocket: New Feature
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1978](https://github.com/zendeskgarden/react-components/pull/1978) feat(peer-deps): extend `styled-components` support to v6 ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#1982](https://github.com/zendeskgarden/react-components/pull/1982) fix(accordions): set `inert` for hidden `Stepper` content ([@jzempel](https://github.com/jzempel))
+* `chrome`
+  * [#1981](https://github.com/zendeskgarden/react-components/pull/1981) fix(chrome): provide missing `useId` container dependency for `Sheet` component ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#1983](https://github.com/zendeskgarden/react-components/pull/1983) chore(dropdowns): fix multiselectable combobox tags ([@jzempel](https://github.com/jzempel))
+* Other
+  * [#1980](https://github.com/zendeskgarden/react-components/pull/1980) chore: adjust renovate schedule ([@jzempel](https://github.com/jzempel))
+
+## v9.2.0 (2024-11-21)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#1971](https://github.com/zendeskgarden/react-components/pull/1971) feat(dropdowns): add `hasSelection` prop for use with `<Option type="next">` ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `tags`, `theming`, `typography`
+  * [#1979](https://github.com/zendeskgarden/react-components/pull/1979) fix(theming): `getColor` shade default depends on transparency ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#1977](https://github.com/zendeskgarden/react-components/pull/1977) chore(deps): bump serve-static, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1976](https://github.com/zendeskgarden/react-components/pull/1976) chore(deps): bump send, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1975](https://github.com/zendeskgarden/react-components/pull/1975) chore(deps): bump body-parser, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1974](https://github.com/zendeskgarden/react-components/pull/1974) chore(deps): bump cookie, express and @zendeskgarden/scripts ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `tables`
+  * [#1972](https://github.com/zendeskgarden/react-components/pull/1972) chore(config): migrate renovate config ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v9.1.2 (2024-11-07)
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1970](https://github.com/zendeskgarden/react-components/pull/1970) fix(theming): swap `hasOwn` for `hasOwnProperty` call in `getColor` ([@jzempel](https://github.com/jzempel))
+* `grid`
+  * [#1969](https://github.com/zendeskgarden/react-components/pull/1969) fix(grid): use `auto` tooltip positioning for `Pane.SplitterButton` ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `.template`, `avatars`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tags`, `theming`, `tooltips`
+  * [#1968](https://github.com/zendeskgarden/react-components/pull/1968) refactor(colorpickers, grid, loaders, notifications, tags tooltips): use transient props where appropriate  ([@ze-flo](https://github.com/ze-flo))
+* `draggable`, `modals`, `typography`
+  * [#1963](https://github.com/zendeskgarden/react-components/pull/1963) refactor(draggable, modals, typography): use transient props where appropriate  ([@ze-flo](https://github.com/ze-flo))
+
+## v9.1.1 (2024-10-31)
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1966](https://github.com/zendeskgarden/react-components/pull/1966) fix(theming): harden `getColor` memoization key generation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#1965](https://github.com/zendeskgarden/react-components/pull/1965) deps: point to correct `react-theming` peerDependency ([@ze-flo](https://github.com/ze-flo))
+
+## v9.1.0 (2024-10-24)
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#1955](https://github.com/zendeskgarden/react-components/pull/1955) feat(datepickers): provide `appendToNode` prop for handling `DatePicker` calendar rendering ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#1960](https://github.com/zendeskgarden/react-components/pull/1960) fix(theming): `getColor` memoization peformance ([@jzempel](https://github.com/jzempel))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1954](https://github.com/zendeskgarden/react-components/pull/1954) fix(forms,tables): improve native `Select` styling and correct `Table` extends documentation ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#1961](https://github.com/zendeskgarden/react-components/pull/1961) refactor(dropdowns): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns.legacy`, `forms`
+  * [#1957](https://github.com/zendeskgarden/react-components/pull/1957) refactor(dropdowns.legacy): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `accordions`, `avatars`, `buttons`, `chrome`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `tables`, `tags`, `theming`, `typography`
+  * [#1958](https://github.com/zendeskgarden/react-components/pull/1958) fix: add storybook demos to eslint config ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#1952](https://github.com/zendeskgarden/react-components/pull/1952) refactor(forms): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `buttons`
+  * [#1949](https://github.com/zendeskgarden/react-components/pull/1949) refactor(buttons): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `chrome`
+  * [#1948](https://github.com/zendeskgarden/react-components/pull/1948) refactor(chrome): use transient props where appropriate ([@ze-flo](https://github.com/ze-flo))
+* `forms`, `typography`
+  * [#1945](https://github.com/zendeskgarden/react-components/pull/1945) chore(deps): update dependency @zendeskgarden/eslint-config to v44 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`
+  * [#1941](https://github.com/zendeskgarden/react-components/pull/1941) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `datepickers`
+  * [#1947](https://github.com/zendeskgarden/react-components/pull/1947) fix(deps): update dependency date-fns to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1943](https://github.com/zendeskgarden/react-components/pull/1943) chore(deps): update dependency @rollup/plugin-replace to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1942](https://github.com/zendeskgarden/react-components/pull/1942) chore(deps): update dependency @rollup/plugin-commonjs to v28 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1944](https://github.com/zendeskgarden/react-components/pull/1944) chore(deps): update dependency @zendeskgarden/css-bedrock to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1946](https://github.com/zendeskgarden/react-components/pull/1946) chore(deps): update dependency inquirer to v12 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1940](https://github.com/zendeskgarden/react-components/pull/1940) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v9.0.0 (2024-10-01)
+
+#### :boom: Breaking Change
+* `theming`
+  * [#1938](https://github.com/zendeskgarden/react-components/pull/1938) fix(theming)!: remove `background.primary` color variable ([@ze-flo](https://github.com/ze-flo))
+* All breaking changes are detailed in the [Migration Guide](https://github.com/zendeskgarden/react-components/blob/main/docs/migration.md). Follow the guide to upgrade from version 8 to version 9.
+
+#### :rocket: New Feature
+* all packages
+  * feat: new light/dark mode colors ([@geotrev](https://github.com/geotrev), [@jzempel](https://github.com/jzempel), [@ze-flo](https://github.com/ze-flo))
+* `theming`
+  * [#1704](https://github.com/zendeskgarden/react-components/pull/1704) feat(theming): add arrow/menu position and floating placement utilities ([@jzempel](https://github.com/jzempel))
+* `tabs`, `tooltips`, `chrome`, `tables`, `modals`, `notifications`, `dropdowns`, `typography`, `colorpickers`, `datepickers`, `forms`, `grid`
+  * feat: adds subcomponent mapping to components ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1763](https://github.com/zendeskgarden/react-components/pull/1763) feat: add refactored `getColor` utility ([@jzempel](https://github.com/jzempel))
+* `theming`
+  * [#1782](https://github.com/zendeskgarden/react-components/pull/1782) feat(theming): fill out color variables ([@jzempel](https://github.com/jzempel))
+* `theming`
+  * [#1797](https://github.com/zendeskgarden/react-components/pull/1797) feat(theming): add system `opacity` values to the theme ([@jzempel](https://github.com/jzempel))
+* `colorpickers`, `theming`
+  * [#1793](https://github.com/zendeskgarden/react-components/pull/1793) feat(theming): add new `getCheckeredBackground` utility ([@jzempel](https://github.com/jzempel))
+* `buttons`, `dropdowns`, `forms`, `notifications`, `pagination`, `tags`, `typography`
+  * [#1792](https://github.com/zendeskgarden/react-components/pull/1792) feat: adds StyledBaseIcon to various icon components ([@geotrev](https://github.com/geotrev))
+* `accordions`, `theming`
+  * [#1791](https://github.com/zendeskgarden/react-components/pull/1791) feat: adds styled icon base component ([@geotrev](https://github.com/geotrev))
+* `theming`
+  * [#1806](https://github.com/zendeskgarden/react-components/pull/1806) feat(theming): enhance `getColor` to accept rgba and literal color variables ([@jzempel](https://github.com/jzempel))
+* `chrome`, `draggable`, `forms`, `grid`, `modals`, `notifications`, `theming`, `tooltips`
+  * [#1870](https://github.com/zendeskgarden/react-components/pull/1870) feat(theming): adds shadow variables to theme + updates styled components ([@geotrev](https://github.com/geotrev))
+* `chrome`, `dropdowns`, `grid`, `modals`, `tabs`, `theming`
+  * [#1873](https://github.com/zendeskgarden/react-components/pull/1873) feat: applies color-scheme to align garden and system themes ([@geotrev](https://github.com/geotrev))
+* `accordions`, `avatars`, `loaders`, `tags`, `typography`
+  * [#1885](https://github.com/zendeskgarden/react-components/pull/1885) feat: allow color-related props to receive color variable keys in addition to hex values ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `notifications`, `theming`
+  * [#1936](https://github.com/zendeskgarden/react-components/pull/1936) fix(theming): align `success`, `warning`, and `danger` border color variables with design ([@jzempel](https://github.com/jzempel))
+* See the `next` prerelease changes below for fixes applied to the v9 release.
+
+#### :seedling: Internal
+* Other
+  * [#1934](https://github.com/zendeskgarden/react-components/pull/1934) ci: restore Coveralls PR comments ([@ze-flo](https://github.com/ze-flo))
+  * [#1935](https://github.com/zendeskgarden/react-components/pull/1935) chore: rename `.markdownlintrc` to `.markdownlint.json` for VSCode extension compatibility ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`
+  * [#1933](https://github.com/zendeskgarden/react-components/pull/1933) docs: add missing `restoreFocus` prop description in `Menu`'s StoryBook page ([@ze-flo](https://github.com/ze-flo))
+
+## v9.0.0-next.27 (2024-09-26)
+
+#### :rocket: New Feature
+* `loaders`, `theming`
+  * [#1926](https://github.com/zendeskgarden/react-components/pull/1926) feat(loaders): allow color props to receive color variable keys in addition to hex values ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#1930](https://github.com/zendeskgarden/react-components/pull/1930) fix(dropdowns): ensure focus is returned to menu trigger before calling `onChange` ([@ze-flo](https://github.com/ze-flo))
+* `colorpickers`, `modals`, `theming`
+  * [#1929](https://github.com/zendeskgarden/react-components/pull/1929) chore: v9 QA sweep ([@jzempel](https://github.com/jzempel))
+    * decrease space between `ColorPickerDialog`/`ColorSwatchDialog` and trigger 
+    * prevent render thrashing on `getColor` storybook demo
+    * split migration guides out of historical changelogs for improved `website` documentation
+* `avatars`, `colorpickers`
+  * [#1927](https://github.com/zendeskgarden/react-components/pull/1927) fix(colorpickers): prevent arrow from positioning over a `ColorSwatchDialog` tooltip ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1922](https://github.com/zendeskgarden/react-components/pull/1922) docs: adds verbosity to initial v9 migration steps ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `breadcrumbs`
+  * [#1932](https://github.com/zendeskgarden/react-components/pull/1932) chore(breadcrumbs): remove `Anchor` underline in demo ([@jzempel](https://github.com/jzempel))
+* Other
+  * [#1924](https://github.com/zendeskgarden/react-components/pull/1924) chore(deps-dev): bump rollup from 4.21.0 to 4.22.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## v9.0.0-next.26 (2024-09-12)
+
+#### :bug: Bug Fix
+* `chrome`
+  * [#1920](https://github.com/zendeskgarden/react-components/pull/1920) fix(chrome): prevent focus on closed `Sheet` ([@jzempel](https://github.com/jzempel))
+* `dropdowns`
+  * [#1919](https://github.com/zendeskgarden/react-components/pull/1919) fix(dropdowns): forwards menu button ref correctly ([@geotrev](https://github.com/geotrev))
+* `modals`
+  * [#1917](https://github.com/zendeskgarden/react-components/pull/1917) fix(tooltips): ensure correct padding for `TooltipDialog`'s inner elements if `Close` btn exists ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`, `theming`
+  * [#1918](https://github.com/zendeskgarden/react-components/pull/1918) fix(dropdowns): prevents menus focus focusing items early during animation ([@geotrev](https://github.com/geotrev))
+* `typography`
+  * [#1916](https://github.com/zendeskgarden/react-components/pull/1916) fix(typography): set `CodeBlock` background to `background.recessed` ([@jzempel](https://github.com/jzempel))
+  * [#1915](https://github.com/zendeskgarden/react-components/pull/1915) fix(typography): revert `react-prism-renderer` to v1 ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1914](https://github.com/zendeskgarden/react-components/pull/1914) docs: add removal of `theme` default prop ADR ([@ze-flo](https://github.com/ze-flo))
+
+## v9.0.0-next.25 (2024-09-05)
+
+#### :boom: Breaking Change
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1905](https://github.com/zendeskgarden/react-components/pull/1905) refactor: remove `theme` `defaultProp` ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#1911](https://github.com/zendeskgarden/react-components/pull/1911) fix(tabs): allow focus ring to resize based on content ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#1909](https://github.com/zendeskgarden/react-components/pull/1909) chore(deps-dev): bump webpack from 5.93.0 to 5.94.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
+## v9.0.0-next.24 (2024-08-29)
+
+#### :bug: Bug Fix
+* `tabs`
+  * [#1908](https://github.com/zendeskgarden/react-components/pull/1908) fix(tabs): border styling ([@jzempel](https://github.com/jzempel))
+  * [#1904](https://github.com/zendeskgarden/react-components/pull/1904) fix(tabs): add border-color transition for smoother animation ([@ze-flo](https://github.com/ze-flo))
+* `avatars`
+  * [#1901](https://github.com/zendeskgarden/react-components/pull/1901) fix(avatars): rectify `StatusIndicator` sizing and position ([@ze-flo](https://github.com/ze-flo))
+
+#### :memo: Documentation
+* `tags`
+  * [#1907](https://github.com/zendeskgarden/react-components/pull/1907) fix(tags): ensure prop sheet refers to internal website URL ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#1906](https://github.com/zendeskgarden/react-components/pull/1906) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
+## v9.0.0-next.23 (2024-08-22)
+
+#### :boom: Breaking Change
+* `colorpickers`, `modals`
+  * [#1892](https://github.com/zendeskgarden/react-components/pull/1892) chore(modals)!: rename `TooltipModal` to `TooltipDialog` ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `theming`, `tooltips`
+  * [#1902](https://github.com/zendeskgarden/react-components/pull/1902) fix(tooltips): fix arrow position when using `end-bottom` placement ([@ze-flo](https://github.com/ze-flo))
+* `avatars`
+  * [#1897](https://github.com/zendeskgarden/react-components/pull/1897) fix(avatars): use default background surfaceColor with statuses ([@geotrev](https://github.com/geotrev))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#1893](https://github.com/zendeskgarden/react-components/pull/1893) fix: React peer dependency ranges ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1900](https://github.com/zendeskgarden/react-components/pull/1900) docs: enhance migration guide ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `accordions`, `avatars`, `buttons`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `loaders`, `modals`, `notifications`, `tables`, `typography`
+  * [#1825](https://github.com/zendeskgarden/react-components/pull/1825) chore(deps): update dependency eslint to v9 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tags`, `theming`, `typography`
+  * [#1879](https://github.com/zendeskgarden/react-components/pull/1879) chore(deps): update dependency @zendeskgarden/stylelint-config to v22 ([@renovate[bot]](https://github.com/apps/renovate))
+* `colorpickers`
+  * [#1875](https://github.com/zendeskgarden/react-components/pull/1875) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* Other
+  * [#1880](https://github.com/zendeskgarden/react-components/pull/1880) chore(deps): update dependency inquirer to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#1889](https://github.com/zendeskgarden/react-components/pull/1889) chore(deps-dev): bump axios from 1.6.7 to 1.7.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#1877](https://github.com/zendeskgarden/react-components/pull/1877) chore(deps): update dependency @rollup/plugin-commonjs to v26 ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#1876](https://github.com/zendeskgarden/react-components/pull/1876) fix(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `drag-drop`, `draggable`, `dropdowns.legacy`, `dropdowns.next`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`, `utilities`
+  * [#1899](https://github.com/zendeskgarden/react-components/pull/1899) chore: merge v9 `next` to `main` ([@jzempel](https://github.com/jzempel))
+* `modals`, `theming`
+  * [#1891](https://github.com/zendeskgarden/react-components/pull/1891) chore(theming): remove `PALETTE_V8` export ([@jzempel](https://github.com/jzempel))
+
+## v9.0.0-next.22 (2024-08-15)
+
+#### :rocket: New Feature
+* `accordions`, `avatars`, `tags`, `typography`
+  * [#1885](https://github.com/zendeskgarden/react-components/pull/1885) feat: allow color-related props to receive color variable keys in addition to hex values ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* [#1887](https://github.com/zendeskgarden/react-components/pull/1887) chore(theming): add `withTheme` removal to migration guide ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `dropdowns`, `forms`
+  * [#1890](https://github.com/zendeskgarden/react-components/pull/1890) chore: sync `next` with `main` ([@ze-flo](https://github.com/ze-flo))
+* `chrome`
+  * [#1884](https://github.com/zendeskgarden/react-components/pull/1884) fix(chrome): update Nav.List displayName ([@geotrev](https://github.com/geotrev))
+
+## v9.0.0-next.21 (2024-08-12)
+
+#### :bug: Bug Fix
+* `chrome`, `dropdowns`, `forms`, `grid`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tooltips`
+  * [#1883](https://github.com/zendeskgarden/react-components/pull/1883) fix: updates displayNames to match subcomponent properties ([@geotrev](https://github.com/geotrev))
+* `dropdowns.legacy`, `dropdowns`, `theming`, `tooltips`
+  * [#1882](https://github.com/zendeskgarden/react-components/pull/1882) fix(tooltips): renders correct arrow dimensions based on tooltip size ([@ze-flo](https://github.com/ze-flo))
+
+## v9.0.0-next.20 (2024-08-01)
+
+#### :rocket: New Feature
+* `chrome`, `dropdowns`, `grid`, `modals`, `tabs`, `theming`
+  * [#1873](https://github.com/zendeskgarden/react-components/pull/1873) feat: applies color-scheme to align garden and system themes ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* `dropdowns`
+  * [#1874](https://github.com/zendeskgarden/react-components/pull/1874) chore: sync `next` with `main` ([@geotrev](https://github.com/geotrev))
+
+## v9.0.0-next.19 (2024-07-25)
+
+#### :boom: Breaking Change
+* `draggable`
+  * [#1868](https://github.com/zendeskgarden/react-components/pull/1868) feat(draggable)!: renames drag-drop package to draggable ([@geotrev](https://github.com/geotrev))
+* `typography`
+  * [#1864](https://github.com/zendeskgarden/react-components/pull/1864) feat(typography)!: recolor `CodeBlock` and migrate to `prism-react-renderer` v2 ([@jzempel](https://github.com/jzempel))
+
+#### :rocket: New Feature
+* `datepickers`
+  * [#1860](https://github.com/zendeskgarden/react-components/pull/1860) feat(datepickers): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `dropdowns.legacy`
+  * [#1867](https://github.com/zendeskgarden/react-components/pull/1867) feat(dropdowns.legacy): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `chrome`, `draggable`, `forms`, `grid`, `modals`, `notifications`, `theming`, `tooltips`
+  * [#1870](https://github.com/zendeskgarden/react-components/pull/1870) feat(theming): adds shadow variables to theme + updates styled components ([@geotrev](https://github.com/geotrev))
+* `colorpickers`
+  * [#1862](https://github.com/zendeskgarden/react-components/pull/1862) feat(colorpickers): adds light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `buttons`
+  * [#1871](https://github.com/zendeskgarden/react-components/pull/1871) feat(buttons): underline `Anchor` by default ([@jzempel](https://github.com/jzempel))
+* `typography`
+  * [#1869](https://github.com/zendeskgarden/react-components/pull/1869) fix(typography): `CodeBlock` colors ([@jzempel](https://github.com/jzempel))
+* `tooltips`
+  * [#1866](https://github.com/zendeskgarden/react-components/pull/1866) fix(tooltips): increase arrow size for small / med tooltips ([@ze-flo](https://github.com/ze-flo))
+
+## v9.0.0-next.18 (2024-07-18)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#1852](https://github.com/zendeskgarden/react-components/pull/1852) feat(avatars): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `accordions`
+  * [#1850](https://github.com/zendeskgarden/react-components/pull/1850) feat(accordions): new light/dark mode colors  ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#1865](https://github.com/zendeskgarden/react-components/pull/1865) chore: sync `next` with `main` ([@geotrev](https://github.com/geotrev))
+* [#1858](https://github.com/zendeskgarden/react-components/pull/1858) chore: sync `next` with `main` ([@ze-flo](https://github.com/ze-flo))
+
+## v9.0.0-next.17 (2024-07-11)
+
+#### :rocket: New Feature
+* `chrome`
+  * [#1849](https://github.com/zendeskgarden/react-components/pull/1849) feat(chrome): new light/dark mode colors ([@jzempel](https://github.com/jzempel))
+* `breadcrumbs`
+  * [#1848](https://github.com/zendeskgarden/react-components/pull/1848) feat(breadcrumbs): adds light/dark mode colors ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1855](https://github.com/zendeskgarden/react-components/pull/1855) chore(next): updates from `main` ([@jzempel](https://github.com/jzempel))
+
+## v9.0.0-next.16 (2024-07-02)
+
+#### :rocket: New Feature
+* `pagination`
+  * [#1846](https://github.com/zendeskgarden/react-components/pull/1846) feat(pagination): new light/dark mode colors ([@geotrev](https://github.com/geotrev))
+
+#### :seedling: Internal
+* [#1847](https://github.com/zendeskgarden/react-components/pull/1847) chore: sync changes since `v8.76.4` from `main` ([@geotrev](https://github.com/geotrev))
+
+## v9.0.0-next.15 (2024-06-28)
+
+#### :rocket: New Feature
+* `notifications`
+  * [#1842](https://github.com/zendeskgarden/react-components/pull/1842) feat(notifications): new light/dark mode colors ([@geotrev](https://github.com/geotrev))
+* `tabs`
+  * [#1843](https://github.com/zendeskgarden/react-components/pull/1843) feat(tabs): new light/dark mode colors ([@ze-flo](https://github.com/ze-flo))
+* `modals`
+  * [#1840](https://github.com/zendeskgarden/react-components/pull/1840) feat(modals): new light/dark mode colors for `TooltipModal` and `Drawer` ([@ze-flo](https://github.com/ze-flo))
+
+- Florent ([@ze-flo](https://github.com/ze-flo))
+- George Treviranus ([@geotrev](https://github.com/geotrev))
+
+
 ## v9.0.0-next.14 (2024-06-20)
 
 #### :rocket: New Feature

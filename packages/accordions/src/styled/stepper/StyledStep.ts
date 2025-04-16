@@ -6,23 +6,23 @@
  */
 
 import styled from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
 
 const COMPONENT_ID = 'accordions.step';
 
 interface IStyledStep {
-  isHorizontal?: boolean;
+  $isHorizontal?: boolean;
 }
 
 export const StyledStep = styled.li.attrs<IStyledStep>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStep>`
-  position: ${props => props.isHorizontal && 'relative'};
-  flex: ${props => props.isHorizontal && '1'};
-  min-width: ${props => props.isHorizontal && `${props.theme.space.base * 15}px`};
+  position: ${props => props.$isHorizontal && 'relative'};
+  flex: ${props => props.$isHorizontal && '1'};
+  min-width: ${props => props.$isHorizontal && `${props.theme.space.base * 15}px`};
 
   &:last-of-type ${StyledLine} {
     display: ${props => props.theme.rtl && 'none'};
@@ -33,14 +33,9 @@ export const StyledStep = styled.li.attrs<IStyledStep>({
   }
 
   &:not(:last-of-type) ${StyledContent} {
-    /* stylelint-disable-next-line property-no-unknown */
     border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.borders.sm};
-    border-color: ${props => getColorV8('neutralHue', 300, props.theme)};
+    border-color: ${({ theme }) => getColor({ theme, variable: 'border.default' })};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledStep.defaultProps = {
-  theme: DEFAULT_THEME
-};

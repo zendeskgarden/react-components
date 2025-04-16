@@ -7,19 +7,14 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  mediaQuery,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { mediaQuery, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.modal';
 
 export interface IStyledModalProps {
-  isLarge?: boolean;
-  isCentered?: boolean;
-  isAnimated?: boolean;
+  $isLarge?: boolean;
+  $isCentered?: boolean;
+  $isAnimated?: boolean;
 }
 
 const animationName = keyframes`
@@ -38,7 +33,7 @@ const animationName = keyframes`
 `;
 
 const animationStyles = (props: IStyledModalProps) => {
-  if (props.isAnimated) {
+  if (props.$isAnimated) {
     return css`
       animation: ${animationName} 0.3s ease-in;
     `;
@@ -50,13 +45,7 @@ const animationStyles = (props: IStyledModalProps) => {
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
-  const shadowColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    shade: 1200,
-    light: { transparency: theme.opacity[200] },
-    dark: { transparency: theme.opacity[1000] }
-  });
+  const shadowColor = getColor({ variable: 'shadow.large', theme });
   const shadow = theme.shadows.lg(offsetY, blurRadius, shadowColor);
 
   const borderColor = getColor({ theme, variable: 'border.default' });
@@ -71,8 +60,8 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
 const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
   return css`
-    ${mediaQuery('up', props.isLarge ? 'md' : 'sm', props.theme)} {
-      width: ${props.isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
+    ${mediaQuery('up', props.$isLarge ? 'md' : 'sm', props.theme)} {
+      width: ${props.$isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
     }
   `;
 };
@@ -88,7 +77,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
   position: fixed;
   flex-direction: column;
   animation-delay: 0.01s;
-  margin: ${props => (props.isCentered ? '0' : `${props.theme.space.base * 12}px`)};
+  margin: ${props => (props.$isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};
   min-height: 60px;
@@ -114,21 +103,16 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     max-height: none;
   }
 
-  /* stylelint-disable-next-line */
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
-    right: ${props => props.isCentered && '50%'}; /* [1] */
-    bottom: ${props => props.isCentered && '50%'}; /* [1] */
-    transform: ${props => props.isCentered && 'translate(50%, 50%)'}; /* [1] */
+    right: ${props => props.$isCentered && '50%'}; /* [1] */
+    bottom: ${props => props.$isCentered && '50%'}; /* [1] */
+    transform: ${props => props.$isCentered && 'translate(50%, 50%)'}; /* [1] */
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledModal.propTypes = {
-  isLarge: PropTypes.bool,
-  isAnimated: PropTypes.bool
-};
-
-StyledModal.defaultProps = {
-  theme: DEFAULT_THEME
+  $isLarge: PropTypes.bool,
+  $isAnimated: PropTypes.bool
 };

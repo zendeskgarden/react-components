@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioHint } from '../radio/StyledRadioHint';
 
 const COMPONENT_ID = 'forms.checkbox_hint';
@@ -15,9 +15,5 @@ export const StyledCheckHint = styled(StyledRadioHint).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledCheckHint.defaultProps = {
-  theme: DEFAULT_THEME
-};

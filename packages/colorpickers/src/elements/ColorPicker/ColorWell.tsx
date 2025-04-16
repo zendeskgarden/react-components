@@ -90,16 +90,16 @@ export const ColorWell: React.FC<IColorWellProps> = React.memo(
     }, [throttledChange]);
 
     return (
-      /* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledColorWell
-        hue={hue}
+        $hue={hue}
         ref={containerRef}
         role="presentation"
         onMouseDown={handleMouseDown}
       >
         <StyledColorWellThumb
-          top={mouseActiveRef.current ? topFromMouse : topPosition}
-          left={mouseActiveRef.current ? leftFromMouse : leftPosition}
+          $top={mouseActiveRef.current ? topFromMouse : topPosition}
+          $left={mouseActiveRef.current ? leftFromMouse : leftPosition}
         />
       </StyledColorWell>
     );

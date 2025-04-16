@@ -6,7 +6,7 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tables.table';
 
@@ -32,9 +32,5 @@ export const StyledTable = styled.table.attrs({
   font-size: ${props => props.theme.fontSizes.md};
   direction: ${props => props.theme.rtl && 'rtl'};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTable.defaultProps = {
-  theme: DEFAULT_THEME
-};

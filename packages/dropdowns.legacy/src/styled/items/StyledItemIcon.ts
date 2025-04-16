@@ -7,15 +7,15 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { getColor } from '@zendeskgarden/react-theming';
 import { getItemPaddingVertical } from './StyledItem';
 
 const COMPONENT_ID = 'dropdowns.item_icon';
 
 interface IStyledItemIconProps {
-  isCompact?: boolean;
-  isVisible?: boolean;
-  isDisabled?: boolean;
+  $isCompact?: boolean;
+  $isVisible?: boolean;
+  $isDisabled?: boolean;
 }
 
 const getSizeStyles = (props: IStyledItemIconProps & ThemeProps<DefaultTheme>) => {
@@ -36,8 +36,11 @@ export const StyledItemIcon = styled.div.attrs({
   align-items: center;
   justify-content: center;
   transition: opacity 0.1s ease-in-out;
-  opacity: ${props => (props.isVisible ? '1' : '0')};
-  color: ${props => (props.isDisabled ? 'inherit' : getColorV8('primaryHue', 600, props.theme))};
+  opacity: ${props => (props.$isVisible ? '1' : '0')};
+  color: ${props =>
+    props.$isDisabled
+      ? 'inherit'
+      : getColor({ theme: props.theme, variable: 'foreground.primary' })};
 
   ${props => getSizeStyles(props)};
 
@@ -46,7 +49,3 @@ export const StyledItemIcon = styled.div.attrs({
     height: ${props => props.theme.iconSizes.md};
   }
 `;
-
-StyledItemIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

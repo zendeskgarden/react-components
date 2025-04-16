@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from '../radio/StyledRadioInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
@@ -38,7 +38,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       background-color: ${indeterminateBackgroundColor};
     }
 
-    /* stylelint-disable selector-max-specificity */
     &:enabled:indeterminate ~ ${StyledCheckLabel}:hover::before {
       border-color: ${indeterminateHoverBorderColor};
       background-color: ${indeterminateHoverBackgroundColor};
@@ -53,7 +52,6 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       border-color: transparent;
       background-color: ${indeterminateDisabledBackgroundColor};
     }
-    /* stylelint-enable selector-max-specificity */
   `;
 };
 
@@ -62,16 +60,11 @@ export const StyledCheckInput = styled(StyledRadioInput).attrs({
   'data-garden-version': PACKAGE_VERSION,
   type: 'checkbox' as string
 })`
-  /* stylelint-disable-next-line */
   & ~ ${StyledCheckLabel}::before {
     border-radius: ${props => props.theme.borderRadii.md};
   }
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledCheckInput.defaultProps = {
-  theme: DEFAULT_THEME
-};

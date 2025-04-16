@@ -17,4 +17,4 @@ export const Title = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   <StyledTitle ref={ref} {...props} />
 ));
 
-Title.displayName = 'Title';
+Title.displayName = 'Tooltip.Title';

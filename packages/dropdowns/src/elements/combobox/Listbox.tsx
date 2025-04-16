@@ -123,22 +123,26 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     const Node = (
       <StyledFloatingListbox
         data-garden-animate={isVisible ? 'true' : 'false'}
-        isHidden={!isExpanded}
-        position={placement === 'bottom-start' ? 'bottom' : 'top'}
+        $isHidden={!isExpanded}
+        $position={placement === 'bottom-start' ? 'bottom' : 'top'}
         style={{ transform, width }}
-        zIndex={zIndex}
+        $zIndex={zIndex}
         ref={floatingRef}
       >
         <StyledListbox
-          isCompact={isCompact}
-          maxHeight={maxHeight}
-          minHeight={minHeight}
+          $isCompact={isCompact}
+          $maxHeight={maxHeight}
+          $minHeight={minHeight}
+          aria-hidden={
+            // Hide from NVDA when collapsed to prevent incorrect / missing announcements caused by animation
+            !isExpanded
+          }
           onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
           style={{ height }}
           {...props}
           ref={ref}
         >
-          {isVisible && children}
+          {!!isVisible && children}
         </StyledListbox>
       </StyledFloatingListbox>
     );

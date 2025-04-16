@@ -27,7 +27,7 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
 
     return (
       <StyledTabList
-        isVertical={tabsPropGetters.isVertical}
+        $isVertical={tabsPropGetters.isVertical}
         {...tabListProps}
         {...props}
         ref={ref}
@@ -36,4 +36,4 @@ export const TabList = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivEl
   }
 );
 
-TabList.displayName = 'TabList';
+TabList.displayName = 'Tabs.TabList';

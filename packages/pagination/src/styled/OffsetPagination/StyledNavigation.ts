@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPage } from './StyledPage';
 
 const COMPONENT_ID = 'pagination.navigation';
@@ -19,9 +19,5 @@ export const StyledNavigation = styled(StyledPage).attrs({
   align-items: center;
   justify-content: center;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledNavigation.defaultProps = {
-  theme: DEFAULT_THEME
-};

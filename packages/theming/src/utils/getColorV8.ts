@@ -25,6 +25,62 @@ const adjust = (color: string, expected: number, actual: number) => {
   return color;
 };
 
+const CACHE = new WeakMap();
+const KEYS = { colors: 0, palette: 0 };
+
+CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
+CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
+
+const toKey = ({
+  hue,
+  shade,
+  theme,
+  transparency
+}: {
+  hue: Hue;
+  shade?: number;
+  theme?: DefaultTheme;
+  transparency?: number;
+}) => {
+  let retVal = `${typeof hue === 'object' ? JSON.stringify(hue) : hue}`;
+
+  if (shade !== undefined) {
+    retVal += `,${shade}`;
+  }
+
+  if (theme !== undefined) {
+    let themeColorsKey;
+
+    if (theme.colors) {
+      themeColorsKey = CACHE.get(theme.colors);
+
+      if (themeColorsKey === undefined) {
+        themeColorsKey = ++KEYS.colors;
+        CACHE.set(theme.colors, themeColorsKey);
+      }
+    }
+
+    let themePaletteKey;
+
+    if (theme.palette) {
+      themePaletteKey = CACHE.get(theme.palette);
+
+      if (themePaletteKey === undefined) {
+        themePaletteKey = ++KEYS.palette;
+        CACHE.set(theme.palette, themePaletteKey);
+      }
+    }
+
+    retVal += `,{${themeColorsKey},${themePaletteKey}}`;
+  }
+
+  if (transparency !== undefined) {
+    retVal += `,${transparency}`;
+  }
+
+  return retVal;
+};
+
 /**
  * @deprecated Use `getColor` instead.
  *
@@ -96,6 +152,5 @@ export const getColorV8 = memoize(
 
     return retVal;
   },
-  (hue, shade, theme, transparency) =>
-    JSON.stringify({ hue, shade, palette: theme?.palette, colors: theme?.colors, transparency })
+  (hue, shade, theme, transparency) => toKey({ hue, shade, theme, transparency })
 );

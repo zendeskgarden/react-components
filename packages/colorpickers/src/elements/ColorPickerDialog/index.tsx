@@ -14,6 +14,7 @@ import React, {
   forwardRef,
   ReactElement
 } from 'react';
+import { useTheme } from 'styled-components';
 import PropTypes from 'prop-types';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
@@ -23,11 +24,11 @@ import { ColorPicker } from '../ColorPicker';
 import {
   StyledButton,
   StyledButtonPreview,
-  StyledTooltipModal,
+  StyledTooltipDialog,
   StyledTooltipBody
 } from '../../styled';
 import { IColor, IColorPickerDialogProps } from '../../types';
-import { useText } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -70,6 +71,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
       'aria-label',
       'Color picker'
     );
+    const theme = useTheme() || DEFAULT_THEME;
 
     const openDialog = () => {
       setReferenceElement(buttonRef.current);
@@ -114,21 +116,21 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
             onClick={onClick}
             {...buttonProps}
           >
-            <StyledButtonPreview backgroundColor={isControlled ? color : uncontrolledColor} />
+            <StyledButtonPreview $backgroundColor={isControlled ? color : uncontrolledColor} />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
               <Chevron />
             </Button.EndIcon>
           </StyledButton>
         )}
-        <StyledTooltipModal
+        <StyledTooltipDialog
           ref={ref}
           hasArrow={hasArrow}
           zIndex={zIndex}
           isAnimated={isAnimated}
-          isOpaque={isOpaque}
           focusOnMount={false}
           placement={placement}
+          offset={theme.space.base}
           referenceElement={referenceElement}
           onClose={() => {
             closeDialog();
@@ -148,7 +150,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
               onChange={isControlled ? onChange : setUncontrolledColor}
             />
           </StyledTooltipBody>
-        </StyledTooltipModal>
+        </StyledTooltipDialog>
       </>
     );
   }
@@ -173,7 +175,7 @@ ColorPickerDialog.defaultProps = {
   placement: 'bottom-start',
   isAnimated: true,
   zIndex: 1000,
-  hasArrow: false /* TooltipModal override */
+  hasArrow: false /* TooltipDialog override */
 };
 
 ColorPickerDialog.displayName = 'ColorPickerDialog';

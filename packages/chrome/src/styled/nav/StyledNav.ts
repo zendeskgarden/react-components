@@ -6,14 +6,20 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { getNavWidth, getNavWidthExpanded } from '../utils';
 
 const COMPONENT_ID = 'chrome.nav';
 
-const colorStyles = (props: IStyledNavProps) => {
-  const shade = props.isDark || props.isLight ? 600 : 700;
-  const backgroundColor = getColorV8(props.hue, shade, props.theme);
-  const foregroundColor = props.isLight ? props.theme.palette.black : props.theme.palette.white;
+interface IStyledNavProps {
+  $hue: string;
+  $isExpanded?: boolean;
+}
+
+const colorStyles = ({ theme, $hue }: IStyledNavProps & ThemeProps<DefaultTheme>) => {
+  const shade = $hue === 'chromeHue' ? 900 : undefined;
+  const backgroundColor = getColor({ theme, hue: $hue, shade });
+  const foregroundColor = getColor({ theme, dark: { hue: 'white' }, light: { hue: 'black' } });
 
   return css`
     background-color: ${backgroundColor};
@@ -21,19 +27,14 @@ const colorStyles = (props: IStyledNavProps) => {
   `;
 };
 
-interface IStyledNavProps extends ThemeProps<DefaultTheme> {
-  hue: string;
-  isDark?: boolean;
-  isLight?: boolean;
-  isExpanded?: boolean;
-}
+const sizeStyles = ({ theme, $isExpanded }: IStyledNavProps & ThemeProps<DefaultTheme>) => {
+  const fontSize = theme.fontSizes.md;
+  const width = $isExpanded ? getNavWidthExpanded() : getNavWidth(theme);
 
-export const getNavWidth = (props: ThemeProps<DefaultTheme>) => {
-  return `${props.theme.space.base * 15}px`;
-};
-
-export const getExpandedNavWidth = () => {
-  return `200px`;
+  return css`
+    width: ${width};
+    font-size: ${fontSize};
+  `;
 };
 
 export const StyledNav = styled.nav.attrs<IStyledNavProps>({
@@ -45,14 +46,10 @@ export const StyledNav = styled.nav.attrs<IStyledNavProps>({
   flex-direction: column;
   flex-shrink: 0;
   order: -1;
-  width: ${props => (props.isExpanded ? getExpandedNavWidth : getNavWidth)};
-  font-size: ${props => props.theme.fontSizes.md};
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${sizeStyles};
+
+  ${componentStyles};
 `;
-
-StyledNav.defaultProps = {
-  theme: DEFAULT_THEME
-};

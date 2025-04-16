@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.footer_item';
 
@@ -15,20 +15,12 @@ export const StyledFooterItem = styled.span.attrs({
   'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
-  /* stylelint-disable property-no-unknown */
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 5}px;
-  /* stylelint-enable property-no-unknown */
   min-width: 0;
 
   &:first-child {
-    /* stylelint-disable property-no-unknown */
     margin-${props => (props.theme.rtl ? 'right' : 'left')}: 0;
-    /* stylelint-enable property-no-unknown */
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledFooterItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

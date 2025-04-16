@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_body';
 
@@ -17,10 +17,7 @@ export const StyledSheetBody = styled.div.attrs({
   flex: 1;
   overflow-y: auto;
   padding: ${props => props.theme.space.base * 5}px;
+  color-scheme: only ${p => p.theme.colors.base};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledSheetBody.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -24,7 +24,7 @@ import {
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
   ({ sort, cellProps = {}, width, children, ...sortableButtonProps }, ref) => {
-    const { isMinimum, isTruncated, hasOverflow } = cellProps;
+    const { isMinimum, isTruncated, hasOverflow, ...otherCellProps } = cellProps;
     let ariaSortValue = 'none';
 
     if (sort === 'asc') {
@@ -42,7 +42,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
         $isMinimum={isMinimum}
         $isTruncated={isTruncated}
         $hasOverflow={hasOverflow}
-        {...cellProps}
+        {...otherCellProps}
       >
         <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
           {children}
@@ -58,7 +58,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
   }
 );
 
-SortableCell.displayName = 'SortableCell';
+SortableCell.displayName = 'Table.SortableCell';
 
 SortableCell.propTypes = {
   sort: PropTypes.oneOf(SORT),

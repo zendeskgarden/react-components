@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 import { StyledItem } from './StyledItem';
 
@@ -21,9 +21,5 @@ export const StyledPreviousItem = styled(StyledItem).attrs({
 })`
   font-weight: ${props => props.theme.fontWeights.semibold};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledPreviousItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

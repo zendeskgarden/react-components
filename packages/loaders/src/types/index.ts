@@ -14,7 +14,12 @@ export type Size = (typeof SIZE)[number];
 export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's font size by default. */
   size?: string | number;
-  /** Sets the fill color. Inherits the parent's `color` by default. */
+  /**
+   * Sets the fill color. Accepts a [color
+   * variable](/components/theme-object#colors) key (i.e. `foreground.primary`)
+   * to render based on light/dark mode, or any hex value. Inherits the parent's
+   * `color` by default.
+   */
   color?: string;
   /** Sets the length of the animation cycle in milliseconds **/
   duration?: number;
@@ -25,7 +30,12 @@ export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
 export interface IInlineProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the width in pixels and scales the loader proportionally */
   size?: number;
-  /** Sets the fill color. Inherits the parent's `color` by default. */
+  /**
+   * Sets the fill color. Accepts a [color
+   * variable](/components/theme-object#colors) key (i.e. `foreground.primary`)
+   * to render based on light/dark mode, or any hex value. Inherits the parent's
+   * `color` by default.
+   */
   color?: string;
 }
 
@@ -33,8 +43,11 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the progress as a value between 0 and 100 */
   value?: number;
   /**
-   * Sets the foreground bar's fill color.
-   * Defaults to the `successHue` [theme](/components/theme-object#colors) value.
+   * Sets the foreground bar's fill color. Accepts a [color
+   * variable](/components/theme-object#colors) key (i.e.
+   * `border.primaryEmphasis`) to render based on light/dark mode, or any hex
+   * value.  Defaults to the `border.successEmphasis`
+   * [theme](/components/theme-object#variables) value.
    */
   color?: string;
   /** Adjusts the height */
@@ -60,8 +73,11 @@ export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
    **/
   duration?: number;
   /**
-   * Sets the fill color. Inherits the parent's `color` by default.
-   **/
+   * Sets the fill color. Accepts a [color
+   * variable](/components/theme-object#colors) key (i.e. `foreground.primary`)
+   * to render based on light/dark mode, or any hex value. Inherits the parent's
+   * `color` by default.
+   */
   color?: string;
   /**
    * Delays displaying the loader to prevent a render flash during normal loading times

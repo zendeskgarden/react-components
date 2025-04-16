@@ -6,14 +6,14 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { DEFAULT_THEME, getColor, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import { StyledTile } from './StyledTile';
 
 const COMPONENT_ID = 'forms.tile_icon';
 
 interface IStyledTileIconProps {
-  isCentered?: boolean;
+  $isCentered?: boolean;
 }
 
 const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
@@ -45,13 +45,13 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme, isCentered }: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
   const iconSize = math(`${theme.iconSizes.md} * 2`);
   let position;
   let top;
   let horizontal;
 
-  if (!isCentered) {
+  if (!$isCentered) {
     position = 'absolute';
     top = `${theme.space.base * 6}px`;
     horizontal = `${theme.space.base * 5}px`;
@@ -82,9 +82,5 @@ export const StyledTileIcon = styled.span.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTileIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

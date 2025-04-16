@@ -6,14 +6,14 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, focusStyles } from '@zendeskgarden/react-theming';
+import { componentStyles, focusStyles } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'accordions.header';
 
 interface IStyledHeader {
-  isExpanded?: boolean;
-  isCollapsible?: boolean;
+  $isExpanded?: boolean;
+  $isCollapsible?: boolean;
 }
 
 export const StyledHeader = styled.div.attrs<IStyledHeader>({
@@ -26,7 +26,7 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
   font-size: ${props => props.theme.fontSizes.md};
 
   &:hover {
-    cursor: ${props => (props.isCollapsible || !props.isExpanded) && 'pointer'};
+    cursor: ${props => (props.$isCollapsible || !props.$isExpanded) && 'pointer'};
   }
 
   ${props =>
@@ -36,9 +36,5 @@ export const StyledHeader = styled.div.attrs<IStyledHeader>({
       selector: `&:has(${StyledButton}:focus-visible)`
     })}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledHeader.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,23 +6,23 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { sizeStyles } from './StyledInput';
 
 const COMPONENT_ID = 'dropdowns.combobox.value';
 
 interface IStyledValueProps extends ThemeProps<DefaultTheme> {
-  isAutocomplete?: boolean;
-  isBare?: boolean;
-  isCompact?: boolean;
-  isDisabled?: boolean;
-  isEditable?: boolean;
-  isMultiselectable?: boolean;
-  isPlaceholder?: boolean;
+  $isAutocomplete?: boolean;
+  $isBare?: boolean;
+  $isCompact?: boolean;
+  $isDisabled?: boolean;
+  $isEditable?: boolean;
+  $isMultiselectable?: boolean;
+  $isPlaceholder?: boolean;
 }
 
-const colorStyles = ({ theme, isPlaceholder }: IStyledValueProps) => {
-  const foregroundColor = isPlaceholder && getColor({ theme, variable: 'foreground.disabled' });
+const colorStyles = ({ theme, $isPlaceholder }: IStyledValueProps) => {
+  const foregroundColor = $isPlaceholder && getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
     color: ${foregroundColor};
@@ -36,11 +36,11 @@ export const StyledValue = styled.div.attrs({
   flex-basis: 0;
   flex-grow: 1;
   cursor: ${props => {
-    if (props.isDisabled) {
+    if (props.$isDisabled) {
       return 'default';
     }
 
-    return props.isEditable && !props.isAutocomplete ? 'text' : 'pointer';
+    return props.$isEditable && !props.$isAutocomplete ? 'text' : 'pointer';
   }};
   overflow: hidden;
   text-overflow: ellipsis;
@@ -55,9 +55,5 @@ export const StyledValue = styled.div.attrs({
     display: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledValue.defaultProps = {
-  theme: DEFAULT_THEME
-};

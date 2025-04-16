@@ -8,8 +8,7 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
 import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
+  componentStyles,
   getLineHeight,
   focusStyles,
   getColor
@@ -21,11 +20,11 @@ import { StyledMessage } from '../common/StyledMessage';
 const COMPONENT_ID = 'forms.file_upload';
 
 interface IStyledFileUploadProps {
-  isDragging?: boolean;
-  isCompact?: boolean;
+  $isDragging?: boolean;
+  $isCompact?: boolean;
 }
 
-const colorStyles = ({ theme, isDragging }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+const colorStyles = ({ theme, $isDragging }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
   const borderOptions = { theme, variable: 'border.primaryEmphasis' };
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
   const foregroundOptions = { theme, variable: 'foreground.primary' };
@@ -47,9 +46,9 @@ const colorStyles = ({ theme, isDragging }: ThemeProps<DefaultTheme> & IStyledFi
   const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
-    border-color: ${isDragging ? activeBorderColor : borderColor};
-    background-color: ${isDragging ? activeBackgroundColor : undefined};
-    color: ${isDragging ? activeForegroundColor : foregroundColor};
+    border-color: ${$isDragging ? activeBorderColor : borderColor};
+    background-color: ${$isDragging ? activeBackgroundColor : undefined};
+    color: ${$isDragging ? activeForegroundColor : foregroundColor};
 
     &:hover {
       border-color: ${hoverBorderColor};
@@ -73,11 +72,11 @@ const colorStyles = ({ theme, isDragging }: ThemeProps<DefaultTheme> & IStyledFi
   `;
 };
 
-const sizeStyles = ({ theme, isCompact }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
-  const marginTop = `${theme.space.base * (isCompact ? 1 : 2)}px`;
-  const paddingHorizontal = `${isCompact ? 2 : 4}em`;
+const sizeStyles = ({ theme, $isCompact }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+  const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
+  const paddingHorizontal = `${$isCompact ? 2 : 4}em`;
   const paddingVertical = math(
-    `${theme.space.base * (isCompact ? 2.5 : 5)} - ${theme.borderWidths.sm}`
+    `${theme.space.base * ($isCompact ? 2.5 : 5)} - ${theme.borderWidths.sm}`
   );
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
@@ -88,7 +87,6 @@ const sizeStyles = ({ theme, isCompact }: ThemeProps<DefaultTheme> & IStyledFile
     line-height: ${lineHeight};
     font-size: ${fontSize};
 
-    /* stylelint-disable */
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
     ${StyledMessage} + &&,
@@ -96,7 +94,6 @@ const sizeStyles = ({ theme, isCompact }: ThemeProps<DefaultTheme> & IStyledFile
     && + ${StyledMessage} {
       margin-top: ${marginTop};
     }
-    /* stylelint-enable */
   `;
 };
 
@@ -129,9 +126,5 @@ export const StyledFileUpload = styled.div.attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledFileUpload.defaultProps = {
-  theme: DEFAULT_THEME
-};

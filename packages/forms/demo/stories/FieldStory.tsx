@@ -16,13 +16,17 @@ export type { ICommonArgs as IFieldArgs } from './common';
 interface IArgs extends HTMLAttributes<HTMLDivElement>, ICommonArgs {}
 
 export const FieldStory: StoryFn<IArgs> = ({
-  hasLabel = true,
-  label = 'Label',
-  isLabelRegular,
-  isLabelHidden,
-  hasHint = true,
-  hint = 'Hint',
   children,
+  hasHint = true,
+  hasLabel = true,
+  hasMessage,
+  hint = 'Hint',
+  isLabelHidden,
+  isLabelRegular,
+  label = 'Label',
+  message,
+  validation,
+  validationLabel,
   ...args
 }) => (
   <Field {...args}>
@@ -30,6 +34,6 @@ export const FieldStory: StoryFn<IArgs> = ({
     {renderHint({ hasHint: hasHint && hasLabel && !isLabelHidden, hint })}
     {children}
     {renderHint({ hasHint: hasHint && (!hasLabel || isLabelHidden), hint })}
-    {renderMessage(args)}
+    {renderMessage({ hasMessage, message, validation, validationLabel })}
   </Field>
 );

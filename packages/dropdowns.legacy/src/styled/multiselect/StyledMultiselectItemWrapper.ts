@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.multiselect_item_wrapper';
 
@@ -19,9 +19,5 @@ export const StyledMultiselectItemWrapper = styled.div.attrs({
   margin: ${props => props.theme.space.base / 2}px;
   max-width: 100%;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledMultiselectItemWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

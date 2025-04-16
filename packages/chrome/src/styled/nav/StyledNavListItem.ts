@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav_list_item';
 
@@ -20,9 +20,5 @@ export const StyledNavListItem = styled.li.attrs({
   padding: 0;
   list-style-type: none;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledNavListItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

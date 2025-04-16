@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option.icon';
@@ -49,14 +44,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
   return css`
     margin-top: ${marginTop};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${props.theme.rtl ? 'left' : 'right'}: ${marginHorizontal};
     width: ${size};
     height: ${size};
   `;
 };
 
-export const StyledOptionIcon = styled(StyledBaseIcon).attrs({
+export const StyledOptionIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledOptionIconProps>`
@@ -66,9 +60,5 @@ export const StyledOptionIcon = styled(StyledBaseIcon).attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledOptionIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

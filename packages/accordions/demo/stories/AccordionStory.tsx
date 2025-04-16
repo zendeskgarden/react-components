@@ -54,7 +54,7 @@ export const AccordionStory: Story<IArgs> = ({ sections, ...args }: IArgs) => (
       <Accordion.Section key={index}>
         <Accordion.Header>
           <Accordion.Label>{section.headerLabel}</Accordion.Label>
-          {args.hasIconButtons && <IconButtons isCompact={args.isCompact || false} />}
+          {!!args.hasIconButtons && <IconButtons isCompact={args.isCompact || false} />}
         </Accordion.Header>
         <Accordion.Panel>{section.panel}</Accordion.Panel>
       </Accordion.Section>

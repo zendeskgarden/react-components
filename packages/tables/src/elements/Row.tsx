@@ -71,7 +71,7 @@ export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
   }
 );
 
-Row.displayName = 'Row';
+Row.displayName = 'Table.Row';
 
 Row.propTypes = {
   isStriped: PropTypes.bool,

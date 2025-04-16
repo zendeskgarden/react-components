@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionTypeIcon } from '../combobox/StyledOptionTypeIcon';
 import { StyledItem } from './StyledItem';
 
@@ -16,14 +16,9 @@ export const StyledItemTypeIcon = styled(StyledOptionTypeIcon).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  /* stylelint-disable-next-line */
   ${StyledItem}[aria-checked='true'] > & {
     opacity: 1;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledItemTypeIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

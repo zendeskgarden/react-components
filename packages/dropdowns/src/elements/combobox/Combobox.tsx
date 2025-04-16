@@ -176,48 +176,34 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       'listboxAriaLabel',
       'Options'
     );
-    const triggerProps = {
-      isAutocomplete,
-      isBare,
-      isCompact,
-      isEditable,
-      isLabelHovered,
-      isMultiselectable,
-      maxHeight,
-      focusInset,
-      validation,
-      ...(getTriggerProps({
-        onFocus: () => {
-          if (!isDisabled) {
-            if (isEditable) {
-              setIsInputHidden(false);
-            }
-
-            if (isMultiselectable) {
-              setIsTagGroupExpanded(true);
-            }
+    const triggerProps = getTriggerProps({
+      onFocus: () => {
+        if (!isDisabled) {
+          if (isEditable) {
+            setIsInputHidden(false);
           }
-        },
-        onBlur: event => {
-          if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
-            if (isEditable) {
-              setIsInputHidden(true);
-            }
 
-            if (isMultiselectable) {
-              setIsTagGroupExpanded(false);
-            }
+          if (isMultiselectable) {
+            setIsTagGroupExpanded(true);
           }
         }
-      }) as HTMLAttributes<HTMLDivElement>)
-    };
+      },
+      onBlur: event => {
+        if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
+          if (isEditable) {
+            setIsInputHidden(true);
+          }
+
+          if (isMultiselectable) {
+            setIsTagGroupExpanded(false);
+          }
+        }
+      }
+    }) as HTMLAttributes<HTMLDivElement>;
+
     const inputProps = {
       'aria-invalid': validation === 'error' || validation === 'warning',
       hidden: isInputHidden,
-      isBare,
-      isCompact,
-      isEditable,
-      isMultiselectable,
       placeholder,
       ...(getInputProps({
         ...(_inputProps as IUseComboboxReturnValue['getInputProps'])
@@ -266,20 +252,31 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     return (
       <ComboboxContext.Provider value={contextValue}>
         <StyledCombobox
-          isCompact={isCompact}
+          $isCompact={isCompact}
           tabIndex={-1} // HACK: otherwise screenreaders can't read the label
           {...props}
           ref={ref}
         >
-          <StyledTrigger {...triggerProps}>
+          <StyledTrigger
+            $isAutocomplete={isAutocomplete}
+            $isBare={isBare}
+            $isCompact={isCompact}
+            $isEditable={isEditable}
+            $isLabelHovered={isLabelHovered}
+            $isMultiselectable={isMultiselectable}
+            $maxHeight={maxHeight}
+            $focusInset={focusInset}
+            $validation={validation}
+            {...triggerProps}
+          >
             <StyledContainer>
-              {startIcon && (
+              {!!startIcon && (
                 <StyledInputIcon $isLabelHovered={isLabelHovered} $isCompact={isCompact}>
                   {startIcon}
                 </StyledInputIcon>
               )}
               <StyledInputGroup>
-                {isMultiselectable && Array.isArray(selection) && (
+                {!!isMultiselectable && Array.isArray(selection) && (
                   <TagGroup
                     isDisabled={isDisabled}
                     isExpanded={isTagGroupExpanded}
@@ -291,7 +288,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                       <StyledTagsButton
                         disabled={isDisabled}
                         hidden={isTagGroupExpanded}
-                        isCompact={isCompact}
+                        $isCompact={isCompact}
                         tabIndex={-1}
                         type="button"
                       >
@@ -308,24 +305,30 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 )}
                 <StyledValue
                   hidden={!isInputHidden}
-                  isAutocomplete={isAutocomplete}
-                  isBare={isBare}
-                  isCompact={isCompact}
-                  isDisabled={isDisabled}
-                  isEditable={isEditable}
-                  isMultiselectable={isMultiselectable}
-                  isPlaceholder={!(inputValue || renderValue)}
+                  $isAutocomplete={isAutocomplete}
+                  $isBare={isBare}
+                  $isCompact={isCompact}
+                  $isDisabled={isDisabled}
+                  $isEditable={isEditable}
+                  $isMultiselectable={isMultiselectable}
+                  $isPlaceholder={!(inputValue || renderValue)}
                 >
                   {renderValue ? renderValue({ selection, inputValue }) : inputValue || placeholder}
                 </StyledValue>
-                <StyledInput {...inputProps} />
+                <StyledInput
+                  $isBare={isBare}
+                  $isCompact={isCompact}
+                  $isEditable={isEditable}
+                  $isMultiselectable={isMultiselectable}
+                  {...inputProps}
+                />
               </StyledInputGroup>
-              {(hasChevron || endIcon) && (
+              {!!(hasChevron || endIcon) && (
                 <StyledInputIcon
                   $isCompact={isCompact}
                   $isEnd
                   $isLabelHovered={isLabelHovered}
-                  $isRotated={hasChevron && isExpanded}
+                  $isRotated={!!(hasChevron && isExpanded)}
                 >
                   {hasChevron ? <ChevronIcon /> : endIcon}
                 </StyledInputIcon>

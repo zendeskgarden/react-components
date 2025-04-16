@@ -7,11 +7,11 @@
 
 import { Range } from '@zendeskgarden/react-forms';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { math, stripUnit } from 'polished';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { stripUnit } from 'polished';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 export interface IStyledRangeProps {
-  isOpaque?: boolean;
+  $isOpaque?: boolean;
 }
 
 const COMPONENT_ID = 'colorpickers.colorpicker_range';
@@ -60,18 +60,30 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
-  const thumbBackgroundColor = getColorV8('neutralHue', 100, props.theme);
-  const thumbBorderColor = thumbBackgroundColor;
-  const thumbActiveBackgroundColor = getColorV8('neutralHue', 200, props.theme);
-  const thumbActiveBorderColor = getColorV8('primaryHue', 600, props.theme);
-  const thumbFocusBorderColor = getColorV8('primaryHue', 400, props.theme);
-  const thumbHoverBackgroundColor = thumbActiveBackgroundColor;
-  const thumbHoverBorderColor = thumbHoverBackgroundColor;
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const thumbBackgroundColor = getColor({
+    theme,
+    variable: 'background.default'
+  });
+  const thumbBorderColor = getColor({
+    theme,
+    variable: 'border.default',
+    dark: { offset: -100 },
+    light: { offset: 100 }
+  });
+  const thumbActiveBackgroundColor = thumbBackgroundColor;
+  const thumbActiveBorderColor = getColor({
+    theme,
+    variable: 'border.primaryEmphasis'
+  });
+  const thumbFocusBorderColor = thumbActiveBorderColor;
+  const thumbHoverBackgroundColor = getColor({
+    theme,
+    variable: 'background.subtle'
+  });
+  const thumbHoverBorderColor = thumbActiveBorderColor;
 
   return `
-    border-color: ${props.isOpaque && getColorV8('background', 600 /* default shade */, props.theme)};
-
     ${trackStyles(`
       background-color: transparent;
     `)}
@@ -112,10 +124,10 @@ const colorStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
 };
 
 const getThumbSize = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
-  props.theme.space.base * (props.isOpaque ? 6 : 4);
+  props.theme.space.base * (props.$isOpaque ? 6 : 4);
 
 export const getTrackHeight = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
-  props.theme.space.base * (props.isOpaque ? 6 : 3);
+  props.theme.space.base * (props.$isOpaque ? 6 : 3);
 
 export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
   (getThumbSize(props) - getTrackHeight(props)) / 2 +
@@ -130,26 +142,15 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   const trackHeight = getTrackHeight(props);
   const trackMargin = getTrackMargin(props);
   const thumbMargin = (trackHeight - thumbSize) / 2;
-  const trackOffset = props.theme.space.base * (props.isOpaque ? -2 : -1);
-  const height = props.isOpaque ? trackHeight : trackMargin * 2 + trackHeight;
-  let marginHorizontal;
-  let border;
-  let borderRadius;
-
-  if (props.isOpaque) {
-    marginHorizontal = `-${trackMargin}px`;
-    border = `${trackMargin}px ${props.theme.borderStyles.solid}`;
-    borderRadius = `${trackMargin + (stripUnit(props.theme.shadowWidths.md) as number)}px`;
-  }
+  const trackOffset = props.theme.space.base * (props.$isOpaque ? -2 : -1);
+  const height = props.$isOpaque ? trackHeight : trackMargin * 2 + trackHeight;
 
   return `
     /* stylelint-disable-next-line declaration-no-important */
     margin-top: 0 !important;
-    margin-${props.theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
     height: ${height}px; /* [1] */
     box-sizing: content-box; /* [2] */
-    border: ${border};
-    border-radius: ${borderRadius};
+    border-radius: ${props.$isOpaque && props.theme.borderRadii.md};
 
     ${trackStyles(`
       margin: ${trackMargin}px ${trackOffset}px;
@@ -158,7 +159,7 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
 
     ${thumbStyles(`
       margin: ${thumbMargin}px 0;
-      border-width: ${math(`${props.theme.borderWidths.sm} * 2`)};
+      border-width: ${props.theme.borderWidths.sm};
       height: ${thumbSize}px;
       width: ${thumbSize}px;
     `)};
@@ -169,7 +170,7 @@ export const StyledRange = styled(Range as unknown as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   hasLowerTrack: false
-})`
+})<IStyledRangeProps>`
   ${sizeStyles};
 
   ${trackStyles(`
@@ -178,9 +179,5 @@ export const StyledRange = styled(Range as unknown as 'input').attrs({
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRange.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -7,12 +7,13 @@
 
 import styled from 'styled-components';
 import { StyledDatePicker } from './StyledDatePicker';
-import { DEFAULT_THEME, retrieveComponentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.range_calendar';
 
 export const StyledRangeCalendar = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
 })`
   display: flex;
   overflow: auto;
@@ -26,9 +27,5 @@ export const StyledRangeCalendar = styled.div.attrs({
         : `&:first-of-type {margin-right: ${props.theme.space.base * 5}px}`}
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRangeCalendar.defaultProps = {
-  theme: DEFAULT_THEME
-};

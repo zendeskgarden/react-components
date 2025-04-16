@@ -5,13 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  StyledBaseIcon,
-  getColor,
-  retrieveComponentStyles
-} from '@zendeskgarden/react-theming';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { StyledBaseIcon, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { FileValidation } from '../../types';
 
 const COMPONENT_ID = 'forms.file.icon';
@@ -35,24 +30,19 @@ const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & ThemeProps<Def
 
   return css`
     width: ${width};
-    /* stylelint-disable-next-line property-no-unknown */
     margin-${theme.rtl ? 'left' : 'right'}: ${margin};
   `;
 };
 
-export const StyledFileIcon = styled(StyledBaseIcon).attrs({
+export const StyledFileIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledFileIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};
 
   ${colorStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledFileIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

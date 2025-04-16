@@ -18,13 +18,13 @@ interface IArgs extends ISpanProps {
 
 export const SpanStory: Story<IArgs> = ({ hasIcon, hasStartIcon, ...args }) => (
   <Span {...args}>
-    {hasStartIcon && (
+    {!!hasStartIcon && (
       <Span.StartIcon>
         <StartIcon />
       </Span.StartIcon>
     )}
     {args.children}
-    {hasIcon && (
+    {!!hasIcon && (
       <>
         {' '}
         <Span.Icon>

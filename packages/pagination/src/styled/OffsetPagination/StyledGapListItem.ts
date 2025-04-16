@@ -7,12 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColorV8
-} from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { StyledListItem } from './StyledListItem';
 
 const COMPONENT_ID = 'pagination.gap';
@@ -34,23 +29,26 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  return css`
+    color: ${getColor({ variable: 'foreground.subtle', theme })};
+  `;
+};
+
 export const StyledGapListItem = styled(StyledListItem).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   display: inline-block;
   text-align: center;
-  color: ${p => getColorV8('neutralHue', 600, p.theme)};
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
+
+  ${colorStyles}
 
   &:hover {
     color: inherit;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledGapListItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -26,4 +26,4 @@ export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
   return <StyledHint {...hintProps} {...props} ref={ref} />;
 });
 
-Hint.displayName = 'Hint';
+Hint.displayName = 'Field.Hint';

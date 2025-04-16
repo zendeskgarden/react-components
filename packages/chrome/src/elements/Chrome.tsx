@@ -9,7 +9,7 @@ import React, { useMemo, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { readableColor } from 'polished';
-import { getColorV8, useDocument } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, getColor, useDocument } from '@zendeskgarden/react-theming';
 import { IChromeProps } from '../types';
 import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
@@ -19,10 +19,10 @@ import { StyledChrome } from '../styled';
  */
 export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
   ({ hue, isFluid, ...props }, ref) => {
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const isLightMemoized = useMemo(() => {
       if (hue) {
-        const backgroundColor = getColorV8(hue, 600, theme);
+        const backgroundColor = getColor({ theme, hue });
         const LIGHT_COLOR = 'white';
 
         /* prevent this expensive computation on every render */
@@ -35,11 +35,10 @@ export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
       return false;
     }, [hue, theme]);
 
-    const isLight = hue ? isLightMemoized : false;
-    const isDark = hue ? !isLightMemoized : false;
+    const isLight = hue ? isLightMemoized : undefined;
     const chromeContextValue = useMemo(
-      () => ({ hue: hue || 'chromeHue', isLight, isDark }),
-      [hue, isLight, isDark]
+      () => ({ hue: hue || 'chromeHue', isLight }),
+      [hue, isLight]
     );
     const environment = useDocument(theme);
 
@@ -63,7 +62,7 @@ export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
 
     return (
       <ChromeContext.Provider value={chromeContextValue}>
-        <StyledChrome ref={ref} {...props} data-test-light={isLight} data-test-dark={isDark} />
+        <StyledChrome ref={ref} {...props} data-test-light={isLight} />
       </ChromeContext.Provider>
     );
   }

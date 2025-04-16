@@ -52,7 +52,7 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
 
     return (
       <TabsContext.Provider value={contextValue}>
-        <StyledTabs isVertical={isVertical} {...otherProps} ref={ref}>
+        <StyledTabs $isVertical={isVertical} {...otherProps} ref={ref}>
           {children}
         </StyledTabs>
       </TabsContext.Provider>

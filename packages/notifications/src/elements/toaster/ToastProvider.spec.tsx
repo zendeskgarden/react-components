@@ -13,25 +13,22 @@ import { useToast, ToastProvider, IToastProviderProps } from '../../';
 import { config } from 'react-transition-group';
 config.disabled = true;
 
-const ToastExample: React.FC<IToastProviderProps> = props => {
-  const NotificationExample = () => {
-    const { addToast } = useToast();
-
-    return (
-      <button
-        onClick={() => addToast(() => <div>notification</div>, { placement: 'bottom-start' })}
-      >
-        Add
-      </button>
-    );
-  };
+const NotificationExample = () => {
+  const { addToast } = useToast();
 
   return (
-    <ToastProvider {...props}>
-      <NotificationExample />
-    </ToastProvider>
+    /* eslint-disable-next-line react/no-unstable-nested-components */
+    <button onClick={() => addToast(() => <div>notification</div>, { placement: 'bottom-start' })}>
+      Add
+    </button>
   );
 };
+
+const ToastExample: React.FC<IToastProviderProps> = props => (
+  <ToastProvider {...props}>
+    <NotificationExample />
+  </ToastProvider>
+);
 
 describe('ToastProvider', () => {
   const user = userEvent.setup();
@@ -82,7 +79,7 @@ describe('ToastProvider', () => {
     const notificationElements = getAllByText('notification');
 
     for (let x = 0; x < 6; x++) {
-      expect(notificationElements[x].parentElement).toHaveStyleRule('opacity', '0 !important');
+      expect(notificationElements[x].parentElement).toHaveStyleRule('opacity', '0!important');
     }
 
     for (let x = 6; x < 10; x++) {

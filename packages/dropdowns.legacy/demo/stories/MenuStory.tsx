@@ -38,14 +38,14 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
       return (
         <AddItem {...props}>
           {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
+          {!!meta && <ItemMeta>{meta}</ItemMeta>}
         </AddItem>
       );
 
     case 'header':
       return (
         <HeaderItem hasIcon={hasIcon}>
-          {hasIcon && (
+          {!!hasIcon && (
             <HeaderIcon>
               <Icon />
             </HeaderIcon>
@@ -58,7 +58,7 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
       return (
         <NextItem {...props}>
           {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
+          {!!meta && <ItemMeta>{meta}</ItemMeta>}
         </NextItem>
       );
 
@@ -66,7 +66,7 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
       return (
         <PreviousItem {...props}>
           {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
+          {!!meta && <ItemMeta>{meta}</ItemMeta>}
         </PreviousItem>
       );
 
@@ -78,13 +78,13 @@ const MenuItem = ({ text: children, type, hasIcon, meta, ...props }: IProps) => 
           </MediaFigure>
           <MediaBody>
             {children}
-            {meta && <ItemMeta>{meta}</ItemMeta>}
+            {!!meta && <ItemMeta>{meta}</ItemMeta>}
           </MediaBody>
         </MediaItem>
       ) : (
         <Item {...props}>
           {children}
-          {meta && <ItemMeta>{meta}</ItemMeta>}
+          {!!meta && <ItemMeta>{meta}</ItemMeta>}
         </Item>
       );
   }

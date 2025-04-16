@@ -28,8 +28,8 @@ export const Inline = forwardRef<SVGSVGElement, IInlineProps>(({ size, color, ..
     // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
     <StyledInline
       ref={ref}
-      size={size!}
-      color={color!}
+      $size={size!}
+      $color={color!}
       aria-label={ariaLabel}
       role="img"
       {...other}

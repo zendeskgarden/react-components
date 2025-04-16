@@ -58,7 +58,7 @@ export const TriggerStory: Story<IArgs> = ({
   >
     <Trigger>
       <Button isDanger={isDanger} size={args.isCompact ? 'small' : undefined}>
-        {hasMedia && (
+        {!!hasMedia && (
           <Button.StartIcon>
             <Icon />
           </Button.StartIcon>

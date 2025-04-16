@@ -61,9 +61,9 @@ export const DrawerStory: Story<IArgs> = ({
         </Button.EndIcon>
       </Button>
       <Drawer {...args} onClose={onClose} {...ariaProp}>
-        {hasHeader && <Drawer.Header tag={tag}>{header}</Drawer.Header>}
+        {!!hasHeader && <Drawer.Header tag={tag}>{header}</Drawer.Header>}
         {hasBody ? <Drawer.Body>{body}</Drawer.Body> : body}
-        {hasFooter && (
+        {!!hasFooter && (
           <Drawer.Footer>
             {footerItems.map(({ text, type }, index) => (
               <Drawer.FooterItem key={index}>
@@ -74,7 +74,7 @@ export const DrawerStory: Story<IArgs> = ({
             ))}
           </Drawer.Footer>
         )}
-        {hasClose && <Drawer.Close aria-label={closeAriaLabel} />}
+        {!!hasClose && <Drawer.Close aria-label={closeAriaLabel} />}
       </Drawer>
     </>
   );

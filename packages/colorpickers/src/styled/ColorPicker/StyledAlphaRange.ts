@@ -6,16 +6,16 @@
  */
 
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getCheckeredBackground } from '@zendeskgarden/react-theming';
+import { getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
-import { IRGBColor } from '../../types';
+import { IRGBColorProps } from '../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
 
-const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
+const background = (props: IRGBColorProps & ThemeProps<DefaultTheme>) => {
   const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
-  const fromColor = `rgba(${props.red}, ${props.green}, ${props.blue}, 0)`;
-  const toColor = `rgb(${props.red}, ${props.green}, ${props.blue})`;
+  const fromColor = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, 0)`;
+  const toColor = `rgb(${props.$red}, ${props.$green}, ${props.$blue})`;
   const positionY = getTrackMargin(props);
   const height = getTrackHeight(props);
   const overlay = `linear-gradient(${direction}, ${fromColor}, ${toColor}) 0 ${positionY}px / 100% ${height}px no-repeat`;
@@ -29,17 +29,13 @@ const background = (props: IRGBColor & ThemeProps<DefaultTheme>) => {
   });
 };
 
-export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColor>(props => ({
+export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColorProps>(props => ({
   style: {
     backgroundSize: 'auto',
     background: background(props)
   },
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-}))<IRGBColor>`
-  /* stylelint-disable no-empty-source */
+}))<IRGBColorProps>`
+  /* empty-source */
 `;
-
-StyledAlphaRange.defaultProps = {
-  theme: DEFAULT_THEME
-};

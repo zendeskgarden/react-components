@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { renderRtl, render, screen } from 'garden-test-utils';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { StyledSheetHeader } from './StyledSheetHeader';
 
@@ -15,27 +15,18 @@ describe('StyledSheetHeader', () => {
   it('renders default styling', () => {
     render(<StyledSheetHeader>Header</StyledSheetHeader>);
 
-    expect(screen.getByText('Header')).toHaveStyleRule(
-      'border-bottom',
-      `${DEFAULT_THEME.borders.sm} ${getColorV8('neutralHue', 300, DEFAULT_THEME)}`
-    );
+    expect(screen.getByText('Header')).toHaveStyleRule('border-bottom', DEFAULT_THEME.borders.sm);
   });
 
   it('renders correctly when button is present', () => {
-    render(<StyledSheetHeader isCloseButtonPresent>Header</StyledSheetHeader>);
+    render(<StyledSheetHeader $isCloseButtonPresent>Header</StyledSheetHeader>);
 
-    expect(screen.getByText('Header')).toHaveStyleRule(
-      'padding-right',
-      `${DEFAULT_THEME.space.base * 14}px`
-    );
+    expect(screen.getByText('Header')).toHaveStyleRule('padding', '20px 56px 20px 20px');
   });
 
   it('renders correctly in rtl mode when button is present', () => {
-    renderRtl(<StyledSheetHeader isCloseButtonPresent>Header</StyledSheetHeader>);
+    renderRtl(<StyledSheetHeader $isCloseButtonPresent>Header</StyledSheetHeader>);
 
-    expect(screen.getByText('Header')).toHaveStyleRule(
-      'padding-left',
-      `${DEFAULT_THEME.space.base * 14}px`
-    );
+    expect(screen.getByText('Header')).toHaveStyleRule('padding', '20px 20px 20px 56px');
   });
 });

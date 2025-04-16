@@ -19,50 +19,50 @@ describe('StyledTextInput', () => {
   });
 
   it('renders media layout styling if provided', () => {
-    const { container } = render(<StyledTextFauxInput mediaLayout />);
+    const { container } = render(<StyledTextFauxInput $mediaLayout />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'inline-flex');
   });
 
   it('renders compact styling if provided', () => {
-    const { container } = render(<StyledTextFauxInput isCompact />);
+    const { container } = render(<StyledTextFauxInput $isCompact />);
 
     expect(container.firstChild).toHaveStyleRule('min-height', '32px');
   });
 
   it('renders bare styling if provided', () => {
-    const { container } = render(<StyledTextFauxInput isBare />);
+    const { container } = render(<StyledTextFauxInput $isBare />);
 
     expect(container.firstChild).toHaveStyleRule('border', 'none');
   });
 
   it('renders expected readonly styling', () => {
-    const { container } = render(<StyledTextFauxInput isReadOnly />);
+    const { container } = render(<StyledTextFauxInput $isReadOnly />);
 
     expect(container.firstChild).toHaveAttribute('aria-readonly');
   });
 
   it('renders expected disabled styling', () => {
-    const { container } = render(<StyledTextFauxInput isDisabled />);
+    const { container } = render(<StyledTextFauxInput $isDisabled />);
 
     expect(container.firstChild).toHaveAttribute('aria-disabled');
   });
 
   describe('Validation', () => {
     it('renders "success" styling if provided', () => {
-      const { container } = render(<StyledTextFauxInput validation="success" />);
+      const { container } = render(<StyledTextFauxInput $validation="success" />);
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.green[700]);
     });
 
     it('renders "warning" styling if provided', () => {
-      const { container } = render(<StyledTextFauxInput validation="warning" />);
+      const { container } = render(<StyledTextFauxInput $validation="warning" />);
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.yellow[700]);
     });
 
     it('renders "error" styling if provided', () => {
-      const { container } = render(<StyledTextFauxInput validation="error" />);
+      const { container } = render(<StyledTextFauxInput $validation="error" />);
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
     });

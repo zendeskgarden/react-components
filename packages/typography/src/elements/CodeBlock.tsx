@@ -8,6 +8,7 @@
 import React, { useMemo, useRef } from 'react';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
+import { ThemeProvider } from '@zendeskgarden/react-theming';
 import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
 import {
   StyledCodeBlock,
@@ -28,7 +29,16 @@ interface IToken {
  */
 export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
   (
-    { children, containerProps, highlightLines, isLight, isNumbered, language, size, ...other },
+    {
+      children,
+      containerProps,
+      highlightLines,
+      isLight,
+      isNumbered,
+      language = 'tsx',
+      size = 'medium',
+      ...other
+    },
     ref
   ) => {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -63,33 +73,41 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
         <Highlight
           Prism={Prism}
           code={code ? code.trim() : ''}
-          language={LANGUAGES.includes(language as Language) ? (language as Language) : 'tsx'}
+          language={LANGUAGES.includes(language!) ? (language as Language) : 'tsx'}
         >
           {({ className, tokens, getLineProps, getTokenProps }) => (
-            <StyledCodeBlock className={className} ref={ref} isLight={isLight} {...other}>
-              {tokens.map((line, index) => (
-                <StyledCodeBlockLine
-                  {...getLineProps({ line })}
-                  key={index}
-                  language={language}
-                  isHighlighted={highlightLines && highlightLines.includes(index + 1)}
-                  isLight={isLight}
-                  isNumbered={isNumbered}
-                  diff={getDiff(line)}
-                  size={size}
-                >
-                  {line.map((token, tokenKey) => (
-                    <StyledCodeBlockToken
-                      {...getTokenProps({ token })}
-                      key={tokenKey}
-                      isLight={isLight}
-                    >
-                      {token.empty ? '\n' : token.content}
-                    </StyledCodeBlockToken>
-                  ))}
-                </StyledCodeBlockLine>
-              ))}
-            </StyledCodeBlock>
+            <ThemeProvider
+              theme={parentTheme => ({
+                ...parentTheme,
+                colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
+              })}
+            >
+              <StyledCodeBlock className={className} ref={ref} {...other}>
+                {tokens.map((line, index) => (
+                  /* eslint-disable react/no-array-index-key */
+                  <StyledCodeBlockLine
+                    {...getLineProps({ line })}
+                    key={index}
+                    $language={language}
+                    $isHighlighted={highlightLines?.includes(index + 1)}
+                    $isNumbered={isNumbered}
+                    $diff={getDiff(line)}
+                    $size={size}
+                    style={undefined}
+                  >
+                    {line.map((token, tokenKey) => (
+                      <StyledCodeBlockToken
+                        {...getTokenProps({ token })}
+                        key={tokenKey}
+                        style={undefined}
+                      >
+                        {token.empty ? '\n' : token.content}
+                      </StyledCodeBlockToken>
+                    ))}
+                  </StyledCodeBlockLine>
+                ))}
+              </StyledCodeBlock>
+            </ThemeProvider>
           )}
         </Highlight>
       </StyledCodeBlockContainer>
@@ -98,8 +116,3 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
 );
 
 CodeBlock.displayName = 'CodeBlock';
-
-CodeBlock.defaultProps = {
-  language: 'tsx',
-  size: 'medium'
-};

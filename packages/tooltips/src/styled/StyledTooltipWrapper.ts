@@ -6,7 +6,6 @@
  */
 
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 /*
  * This wrapper allows the StyledTooltip to retain it's relative positioning.
@@ -18,21 +17,17 @@ import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
  * reposition the tooltip without having a visible shift. The transition
  * is fast enough that it should not be perceptible.
  */
-export const StyledTooltipWrapper = styled.div<{ zIndex?: number | string }>`
+export const StyledTooltipWrapper = styled.div<{ $zIndex?: number | string }>`
   position: absolute;
   top: 0; /* [1] */
   left: 0; /* [1] */
   /* stylelint-disable-next-line time-min-milliseconds */
   transition: opacity 10ms; /* [2] */
   opacity: 1;
-  z-index: ${props => props.zIndex};
+  z-index: ${props => props.$zIndex};
 
   &[aria-hidden='true'] {
     visibility: hidden;
     opacity: 0;
   }
 `;
-
-StyledTooltipWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};

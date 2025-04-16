@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel';
 
 const COMPONENT_ID = 'forms.radio_label';
@@ -17,14 +17,12 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   const lineHeight = props.theme.space.base * 5;
 
   return css`
-    /* stylelint-disable property-no-unknown */
     padding-${props.theme.rtl ? 'right' : 'left'}: ${padding}px;
 
     &[hidden] {
       padding-${props.theme.rtl ? 'right' : 'left'}: ${size}px;
       line-height: ${lineHeight}px;
     }
-    /* stylelint-enable property-no-unknown */
   `;
 };
 
@@ -34,7 +32,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 export const StyledRadioLabel = styled(StyledLabel).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  isRadio: true
+  $isRadio: true
 })`
   display: inline-block; /* [1] */
   position: relative;
@@ -42,9 +40,5 @@ export const StyledRadioLabel = styled(StyledLabel).attrs({
 
   ${props => sizeStyles(props)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRadioLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

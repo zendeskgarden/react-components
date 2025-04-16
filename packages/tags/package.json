@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-tags",
-  "version": "9.0.0-next.14",
+  "version": "9.5.4",
   "description": "Components relating to tags in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -26,14 +26,14 @@
     "prop-types": "^15.5.7"
   },
   "peerDependencies": {
-    "@zendeskgarden/react-theming": ">=9.0.0-next",
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "styled-components": "^5.3.1"
+    "@zendeskgarden/react-theming": ">=9.0.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
-    "@zendeskgarden/react-theming": "^9.0.0-next.14",
-    "@zendeskgarden/svg-icons": "7.1.1"
+    "@zendeskgarden/react-theming": "^9.5.4",
+    "@zendeskgarden/svg-icons": "7.5.0"
   },
   "keywords": [
     "components",

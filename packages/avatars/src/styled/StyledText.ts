@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'avatars.text';
 
@@ -21,9 +21,5 @@ export const StyledText = styled.span.attrs({
   text-align: center;
   white-space: nowrap;
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledText.defaultProps = {
-  theme: DEFAULT_THEME
-};

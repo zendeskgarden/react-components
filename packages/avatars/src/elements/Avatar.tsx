@@ -21,15 +21,16 @@ import { Text } from './components/Text';
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
     {
+      backgroundColor,
+      badge,
+      children,
+      foregroundColor,
       isSystem,
       size,
       status,
-      children,
-      badge,
+      statusLabel,
       surfaceColor,
-      backgroundColor,
-      foregroundColor,
-      ...props
+      ...other
     },
     ref
   ) => {
@@ -58,9 +59,9 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     }, [computedStatus, badge]);
 
     const shouldValidate = computedStatus !== undefined;
-    const statusLabel = useText(
+    const ariaLabel = useText(
       AvatarComponent,
-      props,
+      { statusLabel },
       'statusLabel',
       defaultStatusLabel,
       shouldValidate
@@ -69,23 +70,23 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     return (
       <StyledAvatar
         ref={ref}
-        isSystem={isSystem}
-        size={size}
-        status={computedStatus}
-        surfaceColor={surfaceColor}
-        backgroundColor={backgroundColor}
-        foregroundColor={foregroundColor}
+        $isSystem={isSystem}
+        $size={size}
+        $status={computedStatus}
+        $surfaceColor={surfaceColor}
+        $backgroundColor={backgroundColor}
+        $foregroundColor={foregroundColor}
         aria-atomic="true"
         aria-live="polite"
-        {...props}
+        {...other}
       >
         {Children.only(children)}
-        {computedStatus && (
+        {!!computedStatus && (
           <StyledStatusIndicator
-            size={size}
-            type={computedStatus}
-            surfaceColor={surfaceColor}
-            aria-label={statusLabel}
+            $size={size}
+            $type={computedStatus}
+            $surfaceColor={surfaceColor}
+            aria-label={ariaLabel}
             as="figcaption"
           >
             {computedStatus === 'active' ? (

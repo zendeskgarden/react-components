@@ -122,7 +122,7 @@ export const PaletteStory: StoryFn<IArgs> = ({ palette }) => {
               <Grid.Col sm>
                 <Hue hue={hue1} />
               </Grid.Col>
-              <StyledCol sm>{hue2 && <Hue hue={hue2} />}</StyledCol>
+              <StyledCol sm>{!!hue2 && <Hue hue={hue2} />}</StyledCol>
             </StyledRow>
           );
         })}

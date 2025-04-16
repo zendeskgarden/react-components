@@ -20,7 +20,7 @@ const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(
 
     return (
       <StyledAddItem ref={ref} disabled={disabled} {...props}>
-        <StyledItemIcon isCompact={isCompact} isVisible isDisabled={disabled}>
+        <StyledItemIcon $isCompact={isCompact} $isVisible $isDisabled={disabled}>
           <AddSvg />
         </StyledItemIcon>
         {children}

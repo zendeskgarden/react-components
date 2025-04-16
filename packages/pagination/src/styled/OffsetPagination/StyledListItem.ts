@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'pagination.list_item';
 
@@ -22,9 +22,5 @@ export const StyledListItem = styled.li.attrs({
     margin-left: 0;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledListItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

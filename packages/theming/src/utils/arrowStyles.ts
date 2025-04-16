@@ -6,12 +6,13 @@
  */
 
 import { css, keyframes } from 'styled-components';
-import { math, stripUnit } from 'polished';
+import { stripUnit } from 'polished';
 import { ArrowPosition } from '../types';
 
 type ArrowOptions = {
   size?: string;
   inset?: string;
+  shift?: string;
   animationModifier?: string;
 };
 
@@ -34,43 +35,52 @@ const animationStyles = (position: ArrowPosition, modifier: string) => {
   `;
 };
 
-const positionStyles = (position: ArrowPosition, size: string, inset: string) => {
-  const margin = math(`${size} / -2`);
-  const placement = math(`${margin} + ${inset}`);
-  let transform;
+const positionStyles = (position: ArrowPosition, size: number, inset: number, shift: number) => {
+  /** Overlap the arrow with the base element's border.
+   * This value + rounding have been found to work well regardless of monitor pixel density and browser.
+   */
+  const defaultInset = 0.3;
+  const margin = size / -2;
+  const placement = Math.round((margin + inset + defaultInset) * 100) / 100;
+
+  const marginPx = `${margin}px`;
+  const placementPx = `${placement}px`;
+  const offsetPx = `${size + shift}px`;
+
   let positionCss;
+  let transform;
 
   if (position.startsWith('top')) {
     transform = 'rotate(-135deg)';
     positionCss = css`
-      top: ${placement};
-      right: ${position === 'top-right' && size};
-      left: ${position === 'top' ? '50%' : position === 'top-left' && size};
-      margin-left: ${position === 'top' && margin};
+      top: ${placementPx};
+      right: ${position === 'top-right' && offsetPx};
+      left: ${position === 'top' ? '50%' : position === 'top-left' && offsetPx};
+      margin-left: ${position === 'top' && marginPx};
     `;
   } else if (position.startsWith('right')) {
     transform = 'rotate(-45deg)';
     positionCss = css`
-      top: ${position === 'right' ? '50%' : position === 'right-top' && size};
-      right: ${placement};
-      bottom: ${position === 'right-bottom' && size};
-      margin-top: ${position === 'right' && margin};
+      top: ${position === 'right' ? '50%' : position === 'right-top' && offsetPx};
+      right: ${placementPx};
+      bottom: ${position === 'right-bottom' && offsetPx};
+      margin-top: ${position === 'right' && marginPx};
     `;
   } else if (position.startsWith('bottom')) {
     transform = 'rotate(45deg)';
     positionCss = css`
-      right: ${position === 'bottom-right' && size};
-      bottom: ${placement};
-      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && size};
-      margin-left: ${position === 'bottom' && margin};
+      right: ${position === 'bottom-right' && offsetPx};
+      bottom: ${placementPx};
+      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && offsetPx};
+      margin-left: ${position === 'bottom' && marginPx};
     `;
   } else if (position.startsWith('left')) {
     transform = 'rotate(135deg)';
     positionCss = css`
-      top: ${position === 'left' ? '50%' : position === 'left-top' && size};
-      bottom: ${size};
-      left: ${placement};
-      margin-top: ${position === 'left' && margin};
+      top: ${position === 'left' ? '50%' : position === 'left-top' && offsetPx};
+      bottom: ${offsetPx};
+      left: ${placementPx};
+      margin-top: ${position === 'left' && marginPx};
     `;
   }
 
@@ -114,15 +124,28 @@ const positionStyles = (position: ArrowPosition, size: string, inset: string) =>
  *  (right angle) of the arrow expressed as a CSS dimension.
  * @param {string} [options.inset='0'] Tweak arrow positioning by adjusting with
  *  either a positive (push the arrow in) or negative (pull the arrow out) value.
+ * @param {string} [options.shift='0'] Shifts arrow positioning along
+ * the edge of the parent container.
  * @param {string} [options.animationModifier] A CSS class or attribute selector
  *  which, when applied, animates the arrow's appearance.
  *
  * @component
  */
 export default function arrowStyles(position: ArrowPosition, options: ArrowOptions = {}) {
-  const inset = options.inset || '0';
-  const size = options.size === undefined ? 6 : (stripUnit(options.size) as number);
-  const squareSize = `${Math.round((size * 2) / Math.sqrt(2))}px`;
+  const inset = stripUnit(options.inset || '0') as number;
+  const size = stripUnit(options.size || '6') as number;
+  const shift = stripUnit(options.shift || '0') as number;
+
+  /**
+   * Adjusts the size to account for the overlap between the arrow and the base element.
+   * This value + rounding have been found to work well regardless of monitor pixel density and browser.
+   */
+  const sizeOffset = 2;
+
+  const squareSize = (size * 2) / Math.sqrt(2) + sizeOffset;
+  const squareSizeRounded = Math.round(squareSize * 100) / 100;
+  const squareSizePx = `${squareSizeRounded}px`;
+
   const afterOffset = 0;
   const beforeOffset = afterOffset + 2;
 
@@ -131,7 +154,7 @@ export default function arrowStyles(position: ArrowPosition, options: ArrowOptio
    * 2. Apply shared properties to ::before and ::after.
    * 3. Display border with inherited border-color
    * 4. Clip the outer square forming the arrow border into a triangle so that the
-   *    border merge with the container's.
+   *    border merges with the container's.
    * 5. Clip the inner square forming the arrow body into a triangle so that it
    *    doesn't interfere with container content.
    */
@@ -144,26 +167,25 @@ export default function arrowStyles(position: ArrowPosition, options: ArrowOptio
       position: absolute;
       border-width: inherit;
       border-style: inherit;
-      width: ${squareSize};
-      height: ${squareSize};
+      background-color: inherit;
+      width: ${squareSizePx};
+      height: ${squareSizePx};
       content: '';
       box-sizing: inherit;
     }
 
     &::before {
       border-color: inherit; /* [3] */
-      background-color: transparent;
       clip-path: polygon(100% ${beforeOffset}px, ${beforeOffset}px 100%, 100% 100%); /* [4] */
     }
 
     &::after {
       border-color: transparent;
       background-clip: content-box;
-      background-color: inherit;
       clip-path: polygon(100% ${afterOffset}px, ${afterOffset}px 100%, 100% 100%); /* [5] */
     }
 
-    ${positionStyles(position, squareSize, inset)};
+    ${positionStyles(position, squareSizeRounded, inset, shift)};
     ${options.animationModifier && animationStyles(position, options.animationModifier)};
   `;
 }

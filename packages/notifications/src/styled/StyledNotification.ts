@@ -7,37 +7,39 @@
 
 import PropTypes from 'prop-types';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, getColorV8, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { INotificationProps, TYPE } from '../types';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { TYPE, Type } from '../types';
 import { StyledTitle } from './content/StyledTitle';
-import { StyledBase } from './StyledBase';
+import { IStyledBaseProps, StyledBase } from './StyledBase';
+import { validationTypes } from '../utils/icons';
 
 const COMPONENT_ID = 'notifications.notification';
 
-const colorStyles = (props: INotificationProps & ThemeProps<DefaultTheme>) => {
-  const { type, theme } = props;
-  const { colors } = theme;
-  const { successHue, dangerHue, warningHue } = colors;
+interface IStyledNotificationProps extends IStyledBaseProps {
+  $type?: Type;
+}
 
-  let color;
+const colorStyles = (props: IStyledNotificationProps & ThemeProps<DefaultTheme>) => {
+  const { $type, theme } = props;
 
-  switch (type) {
-    case 'success':
-      color = getColorV8(successHue, 600, theme);
+  let variable;
+
+  switch ($type) {
+    case validationTypes.success:
+      variable = 'foreground.success';
       break;
-    case 'error':
-      color = getColorV8(dangerHue, 600, theme);
+    case validationTypes.error:
+      variable = 'foreground.danger';
       break;
-    case 'warning':
-      color = getColorV8(warningHue, 700, theme);
+    case validationTypes.warning:
+      variable = 'foreground.warning';
       break;
-    case 'info':
-      color = getColorV8('foreground', 600 /* default shade */, theme);
-      break;
-    default:
-      color = 'inherit';
+    case validationTypes.info:
+      variable = 'foreground.default';
       break;
   }
+
+  const color = variable ? getColor({ variable, theme }) : 'inherit';
 
   return css`
     ${StyledTitle} {
@@ -52,16 +54,12 @@ const colorStyles = (props: INotificationProps & ThemeProps<DefaultTheme>) => {
 export const StyledNotification = styled(StyledBase).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<INotificationProps>`
+})<IStyledNotificationProps>`
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
 
 StyledNotification.propTypes = {
-  type: PropTypes.oneOf(TYPE)
-};
-
-StyledNotification.defaultProps = {
-  theme: DEFAULT_THEME
+  $type: PropTypes.oneOf(TYPE)
 };

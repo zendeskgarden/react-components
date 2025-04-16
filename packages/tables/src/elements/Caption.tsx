@@ -17,4 +17,4 @@ export const Caption = forwardRef<HTMLTableCaptionElement, HTMLAttributes<HTMLTa
   (props, ref) => <StyledCaption ref={ref} {...props} />
 );
 
-Caption.displayName = 'Caption';
+Caption.displayName = 'Table.Caption';

@@ -21,6 +21,9 @@ import { OverflowButton } from './OverflowButton';
 import { Row } from './Row';
 import { SortableCell } from './SortableCell';
 
+/**
+ * @extends TableHTMLAttributes<HTMLTableElement>
+ */
 export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
   ({ isReadOnly, size, ...props }, ref) => {
     const tableContextValue = useMemo(
@@ -47,9 +50,6 @@ TableComponent.propTypes = {
   isReadOnly: PropTypes.bool
 };
 
-/**
- * @extends TableHTMLAttributes<HTMLTableElement>
- */
 export const Table = TableComponent as typeof TableComponent & {
   Body: typeof Body;
   Caption: typeof Caption;

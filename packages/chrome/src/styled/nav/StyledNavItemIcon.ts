@@ -5,27 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.nav_item_icon';
 
-/**
- * Applies styling directly to child component
- **/
-export const StyledNavItemIcon = styled.div.attrs({
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const size = theme.iconSizes.lg;
+
+  return css`
+    width: ${size};
+    height: ${size};
+  `;
+};
+
+export const StyledNavItemIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
   align-self: flex-start;
   order: 0;
   border-radius: ${props => props.theme.borderRadii.md};
-  width: ${props => props.theme.iconSizes.lg};
-  height: ${props => props.theme.iconSizes.lg};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${sizeStyles};
+
+  ${componentStyles};
 `;
-
-StyledNavItemIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

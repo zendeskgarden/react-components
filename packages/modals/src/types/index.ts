@@ -74,11 +74,13 @@ export interface IDrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
   tag?: any;
 }
 
-export interface ITooltipModalProps extends Omit<IModalProps, 'isCentered' | 'isLarge'> {
+export interface ITooltipDialogProps extends Omit<IModalProps, 'isCentered' | 'isLarge'> {
   /**
    * Positions the modal relative to the provided `HTMLElement`
    */
   referenceElement?: HTMLElement | null;
+  /** @ignore Modifies the placement offset from the reference element (internal only) */
+  offset?: number;
   /**
    * Adjusts the placement of the tooltip
    **/
@@ -93,7 +95,7 @@ export interface ITooltipModalProps extends Omit<IModalProps, 'isCentered' | 'is
   zIndex?: number;
 }
 
-export interface ITooltipModalTitleProps extends HTMLAttributes<HTMLDivElement> {
+export interface ITooltipDialogTitleProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Updates the element's HTML tag
    */

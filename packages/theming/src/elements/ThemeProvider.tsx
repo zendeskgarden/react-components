@@ -7,13 +7,12 @@
 
 import React, { PropsWithChildren } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
-import { IThemeProviderProps } from '../types';
+import { IGardenTheme, IThemeProviderProps } from '../types';
 import DEFAULT_THEME from './theme';
 
-export const ThemeProvider = ({ theme, ...other }: PropsWithChildren<IThemeProviderProps>) => (
-  <StyledThemeProvider theme={theme!} {...other} />
+export const ThemeProvider = ({
+  theme = DEFAULT_THEME,
+  ...other
+}: PropsWithChildren<IThemeProviderProps>) => (
+  <StyledThemeProvider theme={theme as IGardenTheme} {...other} />
 );
-
-ThemeProvider.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -7,23 +7,45 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, getColorV8 } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
-import { TYPE } from '../../types';
+import { Type } from '../../types';
 import { StyledGlobalAlert } from './StyledGlobalAlert';
 
 describe('StyledGlobalAlert', () => {
-  it.each(TYPE)('renders "%s" type', type => {
-    const { container } = render(<StyledGlobalAlert alertType={type} />);
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[700] },
+    { type: 'error', color: PALETTE.red[700] },
+    { type: 'warning', color: PALETTE.yellow[300] },
+    { type: 'info', color: PALETTE.blue[300] }
+  ])('renders $mode mode $type background color', ({ type, color }) => {
+    const { container } = render(<StyledGlobalAlert $alertType={type} />);
+
+    expect(container.firstChild).toHaveStyleRule('background-color', color);
+  });
+
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[100] },
+    { type: 'error', color: PALETTE.red[100] },
+    { type: 'warning', color: PALETTE.yellow[800] },
+    { type: 'info', color: PALETTE.blue[800] }
+  ])('renders $mode mode $type foreground color', ({ type, color }) => {
+    const { container } = render(<StyledGlobalAlert $alertType={type} />);
+
+    expect(container.firstChild).toHaveStyleRule('color', color);
+  });
+
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[800] },
+    { type: 'error', color: PALETTE.red[800] },
+    { type: 'warning', color: PALETTE.yellow[400] },
+    { type: 'info', color: PALETTE.blue[400] }
+  ])('renders $mode mode $type border color', ({ type, color }) => {
+    const { container } = render(<StyledGlobalAlert $alertType={type} />);
 
     expect(container.firstChild).toHaveStyleRule(
-      'background-color',
-      {
-        success: getColorV8(DEFAULT_THEME.colors.successHue, 600, DEFAULT_THEME),
-        error: getColorV8(DEFAULT_THEME.colors.dangerHue, 600, DEFAULT_THEME),
-        warning: getColorV8(DEFAULT_THEME.colors.warningHue, 300, DEFAULT_THEME),
-        info: getColorV8(DEFAULT_THEME.colors.primaryHue, 200, DEFAULT_THEME)
-      }[type]
+      'box-shadow',
+      `0 ${DEFAULT_THEME.borderWidths.sm} ${DEFAULT_THEME.borderWidths.sm} ${color}`
     );
   });
 });

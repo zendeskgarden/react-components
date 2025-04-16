@@ -128,19 +128,19 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
         <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
           {renderActionIcon(type)}
         </StyledItemTypeIcon>
-        {icon && (
+        {!!icon && (
           <StyledItemIcon $isDisabled={isDisabled} $type={type}>
             {icon}
           </StyledItemIcon>
         )}
         <StyledItemContent as={hasAnchor ? 'span' : undefined} $hasExternalLink={hasExternalLink}>
           {children || label}
-          {hasExternalLink && (
+          {!!hasExternalLink && (
             <StyledItemIcon $isExternalLinkIcon $isDisabled={isDisabled}>
               <NewWindowIcon />
             </StyledItemIcon>
           )}
-          {hasExternalLink && <StyledHiddenLabel>{_externalAnchorLabel}</StyledHiddenLabel>}
+          {!!hasExternalLink && <StyledHiddenLabel>{_externalAnchorLabel}</StyledHiddenLabel>}
         </StyledItemContent>
       </>
     );

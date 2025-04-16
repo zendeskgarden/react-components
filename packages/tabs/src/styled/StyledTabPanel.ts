@@ -6,16 +6,16 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'tabs.tabpanel';
 
 interface IStyledTabPanelProps {
-  isVertical?: boolean;
+  $isVertical?: boolean;
 }
 
-const sizeStyles = ({ theme, isVertical }: IStyledTabPanelProps & ThemeProps<DefaultTheme>) => {
-  const margin = isVertical ? `${theme.space.base * 8}px` : undefined;
+const sizeStyles = ({ theme, $isVertical }: IStyledTabPanelProps & ThemeProps<DefaultTheme>) => {
+  const margin = $isVertical ? `${theme.space.base * 8}px` : undefined;
 
   return css`
     margin-${theme.rtl ? 'right' : 'left'}: ${margin};
@@ -27,7 +27,8 @@ export const StyledTabPanel = styled.div.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTabPanelProps>`
   display: block;
-  vertical-align: ${props => props.isVertical && 'top'};
+  vertical-align: ${props => props.$isVertical && 'top'};
+  color-scheme: only ${p => p.theme.colors.base};
 
   ${sizeStyles};
 
@@ -35,9 +36,5 @@ export const StyledTabPanel = styled.div.attrs({
     display: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTabPanel.defaultProps = {
-  theme: DEFAULT_THEME
-};

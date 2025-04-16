@@ -7,18 +7,13 @@
 
 import styled from 'styled-components';
 import { hideVisually } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.input_label';
 
 export interface IStyledLabelProps {
-  isRegular?: boolean;
-  isRadio?: boolean;
+  $isRegular?: boolean;
+  $isRadio?: boolean;
 }
 
 /**
@@ -34,20 +29,16 @@ export const StyledLabel = styled.label.attrs(props => ({
   color: ${props => getColor({ theme: props.theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props =>
-    props.isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
+    props.$isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold};
 
   &[hidden] {
-    display: ${props => (props.isRadio ? 'inline-block' : 'inline')}; /* [1] */
-    vertical-align: ${props => props.isRadio && 'top'};
-    text-indent: ${props => props.isRadio && '-100%'};
-    font-size: ${props => props.isRadio && '0'};
+    display: ${props => (props.$isRadio ? 'inline-block' : 'inline')}; /* [1] */
+    vertical-align: ${props => props.$isRadio && 'top'};
+    text-indent: ${props => props.$isRadio && '-100%'};
+    font-size: ${props => props.$isRadio && '0'};
 
-    ${props => !props.isRadio && hideVisually()};
+    ${props => !props.$isRadio && hideVisually()};
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledLabel.defaultProps = {
-  theme: DEFAULT_THEME
-};

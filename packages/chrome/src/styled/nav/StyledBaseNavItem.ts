@@ -7,22 +7,18 @@
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { getNavWidth } from './StyledNav';
+import { getNavItemHeight, getNavWidth } from '../utils';
 
 const COMPONENT_ID = 'chrome.base_nav_item';
 
-export const getNavItemHeight = (props: ThemeProps<DefaultTheme>) => {
-  return `${props.theme.space.base * 13}px`;
-};
-
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
-  const verticalPadding = math(`(${getNavItemHeight(props)} - ${props.theme.iconSizes.lg}) / 2`);
-  const horizontalPadding = math(`(${getNavWidth(props)} - ${props.theme.iconSizes.lg}) / 4`);
+const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const minHeight = getNavItemHeight(theme);
+  const verticalPadding = math(`(${minHeight} - ${theme.iconSizes.lg}) / 2`);
+  const horizontalPadding = math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`);
 
   return css`
     padding: ${verticalPadding} ${horizontalPadding};
-    min-height: ${getNavItemHeight};
+    min-height: ${minHeight};
   `;
 };
 
@@ -41,9 +37,5 @@ export const StyledBaseNavItem = styled.div.attrs({
     background-color 0.1s ease-in-out,
     opacity 0.1s ease-in-out;
 
-  ${props => sizeStyles(props)}
+  ${sizeStyles};
 `;
-
-StyledBaseNavItem.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -15,5 +15,5 @@ import useMenuContext from '../../../utils/useMenuContext';
 export const MediaFigure = (props: HTMLAttributes<Element>) => {
   const { isCompact } = useMenuContext();
 
-  return <StyledMediaFigure isCompact={isCompact} {...props} />;
+  return <StyledMediaFigure $isCompact={isCompact} {...props} />;
 };

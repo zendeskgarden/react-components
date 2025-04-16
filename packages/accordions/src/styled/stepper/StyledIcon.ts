@@ -6,18 +6,13 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getColorV8,
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_icon';
 
 interface IStyledIcon {
-  isActive?: boolean;
-  isHorizontal?: boolean;
+  $isActive?: boolean;
+  $isHorizontal?: boolean;
 }
 
 export const StyledIconFlexContainer = styled.div`
@@ -32,10 +27,9 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   const fontSize = props.theme.fontSizes.sm;
 
   return css`
-    margin-bottom: ${props.isHorizontal && `${props.theme.space.base * 2}px`};
-    /* stylelint-disable-next-line property-no-unknown */
+    margin-bottom: ${props.$isHorizontal && `${props.theme.space.base * 2}px`};
     margin-${props.theme.rtl ? 'left' : 'right'}: ${
-      !props.isHorizontal && `${props.theme.space.base * 3}px`
+      !props.$isHorizontal && `${props.theme.space.base * 3}px`
     };
     width: ${size};
     min-width: ${size};
@@ -46,14 +40,24 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ $isActive, theme }: IStyledIcon & ThemeProps<DefaultTheme>) => {
+  const foregroundColor = getColor({
+    theme,
+    variable: $isActive ? 'foreground.onEmphasis' : 'foreground.default'
+  });
+
+  const backgroundColor = $isActive
+    ? getColor({ theme, variable: 'background.emphasis', dark: { offset: -300 } })
+    : getColor({
+        theme,
+        variable: 'background.subtle',
+        dark: { offset: -200 },
+        light: { offset: 100 }
+      });
+
   return css`
-    background: ${props.isActive
-      ? getColorV8('neutralHue', 600, props.theme)
-      : getColorV8('neutralHue', 200, props.theme)};
-    color: ${props.isActive
-      ? getColorV8('background', 600 /* default shade */, props.theme)
-      : getColorV8('foreground', 600 /* default shade */, props.theme)};
+    background: ${backgroundColor};
+    color: ${foregroundColor};
   `;
 };
 
@@ -71,13 +75,5 @@ export const StyledIcon = styled.div.attrs<IStyledIcon>({
   ${sizeStyles}
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledIconFlexContainer.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
-StyledIcon.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -6,14 +6,14 @@
  */
 
 import styled from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput';
 
 const COMPONENT_ID = 'forms.textarea';
 
 interface IStyledTextareaProps {
-  isResizable?: boolean;
-  isHidden?: boolean;
+  $isResizable?: boolean;
+  $isHidden?: boolean;
 }
 
 const hiddenStyles = `
@@ -31,13 +31,9 @@ export const StyledTextarea = styled(StyledTextInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledTextareaProps>`
-  resize: ${props => (props.isResizable ? 'vertical' : 'none')};
+  resize: ${props => (props.$isResizable ? 'vertical' : 'none')};
   overflow: auto;
-  ${props => props.isHidden && hiddenStyles};
+  ${props => props.$isHidden && hiddenStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledTextarea.defaultProps = {
-  theme: DEFAULT_THEME
-};

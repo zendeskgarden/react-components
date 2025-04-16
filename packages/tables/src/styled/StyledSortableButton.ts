@@ -8,8 +8,7 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
 import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
+  componentStyles,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE,
   getColor
@@ -32,25 +31,13 @@ const StyledBaseIconWrapper = styled.div`
   fill: inherit;
 `;
 
-StyledBaseIconWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
-
 export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
-  /* stylelint-disable-line no-empty-source */
+  /* empty-source */
 `;
-
-StyledSortableStrokeIconWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)`
-  /* stylelint-disable-line no-empty-source */
+  /* empty-source */
 `;
-
-StyledSortableFillIconWrapper.defaultProps = {
-  theme: DEFAULT_THEME
-};
 
 interface IStyledSortableButtonProps {
   $sort?: ISortableCellProps['sort'];
@@ -150,7 +137,6 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
   background-color: transparent; /* [1] */
   cursor: pointer;
   padding: 0; /* [1] */
-  /* stylelint-disable-next-line property-no-unknown */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
   width: ${props => props.width};
@@ -175,9 +161,5 @@ export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonPro
 
   ${colorStyles}
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledSortableButton.defaultProps = {
-  theme: DEFAULT_THEME
-};

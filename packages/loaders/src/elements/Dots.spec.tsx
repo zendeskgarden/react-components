@@ -8,6 +8,7 @@
 import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { Dots } from './Dots';
 
 jest.useFakeTimers({ legacyFakeTimers: true });
@@ -16,7 +17,7 @@ const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Dots', () => {
   beforeEach(() => {
-    (clearTimeout as jest.Mock).mockClear();
+    jest.mocked(clearTimeout).mockClear();
     (global as any).cancelAnimationFrame = jest.fn();
     (global as any).requestAnimationFrame = jest.fn();
     (global as any).document.elementFromPoint = jest.fn();
@@ -55,17 +56,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1250ms linear infinite;
           animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1250ms linear infinite;
           animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1250ms linear infinite;
           animation: bDxIcz 1250ms linear infinite;
         }
 
@@ -106,17 +104,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1250ms linear infinite;
           animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1250ms linear infinite;
           animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1250ms linear infinite;
           animation: bDxIcz 1250ms linear infinite;
         }
 
@@ -150,22 +145,19 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
+        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1250ms linear infinite;
           animation: kVOdef 1250ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1250ms linear infinite;
           animation: idDvaf 1250ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1250ms linear infinite;
           animation: bDxIcz 1250ms linear infinite;
         }
 
@@ -206,17 +198,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1125ms linear infinite;
           animation: kVOdef 1125ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1125ms linear infinite;
           animation: idDvaf 1125ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1125ms linear infinite;
           animation: bDxIcz 1125ms linear infinite;
         }
 
@@ -250,22 +239,19 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
+        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1125ms linear infinite;
           animation: kVOdef 1125ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1125ms linear infinite;
           animation: idDvaf 1125ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1125ms linear infinite;
           animation: bDxIcz 1125ms linear infinite;
         }
 
@@ -306,17 +292,14 @@ describe('Dots', () => {
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1375ms linear infinite;
           animation: kVOdef 1375ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1375ms linear infinite;
           animation: idDvaf 1375ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1375ms linear infinite;
           animation: bDxIcz 1375ms linear infinite;
         }
 
@@ -350,22 +333,19 @@ describe('Dots', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        (requestAnimationFrame as jest.Mock).mock.calls[0][0]();
+        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.querySelector('g')).toMatchInlineSnapshot(`
         .c0 {
-          -webkit-animation: kVOdef 1375ms linear infinite;
           animation: kVOdef 1375ms linear infinite;
         }
 
         .c1 {
-          -webkit-animation: idDvaf 1375ms linear infinite;
           animation: idDvaf 1375ms linear infinite;
         }
 
         .c2 {
-          -webkit-animation: bDxIcz 1375ms linear infinite;
           animation: bDxIcz 1375ms linear infinite;
         }
 
@@ -408,5 +388,15 @@ describe('Dots', () => {
     const dots = getByTestId('dots');
 
     expect(dots).toHaveAttribute('role', 'img');
+  });
+
+  it('renders color variable key as expected', () => {
+    const { container } = render(<Dots color="foreground.primary" />);
+
+    act(() => {
+      jest.runOnlyPendingTimers();
+    });
+
+    expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
   });
 });

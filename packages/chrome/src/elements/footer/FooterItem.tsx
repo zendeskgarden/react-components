@@ -17,4 +17,4 @@ export const FooterItem = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDi
   (props, ref) => <StyledFooterItem ref={ref} {...props} />
 );
 
-FooterItem.displayName = 'FooterItem';
+FooterItem.displayName = 'Footer.Item';

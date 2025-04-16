@@ -5,43 +5,44 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import {
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getLineHeight,
-  getColorV8
-} from '@zendeskgarden/react-theming';
-import { getHeaderHeight } from '../header/StyledHeader';
-import { getFooterHeight } from '../footer/StyledFooter';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
+import { getFooterHeight, getHeaderHeight } from '../utils';
 
 const COMPONENT_ID = 'chrome.content';
 
 interface IStyledContentProps {
-  hasFooter?: boolean;
+  $hasFooter?: boolean;
 }
+
+const sizeStyles = ({ theme, $hasFooter }: IStyledContentProps & ThemeProps<DefaultTheme>) => {
+  const fontSize = theme.fontSizes.md;
+  const height = $hasFooter
+    ? `calc(100% - ${math(`${getHeaderHeight(theme)} + ${getFooterHeight(theme)}`)})`
+    : `calc(100% - ${getHeaderHeight(theme)})`;
+  const lineHeight = getLineHeight(theme.lineHeights.md, theme.fontSizes.md);
+
+  return css`
+    height: ${height};
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+  `;
+};
 
 export const StyledContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledContentProps>`
   display: flex;
-  height: ${props =>
-    props.hasFooter
-      ? `calc(100% - ${math(`${getHeaderHeight(props)} + ${getFooterHeight(props)}`)})`
-      : `calc(100% - ${getHeaderHeight(props)})`};
-  line-height: ${props => getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
-  font-size: ${props => props.theme.fontSizes.md};
+  color-scheme: only ${p => p.theme.colors.base};
+  color: ${props => getColor({ theme: props.theme, variable: 'foreground.default' })};
+
+  ${sizeStyles};
 
   &:focus {
     outline: none;
   }
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledContent.defaultProps = {
-  theme: DEFAULT_THEME
-};

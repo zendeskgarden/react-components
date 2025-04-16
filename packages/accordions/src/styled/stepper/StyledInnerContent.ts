@@ -6,27 +6,22 @@
  */
 
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getLineHeight,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  getColorV8
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'accordions.step_inner_content';
 
-export const StyledInnerContent = styled.div.attrs<ThemeProps<DefaultTheme>>({
+interface IStyledInnerContentProps extends ThemeProps<DefaultTheme> {
+  inert?: string;
+}
+
+export const StyledInnerContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledInnerContentProps>`
   overflow: hidden;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
-  color: ${props => getColorV8('foreground', 600 /* default shade */, props.theme)};
+  color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledInnerContent.defaultProps = {
-  theme: DEFAULT_THEME
-};

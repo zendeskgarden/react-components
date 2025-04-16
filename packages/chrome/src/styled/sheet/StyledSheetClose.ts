@@ -6,89 +6,28 @@
  */
 
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import {
-  getColorV8,
-  retrieveComponentStyles,
-  DEFAULT_THEME,
-  focusStyles
-} from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
+import { IconButton } from '@zendeskgarden/react-buttons';
 
 const COMPONENT_ID = 'chrome.sheet_close';
 
-export const BASE_MULTIPLIERS = {
-  top: 2.5,
-  side: 2,
-  size: 10
-};
-
-const colorStyles = (props: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = 'primaryHue';
-  const foregroundColor = 'neutralHue';
+const positionStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const top = `${theme.space.base * 2.5}px`;
+  const position = `${theme.space.base * 2}px`;
 
   return css`
-    background-color: transparent;
-    color: ${getColorV8(foregroundColor, 600, props.theme)};
-
-    &:hover {
-      background-color: ${getColorV8(backgroundColor, 600, props.theme, 0.08)};
-      color: ${getColorV8(foregroundColor, 700, props.theme)};
-    }
-
-    ${focusStyles({
-      theme: props.theme
-    })}
-
-    &:active {
-      /* prettier-ignore */
-      transition:
-        background-color 0.1s ease-in-out,
-        color 0.1s ease-in-out;
-      background-color: ${getColorV8(backgroundColor, 600, props.theme, 0.2)};
-      color: ${getColorV8(foregroundColor, 800, props.theme)};
-    }
+    top: ${top};
+    ${theme.rtl ? 'left' : 'right'}: ${position};
   `;
 };
 
-export const StyledSheetClose = styled.button.attrs({
+export const StyledSheetClose = styled(IconButton).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
-  display: flex;
+})`
   position: absolute;
-  top: ${props => props.theme.space.base * BASE_MULTIPLIERS.top}px;
-  ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
-  align-items: center;
-  justify-content: center;
-  /* prettier-ignore */
-  transition:
-    box-shadow 0.1s ease-in-out,
-    background-color 0.25s ease-in-out,
-    color 0.25s ease-in-out;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  padding: 0;
-  width: ${props => props.theme.space.base * BASE_MULTIPLIERS.size}px;
-  height: ${props => props.theme.space.base * BASE_MULTIPLIERS.size}px;
-  overflow: hidden;
-  text-decoration: none;
-  font-size: 0;
-  user-select: none;
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
+  ${positionStyles};
 
-  ${props => colorStyles(props)};
-
-  & > svg {
-    vertical-align: middle;
-  }
-
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledSheetClose.defaultProps = {
-  theme: DEFAULT_THEME
-};

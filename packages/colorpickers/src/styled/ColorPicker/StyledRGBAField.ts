@@ -7,7 +7,7 @@
 
 import { Field } from '@zendeskgarden/react-forms';
 import styled, { DefaultTheme } from 'styled-components';
-import { retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_rgb_field';
 
@@ -32,9 +32,5 @@ export const StyledRGBAField = styled(Field as unknown as 'div').attrs({
 
   ${props => sizeStyles(props.theme)};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${componentStyles};
 `;
-
-StyledRGBAField.defaultProps = {
-  theme: DEFAULT_THEME
-};

@@ -63,7 +63,7 @@ describe('HeaderItem', () => {
     it('renders correct color if no product is provided', () => {
       const { container } = render(<HeaderItem hasLogo />);
 
-      expect(container.firstChild).toHaveStyleRule('color', 'inherit');
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.grey[900]);
     });
   });
 });

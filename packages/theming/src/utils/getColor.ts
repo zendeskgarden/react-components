@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getScale, parseToRgba } from 'color2k';
+import { getScale, parseToRgba, toHex as _toHex } from 'color2k';
 import { darken, getContrast, lighten, rgba } from 'polished';
 import get from 'lodash.get';
 import memoize from 'lodash.memoize';
@@ -24,11 +24,18 @@ const adjust = (color: string, expected: number, actual: number) => {
 };
 
 /* convert the optional shade + offset to a shade for the given scheme */
-const toShade = (shade?: number | string, offset?: number, scheme?: 'dark' | 'light') => {
+const toShade = (
+  shade?: number | string,
+  offset?: number,
+  transparency?: number,
+  scheme?: 'dark' | 'light'
+) => {
   let _shade;
 
   if (shade === undefined) {
-    _shade = scheme === 'dark' ? 500 : 700;
+    const darkShade = transparency === undefined ? 600 : 500;
+
+    _shade = scheme === 'dark' ? darkShade : 700;
   } else {
     _shade = parseInt(shade.toString(), 10);
 
@@ -45,9 +52,10 @@ const toHex = (
   hue: Record<string | number, string>,
   shade?: number | string,
   offset?: number,
+  transparency?: number,
   scheme?: 'dark' | 'light'
 ) => {
-  const _shade = toShade(shade, offset, scheme);
+  const _shade = toShade(shade, offset, transparency, scheme);
   let retVal = hue[_shade];
 
   if (!retVal) {
@@ -66,11 +74,17 @@ const toHex = (
 
 /* Validates color */
 const isValidColor = (maybeColor: any) => {
-  try {
-    return !!parseToRgba(maybeColor);
-  } catch {
-    return false;
+  let retVal = ['currentcolor', 'inherit', 'transparent'].includes(maybeColor);
+
+  if (!retVal) {
+    try {
+      retVal = !!parseToRgba(maybeColor);
+    } catch {
+      retVal = false;
+    }
   }
+
+  return retVal;
 };
 
 /**
@@ -137,7 +151,7 @@ const generateColorScale = memoize((color: string) => {
   const contrastRatios = [];
 
   for (let i = 0; i <= scaleSize; i++) {
-    const _color = scale(i);
+    const _color = _toHex(scale(i));
     colors.push(_color);
     contrastRatios.push(getContrast('#FFF', _color));
   }
@@ -175,20 +189,19 @@ const toColor = (
     colors[hue as keyof typeof colors] /* ex. `hue` = 'primaryHue' */ ||
     hue; /* ex. `hue` = '#fd5a1e' */
 
-  // eslint-disable-next-line n/no-unsupported-features/es-builtins
-  if (Object.hasOwn(palette, _hue)) {
+  if (Object.prototype.hasOwnProperty.call(palette, _hue)) {
     _hue = palette[_hue]; /* ex. `hue` = 'grey' */
   }
 
   if (typeof _hue === 'object') {
-    retVal = toHex(_hue, shade, offset, scheme);
-  } else if (_hue === 'transparent' || isValidColor(_hue)) {
+    retVal = toHex(_hue, shade, offset, transparency, scheme);
+  } else if (isValidColor(_hue)) {
     if (shade === undefined) {
       retVal = _hue;
     } else {
       _hue = generateColorScale(_hue);
 
-      retVal = toHex(_hue, shade, offset, scheme);
+      retVal = toHex(_hue, shade, offset, transparency, scheme);
     }
   }
 
@@ -268,6 +281,90 @@ const fromVariable = (
   return retVal;
 };
 
+const CACHE = new WeakMap();
+const KEYS = { colors: 0, palette: 0, opacity: 0 };
+
+CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
+CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
+CACHE.set(DEFAULT_THEME.opacity, KEYS.opacity);
+
+/* convert `getColor` parameters to a memoization key */
+const toKey = ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}: ColorParameters) => {
+  let themeColorsKey;
+
+  if (theme.colors) {
+    themeColorsKey = CACHE.get(theme.colors);
+
+    if (themeColorsKey === undefined) {
+      themeColorsKey = ++KEYS.colors;
+      CACHE.set(theme.colors, themeColorsKey);
+    }
+  }
+
+  let themeOpacityKey;
+
+  if (theme.opacity) {
+    themeOpacityKey = CACHE.get(theme.opacity);
+
+    if (themeOpacityKey === undefined) {
+      themeOpacityKey = ++KEYS.opacity;
+      CACHE.set(theme.opacity, themeOpacityKey);
+    }
+  }
+
+  let themePaletteKey;
+
+  if (theme.palette) {
+    themePaletteKey = CACHE.get(theme.palette);
+
+    if (themePaletteKey === undefined) {
+      themePaletteKey = ++KEYS.palette;
+      CACHE.set(theme.palette, themePaletteKey);
+    }
+  }
+
+  let retVal = `{${themeColorsKey},${themePaletteKey},${themeOpacityKey}}`;
+
+  if (variable !== undefined) {
+    retVal += `,${variable}`;
+  }
+
+  if (hue !== undefined) {
+    retVal += `,${hue}`;
+  }
+
+  if (shade !== undefined) {
+    retVal += `,${shade}`;
+  }
+
+  if (offset !== undefined) {
+    retVal += `,${offset}`;
+  }
+
+  if (transparency !== undefined) {
+    retVal += `,${transparency}`;
+  }
+
+  if (dark !== undefined) {
+    retVal += `,${JSON.stringify(dark)}`;
+  }
+
+  if (light !== undefined) {
+    retVal += `,${JSON.stringify(light)}`;
+  }
+
+  return retVal;
+};
+
 /**
  * Get a color value from the theme. Variable lookup takes precedence, followed
  * by `dark` and `light` object values. If none of these are provided, `hue`,
@@ -335,16 +432,5 @@ export const getColor = memoize(
     return retVal;
   },
   ({ dark, hue, light, offset, shade, theme, transparency, variable }) =>
-    JSON.stringify({
-      dark,
-      hue,
-      light,
-      offset,
-      shade,
-      colors: theme.colors,
-      palette: theme.palette,
-      opacity: theme.opacity,
-      transparency,
-      variable
-    })
+    toKey({ dark, hue, light, offset, shade, theme, transparency, variable })
 );

@@ -5,37 +5,51 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { getColorV8, retrieveComponentStyles, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-
-import { BASE_MULTIPLIERS } from './StyledSheetClose';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_header';
 
 export interface IStyledSheetHeaderProps {
-  isCloseButtonPresent?: boolean;
+  $isCloseButtonPresent?: boolean;
 }
 
-/**
- * 1. the padding size accounts for 40px (10 base units) size of the button,
- *    8px additional padding and 8px padding for the button position from a given side.
- */
+const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const borderColor = getColor({ theme, variable: 'border.subtle' });
+
+  return css`
+    border-bottom-color: ${borderColor};
+  `;
+};
+
+const sizeStyles = ({
+  theme,
+  $isCloseButtonPresent
+}: IStyledSheetHeaderProps & ThemeProps<DefaultTheme>) => {
+  const border = theme.borders.sm;
+  let padding = `${theme.space.base * 5}px`;
+
+  if ($isCloseButtonPresent) {
+    const paddingSide = `${theme.space.base * 14}px`;
+
+    padding = theme.rtl
+      ? `${padding} ${padding} ${padding} ${paddingSide}`
+      : `${padding} ${paddingSide} ${padding} ${padding}`;
+  }
+
+  return css`
+    border-bottom: ${border};
+    padding: ${padding};
+  `;
+};
+
 export const StyledSheetHeader = styled.header.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledSheetHeaderProps & ThemeProps<DefaultTheme>>`
-  border-bottom: ${props =>
-    `${props.theme.borders.sm} ${getColorV8('neutralHue', 300, props.theme)}}`};
-  padding: ${props => props.theme.space.base * 5}px;
-  ${props =>
-    props.isCloseButtonPresent &&
-    `padding-${props.theme.rtl ? 'left' : 'right'}: ${
-      props.theme.space.base * (BASE_MULTIPLIERS.size + BASE_MULTIPLIERS.side + 2)
-    }px;`} /* [1] */
+})<IStyledSheetHeaderProps>`
+  ${sizeStyles};
 
-  ${props => retrieveComponentStyles(COMPONENT_ID, props)};
+  ${colorStyles};
+
+  ${componentStyles};
 `;
-
-StyledSheetHeader.defaultProps = {
-  theme: DEFAULT_THEME
-};

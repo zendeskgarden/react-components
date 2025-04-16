@@ -99,7 +99,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
               popperReferenceElementRef.current = selectRef;
             }}
           >
-            {start && (
+            {!!start && (
               <StyledFauxInput.StartIcon
                 isHovered={isHovered || (isLabelHovered && !isOpen)}
                 isFocused={isContainerFocused}
@@ -111,7 +111,7 @@ export const Autocomplete = forwardRef<HTMLDivElement, IAutocompleteProps>(
             {!isOpen && <StyledSelect>{children}</StyledSelect>}
             <StyledInput
               {...getInputProps({
-                isHidden: !isOpen,
+                $isHidden: !isOpen,
                 disabled: props.disabled,
                 onFocus: () => {
                   setIsFocused(true);
