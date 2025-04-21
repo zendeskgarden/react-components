@@ -686,4 +686,68 @@ describe('Menu', () => {
       expect(button).toHaveAttribute('data-garden-id', 'buttons.button');
     });
   });
+
+  describe('Item link behavior', () => {
+    it('renders with href as anchor tag', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded>
+          <Item value="item-01" href="https://example.com" data-test-id="item">
+            Example Link
+          </Item>
+        </TestMenu>
+      );
+      await floating();
+      const item = getByTestId('item');
+      expect(item.tagName).toBe('A');
+      expect(item).toHaveAttribute('href', 'https://example.com');
+      expect(item).toHaveAttribute('target', '_blank');
+      expect(item).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+
+    it('renders with isExternal=false correctly', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded>
+          <Item value="item-01" href="https://example.com" isExternal={false} data-test-id="item">
+            Internal Link
+          </Item>
+        </TestMenu>
+      );
+      await floating();
+      const item = getByTestId('item');
+      expect(item.tagName).toBe('A');
+      expect(item).toHaveAttribute('href', 'https://example.com');
+      expect(item).not.toHaveAttribute('target');
+      expect(item).not.toHaveAttribute('rel');
+    });
+
+    it('throws error when href is used with a selection type', () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+
+      expect(() => {
+        render(
+          <TestMenu defaultExpanded>
+            <ItemGroup type="checkbox" aria-label="Plants">
+              <Item value="Flower" href="https://example.com" />
+            </ItemGroup>
+          </TestMenu>
+        );
+      }).toThrow(/can't use selection type/u);
+
+      consoleSpy.mockRestore();
+    });
+
+    it('throws error when href is used with option type', () => {
+      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+
+      expect(() => {
+        render(
+          <TestMenu defaultExpanded>
+            <Item value="item-01" href="https://example.com" type="add" />
+          </TestMenu>
+        );
+      }).toThrow(/can't use type/u);
+
+      consoleSpy.mockRestore();
+    });
+  });
 });

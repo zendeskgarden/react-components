@@ -89,13 +89,6 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       type: selectionType
     };
 
-    const { ref: _itemRef, ...itemProps } = getItemProps({
-      item,
-      onClick,
-      onKeyDown,
-      onMouseEnter
-    }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
-
     const hasAnchor = !!href;
 
     if (hasAnchor) {
@@ -105,6 +98,13 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
         throw new Error(`Menu item '${value}' can't use selection type '${selectionType}'`);
       }
     }
+
+    const { ref: _itemRef, ...itemProps } = getItemProps({
+      item,
+      onClick,
+      onKeyDown,
+      onMouseEnter
+    }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
 
     const contextValue = useMemo(() => ({ isDisabled, type }), [isDisabled, type]);
 
