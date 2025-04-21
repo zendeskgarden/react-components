@@ -7,19 +7,13 @@
 
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
-import { IStyledOptionProps, StyledOption } from '../combobox/StyledOption';
+import { StyledOption } from '../combobox/StyledOption';
 
 const COMPONENT_ID = 'dropdowns.menu.item';
-
-interface IStyledItemProps extends IStyledOptionProps {
-  $hasAnchor?: boolean;
-}
 
 export const StyledItem = styled(StyledOption).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemProps>`
-  padding: ${p => p.$hasAnchor && 0};
-
+})`
   ${componentStyles};
 `;

@@ -14,15 +14,13 @@ import React, {
 } from 'react';
 import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
-import { useText } from '@zendeskgarden/react-theming';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import CheckedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
+
 import { IItemProps, OPTION_TYPE, OptionType } from '../../types';
 import {
-  StyledHiddenLabel,
   StyledItem,
   StyledItemAnchor,
   StyledItemContent,
@@ -34,6 +32,21 @@ import useMenuContext from '../../context/useMenuContext';
 import useItemGroupContext from '../../context/useItemGroupContext';
 import { ItemContext } from '../../context/useItemContext';
 import { toItem } from './utils';
+
+const optionType = new Set(OPTION_TYPE);
+
+const renderActionIcon = (itemType?: OptionType) => {
+  switch (itemType) {
+    case 'add':
+      return <AddIcon />;
+    case 'next':
+      return <NextIcon />;
+    case 'previous':
+      return <PreviousIcon />;
+    default:
+      return <CheckedIcon />;
+  }
+};
 
 /**
  * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
@@ -50,8 +63,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       isSelected,
       icon,
       isDisabled,
-      isExternal,
-      externalAnchorLabel,
+      isExternal = true,
       type,
       name,
       onClick,
@@ -85,41 +97,14 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
     }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
 
     const hasAnchor = !!href;
-    const hasExternalLink = hasAnchor && isExternal;
 
     if (hasAnchor) {
-      if (type && OPTION_TYPE.includes(type)) {
+      if (type && optionType.has(type)) {
         throw new Error(`Menu item '${value}' can't use type '${type}'`);
       } else if (selectionType) {
         throw new Error(`Menu item '${value}' can't use selection type '${selectionType}'`);
       }
     }
-
-    const _externalAnchorLabel = useText(
-      ItemComponent,
-      { externalAnchorLabel },
-      'externalAnchorLabel',
-      '(opens in a new tab)',
-      hasExternalLink
-    );
-
-    const isActive = value === focusedValue;
-
-    const renderActionIcon = (itemType?: OptionType) => {
-      switch (itemType) {
-        case 'add':
-          return <AddIcon />;
-
-        case 'next':
-          return <NextIcon />;
-
-        case 'previous':
-          return <PreviousIcon />;
-
-        default:
-          return <CheckedIcon />;
-      }
-    };
 
     const contextValue = useMemo(() => ({ isDisabled, type }), [isDisabled, type]);
 
@@ -133,21 +118,13 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
             {icon}
           </StyledItemIcon>
         )}
-        <StyledItemContent as={hasAnchor ? 'span' : undefined} $hasExternalLink={hasExternalLink}>
-          {children || label}
-          {!!hasExternalLink && (
-            <StyledItemIcon $isExternalLinkIcon $isDisabled={isDisabled}>
-              <NewWindowIcon />
-            </StyledItemIcon>
-          )}
-          {!!hasExternalLink && <StyledHiddenLabel>{_externalAnchorLabel}</StyledHiddenLabel>}
-        </StyledItemContent>
+        <StyledItemContent>{children || label}</StyledItemContent>
       </>
     );
 
     const menuItemProps = {
-      isCompact,
-      isActive,
+      $isCompact: isCompact,
+      $isActive: value === focusedValue,
       $type: type,
       ...props,
       ...itemProps,
@@ -156,23 +133,21 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
 
     return (
       <ItemContext.Provider value={contextValue}>
-        <StyledItem
-          $hasAnchor={hasAnchor}
-          role={hasAnchor ? 'none' : undefined}
-          {...(!hasAnchor && menuItemProps)}
-        >
-          {hasAnchor ? (
+        {hasAnchor ? (
+          <li role="none">
             <StyledItemAnchor
-              {...(hasAnchor && (menuItemProps as AnchorHTMLAttributes<HTMLAnchorElement>))}
+              {...(menuItemProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
               href={href}
-              $hasAnchor
+              target={isExternal ? '_blank' : undefined}
+              // legacy browsers safeguards
+              rel={isExternal ? 'noopener noreferrer' : undefined}
             >
               {itemChildren}
             </StyledItemAnchor>
-          ) : (
-            itemChildren
-          )}
-        </StyledItem>
+          </li>
+        ) : (
+          <StyledItem {...menuItemProps}>{itemChildren}</StyledItem>
+        )}
       </ItemContext.Provider>
     );
   }
@@ -181,9 +156,11 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
 ItemComponent.displayName = 'Item';
 
 ItemComponent.propTypes = {
+  href: PropTypes.string,
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
+  isExternal: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.oneOf(OPTION_TYPE),

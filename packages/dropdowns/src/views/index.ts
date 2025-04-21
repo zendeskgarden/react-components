@@ -38,5 +38,4 @@ export * from './menu/StyledItemGroup';
 export * from './menu/StyledItemIcon';
 export * from './menu/StyledItemMeta';
 export * from './menu/StyledItemTypeIcon';
-export * from './menu/StyledHiddenLabel';
 export * from './menu/StyledSeparator';

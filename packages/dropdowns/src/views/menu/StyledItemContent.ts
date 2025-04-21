@@ -11,15 +11,9 @@ import { StyledOptionContent } from '../combobox/StyledOptionContent';
 
 const COMPONENT_ID = 'dropdowns.menu.item.content';
 
-interface IStyledItemContentProps {
-  $hasExternalLink?: boolean;
-}
-
 export const StyledItemContent = styled(StyledOptionContent).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledItemContentProps>`
-  flex-direction: ${p => p.$hasExternalLink && 'row'};
-
+})`
   ${componentStyles};
-})`;
+`;
