@@ -691,7 +691,7 @@ describe('Menu', () => {
     it('renders with href as anchor tag', async () => {
       const { getByTestId } = render(
         <TestMenu defaultExpanded>
-          <Item value="item-01" href="https://example.com" data-test-id="item">
+          <Item value="item-01" href="https://example.com" isExternal data-test-id="item">
             Example Link
           </Item>
         </TestMenu>

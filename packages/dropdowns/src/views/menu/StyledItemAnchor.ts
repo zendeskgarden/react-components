@@ -6,7 +6,7 @@
  */
 
 import styled from 'styled-components';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOption } from '../combobox/StyledOption';
 
 const COMPONENT_ID = 'dropdowns.menu.item_anchor';
@@ -17,7 +17,8 @@ export const StyledItemAnchor = styled(StyledOption as 'a').attrs({
   as: 'a'
 })`
   direction: ${props => props.theme.rtl && 'rtl'};
-  color: ${({ theme }) => getColor({ theme, variable: 'foreground.primary' })};
+  text-decoration: none;
+  color: unset;
 
   ${componentStyles};
 `;

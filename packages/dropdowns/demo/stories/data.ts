@@ -26,7 +26,8 @@ export const ITEMS: Items = [
   {
     value: 'item-anchor',
     label: 'Item link',
-    href: 'https://garden.zendesk.com'
+    href: 'https://garden.zendesk.com',
+    isExternal: true
   },
   {
     value: 'item-meta',

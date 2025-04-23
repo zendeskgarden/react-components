@@ -63,7 +63,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       isSelected,
       icon,
       isDisabled,
-      isExternal = true,
+      isExternal,
       type,
       name,
       onClick,

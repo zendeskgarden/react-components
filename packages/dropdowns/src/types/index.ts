@@ -286,7 +286,7 @@ export interface IItemProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'value
   icon?: ReactElement;
   /** Indicates that the item is not interactive */
   isDisabled?: boolean;
-  /** If the item is an anchor, opens the link externally */
+  /** Opens the `href` externally */
   isExternal?: boolean;
   /** Determines the initial selection state for the item */
   isSelected?: boolean;
