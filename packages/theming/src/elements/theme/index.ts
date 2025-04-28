@@ -12,7 +12,8 @@ const BASE = 4;
 
 const borderRadii = {
   sm: `${BASE / 2}px`,
-  md: `${BASE}px`
+  md: `${BASE}px`,
+  lg: `${BASE * 2}px`
 };
 
 const borderStyles = {

@@ -3,6 +3,7 @@
 exports[`DEFAULT_THEME matches snapshot 1`] = `
 {
   "borderRadii": {
+    "lg": "8px",
     "md": "4px",
     "sm": "2px",
   },
