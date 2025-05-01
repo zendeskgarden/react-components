@@ -12,6 +12,11 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+## v9.6.0 (2025-05-01)
+
+#### :rocket: New Feature
+* `theming`
+  * [7b9de0e](https://github.com/zendeskgarden/react-components/commit/7b9de0ec975248038606cdf291f877a289a6f109) feat(theming): expand theme to include `borderRadii.lg` value ([@jzempel](https://github.com/jzempel))
 
 ## v9.5.4 (2025-04-10)
 
