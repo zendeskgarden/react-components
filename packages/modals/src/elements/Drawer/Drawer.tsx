@@ -41,7 +41,16 @@ import { FooterItem } from './FooterItem';
 
 const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
   (
-    { id, isOpen, onClose, backdropProps, appendToNode, focusOnMount, restoreFocus, ...props },
+    {
+      id,
+      isOpen,
+      onClose,
+      backdropProps,
+      appendToNode,
+      focusOnMount = true,
+      restoreFocus = true,
+      ...props
+    },
     ref
   ) => {
     const modalRef = useRef<HTMLDivElement | null>(null);
@@ -187,11 +196,6 @@ DrawerComponent.propTypes = {
   onClose: PropTypes.func,
   appendToNode: PropTypes.any,
   isOpen: PropTypes.bool
-};
-
-DrawerComponent.defaultProps = {
-  focusOnMount: true /* [1:d] */,
-  restoreFocus: true /* [1:d] */
 };
 
 /**

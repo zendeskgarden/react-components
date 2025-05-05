@@ -48,10 +48,12 @@ interface IStyledGridProps extends ThemeProps<DefaultTheme> {
   $gutters?: IGridProps['gutters'];
 }
 
-export const StyledGrid = styled.div.attrs<IStyledGridProps>({
+export const StyledGrid = styled.div.attrs<IStyledGridProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGridProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $gutters: props.$gutters ?? 'md',
+  theme: props.theme ?? DEFAULT_THEME
+}))`
   direction: ${props => props.theme.rtl && 'rtl'};
   margin-right: auto;
   margin-left: auto;
@@ -64,8 +66,3 @@ export const StyledGrid = styled.div.attrs<IStyledGridProps>({
 
   ${componentStyles};
 `;
-
-StyledGrid.defaultProps = {
-  $gutters: 'md',
-  theme: DEFAULT_THEME
-};

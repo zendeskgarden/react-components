@@ -25,7 +25,17 @@ import { Close } from './components/Close';
 
 const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
   (
-    { id, isOpen, isAnimated, focusOnMount, restoreFocus, placement, size, children, ...props },
+    {
+      id,
+      isOpen,
+      isAnimated = true,
+      focusOnMount,
+      restoreFocus,
+      placement = 'end',
+      size = '380px',
+      children,
+      ...props
+    },
     ref
   ) => {
     const sheetRef = useRef<HTMLElement>(null);
@@ -85,12 +95,6 @@ SheetComponent.propTypes = {
   restoreFocus: PropTypes.bool,
   placement: PropTypes.oneOf(PLACEMENT),
   size: PropTypes.string
-};
-
-SheetComponent.defaultProps = {
-  isAnimated: true,
-  placement: 'end',
-  size: '380px'
 };
 
 /**
