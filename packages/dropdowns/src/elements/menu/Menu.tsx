@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { useMenu } from '@zendeskgarden/container-menu';
-import { DEFAULT_THEME, useWindow } from '@zendeskgarden/react-theming';
+import { DEFAULT_THEME, useDocument, useWindow } from '@zendeskgarden/react-theming';
 import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
 import { IMenuProps, PLACEMENT } from '../../types';
 import { MenuContext } from '../../context/useMenuContext';
@@ -45,7 +45,8 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
     const items = toItems(children);
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
-    const environment = useWindow(theme);
+    const _window = useWindow(theme);
+    const document = useDocument(theme);
 
     const {
       isExpanded,
@@ -56,8 +57,9 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       getItemGroupProps,
       getSeparatorProps
     } = useMenu({
+      document,
       rtl: theme.rtl,
-      environment,
+      window: _window,
       defaultFocusedValue,
       focusedValue: _focusedValue,
       defaultExpanded,
