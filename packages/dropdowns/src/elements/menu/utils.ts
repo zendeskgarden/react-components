@@ -24,7 +24,7 @@ export const toItem = (
   ...(props.name && { name: props.name }),
   ...(props.href && { href: props.href }),
   ...(props.isDisabled && { disabled: props.isDisabled }),
-  ...(props.isExternal && { isExternal: props.isExternal }),
+  ...(props.isExternal && { external: props.isExternal }),
   ...(props.isSelected && { selected: props.isSelected }),
   ...(props.selectionType && { type: props.selectionType }),
   ...(props.type === 'next' && { isNext: true }),

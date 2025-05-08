@@ -5,13 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  AnchorHTMLAttributes,
-  LiHTMLAttributes,
-  MutableRefObject,
-  forwardRef,
-  useMemo
-} from 'react';
+import React, { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
@@ -32,8 +26,6 @@ import useMenuContext from '../../context/useMenuContext';
 import useItemGroupContext from '../../context/useItemGroupContext';
 import { ItemContext } from '../../context/useItemContext';
 import { toItem } from './utils';
-
-const optionType = new Set(OPTION_TYPE);
 
 const renderActionIcon = (itemType?: OptionType) => {
   switch (itemType) {
@@ -69,12 +61,12 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       onClick,
       onKeyDown,
       onMouseEnter,
-      ...props
+      ...other
     },
     ref
   ) => {
     const { type: selectionType } = useItemGroupContext();
-    const { focusedValue, getItemProps, isCompact } = useMenuContext();
+    const { focusedValue, getAnchorProps, getItemProps, isCompact } = useMenuContext();
     const item = {
       ...toItem({
         value,
@@ -89,14 +81,10 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       type: selectionType
     };
 
-    const hasAnchor = !!href;
+    const anchorProps = getAnchorProps({ item });
 
-    if (hasAnchor) {
-      if (type && optionType.has(type)) {
-        throw new Error(`Menu item '${value}' can't use type '${type}'`);
-      } else if (selectionType) {
-        throw new Error(`Menu item '${value}' can't use selection type '${selectionType}'`);
-      }
+    if (anchorProps && (type === 'add' || type === 'danger')) {
+      throw new Error(`Menu link item '${value}' can't use type '${type}'`);
     }
 
     const { ref: _itemRef, ...itemProps } = getItemProps({
@@ -123,30 +111,32 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
     );
 
     const menuItemProps = {
-      $isCompact: isCompact,
-      $isActive: value === focusedValue,
-      $type: type,
-      ...props,
+      ...other,
       ...itemProps,
       ref: mergeRefs([_itemRef, ref])
     };
 
     return (
       <ItemContext.Provider value={contextValue}>
-        {hasAnchor ? (
-          <li role="none">
+        {anchorProps ? (
+          <li {...menuItemProps}>
             <StyledItemAnchor
-              {...(menuItemProps as AnchorHTMLAttributes<HTMLAnchorElement>)}
-              href={href}
-              target={isExternal ? '_blank' : undefined}
-              // legacy browsers safeguards
-              rel={isExternal ? 'noopener noreferrer' : undefined}
+              $isCompact={isCompact}
+              $isActive={value === focusedValue}
+              {...anchorProps}
             >
               {itemChildren}
             </StyledItemAnchor>
           </li>
         ) : (
-          <StyledItem {...menuItemProps}>{itemChildren}</StyledItem>
+          <StyledItem
+            $isCompact={isCompact}
+            $isActive={value === focusedValue}
+            $type={type}
+            {...menuItemProps}
+          >
+            {itemChildren}
+          </StyledItem>
         )}
       </ItemContext.Provider>
     );

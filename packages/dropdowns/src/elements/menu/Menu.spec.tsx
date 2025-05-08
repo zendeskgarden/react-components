@@ -698,10 +698,13 @@ describe('Menu', () => {
       );
       await floating();
       const item = getByTestId('item');
-      expect(item.tagName).toBe('A');
-      expect(item).toHaveAttribute('href', 'https://example.com');
-      expect(item).toHaveAttribute('target', '_blank');
-      expect(item).toHaveAttribute('rel', 'noopener noreferrer');
+      const link = item.firstChild!;
+
+      expect(item.nodeName).toBe('LI');
+      expect(link.nodeName).toBe('A');
+      expect(link).toHaveAttribute('href', 'https://example.com');
+      expect(link).toHaveAttribute('target', '_blank');
+      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
     });
 
     it('renders with isExternal=false correctly', async () => {
@@ -714,10 +717,46 @@ describe('Menu', () => {
       );
       await floating();
       const item = getByTestId('item');
-      expect(item.tagName).toBe('A');
-      expect(item).toHaveAttribute('href', 'https://example.com');
-      expect(item).not.toHaveAttribute('target');
-      expect(item).not.toHaveAttribute('rel');
+      const link = item.firstChild!;
+
+      expect(item.nodeName).toBe('LI');
+      expect(link.nodeName).toBe('A');
+      expect(link).toHaveAttribute('href', 'https://example.com');
+      expect(link).not.toHaveAttribute('target');
+      expect(link).not.toHaveAttribute('rel');
+    });
+
+    it('renders with isSelected correctly', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded>
+          <Item value="item-01" href="https://example.com" isSelected data-test-id="item">
+            Example Link
+          </Item>
+        </TestMenu>
+      );
+      await floating();
+      const link = getByTestId('item').firstChild!;
+
+      expect(link.nodeName).toBe('A');
+      expect(link).toHaveAttribute('href', 'https://example.com');
+      expect(link).toHaveAttribute('aria-current', 'page');
+    });
+
+    it('renders with controlled selection correctly', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded selectedItems={[{ value: 'item-01' }]}>
+          <Item value="item-01" href="#01" isSelected data-test-id="item-01">
+            Link 1
+          </Item>
+          <Item value="item-02" href="#02" isSelected data-test-id="item-02">
+            Link 2
+          </Item>
+        </TestMenu>
+      );
+      await floating();
+
+      expect(getByTestId('item-01').firstChild).toHaveAttribute('aria-current', 'page');
+      expect(getByTestId('item-02').firstChild).not.toHaveAttribute('aria-current');
     });
 
     it('throws error when href is used with a selection type', () => {
@@ -731,7 +770,7 @@ describe('Menu', () => {
             </ItemGroup>
           </TestMenu>
         );
-      }).toThrow(/can't use selection type/u);
+      }).toThrow("Error: expected useMenu anchor item 'Flower' to not use 'checkbox'");
 
       consoleSpy.mockRestore();
     });
