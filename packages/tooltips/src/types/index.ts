@@ -25,6 +25,8 @@ export interface ITooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'con
   delayMS?: number;
   /** Defines the content of the tooltip */
   content: ReactNode;
+  /** Provides a list of acceptable fallback placements */
+  fallbackPlacements?: Exclude<GardenPlacement, 'auto'>[];
   /** Adjusts the placement of the tooltip */
   placement?: GardenPlacement;
   /** Adjusts the padding and font size */
