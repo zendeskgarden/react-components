@@ -104,6 +104,7 @@ export interface IGardenTheme {
   borderRadii: {
     sm: string;
     md: string;
+    lg: string;
   };
   borderStyles: {
     solid: string;
