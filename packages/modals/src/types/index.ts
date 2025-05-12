@@ -76,9 +76,13 @@ export interface IDrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
 
 export interface ITooltipDialogProps extends Omit<IModalProps, 'isCentered' | 'isLarge'> {
   /**
-   * Positions the modal relative to the provided `HTMLElement`
+   * Provides a list of acceptable fallback placements
    */
-  referenceElement?: HTMLElement | null;
+  fallbackPlacements?: Exclude<Placement, 'auto'>[];
+  /**
+   * Adds an arrow to the tooltop
+   */
+  hasArrow?: boolean;
   /** @ignore Modifies the placement offset from the reference element (internal only) */
   offset?: number;
   /**
@@ -86,9 +90,9 @@ export interface ITooltipDialogProps extends Omit<IModalProps, 'isCentered' | 'i
    **/
   placement?: Placement;
   /**
-   * Adds an arrow to the tooltop
+   * Positions the modal relative to the provided `HTMLElement`
    */
-  hasArrow?: boolean;
+  referenceElement?: HTMLElement | null;
   /**
    * Sets the `z-index` of the tooltip
    */
