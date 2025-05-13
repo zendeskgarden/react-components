@@ -90,7 +90,7 @@ export const TooltipDialogStory: Story<IArgs> = ({
         {!!hasClose && <TooltipDialog.Close aria-label={closeAriaLabel} />}
       </TooltipDialog>
       <Grid>
-        <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+        <Grid.Row style={{ height: 'calc(100vh - 200px)' }}>
           {[...Array(count)].map((_, index) => (
             <Grid.Col key={index} md={4} textAlign="center" alignSelf="center">
               <IconButton

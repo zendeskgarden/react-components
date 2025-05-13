@@ -3,6 +3,7 @@ import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
 import { TooltipStory } from './stories/TooltipStory';
 import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
 import README from '../README.md';
+import { PLACEMENT } from '../src/types';
 
 <Meta
   title="Packages/Tooltips/Tooltip"
@@ -29,7 +30,8 @@ import README from '../README.md';
     }}
     argTypes={{
       isVisible: { control: 'boolean' },
-      appendToNode: { control: false }
+      appendToNode: { control: false },
+      fallbackPlacements: { control: 'multi-select', options: PLACEMENT.filter(p => p !== 'auto') }
     }}
     parameters={{
       design: {
