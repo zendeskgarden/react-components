@@ -32,6 +32,7 @@ export * from './combobox/StyledValue';
 export * from './menu/StyledMenu';
 export * from './menu/StyledFloatingMenu';
 export * from './menu/StyledItem';
+export * from './menu/StyledItemAnchor';
 export * from './menu/StyledItemContent';
 export * from './menu/StyledItemGroup';
 export * from './menu/StyledItemIcon';
