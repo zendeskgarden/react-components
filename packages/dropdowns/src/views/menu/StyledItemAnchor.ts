@@ -17,9 +17,9 @@ export const StyledItemAnchor = styled(StyledOption).attrs({
   'data-garden-version': PACKAGE_VERSION,
   as: 'a'
 })`
-  direction: ${props => props.theme.rtl && 'rtl'};
   text-decoration: none;
   color: unset;
+
   &[aria-current='page'] > ${StyledItemTypeIcon} {
     opacity: 1;
   }
