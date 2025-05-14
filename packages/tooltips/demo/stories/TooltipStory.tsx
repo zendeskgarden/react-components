@@ -18,7 +18,7 @@ interface IArgs extends Omit<ITooltipProps, 'content'> {
 
 export const TooltipStory: StoryFn<IArgs> = ({ content, ...args }: IArgs) => (
   <Grid>
-    <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+    <Grid.Row style={{ height: 'calc(100vh - 200px)' }}>
       <Grid.Col textAlign="center" alignSelf="center">
         <Tooltip
           {...args}

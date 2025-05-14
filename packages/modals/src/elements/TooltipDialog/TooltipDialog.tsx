@@ -9,7 +9,14 @@ import React, { HTMLAttributes, useState, useContext, useEffect, useRef } from '
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
-import { autoPlacement, autoUpdate, offset, platform, useFloating } from '@floating-ui/react-dom';
+import {
+  autoPlacement,
+  autoUpdate,
+  flip,
+  offset,
+  platform,
+  useFloating
+} from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import { mergeRefs } from 'react-merge-refs';
 import { TooltipDialogContext } from '../../utils/useTooltipDialogContext';
@@ -18,7 +25,7 @@ import {
   StyledTooltipDialog,
   StyledTooltipDialogBackdrop
 } from '../../styled';
-import { ITooltipDialogProps } from '../../types';
+import { ITooltipDialogProps, PLACEMENT } from '../../types';
 import { Title } from './Title';
 import { Body } from './Body';
 import { Close } from './Close';
@@ -35,6 +42,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       appendToNode,
       referenceElement,
       placement: _placement,
+      fallbackPlacements: _fallbackPlacements,
       offset: _offset,
       onClose,
       hasArrow,
@@ -64,9 +72,10 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
         restoreFocus: false
       });
 
-    const [floatingPlacement] = getFloatingPlacements(
+    const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(
       theme,
-      _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+      _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,
+      _fallbackPlacements
     );
 
     const {
@@ -83,7 +92,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       placement: floatingPlacement,
       middleware: [
         offset(_offset === undefined ? theme.space.base * 3 : _offset),
-        _placement === 'auto' ? autoPlacement() : undefined
+        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements })
       ]
     });
 
@@ -194,6 +203,10 @@ TooltipDialogComponent.propTypes = {
   appendToNode: PropTypes.any,
   referenceElement: PropTypes.any,
   placement: PropTypes.any,
+  // @ts-expect-error Validation error due to incorrect type inference when component is wrapped in forwardRef
+  fallbackPlacements: PropTypes.arrayOf(
+    PropTypes.oneOf(PLACEMENT.filter(placement => placement !== 'auto'))
+  ),
   isAnimated: PropTypes.bool,
   hasArrow: PropTypes.bool,
   zIndex: PropTypes.number,

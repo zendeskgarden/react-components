@@ -14,7 +14,7 @@ import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
 import { StyledTooltipWrapper, StyledTooltip } from '../styled';
 import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
-import { autoPlacement, autoUpdate, platform, useFloating } from '@floating-ui/react-dom';
+import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { toSize } from './utils';
 import { Paragraph } from './Paragraph';
@@ -29,6 +29,7 @@ export const TooltipComponent = ({
   content,
   refKey,
   placement: _placement,
+  fallbackPlacements: _fallbackPlacements,
   children,
   hasArrow,
   size,
@@ -51,9 +52,10 @@ export const TooltipComponent = ({
   });
 
   const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
-  const [floatingPlacement] = getFloatingPlacements(
+  const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(
     theme,
-    _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
+    _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,
+    _fallbackPlacements
   );
 
   const {
@@ -68,7 +70,7 @@ export const TooltipComponent = ({
     },
     elements: { reference: triggerRef?.current, floating: floatingRef?.current },
     placement: floatingPlacement,
-    middleware: _placement === 'auto' ? [autoPlacement()] : undefined
+    middleware: _placement === 'auto' ? [autoPlacement()] : [flip({ fallbackPlacements })]
   });
 
   useEffect(() => {
@@ -135,6 +137,9 @@ TooltipComponent.propTypes = {
   id: PropTypes.string,
   content: PropTypes.node.isRequired,
   placement: PropTypes.oneOf(PLACEMENT),
+  fallbackPlacements: PropTypes.arrayOf(
+    PropTypes.oneOf(PLACEMENT.filter(placement => placement !== 'auto'))
+  ),
   size: PropTypes.oneOf(SIZE),
   type: PropTypes.oneOf(TYPE),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
