@@ -12,6 +12,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
+
+## v9.7.0 (2025-05-15)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#2021](https://github.com/zendeskgarden/react-components/pull/2021) feat(dropdowns): add navigation link support to Menu's `Item` component ([@ze-flo](https://github.com/ze-flo))
+* `modals`, `tooltips`
+  * [#2020](https://github.com/zendeskgarden/react-components/pull/2020) feat(modals, tooltips): adds `fallbackPlacements` support to `Tooltip` and `TooltipModal` ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `theming`
+  * [#2018](https://github.com/zendeskgarden/react-components/pull/2018) fix(theming): reflect updated `lg` borderRadius in `IGardenTheme` definition ([@ze-flo](https://github.com/ze-flo))
 ## v9.6.0 (2025-05-01)
 
 #### :rocket: New Feature
