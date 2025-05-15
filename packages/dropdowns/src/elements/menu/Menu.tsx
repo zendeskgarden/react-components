@@ -52,6 +52,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       focusedValue,
       getTriggerProps,
       getMenuProps,
+      getAnchorProps,
       getItemProps,
       getItemGroupProps,
       getSeparatorProps
@@ -106,11 +107,12 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       () => ({
         isCompact,
         focusedValue,
+        getAnchorProps,
         getItemProps,
         getItemGroupProps,
         getSeparatorProps
       }),
-      [isCompact, focusedValue, getItemProps, getItemGroupProps, getSeparatorProps]
+      [focusedValue, getAnchorProps, getItemGroupProps, getItemProps, getSeparatorProps, isCompact]
     );
 
     return (

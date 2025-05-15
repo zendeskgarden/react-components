@@ -12,6 +12,7 @@ export const MenuContext = createContext<
   | {
       isCompact?: boolean;
       focusedValue?: string | null;
+      getAnchorProps: IUseMenuReturnValue['getAnchorProps'];
       getItemGroupProps: IUseMenuReturnValue['getItemGroupProps'];
       getItemProps: IUseMenuReturnValue['getItemProps'];
       getSeparatorProps: IUseMenuReturnValue['getSeparatorProps'];

@@ -12,13 +12,38 @@ import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import CheckedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import { IItemProps, OptionType as ItemType, OPTION_TYPE } from '../../types';
-import { StyledItem, StyledItemContent, StyledItemIcon, StyledItemTypeIcon } from '../../views';
+
+import { IItemProps, OPTION_TYPE, OptionType } from '../../types';
+import {
+  StyledItem,
+  StyledItemAnchor,
+  StyledItemContent,
+  StyledItemIcon,
+  StyledItemTypeIcon
+} from '../../views';
 import { ItemMeta } from './ItemMeta';
 import useMenuContext from '../../context/useMenuContext';
 import useItemGroupContext from '../../context/useItemGroupContext';
 import { ItemContext } from '../../context/useItemContext';
 import { toItem } from './utils';
+
+const renderActionIcon = (itemType?: OptionType) => {
+  switch (itemType) {
+    case 'add':
+      return <AddIcon />;
+    case 'next':
+      return <NextIcon />;
+    case 'previous':
+      return <PreviousIcon />;
+    default:
+      return <CheckedIcon />;
+  }
+};
+
+/**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
 
 const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
   (
@@ -26,20 +51,22 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       children,
       value,
       label = value,
+      href,
       isSelected,
       icon,
       isDisabled,
+      isExternal,
       type,
       name,
       onClick,
       onKeyDown,
       onMouseEnter,
-      ...props
+      ...other
     },
     ref
   ) => {
     const { type: selectionType } = useItemGroupContext();
-    const { focusedValue, getItemProps, isCompact } = useMenuContext();
+    const { focusedValue, getAnchorProps, getItemProps, isCompact } = useMenuContext();
     const item = {
       ...toItem({
         value,
@@ -47,10 +74,18 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
         name,
         type,
         isSelected,
-        isDisabled
+        isDisabled,
+        href,
+        isExternal
       }),
       type: selectionType
     };
+
+    const anchorProps = getAnchorProps({ item });
+
+    if (anchorProps && (type === 'add' || type === 'danger')) {
+      throw new Error(`Menu link item '${value}' can't use type '${type}'`);
+    }
 
     const { ref: _itemRef, ...itemProps } = getItemProps({
       item,
@@ -59,46 +94,50 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
       onMouseEnter
     }) as LiHTMLAttributes<HTMLLIElement> & { ref: MutableRefObject<HTMLLIElement> };
 
-    const isActive = value === focusedValue;
-
-    const renderActionIcon = (iconType?: ItemType) => {
-      switch (iconType) {
-        case 'add':
-          return <AddIcon />;
-
-        case 'next':
-          return <NextIcon />;
-
-        case 'previous':
-          return <PreviousIcon />;
-
-        default:
-          return <CheckedIcon />;
-      }
-    };
-
     const contextValue = useMemo(() => ({ isDisabled, type }), [isDisabled, type]);
+
+    const itemChildren = (
+      <>
+        <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
+          {renderActionIcon(type)}
+        </StyledItemTypeIcon>
+        {!!icon && (
+          <StyledItemIcon $isDisabled={isDisabled} $type={type}>
+            {icon}
+          </StyledItemIcon>
+        )}
+        <StyledItemContent>{children || label}</StyledItemContent>
+      </>
+    );
+
+    const menuItemProps = {
+      ...other,
+      ...itemProps,
+      ref: mergeRefs([_itemRef, ref])
+    };
 
     return (
       <ItemContext.Provider value={contextValue}>
-        <StyledItem
-          $type={type}
-          $isCompact={isCompact}
-          $isActive={isActive}
-          {...props}
-          {...itemProps}
-          ref={mergeRefs([_itemRef, ref])}
-        >
-          <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
-            {renderActionIcon(type)}
-          </StyledItemTypeIcon>
-          {!!icon && (
-            <StyledItemIcon $isDisabled={isDisabled} $type={type}>
-              {icon}
-            </StyledItemIcon>
-          )}
-          <StyledItemContent>{children || label}</StyledItemContent>
-        </StyledItem>
+        {anchorProps ? (
+          <li {...menuItemProps}>
+            <StyledItemAnchor
+              $isCompact={isCompact}
+              $isActive={value === focusedValue}
+              {...anchorProps}
+            >
+              {itemChildren}
+            </StyledItemAnchor>
+          </li>
+        ) : (
+          <StyledItem
+            $isCompact={isCompact}
+            $isActive={value === focusedValue}
+            $type={type}
+            {...menuItemProps}
+          >
+            {itemChildren}
+          </StyledItem>
+        )}
       </ItemContext.Provider>
     );
   }
@@ -107,9 +146,11 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
 ItemComponent.displayName = 'Item';
 
 ItemComponent.propTypes = {
+  href: PropTypes.string,
   icon: PropTypes.any,
   isDisabled: PropTypes.bool,
   isSelected: PropTypes.bool,
+  isExternal: PropTypes.bool,
   label: PropTypes.string,
   name: PropTypes.string,
   type: PropTypes.oneOf(OPTION_TYPE),
