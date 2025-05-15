@@ -65,7 +65,7 @@
     "babel-plugin-module-resolver": "5.0.2",
     "babel-plugin-react-remove-properties": "0.3.0",
     "babel-plugin-styled-components": "2.1.4",
-    "commander": "12.1.0",
+    "commander": "13.1.0",
     "core-js": "3.39.0",
     "envalid": "8.0.0",
     "eslint": "9.17.0",
