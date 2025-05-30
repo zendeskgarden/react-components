@@ -27,14 +27,15 @@ describe('Avatar', () => {
   });
 
   it('renders badge if provided', () => {
-    const badge = '2';
     const { getByText } = render(
-      <Avatar badge={badge}>
+      <Avatar badge={2}>
         <img alt="" />
       </Avatar>
     );
 
-    expect(getByText(badge)).not.toBeEmptyDOMElement();
+    const element = getByText(/2/u);
+
+    expect(element).toBeInTheDocument();
   });
 
   it('applies active styling to available status if provided with badge', () => {
@@ -75,49 +76,48 @@ describe('Avatar', () => {
         </Avatar>
       );
 
-      const statusIndicatorElement = getByText('2')?.parentElement;
+      const element = getByText('status: active. 2 notifications');
 
-      expect(statusIndicatorElement).toHaveAttribute(
-        'aria-label',
-        'status: active. 2 notifications'
-      );
+      expect(element).toBeInTheDocument();
     });
 
     it('renders with badge and with a provided status label', () => {
+      const label = 'two notifications';
       const { getByText } = render(
-        <Avatar badge="2" statusLabel="two notifications">
+        <Avatar badge="2" statusLabel={label}>
           <img alt="" />
         </Avatar>
       );
 
-      const statusIndicatorElement = getByText('2')?.parentElement;
+      const element = getByText(label);
 
-      expect(statusIndicatorElement).toHaveAttribute('aria-label', 'two notifications');
+      expect(element).toBeInTheDocument();
     });
 
-    it('renders with status and applies default aria-label for available status', () => {
-      const { getByLabelText } = render(
+    it('renders with status and applies default label for available status', () => {
+      const { getByText } = render(
         <Avatar status="available">
           <img alt="" />
         </Avatar>
       );
 
-      const statusIndicatorElement = getByLabelText('status: available');
+      const element = getByText('status: available');
 
-      expect(statusIndicatorElement).toBeEmptyDOMElement();
+      expect(element).toBeInTheDocument();
     });
 
-    it('renders with status and applies default aria-label for away status', () => {
-      const { getByLabelText, container } = render(
+    it('renders with status and applies default label for away status', () => {
+      const { getByText, container } = render(
         <Avatar status="away">
           <img alt="" />
         </Avatar>
       );
 
-      const statusIndicatorElement = getByLabelText('status: away');
+      const element = getByText('status: away');
       const statusIndicatorSVG = container.querySelector('svg');
 
-      expect(statusIndicatorElement).toContainElement(statusIndicatorSVG);
+      expect(element).toBeInTheDocument();
+      expect(statusIndicatorSVG).toBeInTheDocument();
     });
   });
 

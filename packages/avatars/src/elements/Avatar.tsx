@@ -17,6 +17,7 @@ import { IAvatarProps, SIZE, STATUS } from '../types';
 import { StyledAvatar, StyledStatusIndicator } from '../styled';
 
 import { Text } from './components/Text';
+import { Span } from '@zendeskgarden/react-typography';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
@@ -59,7 +60,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     }, [computedStatus, badge]);
 
     const shouldValidate = computedStatus !== undefined;
-    const ariaLabel = useText(
+    const label = useText(
       AvatarComponent,
       { statusLabel },
       'statusLabel',
@@ -86,19 +87,13 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             $size={size}
             $type={computedStatus}
             $surfaceColor={surfaceColor}
-            aria-label={ariaLabel}
             as="figcaption"
           >
-            {computedStatus === 'active' ? (
-              <span aria-hidden="true">{badge}</span>
-            ) : (
-              <>
-                {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}
-                {computedStatus === 'transfers' ? (
-                  <ArrowLeftIcon data-icon-status={computedStatus} />
-                ) : null}
-              </>
-            )}
+            <Span hidden>{label}</Span>
+            <>
+              {computedStatus === 'away' ? <ClockIcon /> : null}
+              {computedStatus === 'transfers' ? <ArrowLeftIcon /> : null}
+            </>
           </StyledStatusIndicator>
         )}
       </StyledAvatar>
