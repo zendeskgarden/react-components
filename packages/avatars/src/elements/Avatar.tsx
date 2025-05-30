@@ -8,6 +8,7 @@
 import React, { Children, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
+import { Span } from '@zendeskgarden/react-typography';
 import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
 import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
 import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
@@ -17,7 +18,6 @@ import { IAvatarProps, SIZE, STATUS } from '../types';
 import { StyledAvatar, StyledStatusIndicator } from '../styled';
 
 import { Text } from './components/Text';
-import { Span } from '@zendeskgarden/react-typography';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
