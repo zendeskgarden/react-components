@@ -27,15 +27,16 @@ describe('Avatar', () => {
   });
 
   it('renders badge if provided', () => {
+    const badge = '2';
     const { getByText } = render(
-      <Avatar badge={2}>
+      <Avatar badge={badge}>
         <img alt="" />
       </Avatar>
     );
 
-    const element = getByText(/2/u);
+    const element = getByText(badge);
 
-    expect(element).toBeInTheDocument();
+    expect(element).toHaveAttribute('aria-hidden');
   });
 
   it('applies active styling to available status if provided with badge', () => {

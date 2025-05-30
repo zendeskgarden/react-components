@@ -90,10 +90,14 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             as="figcaption"
           >
             <Span hidden>{label}</Span>
-            <>
-              {computedStatus === 'away' ? <ClockIcon /> : null}
-              {computedStatus === 'transfers' ? <ArrowLeftIcon /> : null}
-            </>
+            {computedStatus === 'active' ? (
+              <span aria-hidden>{badge}</span>
+            ) : (
+              <>
+                {computedStatus === 'away' ? <ClockIcon /> : null}
+                {computedStatus === 'transfers' ? <ArrowLeftIcon /> : null}
+              </>
+            )}
           </StyledStatusIndicator>
         )}
       </StyledAvatar>
