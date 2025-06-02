@@ -94,8 +94,10 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
               <span aria-hidden>{badge}</span>
             ) : (
               <>
-                {computedStatus === 'away' ? <ClockIcon /> : null}
-                {computedStatus === 'transfers' ? <ArrowLeftIcon /> : null}
+                {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}
+                {computedStatus === 'transfers' ? (
+                  <ArrowLeftIcon data-icon-status={computedStatus} />
+                ) : null}
               </>
             )}
           </StyledStatusIndicator>
