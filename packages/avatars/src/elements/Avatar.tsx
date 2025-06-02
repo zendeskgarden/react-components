@@ -8,6 +8,7 @@
 import React, { Children, forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
+import { Span } from '@zendeskgarden/react-typography';
 import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
 import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
 import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
@@ -59,7 +60,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
     }, [computedStatus, badge]);
 
     const shouldValidate = computedStatus !== undefined;
-    const ariaLabel = useText(
+    const label = useText(
       AvatarComponent,
       { statusLabel },
       'statusLabel',
@@ -86,11 +87,11 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             $size={size}
             $type={computedStatus}
             $surfaceColor={surfaceColor}
-            aria-label={ariaLabel}
             as="figcaption"
           >
+            <Span hidden>{label}</Span>
             {computedStatus === 'active' ? (
-              <span aria-hidden="true">{badge}</span>
+              <span aria-hidden>{badge}</span>
             ) : (
               <>
                 {computedStatus === 'away' ? <ClockIcon data-icon-status={computedStatus} /> : null}

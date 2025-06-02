@@ -153,7 +153,7 @@ const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     height: ${size} !important; /* [1] */
     /* stylelint-enable declaration-no-important */
 
-    ::before {
+    &::before {
       box-shadow: ${boxShadow};
     }
 
