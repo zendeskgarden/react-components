@@ -35,6 +35,9 @@
     "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
+    "@zendeskgarden/react-buttons": "^9.7.0",
+    "@zendeskgarden/react-dropdowns": "^9.7.0",
+    "@zendeskgarden/react-grid": "^9.7.0",
     "@zendeskgarden/react-theming": "^9.7.0"
   },
   "keywords": [

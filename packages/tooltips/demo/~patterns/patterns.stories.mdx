@@ -1,0 +1,19 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { MenuStory } from './stories/MenuStory';
+
+<Meta title="Packages/Tooltips/[patterns]" component={Tooltip} />
+
+# Patterns
+
+## Menu
+
+<Canvas>
+  <Story
+    name="Menu"
+    parameters={{ controls: { include: ['placement'] } }}
+    args={{ placement: 'bottom-start' }}
+  >
+    {args => <MenuStory {...args} />}
+  </Story>
+</Canvas>
