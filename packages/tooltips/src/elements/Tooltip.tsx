@@ -48,7 +48,8 @@ export const TooltipComponent = ({
   const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
     id,
     delayMilliseconds: delayMS,
-    isVisible: isInitialVisible
+    isVisible: isInitialVisible,
+    triggerRef
   });
 
   const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
