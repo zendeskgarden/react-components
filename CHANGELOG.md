@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.7.1 (2025-06-05)
+
+#### :bug: Bug Fix
+* `tooltips`
+  * [#2023](https://github.com/zendeskgarden/react-components/pull/2023) fix(tooltips): prevent `Tooltip` from interfering with a popup (menu, dialog, etc.) trigger ([@jzempel](https://github.com/jzempel))
+* `avatars`
+  * [#2022](https://github.com/zendeskgarden/react-components/pull/2022) fix(avatars): status ring styling and accessibility ([@jzempel](https://github.com/jzempel))
+
 ## v9.7.0 (2025-05-15)
 
 #### :rocket: New Feature
