@@ -24,7 +24,7 @@ interface IStyledTooltipProps {
   $hasArrow: ITooltipProps['hasArrow'];
   $placement: Placement;
   $size: NonNullable<ITooltipProps['size']>;
-  $type: NonNullable<ITooltipProps['type']>;
+  $type: ITooltipProps['type'];
 }
 
 const sizeStyles = ({

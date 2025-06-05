@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, useRef, useEffect, useContext } from 'react';
+import React, { cloneElement, useRef, useEffect, useContext, HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
@@ -99,16 +99,16 @@ export const TooltipComponent = ({
       aria-hidden={!controlledIsVisible}
     >
       <StyledTooltip
+        $hasArrow={hasArrow}
+        $placement={placement}
+        $size={toSize(size, type)}
+        $type={type}
         {...(getTooltipProps({
           'aria-hidden': !controlledIsVisible,
-          $hasArrow: hasArrow,
-          $placement: placement,
-          $size: toSize(size, type),
-          $type: type,
           onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
           onFocus: composeEventHandlers(onFocus, openTooltip),
           ...props
-        }) as any)}
+        }) as HTMLAttributes<HTMLDivElement>)}
       >
         {content}
       </StyledTooltip>
