@@ -1,0 +1,28 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { MenuStory } from './stories/MenuStory';
+
+<Meta title="Packages/Tooltips/[patterns]" component={Tooltip} />
+
+# Patterns
+
+## Menu
+
+The following example demonstrates `Tooltip` behavior together with a popup
+menu. The tooltip is designed to hide when the popup is expanded.
+
+<Canvas>
+  <Story
+    name="Menu"
+    parameters={{ controls: { include: ['appendToNode', 'placement'] } }}
+    args={{
+      appendToNode: false,
+      placement: 'bottom'
+    }}
+    argTypes={{
+      appendToNode: { control: 'boolean' }
+    }}
+  >
+    {args => <MenuStory {...args} />}
+  </Story>
+</Canvas>

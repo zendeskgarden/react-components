@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-tooltip": "^1.0.16",
+    "@zendeskgarden/container-tooltip": "^2.0.0",
     "@zendeskgarden/container-utilities": "^2.0.0",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",
@@ -35,6 +35,9 @@
     "styled-components": "^5.3.1 || ^6.0.0"
   },
   "devDependencies": {
+    "@zendeskgarden/react-buttons": "^9.7.0",
+    "@zendeskgarden/react-dropdowns": "^9.7.0",
+    "@zendeskgarden/react-grid": "^9.7.0",
     "@zendeskgarden/react-theming": "^9.7.0"
   },
   "keywords": [
