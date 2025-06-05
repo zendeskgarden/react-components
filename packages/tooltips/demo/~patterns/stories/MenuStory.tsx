@@ -6,47 +6,57 @@
  */
 
 import React, { forwardRef } from 'react';
+import { useTheme } from 'styled-components';
 import { StoryFn } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import { useDocument } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 import { ITooltipProps, Tooltip } from '@zendeskgarden/react-tooltips';
 import { IButtonProps, IconButton } from '@zendeskgarden/react-buttons';
 
 interface IMenuButtonProps extends IButtonProps {
+  appendToNode: boolean;
   placement: IMenuProps['placement'];
 }
 
 const MenuButton = forwardRef<HTMLButtonElement, IMenuButtonProps>(
-  ({ placement, ...props }, ref) => (
-    <Tooltip content="Menu" placement={placement}>
-      <IconButton {...props} ref={ref}>
-        <Icon />
-      </IconButton>
-    </Tooltip>
-  )
+  ({ appendToNode, placement, ...props }, ref) => {
+    const theme = useTheme();
+    const body = useDocument(theme)?.body;
+
+    return (
+      <Tooltip content="Menu" placement={placement} appendToNode={appendToNode ? body : undefined}>
+        <IconButton {...props} ref={ref}>
+          <Icon />
+        </IconButton>
+      </Tooltip>
+    );
+  }
 );
 
 MenuButton.displayName = 'MenuButton';
 
-export const MenuStory: StoryFn<ITooltipProps> = ({ placement }) => {
-  return (
-    <Grid>
-      <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
-        <Grid.Col textAlign="center" alignSelf="center">
-          <Menu
-            button={
-              /* eslint-disable-next-line react/no-unstable-nested-components */
-              props => <MenuButton placement={placement} {...props} />
-            }
-            placement={placement}
-          >
-            <Item value="One" />
-            <Item value="Two" />
-            <Item value="Three" />
-          </Menu>
-        </Grid.Col>
-      </Grid.Row>
-    </Grid>
-  );
-};
+interface IArgs extends Omit<ITooltipProps, 'appendToNode'> {
+  appendToNode: boolean;
+}
+
+export const MenuStory: StoryFn<IArgs> = ({ appendToNode, placement }) => (
+  <Grid>
+    <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
+      <Grid.Col textAlign="center" alignSelf="center">
+        <Menu
+          button={
+            /* eslint-disable-next-line react/no-unstable-nested-components */
+            props => <MenuButton appendToNode={appendToNode} placement={placement} {...props} />
+          }
+          placement={placement}
+        >
+          <Item value="One" />
+          <Item value="Two" />
+          <Item value="Three" />
+        </Menu>
+      </Grid.Col>
+    </Grid.Row>
+  </Grid>
+);

@@ -8,11 +8,20 @@ import { MenuStory } from './stories/MenuStory';
 
 ## Menu
 
+The following example demonstrates `Tooltip` behavior together with a popup
+menu. The tooltip is designed to hide when the popup is expanded.
+
 <Canvas>
   <Story
     name="Menu"
-    parameters={{ controls: { include: ['placement'] } }}
-    args={{ placement: 'bottom-start' }}
+    parameters={{ controls: { include: ['appendToNode', 'placement'] } }}
+    args={{
+      appendToNode: false,
+      placement: 'bottom'
+    }}
+    argTypes={{
+      appendToNode: { control: 'boolean' }
+    }}
   >
     {args => <MenuStory {...args} />}
   </Story>
