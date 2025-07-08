@@ -17,28 +17,32 @@ const StyledDotsCircle = styled.circle.attrs({
 
 interface IStyledDotProps {
   $duration: number;
+  $delay: number;
 }
 
 const animationStyles = (animationName: ReturnType<typeof keyframes>, props: IStyledDotProps) => {
   return css`
-    animation: ${animationName} ${props.$duration}ms linear infinite;
+    animation: ${animationName} ${props.$duration}ms ${props.$delay}ms linear infinite;
   `;
 };
 
 export const StyledDotsCircleOne = styled(StyledDotsCircle).attrs({
   cx: 9
 })<IStyledDotProps>`
+  opacity: 0;
   ${props => animationStyles(dotOneKeyframes, props)};
 `;
 
 export const StyledDotsCircleTwo = styled(StyledDotsCircle).attrs(() => ({
   cx: 40
 }))<IStyledDotProps>`
+  opacity: 0;
   ${props => animationStyles(dotTwoKeyframes, props)};
 `;
 
 export const StyledDotsCircleThree = styled(StyledDotsCircle).attrs(() => ({
   cx: 71
 }))<IStyledDotProps>`
+  opacity: 0;
   ${props => animationStyles(dotThreeKeyframes, props)};
 `;

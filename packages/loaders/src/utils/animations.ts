@@ -9,7 +9,7 @@ import { keyframes } from 'styled-components';
 
 /* stylelint-disable rule-empty-line-before */
 export const dotOneKeyframes = keyframes`
-  0% { transform: translate(0, 5px); }
+  0% { transform: translate(0, 5px); opacity: 1; }
   3% { transform: translate(1px, -5px); }
   6% { transform: translate(3px, -15px); }
   8% { transform: translate(5px, -18px); }
@@ -37,10 +37,11 @@ export const dotOneKeyframes = keyframes`
   69% { transform: translate(57px); }
   76% { transform: translate(60px); }
   81% { transform: translate(61px); }
-  83%, 100% { transform: translate(62px); }
+  83%, 100% { transform: translate(62px); opacity: 1 }
 `;
 
 export const dotTwoKeyframes = keyframes`
+  0% { opacity: 1; }
   4% { transform: translate(0); }
   6% { transform: translate(-1px); }
   8% { transform: translate(-2px); }
@@ -61,10 +62,11 @@ export const dotTwoKeyframes = keyframes`
   94% { transform: translate(-31px, 2px); }
   98% { transform: translate(-31px, 3px); }
   99% { transform: translate(-31px, 4px); }
-  100% { transform: translate(-31px, 5px); }
+  100% { transform: translate(-31px, 5px); opacity: 1 }
 `;
 
 export const dotThreeKeyframes = keyframes`
+  0% { opacity: 1; }
   39% { transform: translate(0); }
   44% { transform: translate(0, 1px); }
   46% { transform: translate(0, 2px); }
@@ -93,5 +95,5 @@ export const dotThreeKeyframes = keyframes`
   93% { transform: translate(-31px, 3px); }
   94% { transform: translate(-31px, 2px); }
   98% { transform: translate(-31px, 1px); }
-  100% { transform: translate(-31px); }
+  100% { transform: translate(-31px); opacity: 1 }
 `;
