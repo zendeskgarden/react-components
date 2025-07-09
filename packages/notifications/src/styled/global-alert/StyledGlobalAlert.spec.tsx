@@ -45,7 +45,7 @@ describe('StyledGlobalAlert', () => {
 
     expect(container.firstChild).toHaveStyleRule(
       'box-shadow',
-      `0 ${DEFAULT_THEME.borderWidths.sm} ${DEFAULT_THEME.borderWidths.sm} ${color}`
+      `inset 0 -${DEFAULT_THEME.borderWidths.sm} 0 ${color}`
     );
   });
 });
