@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.7.2 (2025-07-10)
+
+#### :bug: Bug Fix
+* `notifications`
+  * [#2030](https://github.com/zendeskgarden/react-components/pull/2030) fix(notifications): update `GlobalAlert` box-shadow to inset ([@jzempel](https://github.com/jzempel))
+* `dropdowns`
+  * [#2029](https://github.com/zendeskgarden/react-components/pull/2029) fix(dropdowns): update `useCombobox` container with improved cache coordination ([@jzempel](https://github.com/jzempel))
+
 ## v9.7.1 (2025-06-05)
 
 #### :bug: Bug Fix
