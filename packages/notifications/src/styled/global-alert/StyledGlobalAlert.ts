@@ -74,7 +74,7 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
   }
 
   // Apply a border without affecting the element's size
-  const boxShadow = `0 ${theme.borderWidths.sm} ${theme.borderWidths.sm} ${borderColor}`;
+  const boxShadow = `inset 0 -${theme.borderWidths.sm} 0 ${borderColor}`;
 
   /* stylelint-disable selector-no-qualifying-type */
   return css`
