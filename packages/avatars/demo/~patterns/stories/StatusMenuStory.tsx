@@ -43,22 +43,22 @@ export const StatusMenuStory: Story = ({ isCompact }) => {
             isCompact={isCompact}
           >
             <Item value="offline">
-              <StatusIndicator isCompact={isCompact} type="offline">
+              <StatusIndicator aria-label={null} isCompact={isCompact} type="offline">
                 Offline
               </StatusIndicator>
             </Item>
             <Item value="available">
-              <StatusIndicator isCompact={isCompact} type="available">
+              <StatusIndicator aria-label={null} isCompact={isCompact} type="available">
                 Online
               </StatusIndicator>
             </Item>
             <Item value="transfers">
-              <StatusIndicator isCompact={isCompact} type="transfers">
+              <StatusIndicator aria-label={null} isCompact={isCompact} type="transfers">
                 Transfers only
               </StatusIndicator>
             </Item>
             <Item value="away">
-              <StatusIndicator isCompact={isCompact} type="away">
+              <StatusIndicator aria-label={null} isCompact={isCompact} type="away">
                 Away
               </StatusIndicator>
             </Item>

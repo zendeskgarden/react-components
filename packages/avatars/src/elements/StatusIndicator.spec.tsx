@@ -55,5 +55,13 @@ describe('StatusIndicator', () => {
 
       expect(getByRole('img')).toHaveAttribute('aria-label', `status: ${type}`);
     });
+
+    it.each(STATUS)('renders "$1" status type, and with aria label removed', type => {
+      const { container } = render(<StatusIndicator aria-label={null} type={type} />);
+      const imgElement = container.firstChild?.firstChild;
+
+      expect(imgElement).not.toHaveAttribute('aria-label');
+      expect(imgElement).toHaveAttribute('aria-hidden');
+    });
   });
 });

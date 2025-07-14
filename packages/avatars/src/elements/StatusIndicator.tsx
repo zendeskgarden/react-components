@@ -41,7 +41,13 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
     }
 
     const defaultLabel = useMemo(() => ['status'].concat(type || []).join(': '), [type]);
-    const ariaLabel = useText(StatusIndicator, { 'aria-label': label }, 'aria-label', defaultLabel);
+    const ariaLabel = useText(
+      StatusIndicator,
+      { 'aria-label': label },
+      'aria-label',
+      defaultLabel,
+      label !== null
+    );
 
     return (
       // [1]
@@ -50,10 +56,11 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
         {/* [2] */}
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <StyledStandaloneStatusIndicator
+          aria-hidden={label === null ? true : undefined}
+          aria-label={ariaLabel}
           role="img"
           $type={type}
           $size={isCompact ? 'small' : 'medium'}
-          aria-label={ariaLabel}
         >
           {type === 'away' ? <ClockIcon data-icon-status={type} aria-hidden="true" /> : null}
           {type === 'transfers' ? (
@@ -69,6 +76,7 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
 StatusIndicator.displayName = 'StatusIndicator';
 
 StatusIndicator.propTypes = {
+  'aria-label': PropTypes.string,
   type: PropTypes.oneOf(STATUS),
   isCompact: PropTypes.bool
 };
