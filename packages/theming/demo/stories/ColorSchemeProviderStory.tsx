@@ -57,12 +57,12 @@ const Content = ({
   };
 
   const handleClear = () => {
-    localStorage?.removeItem(colorSchemeKey);
+    localStorage?.removeItem(colorSchemeKey!);
     setInputValue('');
   };
 
   useEffect(() => {
-    setInputValue(localStorage?.getItem(colorSchemeKey) || '');
+    setInputValue(localStorage?.getItem(colorSchemeKey!) || '');
   }, [colorSchemeKey, colorScheme, isSystem, localStorage]);
 
   return (
@@ -75,7 +75,12 @@ const Content = ({
                 <Field.Label>
                   Local {!!colorSchemeKey && <Code>{colorSchemeKey}</Code>} storage
                 </Field.Label>
-                <Input placeholder="unspecified" readOnly value={inputValue} />
+                <Input
+                  disabled={colorSchemeKey === null ? true : undefined}
+                  placeholder={colorSchemeKey === null ? 'unused' : 'unspecified'}
+                  readOnly
+                  value={inputValue}
+                />
                 {!!inputValue && (
                   <Tooltip content={`Clear ${colorSchemeKey} storage`}>
                     <StyledIconButton focusInset onClick={handleClear} size="small">
@@ -98,7 +103,7 @@ const Content = ({
               placement="bottom-end"
               selectedItems={[{ value: isSystem ? 'system' : colorScheme }]}
             >
-              <ItemGroup type="radio">
+              <ItemGroup aria-label="appearance" type="radio">
                 <Item icon={<LightIcon />} value="light">
                   Light
                 </Item>

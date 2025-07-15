@@ -24,9 +24,13 @@ import {
 const mediaQuery =
   typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
 
-const useColorScheme = (initialState: ColorScheme, colorSchemeKey: string) => {
-  /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
-  const localStorage = typeof window === 'undefined' ? undefined : window.localStorage;
+const useColorScheme = (
+  initialState: ColorScheme,
+  colorSchemeKey: IColorSchemeProviderProps['colorSchemeKey']
+) => {
+  const localStorage =
+    /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
+    typeof window === 'undefined' || colorSchemeKey === null ? undefined : window.localStorage;
 
   const getState = useCallback((_state?: ColorScheme | null) => {
     const isSystem = _state === 'system' || _state === undefined || _state === null;
@@ -44,14 +48,14 @@ const useColorScheme = (initialState: ColorScheme, colorSchemeKey: string) => {
   const [state, setState] = useState<{
     isSystem: boolean;
     colorScheme: IGardenTheme['colors']['base'];
-  }>(getState((localStorage?.getItem(colorSchemeKey) as ColorScheme) || initialState));
+  }>(getState((localStorage?.getItem(colorSchemeKey!) as ColorScheme) || initialState));
 
   return {
     isSystem: state.isSystem,
     colorScheme: state.colorScheme,
     setColorScheme: (colorScheme: ColorScheme) => {
       setState(getState(colorScheme));
-      localStorage?.setItem(colorSchemeKey, colorScheme);
+      localStorage?.setItem(colorSchemeKey!, colorScheme);
     }
   };
 };

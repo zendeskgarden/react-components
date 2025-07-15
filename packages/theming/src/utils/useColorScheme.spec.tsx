@@ -37,6 +37,21 @@ describe('useColorScheme', () => {
     });
   });
 
+  it('bypasses localStorage as expected', () => {
+    const Test = () => (
+      <ColorSchemeProvider colorSchemeKey={null}>
+        <ColorSchemeConsumer />
+      </ColorSchemeProvider>
+    );
+
+    expect(() => {
+      render(<Test />);
+    }).not.toThrow();
+
+    /* eslint-disable-next-line n/no-unsupported-features/node-builtins */
+    expect(window.localStorage.getItem('color-scheme')).toBeNull();
+  });
+
   it('sets the color scheme as expected', () => {
     const Test = () => (
       <ColorSchemeProvider initialColorScheme="light">

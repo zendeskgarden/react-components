@@ -226,9 +226,9 @@ export interface IColorSchemeProviderProps {
   initialColorScheme?: ColorScheme;
   /**
    * Specifies the key used to store the user's preferred color scheme in
-   * `localStorage`
+   * `localStorage` or `null` to bypass local storage persistence
    */
-  colorSchemeKey?: string;
+  colorSchemeKey?: string | null;
 }
 
 export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
