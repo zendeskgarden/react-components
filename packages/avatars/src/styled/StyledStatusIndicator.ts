@@ -25,7 +25,8 @@ const COMPONENT_ID = 'avatars.status_indicator';
 const [xxs, xs, s, m, l] = SIZE;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const isVisible = !includes([xxs, xs], props.$size);
+  const isVisible = props.$size !== xxs;
+  const iconSize = props.$size === xs ? `${props.theme.space.base * 2}px` : undefined;
   const borderWidth = getStatusBorderOffset(props);
 
   let padding = '0';
@@ -58,6 +59,8 @@ const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => 
 
     & > svg {
       ${!isVisible && 'display: none;'}
+      width: ${iconSize};
+      height: ${iconSize};
     }
   `;
 };
