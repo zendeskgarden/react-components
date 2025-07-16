@@ -57,7 +57,7 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
       /* stylelint-disable-next-line selector-no-qualifying-type */
       &[data-icon-status='transfers'] {
         transform: scale(${props.theme.rtl ? -1 : 1}, 1);
-        inset-inline-start: -1px; /* [3] */
+        inset-inline-start: ${props.$size === 'extrasmall' ? '-1px' : undefined}; /* [3] */
       }
 
       /* stylelint-disable-next-line selector-no-qualifying-type */
