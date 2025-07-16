@@ -37,6 +37,7 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
    *    we need to remove the circle
    * 2. when @zendeskgarden/css-bedrock is present, max-height needs to be unset due to icon being
    *    resized incorrectly
+   * 3. prevent arrowhead cutting off in the transfers icon
    */
   return css`
     border: ${offset} ${props.theme.borderStyles.solid};
@@ -48,7 +49,7 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
     & > svg {
       position: absolute;
       top: -${offset};
-      left: -${offset};
+      inset-inline-start: -${offset};
       transform-origin: 50% 50%;
       animation: ${iconFadeIn} ${TRANSITION_DURATION}s;
       max-height: unset; /* [2] */
@@ -56,6 +57,7 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
       /* stylelint-disable-next-line selector-no-qualifying-type */
       &[data-icon-status='transfers'] {
         transform: scale(${props.theme.rtl ? -1 : 1}, 1);
+        inset-inline-start: ${props.$size === 'extrasmall' ? '-1px' : undefined}; /* [3] */
       }
 
       /* stylelint-disable-next-line selector-no-qualifying-type */

@@ -44,7 +44,9 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   badge?: string | number;
 }
 
-export interface IStatusIndicatorProps extends HTMLAttributes<HTMLElement> {
+export interface IStatusIndicatorProps extends Omit<HTMLAttributes<HTMLElement>, 'aria-label'> {
+  /** Overrides the label for the status indicator. Use `null` to mark the indicator as decorative. */
+  'aria-label'?: string | null;
   /** Applies status type for styling and default aria-label */
   type?: (typeof STATUS)[number];
   /** Applies compact styling */
