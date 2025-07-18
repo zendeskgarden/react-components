@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.8.0 (2025-07-18)
+
+#### :rocket: New Feature
+* `avatars`
+  * [#2031](https://github.com/zendeskgarden/react-components/pull/2031) feat(avatars): allow `null` aria-label on `StatusIndicator` to mark as decorative ([@jzempel](https://github.com/jzempel))
+* `theming`
+  * [#2032](https://github.com/zendeskgarden/react-components/pull/2032) feat(theming): allow `null` color scheme key to bypass `ColorSchemeProvider` local storage ([@jzempel](https://github.com/jzempel))
+
 ## v9.7.2 (2025-07-10)
 
 #### :bug: Bug Fix
