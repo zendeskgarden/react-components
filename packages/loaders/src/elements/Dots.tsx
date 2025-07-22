@@ -21,7 +21,7 @@ const COMPONENT_ID = 'loaders.dots';
  * @extends SVGAttributes<SVGSVGElement>
  */
 export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
-  ({ size, color, duration, delayMS, ...other }, ref) => {
+  ({ size = 'inherit', color = 'inherit', duration = 1250, delayMS = 750, ...other }, ref) => {
     return (
       <StyledSVG
         data-garden-id={COMPONENT_ID}
@@ -30,6 +30,7 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
         $color={color!}
         $width="80"
         $height="72"
+        $delayShow={delayMS!}
         {...other}
       >
         <g fill="currentColor">
@@ -49,11 +50,4 @@ Dots.propTypes = {
   duration: PropTypes.number,
   color: PropTypes.string,
   delayMS: PropTypes.number
-};
-
-Dots.defaultProps = {
-  size: 'inherit',
-  color: 'inherit',
-  duration: 1250,
-  delayMS: 750
 };
