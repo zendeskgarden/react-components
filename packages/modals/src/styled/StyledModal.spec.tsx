@@ -22,6 +22,10 @@ describe('StyledModal', () => {
     expect(container.firstChild).not.toHaveStyleRule('direction');
     expect(container.firstChild).not.toHaveStyleRule('animation-duration', '0.3s');
     expect(container.firstChild).not.toHaveStyleRule('animation-timing-function', 'ease-in-out');
+    expect(container.firstChild).toHaveStyleRule('max-height', 'calc(100vh - 96px)');
+    expect(container.firstChild).toHaveStyleRule('max-height', 'calc(100vh - 48px)', {
+      media: `(max-height:  399px)`
+    });
   });
 
   it('renders RTL styling if provided', () => {
