@@ -8,6 +8,7 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getValueAndUnit } from 'polished';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import { delayedVisibilityKeyframes } from '../utils/animations';
 
 interface IStyledSVGProps {
   'data-garden-id': string;
@@ -17,6 +18,7 @@ interface IStyledSVGProps {
   $height: number | string;
   $containerWidth?: string;
   $containerHeight?: string;
+  $delayShow?: number;
 }
 
 const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
@@ -48,6 +50,18 @@ const sizeStyles = ({
   `;
 };
 
+const delayedVisibilityStyles = ({ $delayShow }: IStyledSVGProps) => {
+  if ($delayShow && $delayShow !== 0) {
+    return css`
+      /* stylelint-disable-next-line time-min-milliseconds */
+      animation: ${delayedVisibilityKeyframes} 1ms ${$delayShow}ms linear 1 forwards;
+      visibility: hidden;
+    `;
+  }
+
+  return undefined;
+};
+
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',
@@ -60,4 +74,6 @@ export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   ${colorStyles};
 
   ${componentStyles};
+
+  ${delayedVisibilityStyles};
 `;

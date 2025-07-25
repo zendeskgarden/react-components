@@ -95,3 +95,9 @@ export const dotThreeKeyframes = keyframes`
   98% { transform: translate(-31px, 1px); }
   100% { transform: translate(-31px); }
 `;
+
+export const delayedVisibilityKeyframes = keyframes`
+  0% { visibility: hidden; }
+  1% { visibility: visible; }
+  100% { visibility: visible; }
+`;
