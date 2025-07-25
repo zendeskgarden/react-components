@@ -100,7 +100,7 @@ export const StyledModal = styled.div.attrs<IStyledModalProps>({
     top: ${props => props.theme.space.base * 6}px;
     bottom: auto;
     margin-bottom: ${props => props.theme.space.base * 6}px;
-    max-height: none;
+    max-height: calc(100vh - ${props => props.theme.space.base * 12}px);
   }
 
   @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
