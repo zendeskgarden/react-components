@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.9.0 (2025-07-31)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2035](https://github.com/zendeskgarden/react-components/pull/2035) fix(dropdowns): ensure Menu closes on outside click when nested item is auto-focused ([@ze-flo](https://github.com/ze-flo))
+* `modals`
+  * [#2034](https://github.com/zendeskgarden/react-components/pull/2034) fix(modals): change StyledModal's max-height, when viewport max-height is less than 400 CSS px ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+* `loaders`
+  * [#2033](https://github.com/zendeskgarden/react-components/pull/2033) feat(loaders): update `Dots` to use pure CSS animation ([@kgoggin](https://github.com/kgoggin))
+
 ## v9.8.0 (2025-07-18)
 
 #### :rocket: New Feature
