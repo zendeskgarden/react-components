@@ -8,6 +8,7 @@
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledHeaderRow } from './StyledHeaderRow';
+import { StyledHeaderCell } from './StyledHeaderCell';
 
 const COMPONENT_ID = 'tables.head';
 
@@ -23,11 +24,14 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({ variable: 'background.default', theme });
 
   return css`
-    box-shadow: inset 0 -${theme.borderWidths.sm} 0 ${borderColor}; /* [1] */
     background-color: ${backgroundColor};
 
     & > ${StyledHeaderRow}:last-child {
       border-bottom-color: transparent; /* [1] */
+
+      & > ${StyledHeaderCell} {
+        box-shadow: inset 0 -${theme.borderWidths.sm} 0 ${borderColor}; /* [1] */
+      }
     }
   `;
 };
