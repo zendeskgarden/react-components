@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.10.0 (2025-08-07)
+
+#### :rocket: New Feature
+* `tooltips`
+  * [#2037](https://github.com/zendeskgarden/react-components/pull/2037) feat(react-tooltips): suppress tooltips that normally trigger on focus immediately after closing expanded popups ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `tables`
+  * [#2036](https://github.com/zendeskgarden/react-components/pull/2036) fix(tables): cross-browser border styling for headers ([@jzempel](https://github.com/jzempel))
+
 ## v9.9.0 (2025-07-31)
 
 #### :bug: Bug Fix
