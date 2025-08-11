@@ -144,7 +144,13 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
     const labelValue = hasHeader ? modalProps['aria-labelledby'] : props['aria-label'];
 
     const ariaProps = {
-      [attribute]: useText(DrawerComponent, { [attribute]: labelValue }, attribute, defaultValue!)
+      [attribute]: useText(
+        DrawerComponent,
+        { [attribute]: labelValue },
+        attribute,
+        defaultValue!,
+        modalRef.current !== null /* prevents `useText` evaluation until fully mounted */
+      )
     };
 
     if (!rootNode) {
