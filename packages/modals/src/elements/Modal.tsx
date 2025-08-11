@@ -160,7 +160,13 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
       : modalProps['aria-label'];
 
     const ariaProps = {
-      [attribute]: useText(ModalComponent, { [attribute]: labelValue }, attribute, defaultValue!)
+      [attribute]: useText(
+        ModalComponent,
+        { [attribute]: labelValue },
+        attribute,
+        defaultValue!,
+        modalRef.current !== null /* prevents `useText` evaluation until fully mounted */
+      )
     };
 
     if (!rootNode) {

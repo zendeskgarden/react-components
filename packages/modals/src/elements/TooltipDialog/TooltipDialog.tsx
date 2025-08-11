@@ -133,7 +133,8 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
         TooltipDialogComponent,
         { [attribute]: labelValue },
         attribute,
-        defaultValue!
+        defaultValue!,
+        modalRef.current !== null /* prevents `useText` evaluation until fully mounted */
       )
     };
 
