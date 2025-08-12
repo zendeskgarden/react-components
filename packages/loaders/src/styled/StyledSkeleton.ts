@@ -59,10 +59,9 @@ const getBackgroundColor = ({
   } else {
     backgroundColor = getColor({
       theme,
-      hue: 'neutralHue',
       transparency: theme.opacity[200],
-      light: { shade: 700 },
-      dark: { shade: 500 }
+      light: { hue: 'neutralHue', shade: 700 },
+      dark: { hue: 'white' }
     });
   }
   return backgroundColor;

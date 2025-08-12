@@ -60,7 +60,7 @@ const colors = {
         successEmphasis: 'successHue.600',
         warningEmphasis: 'warningHue.600',
         dangerEmphasis: 'dangerHue.600',
-        disabled: 'rgba(neutralHue.500, 100)'
+        disabled: 'rgba(white, 100)'
       },
       border: {
         default: 'neutralHue.800',

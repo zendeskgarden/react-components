@@ -38,7 +38,7 @@ exports[`DEFAULT_THEME matches snapshot 1`] = `
           "danger": "dangerHue.1000",
           "dangerEmphasis": "dangerHue.600",
           "default": "neutralHue.1100",
-          "disabled": "rgba(neutralHue.500, 100)",
+          "disabled": "rgba(white, 100)",
           "emphasis": "neutralHue.600",
           "primaryEmphasis": "primaryHue.600",
           "raised": "neutralHue.1000",

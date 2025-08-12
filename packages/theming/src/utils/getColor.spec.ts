@@ -66,7 +66,7 @@ describe('getColor', () => {
           variable: 'background.disabled'
         });
         const transparency = 0.08;
-        const expected = rgba(PALETTE.grey[mode === 'dark' ? 500 : 700], transparency);
+        const expected = rgba(mode === 'dark' ? PALETTE.white : PALETTE.grey[700], transparency);
 
         expect(color).toBe(expected);
       });

@@ -80,7 +80,7 @@ describe('Progress', () => {
   describe('without a color set', () => {
     it.each<['light' | 'dark', string, string]>([
       ['light', rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200]), PALETTE.green[700]],
-      ['dark', rgba(PALETTE.grey[500], DEFAULT_THEME.opacity[200]), PALETTE.green[600]]
+      ['dark', rgba(PALETTE.white, DEFAULT_THEME.opacity[200]), PALETTE.green[600]]
     ])('applies the default colors in "%s mode', (mode, bgColor, fgColor) => {
       const { container } = getRenderFn(mode)(<Progress value={42} />);
 
