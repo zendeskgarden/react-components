@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.10.1 (2025-08-14)
+
+#### :bug: Bug Fix
+* `loaders`, `theming`
+  * [#2039](https://github.com/zendeskgarden/react-components/pull/2039) fix: improve dark mode neutral background contrast ([@jzempel](https://github.com/jzempel))
+* `modals`
+  * [#2038](https://github.com/zendeskgarden/react-components/pull/2038) fix(modals): prevent `useText` evaluation until fully mounted ([@jzempel](https://github.com/jzempel))
+
 ## v9.10.0 (2025-08-07)
 
 #### :rocket: New Feature
