@@ -40,7 +40,7 @@
     "@rollup/plugin-node-resolve": "16.0.0",
     "@rollup/plugin-replace": "6.0.2",
     "@storybook/addon-a11y": "7.6.20",
-    "@storybook/addon-designs": "8.0.4",
+    "@storybook/addon-designs": "10.0.2",
     "@storybook/addon-essentials": "7.6.20",
     "@storybook/react": "7.6.20",
     "@storybook/react-webpack5": "7.6.20",
