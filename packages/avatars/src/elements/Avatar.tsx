@@ -22,6 +22,7 @@ import { Text } from './components/Text';
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (
     {
+      'aria-hidden': ariaHidden,
       backgroundColor,
       badge,
       children,
@@ -59,7 +60,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       return ['status'].concat(statusMessage || []).join(': ');
     }, [computedStatus, badge]);
 
-    const shouldValidate = computedStatus !== undefined;
+    const shouldValidate = computedStatus !== undefined && ariaHidden !== true;
     const label = useText(
       AvatarComponent,
       { statusLabel },
@@ -78,6 +79,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         $backgroundColor={backgroundColor}
         $foregroundColor={foregroundColor}
         aria-atomic="true"
+        aria-hidden={ariaHidden}
         aria-live="polite"
         {...other}
       >
@@ -89,7 +91,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             $surfaceColor={surfaceColor}
             as="figcaption"
           >
-            <Span hidden>{label}</Span>
+            {ariaHidden !== true && <Span hidden>{label}</Span>}
             {computedStatus === 'active' ? (
               <span aria-hidden>{badge}</span>
             ) : (
