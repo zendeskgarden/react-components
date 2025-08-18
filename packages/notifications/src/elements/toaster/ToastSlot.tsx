@@ -88,7 +88,7 @@ export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToast
             >
               <StyledFadeInTransition
                 ref={transitionRef}
-                placement={placement}
+                $placement={placement}
                 $isHidden={isHidden(index)}
               >
                 <Toast toast={toast} pauseTimers={pauseTimers || isHidden(index)} />

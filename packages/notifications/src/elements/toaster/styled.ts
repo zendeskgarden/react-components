@@ -13,7 +13,7 @@ export const TRANSITION_CLASS = 'garden-toast-transition';
 
 const DEFAULT_DURATION = '400ms';
 
-export const StyledFadeInTransition = styled.div<{ $isHidden: boolean; placement: Placement }>`
+export const StyledFadeInTransition = styled.div<{ $isHidden: boolean; $placement: Placement }>`
   transition: opacity ${DEFAULT_DURATION} ease-in 300ms;
   opacity: ${p => (p.$isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
@@ -24,9 +24,9 @@ export const StyledFadeInTransition = styled.div<{ $isHidden: boolean; placement
     transform: translateY(
       ${props => {
         if (
-          props.placement === 'bottom-start' ||
-          props.placement === 'bottom' ||
-          props.placement === 'bottom-end'
+          props.$placement === 'bottom-start' ||
+          props.$placement === 'bottom' ||
+          props.$placement === 'bottom-end'
         ) {
           return '100px';
         }
