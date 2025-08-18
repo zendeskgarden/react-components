@@ -26,7 +26,13 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
       return () => setIsCloseButtonPresent(false);
     });
 
-    const ariaLabel = useText(Close, props, 'aria-label', 'Close modal');
+    const ariaLabel = useText(
+      Close,
+      props,
+      'aria-label',
+      'Close modal',
+      props['aria-describedby'] === undefined /* has tooltip */
+    );
 
     return (
       <StyledClose
