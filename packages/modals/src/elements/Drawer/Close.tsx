@@ -21,7 +21,13 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
       return () => setIsCloseButtonPresent(false);
     });
 
-    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close drawer');
+    const ariaLabel = useText(
+      CloseComponent,
+      props,
+      'aria-label',
+      'Close drawer',
+      props['aria-describedby'] === undefined /* has tooltip */
+    );
 
     return (
       <StyledDrawerClose

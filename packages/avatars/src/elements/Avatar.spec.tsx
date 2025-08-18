@@ -95,6 +95,18 @@ describe('Avatar', () => {
       expect(element).toBeInTheDocument();
     });
 
+    it('does not render status with `aria-hidden`', () => {
+      const label = 'test status';
+      const { queryByText } = render(
+        <Avatar aria-hidden badge="0" statusLabel={label}>
+          <img alt="" />
+        </Avatar>
+      );
+      const element = queryByText(label);
+
+      expect(element).not.toBeInTheDocument();
+    });
+
     it('renders with status and applies default label for available status', () => {
       const { getByText } = render(
         <Avatar status="available">

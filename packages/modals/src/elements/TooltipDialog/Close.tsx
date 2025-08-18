@@ -15,7 +15,13 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
   (props, ref) => {
     const { getCloseProps } = useTooltipDialogContext();
 
-    const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close tooltip');
+    const ariaLabel = useText(
+      CloseComponent,
+      props,
+      'aria-label',
+      'Close tooltip',
+      props['aria-describedby'] === undefined /* has tooltip */
+    );
 
     return (
       <StyledTooltipDialogClose
