@@ -91,6 +91,11 @@ export interface IEllipsisProps extends HTMLAttributes<HTMLDivElement> {
   tag?: any;
 }
 
+export interface IKbdProps extends HTMLAttributes<HTMLElement> {
+  /** Adjusts the font size. By default font size is inherited from the surrounding text. */
+  size?: (typeof INHERIT_SIZE)[number];
+}
+
 export interface IParagraphProps extends HTMLAttributes<HTMLParagraphElement> {
   /** Controls the spacing between sibling paragraphs */
   size?: Size;
