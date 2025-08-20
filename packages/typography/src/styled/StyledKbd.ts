@@ -11,7 +11,7 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCode } from './StyledCode';
 import { IKbdProps } from '../types';
 
-const COMPONENT_ID = 'typography.code';
+const COMPONENT_ID = 'typography.kbd';
 
 interface IStyledKbdProps extends ThemeProps<DefaultTheme> {
   $size?: IKbdProps['size'];

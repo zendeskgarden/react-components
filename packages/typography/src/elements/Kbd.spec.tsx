@@ -16,6 +16,12 @@ describe('Kbd', () => {
     expect(container.firstChild!.nodeName).toBe('KBD');
   });
 
+  it('applies the expected Garden ID attribute', () => {
+    const { container } = render(<Kbd />);
+
+    expect(container.firstChild).toHaveAttribute('data-garden-id', 'typography.kbd');
+  });
+
   it('forces left-to-right text direction', () => {
     const { container } = renderRtl(<Kbd />);
 
