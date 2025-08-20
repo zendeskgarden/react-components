@@ -19,6 +19,7 @@ interface IStyledKbdProps extends ThemeProps<DefaultTheme> {
 
 const sizeStyles = ({ theme, $size }: IStyledKbdProps) => {
   let paddingHorizontal;
+  let paddingVertical = '0';
 
   switch ($size) {
     case 'small':
@@ -34,11 +35,12 @@ const sizeStyles = ({ theme, $size }: IStyledKbdProps) => {
       break;
 
     default:
-      paddingHorizontal = `${stripUnit(math(`${theme.space.base} / (${theme.fontSizes.sm} - 1px)`))}em`;
+      paddingHorizontal = `${stripUnit(math(`${theme.space.base * 1.5} / (${theme.fontSizes.md} - 1px)`))}em`;
+      paddingVertical = '1.5px';
       break;
   }
 
-  const padding = `0 ${paddingHorizontal}`;
+  const padding = `${paddingVertical} ${paddingHorizontal}`;
 
   return css`
     && {
