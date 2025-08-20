@@ -15,6 +15,7 @@ export { Blockquote } from './elements/Blockquote';
 export { Code } from './elements/Code';
 export { CodeBlock } from './elements/CodeBlock';
 export { Ellipsis } from './elements/Ellipsis';
+export { Kbd } from './elements/Kbd';
 export { Paragraph } from './elements/Paragraph';
 export { OrderedList } from './elements/lists/OrderedList';
 export { UnorderedList } from './elements/lists/UnorderedList';
@@ -31,6 +32,7 @@ export type {
   ICodeProps,
   ICodeBlockProps,
   IEllipsisProps,
+  IKbdProps,
   IParagraphProps,
   IOrderedListProps,
   IUnorderedListProps,

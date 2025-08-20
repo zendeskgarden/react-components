@@ -14,6 +14,7 @@ export * from './StyledCodeBlockToken';
 export * from './StyledEllipsis';
 export * from './StyledFont';
 export * from './StyledIcon';
+export * from './StyledKbd';
 export * from './StyledList';
 export * from './StyledListItem';
 export * from './StyledParagraph';
