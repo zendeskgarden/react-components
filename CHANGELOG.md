@@ -13,6 +13,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.11.0 (2025-08-21)
+
+#### :rocket: New Feature
+* `typography`
+  * [#2041](https://github.com/zendeskgarden/react-components/pull/2041) feat(typography): add new `Kbd` component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `typography`
+  * [#2042](https://github.com/zendeskgarden/react-components/pull/2042) fix(typography): correct `Kbd` Garden ID data attribute ([@jzempel](https://github.com/jzempel))
+* `avatars`, `modals`, `notifications`
+  * [#2040](https://github.com/zendeskgarden/react-components/pull/2040) fix(avatars,modals,notifications): prevent dev console warnings ([@jzempel](https://github.com/jzempel))
+
 ## v9.10.1 (2025-08-14)
 
 #### :bug: Bug Fix
