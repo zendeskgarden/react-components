@@ -23,6 +23,16 @@ describe('Toggle', () => {
     expect(toggle).toHaveAttribute('type', 'checkbox');
   });
 
+  it('is rendered with the switch role', () => {
+    const { queryByRole } = render(
+      <Field>
+        <Toggle data-test-id="toggle" />
+      </Field>
+    );
+
+    expect(queryByRole('switch')).toBeInTheDocument();
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLInputElement>();
     const { getByTestId } = render(

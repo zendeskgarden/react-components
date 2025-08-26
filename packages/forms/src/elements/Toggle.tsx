@@ -24,7 +24,8 @@ export const Toggle = React.forwardRef<HTMLInputElement, IToggleProps>(
     let combinedProps = {
       $isCompact: fieldsetContext ? fieldsetContext.isCompact : isCompact,
       ref,
-      ...other
+      ...other,
+      role: 'switch'
     } as any;
 
     if (fieldContext) {
