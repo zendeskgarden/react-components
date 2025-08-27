@@ -92,10 +92,11 @@ export interface IStyledFontProps {
   $hue?: string;
 }
 
-export const StyledFont = styled.div.attrs({
+export const StyledFont = styled.div.attrs<IStyledFontProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledFontProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $size: props.$size ?? 'inherit'
+}))<IStyledFontProps>`
   ${props => !props.hidden && fontStyles(props)};
 
   &[hidden] {
@@ -105,7 +106,3 @@ export const StyledFont = styled.div.attrs({
 
   ${componentStyles};
 `;
-
-StyledFont.defaultProps = {
-  $size: 'inherit'
-};

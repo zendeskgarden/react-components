@@ -16,7 +16,7 @@ import { StyledRangeInput } from '../styled';
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
 export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
-  ({ hasLowerTrack, min, max, step, ...other }, ref) => {
+  ({ hasLowerTrack = true, min = 0, max = 100, step = 1, ...other }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
     const rangeRef = useRef<HTMLInputElement>();
     const fieldContext = useFieldContext();
@@ -68,12 +68,5 @@ export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
     return <StyledRangeInput {...combinedProps} />;
   }
 );
-
-Range.defaultProps = {
-  hasLowerTrack: true,
-  min: 0,
-  max: 100,
-  step: 1
-};
 
 Range.displayName = 'Range';

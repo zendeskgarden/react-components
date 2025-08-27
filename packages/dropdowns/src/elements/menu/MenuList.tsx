@@ -40,11 +40,11 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       isCompact,
       isExpanded,
       fallbackPlacements: _fallbackPlacements,
-      maxHeight,
+      maxHeight = '400px',
       minHeight,
-      placement: _placement,
+      placement: _placement = PLACEMENT_DEFAULT,
       triggerRef,
-      zIndex,
+      zIndex = 1000,
       children,
       ...props
     },
@@ -181,10 +181,4 @@ MenuList.propTypes = {
   placement: PropTypes.oneOf(PLACEMENT),
   triggerRef: PropTypes.any,
   zIndex: PropTypes.number
-};
-
-MenuList.defaultProps = {
-  maxHeight: '400px',
-  placement: PLACEMENT_DEFAULT,
-  zIndex: 1000
 };

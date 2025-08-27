@@ -18,7 +18,7 @@ import { ITriggerProps } from '../../types';
  *
  * @extends HTMLAttributes<HTMLElement>
  */
-export const Trigger = ({ children, refKey, ...triggerProps }: ITriggerProps) => {
+export const Trigger = ({ children, refKey = 'ref', ...triggerProps }: ITriggerProps) => {
   const {
     hasMenuRef,
     itemSearchRegistry,
@@ -241,8 +241,4 @@ export const Trigger = ({ children, refKey, ...triggerProps }: ITriggerProps) =>
 Trigger.propTypes = {
   children: PropTypes.any,
   refKey: PropTypes.string
-};
-
-Trigger.defaultProps = {
-  refKey: 'ref'
 };

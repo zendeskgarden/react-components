@@ -13,16 +13,12 @@ import { StyledBlockquote } from '../styled';
 /**
  * @extends BlockquoteHTMLAttributes<HTMLQuoteElement>
  */
-export const Blockquote = forwardRef<HTMLQuoteElement, IBlockquoteProps>((props, ref) => (
-  <StyledBlockquote ref={ref} {...props} />
-));
+export const Blockquote = forwardRef<HTMLQuoteElement, IBlockquoteProps>(
+  ({ size = 'medium', ...props }, ref) => <StyledBlockquote ref={ref} size={size} {...props} />
+);
 
 Blockquote.displayName = 'Blockquote';
 
 Blockquote.propTypes = {
   size: PropTypes.oneOf(SIZE)
-};
-
-Blockquote.defaultProps = {
-  size: 'medium'
 };

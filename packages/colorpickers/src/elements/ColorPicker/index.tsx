@@ -29,7 +29,7 @@ import { IColor, IColorPickerProps, IHSVColor } from '../../types';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
-  ({ color, defaultColor, isOpaque, labels = {}, autofocus, onChange, ...props }, ref) => {
+  ({ color, defaultColor = '#fff', isOpaque, labels = {}, autofocus, onChange, ...props }, ref) => {
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
     const previousStateColorRef = useRef<IColor>(state.color);
@@ -231,10 +231,6 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
     );
   }
 );
-
-ColorPicker.defaultProps = {
-  defaultColor: '#fff'
-};
 
 ColorPicker.displayName = 'ColorPicker';
 

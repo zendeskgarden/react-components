@@ -25,7 +25,7 @@ import { SortableCell } from './SortableCell';
  * @extends TableHTMLAttributes<HTMLTableElement>
  */
 export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
-  ({ isReadOnly, size, ...props }, ref) => {
+  ({ isReadOnly, size = 'medium', ...props }, ref) => {
     const tableContextValue = useMemo(
       () => ({ size: size!, isReadOnly: isReadOnly! }),
       [size, isReadOnly]
@@ -40,10 +40,6 @@ export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
 );
 
 TableComponent.displayName = 'Table';
-
-TableComponent.defaultProps = {
-  size: 'medium'
-};
 
 TableComponent.propTypes = {
   size: PropTypes.oneOf(SIZE),

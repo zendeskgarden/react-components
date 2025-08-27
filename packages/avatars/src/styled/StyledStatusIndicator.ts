@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -93,17 +93,15 @@ const colorStyles = ({
   `;
 };
 
-export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStatusIndicatorProps>`
+export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs<IStatusIndicatorProps>(
+  props => ({
+    'data-garden-id': COMPONENT_ID,
+    'data-garden-version': PACKAGE_VERSION,
+    $size: props.$size ?? 'medium'
+  })
+)<IStatusIndicatorProps>`
   ${sizeStyles}
   ${colorStyles}
 
   ${componentStyles};
 `;
-
-StyledStatusIndicator.defaultProps = {
-  $size: 'medium',
-  theme: DEFAULT_THEME
-};

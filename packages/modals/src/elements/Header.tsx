@@ -17,7 +17,7 @@ import { IHeaderProps } from '../types';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
-  ({ children, isDanger, tag, ...other }, ref) => {
+  ({ children, isDanger, tag = 'div', ...other }, ref) => {
     const { isCloseButtonPresent, hasHeader, setHasHeader, getTitleProps } = useModalContext();
 
     useEffect(() => {
@@ -52,8 +52,4 @@ Header.displayName = 'Modal.Header';
 Header.propTypes = {
   isDanger: PropTypes.bool,
   tag: PropTypes.any
-};
-
-Header.defaultProps = {
-  tag: 'div'
 };

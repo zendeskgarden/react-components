@@ -14,7 +14,7 @@ import { StyledFont } from '../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const SM = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(
-  ({ isBold, isMonospace, tag, ...other }, ref) => (
+  ({ isBold, isMonospace, tag = 'div', ...other }, ref) => (
     <StyledFont
       $isBold={isBold}
       $isMonospace={isMonospace}
@@ -32,8 +32,4 @@ SM.propTypes = {
   tag: PropTypes.any,
   isBold: PropTypes.bool,
   isMonospace: PropTypes.bool
-};
-
-SM.defaultProps = {
-  tag: 'div'
 };

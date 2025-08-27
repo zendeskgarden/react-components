@@ -24,13 +24,13 @@ import { Calendar } from './components/Calendar';
 const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
   const {
     startValue,
-    locale,
+    locale = 'en-US',
     weekStartsOn,
     formatDate,
     endValue,
     onChange,
     customParseDate,
-    isCompact,
+    isCompact = false,
     minValue,
     maxValue,
     children
@@ -133,11 +133,6 @@ DatePickerRangeComponent.propTypes = {
   formatDate: PropTypes.func,
   customParseDate: PropTypes.func,
   isCompact: PropTypes.bool
-};
-
-DatePickerRangeComponent.defaultProps = {
-  locale: 'en-US',
-  isCompact: false
 };
 
 export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRangeComponent & {

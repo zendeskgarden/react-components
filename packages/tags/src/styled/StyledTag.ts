@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math, readableColor } from 'polished';
 import {
-  DEFAULT_THEME,
   componentStyles,
   getLineHeight,
   SELECTOR_FOCUS_VISIBLE,
@@ -211,10 +210,11 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   `;
 };
 
-export const StyledTag = styled.div.attrs<IStyledTagProps>({
+export const StyledTag = styled.div.attrs<IStyledTagProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTagProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $size: props.$size ?? 'medium'
+}))<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -273,8 +273,3 @@ export const StyledTag = styled.div.attrs<IStyledTagProps>({
 
   ${componentStyles};
 `;
-
-StyledTag.defaultProps = {
-  $size: 'medium',
-  theme: DEFAULT_THEME
-};

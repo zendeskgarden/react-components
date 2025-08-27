@@ -21,7 +21,7 @@ import { TabPanel } from './TabPanel';
 
 export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
   (
-    { isVertical, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
+    { isVertical = false, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
   ) => {
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
@@ -64,10 +64,6 @@ TabsComponent.propTypes = {
   isVertical: PropTypes.bool,
   selectedItem: PropTypes.any,
   onChange: PropTypes.func
-};
-
-TabsComponent.defaultProps = {
-  isVertical: false
 };
 
 TabsComponent.displayName = 'Tabs';
