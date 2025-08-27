@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.11.1 (2025-08-27)
+
+#### :bug: Bug Fix
+* `typography`
+  * [#2044](https://github.com/zendeskgarden/react-components/pull/2044) fix(typography): improve `Kbd` font ([@jzempel](https://github.com/jzempel))
+* `forms`
+  * [#2043](https://github.com/zendeskgarden/react-components/pull/2043) fix(forms): Added role="switch" to Toggle component, per APG Switch Pattern ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
 ## v9.11.0 (2025-08-21)
 
 #### :rocket: New Feature
