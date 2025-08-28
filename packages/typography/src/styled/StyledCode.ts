@@ -6,7 +6,7 @@
  */
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { DEFAULT_THEME, getColor, componentStyles } from '@zendeskgarden/react-theming';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFont, IStyledFontProps } from './StyledFont';
 import { ICodeProps } from '../types';
 
@@ -58,12 +58,14 @@ interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
   $size?: ICodeProps['size'];
 }
 
-export const StyledCode = styled(StyledFont as 'code').attrs({
+export const StyledCode = styled(StyledFont as 'code').attrs<IStyledCodeProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
   as: 'code',
-  $isMonospace: true
-})<IStyledCodeProps>`
+  $isMonospace: true,
+  $hue: props.$hue ?? 'grey',
+  $size: props.$size ?? 'inherit'
+}))<IStyledCodeProps>`
   border-radius: ${props => props.theme.borderRadii.sm};
   padding: 1.5px;
 
@@ -71,9 +73,3 @@ export const StyledCode = styled(StyledFont as 'code').attrs({
 
   ${componentStyles};
 `;
-
-StyledCode.defaultProps = {
-  theme: DEFAULT_THEME,
-  $hue: 'grey',
-  $size: 'inherit'
-};

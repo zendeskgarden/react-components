@@ -13,17 +13,15 @@ import { StyledFont } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const XL = forwardRef<HTMLDivElement, ITypescaleProps>(({ isBold, tag, ...other }, ref) => (
-  <StyledFont $size="extralarge" $isBold={isBold} ref={ref} as={tag} {...other} />
-));
+export const XL = forwardRef<HTMLDivElement, ITypescaleProps>(
+  ({ isBold, tag = 'div', ...other }, ref) => (
+    <StyledFont $size="extralarge" $isBold={isBold} ref={ref} as={tag} {...other} />
+  )
+);
 
 XL.displayName = 'XL';
 
 XL.propTypes = {
   tag: PropTypes.any,
   isBold: PropTypes.bool
-};
-
-XL.defaultProps = {
-  tag: 'div'
 };

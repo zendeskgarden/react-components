@@ -28,7 +28,7 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
       children,
       foregroundColor,
       isSystem,
-      size,
+      size = 'medium',
       status,
       statusLabel,
       surfaceColor,
@@ -120,10 +120,6 @@ AvatarComponent.propTypes = {
   size: PropTypes.oneOf(SIZE),
   status: PropTypes.oneOf(STATUS),
   statusLabel: PropTypes.string
-};
-
-AvatarComponent.defaultProps = {
-  size: 'medium'
 };
 
 /**

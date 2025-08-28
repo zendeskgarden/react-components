@@ -25,15 +25,15 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>((props, menuRef) =>
   const {
     appendToNode,
     children,
-    eventsEnabled,
+    eventsEnabled = true,
     hasArrow,
-    isAnimated,
+    isAnimated = true,
     isCompact,
-    maxHeight,
-    placement,
+    maxHeight = '400px',
+    placement = 'bottom-start',
     popperModifiers,
     style: menuStyle,
-    zIndex,
+    zIndex = 1000,
     ...other
   } = props;
   const {
@@ -159,12 +159,4 @@ Menu.propTypes = {
   isCompact: PropTypes.bool,
   hasArrow: PropTypes.bool,
   maxHeight: PropTypes.string
-};
-
-Menu.defaultProps = {
-  placement: 'bottom-start',
-  isAnimated: true,
-  eventsEnabled: true,
-  maxHeight: '400px',
-  zIndex: 1000
 };

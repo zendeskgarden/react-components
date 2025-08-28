@@ -66,9 +66,6 @@ ensuring the details live up to expectations.
   `${componentStyles}` which allows an implementer to leverage the
   [`theme`](https://zendeskgarden.github.io/react-components/theming/)
   "components" object to override specific component styles.
-- The view component `defaultProps` must contain `theme: DEFAULT_THEME` for
-  cases when the component might be used outside the context of a
-  `<ThemeProvider>`.
 - With the exception of embedded icons, view components do not return JSX.
 
 ## Element components

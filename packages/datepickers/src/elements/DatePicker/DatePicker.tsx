@@ -37,17 +37,17 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const {
     appendToNode,
     children,
-    placement: _placement,
-    zIndex,
-    isAnimated,
-    refKey,
+    placement: _placement = PLACEMENT_DEFAULT,
+    zIndex = 1000,
+    isAnimated = true,
+    refKey = 'ref',
     value,
     isCompact,
     onChange,
     formatDate,
     minValue,
     maxValue,
-    locale,
+    locale = 'en-US',
     weekStartsOn,
     customParseDate,
     ...menuProps
@@ -187,12 +187,4 @@ DatePicker.propTypes = {
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
   zIndex: PropTypes.number
-};
-
-DatePicker.defaultProps = {
-  placement: PLACEMENT_DEFAULT,
-  refKey: 'ref',
-  isAnimated: true,
-  zIndex: 1000,
-  locale: 'en-US'
 };

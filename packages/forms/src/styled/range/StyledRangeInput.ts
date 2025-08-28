@@ -7,12 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import {
-  getFocusBoxShadow,
-  componentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getFocusBoxShadow, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
@@ -68,7 +63,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
  */
 const colorStyles = ({
   theme,
-  $hasLowerTrack
+  $hasLowerTrack = true
 }: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
   const options = { theme, variable: 'background.primaryEmphasis' };
   const thumbBackgroundColor = getColor(options);
@@ -232,7 +227,7 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
   'data-garden-version': PACKAGE_VERSION,
   type: 'range',
   style: {
-    backgroundSize: props.$hasLowerTrack ? props.$backgroundSize : undefined
+    backgroundSize: (props.$hasLowerTrack ?? true) ? (props.$backgroundSize ?? '0%') : undefined
   }
 }))<IStyledRangeInputProps>`
   appearance: none;
@@ -292,9 +287,3 @@ export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props
 
   ${componentStyles};
 `;
-
-StyledRangeInput.defaultProps = {
-  $backgroundSize: '0%',
-  $hasLowerTrack: true,
-  theme: DEFAULT_THEME
-};

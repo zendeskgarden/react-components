@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { AlignSelf, Breakpoint, GridNumber, IColProps, IGridProps, TextAlign } from '../types';
 
 const COMPONENT_ID = 'grid.col';
@@ -150,10 +150,11 @@ const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
   `;
 };
 
-export const StyledCol = styled.div.attrs<IStyledColProps>({
+export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledColProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $columns: props.$columns ?? 12
+}))<IStyledColProps>`
   box-sizing: border-box;
   width: 100%;
 
@@ -230,8 +231,3 @@ export const StyledCol = styled.div.attrs<IStyledColProps>({
 
   ${componentStyles};
 `;
-
-StyledCol.defaultProps = {
-  $columns: 12,
-  theme: DEFAULT_THEME
-};

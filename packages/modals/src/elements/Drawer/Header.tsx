@@ -11,39 +11,37 @@ import { useModalContext } from '../../utils/useModalContext';
 import { StyledDrawerHeader } from '../../styled';
 import { IDrawerHeaderProps } from '../../types';
 
-const HeaderComponent = forwardRef<HTMLDivElement, IDrawerHeaderProps>(({ tag, ...other }, ref) => {
-  const { isCloseButtonPresent, hasHeader, setHasHeader, getTitleProps } = useModalContext();
+const HeaderComponent = forwardRef<HTMLDivElement, IDrawerHeaderProps>(
+  ({ tag = 'div', ...other }, ref) => {
+    const { isCloseButtonPresent, hasHeader, setHasHeader, getTitleProps } = useModalContext();
 
-  useEffect(() => {
-    if (!hasHeader && setHasHeader) {
-      setHasHeader(true);
-    }
-
-    return () => {
-      if (hasHeader && setHasHeader) {
-        setHasHeader(false);
+    useEffect(() => {
+      if (!hasHeader && setHasHeader) {
+        setHasHeader(true);
       }
-    };
-  }, [hasHeader, setHasHeader]);
 
-  return (
-    <StyledDrawerHeader
-      {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
-      as={tag}
-      $isCloseButtonPresent={isCloseButtonPresent}
-      ref={ref}
-    />
-  );
-});
+      return () => {
+        if (hasHeader && setHasHeader) {
+          setHasHeader(false);
+        }
+      };
+    }, [hasHeader, setHasHeader]);
+
+    return (
+      <StyledDrawerHeader
+        {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
+        as={tag}
+        $isCloseButtonPresent={isCloseButtonPresent}
+        ref={ref}
+      />
+    );
+  }
+);
 
 HeaderComponent.displayName = 'Drawer.Header';
 
 HeaderComponent.propTypes = {
   tag: PropTypes.any
-};
-
-HeaderComponent.defaultProps = {
-  tag: 'div'
 };
 
 /**

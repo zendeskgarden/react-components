@@ -6,12 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import {
-  getLineHeight,
-  componentStyles,
-  DEFAULT_THEME,
-  getColor
-} from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 interface IStyledPanel {
   inert?: string;
@@ -58,10 +53,11 @@ const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledPanel = styled.section.attrs<IStyledPanel>({
+export const StyledPanel = styled.section.attrs<IStyledPanel>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledPanel>`
+  'data-garden-version': PACKAGE_VERSION,
+  $isAnimated: props.$isAnimated ?? true
+}))<IStyledPanel>`
   display: grid;
   transition: ${props =>
     props.$isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
@@ -72,8 +68,3 @@ export const StyledPanel = styled.section.attrs<IStyledPanel>({
 
   ${componentStyles};
 `;
-
-StyledPanel.defaultProps = {
-  $isAnimated: true,
-  theme: DEFAULT_THEME
-};

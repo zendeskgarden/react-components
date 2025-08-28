@@ -13,7 +13,7 @@ import { UnorderedListContext } from '../../utils/useUnorderedListContext';
 import { StyledUnorderedList } from '../../styled';
 
 const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>(
-  ({ size, type, ...other }, ref) => {
+  ({ size = 'medium', type = 'disc', ...other }, ref) => {
     const value = useMemo(() => ({ size: size! }), [size]);
 
     return (
@@ -29,11 +29,6 @@ UnorderedListComponent.displayName = 'UnorderedList';
 UnorderedListComponent.propTypes = {
   size: PropTypes.oneOf(SIZE),
   type: PropTypes.oneOf(TYPE_UNORDERED_LIST)
-};
-
-UnorderedListComponent.defaultProps = {
-  size: 'medium',
-  type: 'disc'
 };
 
 /**

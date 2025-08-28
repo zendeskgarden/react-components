@@ -38,15 +38,15 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
     {
       color,
       defaultColor,
-      placement,
+      placement = 'bottom-start',
       onChange,
       onClose,
       labels,
-      hasArrow,
-      isAnimated,
+      hasArrow = false,
+      isAnimated = true,
       isOpaque,
       isOpen,
-      zIndex,
+      zIndex = 1000,
       focusInset,
       disabled,
       buttonProps,
@@ -169,13 +169,6 @@ ColorPickerDialog.propTypes = {
   isAnimated: PropTypes.bool,
   isOpen: PropTypes.bool,
   focusInset: PropTypes.bool
-};
-
-ColorPickerDialog.defaultProps = {
-  placement: 'bottom-start',
-  isAnimated: true,
-  zIndex: 1000,
-  hasArrow: false /* TooltipDialog override */
 };
 
 ColorPickerDialog.displayName = 'ColorPickerDialog';

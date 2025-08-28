@@ -24,16 +24,16 @@ export const PLACEMENT_DEFAULT = 'top';
 
 export const TooltipComponent = ({
   id,
-  delayMS,
+  delayMS = 500,
   isInitialVisible,
   content,
-  refKey,
-  placement: _placement,
+  refKey = 'ref',
+  placement: _placement = PLACEMENT_DEFAULT,
   fallbackPlacements: _fallbackPlacements,
   children,
-  hasArrow,
+  hasArrow = true,
   size,
-  type,
+  type = 'dark',
   appendToNode,
   zIndex,
   isVisible: externalIsVisible,
@@ -146,14 +146,6 @@ TooltipComponent.propTypes = {
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isInitialVisible: PropTypes.bool,
   refKey: PropTypes.string
-};
-
-TooltipComponent.defaultProps = {
-  hasArrow: true,
-  type: 'dark',
-  placement: PLACEMENT_DEFAULT,
-  delayMS: 500,
-  refKey: 'ref'
 };
 
 /**
