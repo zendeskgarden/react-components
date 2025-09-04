@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-theming",
-  "version": "9.11.1",
+  "version": "9.11.2",
   "description": "Theming utilities and components within the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
