@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.11.2 (2025-09-04)
+
+#### :bug: Bug Fix
+* `.template`, `accordions`, `avatars`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`, `typography`
+  * [#2045](https://github.com/zendeskgarden/react-components/pull/2045) fix: replace `defaultProps` with function default parameters ([@chris-schneider-zen](https://github.com/chris-schneider-zen))
+
 ## v9.11.1 (2025-08-27)
 
 #### :bug: Bug Fix
