@@ -13,7 +13,7 @@ import { Close } from './Close';
 import { Avatar } from './Avatar';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
-  ({ isPill, isRound, isRegular, size, hue, ...other }, ref) => (
+  ({ isPill, isRound, isRegular, size = 'medium', hue, ...other }, ref) => (
     <StyledTag
       $hue={hue}
       $isPill={isPill}
@@ -34,10 +34,6 @@ TagComponent.propTypes = {
   isPill: PropTypes.bool,
   isRound: PropTypes.bool,
   isRegular: PropTypes.bool
-};
-
-TagComponent.defaultProps = {
-  size: 'medium'
 };
 
 /**

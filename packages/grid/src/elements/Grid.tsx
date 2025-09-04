@@ -14,7 +14,7 @@ import { Row } from './Row';
 import { Col } from './Col';
 
 export const GridComponent = React.forwardRef<HTMLDivElement, IGridProps>(
-  ({ columns, gutters, debug, ...other }, ref) => {
+  ({ columns = 12, gutters = 'md', debug, ...other }, ref) => {
     const value = useMemo(() => ({ columns, gutters: gutters!, debug }), [columns, gutters, debug]);
 
     return (
@@ -31,11 +31,6 @@ GridComponent.propTypes = {
   columns: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   gutters: PropTypes.oneOf(SPACE),
   debug: PropTypes.bool
-};
-
-GridComponent.defaultProps = {
-  columns: 12,
-  gutters: 'md'
 };
 
 /**

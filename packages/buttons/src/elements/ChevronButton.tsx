@@ -13,18 +13,14 @@ import { IIconButtonProps } from '../types';
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const ChevronButton = forwardRef<HTMLButtonElement, IIconButtonProps>((props, ref) => (
-  <IconButton ref={ref} {...props}>
-    <ChevronDownIcon />
-  </IconButton>
-));
+export const ChevronButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
+  ({ isBasic = false, isPill = false, size = 'medium', ...props }, ref) => (
+    <IconButton ref={ref} isBasic={isBasic} isPill={isPill} size={size} {...props}>
+      <ChevronDownIcon />
+    </IconButton>
+  )
+);
 
 ChevronButton.displayName = 'ChevronButton';
 
 ChevronButton.propTypes = IconButton.propTypes;
-
-ChevronButton.defaultProps = {
-  isBasic: false,
-  isPill: false,
-  size: 'medium'
-};

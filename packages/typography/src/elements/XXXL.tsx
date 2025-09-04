@@ -14,7 +14,7 @@ import { ITypescaleProps } from '../types';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const XXXL = forwardRef<HTMLDivElement, ITypescaleProps>(
-  ({ isBold, tag, ...other }, ref) => (
+  ({ isBold, tag = 'div', ...other }, ref) => (
     <StyledFont $isBold={isBold} $size="3xlarge" {...other} as={tag} ref={ref} />
   )
 );
@@ -24,8 +24,4 @@ XXXL.displayName = 'XXXL';
 XXXL.propTypes = {
   tag: PropTypes.any,
   isBold: PropTypes.bool
-};
-
-XXXL.defaultProps = {
-  tag: 'div'
 };

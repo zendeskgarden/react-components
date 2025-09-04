@@ -12,7 +12,7 @@ import { StyledTooltipDialogTitle } from '../../styled';
 import { ITooltipDialogTitleProps } from '../../types';
 
 const TitleComponent = forwardRef<HTMLDivElement, ITooltipDialogTitleProps>(
-  ({ children, tag, ...other }, ref) => {
+  ({ children, tag = 'div', ...other }, ref) => {
     const { getTitleProps, hasTitle, setHasTitle } = useTooltipDialogContext();
 
     useEffect(() => {
@@ -43,10 +43,6 @@ TitleComponent.displayName = 'TooltipDialog.Title';
 
 TitleComponent.propTypes = {
   tag: PropTypes.any
-};
-
-TitleComponent.defaultProps = {
-  tag: 'div'
 };
 
 /**

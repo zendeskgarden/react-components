@@ -13,16 +13,12 @@ import { StyledParagraph } from '../styled';
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
-export const Paragraph = forwardRef<HTMLParagraphElement, IParagraphProps>((props, ref) => (
-  <StyledParagraph ref={ref} {...props} />
-));
+export const Paragraph = forwardRef<HTMLParagraphElement, IParagraphProps>(
+  ({ size = 'medium', ...props }, ref) => <StyledParagraph ref={ref} size={size} {...props} />
+);
 
 Paragraph.displayName = 'Paragraph';
 
 Paragraph.propTypes = {
   size: PropTypes.oneOf(SIZE)
-};
-
-Paragraph.defaultProps = {
-  size: 'medium'
 };

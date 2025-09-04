@@ -41,16 +41,16 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
     {
       appendToNode,
       referenceElement,
-      placement: _placement,
+      placement: _placement = 'auto',
       fallbackPlacements: _fallbackPlacements,
       offset: _offset,
       onClose,
-      hasArrow,
+      hasArrow = true,
       isAnimated,
       zIndex,
       backdropProps,
-      focusOnMount,
-      restoreFocus,
+      focusOnMount = true,
+      restoreFocus = true,
       id,
       ...props
     },
@@ -192,13 +192,6 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
 );
 
 TooltipDialogComponent.displayName = 'TooltipDialog';
-
-TooltipDialogComponent.defaultProps = {
-  placement: 'auto',
-  hasArrow: true,
-  focusOnMount: true,
-  restoreFocus: true
-};
 
 TooltipDialogComponent.propTypes = {
   appendToNode: PropTypes.any,

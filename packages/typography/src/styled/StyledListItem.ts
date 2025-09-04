@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { DEFAULT_THEME, getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
+import { getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
@@ -51,11 +51,14 @@ const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) 
 
 const ORDERED_ID = 'typography.ordered_list_item';
 
-export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
-  'data-garden-id': ORDERED_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'li'
-})<IStyledListItemProps>`
+export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
+  props => ({
+    'data-garden-id': ORDERED_ID,
+    'data-garden-version': PACKAGE_VERSION,
+    as: 'li',
+    $space: props.$space ?? 'medium'
+  })
+)<IStyledListItemProps>`
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
@@ -66,24 +69,17 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs({
   ${componentStyles};
 `;
 
-StyledOrderedListItem.defaultProps = {
-  $space: 'medium',
-  theme: DEFAULT_THEME
-};
-
 const UNORDERED_ID = 'typography.unordered_list_item';
 
-export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs({
-  'data-garden-id': UNORDERED_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'li'
-})<IStyledListItemProps>`
+export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
+  props => ({
+    'data-garden-id': UNORDERED_ID,
+    'data-garden-version': PACKAGE_VERSION,
+    as: 'li',
+    $space: props.$space ?? 'medium'
+  })
+)<IStyledListItemProps>`
   ${listItemStyles};
 
   ${componentStyles};
 `;
-
-StyledUnorderedListItem.defaultProps = {
-  $space: 'medium',
-  theme: DEFAULT_THEME
-};

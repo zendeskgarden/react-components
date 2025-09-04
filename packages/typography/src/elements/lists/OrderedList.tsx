@@ -13,7 +13,7 @@ import { OrderedListContext } from '../../utils/useOrderedListContext';
 import { StyledOrderedList } from '../../styled';
 
 const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProps>(
-  ({ size, type, ...other }, ref) => {
+  ({ size = 'medium', type = 'decimal', ...other }, ref) => {
     const value = useMemo(() => ({ size: size! }), [size]);
 
     return (
@@ -29,11 +29,6 @@ OrderedListComponent.displayName = 'OrderedList';
 OrderedListComponent.propTypes = {
   size: PropTypes.oneOf(SIZE),
   type: PropTypes.oneOf(TYPE_ORDERED_LIST)
-};
-
-OrderedListComponent.defaultProps = {
-  size: 'medium',
-  type: 'decimal'
 };
 
 /**

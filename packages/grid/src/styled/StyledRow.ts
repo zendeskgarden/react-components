@@ -7,7 +7,7 @@
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
-import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { AlignItems, IGridProps, IRowProps, JustifyContent, Wrap } from '../types';
 
 const COMPONENT_ID = 'grid.row';
@@ -99,10 +99,11 @@ const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
   `;
 };
 
-export const StyledRow = styled.div.attrs<IStyledRowProps>({
+export const StyledRow = styled.div.attrs<IStyledRowProps>(props => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledRowProps>`
+  'data-garden-version': PACKAGE_VERSION,
+  $wrapAll: props.$wrapAll ?? 'wrap'
+}))<IStyledRowProps>`
   display: flex;
   box-sizing: border-box;
 
@@ -154,8 +155,3 @@ export const StyledRow = styled.div.attrs<IStyledRowProps>({
 
   ${componentStyles};
 `;
-
-StyledRow.defaultProps = {
-  $wrapAll: 'wrap',
-  theme: DEFAULT_THEME
-};

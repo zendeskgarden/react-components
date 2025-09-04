@@ -6,7 +6,7 @@
  */
 
 import styled, { css, keyframes } from 'styled-components';
-import { componentStyles, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 import {
   TRANSITION_DURATION,
@@ -88,7 +88,7 @@ const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
   `;
 };
 
-export const StyledStatusIndicatorBase = styled.div.attrs({
+export const StyledStatusIndicatorBase = styled.div.attrs<IStyledStatusIndicatorProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledStatusIndicatorProps>`
@@ -99,8 +99,3 @@ export const StyledStatusIndicatorBase = styled.div.attrs({
 
   ${componentStyles};
 `;
-
-StyledStatusIndicatorBase.defaultProps = {
-  theme: DEFAULT_THEME,
-  $size: 'small'
-};

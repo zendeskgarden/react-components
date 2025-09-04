@@ -21,9 +21,9 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       children,
       isBare,
       isCompact,
-      isAnimated,
+      isAnimated = true,
       isExpandable,
-      isCollapsible,
+      isCollapsible = true,
       level,
       onChange,
       defaultExpandedSections,
@@ -102,11 +102,6 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
 );
 
 AccordionComponent.displayName = 'Accordion';
-
-AccordionComponent.defaultProps = {
-  isAnimated: true,
-  isCollapsible: true
-};
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

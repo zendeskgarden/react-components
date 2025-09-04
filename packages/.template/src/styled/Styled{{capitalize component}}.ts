@@ -80,7 +80,3 @@ export const Styled{{capitalize component}} = styled.div.attrs<IStyled{{capitali
 
   ${componentStyles};
 `;
-
-Styled{{capitalize component}}.defaultProps = {
-  theme: DEFAULT_THEME
-};

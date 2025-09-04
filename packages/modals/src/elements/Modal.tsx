@@ -59,8 +59,8 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
       children,
       onClose,
       isLarge,
-      isCentered,
-      isAnimated,
+      isCentered = true,
+      isAnimated = true,
       id,
       appendToNode,
       focusOnMount,
@@ -209,11 +209,6 @@ ModalComponent.propTypes = {
   restoreFocus: PropTypes.bool,
   onClose: PropTypes.func,
   appendToNode: PropTypes.any
-};
-
-ModalComponent.defaultProps = {
-  isAnimated: true,
-  isCentered: true
 };
 
 /**

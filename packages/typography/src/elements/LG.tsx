@@ -14,7 +14,7 @@ import { ITypescaleMonospaceProps } from '../types';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const LG = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(
-  ({ isBold, isMonospace, tag, ...other }, ref) => (
+  ({ isBold, isMonospace, tag = 'div', ...other }, ref) => (
     <StyledFont
       $isBold={isBold}
       $isMonospace={isMonospace}
@@ -32,8 +32,4 @@ LG.propTypes = {
   tag: PropTypes.any,
   isBold: PropTypes.bool,
   isMonospace: PropTypes.bool
-};
-
-LG.defaultProps = {
-  tag: 'div'
 };

@@ -16,7 +16,7 @@ import { Icon } from './components/Icon';
 import { Label } from './components/Label';
 
 const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
-  ({ onChange, value: controlledValue, name, isCentered, ...props }, ref) => {
+  ({ onChange, value: controlledValue, name, isCentered = true, ...props }, ref) => {
     const [value, setValue] = useState(controlledValue);
 
     const handleOnChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
@@ -51,10 +51,6 @@ TilesComponent.propTypes = {
   onChange: PropTypes.func,
   name: PropTypes.string.isRequired,
   isCentered: PropTypes.bool
-};
-
-TilesComponent.defaultProps = {
-  isCentered: true
 };
 
 /**
