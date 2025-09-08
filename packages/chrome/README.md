@@ -2,6 +2,10 @@
 
 Collection of elements relating to the Chrome component within the Garden Design System
 
+| ⚠️ **DEPRECATED**                                                                                                         |
+| :------------------------------------------------------------------------------------------------------------------------ |
+| The `Chrome` components (including `Body`, `Content`, `Header`, `Main`, `Nav`, `SkipNav`) are deprecated for general use. |
+
 ## Installation
 
 ```sh

@@ -15,6 +15,8 @@ import { ChromeContext } from '../utils/useChromeContext';
 import { StyledChrome } from '../styled';
 
 /**
+ * @deprecated no longer for general use
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Chrome = React.forwardRef<HTMLDivElement, IChromeProps>(
