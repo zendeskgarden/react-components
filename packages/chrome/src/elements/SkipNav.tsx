@@ -11,8 +11,6 @@ import { ISkipNavProps } from '../types';
 import { StyledSkipNav, StyledSkipNavIcon } from '../styled';
 
 /**
- * @deprecated no longer for general use
- *
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
 export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
