@@ -10,6 +10,8 @@ import { StyledContent } from '../../styled';
 import { useBodyContext } from '../../utils/useBodyContext';
 
 /**
+ * @deprecated no longer for general use
+ *
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Content = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(

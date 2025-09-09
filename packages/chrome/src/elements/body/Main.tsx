@@ -9,6 +9,8 @@ import React, { HTMLAttributes } from 'react';
 import { StyledMain } from '../../styled';
 
 /**
+ * @deprecated no longer for general use
+ *
  * @extends HTMLAttributes<HTMLElement>
  */
 export const Main = React.forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => (

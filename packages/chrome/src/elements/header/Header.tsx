@@ -27,6 +27,8 @@ HeaderComponent.propTypes = {
 };
 
 /**
+ * @deprecated no longer for general use
+ *
  * @extends HTMLAttributes<HTMLElement>
  */
 export const Header = HeaderComponent as typeof HeaderComponent & {

@@ -36,6 +36,8 @@ export const FooterComponent = React.forwardRef<HTMLElement, HTMLAttributes<HTML
 FooterComponent.displayName = 'Footer';
 
 /**
+ * @deprecated no longer for general use
+ *
  * @extends HTMLAttributes<HTMLElement>
  */
 export const Footer = FooterComponent as typeof FooterComponent & {
