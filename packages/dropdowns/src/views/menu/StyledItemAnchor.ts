@@ -12,6 +12,9 @@ import { StyledOption } from '../combobox/StyledOption';
 
 const COMPONENT_ID = 'dropdowns.menu.item_anchor';
 
+/*
+ * 1. Ensure hover styling doesn't leak through
+ */
 export const StyledItemAnchor = styled(StyledOption).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -19,6 +22,10 @@ export const StyledItemAnchor = styled(StyledOption).attrs({
 })`
   text-decoration: none;
   color: unset;
+
+  &&:hover {
+    text-decoration: none; /* [1] */
+  }
 
   &[aria-current='page'] > ${StyledItemTypeIcon} {
     opacity: 1;
