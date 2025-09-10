@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.11.3 (2025-09-10)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2048](https://github.com/zendeskgarden/react-components/pull/2048) fix(dropdowns): ensure `Menu` item anchors do not render with underline styling ([@jzempel](https://github.com/jzempel))
+
+#### :memo: Documentation
+* `chrome`
+  * [#2047](https://github.com/zendeskgarden/react-components/pull/2047) chore(chrome): deprecate `Chrome` components ([@jzempel](https://github.com/jzempel))
+
 ## v9.11.2 (2025-09-04)
 
 #### :bug: Bug Fix
