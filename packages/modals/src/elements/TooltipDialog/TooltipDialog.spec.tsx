@@ -232,4 +232,53 @@ describe('TooltipDialog', () => {
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
+
+  describe('keepMounted', () => {
+    it('keeps dialog mounted in the DOM while hidden', () => {
+      const { queryByRole, getByTestId } = render(
+        <Example keepMounted backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      // Closed (hidden) state: still mounted but aria-hidden on backdrop
+      const hiddenDialog = queryByRole('dialog', { hidden: true });
+
+      expect(hiddenDialog).not.toBeNull();
+      expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+    });
+
+    it('toggles visibility and manages focus correctly when reopened', async () => {
+      const { getByText, getByRole, queryByRole, getByTestId } = render(
+        <Example keepMounted backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      const trigger = getByText('open');
+
+      // Initially hidden but mounted
+      const initiallyHiddenDialog = queryByRole('dialog', { hidden: true });
+      expect(initiallyHiddenDialog).not.toBeNull();
+      expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+
+      // Open
+      await act(async () => {
+        await user.click(trigger);
+      });
+
+      const openDialog = getByRole('dialog');
+      expect(openDialog).toBeInTheDocument();
+      expect(getByTestId('backdrop')).not.toHaveAttribute('aria-hidden');
+      expect(openDialog).toHaveFocus();
+
+      // Close (toggle button again)
+      await act(async () => {
+        await user.click(trigger);
+      });
+
+      // Dialog remains mounted but hidden again
+      const hiddenAgainDialog = queryByRole('dialog', { hidden: true });
+      expect(hiddenAgainDialog).not.toBeNull();
+      await waitFor(() => expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true'));
+      // Focus should return to trigger
+      expect(trigger).toHaveFocus();
+    });
+  });
 });

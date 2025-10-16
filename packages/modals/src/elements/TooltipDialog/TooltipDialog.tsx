@@ -36,6 +36,12 @@ import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'top';
 
+/**
+ * 1. When content is kept mounted we must manually focus on re-open
+ * 2. Hide only at 'exited' so exit animations finish
+ *    and floating-ui sizing/focus logic remain valid during 'exiting'.
+ *    Earlier hiding would cut animation and risk focus/layout issues.
+ */
 const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogProps>(
   (
     {
@@ -46,6 +52,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       offset: _offset,
       onClose,
       hasArrow = true,
+      keepMounted = false,
       isAnimated,
       zIndex,
       backdropProps,
@@ -148,19 +155,33 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
 
     const Node = (
       <CSSTransition
-        unmountOnExit
+        unmountOnExit={!keepMounted}
         timeout={isAnimated ? 200 : 0}
         in={Boolean(referenceElement)}
         classNames={isAnimated ? 'garden-tooltip-modal-transition' : ''}
         nodeRef={transitionRef}
+        onEntered={() => {
+          if (keepMounted && focusOnMount && modalRef.current) {
+            modalRef.current.focus(); // [1]
+          }
+        }}
       >
         {transitionState => {
+          const isHidden = keepMounted && transitionState === 'exited'; // [2]
+
           return (
             <TooltipDialogContext.Provider value={value}>
               <StyledTooltipDialogBackdrop
                 {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
                 {...backdropProps}
                 ref={transitionRef}
+                style={{
+                  ...backdropProps?.style,
+                  ...(isHidden
+                    ? { visibility: 'hidden', pointerEvents: 'none' }
+                    : { visibility: undefined })
+                }}
+                aria-hidden={isHidden ? true : undefined}
               >
                 <StyledTooltipWrapper
                   ref={setFloatingElement}
@@ -203,6 +224,7 @@ TooltipDialogComponent.propTypes = {
   ),
   isAnimated: PropTypes.bool,
   hasArrow: PropTypes.bool,
+  keepMounted: PropTypes.bool,
   zIndex: PropTypes.number,
   onClose: PropTypes.func,
   backdropProps: PropTypes.any,
