@@ -175,8 +175,6 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                 {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
                 {...backdropProps}
                 ref={transitionRef}
-                style={backdropProps?.style}
-                $isHidden={isHidden}
                 aria-hidden={isHidden ? true : undefined}
               >
                 <StyledTooltipWrapper
