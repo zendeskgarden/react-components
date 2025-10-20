@@ -52,7 +52,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       offset: _offset,
       onClose,
       hasArrow = true,
-      keepMounted = false,
+      keepMounted,
       isAnimated,
       zIndex,
       backdropProps,
@@ -175,12 +175,8 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                 {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
                 {...backdropProps}
                 ref={transitionRef}
-                style={{
-                  ...backdropProps?.style,
-                  ...(isHidden
-                    ? { visibility: 'hidden', pointerEvents: 'none' }
-                    : { visibility: undefined })
-                }}
+                style={backdropProps?.style}
+                $isHidden={isHidden}
                 aria-hidden={isHidden ? true : undefined}
               >
                 <StyledTooltipWrapper

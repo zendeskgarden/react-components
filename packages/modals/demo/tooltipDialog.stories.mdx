@@ -31,7 +31,6 @@ import README from '../README.md';
       focusOnMount: true,
       hasArrow: true,
       restoreFocus: true,
-      keepMounted: false,
       hasBody: true,
       body: BODY,
       hasClose: true,
@@ -44,7 +43,6 @@ import README from '../README.md';
     argTypes={{
       referenceElement: { control: false },
       fallbackPlacements: { control: 'multi-select', options: PLACEMENT.filter(p => p !== 'auto') },
-      keepMounted: { control: 'boolean' },
       hasBody: { name: 'TooltipDialog.Body', table: { category: 'Story' } },
       hasClose: { name: 'TooltipDialog.Close', table: { category: 'Story' } },
       hasFooter: { name: 'TooltipDialog.Footer', table: { category: 'Story' } },

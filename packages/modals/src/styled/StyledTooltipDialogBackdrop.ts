@@ -6,9 +6,14 @@
  */
 
 import styled from 'styled-components';
+import { hideVisually } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
+
+export interface IStyledTooltipDialogBackdropProps {
+  $isHidden?: boolean;
+}
 
 /**
  * 1. Smooth iOS scrolling.
@@ -16,7 +21,7 @@ const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
 export const StyledTooltipDialogBackdrop = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledTooltipDialogBackdropProps>`
   position: fixed;
   inset: 0;
   z-index: 400;
@@ -33,6 +38,8 @@ export const StyledTooltipDialogBackdrop = styled.div.attrs({
     transition: opacity 200ms;
     opacity: 0;
   }
+
+  ${props => props.$isHidden && hideVisually()}
 
   ${componentStyles};
 `;
