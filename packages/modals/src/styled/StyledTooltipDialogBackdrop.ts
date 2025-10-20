@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+import { hideVisually } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
@@ -33,6 +34,8 @@ export const StyledTooltipDialogBackdrop = styled.div.attrs({
     transition: opacity 200ms;
     opacity: 0;
   }
+
+  ${props => props['aria-hidden'] && hideVisually()}
 
   ${componentStyles};
 `;

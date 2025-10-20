@@ -83,6 +83,10 @@ export interface ITooltipDialogProps extends Omit<IModalProps, 'isCentered' | 'i
    * Adds an arrow to the tooltop
    */
   hasArrow?: boolean;
+  /**
+   * Keeps the tooltip content mounted in the DOM when closed, rather than unmounting it
+   */
+  keepMounted?: boolean;
   /** @ignore Modifies the placement offset from the reference element (internal only) */
   offset?: number;
   /**

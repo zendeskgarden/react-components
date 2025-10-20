@@ -232,4 +232,68 @@ describe('TooltipDialog', () => {
       expect(onCloseSpy).toHaveBeenCalled();
     });
   });
+
+  describe('keepMounted', () => {
+    it('keeps dialog mounted in the DOM while visually hidden', () => {
+      const { queryByRole, getByTestId } = render(
+        <Example keepMounted backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      // Closed (hidden) state: still mounted but visually hidden and aria-hidden on backdrop
+      const hiddenDialog = queryByRole('dialog', { hidden: true });
+
+      expect(hiddenDialog).not.toBeNull();
+      expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+      // Backdrop should have hideVisually styles applied (position: absolute, clip, etc.)
+      const backdropStyles = window.getComputedStyle(getByTestId('backdrop'));
+      expect(backdropStyles.position).toBe('absolute');
+      expect(backdropStyles.width).toBe('1px');
+      expect(backdropStyles.height).toBe('1px');
+    });
+
+    it('toggles visibility and manages focus correctly when reopened', async () => {
+      const { getByText, getByRole, queryByRole, getByTestId } = render(
+        <Example keepMounted backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      const trigger = getByText('open');
+
+      // Initially hidden but mounted
+      const initiallyHiddenDialog = queryByRole('dialog', { hidden: true });
+      expect(initiallyHiddenDialog).not.toBeNull();
+      expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+
+      // Open
+      await act(async () => {
+        await user.click(trigger);
+      });
+
+      const openDialog = getByRole('dialog');
+      expect(openDialog).toBeInTheDocument();
+      expect(getByTestId('backdrop')).not.toHaveAttribute('aria-hidden');
+      expect(openDialog).toHaveFocus();
+      // Backdrop should NOT have hideVisually styles when visible
+      const visibleBackdropStyles = window.getComputedStyle(getByTestId('backdrop'));
+      expect(visibleBackdropStyles.position).toBe('fixed');
+
+      // Close (toggle button again)
+      await act(async () => {
+        await user.click(trigger);
+      });
+
+      // Dialog remains mounted but visually hidden again
+      const hiddenAgainDialog = queryByRole('dialog', { hidden: true });
+      expect(hiddenAgainDialog).not.toBeNull();
+      await waitFor(() => {
+        expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+        // Backdrop should have hideVisually styles applied again
+        const hiddenBackdropStyles = window.getComputedStyle(getByTestId('backdrop'));
+        expect(hiddenBackdropStyles.position).toBe('absolute');
+        expect(hiddenBackdropStyles.width).toBe('1px');
+        expect(hiddenBackdropStyles.height).toBe('1px');
+      });
+      // Focus should return to trigger
+      expect(trigger).toHaveFocus();
+    });
+  });
 });
