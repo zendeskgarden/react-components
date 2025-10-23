@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.0 (2025-10-23)
+
+#### :rocket: New Feature
+* `modals`
+  * [#2050](https://github.com/zendeskgarden/react-components/pull/2050) feat(modals): support keeping `TooltipDialog` mounted when closed ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2051](https://github.com/zendeskgarden/react-components/pull/2051) fix(dropdowns): depend on the latest `container-menu` hook ([@jzempel](https://github.com/jzempel))
+
 ## v9.11.3 (2025-09-10)
 
 #### :bug: Bug Fix
