@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-draggable",
-  "version": "9.12.0",
+  "version": "9.12.1",
   "description": "Components related to drag and drop in the Garden Design System",
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
@@ -34,8 +34,8 @@
     "@dnd-kit/core": "6.3.1",
     "@dnd-kit/sortable": "10.0.0",
     "@dnd-kit/utilities": "3.2.2",
-    "@zendeskgarden/react-theming": "^9.12.0",
-    "@zendeskgarden/react-typography": "^9.12.0",
+    "@zendeskgarden/react-theming": "^9.12.1",
+    "@zendeskgarden/react-typography": "^9.12.1",
     "@zendeskgarden/svg-icons": "7.5.0"
   },
   "keywords": [
