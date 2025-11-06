@@ -25,6 +25,7 @@ export const StyledItemAnchor = styled(StyledOption).attrs({
 
   &&:hover {
     text-decoration: none; /* [1] */
+    color: inherit; /* [1] */
   }
 
   &[aria-current='page'] > ${StyledItemTypeIcon} {
