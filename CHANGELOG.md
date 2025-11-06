@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.1 (2025-11-06)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2053](https://github.com/zendeskgarden/react-components/pull/2053) fix(dropdowns): prevent menu `Item` anchor hover styling from leaking through ([@jzempel](https://github.com/jzempel))
+
 ## v9.12.0 (2025-10-23)
 
 #### :rocket: New Feature
