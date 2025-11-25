@@ -18,6 +18,7 @@ export interface IStyledTooltipDialogProps {
   $isAnimated?: boolean;
   $placement: Placement;
   $transitionState?: TransitionStatus;
+  inert?: string;
 }
 
 const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
