@@ -189,6 +189,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                     $placement={placement}
                     $hasArrow={hasArrow}
                     $isAnimated={isAnimated}
+                    inert={isHidden ? '' : undefined}
                     {...modalProps}
                     {...ariaProps}
                     {...props}
