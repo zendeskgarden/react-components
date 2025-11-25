@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.2 (2025-11-25)
+
+#### :bug: Bug Fix
+* `colorpickers`, `modals`
+  * [#2056](https://github.com/zendeskgarden/react-components/pull/2056) fix(modals): bump `container-modal` hook with improved blur functionality ([@jzempel](https://github.com/jzempel))
+
 ## v9.12.1 (2025-11-06)
 
 #### :bug: Bug Fix
