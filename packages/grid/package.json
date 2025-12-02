@@ -21,8 +21,8 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-splitter": "^2.0.17",
-    "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/container-splitter": "^2.0.22",
+    "@zendeskgarden/container-utilities": "^2.0.4",
     "@zendeskgarden/react-buttons": "^9.12.2",
     "@zendeskgarden/react-tooltips": "^9.12.2",
     "polished": "^4.3.1",

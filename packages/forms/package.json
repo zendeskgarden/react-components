@@ -21,8 +21,8 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-field": "^3.0.0",
-    "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/container-field": "^3.0.21",
+    "@zendeskgarden/container-utilities": "^2.0.4",
     "lodash.debounce": "^4.0.8",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",

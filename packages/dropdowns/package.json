@@ -22,9 +22,9 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-combobox": "^2.0.5",
-    "@zendeskgarden/container-menu": "^1.0.3",
-    "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/container-combobox": "^2.0.7",
+    "@zendeskgarden/container-menu": "^1.0.4",
+    "@zendeskgarden/container-utilities": "^2.0.4",
     "@zendeskgarden/react-buttons": "^9.12.2",
     "@zendeskgarden/react-forms": "^9.12.2",
     "@zendeskgarden/react-tags": "^9.12.2",

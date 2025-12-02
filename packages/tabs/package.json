@@ -21,8 +21,8 @@
   "sideEffects": false,
   "types": "dist/typings/index.d.ts",
   "dependencies": {
-    "@zendeskgarden/container-tabs": "^2.0.10",
-    "@zendeskgarden/container-utilities": "^2.0.0",
+    "@zendeskgarden/container-tabs": "^2.0.16",
+    "@zendeskgarden/container-utilities": "^2.0.4",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0"
