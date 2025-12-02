@@ -81,7 +81,8 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
         onClose,
         modalRef,
         focusOnMount,
-        restoreFocus
+        restoreFocus,
+        environment
       });
 
     useEffect(() => {

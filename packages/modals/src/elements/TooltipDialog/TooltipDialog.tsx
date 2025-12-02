@@ -31,7 +31,12 @@ import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
-import { DEFAULT_THEME, getFloatingPlacements, useText } from '@zendeskgarden/react-theming';
+import {
+  DEFAULT_THEME,
+  getFloatingPlacements,
+  useText,
+  useDocument
+} from '@zendeskgarden/react-theming';
 import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'top';
@@ -64,6 +69,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
     ref
   ) => {
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const environment = useDocument(theme);
     const previousReferenceElementRef = useRef<HTMLElement | null>();
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
@@ -76,7 +82,8 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
         modalRef,
         focusOnMount,
         /** Handle `restoreFocus` locally to return focus to `referenceElement` */
-        restoreFocus: false
+        restoreFocus: false,
+        environment
       });
 
     const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(
