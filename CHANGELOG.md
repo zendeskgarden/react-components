@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.3 (2025-12-04)
+
+#### :bug: Bug Fix
+* `accordions`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `dropdowns`, `forms`, `grid`, `modals`, `pagination`, `tables`, `tabs`, `tags`, `tooltips`
+  * [#2060](https://github.com/zendeskgarden/react-components/pull/2060) fix: bump container components to the latest ([@jzempel](https://github.com/jzempel))
+* `modals`
+  * [#2059](https://github.com/zendeskgarden/react-components/pull/2059) fix(modals): always pass environment to useModal hook ([@Fredx87](https://github.com/Fredx87))
+
 ## v9.12.2 (2025-11-25)
 
 #### :bug: Bug Fix
