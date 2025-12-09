@@ -1,0 +1,263 @@
+/*!
+ * Copyright Zendesk, Inc.
+ * 
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0
+ */
+/*!
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+.checkbox__c-chk___1RYwR{
+  position:relative;
+  margin:0;
+  border:0;
+  padding:0;
+}
+
+.checkbox__c-chk__input___1as2W{
+  position:absolute;
+  clip:rect(1px, 1px, 1px, 1px);
+}
+
+.checkbox__c-chk__label___2sVFh{
+  display:inline-block;
+  position:relative;
+  cursor:pointer;
+  padding-left:24px;
+  vertical-align:middle;
+  line-height:1.42857;
+  white-space:normal;
+  color:#2f3941;
+  font-size:14px;
+  font-weight:600;
+  -webkit-user-select:none;
+     -moz-user-select:none;
+      -ms-user-select:none;
+          user-select:none;
+}
+
+.checkbox__c-chk__label___2sVFh:before{
+  position:absolute;
+  top:10px;
+  left:0;
+  transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,background-image .25s ease-in-out,color .25s ease-in-out;
+  margin-top:-8px;
+  border:1px solid #d8dcde;
+  border-radius:4px;
+  background-color:#fff;
+  background-repeat:no-repeat;
+  background-position:50%;
+  background-size:12px;
+  width:16px;
+  height:16px;
+  box-sizing:border-box;
+  color:inherit;
+  content:"";
+}
+
+.checkbox__c-chk__label--regular___3HsK-{
+  font-weight:400;
+}
+
+.checkbox__c-chk__hint___1lLMU{
+  padding-left:24px;
+  line-height:1.42857;
+  color:#68737d;
+  font-size:14px;
+}
+
+.checkbox__c-chk__message___5jh6l{
+  display:inline-block;
+  padding-left:24px;
+  vertical-align:middle;
+  line-height:1.33333;
+  color:#49545c;
+  font-size:12px;
+}
+
+.checkbox__c-chk__message--error___2x5km,.checkbox__c-chk__message--success___3VcGO,.checkbox__c-chk__message--warning___2gqke{
+  background-repeat:no-repeat;
+  background-position:0;
+}
+
+.checkbox__c-chk__message--error___2x5km{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%23CC3340'%3E%3Cg fill='none' stroke='currentColor'%3E%3Ccircle cx='7.5' cy='8.5' r='7'/%3E%3Cpath stroke-linecap='round' d='M7.5 4.5V9'/%3E%3C/g%3E%3Ccircle cx='7.5' cy='12' r='1' fill='currentColor'/%3E%3C/svg%3E");
+  color:#cc3340;
+}
+
+.checkbox__c-chk__message--success___3VcGO{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%23038153'%3E%3Cg fill='none' stroke='currentColor'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M4 9l2.5 2.5 5-5'/%3E%3Ccircle cx='7.5' cy='8.5' r='7'/%3E%3C/g%3E%3C/svg%3E");
+  color:#038153;
+}
+
+.checkbox__c-chk__message--warning___2gqke{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%23AD5E18'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' d='M.88 13.77L7.06 1.86c.19-.36.7-.36.89 0l6.18 11.91c.17.33-.07.73-.44.73H1.32c-.37 0-.61-.4-.44-.73zM7.5 6v3.5'/%3E%3Ccircle cx='7.5' cy='12' r='1' fill='currentColor'/%3E%3C/svg%3E");
+  color:#ad5e18;
+}
+
+.checkbox__c-chk__label___2sVFh.checkbox__is-hidden___26D6p{
+  padding-left:16px;
+  text-indent:-100%;
+  font-size:0;
+}
+
+.checkbox__c-chk__label___2sVFh.checkbox__is-hidden___26D6p:before{
+  top:0;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk___1RYwR{
+  direction:rtl;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__label___2sVFh:before{
+  right:0;
+  left:auto;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__hint___1lLMU,.checkbox__is-rtl___2kwvt.checkbox__c-chk__label___2sVFh,.checkbox__is-rtl___2kwvt.checkbox__c-chk__message___5jh6l{
+  direction:rtl;
+  padding-right:24px;
+  padding-left:0;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__message--error___2x5km,.checkbox__is-rtl___2kwvt.checkbox__c-chk__message--success___3VcGO,.checkbox__is-rtl___2kwvt.checkbox__c-chk__message--warning___2gqke{
+  background-position:100%;
+  padding-left:0;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__label___2sVFh.checkbox__is-hidden___26D6p{
+  padding-right:16px;
+}
+
+.checkbox__c-chk__label___2sVFh+.checkbox__c-chk__message___5jh6l{
+  display:block;
+  margin-top:4px;
+}
+
+.checkbox__c-chk___1RYwR .checkbox__c-chk__hint___1lLMU{
+  display:block;
+}
+
+.checkbox__c-chk__input___1as2W:checked~.checkbox__c-chk__label___2sVFh:before,.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD:before{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' color='%23FFF'%3E%3Cpath fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 6l2 2 4-4'/%3E%3C/svg%3E");
+}
+
+.checkbox__c-chk__input___1as2W:indeterminate~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx):before,.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx).checkbox__is-indeterminate___sUAUD:before{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' color='%23FFF'%3E%3Cpath stroke='currentColor' stroke-linecap='round' stroke-width='2' d='M3 6h6'/%3E%3C/svg%3E");
+}
+
+.checkbox__c-chk__input___1as2W:checked:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx).checkbox__is-indeterminate___sUAUD:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:indeterminate:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx):not(.checkbox__is-disabled___2b0nM):before{
+  border-color:#1f73b7;
+  background-color:#1f73b7;
+}
+
+.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-hovered___zSLJp:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__is-disabled___2b0nM):hover:before{
+  border-color:#1f73b7;
+}
+
+.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-focused___HP0_o:not(.checkbox__is-disabled___2b0nM):before{
+  outline:none;
+  border-color:#1f73b7;
+  box-shadow:0 0 0 3px rgba(31, 115, 183, .35);
+}
+
+.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__is-disabled___2b0nM):active:before{
+  transition:border-color .1s ease-in-out,background-color .1s ease-in-out,background-image .1s ease-in-out,color .1s ease-in-out;
+  border-color:#1f73b7;
+  background-color:#cee2f2;
+}
+
+.checkbox__c-chk__input___1as2W:enabled:checked~.checkbox__c-chk__label___2sVFh.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled:checked~.checkbox__c-chk__label___2sVFh:not(.checkbox__is-disabled___2b0nM):active:before,.checkbox__c-chk__input___1as2W:enabled:indeterminate~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx).checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled:indeterminate~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx):not(.checkbox__is-disabled___2b0nM):active:before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD:not(.checkbox__is-disabled___2b0nM):active:before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx).checkbox__is-indeterminate___sUAUD.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM):before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__c-chk__label--radio___3e7N7):not(.checkbox__c-chk__label--toggle___1upWx).checkbox__is-indeterminate___sUAUD:not(.checkbox__is-disabled___2b0nM):active:before{
+  border-color:#144a75;
+  background-color:#144a75;
+}
+
+.checkbox__c-chk__input___1as2W[disabled]~.checkbox__c-chk__label___2sVFh,.checkbox__c-chk__label___2sVFh.checkbox__is-disabled___2b0nM{
+  cursor:default;
+}
+
+.checkbox__c-chk__input___1as2W[disabled]~.checkbox__c-chk__label___2sVFh:before,.checkbox__c-chk__label___2sVFh.checkbox__is-disabled___2b0nM:before{
+  border-color:transparent;
+  box-shadow:none;
+  background-color:#e9ebed;
+}
+
+.checkbox__c-chk__label--radio___3e7N7:before{
+  border-radius:50%;
+}
+
+.checkbox__c-chk__input___1as2W:checked~.checkbox__c-chk__label___2sVFh.checkbox__c-chk__label--radio___3e7N7:before,.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD.checkbox__c-chk__label--radio___3e7N7:before{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' color='%23FFF'%3E%3Ccircle cx='6' cy='6' r='2' fill='currentColor'/%3E%3C/svg%3E");
+}
+
+.checkbox__c-chk__hint--toggle___36G0a,.checkbox__c-chk__label--toggle___1upWx,.checkbox__c-chk__message--toggle___3NC0W{
+  padding-left:48px;
+}
+
+.checkbox__c-chk__message--toggle___3NC0W{
+  background-position:26px;
+}
+
+.checkbox__c-chk__label--toggle___1upWx:before{
+  top:0;
+  transition:box-shadow .1s ease-in-out,background-color .15s ease-in-out,background-position .15s ease-in-out,color .25s ease-in-out;
+  margin-top:0;
+  border:none;
+  border-radius:100px;
+  background-color:#87929d;
+  background-position:10%;
+  background-size:14px;
+  width:40px;
+  height:20px;
+}
+
+.checkbox__c-chk__input___1as2W:checked~.checkbox__c-chk__label___2sVFh.checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD.checkbox__c-chk__label--toggle___1upWx:before{
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' color='%23FFF'%3E%3Ccircle cx='8' cy='8' r='7' fill='currentColor'/%3E%3C/svg%3E");
+}
+
+.checkbox__c-chk__input___1as2W:checked~.checkbox__c-chk__label___2sVFh.checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD.checkbox__c-chk__label--toggle___1upWx:before{
+  background-position:90%;
+}
+
+.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM).checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh:not(.checkbox__is-disabled___2b0nM):active.checkbox__c-chk__label--toggle___1upWx:before{
+  background-color:#68737d;
+}
+
+.checkbox__c-chk__input___1as2W:enabled:checked~.checkbox__c-chk__label___2sVFh.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM).checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__input___1as2W:enabled:checked~.checkbox__c-chk__label___2sVFh:not(.checkbox__is-disabled___2b0nM):active.checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD.checkbox__is-active___2C4G7:not(.checkbox__is-disabled___2b0nM).checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__input___1as2W:enabled~.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD:not(.checkbox__is-disabled___2b0nM):active.checkbox__c-chk__label--toggle___1upWx:before{
+  background-color:#144a75;
+}
+
+.checkbox__c-chk__input___1as2W[disabled]~.checkbox__c-chk__label___2sVFh.checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__label___2sVFh.checkbox__is-disabled___2b0nM.checkbox__c-chk__label--toggle___1upWx:before{
+  background-color:#e9ebed;
+}
+
+.checkbox__c-chk__label--toggle___1upWx.checkbox__is-hidden___26D6p{
+  padding-left:40px;
+  vertical-align:top;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__hint--toggle___36G0a,.checkbox__is-rtl___2kwvt.checkbox__c-chk__label--toggle___1upWx,.checkbox__is-rtl___2kwvt.checkbox__c-chk__message--toggle___3NC0W{
+  padding-right:48px;
+  padding-left:0;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__message--toggle___3NC0W{
+  background-position:calc(100% - 26px);
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__label--toggle___1upWx.checkbox__is-hidden___26D6p{
+  padding-right:40px;
+}
+
+.checkbox__is-rtl___2kwvt.checkbox__c-chk__label--toggle___1upWx:before{
+  background-position:90%;
+}
+
+.checkbox__c-chk__input___1as2W:checked~.checkbox__c-chk__label___2sVFh.checkbox__is-rtl___2kwvt.checkbox__c-chk__label--toggle___1upWx:before,.checkbox__c-chk__label___2sVFh.checkbox__is-checked___2OtPD.checkbox__is-rtl___2kwvt.checkbox__c-chk__label--toggle___1upWx:before{
+  background-position:10%;
+}
+

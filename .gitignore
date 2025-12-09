@@ -7,4 +7,3 @@ node_modules
 yarn.lock
 *.log
 demo/**/*
-packages/**/dist

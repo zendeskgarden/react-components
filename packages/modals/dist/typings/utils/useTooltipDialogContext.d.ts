@@ -1,0 +1,16 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+import { IUseModalReturnValue } from '@zendeskgarden/container-modal';
+export interface IModalContext {
+    hasTitle: boolean;
+    setHasTitle: (isPresent: boolean) => void;
+    getTitleProps: IUseModalReturnValue['getTitleProps'];
+    getContentProps: IUseModalReturnValue['getContentProps'];
+    getCloseProps: IUseModalReturnValue['getCloseProps'];
+}
+export declare const TooltipDialogContext: import("react").Context<IModalContext | undefined>;
+export declare const useTooltipDialogContext: () => IModalContext;
