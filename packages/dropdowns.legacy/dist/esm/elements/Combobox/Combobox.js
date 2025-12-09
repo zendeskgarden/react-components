@@ -12,19 +12,18 @@ import { MediaInput, VALIDATION } from '@zendeskgarden/react-forms';
 import { mergeRefs } from 'react-merge-refs';
 import useDropdownContext from '../../utils/useDropdownContext.js';
 
-const Combobox = forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    isBare,
-    disabled,
-    focusInset,
-    placeholder,
-    validation,
-    inputRef: inputRefProp = null,
-    start,
-    end,
-    ...props
-  } = _ref;
+const Combobox = forwardRef(({
+  isCompact,
+  isBare,
+  disabled,
+  focusInset,
+  placeholder,
+  validation,
+  inputRef: inputRefProp = null,
+  start,
+  end,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     downshift: {
@@ -77,10 +76,9 @@ const Combobox = forwardRef((_ref, ref) => {
   useEffect(() => {
     setDropdownType('combobox');
   }, [setDropdownType]);
-  return React__default.createElement(Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
+  return React__default.createElement(Reference, null, ({
+    ref: popperReference
+  }) => {
     const wrapperRefProp = element => {
       popperReference(element);
       mergeRefs([wrapperRef, ref])(element);

@@ -29,7 +29,7 @@ import '../../styled/StyledDrawerFooter.js';
 import '../../styled/StyledDrawerFooterItem.js';
 import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext.js';
 
-const BodyComponent = forwardRef((props, ref) => {
+const BodyComponent$1 = forwardRef((props, ref) => {
   const {
     getContentProps
   } = useTooltipDialogContext();
@@ -37,7 +37,7 @@ const BodyComponent = forwardRef((props, ref) => {
     ref: ref
   }));
 });
-BodyComponent.displayName = 'TooltipDialog.Body';
-const Body = BodyComponent;
+BodyComponent$1.displayName = 'TooltipDialog.Body';
+const Body$1 = BodyComponent$1;
 
-export { Body };
+export { Body$1 as Body };

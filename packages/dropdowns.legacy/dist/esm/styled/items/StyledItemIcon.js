@@ -9,12 +9,12 @@ import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
 import { getItemPaddingVertical } from './StyledItem.js';
 
-const COMPONENT_ID = 'dropdowns.item_icon';
+const COMPONENT_ID$g = 'dropdowns.item_icon';
 const getSizeStyles = props => {
   return css(["width:", ";height:calc(", "px + ", ");"], props.theme.iconSizes.md, props.theme.space.base * 5, math(`${getItemPaddingVertical(props)} * 2`));
 };
 const StyledItemIcon = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$g,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledItemIcon",

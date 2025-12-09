@@ -52,18 +52,17 @@ import { Footer } from './components/Footer.js';
 import { FooterItem } from './components/FooterItem.js';
 import { Close } from './components/Close.js';
 
-const SheetComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    id,
-    isOpen,
-    isAnimated = true,
-    focusOnMount,
-    restoreFocus,
-    placement = 'end',
-    size = '380px',
-    children,
-    ...props
-  } = _ref;
+const SheetComponent = React__default.forwardRef(({
+  id,
+  isOpen,
+  isAnimated = true,
+  focusOnMount,
+  restoreFocus,
+  placement = 'end',
+  size = '380px',
+  children,
+  ...props
+}, ref) => {
   const sheetRef = useRef(null);
   const [isCloseButtonPresent, setIsCloseButtonPresent] = useState(false);
   const idPrefix = useId(id);

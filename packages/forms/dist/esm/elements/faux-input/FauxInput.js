@@ -55,21 +55,20 @@ import '../../styled/tiles/StyledTileLabel.js';
 import { StartIcon } from './components/StartIcon.js';
 import { EndIcon } from './components/EndIcon.js';
 
-const FauxInputComponent = forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    focusInset,
-    isBare,
-    isCompact,
-    isFocused: controlledIsFocused,
-    isHovered,
-    onBlur,
-    onFocus,
-    readOnly,
-    validation,
-    mediaLayout,
-    ...other
-  } = _ref;
+const FauxInputComponent = forwardRef(({
+  disabled,
+  focusInset,
+  isBare,
+  isCompact,
+  isFocused: controlledIsFocused,
+  isHovered,
+  onBlur,
+  onFocus,
+  readOnly,
+  validation,
+  mediaLayout,
+  ...other
+}, ref) => {
   const [isFocused, setIsFocused] = useState(false);
   const onFocusHandler = composeEventHandlers(onFocus, () => {
     setIsFocused(true);

@@ -218,11 +218,10 @@ const sizeStyles$3 = props => {
   const size = getStatusSize(props, offset);
   return styled.css(["border:", " ", ";border-radius:", ";min-width:", ";height:", ";line-height:", ";& > svg{position:absolute;top:-", ";inset-inline-start:-", ";transform-origin:50% 50%;animation:", " ", "s;max-height:unset;&[data-icon-status='transfers']{transform:scale(", ",1);inset-inline-start:", ";}&[data-icon-status='away'] circle{display:none;}}"], offset, props.theme.borderStyles.solid, size, size, size, size, offset, offset, iconFadeIn, TRANSITION_DURATION, props.theme.rtl ? -1 : 1, props.$size === 'extrasmall' ? '-1px' : undefined);
 };
-const colorStyles$2 = _ref => {
-  let {
-    theme,
-    $type
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $type
+}) => {
   const foregroundColor = reactTheming.getColor({
     variable: 'foreground.onEmphasis',
     theme
@@ -263,14 +262,13 @@ const sizeStyles$2 = props => {
   }
   return styled.css(["max-width:calc(2em + (", " * 3));box-sizing:content-box;overflow:hidden;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-size:", ";font-weight:", ";& > span{display:", ";padding:0 ", ";max-width:2em;overflow:inherit;text-align:inherit;text-overflow:inherit;white-space:inherit;}& > svg{", " width:", ";height:", ";}"], borderWidth, props.theme.fontSizes.xs, props.theme.fontWeights.semibold, isVisible ? 'inline-block' : 'none', padding, !isVisible && 'display: none;', iconSize, iconSize);
 };
-const colorStyles$1 = _ref => {
-  let {
-    theme,
-    $type,
-    $size,
-    $borderColor,
-    $surfaceColor
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $type,
+  $size,
+  $borderColor,
+  $surfaceColor
+}) => {
   const shadowSize = $size === xxs ? 'xs' : 'sm';
   let boxShadow;
   const surfaceColor = $surfaceColor?.includes('.') ? reactTheming.getColor({
@@ -314,14 +312,13 @@ const badgeStyles = props => {
   const animation = styled.keyframes(["0%{transform:scale(.1);}"]);
   return styled.css(["position:absolute;", ":", ";bottom:", ";transition:all ", "s ease-in-out;", ""], props.theme.rtl ? 'left' : 'right', position, position, TRANSITION_DURATION, props.$status === 'active' && styled.css(["animation:", " ", "s ease-in-out;"], animation, TRANSITION_DURATION * 1.5));
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $foregroundColor,
-    $surfaceColor,
-    $backgroundColor,
-    $status
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $foregroundColor,
+  $surfaceColor,
+  $backgroundColor,
+  $status
+}) => {
   const statusColor = getStatusColor(theme, $status);
   let backgroundColor = 'transparent';
   let foregroundColor = theme.palette.white;
@@ -437,20 +434,19 @@ const TextComponent = React.forwardRef((props, ref) => React__namespace.default.
 TextComponent.displayName = 'Avatar.Text';
 const Text = TextComponent;
 
-const AvatarComponent = React.forwardRef((_ref, ref) => {
-  let {
-    'aria-hidden': ariaHidden,
-    backgroundColor,
-    badge,
-    children,
-    foregroundColor,
-    isSystem,
-    size = 'medium',
-    status,
-    statusLabel,
-    surfaceColor,
-    ...other
-  } = _ref;
+const AvatarComponent = React.forwardRef(({
+  'aria-hidden': ariaHidden,
+  backgroundColor,
+  badge,
+  children,
+  foregroundColor,
+  isSystem,
+  size = 'medium',
+  status,
+  statusLabel,
+  surfaceColor,
+  ...other
+}, ref) => {
   const computedStatus = badge === undefined ? status : 'active';
   let ClockIcon = SvgClockStroke$1;
   let ArrowLeftIcon = SvgArrowLeftSmStroke$1;
@@ -510,14 +506,13 @@ AvatarComponent.propTypes = {
 const Avatar = AvatarComponent;
 Avatar.Text = Text;
 
-const StatusIndicator = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    type = 'offline',
-    isCompact,
-    'aria-label': label,
-    ...props
-  } = _ref;
+const StatusIndicator = React.forwardRef(({
+  children,
+  type = 'offline',
+  isCompact,
+  'aria-label': label,
+  ...props
+}, ref) => {
   let ClockIcon = SvgClockStroke;
   let ArrowLeftIcon = SvgArrowLeftSmStroke;
   if (isCompact) {

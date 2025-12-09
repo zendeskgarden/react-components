@@ -33,15 +33,14 @@ import useDatePickerContext from '../utils/useDatePickerContext.js';
 import { getStartOfWeek } from '../../../utils/calendar-utils.js';
 import { MonthSelector } from './MonthSelector.js';
 
-const Calendar = forwardRef((_ref, ref) => {
-  let {
-    value,
-    minValue,
-    maxValue,
-    isCompact,
-    locale,
-    weekStartsOn
-  } = _ref;
+const Calendar$1 = forwardRef(({
+  value,
+  minValue,
+  maxValue,
+  isCompact,
+  locale,
+  weekStartsOn
+}, ref) => {
   const {
     state,
     dispatch
@@ -120,6 +119,6 @@ const Calendar = forwardRef((_ref, ref) => {
     $isCompact: isCompact
   }, dayLabels, items));
 });
-Calendar.displayName = 'Calendar';
+Calendar$1.displayName = 'Calendar';
 
-export { Calendar };
+export { Calendar$1 as Calendar };

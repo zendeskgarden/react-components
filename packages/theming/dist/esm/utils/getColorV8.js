@@ -24,13 +24,12 @@ const KEYS = {
 };
 CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
 CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
-const toKey = _ref => {
-  let {
-    hue,
-    shade,
-    theme,
-    transparency
-  } = _ref;
+const toKey = ({
+  hue,
+  shade,
+  theme,
+  transparency
+}) => {
   let retVal = `${typeof hue === 'object' ? JSON.stringify(hue) : hue}`;
   if (shade !== undefined) {
     retVal += `,${shade}`;
@@ -59,10 +58,7 @@ const toKey = _ref => {
   }
   return retVal;
 };
-const getColorV8 = memoize(function (hue) {
-  let shade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_SHADE;
-  let theme = arguments.length > 2 ? arguments[2] : undefined;
-  let transparency = arguments.length > 3 ? arguments[3] : undefined;
+const getColorV8 = memoize((hue, shade = DEFAULT_SHADE, theme, transparency) => {
   let retVal;
   if (isNaN(shade)) {
     return undefined;

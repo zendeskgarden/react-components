@@ -6,17 +6,16 @@
 */
 import styled, { css } from 'styled-components';
 import { math } from 'polished';
-import { componentStyles, getColor, focusStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from '../common/StyledLabel.js';
 import { StyledHint } from '../common/StyledHint.js';
 import { StyledMessage } from '../common/StyledMessage.js';
 
-const COMPONENT_ID = 'forms.file_upload';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isDragging
-  } = _ref;
+const COMPONENT_ID$j = 'forms.file_upload';
+const colorStyles$7 = ({
+  theme,
+  $isDragging
+}) => {
   const borderOptions = {
     theme,
     variable: 'border.primaryEmphasis'
@@ -90,11 +89,10 @@ const colorStyles = _ref => {
     theme
   }), activeBorderColor, activeBackgroundColor, activeForegroundColor, disabledBorderColor, disabledBackgroundColor, disabledForegroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$b = ({
+  theme,
+  $isCompact
+}) => {
   const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
   const paddingHorizontal = `${$isCompact ? 2 : 4}em`;
   const paddingVertical = math(`${theme.space.base * ($isCompact ? 2.5 : 5)} - ${theme.borderWidths.sm}`);
@@ -103,11 +101,11 @@ const sizeStyles = _ref2 => {
   return css(["padding:", " ", ";min-width:4em;line-height:", ";font-size:", ";", ":not([hidden]) + &&,", " + &&,", " + &&,&& + ", ",&& + ", "{margin-top:", ";}"], paddingVertical, paddingHorizontal, lineHeight, fontSize, StyledLabel, StyledHint, StyledMessage, StyledHint, StyledMessage, marginTop);
 };
 const StyledFileUpload = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$j,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFileUpload",
   componentId: "sc-1rodjgn-0"
-})(["display:flex;align-items:center;justify-content:center;box-sizing:border-box;direction:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out;border:dashed ", ";border-radius:", ";cursor:pointer;text-align:center;user-select:none;", ";&[aria-disabled='true']{cursor:default;}", ";", ";"], props => props.theme.rtl ? 'rtl' : 'ltr', props => props.theme.borderWidths.sm, props => props.theme.borderRadii.md, sizeStyles, colorStyles, componentStyles);
+})(["display:flex;align-items:center;justify-content:center;box-sizing:border-box;direction:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out;border:dashed ", ";border-radius:", ";cursor:pointer;text-align:center;user-select:none;", ";&[aria-disabled='true']{cursor:default;}", ";", ";"], props => props.theme.rtl ? 'rtl' : 'ltr', props => props.theme.borderWidths.sm, props => props.theme.borderRadii.md, sizeStyles$b, colorStyles$7, componentStyles);
 
 export { StyledFileUpload };

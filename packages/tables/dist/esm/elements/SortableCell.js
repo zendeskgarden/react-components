@@ -22,14 +22,13 @@ import { StyledSortableButton, StyledSortableStrokeIconWrapper, StyledSortableFi
 import '../styled/StyledOverflowButton.js';
 import '../styled/StyledRow.js';
 
-const SortableCell = forwardRef((_ref, ref) => {
-  let {
-    sort,
-    cellProps = {},
-    width,
-    children,
-    ...sortableButtonProps
-  } = _ref;
+const SortableCell = forwardRef(({
+  sort,
+  cellProps = {},
+  width,
+  children,
+  ...sortableButtonProps
+}, ref) => {
   const {
     isMinimum,
     isTruncated,

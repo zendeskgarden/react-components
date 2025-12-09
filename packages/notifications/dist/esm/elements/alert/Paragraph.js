@@ -20,9 +20,9 @@ import '../../styled/global-alert/StyledGlobalAlertContent.js';
 import '../../styled/global-alert/StyledGlobalAlertIcon.js';
 import '../../styled/global-alert/StyledGlobalAlertTitle.js';
 
-const Paragraph = React__default.forwardRef((props, ref) => React__default.createElement(StyledParagraph, Object.assign({
+const Paragraph$1 = React__default.forwardRef((props, ref) => React__default.createElement(StyledParagraph, Object.assign({
   ref: ref
 }, props)));
-Paragraph.displayName = 'Alert.Paragraph';
+Paragraph$1.displayName = 'Alert.Paragraph';
 
-export { Paragraph };
+export { Paragraph$1 as Paragraph };

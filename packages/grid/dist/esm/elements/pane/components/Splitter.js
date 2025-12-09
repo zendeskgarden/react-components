@@ -35,21 +35,20 @@ const orientationToDimension = {
   top: 'rows',
   bottom: 'rows'
 };
-const SplitterComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    providerId,
-    layoutKey,
-    min,
-    max,
-    orientation = 'end',
-    isFixed,
-    onMouseDown,
-    onTouchStart,
-    onKeyDown,
-    onClick,
-    ...props
-  } = _ref;
+const SplitterComponent = forwardRef(({
+  children,
+  providerId,
+  layoutKey,
+  min,
+  max,
+  orientation = 'end',
+  isFixed,
+  onMouseDown,
+  onTouchStart,
+  onKeyDown,
+  onClick,
+  ...props
+}, ref) => {
   const paneProviderContext = usePaneProviderContextData(providerId);
   const paneContext = usePaneContext();
   const themeContext = useContext(ThemeContext);

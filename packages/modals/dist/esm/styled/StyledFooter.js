@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.footer';
+const COMPONENT_ID$g = 'modals.footer';
 const StyledFooter = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$g,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFooter",

@@ -21,17 +21,14 @@ import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 import { INHERIT_SIZE } from '../types/index.js';
 
-const Kbd = forwardRef((_ref, ref) => {
-  let {
-    size = 'inherit',
-    ...other
-  } = _ref;
-  return React.createElement(StyledKbd, Object.assign({
-    $size: size
-  }, other, {
-    ref: ref
-  }));
-});
+const Kbd = forwardRef(({
+  size = 'inherit',
+  ...other
+}, ref) => React.createElement(StyledKbd, Object.assign({
+  $size: size
+}, other, {
+  ref: ref
+})));
 Kbd.displayName = 'Kbd';
 Kbd.propTypes = {
   size: PropTypes.oneOf(INHERIT_SIZE)

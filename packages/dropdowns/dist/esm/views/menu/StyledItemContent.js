@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionContent } from '../combobox/StyledOptionContent.js';
 
-const COMPONENT_ID = 'dropdowns.menu.item.content';
+const COMPONENT_ID$4 = 'dropdowns.menu.item.content';
 const StyledItemContent = styled(StyledOptionContent).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledItemContent",

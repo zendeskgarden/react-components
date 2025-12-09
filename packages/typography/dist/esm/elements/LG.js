@@ -20,21 +20,18 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 
-const LG = forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    isMonospace,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React.createElement(StyledFont, Object.assign({
-    $isBold: isBold,
-    $isMonospace: isMonospace,
-    $size: "large",
-    as: tag,
-    ref: ref
-  }, other));
-});
+const LG = forwardRef(({
+  isBold,
+  isMonospace,
+  tag = 'div',
+  ...other
+}, ref) => React.createElement(StyledFont, Object.assign({
+  $isBold: isBold,
+  $isMonospace: isMonospace,
+  $size: "large",
+  as: tag,
+  ref: ref
+}, other)));
 LG.displayName = 'LG';
 LG.propTypes = {
   tag: PropTypes.any,

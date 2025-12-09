@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.menu';
+const COMPONENT_ID$b = 'datepickers.menu';
 const StyledMenu = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$b,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMenu",

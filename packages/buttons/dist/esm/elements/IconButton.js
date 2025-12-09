@@ -15,19 +15,18 @@ import { StyledIcon } from '../styled/StyledIcon.js';
 import { StyledIconButton } from '../styled/StyledIconButton.js';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext.js';
 
-const IconButton = forwardRef((_ref, ref) => {
-  let {
-    children,
-    focusInset,
-    isBasic = true,
-    isDanger,
-    isNeutral,
-    isPill = true,
-    isPrimary,
-    isRotated,
-    size = 'medium',
-    ...other
-  } = _ref;
+const IconButton = forwardRef(({
+  children,
+  focusInset,
+  isBasic = true,
+  isDanger,
+  isNeutral,
+  isPill = true,
+  isPrimary,
+  isRotated,
+  size = 'medium',
+  ...other
+}, ref) => {
   const splitButtonFocusInset = useSplitButtonContext();
   return React__default.createElement(StyledIconButton, Object.assign({}, other, {
     $isBasic: isBasic,

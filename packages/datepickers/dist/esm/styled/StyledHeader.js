@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.header';
+const COMPONENT_ID$7 = 'datepickers.header';
 const StyledHeader = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeader",

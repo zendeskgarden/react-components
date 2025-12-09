@@ -17,17 +17,16 @@ import '../../styled/dropzone/StyledDropzone.js';
 import '../../styled/dropzone/StyledMessage.js';
 import '../../styled/dropzone/StyledIcon.js';
 
-const DraggableComponent = forwardRef((_ref, ref) => {
-  let {
-    focusInset,
-    isBare,
-    isCompact,
-    isDisabled,
-    isGrabbed,
-    isPlaceholder,
-    tag,
-    ...other
-  } = _ref;
+const DraggableComponent = forwardRef(({
+  focusInset,
+  isBare,
+  isCompact,
+  isDisabled,
+  isGrabbed,
+  isPlaceholder,
+  tag,
+  ...other
+}, ref) => {
   return React__default.createElement(StyledDraggable, Object.assign({
     $focusInset: focusInset,
     $isBare: isBare,

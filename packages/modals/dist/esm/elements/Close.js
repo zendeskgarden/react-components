@@ -29,9 +29,9 @@ import '../styled/StyledDrawerFooter.js';
 import '../styled/StyledDrawerFooterItem.js';
 import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../utils/useModalContext.js';
-import SvgXStroke from '../node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
+import SvgXStroke from '../packages/modals/node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
 
-const Close = forwardRef((props, ref) => {
+const Close$2 = forwardRef((props, ref) => {
   const {
     getCloseProps,
     setIsCloseButtonPresent
@@ -40,7 +40,7 @@ const Close = forwardRef((props, ref) => {
     setIsCloseButtonPresent(true);
     return () => setIsCloseButtonPresent(false);
   });
-  const ariaLabel = useText(Close, props, 'aria-label', 'Close modal', props['aria-describedby'] === undefined );
+  const ariaLabel = useText(Close$2, props, 'aria-label', 'Close modal', props['aria-describedby'] === undefined );
   return React__default.createElement(StyledClose, Object.assign({}, getCloseProps({
     ...props,
     'aria-label': ariaLabel
@@ -48,6 +48,6 @@ const Close = forwardRef((props, ref) => {
     ref: ref
   }), React__default.createElement(SvgXStroke, null));
 });
-Close.displayName = 'Modal.Close';
+Close$2.displayName = 'Modal.Close';
 
-export { Close };
+export { Close$2 as Close };

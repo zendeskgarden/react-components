@@ -15,12 +15,11 @@ import '../styled/StyledSpinnerCircle.js';
 import '../styled/StyledSVG.js';
 import { StyledInline, StyledCircle } from '../styled/StyledInline.js';
 
-const Inline = forwardRef((_ref, ref) => {
-  let {
-    size = 16,
-    color = 'inherit',
-    ...other
-  } = _ref;
+const Inline = forwardRef(({
+  size = 16,
+  color = 'inherit',
+  ...other
+}, ref) => {
   const ariaLabel = useText(Inline, other, 'aria-label', 'loading');
   return (
     React.createElement(StyledInline, Object.assign({

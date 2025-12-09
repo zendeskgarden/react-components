@@ -38,11 +38,10 @@ const Dropdown = props => {
   } = useContext(ThemeContext);
   const hasMenuRef = useRef(false);
   const popperReferenceElementRef = useRef(null);
-  const customGetInputProps = (_ref, downshift) => {
-    let {
-      onKeyDown,
-      ...other
-    } = _ref;
+  const customGetInputProps = ({
+    onKeyDown,
+    ...other
+  }, downshift) => {
     return {
       onKeyDown: composeEventHandlers(onKeyDown, e => {
         const PREVIOUS_KEY = rtl ? KEY_CODES.RIGHT : KEY_CODES.LEFT;
@@ -70,12 +69,11 @@ const Dropdown = props => {
       ...other
     };
   };
-  const transformDownshift = _ref2 => {
-    let {
-      getInputProps,
-      getToggleButtonProps,
-      ...downshift
-    } = _ref2;
+  const transformDownshift = ({
+    getInputProps,
+    getToggleButtonProps,
+    ...downshift
+  }) => {
     return {
       getInputProps: p => getInputProps(customGetInputProps(p, downshift)),
       getToggleButtonProps: p => getToggleButtonProps({

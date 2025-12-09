@@ -18,12 +18,11 @@ import { StyledPaneSplitterButtonContainer } from '../../../styled/pane/StyledPa
 import usePaneSplitterContext from '../../../utils/usePaneSplitterContext.js';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext.js';
 
-const SplitterButtonComponent = forwardRef((_ref, ref) => {
-  let {
-    label,
-    placement: defaultPlacement,
-    ...other
-  } = _ref;
+const SplitterButtonComponent = forwardRef(({
+  label,
+  placement: defaultPlacement,
+  ...other
+}, ref) => {
   const {
     orientation,
     layoutKey,

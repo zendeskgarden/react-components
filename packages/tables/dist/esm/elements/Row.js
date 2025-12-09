@@ -21,16 +21,15 @@ import '../styled/StyledOverflowButton.js';
 import { StyledRow } from '../styled/StyledRow.js';
 import { useTableContext } from '../utils/useTableContext.js';
 
-const Row = forwardRef((_ref, ref) => {
-  let {
-    onFocus,
-    onBlur,
-    isSelected,
-    isStriped,
-    isHovered,
-    isFocused: focused,
-    ...otherProps
-  } = _ref;
+const Row = forwardRef(({
+  onFocus,
+  onBlur,
+  isSelected,
+  isStriped,
+  isHovered,
+  isFocused: focused,
+  ...otherProps
+}, ref) => {
   const [isFocused, setIsFocused] = useState(false);
   const {
     size,

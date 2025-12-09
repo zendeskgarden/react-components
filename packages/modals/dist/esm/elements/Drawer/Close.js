@@ -29,7 +29,7 @@ import '../../styled/StyledDrawerFooter.js';
 import '../../styled/StyledDrawerFooterItem.js';
 import { useText } from '@zendeskgarden/react-theming';
 import { useModalContext } from '../../utils/useModalContext.js';
-import SvgXStroke from '../../node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
+import SvgXStroke from '../../packages/modals/node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
 
 const CloseComponent = forwardRef((props, ref) => {
   const {

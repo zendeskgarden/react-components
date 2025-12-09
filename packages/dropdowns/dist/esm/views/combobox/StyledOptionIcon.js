@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.icon';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isDisabled,
-    $type
-  } = _ref;
+const COMPONENT_ID$g = 'dropdowns.combobox.option.icon';
+const colorStyles$5 = ({
+  theme,
+  $isDisabled,
+  $type
+}) => {
   let variable;
   if ($isDisabled) {
     variable = 'foreground.disabled';
@@ -31,18 +30,18 @@ const colorStyles = _ref => {
   });
   return css(["color:", ";"], color);
 };
-const sizeStyles = props => {
+const sizeStyles$3 = props => {
   const size = props.theme.iconSizes.md;
   const marginTop = math(`(${props.theme.lineHeights.md} - ${size}) / 2`);
   const marginHorizontal = `${props.theme.space.base * 2}px`;
   return css(["margin-top:", ";margin-", ":", ";width:", ";height:", ";"], marginTop, props.theme.rtl ? 'left' : 'right', marginHorizontal, size, size);
 };
 const StyledOptionIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$g,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledOptionIcon",
   componentId: "sc-qsab3y-0"
-})(["flex-shrink:0;", ";", ";", ";"], sizeStyles, colorStyles, componentStyles);
+})(["flex-shrink:0;", ";", ";", ";"], sizeStyles$3, colorStyles$5, componentStyles);
 
 export { StyledOptionIcon };

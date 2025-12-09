@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { StyledBaseNavItem } from './StyledBaseNavItem.js';
 
-const COMPONENT_ID = 'chrome.brandmark_nav_list_item';
+const COMPONENT_ID$c = 'chrome.brandmark_nav_list_item';
 const StyledBrandmarkNavItem = styled(StyledBaseNavItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$c,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledBrandmarkNavItem",

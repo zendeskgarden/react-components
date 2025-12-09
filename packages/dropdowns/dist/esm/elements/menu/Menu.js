@@ -17,25 +17,24 @@ import { toItems } from './utils.js';
 import { MenuList } from './MenuList.js';
 import SvgChevronDownStroke from '../../node_modules/@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg.js';
 
-const Menu = forwardRef((_ref2, ref) => {
-  let {
-    button,
-    buttonProps: _buttonProps = {},
-    children,
-    isCompact,
-    focusedValue: _focusedValue,
-    defaultFocusedValue,
-    defaultExpanded,
-    isExpanded: _isExpanded,
-    restoreFocus,
-    selectedItems,
-    onChange,
-    onMouseLeave,
-    maxHeight = '400px',
-    placement = 'bottom-start',
-    zIndex = 1000,
-    ...props
-  } = _ref2;
+const Menu = forwardRef(({
+  button,
+  buttonProps: _buttonProps = {},
+  children,
+  isCompact,
+  focusedValue: _focusedValue,
+  defaultFocusedValue,
+  defaultExpanded,
+  isExpanded: _isExpanded,
+  restoreFocus,
+  selectedItems,
+  onChange,
+  onMouseLeave,
+  maxHeight = '400px',
+  placement = 'bottom-start',
+  zIndex = 1000,
+  ...props
+}, ref) => {
   const triggerRef = useRef(null);
   const menuRef = useRef(null);
   const items = toItems(children);

@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getLineHeight, getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.sheet_description';
+const COMPONENT_ID$5 = 'chrome.sheet_description';
 const StyledSheetDescription = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledSheetDescription",

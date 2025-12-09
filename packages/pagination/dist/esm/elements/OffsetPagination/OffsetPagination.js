@@ -24,17 +24,16 @@ import { Gap } from './components/Gap.js';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
-const OffsetPagination = forwardRef((_ref, ref) => {
-  let {
-    currentPage: controlledCurrentPage,
-    totalPages,
-    pagePadding = 2,
-    pageGap = 2,
-    onChange,
-    'aria-label': ariaLabel,
-    labels,
-    ...otherProps
-  } = _ref;
+const OffsetPagination = forwardRef(({
+  currentPage: controlledCurrentPage,
+  totalPages,
+  pagePadding = 2,
+  pageGap = 2,
+  onChange,
+  'aria-label': ariaLabel,
+  labels,
+  ...otherProps
+}, ref) => {
   const [focusedItem, setFocusedItem] = useState();
   const [internalCurrentPage, setInternalCurrentPage] = useState(1);
   const navigationLabel = useText(OffsetPagination, {

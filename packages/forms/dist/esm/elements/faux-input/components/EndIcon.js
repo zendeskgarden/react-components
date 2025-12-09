@@ -50,22 +50,19 @@ import '../../../styled/tiles/StyledTileIcon.js';
 import '../../../styled/tiles/StyledTileInput.js';
 import '../../../styled/tiles/StyledTileLabel.js';
 
-const EndIconComponent = _ref => {
-  let {
-    isDisabled,
-    isFocused,
-    isHovered,
-    isRotated,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledTextMediaFigure, Object.assign({
-    $position: "end",
-    $isDisabled: isDisabled,
-    $isFocused: isFocused,
-    $isHovered: isHovered,
-    $isRotated: isRotated
-  }, props));
-};
+const EndIconComponent = ({
+  isDisabled,
+  isFocused,
+  isHovered,
+  isRotated,
+  ...props
+}) => React__default.createElement(StyledTextMediaFigure, Object.assign({
+  $position: "end",
+  $isDisabled: isDisabled,
+  $isFocused: isFocused,
+  $isHovered: isHovered,
+  $isRotated: isRotated
+}, props));
 EndIconComponent.displayName = 'FauxInput.EndIcon';
 const EndIcon = EndIconComponent;
 

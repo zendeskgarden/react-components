@@ -5,10 +5,10 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import styled, { css } from 'styled-components';
-import { componentStyles, getColor, focusStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { StyledGrip } from './StyledGrip.js';
 
-const COMPONENT_ID = 'draggable';
+const COMPONENT_ID$7 = 'draggable';
 function getDragShadow(theme) {
   const {
     space,
@@ -22,7 +22,7 @@ function getDragShadow(theme) {
   });
   return shadows.lg(offsetY, blurRadius, color);
 }
-const colorStyles = props => {
+const colorStyles$2 = props => {
   const {
     $isBare,
     $isGrabbed,
@@ -85,7 +85,7 @@ const colorStyles = props => {
     boxShadow: $isGrabbed ? dragShadow : undefined
   }), StyledGrip, $isDisabled && disabledColor);
 };
-const sizeStyles = props => {
+const sizeStyles$5 = props => {
   const {
     $isCompact,
     theme
@@ -102,11 +102,11 @@ const getCursor = props => {
   return cursor;
 };
 const StyledDraggable = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDraggable",
   componentId: "sc-3lxpf1-0"
-})(["display:flex;flex:1;align-items:center;transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;cursor:", ";font-family:", ";direction:", ";box-sizing:border-box;", " ", " > *{visibility:", ";}", ";"], getCursor, props => props.theme.fonts.system, props => props.theme.rtl && 'rtl', sizeStyles, colorStyles, p => p.$isPlaceholder && !p.$isDisabled && 'hidden', componentStyles);
+})(["display:flex;flex:1;align-items:center;transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;cursor:", ";font-family:", ";direction:", ";box-sizing:border-box;", " ", " > *{visibility:", ";}", ";"], getCursor, props => props.theme.fonts.system, props => props.theme.rtl && 'rtl', sizeStyles$5, colorStyles$2, p => p.$isPlaceholder && !p.$isDisabled && 'hidden', componentStyles);
 
 export { StyledDraggable, getDragShadow };

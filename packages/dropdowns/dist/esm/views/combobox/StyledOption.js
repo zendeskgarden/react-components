@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { hideVisually, math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.combobox.option';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isActive,
-    $type
-  } = _ref;
+const COMPONENT_ID$l = 'dropdowns.combobox.option';
+const colorStyles$7 = ({
+  theme,
+  $isActive,
+  $type
+}) => {
   let backgroundColor;
   let boxShadow;
   if ($isActive && $type !== 'group' && $type !== 'header') {
@@ -48,7 +47,7 @@ const colorStyles = _ref => {
   return css(["box-shadow:", ";background-color:", ";color:", ";&[aria-disabled='true']{background-color:transparent;color:", ";}"], boxShadow, backgroundColor, foregroundColor, disabledForegroundColor);
 };
 const getMinHeight = props => props.theme.space.base * (props.$isCompact ? 7 : 9);
-const sizeStyles = props => {
+const sizeStyles$6 = props => {
   const lineHeight = props.theme.lineHeights.md;
   const minHeight = getMinHeight(props);
   const paddingHorizontal = props.$type === 'group' ? 0 : `${props.theme.space.base * 9}px`;
@@ -56,11 +55,11 @@ const sizeStyles = props => {
   return css(["box-sizing:border-box;padding:", " ", ";min-height:", "px;line-height:", ";"], paddingVertical, paddingHorizontal, minHeight, lineHeight);
 };
 const StyledOption = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$l,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledOption",
   componentId: "sc-jl4wn6-0"
-})(["display:flex;position:relative;transition:color 0.25s ease-in-out;cursor:", ";overflow-wrap:anywhere;font-weight:", ";user-select:none;&:focus{outline:none;}", ";", ";&[aria-disabled='true']{cursor:default;}&[aria-hidden='true']{", ";}", ";"], props => props.$type === 'group' || props.$type === 'header' ? 'default' : 'pointer', props => props.$type === 'header' || props.$type === 'previous' ? props.theme.fontWeights.semibold : props.theme.fontWeights.regular, sizeStyles, colorStyles, hideVisually(), componentStyles);
+})(["display:flex;position:relative;transition:color 0.25s ease-in-out;cursor:", ";overflow-wrap:anywhere;font-weight:", ";user-select:none;&:focus{outline:none;}", ";", ";&[aria-disabled='true']{cursor:default;}&[aria-hidden='true']{", ";}", ";"], props => props.$type === 'group' || props.$type === 'header' ? 'default' : 'pointer', props => props.$type === 'header' || props.$type === 'previous' ? props.theme.fontWeights.semibold : props.theme.fontWeights.regular, sizeStyles$6, colorStyles$7, hideVisually(), componentStyles);
 
 export { StyledOption, getMinHeight };

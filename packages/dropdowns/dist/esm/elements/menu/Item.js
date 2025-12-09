@@ -63,23 +63,22 @@ const renderActionIcon = itemType => {
       return React__default.createElement(SvgCheckLgStroke, null);
   }
 };
-const ItemComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    value,
-    label = value,
-    href,
-    isSelected,
-    icon,
-    isDisabled,
-    isExternal,
-    type,
-    name,
-    onClick,
-    onKeyDown,
-    onMouseEnter,
-    ...other
-  } = _ref;
+const ItemComponent = forwardRef(({
+  children,
+  value,
+  label = value,
+  href,
+  isSelected,
+  icon,
+  isDisabled,
+  isExternal,
+  type,
+  name,
+  onClick,
+  onKeyDown,
+  onMouseEnter,
+  ...other
+}, ref) => {
   const {
     type: selectionType
   } = useItemGroupContext();

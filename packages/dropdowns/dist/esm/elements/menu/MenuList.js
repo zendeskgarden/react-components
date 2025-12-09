@@ -8,7 +8,7 @@ import React__default, { forwardRef, useRef, useState, useContext, useEffect } f
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME, getFloatingPlacements, getMenuPosition, getArrowPosition } from '@zendeskgarden/react-theming';
-import { useFloating, platform, offset, autoPlacement, flip, size, autoUpdate } from '@floating-ui/react-dom';
+import { useFloating, offset, autoPlacement, flip, size, platform, autoUpdate } from '@floating-ui/react-dom';
 import { PLACEMENT } from '../../types/index.js';
 import '../../views/combobox/StyledCombobox.js';
 import '../../views/combobox/StyledContainer.js';
@@ -46,21 +46,20 @@ import '../../views/menu/StyledSeparator.js';
 import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
-const MenuList = forwardRef((_ref, ref) => {
-  let {
-    appendToNode,
-    hasArrow,
-    isCompact,
-    isExpanded,
-    fallbackPlacements: _fallbackPlacements,
-    maxHeight = '400px',
-    minHeight,
-    placement: _placement = PLACEMENT_DEFAULT,
-    triggerRef,
-    zIndex = 1000,
-    children,
-    ...props
-  } = _ref;
+const MenuList = forwardRef(({
+  appendToNode,
+  hasArrow,
+  isCompact,
+  isExpanded,
+  fallbackPlacements: _fallbackPlacements,
+  maxHeight = '400px',
+  minHeight,
+  placement: _placement = PLACEMENT_DEFAULT,
+  triggerRef,
+  zIndex = 1000,
+  children,
+  ...props
+}, ref) => {
   const floatingRef = useRef(null);
   const [isVisible, setIsVisible] = useState(isExpanded);
   const [height, setHeight] = useState();
@@ -86,11 +85,10 @@ const MenuList = forwardRef((_ref, ref) => {
     middleware: [offset(theme.space.base * (hasArrow ? 2 : 1)), _placement === 'auto' ? autoPlacement() : flip({
       fallbackPlacements
     }), size({
-      apply: _ref2 => {
-        let {
-          rects,
-          availableHeight
-        } = _ref2;
+      apply: ({
+        rects,
+        availableHeight
+      }) => {
         if (!(minHeight === null || minHeight === 'fit-content')) {
           if (rects.floating.height > availableHeight) {
             setHeight(availableHeight);

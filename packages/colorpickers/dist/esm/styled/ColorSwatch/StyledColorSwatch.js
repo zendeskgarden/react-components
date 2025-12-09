@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.color_swatch';
+const COMPONENT_ID$4 = 'colorpickers.color_swatch';
 const StyledColorSwatch = styled.table.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledColorSwatch",

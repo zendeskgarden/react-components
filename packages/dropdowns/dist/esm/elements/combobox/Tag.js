@@ -45,14 +45,13 @@ import '../../views/menu/StyledItemTypeIcon.js';
 import '../../views/menu/StyledSeparator.js';
 import { TagAvatar } from './TagAvatar.js';
 
-const TagComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    option,
-    removeLabel,
-    tooltipZIndex,
-    ...props
-  } = _ref;
+const TagComponent = forwardRef(({
+  children,
+  option,
+  removeLabel,
+  tooltipZIndex,
+  ...props
+}, ref) => {
   const {
     getTagProps,
     isCompact,

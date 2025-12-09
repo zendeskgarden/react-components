@@ -43,16 +43,15 @@ import '../../views/menu/StyledItemMeta.js';
 import '../../views/menu/StyledItemTypeIcon.js';
 import '../../views/menu/StyledSeparator.js';
 
-const OptGroup = forwardRef((_ref, ref) => {
-  let {
-    children,
-    content,
-    icon,
-    legend,
-    'aria-label': ariaLabel,
-    onMouseDown,
-    ...props
-  } = _ref;
+const OptGroup = forwardRef(({
+  children,
+  content,
+  icon,
+  legend,
+  'aria-label': ariaLabel,
+  onMouseDown,
+  ...props
+}, ref) => {
   const {
     getOptGroupProps,
     isCompact

@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tooltip.paragraph';
+const COMPONENT_ID$2 = 'tooltip.paragraph';
 const StyledParagraph = styled.p.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledParagraph",

@@ -108,11 +108,10 @@ const StyledMessageIcon = styled__default.default(reactTheming.StyledBaseIcon).a
 })(["width:", ";height:", ";", ";"], props => props.theme.iconSizes.md, props => props.theme.iconSizes.md, reactTheming.componentStyles);
 
 const COMPONENT_ID$A = 'forms.input_message';
-const colorStyles$d = _ref => {
-  let {
-    theme,
-    $validation
-  } = _ref;
+const colorStyles$d = ({
+  theme,
+  $validation
+}) => {
   let variable;
   if ($validation === 'error') {
     variable = 'foreground.danger';
@@ -129,11 +128,10 @@ const colorStyles$d = _ref => {
   });
   return styled.css(["color:", ";"], foregroundColor);
 };
-const sizeStyles$g = _ref2 => {
-  let {
-    theme,
-    $validation
-  } = _ref2;
+const sizeStyles$g = ({
+  theme,
+  $validation
+}) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = reactTheming.getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
@@ -152,14 +150,13 @@ const COMPONENT_ID$z = 'forms.input';
 const isInvalid = validation => {
   return validation === 'warning' || validation === 'error';
 };
-const colorStyles$c = _ref => {
-  let {
-    theme,
-    $isBare,
-    $isHovered,
-    $focusInset,
-    $validation
-  } = _ref;
+const colorStyles$c = ({
+  theme,
+  $isBare,
+  $isHovered,
+  $focusInset,
+  $validation
+}) => {
   const foregroundColor = reactTheming.getColor({
     theme,
     variable: 'foreground.default'
@@ -241,12 +238,11 @@ const colorStyles$c = _ref => {
     theme
   }), disabledBorderColor, disabledBackgroundColor, disabledForegroundColor);
 };
-const sizeStyles$f = _ref2 => {
-  let {
-    theme,
-    $isBare,
-    $isCompact
-  } = _ref2;
+const sizeStyles$f = ({
+  theme,
+  $isBare,
+  $isCompact
+}) => {
   const fontSize = theme.fontSizes.md;
   const paddingHorizontal = `${theme.space.base * 3}px`;
   let height;
@@ -301,13 +297,12 @@ const StyledTextarea = styled__default.default(StyledTextInput).attrs({
 })(["resize:", ";overflow:auto;", ";", ";"], props => props.$isResizable ? 'vertical' : 'none', props => props.$isHidden && hiddenStyles, reactTheming.componentStyles);
 
 const COMPONENT_ID$x = 'forms.media_figure';
-const colorStyles$b = _ref => {
-  let {
-    theme,
-    $isDisabled,
-    $isHovered,
-    $isFocused
-  } = _ref;
+const colorStyles$b = ({
+  theme,
+  $isDisabled,
+  $isHovered,
+  $isFocused
+}) => {
   let color;
   if ($isDisabled) {
     color = reactTheming.getColor({
@@ -356,14 +351,13 @@ const StyledTextMediaFigure = styled__default.default(reactTheming.StyledBaseIco
 })(["transform:", ";transition:transform 0.25s ease-in-out,color 0.25s ease-in-out;", ";", " ", ";"], props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`, sizeStyles$e, colorStyles$b, reactTheming.componentStyles);
 
 const COMPONENT_ID$w = 'forms.faux_input';
-const colorStyles$a = _ref => {
-  let {
-    theme,
-    $validation,
-    $focusInset,
-    $isBare,
-    $isFocused
-  } = _ref;
+const colorStyles$a = ({
+  theme,
+  $validation,
+  $focusInset,
+  $isBare,
+  $isFocused
+}) => {
   let borderVariable;
   let focusBorderColor;
   if ($validation) {
@@ -481,10 +475,9 @@ const StyledCheckHint = styled__default.default(StyledRadioHint).attrs({
 })(["", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$p = 'forms.radio';
-const colorStyles$9 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$9 = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     variable: 'border.emphasis'
@@ -563,11 +556,10 @@ const colorStyles$9 = _ref => {
     selector: `&:focus-visible ~ ${StyledRadioLabel}::before`
   }), StyledRadioLabel, activeBorderColor, activeBackgroundColor, StyledRadioLabel, checkedBorderColor, checkedBackgroundColor, StyledRadioLabel, checkedHoverBorderColor, checkedHoverBackgroundColor, StyledRadioLabel, checkedActiveBorderColor, checkedActiveBackgroundColor, StyledRadioLabel, disabledBackgroundColor);
 };
-const sizeStyles$c = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$c = ({
+  theme,
+  $isCompact
+}) => {
   const lineHeight = `${theme.space.base * 5}px`;
   const size = `${theme.space.base * 4}px`;
   const top = polished.math(`(${lineHeight} - ${size}) / 2`);
@@ -587,10 +579,9 @@ const StyledRadioInput = styled__default.default.input.attrs({
 })(["position:absolute;opacity:0;margin:0;& ~ ", "::before{position:absolute;", ":0;transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;border-radius:50%;background-repeat:no-repeat;background-position:center;content:'';}& ~ ", " > svg{position:absolute;}", ";&:focus ~ ", "::before{outline:none;}& ~ ", ":active::before{transition:border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;}", ";&:disabled ~ ", "{cursor:default;}", ";"], StyledRadioLabel, props => props.theme.rtl ? 'right' : 'left', StyledRadioLabel, sizeStyles$c, StyledRadioLabel, StyledRadioLabel, colorStyles$9, StyledRadioLabel, reactTheming.componentStyles);
 
 const COMPONENT_ID$o = 'forms.checkbox';
-const colorStyles$8 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$8 = ({
+  theme
+}) => {
   const backgroundOptions = {
     theme,
     variable: 'background.primaryEmphasis'
@@ -724,11 +715,10 @@ const StyledDashSvg = styled__default.default(SvgDashFill).attrs({
 })(["transition:opacity 0.25s ease-in-out;opacity:0;pointer-events:none;", ":indeterminate ~ ", " > &{opacity:1;}", ";"], StyledCheckInput, StyledCheckLabel, reactTheming.componentStyles);
 
 const COMPONENT_ID$j = 'forms.file_upload';
-const colorStyles$7 = _ref => {
-  let {
-    theme,
-    $isDragging
-  } = _ref;
+const colorStyles$7 = ({
+  theme,
+  $isDragging
+}) => {
   const borderOptions = {
     theme,
     variable: 'border.primaryEmphasis'
@@ -802,11 +792,10 @@ const colorStyles$7 = _ref => {
     theme
   }), activeBorderColor, activeBackgroundColor, activeForegroundColor, disabledBorderColor, disabledBackgroundColor, disabledForegroundColor);
 };
-const sizeStyles$b = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$b = ({
+  theme,
+  $isCompact
+}) => {
   const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
   const paddingHorizontal = `${$isCompact ? 2 : 4}em`;
   const paddingVertical = polished.math(`${theme.space.base * ($isCompact ? 2.5 : 5)} - ${theme.borderWidths.sm}`);
@@ -835,12 +824,11 @@ const StyledFileClose = styled__default.default.button.attrs({
 }), reactTheming.componentStyles);
 
 const COMPONENT_ID$h = 'forms.file';
-const colorStyles$6 = _ref => {
-  let {
-    theme,
-    $focusInset,
-    $validation
-  } = _ref;
+const colorStyles$6 = ({
+  theme,
+  $focusInset,
+  $validation
+}) => {
   let borderVariable;
   let focusBorderVariable;
   let foregroundVariable;
@@ -880,11 +868,10 @@ const colorStyles$6 = _ref => {
     }
   }));
 };
-const sizeStyles$a = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$a = ({
+  theme,
+  $isCompact
+}) => {
   const size = `${theme.space.base * ($isCompact ? 7 : 10)}px`;
   const spacing = `${theme.space.base * ($isCompact ? 2 : 3)}px`;
   const fontSize = theme.fontSizes.md;
@@ -930,22 +917,20 @@ const StyledFileDelete = styled__default.default(StyledFileClose).attrs({
 }), reactTheming.componentStyles);
 
 const COMPONENT_ID$f = 'forms.file.icon';
-const colorStyles$5 = _ref => {
-  let {
-    theme,
-    $validation
-  } = _ref;
+const colorStyles$5 = ({
+  theme,
+  $validation
+}) => {
   const color = $validation ? undefined : reactTheming.getColor({
     theme,
     variable: 'foreground.subtle'
   });
   return styled.css(["color:", ";"], color);
 };
-const sizeStyles$9 = _ref2 => {
-  let {
-    $isCompact,
-    theme
-  } = _ref2;
+const sizeStyles$9 = ({
+  $isCompact,
+  theme
+}) => {
   const width = $isCompact ? theme.iconSizes.sm : theme.iconSizes.md;
   const margin = `${theme.space.base * 2}px`;
   return styled.css(["width:", ";margin-", ":", ";"], width, theme.rtl ? 'left' : 'right', margin);
@@ -1027,10 +1012,9 @@ const StyledToggleHint = styled__default.default(StyledHint).attrs({
 })(["padding-", ":", ";", ";"], props => props.theme.rtl ? 'right' : 'left', props => polished.math(`${props.theme.space.base} * 12px`), reactTheming.componentStyles);
 
 const COMPONENT_ID$9 = 'forms.toggle';
-const colorStyles$4 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$4 = ({
+  theme
+}) => {
   const backgroundOptions = {
     theme,
     variable: 'background.emphasis'
@@ -1056,10 +1040,9 @@ const colorStyles$4 = _ref => {
   });
   return styled.css(["& ~ ", "::before{background-color:", ";}&:enabled ~ ", ":hover::before{background-color:", ";}&:enabled ~ ", ":active::before{background-color:", ";}"], StyledToggleLabel, backgroundColor, StyledToggleLabel, hoverBackgroundColor, StyledToggleLabel, activeBackgroundColor);
 };
-const sizeStyles$7 = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$7 = ({
+  theme
+}) => {
   const height = `${theme.space.base * 5}px`;
   const width = `${theme.space.base * 10}px`;
   const iconSize = theme.iconSizes.md;
@@ -1112,10 +1095,9 @@ const StyledToggleSvg = styled__default.default(SvgCircleSmFill).attrs({
 })(["transition:all 0.15s ease-in-out;", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$6 = 'forms.select';
-const colorStyles$3 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$3 = ({
+  theme
+}) => {
   const color = reactTheming.getColor({
     theme,
     variable: 'foreground.subtle',
@@ -1132,12 +1114,11 @@ const colorStyles$3 = _ref => {
   });
   return styled.css(["&:hover + ", ",&:focus + ", ",&:focus-visible + ", "{color:", ";}&:disabled + ", "{color:", ";}"], StyledTextMediaFigure, StyledTextMediaFigure, StyledTextMediaFigure, color, StyledTextMediaFigure, disabledColor);
 };
-const sizeStyles$6 = _ref2 => {
-  let {
-    theme,
-    $isBare,
-    $isCompact
-  } = _ref2;
+const sizeStyles$6 = ({
+  theme,
+  $isBare,
+  $isCompact
+}) => {
   const padding = $isBare ? undefined : polished.math(`${theme.iconSizes.md} + ${theme.space.base * 5}`);
   const iconVerticalPosition = `${theme.space.base * ($isCompact ? 1.5 : 2.5) + 1}px`;
   const iconHorizontalPosition = `${theme.space.base * 3}px`;
@@ -1156,11 +1137,10 @@ const StyledSelect = styled__default.default(StyledTextInput).attrs({
 }), StyledTextMediaFigure);
 
 const COMPONENT_ID$5 = 'forms.select_wrapper';
-const sizeStyles$5 = _ref => {
-  let {
-    theme,
-    $isCompact
-  } = _ref;
+const sizeStyles$5 = ({
+  theme,
+  $isCompact
+}) => {
   const height = `${theme.space.base * ($isCompact ? 8 : 10)}px`;
   return styled.css(["max-height:", ";"], height);
 };
@@ -1173,8 +1153,7 @@ const StyledSelectWrapper = styled__default.default(StyledTextFauxInput).attrs({
 })(["position:relative;padding:0;overflow:visible;", ";& > ", "{border-color:transparent;background-color:transparent;", "{box-shadow:unset;}}"], sizeStyles$5, StyledSelect, reactTheming.SELECTOR_FOCUS_VISIBLE);
 
 const COMPONENT_ID$4 = 'forms.range';
-const thumbStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const thumbStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-thumb {
       ${styles}
@@ -1189,8 +1168,7 @@ const thumbStyles = function (styles) {
     }
   `;
 };
-const trackStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-track {
       ${styles}
@@ -1205,8 +1183,7 @@ const trackStyles = function (styles) {
     }
   `;
 };
-const trackLowerStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackLowerStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-progress {
       ${styles}
@@ -1217,11 +1194,10 @@ const trackLowerStyles = function (styles) {
     }
   `;
 };
-const colorStyles$2 = _ref => {
-  let {
-    theme,
-    $hasLowerTrack = true
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $hasLowerTrack = true
+}) => {
   const options = {
     theme,
     variable: 'background.primaryEmphasis'
@@ -1313,10 +1289,9 @@ const colorStyles$2 = _ref => {
         background-color: ${trackDisabledLowerBackgroundColor};
       `, ':disabled'));
 };
-const sizeStyles$4 = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$4 = ({
+  theme
+}) => {
   const thumbSize = `${theme.space.base * 5}px`;
   const trackHeight = `${theme.space.base * 1.5}px`;
   const trackBorderRadius = trackHeight;
@@ -1364,10 +1339,9 @@ const StyledRangeInput = styled__default.default.input.attrs(props => ({
     `), colorStyles$2, reactTheming.componentStyles);
 
 const COMPONENT_ID$3 = 'forms.tile';
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   const offset100 = {
     dark: {
       offset: -100
@@ -1448,10 +1422,9 @@ const colorStyles$1 = _ref => {
     }
   }), activeBorderColor, activeBackgroundColor, checkedBackgroundColor, checkedForegroundColor, checkedHoverBackgroundColor, checkedActiveBackgroundColor, disabledBorderColor, disabledBackgroundColor, disabledForegroundColor);
 };
-const sizeStyles$3 = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$3 = ({
+  theme
+}) => {
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
   return styled.css(["border:", ";padding:", ";min-width:132px;"], border, padding);
@@ -1465,11 +1438,10 @@ const StyledTile = styled__default.default.label.attrs({
 })(["display:block;position:relative;transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;border-radius:", ";direction:", ";word-break:break-word;", ";", ";", ";"], props => props.theme.borderRadii.md, props => props.theme.rtl && 'rtl', sizeStyles$3, colorStyles$1, reactTheming.componentStyles);
 
 const COMPONENT_ID$2 = 'forms.tile_description';
-const sizeStyles$2 = _ref => {
-  let {
-    theme,
-    $isCentered
-  } = _ref;
+const sizeStyles$2 = ({
+  theme,
+  $isCentered
+}) => {
   const marginTop = `${theme.space.base}px`;
   const marginHorizontal = $isCentered ? undefined : polished.math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
   const fontSize = theme.fontSizes.sm;
@@ -1485,10 +1457,9 @@ const StyledTileDescription = styled__default.default.span.attrs({
 })(["display:block;text-align:", ";", ";", ";"], props => props.$isCentered && 'center', sizeStyles$2, reactTheming.componentStyles);
 
 const COMPONENT_ID$1 = 'forms.tile_icon';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'
@@ -1522,11 +1493,10 @@ const colorStyles = _ref => {
   });
   return styled.css(["color:", ";", ":hover &&{color:", ";}", ":active &&{color:", ";}", ":has(:checked) &&{color:", ";}", "[aria-disabled='true'] &&{color:", ";}"], color, StyledTile, hoverColor, StyledTile, activeColor, StyledTile, checkedColor, StyledTile, disabledColor);
 };
-const sizeStyles$1 = _ref2 => {
-  let {
-    theme,
-    $isCentered
-  } = _ref2;
+const sizeStyles$1 = ({
+  theme,
+  $isCentered
+}) => {
   const iconSize = polished.math(`${theme.iconSizes.md} * 2`);
   let position;
   let top;
@@ -1552,11 +1522,10 @@ const StyledTileInput = styled__default.default.input.withConfig({
 })(["position:absolute;top:0;left:0;opacity:0;z-index:1;margin:0;cursor:", ";width:100%;height:100%;"], props => props.disabled ? 'default' : 'pointer');
 
 const COMPONENT_ID = 'forms.tile_label';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $isCentered
-  } = _ref;
+const sizeStyles = ({
+  theme,
+  $isCentered
+}) => {
   const marginTop = $isCentered ? `${theme.space.base * 2}px` : 0;
   const marginHorizontal = $isCentered ? undefined : polished.math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
   const fontSize = theme.fontSizes.md;
@@ -1692,33 +1661,30 @@ var SvgCheckCircleStroke$1 = function SvgCheckCircleStroke(props) {
   }))));
 };
 
-const MessageIcon = _ref => {
-  let {
-    validation,
-    children,
-    ...props
-  } = _ref;
-  return  React__namespace.default.createElement(StyledMessageIcon, Object.assign({
-    "aria-hidden": false,
-    role: "img"
-  }, props), validation ? {
-    error: React__namespace.default.createElement(SvgAlertErrorStroke, null),
-    success: React__namespace.default.createElement(SvgCheckCircleStroke$1, null),
-    warning: React__namespace.default.createElement(SvgAlertWarningStroke, null)
-  }[validation] : children);
-};
+const MessageIcon = ({
+  validation,
+  children,
+  ...props
+}) =>
+React__namespace.default.createElement(StyledMessageIcon, Object.assign({
+  "aria-hidden": false,
+  role: "img"
+}, props), validation ? {
+  error: React__namespace.default.createElement(SvgAlertErrorStroke, null),
+  success: React__namespace.default.createElement(SvgCheckCircleStroke$1, null),
+  warning: React__namespace.default.createElement(SvgAlertWarningStroke, null)
+}[validation] : children);
 MessageIcon.displayName = 'Field.MessageIcon';
 MessageIcon.propTypes = {
   validation: PropTypes__default.default.oneOf(VALIDATION)
 };
 
-const Message = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    validation,
-    validationLabel,
-    children,
-    ...other
-  } = _ref;
+const Message = React__namespace.default.forwardRef(({
+  validation,
+  validationLabel,
+  children,
+  ...other
+}, ref) => {
   const {
     hasMessage,
     setHasMessage,
@@ -1773,12 +1739,11 @@ const useFieldsetContext = () => {
   return fieldsetContext;
 };
 
-const Label$1 = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isRegular,
-    ...other
-  } = _ref;
+const Label$1 = React__namespace.default.forwardRef(({
+  children,
+  isRegular,
+  ...other
+}, ref) => {
   const fieldContext = useFieldContext();
   const fieldsetContext = useFieldsetContext();
   const type = useInputContext();
@@ -1898,11 +1863,10 @@ const LegendComponent = React.forwardRef((props, ref) => {
 LegendComponent.displayName = 'Fieldset.Legend';
 const Legend = LegendComponent;
 
-const FieldsetComponent = React.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    ...other
-  } = _ref;
+const FieldsetComponent = React.forwardRef(({
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = React.useMemo(() => ({
     isCompact
   }), [isCompact]);
@@ -1920,13 +1884,12 @@ FieldsetComponent.propTypes = {
 const Fieldset = FieldsetComponent;
 Fieldset.Legend = Legend;
 
-const Checkbox = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    indeterminate,
-    children,
-    isCompact,
-    ...other
-  } = _ref;
+const Checkbox = React__namespace.default.forwardRef(({
+  indeterminate,
+  children,
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = useFieldsetContext();
   const fieldContext = useFieldContext();
   const inputRef = inputElement => {
@@ -1966,15 +1929,14 @@ const useInputGroupContext = () => {
   return React.useContext(InputGroupContext);
 };
 
-const Input = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    onSelect,
-    isBare,
-    isCompact,
-    focusInset,
-    validation,
-    ...other
-  } = _ref;
+const Input = React__namespace.default.forwardRef(({
+  onSelect,
+  isBare,
+  isCompact,
+  focusInset,
+  validation,
+  ...other
+}, ref) => {
   const fieldContext = useFieldContext();
   const inputGroupContext = useInputGroupContext();
   let combinedProps = other;
@@ -2002,12 +1964,11 @@ Input.propTypes = {
 };
 Input.displayName = 'Input';
 
-const Radio = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isCompact,
-    ...other
-  } = _ref;
+const Radio = React__namespace.default.forwardRef(({
+  children,
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = useFieldsetContext();
   const fieldContext = useFieldContext();
   let combinedProps = {
@@ -2027,14 +1988,13 @@ Radio.propTypes = {
   isCompact: PropTypes__default.default.bool
 };
 
-const Range = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    hasLowerTrack = true,
-    min = 0,
-    max = 100,
-    step = 1,
-    ...other
-  } = _ref;
+const Range = React__namespace.default.forwardRef(({
+  hasLowerTrack = true,
+  min = 0,
+  max = 100,
+  step = 1,
+  ...other
+}, ref) => {
   const [backgroundSize, setBackgroundSize] = React.useState('0');
   const rangeRef = React.useRef();
   const fieldContext = useFieldContext();
@@ -2076,20 +2036,19 @@ Range.displayName = 'Range';
 const parseStyleValue = value => {
   return parseInt(value, 10) || 0;
 };
-const Textarea = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    isBare,
-    focusInset,
-    isResizable,
-    minRows,
-    maxRows,
-    style,
-    validation,
-    onChange,
-    onSelect,
-    ...other
-  } = _ref;
+const Textarea = React__namespace.default.forwardRef(({
+  isCompact,
+  isBare,
+  focusInset,
+  isResizable,
+  minRows,
+  maxRows,
+  style,
+  validation,
+  onChange,
+  onSelect,
+  ...other
+}, ref) => {
   const fieldContext = useFieldContext();
   const textAreaRef = React.useRef();
   const shadowTextAreaRef = React.useRef(null);
@@ -2195,12 +2154,11 @@ Textarea.propTypes = {
 };
 Textarea.displayName = 'Textarea';
 
-const Toggle = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isCompact,
-    ...other
-  } = _ref;
+const Toggle = React__namespace.default.forwardRef(({
+  children,
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = useFieldsetContext();
   const fieldContext = useFieldContext();
   let combinedProps = {
@@ -2237,59 +2195,52 @@ var SvgChevronDownStroke = function SvgChevronDownStroke(props) {
   })));
 };
 
-const StartIconComponent = _ref => {
-  let {
-    isDisabled,
-    isFocused,
-    isHovered,
-    isRotated,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledTextMediaFigure, Object.assign({
-    $position: "start",
-    $isDisabled: isDisabled,
-    $isFocused: isFocused,
-    $isHovered: isHovered,
-    $isRotated: isRotated
-  }, props));
-};
+const StartIconComponent = ({
+  isDisabled,
+  isFocused,
+  isHovered,
+  isRotated,
+  ...props
+}) => React__namespace.default.createElement(StyledTextMediaFigure, Object.assign({
+  $position: "start",
+  $isDisabled: isDisabled,
+  $isFocused: isFocused,
+  $isHovered: isHovered,
+  $isRotated: isRotated
+}, props));
 StartIconComponent.displayName = 'FauxInput.StartIcon';
 const StartIcon = StartIconComponent;
 
-const EndIconComponent = _ref => {
-  let {
-    isDisabled,
-    isFocused,
-    isHovered,
-    isRotated,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledTextMediaFigure, Object.assign({
-    $position: "end",
-    $isDisabled: isDisabled,
-    $isFocused: isFocused,
-    $isHovered: isHovered,
-    $isRotated: isRotated
-  }, props));
-};
+const EndIconComponent = ({
+  isDisabled,
+  isFocused,
+  isHovered,
+  isRotated,
+  ...props
+}) => React__namespace.default.createElement(StyledTextMediaFigure, Object.assign({
+  $position: "end",
+  $isDisabled: isDisabled,
+  $isFocused: isFocused,
+  $isHovered: isHovered,
+  $isRotated: isRotated
+}, props));
 EndIconComponent.displayName = 'FauxInput.EndIcon';
 const EndIcon = EndIconComponent;
 
-const FauxInputComponent = React.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    focusInset,
-    isBare,
-    isCompact,
-    isFocused: controlledIsFocused,
-    isHovered,
-    onBlur,
-    onFocus,
-    readOnly,
-    validation,
-    mediaLayout,
-    ...other
-  } = _ref;
+const FauxInputComponent = React.forwardRef(({
+  disabled,
+  focusInset,
+  isBare,
+  isCompact,
+  isFocused: controlledIsFocused,
+  isHovered,
+  onBlur,
+  onFocus,
+  readOnly,
+  validation,
+  mediaLayout,
+  ...other
+}, ref) => {
   const [isFocused, setIsFocused] = React.useState(false);
   const onFocusHandler = containerUtilities.composeEventHandlers(onFocus, () => {
     setIsFocused(true);
@@ -2329,15 +2280,14 @@ const FauxInput = FauxInputComponent;
 FauxInput.EndIcon = EndIcon;
 FauxInput.StartIcon = StartIcon;
 
-const Select = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    isCompact,
-    validation,
-    focusInset,
-    isBare,
-    ...props
-  } = _ref;
+const Select = React__namespace.default.forwardRef(({
+  disabled,
+  isCompact,
+  validation,
+  focusInset,
+  isBare,
+  ...props
+}, ref) => {
   const fieldContext = useFieldContext();
   let combinedProps = {
     $focusInset: focusInset,
@@ -2374,13 +2324,12 @@ const useTilesContext = () => {
   return React.useContext(TilesContext);
 };
 
-const TileComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    value,
-    disabled,
-    ...props
-  } = _ref;
+const TileComponent = React__namespace.default.forwardRef(({
+  children,
+  value,
+  disabled,
+  ...props
+}, ref) => {
   const tilesContext = useTilesContext();
   const inputRef = React.useRef(null);
   let inputProps;
@@ -2446,19 +2395,15 @@ const LabelComponent = React.forwardRef((props, forwardedRef) => {
 LabelComponent.displayName = 'Tiles.Label';
 const Label = LabelComponent;
 
-const TilesComponent = React.forwardRef((_ref, ref) => {
-  let {
-    onChange,
-    value: controlledValue,
-    name,
-    isCentered = true,
-    ...props
-  } = _ref;
+const TilesComponent = React.forwardRef(({
+  onChange,
+  value: controlledValue,
+  name,
+  isCentered = true,
+  ...props
+}, ref) => {
   const [value, setValue] = React.useState(controlledValue);
-  const handleOnChange = React.useCallback(function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+  const handleOnChange = React.useCallback((...args) => {
     setValue(args[0].target.value);
     if (onChange) {
       onChange(...args);
@@ -2491,11 +2436,10 @@ Tiles.Icon = Icon;
 Tiles.Label = Label;
 Tiles.Tile = Tile;
 
-const InputGroup = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    ...other
-  } = _ref;
+const InputGroup = React__namespace.default.forwardRef(({
+  isCompact,
+  ...other
+}, ref) => {
   const contextValue = React.useMemo(() => ({
     isCompact
   }), [isCompact]);
@@ -2511,13 +2455,12 @@ InputGroup.propTypes = {
   isCompact: PropTypes__default.default.bool
 };
 
-const FileUpload = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    isCompact,
-    isDragging,
-    ...other
-  } = _ref;
+const FileUpload = React__namespace.default.forwardRef(({
+  disabled,
+  isCompact,
+  isDragging,
+  ...other
+}, ref) => {
   return (
     React__namespace.default.createElement(StyledFileUpload, Object.assign({
       ref: ref,
@@ -2536,25 +2479,19 @@ FileUpload.propTypes = {
 };
 FileUpload.displayName = 'FileUpload';
 
-const ItemComponent = React.forwardRef((_ref, ref) => {
-  let {
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledFileListItem, Object.assign({}, props, {
-    ref: ref
-  }));
-});
+const ItemComponent = React.forwardRef(({
+  ...props
+}, ref) => React__namespace.default.createElement(StyledFileListItem, Object.assign({}, props, {
+  ref: ref
+})));
 ItemComponent.displayName = 'FileList.Item';
 const Item = ItemComponent;
 
-const FileListComponent = React.forwardRef((_ref, ref) => {
-  let {
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledFileList, Object.assign({}, props, {
-    ref: ref
-  }));
-});
+const FileListComponent = React.forwardRef(({
+  ...props
+}, ref) => React__namespace.default.createElement(StyledFileList, Object.assign({}, props, {
+  ref: ref
+})));
 FileListComponent.displayName = 'FileList';
 const FileList = FileListComponent;
 FileList.Item = Item;
@@ -3026,15 +2963,14 @@ const fileIconsCompact = {
   error: React__namespace.default.createElement(SvgFileErrorStroke$1, null)
 };
 
-const FileComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    type,
-    isCompact,
-    focusInset,
-    validation,
-    ...props
-  } = _ref;
+const FileComponent = React.forwardRef(({
+  children,
+  type,
+  isCompact,
+  focusInset,
+  validation,
+  ...props
+}, ref) => {
   const fileContextValue = React.useMemo(() => ({
     isCompact
   }), [isCompact]);
@@ -3062,21 +2998,20 @@ const File = FileComponent;
 File.Close = Close;
 File.Delete = Delete;
 
-const MediaInput = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    start,
-    end,
-    disabled,
-    isCompact,
-    isBare,
-    focusInset,
-    readOnly,
-    validation,
-    wrapperProps = {},
-    wrapperRef,
-    onSelect,
-    ...props
-  } = _ref;
+const MediaInput = React__namespace.default.forwardRef(({
+  start,
+  end,
+  disabled,
+  isCompact,
+  isBare,
+  focusInset,
+  readOnly,
+  validation,
+  wrapperProps = {},
+  wrapperRef,
+  onSelect,
+  ...props
+}, ref) => {
   const fieldContext = useFieldContext();
   const inputRef = React.useRef();
   const [isFocused, setIsFocused] = React.useState(false);

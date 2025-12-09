@@ -7,12 +7,12 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.table';
+const COMPONENT_ID$7 = 'tables.table';
 const getLineHeight = props => {
   return `${props.theme.space.base * 5}px`;
 };
 const StyledTable = styled.table.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTable",

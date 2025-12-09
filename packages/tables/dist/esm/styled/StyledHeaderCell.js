@@ -12,9 +12,9 @@ import { StyledSortableButton } from './StyledSortableButton.js';
 import { getLineHeight } from './StyledTable.js';
 import { getRowHeight } from './style-utils.js';
 
-const COMPONENT_ID = 'tables.header_cell';
+const COMPONENT_ID$4 = 'tables.header_cell';
 const truncatedStyling = css(["", "{max-width:100%;overflow:hidden;text-overflow:ellipsis;}"], StyledSortableButton);
-const sizeStyles = props => {
+const sizeStyles$2 = props => {
   let paddingVertical = undefined;
   if (!props.$hasOverflow) {
     paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
@@ -23,7 +23,7 @@ const sizeStyles = props => {
 };
 const StyledHeaderCell = styled(StyledCell).attrs({
   as: 'th',
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeaderCell",
@@ -36,6 +36,6 @@ const StyledHeaderCell = styled(StyledCell).attrs({
     return 'left';
   }
   return undefined;
-}, props => sizeStyles(props), props => props.$isTruncated && truncatedStyling, componentStyles);
+}, props => sizeStyles$2(props), props => props.$isTruncated && truncatedStyling, componentStyles);
 
 export { StyledHeaderCell };

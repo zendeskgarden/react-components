@@ -12,7 +12,7 @@ import SvgClockStroke from '../node_modules/@zendeskgarden/svg-icons/src/12/cloc
 import SvgClockStroke$1 from '../node_modules/@zendeskgarden/svg-icons/src/16/clock-stroke.svg.js';
 import SvgArrowLeftSmStroke from '../node_modules/@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg.js';
 import SvgArrowLeftSmStroke$1 from '../node_modules/@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg.js';
-import { SIZE, STATUS } from '../types/index.js';
+import { STATUS, SIZE } from '../types/index.js';
 import { StyledAvatar } from '../styled/StyledAvatar.js';
 import '../styled/StyledStandaloneStatus.js';
 import '../styled/StyledStandaloneStatusCaption.js';
@@ -21,20 +21,19 @@ import { StyledStatusIndicator } from '../styled/StyledStatusIndicator.js';
 import '../styled/StyledText.js';
 import { Text } from './components/Text.js';
 
-const AvatarComponent = forwardRef((_ref, ref) => {
-  let {
-    'aria-hidden': ariaHidden,
-    backgroundColor,
-    badge,
-    children,
-    foregroundColor,
-    isSystem,
-    size = 'medium',
-    status,
-    statusLabel,
-    surfaceColor,
-    ...other
-  } = _ref;
+const AvatarComponent = forwardRef(({
+  'aria-hidden': ariaHidden,
+  backgroundColor,
+  badge,
+  children,
+  foregroundColor,
+  isSystem,
+  size = 'medium',
+  status,
+  statusLabel,
+  surfaceColor,
+  ...other
+}, ref) => {
   const computedStatus = badge === undefined ? status : 'active';
   let ClockIcon = SvgClockStroke;
   let ArrowLeftIcon = SvgArrowLeftSmStroke;

@@ -9,12 +9,11 @@ import { parseToRgb, readableColor } from 'polished';
 import { focusStyles, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview.js';
 
-const COMPONENT_ID = 'colorpickers.color_swatch_label';
-const colorStyles = _ref => {
-  let {
-    $backgroundColor,
-    theme
-  } = _ref;
+const COMPONENT_ID$2 = 'colorpickers.color_swatch_label';
+const colorStyles = ({
+  $backgroundColor,
+  theme
+}) => {
   const {
     alpha
   } = parseToRgb($backgroundColor);
@@ -37,7 +36,7 @@ const colorStyles = _ref => {
 };
 const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
   as: 'label',
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledColorSwatchLabel",

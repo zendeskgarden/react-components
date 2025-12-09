@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'dropdowns.combobox.hint';
+const COMPONENT_ID$v = 'dropdowns.combobox.hint';
 const StyledHint = styled(Field.Hint).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$v,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHint",

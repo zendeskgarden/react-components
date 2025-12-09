@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.item_meta';
+const COMPONENT_ID$h = 'dropdowns.item_meta';
 const StyledItemMeta = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$h,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledItemMeta",

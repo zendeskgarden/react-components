@@ -39,13 +39,10 @@ import '../../styled/sheet/StyledSheetFooter.js';
 import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 
-const NavItemIcon = _ref => {
-  let {
-    children,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledNavItemIcon, props, children);
-};
+const NavItemIcon = ({
+  children,
+  ...props
+}) => React__default.createElement(StyledNavItemIcon, props, children);
 NavItemIcon.displayName = 'Nav.ItemIcon';
 
 export { NavItemIcon };

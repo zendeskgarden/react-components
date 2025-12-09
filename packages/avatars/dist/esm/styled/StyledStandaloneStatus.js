@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { TRANSITION_DURATION } from './utility.js';
 
-const COMPONENT_ID = 'avatars.status-indicator.status';
+const COMPONENT_ID$2 = 'avatars.status-indicator.status';
 const StyledStandaloneStatus = styled.figure.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledStandaloneStatus",

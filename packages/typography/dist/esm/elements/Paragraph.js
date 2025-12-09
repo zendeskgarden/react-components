@@ -21,16 +21,13 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import { StyledParagraph } from '../styled/StyledParagraph.js';
 
-const Paragraph = forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    ...props
-  } = _ref;
-  return React.createElement(StyledParagraph, Object.assign({
-    ref: ref,
-    size: size
-  }, props));
-});
+const Paragraph = forwardRef(({
+  size = 'medium',
+  ...props
+}, ref) => React.createElement(StyledParagraph, Object.assign({
+  ref: ref,
+  size: size
+}, props)));
 Paragraph.displayName = 'Paragraph';
 Paragraph.propTypes = {
   size: PropTypes.oneOf(SIZE)

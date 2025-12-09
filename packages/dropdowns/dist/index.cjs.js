@@ -154,10 +154,9 @@ const StyledFloatingListbox = styled__default.default.div.attrs({
 }), reactTheming.componentStyles);
 
 const COMPONENT_ID$p = 'dropdowns.combobox.input';
-const colorStyles$a = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$a = ({
+  theme
+}) => {
   const placeholderColor = reactTheming.getColor({
     theme,
     variable: 'foreground.disabled'
@@ -200,14 +199,13 @@ const StyledInputGroup = styled__default.default.div.attrs({
 })(["display:flex;flex-grow:1;flex-wrap:wrap;", ";", ";"], sizeStyles$9, reactTheming.componentStyles);
 
 const COMPONENT_ID$n = 'dropdowns.combobox.trigger';
-const colorStyles$9 = _ref => {
-  let {
-    theme,
-    $validation,
-    $isBare,
-    $isLabelHovered,
-    $focusInset
-  } = _ref;
+const colorStyles$9 = ({
+  theme,
+  $validation,
+  $isBare,
+  $isLabelHovered,
+  $focusInset
+}) => {
   const foregroundColor = reactTheming.getColor({
     theme,
     variable: 'foreground.default'
@@ -310,11 +308,10 @@ const StyledTrigger = styled__default.default.div.attrs({
 })(["overflow-y:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out;border:", ";border-radius:", ";cursor:", ";box-sizing:border-box;", ";&:focus{outline:none;}", ";&[aria-disabled='true']{cursor:default;}", ";"], props => props.$isBare && !props.$isMultiselectable ? 'visible' : 'auto', props => props.$isBare ? 'none' : props.theme.borders.sm, props => props.$isBare ? '0' : props.theme.borderRadii.md, props => !props.$isAutocomplete && props.$isEditable ? 'text' : 'pointer', sizeStyles$8, colorStyles$9, reactTheming.componentStyles);
 
 const COMPONENT_ID$m = 'dropdowns.combobox.input_icon';
-const colorStyles$8 = _ref => {
-  let {
-    theme,
-    $isLabelHovered
-  } = _ref;
+const colorStyles$8 = ({
+  theme,
+  $isLabelHovered
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'
@@ -356,12 +353,11 @@ const StyledInputIcon = styled__default.default(reactTheming.StyledBaseIcon).att
 })(["position:sticky;flex-shrink:0;transform:", ";transition:transform 0.25s ease-in-out,color 0.25s ease-in-out;", ";", ";", ";"], props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`, sizeStyles$7, colorStyles$8, reactTheming.componentStyles);
 
 const COMPONENT_ID$l = 'dropdowns.combobox.option';
-const colorStyles$7 = _ref => {
-  let {
-    theme,
-    $isActive,
-    $type
-  } = _ref;
+const colorStyles$7 = ({
+  theme,
+  $isActive,
+  $type
+}) => {
   let backgroundColor;
   let boxShadow;
   if ($isActive && $type !== 'group' && $type !== 'header') {
@@ -429,10 +425,9 @@ const StyledOptGroup = styled__default.default.ul.attrs({
 })(["margin:0;padding:0;list-style-type:none;", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$i = 'dropdowns.combobox.separator';
-const colorStyles$6 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$6 = ({
+  theme
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'border.subtle'
@@ -467,12 +462,11 @@ const StyledListbox = styled__default.default.ul.attrs({
 })(["overflow-y:auto;list-style-type:none;", ";&&&{display:block;}", ":first-child ", " ", ":first-child ", "[role='none']:first-child{display:none;}"], sizeStyles$4, StyledOption, StyledOptionContent, StyledOptGroup, StyledListboxSeparator);
 
 const COMPONENT_ID$g = 'dropdowns.combobox.option.icon';
-const colorStyles$5 = _ref => {
-  let {
-    theme,
-    $isDisabled,
-    $type
-  } = _ref;
+const colorStyles$5 = ({
+  theme,
+  $isDisabled,
+  $type
+}) => {
   let variable;
   if ($isDisabled) {
     variable = 'foreground.disabled';
@@ -504,11 +498,10 @@ const StyledOptionIcon = styled__default.default(reactTheming.StyledBaseIcon).at
 })(["flex-shrink:0;", ";", ";", ";"], sizeStyles$3, colorStyles$5, reactTheming.componentStyles);
 
 const COMPONENT_ID$f = 'dropdowns.combobox.option.meta';
-const colorStyles$4 = _ref => {
-  let {
-    theme,
-    $isDisabled
-  } = _ref;
+const colorStyles$4 = ({
+  theme,
+  $isDisabled
+}) => {
   const variable = $isDisabled ? 'foreground.disabled' : 'foreground.subtle';
   const color = reactTheming.getColor({
     theme,
@@ -530,21 +523,19 @@ const StyledOptionMeta = styled__default.default.div.attrs({
 })(["transition:color 0.25s ease-in-out;font-weight:", ";", ";", ";", ";"], props => props.theme.fontWeights.regular, sizeStyles$2, colorStyles$4, reactTheming.componentStyles);
 
 const COMPONENT_ID$e = 'dropdowns.combobox.option.selection_icon';
-const colorStyles$3 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$3 = ({
+  theme
+}) => {
   const color = reactTheming.getColor({
     theme,
     variable: 'foreground.primary'
   });
   return styled.css(["color:", ";"], color);
 };
-const sizeStyles$1 = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$1 = ({
+  theme,
+  $isCompact
+}) => {
   const size = theme.iconSizes.sm;
   const position = `${theme.space.base * 3.5}px`;
   const top = polished.math(`(${getMinHeight({
@@ -563,11 +554,10 @@ const StyledOptionSelectionIcon = styled__default.default(reactTheming.StyledBas
 })(["position:absolute;", ";", ";", ";"], sizeStyles$1, colorStyles$3, reactTheming.componentStyles);
 
 const COMPONENT_ID$d = 'dropdowns.combobox.option.type_icon';
-const colorStyles$2 = _ref => {
-  let {
-    theme,
-    $type
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $type
+}) => {
   const opacity = $type && $type !== 'danger' ? 1 : 0;
   let color;
   if ($type === 'add') {
@@ -618,11 +608,10 @@ const StyledTag = styled__default.default(reactTags.Tag).attrs({
 }), polished.hideVisually(), reactTheming.componentStyles);
 
 const COMPONENT_ID$b = 'dropdowns.combobox.value';
-const colorStyles$1 = _ref => {
-  let {
-    theme,
-    $isPlaceholder
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $isPlaceholder
+}) => {
   const foregroundColor = $isPlaceholder && reactTheming.getColor({
     theme,
     variable: 'foreground.disabled'
@@ -643,10 +632,9 @@ const StyledValue = styled__default.default.div.attrs({
 }, sizeStyles$a, colorStyles$1, reactTheming.componentStyles);
 
 const COMPONENT_ID$a = 'dropdowns.combobox.tags_button';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const color = reactTheming.getColor({
     theme,
     variable: 'foreground.primary'
@@ -757,19 +745,18 @@ const StyledSeparator = styled__default.default(StyledListboxSeparator).attrs({
   componentId: "sc-8kqwen-0"
 })(["", ";"], reactTheming.componentStyles);
 
-const Listbox = React.forwardRef((_ref, ref) => {
-  let {
-    appendToNode,
-    children,
-    isCompact,
-    isExpanded,
-    maxHeight,
-    minHeight,
-    onMouseDown,
-    triggerRef,
-    zIndex,
-    ...props
-  } = _ref;
+const Listbox = React.forwardRef(({
+  appendToNode,
+  children,
+  isCompact,
+  isExpanded,
+  maxHeight,
+  minHeight,
+  onMouseDown,
+  triggerRef,
+  zIndex,
+  ...props
+}, ref) => {
   const floatingRef = React.useRef(null);
   const [isVisible, setIsVisible] = React.useState(false);
   const [height, setHeight] = React.useState();
@@ -789,11 +776,10 @@ const Listbox = React.forwardRef((_ref, ref) => {
     },
     placement: 'bottom-start',
     middleware: [reactDom.offset(theme.space.base), reactDom.flip(), reactDom.size({
-      apply: _ref2 => {
-        let {
-          rects,
-          availableHeight
-        } = _ref2;
+      apply: ({
+        rects,
+        availableHeight
+      }) => {
         if (rects.reference.width > 0) {
           setWidth(rects.reference.width);
           if (!(minHeight === null || minHeight === 'fit-content') && rects.floating.height > availableHeight) {
@@ -871,14 +857,13 @@ const TagAvatarComponent = reactTags.Tag.Avatar;
 TagAvatarComponent.displayName = 'Tag.Avatar';
 const TagAvatar = TagAvatarComponent;
 
-const TagComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    option,
-    removeLabel,
-    tooltipZIndex,
-    ...props
-  } = _ref;
+const TagComponent = React.forwardRef(({
+  children,
+  option,
+  removeLabel,
+  tooltipZIndex,
+  ...props
+}, ref) => {
   const {
     getTagProps,
     isCompact,
@@ -922,29 +907,26 @@ TagComponent.propTypes = {
 const Tag = TagComponent;
 Tag.Avatar = TagAvatar;
 
-const TagGroup = _ref => {
-  let {
-    children,
-    isDisabled,
-    isExpanded,
-    listboxZIndex,
-    maxTags,
-    optionTagProps,
-    selection
-  } = _ref;
-  return React__namespace.default.createElement(React__namespace.default.Fragment, null, selection.map((option, index) => {
-    const disabled = isDisabled || option.disabled;
-    return React__namespace.default.createElement(Tag, Object.assign({
-      key: option.value,
-      hidden: !isExpanded && index >= maxTags,
-      option: {
-        ...option,
-        disabled
-      },
-      tooltipZIndex: listboxZIndex ? listboxZIndex + 1 : undefined
-    }, optionTagProps[option.value]));
-  }), children);
-};
+const TagGroup = ({
+  children,
+  isDisabled,
+  isExpanded,
+  listboxZIndex,
+  maxTags,
+  optionTagProps,
+  selection
+}) => React__namespace.default.createElement(React__namespace.default.Fragment, null, selection.map((option, index) => {
+  const disabled = isDisabled || option.disabled;
+  return React__namespace.default.createElement(Tag, Object.assign({
+    key: option.value,
+    hidden: !isExpanded && index >= maxTags,
+    option: {
+      ...option,
+      disabled
+    },
+    tooltipZIndex: listboxZIndex ? listboxZIndex + 1 : undefined
+  }, optionTagProps[option.value]));
+}), children);
 TagGroup.displayName = 'TagGroup';
 
 const toOption = props => {
@@ -975,39 +957,38 @@ const toOptions = (children, optionTagProps) => React.Children.toArray(children)
 }, []);
 
 const MAX_TAGS = 4;
-const Combobox = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    activeIndex,
-    defaultActiveIndex,
-    defaultExpanded,
-    endIcon,
-    focusInset,
-    inputProps: _inputProps,
-    inputValue: _inputValue,
-    isAutocomplete,
-    isBare,
-    isCompact,
-    isDisabled,
-    isEditable = true,
-    isExpanded: _isExpanded,
-    isMultiselectable,
-    listboxAppendToNode,
-    listboxAriaLabel,
-    listboxMaxHeight = '400px',
-    listboxMinHeight,
-    listboxZIndex = 1000,
-    maxHeight,
-    maxTags = MAX_TAGS,
-    onChange,
-    placeholder,
-    renderExpandTags,
-    renderValue,
-    selectionValue,
-    startIcon,
-    validation,
-    ...props
-  } = _ref;
+const Combobox = React.forwardRef(({
+  children,
+  activeIndex,
+  defaultActiveIndex,
+  defaultExpanded,
+  endIcon,
+  focusInset,
+  inputProps: _inputProps,
+  inputValue: _inputValue,
+  isAutocomplete,
+  isBare,
+  isCompact,
+  isDisabled,
+  isEditable = true,
+  isExpanded: _isExpanded,
+  isMultiselectable,
+  listboxAppendToNode,
+  listboxAriaLabel,
+  listboxMaxHeight = '400px',
+  listboxMinHeight,
+  listboxZIndex = 1000,
+  maxHeight,
+  maxTags = MAX_TAGS,
+  onChange,
+  placeholder,
+  renderExpandTags,
+  renderValue,
+  selectionValue,
+  startIcon,
+  validation,
+  ...props
+}, ref) => {
   const {
     hasHint,
     hasMessage,
@@ -1261,13 +1242,12 @@ const Hint = React.forwardRef((props, ref) => {
 });
 Hint.displayName = 'Field.Hint';
 
-const Label = React.forwardRef((_ref, ref) => {
-  let {
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-    ...props
-  } = _ref;
+const Label = React.forwardRef(({
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  ...props
+}, ref) => {
   const {
     labelProps
   } = useFieldContext();
@@ -1445,20 +1425,19 @@ const OptionMetaComponent = React.forwardRef((props, ref) => {
 OptionMetaComponent.displayName = 'Option.Meta';
 const OptionMeta = OptionMetaComponent;
 
-const OptionComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    hasSelection,
-    icon,
-    isDisabled,
-    isHidden,
-    isSelected,
-    label,
-    type,
-    value,
-    tagProps,
-    ...props
-  } = _ref;
+const OptionComponent = React.forwardRef(({
+  children,
+  hasSelection,
+  icon,
+  isDisabled,
+  isHidden,
+  isSelected,
+  label,
+  type,
+  value,
+  tagProps,
+  ...props
+}, ref) => {
   const contextValue = React.useMemo(() => ({
     isDisabled,
     type
@@ -1535,16 +1514,15 @@ OptionComponent.propTypes = {
 const Option = OptionComponent;
 Option.Meta = OptionMeta;
 
-const OptGroup = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    content,
-    icon,
-    legend,
-    'aria-label': ariaLabel,
-    onMouseDown,
-    ...props
-  } = _ref;
+const OptGroup = React.forwardRef(({
+  children,
+  content,
+  icon,
+  legend,
+  'aria-label': ariaLabel,
+  onMouseDown,
+  ...props
+}, ref) => {
   const {
     getOptGroupProps,
     isCompact
@@ -1645,21 +1623,20 @@ const toItems = (children, type) => React.Children.toArray(children).reduce((ite
 }, []);
 
 const PLACEMENT_DEFAULT = 'bottom-start';
-const MenuList = React.forwardRef((_ref, ref) => {
-  let {
-    appendToNode,
-    hasArrow,
-    isCompact,
-    isExpanded,
-    fallbackPlacements: _fallbackPlacements,
-    maxHeight = '400px',
-    minHeight,
-    placement: _placement = PLACEMENT_DEFAULT,
-    triggerRef,
-    zIndex = 1000,
-    children,
-    ...props
-  } = _ref;
+const MenuList = React.forwardRef(({
+  appendToNode,
+  hasArrow,
+  isCompact,
+  isExpanded,
+  fallbackPlacements: _fallbackPlacements,
+  maxHeight = '400px',
+  minHeight,
+  placement: _placement = PLACEMENT_DEFAULT,
+  triggerRef,
+  zIndex = 1000,
+  children,
+  ...props
+}, ref) => {
   const floatingRef = React.useRef(null);
   const [isVisible, setIsVisible] = React.useState(isExpanded);
   const [height, setHeight] = React.useState();
@@ -1685,11 +1662,10 @@ const MenuList = React.forwardRef((_ref, ref) => {
     middleware: [reactDom.offset(theme.space.base * (hasArrow ? 2 : 1)), _placement === 'auto' ? reactDom.autoPlacement() : reactDom.flip({
       fallbackPlacements
     }), reactDom.size({
-      apply: _ref2 => {
-        let {
-          rects,
-          availableHeight
-        } = _ref2;
+      apply: ({
+        rects,
+        availableHeight
+      }) => {
         if (!(minHeight === null || minHeight === 'fit-content')) {
           if (rects.floating.height > availableHeight) {
             setHeight(availableHeight);
@@ -1762,25 +1738,24 @@ MenuList.propTypes = {
   zIndex: PropTypes__default.default.number
 };
 
-const Menu = React.forwardRef((_ref2, ref) => {
-  let {
-    button,
-    buttonProps: _buttonProps = {},
-    children,
-    isCompact,
-    focusedValue: _focusedValue,
-    defaultFocusedValue,
-    defaultExpanded,
-    isExpanded: _isExpanded,
-    restoreFocus,
-    selectedItems,
-    onChange,
-    onMouseLeave,
-    maxHeight = '400px',
-    placement = 'bottom-start',
-    zIndex = 1000,
-    ...props
-  } = _ref2;
+const Menu = React.forwardRef(({
+  button,
+  buttonProps: _buttonProps = {},
+  children,
+  isCompact,
+  focusedValue: _focusedValue,
+  defaultFocusedValue,
+  defaultExpanded,
+  isExpanded: _isExpanded,
+  restoreFocus,
+  selectedItems,
+  onChange,
+  onMouseLeave,
+  maxHeight = '400px',
+  placement = 'bottom-start',
+  zIndex = 1000,
+  ...props
+}, ref) => {
   const triggerRef = React.useRef(null);
   const menuRef = React.useRef(null);
   const items = toItems(children);
@@ -1880,16 +1855,15 @@ const useItemGroupContext = () => {
   return React.useContext(ItemGroupContext);
 };
 
-const ItemGroup = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    content,
-    legend,
-    icon,
-    'aria-label': ariaLabel,
-    type,
-    ...props
-  } = _ref;
+const ItemGroup = React.forwardRef(({
+  children,
+  content,
+  legend,
+  icon,
+  'aria-label': ariaLabel,
+  type,
+  ...props
+}, ref) => {
   const {
     isCompact,
     getItemGroupProps
@@ -1966,23 +1940,22 @@ const renderActionIcon = itemType => {
       return React__namespace.default.createElement(SvgCheckLgStroke, null);
   }
 };
-const ItemComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    value,
-    label = value,
-    href,
-    isSelected,
-    icon,
-    isDisabled,
-    isExternal,
-    type,
-    name,
-    onClick,
-    onKeyDown,
-    onMouseEnter,
-    ...other
-  } = _ref;
+const ItemComponent = React.forwardRef(({
+  children,
+  value,
+  label = value,
+  href,
+  isSelected,
+  icon,
+  isDisabled,
+  isExternal,
+  type,
+  name,
+  onClick,
+  onKeyDown,
+  onMouseEnter,
+  ...other
+}, ref) => {
   const {
     type: selectionType
   } = useItemGroupContext();
@@ -2063,11 +2036,10 @@ const Item = ItemComponent;
 Item.Meta = ItemMeta;
 
 const Separator = React.forwardRef(
-(_ref, ref) => {
-  let {
-    children,
-    ...props
-  } = _ref;
+({
+  children,
+  ...props
+}, ref) => {
   const {
     getSeparatorProps
   } = useMenuContext();

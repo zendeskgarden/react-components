@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput.js';
 
-const COMPONENT_ID = 'forms.media_input';
+const COMPONENT_ID$v = 'forms.media_input';
 const StyledTextMediaInput = styled(StyledTextInput).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$v,
   'data-garden-version': '9.12.3',
   $isBare: true
 }).withConfig({

@@ -10,9 +10,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from './StyledCheckInput.js';
 import { StyledCheckLabel } from './StyledCheckLabel.js';
 
-const COMPONENT_ID = 'forms.dash_svg';
+const COMPONENT_ID$k = 'forms.dash_svg';
 const StyledDashSvg = styled(SvgDashFill).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$k,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDashSvg",

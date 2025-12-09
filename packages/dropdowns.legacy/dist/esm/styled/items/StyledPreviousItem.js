@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem.js';
 
-const COMPONENT_ID = 'dropdowns.previous_item';
+const COMPONENT_ID$d = 'dropdowns.previous_item';
 const StyledPreviousItem = styled(StyledItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$d,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledPreviousItem",

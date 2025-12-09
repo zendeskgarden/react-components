@@ -10,7 +10,7 @@ import get from 'lodash.get';
 import memoize from 'lodash.memoize';
 import DEFAULT_THEME from '../elements/theme/index.js';
 
-const adjust = (color, expected, actual) => {
+const adjust$1 = (color, expected, actual) => {
   if (expected !== actual) {
     const amount = Math.abs(expected - actual) / 100 * 0.05;
     return expected > actual ? darken(amount, color) : lighten(amount, color);
@@ -37,7 +37,7 @@ const toHex = (hue, shade, offset, transparency, scheme) => {
     const closestShade = Object.keys(hue).map(hueShade => parseInt(hueShade, 10)).reduce((previous, current) => {
       return Math.abs(current - _shade) < Math.abs(previous - _shade) ? current : previous;
     });
-    retVal = adjust(hue[closestShade], _shade, closestShade);
+    retVal = adjust$1(hue[closestShade], _shade, closestShade);
   }
   return retVal;
 };
@@ -52,8 +52,7 @@ const isValidColor = maybeColor => {
   }
   return retVal;
 };
-function findNearestIndex(target, arr) {
-  let startIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+function findNearestIndex(target, arr, startIndex = 0) {
   if (typeof target !== 'number' || isNaN(target)) {
     throw new Error('Target must be a number.');
   }
@@ -183,48 +182,47 @@ const fromVariable = (variable, variables, palette) => {
   }
   return retVal;
 };
-const CACHE = new WeakMap();
-const KEYS = {
+const CACHE$1 = new WeakMap();
+const KEYS$1 = {
   colors: 0,
   palette: 0,
   opacity: 0
 };
-CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
-CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
-CACHE.set(DEFAULT_THEME.opacity, KEYS.opacity);
-const toKey = _ref => {
-  let {
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  } = _ref;
+CACHE$1.set(DEFAULT_THEME.colors, KEYS$1.colors);
+CACHE$1.set(DEFAULT_THEME.palette, KEYS$1.palette);
+CACHE$1.set(DEFAULT_THEME.opacity, KEYS$1.opacity);
+const toKey$1 = ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => {
   let themeColorsKey;
   if (theme.colors) {
-    themeColorsKey = CACHE.get(theme.colors);
+    themeColorsKey = CACHE$1.get(theme.colors);
     if (themeColorsKey === undefined) {
-      themeColorsKey = ++KEYS.colors;
-      CACHE.set(theme.colors, themeColorsKey);
+      themeColorsKey = ++KEYS$1.colors;
+      CACHE$1.set(theme.colors, themeColorsKey);
     }
   }
   let themeOpacityKey;
   if (theme.opacity) {
-    themeOpacityKey = CACHE.get(theme.opacity);
+    themeOpacityKey = CACHE$1.get(theme.opacity);
     if (themeOpacityKey === undefined) {
-      themeOpacityKey = ++KEYS.opacity;
-      CACHE.set(theme.opacity, themeOpacityKey);
+      themeOpacityKey = ++KEYS$1.opacity;
+      CACHE$1.set(theme.opacity, themeOpacityKey);
     }
   }
   let themePaletteKey;
   if (theme.palette) {
-    themePaletteKey = CACHE.get(theme.palette);
+    themePaletteKey = CACHE$1.get(theme.palette);
     if (themePaletteKey === undefined) {
-      themePaletteKey = ++KEYS.palette;
-      CACHE.set(theme.palette, themePaletteKey);
+      themePaletteKey = ++KEYS$1.palette;
+      CACHE$1.set(theme.palette, themePaletteKey);
     }
   }
   let retVal = `{${themeColorsKey},${themePaletteKey},${themeOpacityKey}}`;
@@ -251,17 +249,16 @@ const toKey = _ref => {
   }
   return retVal;
 };
-const getColor = memoize(_ref2 => {
-  let {
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  } = _ref2;
+const getColor = memoize(({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => {
   let retVal;
   const palette = theme.palette && Object.keys(theme.palette).length > 0 ? theme.palette : DEFAULT_THEME.palette;
   const {
@@ -290,27 +287,24 @@ const getColor = memoize(_ref2 => {
     throw new Error('Error: invalid `getColor` parameters');
   }
   return retVal;
-}, _ref3 => {
-  let {
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  } = _ref3;
-  return toKey({
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  });
-});
+}, ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => toKey$1({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}));
 
 export { getColor };

@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.multiselect_item_wrapper';
+const COMPONENT_ID$1 = 'dropdowns.multiselect_item_wrapper';
 const StyledMultiselectItemWrapper = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMultiselectItemWrapper",

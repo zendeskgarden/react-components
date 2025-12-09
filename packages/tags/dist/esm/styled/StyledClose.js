@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tags.close';
+const COMPONENT_ID$1 = 'tags.close';
 const StyledClose = styled.button.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledClose",

@@ -16,11 +16,10 @@ import '../../../styled/OffsetPagination/StyledGapListItem.js';
 import '../../../styled/OffsetPagination/StyledNavigation.js';
 import '../../../styled/OffsetPagination/StyledNav.js';
 
-const FirstComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
+const FirstComponent = forwardRef(({
+  children,
+  ...other
+}, ref) => {
   return React__default.createElement(StyledCursor, Object.assign({
     ref: ref
   }, other), React__default.createElement(StyledIcon, {

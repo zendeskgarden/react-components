@@ -10,13 +10,12 @@ import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 const sizeStyles = () => {
   return css(["border-radius:50%;width:100%;height:100%;"]);
 };
-const colorStyles = _ref => {
-  let {
-    $isToday,
-    $isPreviousMonth,
-    theme,
-    ...props
-  } = _ref;
+const colorStyles = ({
+  $isToday,
+  $isPreviousMonth,
+  theme,
+  ...props
+}) => {
   const isSelected = props['aria-selected'];
   const isDisabled = props['aria-disabled'];
   let backgroundColor = 'inherit';

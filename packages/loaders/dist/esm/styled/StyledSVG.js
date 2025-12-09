@@ -9,11 +9,10 @@ import { getValueAndUnit } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { delayedVisibilityKeyframes } from '../utils/animations.js';
 
-const colorStyles = _ref => {
-  let {
-    theme,
-    $color = 'inherit'
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $color = 'inherit'
+}) => {
   const options = $color.includes('.') ? {
     variable: $color,
     theme
@@ -23,12 +22,11 @@ const colorStyles = _ref => {
   };
   return css(["color:", ";"], getColor(options));
 };
-const sizeStyles = _ref2 => {
-  let {
-    $containerWidth = '1em',
-    $containerHeight = '0.9em',
-    $fontSize = 'inherit'
-  } = _ref2;
+const sizeStyles = ({
+  $containerWidth = '1em',
+  $containerHeight = '0.9em',
+  $fontSize = 'inherit'
+}) => {
   const [value, unit] = getValueAndUnit($fontSize);
   let fontSize;
   if (unit === undefined) {
@@ -38,10 +36,9 @@ const sizeStyles = _ref2 => {
   }
   return css(["width:", ";height:", ";font-size:", ";"], $containerWidth, $containerHeight, fontSize);
 };
-const delayedVisibilityStyles = _ref3 => {
-  let {
-    $delayShow
-  } = _ref3;
+const delayedVisibilityStyles = ({
+  $delayShow
+}) => {
   if ($delayShow && $delayShow !== 0) {
     return css(["animation:", " 1ms ", "ms linear 1 forwards;visibility:hidden;"], delayedVisibilityKeyframes, $delayShow);
   }
@@ -56,6 +53,6 @@ const StyledSVG = styled.svg.attrs(props => ({
 })).withConfig({
   displayName: "StyledSVG",
   componentId: "sc-1xtc3kx-0"
-})(["", ";", ";", ";", ";"], sizeStyles, colorStyles, componentStyles, delayedVisibilityStyles);
+})(["", ";", ";", ";", ";"], sizeStyles, colorStyles$1, componentStyles, delayedVisibilityStyles);
 
 export { StyledSVG };

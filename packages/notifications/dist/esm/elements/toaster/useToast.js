@@ -21,8 +21,7 @@ const useToast = () => {
     dispatch,
     state
   } = context;
-  const addToast = useCallback(function (content) {
-    let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  const addToast = useCallback((content, options = {}) => {
     const mergedOptions = {
       ...DEFAULT_TOAST_OPTIONS,
       ...options

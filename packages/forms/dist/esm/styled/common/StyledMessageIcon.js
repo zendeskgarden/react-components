@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.input_message_icon';
+const COMPONENT_ID$B = 'forms.input_message_icon';
 const StyledMessageIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$B,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMessageIcon",

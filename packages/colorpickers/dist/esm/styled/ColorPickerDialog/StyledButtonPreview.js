@@ -8,12 +8,11 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 import { getCheckeredBackground, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colordialog_preview';
-const background = _ref => {
-  let {
-    $backgroundColor,
-    theme
-  } = _ref;
+const COMPONENT_ID$7 = 'colorpickers.colordialog_preview';
+const background = ({
+  $backgroundColor,
+  theme
+}) => {
   let retVal;
   if (typeof $backgroundColor === 'string') {
     retVal = $backgroundColor;
@@ -38,7 +37,7 @@ const StyledButtonPreview = styled.span.attrs(props => ({
       overlay: background(props)
     })
   },
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3',
   'data-test-id': 'dialog-preview'
 })).withConfig({

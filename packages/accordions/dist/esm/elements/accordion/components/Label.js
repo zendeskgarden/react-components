@@ -34,7 +34,7 @@ import { useHeaderContext } from '../../../utils/useHeaderContext.js';
 import '../../../utils/useTimelineContext.js';
 import '../../../utils/useTimelineItemContext.js';
 
-const LabelComponent = forwardRef((props, ref) => {
+const LabelComponent$1 = forwardRef((props, ref) => {
   const sectionValue = useSectionContext();
   const {
     isCompact,
@@ -54,7 +54,7 @@ const LabelComponent = forwardRef((props, ref) => {
     $isCollapsible: isCollapsible
   }, otherTriggerProps, props));
 });
-LabelComponent.displayName = 'Accordion.Label';
-const Label = LabelComponent;
+LabelComponent$1.displayName = 'Accordion.Label';
+const Label$1 = LabelComponent$1;
 
-export { Label };
+export { Label$1 as Label };

@@ -8,8 +8,8 @@ import styled from 'styled-components';
 import { getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { StyledRange, getTrackMargin, getTrackHeight } from '../common/StyledRange.js';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
-const background = props => {
+const COMPONENT_ID$i = 'colorpickers.colorpicker_alpha';
+const background$3 = props => {
   const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
   const fromColor = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, 0)`;
   const toColor = `rgb(${props.$red}, ${props.$green}, ${props.$blue})`;
@@ -27,9 +27,9 @@ const background = props => {
 const StyledAlphaRange = styled(StyledRange).attrs(props => ({
   style: {
     backgroundSize: 'auto',
-    background: background(props)
+    background: background$3(props)
   },
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$i,
   'data-garden-version': '9.12.3'
 })).withConfig({
   displayName: "StyledAlphaRange",

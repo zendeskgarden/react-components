@@ -10,10 +10,9 @@ import { StyledButton, COMPONENT_ID as COMPONENT_ID$1, getHeight } from './Style
 import { StyledIcon } from './StyledIcon.js';
 
 const COMPONENT_ID = 'buttons.icon_button';
-const iconColorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const iconColorStyles = ({
+  theme
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'

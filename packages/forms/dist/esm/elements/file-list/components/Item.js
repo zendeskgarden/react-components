@@ -50,14 +50,11 @@ import '../../../styled/tiles/StyledTileIcon.js';
 import '../../../styled/tiles/StyledTileInput.js';
 import '../../../styled/tiles/StyledTileLabel.js';
 
-const ItemComponent = forwardRef((_ref, ref) => {
-  let {
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledFileListItem, Object.assign({}, props, {
-    ref: ref
-  }));
-});
+const ItemComponent = forwardRef(({
+  ...props
+}, ref) => React__default.createElement(StyledFileListItem, Object.assign({}, props, {
+  ref: ref
+})));
 ItemComponent.displayName = 'FileList.Item';
 const Item = ItemComponent;
 

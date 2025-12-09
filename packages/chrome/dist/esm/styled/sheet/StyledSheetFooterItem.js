@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.sheet_footer_item';
+const COMPONENT_ID$1 = 'chrome.sheet_footer_item';
 const StyledSheetFooterItem = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledSheetFooterItem",

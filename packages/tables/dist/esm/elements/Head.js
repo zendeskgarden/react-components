@@ -18,16 +18,13 @@ import '../styled/StyledSortableButton.js';
 import '../styled/StyledOverflowButton.js';
 import '../styled/StyledRow.js';
 
-const Head = forwardRef((_ref, ref) => {
-  let {
-    isSticky,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledHead, Object.assign({
-    ref: ref,
-    $isSticky: isSticky
-  }, props));
-});
+const Head = forwardRef(({
+  isSticky,
+  ...props
+}, ref) => React__default.createElement(StyledHead, Object.assign({
+  ref: ref,
+  $isSticky: isSticky
+}, props)));
 Head.displayName = 'Table.Head';
 
 export { Head };

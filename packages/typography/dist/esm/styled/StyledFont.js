@@ -9,7 +9,7 @@ import { hideVisually, math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types/index.js';
 
-const COMPONENT_ID = 'typography.font';
+const COMPONENT_ID$a = 'typography.font';
 [...SIZE, 'extralarge', '2xlarge', '3xlarge'];
 const THEME_SIZES = {
   small: 'sm',
@@ -19,14 +19,13 @@ const THEME_SIZES = {
   '2xlarge': 'xxl',
   '3xlarge': 'xxxl'
 };
-const fontStyles = _ref => {
-  let {
-    $hue,
-    $isBold,
-    $isMonospace,
-    $size,
-    theme
-  } = _ref;
+const fontStyles = ({
+  $hue,
+  $isBold,
+  $isMonospace,
+  $size,
+  theme
+}) => {
   const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf($size) !== -1;
   const fontFamily = monospace && theme.fonts.mono;
   const direction = theme.rtl ? 'rtl' : 'ltr';
@@ -66,7 +65,7 @@ const fontStyles = _ref => {
   return css(["transition:color 0.1s ease-in-out;line-height:", ";color:", ";font-family:", ";font-size:", ";font-weight:", ";direction:", ";"], lineHeight, color, fontFamily, fontSize, fontWeight, direction);
 };
 const StyledFont = styled.div.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3',
   $size: props.$size ?? 'inherit'
 })).withConfig({

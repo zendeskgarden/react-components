@@ -34,12 +34,11 @@ import '../../../styled/timeline/StyledContent.js';
 import '../../../styled/timeline/StyledOppositeContent.js';
 import '../../../styled/timeline/StyledSeparator.js';
 
-const PanelComponent = forwardRef((_ref, ref) => {
-  let {
-    role,
-    children,
-    ...props
-  } = _ref;
+const PanelComponent = forwardRef(({
+  role,
+  children,
+  ...props
+}, ref) => {
   const {
     isAnimated,
     isBare,

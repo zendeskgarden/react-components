@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledColorSwatchInput } from './StyledColorSwatchInput.js';
 
-const COMPONENT_ID = 'colorpickers.colorswatch_check';
+const COMPONENT_ID$1 = 'colorpickers.colorswatch_check';
 const StyledIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledIcon",

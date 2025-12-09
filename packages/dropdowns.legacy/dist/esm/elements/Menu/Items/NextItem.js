@@ -33,12 +33,11 @@ import '../../../styled/multiselect/StyledMultiselectMoreAnchor.js';
 import useDropdownContext from '../../../utils/useDropdownContext.js';
 import useMenuContext from '../../../utils/useMenuContext.js';
 
-const NextItemComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    disabled,
-    ...props
-  } = _ref;
+const NextItemComponent = React__default.forwardRef(({
+  children,
+  disabled,
+  ...props
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();
@@ -53,12 +52,11 @@ const NextItemComponent = React__default.forwardRef((_ref, ref) => {
     $isDisabled: disabled
   })), children);
 });
-const NextItem = React__default.forwardRef((_ref2, ref) => {
-  let {
-    value,
-    disabled,
-    ...props
-  } = _ref2;
+const NextItem = React__default.forwardRef(({
+  value,
+  disabled,
+  ...props
+}, ref) => {
   const {
     nextItemsHashRef,
     downshift: {

@@ -9,9 +9,8 @@ import styled from 'styled-components';
 import { stripUnit } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_range';
-const thumbStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const COMPONENT_ID$k = 'colorpickers.colorpicker_range';
+const thumbStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-thumb {
       ${styles}
@@ -26,8 +25,7 @@ const thumbStyles = function (styles) {
     }
   `;
 };
-const trackStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-track {
       ${styles}
@@ -42,8 +40,7 @@ const trackStyles = function (styles) {
     }
   `;
 };
-const trackLowerStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackLowerStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-progress {
       ${styles}
@@ -54,10 +51,9 @@ const trackLowerStyles = function (styles) {
     }
   `;
 };
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  theme
+}) => {
   const thumbBackgroundColor = getColor({
     theme,
     variable: 'background.default'
@@ -116,7 +112,7 @@ const colorStyles = _ref => {
 const getThumbSize = props => props.theme.space.base * (props.$isOpaque ? 6 : 4);
 const getTrackHeight = props => props.theme.space.base * (props.$isOpaque ? 6 : 3);
 const getTrackMargin = props => (getThumbSize(props) - getTrackHeight(props)) / 2 + stripUnit(props.theme.shadowWidths.md);
-const sizeStyles = props => {
+const sizeStyles$3 = props => {
   const thumbSize = getThumbSize(props);
   const trackHeight = getTrackHeight(props);
   const trackMargin = getTrackMargin(props);
@@ -144,14 +140,14 @@ const sizeStyles = props => {
   `;
 };
 const StyledRange = styled(Range).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$k,
   'data-garden-version': '9.12.3',
   hasLowerTrack: false
 }).withConfig({
   displayName: "StyledRange",
   componentId: "sc-ug3wi9-0"
-})(["", ";", " ", ";", ";"], sizeStyles, trackStyles(`
+})(["", ";", " ", ";", ";"], sizeStyles$3, trackStyles(`
     border-radius: 0;
-  `), colorStyles, componentStyles);
+  `), colorStyles$2, componentStyles);
 
 export { StyledRange, getTrackHeight, getTrackMargin, trackStyles };

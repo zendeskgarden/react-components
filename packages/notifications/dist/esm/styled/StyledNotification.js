@@ -12,8 +12,8 @@ import { StyledTitle } from './content/StyledTitle.js';
 import { StyledBase } from './StyledBase.js';
 import { validationTypes } from '../utils/icons.js';
 
-const COMPONENT_ID = 'notifications.notification';
-const colorStyles = props => {
+const COMPONENT_ID$8 = 'notifications.notification';
+const colorStyles$7 = props => {
   const {
     $type,
     theme
@@ -40,12 +40,12 @@ const colorStyles = props => {
   return css(["", "{color:", ";}"], StyledTitle, color);
 };
 const StyledNotification = styled(StyledBase).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledNotification",
   componentId: "sc-uf6jh-0"
-})(["", " ", ";"], colorStyles, componentStyles);
+})(["", " ", ";"], colorStyles$7, componentStyles);
 StyledNotification.propTypes = {
   $type: PropTypes.oneOf(TYPE)
 };

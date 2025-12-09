@@ -54,12 +54,11 @@ import '../styled/tiles/StyledTileInput.js';
 import '../styled/tiles/StyledTileLabel.js';
 import useFieldsetContext from '../utils/useFieldsetContext.js';
 
-const Toggle = React__default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isCompact,
-    ...other
-  } = _ref;
+const Toggle = React__default.forwardRef(({
+  children,
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = useFieldsetContext();
   const fieldContext = useFieldContext();
   let combinedProps = {

@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropzone';
+const COMPONENT_ID$2 = 'dropzone';
 const colorStyles = props => {
   const {
     $isDanger,
@@ -74,7 +74,7 @@ const colorStyles = props => {
   }
   return css(["border-color:", ";background-color:", ";color:", ";"], borderColor, backgroundColor, color);
 };
-const sizeStyles = props => {
+const sizeStyles$1 = props => {
   const {
     theme,
     $isHighlighted
@@ -83,11 +83,11 @@ const sizeStyles = props => {
   return css(["border-width:", ";border-style:", ";border-radius:", ";padding:", "px;width:100%;font-family:", ";font-size:", ";"], borderWidth, $isHighlighted ? theme.borderStyles.solid : 'dashed', theme.borderRadii.md, $isHighlighted ? theme.space.base * 4 - 1 : theme.space.base * 4, theme.fonts.system, theme.fontSizes.md);
 };
 const StyledDropzone = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDropzone",
   componentId: "sc-1b7zuip-0"
-})(["display:", ";flex-direction:", ";align-items:", ";justify-content:", ";transition:border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;margin:0;text-align:", ";direction:", ";box-sizing:border-box;", " ", " ", ";"], p => (p.$hasMessage || p.$hasIcon) && 'flex', p => p.$hasMessage && p.$isVertical && 'column', p => (p.$hasMessage || p.$hasIcon) && 'center', p => (p.$hasMessage || p.$hasIcon) && 'center', p => p.$hasMessage && 'center', props => props.theme.rtl && 'rtl', sizeStyles, colorStyles, componentStyles);
+})(["display:", ";flex-direction:", ";align-items:", ";justify-content:", ";transition:border-color 0.25s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,z-index 0.25s ease-in-out;margin:0;text-align:", ";direction:", ";box-sizing:border-box;", " ", " ", ";"], p => (p.$hasMessage || p.$hasIcon) && 'flex', p => p.$hasMessage && p.$isVertical && 'column', p => (p.$hasMessage || p.$hasIcon) && 'center', p => (p.$hasMessage || p.$hasIcon) && 'center', p => p.$hasMessage && 'center', props => props.theme.rtl && 'rtl', sizeStyles$1, colorStyles, componentStyles);
 
 export { StyledDropzone };

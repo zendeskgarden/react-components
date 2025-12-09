@@ -40,16 +40,13 @@ import '../../styled/sheet/StyledSheetFooter.js';
 import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 
-const HeaderItemText = React__default.forwardRef((_ref, ref) => {
-  let {
-    isClipped,
-    ...other
-  } = _ref;
-  return React__default.createElement(StyledHeaderItemText, Object.assign({
-    ref: ref,
-    $isClipped: isClipped
-  }, other));
-});
+const HeaderItemText = React__default.forwardRef(({
+  isClipped,
+  ...other
+}, ref) => React__default.createElement(StyledHeaderItemText, Object.assign({
+  ref: ref,
+  $isClipped: isClipped
+}, other)));
 HeaderItemText.displayName = 'Header.ItemText';
 HeaderItemText.propTypes = {
   isClipped: PropTypes.bool

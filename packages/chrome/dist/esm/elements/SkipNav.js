@@ -40,19 +40,16 @@ import '../styled/sheet/StyledSheetFooter.js';
 import '../styled/sheet/StyledSheetFooterItem.js';
 import '../styled/sheet/StyledSheetHeader.js';
 
-const SkipNav = React__default.forwardRef((_ref, ref) => {
-  let {
-    targetId,
-    zIndex = 1,
-    children,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledSkipNav, Object.assign({
-    href: `#${targetId}`,
-    $zIndex: zIndex,
-    ref: ref
-  }, props), React__default.createElement(StyledSkipNavIcon, null), children);
-});
+const SkipNav = React__default.forwardRef(({
+  targetId,
+  zIndex = 1,
+  children,
+  ...props
+}, ref) => React__default.createElement(StyledSkipNav, Object.assign({
+  href: `#${targetId}`,
+  $zIndex: zIndex,
+  ref: ref
+}, props), React__default.createElement(StyledSkipNavIcon, null), children));
 SkipNav.displayName = 'SkipNav';
 SkipNav.propTypes = {
   targetId: PropTypes.string.isRequired,

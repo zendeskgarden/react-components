@@ -39,9 +39,9 @@ import '../../styled/sheet/StyledSheetFooter.js';
 import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 
-const FooterItem = React__default.forwardRef((props, ref) => React__default.createElement(StyledFooterItem, Object.assign({
+const FooterItem$1 = React__default.forwardRef((props, ref) => React__default.createElement(StyledFooterItem, Object.assign({
   ref: ref
 }, props)));
-FooterItem.displayName = 'Footer.Item';
+FooterItem$1.displayName = 'Footer.Item';
 
-export { FooterItem };
+export { FooterItem$1 as FooterItem };

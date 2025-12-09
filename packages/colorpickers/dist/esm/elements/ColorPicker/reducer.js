@@ -5,7 +5,7 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import isEqual from 'lodash.isequal';
-import { parseToHsl, parseToRgb, rgb, hsl } from 'polished';
+import { parseToHsl, rgb, parseToRgb, hsl } from 'polished';
 import { hsvToHsl } from '../../utils/conversion.js';
 import { isValidHex } from '../../utils/validation.js';
 

@@ -9,19 +9,18 @@ import { math } from 'polished';
 import { getFocusBoxShadow } from './getFocusBoxShadow.js';
 
 const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
-const focusStyles = _ref => {
-  let {
-    condition = true,
-    selector = SELECTOR_FOCUS_VISIBLE,
-    shadowWidth = 'md',
-    spacerWidth = 'xs',
-    styles: {
-      boxShadow,
-      ...styles
-    } = {},
-    theme,
-    ...options
-  } = _ref;
+const focusStyles = ({
+  condition = true,
+  selector = SELECTOR_FOCUS_VISIBLE,
+  shadowWidth = 'md',
+  spacerWidth = 'xs',
+  styles: {
+    boxShadow,
+    ...styles
+  } = {},
+  theme,
+  ...options
+}) => {
   const _boxShadow = condition ? getFocusBoxShadow({
     boxShadow,
     shadowWidth,

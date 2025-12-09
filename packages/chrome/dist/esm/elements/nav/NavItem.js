@@ -44,14 +44,13 @@ import { useNavContext } from '../../utils/useNavContext.js';
 import { useChromeContext } from '../../utils/useChromeContext.js';
 import { useNavListContext } from '../../utils/useNavListContext.js';
 
-const NavItem = React__default.forwardRef((_ref, ref) => {
-  let {
-    hasLogo,
-    hasBrandmark,
-    product,
-    isCurrent,
-    ...other
-  } = _ref;
+const NavItem = React__default.forwardRef(({
+  hasLogo,
+  hasBrandmark,
+  product,
+  isCurrent,
+  ...other
+}, ref) => {
   const {
     hue
   } = useChromeContext();

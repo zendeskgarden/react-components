@@ -9,15 +9,14 @@ import { math } from 'polished';
 import { componentStyles, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { getHeight } from './StyledInput.js';
 
-const COMPONENT_ID = 'dropdowns.combobox.trigger';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $validation,
-    $isBare,
-    $isLabelHovered,
-    $focusInset
-  } = _ref;
+const COMPONENT_ID$n = 'dropdowns.combobox.trigger';
+const colorStyles$9 = ({
+  theme,
+  $validation,
+  $isBare,
+  $isLabelHovered,
+  $focusInset
+}) => {
   const foregroundColor = getColor({
     theme,
     variable: 'foreground.default'
@@ -91,7 +90,7 @@ const colorStyles = _ref => {
     condition: !$isBare
   }), disabledBorderColor, disabledBackgroundColor, disabledForegroundColor);
 };
-const sizeStyles = props => {
+const sizeStyles$8 = props => {
   const inputHeight = getHeight(props);
   let minHeight;
   let horizontalPadding;
@@ -112,11 +111,11 @@ const sizeStyles = props => {
   return css(["padding:", " ", ";min-height:", ";max-height:", ";font-size:", ";"], verticalPadding, horizontalPadding, minHeight, $maxHeight, props.theme.fontSizes.md);
 };
 const StyledTrigger = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$n,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTrigger",
   componentId: "sc-116nftk-0"
-})(["overflow-y:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out;border:", ";border-radius:", ";cursor:", ";box-sizing:border-box;", ";&:focus{outline:none;}", ";&[aria-disabled='true']{cursor:default;}", ";"], props => props.$isBare && !props.$isMultiselectable ? 'visible' : 'auto', props => props.$isBare ? 'none' : props.theme.borders.sm, props => props.$isBare ? '0' : props.theme.borderRadii.md, props => !props.$isAutocomplete && props.$isEditable ? 'text' : 'pointer', sizeStyles, colorStyles, componentStyles);
+})(["overflow-y:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out;border:", ";border-radius:", ";cursor:", ";box-sizing:border-box;", ";&:focus{outline:none;}", ";&[aria-disabled='true']{cursor:default;}", ";"], props => props.$isBare && !props.$isMultiselectable ? 'visible' : 'auto', props => props.$isBare ? 'none' : props.theme.borders.sm, props => props.$isBare ? '0' : props.theme.borderRadii.md, props => !props.$isAutocomplete && props.$isEditable ? 'text' : 'pointer', sizeStyles$8, colorStyles$9, componentStyles);
 
 export { StyledTrigger };

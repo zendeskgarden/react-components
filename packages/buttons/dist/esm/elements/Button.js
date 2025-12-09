@@ -17,19 +17,18 @@ import { useSplitButtonContext } from '../utils/useSplitButtonContext.js';
 import { StartIcon } from './components/StartIcon.js';
 import { EndIcon } from './components/EndIcon.js';
 
-const ButtonComponent = forwardRef((_ref, ref) => {
-  let {
-    focusInset,
-    isBasic,
-    isDanger,
-    isLink,
-    isNeutral,
-    isPill,
-    isPrimary,
-    isStretched,
-    size = 'medium',
-    ...other
-  } = _ref;
+const ButtonComponent = forwardRef(({
+  focusInset,
+  isBasic,
+  isDanger,
+  isLink,
+  isNeutral,
+  isPill,
+  isPrimary,
+  isStretched,
+  size = 'medium',
+  ...other
+}, ref) => {
   const splitButtonFocusInset = useSplitButtonContext();
   return React__default.createElement(StyledButton, Object.assign({}, other, {
     $focusInset: focusInset || splitButtonFocusInset,

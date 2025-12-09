@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { focusStyles, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'typography.codeblock_container';
+const COMPONENT_ID$6 = 'typography.codeblock_container';
 const StyledCodeBlockContainer = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCodeBlockContainer",

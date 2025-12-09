@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { menuStyles, getMenuPosition, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.menu_wrapper';
+const COMPONENT_ID$a = 'datepickers.menu_wrapper';
 const StyledMenuWrapper = styled.div.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3',
   className: props.$isAnimated ? 'is-animated' : undefined
 })).withConfig({

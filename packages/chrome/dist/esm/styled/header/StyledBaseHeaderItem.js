@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { getHeaderItemSize } from '../utils.js';
 
-const COMPONENT_ID = 'chrome.base_header_item';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $maxY,
-    $isRound
-  } = _ref;
+const COMPONENT_ID$n = 'chrome.base_header_item';
+const sizeStyles$b = ({
+  theme,
+  $maxY,
+  $isRound
+}) => {
   const margin = `0 ${theme.space.base * 3}px`;
   const size = getHeaderItemSize(theme);
   const height = $maxY ? '100%' : size;
@@ -31,11 +30,11 @@ const sizeStyles = _ref => {
   return css(["margin:", ";border-radius:", ";padding:", ";min-width:", ";height:", ";line-height:", ";font-size:inherit;"], margin, borderRadius, padding, size, height, lineHeight);
 };
 const StyledBaseHeaderItem = styled.button.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$n,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledBaseHeaderItem",
   componentId: "sc-1qua7h6-0"
-})(["display:inline-flex;position:relative;flex:", ";align-items:center;justify-content:", ";order:1;transition:box-shadow 0.1s ease-in-out,color 0.1s ease-in-out;z-index:0;border:none;background:transparent;text-decoration:none;white-space:nowrap;color:inherit;", ";", ";"], props => props.$maxX && '1', props => props.$maxX ? 'start' : 'center', sizeStyles, componentStyles);
+})(["display:inline-flex;position:relative;flex:", ";align-items:center;justify-content:", ";order:1;transition:box-shadow 0.1s ease-in-out,color 0.1s ease-in-out;z-index:0;border:none;background:transparent;text-decoration:none;white-space:nowrap;color:inherit;", ";", ";"], props => props.$maxX && '1', props => props.$maxX ? 'start' : 'center', sizeStyles$b, componentStyles);
 
 export { StyledBaseHeaderItem };

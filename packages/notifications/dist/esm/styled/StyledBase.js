@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { validationTypes } from '../utils/icons.js';
 
-const COMPONENT_ID = 'notifications.base_container';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $type,
-    $isFloating
-  } = _ref;
+const COMPONENT_ID$a = 'notifications.base_container';
+const colorStyles$9 = ({
+  theme,
+  $type,
+  $isFloating
+}) => {
   const {
     space,
     shadows
@@ -79,11 +78,11 @@ const padding = props => {
   return `${paddingVertical} ${paddingHorizontal}`;
 };
 const StyledBase = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledBase",
   componentId: "sc-14syaqw-0"
-})(["position:relative;border:", ";border-radius:", ";padding:", ";line-height:", ";font-size:", ";direction:", ";", ";", ""], props => props.theme.borders.sm, props => props.theme.borderRadii.md, padding, props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), props => props.theme.fontSizes.md, props => props.theme.rtl && 'rtl', colorStyles, componentStyles);
+})(["position:relative;border:", ";border-radius:", ";padding:", ";line-height:", ";font-size:", ";direction:", ";", ";", ""], props => props.theme.borders.sm, props => props.theme.borderRadii.md, padding, props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), props => props.theme.fontSizes.md, props => props.theme.rtl && 'rtl', colorStyles$9, componentStyles);
 
 export { StyledBase };

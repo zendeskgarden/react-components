@@ -9,12 +9,11 @@ import { stripUnit, math } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCode } from './StyledCode.js';
 
-const COMPONENT_ID = 'typography.kbd';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $size
-  } = _ref;
+const COMPONENT_ID$1 = 'typography.kbd';
+const sizeStyles = ({
+  theme,
+  $size
+}) => {
   let minWidth;
   let paddingHorizontal;
   let paddingVertical = '0';
@@ -41,7 +40,7 @@ const sizeStyles = _ref => {
   return css(["&&{box-sizing:border-box;padding:", ";min-width:", ";}"], padding, minWidth);
 };
 const StyledKbd = styled(StyledCode).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3',
   as: 'kbd'
 }).withConfig({

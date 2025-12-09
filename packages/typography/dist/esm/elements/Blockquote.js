@@ -21,16 +21,13 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 
-const Blockquote = forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    ...props
-  } = _ref;
-  return React.createElement(StyledBlockquote, Object.assign({
-    ref: ref,
-    size: size
-  }, props));
-});
+const Blockquote = forwardRef(({
+  size = 'medium',
+  ...props
+}, ref) => React.createElement(StyledBlockquote, Object.assign({
+  ref: ref,
+  size: size
+}, props)));
 Blockquote.displayName = 'Blockquote';
 Blockquote.propTypes = {
   size: PropTypes.oneOf(SIZE)

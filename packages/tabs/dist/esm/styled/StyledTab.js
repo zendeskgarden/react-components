@@ -8,12 +8,11 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
 
-const COMPONENT_ID = 'tabs.tab';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isSelected
-  } = _ref;
+const COMPONENT_ID$3 = 'tabs.tab';
+const colorStyles$1 = ({
+  theme,
+  $isSelected
+}) => {
   const borderColor = $isSelected ? getColor({
     theme,
     variable: 'border.primaryEmphasis'
@@ -38,11 +37,10 @@ const colorStyles = _ref => {
     }
   }), selectedColor, disabledColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isVertical
-  } = _ref2;
+const sizeStyles$2 = ({
+  theme,
+  $isVertical
+}) => {
   const borderWidth = theme.borderWidths.md;
   const focusHeight = `calc(100% - ${theme.space.base * ($isVertical ? 2 : 4)}px);`;
   let marginBottom;
@@ -59,7 +57,7 @@ const sizeStyles = _ref2 => {
   return css(["margin-bottom:", ";border-width:", ";padding:", ";&:focus-visible::before,&[data-garden-focus-visible]::before{height:", ";}&:last-of-type{margin-bottom:0;}"], marginBottom, borderWidth, padding, focusHeight);
 };
 const StyledTab = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTab",
@@ -69,6 +67,6 @@ const StyledTab = styled.div.attrs({
     return props.theme.rtl ? 'right' : 'left';
   }
   return 'center';
-}, sizeStyles, colorStyles, props => props.theme.space.base * (props.$isVertical ? 1 : 2.5), props => props.theme.space.base * (props.$isVertical ? 1 : 6), props => props.theme.space.base * (props.$isVertical ? 1 : 6), props => props.theme.borderRadii.md, componentStyles);
+}, sizeStyles$2, colorStyles$1, props => props.theme.space.base * (props.$isVertical ? 1 : 2.5), props => props.theme.space.base * (props.$isVertical ? 1 : 6), props => props.theme.space.base * (props.$isVertical ? 1 : 6), props => props.theme.borderRadii.md, componentStyles);
 
 export { StyledTab };

@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.nav_list';
+const COMPONENT_ID$g = 'chrome.nav_list';
 const StyledNavList = styled.ul.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$g,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledNavList",

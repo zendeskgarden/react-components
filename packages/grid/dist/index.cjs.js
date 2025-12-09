@@ -35,10 +35,9 @@ const WRAP = ['nowrap', 'wrap', 'wrap-reverse'];
 const ORIENTATION = ['top', 'bottom', 'start', 'end'];
 
 const COMPONENT_ID$6 = 'grid.col';
-const colorStyles$4 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$4 = ({
+  theme
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.primaryEmphasis',
@@ -92,11 +91,10 @@ const flexStyles$1 = (size, alignSelf, textAlign, offset, order, props) => {
 const mediaStyles$1 = (minWidth, size, alignSelf, textAlign, offset, order, props) => {
   return styled.css(["@media (min-width:", "){", ";}"], minWidth, flexStyles$1(size, alignSelf, textAlign, offset, order, props));
 };
-const sizeStyles$5 = _ref2 => {
-  let {
-    theme,
-    $gutters
-  } = _ref2;
+const sizeStyles$5 = ({
+  theme,
+  $gutters
+}) => {
   const padding = $gutters ? polished.math(`${theme.space[$gutters]} / 2`) : 0;
   return styled.css(["padding-right:", ";padding-left:", ";"], padding, padding);
 };
@@ -110,11 +108,10 @@ const StyledCol = styled__default.default.div.attrs(props => ({
 })(["box-sizing:border-box;width:100%;", ";", ";", ";", ";", ";", ";", ";", ";", ";"], props => flexStyles$1(!props.$sizeAll && (props.$xs || props.$sm || props.$md || props.$lg || props.$xl) ? undefined : props.$sizeAll || false, props.$alignSelf, props.$textAlign, props.$offset, props.$order, props), sizeStyles$5, props => props.$debug && colorStyles$4(props), props => mediaStyles$1(props.theme.breakpoints.xs, props.$xs, props.$alignSelfXs, props.$textAlignXs, props.$offsetXs, props.$orderXs, props), props => mediaStyles$1(props.theme.breakpoints.sm, props.$sm, props.$alignSelfSm, props.$textAlignSm, props.$offsetSm, props.$orderSm, props), props => mediaStyles$1(props.theme.breakpoints.md, props.$md, props.$alignSelfMd, props.$textAlignMd, props.$offsetMd, props.$orderMd, props), props => mediaStyles$1(props.theme.breakpoints.lg, props.$lg, props.$alignSelfLg, props.$textAlignLg, props.$offsetLg, props.$orderLg, props), props => mediaStyles$1(props.theme.breakpoints.xl, props.$xl, props.$alignSelfXl, props.$textAlignXl, props.$offsetXl, props.$orderXl, props), reactTheming.componentStyles);
 
 const COMPONENT_ID$5 = 'grid.grid';
-const colorStyles$3 = _ref => {
-  let {
-    theme,
-    $debug
-  } = _ref;
+const colorStyles$3 = ({
+  theme,
+  $debug
+}) => {
   const borderColor = $debug && reactTheming.getColor({
     theme,
     hue: 'crimson',
@@ -127,11 +124,10 @@ const colorStyles$3 = _ref => {
       ${borderWidth} 0 0 0 ${borderColor}
     `);
 };
-const sizeStyles$4 = _ref2 => {
-  let {
-    theme,
-    $gutters
-  } = _ref2;
+const sizeStyles$4 = ({
+  theme,
+  $gutters
+}) => {
   const padding = $gutters ? polished.math(`${theme.space[$gutters]} / 2`) : 0;
   return styled.css(["padding-right:", ";padding-left:", ";"], padding, padding);
 };
@@ -145,10 +141,9 @@ const StyledGrid = styled__default.default.div.attrs(props => ({
 })(["direction:", ";margin-right:auto;margin-left:auto;width:100%;box-sizing:border-box;", ";", ";", ";"], props => props.theme.rtl && 'rtl', sizeStyles$4, colorStyles$3, reactTheming.componentStyles);
 
 const COMPONENT_ID$4 = 'grid.row';
-const colorStyles$2 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     hue: 'mint',
@@ -178,11 +173,10 @@ const flexStyles = (alignItems, justifyContent, wrap) => {
 const mediaStyles = (minWidth, alignItems, justifyContent, wrap) => {
   return styled.css(["@media (min-width:", "){", ";}"], minWidth, flexStyles(alignItems, justifyContent, wrap));
 };
-const sizeStyles$3 = _ref2 => {
-  let {
-    theme,
-    $gutters
-  } = _ref2;
+const sizeStyles$3 = ({
+  theme,
+  $gutters
+}) => {
   const margin = $gutters ? polished.math(`${theme.space[$gutters]} / 2`) : 0;
   return styled.css(["margin-right:-", ";margin-left:-", ";"], margin, margin);
 };
@@ -214,10 +208,9 @@ const StyledPaneContent = styled__default.default.div.attrs({
 })(["height:100%;overflow:auto;color-scheme:only ", ";&[hidden]{display:none;}", ";"], p => p.theme.colors.base, reactTheming.componentStyles);
 
 const COMPONENT_ID$1 = 'pane.splitter';
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   const color = reactTheming.getColor({
     theme,
     variable: 'border.default'
@@ -244,12 +237,11 @@ const colorStyles$1 = _ref => {
     selector: '&:focus-visible::before'
   }), activeColor);
 };
-const sizeStyles$2 = _ref2 => {
-  let {
-    theme,
-    $orientation,
-    $isFixed
-  } = _ref2;
+const sizeStyles$2 = ({
+  theme,
+  $orientation,
+  $isFixed
+}) => {
   const size = polished.math(`${theme.shadowWidths.md} * 2`);
   const separatorSize = polished.math(`${theme.borderWidths.sm} * 2`);
   const offset = polished.math(`-${size} / 2`);
@@ -319,19 +311,17 @@ const StyledPaneSplitter = styled__default.default.div.attrs({
 })(["display:flex;position:absolute;align-items:center;justify-content:center;z-index:1;user-select:none;", ";", "{z-index:2;}&::before{position:absolute;transition:box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out;z-index:-1;content:'';}", ";", ";"], sizeStyles$2, reactTheming.SELECTOR_FOCUS_VISIBLE, colorStyles$1, reactTheming.componentStyles);
 
 const getSize = theme => theme.space.base * 6;
-const sizeStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$1 = ({
+  theme
+}) => {
   const size = `${getSize(theme)}px`;
   return styled.css(["width:", ";min-width:", ";height:", ";"], size, size, size);
 };
-const transformStyles = _ref2 => {
-  let {
-    $isRotated,
-    $orientation,
-    theme
-  } = _ref2;
+const transformStyles = ({
+  $isRotated,
+  $orientation,
+  theme
+}) => {
   let degrees = 0;
   if ($isRotated) {
     degrees = theme.rtl ? -180 : 180;
@@ -356,10 +346,9 @@ const StyledPaneSplitterButton = styled__default.default(reactButtons.ChevronBut
 })(["", ";", ";", ";"], sizeStyles$1, transformStyles, reactTheming.componentStyles);
 
 const COMPONENT_ID = 'pane.splitter_button_container';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.raised'
@@ -370,13 +359,12 @@ const colorStyles = _ref => {
   }));
   return styled.css(["box-shadow:", ";background-color:", ";"], boxShadow, backgroundColor);
 };
-const positionStyles = _ref2 => {
-  let {
-    theme,
-    $orientation,
-    $placement,
-    $splitterSize
-  } = _ref2;
+const positionStyles = ({
+  theme,
+  $orientation,
+  $placement,
+  $splitterSize
+}) => {
   let top;
   let left;
   let right;
@@ -454,10 +442,9 @@ const positionStyles = _ref2 => {
   }
   return styled.css(["top:", ";right:", ";bottom:", ";left:", ";"], top, right, bottom, left);
 };
-const sizeStyles = _ref3 => {
-  let {
-    theme
-  } = _ref3;
+const sizeStyles = ({
+  theme
+}) => {
   const size = getSize(theme);
   return styled.css(["border-radius:", "px;width:", "px;height:", "px;"], size, size, size);
 };
@@ -477,40 +464,39 @@ const useGridContext = () => {
   return React.useContext(GridContext);
 };
 
-const Col = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    alignSelf,
-    alignSelfLg,
-    alignSelfMd,
-    alignSelfSm,
-    alignSelfXl,
-    alignSelfXs,
-    lg,
-    md,
-    offset,
-    offsetLg,
-    offsetMd,
-    offsetSm,
-    offsetXl,
-    offsetXs,
-    order,
-    orderLg,
-    orderMd,
-    orderSm,
-    orderXl,
-    orderXs,
-    size,
-    sm,
-    textAlign,
-    textAlignLg,
-    textAlignMd,
-    textAlignSm,
-    textAlignXl,
-    textAlignXs,
-    xl,
-    xs,
-    ...other
-  } = _ref;
+const Col = React__default.default.forwardRef(({
+  alignSelf,
+  alignSelfLg,
+  alignSelfMd,
+  alignSelfSm,
+  alignSelfXl,
+  alignSelfXs,
+  lg,
+  md,
+  offset,
+  offsetLg,
+  offsetMd,
+  offsetSm,
+  offsetXl,
+  offsetXs,
+  order,
+  orderLg,
+  orderMd,
+  orderSm,
+  orderXl,
+  orderXs,
+  size,
+  sm,
+  textAlign,
+  textAlignLg,
+  textAlignMd,
+  textAlignSm,
+  textAlignXl,
+  textAlignXs,
+  xl,
+  xs,
+  ...other
+}, ref) => {
   const {
     columns,
     gutters,
@@ -587,28 +573,27 @@ Col.propTypes = {
   orderXl: PropTypes__default.default.oneOfType([PropTypes__default.default.number, PropTypes__default.default.string])
 };
 
-const Row = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    alignItems,
-    alignItemsXs,
-    alignItemsSm,
-    alignItemsMd,
-    alignItemsLg,
-    alignItemsXl,
-    justifyContent,
-    justifyContentXs,
-    justifyContentSm,
-    justifyContentMd,
-    justifyContentLg,
-    justifyContentXl,
-    wrap,
-    wrapXs,
-    wrapSm,
-    wrapMd,
-    wrapLg,
-    wrapXl,
-    ...props
-  } = _ref;
+const Row = React__default.default.forwardRef(({
+  alignItems,
+  alignItemsXs,
+  alignItemsSm,
+  alignItemsMd,
+  alignItemsLg,
+  alignItemsXl,
+  justifyContent,
+  justifyContentXs,
+  justifyContentSm,
+  justifyContentMd,
+  justifyContentLg,
+  justifyContentXl,
+  wrap,
+  wrapXs,
+  wrapSm,
+  wrapMd,
+  wrapLg,
+  wrapXl,
+  ...props
+}, ref) => {
   const {
     gutters,
     debug
@@ -659,13 +644,12 @@ Row.propTypes = {
   wrapXl: PropTypes__default.default.oneOf(WRAP)
 };
 
-const GridComponent = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    columns = 12,
-    gutters = 'md',
-    debug,
-    ...other
-  } = _ref;
+const GridComponent = React__default.default.forwardRef(({
+  columns = 12,
+  gutters = 'md',
+  debug,
+  ...other
+}, ref) => {
   const value = React.useMemo(() => ({
     columns,
     gutters: gutters,
@@ -701,24 +685,22 @@ const getPixelsPerFr = (totalFrs, totalDimension) => {
   return totalDimension / totalFrs;
 };
 const convertToPixels = (values, pixelsPerFr) => {
-  return Object.entries(values).reduce((prev, _ref) => {
-    let [key, value] = _ref;
+  return Object.entries(values).reduce((prev, [key, value]) => {
     prev[key] = value * pixelsPerFr;
     return prev;
   }, {});
 };
-const PaneProvider = _ref2 => {
-  let {
-    id,
-    totalPanesWidth,
-    totalPanesHeight,
-    defaultRowValues,
-    defaultColumnValues,
-    rowValues,
-    columnValues,
-    onChange,
-    children
-  } = _ref2;
+const PaneProvider = ({
+  id,
+  totalPanesWidth,
+  totalPanesHeight,
+  defaultRowValues,
+  defaultColumnValues,
+  rowValues,
+  columnValues,
+  onChange,
+  children
+}) => {
   const isControlled = rowValues !== undefined && rowValues !== null && columnValues !== undefined && columnValues !== null;
   const [rowState, setRowState] = React.useState(defaultRowValues || {});
   const [columnState, setColumnState] = React.useState(defaultColumnValues || {});
@@ -914,21 +896,20 @@ const orientationToDimension = {
   top: 'rows',
   bottom: 'rows'
 };
-const SplitterComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    providerId,
-    layoutKey,
-    min,
-    max,
-    orientation = 'end',
-    isFixed,
-    onMouseDown,
-    onTouchStart,
-    onKeyDown,
-    onClick,
-    ...props
-  } = _ref;
+const SplitterComponent = React.forwardRef(({
+  children,
+  providerId,
+  layoutKey,
+  min,
+  max,
+  orientation = 'end',
+  isFixed,
+  onMouseDown,
+  onTouchStart,
+  onKeyDown,
+  onClick,
+  ...props
+}, ref) => {
   const paneProviderContext = usePaneProviderContextData(providerId);
   const paneContext = usePaneContext();
   const themeContext = React.useContext(styled.ThemeContext);
@@ -1013,12 +994,11 @@ const ContentComponent = React.forwardRef((props, ref) => {
 ContentComponent.displayName = 'Pane.Content';
 const Content = ContentComponent;
 
-const SplitterButtonComponent = React.forwardRef((_ref, ref) => {
-  let {
-    label,
-    placement: defaultPlacement,
-    ...other
-  } = _ref;
+const SplitterButtonComponent = React.forwardRef(({
+  label,
+  placement: defaultPlacement,
+  ...other
+}, ref) => {
   const {
     orientation,
     layoutKey,
@@ -1085,11 +1065,10 @@ const SplitterButtonComponent = React.forwardRef((_ref, ref) => {
 SplitterButtonComponent.displayName = 'Pane.SplitterButton';
 const SplitterButton = SplitterButtonComponent;
 
-const PaneComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...props
-  } = _ref;
+const PaneComponent = React.forwardRef(({
+  children,
+  ...props
+}, ref) => {
   const [paneId, setPaneId] = React.useState();
   const observerRef = React.useRef(null);
   const {

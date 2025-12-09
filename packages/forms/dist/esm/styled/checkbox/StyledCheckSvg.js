@@ -10,9 +10,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCheckInput } from './StyledCheckInput.js';
 import { StyledCheckLabel } from './StyledCheckLabel.js';
 
-const COMPONENT_ID = 'forms.check_svg';
+const COMPONENT_ID$l = 'forms.check_svg';
 const StyledCheckSvg = styled(SvgCheckSmFill).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$l,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCheckSvg",

@@ -31,12 +31,11 @@ import { OverflowButton } from './OverflowButton.js';
 import { Row } from './Row.js';
 import { SortableCell } from './SortableCell.js';
 
-const TableComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    isReadOnly,
-    size = 'medium',
-    ...props
-  } = _ref;
+const TableComponent = React__default.forwardRef(({
+  isReadOnly,
+  size = 'medium',
+  ...props
+}, ref) => {
   const tableContextValue = useMemo(() => ({
     size: size,
     isReadOnly: isReadOnly

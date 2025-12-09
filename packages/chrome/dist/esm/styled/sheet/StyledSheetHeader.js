@@ -8,21 +8,19 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'chrome.sheet_header';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const borderColor = getColor({
     theme,
     variable: 'border.subtle'
   });
   return css(["border-bottom-color:", ";"], borderColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isCloseButtonPresent
-  } = _ref2;
+const sizeStyles = ({
+  theme,
+  $isCloseButtonPresent
+}) => {
   const border = theme.borders.sm;
   let padding = `${theme.space.base * 5}px`;
   if ($isCloseButtonPresent) {

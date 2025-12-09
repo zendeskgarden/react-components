@@ -52,11 +52,10 @@ import '../../styled/tiles/StyledTileIcon.js';
 import '../../styled/tiles/StyledTileInput.js';
 import '../../styled/tiles/StyledTileLabel.js';
 
-const InputGroup = React__default.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    ...other
-  } = _ref;
+const InputGroup = React__default.forwardRef(({
+  isCompact,
+  ...other
+}, ref) => {
   const contextValue = useMemo(() => ({
     isCompact
   }), [isCompact]);

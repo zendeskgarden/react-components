@@ -6,13 +6,12 @@
 */
 import styled, { css } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.combobox.input';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$p = 'dropdowns.combobox.input';
+const colorStyles$a = ({
+  theme
+}) => {
   const placeholderColor = getColor({
     theme,
     variable: 'foreground.disabled'
@@ -25,7 +24,7 @@ const getHeight = props => {
   }
   return props.theme.space.base * (props.$isCompact ? 5 : 8);
 };
-const sizeStyles = props => {
+const sizeStyles$a = props => {
   const height = props.theme.space.base * 5;
   const fontSize = props.theme.fontSizes.md;
   const lineHeight = getLineHeight(height, fontSize);
@@ -34,11 +33,11 @@ const sizeStyles = props => {
   return css(["min-width:", ";height:", "px;line-height:", ";font-size:", ";&&{margin-top:", ";margin-bottom:", ";}"], minWidth, height, lineHeight, fontSize, margin, margin);
 };
 const StyledInput = styled.input.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$p,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledInput",
   componentId: "sc-1lkqdg-0"
-})(["flex-basis:0;flex-grow:1;border:none;padding:0;font-family:inherit;&:focus{outline:none;}", ";", ";&[hidden]{display:revert;", "}&[aria-hidden='true']{display:none;}", ";"], sizeStyles, colorStyles, props => props.$isEditable && hideVisually(), componentStyles);
+})(["flex-basis:0;flex-grow:1;border:none;padding:0;font-family:inherit;&:focus{outline:none;}", ";", ";&[hidden]{display:revert;", "}&[aria-hidden='true']{display:none;}", ";"], sizeStyles$a, colorStyles$a, props => props.$isEditable && hideVisually(), componentStyles);
 
-export { StyledInput, getHeight, sizeStyles };
+export { StyledInput, getHeight, sizeStyles$a as sizeStyles };

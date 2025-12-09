@@ -51,8 +51,7 @@ const hiddenStyles = options => {
   const transition = 'opacity 0.2s ease-in-out, 0.2s visibility 0s linear';
   return css(["transition:", ";visibility:hidden;opacity:0;"], options.animationModifier && transition);
 };
-function menuStyles(position) {
-  let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+function menuStyles(position, options = {}) {
   const theme = options.theme || DEFAULT_THEME;
   let marginProperty;
   if (position === 'top') {

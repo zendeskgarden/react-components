@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { getLineHeight, getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.input_label';
+const COMPONENT_ID$E = 'forms.input_label';
 const StyledLabel = styled.label.attrs(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+  'data-garden-id': props['data-garden-id'] || COMPONENT_ID$E,
   'data-garden-version': props['data-garden-version'] || '9.12.3'
 })).withConfig({
   displayName: "StyledLabel",

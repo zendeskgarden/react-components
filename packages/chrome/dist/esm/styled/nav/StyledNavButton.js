@@ -11,12 +11,11 @@ import { StyledBaseNavItem } from './StyledBaseNavItem.js';
 import { StyledNavItemIcon } from './StyledNavItemIcon.js';
 import { getNavWidth } from '../utils.js';
 
-const COMPONENT_ID = 'chrome.nav_button';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $hue
-  } = _ref;
+const COMPONENT_ID$a = 'chrome.nav_button';
+const colorStyles$3 = ({
+  theme,
+  $hue
+}) => {
   const activeBackgroundColor = getColor({
     theme,
     dark: {
@@ -71,21 +70,20 @@ const colorStyles = _ref => {
     }
   }), activeBackgroundColor, currentBackgroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isExpanded
-  } = _ref2;
+const sizeStyles$4 = ({
+  theme,
+  $isExpanded
+}) => {
   const iconMargin = $isExpanded ? `0 ${math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}` : undefined;
   return css(["margin:0;border:none;box-sizing:border-box;min-width:0;font-size:inherit;", "{margin:", ";}"], StyledNavItemIcon, iconMargin);
 };
 const StyledNavButton = styled(StyledBaseNavItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3',
   as: 'button'
 }).withConfig({
   displayName: "StyledNavButton",
   componentId: "sc-f5ux3-0"
-})(["flex:1;justify-content:", ";cursor:pointer;text-align:", ";text-decoration:none;", ";&:hover,&:focus{text-decoration:none;}&[aria-current='true']{cursor:default;}", ";", ";"], props => props.$isExpanded && 'start', props => props.$isExpanded && 'inherit', sizeStyles, colorStyles, componentStyles);
+})(["flex:1;justify-content:", ";cursor:pointer;text-align:", ";text-decoration:none;", ";&:hover,&:focus{text-decoration:none;}&[aria-current='true']{cursor:default;}", ";", ";"], props => props.$isExpanded && 'start', props => props.$isExpanded && 'inherit', sizeStyles$4, colorStyles$3, componentStyles);
 
 export { StyledNavButton };

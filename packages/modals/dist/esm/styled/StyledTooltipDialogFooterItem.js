@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFooterItem } from './StyledFooterItem.js';
 
-const COMPONENT_ID = 'modals.tooltip_dialog.footer_item';
+const COMPONENT_ID$6 = 'modals.tooltip_dialog.footer_item';
 const StyledTooltipDialogFooterItem = styled(StyledFooterItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTooltipDialogFooterItem",

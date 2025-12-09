@@ -11,9 +11,9 @@ import { SIZE } from '../types/index.js';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase.js';
 import { getStatusBorderOffset, includes } from './utility.js';
 
-const COMPONENT_ID = 'avatars.status_indicator';
+const COMPONENT_ID$4 = 'avatars.status_indicator';
 const [xxs, xs, s, m, l] = SIZE;
-const sizeStyles = props => {
+const sizeStyles$2 = props => {
   const isVisible = props.$size !== xxs;
   const iconSize = props.$size === xs ? `${props.theme.space.base * 2}px` : undefined;
   const borderWidth = getStatusBorderOffset(props);
@@ -25,14 +25,13 @@ const sizeStyles = props => {
   }
   return css(["max-width:calc(2em + (", " * 3));box-sizing:content-box;overflow:hidden;text-align:center;text-overflow:ellipsis;white-space:nowrap;font-size:", ";font-weight:", ";& > span{display:", ";padding:0 ", ";max-width:2em;overflow:inherit;text-align:inherit;text-overflow:inherit;white-space:inherit;}& > svg{", " width:", ";height:", ";}"], borderWidth, props.theme.fontSizes.xs, props.theme.fontWeights.semibold, isVisible ? 'inline-block' : 'none', padding, !isVisible && 'display: none;', iconSize, iconSize);
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $type,
-    $size,
-    $borderColor,
-    $surfaceColor
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $type,
+  $size,
+  $borderColor,
+  $surfaceColor
+}) => {
   const shadowSize = $size === xxs ? 'xs' : 'sm';
   let boxShadow;
   const surfaceColor = $surfaceColor?.includes('.') ? getColor({
@@ -50,12 +49,12 @@ const colorStyles = _ref => {
   return css(["border-color:", ";box-shadow:", ";"], $borderColor, boxShadow);
 };
 const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3',
   $size: props.$size ?? 'medium'
 })).withConfig({
   displayName: "StyledStatusIndicator",
   componentId: "sc-16t9if3-0"
-})(["", " ", " ", ";"], sizeStyles, colorStyles, componentStyles);
+})(["", " ", " ", ";"], sizeStyles$2, colorStyles$1, componentStyles);
 
 export { StyledStatusIndicator };

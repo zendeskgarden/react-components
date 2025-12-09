@@ -5,13 +5,12 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import styled, { css } from 'styled-components';
-import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tabs.tablist';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$2 = 'tabs.tablist';
+const colorStyles = ({
+  theme
+}) => {
   const borderColor = getColor({
     theme,
     variable: 'border.default'
@@ -22,11 +21,10 @@ const colorStyles = _ref => {
   });
   return css(["transition:border-color 0.25s ease-in-out;color-scheme:only ", ";border-bottom-color:", ";color:", ";"], p => p.theme.colors.base, borderColor, foregroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isVertical
-  } = _ref2;
+const sizeStyles$1 = ({
+  theme,
+  $isVertical
+}) => {
   const marginBottom = $isVertical ? 0 : `${theme.space.base * 5}px`;
   const borderBottom = $isVertical ? undefined : theme.borderWidths.sm;
   const fontSize = theme.fontSizes.md;
@@ -34,11 +32,11 @@ const sizeStyles = _ref2 => {
   return css(["margin-top:0;margin-bottom:", ";border-bottom-width:", ";padding:0;line-height:", ";font-size:", ";"], marginBottom, borderBottom, lineHeight, fontSize);
 };
 const StyledTabList = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTabList",
   componentId: "sc-wa5aaj-0"
-})(["display:", ";border-bottom:", ";vertical-align:", ";white-space:nowrap;", ";", ";", ";"], props => props.$isVertical ? 'table-cell' : 'block', props => props.$isVertical ? 'none' : props.theme.borderStyles.solid, props => props.$isVertical ? 'top' : undefined, sizeStyles, colorStyles, componentStyles);
+})(["display:", ";border-bottom:", ";vertical-align:", ";white-space:nowrap;", ";", ";", ";"], props => props.$isVertical ? 'table-cell' : 'block', props => props.$isVertical ? 'none' : props.theme.borderStyles.solid, props => props.$isVertical ? 'top' : undefined, sizeStyles$1, colorStyles, componentStyles);
 
 export { StyledTabList };

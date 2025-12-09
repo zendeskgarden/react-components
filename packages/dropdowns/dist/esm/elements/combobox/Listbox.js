@@ -45,19 +45,18 @@ import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 
-const Listbox = forwardRef((_ref, ref) => {
-  let {
-    appendToNode,
-    children,
-    isCompact,
-    isExpanded,
-    maxHeight,
-    minHeight,
-    onMouseDown,
-    triggerRef,
-    zIndex,
-    ...props
-  } = _ref;
+const Listbox = forwardRef(({
+  appendToNode,
+  children,
+  isCompact,
+  isExpanded,
+  maxHeight,
+  minHeight,
+  onMouseDown,
+  triggerRef,
+  zIndex,
+  ...props
+}, ref) => {
   const floatingRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [height, setHeight] = useState();
@@ -77,11 +76,10 @@ const Listbox = forwardRef((_ref, ref) => {
     },
     placement: 'bottom-start',
     middleware: [offset(theme.space.base), flip(), size({
-      apply: _ref2 => {
-        let {
-          rects,
-          availableHeight
-        } = _ref2;
+      apply: ({
+        rects,
+        availableHeight
+      }) => {
         if (rects.reference.width > 0) {
           setWidth(rects.reference.width);
           if (!(minHeight === null || minHeight === 'fit-content') && rects.floating.height > availableHeight) {

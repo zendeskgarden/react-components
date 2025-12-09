@@ -8,8 +8,8 @@ import styled from 'styled-components';
 import { rgba } from 'polished';
 import { componentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';
-const background = props => {
+const COMPONENT_ID$h = 'colorpickers.colorpicker_preview_box';
+const background$2 = props => {
   const alpha = props.$alpha ? props.$alpha / 100 : 0;
   let retVal = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, ${alpha})`;
   if (!props.$isOpaque) {
@@ -23,9 +23,9 @@ const background = props => {
 };
 const StyledPreview = styled.div.attrs(props => ({
   style: {
-    background: background(props)
+    background: background$2(props)
   },
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$h,
   'data-garden-version': '9.12.3',
   'data-test-id': 'preview-box'
 })).withConfig({

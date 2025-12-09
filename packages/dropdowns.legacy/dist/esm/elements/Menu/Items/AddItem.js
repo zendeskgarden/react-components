@@ -33,12 +33,11 @@ import '../../../styled/multiselect/StyledMultiselectItemWrapper.js';
 import '../../../styled/multiselect/StyledMultiselectMoreAnchor.js';
 import useMenuContext from '../../../utils/useMenuContext.js';
 
-const AddItemComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    disabled,
-    ...props
-  } = _ref;
+const AddItemComponent = React__default.forwardRef(({
+  children,
+  disabled,
+  ...props
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();

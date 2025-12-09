@@ -8,7 +8,7 @@ import { getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import { SIZE } from '../types/index.js';
 
-const [xxs, xs, s, m, l] = SIZE;
+const [xxs$1, xs$1, s$1, m$1, l$1] = SIZE;
 const TRANSITION_DURATION = 0.25;
 const StatusColorParams = {
   active: {
@@ -68,19 +68,19 @@ function getStatusColor(theme, type) {
   }) : 'transparent';
 }
 function getStatusBorderOffset(props) {
-  return props.$size === xxs ? math(`${props.theme.shadowWidths.sm} - 1`) : props.theme.shadowWidths.sm;
+  return props.$size === xxs$1 ? math(`${props.theme.shadowWidths.sm} - 1`) : props.theme.shadowWidths.sm;
 }
 function getStatusSize(props, offset) {
   const isActive = props.$type === 'active';
   switch (props.$size) {
-    case xxs:
+    case xxs$1:
       return math(`${props.theme.space.base}px - ${offset}`);
-    case xs:
+    case xs$1:
       return math(`${props.theme.space.base * 2}px - (${offset} * 2)`);
-    case s:
+    case s$1:
       return math(`${props.theme.space.base * 3}px ${isActive ? '' : `- (${offset} * 2)`}`);
-    case m:
-    case l:
+    case m$1:
+    case l$1:
       return math(`${props.theme.space.base * 4}px ${isActive ? '' : `- (${offset} * 2)`}`);
     default:
       return '0';

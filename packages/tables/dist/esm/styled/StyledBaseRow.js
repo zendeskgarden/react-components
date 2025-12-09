@@ -7,17 +7,15 @@
 import styled, { css } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 
-const sizeStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$4 = ({
+  theme
+}) => {
   return css(["border-bottom:", ";vertical-align:top;box-sizing:border-box;"], theme.borders.sm);
 };
-const colorStyles = _ref2 => {
-  let {
-    theme,
-    $isStriped
-  } = _ref2;
+const colorStyles$5 = ({
+  theme,
+  $isStriped
+}) => {
   const borderColor = getColor({
     variable: 'border.subtle',
     theme
@@ -38,6 +36,6 @@ const colorStyles = _ref2 => {
 const StyledBaseRow = styled.tr.withConfig({
   displayName: "StyledBaseRow",
   componentId: "sc-1t4zqg4-0"
-})(["display:table-row;transition:background-color 0.1s ease-in-out;", " ", ""], sizeStyles, colorStyles);
+})(["display:table-row;transition:background-color 0.1s ease-in-out;", " ", ""], sizeStyles$4, colorStyles$5);
 
 export { StyledBaseRow };

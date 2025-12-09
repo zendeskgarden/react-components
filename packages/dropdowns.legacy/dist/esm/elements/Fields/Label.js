@@ -11,12 +11,11 @@ import { Label as Label$1 } from '@zendeskgarden/react-forms';
 import useDropdownContext from '../../utils/useDropdownContext.js';
 import useFieldContext from '../../utils/useFieldContext.js';
 
-const Label = React__default.forwardRef((_ref, ref) => {
-  let {
-    onMouseEnter,
-    onMouseLeave,
-    ...other
-  } = _ref;
+const Label = React__default.forwardRef(({
+  onMouseEnter,
+  onMouseLeave,
+  ...other
+}, ref) => {
   const {
     downshift: {
       getLabelProps

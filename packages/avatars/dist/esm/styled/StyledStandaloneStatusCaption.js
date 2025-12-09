@@ -7,13 +7,13 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'avatars.status-indicator.caption';
+const COMPONENT_ID$1 = 'avatars.status-indicator.caption';
 function sizeStyles(props) {
   const marginRule = `margin-${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 2}px;`;
   return css(["", " line-height:", ";font-size:", ";"], marginRule, getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md), props.theme.fontSizes.md);
 }
 const StyledStandaloneStatusCaption = styled.figcaption.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledStandaloneStatusCaption",

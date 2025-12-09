@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from '../StyledItem.js';
 
-const COMPONENT_ID = 'dropdowns.media_item';
+const COMPONENT_ID$7 = 'dropdowns.media_item';
 const StyledMediaItem = styled(StyledItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMediaItem",

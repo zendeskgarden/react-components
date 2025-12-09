@@ -57,11 +57,10 @@ const StyledClose = styled__default.default.button.attrs({
 })(["display:flex;flex-shrink:0;align-items:center;justify-content:center;transition:opacity 0.25s ease-in-out;opacity:", ";border:0;background:transparent;cursor:pointer;padding:0;color:inherit;font-size:0;appearance:none;&:hover{opacity:", ";}&:focus{outline:none;}&:active{opacity:", ";}", ";"], props => props.theme.opacity[1000], props => props.theme.opacity[1100], props => props.theme.opacity[1200], reactTheming.componentStyles);
 
 const COMPONENT_ID = 'tags.tag_view';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $hue
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $hue
+}) => {
   let backgroundColor;
   let foregroundColor;
   if ($hue) {
@@ -181,13 +180,12 @@ const colorStyles = _ref => {
     selector: '&:focus'
   }));
 };
-const sizeStyles = _ref2 => {
-  let {
-    $isPill,
-    $isRound,
-    $size,
-    theme
-  } = _ref2;
+const sizeStyles = ({
+  $isPill,
+  $isRound,
+  $size,
+  theme
+}) => {
   let borderRadius;
   let padding;
   let height;
@@ -278,24 +276,21 @@ const AvatarComponent = props => React__namespace.default.createElement(StyledAv
 AvatarComponent.displayName = 'Tag.Avatar';
 const Avatar = AvatarComponent;
 
-const TagComponent = React.forwardRef((_ref, ref) => {
-  let {
-    isPill,
-    isRound,
-    isRegular,
-    size = 'medium',
-    hue,
-    ...other
-  } = _ref;
-  return React__namespace.default.createElement(StyledTag, Object.assign({
-    $hue: hue,
-    $isPill: isPill,
-    $isRegular: isRegular,
-    $isRound: isRound,
-    $size: size,
-    ref: ref
-  }, other));
-});
+const TagComponent = React.forwardRef(({
+  isPill,
+  isRound,
+  isRegular,
+  size = 'medium',
+  hue,
+  ...other
+}, ref) => React__namespace.default.createElement(StyledTag, Object.assign({
+  $hue: hue,
+  $isPill: isPill,
+  $isRegular: isRegular,
+  $isRound: isRound,
+  $size: size,
+  ref: ref
+}, other)));
 TagComponent.displayName = 'Tag';
 TagComponent.propTypes = {
   size: PropTypes__default.default.oneOf(SIZE),

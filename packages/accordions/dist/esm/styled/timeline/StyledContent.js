@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'timeline.content';
+const COMPONENT_ID$3 = 'timeline.content';
 const StyledTimelineContent = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledContent__StyledTimelineContent",

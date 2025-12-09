@@ -41,15 +41,14 @@ import '../../styled/sheet/StyledSheetFooter.js';
 import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 
-const HeaderItem = React__default.forwardRef((_ref, ref) => {
-  let {
-    hasLogo,
-    isRound,
-    maxX,
-    maxY,
-    product,
-    ...other
-  } = _ref;
+const HeaderItem = React__default.forwardRef(({
+  hasLogo,
+  isRound,
+  maxX,
+  maxY,
+  product,
+  ...other
+}, ref) => {
   if (hasLogo) {
     return React__default.createElement(StyledLogoHeaderItem, Object.assign({
       ref: ref,

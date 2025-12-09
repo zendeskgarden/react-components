@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton.js';
 
-const COMPONENT_ID = 'buttons.anchor';
+const COMPONENT_ID$2 = 'buttons.anchor';
 const StyledAnchor = styled(StyledButton).attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3',
   as: 'a',
   dir: props.theme.rtl ? 'rtl' : undefined,

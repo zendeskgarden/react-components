@@ -9,17 +9,14 @@ import styled from 'styled-components';
 import SvgChevronLeftStroke from '../../node_modules/@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg.js';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.previous_item_icon';
-const PreviousIconComponent = _ref => {
-  let {
-    className
-  } = _ref;
-  return React__default.createElement(SvgChevronLeftStroke, {
-    "data-garden-id": COMPONENT_ID,
-    "data-garden-version": '9.12.3',
-    className: className
-  });
-};
+const COMPONENT_ID$c = 'dropdowns.previous_item_icon';
+const PreviousIconComponent = ({
+  className
+}) => React__default.createElement(SvgChevronLeftStroke, {
+  "data-garden-id": COMPONENT_ID$c,
+  "data-garden-version": '9.12.3',
+  className: className
+});
 const StyledPreviousIcon = styled(PreviousIconComponent).withConfig({
   displayName: "StyledPreviousIcon",
   componentId: "sc-1n1t07s-0"

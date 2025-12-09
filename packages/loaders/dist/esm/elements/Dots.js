@@ -14,17 +14,16 @@ import '../styled/StyledSpinnerCircle.js';
 import { StyledSVG } from '../styled/StyledSVG.js';
 import '../styled/StyledInline.js';
 
-const COMPONENT_ID = 'loaders.dots';
-const Dots = forwardRef((_ref, ref) => {
-  let {
-    size = 'inherit',
-    color = 'inherit',
-    duration = 1250,
-    delayMS = 750,
-    ...other
-  } = _ref;
+const COMPONENT_ID$2 = 'loaders.dots';
+const Dots = forwardRef(({
+  size = 'inherit',
+  color = 'inherit',
+  duration = 1250,
+  delayMS = 750,
+  ...other
+}, ref) => {
   return React.createElement(StyledSVG, Object.assign({
-    "data-garden-id": COMPONENT_ID,
+    "data-garden-id": COMPONENT_ID$2,
     ref: ref,
     $fontSize: size,
     $color: color,

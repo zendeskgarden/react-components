@@ -66,6 +66,8 @@ export declare const StyledMediaFigure: import("styled-components/dist/types").I
     unselectable?: "on" | "off" | undefined;
     inputMode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
     is?: string | undefined;
+    exportparts?: string | undefined;
+    part?: string | undefined;
     'data-garden-id'?: string;
     'data-garden-version'?: string;
     "aria-activedescendant"?: string | undefined;
@@ -142,7 +144,7 @@ export declare const StyledMediaFigure: import("styled-components/dist/types").I
     onBlurCapture?: React.FocusEventHandler<HTMLDivElement> | undefined;
     onChange?: React.FormEventHandler<HTMLDivElement> | undefined;
     onChangeCapture?: React.FormEventHandler<HTMLDivElement> | undefined;
-    onBeforeInput?: React.FormEventHandler<HTMLDivElement> | undefined;
+    onBeforeInput?: React.InputEventHandler<HTMLDivElement> | undefined;
     onBeforeInputCapture?: React.FormEventHandler<HTMLDivElement> | undefined;
     onInput?: React.FormEventHandler<HTMLDivElement> | undefined;
     onInputCapture?: React.FormEventHandler<HTMLDivElement> | undefined;
@@ -192,8 +194,6 @@ export declare const StyledMediaFigure: import("styled-components/dist/types").I
     onProgressCapture?: React.ReactEventHandler<HTMLDivElement> | undefined;
     onRateChange?: React.ReactEventHandler<HTMLDivElement> | undefined;
     onRateChangeCapture?: React.ReactEventHandler<HTMLDivElement> | undefined;
-    onResize?: React.ReactEventHandler<HTMLDivElement> | undefined;
-    onResizeCapture?: React.ReactEventHandler<HTMLDivElement> | undefined;
     onSeeked?: React.ReactEventHandler<HTMLDivElement> | undefined;
     onSeekedCapture?: React.ReactEventHandler<HTMLDivElement> | undefined;
     onSeeking?: React.ReactEventHandler<HTMLDivElement> | undefined;

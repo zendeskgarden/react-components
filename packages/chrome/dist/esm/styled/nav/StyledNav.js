@@ -8,12 +8,11 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { getNavWidthExpanded, getNavWidth } from '../utils.js';
 
-const COMPONENT_ID = 'chrome.nav';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $hue
-  } = _ref;
+const COMPONENT_ID$h = 'chrome.nav';
+const colorStyles$5 = ({
+  theme,
+  $hue
+}) => {
   const shade = $hue === 'chromeHue' ? 900 : undefined;
   const backgroundColor = getColor({
     theme,
@@ -31,21 +30,20 @@ const colorStyles = _ref => {
   });
   return css(["background-color:", ";color:", ";"], backgroundColor, foregroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isExpanded
-  } = _ref2;
+const sizeStyles$7 = ({
+  theme,
+  $isExpanded
+}) => {
   const fontSize = theme.fontSizes.md;
   const width = $isExpanded ? getNavWidthExpanded() : getNavWidth(theme);
   return css(["width:", ";font-size:", ";"], width, fontSize);
 };
 const StyledNav = styled.nav.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$h,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledNav",
   componentId: "sc-6j462r-0"
-})(["display:flex;position:relative;flex-direction:column;flex-shrink:0;order:-1;", ";", ";", ";"], colorStyles, sizeStyles, componentStyles);
+})(["display:flex;position:relative;flex-direction:column;flex-shrink:0;order:-1;", ";", ";", ";"], colorStyles$5, sizeStyles$7, componentStyles);
 
 export { StyledNav };

@@ -67,15 +67,12 @@ const StyledLine = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledLine",
   componentId: "sc-1gkpjbr-0"
-})(["display:block;position:absolute;top:", "px;right:", ";left:", ";flex:1;border-top:", ";border-color:", ";"], props => props.theme.space.base * 3, props => `calc(50% + ${props.theme.space.base * 6}px)`, props => `calc(-50% + ${props.theme.space.base * 6}px)`, props => props.theme.borders.sm, _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    variable: 'border.default'
-  });
-});
+})(["display:block;position:absolute;top:", "px;right:", ";left:", ";flex:1;border-top:", ";border-color:", ";"], props => props.theme.space.base * 3, props => `calc(50% + ${props.theme.space.base * 6}px)`, props => `calc(-50% + ${props.theme.space.base * 6}px)`, props => props.theme.borders.sm, ({
+  theme
+}) => reactTheming.getColor({
+  theme,
+  variable: 'border.default'
+}));
 
 const COMPONENT_ID$i = 'accordions.step';
 const StyledStep = styled__default.default.li.attrs({
@@ -84,15 +81,12 @@ const StyledStep = styled__default.default.li.attrs({
 }).withConfig({
   displayName: "StyledStep",
   componentId: "sc-12fiwtz-0"
-})(["position:", ";flex:", ";min-width:", ";&:last-of-type ", "{display:", ";}&:first-of-type ", "{display:", ";}&:not(:last-of-type) ", "{border-", ":", ";border-color:", ";}", ";"], props => props.$isHorizontal && 'relative', props => props.$isHorizontal && '1', props => props.$isHorizontal && `${props.theme.space.base * 15}px`, StyledLine, props => props.theme.rtl && 'none', StyledLine, props => !props.theme.rtl && 'none', StyledContent, props => props.theme.rtl ? 'right' : 'left', props => props.theme.borders.sm, _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    variable: 'border.default'
-  });
-}, reactTheming.componentStyles);
+})(["position:", ";flex:", ";min-width:", ";&:last-of-type ", "{display:", ";}&:first-of-type ", "{display:", ";}&:not(:last-of-type) ", "{border-", ":", ";border-color:", ";}", ";"], props => props.$isHorizontal && 'relative', props => props.$isHorizontal && '1', props => props.$isHorizontal && `${props.theme.space.base * 15}px`, StyledLine, props => props.theme.rtl && 'none', StyledLine, props => !props.theme.rtl && 'none', StyledContent, props => props.theme.rtl ? 'right' : 'left', props => props.theme.borders.sm, ({
+  theme
+}) => reactTheming.getColor({
+  theme,
+  variable: 'border.default'
+}), reactTheming.componentStyles);
 
 const COMPONENT_ID$h = 'accordions.step_inner_content';
 const StyledInnerContent = styled__default.default.div.attrs({
@@ -101,15 +95,12 @@ const StyledInnerContent = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledInnerContent",
   componentId: "sc-1xs9fh7-0"
-})(["overflow:hidden;line-height:", ";color:", ";font-size:", ";", ";"], props => reactTheming.getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    variable: 'foreground.default'
-  });
-}, props => props.theme.fontSizes.md, reactTheming.componentStyles);
+})(["overflow:hidden;line-height:", ";color:", ";font-size:", ";", ";"], props => reactTheming.getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), ({
+  theme
+}) => reactTheming.getColor({
+  theme,
+  variable: 'foreground.default'
+}), props => props.theme.fontSizes.md, reactTheming.componentStyles);
 
 const COMPONENT_ID$g = 'accordions.stepper';
 const StyledStepper = styled__default.default.ol.attrs({
@@ -130,11 +121,10 @@ const sizeStyles$1 = props => {
   const fontSize = props.theme.fontSizes.sm;
   return styled.css(["margin-bottom:", ";margin-", ":", ";width:", ";min-width:", ";height:", ";min-height:", ";line-height:", ";font-size:", ";"], props.$isHorizontal && `${props.theme.space.base * 2}px`, props.theme.rtl ? 'left' : 'right', !props.$isHorizontal && `${props.theme.space.base * 3}px`, size, size, size, size, reactTheming.getLineHeight(size, fontSize), fontSize);
 };
-const colorStyles$4 = _ref => {
-  let {
-    $isActive,
-    theme
-  } = _ref;
+const colorStyles$4 = ({
+  $isActive,
+  theme
+}) => {
   const foregroundColor = reactTheming.getColor({
     theme,
     variable: $isActive ? 'foreground.onEmphasis' : 'foreground.default'
@@ -172,16 +162,13 @@ const StyledLabel = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledLabel",
   componentId: "sc-1o82llj-0"
-})(["display:", ";align-items:", ";transition:color 0.25s ease-in-out,font-weight 0.25s ease-in-out;text-align:", ";line-height:", ";color:", ";font-size:", ";font-weight:", ";", ";"], props => !props.$isHorizontal && 'flex', props => !props.$isHorizontal && 'center', props => props.$isHorizontal && 'center', props => reactTheming.getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), _ref => {
-  let {
-    $isActive,
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    variable: $isActive ? 'foreground.default' : 'foreground.subtle'
-  });
-}, props => props.theme.fontSizes.md, props => props.$isActive && 600, reactTheming.componentStyles);
+})(["display:", ";align-items:", ";transition:color 0.25s ease-in-out,font-weight 0.25s ease-in-out;text-align:", ";line-height:", ";color:", ";font-size:", ";font-weight:", ";", ";"], props => !props.$isHorizontal && 'flex', props => !props.$isHorizontal && 'center', props => props.$isHorizontal && 'center', props => reactTheming.getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), ({
+  $isActive,
+  theme
+}) => reactTheming.getColor({
+  theme,
+  variable: $isActive ? 'foreground.default' : 'foreground.subtle'
+}), props => props.theme.fontSizes.md, props => props.$isActive && 600, reactTheming.componentStyles);
 
 const COMPONENT_ID$d = 'accordions.step_label_text';
 const StyledLabelText = styled__default.default.div.attrs({
@@ -202,11 +189,10 @@ const StyledAccordion = styled__default.default.div.attrs({
 })(["", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$b = 'accordions.panel';
-const colorStyles$3 = _ref => {
-  let {
-    theme,
-    $isBare
-  } = _ref;
+const colorStyles$3 = ({
+  theme,
+  $isBare
+}) => {
   return styled.css(["border-bottom-color:", ";"], $isBare ? 'transparent' : reactTheming.getColor({
     theme,
     variable: 'border.default'
@@ -254,13 +240,12 @@ const StyledSection = styled__default.default.div.attrs({
 })(["&:last-child ", "{border:none;}", ";"], StyledPanel, reactTheming.componentStyles);
 
 const COMPONENT_ID$9 = 'accordions.button';
-const colorStyles$2 = _ref => {
-  let {
-    $isCollapsible,
-    $isExpanded,
-    $isHovered,
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  $isCollapsible,
+  $isExpanded,
+  $isHovered,
+  theme
+}) => {
   const showColor = $isCollapsible || !$isExpanded;
   const color = reactTheming.getColor({
     theme,
@@ -299,13 +284,12 @@ const StyledInnerPanel = styled__default.default.div.attrs({
 })(["overflow:hidden;line-height:inherit;font-size:inherit;", "[aria-hidden='true'] > &{transition:", ";visibility:hidden;}", "[aria-hidden='false'] > &{visibility:visible;}", ";"], StyledPanel, props => props.$isAnimated && 'visibility 0s 0.25s', StyledPanel, reactTheming.componentStyles);
 
 const COMPONENT_ID$6 = 'accordions.rotate_icon';
-const colorStyles$1 = _ref => {
-  let {
-    $isCollapsible,
-    $isHovered,
-    $isRotated,
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  $isCollapsible,
+  $isHovered,
+  $isRotated,
+  theme
+}) => {
   const showColor = $isCollapsible || !$isRotated;
   const color = reactTheming.getColor({
     theme,
@@ -337,15 +321,12 @@ const StyledSeparator = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledSeparator",
   componentId: "sc-fki51e-0"
-})(["display:flex;position:relative;justify-content:center;padding:", ";&::after{position:absolute;border-left:", ";height:100%;content:'';}", ";"], props => `${props.theme.space.base * 5}px ${props.theme.space.base}px`, _ref => {
-  let {
-    theme
-  } = _ref;
-  return `${theme.borders.sm} ${reactTheming.getColor({
-    theme,
-    variable: 'border.emphasis'
-  })}`;
-}, reactTheming.componentStyles);
+})(["display:flex;position:relative;justify-content:center;padding:", ";&::after{position:absolute;border-left:", ";height:100%;content:'';}", ";"], props => `${props.theme.space.base * 5}px ${props.theme.space.base}px`, ({
+  theme
+}) => `${theme.borders.sm} ${reactTheming.getColor({
+  theme,
+  variable: 'border.emphasis'
+})}`, reactTheming.componentStyles);
 
 const COMPONENT_ID$3 = 'timeline.content';
 const StyledTimelineContent = styled__default.default.div.attrs({
@@ -372,22 +353,18 @@ const StyledTimelineItem = styled__default.default.li.attrs({
 }).withConfig({
   displayName: "StyledItem__StyledTimelineItem",
   componentId: "sc-5mcnzm-0"
-})(["display:flex;position:relative;line-height:", ";color:", ";font-size:", ";&:last-of-type ", "::after{display:none;}", " ", " ", ";"], props => reactTheming.getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    variable: 'foreground.default'
-  });
-}, props => props.theme.fontSizes.md, StyledSeparator, props => !props.$hasOppositeContent && props.$isAlternate && styled.css(["&::before{flex:1;padding:", "px;content:'';}"], props.theme.space.base * 4), props => props.$isAlternate && styled.css(["&:nth-child(even){flex-direction:row-reverse;", "{text-align:", ";}", "{text-align:", ";}}"], StyledOppositeContent, props.theme.rtl ? 'right' : 'left', StyledTimelineContent, props.theme.rtl ? 'left' : 'right'), reactTheming.componentStyles);
+})(["display:flex;position:relative;line-height:", ";color:", ";font-size:", ";&:last-of-type ", "::after{display:none;}", " ", " ", ";"], props => reactTheming.getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md), ({
+  theme
+}) => reactTheming.getColor({
+  theme,
+  variable: 'foreground.default'
+}), props => props.theme.fontSizes.md, StyledSeparator, props => !props.$hasOppositeContent && props.$isAlternate && styled.css(["&::before{flex:1;padding:", "px;content:'';}"], props.theme.space.base * 4), props => props.$isAlternate && styled.css(["&:nth-child(even){flex-direction:row-reverse;", "{text-align:", ";}", "{text-align:", ";}}"], StyledOppositeContent, props.theme.rtl ? 'right' : 'left', StyledTimelineContent, props.theme.rtl ? 'left' : 'right'), reactTheming.componentStyles);
 
 const COMPONENT_ID = 'timeline.icon';
-const colorStyles = _ref => {
-  let {
-    $surfaceColor,
-    theme
-  } = _ref;
+const colorStyles = ({
+  $surfaceColor,
+  theme
+}) => {
   const foregroundColor = reactTheming.getColor({
     theme,
     variable: 'border.emphasis'
@@ -579,12 +556,11 @@ const LabelComponent$1 = React.forwardRef((props, ref) => {
 LabelComponent$1.displayName = 'Accordion.Label';
 const Label$1 = LabelComponent$1;
 
-const PanelComponent = React.forwardRef((_ref, ref) => {
-  let {
-    role,
-    children,
-    ...props
-  } = _ref;
+const PanelComponent = React.forwardRef(({
+  role,
+  children,
+  ...props
+}, ref) => {
   const {
     isAnimated,
     isBare,
@@ -612,20 +588,19 @@ const PanelComponent = React.forwardRef((_ref, ref) => {
 PanelComponent.displayName = 'Accordion.Panel';
 const Panel = PanelComponent;
 
-const AccordionComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isBare,
-    isCompact,
-    isAnimated = true,
-    isExpandable,
-    isCollapsible = true,
-    level,
-    onChange,
-    defaultExpandedSections,
-    expandedSections: controlledExpandedSections,
-    ...props
-  } = _ref;
+const AccordionComponent = React.forwardRef(({
+  children,
+  isBare,
+  isCompact,
+  isAnimated = true,
+  isExpandable,
+  isCollapsible = true,
+  level,
+  onChange,
+  defaultExpandedSections,
+  expandedSections: controlledExpandedSections,
+  ...props
+}, ref) => {
   const {
     sections,
     sectionChildren
@@ -678,11 +653,10 @@ Accordion.Label = Label$1;
 Accordion.Panel = Panel;
 Accordion.Section = Section;
 
-const StepComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...props
-  } = _ref;
+const StepComponent = React.forwardRef(({
+  children,
+  ...props
+}, ref) => {
   const {
     isHorizontal
   } = useStepperContext();
@@ -714,14 +688,13 @@ var SvgCheckSmStroke = function SvgCheckSmStroke(props) {
   })));
 };
 
-const LabelComponent = React.forwardRef((_ref, ref) => {
-  let {
-    icon,
-    iconProps,
-    isHidden,
-    children,
-    ...other
-  } = _ref;
+const LabelComponent = React.forwardRef(({
+  icon,
+  iconProps,
+  isHidden,
+  children,
+  ...other
+}, ref) => {
   const {
     currentStepIndex,
     isActive,
@@ -768,13 +741,12 @@ ContentComponent$1.displayName = 'Stepper.Content';
 const Content$1 = ContentComponent$1;
 
 const DEFAULT_ACTIVE_INDEX = 0;
-const StepperComponent = React.forwardRef((_ref, ref) => {
-  let {
-    activeIndex = DEFAULT_ACTIVE_INDEX,
-    isHorizontal,
-    children,
-    ...props
-  } = _ref;
+const StepperComponent = React.forwardRef(({
+  activeIndex = DEFAULT_ACTIVE_INDEX,
+  isHorizontal,
+  children,
+  ...props
+}, ref) => {
   const stepperContext = React.useMemo(() => ({
     activeIndex,
     isHorizontal: isHorizontal || false
@@ -807,12 +779,11 @@ const OppositeContentComponent = React.forwardRef((props, ref) => React__namespa
 OppositeContentComponent.displayName = 'Timeline.OppositeContent';
 const OppositeContent = OppositeContentComponent;
 
-const ItemComponent = React.forwardRef((_ref, ref) => {
-  let {
-    icon,
-    surfaceColor,
-    ...props
-  } = _ref;
+const ItemComponent = React.forwardRef(({
+  icon,
+  surfaceColor,
+  ...props
+}, ref) => {
   const value = React.useMemo(() => ({
     icon,
     surfaceColor
@@ -872,11 +843,10 @@ const ContentComponent = React.forwardRef((props, ref) => {
 ContentComponent.displayName = 'Timeline.Content';
 const Content = ContentComponent;
 
-const TimelineComponent = React.forwardRef((_ref, ref) => {
-  let {
-    isAlternate,
-    ...props
-  } = _ref;
+const TimelineComponent = React.forwardRef(({
+  isAlternate,
+  ...props
+}, ref) => {
   const value = React.useMemo(() => ({
     isAlternate
   }), [isAlternate]);

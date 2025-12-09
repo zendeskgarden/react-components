@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.main';
+const COMPONENT_ID$r = 'chrome.main';
 const StyledMain = styled.main.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$r,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMain",

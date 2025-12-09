@@ -8,11 +8,10 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledValue } from './StyledValue.js';
 
-const COMPONENT_ID = 'dropdowns.combobox.tags_button';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$a = 'dropdowns.combobox.tags_button';
+const colorStyles = ({
+  theme
+}) => {
   const color = getColor({
     theme,
     variable: 'foreground.primary'
@@ -21,7 +20,7 @@ const colorStyles = _ref => {
 };
 const StyledTagsButton = styled(StyledValue).attrs({
   as: 'button',
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTagsButton",

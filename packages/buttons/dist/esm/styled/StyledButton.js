@@ -10,7 +10,7 @@ import { SELECTOR_FOCUS_VISIBLE, componentStyles, getColor, focusStyles, getFocu
 import { StyledSplitButton } from './StyledSplitButton.js';
 import { StyledIcon } from './StyledIcon.js';
 
-const COMPONENT_ID = 'buttons.button';
+const COMPONENT_ID$3 = 'buttons.button';
 const getBorderRadius = props => {
   if (props.$isPill) {
     return '100px';
@@ -25,16 +25,15 @@ const getHeight = props => {
   }
   return `${props.theme.space.base * 10}px`;
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isLink,
-    $isBasic,
-    $isDanger,
-    $isNeutral,
-    $isPrimary,
-    $focusInset
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $isLink,
+  $isBasic,
+  $isDanger,
+  $isNeutral,
+  $isPrimary,
+  $focusInset
+}) => {
   let retVal;
   const disabledBackgroundColor = getColor({
     theme,
@@ -239,14 +238,13 @@ const colorStyles = _ref => {
   }
   return retVal;
 };
-const groupStyles = _ref2 => {
-  let {
-    theme,
-    $isPrimary,
-    $isBasic,
-    $isPill,
-    $focusInset
-  } = _ref2;
+const groupStyles = ({
+  theme,
+  $isPrimary,
+  $isBasic,
+  $isPill,
+  $focusInset
+}) => {
   const {
     rtl,
     borderWidths,
@@ -278,7 +276,7 @@ const groupStyles = _ref2 => {
   });
   return css(["position:relative;transition:border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,margin-", " 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;border:", " ", ";", "{border-color:", ";box-shadow:", ";}&:hover,&:active,", "{z-index:1;}&:disabled{z-index:-1;background-color:", ";}&:not(:first-of-type){margin-", ":", ";}&:not(:first-of-type):disabled{margin-", ":", ";}&:not(:first-of-type):not(:last-of-type){border-radius:0;}&:first-of-type:not(:last-of-type){border-top-", "-radius:0;border-bottom-", "-radius:0;}&:last-of-type:not(:first-of-type){border-top-", "-radius:0;border-bottom-", "-radius:0;}&:first-of-type:not(:last-of-type) ", "{margin-", ":", ";}&:last-of-type:not(:first-of-type) ", "{margin-", ":", ";}"], startPosition, borders.sm, borderColor, SELECTOR_FOCUS_VISIBLE, focusColor, focusBoxShadow, SELECTOR_FOCUS_VISIBLE, disabledBackgroundColor, startPosition, marginDisplacement, startPosition, marginOffset, endPosition, endPosition, startPosition, startPosition, StyledIcon, endPosition, iconMarginDisplacement, StyledIcon, startPosition, iconMarginDisplacement);
 };
-const iconStyles = props => {
+const iconStyles$1 = props => {
   const $size = props.$size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
   return css(["width:", ";min-width:", ";height:", ";vertical-align:", ";"], $size, $size, $size, props.$isLink && 'middle');
 };
@@ -307,12 +305,12 @@ const sizeStyles = props => {
   return retVal;
 };
 const StyledButton = styled.button.attrs(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+  'data-garden-id': props['data-garden-id'] || COMPONENT_ID$3,
   'data-garden-version': '9.12.3',
   type: props.type || 'button'
 })).withConfig({
   displayName: "StyledButton",
   componentId: "sc-qe3ace-0"
-})(["display:", ";align-items:", ";justify-content:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;margin:0;border:", ";border-radius:", ";cursor:pointer;width:", ";overflow:hidden;text-decoration:", ";text-overflow:ellipsis;white-space:", ";font-family:inherit;font-weight:", ";-webkit-font-smoothing:subpixel-antialiased;box-sizing:border-box;user-select:", ";-webkit-touch-callout:none;", ";&::-moz-focus-inner{border:0;padding:0;}", "{text-decoration:none;}&:hover{text-decoration:", ";}&:active,&[aria-pressed='true'],&[aria-pressed='mixed']{transition:border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;text-decoration:", ";}", ";&:disabled{cursor:default;text-decoration:", ";}& ", "{", "}", " &&{", "}", ""], props => props.$isLink ? 'inline' : 'inline-flex', props => !props.$isLink && 'center', props => !props.$isLink && 'center', props => `${props.$isLink ? `0px solid` : props.theme.borders.sm} transparent`, props => getBorderRadius(props), props => props.$isStretched ? '100%' : '', props => props.$isUnderlined ? 'underline' : 'none', props => !props.$isLink && 'nowrap', props => props.$isLink ? 'inherit' : props.theme.fontWeights.regular, props => !props.$isLink && 'none', props => sizeStyles(props), SELECTOR_FOCUS_VISIBLE, props => props.$isLink ? 'underline' : 'none', props => props.$isLink ? 'underline' : 'none', props => colorStyles(props), props => props.$isLink && 'none', StyledIcon, props => iconStyles(props), StyledSplitButton, props => groupStyles(props), componentStyles);
+})(["display:", ";align-items:", ";justify-content:", ";transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.25s ease-in-out,color 0.25s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;margin:0;border:", ";border-radius:", ";cursor:pointer;width:", ";overflow:hidden;text-decoration:", ";text-overflow:ellipsis;white-space:", ";font-family:inherit;font-weight:", ";-webkit-font-smoothing:subpixel-antialiased;box-sizing:border-box;user-select:", ";-webkit-touch-callout:none;", ";&::-moz-focus-inner{border:0;padding:0;}", "{text-decoration:none;}&:hover{text-decoration:", ";}&:active,&[aria-pressed='true'],&[aria-pressed='mixed']{transition:border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,color 0.1s ease-in-out,outline-color 0.1s ease-in-out,z-index 0.25s ease-in-out;text-decoration:", ";}", ";&:disabled{cursor:default;text-decoration:", ";}& ", "{", "}", " &&{", "}", ""], props => props.$isLink ? 'inline' : 'inline-flex', props => !props.$isLink && 'center', props => !props.$isLink && 'center', props => `${props.$isLink ? `0px solid` : props.theme.borders.sm} transparent`, props => getBorderRadius(props), props => props.$isStretched ? '100%' : '', props => props.$isUnderlined ? 'underline' : 'none', props => !props.$isLink && 'nowrap', props => props.$isLink ? 'inherit' : props.theme.fontWeights.regular, props => !props.$isLink && 'none', props => sizeStyles(props), SELECTOR_FOCUS_VISIBLE, props => props.$isLink ? 'underline' : 'none', props => props.$isLink ? 'underline' : 'none', props => colorStyles(props), props => props.$isLink && 'none', StyledIcon, props => iconStyles$1(props), StyledSplitButton, props => groupStyles(props), componentStyles);
 
-export { COMPONENT_ID, StyledButton, getHeight };
+export { COMPONENT_ID$3 as COMPONENT_ID, StyledButton, getHeight };

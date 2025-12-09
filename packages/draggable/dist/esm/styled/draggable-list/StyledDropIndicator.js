@@ -7,8 +7,8 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'draggable_list.drop_indicator';
-const colorStyles = props => {
+const COMPONENT_ID$3 = 'draggable_list.drop_indicator';
+const colorStyles$1 = props => {
   const {
     theme
   } = props;
@@ -18,7 +18,7 @@ const colorStyles = props => {
   });
   return css(["box-shadow:", ";&::before,&::after{background-color:", ";}&:focus{outline:none;}"], theme.shadows.xs(color), color);
 };
-const sizeStyles = props => {
+const sizeStyles$2 = props => {
   const {
     $isHorizontal,
     theme
@@ -29,11 +29,11 @@ const sizeStyles = props => {
   return css(["&::before,&::after{border-radius:50%;width:", ";height:", ";}&::before{top:0;left:0;transform:translate(-", ",-", ");}&::after{right:0;bottom:0;transform:translate(", ",", ");}"], pseudoSize, pseudoSize, translateX, translateY, translateX, translateY);
 };
 const StyledDropIndicator = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDropIndicator",
   componentId: "sc-1f1u2lh-0"
-})(["position:relative;", " ", " &::before,&::after{position:absolute;content:'';}", ";"], sizeStyles, colorStyles, componentStyles);
+})(["position:relative;", " ", " &::before,&::after{position:absolute;content:'';}", ";"], sizeStyles$2, colorStyles$1, componentStyles);
 
 export { StyledDropIndicator };

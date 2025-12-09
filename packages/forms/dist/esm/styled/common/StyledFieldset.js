@@ -8,10 +8,10 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledField } from './StyledField.js';
 
-const COMPONENT_ID = 'forms.fieldset';
+const COMPONENT_ID$F = 'forms.fieldset';
 const StyledFieldset = styled(StyledField).attrs({
   as: 'fieldset',
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$F,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFieldset",

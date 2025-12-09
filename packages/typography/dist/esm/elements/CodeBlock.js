@@ -23,17 +23,16 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 
-const CodeBlock = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    containerProps,
-    highlightLines,
-    isLight,
-    isNumbered,
-    language = 'tsx',
-    size = 'medium',
-    ...other
-  } = _ref;
+const CodeBlock = React.forwardRef(({
+  children,
+  containerProps,
+  highlightLines,
+  isLight,
+  isNumbered,
+  language = 'tsx',
+  size = 'medium',
+  ...other
+}, ref) => {
   const containerRef = useRef(null);
   const code = Array.isArray(children) ? children[0] : children;
   const dependency = useMemo(() => [size, children], [size, children]);
@@ -66,42 +65,39 @@ const CodeBlock = React.forwardRef((_ref, ref) => {
     Prism: Prism,
     code: code ? code.trim() : '',
     language: LANGUAGES.includes(language) ? language : 'tsx'
-  }, _ref2 => {
-    let {
-      className,
-      tokens,
-      getLineProps,
-      getTokenProps
-    } = _ref2;
-    return React.createElement(ThemeProvider, {
-      theme: parentTheme => ({
-        ...parentTheme,
-        colors: {
-          ...parentTheme.colors,
-          base: isLight ? 'light' : 'dark'
-        }
-      })
-    }, React.createElement(StyledCodeBlock, Object.assign({
-      className: className,
-      ref: ref
-    }, other), tokens.map((line, index) =>
-    React.createElement(StyledCodeBlockLine, Object.assign({}, getLineProps({
-      line
-    }), {
-      key: index,
-      $language: language,
-      $isHighlighted: highlightLines?.includes(index + 1),
-      $isNumbered: isNumbered,
-      $diff: getDiff(line),
-      $size: size,
-      style: undefined
-    }), line.map((token, tokenKey) => React.createElement(StyledCodeBlockToken, Object.assign({}, getTokenProps({
-      token
-    }), {
-      key: tokenKey,
-      style: undefined
-    }), token.empty ? '\n' : token.content))))));
-  }));
+  }, ({
+    className,
+    tokens,
+    getLineProps,
+    getTokenProps
+  }) => React.createElement(ThemeProvider, {
+    theme: parentTheme => ({
+      ...parentTheme,
+      colors: {
+        ...parentTheme.colors,
+        base: isLight ? 'light' : 'dark'
+      }
+    })
+  }, React.createElement(StyledCodeBlock, Object.assign({
+    className: className,
+    ref: ref
+  }, other), tokens.map((line, index) =>
+  React.createElement(StyledCodeBlockLine, Object.assign({}, getLineProps({
+    line
+  }), {
+    key: index,
+    $language: language,
+    $isHighlighted: highlightLines?.includes(index + 1),
+    $isNumbered: isNumbered,
+    $diff: getDiff(line),
+    $size: size,
+    style: undefined
+  }), line.map((token, tokenKey) => React.createElement(StyledCodeBlockToken, Object.assign({}, getTokenProps({
+    token
+  }), {
+    key: tokenKey,
+    style: undefined
+  }), token.empty ? '\n' : token.content))))))));
 });
 CodeBlock.displayName = 'CodeBlock';
 

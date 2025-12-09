@@ -58,20 +58,19 @@ import '../styled/tiles/StyledTileLabel.js';
 const parseStyleValue = value => {
   return parseInt(value, 10) || 0;
 };
-const Textarea = React__default.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    isBare,
-    focusInset,
-    isResizable,
-    minRows,
-    maxRows,
-    style,
-    validation,
-    onChange,
-    onSelect,
-    ...other
-  } = _ref;
+const Textarea = React__default.forwardRef(({
+  isCompact,
+  isBare,
+  focusInset,
+  isResizable,
+  minRows,
+  maxRows,
+  style,
+  validation,
+  onChange,
+  onSelect,
+  ...other
+}, ref) => {
   const fieldContext = useFieldContext();
   const textAreaRef = useRef();
   const shadowTextAreaRef = useRef(null);

@@ -36,14 +36,13 @@ const computeFrames = (frames, duration) => {
     return acc;
   }, {});
 };
-const Spinner = forwardRef((_ref, ref) => {
-  let {
-    size = 'inherit',
-    duration = 1250,
-    color = 'inherit',
-    delayMS = 750,
-    ...other
-  } = _ref;
+const Spinner = forwardRef(({
+  size = 'inherit',
+  duration = 1250,
+  color = 'inherit',
+  delayMS = 750,
+  ...other
+}, ref) => {
   const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration);
   const rotationValues = computeFrames(ROTATION_FRAMES, duration);
   const dasharrayValues = computeFrames(DASHARRAY_FRAMES, duration);

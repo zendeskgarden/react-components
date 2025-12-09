@@ -29,13 +29,13 @@ import '../../styled/StyledDrawerFooter.js';
 import '../../styled/StyledDrawerFooterItem.js';
 import { useText } from '@zendeskgarden/react-theming';
 import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext.js';
-import SvgXStroke from '../../node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
+import SvgXStroke from '../../packages/modals/node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
 
-const CloseComponent = forwardRef((props, ref) => {
+const CloseComponent$1 = forwardRef((props, ref) => {
   const {
     getCloseProps
   } = useTooltipDialogContext();
-  const ariaLabel = useText(CloseComponent, props, 'aria-label', 'Close tooltip', props['aria-describedby'] === undefined );
+  const ariaLabel = useText(CloseComponent$1, props, 'aria-label', 'Close tooltip', props['aria-describedby'] === undefined );
   return React__default.createElement(StyledTooltipDialogClose, Object.assign({}, getCloseProps({
     ...props,
     'aria-label': ariaLabel
@@ -44,7 +44,7 @@ const CloseComponent = forwardRef((props, ref) => {
     size: "small"
   }), React__default.createElement(SvgXStroke, null));
 });
-CloseComponent.displayName = 'TooltipDialog.Close';
-const Close = CloseComponent;
+CloseComponent$1.displayName = 'TooltipDialog.Close';
+const Close$1 = CloseComponent$1;
 
-export { Close };
+export { Close$1 as Close };

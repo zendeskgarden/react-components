@@ -51,20 +51,19 @@ import '../../views/menu/StyledSeparator.js';
 import { OptionMeta } from './OptionMeta.js';
 import { toOption } from './utils.js';
 
-const OptionComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    hasSelection,
-    icon,
-    isDisabled,
-    isHidden,
-    isSelected,
-    label,
-    type,
-    value,
-    tagProps,
-    ...props
-  } = _ref;
+const OptionComponent = forwardRef(({
+  children,
+  hasSelection,
+  icon,
+  isDisabled,
+  isHidden,
+  isSelected,
+  label,
+  type,
+  value,
+  tagProps,
+  ...props
+}, ref) => {
   const contextValue = useMemo(() => ({
     isDisabled,
     type

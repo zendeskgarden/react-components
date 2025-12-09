@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'dropdowns.combobox.message';
+const COMPONENT_ID$u = 'dropdowns.combobox.message';
 const StyledMessage = styled(Field.Message).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$u,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMessage",

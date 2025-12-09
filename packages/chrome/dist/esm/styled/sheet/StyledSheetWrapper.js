@@ -7,14 +7,13 @@
 import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.sheet_wrapper';
-const transformStyles = _ref => {
-  let {
-    theme,
-    $isAnimated,
-    $isOpen,
-    $placement
-  } = _ref;
+const COMPONENT_ID$7 = 'chrome.sheet_wrapper';
+const transformStyles = ({
+  theme,
+  $isAnimated,
+  $isOpen,
+  $placement
+}) => {
   const transition = $isAnimated ? 'transform 250ms ease-in-out' : undefined;
   let transform;
   if ($isOpen) {
@@ -27,7 +26,7 @@ const transformStyles = _ref => {
   return css(["transform:", ";transition:", ";"], transform, transition);
 };
 const StyledSheetWrapper = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledSheetWrapper",

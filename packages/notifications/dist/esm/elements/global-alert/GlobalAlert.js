@@ -32,11 +32,10 @@ import { GlobalAlertClose } from './GlobalAlertClose.js';
 import { GlobalAlertContent } from './GlobalAlertContent.js';
 import { GlobalAlertTitle } from './GlobalAlertTitle.js';
 
-const GlobalAlertComponent = forwardRef((_ref, ref) => {
-  let {
-    type,
-    ...props
-  } = _ref;
+const GlobalAlertComponent = forwardRef(({
+  type,
+  ...props
+}, ref) => {
   const icon = {
     success: React__default.createElement(SvgCheckCircleStroke, null),
     error: React__default.createElement(SvgAlertErrorStroke, null),

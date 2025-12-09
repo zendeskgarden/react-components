@@ -37,12 +37,11 @@ import '../../styled/multiselect/StyledMultiselectMoreAnchor.js';
 import useDropdownContext from '../../utils/useDropdownContext.js';
 import useFieldContext from '../../utils/useFieldContext.js';
 
-const Select = React__default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    start,
-    ...props
-  } = _ref;
+const Select = React__default.forwardRef(({
+  children,
+  start,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     itemSearchRegistry,
@@ -145,42 +144,39 @@ const Select = React__default.forwardRef((_ref, ref) => {
   });
   const isContainerHovered = isLabelHovered && !isOpen;
   const isContainerFocused = isFocused || isOpen;
-  return React__default.createElement(Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__default.createElement(StyledFauxInput, Object.assign({
-      isHovered: isContainerHovered,
-      isFocused: isContainerFocused
-    }, selectProps, {
-      role: "none",
-      ref: selectRef => {
-        popperReference(selectRef);
-        mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
+  return React__default.createElement(Reference, null, ({
+    ref: popperReference
+  }) => React__default.createElement(StyledFauxInput, Object.assign({
+    isHovered: isContainerHovered,
+    isFocused: isContainerFocused
+  }, selectProps, {
+    role: "none",
+    ref: selectRef => {
+      popperReference(selectRef);
+      mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
+    }
+  }), !!start && React__default.createElement(StyledFauxInput.StartIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled
+  }, start), React__default.createElement(StyledSelect, null, children), React__default.createElement(StyledInput, getInputProps({
+    readOnly: true,
+    $isHidden: true,
+    tabIndex: -1,
+    ref: hiddenInputRef,
+    value: '',
+    onClick: e => {
+      if (isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
       }
-    }), !!start && React__default.createElement(StyledFauxInput.StartIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled
-    }, start), React__default.createElement(StyledSelect, null, children), React__default.createElement(StyledInput, getInputProps({
-      readOnly: true,
-      $isHidden: true,
-      tabIndex: -1,
-      ref: hiddenInputRef,
-      value: '',
-      onClick: e => {
-        if (isOpen) {
-          e.nativeEvent.preventDownshiftDefault = true;
-        }
-      },
-      onKeyDown: onInputKeyDown
-    })), !props.isBare && React__default.createElement(StyledFauxInput.EndIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled,
-      isRotated: isOpen
-    }, React__default.createElement(SvgChevronDownStroke, null)));
-  });
+    },
+    onKeyDown: onInputKeyDown
+  })), !props.isBare && React__default.createElement(StyledFauxInput.EndIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled,
+    isRotated: isOpen
+  }, React__default.createElement(SvgChevronDownStroke, null))));
 });
 Select.displayName = 'Select';
 Select.propTypes = {

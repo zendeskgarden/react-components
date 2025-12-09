@@ -12,16 +12,13 @@ import '../../styled/StyledExternalIcon.js';
 import { StyledIcon } from '../../styled/StyledIcon.js';
 import '../../styled/StyledIconButton.js';
 
-const EndIconComponent = _ref => {
-  let {
-    isRotated,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledIcon, Object.assign({
-    $position: "end",
-    $isRotated: isRotated
-  }, props));
-};
+const EndIconComponent = ({
+  isRotated,
+  ...props
+}) => React__default.createElement(StyledIcon, Object.assign({
+  $position: "end",
+  $isRotated: isRotated
+}, props));
 EndIconComponent.displayName = 'Button.EndIcon';
 const EndIcon = EndIconComponent;
 

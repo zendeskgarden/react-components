@@ -28,10 +28,10 @@ import '../../styled/StyledDrawerBody.js';
 import '../../styled/StyledDrawerFooter.js';
 import '../../styled/StyledDrawerFooterItem.js';
 
-const FooterComponent = forwardRef((props, ref) => React__default.createElement(StyledTooltipDialogFooter, Object.assign({
+const FooterComponent$1 = forwardRef((props, ref) => React__default.createElement(StyledTooltipDialogFooter, Object.assign({
   ref: ref
 }, props)));
-FooterComponent.displayName = 'TooltipDialog.Footer';
-const Footer = FooterComponent;
+FooterComponent$1.displayName = 'TooltipDialog.Footer';
+const Footer$1 = FooterComponent$1;
 
-export { Footer };
+export { Footer$1 as Footer };

@@ -47,11 +47,10 @@ import { NavItemIcon } from './NavItemIcon.js';
 import { NavItemText } from './NavItemText.js';
 import { NavList } from './NavList.js';
 
-const NavComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    isExpanded,
-    ...other
-  } = _ref;
+const NavComponent = React__default.forwardRef(({
+  isExpanded,
+  ...other
+}, ref) => {
   const {
     hue,
     isLight

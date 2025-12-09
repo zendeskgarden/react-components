@@ -8,7 +8,7 @@ import React__default, { useContext, useRef, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
-import { useFloating, platform, offset, autoPlacement, flip, autoUpdate } from '@floating-ui/react-dom';
+import { useFloating, offset, autoPlacement, flip, platform, autoUpdate } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import { mergeRefs } from 'react-merge-refs';
 import { TooltipDialogContext } from '../../utils/useTooltipDialogContext.js';
@@ -44,24 +44,23 @@ import { DEFAULT_THEME, useDocument, getFloatingPlacements, useText } from '@zen
 import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'top';
-const TooltipDialogComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    appendToNode,
-    referenceElement,
-    placement: _placement = 'auto',
-    fallbackPlacements: _fallbackPlacements,
-    offset: _offset,
-    onClose,
-    hasArrow = true,
-    keepMounted,
-    isAnimated,
-    zIndex,
-    backdropProps,
-    focusOnMount = true,
-    restoreFocus = true,
-    id,
-    ...props
-  } = _ref;
+const TooltipDialogComponent = React__default.forwardRef(({
+  appendToNode,
+  referenceElement,
+  placement: _placement = 'auto',
+  fallbackPlacements: _fallbackPlacements,
+  offset: _offset,
+  onClose,
+  hasArrow = true,
+  keepMounted,
+  isAnimated,
+  zIndex,
+  backdropProps,
+  focusOnMount = true,
+  restoreFocus = true,
+  id,
+  ...props
+}, ref) => {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const environment = useDocument(theme);
   const previousReferenceElementRef = useRef();

@@ -21,11 +21,10 @@ import useDatePickerContext from '../utils/useDatePickerContext.js';
 import SvgChevronLeftStroke from '../../../node_modules/@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg.js';
 import SvgChevronRightStroke from '../../../node_modules/@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg.js';
 
-const MonthSelector = _ref => {
-  let {
-    locale,
-    isCompact
-  } = _ref;
+const MonthSelector = ({
+  locale,
+  isCompact
+}) => {
   const {
     state,
     dispatch

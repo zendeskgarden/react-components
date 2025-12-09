@@ -7,13 +7,12 @@
 import { useRef, useEffect } from 'react';
 import activeElement from 'dom-helpers/activeElement';
 
-function useFocusableMount(_ref) {
-  let {
-    isMounted,
-    focusOnMount,
-    restoreFocus,
-    targetRef
-  } = _ref;
+function useFocusableMount({
+  isMounted,
+  focusOnMount,
+  restoreFocus,
+  targetRef
+}) {
   const triggerRef = useRef();
   useEffect(() => {
     if (isMounted && focusOnMount && targetRef.current) {

@@ -39,20 +39,17 @@ import '../../styled/sheet/StyledSheetFooter.js';
 import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 
-const HeaderItemWrapper = React__default.forwardRef((_ref, ref) => {
-  let {
-    isRound,
-    maxX,
-    maxY,
-    ...other
-  } = _ref;
-  return React__default.createElement(StyledHeaderItemWrapper, Object.assign({
-    ref: ref,
-    $isRound: isRound,
-    $maxX: maxX,
-    $maxY: maxY
-  }, other));
-});
+const HeaderItemWrapper = React__default.forwardRef(({
+  isRound,
+  maxX,
+  maxY,
+  ...other
+}, ref) => React__default.createElement(StyledHeaderItemWrapper, Object.assign({
+  ref: ref,
+  $isRound: isRound,
+  $maxX: maxX,
+  $maxY: maxY
+}, other)));
 HeaderItemWrapper.displayName = 'Header.ItemWrapper';
 
 export { HeaderItemWrapper };

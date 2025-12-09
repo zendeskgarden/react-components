@@ -7,14 +7,13 @@
 import styled, { css } from 'styled-components';
 import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.media_figure';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isDisabled,
-    $isHovered,
-    $isFocused
-  } = _ref;
+const COMPONENT_ID$x = 'forms.media_figure';
+const colorStyles$b = ({
+  theme,
+  $isDisabled,
+  $isHovered,
+  $isFocused
+}) => {
   let color;
   if ($isDisabled) {
     color = getColor({
@@ -42,7 +41,7 @@ const colorStyles = _ref => {
   }
   return css(["color:", ";"], color);
 };
-const sizeStyles = props => {
+const sizeStyles$e = props => {
   const size = props.theme.iconSizes.md;
   const marginFirst = `1px ${props.theme.space.base * 2}px auto 0`;
   const marginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
@@ -55,11 +54,11 @@ const sizeStyles = props => {
   return css(["margin:", ";width:", ";height:", ";"], margin, size, size);
 };
 const StyledTextMediaFigure = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$x,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTextMediaFigure",
   componentId: "sc-1qepknj-0"
-})(["transform:", ";transition:transform 0.25s ease-in-out,color 0.25s ease-in-out;", ";", " ", ";"], props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`, sizeStyles, colorStyles, componentStyles);
+})(["transform:", ";transition:transform 0.25s ease-in-out,color 0.25s ease-in-out;", ";", " ", ";"], props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`, sizeStyles$e, colorStyles$b, componentStyles);
 
 export { StyledTextMediaFigure };

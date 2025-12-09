@@ -6,7 +6,7 @@
 */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { HUE, INHERIT_SIZE } from '../types/index.js';
+import { INHERIT_SIZE, HUE } from '../types/index.js';
 import '../styled/StyledBlockquote.js';
 import { StyledCode } from '../styled/StyledCode.js';
 import '../styled/StyledCodeBlock.js';
@@ -21,18 +21,15 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 
-const Code = forwardRef((_ref, ref) => {
-  let {
-    hue = 'grey',
-    size = 'inherit',
-    ...other
-  } = _ref;
-  return React.createElement(StyledCode, Object.assign({
-    ref: ref,
-    $hue: hue,
-    $size: size
-  }, other));
-});
+const Code = forwardRef(({
+  hue = 'grey',
+  size = 'inherit',
+  ...other
+}, ref) => React.createElement(StyledCode, Object.assign({
+  ref: ref,
+  $hue: hue,
+  $size: size
+}, other)));
 Code.displayName = 'Code';
 Code.propTypes = {
   hue: PropTypes.oneOf(HUE),

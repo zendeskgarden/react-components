@@ -41,13 +41,12 @@ const StyledTitle = styled__default.default.strong.attrs({
 })(["display:none;margin:0;font-weight:", ";", ";"], props => props.theme.fontWeights.semibold, reactTheming.componentStyles);
 
 const COMPONENT_ID = 'tooltip.tooltip';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $hasArrow,
-    $placement,
-    $size
-  } = _ref;
+const sizeStyles = ({
+  theme,
+  $hasArrow,
+  $placement,
+  $size
+}) => {
   let margin = `${theme.space.base * 1.5}px`;
   let borderRadius = theme.borderRadii.sm;
   let padding = '0 1em';
@@ -109,11 +108,10 @@ const sizeStyles = _ref => {
     shift: arrowShift
   }), StyledParagraph, paragraphMarginTop, StyledTitle, titleDisplay);
 };
-const colorStyles = _ref2 => {
-  let {
-    theme,
-    $type
-  } = _ref2;
+const colorStyles = ({
+  theme,
+  $type
+}) => {
   let borderColor;
   let boxShadow;
   let backgroundColor;
@@ -199,26 +197,25 @@ const toSize = (size, type) => {
 };
 
 const PLACEMENT_DEFAULT = 'top';
-const TooltipComponent = _ref => {
-  let {
-    id,
-    delayMS = 500,
-    isInitialVisible,
-    content,
-    refKey = 'ref',
-    placement: _placement = PLACEMENT_DEFAULT,
-    fallbackPlacements: _fallbackPlacements,
-    children,
-    hasArrow = true,
-    size,
-    type = 'dark',
-    appendToNode,
-    zIndex,
-    isVisible: externalIsVisible,
-    onFocus,
-    onBlur,
-    ...props
-  } = _ref;
+const TooltipComponent = ({
+  id,
+  delayMS = 500,
+  isInitialVisible,
+  content,
+  refKey = 'ref',
+  placement: _placement = PLACEMENT_DEFAULT,
+  fallbackPlacements: _fallbackPlacements,
+  children,
+  hasArrow = true,
+  size,
+  type = 'dark',
+  appendToNode,
+  zIndex,
+  isVisible: externalIsVisible,
+  onFocus,
+  onBlur,
+  ...props
+}) => {
   const theme = React.useContext(styled.ThemeContext) || reactTheming.DEFAULT_THEME;
   const triggerRef = React.useRef(null);
   const floatingRef = React.useRef(null);

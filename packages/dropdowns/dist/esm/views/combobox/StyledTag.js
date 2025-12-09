@@ -9,9 +9,9 @@ import { hideVisually } from 'polished';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { Tag } from '@zendeskgarden/react-tags';
 
-const COMPONENT_ID = 'dropdowns.combobox.tag';
+const COMPONENT_ID$c = 'dropdowns.combobox.tag';
 const StyledTag = styled(Tag).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$c,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTag",

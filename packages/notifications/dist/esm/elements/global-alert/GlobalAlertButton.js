@@ -22,11 +22,10 @@ import '../../styled/global-alert/StyledGlobalAlertIcon.js';
 import '../../styled/global-alert/StyledGlobalAlertTitle.js';
 import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext.js';
 
-const GlobalAlertButton = forwardRef((_ref, ref) => {
-  let {
-    isBasic,
-    ...props
-  } = _ref;
+const GlobalAlertButton = forwardRef(({
+  isBasic,
+  ...props
+}, ref) => {
   const {
     type
   } = useGlobalAlertContext();

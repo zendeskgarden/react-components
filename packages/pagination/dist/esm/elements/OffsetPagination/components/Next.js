@@ -19,8 +19,8 @@ import '../../../styled/OffsetPagination/StyledGapListItem.js';
 import { StyledNavigation } from '../../../styled/OffsetPagination/StyledNavigation.js';
 import '../../../styled/OffsetPagination/StyledNav.js';
 
-const NextComponent = forwardRef((props, ref) => {
-  const ariaLabel = useText(NextComponent, props, 'aria-label', 'Next page');
+const NextComponent$1 = forwardRef((props, ref) => {
+  const ariaLabel = useText(NextComponent$1, props, 'aria-label', 'Next page');
   const theme = useContext(ThemeContext);
   return React__default.createElement(StyledNavigation, Object.assign({
     type: "button"
@@ -29,7 +29,7 @@ const NextComponent = forwardRef((props, ref) => {
     ref: ref
   }), theme.rtl ? React__default.createElement(SvgChevronLeftStroke, null) : React__default.createElement(SvgChevronRightStroke, null));
 });
-NextComponent.displayName = 'Pagination.Next';
-const Next = NextComponent;
+NextComponent$1.displayName = 'Pagination.Next';
+const Next$1 = NextComponent$1;
 
-export { Next };
+export { Next$1 as Next };

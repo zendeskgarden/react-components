@@ -42,13 +42,12 @@ import '../../views/menu/StyledItemMeta.js';
 import '../../views/menu/StyledItemTypeIcon.js';
 import '../../views/menu/StyledSeparator.js';
 
-const Label = forwardRef((_ref, ref) => {
-  let {
-    onClick,
-    onMouseEnter,
-    onMouseLeave,
-    ...props
-  } = _ref;
+const Label = forwardRef(({
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+  ...props
+}, ref) => {
   const {
     labelProps
   } = useFieldContext();

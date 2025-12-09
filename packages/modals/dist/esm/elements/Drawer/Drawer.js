@@ -42,17 +42,16 @@ import { Close } from './Close.js';
 import { Footer } from './Footer.js';
 import { FooterItem } from './FooterItem.js';
 
-const DrawerComponent = forwardRef((_ref, ref) => {
-  let {
-    id,
-    isOpen,
-    onClose,
-    backdropProps,
-    appendToNode,
-    focusOnMount = true,
-    restoreFocus = true,
-    ...props
-  } = _ref;
+const DrawerComponent = forwardRef(({
+  id,
+  isOpen,
+  onClose,
+  backdropProps,
+  appendToNode,
+  focusOnMount = true,
+  restoreFocus = true,
+  ...props
+}, ref) => {
   const modalRef = useRef(null);
   const transitionRef = useRef(null);
   const triggerRef = useRef(null);

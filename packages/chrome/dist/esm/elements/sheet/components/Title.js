@@ -40,11 +40,10 @@ import '../../../styled/sheet/StyledSheetFooterItem.js';
 import '../../../styled/sheet/StyledSheetHeader.js';
 import { useSheetContext } from '../../../utils/useSheetContext.js';
 
-const SheetTitle = forwardRef((_ref, ref) => {
-  let {
-    id,
-    ...props
-  } = _ref;
+const SheetTitle = forwardRef(({
+  id,
+  ...props
+}, ref) => {
   const {
     titleId
   } = useSheetContext();

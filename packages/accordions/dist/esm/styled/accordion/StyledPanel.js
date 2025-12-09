@@ -5,14 +5,13 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import styled, { css } from 'styled-components';
-import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'accordions.panel';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isBare
-  } = _ref;
+const COMPONENT_ID$b = 'accordions.panel';
+const colorStyles$3 = ({
+  theme,
+  $isBare
+}) => {
   return css(["border-bottom-color:", ";"], $isBare ? 'transparent' : getColor({
     theme,
     variable: 'border.default'
@@ -42,12 +41,12 @@ const sizeStyles = props => {
   return css(["grid-template-rows:", "fr;border-bottom:", ";padding:", "px ", "px ", "px;line-height:", ";font-size:", ";"], $isExpanded ? 1 : 0, theme.borders.sm, paddingTop, paddingHorizontal, paddingBottom, getLineHeight(base * 5, theme.fontSizes.md), theme.fontSizes.md);
 };
 const StyledPanel = styled.section.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$b,
   'data-garden-version': '9.12.3',
   $isAnimated: props.$isAnimated ?? true
 })).withConfig({
   displayName: "StyledPanel",
   componentId: "sc-1piryze-0"
-})(["display:grid;transition:", ";overflow:hidden;", " ", " ", ";"], props => props.$isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out', sizeStyles, colorStyles, componentStyles);
+})(["display:grid;transition:", ";overflow:hidden;", " ", " ", ";"], props => props.$isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out', sizeStyles, colorStyles$3, componentStyles);
 
 export { StyledPanel };

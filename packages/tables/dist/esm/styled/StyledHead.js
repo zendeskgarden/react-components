@@ -9,11 +9,10 @@ import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledHeaderRow } from './StyledHeaderRow.js';
 import { StyledHeaderCell } from './StyledHeaderCell.js';
 
-const COMPONENT_ID = 'tables.head';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$3 = 'tables.head';
+const colorStyles$2 = ({
+  theme
+}) => {
   const borderColor = getColor({
     variable: 'border.default',
     theme
@@ -28,11 +27,11 @@ const stickyStyles = () => {
   return css(["position:sticky;top:0;z-index:1;"]);
 };
 const StyledHead = styled.thead.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHead",
   componentId: "sc-spf23a-0"
-})(["", " ", " ", ";"], props => props.$isSticky && stickyStyles(), colorStyles, componentStyles);
+})(["", " ", " ", ";"], props => props.$isSticky && stickyStyles(), colorStyles$2, componentStyles);
 
 export { StyledHead };

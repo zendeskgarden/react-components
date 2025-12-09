@@ -13,24 +13,21 @@ import '../styled/StyledClose.js';
 import { Close } from './Close.js';
 import { Avatar } from './Avatar.js';
 
-const TagComponent = forwardRef((_ref, ref) => {
-  let {
-    isPill,
-    isRound,
-    isRegular,
-    size = 'medium',
-    hue,
-    ...other
-  } = _ref;
-  return React__default.createElement(StyledTag, Object.assign({
-    $hue: hue,
-    $isPill: isPill,
-    $isRegular: isRegular,
-    $isRound: isRound,
-    $size: size,
-    ref: ref
-  }, other));
-});
+const TagComponent = forwardRef(({
+  isPill,
+  isRound,
+  isRegular,
+  size = 'medium',
+  hue,
+  ...other
+}, ref) => React__default.createElement(StyledTag, Object.assign({
+  $hue: hue,
+  $isPill: isPill,
+  $isRegular: isRegular,
+  $isRound: isRound,
+  $size: size,
+  ref: ref
+}, other)));
 TagComponent.displayName = 'Tag';
 TagComponent.propTypes = {
   size: PropTypes.oneOf(SIZE),

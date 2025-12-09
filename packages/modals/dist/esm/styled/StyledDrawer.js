@@ -7,12 +7,11 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.drawer_modal';
+const COMPONENT_ID$5 = 'modals.drawer_modal';
 const DRAWER_WIDTH = 380;
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = getColor({
@@ -31,7 +30,7 @@ const colorStyles = _ref => {
   return css(["border-color:", ";box-shadow:", ";background-color:", ";"], borderColor, shadow, backgroundColor);
 };
 const StyledDrawer = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDrawer",

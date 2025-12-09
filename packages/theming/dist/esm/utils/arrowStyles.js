@@ -7,7 +7,7 @@
 import { css, keyframes } from 'styled-components';
 import { stripUnit } from 'polished';
 
-const animationStyles = (position, modifier) => {
+const animationStyles$1 = (position, modifier) => {
   const property = position.split('-')[0];
   const animationName = keyframes(["0%,66%{", ":2px;border:transparent;}"], property);
   return css(["&", "::before,&", "::after{animation:0.3s ease-in-out ", ";}"], modifier, modifier, animationName);
@@ -36,8 +36,7 @@ const positionStyles = (position, size, inset, shift) => {
   }
   return css(["&::before,&::after{transform:", ";", ";}"], transform, positionCss);
 };
-function arrowStyles(position) {
-  let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+function arrowStyles(position, options = {}) {
   const inset = stripUnit(options.inset || '0');
   const size = stripUnit(options.size || '6');
   const shift = stripUnit(options.shift || '0');
@@ -47,7 +46,7 @@ function arrowStyles(position) {
   const squareSizePx = `${squareSizeRounded}px`;
   const afterOffset = 0;
   const beforeOffset = afterOffset + 2;
-  return css(["position:relative;&::before,&::after{position:absolute;border-width:inherit;border-style:inherit;background-color:inherit;width:", ";height:", ";content:'';box-sizing:inherit;}&::before{border-color:inherit;clip-path:polygon(100% ", "px,", "px 100%,100% 100%);}&::after{border-color:transparent;background-clip:content-box;clip-path:polygon(100% ", "px,", "px 100%,100% 100%);}", ";", ";"], squareSizePx, squareSizePx, beforeOffset, beforeOffset, afterOffset, afterOffset, positionStyles(position, squareSizeRounded, inset, shift), options.animationModifier && animationStyles(position, options.animationModifier));
+  return css(["position:relative;&::before,&::after{position:absolute;border-width:inherit;border-style:inherit;background-color:inherit;width:", ";height:", ";content:'';box-sizing:inherit;}&::before{border-color:inherit;clip-path:polygon(100% ", "px,", "px 100%,100% 100%);}&::after{border-color:transparent;background-clip:content-box;clip-path:polygon(100% ", "px,", "px 100%,100% 100%);}", ";", ";"], squareSizePx, squareSizePx, beforeOffset, beforeOffset, afterOffset, afterOffset, positionStyles(position, squareSizeRounded, inset, shift), options.animationModifier && animationStyles$1(position, options.animationModifier));
 }
 
 export { arrowStyles as default };

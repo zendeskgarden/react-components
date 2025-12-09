@@ -40,17 +40,16 @@ import useDropdownContext from '../../utils/useDropdownContext.js';
 import useFieldContext from '../../utils/useFieldContext.js';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown.js';
 
-const Multiselect = React__default.forwardRef((_ref, ref) => {
-  let {
-    renderItem,
-    placeholder,
-    maxItems = 4,
-    renderShowMore,
-    inputRef: externalInputRef = null,
-    start,
-    onKeyDown,
-    ...props
-  } = _ref;
+const Multiselect = React__default.forwardRef(({
+  renderItem,
+  placeholder,
+  maxItems = 4,
+  renderShowMore,
+  inputRef: externalInputRef = null,
+  start,
+  onKeyDown,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     selectedItems = [],
@@ -240,64 +239,61 @@ const Multiselect = React__default.forwardRef((_ref, ref) => {
   useEffect(() => {
     setDropdownType('multiselect');
   }, [setDropdownType]);
-  return React__default.createElement(Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__default.createElement(StyledFauxInput, getContainerProps({
-      ...selectProps,
-      isHovered: isContainerHovered,
-      isFocused: isContainerFocused,
-      ref: selectRef => {
-        popperReference(selectRef);
-        mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
+  return React__default.createElement(Reference, null, ({
+    ref: popperReference
+  }) => React__default.createElement(StyledFauxInput, getContainerProps({
+    ...selectProps,
+    isHovered: isContainerHovered,
+    isFocused: isContainerFocused,
+    ref: selectRef => {
+      popperReference(selectRef);
+      mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
+    }
+  }), !!start && React__default.createElement(StyledFauxInput.StartIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled
+  }, start), React__default.createElement(StyledMultiselectItemsContainer, {
+    $isBare: props.isBare,
+    $isCompact: props.isCompact
+  }, items, React__default.createElement(StyledMultiselectInput, getInputProps({
+    disabled: props.disabled,
+    onFocus: () => {
+      setFocusedItem(undefined);
+    },
+    onClick: e => {
+      if (inputValue && inputValue.length > 0 && isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
       }
-    }), !!start && React__default.createElement(StyledFauxInput.StartIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled
-    }, start), React__default.createElement(StyledMultiselectItemsContainer, {
-      $isBare: props.isBare,
-      $isCompact: props.isCompact
-    }, items, React__default.createElement(StyledMultiselectInput, getInputProps({
-      disabled: props.disabled,
-      onFocus: () => {
-        setFocusedItem(undefined);
-      },
-      onClick: e => {
-        if (inputValue && inputValue.length > 0 && isOpen) {
+    },
+    onKeyDown: e => {
+      if (!inputValue) {
+        if (themeContext.rtl && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
+          setFocusedItem(selectedItems[selectedItems.length - 1]);
+        } else if (!themeContext.rtl && e.keyCode === KEY_CODES.LEFT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
+          setFocusedItem(selectedItems[selectedItems.length - 1]);
+        } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
+          setDownshiftState({
+            type: REMOVE_ITEM_STATE_TYPE,
+            selectedItem: selectedItems[selectedItems.length - 1]
+          });
           e.nativeEvent.preventDownshiftDefault = true;
+          e.preventDefault();
+          e.stopPropagation();
         }
-      },
-      onKeyDown: e => {
-        if (!inputValue) {
-          if (themeContext.rtl && e.keyCode === KEY_CODES.RIGHT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
-            setFocusedItem(selectedItems[selectedItems.length - 1]);
-          } else if (!themeContext.rtl && e.keyCode === KEY_CODES.LEFT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
-            setFocusedItem(selectedItems[selectedItems.length - 1]);
-          } else if (e.keyCode === KEY_CODES.BACKSPACE && selectedItems.length > 0) {
-            setDownshiftState({
-              type: REMOVE_ITEM_STATE_TYPE,
-              selectedItem: selectedItems[selectedItems.length - 1]
-            });
-            e.nativeEvent.preventDownshiftDefault = true;
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        }
-      },
-      $isVisible: isFocused || inputValue || selectedItems.length === 0,
-      isCompact: props.isCompact,
-      role: 'combobox',
-      ref: mergeRefs([inputRef, externalInputRef]),
-      placeholder: selectedItems.length === 0 ? placeholder : undefined
-    }))), !props.isBare && React__default.createElement(StyledFauxInput.EndIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled,
-      isRotated: isOpen
-    }, React__default.createElement(SvgChevronDownStroke, null)));
-  });
+      }
+    },
+    $isVisible: isFocused || inputValue || selectedItems.length === 0,
+    isCompact: props.isCompact,
+    role: 'combobox',
+    ref: mergeRefs([inputRef, externalInputRef]),
+    placeholder: selectedItems.length === 0 ? placeholder : undefined
+  }))), !props.isBare && React__default.createElement(StyledFauxInput.EndIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled,
+    isRotated: isOpen
+  }, React__default.createElement(SvgChevronDownStroke, null))));
 });
 Multiselect.propTypes = {
   isCompact: PropTypes.bool,

@@ -33,12 +33,11 @@ import '../../styled/multiselect/StyledMultiselectItemWrapper.js';
 import '../../styled/multiselect/StyledMultiselectMoreAnchor.js';
 import useDropdownContext from '../../utils/useDropdownContext.js';
 
-const Trigger = _ref => {
-  let {
-    children,
-    refKey = 'ref',
-    ...triggerProps
-  } = _ref;
+const Trigger = ({
+  children,
+  refKey = 'ref',
+  ...triggerProps
+}) => {
   const {
     hasMenuRef,
     itemSearchRegistry,
@@ -155,24 +154,21 @@ const Trigger = _ref => {
       }
     });
   };
-  return React__default.createElement(Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__default.createElement(React__default.Fragment, null, renderChildren(popperReference), React__default.createElement(StyledInput, getInputProps({
-      readOnly: true,
-      $isHidden: true,
-      tabIndex: -1,
-      ref: hiddenInputRef,
-      value: '',
-      onClick: e => {
-        if (isOpen) {
-          e.nativeEvent.preventDownshiftDefault = true;
-        }
-      },
-      onKeyDown: onInputKeyDown
-    })));
-  });
+  return React__default.createElement(Reference, null, ({
+    ref: popperReference
+  }) => React__default.createElement(React__default.Fragment, null, renderChildren(popperReference), React__default.createElement(StyledInput, getInputProps({
+    readOnly: true,
+    $isHidden: true,
+    tabIndex: -1,
+    ref: hiddenInputRef,
+    value: '',
+    onClick: e => {
+      if (isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
+      }
+    },
+    onKeyDown: onInputKeyDown
+  }))));
 };
 Trigger.propTypes = {
   children: PropTypes.any,

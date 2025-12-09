@@ -53,14 +53,13 @@ import '../styled/tiles/StyledTileIcon.js';
 import '../styled/tiles/StyledTileInput.js';
 import '../styled/tiles/StyledTileLabel.js';
 
-const Range = React__default.forwardRef((_ref, ref) => {
-  let {
-    hasLowerTrack = true,
-    min = 0,
-    max = 100,
-    step = 1,
-    ...other
-  } = _ref;
+const Range = React__default.forwardRef(({
+  hasLowerTrack = true,
+  min = 0,
+  max = 100,
+  step = 1,
+  ...other
+}, ref) => {
   const [backgroundSize, setBackgroundSize] = useState('0');
   const rangeRef = useRef();
   const fieldContext = useFieldContext();

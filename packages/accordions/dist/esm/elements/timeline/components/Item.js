@@ -35,12 +35,11 @@ import '../../../utils/useHeaderContext.js';
 import { useTimelineContext } from '../../../utils/useTimelineContext.js';
 import { TimelineItemContext } from '../../../utils/useTimelineItemContext.js';
 
-const ItemComponent = forwardRef((_ref, ref) => {
-  let {
-    icon,
-    surfaceColor,
-    ...props
-  } = _ref;
+const ItemComponent = forwardRef(({
+  icon,
+  surfaceColor,
+  ...props
+}, ref) => {
   const value = useMemo(() => ({
     icon,
     surfaceColor

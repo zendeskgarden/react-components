@@ -30,13 +30,12 @@ import '../styled/StyledDrawerBody.js';
 import '../styled/StyledDrawerFooter.js';
 import '../styled/StyledDrawerFooterItem.js';
 
-const Header = forwardRef((_ref, ref) => {
-  let {
-    children,
-    isDanger,
-    tag = 'div',
-    ...other
-  } = _ref;
+const Header$1 = forwardRef(({
+  children,
+  isDanger,
+  tag = 'div',
+  ...other
+}, ref) => {
   const {
     isCloseButtonPresent,
     hasHeader,
@@ -60,10 +59,10 @@ const Header = forwardRef((_ref, ref) => {
     ref: ref
   }), !!isDanger && React__default.createElement(StyledDangerIcon, null), children);
 });
-Header.displayName = 'Modal.Header';
-Header.propTypes = {
+Header$1.displayName = 'Modal.Header';
+Header$1.propTypes = {
   isDanger: PropTypes.bool,
   tag: PropTypes.any
 };
 
-export { Header };
+export { Header$1 as Header };

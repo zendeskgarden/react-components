@@ -8,18 +8,16 @@ import React__default, { Children } from 'react';
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.media_figure';
+const COMPONENT_ID$8 = 'dropdowns.media_figure';
 const StyledMediaFigure = styled(
-_ref => {
-  let {
-    children,
-    $isCompact,
-    theme,
-    ...props
-  } = _ref;
-  return  React__default.cloneElement(Children.only(children), props);
-}).attrs({
-  'data-garden-id': COMPONENT_ID,
+({
+  children,
+  $isCompact,
+  theme,
+  ...props
+}) =>
+React__default.cloneElement(Children.only(children), props)).attrs({
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMediaFigure",

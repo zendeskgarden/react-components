@@ -8,18 +8,15 @@ import React__default, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import { Button } from './Button.js';
 
-const ToggleButton = forwardRef((_ref, ref) => {
-  let {
-    isPressed,
-    size = 'medium',
-    ...otherProps
-  } = _ref;
-  return React__default.createElement(Button, Object.assign({
-    "aria-pressed": isPressed,
-    size: size,
-    ref: ref
-  }, otherProps));
-});
+const ToggleButton = forwardRef(({
+  isPressed,
+  size = 'medium',
+  ...otherProps
+}, ref) => React__default.createElement(Button, Object.assign({
+  "aria-pressed": isPressed,
+  size: size,
+  ref: ref
+}, otherProps)));
 ToggleButton.displayName = 'ToggleButton';
 ToggleButton.propTypes = {
   ...Button.propTypes,

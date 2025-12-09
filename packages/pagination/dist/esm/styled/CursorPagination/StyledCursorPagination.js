@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'cursor_pagination';
+const COMPONENT_ID$4 = 'cursor_pagination';
 const StyledCursorPagination = styled.nav.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCursorPagination",

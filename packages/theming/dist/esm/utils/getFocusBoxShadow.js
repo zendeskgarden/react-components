@@ -8,21 +8,20 @@ import DEFAULT_THEME from '../elements/theme/index.js';
 import { getColorV8 } from './getColorV8.js';
 import { getColor } from './getColor.js';
 
-const getFocusBoxShadow = _ref => {
-  let {
-    boxShadow,
-    inset = false,
-    color = {
-      variable: 'border.primaryEmphasis'
-    },
-    shadowWidth = 'md',
-    spacerColor = {
-      variable: 'background.default'
-    },
-    spacerWidth = 'xs',
-    theme = DEFAULT_THEME,
-    ...args
-  } = _ref;
+const getFocusBoxShadow = ({
+  boxShadow,
+  inset = false,
+  color = {
+    variable: 'border.primaryEmphasis'
+  },
+  shadowWidth = 'md',
+  spacerColor = {
+    variable: 'background.default'
+  },
+  spacerWidth = 'xs',
+  theme = DEFAULT_THEME,
+  ...args
+}) => {
   const _args = args;
   const _color = _args.hue ? getColorV8(_args.hue, _args.shade, theme) : getColor({
     ...color,

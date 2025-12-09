@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.combobox.optgroup';
+const COMPONENT_ID$j = 'dropdowns.combobox.optgroup';
 const StyledOptGroup = styled.ul.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$j,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledOptGroup",

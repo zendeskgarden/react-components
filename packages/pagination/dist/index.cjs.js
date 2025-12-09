@@ -38,10 +38,9 @@ var PropTypes__default = /*#__PURE__*/_interopDefault(PropTypes);
 var styled__default = /*#__PURE__*/_interopDefault(styled);
 
 const COMPONENT_ID$8 = 'pagination.list';
-const colorStyles$2 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  theme
+}) => {
   return styled.css(["color:", ";"], reactTheming.getColor({
     variable: 'foreground.subtle',
     theme
@@ -65,10 +64,9 @@ const StyledListItem = styled__default.default.li.attrs({
 })(["box-sizing:border-box;margin-left:", ";user-select:none;&", "{margin-left:0;}", ";"], props => `${props.theme.space.base}px`, props => props.theme.rtl ? ':last-of-type' : ':first-of-type', reactTheming.componentStyles);
 
 const COMPONENT_ID$6 = 'pagination.page';
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   const disabledColor = reactTheming.getColor({
     variable: 'foreground.disabled',
     theme
@@ -201,10 +199,9 @@ const sizeStyles = props => {
   const padding = `${props.theme.space.base * 1.5}px`;
   return styled.css(["padding:0 ", ";min-width:", ";max-width:", ";height:", ";line-height:", ";font-size:", ";"], padding, height, polished.math(`${height} * 2`), height, lineHeight, fontSize);
 };
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   return styled.css(["color:", ";"], reactTheming.getColor({
     variable: 'foreground.subtle',
     theme
@@ -318,17 +315,16 @@ const Gap = GapComponent;
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
-const OffsetPagination = React.forwardRef((_ref, ref) => {
-  let {
-    currentPage: controlledCurrentPage,
-    totalPages,
-    pagePadding = 2,
-    pageGap = 2,
-    onChange,
-    'aria-label': ariaLabel,
-    labels,
-    ...otherProps
-  } = _ref;
+const OffsetPagination = React.forwardRef(({
+  currentPage: controlledCurrentPage,
+  totalPages,
+  pagePadding = 2,
+  pageGap = 2,
+  onChange,
+  'aria-label': ariaLabel,
+  labels,
+  ...otherProps
+}, ref) => {
   const [focusedItem, setFocusedItem] = React.useState();
   const [internalCurrentPage, setInternalCurrentPage] = React.useState(1);
   const navigationLabel = reactTheming.useText(OffsetPagination, {
@@ -466,11 +462,10 @@ var SvgChevronDoubleLeftStroke = function SvgChevronDoubleLeftStroke(props) {
   })));
 };
 
-const FirstComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
+const FirstComponent = React.forwardRef(({
+  children,
+  ...other
+}, ref) => {
   return React__namespace.default.createElement(StyledCursor, Object.assign({
     ref: ref
   }, other), React__namespace.default.createElement(StyledIcon, {
@@ -480,11 +475,10 @@ const FirstComponent = React.forwardRef((_ref, ref) => {
 FirstComponent.displayName = 'CursorPagination.First';
 const First = FirstComponent;
 
-const NextComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
+const NextComponent = React.forwardRef(({
+  children,
+  ...other
+}, ref) => {
   return React__namespace.default.createElement(StyledCursor, Object.assign({
     ref: ref,
     as: "button"
@@ -495,11 +489,10 @@ const NextComponent = React.forwardRef((_ref, ref) => {
 NextComponent.displayName = 'CursorPagination.Next';
 const Next = NextComponent;
 
-const PreviousComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
+const PreviousComponent = React.forwardRef(({
+  children,
+  ...other
+}, ref) => {
   return React__namespace.default.createElement(StyledCursor, Object.assign({
     ref: ref,
     as: "button"
@@ -526,11 +519,10 @@ var SvgChevronDoubleRightStroke = function SvgChevronDoubleRightStroke(props) {
   })));
 };
 
-const LastComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
+const LastComponent = React.forwardRef(({
+  children,
+  ...other
+}, ref) => {
   return React__namespace.default.createElement(StyledCursor, Object.assign({
     ref: ref,
     as: "button"

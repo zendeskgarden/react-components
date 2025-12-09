@@ -8,12 +8,11 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledFont } from './StyledFont.js';
 
-const COMPONENT_ID = 'typography.code';
-const colorStyles = _ref => {
-  let {
-    $hue,
-    theme
-  } = _ref;
+const COMPONENT_ID$8 = 'typography.code';
+const colorStyles$3 = ({
+  $hue,
+  theme
+}) => {
   const bgColorArgs = {
     theme,
     light: {
@@ -49,7 +48,7 @@ const colorStyles = _ref => {
   return css(["background-color:", ";color:", ";a &{color:inherit;}"], backgroundColor, foregroundColor);
 };
 const StyledCode = styled(StyledFont).attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3',
   as: 'code',
   $isMonospace: true,
@@ -58,6 +57,6 @@ const StyledCode = styled(StyledFont).attrs(props => ({
 })).withConfig({
   displayName: "StyledCode",
   componentId: "sc-l8yvmf-0"
-})(["border-radius:", ";padding:1.5px;", ";", ";"], props => props.theme.borderRadii.sm, props => colorStyles(props), componentStyles);
+})(["border-radius:", ";padding:1.5px;", ";", ";"], props => props.theme.borderRadii.sm, props => colorStyles$3(props), componentStyles);
 
 export { StyledCode };

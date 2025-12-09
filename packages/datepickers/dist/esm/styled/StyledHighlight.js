@@ -7,13 +7,12 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.highlight';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $isEnd,
-    $isStart
-  } = _ref;
+const COMPONENT_ID$1 = 'datepickers.highlight';
+const sizeStyles$1 = ({
+  theme,
+  $isEnd,
+  $isStart
+}) => {
   let borderRadius;
   const startValue = '0 50% 50% 0;';
   const endValue = '50% 0 0 50%;';
@@ -31,11 +30,10 @@ const sizeStyles = _ref => {
   }
   return css(["border-radius:", ";width:100%;height:100%;"], borderRadius);
 };
-const colorStyles = _ref2 => {
-  let {
-    $isHighlighted,
-    theme
-  } = _ref2;
+const colorStyles$1 = ({
+  $isHighlighted,
+  theme
+}) => {
   return css(["background-color:", ";"], $isHighlighted && getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],
@@ -43,11 +41,11 @@ const colorStyles = _ref2 => {
   }));
 };
 const StyledHighlight = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHighlight",
   componentId: "sc-16vr32x-0"
-})(["position:absolute;top:0;left:0;", " ", " ", ";"], sizeStyles, colorStyles, componentStyles);
+})(["position:absolute;top:0;left:0;", " ", " ", ";"], sizeStyles$1, colorStyles$1, componentStyles);
 
 export { StyledHighlight };

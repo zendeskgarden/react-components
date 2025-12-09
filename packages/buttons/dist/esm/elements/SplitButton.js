@@ -13,17 +13,14 @@ import '../styled/StyledIcon.js';
 import '../styled/StyledIconButton.js';
 import { SplitButtonContext } from '../utils/useSplitButtonContext.js';
 
-const SplitButton = forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
-  return React__default.createElement(SplitButtonContext.Provider, {
-    value: true
-  }, React__default.createElement(StyledSplitButton, Object.assign({
-    ref: ref
-  }, other), children));
-});
+const SplitButton = forwardRef(({
+  children,
+  ...other
+}, ref) => React__default.createElement(SplitButtonContext.Provider, {
+  value: true
+}, React__default.createElement(StyledSplitButton, Object.assign({
+  ref: ref
+}, other), children)));
 SplitButton.displayName = 'SplitButton';
 
 export { SplitButton };

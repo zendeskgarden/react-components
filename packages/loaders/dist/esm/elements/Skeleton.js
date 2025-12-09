@@ -14,13 +14,12 @@ import '../styled/StyledSpinnerCircle.js';
 import '../styled/StyledSVG.js';
 import '../styled/StyledInline.js';
 
-const Skeleton = forwardRef((_ref, ref) => {
-  let {
-    width = '100%',
-    height = '100%',
-    isLight,
-    ...other
-  } = _ref;
+const Skeleton = forwardRef(({
+  width = '100%',
+  height = '100%',
+  isLight,
+  ...other
+}, ref) => {
   return React.createElement(StyledSkeleton, Object.assign({
     ref: ref,
     $isLight: isLight,

@@ -10,10 +10,10 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { getRowHeight } from './style-utils.js';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
-const COMPONENT_ID = 'tables.overflow_button';
+const COMPONENT_ID$9 = 'tables.overflow_button';
 const OVERFLOW_BUTTON_SIZE = '2em';
 const StyledOverflowButton = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$9,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledOverflowButton",

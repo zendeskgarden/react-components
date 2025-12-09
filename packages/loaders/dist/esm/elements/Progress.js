@@ -16,22 +16,21 @@ import '../styled/StyledSpinnerCircle.js';
 import '../styled/StyledSVG.js';
 import '../styled/StyledInline.js';
 
-const COMPONENT_ID = 'loaders.progress';
-const Progress = React.forwardRef((_ref, ref) => {
-  let {
-    color,
-    value = 0,
-    size = 'medium',
-    'aria-label': label,
-    ...other
-  } = _ref;
+const COMPONENT_ID$1 = 'loaders.progress';
+const Progress = React.forwardRef(({
+  color,
+  value = 0,
+  size = 'medium',
+  'aria-label': label,
+  ...other
+}, ref) => {
   const percentage = Math.max(0, Math.min(100, value));
   const ariaLabel = useText(Progress, {
     'aria-label': label
   }, 'aria-label', 'Progress');
   return (
     React.createElement(StyledProgressBackground, Object.assign({
-      "data-garden-id": COMPONENT_ID,
+      "data-garden-id": COMPONENT_ID$1,
       "data-garden-version": '9.12.3',
       "aria-valuemax": 100,
       "aria-valuemin": 0,

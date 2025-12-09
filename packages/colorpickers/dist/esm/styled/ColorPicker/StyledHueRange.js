@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { StyledRange, getTrackMargin, getTrackHeight } from '../common/StyledRange.js';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_hue';
+const COMPONENT_ID$j = 'colorpickers.colorpicker_hue';
 const StyledHueRange = styled(StyledRange).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$j,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHueRange",

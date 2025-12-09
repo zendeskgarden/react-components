@@ -19,14 +19,13 @@ import { StyledStandaloneStatusIndicator } from '../styled/StyledStandaloneStatu
 import '../styled/StyledStatusIndicator.js';
 import '../styled/StyledText.js';
 
-const StatusIndicator = forwardRef((_ref, ref) => {
-  let {
-    children,
-    type = 'offline',
-    isCompact,
-    'aria-label': label,
-    ...props
-  } = _ref;
+const StatusIndicator = forwardRef(({
+  children,
+  type = 'offline',
+  isCompact,
+  'aria-label': label,
+  ...props
+}, ref) => {
   let ClockIcon = SvgClockStroke;
   let ArrowLeftIcon = SvgArrowLeftSmStroke;
   if (isCompact) {

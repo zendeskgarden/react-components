@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { THEME_SIZES } from './StyledFont.js';
 
-const COMPONENT_ID = 'typography.blockquote';
+const COMPONENT_ID$9 = 'typography.blockquote';
 const StyledBlockquote = styled.blockquote.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$9,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledBlockquote",

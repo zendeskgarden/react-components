@@ -9,9 +9,9 @@ import { math } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint.js';
 
-const COMPONENT_ID = 'forms.toggle_hint';
+const COMPONENT_ID$a = 'forms.toggle_hint';
 const StyledToggleHint = styled(StyledHint).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledToggleHint",

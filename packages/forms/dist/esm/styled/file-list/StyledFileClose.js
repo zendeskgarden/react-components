@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.file.close';
+const COMPONENT_ID$i = 'forms.file.close';
 const StyledFileClose = styled.button.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$i,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFileClose",

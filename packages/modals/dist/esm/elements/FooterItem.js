@@ -28,9 +28,9 @@ import '../styled/StyledDrawerBody.js';
 import '../styled/StyledDrawerFooter.js';
 import '../styled/StyledDrawerFooterItem.js';
 
-const FooterItem = React__default.forwardRef((props, ref) => React__default.createElement(StyledFooterItem, Object.assign({
+const FooterItem$2 = React__default.forwardRef((props, ref) => React__default.createElement(StyledFooterItem, Object.assign({
   ref: ref
 }, props)));
-FooterItem.displayName = 'Modal.FooterItem';
+FooterItem$2.displayName = 'Modal.FooterItem';
 
-export { FooterItem };
+export { FooterItem$2 as FooterItem };

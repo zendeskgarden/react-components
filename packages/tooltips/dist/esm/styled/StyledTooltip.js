@@ -10,13 +10,12 @@ import { StyledParagraph } from './StyledParagraph.js';
 import { StyledTitle } from './StyledTitle.js';
 
 const COMPONENT_ID = 'tooltip.tooltip';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $hasArrow,
-    $placement,
-    $size
-  } = _ref;
+const sizeStyles = ({
+  theme,
+  $hasArrow,
+  $placement,
+  $size
+}) => {
   let margin = `${theme.space.base * 1.5}px`;
   let borderRadius = theme.borderRadii.sm;
   let padding = '0 1em';
@@ -78,11 +77,10 @@ const sizeStyles = _ref => {
     shift: arrowShift
   }), StyledParagraph, paragraphMarginTop, StyledTitle, titleDisplay);
 };
-const colorStyles = _ref2 => {
-  let {
-    theme,
-    $type
-  } = _ref2;
+const colorStyles = ({
+  theme,
+  $type
+}) => {
   let borderColor;
   let boxShadow;
   let backgroundColor;

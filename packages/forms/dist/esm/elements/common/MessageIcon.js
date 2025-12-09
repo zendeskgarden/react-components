@@ -55,21 +55,19 @@ import '../../styled/tiles/StyledTileInput.js';
 import '../../styled/tiles/StyledTileLabel.js';
 import { VALIDATION } from '../../types/index.js';
 
-const MessageIcon = _ref => {
-  let {
-    validation,
-    children,
-    ...props
-  } = _ref;
-  return  React__default.createElement(StyledMessageIcon, Object.assign({
-    "aria-hidden": false,
-    role: "img"
-  }, props), validation ? {
-    error: React__default.createElement(SvgAlertErrorStroke, null),
-    success: React__default.createElement(SvgCheckCircleStroke, null),
-    warning: React__default.createElement(SvgAlertWarningStroke, null)
-  }[validation] : children);
-};
+const MessageIcon = ({
+  validation,
+  children,
+  ...props
+}) =>
+React__default.createElement(StyledMessageIcon, Object.assign({
+  "aria-hidden": false,
+  role: "img"
+}, props), validation ? {
+  error: React__default.createElement(SvgAlertErrorStroke, null),
+  success: React__default.createElement(SvgCheckCircleStroke, null),
+  warning: React__default.createElement(SvgAlertWarningStroke, null)
+}[validation] : children);
 MessageIcon.displayName = 'Field.MessageIcon';
 MessageIcon.propTypes = {
   validation: PropTypes.oneOf(VALIDATION)

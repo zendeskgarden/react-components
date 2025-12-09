@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { Label } from '@zendeskgarden/react-forms';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_label';
+const COMPONENT_ID$c = 'colorpickers.colorpicker_label';
 const StyledLabel = styled(Label).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$c,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledLabel",

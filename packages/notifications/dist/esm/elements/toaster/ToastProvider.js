@@ -10,13 +10,12 @@ import { toasterReducer, getInitialState } from './reducer.js';
 import { ToastContext } from './ToastContext.js';
 import { ToastSlot } from './ToastSlot.js';
 
-const ToastProvider = _ref => {
-  let {
-    limit = 4,
-    zIndex,
-    placementProps = {},
-    children
-  } = _ref;
+const ToastProvider = ({
+  limit = 4,
+  zIndex,
+  placementProps = {},
+  children
+}) => {
   const [state, dispatch] = useReducer(toasterReducer, getInitialState());
   const contextValue = useMemo(() => ({
     state,

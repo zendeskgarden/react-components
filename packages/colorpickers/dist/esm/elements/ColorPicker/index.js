@@ -32,16 +32,15 @@ import '../../styled/ColorSwatch/StyledIcon.js';
 import '../../styled/ColorSwatch/StyledCell.js';
 import { reducer, getInitialState, convertStringToColor, areColorsEqual } from './reducer.js';
 
-const ColorPicker = forwardRef((_ref, ref) => {
-  let {
-    color,
-    defaultColor = '#fff',
-    isOpaque,
-    labels = {},
-    autofocus,
-    onChange,
-    ...props
-  } = _ref;
+const ColorPicker = forwardRef(({
+  color,
+  defaultColor = '#fff',
+  isOpaque,
+  labels = {},
+  autofocus,
+  onChange,
+  ...props
+}, ref) => {
   const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
   const previousComputedColorRef = useRef(state.color);
   const previousStateColorRef = useRef(state.color);

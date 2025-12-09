@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { getTrackHeight, getTrackMargin } from '../common/StyledRange.js';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_sliders';
+const COMPONENT_ID$8 = 'colorpickers.colorpicker_sliders';
 const sizeStyles = props => {
   if (props.$isOpaque) {
     return undefined;
@@ -32,7 +32,7 @@ const sizeStyles = props => {
   `;
 };
 const StyledSliders = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledSliders",

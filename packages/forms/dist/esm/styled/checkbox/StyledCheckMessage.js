@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioMessage } from '../radio/StyledRadioMessage.js';
 
-const COMPONENT_ID = 'forms.checkbox_message';
+const COMPONENT_ID$m = 'forms.checkbox_message';
 const StyledCheckMessage = styled(StyledRadioMessage).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$m,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCheckMessage",

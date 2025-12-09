@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { arrowStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledListbox } from '../combobox/StyledListbox.js';
 
-const COMPONENT_ID = 'dropdowns.menu';
+const COMPONENT_ID$9 = 'dropdowns.menu';
 const StyledMenu = styled(StyledListbox).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$9,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMenu",

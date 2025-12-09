@@ -6,7 +6,7 @@
 */
 import React__default, { forwardRef, useMemo, Children } from 'react';
 import PropTypes from 'prop-types';
-import { FILE_TYPE, FILE_VALIDATION } from '../../../types/index.js';
+import { FILE_VALIDATION, FILE_TYPE } from '../../../types/index.js';
 import { Close } from './Close.js';
 import { Delete } from './Delete.js';
 import '../../../styled/common/StyledField.js';
@@ -56,15 +56,14 @@ import '../../../styled/tiles/StyledTileLabel.js';
 import { FileContext } from '../../../utils/useFileContext.js';
 import { fileIconsCompact, fileIconsDefault } from '../utils.js';
 
-const FileComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    type,
-    isCompact,
-    focusInset,
-    validation,
-    ...props
-  } = _ref;
+const FileComponent = forwardRef(({
+  children,
+  type,
+  isCompact,
+  focusInset,
+  validation,
+  ...props
+}, ref) => {
   const fileContextValue = useMemo(() => ({
     isCompact
   }), [isCompact]);

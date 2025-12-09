@@ -7,12 +7,11 @@
 import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.calendar_item';
-const sizeStyles = _ref => {
-  let {
-    $isCompact,
-    theme
-  } = _ref;
+const COMPONENT_ID$3 = 'datepickers.calendar_item';
+const sizeStyles$2 = ({
+  $isCompact,
+  theme
+}) => {
   let size;
   if ($isCompact) {
     size = `${theme.space.base * 8}px`;
@@ -22,11 +21,11 @@ const sizeStyles = _ref => {
   return css(["width:", ";height:", ";"], size, size);
 };
 const StyledCalendarItem = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCalendarItem",
   componentId: "sc-143w8wb-0"
-})(["display:inline-block;position:relative;vertical-align:top;", " ", ";"], sizeStyles, componentStyles);
+})(["display:inline-block;position:relative;vertical-align:top;", " ", ";"], sizeStyles$2, componentStyles);
 
-export { StyledCalendarItem, sizeStyles };
+export { StyledCalendarItem, sizeStyles$2 as sizeStyles };

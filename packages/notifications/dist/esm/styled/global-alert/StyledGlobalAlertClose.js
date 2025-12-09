@@ -8,8 +8,8 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
-const COMPONENT_ID = 'notifications.global_alert.close';
-const colorStyles = props => {
+const COMPONENT_ID$4 = 'notifications.global_alert.close';
+const colorStyles$3 = props => {
   const {
     $alertType,
     theme
@@ -83,18 +83,18 @@ const colorStyles = props => {
     }
   }), activeBackgroundColor, activeForegroundColor);
 };
-const sizeStyles = props => {
+const sizeStyles$2 = props => {
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
   const marginEnd = `-${props.theme.space.base * 2}px`;
   return css(["margin:", " ", " ", " ", ";"], marginVertical, props.theme.rtl ? marginStart : marginEnd, marginVertical, props.theme.rtl ? marginEnd : marginStart);
 };
 const StyledGlobalAlertClose = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledGlobalAlertClose",
   componentId: "sc-1g5s93s-0"
-})(["", ";", ";", ";"], sizeStyles, colorStyles, componentStyles);
+})(["", ";", ";", ";"], sizeStyles$2, colorStyles$3, componentStyles);
 
-export { StyledGlobalAlertClose, colorStyles };
+export { StyledGlobalAlertClose, colorStyles$3 as colorStyles };

@@ -10,13 +10,12 @@ import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { StyledNavButton } from './StyledNavButton.js';
 import { getNavWidth } from '../utils.js';
 
-const COMPONENT_ID = 'chrome.nav_item_text';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $isExpanded,
-    $isWrapped
-  } = _ref;
+const COMPONENT_ID$9 = 'chrome.nav_item_text';
+const sizeStyles$3 = ({
+  theme,
+  $isExpanded,
+  $isWrapped
+}) => {
   const clip = $isExpanded ? 'auto' : undefined;
   const lineHeight = getLineHeight(theme.space.base * 5, theme.fontSizes.md);
   const margin = $isExpanded ? `0 ${math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}` : undefined;
@@ -26,11 +25,11 @@ const sizeStyles = _ref => {
   return css(["clip:rect(1px,1px,1px,1px);margin:", ";width:1px;height:1px;line-height:", ";white-space:", ";", " > &&{clip:", ";width:", ";height:", ";}"], margin, lineHeight, whiteSpace, StyledNavButton, clip, width, height);
 };
 const StyledNavItemText = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$9,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledNavItemText",
   componentId: "sc-13m84xl-0"
-})(["position:absolute;order:1;overflow:hidden;", " > &&{position:", ";flex:", ";text-overflow:", ";}", ";", ";"], StyledNavButton, props => props.$isExpanded ? 'static' : undefined, props => props.$isExpanded ? 1 : undefined, props => props.$isExpanded ? 'ellipsis' : undefined, sizeStyles, componentStyles);
+})(["position:absolute;order:1;overflow:hidden;", " > &&{position:", ";flex:", ";text-overflow:", ";}", ";", ";"], StyledNavButton, props => props.$isExpanded ? 'static' : undefined, props => props.$isExpanded ? 1 : undefined, props => props.$isExpanded ? 'ellipsis' : undefined, sizeStyles$3, componentStyles);
 
 export { StyledNavItemText };

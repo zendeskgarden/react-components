@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { StyledDatePicker } from './StyledDatePicker.js';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.range_calendar';
+const COMPONENT_ID$8 = 'datepickers.range_calendar';
 const StyledRangeCalendar = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledRangeCalendar",

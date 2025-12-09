@@ -9,19 +9,17 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
 
 const getSize = theme => theme.space.base * 6;
-const sizeStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$1 = ({
+  theme
+}) => {
   const size = `${getSize(theme)}px`;
   return css(["width:", ";min-width:", ";height:", ";"], size, size, size);
 };
-const transformStyles = _ref2 => {
-  let {
-    $isRotated,
-    $orientation,
-    theme
-  } = _ref2;
+const transformStyles = ({
+  $isRotated,
+  $orientation,
+  theme
+}) => {
   let degrees = 0;
   if ($isRotated) {
     degrees = theme.rtl ? -180 : 180;
@@ -43,6 +41,6 @@ const StyledPaneSplitterButton = styled(ChevronButton).attrs({
 }).withConfig({
   displayName: "StyledPaneSplitterButton",
   componentId: "sc-zh032e-0"
-})(["", ";", ";", ";"], sizeStyles, transformStyles, componentStyles);
+})(["", ";", ";", ";"], sizeStyles$1, transformStyles, componentStyles);
 
 export { StyledPaneSplitterButton, getSize };

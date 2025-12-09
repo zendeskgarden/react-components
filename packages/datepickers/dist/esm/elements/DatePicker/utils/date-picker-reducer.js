@@ -11,11 +11,10 @@ import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
 
-function parseInputValue(_ref) {
-  let {
-    inputValue,
-    customParseDate
-  } = _ref;
+function parseInputValue$1({
+  inputValue,
+  customParseDate
+}) {
   if (customParseDate) {
     return customParseDate(inputValue);
   }
@@ -34,12 +33,11 @@ function parseInputValue(_ref) {
   }
   return new Date(NaN);
 }
-function formatInputValue(_ref2) {
-  let {
-    date,
-    locale,
-    formatDate
-  } = _ref2;
+function formatInputValue({
+  date,
+  locale,
+  formatDate
+}) {
   if (!date) {
     return '';
   }
@@ -52,115 +50,112 @@ function formatInputValue(_ref2) {
     year: 'numeric'
   }).format(date);
 }
-const datepickerReducer = _ref3 => {
-  let {
-    value,
-    formatDate,
-    locale,
-    customParseDate,
-    onChange
-  } = _ref3;
-  return (state, action) => {
-    switch (action.type) {
-      case 'OPEN':
+const datepickerReducer = ({
+  value,
+  formatDate,
+  locale,
+  customParseDate,
+  onChange
+}) => (state, action) => {
+  switch (action.type) {
+    case 'OPEN':
+      return {
+        ...state,
+        isOpen: true,
+        previewDate: value || new Date()
+      };
+    case 'CLOSE':
+      {
+        const inputValue = formatInputValue({
+          date: value,
+          locale,
+          formatDate
+        });
+        return {
+          ...state,
+          isOpen: false,
+          inputValue
+        };
+      }
+    case 'PREVIEW_NEXT_MONTH':
+      {
+        const previewDate = addMonths(state.previewDate, 1);
+        return {
+          ...state,
+          previewDate
+        };
+      }
+    case 'PREVIEW_PREVIOUS_MONTH':
+      {
+        const previewDate = subMonths(state.previewDate, 1);
+        return {
+          ...state,
+          previewDate
+        };
+      }
+    case 'MANUALLY_UPDATE_INPUT':
+      {
+        const inputValue = action.value;
+        const currentDate = parseInputValue$1({
+          inputValue,
+          customParseDate
+        });
+        if (onChange && currentDate && isValid(currentDate) && !isSameDay(value, currentDate)) {
+          onChange(currentDate);
+        }
         return {
           ...state,
           isOpen: true,
-          previewDate: value || new Date()
+          inputValue
         };
-      case 'CLOSE':
-        {
-          const inputValue = formatInputValue({
-            date: value,
-            locale,
-            formatDate
-          });
-          return {
-            ...state,
-            isOpen: false,
-            inputValue
-          };
+      }
+    case 'CONTROLLED_VALUE_CHANGE':
+      {
+        const previewDate = action.value || new Date();
+        const inputValue = formatInputValue({
+          date: action.value,
+          locale,
+          formatDate
+        });
+        return {
+          ...state,
+          previewDate,
+          inputValue
+        };
+      }
+    case 'CONTROLLED_LOCALE_CHANGE':
+      {
+        const inputValue = formatInputValue({
+          date: value,
+          locale,
+          formatDate
+        });
+        return {
+          ...state,
+          inputValue
+        };
+      }
+    case 'SELECT_DATE':
+      {
+        const inputValue = formatInputValue({
+          date: action.value,
+          locale,
+          formatDate
+        });
+        if (onChange && action.value && isValid(action.value) && !isSameDay(value, action.value)) {
+          onChange(action.value);
         }
-      case 'PREVIEW_NEXT_MONTH':
-        {
-          const previewDate = addMonths(state.previewDate, 1);
-          return {
-            ...state,
-            previewDate
-          };
-        }
-      case 'PREVIEW_PREVIOUS_MONTH':
-        {
-          const previewDate = subMonths(state.previewDate, 1);
-          return {
-            ...state,
-            previewDate
-          };
-        }
-      case 'MANUALLY_UPDATE_INPUT':
-        {
-          const inputValue = action.value;
-          const currentDate = parseInputValue({
-            inputValue,
-            customParseDate
-          });
-          if (onChange && currentDate && isValid(currentDate) && !isSameDay(value, currentDate)) {
-            onChange(currentDate);
-          }
-          return {
-            ...state,
-            isOpen: true,
-            inputValue
-          };
-        }
-      case 'CONTROLLED_VALUE_CHANGE':
-        {
-          const previewDate = action.value || new Date();
-          const inputValue = formatInputValue({
-            date: action.value,
-            locale,
-            formatDate
-          });
-          return {
-            ...state,
-            previewDate,
-            inputValue
-          };
-        }
-      case 'CONTROLLED_LOCALE_CHANGE':
-        {
-          const inputValue = formatInputValue({
-            date: value,
-            locale,
-            formatDate
-          });
-          return {
-            ...state,
-            inputValue
-          };
-        }
-      case 'SELECT_DATE':
-        {
-          const inputValue = formatInputValue({
-            date: action.value,
-            locale,
-            formatDate
-          });
-          if (onChange && action.value && isValid(action.value) && !isSameDay(value, action.value)) {
-            onChange(action.value);
-          }
-          return {
-            ...state,
-            isOpen: false,
-            inputValue
-          };
-        }
-      default:
-        throw new Error();
-    }
-  };
+        return {
+          ...state,
+          isOpen: false,
+          inputValue
+        };
+      }
+    default:
+      throw new Error();
+  }
 };
-function retrieveInitialState(initialProps) {
+function retrieveInitialState$1(initialProps) {
   let previewDate = initialProps.value;
   if (previewDate === undefined || !isValid(previewDate)) {
     previewDate = new Date();
@@ -184,4 +179,4 @@ function retrieveInitialState(initialProps) {
   };
 }
 
-export { datepickerReducer, retrieveInitialState };
+export { datepickerReducer, retrieveInitialState$1 as retrieveInitialState };

@@ -30,6 +30,6 @@ const OrderedListItem = forwardRef((props, ref) => {
   }, props));
 });
 OrderedListItem.displayName = 'OrderedList.Item';
-const Item = OrderedListItem;
+const Item$1 = OrderedListItem;
 
-export { Item };
+export { Item$1 as Item };

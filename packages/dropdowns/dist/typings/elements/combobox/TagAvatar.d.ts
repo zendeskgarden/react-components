@@ -8,6 +8,6 @@
  * @extends HTMLAttributes<HTMLElement>
  */
 export declare const TagAvatar: {
-    (props: import("react").HTMLAttributes<HTMLElement>): React.JSX.Element;
+    (props: import("react").SVGAttributes<SVGElement>): React.JSX.Element;
     displayName: string;
 };

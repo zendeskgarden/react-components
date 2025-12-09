@@ -5,17 +5,16 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import styled, { css } from 'styled-components';
-import { readableColor, math } from 'polished';
-import { SELECTOR_FOCUS_VISIBLE, componentStyles, getColor, focusStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { math, readableColor } from 'polished';
+import { SELECTOR_FOCUS_VISIBLE, componentStyles, getLineHeight, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { StyledAvatar } from './StyledAvatar.js';
 import { StyledClose } from './StyledClose.js';
 
 const COMPONENT_ID = 'tags.tag_view';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $hue
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $hue
+}) => {
   let backgroundColor;
   let foregroundColor;
   if ($hue) {
@@ -135,13 +134,12 @@ const colorStyles = _ref => {
     selector: '&:focus'
   }));
 };
-const sizeStyles = _ref2 => {
-  let {
-    $isPill,
-    $isRound,
-    $size,
-    theme
-  } = _ref2;
+const sizeStyles = ({
+  $isPill,
+  $isRound,
+  $size,
+  theme
+}) => {
   let borderRadius;
   let padding;
   let height;

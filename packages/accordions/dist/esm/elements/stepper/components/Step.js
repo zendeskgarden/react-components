@@ -34,11 +34,10 @@ import '../../../utils/useHeaderContext.js';
 import '../../../utils/useTimelineContext.js';
 import '../../../utils/useTimelineItemContext.js';
 
-const StepComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...props
-  } = _ref;
+const StepComponent = forwardRef(({
+  children,
+  ...props
+}, ref) => {
   const {
     isHorizontal
   } = useStepperContext();

@@ -10,8 +10,8 @@ import { StyledTitle } from './content/StyledTitle.js';
 import { StyledBase } from './StyledBase.js';
 import { validationTypes } from '../utils/icons.js';
 
-const COMPONENT_ID = 'notifications.alert';
-const colorStyles = props => {
+const COMPONENT_ID$9 = 'notifications.alert';
+const colorStyles$8 = props => {
   const {
     $type,
     theme
@@ -38,11 +38,11 @@ const colorStyles = props => {
   return css(["", "{color:", ";}"], StyledTitle, color);
 };
 const StyledAlert = styled(StyledBase).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$9,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledAlert",
   componentId: "sc-fyn8jp-0"
-})(["", " ", ";"], colorStyles, componentStyles);
+})(["", " ", ";"], colorStyles$8, componentStyles);
 
 export { StyledAlert };

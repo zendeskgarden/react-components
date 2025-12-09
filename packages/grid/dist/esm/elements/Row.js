@@ -6,7 +6,7 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '../types/index.js';
+import { WRAP, JUSTIFY_CONTENT, ALIGN_ITEMS } from '../types/index.js';
 import useGridContext from '../utils/useGridContext.js';
 import '../styled/StyledCol.js';
 import '../styled/StyledGrid.js';
@@ -17,28 +17,27 @@ import '../styled/pane/StyledPaneSplitter.js';
 import '../styled/pane/StyledPaneSplitterButton.js';
 import '../styled/pane/StyledPaneSplitterButtonContainer.js';
 
-const Row = React.forwardRef((_ref, ref) => {
-  let {
-    alignItems,
-    alignItemsXs,
-    alignItemsSm,
-    alignItemsMd,
-    alignItemsLg,
-    alignItemsXl,
-    justifyContent,
-    justifyContentXs,
-    justifyContentSm,
-    justifyContentMd,
-    justifyContentLg,
-    justifyContentXl,
-    wrap,
-    wrapXs,
-    wrapSm,
-    wrapMd,
-    wrapLg,
-    wrapXl,
-    ...props
-  } = _ref;
+const Row = React.forwardRef(({
+  alignItems,
+  alignItemsXs,
+  alignItemsSm,
+  alignItemsMd,
+  alignItemsLg,
+  alignItemsXl,
+  justifyContent,
+  justifyContentXs,
+  justifyContentSm,
+  justifyContentMd,
+  justifyContentLg,
+  justifyContentXl,
+  wrap,
+  wrapXs,
+  wrapSm,
+  wrapMd,
+  wrapLg,
+  wrapXl,
+  ...props
+}, ref) => {
   const {
     gutters,
     debug

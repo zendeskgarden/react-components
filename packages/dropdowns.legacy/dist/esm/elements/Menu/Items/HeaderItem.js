@@ -30,11 +30,10 @@ import '../../../styled/multiselect/StyledMultiselectItemWrapper.js';
 import '../../../styled/multiselect/StyledMultiselectMoreAnchor.js';
 import useMenuContext from '../../../utils/useMenuContext.js';
 
-const HeaderItem = React__default.forwardRef((_ref, ref) => {
-  let {
-    hasIcon,
-    ...other
-  } = _ref;
+const HeaderItem = React__default.forwardRef(({
+  hasIcon,
+  ...other
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();

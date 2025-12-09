@@ -56,13 +56,12 @@ import '../../styled/tiles/StyledTileInput.js';
 import '../../styled/tiles/StyledTileLabel.js';
 import { MessageIcon } from './MessageIcon.js';
 
-const Message = React__default.forwardRef((_ref, ref) => {
-  let {
-    validation,
-    validationLabel,
-    children,
-    ...other
-  } = _ref;
+const Message = React__default.forwardRef(({
+  validation,
+  validationLabel,
+  children,
+  ...other
+}, ref) => {
   const {
     hasMessage,
     setHasMessage,

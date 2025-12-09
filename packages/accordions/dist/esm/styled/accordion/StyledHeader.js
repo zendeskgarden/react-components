@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { focusStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledButton } from './StyledButton.js';
 
-const COMPONENT_ID = 'accordions.header';
+const COMPONENT_ID$8 = 'accordions.header';
 const StyledHeader = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeader",

@@ -57,20 +57,19 @@ const isOverflowing = element => {
   const marginRight = parseInt(style.getPropertyValue('margin-right'), 10);
   return marginLeft + doc.body.clientWidth + marginRight < win.innerWidth;
 };
-const ModalComponent = forwardRef((_ref, ref) => {
-  let {
-    backdropProps,
-    children,
-    onClose,
-    isLarge,
-    isCentered = true,
-    isAnimated = true,
-    id,
-    appendToNode,
-    focusOnMount,
-    restoreFocus,
-    ...modalProps
-  } = _ref;
+const ModalComponent = forwardRef(({
+  backdropProps,
+  children,
+  onClose,
+  isLarge,
+  isCentered = true,
+  isAnimated = true,
+  id,
+  appendToNode,
+  focusOnMount,
+  restoreFocus,
+  ...modalProps
+}, ref) => {
   const theme = useContext(ThemeContext);
   const modalRef = useRef(null);
   const environment = useDocument(theme);

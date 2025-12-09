@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropzone.message';
+const COMPONENT_ID$1 = 'dropzone.message';
 const StyledMessage = styled.p.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMessage",

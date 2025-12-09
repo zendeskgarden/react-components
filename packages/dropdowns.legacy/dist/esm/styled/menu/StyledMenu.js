@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { arrowStyles, componentStyles } from '@zendeskgarden/react-theming';
 import { getArrowPosition } from '../../utils/garden-placements.js';
 
-const COMPONENT_ID = 'dropdowns.menu';
+const COMPONENT_ID$m = 'dropdowns.menu';
 const StyledMenu = styled.ul.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$m,
   'data-garden-version': '9.12.3',
   className: props.$isAnimated ? 'is-animated' : undefined
 })).withConfig({

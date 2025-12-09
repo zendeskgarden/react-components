@@ -59,20 +59,16 @@ const getHeaderItemSize = theme => `${theme.space.base * 7.5}px`;
 const getNavItemHeight = theme => getHeaderHeight(theme);
 const getNavWidth = theme => `${theme.space.base * 15}px`;
 const getNavWidthExpanded = () => `200px`;
-const getProductColor = function (product) {
-  let fallback = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'inherit';
-  return product ? reactTheming.PALETTE.product[product] || fallback : fallback;
-};
+const getProductColor = (product, fallback = 'inherit') => product ? reactTheming.PALETTE.product[product] || fallback : fallback;
 
 const COMPONENT_ID$v = 'chrome.skipnav';
 const animationStyles = () => {
   const animationName = styled.keyframes(["0%{transform:translate(-50%,-50%);}"]);
   return styled.css(["transition:opacity 0.2s ease-out,clip 0s linear 0.2s;opacity:0;clip:rect(0,0,0,0);&:focus{transition:opacity 0.2s ease-in-out;animation:0.2s cubic-bezier(0.15,0.85,0.35,1.2) ", ";opacity:1;clip:rect(0,150vw,100vh,-50vw);}"], animationName);
 };
-const colorStyles$a = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$a = ({
+  theme
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.raised'
@@ -96,10 +92,9 @@ const colorStyles$a = _ref => {
     boxShadow
   }));
 };
-const sizeStyles$g = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$g = ({
+  theme
+}) => {
   const top = polished.math(`${getHeaderHeight(theme)} / 2`);
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
@@ -133,10 +128,9 @@ var SvgLinkStroke = function SvgLinkStroke(props) {
 };
 
 const COMPONENT_ID$u = 'chrome.skipnav_icon';
-const sizeStyles$f = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$f = ({
+  theme
+}) => {
   const margin = `${theme.space.base * 2}px`;
   const size = theme.iconSizes.md;
   return styled.css(["margin-", ":", ";width:", ";height:", ";"], theme.rtl ? 'left' : 'right', margin, size, size);
@@ -165,11 +159,10 @@ const StyledBody = styled__default.default.div.attrs({
 }), reactTheming.componentStyles);
 
 const COMPONENT_ID$s = 'chrome.content';
-const sizeStyles$e = _ref => {
-  let {
-    theme,
-    $hasFooter
-  } = _ref;
+const sizeStyles$e = ({
+  theme,
+  $hasFooter
+}) => {
   const fontSize = theme.fontSizes.md;
   const height = $hasFooter ? `calc(100% - ${polished.math(`${getHeaderHeight(theme)} + ${getFooterHeight(theme)}`)})` : `calc(100% - ${getHeaderHeight(theme)})`;
   const lineHeight = reactTheming.getLineHeight(theme.lineHeights.md, theme.fontSizes.md);
@@ -199,10 +192,9 @@ const StyledMain = styled__default.default.main.attrs({
 }), reactTheming.componentStyles);
 
 const COMPONENT_ID$q = 'chrome.footer';
-const colorStyles$9 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$9 = ({
+  theme
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.default'
@@ -213,10 +205,9 @@ const colorStyles$9 = _ref => {
   });
   return styled.css(["border-top-color:", ";background-color:", ";"], borderColor, backgroundColor);
 };
-const sizeStyles$d = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$d = ({
+  theme
+}) => {
   const border = theme.borders.sm;
   const padding = `0 ${theme.space.base * 9}px`;
   const height = getFooterHeight(theme);
@@ -240,10 +231,9 @@ const StyledFooterItem = styled__default.default.div.attrs({
 })(["margin:", ";", ";"], props => `0 ${props.theme.space.base}px`, reactTheming.componentStyles);
 
 const COMPONENT_ID$o = 'chrome.header_item_icon';
-const sizeStyles$c = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$c = ({
+  theme
+}) => {
   const margin = `0 ${theme.space.base * 0.75}px`;
   const size = theme.iconSizes.md;
   return styled.css(["margin:", ";width:", ";min-width:", ";height:", ";"], margin, size, size, size);
@@ -257,12 +247,11 @@ const StyledHeaderItemIcon = styled__default.default(reactTheming.StyledBaseIcon
 })(["transition:transform 0.25s ease-in-out;", ";", ";"], sizeStyles$c, reactTheming.componentStyles);
 
 const COMPONENT_ID$n = 'chrome.base_header_item';
-const sizeStyles$b = _ref => {
-  let {
-    theme,
-    $maxY,
-    $isRound
-  } = _ref;
+const sizeStyles$b = ({
+  theme,
+  $maxY,
+  $isRound
+}) => {
   const margin = `0 ${theme.space.base * 3}px`;
   const size = getHeaderItemSize(theme);
   const height = $maxY ? '100%' : size;
@@ -296,11 +285,10 @@ const StyledHeaderItemText = styled__default.default.span.attrs({
 })(["margin:", ";", " ", ";"], props => `0 ${props.theme.space.base * 0.75}px`, props => props.$isClipped && polished.hideVisually(), reactTheming.componentStyles);
 
 const COMPONENT_ID$l = 'chrome.header_item';
-const colorStyles$8 = _ref => {
-  let {
-    theme,
-    $product
-  } = _ref;
+const colorStyles$8 = ({
+  theme,
+  $product
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     variable: 'border.default'
@@ -312,10 +300,9 @@ const colorStyles$8 = _ref => {
   const color = getProductColor($product, fill );
   return styled.css(["border-", "-color:", ";color:", ";fill:", ";"], theme.rtl ? 'left' : 'right', borderColor, color, fill);
 };
-const sizeStyles$a = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$a = ({
+  theme
+}) => {
   const border = theme.borders.sm;
   const iconSize = theme.iconSizes.lg;
   const marginRight = theme.rtl ? `-${theme.space.base}px` : 'auto';
@@ -333,11 +320,10 @@ const StyledLogoHeaderItem = styled__default.default(StyledBaseHeaderItem).attrs
 })(["display:none;order:0;border-radius:0;padding:0;overflow:hidden;text-decoration:none;", ";", ";", "{", "}", ";"], sizeStyles$a, colorStyles$8, StyledHeaderItemText, polished.hideVisually(), reactTheming.componentStyles);
 
 const COMPONENT_ID$k = 'chrome.header';
-const colorStyles$7 = _ref => {
-  let {
-    theme,
-    $isStandalone
-  } = _ref;
+const colorStyles$7 = ({
+  theme,
+  $isStandalone
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.default'
@@ -357,10 +343,9 @@ const colorStyles$7 = _ref => {
   });
   return styled.css(["border-bottom-color:", ";box-shadow:", ";background-color:", ";color:", ";"], borderColor, boxShadow, backgroundColor, foregroundColor);
 };
-const sizeStyles$9 = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$9 = ({
+  theme
+}) => {
   const border = theme.borders.sm;
   const padding = `0 ${theme.space.base}px`;
   const fontSize = theme.fontSizes.md;
@@ -376,11 +361,10 @@ const StyledHeader = styled__default.default.header.attrs({
 })(["display:flex;position:", ";align-items:center;justify-content:flex-end;", ";", ";", "{display:", ";}", ";"], props => props.$isStandalone && 'relative', sizeStyles$9, colorStyles$7, StyledLogoHeaderItem, props => props.$isStandalone && 'inline-flex', reactTheming.componentStyles);
 
 const COMPONENT_ID$j = 'chrome.header_item';
-const colorStyles$6 = _ref => {
-  let {
-    theme,
-    $maxY
-  } = _ref;
+const colorStyles$6 = ({
+  theme,
+  $maxY
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'
@@ -408,11 +392,10 @@ const colorStyles$6 = _ref => {
     inset: $maxY
   }), StyledHeaderItemIcon, StyledHeaderItemText, hoverColor, StyledHeaderItemIcon, StyledHeaderItemText, activeColor);
 };
-const sizeStyles$8 = _ref2 => {
-  let {
-    theme,
-    $isRound
-  } = _ref2;
+const sizeStyles$8 = ({
+  theme,
+  $isRound
+}) => {
   const iconBorderRadius = $isRound ? '100px' : undefined;
   const imageBorderRadius = polished.math(`${theme.borderRadii.md} - 1`);
   const imageSize = polished.math(`${getHeaderItemSize(theme)} - ${theme.space.base * 2}`);
@@ -437,11 +420,10 @@ const StyledHeaderItemWrapper = styled__default.default(StyledBaseHeaderItem).at
 })(["", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$h = 'chrome.nav';
-const colorStyles$5 = _ref => {
-  let {
-    theme,
-    $hue
-  } = _ref;
+const colorStyles$5 = ({
+  theme,
+  $hue
+}) => {
   const shade = $hue === 'chromeHue' ? 900 : undefined;
   const backgroundColor = reactTheming.getColor({
     theme,
@@ -459,11 +441,10 @@ const colorStyles$5 = _ref => {
   });
   return styled.css(["background-color:", ";color:", ";"], backgroundColor, foregroundColor);
 };
-const sizeStyles$7 = _ref2 => {
-  let {
-    theme,
-    $isExpanded
-  } = _ref2;
+const sizeStyles$7 = ({
+  theme,
+  $isExpanded
+}) => {
   const fontSize = theme.fontSizes.md;
   const width = $isExpanded ? getNavWidthExpanded() : getNavWidth(theme);
   return styled.css(["width:", ";font-size:", ";"], width, fontSize);
@@ -495,10 +476,9 @@ const StyledNavListItem = styled__default.default.li.attrs({
 })(["display:flex;order:1;margin:0;padding:0;list-style-type:none;", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$e = 'chrome.base_nav_item';
-const sizeStyles$6 = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$6 = ({
+  theme
+}) => {
   const minHeight = getNavItemHeight(theme);
   const verticalPadding = polished.math(`(${minHeight} - ${theme.iconSizes.lg}) / 2`);
   const horizontalPadding = polished.math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`);
@@ -513,12 +493,11 @@ const StyledBaseNavItem = styled__default.default.div.attrs({
 })(["display:flex;flex-shrink:0;align-items:center;justify-content:center;transition:outline-color 0.1s ease-in-out,box-shadow 0.1s ease-in-out,background-color 0.1s ease-in-out,opacity 0.1s ease-in-out;", ";"], sizeStyles$6);
 
 const COMPONENT_ID$d = 'chrome.logo_nav_list_item';
-const colorStyles$4 = _ref => {
-  let {
-    theme,
-    $hue,
-    $product
-  } = _ref;
+const colorStyles$4 = ({
+  theme,
+  $hue,
+  $product
+}) => {
   const fillColor = reactTheming.getColor({
     theme,
     variable: 'foreground.default'
@@ -544,10 +523,9 @@ const StyledBrandmarkNavItem = styled__default.default(StyledBaseNavItem).attrs(
 })(["order:1;opacity:", ";margin-top:auto;min-height:0;"], props => props.theme.opacity[400]);
 
 const COMPONENT_ID$b = 'chrome.nav_item_icon';
-const sizeStyles$5 = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$5 = ({
+  theme
+}) => {
   const size = theme.iconSizes.lg;
   return styled.css(["width:", ";height:", ";"], size, size);
 };
@@ -560,11 +538,10 @@ const StyledNavItemIcon = styled__default.default(reactTheming.StyledBaseIcon).a
 })(["align-self:flex-start;order:0;border-radius:", ";", ";", ";"], props => props.theme.borderRadii.md, sizeStyles$5, reactTheming.componentStyles);
 
 const COMPONENT_ID$a = 'chrome.nav_button';
-const colorStyles$3 = _ref => {
-  let {
-    theme,
-    $hue
-  } = _ref;
+const colorStyles$3 = ({
+  theme,
+  $hue
+}) => {
   const activeBackgroundColor = reactTheming.getColor({
     theme,
     dark: {
@@ -619,11 +596,10 @@ const colorStyles$3 = _ref => {
     }
   }), activeBackgroundColor, currentBackgroundColor);
 };
-const sizeStyles$4 = _ref2 => {
-  let {
-    theme,
-    $isExpanded
-  } = _ref2;
+const sizeStyles$4 = ({
+  theme,
+  $isExpanded
+}) => {
   const iconMargin = $isExpanded ? `0 ${polished.math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}` : undefined;
   return styled.css(["margin:0;border:none;box-sizing:border-box;min-width:0;font-size:inherit;", "{margin:", ";}"], StyledNavItemIcon, iconMargin);
 };
@@ -637,12 +613,11 @@ const StyledNavButton = styled__default.default(StyledBaseNavItem).attrs({
 })(["flex:1;justify-content:", ";cursor:pointer;text-align:", ";text-decoration:none;", ";&:hover,&:focus{text-decoration:none;}&[aria-current='true']{cursor:default;}", ";", ";"], props => props.$isExpanded && 'start', props => props.$isExpanded && 'inherit', sizeStyles$4, colorStyles$3, reactTheming.componentStyles);
 
 const COMPONENT_ID$9 = 'chrome.nav_item_text';
-const sizeStyles$3 = _ref => {
-  let {
-    theme,
-    $isExpanded,
-    $isWrapped
-  } = _ref;
+const sizeStyles$3 = ({
+  theme,
+  $isExpanded,
+  $isWrapped
+}) => {
   const clip = $isExpanded ? 'auto' : undefined;
   const lineHeight = reactTheming.getLineHeight(theme.space.base * 5, theme.fontSizes.md);
   const margin = $isExpanded ? `0 ${polished.math(`(${getNavWidth(theme)} - ${theme.iconSizes.lg}) / 4`)}` : undefined;
@@ -660,11 +635,10 @@ const StyledNavItemText = styled__default.default.span.attrs({
 })(["position:absolute;order:1;overflow:hidden;", " > &&{position:", ";flex:", ";text-overflow:", ";}", ";", ";"], StyledNavButton, props => props.$isExpanded ? 'static' : undefined, props => props.$isExpanded ? 1 : undefined, props => props.$isExpanded ? 'ellipsis' : undefined, sizeStyles$3, reactTheming.componentStyles);
 
 const COMPONENT_ID$8 = 'chrome.sheet';
-const colorStyles$2 = _ref => {
-  let {
-    theme,
-    $isOpen
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $isOpen
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.default'
@@ -675,13 +649,12 @@ const colorStyles$2 = _ref => {
   }) : 'transparent';
   return styled.css(["border-color:", ";background-color:", ";"], borderColor, backgroundColor);
 };
-const sizeStyles$2 = _ref2 => {
-  let {
-    theme,
-    $isOpen,
-    $placement,
-    $size
-  } = _ref2;
+const sizeStyles$2 = ({
+  theme,
+  $isOpen,
+  $placement,
+  $size
+}) => {
   const width = $isOpen ? $size : 0;
   const fontSize = theme.fontSizes.md;
   const lineHeight = reactTheming.getLineHeight(theme.space.base * 5, fontSize);
@@ -703,13 +676,12 @@ const StyledSheet = styled__default.default.aside.attrs({
 })(["display:flex;order:1;transition:", ";overflow:hidden;", ";&:focus{outline:none;}", ";", ";"], props => props.$isAnimated && 'width 250ms ease-in-out', sizeStyles$2, colorStyles$2, reactTheming.componentStyles);
 
 const COMPONENT_ID$7 = 'chrome.sheet_wrapper';
-const transformStyles = _ref => {
-  let {
-    theme,
-    $isAnimated,
-    $isOpen,
-    $placement
-  } = _ref;
+const transformStyles = ({
+  theme,
+  $isAnimated,
+  $isOpen,
+  $placement
+}) => {
   const transition = $isAnimated ? 'transform 250ms ease-in-out' : undefined;
   let transform;
   if ($isOpen) {
@@ -763,10 +735,9 @@ const StyledSheetBody = styled__default.default.div.attrs({
 })(["flex:1;overflow-y:auto;padding:", "px;color-scheme:only ", ";", ";"], props => props.theme.space.base * 5, p => p.theme.colors.base, reactTheming.componentStyles);
 
 const COMPONENT_ID$3 = 'chrome.sheet_close';
-const positionStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const positionStyles = ({
+  theme
+}) => {
   const top = `${theme.space.base * 2.5}px`;
   const position = `${theme.space.base * 2}px`;
   return styled.css(["top:", ";", ":", ";"], top, theme.rtl ? 'left' : 'right', position);
@@ -780,21 +751,19 @@ const StyledSheetClose = styled__default.default(reactButtons.IconButton).attrs(
 })(["position:absolute;", ";", ";"], positionStyles, reactTheming.componentStyles);
 
 const COMPONENT_ID$2 = 'chrome.sheet_footer';
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     variable: 'border.subtle'
   });
   return styled.css(["border-top-color:", ";"], borderColor);
 };
-const sizeStyles$1 = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$1 = ({
+  theme,
+  $isCompact
+}) => {
   const border = theme.borders.sm;
   const padding = `${theme.space.base * ($isCompact ? 2.5 : 5)}px`;
   return styled.css(["border-top:", ";padding:", ";"], border, padding);
@@ -817,21 +786,19 @@ const StyledSheetFooterItem = styled__default.default.div.attrs({
 })(["", " ", ";"], props => `margin-${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 5}px;`, reactTheming.componentStyles);
 
 const COMPONENT_ID = 'chrome.sheet_header';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     variable: 'border.subtle'
   });
   return styled.css(["border-bottom-color:", ";"], borderColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isCloseButtonPresent
-  } = _ref2;
+const sizeStyles = ({
+  theme,
+  $isCloseButtonPresent
+}) => {
   const border = theme.borders.sm;
   let padding = `${theme.space.base * 5}px`;
   if ($isCloseButtonPresent) {
@@ -848,15 +815,14 @@ const StyledSheetHeader = styled__default.default.header.attrs({
   componentId: "sc-o2ry8i-0"
 })(["", ";", ";", ";"], sizeStyles, colorStyles, reactTheming.componentStyles);
 
-const HeaderItem = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    hasLogo,
-    isRound,
-    maxX,
-    maxY,
-    product,
-    ...other
-  } = _ref;
+const HeaderItem = React__namespace.default.forwardRef(({
+  hasLogo,
+  isRound,
+  maxX,
+  maxY,
+  product,
+  ...other
+}, ref) => {
   if (hasLogo) {
     return React__namespace.default.createElement(StyledLogoHeaderItem, Object.assign({
       ref: ref,
@@ -882,44 +848,35 @@ HeaderItem.propTypes = {
   hasLogo: PropTypes__default.default.bool
 };
 
-const HeaderItemIcon = _ref => {
-  let {
-    children,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledHeaderItemIcon, props, children);
-};
+const HeaderItemIcon = ({
+  children,
+  ...props
+}) => React__namespace.default.createElement(StyledHeaderItemIcon, props, children);
 HeaderItemIcon.displayName = 'Header.ItemIcon';
 
-const HeaderItemText = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isClipped,
-    ...other
-  } = _ref;
-  return React__namespace.default.createElement(StyledHeaderItemText, Object.assign({
-    ref: ref,
-    $isClipped: isClipped
-  }, other));
-});
+const HeaderItemText = React__namespace.default.forwardRef(({
+  isClipped,
+  ...other
+}, ref) => React__namespace.default.createElement(StyledHeaderItemText, Object.assign({
+  ref: ref,
+  $isClipped: isClipped
+}, other)));
 HeaderItemText.displayName = 'Header.ItemText';
 HeaderItemText.propTypes = {
   isClipped: PropTypes__default.default.bool
 };
 
-const HeaderItemWrapper = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isRound,
-    maxX,
-    maxY,
-    ...other
-  } = _ref;
-  return React__namespace.default.createElement(StyledHeaderItemWrapper, Object.assign({
-    ref: ref,
-    $isRound: isRound,
-    $maxX: maxX,
-    $maxY: maxY
-  }, other));
-});
+const HeaderItemWrapper = React__namespace.default.forwardRef(({
+  isRound,
+  maxX,
+  maxY,
+  ...other
+}, ref) => React__namespace.default.createElement(StyledHeaderItemWrapper, Object.assign({
+  ref: ref,
+  $isRound: isRound,
+  $maxX: maxX,
+  $maxY: maxY
+}, other)));
 HeaderItemWrapper.displayName = 'Header.ItemWrapper';
 
 const FooterItem$1 = React__namespace.default.forwardRef((props, ref) => React__namespace.default.createElement(StyledFooterItem, Object.assign({
@@ -946,14 +903,13 @@ const useNavListContext = () => {
   return React.useContext(NavListContext);
 };
 
-const NavItem = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    hasLogo,
-    hasBrandmark,
-    product,
-    isCurrent,
-    ...other
-  } = _ref;
+const NavItem = React__namespace.default.forwardRef(({
+  hasLogo,
+  hasBrandmark,
+  product,
+  isCurrent,
+  ...other
+}, ref) => {
   const {
     hue
   } = useChromeContext();
@@ -994,20 +950,16 @@ NavItem.propTypes = {
   hasBrandmark: PropTypes__default.default.bool
 };
 
-const NavItemIcon = _ref => {
-  let {
-    children,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledNavItemIcon, props, children);
-};
+const NavItemIcon = ({
+  children,
+  ...props
+}) => React__namespace.default.createElement(StyledNavItemIcon, props, children);
 NavItemIcon.displayName = 'Nav.ItemIcon';
 
-const NavItemText = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isWrapped,
-    ...other
-  } = _ref;
+const NavItemText = React__namespace.default.forwardRef(({
+  isWrapped,
+  ...other
+}, ref) => {
   const {
     isExpanded
   } = useNavContext();
@@ -1022,12 +974,11 @@ NavItemText.propTypes = {
   isWrapped: PropTypes__default.default.bool
 };
 
-const Chrome = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    hue,
-    isFluid,
-    ...props
-  } = _ref;
+const Chrome = React__namespace.default.forwardRef(({
+  hue,
+  isFluid,
+  ...props
+}, ref) => {
   const theme = React.useContext(styled.ThemeContext) || reactTheming.DEFAULT_THEME;
   const isLightMemoized = React.useMemo(() => {
     if (hue) {
@@ -1070,19 +1021,16 @@ Chrome.propTypes = {
   hue: PropTypes__default.default.string
 };
 
-const SkipNav = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    targetId,
-    zIndex = 1,
-    children,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledSkipNav, Object.assign({
-    href: `#${targetId}`,
-    $zIndex: zIndex,
-    ref: ref
-  }, props), React__namespace.default.createElement(StyledSkipNavIcon, null), children);
-});
+const SkipNav = React__namespace.default.forwardRef(({
+  targetId,
+  zIndex = 1,
+  children,
+  ...props
+}, ref) => React__namespace.default.createElement(StyledSkipNav, Object.assign({
+  href: `#${targetId}`,
+  $zIndex: zIndex,
+  ref: ref
+}, props), React__namespace.default.createElement(StyledSkipNavIcon, null), children));
 SkipNav.displayName = 'SkipNav';
 SkipNav.propTypes = {
   targetId: PropTypes__default.default.string.isRequired,
@@ -1124,16 +1072,13 @@ const Main = React__namespace.default.forwardRef((props, ref) => React__namespac
 }, props)));
 Main.displayName = 'Main';
 
-const HeaderComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isStandalone,
-    ...other
-  } = _ref;
-  return React__namespace.default.createElement(StyledHeader, Object.assign({
-    ref: ref,
-    $isStandalone: isStandalone
-  }, other));
-});
+const HeaderComponent = React__namespace.default.forwardRef(({
+  isStandalone,
+  ...other
+}, ref) => React__namespace.default.createElement(StyledHeader, Object.assign({
+  ref: ref,
+  $isStandalone: isStandalone
+}, other)));
 HeaderComponent.displayName = 'Header';
 HeaderComponent.propTypes = {
   isStandalone: PropTypes__default.default.bool
@@ -1179,11 +1124,10 @@ const NavList = React__namespace.default.forwardRef((props, ref) => {
 });
 NavList.displayName = 'Nav.List';
 
-const NavComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isExpanded,
-    ...other
-  } = _ref;
+const NavComponent = React__namespace.default.forwardRef(({
+  isExpanded,
+  ...other
+}, ref) => {
   const {
     hue,
     isLight
@@ -1224,13 +1168,12 @@ const useSheetContext = () => {
   return React.useContext(SheetContext);
 };
 
-function useFocusableMount(_ref) {
-  let {
-    isMounted,
-    focusOnMount,
-    restoreFocus,
-    targetRef
-  } = _ref;
+function useFocusableMount({
+  isMounted,
+  focusOnMount,
+  restoreFocus,
+  targetRef
+}) {
   const triggerRef = React.useRef();
   React.useEffect(() => {
     if (isMounted && focusOnMount && targetRef.current) {
@@ -1245,11 +1188,10 @@ function useFocusableMount(_ref) {
   }, [isMounted, restoreFocus, triggerRef]);
 }
 
-const SheetTitle = React.forwardRef((_ref, ref) => {
-  let {
-    id,
-    ...props
-  } = _ref;
+const SheetTitle = React.forwardRef(({
+  id,
+  ...props
+}, ref) => {
   const {
     titleId
   } = useSheetContext();
@@ -1261,11 +1203,10 @@ const SheetTitle = React.forwardRef((_ref, ref) => {
 SheetTitle.displayName = 'Sheet.Title';
 const Title = SheetTitle;
 
-const SheetDescription = React.forwardRef((_ref, ref) => {
-  let {
-    id,
-    ...props
-  } = _ref;
+const SheetDescription = React.forwardRef(({
+  id,
+  ...props
+}, ref) => {
   const {
     descriptionId
   } = useSheetContext();
@@ -1297,11 +1238,10 @@ const SheetBody = React.forwardRef((props, ref) => {
 SheetBody.displayName = 'Sheet.Body';
 const Body = SheetBody;
 
-const SheetFooter = React.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    ...other
-  } = _ref;
+const SheetFooter = React.forwardRef(({
+  isCompact,
+  ...other
+}, ref) => {
   return React__namespace.default.createElement(StyledSheetFooter, Object.assign({
     ref: ref,
     $isCompact: isCompact
@@ -1351,18 +1291,17 @@ const SheetClose = React.forwardRef((props, ref) => {
 SheetClose.displayName = 'Sheet.Close';
 const Close = SheetClose;
 
-const SheetComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    id,
-    isOpen,
-    isAnimated = true,
-    focusOnMount,
-    restoreFocus,
-    placement = 'end',
-    size = '380px',
-    children,
-    ...props
-  } = _ref;
+const SheetComponent = React__namespace.default.forwardRef(({
+  id,
+  isOpen,
+  isAnimated = true,
+  focusOnMount,
+  restoreFocus,
+  placement = 'end',
+  size = '380px',
+  children,
+  ...props
+}, ref) => {
   const sheetRef = React.useRef(null);
   const [isCloseButtonPresent, setIsCloseButtonPresent] = React.useState(false);
   const idPrefix = containerUtilities.useId(id);

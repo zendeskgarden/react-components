@@ -4,7 +4,7 @@
 * Use of this source code is governed under the Apache License, Version 2.0
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
-import styled, { keyframes, css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import { SIZE } from '../types/index.js';
@@ -12,7 +12,7 @@ import { StyledText } from './StyledText.js';
 import { StyledStatusIndicator } from './StyledStatusIndicator.js';
 import { TRANSITION_DURATION, getStatusColor } from './utility.js';
 
-const COMPONENT_ID = 'avatars.avatar';
+const COMPONENT_ID$3 = 'avatars.avatar';
 const badgeStyles = props => {
   const [xxs, xs, s, m, l] = SIZE;
   let position = `${props.theme.space.base * -1}px`;
@@ -30,14 +30,13 @@ const badgeStyles = props => {
   const animation = keyframes(["0%{transform:scale(.1);}"]);
   return css(["position:absolute;", ":", ";bottom:", ";transition:all ", "s ease-in-out;", ""], props.theme.rtl ? 'left' : 'right', position, position, TRANSITION_DURATION, props.$status === 'active' && css(["animation:", " ", "s ease-in-out;"], animation, TRANSITION_DURATION * 1.5));
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $foregroundColor,
-    $surfaceColor,
-    $backgroundColor,
-    $status
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $foregroundColor,
+  $surfaceColor,
+  $backgroundColor,
+  $status
+}) => {
   const statusColor = getStatusColor(theme, $status);
   let backgroundColor = 'transparent';
   let foregroundColor = theme.palette.white;
@@ -67,7 +66,7 @@ const colorStyles = _ref => {
   }
   return css(["box-shadow:", ";background-color:", ";&&{color:", ";}& > svg,& ", "{color:", ";}"], theme.shadows.sm(statusColor), backgroundColor, surfaceColor, StyledText, foregroundColor);
 };
-const sizeStyles = props => {
+const sizeStyles$1 = props => {
   let boxShadow;
   let borderRadius;
   let size;
@@ -107,12 +106,12 @@ const sizeStyles = props => {
   return css(["border-radius:", ";width:", " !important;height:", " !important;&::before{box-shadow:", ";}& > svg{font-size:", ";}& ", "{line-height:", ";font-size:", ";}"], borderRadius, size, size, boxShadow, svgSize, StyledText, size, fontSize);
 };
 const StyledAvatar = styled.figure.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3',
   $size: props.$size ?? 'medium'
 })).withConfig({
   displayName: "StyledAvatar",
   componentId: "sc-608m04-0"
-})(["display:inline-flex;position:relative;align-items:center;justify-content:center;transition:box-shadow ", "s ease-in-out,color 0.1s ease-in-out;margin:0;vertical-align:middle;box-sizing:border-box;", ";", ";&::before{position:absolute;top:0;left:0;transition:box-shadow ", "s ease-in-out;content:'';}&::before,&& > img{border-radius:inherit;width:100%;height:100%;}&& > img{box-sizing:inherit;vertical-align:bottom;object-fit:cover;}&& > svg{width:1em;height:1em;}& > ", "{", ";}", ";"], TRANSITION_DURATION, props => sizeStyles(props), props => colorStyles(props), TRANSITION_DURATION, StyledStatusIndicator, badgeStyles, componentStyles);
+})(["display:inline-flex;position:relative;align-items:center;justify-content:center;transition:box-shadow ", "s ease-in-out,color 0.1s ease-in-out;margin:0;vertical-align:middle;box-sizing:border-box;", ";", ";&::before{position:absolute;top:0;left:0;transition:box-shadow ", "s ease-in-out;content:'';}&::before,&& > img{border-radius:inherit;width:100%;height:100%;}&& > img{box-sizing:inherit;vertical-align:bottom;object-fit:cover;}&& > svg{width:1em;height:1em;}& > ", "{", ";}", ";"], TRANSITION_DURATION, props => sizeStyles$1(props), props => colorStyles(props), TRANSITION_DURATION, StyledStatusIndicator, badgeStyles, componentStyles);
 
 export { StyledAvatar };

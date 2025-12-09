@@ -8,21 +8,19 @@ import styled, { css } from 'styled-components';
 import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { validationTypes } from '../utils/icons.js';
 
-const COMPONENT_ID = 'notifications.icon';
-const sizeStyles = _ref => {
-  let {
-    theme: {
-      rtl,
-      space
-    }
-  } = _ref;
+const COMPONENT_ID$6 = 'notifications.icon';
+const sizeStyles$4 = ({
+  theme: {
+    rtl,
+    space
+  }
+}) => {
   return css(["right:", ";left:", ";margin-top:", "px;"], rtl && `${space.base * 4}px`, !rtl && `${space.base * 4}px`, space.base / 2);
 };
-const colorStyles = _ref2 => {
-  let {
-    theme,
-    $type
-  } = _ref2;
+const colorStyles$5 = ({
+  theme,
+  $type
+}) => {
   let variable;
   switch ($type) {
     case validationTypes.success:
@@ -48,11 +46,11 @@ const colorStyles = _ref2 => {
   return css(["color:", ";"], color);
 };
 const StyledIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledIcon",
   componentId: "sc-msklws-0"
-})(["position:absolute;", " ", " ", ""], sizeStyles, colorStyles, componentStyles);
+})(["position:absolute;", " ", " ", ""], sizeStyles$4, colorStyles$5, componentStyles);
 
 export { StyledIcon };

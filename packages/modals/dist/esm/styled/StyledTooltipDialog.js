@@ -8,8 +8,8 @@ import styled from 'styled-components';
 import { arrowStyles, getArrowPosition, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTooltipDialogClose } from './StyledTooltipDialogClose.js';
 
-const COMPONENT_ID = 'modals.tooltip_dialog';
-const sizeStyles = props => `
+const COMPONENT_ID$a = 'modals.tooltip_dialog';
+const sizeStyles$1 = props => `
   padding: ${props.theme.space.base * 5}px;
   width: 400px;
   
@@ -18,7 +18,7 @@ const sizeStyles = props => `
   }
 `;
 const StyledTooltipDialog = styled.div.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3',
   className: props.$isAnimated ? 'is-animated' : undefined
 })).withConfig({
@@ -34,6 +34,6 @@ const StyledTooltipDialog = styled.div.attrs(props => ({
     return props.$hasArrow && props.$transitionState === 'entered' && computedArrowStyles;
   }
   return props.$hasArrow && computedArrowStyles;
-}, sizeStyles, componentStyles);
+}, sizeStyles$1, componentStyles);
 
 export { StyledTooltipDialog };

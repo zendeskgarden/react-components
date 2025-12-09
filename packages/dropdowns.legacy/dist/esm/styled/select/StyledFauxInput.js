@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { FauxInput } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'dropdowns.faux_input';
+const COMPONENT_ID$6 = 'dropdowns.faux_input';
 const StyledFauxInput = styled(FauxInput).attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3',
   mediaLayout: true,
   theme: props.theme

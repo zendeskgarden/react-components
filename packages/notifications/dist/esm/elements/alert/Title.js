@@ -20,16 +20,13 @@ import '../../styled/global-alert/StyledGlobalAlertContent.js';
 import '../../styled/global-alert/StyledGlobalAlertIcon.js';
 import '../../styled/global-alert/StyledGlobalAlertTitle.js';
 
-const Title = React__default.forwardRef((_ref, ref) => {
-  let {
-    isRegular,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledTitle, Object.assign({
-    ref: ref,
-    $isRegular: isRegular
-  }, props));
-});
-Title.displayName = 'Alert.Title';
+const Title$1 = React__default.forwardRef(({
+  isRegular,
+  ...props
+}, ref) => React__default.createElement(StyledTitle, Object.assign({
+  ref: ref,
+  $isRegular: isRegular
+}, props)));
+Title$1.displayName = 'Alert.Title';
 
-export { Title };
+export { Title$1 as Title };

@@ -20,13 +20,12 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 
-const Ellipsis = forwardRef((_ref, ref) => {
-  let {
-    children,
-    title,
-    tag = 'div',
-    ...other
-  } = _ref;
+const Ellipsis = forwardRef(({
+  children,
+  title,
+  tag = 'div',
+  ...other
+}, ref) => {
   let textContent = undefined;
   if (title !== undefined) {
     textContent = title;

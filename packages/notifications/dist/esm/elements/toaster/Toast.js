@@ -7,11 +7,10 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { useToast } from './useToast.js';
 
-const Toast = _ref => {
-  let {
-    toast,
-    pauseTimers
-  } = _ref;
+const Toast = ({
+  toast,
+  pauseTimers
+}) => {
   const {
     removeToast
   } = useToast();

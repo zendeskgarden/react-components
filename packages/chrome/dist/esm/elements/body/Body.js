@@ -40,7 +40,7 @@ import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 import { BodyContext } from '../../utils/useBodyContext.js';
 
-const Body = React__default.forwardRef((props, ref) => {
+const Body$1 = React__default.forwardRef((props, ref) => {
   const [hasFooter, setHasFooter] = useState(false);
   const bodyContextValue = useMemo(() => ({
     hasFooter,
@@ -52,6 +52,6 @@ const Body = React__default.forwardRef((props, ref) => {
     ref: ref
   }, props)));
 });
-Body.displayName = 'Body';
+Body$1.displayName = 'Body';
 
-export { Body };
+export { Body$1 as Body };

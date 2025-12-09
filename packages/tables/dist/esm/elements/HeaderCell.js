@@ -20,14 +20,13 @@ import '../styled/StyledRow.js';
 import { useTableContext } from '../utils/useTableContext.js';
 import { Cell } from './Cell.js';
 
-const HeaderCell = forwardRef((_ref, ref) => {
-  let {
-    hidden,
-    isMinimum,
-    isTruncated,
-    hasOverflow,
-    ...props
-  } = _ref;
+const HeaderCell = forwardRef(({
+  hidden,
+  isMinimum,
+  isTruncated,
+  hasOverflow,
+  ...props
+}, ref) => {
   const {
     size
   } = useTableContext();

@@ -20,11 +20,10 @@ import '../../styled/pane/StyledPaneSplitterButton.js';
 import '../../styled/pane/StyledPaneSplitterButtonContainer.js';
 import { PaneContext } from '../../utils/usePaneContext.js';
 
-const PaneComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...props
-  } = _ref;
+const PaneComponent = forwardRef(({
+  children,
+  ...props
+}, ref) => {
   const [paneId, setPaneId] = useState();
   const observerRef = useRef(null);
   const {

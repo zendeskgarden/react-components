@@ -37,13 +37,12 @@ import '../../styled/multiselect/StyledMultiselectMoreAnchor.js';
 import useDropdownContext from '../../utils/useDropdownContext.js';
 import useFieldContext from '../../utils/useFieldContext.js';
 
-const Autocomplete = forwardRef((_ref, ref) => {
-  let {
-    children,
-    inputRef: controlledInputRef,
-    start,
-    ...props
-  } = _ref;
+const Autocomplete = forwardRef(({
+  children,
+  inputRef: controlledInputRef,
+  start,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     downshift: {
@@ -89,48 +88,45 @@ const Autocomplete = forwardRef((_ref, ref) => {
   useEffect(() => {
     setDropdownType('autocomplete');
   }, [setDropdownType]);
-  return React__default.createElement(Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__default.createElement(StyledFauxInput, Object.assign({
-      isHovered: isContainerHovered,
-      isFocused: isContainerFocused,
-      tabIndex: null,
-      onKeyDown: onSelectKeyDown
-    }, selectProps, {
-      ref: selectRef => {
-        popperReference(selectRef);
-        mergeRefs([triggerRef, ref])(selectRef);
-        popperReferenceElementRef.current = selectRef;
+  return React__default.createElement(Reference, null, ({
+    ref: popperReference
+  }) => React__default.createElement(StyledFauxInput, Object.assign({
+    isHovered: isContainerHovered,
+    isFocused: isContainerFocused,
+    tabIndex: null,
+    onKeyDown: onSelectKeyDown
+  }, selectProps, {
+    ref: selectRef => {
+      popperReference(selectRef);
+      mergeRefs([triggerRef, ref])(selectRef);
+      popperReferenceElementRef.current = selectRef;
+    }
+  }), !!start && React__default.createElement(StyledFauxInput.StartIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled
+  }, start), !isOpen && React__default.createElement(StyledSelect, null, children), React__default.createElement(StyledInput, getInputProps({
+    $isHidden: !isOpen,
+    disabled: props.disabled,
+    onFocus: () => {
+      setIsFocused(true);
+    },
+    onBlur: () => {
+      setIsFocused(false);
+    },
+    onClick: e => {
+      if (isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
       }
-    }), !!start && React__default.createElement(StyledFauxInput.StartIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled
-    }, start), !isOpen && React__default.createElement(StyledSelect, null, children), React__default.createElement(StyledInput, getInputProps({
-      $isHidden: !isOpen,
-      disabled: props.disabled,
-      onFocus: () => {
-        setIsFocused(true);
-      },
-      onBlur: () => {
-        setIsFocused(false);
-      },
-      onClick: e => {
-        if (isOpen) {
-          e.nativeEvent.preventDownshiftDefault = true;
-        }
-      },
-      role: 'combobox',
-      ref: mergeRefs([inputRef, controlledInputRef || null])
-    })), !props.isBare && React__default.createElement(StyledFauxInput.EndIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled,
-      isRotated: isOpen
-    }, React__default.createElement(SvgChevronDownStroke, null)));
-  });
+    },
+    role: 'combobox',
+    ref: mergeRefs([inputRef, controlledInputRef || null])
+  })), !props.isBare && React__default.createElement(StyledFauxInput.EndIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled,
+    isRotated: isOpen
+  }, React__default.createElement(SvgChevronDownStroke, null))));
 });
 Autocomplete.displayName = 'Autocomplete';
 Autocomplete.propTypes = {

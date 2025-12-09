@@ -55,15 +55,14 @@ import '../styled/tiles/StyledTileIcon.js';
 import '../styled/tiles/StyledTileInput.js';
 import '../styled/tiles/StyledTileLabel.js';
 
-const Input = React__default.forwardRef((_ref, ref) => {
-  let {
-    onSelect,
-    isBare,
-    isCompact,
-    focusInset,
-    validation,
-    ...other
-  } = _ref;
+const Input = React__default.forwardRef(({
+  onSelect,
+  isBare,
+  isCompact,
+  focusInset,
+  validation,
+  ...other
+}, ref) => {
   const fieldContext = useFieldContext();
   const inputGroupContext = useInputGroupContext();
   let combinedProps = other;

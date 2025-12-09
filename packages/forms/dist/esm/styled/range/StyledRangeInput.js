@@ -11,9 +11,8 @@ import { StyledHint } from '../common/StyledHint.js';
 import { StyledLabel } from '../common/StyledLabel.js';
 import { StyledMessage } from '../common/StyledMessage.js';
 
-const COMPONENT_ID = 'forms.range';
-const thumbStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const COMPONENT_ID$4 = 'forms.range';
+const thumbStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-thumb {
       ${styles}
@@ -28,8 +27,7 @@ const thumbStyles = function (styles) {
     }
   `;
 };
-const trackStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-track {
       ${styles}
@@ -44,8 +42,7 @@ const trackStyles = function (styles) {
     }
   `;
 };
-const trackLowerStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackLowerStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-progress {
       ${styles}
@@ -56,11 +53,10 @@ const trackLowerStyles = function (styles) {
     }
   `;
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $hasLowerTrack = true
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $hasLowerTrack = true
+}) => {
   const options = {
     theme,
     variable: 'background.primaryEmphasis'
@@ -152,10 +148,9 @@ const colorStyles = _ref => {
         background-color: ${trackDisabledLowerBackgroundColor};
       `, ':disabled'));
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$4 = ({
+  theme
+}) => {
   const thumbSize = `${theme.space.base * 5}px`;
   const trackHeight = `${theme.space.base * 1.5}px`;
   const trackBorderRadius = trackHeight;
@@ -176,7 +171,7 @@ const sizeStyles = _ref2 => {
     `));
 };
 const StyledRangeInput = styled.input.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3',
   type: 'range',
   style: {
@@ -194,12 +189,12 @@ const StyledRangeInput = styled.input.attrs(props => ({
       width: 99.8%; /* fix for IE which cuts off the upper track's border radius */
       color: transparent; /* reset for IE */
       box-sizing: border-box; /* reset for IE */
-    `), sizeStyles, props => thumbStyles(`
+    `), sizeStyles$4, props => thumbStyles(`
       appearance: none;
       transition: box-shadow .1s ease-in-out;
       border: ${props.theme.borders.md};
       border-radius: 100%;
       box-sizing: border-box;
-    `), colorStyles, componentStyles);
+    `), colorStyles$2, componentStyles);
 
 export { StyledRangeInput };

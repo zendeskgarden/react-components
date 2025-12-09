@@ -54,12 +54,11 @@ const StyledDotsCircleThree = styled__default.default(StyledDotsCircle).attrs(()
 })(["", ";"], props => animationStyles$1(dotThreeKeyframes, props));
 
 const COMPONENT_ID$5 = 'loaders.loading_placeholder';
-const sizeStyles$1 = _ref => {
-  let {
-    $width = '1em',
-    $height = '0.9em',
-    $fontSize
-  } = _ref;
+const sizeStyles$1 = ({
+  $width = '1em',
+  $height = '0.9em',
+  $fontSize
+}) => {
   const [value, unit] = polished.getValueAndUnit($fontSize);
   let fontSize;
   if (unit === undefined) {
@@ -90,11 +89,10 @@ const sizeToHeight = ($size, theme) => {
 };
 const sizeToBorderRadius = ($size, theme) => sizeToHeight($size, theme) / 2;
 const PROGRESS_BACKGROUND_COMPONENT_ID = 'loaders.progress_background';
-const colorStyles$2 = _ref => {
-  let {
-    theme,
-    $color
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $color
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     transparency: theme.opacity[200],
@@ -144,11 +142,10 @@ const COMPONENT_ID$4 = 'loaders.skeleton';
 const fadeInAnimation = styled.keyframes(["0%,60%{opacity:0;}100%{opacity:1;}"]);
 const skeletonAnimation = styled.keyframes(["0%{transform:translateX(-100%);}100%{transform:translateX(100%);}"]);
 const skeletonRtlAnimation = styled.keyframes(["0%{transform:translateX(100%);}100%{transform:translateX(-100%)}"]);
-const getBackgroundColor = _ref => {
-  let {
-    theme,
-    $isLight
-  } = _ref;
+const getBackgroundColor = ({
+  theme,
+  $isLight
+}) => {
   let backgroundColor;
   if ($isLight) {
     backgroundColor = reactTheming.getColor({
@@ -171,10 +168,9 @@ const getBackgroundColor = _ref => {
   }
   return backgroundColor;
 };
-const animationStyles = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const animationStyles = ({
+  theme
+}) => {
   if (theme.rtl) {
     return styled.css(["animation:", " 1.5s ease-in-out 300ms infinite;"], skeletonRtlAnimation);
   }
@@ -206,11 +202,10 @@ const StyledSpinnerCircle = styled__default.default.circle.attrs(props => ({
   componentId: "sc-o4kd70-0"
 })([""]);
 
-const colorStyles$1 = _ref => {
-  let {
-    theme,
-    $color = 'inherit'
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $color = 'inherit'
+}) => {
   const options = $color.includes('.') ? {
     variable: $color,
     theme
@@ -220,12 +215,11 @@ const colorStyles$1 = _ref => {
   };
   return styled.css(["color:", ";"], reactTheming.getColor(options));
 };
-const sizeStyles = _ref2 => {
-  let {
-    $containerWidth = '1em',
-    $containerHeight = '0.9em',
-    $fontSize = 'inherit'
-  } = _ref2;
+const sizeStyles = ({
+  $containerWidth = '1em',
+  $containerHeight = '0.9em',
+  $fontSize = 'inherit'
+}) => {
   const [value, unit] = polished.getValueAndUnit($fontSize);
   let fontSize;
   if (unit === undefined) {
@@ -235,10 +229,9 @@ const sizeStyles = _ref2 => {
   }
   return styled.css(["width:", ";height:", ";font-size:", ";"], $containerWidth, $containerHeight, fontSize);
 };
-const delayedVisibilityStyles = _ref3 => {
-  let {
-    $delayShow
-  } = _ref3;
+const delayedVisibilityStyles = ({
+  $delayShow
+}) => {
   if ($delayShow && $delayShow !== 0) {
     return styled.css(["animation:", " 1ms ", "ms linear 1 forwards;visibility:hidden;"], delayedVisibilityKeyframes, $delayShow);
   }
@@ -256,11 +249,10 @@ const StyledSVG = styled__default.default.svg.attrs(props => ({
 })(["", ";", ";", ";", ";"], sizeStyles, colorStyles$1, reactTheming.componentStyles, delayedVisibilityStyles);
 
 const COMPONENT_ID$3 = 'loaders.inline';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $color
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $color
+}) => {
   const options = $color.includes('.') ? {
     variable: $color,
     theme
@@ -270,12 +262,9 @@ const colorStyles = _ref => {
   };
   return styled.css(["color:", ";"], reactTheming.getColor(options));
 };
-const retrieveAnimation = _ref2 => {
-  let {
-    theme
-  } = _ref2;
-  return styled.keyframes(["0%,100%{opacity:", ";}50%{opacity:", ";}"], theme.opacity[200], theme.opacity[600]);
-};
+const retrieveAnimation = ({
+  theme
+}) => styled.keyframes(["0%,100%{opacity:", ";}50%{opacity:", ";}"], theme.opacity[200], theme.opacity[600]);
 const StyledCircle = styled__default.default.circle.attrs({
   fill: 'currentColor',
   cy: 2,
@@ -296,14 +285,13 @@ const StyledInline = styled__default.default.svg.attrs(props => ({
 })(["", ";", "{opacity:0.2;&:nth-child(1){animation:", " 1s infinite;animation-delay:", ";}&:nth-child(2){animation:", " 1s infinite;animation-delay:0.2s;}&:nth-child(3){animation:", " 1s infinite;animation-delay:", ";}}", ""], colorStyles, StyledCircle, retrieveAnimation, props => props.theme.rtl ? 'unset' : '0.4s', retrieveAnimation, retrieveAnimation, props => props.theme.rtl ? '0.4s' : 'unset', reactTheming.componentStyles);
 
 const COMPONENT_ID$2 = 'loaders.dots';
-const Dots = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'inherit',
-    color = 'inherit',
-    duration = 1250,
-    delayMS = 750,
-    ...other
-  } = _ref;
+const Dots = React.forwardRef(({
+  size = 'inherit',
+  color = 'inherit',
+  duration = 1250,
+  delayMS = 750,
+  ...other
+}, ref) => {
   return React__default.default.createElement(StyledSVG, Object.assign({
     "data-garden-id": COMPONENT_ID$2,
     ref: ref,
@@ -336,14 +324,13 @@ Dots.propTypes = {
 const SIZE = ['small', 'medium', 'large'];
 
 const COMPONENT_ID$1 = 'loaders.progress';
-const Progress = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    color,
-    value = 0,
-    size = 'medium',
-    'aria-label': label,
-    ...other
-  } = _ref;
+const Progress = React__default.default.forwardRef(({
+  color,
+  value = 0,
+  size = 'medium',
+  'aria-label': label,
+  ...other
+}, ref) => {
   const percentage = Math.max(0, Math.min(100, value));
   const ariaLabel = reactTheming.useText(Progress, {
     'aria-label': label
@@ -373,13 +360,12 @@ Progress.propTypes = {
   size: PropTypes__default.default.oneOf(SIZE)
 };
 
-const Skeleton = React.forwardRef((_ref, ref) => {
-  let {
-    width = '100%',
-    height = '100%',
-    isLight,
-    ...other
-  } = _ref;
+const Skeleton = React.forwardRef(({
+  width = '100%',
+  height = '100%',
+  isLight,
+  ...other
+}, ref) => {
   return React__default.default.createElement(StyledSkeleton, Object.assign({
     ref: ref,
     $isLight: isLight,
@@ -478,14 +464,13 @@ const computeFrames = (frames, duration) => {
     return acc;
   }, {});
 };
-const Spinner = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'inherit',
-    duration = 1250,
-    color = 'inherit',
-    delayMS = 750,
-    ...other
-  } = _ref;
+const Spinner = React.forwardRef(({
+  size = 'inherit',
+  duration = 1250,
+  color = 'inherit',
+  delayMS = 750,
+  ...other
+}, ref) => {
   const strokeWidthValues = computeFrames(STROKE_WIDTH_FRAMES, duration);
   const rotationValues = computeFrames(ROTATION_FRAMES, duration);
   const dasharrayValues = computeFrames(DASHARRAY_FRAMES, duration);
@@ -532,12 +517,11 @@ Spinner.propTypes = {
   delayMS: PropTypes__default.default.number
 };
 
-const Inline = React.forwardRef((_ref, ref) => {
-  let {
-    size = 16,
-    color = 'inherit',
-    ...other
-  } = _ref;
+const Inline = React.forwardRef(({
+  size = 16,
+  color = 'inherit',
+  ...other
+}, ref) => {
   const ariaLabel = reactTheming.useText(Inline, other, 'aria-label', 'loading');
   return (
     React__default.default.createElement(StyledInline, Object.assign({

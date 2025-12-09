@@ -9,11 +9,10 @@ import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import { StyledTile } from './StyledTile.js';
 
-const COMPONENT_ID = 'forms.tile_icon';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$1 = 'forms.tile_icon';
+const colorStyles = ({
+  theme
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'
@@ -47,11 +46,10 @@ const colorStyles = _ref => {
   });
   return css(["color:", ";", ":hover &&{color:", ";}", ":active &&{color:", ";}", ":has(:checked) &&{color:", ";}", "[aria-disabled='true'] &&{color:", ";}"], color, StyledTile, hoverColor, StyledTile, activeColor, StyledTile, checkedColor, StyledTile, disabledColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isCentered
-  } = _ref2;
+const sizeStyles$1 = ({
+  theme,
+  $isCentered
+}) => {
   const iconSize = math(`${theme.iconSizes.md} * 2`);
   let position;
   let top;
@@ -64,11 +62,11 @@ const sizeStyles = _ref2 => {
   return css(["position:", ";top:", ";", ":", ";line-height:0;& > *{width:", ";height:", ";}"], position, top, theme.rtl ? 'right' : 'left', horizontal, iconSize, iconSize);
 };
 const StyledTileIcon = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTileIcon",
   componentId: "sc-1wazhg4-0"
-})(["display:block;transition:color 0.25s ease-in-out;text-align:center;", ";", ";", ";"], sizeStyles, colorStyles, componentStyles);
+})(["display:block;transition:color 0.25s ease-in-out;text-align:center;", ";", ";", ";"], sizeStyles$1, colorStyles, componentStyles);
 
 export { StyledTileIcon };

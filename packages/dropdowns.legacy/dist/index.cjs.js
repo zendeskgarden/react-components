@@ -79,11 +79,10 @@ const Dropdown = props => {
   } = React.useContext(styled.ThemeContext);
   const hasMenuRef = React.useRef(false);
   const popperReferenceElementRef = React.useRef(null);
-  const customGetInputProps = (_ref, downshift) => {
-    let {
-      onKeyDown,
-      ...other
-    } = _ref;
+  const customGetInputProps = ({
+    onKeyDown,
+    ...other
+  }, downshift) => {
     return {
       onKeyDown: containerUtilities.composeEventHandlers(onKeyDown, e => {
         const PREVIOUS_KEY = rtl ? containerUtilities.KEY_CODES.RIGHT : containerUtilities.KEY_CODES.LEFT;
@@ -111,12 +110,11 @@ const Dropdown = props => {
       ...other
     };
   };
-  const transformDownshift = _ref2 => {
-    let {
-      getInputProps,
-      getToggleButtonProps,
-      ...downshift
-    } = _ref2;
+  const transformDownshift = ({
+    getInputProps,
+    getToggleButtonProps,
+    ...downshift
+  }) => {
     return {
       getInputProps: p => getInputProps(customGetInputProps(p, downshift)),
       getToggleButtonProps: p => getToggleButtonProps({
@@ -435,16 +433,13 @@ var SvgChevronRightStroke = function SvgChevronRightStroke(props) {
 };
 
 const COMPONENT_ID$e = 'dropdowns.next_item_icon';
-const NextIconComponent = _ref => {
-  let {
-    className
-  } = _ref;
-  return React__namespace.default.createElement(SvgChevronRightStroke, {
-    "data-garden-id": COMPONENT_ID$e,
-    "data-garden-version": '9.12.3',
-    className: className
-  });
-};
+const NextIconComponent = ({
+  className
+}) => React__namespace.default.createElement(SvgChevronRightStroke, {
+  "data-garden-id": COMPONENT_ID$e,
+  "data-garden-version": '9.12.3',
+  className: className
+});
 const StyledNextIcon = styled__default.default(NextIconComponent).withConfig({
   displayName: "StyledNextIcon",
   componentId: "sc-1nzkdnq-0"
@@ -479,16 +474,13 @@ var SvgChevronLeftStroke = function SvgChevronLeftStroke(props) {
 };
 
 const COMPONENT_ID$c = 'dropdowns.previous_item_icon';
-const PreviousIconComponent = _ref => {
-  let {
-    className
-  } = _ref;
-  return React__namespace.default.createElement(SvgChevronLeftStroke, {
-    "data-garden-id": COMPONENT_ID$c,
-    "data-garden-version": '9.12.3',
-    className: className
-  });
-};
+const PreviousIconComponent = ({
+  className
+}) => React__namespace.default.createElement(SvgChevronLeftStroke, {
+  "data-garden-id": COMPONENT_ID$c,
+  "data-garden-version": '9.12.3',
+  className: className
+});
 const StyledPreviousIcon = styled__default.default(PreviousIconComponent).withConfig({
   displayName: "StyledPreviousIcon",
   componentId: "sc-1n1t07s-0"
@@ -535,15 +527,13 @@ const StyledMediaBody = styled__default.default.div.attrs({
 
 const COMPONENT_ID$8 = 'dropdowns.media_figure';
 const StyledMediaFigure = styled__default.default(
-_ref => {
-  let {
-    children,
-    $isCompact,
-    theme,
-    ...props
-  } = _ref;
-  return  React__namespace.default.cloneElement(React.Children.only(children), props);
-}).attrs({
+({
+  children,
+  $isCompact,
+  theme,
+  ...props
+}) =>
+React__namespace.default.cloneElement(React.Children.only(children), props)).attrs({
   'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
@@ -592,12 +582,11 @@ const StyledSelect = styled__default.default.div.attrs({
 })(["flex-grow:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$3 = 'dropdowns.multiselect_input';
-const visibleStyling = _ref => {
-  let {
-    $isVisible,
-    isCompact,
-    theme
-  } = _ref;
+const visibleStyling = ({
+  $isVisible,
+  isCompact,
+  theme
+}) => {
   const margin = $isVisible ? `${theme.space.base / 2}px` : 0;
   const minWidth = $isVisible ? `${theme.space.base * 15}px` : 0;
   let height = '0';
@@ -657,12 +646,11 @@ const StyledMultiselectMoreAnchor = styled__default.default.div.attrs({
   variable: props.$isDisabled ? 'foreground.disabled' : 'foreground.primary'
 }), props => !props.$isDisabled && 'underline', reactTheming.componentStyles);
 
-const Trigger = _ref => {
-  let {
-    children,
-    refKey = 'ref',
-    ...triggerProps
-  } = _ref;
+const Trigger = ({
+  children,
+  refKey = 'ref',
+  ...triggerProps
+}) => {
   const {
     hasMenuRef,
     itemSearchRegistry,
@@ -779,24 +767,21 @@ const Trigger = _ref => {
       }
     });
   };
-  return React__namespace.default.createElement(reactPopper.Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__namespace.default.createElement(React__namespace.default.Fragment, null, renderChildren(popperReference), React__namespace.default.createElement(StyledInput, getInputProps({
-      readOnly: true,
-      $isHidden: true,
-      tabIndex: -1,
-      ref: hiddenInputRef,
-      value: '',
-      onClick: e => {
-        if (isOpen) {
-          e.nativeEvent.preventDownshiftDefault = true;
-        }
-      },
-      onKeyDown: onInputKeyDown
-    })));
-  });
+  return React__namespace.default.createElement(reactPopper.Reference, null, ({
+    ref: popperReference
+  }) => React__namespace.default.createElement(React__namespace.default.Fragment, null, renderChildren(popperReference), React__namespace.default.createElement(StyledInput, getInputProps({
+    readOnly: true,
+    $isHidden: true,
+    tabIndex: -1,
+    ref: hiddenInputRef,
+    value: '',
+    onClick: e => {
+      if (isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
+      }
+    },
+    onKeyDown: onInputKeyDown
+  }))));
 };
 Trigger.propTypes = {
   children: PropTypes__default.default.any,
@@ -828,13 +813,12 @@ const useFieldContext = () => {
   return fieldContext;
 };
 
-const Autocomplete = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    inputRef: controlledInputRef,
-    start,
-    ...props
-  } = _ref;
+const Autocomplete = React.forwardRef(({
+  children,
+  inputRef: controlledInputRef,
+  start,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     downshift: {
@@ -880,48 +864,45 @@ const Autocomplete = React.forwardRef((_ref, ref) => {
   React.useEffect(() => {
     setDropdownType('autocomplete');
   }, [setDropdownType]);
-  return React__namespace.default.createElement(reactPopper.Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__namespace.default.createElement(StyledFauxInput, Object.assign({
-      isHovered: isContainerHovered,
-      isFocused: isContainerFocused,
-      tabIndex: null,
-      onKeyDown: onSelectKeyDown
-    }, selectProps, {
-      ref: selectRef => {
-        popperReference(selectRef);
-        reactMergeRefs.mergeRefs([triggerRef, ref])(selectRef);
-        popperReferenceElementRef.current = selectRef;
+  return React__namespace.default.createElement(reactPopper.Reference, null, ({
+    ref: popperReference
+  }) => React__namespace.default.createElement(StyledFauxInput, Object.assign({
+    isHovered: isContainerHovered,
+    isFocused: isContainerFocused,
+    tabIndex: null,
+    onKeyDown: onSelectKeyDown
+  }, selectProps, {
+    ref: selectRef => {
+      popperReference(selectRef);
+      reactMergeRefs.mergeRefs([triggerRef, ref])(selectRef);
+      popperReferenceElementRef.current = selectRef;
+    }
+  }), !!start && React__namespace.default.createElement(StyledFauxInput.StartIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled
+  }, start), !isOpen && React__namespace.default.createElement(StyledSelect, null, children), React__namespace.default.createElement(StyledInput, getInputProps({
+    $isHidden: !isOpen,
+    disabled: props.disabled,
+    onFocus: () => {
+      setIsFocused(true);
+    },
+    onBlur: () => {
+      setIsFocused(false);
+    },
+    onClick: e => {
+      if (isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
       }
-    }), !!start && React__namespace.default.createElement(StyledFauxInput.StartIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled
-    }, start), !isOpen && React__namespace.default.createElement(StyledSelect, null, children), React__namespace.default.createElement(StyledInput, getInputProps({
-      $isHidden: !isOpen,
-      disabled: props.disabled,
-      onFocus: () => {
-        setIsFocused(true);
-      },
-      onBlur: () => {
-        setIsFocused(false);
-      },
-      onClick: e => {
-        if (isOpen) {
-          e.nativeEvent.preventDownshiftDefault = true;
-        }
-      },
-      role: 'combobox',
-      ref: reactMergeRefs.mergeRefs([inputRef, controlledInputRef || null])
-    })), !props.isBare && React__namespace.default.createElement(StyledFauxInput.EndIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled,
-      isRotated: isOpen
-    }, React__namespace.default.createElement(SvgChevronDownStroke, null)));
-  });
+    },
+    role: 'combobox',
+    ref: reactMergeRefs.mergeRefs([inputRef, controlledInputRef || null])
+  })), !props.isBare && React__namespace.default.createElement(StyledFauxInput.EndIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled,
+    isRotated: isOpen
+  }, React__namespace.default.createElement(SvgChevronDownStroke, null))));
 });
 Autocomplete.displayName = 'Autocomplete';
 Autocomplete.propTypes = {
@@ -932,19 +913,18 @@ Autocomplete.propTypes = {
   validation: PropTypes__default.default.oneOf(reactForms.VALIDATION)
 };
 
-const Combobox = React.forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    isBare,
-    disabled,
-    focusInset,
-    placeholder,
-    validation,
-    inputRef: inputRefProp = null,
-    start,
-    end,
-    ...props
-  } = _ref;
+const Combobox = React.forwardRef(({
+  isCompact,
+  isBare,
+  disabled,
+  focusInset,
+  placeholder,
+  validation,
+  inputRef: inputRefProp = null,
+  start,
+  end,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     downshift: {
@@ -997,10 +977,9 @@ const Combobox = React.forwardRef((_ref, ref) => {
   React.useEffect(() => {
     setDropdownType('combobox');
   }, [setDropdownType]);
-  return React__namespace.default.createElement(reactPopper.Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
+  return React__namespace.default.createElement(reactPopper.Reference, null, ({
+    ref: popperReference
+  }) => {
     const wrapperRefProp = element => {
       popperReference(element);
       reactMergeRefs.mergeRefs([wrapperRef, ref])(element);
@@ -1023,17 +1002,16 @@ Combobox.propTypes = {
   validation: PropTypes__default.default.oneOf(reactForms.VALIDATION)
 };
 
-const Multiselect = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    renderItem,
-    placeholder,
-    maxItems = 4,
-    renderShowMore,
-    inputRef: externalInputRef = null,
-    start,
-    onKeyDown,
-    ...props
-  } = _ref;
+const Multiselect = React__namespace.default.forwardRef(({
+  renderItem,
+  placeholder,
+  maxItems = 4,
+  renderShowMore,
+  inputRef: externalInputRef = null,
+  start,
+  onKeyDown,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     selectedItems = [],
@@ -1223,64 +1201,61 @@ const Multiselect = React__namespace.default.forwardRef((_ref, ref) => {
   React.useEffect(() => {
     setDropdownType('multiselect');
   }, [setDropdownType]);
-  return React__namespace.default.createElement(reactPopper.Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__namespace.default.createElement(StyledFauxInput, getContainerProps({
-      ...selectProps,
-      isHovered: isContainerHovered,
-      isFocused: isContainerFocused,
-      ref: selectRef => {
-        popperReference(selectRef);
-        reactMergeRefs.mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
+  return React__namespace.default.createElement(reactPopper.Reference, null, ({
+    ref: popperReference
+  }) => React__namespace.default.createElement(StyledFauxInput, getContainerProps({
+    ...selectProps,
+    isHovered: isContainerHovered,
+    isFocused: isContainerFocused,
+    ref: selectRef => {
+      popperReference(selectRef);
+      reactMergeRefs.mergeRefs([triggerRef, popperReferenceElementRef, ref])(selectRef);
+    }
+  }), !!start && React__namespace.default.createElement(StyledFauxInput.StartIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled
+  }, start), React__namespace.default.createElement(StyledMultiselectItemsContainer, {
+    $isBare: props.isBare,
+    $isCompact: props.isCompact
+  }, items, React__namespace.default.createElement(StyledMultiselectInput, getInputProps({
+    disabled: props.disabled,
+    onFocus: () => {
+      setFocusedItem(undefined);
+    },
+    onClick: e => {
+      if (inputValue && inputValue.length > 0 && isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
       }
-    }), !!start && React__namespace.default.createElement(StyledFauxInput.StartIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled
-    }, start), React__namespace.default.createElement(StyledMultiselectItemsContainer, {
-      $isBare: props.isBare,
-      $isCompact: props.isCompact
-    }, items, React__namespace.default.createElement(StyledMultiselectInput, getInputProps({
-      disabled: props.disabled,
-      onFocus: () => {
-        setFocusedItem(undefined);
-      },
-      onClick: e => {
-        if (inputValue && inputValue.length > 0 && isOpen) {
+    },
+    onKeyDown: e => {
+      if (!inputValue) {
+        if (themeContext.rtl && e.keyCode === containerUtilities.KEY_CODES.RIGHT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
+          setFocusedItem(selectedItems[selectedItems.length - 1]);
+        } else if (!themeContext.rtl && e.keyCode === containerUtilities.KEY_CODES.LEFT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
+          setFocusedItem(selectedItems[selectedItems.length - 1]);
+        } else if (e.keyCode === containerUtilities.KEY_CODES.BACKSPACE && selectedItems.length > 0) {
+          setDownshiftState({
+            type: REMOVE_ITEM_STATE_TYPE,
+            selectedItem: selectedItems[selectedItems.length - 1]
+          });
           e.nativeEvent.preventDownshiftDefault = true;
+          e.preventDefault();
+          e.stopPropagation();
         }
-      },
-      onKeyDown: e => {
-        if (!inputValue) {
-          if (themeContext.rtl && e.keyCode === containerUtilities.KEY_CODES.RIGHT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
-            setFocusedItem(selectedItems[selectedItems.length - 1]);
-          } else if (!themeContext.rtl && e.keyCode === containerUtilities.KEY_CODES.LEFT && selectedItems.length > 0 && previousIndexRef.current === undefined) {
-            setFocusedItem(selectedItems[selectedItems.length - 1]);
-          } else if (e.keyCode === containerUtilities.KEY_CODES.BACKSPACE && selectedItems.length > 0) {
-            setDownshiftState({
-              type: REMOVE_ITEM_STATE_TYPE,
-              selectedItem: selectedItems[selectedItems.length - 1]
-            });
-            e.nativeEvent.preventDownshiftDefault = true;
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        }
-      },
-      $isVisible: isFocused || inputValue || selectedItems.length === 0,
-      isCompact: props.isCompact,
-      role: 'combobox',
-      ref: reactMergeRefs.mergeRefs([inputRef, externalInputRef]),
-      placeholder: selectedItems.length === 0 ? placeholder : undefined
-    }))), !props.isBare && React__namespace.default.createElement(StyledFauxInput.EndIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled,
-      isRotated: isOpen
-    }, React__namespace.default.createElement(SvgChevronDownStroke, null)));
-  });
+      }
+    },
+    $isVisible: isFocused || inputValue || selectedItems.length === 0,
+    isCompact: props.isCompact,
+    role: 'combobox',
+    ref: reactMergeRefs.mergeRefs([inputRef, externalInputRef]),
+    placeholder: selectedItems.length === 0 ? placeholder : undefined
+  }))), !props.isBare && React__namespace.default.createElement(StyledFauxInput.EndIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled,
+    isRotated: isOpen
+  }, React__namespace.default.createElement(SvgChevronDownStroke, null))));
 });
 Multiselect.propTypes = {
   isCompact: PropTypes__default.default.bool,
@@ -1293,12 +1268,11 @@ Multiselect.propTypes = {
 };
 Multiselect.displayName = 'Multiselect';
 
-const Select = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    start,
-    ...props
-  } = _ref;
+const Select = React__namespace.default.forwardRef(({
+  children,
+  start,
+  ...props
+}, ref) => {
   const {
     popperReferenceElementRef,
     itemSearchRegistry,
@@ -1401,42 +1375,39 @@ const Select = React__namespace.default.forwardRef((_ref, ref) => {
   });
   const isContainerHovered = isLabelHovered && !isOpen;
   const isContainerFocused = isFocused || isOpen;
-  return React__namespace.default.createElement(reactPopper.Reference, null, _ref2 => {
-    let {
-      ref: popperReference
-    } = _ref2;
-    return React__namespace.default.createElement(StyledFauxInput, Object.assign({
-      isHovered: isContainerHovered,
-      isFocused: isContainerFocused
-    }, selectProps, {
-      role: "none",
-      ref: selectRef => {
-        popperReference(selectRef);
-        reactMergeRefs.mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
+  return React__namespace.default.createElement(reactPopper.Reference, null, ({
+    ref: popperReference
+  }) => React__namespace.default.createElement(StyledFauxInput, Object.assign({
+    isHovered: isContainerHovered,
+    isFocused: isContainerFocused
+  }, selectProps, {
+    role: "none",
+    ref: selectRef => {
+      popperReference(selectRef);
+      reactMergeRefs.mergeRefs([triggerRef, ref, popperReferenceElementRef])(selectRef);
+    }
+  }), !!start && React__namespace.default.createElement(StyledFauxInput.StartIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled
+  }, start), React__namespace.default.createElement(StyledSelect, null, children), React__namespace.default.createElement(StyledInput, getInputProps({
+    readOnly: true,
+    $isHidden: true,
+    tabIndex: -1,
+    ref: hiddenInputRef,
+    value: '',
+    onClick: e => {
+      if (isOpen) {
+        e.nativeEvent.preventDownshiftDefault = true;
       }
-    }), !!start && React__namespace.default.createElement(StyledFauxInput.StartIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled
-    }, start), React__namespace.default.createElement(StyledSelect, null, children), React__namespace.default.createElement(StyledInput, getInputProps({
-      readOnly: true,
-      $isHidden: true,
-      tabIndex: -1,
-      ref: hiddenInputRef,
-      value: '',
-      onClick: e => {
-        if (isOpen) {
-          e.nativeEvent.preventDownshiftDefault = true;
-        }
-      },
-      onKeyDown: onInputKeyDown
-    })), !props.isBare && React__namespace.default.createElement(StyledFauxInput.EndIcon, {
-      isHovered: isHovered || isLabelHovered && !isOpen,
-      isFocused: isContainerFocused,
-      isDisabled: props.disabled,
-      isRotated: isOpen
-    }, React__namespace.default.createElement(SvgChevronDownStroke, null)));
-  });
+    },
+    onKeyDown: onInputKeyDown
+  })), !props.isBare && React__namespace.default.createElement(StyledFauxInput.EndIcon, {
+    isHovered: isHovered || isLabelHovered && !isOpen,
+    isFocused: isContainerFocused,
+    isDisabled: props.disabled,
+    isRotated: isOpen
+  }, React__namespace.default.createElement(SvgChevronDownStroke, null))));
 });
 Select.displayName = 'Select';
 Select.propTypes = {
@@ -1475,12 +1446,11 @@ const Hint = React__namespace.default.forwardRef((props, ref) => React__namespac
 }, props)));
 Hint.displayName = 'Hint';
 
-const Label = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    onMouseEnter,
-    onMouseLeave,
-    ...other
-  } = _ref;
+const Label = React__namespace.default.forwardRef(({
+  onMouseEnter,
+  onMouseLeave,
+  ...other
+}, ref) => {
   const {
     downshift: {
       getLabelProps
@@ -1588,13 +1558,12 @@ const Menu = React.forwardRef((props, menuRef) => {
     modifiers: popperModifiers
     ,
     eventsEnabled: !!(isOpen && eventsEnabled)
-  }, _ref => {
-    let {
-      ref,
-      style,
-      scheduleUpdate,
-      placement: currentPlacement
-    } = _ref;
+  }, ({
+    ref,
+    style,
+    scheduleUpdate,
+    placement: currentPlacement
+  }) => {
     let computedStyle = menuStyle;
     scheduleUpdateRef.current = scheduleUpdate;
     if ((isOpen || isVisible) && popperReferenceElementRef.current && popperReferenceElementRef.current.getBoundingClientRect) {
@@ -1689,16 +1658,15 @@ const useItemContext = () => {
   return context;
 };
 
-const Item = React__namespace.default.forwardRef((_ref, forwardRef) => {
-  let {
-    value,
-    disabled,
-    isDanger,
-    component = StyledItem,
-    hasIcon,
-    children,
-    ...other
-  } = _ref;
+const Item = React__namespace.default.forwardRef(({
+  value,
+  disabled,
+  isDanger,
+  component = StyledItem,
+  hasIcon,
+  children,
+  ...other
+}, forwardRef) => {
   const {
     selectedItems,
     hasMenuRef,
@@ -1792,12 +1760,11 @@ Item.propTypes = {
   disabled: PropTypes__default.default.bool
 };
 
-const AddItemComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    disabled,
-    ...props
-  } = _ref;
+const AddItemComponent = React__namespace.default.forwardRef(({
+  children,
+  disabled,
+  ...props
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();
@@ -1829,11 +1796,10 @@ const HeaderIcon = React__namespace.default.forwardRef((props, ref) => {
 });
 HeaderIcon.displayName = 'HeaderIcon';
 
-const HeaderItem = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    hasIcon,
-    ...other
-  } = _ref;
+const HeaderItem = React__namespace.default.forwardRef(({
+  hasIcon,
+  ...other
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();
@@ -1890,12 +1856,11 @@ MediaItem.propTypes = {
   disabled: PropTypes__default.default.bool
 };
 
-const NextItemComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    disabled,
-    ...props
-  } = _ref;
+const NextItemComponent = React__namespace.default.forwardRef(({
+  children,
+  disabled,
+  ...props
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();
@@ -1910,12 +1875,11 @@ const NextItemComponent = React__namespace.default.forwardRef((_ref, ref) => {
     $isDisabled: disabled
   })), children);
 });
-const NextItem = React__namespace.default.forwardRef((_ref2, ref) => {
-  let {
-    value,
-    disabled,
-    ...props
-  } = _ref2;
+const NextItem = React__namespace.default.forwardRef(({
+  value,
+  disabled,
+  ...props
+}, ref) => {
   const {
     nextItemsHashRef,
     downshift: {
@@ -1944,12 +1908,11 @@ NextItem.propTypes = {
   disabled: PropTypes__default.default.bool
 };
 
-const PreviousItemComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    disabled,
-    ...props
-  } = _ref;
+const PreviousItemComponent = React__namespace.default.forwardRef(({
+  children,
+  disabled,
+  ...props
+}, ref) => {
   const {
     isCompact
   } = useMenuContext();
@@ -1964,12 +1927,11 @@ const PreviousItemComponent = React__namespace.default.forwardRef((_ref, ref) =>
     $isDisabled: disabled
   })), children);
 });
-const PreviousItem = React__namespace.default.forwardRef((_ref2, ref) => {
-  let {
-    value,
-    disabled,
-    ...props
-  } = _ref2;
+const PreviousItem = React__namespace.default.forwardRef(({
+  value,
+  disabled,
+  ...props
+}, ref) => {
   const {
     previousIndexRef
   } = useDropdownContext();

@@ -7,7 +7,7 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.item';
+const COMPONENT_ID$j = 'dropdowns.item';
 const getItemPaddingVertical = props => {
   if (props.$isCompact) {
     return `${props.theme.space.base}px`;
@@ -40,7 +40,7 @@ const getColorStyles = props => {
   return css(["background-color:", ";color:", ";& a,& a:hover,& a:focus,& a:active{color:inherit;}"], backgroundColor, foregroundColor);
 };
 const StyledItem = styled.li.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$j,
   'data-garden-version': '9.12.3',
   'aria-disabled': props.disabled
 })).withConfig({

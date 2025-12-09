@@ -15,34 +15,33 @@ import '../styled/StyledParagraph.js';
 import '../styled/StyledTitle.js';
 import { StyledTooltip } from '../styled/StyledTooltip.js';
 import { StyledTooltipWrapper } from '../styled/StyledTooltipWrapper.js';
-import { PLACEMENT, SIZE, TYPE } from '../types/index.js';
-import { useFloating, platform, autoPlacement, flip, autoUpdate } from '@floating-ui/react-dom';
+import { TYPE, SIZE, PLACEMENT } from '../types/index.js';
+import { useFloating, autoPlacement, flip, platform, autoUpdate } from '@floating-ui/react-dom';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { toSize } from './utils.js';
 import { Paragraph } from './Paragraph.js';
 import { Title } from './Title.js';
 
 const PLACEMENT_DEFAULT = 'top';
-const TooltipComponent = _ref => {
-  let {
-    id,
-    delayMS = 500,
-    isInitialVisible,
-    content,
-    refKey = 'ref',
-    placement: _placement = PLACEMENT_DEFAULT,
-    fallbackPlacements: _fallbackPlacements,
-    children,
-    hasArrow = true,
-    size,
-    type = 'dark',
-    appendToNode,
-    zIndex,
-    isVisible: externalIsVisible,
-    onFocus,
-    onBlur,
-    ...props
-  } = _ref;
+const TooltipComponent = ({
+  id,
+  delayMS = 500,
+  isInitialVisible,
+  content,
+  refKey = 'ref',
+  placement: _placement = PLACEMENT_DEFAULT,
+  fallbackPlacements: _fallbackPlacements,
+  children,
+  hasArrow = true,
+  size,
+  type = 'dark',
+  appendToNode,
+  zIndex,
+  isVisible: externalIsVisible,
+  onFocus,
+  onBlur,
+  ...props
+}) => {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const triggerRef = useRef(null);
   const floatingRef = useRef(null);

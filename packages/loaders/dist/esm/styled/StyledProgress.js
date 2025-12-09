@@ -19,11 +19,10 @@ const sizeToHeight = ($size, theme) => {
 };
 const sizeToBorderRadius = ($size, theme) => sizeToHeight($size, theme) / 2;
 const PROGRESS_BACKGROUND_COMPONENT_ID = 'loaders.progress_background';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $color
-  } = _ref;
+const colorStyles$2 = ({
+  theme,
+  $color
+}) => {
   const backgroundColor = getColor({
     theme,
     transparency: theme.opacity[200],
@@ -59,7 +58,7 @@ const StyledProgressBackground = styled.div.attrs({
 }).withConfig({
   displayName: "StyledProgress__StyledProgressBackground",
   componentId: "sc-2g8w4s-0"
-})(["margin:", "px 0;border-radius:", "px;", ";", ""], props => props.theme.space.base * 2, props => sizeToBorderRadius(props.$size, props.theme), colorStyles, componentStyles);
+})(["margin:", "px 0;border-radius:", "px;", ";", ""], props => props.theme.space.base * 2, props => sizeToBorderRadius(props.$size, props.theme), colorStyles$2, componentStyles);
 const PROGESS_INDICATOR_COMPONENT_ID = 'loaders.progress_indicator';
 const StyledProgressIndicator = styled.div.attrs({
   'data-garden-id': PROGESS_INDICATOR_COMPONENT_ID,

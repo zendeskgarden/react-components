@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'notifications.title';
+const COMPONENT_ID$b = 'notifications.title';
 const StyledTitle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$b,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTitle",

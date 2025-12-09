@@ -29,7 +29,7 @@ import '../styled/StyledDrawerFooter.js';
 import '../styled/StyledDrawerFooterItem.js';
 import { useModalContext } from '../utils/useModalContext.js';
 
-const Body = forwardRef((props, ref) => {
+const Body$2 = forwardRef((props, ref) => {
   const {
     getContentProps
   } = useModalContext();
@@ -37,6 +37,6 @@ const Body = forwardRef((props, ref) => {
     ref: ref
   }));
 });
-Body.displayName = 'Modal.Body';
+Body$2.displayName = 'Modal.Body';
 
-export { Body };
+export { Body$2 as Body };

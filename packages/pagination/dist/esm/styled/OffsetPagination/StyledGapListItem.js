@@ -9,7 +9,7 @@ import { math } from 'polished';
 import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { StyledListItem } from './StyledListItem.js';
 
-const COMPONENT_ID = 'pagination.gap';
+const COMPONENT_ID$2 = 'pagination.gap';
 const sizeStyles = props => {
   const shift = 2;
   const fontSize = math(`${props.theme.fontSizes.md} + ${shift}`);
@@ -18,17 +18,16 @@ const sizeStyles = props => {
   const padding = `${props.theme.space.base * 1.5}px`;
   return css(["padding:0 ", ";min-width:", ";max-width:", ";height:", ";line-height:", ";font-size:", ";"], padding, height, math(`${height} * 2`), height, lineHeight, fontSize);
 };
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   return css(["color:", ";"], getColor({
     variable: 'foreground.subtle',
     theme
   }));
 };
 const StyledGapListItem = styled(StyledListItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledGapListItem",

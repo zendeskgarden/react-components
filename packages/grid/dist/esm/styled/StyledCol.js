@@ -8,11 +8,10 @@ import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'grid.col';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$6 = 'grid.col';
+const colorStyles$4 = ({
+  theme
+}) => {
   const backgroundColor = getColor({
     theme,
     variable: 'background.primaryEmphasis',
@@ -25,7 +24,7 @@ const colorStyles = _ref => {
   });
   return css(["background-clip:content-box;background-color:", ";"], backgroundColor);
 };
-const flexStyles = (size, alignSelf, textAlign, offset, order, props) => {
+const flexStyles$1 = (size, alignSelf, textAlign, offset, order, props) => {
   const margin = offset && `${math(`${offset} / ${props.$columns} * 100`)}%`;
   let flexBasis;
   let flexGrow;
@@ -63,24 +62,23 @@ const flexStyles = (size, alignSelf, textAlign, offset, order, props) => {
   }
   return css(["flex-basis:", ";flex-grow:", ";flex-shrink:", ";align-self:", ";order:", ";margin-", ":", ";width:", ";max-width:", ";text-align:", ";"], flexBasis, flexGrow, size && 0, alignSelf === 'start' || alignSelf === 'end' ? `flex-${alignSelf}` : alignSelf, flexOrder, props.theme.rtl ? 'right' : 'left', margin, width, maxWidth, horizontalAlign);
 };
-const mediaStyles = (minWidth, size, alignSelf, textAlign, offset, order, props) => {
-  return css(["@media (min-width:", "){", ";}"], minWidth, flexStyles(size, alignSelf, textAlign, offset, order, props));
+const mediaStyles$1 = (minWidth, size, alignSelf, textAlign, offset, order, props) => {
+  return css(["@media (min-width:", "){", ";}"], minWidth, flexStyles$1(size, alignSelf, textAlign, offset, order, props));
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $gutters
-  } = _ref2;
+const sizeStyles$5 = ({
+  theme,
+  $gutters
+}) => {
   const padding = $gutters ? math(`${theme.space[$gutters]} / 2`) : 0;
   return css(["padding-right:", ";padding-left:", ";"], padding, padding);
 };
 const StyledCol = styled.div.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3',
   $columns: props.$columns ?? 12
 })).withConfig({
   displayName: "StyledCol",
   componentId: "sc-inuw62-0"
-})(["box-sizing:border-box;width:100%;", ";", ";", ";", ";", ";", ";", ";", ";", ";"], props => flexStyles(!props.$sizeAll && (props.$xs || props.$sm || props.$md || props.$lg || props.$xl) ? undefined : props.$sizeAll || false, props.$alignSelf, props.$textAlign, props.$offset, props.$order, props), sizeStyles, props => props.$debug && colorStyles(props), props => mediaStyles(props.theme.breakpoints.xs, props.$xs, props.$alignSelfXs, props.$textAlignXs, props.$offsetXs, props.$orderXs, props), props => mediaStyles(props.theme.breakpoints.sm, props.$sm, props.$alignSelfSm, props.$textAlignSm, props.$offsetSm, props.$orderSm, props), props => mediaStyles(props.theme.breakpoints.md, props.$md, props.$alignSelfMd, props.$textAlignMd, props.$offsetMd, props.$orderMd, props), props => mediaStyles(props.theme.breakpoints.lg, props.$lg, props.$alignSelfLg, props.$textAlignLg, props.$offsetLg, props.$orderLg, props), props => mediaStyles(props.theme.breakpoints.xl, props.$xl, props.$alignSelfXl, props.$textAlignXl, props.$offsetXl, props.$orderXl, props), componentStyles);
+})(["box-sizing:border-box;width:100%;", ";", ";", ";", ";", ";", ";", ";", ";", ";"], props => flexStyles$1(!props.$sizeAll && (props.$xs || props.$sm || props.$md || props.$lg || props.$xl) ? undefined : props.$sizeAll || false, props.$alignSelf, props.$textAlign, props.$offset, props.$order, props), sizeStyles$5, props => props.$debug && colorStyles$4(props), props => mediaStyles$1(props.theme.breakpoints.xs, props.$xs, props.$alignSelfXs, props.$textAlignXs, props.$offsetXs, props.$orderXs, props), props => mediaStyles$1(props.theme.breakpoints.sm, props.$sm, props.$alignSelfSm, props.$textAlignSm, props.$offsetSm, props.$orderSm, props), props => mediaStyles$1(props.theme.breakpoints.md, props.$md, props.$alignSelfMd, props.$textAlignMd, props.$offsetMd, props.$orderMd, props), props => mediaStyles$1(props.theme.breakpoints.lg, props.$lg, props.$alignSelfLg, props.$textAlignLg, props.$offsetLg, props.$orderLg, props), props => mediaStyles$1(props.theme.breakpoints.xl, props.$xl, props.$alignSelfXl, props.$textAlignXl, props.$offsetXl, props.$orderXl, props), componentStyles);
 
 export { StyledCol };

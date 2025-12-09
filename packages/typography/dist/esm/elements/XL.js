@@ -20,19 +20,16 @@ import '../styled/StyledList.js';
 import '../styled/StyledListItem.js';
 import '../styled/StyledParagraph.js';
 
-const XL = forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React.createElement(StyledFont, Object.assign({
-    $size: "extralarge",
-    $isBold: isBold,
-    ref: ref,
-    as: tag
-  }, other));
-});
+const XL = forwardRef(({
+  isBold,
+  tag = 'div',
+  ...other
+}, ref) => React.createElement(StyledFont, Object.assign({
+  $size: "extralarge",
+  $isBold: isBold,
+  ref: ref,
+  as: tag
+}, other)));
 XL.displayName = 'XL';
 XL.propTypes = {
   tag: PropTypes.any,

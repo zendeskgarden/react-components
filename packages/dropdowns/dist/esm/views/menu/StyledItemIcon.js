@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledOptionIcon } from '../combobox/StyledOptionIcon.js';
 
-const COMPONENT_ID = 'dropdowns.menu.item.icon';
+const COMPONENT_ID$2 = 'dropdowns.menu.item.icon';
 const StyledItemIcon = styled(StyledOptionIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledItemIcon",

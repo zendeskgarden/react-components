@@ -53,11 +53,10 @@ import '../../styled/tiles/StyledTileInput.js';
 import '../../styled/tiles/StyledTileLabel.js';
 import { FieldsetContext } from '../../utils/useFieldsetContext.js';
 
-const FieldsetComponent = forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    ...other
-  } = _ref;
+const FieldsetComponent = forwardRef(({
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = useMemo(() => ({
     isCompact
   }), [isCompact]);

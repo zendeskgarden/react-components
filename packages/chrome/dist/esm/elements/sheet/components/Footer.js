@@ -39,11 +39,10 @@ import { StyledSheetFooter } from '../../../styled/sheet/StyledSheetFooter.js';
 import '../../../styled/sheet/StyledSheetFooterItem.js';
 import '../../../styled/sheet/StyledSheetHeader.js';
 
-const SheetFooter = forwardRef((_ref, ref) => {
-  let {
-    isCompact,
-    ...other
-  } = _ref;
+const SheetFooter = forwardRef(({
+  isCompact,
+  ...other
+}, ref) => {
   return React__default.createElement(StyledSheetFooter, Object.assign({
     ref: ref,
     $isCompact: isCompact

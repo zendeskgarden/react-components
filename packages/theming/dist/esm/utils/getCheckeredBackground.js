@@ -6,14 +6,13 @@
 */
 import { getColor } from './getColor.js';
 
-const getCheckeredBackground = _ref => {
-  let {
-    theme,
-    size,
-    overlay,
-    positionY = 0,
-    repeat = 'repeat'
-  } = _ref;
+const getCheckeredBackground = ({
+  theme,
+  size,
+  overlay,
+  positionY = 0,
+  repeat = 'repeat'
+}) => {
   const color = getColor({
     theme,
     variable: 'border.default'

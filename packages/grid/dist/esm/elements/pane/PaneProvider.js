@@ -13,24 +13,22 @@ const getPixelsPerFr = (totalFrs, totalDimension) => {
   return totalDimension / totalFrs;
 };
 const convertToPixels = (values, pixelsPerFr) => {
-  return Object.entries(values).reduce((prev, _ref) => {
-    let [key, value] = _ref;
+  return Object.entries(values).reduce((prev, [key, value]) => {
     prev[key] = value * pixelsPerFr;
     return prev;
   }, {});
 };
-const PaneProvider = _ref2 => {
-  let {
-    id,
-    totalPanesWidth,
-    totalPanesHeight,
-    defaultRowValues,
-    defaultColumnValues,
-    rowValues,
-    columnValues,
-    onChange,
-    children
-  } = _ref2;
+const PaneProvider = ({
+  id,
+  totalPanesWidth,
+  totalPanesHeight,
+  defaultRowValues,
+  defaultColumnValues,
+  rowValues,
+  columnValues,
+  onChange,
+  children
+}) => {
   const isControlled = rowValues !== undefined && rowValues !== null && columnValues !== undefined && columnValues !== null;
   const [rowState, setRowState] = useState(defaultRowValues || {});
   const [columnState, setColumnState] = useState(defaultColumnValues || {});

@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledBase } from './StyledBase.js';
 
-const COMPONENT_ID = 'notifications.well';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isFloating,
-    $isRecessed
-  } = _ref;
+const COMPONENT_ID$7 = 'notifications.well';
+const colorStyles$6 = ({
+  theme,
+  $isFloating,
+  $isRecessed
+}) => {
   let backgroundVariable;
   if ($isRecessed) {
     backgroundVariable = 'background.recessed';
@@ -34,11 +33,11 @@ const colorStyles = _ref => {
   return css(["background-color:", ";color:", ";"], background, foreground);
 };
 const StyledWell = styled(StyledBase).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledWell",
   componentId: "sc-a5831c-0"
-})(["", " ", ";"], colorStyles, componentStyles);
+})(["", " ", ";"], colorStyles$6, componentStyles);
 
 export { StyledWell };

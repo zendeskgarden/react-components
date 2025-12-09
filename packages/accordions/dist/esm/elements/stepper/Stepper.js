@@ -38,13 +38,12 @@ import { Label } from './components/Label.js';
 import { Content } from './components/Content.js';
 
 const DEFAULT_ACTIVE_INDEX = 0;
-const StepperComponent = forwardRef((_ref, ref) => {
-  let {
-    activeIndex = DEFAULT_ACTIVE_INDEX,
-    isHorizontal,
-    children,
-    ...props
-  } = _ref;
+const StepperComponent = forwardRef(({
+  activeIndex = DEFAULT_ACTIVE_INDEX,
+  isHorizontal,
+  children,
+  ...props
+}, ref) => {
   const stepperContext = useMemo(() => ({
     activeIndex,
     isHorizontal: isHorizontal || false

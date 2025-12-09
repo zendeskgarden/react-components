@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.color_swatch_input';
+const COMPONENT_ID$3 = 'colorpickers.color_swatch_input';
 const StyledColorSwatchInput = styled.input.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledColorSwatchInput",

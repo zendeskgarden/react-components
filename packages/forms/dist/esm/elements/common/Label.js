@@ -55,12 +55,11 @@ import '../../styled/tiles/StyledTileIcon.js';
 import '../../styled/tiles/StyledTileInput.js';
 import '../../styled/tiles/StyledTileLabel.js';
 
-const Label = React__default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isRegular,
-    ...other
-  } = _ref;
+const Label$1 = React__default.forwardRef(({
+  children,
+  isRegular,
+  ...other
+}, ref) => {
   const fieldContext = useFieldContext();
   const fieldsetContext = useFieldsetContext();
   const type = useInputContext();
@@ -128,9 +127,9 @@ const Label = React__default.forwardRef((_ref, ref) => {
     $isRegular: $isRegular
   }), children);
 });
-Label.displayName = 'Field.Label';
-Label.propTypes = {
+Label$1.displayName = 'Field.Label';
+Label$1.propTypes = {
   isRegular: PropTypes.bool
 };
 
-export { Label };
+export { Label$1 as Label };

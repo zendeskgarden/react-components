@@ -10,12 +10,11 @@ import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-
 import { getHeight } from './StyledInput.js';
 import { StyledTrigger } from './StyledTrigger.js';
 
-const COMPONENT_ID = 'dropdowns.combobox.input_icon';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isLabelHovered
-  } = _ref;
+const COMPONENT_ID$m = 'dropdowns.combobox.input_icon';
+const colorStyles$8 = ({
+  theme,
+  $isLabelHovered
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'
@@ -36,7 +35,7 @@ const colorStyles = _ref => {
   });
   return css(["color:", ";", ":hover &&,", ":focus-within &&,", ":focus &&{color:", ";}", "[aria-disabled='true'] &&{color:", ";}"], $isLabelHovered ? focusColor : color, StyledTrigger, StyledTrigger, StyledTrigger, focusColor, StyledTrigger, disabledColor);
 };
-const sizeStyles = props => {
+const sizeStyles$7 = props => {
   const size = props.theme.iconSizes.md;
   const position = math(`(${getHeight(props)} - ${size}) / 2`);
   const margin = `${props.theme.space.base * 2}px`;
@@ -49,11 +48,11 @@ const sizeStyles = props => {
   return css(["top:", ";margin-", ":", ";width:", ";height:", ";"], position, side, margin, size, size);
 };
 const StyledInputIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$m,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledInputIcon",
   componentId: "sc-gqbs1s-0"
-})(["position:sticky;flex-shrink:0;transform:", ";transition:transform 0.25s ease-in-out,color 0.25s ease-in-out;", ";", ";", ";"], props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`, sizeStyles, colorStyles, componentStyles);
+})(["position:sticky;flex-shrink:0;transform:", ";transition:transform 0.25s ease-in-out,color 0.25s ease-in-out;", ";", ";", ";"], props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`, sizeStyles$7, colorStyles$8, componentStyles);
 
 export { StyledInputIcon };

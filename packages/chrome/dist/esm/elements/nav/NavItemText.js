@@ -41,11 +41,10 @@ import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 import { useNavContext } from '../../utils/useNavContext.js';
 
-const NavItemText = React__default.forwardRef((_ref, ref) => {
-  let {
-    isWrapped,
-    ...other
-  } = _ref;
+const NavItemText = React__default.forwardRef(({
+  isWrapped,
+  ...other
+}, ref) => {
   const {
     isExpanded
   } = useNavContext();

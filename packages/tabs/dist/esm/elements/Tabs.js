@@ -17,14 +17,13 @@ import { Tab } from './Tab.js';
 import { TabList } from './TabList.js';
 import { TabPanel } from './TabPanel.js';
 
-const TabsComponent = forwardRef((_ref, ref) => {
-  let {
-    isVertical = false,
-    children,
-    onChange,
-    selectedItem: controlledSelectedItem,
-    ...otherProps
-  } = _ref;
+const TabsComponent = forwardRef(({
+  isVertical = false,
+  children,
+  onChange,
+  selectedItem: controlledSelectedItem,
+  ...otherProps
+}, ref) => {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const [internalSelectedItem, setInternalSelectedItem] = useState();
   const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);

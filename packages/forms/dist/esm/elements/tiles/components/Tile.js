@@ -52,13 +52,12 @@ import '../../../styled/tiles/StyledTileIcon.js';
 import { StyledTileInput } from '../../../styled/tiles/StyledTileInput.js';
 import '../../../styled/tiles/StyledTileLabel.js';
 
-const TileComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    value,
-    disabled,
-    ...props
-  } = _ref;
+const TileComponent = React__default.forwardRef(({
+  children,
+  value,
+  disabled,
+  ...props
+}, ref) => {
   const tilesContext = useTilesContext();
   const inputRef = useRef(null);
   let inputProps;

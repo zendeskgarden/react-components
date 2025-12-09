@@ -23,18 +23,15 @@ import '../../styled/global-alert/StyledGlobalAlertTitle.js';
 import { Title } from '../Title.js';
 import { Paragraph } from '../Paragraph.js';
 
-const WellComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    isFloating,
-    isRecessed,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledWell, Object.assign({
-    ref: ref,
-    $isFloating: isFloating,
-    $isRecessed: isRecessed
-  }, props));
-});
+const WellComponent = React__default.forwardRef(({
+  isFloating,
+  isRecessed,
+  ...props
+}, ref) => React__default.createElement(StyledWell, Object.assign({
+  ref: ref,
+  $isFloating: isFloating,
+  $isRecessed: isRecessed
+}, props)));
 WellComponent.displayName = 'Well';
 WellComponent.propTypes = {
   isRecessed: PropTypes.bool,

@@ -36,14 +36,13 @@ import '../../../utils/useHeaderContext.js';
 import '../../../utils/useTimelineContext.js';
 import '../../../utils/useTimelineItemContext.js';
 
-const LabelComponent = forwardRef((_ref, ref) => {
-  let {
-    icon,
-    iconProps,
-    isHidden,
-    children,
-    ...other
-  } = _ref;
+const LabelComponent = forwardRef(({
+  icon,
+  iconProps,
+  isHidden,
+  children,
+  ...other
+}, ref) => {
   const {
     currentStepIndex,
     isActive,

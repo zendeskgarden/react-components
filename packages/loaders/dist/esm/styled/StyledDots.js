@@ -14,7 +14,7 @@ const StyledDotsCircle = styled.circle.attrs({
   displayName: "StyledDots__StyledDotsCircle",
   componentId: "sc-1ltah7e-0"
 })([""]);
-const animationStyles = (animationName, props) => {
+const animationStyles$1 = (animationName, props) => {
   return css(["animation:", " ", "ms ", "ms linear infinite;"], animationName, props.$duration, props.$delay);
 };
 const StyledDotsCircleOne = styled(StyledDotsCircle).attrs({
@@ -22,18 +22,18 @@ const StyledDotsCircleOne = styled(StyledDotsCircle).attrs({
 }).withConfig({
   displayName: "StyledDots__StyledDotsCircleOne",
   componentId: "sc-1ltah7e-1"
-})(["", ";"], props => animationStyles(dotOneKeyframes, props));
+})(["", ";"], props => animationStyles$1(dotOneKeyframes, props));
 const StyledDotsCircleTwo = styled(StyledDotsCircle).attrs(() => ({
   cx: 40
 })).withConfig({
   displayName: "StyledDots__StyledDotsCircleTwo",
   componentId: "sc-1ltah7e-2"
-})(["", ";"], props => animationStyles(dotTwoKeyframes, props));
+})(["", ";"], props => animationStyles$1(dotTwoKeyframes, props));
 const StyledDotsCircleThree = styled(StyledDotsCircle).attrs(() => ({
   cx: 71
 })).withConfig({
   displayName: "StyledDots__StyledDotsCircleThree",
   componentId: "sc-1ltah7e-3"
-})(["", ";"], props => animationStyles(dotThreeKeyframes, props));
+})(["", ";"], props => animationStyles$1(dotThreeKeyframes, props));
 
 export { StyledDotsCircleOne, StyledDotsCircleThree, StyledDotsCircleTwo };

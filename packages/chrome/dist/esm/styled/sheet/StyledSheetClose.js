@@ -8,17 +8,16 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
-const COMPONENT_ID = 'chrome.sheet_close';
-const positionStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$3 = 'chrome.sheet_close';
+const positionStyles = ({
+  theme
+}) => {
   const top = `${theme.space.base * 2.5}px`;
   const position = `${theme.space.base * 2}px`;
   return css(["top:", ";", ":", ";"], top, theme.rtl ? 'left' : 'right', position);
 };
 const StyledSheetClose = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledSheetClose",

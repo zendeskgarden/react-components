@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledInput } from '../select/StyledInput.js';
 
-const COMPONENT_ID = 'dropdowns.multiselect_input';
-const visibleStyling = _ref => {
-  let {
-    $isVisible,
-    isCompact,
-    theme
-  } = _ref;
+const COMPONENT_ID$3 = 'dropdowns.multiselect_input';
+const visibleStyling = ({
+  $isVisible,
+  isCompact,
+  theme
+}) => {
   const margin = $isVisible ? `${theme.space.base / 2}px` : 0;
   const minWidth = $isVisible ? `${theme.space.base * 15}px` : 0;
   let height = '0';
@@ -24,7 +23,7 @@ const visibleStyling = _ref => {
   return css(["opacity:", ";margin:", ";width:", ";min-width:", ";height:", ";"], !$isVisible && 0, margin, !$isVisible && 0, minWidth, height);
 };
 const StyledMultiselectInput = styled(StyledInput).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3',
   isBare: true
 }).withConfig({

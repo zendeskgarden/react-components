@@ -7,21 +7,20 @@
 import styled, { css } from 'styled-components';
 import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.header_item_icon';
-const sizeStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$o = 'chrome.header_item_icon';
+const sizeStyles$c = ({
+  theme
+}) => {
   const margin = `0 ${theme.space.base * 0.75}px`;
   const size = theme.iconSizes.md;
   return css(["margin:", ";width:", ";min-width:", ";height:", ";"], margin, size, size, size);
 };
 const StyledHeaderItemIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$o,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeaderItemIcon",
   componentId: "sc-1jhhp6z-0"
-})(["transition:transform 0.25s ease-in-out;", ";", ";"], sizeStyles, componentStyles);
+})(["transition:transform 0.25s ease-in-out;", ";", ";"], sizeStyles$c, componentStyles);
 
 export { StyledHeaderItemIcon };

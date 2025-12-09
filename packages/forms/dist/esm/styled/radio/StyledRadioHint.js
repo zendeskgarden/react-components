@@ -9,9 +9,9 @@ import { math } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledHint } from '../common/StyledHint.js';
 
-const COMPONENT_ID = 'forms.radio_hint';
+const COMPONENT_ID$r = 'forms.radio_hint';
 const StyledRadioHint = styled(StyledHint).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$r,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledRadioHint",

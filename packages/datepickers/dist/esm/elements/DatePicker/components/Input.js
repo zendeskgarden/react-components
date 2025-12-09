@@ -7,13 +7,12 @@
 import { forwardRef, useRef, cloneElement } from 'react';
 import { composeEventHandlers, KEYS } from '@zendeskgarden/container-utilities';
 
-const Input = forwardRef((_ref, ref) => {
-  let {
-    element,
-    dispatch,
-    state,
-    refKey
-  } = _ref;
+const Input = forwardRef(({
+  element,
+  dispatch,
+  state,
+  refKey
+}, ref) => {
   const isInputMouseDownRef = useRef(false);
   const handleBlur = () => {
     dispatch({

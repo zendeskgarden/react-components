@@ -35,12 +35,11 @@ import { StyledDay } from '../../../styled/StyledDay.js';
 import { getStartOfWeek } from '../../../utils/calendar-utils.js';
 import useDatePickerContext from '../utils/useDatePickerRangeContext.js';
 
-const Month = forwardRef((_ref, ref) => {
-  let {
-    displayDate,
-    isPreviousHidden,
-    isNextHidden
-  } = _ref;
+const Month = forwardRef(({
+  displayDate,
+  isPreviousHidden,
+  isNextHidden
+}, ref) => {
   const {
     state,
     dispatch,

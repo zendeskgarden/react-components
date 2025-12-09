@@ -7,11 +7,10 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'typography.codeblock';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$7 = 'typography.codeblock';
+const colorStyles$2 = ({
+  theme
+}) => {
   const backgroundColor = getColor({
     theme,
     variable: 'background.recessed'
@@ -23,11 +22,11 @@ const colorStyles = _ref => {
   return css(["background-color:", ";color:", ";"], backgroundColor, foregroundColor);
 };
 const StyledCodeBlock = styled.pre.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCodeBlock",
   componentId: "sc-5wky57-0"
-})(["display:table;margin:0;padding:", "px;box-sizing:border-box;width:100%;direction:ltr;white-space:pre;counter-reset:linenumber;", ";", ";"], props => props.theme.space.base * 3, colorStyles, componentStyles);
+})(["display:table;margin:0;padding:", "px;box-sizing:border-box;width:100%;direction:ltr;white-space:pre;counter-reset:linenumber;", ";", ";"], props => props.theme.space.base * 3, colorStyles$2, componentStyles);
 
 export { StyledCodeBlock };

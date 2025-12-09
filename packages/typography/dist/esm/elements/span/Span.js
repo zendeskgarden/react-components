@@ -22,23 +22,20 @@ import '../../styled/StyledParagraph.js';
 import { StartIcon } from './StartIcon.js';
 import { Icon } from './Icon.js';
 
-const SpanComponent = forwardRef((_ref, ref) => {
-  let {
-    hue,
-    isBold,
-    isMonospace,
-    tag = 'span',
-    ...other
-  } = _ref;
-  return React.createElement(StyledFont, Object.assign({
-    $hue: hue,
-    $isBold: isBold,
-    $isMonospace: isMonospace,
-    $size: "inherit",
-    as: tag,
-    ref: ref
-  }, other));
-});
+const SpanComponent = forwardRef(({
+  hue,
+  isBold,
+  isMonospace,
+  tag = 'span',
+  ...other
+}, ref) => React.createElement(StyledFont, Object.assign({
+  $hue: hue,
+  $isBold: isBold,
+  $isMonospace: isMonospace,
+  $size: "inherit",
+  as: tag,
+  ref: ref
+}, other)));
 SpanComponent.displayName = 'Span';
 SpanComponent.propTypes = {
   tag: PropTypes.any,

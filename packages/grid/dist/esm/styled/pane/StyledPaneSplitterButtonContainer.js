@@ -11,10 +11,9 @@ import { StyledPaneSplitter } from './StyledPaneSplitter.js';
 import { getSize } from './StyledPaneSplitterButton.js';
 
 const COMPONENT_ID = 'pane.splitter_button_container';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const backgroundColor = getColor({
     theme,
     variable: 'background.raised'
@@ -25,13 +24,12 @@ const colorStyles = _ref => {
   }));
   return css(["box-shadow:", ";background-color:", ";"], boxShadow, backgroundColor);
 };
-const positionStyles = _ref2 => {
-  let {
-    theme,
-    $orientation,
-    $placement,
-    $splitterSize
-  } = _ref2;
+const positionStyles = ({
+  theme,
+  $orientation,
+  $placement,
+  $splitterSize
+}) => {
   let top;
   let left;
   let right;
@@ -109,10 +107,9 @@ const positionStyles = _ref2 => {
   }
   return css(["top:", ";right:", ";bottom:", ";left:", ";"], top, right, bottom, left);
 };
-const sizeStyles = _ref3 => {
-  let {
-    theme
-  } = _ref3;
+const sizeStyles = ({
+  theme
+}) => {
   const size = getSize(theme);
   return css(["border-radius:", "px;width:", "px;height:", "px;"], size, size, size);
 };

@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colordialog_tooltipdialog';
+const COMPONENT_ID$6 = 'colorpickers.colordialog_tooltipdialog';
 const StyledTooltipDialog = styled(TooltipDialog).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTooltipDialog",

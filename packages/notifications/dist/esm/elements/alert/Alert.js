@@ -27,12 +27,11 @@ import { Title } from './Title.js';
 import { Paragraph } from './Paragraph.js';
 import { Close } from './Close.js';
 
-const AlertComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    role,
-    type,
-    ...props
-  } = _ref;
+const AlertComponent = React__default.forwardRef(({
+  role,
+  type,
+  ...props
+}, ref) => {
   const Icon = validationIcons[type];
   return React__default.createElement(NotificationsContext.Provider, {
     value: type

@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFileClose } from './StyledFileClose.js';
 
-const COMPONENT_ID = 'forms.file.delete';
+const COMPONENT_ID$g = 'forms.file.delete';
 const StyledFileDelete = styled(StyledFileClose).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$g,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFileDelete",

@@ -8,11 +8,10 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropzone.icon';
-function sizeStyles(_ref) {
-  let {
-    theme,
-    $isVertical
-  } = _ref;
+function sizeStyles({
+  theme,
+  $isVertical
+}) {
   let property;
   let value;
   if ($isVertical) {

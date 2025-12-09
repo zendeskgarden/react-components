@@ -8,8 +8,8 @@ import styled from 'styled-components';
 import { rgba, hsl } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
-const background = props => {
+const COMPONENT_ID$g = 'colorpickers.colorpicker_colorwell';
+const background$1 = props => {
   const blackAlpha = rgba(props.theme.palette.black, 0.9);
   const black = `linear-gradient(0deg, ${props.theme.palette.black}, ${blackAlpha} 1%, transparent 99%)`;
   const whiteAngle = `${props.theme.rtl ? -90 : 90}deg`;
@@ -19,11 +19,11 @@ const background = props => {
   return `${black}, ${white}, ${color}`;
 };
 const StyledColorWell = styled.div.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$g,
   'data-garden-version': '9.12.3',
   'data-test-id': 'colorwell',
   style: {
-    background: background(props)
+    background: background$1(props)
   }
 })).withConfig({
   displayName: "StyledColorWell",

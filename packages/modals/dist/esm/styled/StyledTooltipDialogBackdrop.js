@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { hideVisually } from '../node_modules/polished/dist/polished.esm.js';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
+const COMPONENT_ID$c = 'modals.tooltip_dialog.backdrop';
 const StyledTooltipDialogBackdrop = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$c,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTooltipDialogBackdrop",

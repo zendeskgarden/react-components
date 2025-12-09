@@ -23,8 +23,8 @@ import { useNotificationsContext } from '../../utils/useNotificationsContext.js'
 import { useText } from '@zendeskgarden/react-theming';
 import SvgXStroke from '../../node_modules/@zendeskgarden/svg-icons/src/16/x-stroke.svg.js';
 
-const Close = React__default.forwardRef((props, ref) => {
-  const ariaLabel = useText(Close, props, 'aria-label', 'Close');
+const Close$1 = React__default.forwardRef((props, ref) => {
+  const ariaLabel = useText(Close$1, props, 'aria-label', 'Close');
   const type = useNotificationsContext();
   return React__default.createElement(StyledClose, Object.assign({
     ref: ref,
@@ -35,6 +35,6 @@ const Close = React__default.forwardRef((props, ref) => {
     size: "small"
   }), React__default.createElement(SvgXStroke, null));
 });
-Close.displayName = 'Alert.Close';
+Close$1.displayName = 'Alert.Close';
 
-export { Close };
+export { Close$1 as Close };

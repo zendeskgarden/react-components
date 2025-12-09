@@ -8,7 +8,7 @@ import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { SELECTOR_FOCUS_VISIBLE, componentStyles, getColor, focusStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.sortable';
+const COMPONENT_ID$5 = 'tables.sortable';
 const StyledBaseIconWrapper = styled.div.withConfig({
   displayName: "StyledSortableButton__StyledBaseIconWrapper",
   componentId: "sc-2s1dli-0"
@@ -21,11 +21,10 @@ const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper).withConfig({
   displayName: "StyledSortableButton__StyledSortableFillIconWrapper",
   componentId: "sc-2s1dli-2"
 })([""]);
-const colorStyles = _ref => {
-  let {
-    theme,
-    $sort
-  } = _ref;
+const colorStyles$3 = ({
+  theme,
+  $sort
+}) => {
   const fgInactive = getColor({
     variable: 'foreground.subtle',
     transparency: theme.opacity[200],
@@ -81,12 +80,12 @@ const colorStyles = _ref => {
   }));
 };
 const StyledSortableButton = styled.button.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3',
   type: 'button'
 }).withConfig({
   displayName: "StyledSortableButton",
   componentId: "sc-2s1dli-3"
-})(["position:relative;transition:box-shadow 0.1s ease-in-out;border:none;border-radius:", ";background-color:transparent;cursor:pointer;padding:0;padding-", ":", ";width:", ";text-decoration:none;color:inherit;font-family:inherit;font-size:inherit;font-weight:", ";", "{opacity:", ";}", "{opacity:", ";}&:hover,", "{text-decoration:none;}", " ", ";"], props => props.theme.borderRadii.sm, props => props.theme.rtl ? 'left' : 'right', props => math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`), props => props.width, props => props.theme.fontWeights.semibold, StyledSortableStrokeIconWrapper, props => props.$sort === undefined && 1, StyledSortableFillIconWrapper, props => props.$sort !== undefined && 1, SELECTOR_FOCUS_VISIBLE, colorStyles, componentStyles);
+})(["position:relative;transition:box-shadow 0.1s ease-in-out;border:none;border-radius:", ";background-color:transparent;cursor:pointer;padding:0;padding-", ":", ";width:", ";text-decoration:none;color:inherit;font-family:inherit;font-size:inherit;font-weight:", ";", "{opacity:", ";}", "{opacity:", ";}&:hover,", "{text-decoration:none;}", " ", ";"], props => props.theme.borderRadii.sm, props => props.theme.rtl ? 'left' : 'right', props => math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`), props => props.width, props => props.theme.fontWeights.semibold, StyledSortableStrokeIconWrapper, props => props.$sort === undefined && 1, StyledSortableFillIconWrapper, props => props.$sort !== undefined && 1, SELECTOR_FOCUS_VISIBLE, colorStyles$3, componentStyles);
 
 export { StyledSortableButton, StyledSortableFillIconWrapper, StyledSortableStrokeIconWrapper };

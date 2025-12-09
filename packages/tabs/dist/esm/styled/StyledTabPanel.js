@@ -7,17 +7,16 @@
 import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tabs.tabpanel';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $isVertical
-  } = _ref;
+const COMPONENT_ID$1 = 'tabs.tabpanel';
+const sizeStyles = ({
+  theme,
+  $isVertical
+}) => {
   const margin = $isVertical ? `${theme.space.base * 8}px` : undefined;
   return css(["margin-", ":", ";"], theme.rtl ? 'right' : 'left', margin);
 };
 const StyledTabPanel = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTabPanel",

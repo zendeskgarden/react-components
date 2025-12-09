@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'notifications.paragraph';
+const COMPONENT_ID$c = 'notifications.paragraph';
 const StyledParagraph = styled.p.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$c,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledParagraph",

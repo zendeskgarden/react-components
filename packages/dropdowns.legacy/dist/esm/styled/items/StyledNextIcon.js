@@ -9,17 +9,14 @@ import styled from 'styled-components';
 import SvgChevronRightStroke from '../../node_modules/@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg.js';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.next_item_icon';
-const NextIconComponent = _ref => {
-  let {
-    className
-  } = _ref;
-  return React__default.createElement(SvgChevronRightStroke, {
-    "data-garden-id": COMPONENT_ID,
-    "data-garden-version": '9.12.3',
-    className: className
-  });
-};
+const COMPONENT_ID$e = 'dropdowns.next_item_icon';
+const NextIconComponent = ({
+  className
+}) => React__default.createElement(SvgChevronRightStroke, {
+  "data-garden-id": COMPONENT_ID$e,
+  "data-garden-version": '9.12.3',
+  className: className
+});
 const StyledNextIcon = styled(NextIconComponent).withConfig({
   displayName: "StyledNextIcon",
   componentId: "sc-1nzkdnq-0"

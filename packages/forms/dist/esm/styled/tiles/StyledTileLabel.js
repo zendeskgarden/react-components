@@ -9,11 +9,10 @@ import { math } from 'polished';
 import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'forms.tile_label';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $isCentered
-  } = _ref;
+const sizeStyles = ({
+  theme,
+  $isCentered
+}) => {
   const marginTop = $isCentered ? `${theme.space.base * 2}px` : 0;
   const marginHorizontal = $isCentered ? undefined : math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
   const fontSize = theme.fontSizes.md;

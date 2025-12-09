@@ -8,11 +8,10 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledCodeBlock } from './StyledCodeBlock.js';
 
-const COMPONENT_ID = 'typography.codeblock_token';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$4 = 'typography.codeblock_token';
+const colorStyles = ({
+  theme
+}) => {
   const colors = {
     boolean: getColor({
       theme,
@@ -170,7 +169,7 @@ const colorStyles = _ref => {
   return css(["&.builtin,&.class-name,&.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script){color:", ";}&.doctype,&.prolog,&.tag.punctuation:not(.attr-value):not(.script):not(.spread){color:", ";}&.attribute.value,&.attr-value,&.atrule,&.cdata,&.string,&.url.content{color:", ";}&.constant,&.interpolation-punctuation{color:", ";}&.attr-name,&.attr-value.spread,&.environment,&.interpolation,&.parameter,&.property,&.property-access,&.variable{color:", ";}&.parameter.punctuation,&.attr-name + .attr-value.punctuation{color:inherit;}&.regex{color:", ";}&.boolean,&.bold:not(.diff),&.entity,&.important,&.tag:not(.punctuation):not(.attr-name):not(.attr-value):not(.script):not(.class-name){color:", ";}&.number,&.unit{color:", ";}&.assign-left,&.function,&.selector:not(.attribute){color:", ";}&.atrule.rule,&.keyword{color:", ";}&.blockquote,&.comment,&.shebang{color:", ";}", ".language-css &&.plain{color:", ";}", ".language-diff &&.coord{color:", ";}", ".language-diff &&.deleted{color:", ";}", ".language-diff &&.diff{color:", ";}", ".language-diff &&.inserted{color:", ";}"], colors.builtin, colors.punctuation, colors.value, colors.constant, colors.name, colors.regex, colors.boolean, colors.number, colors.function, colors.keyword, colors.comment, StyledCodeBlock, colors.value, StyledCodeBlock, colors.coord, StyledCodeBlock, colors.deleted, StyledCodeBlock, colors.diff, StyledCodeBlock, colors.inserted);
 };
 const StyledCodeBlockToken = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCodeBlockToken",

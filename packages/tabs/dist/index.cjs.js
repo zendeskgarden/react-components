@@ -22,11 +22,10 @@ var PropTypes__default = /*#__PURE__*/_interopDefault(PropTypes);
 var styled__default = /*#__PURE__*/_interopDefault(styled);
 
 const COMPONENT_ID$3 = 'tabs.tab';
-const colorStyles$1 = _ref => {
-  let {
-    theme,
-    $isSelected
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $isSelected
+}) => {
   const borderColor = $isSelected ? reactTheming.getColor({
     theme,
     variable: 'border.primaryEmphasis'
@@ -51,11 +50,10 @@ const colorStyles$1 = _ref => {
     }
   }), selectedColor, disabledColor);
 };
-const sizeStyles$2 = _ref2 => {
-  let {
-    theme,
-    $isVertical
-  } = _ref2;
+const sizeStyles$2 = ({
+  theme,
+  $isVertical
+}) => {
   const borderWidth = theme.borderWidths.md;
   const focusHeight = `calc(100% - ${theme.space.base * ($isVertical ? 2 : 4)}px);`;
   let marginBottom;
@@ -85,10 +83,9 @@ const StyledTab = styled__default.default.div.attrs({
 }, sizeStyles$2, colorStyles$1, props => props.theme.space.base * (props.$isVertical ? 1 : 2.5), props => props.theme.space.base * (props.$isVertical ? 1 : 6), props => props.theme.space.base * (props.$isVertical ? 1 : 6), props => props.theme.borderRadii.md, reactTheming.componentStyles);
 
 const COMPONENT_ID$2 = 'tabs.tablist';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     variable: 'border.default'
@@ -99,11 +96,10 @@ const colorStyles = _ref => {
   });
   return styled.css(["transition:border-color 0.25s ease-in-out;color-scheme:only ", ";border-bottom-color:", ";color:", ";"], p => p.theme.colors.base, borderColor, foregroundColor);
 };
-const sizeStyles$1 = _ref2 => {
-  let {
-    theme,
-    $isVertical
-  } = _ref2;
+const sizeStyles$1 = ({
+  theme,
+  $isVertical
+}) => {
   const marginBottom = $isVertical ? 0 : `${theme.space.base * 5}px`;
   const borderBottom = $isVertical ? undefined : theme.borderWidths.sm;
   const fontSize = theme.fontSizes.md;
@@ -119,11 +115,10 @@ const StyledTabList = styled__default.default.div.attrs({
 })(["display:", ";border-bottom:", ";vertical-align:", ";white-space:nowrap;", ";", ";", ";"], props => props.$isVertical ? 'table-cell' : 'block', props => props.$isVertical ? 'none' : props.theme.borderStyles.solid, props => props.$isVertical ? 'top' : undefined, sizeStyles$1, colorStyles, reactTheming.componentStyles);
 
 const COMPONENT_ID$1 = 'tabs.tabpanel';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $isVertical
-  } = _ref;
+const sizeStyles = ({
+  theme,
+  $isVertical
+}) => {
   const margin = $isVertical ? `${theme.space.base * 8}px` : undefined;
   return styled.css(["margin-", ":", ";"], theme.rtl ? 'right' : 'left', margin);
 };
@@ -149,12 +144,11 @@ const useTabsContext = () => {
   return React.useContext(TabsContext);
 };
 
-const Tab = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    item,
-    ...otherProps
-  } = _ref;
+const Tab = React__default.default.forwardRef(({
+  disabled,
+  item,
+  ...otherProps
+}, ref) => {
   const tabsPropGetters = useTabsContext();
   if (disabled || !tabsPropGetters) {
     return React__default.default.createElement(StyledTab, Object.assign({
@@ -199,11 +193,10 @@ const TabList = React__default.default.forwardRef((props, ref) => {
 });
 TabList.displayName = 'Tabs.TabList';
 
-const TabPanel = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    item,
-    ...otherProps
-  } = _ref;
+const TabPanel = React__default.default.forwardRef(({
+  item,
+  ...otherProps
+}, ref) => {
   const tabsPropGetters = useTabsContext();
   if (!tabsPropGetters) {
     return React__default.default.createElement(StyledTabPanel, Object.assign({
@@ -242,14 +235,13 @@ const toTabs = children => React.Children.toArray(children).reduce((_items, chil
   return retVal;
 }, []);
 
-const TabsComponent = React.forwardRef((_ref, ref) => {
-  let {
-    isVertical = false,
-    children,
-    onChange,
-    selectedItem: controlledSelectedItem,
-    ...otherProps
-  } = _ref;
+const TabsComponent = React.forwardRef(({
+  isVertical = false,
+  children,
+  onChange,
+  selectedItem: controlledSelectedItem,
+  ...otherProps
+}, ref) => {
   const theme = React.useContext(styled.ThemeContext) || reactTheming.DEFAULT_THEME;
   const [internalSelectedItem, setInternalSelectedItem] = React.useState();
   const selectedItem = containerUtilities.getControlledValue(controlledSelectedItem, internalSelectedItem);

@@ -44,24 +44,21 @@ import { HeaderItemIcon } from './HeaderItemIcon.js';
 import { HeaderItemText } from './HeaderItemText.js';
 import { HeaderItemWrapper } from './HeaderItemWrapper.js';
 
-const HeaderComponent = React__default.forwardRef((_ref, ref) => {
-  let {
-    isStandalone,
-    ...other
-  } = _ref;
-  return React__default.createElement(StyledHeader, Object.assign({
-    ref: ref,
-    $isStandalone: isStandalone
-  }, other));
-});
+const HeaderComponent = React__default.forwardRef(({
+  isStandalone,
+  ...other
+}, ref) => React__default.createElement(StyledHeader, Object.assign({
+  ref: ref,
+  $isStandalone: isStandalone
+}, other)));
 HeaderComponent.displayName = 'Header';
 HeaderComponent.propTypes = {
   isStandalone: PropTypes.bool
 };
-const Header = HeaderComponent;
-Header.Item = HeaderItem;
-Header.ItemIcon = HeaderItemIcon;
-Header.ItemText = HeaderItemText;
-Header.ItemWrapper = HeaderItemWrapper;
+const Header$1 = HeaderComponent;
+Header$1.Item = HeaderItem;
+Header$1.ItemIcon = HeaderItemIcon;
+Header$1.ItemText = HeaderItemText;
+Header$1.ItemWrapper = HeaderItemWrapper;
 
-export { Header, HeaderComponent };
+export { Header$1 as Header, HeaderComponent };

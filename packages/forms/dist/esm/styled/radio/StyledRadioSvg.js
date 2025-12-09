@@ -10,9 +10,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioInput } from './StyledRadioInput.js';
 import { StyledRadioLabel } from './StyledRadioLabel.js';
 
-const COMPONENT_ID = 'forms.radio_svg';
+const COMPONENT_ID$c = 'forms.radio_svg';
 const StyledRadioSvg = styled(SvgCircleSmFill).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$c,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledRadioSvg",

@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.body';
+const COMPONENT_ID$b = 'tables.body';
 const StyledBody = styled.tbody.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$b,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledBody",

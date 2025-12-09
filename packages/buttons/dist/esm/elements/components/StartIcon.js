@@ -12,16 +12,13 @@ import '../../styled/StyledExternalIcon.js';
 import { StyledIcon } from '../../styled/StyledIcon.js';
 import '../../styled/StyledIconButton.js';
 
-const StartIconComponent = _ref => {
-  let {
-    isRotated,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledIcon, Object.assign({
-    $position: "start",
-    $isRotated: isRotated
-  }, props));
-};
+const StartIconComponent = ({
+  isRotated,
+  ...props
+}) => React__default.createElement(StyledIcon, Object.assign({
+  $position: "start",
+  $isRotated: isRotated
+}, props));
 StartIconComponent.displayName = 'Button.StartIcon';
 const StartIcon = StartIconComponent;
 

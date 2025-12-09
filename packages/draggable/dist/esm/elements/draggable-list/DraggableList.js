@@ -18,11 +18,10 @@ import '../../styled/dropzone/StyledMessage.js';
 import '../../styled/dropzone/StyledIcon.js';
 import { DraggableListContext } from '../../utils/useDraggableListContext.js';
 
-const DraggableListComponent = forwardRef((_ref, ref) => {
-  let {
-    isHorizontal,
-    ...other
-  } = _ref;
+const DraggableListComponent = forwardRef(({
+  isHorizontal,
+  ...other
+}, ref) => {
   const value = useMemo(() => ({
     isHorizontal
   }), [isHorizontal]);

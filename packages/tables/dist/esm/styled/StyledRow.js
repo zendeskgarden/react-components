@@ -12,14 +12,13 @@ import { StyledOverflowButton } from './StyledOverflowButton.js';
 import { getRowHeight } from './style-utils.js';
 
 const COMPONENT_ID = 'tables.row';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isFocused,
-    $isSelected,
-    $isHovered,
-    $isReadOnly
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $isFocused,
+  $isSelected,
+  $isHovered,
+  $isReadOnly
+}) => {
   const hoveredBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],

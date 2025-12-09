@@ -13,12 +13,11 @@ import '../styled/StyledTabPanel.js';
 import '../styled/StyledTabs.js';
 import { useTabsContext } from '../utils/useTabsContext.js';
 
-const Tab = React.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    item,
-    ...otherProps
-  } = _ref;
+const Tab = React.forwardRef(({
+  disabled,
+  item,
+  ...otherProps
+}, ref) => {
   const tabsPropGetters = useTabsContext();
   if (disabled || !tabsPropGetters) {
     return React.createElement(StyledTab, Object.assign({

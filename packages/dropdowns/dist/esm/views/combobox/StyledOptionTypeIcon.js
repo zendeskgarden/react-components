@@ -7,14 +7,13 @@
 import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledOption, getMinHeight } from './StyledOption.js';
+import { getMinHeight, StyledOption } from './StyledOption.js';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.type_icon';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $type
-  } = _ref;
+const COMPONENT_ID$d = 'dropdowns.combobox.option.type_icon';
+const colorStyles$2 = ({
+  theme,
+  $type
+}) => {
   const opacity = $type && $type !== 'danger' ? 1 : 0;
   let color;
   if ($type === 'add') {
@@ -45,11 +44,11 @@ const sizeStyles = props => {
   return css(["top:", ";", ":", ";width:", ";height:", ";"], top, side, position, size, size);
 };
 const StyledOptionTypeIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$d,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledOptionTypeIcon",
   componentId: "sc-xpink2-0"
-})(["position:absolute;transform:", ";transition:opacity 0.1s ease-in-out;", ";", ";", ";"], props => props.theme.rtl && (props.$type === 'next' || props.$type === 'previous') && 'rotate(180deg)', sizeStyles, colorStyles, componentStyles);
+})(["position:absolute;transform:", ";transition:opacity 0.1s ease-in-out;", ";", ";", ";"], props => props.theme.rtl && (props.$type === 'next' || props.$type === 'previous') && 'rotate(180deg)', sizeStyles, colorStyles$2, componentStyles);
 
 export { StyledOptionTypeIcon };

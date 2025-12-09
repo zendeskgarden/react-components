@@ -11,11 +11,10 @@ import { StyledBaseRow } from './StyledBaseRow.js';
 import { StyledCell } from './StyledCell.js';
 import { getLineHeight } from './StyledTable.js';
 
-const COMPONENT_ID = 'tables.group_row';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$2 = 'tables.group_row';
+const colorStyles$1 = ({
+  theme
+}) => {
   return css(["background-color:", ";"], getColor({
     variable: 'background.subtle',
     transparency: theme.opacity[100],
@@ -28,17 +27,17 @@ const colorStyles = _ref => {
     theme
   }));
 };
-const sizeStyles = props => {
+const sizeStyles$1 = props => {
   const height = `${props.theme.space.base * 8}px`;
   const lineHeight = getLineHeight(props);
   return css(["height:", ";line-height:", ";font-size:", ";", "{padding:", " ", "px;}"], height, lineHeight, props.theme.fontSizes.sm, StyledCell, math(`(${height} - ${lineHeight}) / 2`), props.theme.space.base * 3);
 };
 const StyledGroupRow = styled(StyledBaseRow).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledGroupRow",
   componentId: "sc-mpd0r8-0"
-})(["", " ", " ", ";"], sizeStyles, colorStyles, componentStyles);
+})(["", " ", " ", ";"], sizeStyles$1, colorStyles$1, componentStyles);
 
 export { StyledGroupRow };

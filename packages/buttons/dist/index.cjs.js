@@ -80,16 +80,15 @@ const getHeight = props => {
   }
   return `${props.theme.space.base * 10}px`;
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isLink,
-    $isBasic,
-    $isDanger,
-    $isNeutral,
-    $isPrimary,
-    $focusInset
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $isLink,
+  $isBasic,
+  $isDanger,
+  $isNeutral,
+  $isPrimary,
+  $focusInset
+}) => {
   let retVal;
   const disabledBackgroundColor = reactTheming.getColor({
     theme,
@@ -294,14 +293,13 @@ const colorStyles = _ref => {
   }
   return retVal;
 };
-const groupStyles = _ref2 => {
-  let {
-    theme,
-    $isPrimary,
-    $isBasic,
-    $isPill,
-    $focusInset
-  } = _ref2;
+const groupStyles = ({
+  theme,
+  $isPrimary,
+  $isBasic,
+  $isPill,
+  $focusInset
+}) => {
   const {
     rtl,
     borderWidths,
@@ -411,10 +409,9 @@ const StyledExternalIcon = styled__default.default(SvgNewWindowStroke).attrs({
 })(["transform:", ";margin-bottom:-0.085em;padding-left:0.25em;box-sizing:content-box;width:0.85em;height:0.85em;", ";"], props => props.theme.rtl && 'scaleX(-1)', reactTheming.componentStyles);
 
 const COMPONENT_ID = 'buttons.icon_button';
-const iconColorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const iconColorStyles = ({
+  theme
+}) => {
   const options = {
     theme,
     variable: 'foreground.subtle'
@@ -464,45 +461,38 @@ const useSplitButtonContext = () => {
   return React.useContext(SplitButtonContext);
 };
 
-const StartIconComponent = _ref => {
-  let {
-    isRotated,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledIcon, Object.assign({
-    $position: "start",
-    $isRotated: isRotated
-  }, props));
-};
+const StartIconComponent = ({
+  isRotated,
+  ...props
+}) => React__namespace.default.createElement(StyledIcon, Object.assign({
+  $position: "start",
+  $isRotated: isRotated
+}, props));
 StartIconComponent.displayName = 'Button.StartIcon';
 const StartIcon = StartIconComponent;
 
-const EndIconComponent = _ref => {
-  let {
-    isRotated,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledIcon, Object.assign({
-    $position: "end",
-    $isRotated: isRotated
-  }, props));
-};
+const EndIconComponent = ({
+  isRotated,
+  ...props
+}) => React__namespace.default.createElement(StyledIcon, Object.assign({
+  $position: "end",
+  $isRotated: isRotated
+}, props));
 EndIconComponent.displayName = 'Button.EndIcon';
 const EndIcon = EndIconComponent;
 
-const ButtonComponent = React.forwardRef((_ref, ref) => {
-  let {
-    focusInset,
-    isBasic,
-    isDanger,
-    isLink,
-    isNeutral,
-    isPill,
-    isPrimary,
-    isStretched,
-    size = 'medium',
-    ...other
-  } = _ref;
+const ButtonComponent = React.forwardRef(({
+  focusInset,
+  isBasic,
+  isDanger,
+  isLink,
+  isNeutral,
+  isPill,
+  isPrimary,
+  isStretched,
+  size = 'medium',
+  ...other
+}, ref) => {
   const splitButtonFocusInset = useSplitButtonContext();
   return React__namespace.default.createElement(StyledButton, Object.assign({}, other, {
     $focusInset: focusInset || splitButtonFocusInset,
@@ -534,15 +524,14 @@ const Button = ButtonComponent;
 Button.EndIcon = EndIcon;
 Button.StartIcon = StartIcon;
 
-const Anchor = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    externalIconLabel,
-    isDanger,
-    isExternal,
-    isUnderlined = true,
-    ...other
-  } = _ref;
+const Anchor = React.forwardRef(({
+  children,
+  externalIconLabel,
+  isDanger,
+  isExternal,
+  isUnderlined = true,
+  ...other
+}, ref) => {
   let anchorProps = other;
   if (isExternal) {
     anchorProps = {
@@ -576,19 +565,18 @@ Anchor.propTypes = {
   externalIconLabel: PropTypes__default.default.string
 };
 
-const IconButton = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    focusInset,
-    isBasic = true,
-    isDanger,
-    isNeutral,
-    isPill = true,
-    isPrimary,
-    isRotated,
-    size = 'medium',
-    ...other
-  } = _ref;
+const IconButton = React.forwardRef(({
+  children,
+  focusInset,
+  isBasic = true,
+  isDanger,
+  isNeutral,
+  isPill = true,
+  isPrimary,
+  isRotated,
+  size = 'medium',
+  ...other
+}, ref) => {
   const splitButtonFocusInset = useSplitButtonContext();
   return React__namespace.default.createElement(StyledIconButton, Object.assign({}, other, {
     $isBasic: isBasic,
@@ -631,70 +619,58 @@ var SvgChevronDownStroke = function SvgChevronDownStroke(props) {
   })));
 };
 
-const ChevronButton = React.forwardRef((_ref, ref) => {
-  let {
-    isBasic = false,
-    isPill = false,
-    size = 'medium',
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(IconButton, Object.assign({
-    ref: ref,
-    isBasic: isBasic,
-    isPill: isPill,
-    size: size
-  }, props), React__namespace.default.createElement(SvgChevronDownStroke, null));
-});
+const ChevronButton = React.forwardRef(({
+  isBasic = false,
+  isPill = false,
+  size = 'medium',
+  ...props
+}, ref) => React__namespace.default.createElement(IconButton, Object.assign({
+  ref: ref,
+  isBasic: isBasic,
+  isPill: isPill,
+  size: size
+}, props), React__namespace.default.createElement(SvgChevronDownStroke, null)));
 ChevronButton.displayName = 'ChevronButton';
 ChevronButton.propTypes = IconButton.propTypes;
 
-const SplitButton = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    ...other
-  } = _ref;
-  return React__namespace.default.createElement(SplitButtonContext.Provider, {
-    value: true
-  }, React__namespace.default.createElement(StyledSplitButton, Object.assign({
-    ref: ref
-  }, other), children));
-});
+const SplitButton = React.forwardRef(({
+  children,
+  ...other
+}, ref) => React__namespace.default.createElement(SplitButtonContext.Provider, {
+  value: true
+}, React__namespace.default.createElement(StyledSplitButton, Object.assign({
+  ref: ref
+}, other), children)));
 SplitButton.displayName = 'SplitButton';
 
-const ToggleButton = React.forwardRef((_ref, ref) => {
-  let {
-    isPressed,
-    size = 'medium',
-    ...otherProps
-  } = _ref;
-  return React__namespace.default.createElement(Button, Object.assign({
-    "aria-pressed": isPressed,
-    size: size,
-    ref: ref
-  }, otherProps));
-});
+const ToggleButton = React.forwardRef(({
+  isPressed,
+  size = 'medium',
+  ...otherProps
+}, ref) => React__namespace.default.createElement(Button, Object.assign({
+  "aria-pressed": isPressed,
+  size: size,
+  ref: ref
+}, otherProps)));
 ToggleButton.displayName = 'ToggleButton';
 ToggleButton.propTypes = {
   ...Button.propTypes,
   isPressed: PropTypes__default.default.oneOf([true, false, 'mixed'])
 };
 
-const ToggleIconButton = React.forwardRef((_ref, ref) => {
-  let {
-    isPressed,
-    isPill = true,
-    isBasic = true,
-    size = 'medium',
-    ...otherProps
-  } = _ref;
-  return React__namespace.default.createElement(IconButton, Object.assign({
-    "aria-pressed": isPressed,
-    isPill: isPill,
-    isBasic: isBasic,
-    size: size,
-    ref: ref
-  }, otherProps));
-});
+const ToggleIconButton = React.forwardRef(({
+  isPressed,
+  isPill = true,
+  isBasic = true,
+  size = 'medium',
+  ...otherProps
+}, ref) => React__namespace.default.createElement(IconButton, Object.assign({
+  "aria-pressed": isPressed,
+  isPill: isPill,
+  isBasic: isBasic,
+  size: size,
+  ref: ref
+}, otherProps)));
 ToggleIconButton.displayName = 'ToggleIconButton';
 ToggleIconButton.propTypes = {
   ...IconButton.propTypes,

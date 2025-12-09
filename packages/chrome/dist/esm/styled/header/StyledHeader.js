@@ -9,12 +9,11 @@ import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledLogoHeaderItem } from './StyledLogoHeaderItem.js';
 import { getHeaderHeight } from '../utils.js';
 
-const COMPONENT_ID = 'chrome.header';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isStandalone
-  } = _ref;
+const COMPONENT_ID$k = 'chrome.header';
+const colorStyles$7 = ({
+  theme,
+  $isStandalone
+}) => {
   const backgroundColor = getColor({
     theme,
     variable: 'background.default'
@@ -34,10 +33,9 @@ const colorStyles = _ref => {
   });
   return css(["border-bottom-color:", ";box-shadow:", ";background-color:", ";color:", ";"], borderColor, boxShadow, backgroundColor, foregroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$9 = ({
+  theme
+}) => {
   const border = theme.borders.sm;
   const padding = `0 ${theme.space.base}px`;
   const fontSize = theme.fontSizes.md;
@@ -45,11 +43,11 @@ const sizeStyles = _ref2 => {
   return css(["box-sizing:border-box;border-bottom:", ";padding:", ";height:", ";font-size:", ";"], border, padding, height, fontSize);
 };
 const StyledHeader = styled.header.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$k,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeader",
   componentId: "sc-1cexpz-0"
-})(["display:flex;position:", ";align-items:center;justify-content:flex-end;", ";", ";", "{display:", ";}", ";"], props => props.$isStandalone && 'relative', sizeStyles, colorStyles, StyledLogoHeaderItem, props => props.$isStandalone && 'inline-flex', componentStyles);
+})(["display:flex;position:", ";align-items:center;justify-content:flex-end;", ";", ";", "{display:", ";}", ";"], props => props.$isStandalone && 'relative', sizeStyles$9, colorStyles$7, StyledLogoHeaderItem, props => props.$isStandalone && 'inline-flex', componentStyles);
 
 export { StyledHeader };

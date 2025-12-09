@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledBody } from './StyledBody.js';
 
-const COMPONENT_ID = 'modals.drawer_modal.body';
+const COMPONENT_ID$2 = 'modals.drawer_modal.body';
 const StyledDrawerBody = styled(StyledBody).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDrawerBody",

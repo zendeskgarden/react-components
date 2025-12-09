@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import SvgCircleSmFill from '../../node_modules/@zendeskgarden/svg-icons/src/16/circle-sm-fill.svg.js';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.toggle_svg';
+const COMPONENT_ID$7 = 'forms.toggle_svg';
 const StyledToggleSvg = styled(SvgCircleSmFill).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledToggleSvg",

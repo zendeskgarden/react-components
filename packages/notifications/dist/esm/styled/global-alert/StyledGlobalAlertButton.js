@@ -7,17 +7,17 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor, focusStyles } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
-import { colorStyles as colorStyles$1 } from './StyledGlobalAlertClose.js';
+import { colorStyles } from './StyledGlobalAlertClose.js';
 
-const COMPONENT_ID = 'notifications.global_alert.button';
-function colorStyles(props) {
+const COMPONENT_ID$3 = 'notifications.global_alert.button';
+function colorStyles$2(props) {
   const {
     $alertType,
     isBasic,
     theme
   } = props;
   if (isBasic) {
-    return colorStyles$1(props);
+    return colorStyles(props);
   }
   let bgVariable;
   let offsetOptions;
@@ -99,17 +99,17 @@ function colorStyles(props) {
     }
   }), activeBackgroundColor);
 }
-function sizeStyles(props) {
+function sizeStyles$1(props) {
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
   return css(["margin:", " ", " ", " ", ";"], marginVertical, props.theme.rtl ? marginStart : 0, marginVertical, props.theme.rtl ? 0 : marginStart);
 }
 const StyledGlobalAlertButton = styled(Button).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledGlobalAlertButton",
   componentId: "sc-1txe91a-0"
-})(["flex-shrink:0;", ";", ";", ";"], sizeStyles, colorStyles, componentStyles);
+})(["flex-shrink:0;", ";", ";", ";"], sizeStyles$1, colorStyles$2, componentStyles);
 
 export { StyledGlobalAlertButton };

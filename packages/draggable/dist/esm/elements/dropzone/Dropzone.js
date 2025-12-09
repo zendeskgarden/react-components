@@ -19,17 +19,16 @@ import '../../styled/dropzone/StyledMessage.js';
 import { StyledIcon } from '../../styled/dropzone/StyledIcon.js';
 import { DropzoneContext } from '../../utils/useDropzoneContext.js';
 
-const DropzoneComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    isActive,
-    isDanger,
-    isDisabled,
-    isHighlighted,
-    isVertical,
-    tag,
-    ...other
-  } = _ref;
+const DropzoneComponent = forwardRef(({
+  children,
+  isActive,
+  isDanger,
+  isDisabled,
+  isHighlighted,
+  isVertical,
+  tag,
+  ...other
+}, ref) => {
   const [hasMessage, setHasMessage] = useState(false);
   const [hasIcon, setHasIcon] = useState(false);
   const value = useMemo(() => ({

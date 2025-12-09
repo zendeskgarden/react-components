@@ -7,11 +7,10 @@
 import styled, { css } from 'styled-components';
 import { componentStyles, getColor, focusStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.tile';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$3 = 'forms.tile';
+const colorStyles$1 = ({
+  theme
+}) => {
   const offset100 = {
     dark: {
       offset: -100
@@ -92,20 +91,19 @@ const colorStyles = _ref => {
     }
   }), activeBorderColor, activeBackgroundColor, checkedBackgroundColor, checkedForegroundColor, checkedHoverBackgroundColor, checkedActiveBackgroundColor, disabledBorderColor, disabledBackgroundColor, disabledForegroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$3 = ({
+  theme
+}) => {
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
   return css(["border:", ";padding:", ";min-width:132px;"], border, padding);
 };
 const StyledTile = styled.label.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTile",
   componentId: "sc-1jjvmxs-0"
-})(["display:block;position:relative;transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;border-radius:", ";direction:", ";word-break:break-word;", ";", ";", ";"], props => props.theme.borderRadii.md, props => props.theme.rtl && 'rtl', sizeStyles, colorStyles, componentStyles);
+})(["display:block;position:relative;transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;border-radius:", ";direction:", ";word-break:break-word;", ";", ";", ";"], props => props.theme.borderRadii.md, props => props.theme.rtl && 'rtl', sizeStyles$3, colorStyles$1, componentStyles);
 
 export { StyledTile };

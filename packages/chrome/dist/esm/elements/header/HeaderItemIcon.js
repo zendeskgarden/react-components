@@ -39,13 +39,10 @@ import '../../styled/sheet/StyledSheetFooter.js';
 import '../../styled/sheet/StyledSheetFooterItem.js';
 import '../../styled/sheet/StyledSheetHeader.js';
 
-const HeaderItemIcon = _ref => {
-  let {
-    children,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledHeaderItemIcon, props, children);
-};
+const HeaderItemIcon = ({
+  children,
+  ...props
+}) => React__default.createElement(StyledHeaderItemIcon, props, children);
 HeaderItemIcon.displayName = 'Header.ItemIcon';
 
 export { HeaderItemIcon };

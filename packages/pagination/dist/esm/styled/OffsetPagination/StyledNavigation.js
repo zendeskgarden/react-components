@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPage } from './StyledPage.js';
 
-const COMPONENT_ID = 'pagination.navigation';
+const COMPONENT_ID$1 = 'pagination.navigation';
 const StyledNavigation = styled(StyledPage).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledNavigation",

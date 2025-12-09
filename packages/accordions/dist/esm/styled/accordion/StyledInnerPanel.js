@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPanel } from './StyledPanel.js';
 
-const COMPONENT_ID = 'accordions.step_inner_panel';
+const COMPONENT_ID$7 = 'accordions.step_inner_panel';
 const StyledInnerPanel = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$7,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledInnerPanel",

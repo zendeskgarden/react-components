@@ -10,18 +10,18 @@ import { StyledLabel } from './StyledLabel.js';
 import { StyledHint } from './StyledHint.js';
 import { StyledMessage } from './StyledMessage.js';
 
-const COMPONENT_ID = 'dropdowns.combobox';
-const sizeStyles = props => {
+const COMPONENT_ID$t = 'dropdowns.combobox';
+const sizeStyles$b = props => {
   const minWidth = `${props.$isCompact ? 100 : 144}px`;
   const marginTop = `${props.theme.space.base * (props.$isCompact ? 1 : 2)}px`;
   return css(["min-width:", ";", ":not([hidden]) + &&,", " + &&,", " + &&,&& + ", ",&& + ", "{margin-top:", ";}"], minWidth, StyledLabel, StyledHint, StyledMessage, StyledHint, StyledMessage, marginTop);
 };
 const StyledCombobox = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$t,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCombobox",
   componentId: "sc-13eybg8-0"
-})(["", ";", ";"], sizeStyles, componentStyles);
+})(["", ";", ";"], sizeStyles$b, componentStyles);
 
 export { StyledCombobox };

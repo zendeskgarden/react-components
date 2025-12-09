@@ -19,13 +19,12 @@ import '../styled/pane/StyledPaneSplitterButtonContainer.js';
 import { Row } from './Row.js';
 import { Col } from './Col.js';
 
-const GridComponent = React.forwardRef((_ref, ref) => {
-  let {
-    columns = 12,
-    gutters = 'md',
-    debug,
-    ...other
-  } = _ref;
+const GridComponent = React.forwardRef(({
+  columns = 12,
+  gutters = 'md',
+  debug,
+  ...other
+}, ref) => {
   const value = useMemo(() => ({
     columns,
     gutters: gutters,

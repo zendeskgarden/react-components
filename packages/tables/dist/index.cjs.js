@@ -56,17 +56,15 @@ const StyledCaption = styled__default.default.caption.attrs({
   componentId: "sc-113y327-0"
 })(["display:table-caption;text-align:", ";", ";"], props => props.theme.rtl ? 'right' : 'left', reactTheming.componentStyles);
 
-const sizeStyles$4 = _ref => {
-  let {
-    theme
-  } = _ref;
+const sizeStyles$4 = ({
+  theme
+}) => {
   return styled.css(["border-bottom:", ";vertical-align:top;box-sizing:border-box;"], theme.borders.sm);
 };
-const colorStyles$5 = _ref2 => {
-  let {
-    theme,
-    $isStriped
-  } = _ref2;
+const colorStyles$5 = ({
+  theme,
+  $isStriped
+}) => {
   const borderColor = reactTheming.getColor({
     variable: 'border.subtle',
     theme
@@ -117,10 +115,9 @@ const getHeaderRowHeight = props => {
   }
   return `${props.theme.space.base * 12}px`;
 };
-const colorStyles$4 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$4 = ({
+  theme
+}) => {
   return styled.css(["border-bottom-color:", ";"], reactTheming.getColor({
     variable: 'border.default',
     theme
@@ -197,11 +194,10 @@ const StyledSortableFillIconWrapper = styled__default.default(StyledBaseIconWrap
   displayName: "StyledSortableButton__StyledSortableFillIconWrapper",
   componentId: "sc-2s1dli-2"
 })([""]);
-const colorStyles$3 = _ref => {
-  let {
-    theme,
-    $sort
-  } = _ref;
+const colorStyles$3 = ({
+  theme,
+  $sort
+}) => {
   const fgInactive = reactTheming.getColor({
     variable: 'foreground.subtle',
     transparency: theme.opacity[200],
@@ -292,10 +288,9 @@ const StyledHeaderCell = styled__default.default(StyledCell).attrs({
 }, props => sizeStyles$2(props), props => props.$isTruncated && truncatedStyling, reactTheming.componentStyles);
 
 const COMPONENT_ID$3 = 'tables.head';
-const colorStyles$2 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     variable: 'border.default',
     theme
@@ -318,10 +313,9 @@ const StyledHead = styled__default.default.thead.attrs({
 })(["", " ", " ", ";"], props => props.$isSticky && stickyStyles(), colorStyles$2, reactTheming.componentStyles);
 
 const COMPONENT_ID$2 = 'tables.group_row';
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   return styled.css(["background-color:", ";"], reactTheming.getColor({
     variable: 'background.subtle',
     transparency: theme.opacity[100],
@@ -357,14 +351,13 @@ const StyledHiddenCell = styled__default.default.div.attrs({
 })(["", " ", ";"], polished.hideVisually(), reactTheming.componentStyles);
 
 const COMPONENT_ID = 'tables.row';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isFocused,
-    $isSelected,
-    $isHovered,
-    $isReadOnly
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $isFocused,
+  $isSelected,
+  $isHovered,
+  $isReadOnly
+}) => {
   const hoveredBackgroundColor = reactTheming.getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],
@@ -463,14 +456,13 @@ const useTableContext = () => {
   return React.useContext(TableContext);
 };
 
-const Cell = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    hidden,
-    isMinimum,
-    isTruncated,
-    hasOverflow,
-    ...props
-  } = _ref;
+const Cell = React__namespace.default.forwardRef(({
+  hidden,
+  isMinimum,
+  isTruncated,
+  hasOverflow,
+  ...props
+}, ref) => {
   const {
     size
   } = useTableContext();
@@ -501,26 +493,22 @@ const GroupRow = React.forwardRef((props, ref) => {
 });
 GroupRow.displayName = 'Table.GroupRow';
 
-const Head = React.forwardRef((_ref, ref) => {
-  let {
-    isSticky,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledHead, Object.assign({
-    ref: ref,
-    $isSticky: isSticky
-  }, props));
-});
+const Head = React.forwardRef(({
+  isSticky,
+  ...props
+}, ref) => React__namespace.default.createElement(StyledHead, Object.assign({
+  ref: ref,
+  $isSticky: isSticky
+}, props)));
 Head.displayName = 'Table.Head';
 
-const HeaderCell = React.forwardRef((_ref, ref) => {
-  let {
-    hidden,
-    isMinimum,
-    isTruncated,
-    hasOverflow,
-    ...props
-  } = _ref;
+const HeaderCell = React.forwardRef(({
+  hidden,
+  isMinimum,
+  isTruncated,
+  hasOverflow,
+  ...props
+}, ref) => {
   const {
     size
   } = useTableContext();
@@ -576,16 +564,15 @@ const OverflowButton = React.forwardRef((props, ref) => {
 });
 OverflowButton.displayName = 'Table.OverflowButton';
 
-const Row = React.forwardRef((_ref, ref) => {
-  let {
-    onFocus,
-    onBlur,
-    isSelected,
-    isStriped,
-    isHovered,
-    isFocused: focused,
-    ...otherProps
-  } = _ref;
+const Row = React.forwardRef(({
+  onFocus,
+  onBlur,
+  isSelected,
+  isStriped,
+  isHovered,
+  isFocused: focused,
+  ...otherProps
+}, ref) => {
   const [isFocused, setIsFocused] = React.useState(false);
   const {
     size,
@@ -667,14 +654,13 @@ var SvgSortFill = function SvgSortFill(props) {
 const SIZE = ['small', 'medium', 'large'];
 const SORT = ['asc', 'desc'];
 
-const SortableCell = React.forwardRef((_ref, ref) => {
-  let {
-    sort,
-    cellProps = {},
-    width,
-    children,
-    ...sortableButtonProps
-  } = _ref;
+const SortableCell = React.forwardRef(({
+  sort,
+  cellProps = {},
+  width,
+  children,
+  ...sortableButtonProps
+}, ref) => {
   const {
     isMinimum,
     isTruncated,
@@ -706,12 +692,11 @@ SortableCell.propTypes = {
   width: PropTypes__default.default.oneOfType([PropTypes__default.default.string, PropTypes__default.default.number])
 };
 
-const TableComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isReadOnly,
-    size = 'medium',
-    ...props
-  } = _ref;
+const TableComponent = React__namespace.default.forwardRef(({
+  isReadOnly,
+  size = 'medium',
+  ...props
+}, ref) => {
   const tableContextValue = React.useMemo(() => ({
     size: size,
     isReadOnly: isReadOnly

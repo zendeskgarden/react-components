@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledPageBase } from '../OffsetPagination/StyledPageBase.js';
 
-const COMPONENT_ID = 'cursor_pagination.cursor';
+const COMPONENT_ID$3 = 'cursor_pagination.cursor';
 const StyledCursor = styled(StyledPageBase).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3',
   as: 'button'
 }).withConfig({

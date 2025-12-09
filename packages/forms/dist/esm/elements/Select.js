@@ -55,15 +55,14 @@ import '../styled/tiles/StyledTileLabel.js';
 import { FauxInput } from './faux-input/FauxInput.js';
 import useFieldContext from '../utils/useFieldContext.js';
 
-const Select = React__default.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    isCompact,
-    validation,
-    focusInset,
-    isBare,
-    ...props
-  } = _ref;
+const Select = React__default.forwardRef(({
+  disabled,
+  isCompact,
+  validation,
+  focusInset,
+  isBare,
+  ...props
+}, ref) => {
   const fieldContext = useFieldContext();
   let combinedProps = {
     $focusInset: focusInset,

@@ -8,10 +8,10 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledLabel } from './StyledLabel.js';
 
-const COMPONENT_ID = 'forms.fieldset_legend';
+const COMPONENT_ID$D = 'forms.fieldset_legend';
 const StyledLegend = styled(StyledLabel).attrs({
   as: 'legend',
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$D,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledLegend",

@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getLineHeight, getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'forms.input_hint';
+const COMPONENT_ID$C = 'forms.input_hint';
 const StyledHint = styled.div.attrs(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+  'data-garden-id': props['data-garden-id'] || COMPONENT_ID$C,
   'data-garden-version': props['data-garden-version'] || '9.12.3'
 })).withConfig({
   displayName: "StyledHint",

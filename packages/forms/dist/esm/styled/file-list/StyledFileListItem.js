@@ -9,9 +9,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledFileList } from './StyledFileList.js';
 import { StyledFileUpload } from '../file-upload/StyledFileUpload.js';
 
-const COMPONENT_ID = 'forms.file_list.item';
+const COMPONENT_ID$d = 'forms.file_list.item';
 const StyledFileListItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$d,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFileListItem",

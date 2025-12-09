@@ -50,22 +50,19 @@ import '../../../styled/tiles/StyledTileIcon.js';
 import '../../../styled/tiles/StyledTileInput.js';
 import '../../../styled/tiles/StyledTileLabel.js';
 
-const StartIconComponent = _ref => {
-  let {
-    isDisabled,
-    isFocused,
-    isHovered,
-    isRotated,
-    ...props
-  } = _ref;
-  return React__default.createElement(StyledTextMediaFigure, Object.assign({
-    $position: "start",
-    $isDisabled: isDisabled,
-    $isFocused: isFocused,
-    $isHovered: isHovered,
-    $isRotated: isRotated
-  }, props));
-};
+const StartIconComponent = ({
+  isDisabled,
+  isFocused,
+  isHovered,
+  isRotated,
+  ...props
+}) => React__default.createElement(StyledTextMediaFigure, Object.assign({
+  $position: "start",
+  $isDisabled: isDisabled,
+  $isFocused: isFocused,
+  $isHovered: isHovered,
+  $isRotated: isRotated
+}, props));
 StartIconComponent.displayName = 'FauxInput.StartIcon';
 const StartIcon = StartIconComponent;
 

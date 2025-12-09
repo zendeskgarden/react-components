@@ -20,14 +20,13 @@ import '../styled/StyledOverflowButton.js';
 import '../styled/StyledRow.js';
 import { useTableContext } from '../utils/useTableContext.js';
 
-const Cell = React__default.forwardRef((_ref, ref) => {
-  let {
-    hidden,
-    isMinimum,
-    isTruncated,
-    hasOverflow,
-    ...props
-  } = _ref;
+const Cell = React__default.forwardRef(({
+  hidden,
+  isMinimum,
+  isTruncated,
+  hasOverflow,
+  ...props
+}, ref) => {
   const {
     size
   } = useTableContext();

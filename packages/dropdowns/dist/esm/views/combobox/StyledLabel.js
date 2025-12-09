@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'dropdowns.combobox.label';
+const COMPONENT_ID$w = 'dropdowns.combobox.label';
 const StyledLabel = styled(Field.Label).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$w,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledLabel",

@@ -36,27 +36,26 @@ import '../../styled/ColorSwatch/StyledIcon.js';
 import '../../styled/ColorSwatch/StyledCell.js';
 import { useText, DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
-const ColorPickerDialog = forwardRef((_ref, ref) => {
-  let {
-    color,
-    defaultColor,
-    placement = 'bottom-start',
-    onChange,
-    onClose,
-    labels,
-    hasArrow = false,
-    isAnimated = true,
-    isOpaque,
-    isOpen,
-    zIndex = 1000,
-    focusInset,
-    disabled,
-    buttonProps,
-    onDialogChange,
-    'aria-label': ariaLabel,
-    children,
-    ...props
-  } = _ref;
+const ColorPickerDialog = forwardRef(({
+  color,
+  defaultColor,
+  placement = 'bottom-start',
+  onChange,
+  onClose,
+  labels,
+  hasArrow = false,
+  isAnimated = true,
+  isOpaque,
+  isOpen,
+  zIndex = 1000,
+  focusInset,
+  disabled,
+  buttonProps,
+  onDialogChange,
+  'aria-label': ariaLabel,
+  children,
+  ...props
+}, ref) => {
   const isControlled = color !== null && color !== undefined;
   const isDialogControlled = isOpen !== undefined && isOpen !== null;
   const buttonRef = useRef(null);

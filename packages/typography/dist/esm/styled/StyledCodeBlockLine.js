@@ -8,13 +8,12 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledFont, THEME_SIZES } from './StyledFont.js';
 
-const COMPONENT_ID = 'typography.codeblock_code';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $diff,
-    $isHighlighted
-  } = _ref;
+const COMPONENT_ID$5 = 'typography.codeblock_code';
+const colorStyles$1 = ({
+  theme,
+  $diff,
+  $isHighlighted
+}) => {
   let backgroundColor;
   if ($diff) {
     const hues = {
@@ -49,12 +48,11 @@ const colorStyles = _ref => {
   }
   return css(["background-color:", ";"], backgroundColor);
 };
-const lineNumberStyles = _ref2 => {
-  let {
-    theme,
-    $language,
-    $size
-  } = _ref2;
+const lineNumberStyles = ({
+  theme,
+  $language,
+  $size
+}) => {
   const color = getColor({
     theme,
     variable: 'foreground.subtle',
@@ -85,13 +83,13 @@ const lineNumberStyles = _ref2 => {
   `;
 };
 const StyledCodeBlockLine = styled(StyledFont).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3',
   as: 'code',
   $isMonospace: true
 }).withConfig({
   displayName: "StyledCodeBlockLine",
   componentId: "sc-1goay17-0"
-})(["display:table-row;height:", ";direction:ltr;", ";", ";&::after{display:inline-block;width:", "px;content:'';}", ";"], props => props.theme.lineHeights[THEME_SIZES[props.$size]], colorStyles, props => props.$isNumbered && lineNumberStyles(props), props => props.theme.space.base * 3, componentStyles);
+})(["display:table-row;height:", ";direction:ltr;", ";", ";&::after{display:inline-block;width:", "px;content:'';}", ";"], props => props.theme.lineHeights[THEME_SIZES[props.$size]], colorStyles$1, props => props.$isNumbered && lineNumberStyles(props), props => props.theme.space.base * 3, componentStyles);
 
 export { StyledCodeBlockLine };

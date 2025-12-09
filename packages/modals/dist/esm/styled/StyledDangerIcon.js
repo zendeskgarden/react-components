@@ -5,7 +5,7 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import styled from 'styled-components';
-import SvgAlertErrorStroke from '../node_modules/@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg.js';
+import SvgAlertErrorStroke from '../packages/modals/node_modules/@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg.js';
 
 const StyledDangerIcon = styled(SvgAlertErrorStroke).withConfig({
   displayName: "StyledDangerIcon",

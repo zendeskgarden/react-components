@@ -144,8 +144,7 @@ const StyledColorPicker = styled__default.default.div.attrs({
 })(["width:", "px;min-width:", "px;", ";"], getColorPickerWidth, getColorPickerWidth, reactTheming.componentStyles);
 
 const COMPONENT_ID$k = 'colorpickers.colorpicker_range';
-const thumbStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const thumbStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-thumb {
       ${styles}
@@ -160,8 +159,7 @@ const thumbStyles = function (styles) {
     }
   `;
 };
-const trackStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-track {
       ${styles}
@@ -176,8 +174,7 @@ const trackStyles = function (styles) {
     }
   `;
 };
-const trackLowerStyles = function (styles) {
-  let modifier = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+const trackLowerStyles = (styles, modifier = '') => {
   return `
     &${modifier}::-moz-range-progress {
       ${styles}
@@ -188,10 +185,9 @@ const trackLowerStyles = function (styles) {
     }
   `;
 };
-const colorStyles$2 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  theme
+}) => {
   const thumbBackgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.default'
@@ -373,10 +369,9 @@ const StyledColorWell = styled__default.default.div.attrs(props => ({
 })(["position:relative;margin-bottom:", "px;cursor:pointer;height:208px;overflow:hidden;", ";"], props => props.theme.space.base * 2, reactTheming.componentStyles);
 
 const COMPONENT_ID$f = 'colorpickers.colorpicker_colorwell_thumb';
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   const borderColor = reactTheming.getColor({
     theme,
     hue: 'white'
@@ -387,10 +382,9 @@ const colorStyles$1 = _ref => {
   }))}`;
   return styled.css(["border-color:", ";box-shadow:", ";"], borderColor, boxShadow);
 };
-const sizeStyles$2 = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$2 = ({
+  theme
+}) => {
   const borderWidth = polished.stripUnit(theme.borderWidths.sm) * 2;
   const size = theme.space.base * 5;
   const translateValue = size / -2;
@@ -514,11 +508,10 @@ const StyledButton = styled__default.default(reactButtons.Button).attrs({
 })(["padding:0;width:", "px;max-width:", "px;&:last-of-type:not(:first-child){border-top-", "-radius:", " !important;border-bottom-", "-radius:", " !important;}"], props => props.theme.space.base * 17, props => props.theme.space.base * 17, props => props.theme.rtl ? 'left' : 'right', props => props.theme.borderRadii.md, props => props.theme.rtl ? 'left' : 'right', props => props.theme.borderRadii.md);
 
 const COMPONENT_ID$7 = 'colorpickers.colordialog_preview';
-const background = _ref => {
-  let {
-    $backgroundColor,
-    theme
-  } = _ref;
+const background = ({
+  $backgroundColor,
+  theme
+}) => {
   let retVal;
   if (typeof $backgroundColor === 'string') {
     retVal = $backgroundColor;
@@ -588,11 +581,10 @@ const StyledColorSwatchInput = styled__default.default.input.attrs({
 })(["position:absolute;opacity:0;z-index:1;margin:0;cursor:pointer;width:100%;height:100%;", ";"], reactTheming.componentStyles);
 
 const COMPONENT_ID$2 = 'colorpickers.color_swatch_label';
-const colorStyles = _ref => {
-  let {
-    $backgroundColor,
-    theme
-  } = _ref;
+const colorStyles = ({
+  $backgroundColor,
+  theme
+}) => {
   const {
     alpha
   } = polished.parseToRgb($backgroundColor);
@@ -643,13 +635,12 @@ const StyledCell = styled__default.default.td.attrs({
   componentId: "sc-qr3oit-0"
 })(["padding:", "px;font-size:0;", ";"], props => props.theme.space.base, reactTheming.componentStyles);
 
-const ColorWell = React__namespace.default.memo(_ref => {
-  let {
-    hue,
-    saturation,
-    lightness,
-    onChange
-  } = _ref;
+const ColorWell = React__namespace.default.memo(({
+  hue,
+  saturation,
+  lightness,
+  onChange
+}) => {
   const {
     rtl
   } = React.useContext(styled.ThemeContext);
@@ -986,16 +977,15 @@ const reducer = (state, action) => {
   }
 };
 
-const ColorPicker = React.forwardRef((_ref, ref) => {
-  let {
-    color,
-    defaultColor = '#fff',
-    isOpaque,
-    labels = {},
-    autofocus,
-    onChange,
-    ...props
-  } = _ref;
+const ColorPicker = React.forwardRef(({
+  color,
+  defaultColor = '#fff',
+  isOpaque,
+  labels = {},
+  autofocus,
+  onChange,
+  ...props
+}, ref) => {
   const [state, dispatch] = React.useReducer(reducer, getInitialState(color || defaultColor));
   const previousComputedColorRef = React.useRef(state.color);
   const previousStateColorRef = React.useRef(state.color);
@@ -1201,27 +1191,26 @@ var SvgChevronDownStroke = function SvgChevronDownStroke(props) {
   })));
 };
 
-const ColorPickerDialog = React.forwardRef((_ref, ref) => {
-  let {
-    color,
-    defaultColor,
-    placement = 'bottom-start',
-    onChange,
-    onClose,
-    labels,
-    hasArrow = false,
-    isAnimated = true,
-    isOpaque,
-    isOpen,
-    zIndex = 1000,
-    focusInset,
-    disabled,
-    buttonProps,
-    onDialogChange,
-    'aria-label': ariaLabel,
-    children,
-    ...props
-  } = _ref;
+const ColorPickerDialog = React.forwardRef(({
+  color,
+  defaultColor,
+  placement = 'bottom-start',
+  onChange,
+  onClose,
+  labels,
+  hasArrow = false,
+  isAnimated = true,
+  isOpaque,
+  isOpen,
+  zIndex = 1000,
+  focusInset,
+  disabled,
+  buttonProps,
+  onDialogChange,
+  'aria-label': ariaLabel,
+  children,
+  ...props
+}, ref) => {
   const isControlled = color !== null && color !== undefined;
   const isDialogControlled = isOpen !== undefined && isOpen !== null;
   const buttonRef = React.useRef(null);
@@ -1332,18 +1321,17 @@ var SvgCheckSmFill = function SvgCheckSmFill(props) {
   })));
 };
 
-const ColorSwatch = React.forwardRef((_ref, ref) => {
-  let {
-    name,
-    colors,
-    isCheckboxGroup,
-    defaultSelectedColIndex,
-    defaultSelectedRowIndex,
-    selectedColIndex,
-    selectedRowIndex,
-    onSelect,
-    ...props
-  } = _ref;
+const ColorSwatch = React.forwardRef(({
+  name,
+  colors,
+  isCheckboxGroup,
+  defaultSelectedColIndex,
+  defaultSelectedRowIndex,
+  selectedColIndex,
+  selectedRowIndex,
+  onSelect,
+  ...props
+}, ref) => {
   const theme = React.useContext(styled.ThemeContext) || reactTheming.DEFAULT_THEME;
   const environment = reactTheming.useDocument(theme);
   const gridRef = React.useRef();
@@ -1444,29 +1432,28 @@ ColorSwatch.propTypes = {
   onSelect: PropTypes__default.default.func
 };
 
-const ColorSwatchDialog = React.forwardRef((_ref, ref) => {
-  let {
-    name,
-    colors,
-    isCheckboxGroup,
-    selectedRowIndex,
-    selectedColIndex,
-    defaultSelectedRowIndex,
-    defaultSelectedColIndex,
-    placement = 'bottom-start',
-    onSelect,
-    hasArrow = false,
-    isAnimated = true,
-    zIndex = 1000,
-    isOpen,
-    focusInset,
-    disabled,
-    buttonProps,
-    onDialogChange,
-    children,
-    'aria-label': ariaLabel,
-    ...props
-  } = _ref;
+const ColorSwatchDialog = React.forwardRef(({
+  name,
+  colors,
+  isCheckboxGroup,
+  selectedRowIndex,
+  selectedColIndex,
+  defaultSelectedRowIndex,
+  defaultSelectedColIndex,
+  placement = 'bottom-start',
+  onSelect,
+  hasArrow = false,
+  isAnimated = true,
+  zIndex = 1000,
+  isOpen,
+  focusInset,
+  disabled,
+  buttonProps,
+  onDialogChange,
+  children,
+  'aria-label': ariaLabel,
+  ...props
+}, ref) => {
   const isControlled = selectedRowIndex !== undefined && selectedColIndex !== undefined;
   const isDialogControlled = isOpen !== undefined && isOpen !== null;
   const buttonRef = React.useRef(null);

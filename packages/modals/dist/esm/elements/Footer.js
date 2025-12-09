@@ -29,7 +29,7 @@ import '../styled/StyledDrawerFooter.js';
 import '../styled/StyledDrawerFooterItem.js';
 import { useModalContext } from '../utils/useModalContext.js';
 
-const Footer = React__default.forwardRef((props, ref) => {
+const Footer$2 = React__default.forwardRef((props, ref) => {
   const {
     isLarge
   } = useModalContext();
@@ -38,6 +38,6 @@ const Footer = React__default.forwardRef((props, ref) => {
     $isLarge: isLarge
   }, props));
 });
-Footer.displayName = 'Modal.Footer';
+Footer$2.displayName = 'Modal.Footer';
 
-export { Footer };
+export { Footer$2 as Footer };

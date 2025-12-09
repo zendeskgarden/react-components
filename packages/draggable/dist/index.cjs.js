@@ -35,10 +35,9 @@ var React__namespace = /*#__PURE__*/_interopNamespace(React);
 var styled__default = /*#__PURE__*/_interopDefault(styled);
 
 const COMPONENT_ID$8 = 'draggable.grip';
-function sizeStyles$6(_ref) {
-  let {
-    theme
-  } = _ref;
+function sizeStyles$6({
+  theme
+}) {
   const property = theme.rtl ? 'margin-left' : 'margin-right';
   return styled.css(["", ":", ";"], property, theme.space.xs);
 }
@@ -326,11 +325,10 @@ const StyledMessage = styled__default.default.p.attrs({
 })(["margin:0;line-height:", ";color:inherit;font-size:", ";font-weight:", ";", ";"], p => reactTheming.getLineHeight(p.theme.space.base * 5, p.theme.fontSizes.md), p => p.theme.fontSizes.md, p => p.theme.fontWeights.regular, reactTheming.componentStyles);
 
 const COMPONENT_ID = 'dropzone.icon';
-function sizeStyles(_ref) {
-  let {
-    theme,
-    $isVertical
-  } = _ref;
+function sizeStyles({
+  theme,
+  $isVertical
+}) {
   let property;
   let value;
   if ($isVertical) {
@@ -417,17 +415,16 @@ const Grip = React.forwardRef((props, ref) => React__namespace.default.createEle
 }), React__namespace.default.createElement(SvgGrip, null)));
 Grip.displayName = 'Draggable.Grip';
 
-const DraggableComponent = React.forwardRef((_ref, ref) => {
-  let {
-    focusInset,
-    isBare,
-    isCompact,
-    isDisabled,
-    isGrabbed,
-    isPlaceholder,
-    tag,
-    ...other
-  } = _ref;
+const DraggableComponent = React.forwardRef(({
+  focusInset,
+  isBare,
+  isCompact,
+  isDisabled,
+  isGrabbed,
+  isPlaceholder,
+  tag,
+  ...other
+}, ref) => {
   return React__namespace.default.createElement(StyledDraggable, Object.assign({
     $focusInset: focusInset,
     $isBare: isBare,
@@ -479,11 +476,10 @@ const Item = React.forwardRef((props, ref) => {
 });
 Item.displayName = 'DraggableList.Item';
 
-const DraggableListComponent = React.forwardRef((_ref, ref) => {
-  let {
-    isHorizontal,
-    ...other
-  } = _ref;
+const DraggableListComponent = React.forwardRef(({
+  isHorizontal,
+  ...other
+}, ref) => {
   const value = React.useMemo(() => ({
     isHorizontal
   }), [isHorizontal]);
@@ -574,17 +570,16 @@ const Icon = React.forwardRef((props, ref) => {
 });
 Icon.displayName = 'Dropzone.Icon';
 
-const DropzoneComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isActive,
-    isDanger,
-    isDisabled,
-    isHighlighted,
-    isVertical,
-    tag,
-    ...other
-  } = _ref;
+const DropzoneComponent = React.forwardRef(({
+  children,
+  isActive,
+  isDanger,
+  isDisabled,
+  isHighlighted,
+  isVertical,
+  tag,
+  ...other
+}, ref) => {
   const [hasMessage, setHasMessage] = React.useState(false);
   const [hasIcon, setHasIcon] = React.useState(false);
   const value = React.useMemo(() => ({

@@ -43,16 +43,15 @@ import { StyledItemTypeIcon } from '../../views/menu/StyledItemTypeIcon.js';
 import { StyledSeparator } from '../../views/menu/StyledSeparator.js';
 import { ItemGroupContext } from '../../context/useItemGroupContext.js';
 
-const ItemGroup = forwardRef((_ref, ref) => {
-  let {
-    children,
-    content,
-    legend,
-    icon,
-    'aria-label': ariaLabel,
-    type,
-    ...props
-  } = _ref;
+const ItemGroup = forwardRef(({
+  children,
+  content,
+  legend,
+  icon,
+  'aria-label': ariaLabel,
+  type,
+  ...props
+}, ref) => {
   const {
     isCompact,
     getItemGroupProps

@@ -8,11 +8,10 @@ import styled, { css } from 'styled-components';
 import { stripUnit } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_thumb';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$f = 'colorpickers.colorpicker_colorwell_thumb';
+const colorStyles$1 = ({
+  theme
+}) => {
   const borderColor = getColor({
     theme,
     hue: 'white'
@@ -23,17 +22,16 @@ const colorStyles = _ref => {
   }))}`;
   return css(["border-color:", ";box-shadow:", ";"], borderColor, boxShadow);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const sizeStyles$2 = ({
+  theme
+}) => {
   const borderWidth = stripUnit(theme.borderWidths.sm) * 2;
   const size = theme.space.base * 5;
   const translateValue = size / -2;
   return css(["transform:translate(", "px,", "px);box-sizing:border-box;border-width:", "px;width:", "px;height:", "px;"], translateValue, translateValue, borderWidth, size, size);
 };
 const StyledColorWellThumb = styled.div.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$f,
   'data-garden-version': '9.12.3',
   'data-test-id': 'colorwell-thumb',
   style: {
@@ -43,6 +41,6 @@ const StyledColorWellThumb = styled.div.attrs(props => ({
 })).withConfig({
   displayName: "StyledColorWellThumb",
   componentId: "sc-1npyab0-0"
-})(["position:absolute;border:", ";border-radius:50%;", " ", " ", ";"], props => props.theme.borders.sm, sizeStyles, colorStyles, componentStyles);
+})(["position:absolute;border:", ";border-radius:50%;", " ", " ", ";"], props => props.theme.borders.sm, sizeStyles$2, colorStyles$1, componentStyles);
 
 export { StyledColorWellThumb };

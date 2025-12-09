@@ -7,8 +7,8 @@
 import { createContext, useContext } from 'react';
 
 const DatePickerContext = createContext(undefined);
-const useDatePickerContext = () => {
+const useDatePickerContext$1 = () => {
   return useContext(DatePickerContext);
 };
 
-export { DatePickerContext, useDatePickerContext as default };
+export { DatePickerContext, useDatePickerContext$1 as default };

@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.header_item_text';
+const COMPONENT_ID$m = 'chrome.header_item_text';
 const StyledHeaderItemText = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$m,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeaderItemText",

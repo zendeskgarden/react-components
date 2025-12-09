@@ -9,9 +9,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem.js';
 import { StyledItemIcon } from './StyledItemIcon.js';
 
-const COMPONENT_ID = 'dropdowns.next_item';
+const COMPONENT_ID$f = 'dropdowns.next_item';
 const StyledNextItem = styled(StyledItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$f,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledNextItem",

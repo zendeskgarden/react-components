@@ -6,8 +6,7 @@
 */
 import { useMemo } from 'react';
 
-const useText = function (component, props, name, text) {
-  let condition = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+const useText = (component, props, name, text, condition = true) => {
   const value = condition ? props[name] : undefined;
   return useMemo(() => {
     if (condition) {

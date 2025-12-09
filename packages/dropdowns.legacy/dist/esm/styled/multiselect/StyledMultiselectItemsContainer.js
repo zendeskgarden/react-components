@@ -7,7 +7,7 @@
 import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.multiselect_items_container';
+const COMPONENT_ID$2 = 'dropdowns.multiselect_items_container';
 const sizeStyles = props => {
   let margin;
   let padding;
@@ -21,7 +21,7 @@ const sizeStyles = props => {
   return css(["margin:", ";padding:", ";"], margin, padding);
 };
 const StyledMultiselectItemsContainer = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$2,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledMultiselectItemsContainer",

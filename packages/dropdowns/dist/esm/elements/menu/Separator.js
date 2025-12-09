@@ -41,11 +41,10 @@ import { StyledSeparator } from '../../views/menu/StyledSeparator.js';
 import useMenuContext from '../../context/useMenuContext.js';
 
 const Separator = forwardRef(
-(_ref, ref) => {
-  let {
-    children,
-    ...props
-  } = _ref;
+({
+  children,
+  ...props
+}, ref) => {
   const {
     getSeparatorProps
   } = useMenuContext();

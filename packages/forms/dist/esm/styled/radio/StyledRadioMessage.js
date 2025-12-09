@@ -9,9 +9,9 @@ import { math } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledMessage } from '../common/StyledMessage.js';
 
-const COMPONENT_ID = 'forms.radio_message';
+const COMPONENT_ID$n = 'forms.radio_message';
 const StyledRadioMessage = styled(StyledMessage).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$n,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledRadioMessage",

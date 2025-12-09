@@ -7,15 +7,14 @@
 import styled, { keyframes, css } from 'styled-components';
 import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'loaders.skeleton';
+const COMPONENT_ID$4 = 'loaders.skeleton';
 const fadeInAnimation = keyframes(["0%,60%{opacity:0;}100%{opacity:1;}"]);
 const skeletonAnimation = keyframes(["0%{transform:translateX(-100%);}100%{transform:translateX(100%);}"]);
 const skeletonRtlAnimation = keyframes(["0%{transform:translateX(100%);}100%{transform:translateX(-100%)}"]);
-const getBackgroundColor = _ref => {
-  let {
-    theme,
-    $isLight
-  } = _ref;
+const getBackgroundColor = ({
+  theme,
+  $isLight
+}) => {
   let backgroundColor;
   if ($isLight) {
     backgroundColor = getColor({
@@ -38,10 +37,9 @@ const getBackgroundColor = _ref => {
   }
   return backgroundColor;
 };
-const animationStyles = _ref2 => {
-  let {
-    theme
-  } = _ref2;
+const animationStyles = ({
+  theme
+}) => {
   if (theme.rtl) {
     return css(["animation:", " 1.5s ease-in-out 300ms infinite;"], skeletonRtlAnimation);
   }
@@ -51,7 +49,7 @@ const gradientStyles = props => {
   return css(["background-image:linear-gradient( ", ",transparent,", ",transparent );"], props.theme.rtl ? '-45deg' : '45deg', getBackgroundColor);
 };
 const StyledSkeleton = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$4,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledSkeleton",

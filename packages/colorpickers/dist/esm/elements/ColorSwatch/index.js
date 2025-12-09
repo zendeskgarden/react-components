@@ -36,18 +36,17 @@ import { StyledColorSwatchLabel } from '../../styled/ColorSwatch/StyledColorSwat
 import { StyledIcon } from '../../styled/ColorSwatch/StyledIcon.js';
 import { StyledCell } from '../../styled/ColorSwatch/StyledCell.js';
 
-const ColorSwatch = forwardRef((_ref, ref) => {
-  let {
-    name,
-    colors,
-    isCheckboxGroup,
-    defaultSelectedColIndex,
-    defaultSelectedRowIndex,
-    selectedColIndex,
-    selectedRowIndex,
-    onSelect,
-    ...props
-  } = _ref;
+const ColorSwatch = forwardRef(({
+  name,
+  colors,
+  isCheckboxGroup,
+  defaultSelectedColIndex,
+  defaultSelectedRowIndex,
+  selectedColIndex,
+  selectedRowIndex,
+  onSelect,
+  ...props
+}, ref) => {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const environment = useDocument(theme);
   const gridRef = useRef();

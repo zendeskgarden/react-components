@@ -8,12 +8,11 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { sizeStyles } from './StyledInput.js';
 
-const COMPONENT_ID = 'dropdowns.combobox.value';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $isPlaceholder
-  } = _ref;
+const COMPONENT_ID$b = 'dropdowns.combobox.value';
+const colorStyles$1 = ({
+  theme,
+  $isPlaceholder
+}) => {
   const foregroundColor = $isPlaceholder && getColor({
     theme,
     variable: 'foreground.disabled'
@@ -21,7 +20,7 @@ const colorStyles = _ref => {
   return css(["color:", ";"], foregroundColor);
 };
 const StyledValue = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$b,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledValue",
@@ -31,6 +30,6 @@ const StyledValue = styled.div.attrs({
     return 'default';
   }
   return props.$isEditable && !props.$isAutocomplete ? 'text' : 'pointer';
-}, sizeStyles, colorStyles, componentStyles);
+}, sizeStyles, colorStyles$1, componentStyles);
 
 export { StyledValue };

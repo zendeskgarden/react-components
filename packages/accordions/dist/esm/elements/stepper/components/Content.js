@@ -34,7 +34,7 @@ import '../../../utils/useHeaderContext.js';
 import '../../../utils/useTimelineContext.js';
 import '../../../utils/useTimelineItemContext.js';
 
-const ContentComponent = forwardRef((props, ref) => {
+const ContentComponent$1 = forwardRef((props, ref) => {
   const {
     isActive,
     isHorizontal
@@ -47,7 +47,7 @@ const ContentComponent = forwardRef((props, ref) => {
     inert: isActive ? undefined : ''
   }, props.children)) : null;
 });
-ContentComponent.displayName = 'Stepper.Content';
-const Content = ContentComponent;
+ContentComponent$1.displayName = 'Stepper.Content';
+const Content$1 = ContentComponent$1;
 
-export { Content };
+export { Content$1 as Content };

@@ -38,14 +38,13 @@ const THEME_SIZES = {
   '2xlarge': 'xxl',
   '3xlarge': 'xxxl'
 };
-const fontStyles = _ref => {
-  let {
-    $hue,
-    $isBold,
-    $isMonospace,
-    $size,
-    theme
-  } = _ref;
+const fontStyles = ({
+  $hue,
+  $isBold,
+  $isMonospace,
+  $size,
+  theme
+}) => {
   const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf($size) !== -1;
   const fontFamily = monospace && theme.fonts.mono;
   const direction = theme.rtl ? 'rtl' : 'ltr';
@@ -106,11 +105,10 @@ const StyledBlockquote = styled__default.default.blockquote.attrs({
 }), props => props.theme.rtl ? 'right' : 'left', props => props.theme.space.base * 4, props => props.theme.rtl ? 'rtl' : 'ltr', props => props.theme.lineHeights[THEME_SIZES[props.size]], reactTheming.componentStyles);
 
 const COMPONENT_ID$8 = 'typography.code';
-const colorStyles$3 = _ref => {
-  let {
-    $hue,
-    theme
-  } = _ref;
+const colorStyles$3 = ({
+  $hue,
+  theme
+}) => {
   const bgColorArgs = {
     theme,
     light: {
@@ -158,10 +156,9 @@ const StyledCode = styled__default.default(StyledFont).attrs(props => ({
 })(["border-radius:", ";padding:1.5px;", ";", ";"], props => props.theme.borderRadii.sm, props => colorStyles$3(props), reactTheming.componentStyles);
 
 const COMPONENT_ID$7 = 'typography.codeblock';
-const colorStyles$2 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  theme
+}) => {
   const backgroundColor = reactTheming.getColor({
     theme,
     variable: 'background.recessed'
@@ -192,12 +189,11 @@ const StyledCodeBlockContainer = styled__default.default.div.attrs({
 }), reactTheming.componentStyles);
 
 const COMPONENT_ID$5 = 'typography.codeblock_code';
-const colorStyles$1 = _ref => {
-  let {
-    theme,
-    $diff,
-    $isHighlighted
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $diff,
+  $isHighlighted
+}) => {
   let backgroundColor;
   if ($diff) {
     const hues = {
@@ -232,12 +228,11 @@ const colorStyles$1 = _ref => {
   }
   return styled.css(["background-color:", ";"], backgroundColor);
 };
-const lineNumberStyles = _ref2 => {
-  let {
-    theme,
-    $language,
-    $size
-  } = _ref2;
+const lineNumberStyles = ({
+  theme,
+  $language,
+  $size
+}) => {
   const color = reactTheming.getColor({
     theme,
     variable: 'foreground.subtle',
@@ -278,10 +273,9 @@ const StyledCodeBlockLine = styled__default.default(StyledFont).attrs({
 })(["display:table-row;height:", ";direction:ltr;", ";", ";&::after{display:inline-block;width:", "px;content:'';}", ";"], props => props.theme.lineHeights[THEME_SIZES[props.$size]], colorStyles$1, props => props.$isNumbered && lineNumberStyles(props), props => props.theme.space.base * 3, reactTheming.componentStyles);
 
 const COMPONENT_ID$4 = 'typography.codeblock_token';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const colors = {
     boolean: reactTheming.getColor({
       theme,
@@ -470,11 +464,10 @@ const StyledIcon = styled__default.default(reactTheming.StyledBaseIcon).attrs({
 })(["position:relative;top:-1px;vertical-align:middle;", ";", ";"], props => sizeStyles$1(props), reactTheming.componentStyles);
 
 const COMPONENT_ID$1 = 'typography.kbd';
-const sizeStyles = _ref => {
-  let {
-    theme,
-    $size
-  } = _ref;
+const sizeStyles = ({
+  theme,
+  $size
+}) => {
   let minWidth;
   let paddingHorizontal;
   let paddingVertical = '0';
@@ -568,21 +561,18 @@ const StyledParagraph = styled__default.default.p.attrs({
   componentId: "sc-zkuftz-0"
 })(["margin:0;padding:0;direction:", ";& + &,blockquote + &{margin-top:", ";}", ";"], props => props.theme.rtl ? 'rtl' : 'ltr', props => props.theme.lineHeights[THEME_SIZES[props.size]], reactTheming.componentStyles);
 
-const SM = React.forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    isMonospace,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $isBold: isBold,
-    $isMonospace: isMonospace,
-    as: tag,
-    ref: ref,
-    $size: "small"
-  }, other));
-});
+const SM = React.forwardRef(({
+  isBold,
+  isMonospace,
+  tag = 'div',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $isBold: isBold,
+  $isMonospace: isMonospace,
+  as: tag,
+  ref: ref,
+  $size: "small"
+}, other)));
 SM.displayName = 'SM';
 SM.propTypes = {
   tag: PropTypes__default.default.any,
@@ -590,21 +580,18 @@ SM.propTypes = {
   isMonospace: PropTypes__default.default.bool
 };
 
-const MD = React.forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    isMonospace,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $isBold: isBold,
-    $isMonospace: isMonospace,
-    $size: "medium",
-    as: tag,
-    ref: ref
-  }, other));
-});
+const MD = React.forwardRef(({
+  isBold,
+  isMonospace,
+  tag = 'div',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $isBold: isBold,
+  $isMonospace: isMonospace,
+  $size: "medium",
+  as: tag,
+  ref: ref
+}, other)));
 MD.displayName = 'MD';
 MD.propTypes = {
   tag: PropTypes__default.default.any,
@@ -612,21 +599,18 @@ MD.propTypes = {
   isMonospace: PropTypes__default.default.bool
 };
 
-const LG = React.forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    isMonospace,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $isBold: isBold,
-    $isMonospace: isMonospace,
-    $size: "large",
-    as: tag,
-    ref: ref
-  }, other));
-});
+const LG = React.forwardRef(({
+  isBold,
+  isMonospace,
+  tag = 'div',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $isBold: isBold,
+  $isMonospace: isMonospace,
+  $size: "large",
+  as: tag,
+  ref: ref
+}, other)));
 LG.displayName = 'LG';
 LG.propTypes = {
   tag: PropTypes__default.default.any,
@@ -634,108 +618,92 @@ LG.propTypes = {
   isMonospace: PropTypes__default.default.bool
 };
 
-const XL = React.forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $size: "extralarge",
-    $isBold: isBold,
-    ref: ref,
-    as: tag
-  }, other));
-});
+const XL = React.forwardRef(({
+  isBold,
+  tag = 'div',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $size: "extralarge",
+  $isBold: isBold,
+  ref: ref,
+  as: tag
+}, other)));
 XL.displayName = 'XL';
 XL.propTypes = {
   tag: PropTypes__default.default.any,
   isBold: PropTypes__default.default.bool
 };
 
-const XXL = React.forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $size: "2xlarge",
-    $isBold: isBold,
-    ref: ref,
-    as: tag
-  }, other));
-});
+const XXL = React.forwardRef(({
+  isBold,
+  tag = 'div',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $size: "2xlarge",
+  $isBold: isBold,
+  ref: ref,
+  as: tag
+}, other)));
 XXL.displayName = 'XXL';
 XXL.propTypes = {
   tag: PropTypes__default.default.any,
   isBold: PropTypes__default.default.bool
 };
 
-const XXXL = React.forwardRef((_ref, ref) => {
-  let {
-    isBold,
-    tag = 'div',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $isBold: isBold,
-    $size: "3xlarge"
-  }, other, {
-    as: tag,
-    ref: ref
-  }));
-});
+const XXXL = React.forwardRef(({
+  isBold,
+  tag = 'div',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $isBold: isBold,
+  $size: "3xlarge"
+}, other, {
+  as: tag,
+  ref: ref
+})));
 XXXL.displayName = 'XXXL';
 XXXL.propTypes = {
   tag: PropTypes__default.default.any,
   isBold: PropTypes__default.default.bool
 };
 
-const Blockquote = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    ...props
-  } = _ref;
-  return React__default.default.createElement(StyledBlockquote, Object.assign({
-    ref: ref,
-    size: size
-  }, props));
-});
+const Blockquote = React.forwardRef(({
+  size = 'medium',
+  ...props
+}, ref) => React__default.default.createElement(StyledBlockquote, Object.assign({
+  ref: ref,
+  size: size
+}, props)));
 Blockquote.displayName = 'Blockquote';
 Blockquote.propTypes = {
   size: PropTypes__default.default.oneOf(SIZE)
 };
 
-const Code = React.forwardRef((_ref, ref) => {
-  let {
-    hue = 'grey',
-    size = 'inherit',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledCode, Object.assign({
-    ref: ref,
-    $hue: hue,
-    $size: size
-  }, other));
-});
+const Code = React.forwardRef(({
+  hue = 'grey',
+  size = 'inherit',
+  ...other
+}, ref) => React__default.default.createElement(StyledCode, Object.assign({
+  ref: ref,
+  $hue: hue,
+  $size: size
+}, other)));
 Code.displayName = 'Code';
 Code.propTypes = {
   hue: PropTypes__default.default.oneOf(HUE),
   size: PropTypes__default.default.oneOf(INHERIT_SIZE)
 };
 
-const CodeBlock = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    children,
-    containerProps,
-    highlightLines,
-    isLight,
-    isNumbered,
-    language = 'tsx',
-    size = 'medium',
-    ...other
-  } = _ref;
+const CodeBlock = React__default.default.forwardRef(({
+  children,
+  containerProps,
+  highlightLines,
+  isLight,
+  isNumbered,
+  language = 'tsx',
+  size = 'medium',
+  ...other
+}, ref) => {
   const containerRef = React.useRef(null);
   const code = Array.isArray(children) ? children[0] : children;
   const dependency = React.useMemo(() => [size, children], [size, children]);
@@ -768,52 +736,48 @@ const CodeBlock = React__default.default.forwardRef((_ref, ref) => {
     Prism: Highlight.Prism,
     code: code ? code.trim() : '',
     language: LANGUAGES.includes(language) ? language : 'tsx'
-  }, _ref2 => {
-    let {
-      className,
-      tokens,
-      getLineProps,
-      getTokenProps
-    } = _ref2;
-    return React__default.default.createElement(reactTheming.ThemeProvider, {
-      theme: parentTheme => ({
-        ...parentTheme,
-        colors: {
-          ...parentTheme.colors,
-          base: isLight ? 'light' : 'dark'
-        }
-      })
-    }, React__default.default.createElement(StyledCodeBlock, Object.assign({
-      className: className,
-      ref: ref
-    }, other), tokens.map((line, index) =>
-    React__default.default.createElement(StyledCodeBlockLine, Object.assign({}, getLineProps({
-      line
-    }), {
-      key: index,
-      $language: language,
-      $isHighlighted: highlightLines?.includes(index + 1),
-      $isNumbered: isNumbered,
-      $diff: getDiff(line),
-      $size: size,
-      style: undefined
-    }), line.map((token, tokenKey) => React__default.default.createElement(StyledCodeBlockToken, Object.assign({}, getTokenProps({
-      token
-    }), {
-      key: tokenKey,
-      style: undefined
-    }), token.empty ? '\n' : token.content))))));
-  }));
+  }, ({
+    className,
+    tokens,
+    getLineProps,
+    getTokenProps
+  }) => React__default.default.createElement(reactTheming.ThemeProvider, {
+    theme: parentTheme => ({
+      ...parentTheme,
+      colors: {
+        ...parentTheme.colors,
+        base: isLight ? 'light' : 'dark'
+      }
+    })
+  }, React__default.default.createElement(StyledCodeBlock, Object.assign({
+    className: className,
+    ref: ref
+  }, other), tokens.map((line, index) =>
+  React__default.default.createElement(StyledCodeBlockLine, Object.assign({}, getLineProps({
+    line
+  }), {
+    key: index,
+    $language: language,
+    $isHighlighted: highlightLines?.includes(index + 1),
+    $isNumbered: isNumbered,
+    $diff: getDiff(line),
+    $size: size,
+    style: undefined
+  }), line.map((token, tokenKey) => React__default.default.createElement(StyledCodeBlockToken, Object.assign({}, getTokenProps({
+    token
+  }), {
+    key: tokenKey,
+    style: undefined
+  }), token.empty ? '\n' : token.content))))))));
 });
 CodeBlock.displayName = 'CodeBlock';
 
-const Ellipsis = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    title,
-    tag = 'div',
-    ...other
-  } = _ref;
+const Ellipsis = React.forwardRef(({
+  children,
+  title,
+  tag = 'div',
+  ...other
+}, ref) => {
   let textContent = undefined;
   if (title !== undefined) {
     textContent = title;
@@ -832,32 +796,26 @@ Ellipsis.propTypes = {
   tag: PropTypes__default.default.any
 };
 
-const Kbd = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'inherit',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledKbd, Object.assign({
-    $size: size
-  }, other, {
-    ref: ref
-  }));
-});
+const Kbd = React.forwardRef(({
+  size = 'inherit',
+  ...other
+}, ref) => React__default.default.createElement(StyledKbd, Object.assign({
+  $size: size
+}, other, {
+  ref: ref
+})));
 Kbd.displayName = 'Kbd';
 Kbd.propTypes = {
   size: PropTypes__default.default.oneOf(INHERIT_SIZE)
 };
 
-const Paragraph = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    ...props
-  } = _ref;
-  return React__default.default.createElement(StyledParagraph, Object.assign({
-    ref: ref,
-    size: size
-  }, props));
-});
+const Paragraph = React.forwardRef(({
+  size = 'medium',
+  ...props
+}, ref) => React__default.default.createElement(StyledParagraph, Object.assign({
+  ref: ref,
+  size: size
+}, props)));
 Paragraph.displayName = 'Paragraph';
 Paragraph.propTypes = {
   size: PropTypes__default.default.oneOf(SIZE)
@@ -884,12 +842,11 @@ const OrderedListItem = React.forwardRef((props, ref) => {
 OrderedListItem.displayName = 'OrderedList.Item';
 const Item$1 = OrderedListItem;
 
-const OrderedListComponent = React__default.default.forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    type = 'decimal',
-    ...other
-  } = _ref;
+const OrderedListComponent = React__default.default.forwardRef(({
+  size = 'medium',
+  type = 'decimal',
+  ...other
+}, ref) => {
   const value = React.useMemo(() => ({
     size: size
   }), [size]);
@@ -929,12 +886,11 @@ const UnorderedListItem = React.forwardRef((props, ref) => {
 UnorderedListItem.displayName = 'UnorderedList.Item';
 const Item = UnorderedListItem;
 
-const UnorderedListComponent = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    type = 'disc',
-    ...other
-  } = _ref;
+const UnorderedListComponent = React.forwardRef(({
+  size = 'medium',
+  type = 'disc',
+  ...other
+}, ref) => {
   const value = React.useMemo(() => ({
     size: size
   }), [size]);
@@ -963,23 +919,20 @@ const IconComponent = props => React__default.default.createElement(StyledIcon, 
 IconComponent.displayName = 'Span.Icon';
 const Icon = IconComponent;
 
-const SpanComponent = React.forwardRef((_ref, ref) => {
-  let {
-    hue,
-    isBold,
-    isMonospace,
-    tag = 'span',
-    ...other
-  } = _ref;
-  return React__default.default.createElement(StyledFont, Object.assign({
-    $hue: hue,
-    $isBold: isBold,
-    $isMonospace: isMonospace,
-    $size: "inherit",
-    as: tag,
-    ref: ref
-  }, other));
-});
+const SpanComponent = React.forwardRef(({
+  hue,
+  isBold,
+  isMonospace,
+  tag = 'span',
+  ...other
+}, ref) => React__default.default.createElement(StyledFont, Object.assign({
+  $hue: hue,
+  $isBold: isBold,
+  $isMonospace: isMonospace,
+  $size: "inherit",
+  as: tag,
+  ref: ref
+}, other)));
 SpanComponent.displayName = 'Span';
 SpanComponent.propTypes = {
   tag: PropTypes__default.default.any,

@@ -36,29 +36,28 @@ import '../../styled/ColorSwatch/StyledColorSwatchLabel.js';
 import '../../styled/ColorSwatch/StyledIcon.js';
 import '../../styled/ColorSwatch/StyledCell.js';
 
-const ColorSwatchDialog = forwardRef((_ref, ref) => {
-  let {
-    name,
-    colors,
-    isCheckboxGroup,
-    selectedRowIndex,
-    selectedColIndex,
-    defaultSelectedRowIndex,
-    defaultSelectedColIndex,
-    placement = 'bottom-start',
-    onSelect,
-    hasArrow = false,
-    isAnimated = true,
-    zIndex = 1000,
-    isOpen,
-    focusInset,
-    disabled,
-    buttonProps,
-    onDialogChange,
-    children,
-    'aria-label': ariaLabel,
-    ...props
-  } = _ref;
+const ColorSwatchDialog = forwardRef(({
+  name,
+  colors,
+  isCheckboxGroup,
+  selectedRowIndex,
+  selectedColIndex,
+  defaultSelectedRowIndex,
+  defaultSelectedColIndex,
+  placement = 'bottom-start',
+  onSelect,
+  hasArrow = false,
+  isAnimated = true,
+  zIndex = 1000,
+  isOpen,
+  focusInset,
+  disabled,
+  buttonProps,
+  onDialogChange,
+  children,
+  'aria-label': ariaLabel,
+  ...props
+}, ref) => {
   const isControlled = selectedRowIndex !== undefined && selectedColIndex !== undefined;
   const isDialogControlled = isOpen !== undefined && isOpen !== null;
   const buttonRef = useRef(null);

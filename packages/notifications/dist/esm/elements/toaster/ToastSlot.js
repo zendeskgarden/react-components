@@ -11,14 +11,13 @@ import { useDocument } from '@zendeskgarden/react-theming';
 import { Toast } from './Toast.js';
 import { StyledTransitionContainer, TRANSITION_CLASS, StyledFadeInTransition } from './styled.js';
 
-const ToastSlot = _ref => {
-  let {
-    toasts,
-    placement,
-    zIndex,
-    limit,
-    ...props
-  } = _ref;
+const ToastSlot = ({
+  toasts,
+  placement,
+  zIndex,
+  limit,
+  ...props
+}) => {
   const [pauseTimers, setPauseTimers] = useState(false);
   const theme = useContext(ThemeContext);
   const environment = useDocument(theme);

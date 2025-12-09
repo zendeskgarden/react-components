@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledRadioHint } from '../radio/StyledRadioHint.js';
 
-const COMPONENT_ID = 'forms.checkbox_hint';
+const COMPONENT_ID$q = 'forms.checkbox_hint';
 const StyledCheckHint = styled(StyledRadioHint).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$q,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCheckHint",

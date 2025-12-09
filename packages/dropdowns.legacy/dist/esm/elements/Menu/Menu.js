@@ -98,13 +98,12 @@ const Menu = forwardRef((props, menuRef) => {
     modifiers: popperModifiers
     ,
     eventsEnabled: !!(isOpen && eventsEnabled)
-  }, _ref => {
-    let {
-      ref,
-      style,
-      scheduleUpdate,
-      placement: currentPlacement
-    } = _ref;
+  }, ({
+    ref,
+    style,
+    scheduleUpdate,
+    placement: currentPlacement
+  }) => {
     let computedStyle = menuStyle;
     scheduleUpdateRef.current = scheduleUpdate;
     if ((isOpen || isVisible) && popperReferenceElementRef.current && popperReferenceElementRef.current.getBoundingClientRect) {

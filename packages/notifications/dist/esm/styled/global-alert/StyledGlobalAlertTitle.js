@@ -8,11 +8,10 @@ import styled, { css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'notifications.global_alert.title';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $alertType
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $alertType
+}) => {
   let color;
   switch ($alertType) {
     case 'success':

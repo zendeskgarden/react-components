@@ -27,12 +27,11 @@ import { Title } from './Title.js';
 import { Paragraph } from './Paragraph.js';
 import { Close } from './Close.js';
 
-const NotificationComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    type,
-    ...props
-  } = _ref;
+const NotificationComponent = forwardRef(({
+  children,
+  type,
+  ...props
+}, ref) => {
   const Icon = type ? validationIcons[type] : SvgInfoStroke;
   return React__default.createElement(StyledNotification, Object.assign({
     ref: ref,

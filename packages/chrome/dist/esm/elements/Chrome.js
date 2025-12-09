@@ -44,12 +44,11 @@ import '../styled/sheet/StyledSheetFooter.js';
 import '../styled/sheet/StyledSheetFooterItem.js';
 import '../styled/sheet/StyledSheetHeader.js';
 
-const Chrome = React__default.forwardRef((_ref, ref) => {
-  let {
-    hue,
-    isFluid,
-    ...props
-  } = _ref;
+const Chrome = React__default.forwardRef(({
+  hue,
+  isFluid,
+  ...props
+}, ref) => {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const isLightMemoized = useMemo(() => {
     if (hue) {

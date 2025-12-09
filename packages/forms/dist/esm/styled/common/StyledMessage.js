@@ -6,16 +6,15 @@
 */
 import styled, { css } from 'styled-components';
 import { math } from 'polished';
-import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { StyledMessageIcon } from './StyledMessageIcon.js';
 import { StyledLabel } from './StyledLabel.js';
 
-const COMPONENT_ID = 'forms.input_message';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $validation
-  } = _ref;
+const COMPONENT_ID$A = 'forms.input_message';
+const colorStyles$d = ({
+  theme,
+  $validation
+}) => {
   let variable;
   if ($validation === 'error') {
     variable = 'foreground.danger';
@@ -32,11 +31,10 @@ const colorStyles = _ref => {
   });
   return css(["color:", ";"], foregroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $validation
-  } = _ref2;
+const sizeStyles$g = ({
+  theme,
+  $validation
+}) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
@@ -44,11 +42,11 @@ const sizeStyles = _ref2 => {
   return css(["padding-", ":", ";line-height:", ";font-size:", ";", ":not([hidden]) + &{margin-top:", ";}"], theme.rtl ? 'right' : 'left', paddingHorizontal, lineHeight, fontSize, StyledLabel, marginTop);
 };
 const StyledMessage = styled.div.attrs(props => ({
-  'data-garden-id': props['data-garden-id'] || COMPONENT_ID,
+  'data-garden-id': props['data-garden-id'] || COMPONENT_ID$A,
   'data-garden-version': props['data-garden-version'] || '9.12.3'
 })).withConfig({
   displayName: "StyledMessage",
   componentId: "sc-30hgg7-0"
-})(["direction:", ";display:inline-block;position:relative;vertical-align:middle;", ";", ";& ", "{position:absolute;top:-1px;", ":0;}", ":not([hidden]) + &{display:block;}", ";"], props => props.theme.rtl && 'rtl', sizeStyles, colorStyles, StyledMessageIcon, props => props.theme.rtl ? 'right' : 'left', StyledLabel, componentStyles);
+})(["direction:", ";display:inline-block;position:relative;vertical-align:middle;", ";", ";& ", "{position:absolute;top:-1px;", ":0;}", ":not([hidden]) + &{display:block;}", ";"], props => props.theme.rtl && 'rtl', sizeStyles$g, colorStyles$d, StyledMessageIcon, props => props.theme.rtl ? 'right' : 'left', StyledLabel, componentStyles);
 
 export { StyledMessage };

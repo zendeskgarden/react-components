@@ -13,19 +13,15 @@ import { Description } from './components/Description.js';
 import { Icon } from './components/Icon.js';
 import { Label } from './components/Label.js';
 
-const TilesComponent = forwardRef((_ref, ref) => {
-  let {
-    onChange,
-    value: controlledValue,
-    name,
-    isCentered = true,
-    ...props
-  } = _ref;
+const TilesComponent = forwardRef(({
+  onChange,
+  value: controlledValue,
+  name,
+  isCentered = true,
+  ...props
+}, ref) => {
   const [value, setValue] = useState(controlledValue);
-  const handleOnChange = useCallback(function () {
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
+  const handleOnChange = useCallback((...args) => {
     setValue(args[0].target.value);
     if (onChange) {
       onChange(...args);

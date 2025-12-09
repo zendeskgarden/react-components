@@ -7,15 +7,15 @@
 import React, { createContext, useMemo, useEffect, useCallback, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const mediaQuery = typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
-const useColorScheme = (initialState, colorSchemeKey) => {
+const mediaQuery$1 = typeof window === 'undefined' ? undefined : window.matchMedia('(prefers-color-scheme: dark)');
+const useColorScheme$1 = (initialState, colorSchemeKey) => {
   const localStorage =
   typeof window === 'undefined' || colorSchemeKey === null ? undefined : window.localStorage;
   const getState = useCallback(_state => {
     const isSystem = _state === 'system' || _state === undefined || _state === null;
     let colorScheme;
     if (isSystem) {
-      colorScheme = mediaQuery?.matches ? 'dark' : 'light';
+      colorScheme = mediaQuery$1?.matches ? 'dark' : 'light';
     } else {
       colorScheme = _state;
     }
@@ -35,17 +35,16 @@ const useColorScheme = (initialState, colorSchemeKey) => {
   };
 };
 const ColorSchemeContext = createContext(undefined);
-const ColorSchemeProvider = _ref => {
-  let {
-    children,
-    colorSchemeKey = 'color-scheme',
-    initialColorScheme = 'system'
-  } = _ref;
+const ColorSchemeProvider = ({
+  children,
+  colorSchemeKey = 'color-scheme',
+  initialColorScheme = 'system'
+}) => {
   const {
     isSystem,
     colorScheme,
     setColorScheme
-  } = useColorScheme(initialColorScheme, colorSchemeKey);
+  } = useColorScheme$1(initialColorScheme, colorSchemeKey);
   const contextValue = useMemo(() => ({
     colorScheme,
     isSystem,
@@ -56,12 +55,12 @@ const ColorSchemeProvider = _ref => {
       setColorScheme('system');
     };
     if (isSystem) {
-      mediaQuery?.addEventListener('change', eventListener);
+      mediaQuery$1?.addEventListener('change', eventListener);
     } else {
-      mediaQuery?.removeEventListener('change', eventListener);
+      mediaQuery$1?.removeEventListener('change', eventListener);
     }
     return () => {
-      mediaQuery?.removeEventListener('change', eventListener);
+      mediaQuery$1?.removeEventListener('change', eventListener);
     };
   }, [isSystem, setColorScheme]);
   return React.createElement(ColorSchemeContext.Provider, {

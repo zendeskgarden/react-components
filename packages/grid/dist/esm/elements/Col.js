@@ -6,7 +6,7 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ALIGN_SELF, TEXT_ALIGN } from '../types/index.js';
+import { TEXT_ALIGN, ALIGN_SELF } from '../types/index.js';
 import { StyledCol } from '../styled/StyledCol.js';
 import '../styled/StyledGrid.js';
 import '../styled/StyledRow.js';
@@ -17,40 +17,39 @@ import '../styled/pane/StyledPaneSplitterButton.js';
 import '../styled/pane/StyledPaneSplitterButtonContainer.js';
 import useGridContext from '../utils/useGridContext.js';
 
-const Col = React.forwardRef((_ref, ref) => {
-  let {
-    alignSelf,
-    alignSelfLg,
-    alignSelfMd,
-    alignSelfSm,
-    alignSelfXl,
-    alignSelfXs,
-    lg,
-    md,
-    offset,
-    offsetLg,
-    offsetMd,
-    offsetSm,
-    offsetXl,
-    offsetXs,
-    order,
-    orderLg,
-    orderMd,
-    orderSm,
-    orderXl,
-    orderXs,
-    size,
-    sm,
-    textAlign,
-    textAlignLg,
-    textAlignMd,
-    textAlignSm,
-    textAlignXl,
-    textAlignXs,
-    xl,
-    xs,
-    ...other
-  } = _ref;
+const Col = React.forwardRef(({
+  alignSelf,
+  alignSelfLg,
+  alignSelfMd,
+  alignSelfSm,
+  alignSelfXl,
+  alignSelfXs,
+  lg,
+  md,
+  offset,
+  offsetLg,
+  offsetMd,
+  offsetSm,
+  offsetXl,
+  offsetXs,
+  order,
+  orderLg,
+  orderMd,
+  orderSm,
+  orderXl,
+  orderXs,
+  size,
+  sm,
+  textAlign,
+  textAlignLg,
+  textAlignMd,
+  textAlignSm,
+  textAlignXl,
+  textAlignXs,
+  xl,
+  xs,
+  ...other
+}, ref) => {
   const {
     columns,
     gutters,

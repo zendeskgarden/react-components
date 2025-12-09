@@ -14,15 +14,14 @@ import '../styled/StyledIcon.js';
 import '../styled/StyledIconButton.js';
 import { useText } from '@zendeskgarden/react-theming';
 
-const Anchor = forwardRef((_ref, ref) => {
-  let {
-    children,
-    externalIconLabel,
-    isDanger,
-    isExternal,
-    isUnderlined = true,
-    ...other
-  } = _ref;
+const Anchor = forwardRef(({
+  children,
+  externalIconLabel,
+  isDanger,
+  isExternal,
+  isUnderlined = true,
+  ...other
+}, ref) => {
   let anchorProps = other;
   if (isExternal) {
     anchorProps = {

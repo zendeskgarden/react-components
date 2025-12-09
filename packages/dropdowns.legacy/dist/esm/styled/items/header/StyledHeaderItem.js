@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from '../StyledItem.js';
 
-const COMPONENT_ID = 'dropdowns.header_item';
+const COMPONENT_ID$a = 'dropdowns.header_item';
 const getHorizontalPadding = props => {
   if (props.$hasIcon) {
     return undefined;
@@ -16,7 +16,7 @@ const getHorizontalPadding = props => {
   return `${props.theme.space.base * 3}px`;
 };
 const StyledHeaderItem = styled(StyledItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHeaderItem",

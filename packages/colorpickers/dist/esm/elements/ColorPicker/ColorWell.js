@@ -32,13 +32,12 @@ import '../../styled/ColorSwatch/StyledColorSwatchLabel.js';
 import '../../styled/ColorSwatch/StyledIcon.js';
 import '../../styled/ColorSwatch/StyledCell.js';
 
-const ColorWell = React__default.memo(_ref => {
-  let {
-    hue,
-    saturation,
-    lightness,
-    onChange
-  } = _ref;
+const ColorWell = React__default.memo(({
+  hue,
+  saturation,
+  lightness,
+  onChange
+}) => {
   const {
     rtl
   } = useContext(ThemeContext);

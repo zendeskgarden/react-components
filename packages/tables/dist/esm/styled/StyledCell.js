@@ -10,8 +10,8 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { getLineHeight } from './StyledTable.js';
 import { getRowHeight } from './style-utils.js';
 
-const COMPONENT_ID = 'tables.cell';
-const truncatedStyling = css(["overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"]);
+const COMPONENT_ID$6 = 'tables.cell';
+const truncatedStyling$1 = css(["overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"]);
 const sizeStyling = props => {
   let boxSizing = 'border-box';
   let padding;
@@ -34,11 +34,11 @@ const sizeStyling = props => {
   return css(["box-sizing:", ";padding:", ";width:", ";height:", ";"], boxSizing, padding, width, height);
 };
 const StyledCell = styled.td.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$6,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCell",
   componentId: "sc-8hpncx-0"
-})(["display:table-cell;transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out;", ";", ";", ";"], props => sizeStyling(props), props => props.$isTruncated && truncatedStyling, componentStyles);
+})(["display:table-cell;transition:border-color 0.25s ease-in-out,box-shadow 0.1s ease-in-out;", ";", ";", ";"], props => sizeStyling(props), props => props.$isTruncated && truncatedStyling$1, componentStyles);
 
 export { StyledCell };

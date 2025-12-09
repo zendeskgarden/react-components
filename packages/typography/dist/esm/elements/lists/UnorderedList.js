@@ -7,7 +7,7 @@
 import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Item } from './UnorderedListItem.js';
-import { SIZE, TYPE_UNORDERED_LIST } from '../../types/index.js';
+import { TYPE_UNORDERED_LIST, SIZE } from '../../types/index.js';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext.js';
 import '../../styled/StyledBlockquote.js';
 import '../../styled/StyledCode.js';
@@ -23,12 +23,11 @@ import { StyledUnorderedList } from '../../styled/StyledList.js';
 import '../../styled/StyledListItem.js';
 import '../../styled/StyledParagraph.js';
 
-const UnorderedListComponent = forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    type = 'disc',
-    ...other
-  } = _ref;
+const UnorderedListComponent = forwardRef(({
+  size = 'medium',
+  type = 'disc',
+  ...other
+}, ref) => {
   const value = useMemo(() => ({
     size: size
   }), [size]);

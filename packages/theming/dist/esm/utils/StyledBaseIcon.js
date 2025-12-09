@@ -8,14 +8,11 @@ import styled from 'styled-components';
 import { cloneElement, Children } from 'react';
 
 const StyledBaseIcon = styled(
-_ref => {
-  let {
-    children,
-    theme,
-    ...props
-  } = _ref;
-  return cloneElement(Children.only(children), props);
-}).withConfig({
+({
+  children,
+  theme,
+  ...props
+}) => cloneElement(Children.only(children), props)).withConfig({
   displayName: "StyledBaseIcon",
   componentId: "sc-1moykgb-0"
 })([""]);

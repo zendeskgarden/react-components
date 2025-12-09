@@ -8,10 +8,10 @@ import styled, { css } from 'styled-components';
 import { Input } from '@zendeskgarden/react-forms';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.input';
+const COMPONENT_ID$5 = 'dropdowns.input';
 const hiddenStyling = css(["position:fixed;border:0;clip:rect(1px,1px,1px,1px);padding:0;width:1px;height:1px;overflow:hidden;white-space:nowrap;"]);
 const StyledInput = styled(Input).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3',
   isBare: true
 }).withConfig({

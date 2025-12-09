@@ -30,11 +30,10 @@ import '../../styled/StyledDrawerBody.js';
 import '../../styled/StyledDrawerFooter.js';
 import '../../styled/StyledDrawerFooterItem.js';
 
-const HeaderComponent = forwardRef((_ref, ref) => {
-  let {
-    tag = 'div',
-    ...other
-  } = _ref;
+const HeaderComponent = forwardRef(({
+  tag = 'div',
+  ...other
+}, ref) => {
   const {
     isCloseButtonPresent,
     hasHeader,

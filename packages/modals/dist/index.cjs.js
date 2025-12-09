@@ -68,22 +68,19 @@ const StyledBackdrop = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledBackdrop",
   componentId: "sc-mzdjpo-0"
-})(["display:flex;position:fixed;inset:0;align-items:", ";justify-content:", ";z-index:400;background-color:", ";overflow:auto;-webkit-overflow-scrolling:touch;font-family:", ";direction:", ";", ";", ";"], props => props.$isCentered && 'center', props => props.$isCentered && 'center', _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    hue: 'neutralHue',
-    transparency: theme.opacity[1000],
-    light: {
-      shade: 900
-    },
-    dark: {
-      shade: 1200
-    }
-  });
-}, props => props.theme.fonts.system, props => props.theme.rtl && 'rtl', animationStyles$1, reactTheming.componentStyles);
+})(["display:flex;position:fixed;inset:0;align-items:", ";justify-content:", ";z-index:400;background-color:", ";overflow:auto;-webkit-overflow-scrolling:touch;font-family:", ";direction:", ";", ";", ";"], props => props.$isCentered && 'center', props => props.$isCentered && 'center', ({
+  theme
+}) => reactTheming.getColor({
+  theme,
+  hue: 'neutralHue',
+  transparency: theme.opacity[1000],
+  light: {
+    shade: 900
+  },
+  dark: {
+    shade: 1200
+  }
+}), props => props.theme.fonts.system, props => props.theme.rtl && 'rtl', animationStyles$1, reactTheming.componentStyles);
 StyledBackdrop.propTypes = {
   $isCentered: PropTypes__default.default.bool,
   $isAnimated: PropTypes__default.default.bool
@@ -96,15 +93,12 @@ const StyledBody = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledBody",
   componentId: "sc-14rzecg-0"
-})(["display:block;margin:0;padding:", ";height:100%;overflow:auto;line-height:", ";color-scheme:only ", ";color:", ";font-size:", ";", ";"], props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`, props => reactTheming.getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md), p => p.theme.colors.base, _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    theme,
-    variable: 'foreground.default'
-  });
-}, props => props.theme.fontSizes.md, reactTheming.componentStyles);
+})(["display:block;margin:0;padding:", ";height:100%;overflow:auto;line-height:", ";color-scheme:only ", ";color:", ";font-size:", ";", ";"], props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`, props => reactTheming.getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md), p => p.theme.colors.base, ({
+  theme
+}) => reactTheming.getColor({
+  theme,
+  variable: 'foreground.default'
+}), props => props.theme.fontSizes.md, reactTheming.componentStyles);
 
 const COMPONENT_ID$h = 'modals.close';
 const BASE_MULTIPLIERS$1 = {
@@ -142,11 +136,10 @@ const StyledFooterItem = styled__default.default.span.attrs({
 })(["display:flex;margin-", ":", "px;min-width:0;&:first-child{margin-", ":0;}", ";"], props => props.theme.rtl ? 'right' : 'left', props => props.theme.space.base * 5, props => props.theme.rtl ? 'right' : 'left', reactTheming.componentStyles);
 
 const COMPONENT_ID$e = 'modals.header';
-const colorStyles$2 = _ref => {
-  let {
-    $isDanger,
-    theme
-  } = _ref;
+const colorStyles$2 = ({
+  $isDanger,
+  theme
+}) => {
   const bottomBorderColor = reactTheming.getColor({
     theme,
     variable: 'border.subtle'
@@ -206,10 +199,9 @@ const animationStyles = props => {
   }
   return '';
 };
-const colorStyles$1 = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles$1 = ({
+  theme
+}) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = reactTheming.getColor({
@@ -313,9 +305,9 @@ function _wrapNativeSuper(t) {
     return Wrapper.prototype = Object.create(t.prototype, {
       constructor: {
         value: Wrapper,
-        enumerable: !1,
-        writable: !0,
-        configurable: !0
+        enumerable: false,
+        writable: true,
+        configurable: true
       }
     }), _setPrototypeOf(Wrapper, t);
   }, _wrapNativeSuper(t);
@@ -817,17 +809,13 @@ function hslToHex(hue, saturation, lightness) {
   return hslToRgb(hue, saturation, lightness, convertToHex);
 }
 function hsl(value, saturation, lightness) {
-  if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number') {
-    return hslToHex(value, saturation, lightness);
-  } else if (typeof value === 'object' && saturation === undefined && lightness === undefined) {
+  if (typeof value === 'object' && saturation === undefined && lightness === undefined) {
     return hslToHex(value.hue, value.saturation, value.lightness);
   }
   throw new PolishedError(1);
 }
 function hsla(value, saturation, lightness, alpha) {
-  if (typeof value === 'number' && typeof saturation === 'number' && typeof lightness === 'number' && typeof alpha === 'number') {
-    return "rgba(" + hslToRgb(value, saturation, lightness) + "," + alpha + ")";
-  } else if (typeof value === 'object' && saturation === undefined && lightness === undefined && alpha === undefined) {
+  if (typeof value === 'object' && saturation === undefined && lightness === undefined && alpha === undefined) {
     return value.alpha >= 1 ? hslToHex(value.hue, value.saturation, value.lightness) : "rgba(" + hslToRgb(value.hue, value.saturation, value.lightness) + "," + value.alpha + ")";
   }
   throw new PolishedError(2);
@@ -841,12 +829,7 @@ function rgb(value, green, blue) {
   throw new PolishedError(6);
 }
 function rgba(firstValue, secondValue, thirdValue, fourthValue) {
-  if (typeof firstValue === 'string' && typeof secondValue === 'number') {
-    var rgbValue = parseToRgb(firstValue);
-    return "rgba(" + rgbValue.red + "," + rgbValue.green + "," + rgbValue.blue + "," + secondValue + ")";
-  } else if (typeof firstValue === 'number' && typeof secondValue === 'number' && typeof thirdValue === 'number' && typeof fourthValue === 'number') {
-    return "rgba(" + firstValue + "," + secondValue + "," + thirdValue + "," + fourthValue + ")";
-  } else if (typeof firstValue === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
+  if (typeof firstValue === 'object' && secondValue === undefined && thirdValue === undefined && fourthValue === undefined) {
     return firstValue.alpha >= 1 ? rgb(firstValue.red, firstValue.green, firstValue.blue) : "rgba(" + firstValue.red + "," + firstValue.green + "," + firstValue.blue + "," + firstValue.alpha + ")";
   }
   throw new PolishedError(7);
@@ -1073,15 +1056,12 @@ const StyledTooltipDialogTitle = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledTooltipDialogTitle",
   componentId: "sc-1rceixg-0"
-})(["margin:0;color:", ";font-weight:", ";", ";", ";"], _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    variable: 'foreground.default',
-    theme
-  });
-}, props => props.theme.fontWeights.semibold, props => sizeStyles(props), reactTheming.componentStyles);
+})(["margin:0;color:", ";font-weight:", ";", ";", ";"], ({
+  theme
+}) => reactTheming.getColor({
+  variable: 'foreground.default',
+  theme
+}), props => props.theme.fontWeights.semibold, props => sizeStyles(props), reactTheming.componentStyles);
 
 const COMPONENT_ID$8 = 'modals.tooltip_dialog.body';
 const StyledTooltipDialogBody = styled__default.default.div.attrs({
@@ -1090,15 +1070,12 @@ const StyledTooltipDialogBody = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledTooltipDialogBody",
   componentId: "sc-132lcoq-0"
-})(["display:block;margin:0;padding-top:", "px;line-height:", ";color-scheme:only ", ";color:", ";font-size:", ";", ";"], props => props.theme.space.base * 1.5, props => reactTheming.getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md), p => p.theme.colors.base, _ref => {
-  let {
-    theme
-  } = _ref;
-  return reactTheming.getColor({
-    variable: 'foreground.default',
-    theme
-  });
-}, props => props.theme.fontSizes.md, reactTheming.componentStyles);
+})(["display:block;margin:0;padding-top:", "px;line-height:", ";color-scheme:only ", ";color:", ";font-size:", ";", ";"], props => props.theme.space.base * 1.5, props => reactTheming.getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md), p => p.theme.colors.base, ({
+  theme
+}) => reactTheming.getColor({
+  variable: 'foreground.default',
+  theme
+}), props => props.theme.fontSizes.md, reactTheming.componentStyles);
 
 const COMPONENT_ID$7 = 'modals.tooltip_dialog.footer';
 const StyledTooltipDialogFooter = styled__default.default.div.attrs({
@@ -1120,10 +1097,9 @@ const StyledTooltipDialogFooterItem = styled__default.default(StyledFooterItem).
 
 const COMPONENT_ID$5 = 'modals.drawer_modal';
 const DRAWER_WIDTH = 380;
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const colorStyles = ({
+  theme
+}) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = reactTheming.getColor({
@@ -1151,7 +1127,6 @@ const StyledDrawer = styled__default.default.div.attrs({
 
 const COMPONENT_ID$4 = 'modals.drawer_modal.close';
 const BASE_MULTIPLIERS = {
-  top: BASE_MULTIPLIERS$1.top,
   side: 2,
   size: BASE_MULTIPLIERS$1.size
 };
@@ -1188,15 +1163,12 @@ const StyledDrawerFooter = styled__default.default.div.attrs({
 }).withConfig({
   displayName: "StyledDrawerFooter",
   componentId: "sc-kc7e6p-0"
-})(["display:flex;flex-shrink:0;justify-content:flex-end;border-top:", ";padding:", "px;", ";"], _ref => {
-  let {
-    theme
-  } = _ref;
-  return `${theme.borders.sm} ${reactTheming.getColor({
-    theme,
-    variable: 'border.subtle'
-  })}`;
-}, props => props.theme.space.base * 5, reactTheming.componentStyles);
+})(["display:flex;flex-shrink:0;justify-content:flex-end;border-top:", ";padding:", "px;", ";"], ({
+  theme
+}) => `${theme.borders.sm} ${reactTheming.getColor({
+  theme,
+  variable: 'border.subtle'
+})}`, props => props.theme.space.base * 5, reactTheming.componentStyles);
 
 const COMPONENT_ID = 'modals.drawer_modal.footer_item';
 const StyledDrawerFooterItem = styled__default.default(StyledFooterItem).attrs({
@@ -1278,13 +1250,12 @@ const FooterItem$2 = React__namespace.default.forwardRef((props, ref) => React__
 }, props)));
 FooterItem$2.displayName = 'Modal.FooterItem';
 
-const Header$1 = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    isDanger,
-    tag = 'div',
-    ...other
-  } = _ref;
+const Header$1 = React.forwardRef(({
+  children,
+  isDanger,
+  tag = 'div',
+  ...other
+}, ref) => {
   const {
     isCloseButtonPresent,
     hasHeader,
@@ -1326,20 +1297,19 @@ const isOverflowing = element => {
   const marginRight = parseInt(style.getPropertyValue('margin-right'), 10);
   return marginLeft + doc.body.clientWidth + marginRight < win.innerWidth;
 };
-const ModalComponent = React.forwardRef((_ref, ref) => {
-  let {
-    backdropProps,
-    children,
-    onClose,
-    isLarge,
-    isCentered = true,
-    isAnimated = true,
-    id,
-    appendToNode,
-    focusOnMount,
-    restoreFocus,
-    ...modalProps
-  } = _ref;
+const ModalComponent = React.forwardRef(({
+  backdropProps,
+  children,
+  onClose,
+  isLarge,
+  isCentered = true,
+  isAnimated = true,
+  id,
+  appendToNode,
+  focusOnMount,
+  restoreFocus,
+  ...modalProps
+}, ref) => {
   const theme = React.useContext(styled.ThemeContext);
   const modalRef = React.useRef(null);
   const environment = reactTheming.useDocument(theme);
@@ -1465,12 +1435,11 @@ const useTooltipDialogContext = () => {
 
 const PLACEMENT = ['auto', ...reactTheming.PLACEMENT];
 
-const TitleComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    tag = 'div',
-    ...other
-  } = _ref;
+const TitleComponent = React.forwardRef(({
+  children,
+  tag = 'div',
+  ...other
+}, ref) => {
   const {
     getTitleProps,
     hasTitle,
@@ -1537,24 +1506,23 @@ FooterItemComponent$1.displayName = 'TooltipDialog.FooterItem';
 const FooterItem$1 = FooterItemComponent$1;
 
 const PLACEMENT_DEFAULT = 'top';
-const TooltipDialogComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    appendToNode,
-    referenceElement,
-    placement: _placement = 'auto',
-    fallbackPlacements: _fallbackPlacements,
-    offset: _offset,
-    onClose,
-    hasArrow = true,
-    keepMounted,
-    isAnimated,
-    zIndex,
-    backdropProps,
-    focusOnMount = true,
-    restoreFocus = true,
-    id,
-    ...props
-  } = _ref;
+const TooltipDialogComponent = React__namespace.default.forwardRef(({
+  appendToNode,
+  referenceElement,
+  placement: _placement = 'auto',
+  fallbackPlacements: _fallbackPlacements,
+  offset: _offset,
+  onClose,
+  hasArrow = true,
+  keepMounted,
+  isAnimated,
+  zIndex,
+  backdropProps,
+  focusOnMount = true,
+  restoreFocus = true,
+  id,
+  ...props
+}, ref) => {
   const theme = React.useContext(styled.ThemeContext) || reactTheming.DEFAULT_THEME;
   const environment = reactTheming.useDocument(theme);
   const previousReferenceElementRef = React.useRef();
@@ -1694,11 +1662,10 @@ TooltipDialog.Footer = Footer$1;
 TooltipDialog.FooterItem = FooterItem$1;
 TooltipDialog.Title = Title;
 
-const HeaderComponent = React.forwardRef((_ref, ref) => {
-  let {
-    tag = 'div',
-    ...other
-  } = _ref;
+const HeaderComponent = React.forwardRef(({
+  tag = 'div',
+  ...other
+}, ref) => {
   const {
     isCloseButtonPresent,
     hasHeader,
@@ -1770,17 +1737,16 @@ const FooterItemComponent = React.forwardRef((props, ref) => React__namespace.de
 FooterItemComponent.displayName = 'Drawer.FooterItem';
 const FooterItem = FooterItemComponent;
 
-const DrawerComponent = React.forwardRef((_ref, ref) => {
-  let {
-    id,
-    isOpen,
-    onClose,
-    backdropProps,
-    appendToNode,
-    focusOnMount = true,
-    restoreFocus = true,
-    ...props
-  } = _ref;
+const DrawerComponent = React.forwardRef(({
+  id,
+  isOpen,
+  onClose,
+  backdropProps,
+  appendToNode,
+  focusOnMount = true,
+  restoreFocus = true,
+  ...props
+}, ref) => {
   const modalRef = React.useRef(null);
   const transitionRef = React.useRef(null);
   const triggerRef = React.useRef(null);

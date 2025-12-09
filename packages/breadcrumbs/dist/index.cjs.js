@@ -69,21 +69,16 @@ const StyledChevronIcon = styled__default.default(reactTheming.StyledBaseIcon).w
 }));
 
 const COMPONENT_ID = 'breadcrumbs.item';
-const sizeStyles = _ref => {
-  let {
-    theme
-  } = _ref;
-  return styled.css(["line-height:", ";white-space:nowrap;& > :link,& > :visited{white-space:inherit;}"], reactTheming.getLineHeight(theme.space.base * 5, theme.fontSizes.md));
-};
-const colorStyles = _ref2 => {
-  let {
-    $isCurrent,
-    theme
-  } = _ref2;
-  return styled.css(["color:", ";", ""], $isCurrent ? reactTheming.getColor({
-    variable: 'foreground.subtle',
-    theme
-  }) : 'inherit', $isCurrent && `
+const sizeStyles = ({
+  theme
+}) => styled.css(["line-height:", ";white-space:nowrap;& > :link,& > :visited{white-space:inherit;}"], reactTheming.getLineHeight(theme.space.base * 5, theme.fontSizes.md));
+const colorStyles = ({
+  $isCurrent,
+  theme
+}) => styled.css(["color:", ";", ""], $isCurrent ? reactTheming.getColor({
+  variable: 'foreground.subtle',
+  theme
+}) : 'inherit', $isCurrent && `
       & > :link,
       & > :visited,
       & > :link:hover,
@@ -93,7 +88,6 @@ const colorStyles = _ref2 => {
         color: inherit; /* [1] */
       }
     `);
-};
 const StyledBreadcrumbItem = styled__default.default.li.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': '9.12.3'

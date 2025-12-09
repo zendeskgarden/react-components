@@ -54,13 +54,12 @@ import '../styled/tiles/StyledTileInput.js';
 import '../styled/tiles/StyledTileLabel.js';
 import useFieldsetContext from '../utils/useFieldsetContext.js';
 
-const Checkbox = React__default.forwardRef((_ref, ref) => {
-  let {
-    indeterminate,
-    children,
-    isCompact,
-    ...other
-  } = _ref;
+const Checkbox = React__default.forwardRef(({
+  indeterminate,
+  children,
+  isCompact,
+  ...other
+}, ref) => {
   const fieldsetContext = useFieldsetContext();
   const fieldContext = useFieldContext();
   const inputRef = inputElement => {

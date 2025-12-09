@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'chrome.body';
+const COMPONENT_ID$t = 'chrome.body';
 const StyledBody = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$t,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledBody",

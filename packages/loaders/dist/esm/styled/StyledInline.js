@@ -4,15 +4,14 @@
 * Use of this source code is governed under the Apache License, Version 2.0
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
-import styled, { css, keyframes } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'loaders.inline';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $color
-  } = _ref;
+const COMPONENT_ID$3 = 'loaders.inline';
+const colorStyles = ({
+  theme,
+  $color
+}) => {
   const options = $color.includes('.') ? {
     variable: $color,
     theme
@@ -22,12 +21,9 @@ const colorStyles = _ref => {
   };
   return css(["color:", ";"], getColor(options));
 };
-const retrieveAnimation = _ref2 => {
-  let {
-    theme
-  } = _ref2;
-  return keyframes(["0%,100%{opacity:", ";}50%{opacity:", ";}"], theme.opacity[200], theme.opacity[600]);
-};
+const retrieveAnimation = ({
+  theme
+}) => keyframes(["0%,100%{opacity:", ";}50%{opacity:", ";}"], theme.opacity[200], theme.opacity[600]);
 const StyledCircle = styled.circle.attrs({
   fill: 'currentColor',
   cy: 2,
@@ -37,7 +33,7 @@ const StyledCircle = styled.circle.attrs({
   componentId: "sc-fxsb9l-0"
 })([""]);
 const StyledInline = styled.svg.attrs(props => ({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3',
   viewBox: '0 0 16 4',
   width: props.$size,

@@ -39,20 +39,19 @@ import { Header } from './components/Header.js';
 import { Label } from './components/Label.js';
 import { Panel } from './components/Panel.js';
 
-const AccordionComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    isBare,
-    isCompact,
-    isAnimated = true,
-    isExpandable,
-    isCollapsible = true,
-    level,
-    onChange,
-    defaultExpandedSections,
-    expandedSections: controlledExpandedSections,
-    ...props
-  } = _ref;
+const AccordionComponent = forwardRef(({
+  children,
+  isBare,
+  isCompact,
+  isAnimated = true,
+  isExpandable,
+  isCollapsible = true,
+  level,
+  onChange,
+  defaultExpandedSections,
+  expandedSections: controlledExpandedSections,
+  ...props
+}, ref) => {
   const {
     sections,
     sectionChildren

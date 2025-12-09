@@ -8,18 +8,17 @@ import styled, { css } from 'styled-components';
 import { math } from 'polished';
 import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'notifications.global_alert.icon';
+const COMPONENT_ID$1 = 'notifications.global_alert.icon';
 const sizeStyles = props => {
   const size = props.theme.iconSizes.md;
   const marginTop = math(`(${props.theme.space.base * 5} - ${size}) / 2`);
   const marginHorizontal = `${props.theme.space.base * 2}px`;
   return css(["margin-top:", ";margin-", ":", ";width:", ";height:", ";"], marginTop, props.theme.rtl ? 'left' : 'right', marginHorizontal, size, size);
 };
-const colorStyles = _ref => {
-  let {
-    theme,
-    $alertType
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $alertType
+}) => {
   let color;
   switch ($alertType) {
     case 'success':
@@ -52,11 +51,11 @@ const colorStyles = _ref => {
   return css(["color:", ";"], color);
 };
 const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledGlobalAlertIcon",
   componentId: "sc-84ne9k-0"
-})(["flex-shrink:0;", ";", ";", ";"], sizeStyles, colorStyles, componentStyles);
+})(["flex-shrink:0;", ";", ";", ";"], sizeStyles, colorStyles$1, componentStyles);
 
 export { StyledGlobalAlertIcon };

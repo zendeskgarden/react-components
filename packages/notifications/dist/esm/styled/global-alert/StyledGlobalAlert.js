@@ -5,14 +5,13 @@
 * found at http://www.apache.org/licenses/LICENSE-2.0.
 */
 import styled, { css } from 'styled-components';
-import { componentStyles, getColor, focusStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { componentStyles, getLineHeight, getColor, focusStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'notifications.global_alert';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $alertType
-  } = _ref;
+const COMPONENT_ID$5 = 'notifications.global_alert';
+const colorStyles$4 = ({
+  theme,
+  $alertType
+}) => {
   let borderColor;
   let backgroundColor;
   let foregroundColor;
@@ -136,7 +135,7 @@ const colorStyles = _ref => {
     }
   }), anchorHoverColor, anchorActiveColor);
 };
-const sizeStyles = props => {
+const sizeStyles$3 = props => {
   const {
     fontSizes,
     space
@@ -147,11 +146,11 @@ const sizeStyles = props => {
   return css(["padding:", "px;min-height:", "px;line-height:", ";font-size:", ";"], padding, minHeight, lineHeight, fontSizes.md);
 };
 const StyledGlobalAlert = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledGlobalAlert",
   componentId: "sc-k6rimt-0"
-})(["display:flex;flex-wrap:nowrap;overflow:auto;overflow-x:hidden;box-sizing:border-box;direction:", ";", " ", " && a{border-radius:", ";text-decoration:underline;}", ";"], props => props.theme.rtl ? 'rtl' : 'ltr', sizeStyles, colorStyles, props => props.theme.borderRadii.sm, componentStyles);
+})(["display:flex;flex-wrap:nowrap;overflow:auto;overflow-x:hidden;box-sizing:border-box;direction:", ";", " ", " && a{border-radius:", ";text-decoration:underline;}", ";"], props => props.theme.rtl ? 'rtl' : 'ltr', sizeStyles$3, colorStyles$4, props => props.theme.borderRadii.sm, componentStyles);
 
 export { StyledGlobalAlert };

@@ -50,12 +50,11 @@ const useColorScheme$1 = (initialState, colorSchemeKey) => {
   };
 };
 const ColorSchemeContext = React.createContext(undefined);
-const ColorSchemeProvider = _ref => {
-  let {
-    children,
-    colorSchemeKey = 'color-scheme',
-    initialColorScheme = 'system'
-  } = _ref;
+const ColorSchemeProvider = ({
+  children,
+  colorSchemeKey = 'color-scheme',
+  initialColorScheme = 'system'
+}) => {
   const {
     isSystem,
     colorScheme,
@@ -570,15 +569,12 @@ const DEFAULT_THEME = {
   space
 };
 
-const ThemeProvider = _ref => {
-  let {
-    theme = DEFAULT_THEME,
-    ...other
-  } = _ref;
-  return React__default.default.createElement(styled.ThemeProvider, Object.assign({
-    theme: theme
-  }, other));
-};
+const ThemeProvider = ({
+  theme = DEFAULT_THEME,
+  ...other
+}) => React__default.default.createElement(styled.ThemeProvider, Object.assign({
+  theme: theme
+}, other));
 
 function retrieveComponentStyles(componentId, props) {
   const components = props.theme?.components;
@@ -676,8 +672,7 @@ const isValidColor = maybeColor => {
   }
   return retVal;
 };
-function findNearestIndex(target, arr) {
-  let startIndex = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
+function findNearestIndex(target, arr, startIndex = 0) {
   if (typeof target !== 'number' || isNaN(target)) {
     throw new Error('Target must be a number.');
   }
@@ -816,17 +811,16 @@ const KEYS$1 = {
 CACHE$1.set(DEFAULT_THEME.colors, KEYS$1.colors);
 CACHE$1.set(DEFAULT_THEME.palette, KEYS$1.palette);
 CACHE$1.set(DEFAULT_THEME.opacity, KEYS$1.opacity);
-const toKey$1 = _ref => {
-  let {
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  } = _ref;
+const toKey$1 = ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => {
   let themeColorsKey;
   if (theme.colors) {
     themeColorsKey = CACHE$1.get(theme.colors);
@@ -875,17 +869,16 @@ const toKey$1 = _ref => {
   }
   return retVal;
 };
-const getColor = memoize__default.default(_ref2 => {
-  let {
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  } = _ref2;
+const getColor = memoize__default.default(({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => {
   let retVal;
   const palette = theme.palette && Object.keys(theme.palette).length > 0 ? theme.palette : DEFAULT_THEME.palette;
   const {
@@ -914,37 +907,33 @@ const getColor = memoize__default.default(_ref2 => {
     throw new Error('Error: invalid `getColor` parameters');
   }
   return retVal;
-}, _ref3 => {
-  let {
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  } = _ref3;
-  return toKey$1({
-    dark,
-    hue,
-    light,
-    offset,
-    shade,
-    theme,
-    transparency,
-    variable
-  });
-});
+}, ({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}) => toKey$1({
+  dark,
+  hue,
+  light,
+  offset,
+  shade,
+  theme,
+  transparency,
+  variable
+}));
 
-const getCheckeredBackground = _ref => {
-  let {
-    theme,
-    size,
-    overlay,
-    positionY = 0,
-    repeat = 'repeat'
-  } = _ref;
+const getCheckeredBackground = ({
+  theme,
+  size,
+  overlay,
+  positionY = 0,
+  repeat = 'repeat'
+}) => {
   const color = getColor({
     theme,
     variable: 'border.default'
@@ -1125,13 +1114,12 @@ const KEYS = {
 };
 CACHE.set(DEFAULT_THEME.colors, KEYS.colors);
 CACHE.set(DEFAULT_THEME.palette, KEYS.palette);
-const toKey = _ref => {
-  let {
-    hue,
-    shade,
-    theme,
-    transparency
-  } = _ref;
+const toKey = ({
+  hue,
+  shade,
+  theme,
+  transparency
+}) => {
   let retVal = `${typeof hue === 'object' ? JSON.stringify(hue) : hue}`;
   if (shade !== undefined) {
     retVal += `,${shade}`;
@@ -1160,10 +1148,7 @@ const toKey = _ref => {
   }
   return retVal;
 };
-const getColorV8 = memoize__default.default(function (hue) {
-  let shade = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : DEFAULT_SHADE;
-  let theme = arguments.length > 2 ? arguments[2] : undefined;
-  let transparency = arguments.length > 3 ? arguments[3] : undefined;
+const getColorV8 = memoize__default.default((hue, shade = DEFAULT_SHADE, theme, transparency) => {
   let retVal;
   if (isNaN(shade)) {
     return undefined;
@@ -1262,21 +1247,20 @@ const getFloatingPlacements = (theme, placement, fallbackPlacements) => {
   return [floatingPlacement, floatingFallbackPlacements];
 };
 
-const getFocusBoxShadow = _ref => {
-  let {
-    boxShadow,
-    inset = false,
-    color = {
-      variable: 'border.primaryEmphasis'
-    },
-    shadowWidth = 'md',
-    spacerColor = {
-      variable: 'background.default'
-    },
-    spacerWidth = 'xs',
-    theme = DEFAULT_THEME,
-    ...args
-  } = _ref;
+const getFocusBoxShadow = ({
+  boxShadow,
+  inset = false,
+  color = {
+    variable: 'border.primaryEmphasis'
+  },
+  shadowWidth = 'md',
+  spacerColor = {
+    variable: 'background.default'
+  },
+  spacerWidth = 'xs',
+  theme = DEFAULT_THEME,
+  ...args
+}) => {
   const _args = args;
   const _color = _args.hue ? getColorV8(_args.hue, _args.shade, theme) : getColor({
     ...color,
@@ -1388,8 +1372,7 @@ const positionStyles = (position, size, inset, shift) => {
   }
   return styled.css(["&::before,&::after{transform:", ";", ";}"], transform, positionCss);
 };
-function arrowStyles(position) {
-  let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+function arrowStyles(position, options = {}) {
   const inset = polished.stripUnit(options.inset || '0');
   const size = polished.stripUnit(options.size || '6');
   const shift = polished.stripUnit(options.shift || '0');
@@ -1434,8 +1417,7 @@ const useWindow = theme => {
   return controlledWindow;
 };
 
-const useText = function (component, props, name, text) {
-  let condition = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : true;
+const useText = (component, props, name, text, condition = true) => {
   const value = condition ? props[name] : undefined;
   return React.useMemo(() => {
     if (condition) {
@@ -1497,8 +1479,7 @@ const hiddenStyles = options => {
   const transition = 'opacity 0.2s ease-in-out, 0.2s visibility 0s linear';
   return styled.css(["transition:", ";visibility:hidden;opacity:0;"], options.animationModifier && transition);
 };
-function menuStyles(position) {
-  let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+function menuStyles(position, options = {}) {
   const theme = options.theme || DEFAULT_THEME;
   let marginProperty;
   if (position === 'top') {
@@ -1514,19 +1495,18 @@ function menuStyles(position) {
 }
 
 const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
-const focusStyles = _ref => {
-  let {
-    condition = true,
-    selector = SELECTOR_FOCUS_VISIBLE,
-    shadowWidth = 'md',
-    spacerWidth = 'xs',
-    styles: {
-      boxShadow,
-      ...styles
-    } = {},
-    theme,
-    ...options
-  } = _ref;
+const focusStyles = ({
+  condition = true,
+  selector = SELECTOR_FOCUS_VISIBLE,
+  shadowWidth = 'md',
+  spacerWidth = 'xs',
+  styles: {
+    boxShadow,
+    ...styles
+  } = {},
+  theme,
+  ...options
+}) => {
   const _boxShadow = condition ? getFocusBoxShadow({
     boxShadow,
     shadowWidth,
@@ -1546,14 +1526,11 @@ const focusStyles = _ref => {
 };
 
 const StyledBaseIcon = styled__default.default(
-_ref => {
-  let {
-    children,
-    theme,
-    ...props
-  } = _ref;
-  return React.cloneElement(React.Children.only(children), props);
-}).withConfig({
+({
+  children,
+  theme,
+  ...props
+}) => React.cloneElement(React.Children.only(children), props)).withConfig({
   displayName: "StyledBaseIcon",
   componentId: "sc-1moykgb-0"
 })([""]);

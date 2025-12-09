@@ -158,11 +158,10 @@ const validationTypes = {
 };
 
 const COMPONENT_ID$d = 'notifications.close';
-const colorStyles$a = _ref => {
-  let {
-    theme,
-    $type
-  } = _ref;
+const colorStyles$a = ({
+  theme,
+  $type
+}) => {
   let variable;
   switch ($type) {
     case validationTypes.warning:
@@ -234,12 +233,11 @@ const StyledTitle = styled__default.default.div.attrs({
 }), props => props.$isRegular ? props.theme.fontWeights.regular : props.theme.fontWeights.semibold, reactTheming.componentStyles);
 
 const COMPONENT_ID$a = 'notifications.base_container';
-const colorStyles$9 = _ref => {
-  let {
-    theme,
-    $type,
-    $isFloating
-  } = _ref;
+const colorStyles$9 = ({
+  theme,
+  $type,
+  $isFloating
+}) => {
   const {
     space,
     shadows
@@ -385,12 +383,11 @@ StyledNotification.propTypes = {
 };
 
 const COMPONENT_ID$7 = 'notifications.well';
-const colorStyles$6 = _ref => {
-  let {
-    theme,
-    $isFloating,
-    $isRecessed
-  } = _ref;
+const colorStyles$6 = ({
+  theme,
+  $isFloating,
+  $isRecessed
+}) => {
   let backgroundVariable;
   if ($isRecessed) {
     backgroundVariable = 'background.recessed';
@@ -418,20 +415,18 @@ const StyledWell = styled__default.default(StyledBase).attrs({
 })(["", " ", ";"], colorStyles$6, reactTheming.componentStyles);
 
 const COMPONENT_ID$6 = 'notifications.icon';
-const sizeStyles$4 = _ref => {
-  let {
-    theme: {
-      rtl,
-      space
-    }
-  } = _ref;
+const sizeStyles$4 = ({
+  theme: {
+    rtl,
+    space
+  }
+}) => {
   return styled.css(["right:", ";left:", ";margin-top:", "px;"], rtl && `${space.base * 4}px`, !rtl && `${space.base * 4}px`, space.base / 2);
 };
-const colorStyles$5 = _ref2 => {
-  let {
-    theme,
-    $type
-  } = _ref2;
+const colorStyles$5 = ({
+  theme,
+  $type
+}) => {
   let variable;
   switch ($type) {
     case validationTypes.success:
@@ -465,11 +460,10 @@ const StyledIcon = styled__default.default(reactTheming.StyledBaseIcon).attrs({
 })(["position:absolute;", " ", " ", ""], sizeStyles$4, colorStyles$5, reactTheming.componentStyles);
 
 const COMPONENT_ID$5 = 'notifications.global_alert';
-const colorStyles$4 = _ref => {
-  let {
-    theme,
-    $alertType
-  } = _ref;
+const colorStyles$4 = ({
+  theme,
+  $alertType
+}) => {
   let borderColor;
   let backgroundColor;
   let foregroundColor;
@@ -819,11 +813,10 @@ const sizeStyles = props => {
   const marginHorizontal = `${props.theme.space.base * 2}px`;
   return styled.css(["margin-top:", ";margin-", ":", ";width:", ";height:", ";"], marginTop, props.theme.rtl ? 'left' : 'right', marginHorizontal, size, size);
 };
-const colorStyles$1 = _ref => {
-  let {
-    theme,
-    $alertType
-  } = _ref;
+const colorStyles$1 = ({
+  theme,
+  $alertType
+}) => {
   let color;
   switch ($alertType) {
     case 'success':
@@ -864,11 +857,10 @@ const StyledGlobalAlertIcon = styled__default.default(reactTheming.StyledBaseIco
 })(["flex-shrink:0;", ";", ";", ";"], sizeStyles, colorStyles$1, reactTheming.componentStyles);
 
 const COMPONENT_ID = 'notifications.global_alert.title';
-const colorStyles = _ref => {
-  let {
-    theme,
-    $alertType
-  } = _ref;
+const colorStyles = ({
+  theme,
+  $alertType
+}) => {
   let color;
   switch ($alertType) {
     case 'success':
@@ -904,16 +896,13 @@ const useNotificationsContext = () => {
   return React.useContext(NotificationsContext);
 };
 
-const Title$1 = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isRegular,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledTitle, Object.assign({
-    ref: ref,
-    $isRegular: isRegular
-  }, props));
-});
+const Title$1 = React__namespace.default.forwardRef(({
+  isRegular,
+  ...props
+}, ref) => React__namespace.default.createElement(StyledTitle, Object.assign({
+  ref: ref,
+  $isRegular: isRegular
+}, props)));
 Title$1.displayName = 'Alert.Title';
 
 const Paragraph$1 = React__namespace.default.forwardRef((props, ref) => React__namespace.default.createElement(StyledParagraph, Object.assign({
@@ -952,12 +941,11 @@ const Close$1 = React__namespace.default.forwardRef((props, ref) => {
 });
 Close$1.displayName = 'Alert.Close';
 
-const AlertComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    role,
-    type,
-    ...props
-  } = _ref;
+const AlertComponent = React__namespace.default.forwardRef(({
+  role,
+  type,
+  ...props
+}, ref) => {
   const Icon = validationIcons[type];
   return React__namespace.default.createElement(NotificationsContext.Provider, {
     value: type
@@ -978,16 +966,13 @@ Alert.Close = Close$1;
 Alert.Paragraph = Paragraph$1;
 Alert.Title = Title$1;
 
-const Title = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isRegular,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledTitle, Object.assign({
-    ref: ref,
-    $isRegular: isRegular
-  }, props));
-});
+const Title = React__namespace.default.forwardRef(({
+  isRegular,
+  ...props
+}, ref) => React__namespace.default.createElement(StyledTitle, Object.assign({
+  ref: ref,
+  $isRegular: isRegular
+}, props)));
 Title.displayName = 'Notification.Title';
 
 const Paragraph = React__namespace.default.forwardRef((props, ref) => React__namespace.default.createElement(StyledParagraph, Object.assign({
@@ -1009,12 +994,11 @@ const Close = React__namespace.default.forwardRef((props, ref) => {
 });
 Close.displayName = 'Notification.Close';
 
-const NotificationComponent = React.forwardRef((_ref, ref) => {
-  let {
-    children,
-    type,
-    ...props
-  } = _ref;
+const NotificationComponent = React.forwardRef(({
+  children,
+  type,
+  ...props
+}, ref) => {
   const Icon = type ? validationIcons[type] : SvgInfoStroke;
   return React__namespace.default.createElement(StyledNotification, Object.assign({
     ref: ref,
@@ -1034,18 +1018,15 @@ Notification.Close = Close;
 Notification.Paragraph = Paragraph;
 Notification.Title = Title;
 
-const WellComponent = React__namespace.default.forwardRef((_ref, ref) => {
-  let {
-    isFloating,
-    isRecessed,
-    ...props
-  } = _ref;
-  return React__namespace.default.createElement(StyledWell, Object.assign({
-    ref: ref,
-    $isFloating: isFloating,
-    $isRecessed: isRecessed
-  }, props));
-});
+const WellComponent = React__namespace.default.forwardRef(({
+  isFloating,
+  isRecessed,
+  ...props
+}, ref) => React__namespace.default.createElement(StyledWell, Object.assign({
+  ref: ref,
+  $isFloating: isFloating,
+  $isRecessed: isRecessed
+}, props)));
 WellComponent.displayName = 'Well';
 WellComponent.propTypes = {
   isRecessed: PropTypes__default.default.bool,
@@ -1129,8 +1110,7 @@ const useToast = () => {
     dispatch,
     state
   } = context;
-  const addToast = React.useCallback(function (content) {
-    let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  const addToast = React.useCallback((content, options = {}) => {
     const mergedOptions = {
       ...DEFAULT_TOAST_OPTIONS,
       ...options
@@ -1175,11 +1155,10 @@ const useToast = () => {
   };
 };
 
-const Toast = _ref => {
-  let {
-    toast,
-    pauseTimers
-  } = _ref;
+const Toast = ({
+  toast,
+  pauseTimers
+}) => {
   const {
     removeToast
   } = useToast();
@@ -1281,14 +1260,13 @@ const StyledTransitionContainer = styled__default.default.div.withConfig({
   componentId: "sc-nq0usb-1"
 })(["position:fixed;z-index:", ";", ";"], props => props.$toastZIndex, placementStyles);
 
-const ToastSlot = _ref => {
-  let {
-    toasts,
-    placement,
-    zIndex,
-    limit,
-    ...props
-  } = _ref;
+const ToastSlot = ({
+  toasts,
+  placement,
+  zIndex,
+  limit,
+  ...props
+}) => {
   const [pauseTimers, setPauseTimers] = React.useState(false);
   const theme = React.useContext(styled.ThemeContext);
   const environment = reactTheming.useDocument(theme);
@@ -1349,13 +1327,12 @@ const ToastSlot = _ref => {
   })));
 };
 
-const ToastProvider = _ref => {
-  let {
-    limit = 4,
-    zIndex,
-    placementProps = {},
-    children
-  } = _ref;
+const ToastProvider = ({
+  limit = 4,
+  zIndex,
+  placementProps = {},
+  children
+}) => {
   const [state, dispatch] = React.useReducer(toasterReducer, getInitialState());
   const contextValue = React.useMemo(() => ({
     state,
@@ -1389,11 +1366,10 @@ const GlobalAlertContext = React.createContext({
 });
 const useGlobalAlertContext = () => React.useContext(GlobalAlertContext);
 
-const GlobalAlertButton = React.forwardRef((_ref, ref) => {
-  let {
-    isBasic,
-    ...props
-  } = _ref;
+const GlobalAlertButton = React.forwardRef(({
+  isBasic,
+  ...props
+}, ref) => {
   const {
     type
   } = useGlobalAlertContext();
@@ -1435,11 +1411,10 @@ const GlobalAlertContent = React.forwardRef((props, ref) => {
 });
 GlobalAlertContent.displayName = 'GlobalAlert.Content';
 
-const GlobalAlertTitle = React.forwardRef((_ref, ref) => {
-  let {
-    isRegular,
-    ...props
-  } = _ref;
+const GlobalAlertTitle = React.forwardRef(({
+  isRegular,
+  ...props
+}, ref) => {
   const {
     type
   } = useGlobalAlertContext();
@@ -1454,11 +1429,10 @@ GlobalAlertTitle.propTypes = {
   isRegular: PropTypes__default.default.bool
 };
 
-const GlobalAlertComponent = React.forwardRef((_ref, ref) => {
-  let {
-    type,
-    ...props
-  } = _ref;
+const GlobalAlertComponent = React.forwardRef(({
+  type,
+  ...props
+}, ref) => {
   const icon = {
     success: React__namespace.default.createElement(SvgCheckCircleStroke, null),
     error: React__namespace.default.createElement(SvgAlertErrorStroke, null),

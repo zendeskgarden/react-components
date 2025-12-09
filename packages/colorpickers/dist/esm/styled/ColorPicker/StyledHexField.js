@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { Field } from '@zendeskgarden/react-forms';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
+const COMPONENT_ID$d = 'colorpickers.colorpicker_hex_field';
 const StyledHexField = styled(Field).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$d,
   'data-garden-version': '9.12.3',
   spellCheck: false
 }).withConfig({

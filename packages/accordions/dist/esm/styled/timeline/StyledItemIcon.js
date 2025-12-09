@@ -9,11 +9,10 @@ import { math } from 'polished';
 import { StyledBaseIcon, componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.icon';
-const colorStyles = _ref => {
-  let {
-    $surfaceColor,
-    theme
-  } = _ref;
+const colorStyles = ({
+  $surfaceColor,
+  theme
+}) => {
   const foregroundColor = getColor({
     theme,
     variable: 'border.emphasis'

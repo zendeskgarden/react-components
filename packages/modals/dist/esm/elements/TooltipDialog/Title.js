@@ -30,12 +30,11 @@ import '../../styled/StyledDrawerBody.js';
 import '../../styled/StyledDrawerFooter.js';
 import '../../styled/StyledDrawerFooterItem.js';
 
-const TitleComponent = forwardRef((_ref, ref) => {
-  let {
-    children,
-    tag = 'div',
-    ...other
-  } = _ref;
+const TitleComponent = forwardRef(({
+  children,
+  tag = 'div',
+  ...other
+}, ref) => {
   const {
     getTitleProps,
     hasTitle,

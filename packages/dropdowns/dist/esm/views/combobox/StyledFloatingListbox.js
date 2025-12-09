@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { menuStyles, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.combobox.floating';
+const COMPONENT_ID$q = 'dropdowns.combobox.floating';
 const StyledFloatingListbox = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$q,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledFloatingListbox",

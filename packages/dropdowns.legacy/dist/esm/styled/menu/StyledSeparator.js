@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'dropdowns.separator';
+const COMPONENT_ID$k = 'dropdowns.separator';
 const StyledSeparator = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$k,
   'data-garden-version': '9.12.3',
   role: 'separator'
 }).withConfig({

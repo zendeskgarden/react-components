@@ -8,7 +8,7 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledTextInput } from './StyledTextInput.js';
 
-const COMPONENT_ID = 'forms.textarea';
+const COMPONENT_ID$y = 'forms.textarea';
 const hiddenStyles = `
   visibility: hidden;
   position: absolute;
@@ -20,7 +20,7 @@ const hiddenStyles = `
 `;
 const StyledTextarea = styled(StyledTextInput).attrs({
   as: 'textarea',
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$y,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledTextarea",

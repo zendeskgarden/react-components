@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import SvgNewWindowStroke from '../node_modules/@zendeskgarden/svg-icons/src/12/new-window-stroke.svg.js';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'buttons.external_icon';
+const COMPONENT_ID$1 = 'buttons.external_icon';
 const StyledExternalIcon = styled(SvgNewWindowStroke).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledExternalIcon",

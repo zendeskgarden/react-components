@@ -6,9 +6,9 @@
 */
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_label_text';
+const COMPONENT_ID$d = 'accordions.step_label_text';
 const StyledLabelText = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$d,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledLabelText",

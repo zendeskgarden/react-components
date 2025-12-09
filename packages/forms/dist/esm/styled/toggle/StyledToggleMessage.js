@@ -10,9 +10,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledMessage } from '../common/StyledMessage.js';
 import { StyledMessageIcon } from '../common/StyledMessageIcon.js';
 
-const COMPONENT_ID = 'forms.toggle_message';
+const COMPONENT_ID$8 = 'forms.toggle_message';
 const StyledToggleMessage = styled(StyledMessage).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$8,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledToggleMessage",

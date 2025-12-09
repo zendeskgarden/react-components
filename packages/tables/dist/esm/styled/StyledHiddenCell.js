@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { hideVisually } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.hidden_cell';
+const COMPONENT_ID$1 = 'tables.hidden_cell';
 const StyledHiddenCell = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledHiddenCell",

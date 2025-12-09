@@ -35,16 +35,15 @@ import useDropdownContext from '../../../utils/useDropdownContext.js';
 import useMenuContext from '../../../utils/useMenuContext.js';
 import { ItemContext } from '../../../utils/useItemContext.js';
 
-const Item = React__default.forwardRef((_ref, forwardRef) => {
-  let {
-    value,
-    disabled,
-    isDanger,
-    component = StyledItem,
-    hasIcon,
-    children,
-    ...other
-  } = _ref;
+const Item = React__default.forwardRef(({
+  value,
+  disabled,
+  isDanger,
+  component = StyledItem,
+  hasIcon,
+  children,
+  ...other
+}, forwardRef) => {
   const {
     selectedItems,
     hasMenuRef,

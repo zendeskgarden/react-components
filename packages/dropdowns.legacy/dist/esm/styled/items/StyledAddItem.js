@@ -8,9 +8,9 @@ import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { StyledItem } from './StyledItem.js';
 
-const COMPONENT_ID = 'dropdowns.add_item';
+const COMPONENT_ID$i = 'dropdowns.add_item';
 const StyledAddItem = styled(StyledItem).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$i,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledAddItem",

@@ -61,7 +61,7 @@ const FooterComponent = React__default.forwardRef((props, ref) => {
   }, props));
 });
 FooterComponent.displayName = 'Footer';
-const Footer = FooterComponent;
-Footer.Item = FooterItem;
+const Footer$1 = FooterComponent;
+Footer$1.Item = FooterItem;
 
-export { Footer, FooterComponent };
+export { Footer$1 as Footer, FooterComponent };

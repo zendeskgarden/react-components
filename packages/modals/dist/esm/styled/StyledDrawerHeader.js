@@ -9,9 +9,9 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledHeader } from './StyledHeader.js';
 import { BASE_MULTIPLIERS } from './StyledDrawerClose.js';
 
-const COMPONENT_ID = 'modals.drawer_modal.header';
+const COMPONENT_ID$3 = 'modals.drawer_modal.header';
 const StyledDrawerHeader = styled(StyledHeader).attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$3,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledDrawerHeader",

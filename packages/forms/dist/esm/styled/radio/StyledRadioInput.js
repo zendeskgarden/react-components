@@ -10,11 +10,10 @@ import { componentStyles, getColor, focusStyles } from '@zendeskgarden/react-the
 import { StyledRadioLabel } from './StyledRadioLabel.js';
 import { StyledMessage } from '../common/StyledMessage.js';
 
-const COMPONENT_ID = 'forms.radio';
-const colorStyles = _ref => {
-  let {
-    theme
-  } = _ref;
+const COMPONENT_ID$p = 'forms.radio';
+const colorStyles$9 = ({
+  theme
+}) => {
   const borderColor = getColor({
     theme,
     variable: 'border.emphasis'
@@ -93,11 +92,10 @@ const colorStyles = _ref => {
     selector: `&:focus-visible ~ ${StyledRadioLabel}::before`
   }), StyledRadioLabel, activeBorderColor, activeBackgroundColor, StyledRadioLabel, checkedBorderColor, checkedBackgroundColor, StyledRadioLabel, checkedHoverBorderColor, checkedHoverBackgroundColor, StyledRadioLabel, checkedActiveBorderColor, checkedActiveBackgroundColor, StyledRadioLabel, disabledBackgroundColor);
 };
-const sizeStyles = _ref2 => {
-  let {
-    theme,
-    $isCompact
-  } = _ref2;
+const sizeStyles$c = ({
+  theme,
+  $isCompact
+}) => {
   const lineHeight = `${theme.space.base * 5}px`;
   const size = `${theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
@@ -108,12 +106,12 @@ const sizeStyles = _ref2 => {
   return css(["top:", ";width:", ";height:", ";& ~ ", "::before{top:", ";border:", ";background-size:", ";width:", ";height:", ";box-sizing:border-box;}& ~ ", " > svg{top:", ";", ":", ";width:", ";height:", ";}&& ~ ", " ~ ", "{margin-top:", ";}"], top, size, size, StyledRadioLabel, top, theme.borders.sm, theme.iconSizes.sm, size, size, StyledRadioLabel, iconTop, theme.rtl ? 'right' : 'left', iconPosition, iconSize, iconSize, StyledRadioLabel, StyledMessage, marginTop);
 };
 const StyledRadioInput = styled.input.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$p,
   'data-garden-version': '9.12.3',
   type: 'radio'
 }).withConfig({
   displayName: "StyledRadioInput",
   componentId: "sc-qsavpv-0"
-})(["position:absolute;opacity:0;margin:0;& ~ ", "::before{position:absolute;", ":0;transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;border-radius:50%;background-repeat:no-repeat;background-position:center;content:'';}& ~ ", " > svg{position:absolute;}", ";&:focus ~ ", "::before{outline:none;}& ~ ", ":active::before{transition:border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;}", ";&:disabled ~ ", "{cursor:default;}", ";"], StyledRadioLabel, props => props.theme.rtl ? 'right' : 'left', StyledRadioLabel, sizeStyles, StyledRadioLabel, StyledRadioLabel, colorStyles, StyledRadioLabel, componentStyles);
+})(["position:absolute;opacity:0;margin:0;& ~ ", "::before{position:absolute;", ":0;transition:border-color .25s ease-in-out,box-shadow .1s ease-in-out,background-color .25s ease-in-out,color .25s ease-in-out;border-radius:50%;background-repeat:no-repeat;background-position:center;content:'';}& ~ ", " > svg{position:absolute;}", ";&:focus ~ ", "::before{outline:none;}& ~ ", ":active::before{transition:border-color 0.1s ease-in-out,background-color 0.1s ease-in-out,color 0.1s ease-in-out;}", ";&:disabled ~ ", "{cursor:default;}", ";"], StyledRadioLabel, props => props.theme.rtl ? 'right' : 'left', StyledRadioLabel, sizeStyles$c, StyledRadioLabel, StyledRadioLabel, colorStyles$9, StyledRadioLabel, componentStyles);
 
 export { StyledRadioInput };

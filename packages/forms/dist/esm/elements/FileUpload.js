@@ -51,13 +51,12 @@ import '../styled/tiles/StyledTileIcon.js';
 import '../styled/tiles/StyledTileInput.js';
 import '../styled/tiles/StyledTileLabel.js';
 
-const FileUpload = React__default.forwardRef((_ref, ref) => {
-  let {
-    disabled,
-    isCompact,
-    isDragging,
-    ...other
-  } = _ref;
+const FileUpload = React__default.forwardRef(({
+  disabled,
+  isCompact,
+  isDragging,
+  ...other
+}, ref) => {
   return (
     React__default.createElement(StyledFileUpload, Object.assign({
       ref: ref,

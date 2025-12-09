@@ -7,9 +7,9 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'tables.caption';
+const COMPONENT_ID$a = 'tables.caption';
 const StyledCaption = styled.caption.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$a,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledCaption",

@@ -7,7 +7,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Item } from './OrderedListItem.js';
-import { SIZE, TYPE_ORDERED_LIST } from '../../types/index.js';
+import { TYPE_ORDERED_LIST, SIZE } from '../../types/index.js';
 import { OrderedListContext } from '../../utils/useOrderedListContext.js';
 import '../../styled/StyledBlockquote.js';
 import '../../styled/StyledCode.js';
@@ -23,12 +23,11 @@ import { StyledOrderedList } from '../../styled/StyledList.js';
 import '../../styled/StyledListItem.js';
 import '../../styled/StyledParagraph.js';
 
-const OrderedListComponent = React.forwardRef((_ref, ref) => {
-  let {
-    size = 'medium',
-    type = 'decimal',
-    ...other
-  } = _ref;
+const OrderedListComponent = React.forwardRef(({
+  size = 'medium',
+  type = 'decimal',
+  ...other
+}, ref) => {
   const value = useMemo(() => ({
     size: size
   }), [size]);

@@ -56,21 +56,20 @@ import '../styled/tiles/StyledTileLabel.js';
 import { FauxInput } from './faux-input/FauxInput.js';
 import useFieldContext from '../utils/useFieldContext.js';
 
-const MediaInput = React__default.forwardRef((_ref, ref) => {
-  let {
-    start,
-    end,
-    disabled,
-    isCompact,
-    isBare,
-    focusInset,
-    readOnly,
-    validation,
-    wrapperProps = {},
-    wrapperRef,
-    onSelect,
-    ...props
-  } = _ref;
+const MediaInput = React__default.forwardRef(({
+  start,
+  end,
+  disabled,
+  isCompact,
+  isBare,
+  focusInset,
+  readOnly,
+  validation,
+  wrapperProps = {},
+  wrapperRef,
+  onSelect,
+  ...props
+}, ref) => {
   const fieldContext = useFieldContext();
   const inputRef = useRef();
   const [isFocused, setIsFocused] = useState(false);

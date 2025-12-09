@@ -37,11 +37,10 @@ import { Item } from './components/Item.js';
 import { Content } from './components/Content.js';
 import { OppositeContent } from './components/OppositeContent.js';
 
-const TimelineComponent = forwardRef((_ref, ref) => {
-  let {
-    isAlternate,
-    ...props
-  } = _ref;
+const TimelineComponent = forwardRef(({
+  isAlternate,
+  ...props
+}, ref) => {
   const value = useMemo(() => ({
     isAlternate
   }), [isAlternate]);

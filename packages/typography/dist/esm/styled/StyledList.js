@@ -11,17 +11,17 @@ const listStyles = props => {
   const rtl = props.theme.rtl;
   return css(["direction:", ";margin:0;margin-", ":24px;padding:0;list-style-position:outside;list-style-type:", ";"], rtl ? 'rtl' : 'ltr', rtl ? 'right' : 'left', props.$listType);
 };
-const ORDERED_ID = 'typography.ordered_list';
+const ORDERED_ID$1 = 'typography.ordered_list';
 const StyledOrderedList = styled.ol.attrs({
-  'data-garden-id': ORDERED_ID,
+  'data-garden-id': ORDERED_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledList__StyledOrderedList",
   componentId: "sc-jdbsfi-0"
 })(["", ";", ";"], listStyles, componentStyles);
-const UNORDERED_ID = 'typography.unordered_list';
+const UNORDERED_ID$1 = 'typography.unordered_list';
 const StyledUnorderedList = styled.ul.attrs({
-  'data-garden-id': UNORDERED_ID,
+  'data-garden-id': UNORDERED_ID$1,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledList__StyledUnorderedList",

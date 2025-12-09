@@ -7,8 +7,8 @@
 import styled, { css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'draggable_list.item';
-const sizeStyles = props => {
+const COMPONENT_ID$5 = 'draggable_list.item';
+const sizeStyles$4 = props => {
   const {
     $isHorizontal,
     theme: {
@@ -18,11 +18,11 @@ const sizeStyles = props => {
   return css(["padding:", ";"], $isHorizontal ? `0 ${space.xxs}` : `${space.xxs} 0`);
 };
 const StyledItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$5,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledItem",
   componentId: "sc-1nps3s3-0"
-})(["display:flex;", " ", ";"], sizeStyles, componentStyles);
+})(["display:flex;", " ", ";"], sizeStyles$4, componentStyles);
 
 export { StyledItem };

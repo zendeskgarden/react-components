@@ -7,12 +7,12 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'colorpickers.colorpicker';
+const COMPONENT_ID$l = 'colorpickers.colorpicker';
 const getColorPickerWidth = props => {
   return props.$isOpaque ? 268 : 312;
 };
 const StyledColorPicker = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
+  'data-garden-id': COMPONENT_ID$l,
   'data-garden-version': '9.12.3'
 }).withConfig({
   displayName: "StyledColorPicker",
