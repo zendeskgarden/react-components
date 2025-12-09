@@ -68,8 +68,7 @@ export interface IGlobalAlertProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface IGlobalAlertButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    Pick<IButtonProps, 'isBasic'> {}
+  extends ButtonHTMLAttributes<HTMLButtonElement>, Pick<IButtonProps, 'isBasic'> {}
 
 export interface IGlobalAlertTitleProps extends HTMLAttributes<HTMLDivElement> {
   /**

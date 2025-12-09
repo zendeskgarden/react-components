@@ -44,16 +44,13 @@ export interface IIconButtonProps extends Omit<IButtonProps, 'isStretched' | 'is
 }
 
 export interface IToggleIconButtonProps
-  extends IIconButtonProps,
-    Pick<IToggleButtonProps, 'isPressed'> {}
+  extends IIconButtonProps, Pick<IToggleButtonProps, 'isPressed'> {}
 
 export interface IButtonIconProps
-  extends Pick<IIconButtonProps, 'isRotated'>,
-    SVGAttributes<SVGElement> {}
+  extends Pick<IIconButtonProps, 'isRotated'>, SVGAttributes<SVGElement> {}
 
 export interface IAnchorProps
-  extends Pick<IButtonProps, 'isDanger'>,
-    AnchorHTMLAttributes<HTMLAnchorElement> {
+  extends Pick<IButtonProps, 'isDanger'>, AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * Attaches `target="_blank"` and `rel="noopener noreferrer"` to an anchor that
    * navigates to an external resource. This ensures that the anchor is a

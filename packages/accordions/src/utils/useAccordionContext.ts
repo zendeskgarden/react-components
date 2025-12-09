@@ -10,7 +10,8 @@ import { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import { IAccordionProps } from '../types';
 
 export interface IAccordionContext<Value>
-  extends Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
+  extends
+    Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
     Pick<
       IAccordionProps<Value>,
       'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
