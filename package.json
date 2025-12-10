@@ -101,7 +101,7 @@
     "storybook": "7.6.20",
     "styled-components": "6.1.19",
     "stylelint": "16.26.1",
-    "stylelint-order": "6.0.4",
+    "stylelint-order": "7.0.0",
     "temp": "0.9.4",
     "typescript": "5.9.3",
     "webpack": "5.103.0"
