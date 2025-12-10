@@ -82,11 +82,10 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   children: ReactElement;
 }
 
-export interface IDatePickerRangeProps
-  extends Pick<
-    IDatePickerProps,
-    'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
-  > {
+export interface IDatePickerRangeProps extends Pick<
+  IDatePickerProps,
+  'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
+> {
   /**
    * Sets the start date
    */

@@ -14,8 +14,10 @@ import {
   ReactElement
 } from 'react';
 
-export interface IAccordionProps<Value = any>
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface IAccordionProps<Value = any> extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'onChange'
+> {
   /** Sets `aria-level` heading rank in the document structure */
   level: NonNullable<HTMLAttributes<HTMLDivElement>['aria-level']>;
   /** Sets the expanded sections in a controlled accordion */

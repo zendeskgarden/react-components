@@ -55,7 +55,8 @@ export interface ICellProps extends TdHTMLAttributes<HTMLTableCellElement> {
 }
 
 export interface IHeaderCellProps
-  extends Pick<ICellProps, 'isMinimum' | 'isTruncated' | 'hasOverflow' | 'width'>,
+  extends
+    Pick<ICellProps, 'isMinimum' | 'isTruncated' | 'hasOverflow' | 'width'>,
     ThHTMLAttributes<HTMLTableCellElement> {}
 
 export interface ISortableCellProps extends ButtonHTMLAttributes<HTMLButtonElement> {

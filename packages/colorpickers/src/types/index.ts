@@ -39,8 +39,10 @@ export interface IRGBColor {
   alpha?: number;
 }
 
-export interface IColorPickerProps
-  extends Omit<HTMLAttributes<HTMLDivElement>, 'color' | 'onChange'> {
+export interface IColorPickerProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'color' | 'onChange'
+> {
   /** Sets the color for an uncontrolled color picker */
   defaultColor?: string | IColor;
   /** Sets the color for a controlled color picker */
