@@ -60,6 +60,9 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
     const [hasHeader, setHasHeader] = useState<boolean>(false);
+    const handleClose: IDrawerProps['onClose'] = event => {
+      isOpen && onClose?.(event);
+    };
 
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
@@ -68,7 +71,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
         focusOnMount: false /* [1:b] */,
         restoreFocus: false /* [1:b] */,
         environment,
-        onClose
+        onClose: handleClose
       });
 
     /* [1:c] */

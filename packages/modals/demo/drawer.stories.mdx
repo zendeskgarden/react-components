@@ -1,4 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
 import { useArgs } from '@storybook/client-api';
 import { Drawer } from '@zendeskgarden/react-modals';
 import { DrawerStory } from './stories/DrawerStory';
@@ -60,8 +61,14 @@ import README from '../README.md';
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleClick = () => updateArgs({ isOpen: true });
-      const handleClose = () => updateArgs({ isOpen: false });
+      const handleClick = () => {
+        action('onClick')();
+        updateArgs({ isOpen: true });
+      };
+      const handleClose = () => {
+        action('onClose')();
+        updateArgs({ isOpen: false });
+      };
       return <DrawerStory {...args} onClick={handleClick} onClose={handleClose} />;
     }}
   </Story>

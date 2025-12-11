@@ -1,4 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
 import { useArgs } from '@storybook/client-api';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
 import { ColorSwatchDialogStory } from './stories/ColorSwatchDialogStory';
@@ -64,9 +65,14 @@ import README from '../README.md';
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleChange = ({ isOpen }) => updateArgs({ isOpen });
-      const handleSelect = (selectedRowIndex, selectedColIndex) =>
+      const handleChange = ({ isOpen }) => {
+        action('onDialogChange')({ isOpen });
+        updateArgs({ isOpen });
+      };
+      const handleSelect = (selectedRowIndex, selectedColIndex) => {
+        action('onSelect')(selectedRowIndex, selectedColIndex);
         updateArgs({ selectedRowIndex, selectedColIndex });
+      };
       return (
         <ColorSwatchDialogStory {...args} onDialogChange={handleChange} onSelect={handleSelect} />
       );
