@@ -91,8 +91,10 @@ export interface ITriggerProps extends HTMLAttributes<HTMLElement> {
   refKey?: string;
 }
 
-export interface ISelectProps
-  extends Omit<IFauxInputProps, 'isFocused' | 'isHovered' | 'readOnly'> {
+export interface ISelectProps extends Omit<
+  IFauxInputProps,
+  'isFocused' | 'isHovered' | 'readOnly'
+> {
   /** Defines the icon rendered before the element's content */
   start?: any;
 }

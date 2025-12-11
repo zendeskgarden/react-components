@@ -42,8 +42,7 @@ export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetEleme
 }
 
 export interface IInputGroupProps
-  extends Pick<IFieldsetProps, 'isCompact'>,
-    HTMLAttributes<HTMLDivElement> {}
+  extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {}
 
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
@@ -101,7 +100,8 @@ export interface IMediaInputProps extends IInputProps {
 }
 
 export interface IFauxInputProps
-  extends Pick<IInputProps, 'isCompact' | 'isBare' | 'focusInset' | 'validation'>,
+  extends
+    Pick<IInputProps, 'isCompact' | 'isBare' | 'focusInset' | 'validation'>,
     HTMLAttributes<HTMLDivElement> {
   /** Indicates that the element is not interactive */
   disabled?: IInputProps['disabled'];
@@ -116,8 +116,7 @@ export interface IFauxInputProps
 }
 
 export interface IFauxInputIconProps
-  extends Pick<IFauxInputProps, 'isHovered' | 'isFocused'>,
-    SVGAttributes<SVGElement> {
+  extends Pick<IFauxInputProps, 'isHovered' | 'isFocused'>, SVGAttributes<SVGElement> {
   /** Applies disabled styling */
   isDisabled?: IFauxInputProps['disabled'];
   /** Rotates icon 180 degrees */
@@ -125,7 +124,8 @@ export interface IFauxInputIconProps
 }
 
 export interface ITextareaProps
-  extends Pick<IInputProps, 'isCompact' | 'isBare' | 'focusInset' | 'validation'>,
+  extends
+    Pick<IInputProps, 'isCompact' | 'isBare' | 'focusInset' | 'validation'>,
     TextareaHTMLAttributes<HTMLTextAreaElement> {
   /** Enables manual vertical resize */
   isResizable?: boolean;
@@ -136,12 +136,12 @@ export interface ITextareaProps
 }
 
 export interface ISelectProps
-  extends Pick<IInputProps, 'isCompact' | 'isBare' | 'focusInset' | 'validation'>,
+  extends
+    Pick<IInputProps, 'isCompact' | 'isBare' | 'focusInset' | 'validation'>,
     SelectHTMLAttributes<HTMLSelectElement> {}
 
 export interface IFileUploadProps
-  extends Pick<IInputProps, 'disabled' | 'isCompact'>,
-    HTMLAttributes<HTMLDivElement> {
+  extends Pick<IInputProps, 'disabled' | 'isCompact'>, HTMLAttributes<HTMLDivElement> {
   /** Indicates that the element is not interactive */
   disabled?: IInputProps['disabled'];
   /** Applies drag styling */
@@ -149,8 +149,7 @@ export interface IFileUploadProps
 }
 
 export interface IFileProps
-  extends Pick<IInputProps, 'isCompact' | 'focusInset'>,
-    HTMLAttributes<HTMLDivElement> {
+  extends Pick<IInputProps, 'isCompact' | 'focusInset'>, HTMLAttributes<HTMLDivElement> {
   /** Determines the icon to display */
   type?: FileType;
   /** Applies validation state styling */
