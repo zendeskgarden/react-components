@@ -79,7 +79,7 @@
     "jest-environment-jsdom": "29.7.0",
     "jest-styled-components": "7.2.0",
     "lerna": "8.2.4",
-    "lint-staged": "15.5.2",
+    "lint-staged": "16.2.7",
     "markdownlint-cli": "0.46.0",
     "micromatch": "4.0.8",
     "mockdate": "3.0.5",
