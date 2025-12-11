@@ -1,4 +1,5 @@
 import { Meta, ArgsTable, Canvas, Story, Markdown } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
 import { useArgs } from '@storybook/client-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
@@ -52,8 +53,14 @@ import README from '../README.md';
   >
     {args => {
       const updateArgs = useArgs()[1];
-      const handleDialogChange = ({ isOpen }) => updateArgs({ isOpen });
-      const handleChange = color => updateArgs({ color });
+      const handleDialogChange = ({ isOpen }) => {
+        action('onDialogChange')({ isOpen });
+        updateArgs({ isOpen });
+      };
+      const handleChange = color => {
+        action('onChange')(color);
+        updateArgs({ color });
+      };
       return (
         <ColorPickerDialogStory
           {...args}

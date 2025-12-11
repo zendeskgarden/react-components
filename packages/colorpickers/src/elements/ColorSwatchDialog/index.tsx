@@ -96,12 +96,14 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 
     const openDialog = () => {
       setReferenceElement(buttonRef.current);
-      onDialogChange && onDialogChange({ isOpen: true });
+      onDialogChange?.({ isOpen: true });
     };
 
     const closeDialog = () => {
-      setReferenceElement(null);
-      onDialogChange && onDialogChange({ isOpen: false });
+      if (referenceElement) {
+        setReferenceElement(null);
+        onDialogChange?.({ isOpen: false });
+      }
     };
 
     const onClick = composeEventHandlers(props.onClick, () => {

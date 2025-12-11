@@ -78,7 +78,7 @@ describe('ColorSwatchDialog', () => {
 
     await user.keyboard('{escape}');
 
-    expect(onDialogChange).toHaveBeenCalledTimes(3);
+    expect(onDialogChange).toHaveBeenCalledTimes(2);
     expect(onDialogChange).toHaveBeenCalledWith({ isOpen: false });
   });
 

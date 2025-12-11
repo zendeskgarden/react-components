@@ -41,12 +41,6 @@ import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'top';
 
-/**
- * 1. When content is kept mounted we must manually focus on re-open
- * 2. Hide only at 'exited' so exit animations finish
- *    and floating-ui sizing/focus logic remain valid during 'exiting'.
- *    Earlier hiding would cut animation and risk focus/layout issues.
- */
 const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogProps>(
   (
     {
@@ -75,10 +69,13 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
     const transitionRef = useRef<HTMLDivElement>(null);
     const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>();
     const [hasTitle, setHasTitle] = useState<boolean>(false);
+    const handleClose: ITooltipDialogProps['onClose'] = event => {
+      referenceElement && onClose?.(event);
+    };
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
         idPrefix: id,
-        onClose,
+        onClose: handleClose,
         modalRef,
         focusOnMount,
         /** Handle `restoreFocus` locally to return focus to `referenceElement` */
@@ -169,11 +166,17 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
         nodeRef={transitionRef}
         onEntered={() => {
           if (keepMounted && focusOnMount && modalRef.current) {
-            modalRef.current.focus(); // [1]
+            /* When content is kept mounted we must manually focus on re-open */
+            modalRef.current.focus();
           }
         }}
       >
         {transitionState => {
+          /*
+          Hide only at 'exited' so exit animations finish and floating-ui
+          sizing/focus logic remain valid during 'exiting'.  Earlier hiding
+          would cut animation and risk focus/layout issues.
+          */
           const isHidden = keepMounted && transitionState === 'exited'; // [2]
 
           return (
