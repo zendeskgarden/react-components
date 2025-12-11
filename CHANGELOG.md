@@ -13,6 +13,26 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.4 (2025-12-11)
+
+#### :bug: Bug Fix
+* `colorpickers`, `modals`
+  * [#2066](https://github.com/zendeskgarden/react-components/pull/2066) fix(modals,colorpickers): prevent double close events on dialogs ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* Other
+  * [#2027](https://github.com/zendeskgarden/react-components/pull/2027) chore(deps): update dependency stylelint-order to v7 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2006](https://github.com/zendeskgarden/react-components/pull/2006) chore(deps): update dependency eslint-config-prettier to v10 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2062](https://github.com/zendeskgarden/react-components/pull/2062) chore(deps-dev): bump form-data from 4.0.0 to 4.0.5 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#2064](https://github.com/zendeskgarden/react-components/pull/2064) chore(deps-dev): bump tar-fs from 2.1.1 to 2.1.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#2061](https://github.com/zendeskgarden/react-components/pull/2061) chore(deps): bump on-headers and compression ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#2002](https://github.com/zendeskgarden/react-components/pull/2002) chore(deps): update coverallsapp/github-action action to v2.3.6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2001](https://github.com/zendeskgarden/react-components/pull/2001) chore(deps): bump store2 from 2.14.3 to 2.14.4 ([@dependabot[bot]](https://github.com/apps/dependabot))
+* `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns`, `forms`, `modals`, `notifications`, `pagination`, `tables`, `tags`
+  * [#2004](https://github.com/zendeskgarden/react-components/pull/2004) chore(deps): update non-major package dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* `accordions`, `buttons`, `colorpickers`, `datepickers`, `dropdowns.legacy`, `forms`, `notifications`, `tables`
+  * [#2003](https://github.com/zendeskgarden/react-components/pull/2003) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v9.12.3 (2025-12-04)
 
 #### :bug: Bug Fix
