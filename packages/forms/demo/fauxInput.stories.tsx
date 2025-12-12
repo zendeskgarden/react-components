@@ -23,7 +23,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof FauxInputStory> = {
-  render: (args: any) => <FauxInputStory {...args} />,
+  render: args => <FauxInputStory {...args} />,
   name: 'FauxInput',
   args: {
     children: '',

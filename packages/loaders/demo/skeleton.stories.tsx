@@ -17,7 +17,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof SkeletonStory> = {
-  render: (args: any) => <SkeletonStory {...args} />,
+  render: args => <SkeletonStory {...args} />,
   name: 'Skeleton',
   args: {
     count: 1

@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Progress } from '@zendeskgarden/react-loaders';
 
 export default {
@@ -13,8 +15,8 @@ export default {
   component: Progress
 };
 
-export const Default = {
-  render: (args: any) => <Progress {...args} />,
+export const Default: StoryObj<typeof Progress> = {
+  render: args => <Progress {...args} />,
   name: 'Progress',
 
   argTypes: {

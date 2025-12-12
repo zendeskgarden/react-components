@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof TagStory> = {
-  render: (args: any) => <TagStory {...args} />,
+  render: args => <TagStory {...args} />,
   name: 'Tag',
   args: {
     children: 'Tag',

@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
@@ -14,8 +16,8 @@ export default {
   component: IconButton
 };
 
-export const Default = {
-  render: (args: any) => (
+export const Default: StoryObj<typeof IconButton> = {
+  render: args => (
     <IconButton {...args}>
       <Icon />
     </IconButton>

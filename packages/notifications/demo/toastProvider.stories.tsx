@@ -17,7 +17,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof ToastProviderStory> = {
-  render: (args: any) => <ToastProviderStory {...args} />,
+  render: args => <ToastProviderStory {...args} />,
   name: 'ToastProvider',
   args: {
     children: 'Notification',

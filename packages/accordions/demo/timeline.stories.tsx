@@ -23,7 +23,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof TimelineStory> = {
-  render: (args: any) => <TimelineStory {...args} />,
+  render: args => <TimelineStory {...args} />,
   name: 'Timeline',
 
   args: {

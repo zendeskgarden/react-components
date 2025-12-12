@@ -16,7 +16,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof KbdStory> = {
-  render: (args: any) => <KbdStory {...args} />,
+  render: args => <KbdStory {...args} />,
   name: 'Kbd',
   args: {
     children: '⇧ ⌃ ⌥ /',

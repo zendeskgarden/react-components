@@ -23,7 +23,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof FileStory> = {
-  render: (args: any) => <FileStory {...args} />,
+  render: args => <FileStory {...args} />,
   name: 'File',
   args: {
     children: 'file.txt',

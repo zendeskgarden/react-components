@@ -22,7 +22,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof NotificationStory> = {
-  render: (args: any) => <NotificationStory {...args} />,
+  render: args => <NotificationStory {...args} />,
   name: 'Notification',
   args: {
     children: 'Text',

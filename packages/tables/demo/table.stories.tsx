@@ -30,7 +30,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof TableStory> = {
-  render: (args: any) => <TableStory {...args} />,
+  render: args => <TableStory {...args} />,
   name: 'Table',
   args: {
     caption: 'Caption',

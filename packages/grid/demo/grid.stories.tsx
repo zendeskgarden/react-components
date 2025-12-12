@@ -22,7 +22,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof GridStory> = {
-  render: (args: any) => <GridStory {...args} />,
+  render: args => <GridStory {...args} />,
   name: 'Grid',
   args: {
     columns: 12,

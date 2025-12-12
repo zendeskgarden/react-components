@@ -22,7 +22,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof FileListStory> = {
-  render: (args: any) => <FileListStory {...args} />,
+  render: args => <FileListStory {...args} />,
   name: 'FileList',
   args: {
     items: ITEMS

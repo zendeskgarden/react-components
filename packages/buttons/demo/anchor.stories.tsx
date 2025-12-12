@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Anchor } from '@zendeskgarden/react-buttons';
 
 export default {
@@ -13,8 +15,8 @@ export default {
   component: Anchor
 };
 
-export const Default = {
-  render: (args: any) => <Anchor href="#" {...args} />,
+export const Default: StoryObj<typeof Anchor> = {
+  render: args => <Anchor href="#" {...args} />,
 
   args: {
     children: 'Text',

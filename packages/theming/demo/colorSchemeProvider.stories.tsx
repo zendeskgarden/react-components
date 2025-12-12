@@ -16,7 +16,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof ColorSchemeProviderStory> = {
-  render: (args: any) => <ColorSchemeProviderStory {...args} />,
+  render: args => <ColorSchemeProviderStory {...args} />,
   name: 'ColorSchemeProvider',
   args: {
     initialColorScheme: 'system'

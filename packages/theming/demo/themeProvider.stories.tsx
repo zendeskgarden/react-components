@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof ThemeProvider> = {
-  render: (args: any) => <ThemeProvider {...args} />,
+  render: args => <ThemeProvider {...args} />,
   name: 'ThemeProvider',
   args: {
     theme: DEFAULT_THEME
@@ -29,7 +29,7 @@ export const Default: StoryObj<typeof ThemeProvider> = {
 };
 
 export const Palette: StoryObj<typeof PaletteStory> = {
-  render: (args: any) => <PaletteStory {...args} />,
+  render: args => <PaletteStory {...args} />,
   name: 'PALETTE',
 
   args: {

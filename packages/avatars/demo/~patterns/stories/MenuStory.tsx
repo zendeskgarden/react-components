@@ -44,7 +44,11 @@ const items: {
   }
 ];
 
-export const MenuStory: StoryFn = ({ isCompact }) => {
+interface IArgs {
+  isCompact: boolean;
+}
+
+export const MenuStory: StoryFn<IArgs> = ({ isCompact }) => {
   const [highlightedValue, setHighlightedValue] = useState<string | null>();
 
   const onChange = useCallback(({ focusedValue }: { focusedValue?: string | null }) => {

@@ -1,4 +1,12 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { MenuStory } from './stories/MenuStory';
 import { ChromeStory } from './stories/ChromeStory';
@@ -9,8 +17,8 @@ export default {
   component: Avatar
 };
 
-export const Chrome = {
-  render: (args: any) => <ChromeStory {...args} badge={args.badge ? 1 : undefined} />,
+export const Chrome: StoryObj<typeof ChromeStory> = {
+  render: args => <ChromeStory {...args} />,
   name: 'Chrome',
 
   parameters: {
@@ -26,8 +34,8 @@ export const Chrome = {
   }
 };
 
-export const Menu = {
-  render: (args: any) => <MenuStory {...args} />,
+export const Menu: StoryObj<typeof MenuStory> = {
+  render: args => <MenuStory {...args} />,
   name: 'Menu',
 
   parameters: {
@@ -47,8 +55,8 @@ export const Menu = {
   }
 };
 
-export const StatusMenu = {
-  render: (args: any) => <StatusMenuStory {...args} />,
+export const StatusMenu: StoryObj<typeof StatusMenuStory> = {
+  render: args => <StatusMenuStory {...args} />,
   name: 'StatusMenu',
 
   parameters: {

@@ -22,7 +22,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof DraggableListStory> = {
-  render: (args: any) => <DraggableListStory {...args} />,
+  render: args => <DraggableListStory {...args} />,
   name: 'DraggableList',
   args: {
     items,

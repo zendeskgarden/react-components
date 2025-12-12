@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof ButtonStory> = {
-  render: (args: any) => <ButtonStory {...args} />,
+  render: args => <ButtonStory {...args} />,
   name: 'Button',
   args: {
     children: 'Text',

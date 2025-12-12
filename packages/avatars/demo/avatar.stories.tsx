@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof AvatarStory> = {
-  render: (args: any) => <AvatarStory {...args} />,
+  render: args => <AvatarStory {...args} />,
   name: 'Avatar',
   args: {
     type: TYPE[1]

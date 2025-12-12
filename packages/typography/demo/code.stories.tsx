@@ -6,16 +6,22 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { Code } from '@zendeskgarden/react-typography';
+
+type IArgs = React.ComponentProps<typeof Code> & {
+  isAnchor?: boolean;
+};
 
 export default {
   title: 'Packages/Typography/Code',
   component: Code
 };
 
-export const Default = {
-  render: (args: any) =>
+export const Default: StoryObj<IArgs> = {
+  render: args =>
     args.isAnchor ? (
       <Anchor isUnderlined={false}>
         <Code {...args} />

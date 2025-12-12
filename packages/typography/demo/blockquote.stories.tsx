@@ -17,7 +17,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof BlockquoteStory> = {
-  render: (args: any) => <BlockquoteStory {...args} />,
+  render: args => <BlockquoteStory {...args} />,
   name: 'Blockquote',
   args: {
     children: CHILDREN

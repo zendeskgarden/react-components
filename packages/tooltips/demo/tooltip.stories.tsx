@@ -23,7 +23,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof TooltipStory> = {
-  render: (args: any) => <TooltipStory {...args} />,
+  render: args => <TooltipStory {...args} />,
   name: 'Tooltip',
   args: {
     content: CONTENT,

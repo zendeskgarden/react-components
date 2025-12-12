@@ -74,14 +74,14 @@ export const Uncontrolled: Story = {
 };
 
 export const Controlled: Story = {
-  render: (args: any) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (index: number) => {
-      const expandedSections = args.expandedSections.includes(index)
+      const expandedSections = args.expandedSections?.includes(index)
         ? args.expandedSections.filter((section: number) => section !== index)
-        : [...args.expandedSections, index];
+        : [...(args.expandedSections || []), index];
 
       updateArgs({
         expandedSections

@@ -17,7 +17,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof StatusIndicatorStory> = {
-  render: (args: any) => <StatusIndicatorStory {...args} />,
+  render: args => <StatusIndicatorStory {...args} />,
   name: 'StatusIndicator',
   argTypes: {
     children: {

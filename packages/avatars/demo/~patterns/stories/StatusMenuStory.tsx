@@ -17,8 +17,13 @@ const StyledIconButton = styled(IconButton)`
   overflow: visible;
 `;
 
-export const StatusMenuStory: StoryFn<{ isCompact: boolean }> = ({ isCompact }) => {
-  const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>();
+interface IArgs {
+  isCompact: boolean;
+  type?: IStatusIndicatorProps['type'];
+}
+
+export const StatusMenuStory: StoryFn<IArgs> = ({ isCompact, type }) => {
+  const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>(type);
 
   const onChange = useCallback(({ value }: { value?: string }) => {
     value && setSelectedType(value as IStatusIndicatorProps['type']);

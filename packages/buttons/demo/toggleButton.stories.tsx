@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { useArgs } from '@storybook/preview-api';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
 
@@ -14,8 +16,8 @@ export default {
   component: ToggleButton
 };
 
-export const Default = {
-  render: (args: any) => {
+export const Default: StoryObj<typeof ToggleButton> = {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 

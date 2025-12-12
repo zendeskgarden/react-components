@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
 import { FILE_TYPES } from '../stories/data';
@@ -15,8 +16,8 @@ export default {
   component: FileUpload
 };
 
-export const FileUploadPattern = {
-  render: (args: any) => <FileUploadStory {...args} />,
+export const FileUploadPattern: StoryObj<typeof FileUploadStory> = {
+  render: args => <FileUploadStory {...args} />,
   name: 'File upload',
 
   args: {

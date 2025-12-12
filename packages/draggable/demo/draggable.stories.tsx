@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof DraggableStory> = {
-  render: (args: any) => <DraggableStory {...args} />,
+  render: args => <DraggableStory {...args} />,
   name: 'Draggable',
   args: {
     hasGrip: true,

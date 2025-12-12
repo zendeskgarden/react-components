@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Menu } from '@zendeskgarden/react-dropdowns.legacy';
 // TODO
 // import { MENU_ITEMS as ITEMS } from '../stories/data';
@@ -16,8 +17,8 @@ export default {
   component: Menu
 };
 
-export const MenuPattern = {
-  render: (args: any) => <MenuStory {...args} />,
+export const MenuPattern: StoryObj<typeof MenuStory> = {
+  render: args => <MenuStory {...args} />,
   name: 'Menu',
 
   args: {

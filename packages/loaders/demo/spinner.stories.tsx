@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Spinner } from '@zendeskgarden/react-loaders';
 
 export default {
@@ -13,8 +15,8 @@ export default {
   component: Spinner
 };
 
-export const Default = {
-  render: (args: any) => <Spinner {...args} />,
+export const Default: StoryObj<typeof Spinner> = {
+  render: args => <Spinner {...args} />,
   name: 'Spinner',
 
   argTypes: {

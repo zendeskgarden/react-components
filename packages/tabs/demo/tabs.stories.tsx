@@ -45,7 +45,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: (args: any) => <TabsStory {...args} />,
+  render: args => <TabsStory {...args} />,
   name: 'Uncontrolled',
 
   argTypes: {
@@ -56,7 +56,7 @@ export const Uncontrolled: Story = {
 };
 
 export const Controlled: Story = {
-  render: (args: any) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 

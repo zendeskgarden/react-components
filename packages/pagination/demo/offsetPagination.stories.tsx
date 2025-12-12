@@ -6,27 +6,36 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { useArgs } from '@storybook/preview-api';
-import { OffsetPagination } from '@zendeskgarden/react-pagination';
+import { IPaginationProps, OffsetPagination } from '@zendeskgarden/react-pagination';
+
+type IArgs = IPaginationProps & {
+  gap?: string;
+  page?: string;
+  next?: string;
+  previous?: string;
+};
 
 export default {
   title: 'Packages/Pagination/OffsetPagination',
   component: OffsetPagination
 };
 
-export const Default = {
-  render: (args: any) => {
+export const Default: StoryObj<IArgs> = {
+  render: args => {
     const labels = {
-      renderPage: (n: any) => `${args.page} ${n}`,
-      gap: args.gap,
-      next: args.next,
-      previous: args.previous
+      renderPage: (n: number) => `${args.page} ${n}`,
+      gap: args.gap || '',
+      next: args.next || '',
+      previous: args.previous || ''
     };
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = (currentPage: any) =>
+    const handleChange = (currentPage: number) =>
       updateArgs({
         currentPage
       });

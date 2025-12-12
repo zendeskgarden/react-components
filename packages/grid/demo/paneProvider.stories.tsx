@@ -50,7 +50,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: (args: any) => <PaneProviderStory {...args} />,
+  render: args => <PaneProviderStory {...args} />,
   name: 'Uncontrolled',
 
   args: {
@@ -77,7 +77,7 @@ export const Uncontrolled: Story = {
 };
 
 export const Controlled: Story = {
-  render: (args: any) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 

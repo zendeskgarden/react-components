@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { useArgs } from '@storybook/preview-api';
 import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
@@ -16,8 +18,8 @@ export default {
   component: ToggleIconButton
 };
 
-export const Default = {
-  render: (args: any) => {
+export const Default: StoryObj<typeof ToggleIconButton> = {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 

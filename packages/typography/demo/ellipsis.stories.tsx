@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Ellipsis } from '@zendeskgarden/react-typography';
 
 export default {
@@ -13,8 +15,8 @@ export default {
   component: Ellipsis
 };
 
-export const Default = {
-  render: (args: any) => <Ellipsis {...args} />,
+export const Default: StoryObj<typeof Ellipsis> = {
+  render: args => <Ellipsis {...args} />,
   name: 'Ellipsis',
 
   args: {

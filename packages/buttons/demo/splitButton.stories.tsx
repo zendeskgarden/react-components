@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof SplitButtonStory> = {
-  render: (args: any) => <SplitButtonStory {...args} />,
+  render: args => <SplitButtonStory {...args} />,
   name: 'SplitButton',
   args: {
     'aria-label': 'Label',

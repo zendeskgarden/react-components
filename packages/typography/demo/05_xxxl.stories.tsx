@@ -16,7 +16,7 @@ export default {
 };
 
 export const Xxxl: StoryObj<typeof TypescaleStory> = {
-  render: (args: any) => <TypescaleStory {...args} size="3x-large" />,
+  render: args => <TypescaleStory {...args} size="3x-large" />,
   name: 'XXXL',
 
   args: {

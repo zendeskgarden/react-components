@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof OrderedListStory> = {
-  render: (args: any) => <OrderedListStory {...args} />,
+  render: args => <OrderedListStory {...args} />,
   name: 'OrderedList',
   args: {
     items: ITEMS

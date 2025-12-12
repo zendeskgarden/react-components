@@ -18,7 +18,7 @@ export default {
 };
 
 export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
-  render: (args: any) => <ArrowStylesStory {...args} />,
+  render: args => <ArrowStylesStory {...args} />,
   name: 'arrowStyles()',
 
   args: {
@@ -57,7 +57,7 @@ export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
 };
 
 export const GetColor: StoryObj<typeof GetColorStory> = {
-  render: (args: any) => <GetColorStory {...args} />,
+  render: args => <GetColorStory {...args} />,
   name: 'getColor()',
 
   args: {
@@ -126,7 +126,7 @@ export const GetColor: StoryObj<typeof GetColorStory> = {
 };
 
 export const MenuStyles: StoryObj<typeof MenuStylesStory> = {
-  render: (args: any) => <MenuStylesStory {...args} />,
+  render: args => <MenuStylesStory {...args} />,
   name: 'menuStyles()',
 
   args: {

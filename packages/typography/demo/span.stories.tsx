@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof SpanStory> = {
-  render: (args: any) => <SpanStory {...args} />,
+  render: args => <SpanStory {...args} />,
   name: 'Span',
   args: {
     children: 'Text',

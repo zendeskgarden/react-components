@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof DropzoneStory> = {
-  render: (args: any) => <DropzoneStory {...args} />,
+  render: args => <DropzoneStory {...args} />,
   name: 'Dropzone',
   args: {
     hasIcon: true,

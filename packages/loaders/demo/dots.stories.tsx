@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Dots } from '@zendeskgarden/react-loaders';
 
 export default {
@@ -13,8 +15,8 @@ export default {
   component: Dots
 };
 
-export const Default = {
-  render: (args: any) => <Dots {...args} />,
+export const Default: StoryObj<typeof Dots> = {
+  render: args => <Dots {...args} />,
   name: 'Dots',
 
   argTypes: {

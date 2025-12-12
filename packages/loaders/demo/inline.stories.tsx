@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { Inline } from '@zendeskgarden/react-loaders';
 
 export default {
@@ -13,8 +15,8 @@ export default {
   component: Inline
 };
 
-export const Default = {
-  render: (args: any) => <Inline {...args} />,
+export const Default: StoryObj<typeof Inline> = {
+  render: args => <Inline {...args} />,
   name: 'Inline',
 
   argTypes: {

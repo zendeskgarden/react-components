@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof UnorderedListStory> = {
-  render: (args: any) => <UnorderedListStory {...args} />,
+  render: args => <UnorderedListStory {...args} />,
   name: 'UnorderedList',
   args: {
     items: ITEMS

@@ -21,7 +21,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof FileUploadStory> = {
-  render: (args: any) => <FileUploadStory {...args} />,
+  render: args => <FileUploadStory {...args} />,
   name: 'FileUpload',
   args: {
     children: 'Drag files here or click to upload',

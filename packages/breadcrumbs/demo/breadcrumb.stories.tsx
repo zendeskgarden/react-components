@@ -17,7 +17,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof BreadcrumbStory> = {
-  render: (args: any) => <BreadcrumbStory {...args} />,
+  render: args => <BreadcrumbStory {...args} />,
   name: 'Breadcrumb',
 
   args: {

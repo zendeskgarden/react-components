@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
+
 import { useArgs } from '@storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
@@ -23,8 +25,8 @@ export default {
   }
 };
 
-export const Uncontrolled = {
-  render: (args: any) => <ColorPicker {...args} />,
+export const Uncontrolled: StoryObj<typeof ColorPicker> = {
+  render: args => <ColorPicker {...args} />,
   name: 'Uncontrolled',
 
   argTypes: {
@@ -34,8 +36,8 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
-  render: (args: any) => {
+export const Controlled: StoryObj<typeof ColorPicker> = {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 

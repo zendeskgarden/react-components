@@ -24,7 +24,7 @@ export default {
 };
 
 export const Default: StoryObj<typeof CursorPaginationStory> = {
-  render: (args: any) => {
+  render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 

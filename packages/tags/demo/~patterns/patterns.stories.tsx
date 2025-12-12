@@ -1,4 +1,12 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Tag } from '@zendeskgarden/react-tags';
 import { FauxInputStory } from './stories/FauxInputStory';
 import { FAUX_INPUT_TAGS as TAGS } from './stories/data';
@@ -8,8 +16,8 @@ export default {
   component: Tag
 };
 
-export const FauxInput = {
-  render: (args: any) => <FauxInputStory {...args} />,
+export const FauxInput: StoryObj<typeof FauxInputStory> = {
+  render: args => <FauxInputStory {...args} />,
   name: 'FauxInput',
 
   args: {
