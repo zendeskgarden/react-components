@@ -1,3 +1,4 @@
+import { dirname, join } from "path";
 /**
  * Copyright Zendesk, Inc.
  *
@@ -17,14 +18,22 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
 module.exports = {
   stories: [`../packages/${process.env.PACKAGE || '*'}/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)`],
   staticDirs: ['./static'],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-designs'],
+  addons: [
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-a11y"),
+    getAbsolutePath("@storybook/addon-designs"),
+    getAbsolutePath("@storybook/addon-webpack5-compiler-babel")
+  ],
+
   framework: {
-    name: '@storybook/react-webpack5',
+    name: getAbsolutePath("@storybook/react-webpack5"),
     options: { strictMode: true }
   },
+
   core: {
     disableWhatsNewNotifications: true
   },
+
   webpackFinal: config => {
     const fileLoaderRule = config.module.rules.find(rule => rule.test.test('.svg'));
 
@@ -61,5 +70,13 @@ module.exports = {
     );
 
     return config;
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
   }
 };
+
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, "package.json")));
+}
