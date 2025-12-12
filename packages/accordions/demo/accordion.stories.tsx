@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { useArgs } from 'storybook/preview-api';
 import { Accordion } from '@zendeskgarden/react-accordions';
 import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';

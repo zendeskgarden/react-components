@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { action } from 'storybook/actions';
+import { useArgs } from 'storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
 import { ColorPickerDialogStory } from './stories/ColorPickerDialogStory';

@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 

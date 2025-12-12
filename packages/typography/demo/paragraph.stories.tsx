@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { ParagraphStory } from './stories/ParagraphStory';
 import { PARAGRAPH_CHILDREN as CHILDREN } from './stories/data';

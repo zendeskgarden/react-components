@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { useArgs } from 'storybook/preview-api';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
 import { DatePickerRangeStory } from './stories/DatePickerRangeStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';

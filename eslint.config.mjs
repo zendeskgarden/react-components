@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from "eslint-plugin-storybook";
+
 /**
  * Copyright Zendesk, Inc.
  *
@@ -23,47 +26,37 @@ const typescriptRules = {
   'react/prop-types': 'off'
 };
 
-export default [
-  ...config,
-  noticePlugin,
-  reactPlugin,
-  prettierConfig,
-  {
-    ignores: ['**/dist']
-  },
-  {
-    rules: {
-      'sort-imports': 'off',
-      'react/no-set-state': 'error'
-    }
-  },
-  {
-    files: ['packages/*/src/**/*.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.{ts,tsx}'],
-    ...typescriptPlugin,
-    rules: {
-      ...typescriptRules
-    }
-  },
-  {
-    files: ['packages/*/src/**/*.spec.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.spec.{ts,tsx}'],
-    ...typescriptPlugin,
-    ...jestPlugin,
-    rules: {
-      ...typescriptRules,
-      ...jestPlugin.rules,
-      'no-console': 'off',
-      'react/button-has-type': 'off'
-    }
-  },
-  {
-    files: ['packages/*/demo/**/*.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.{ts,tsx}'],
-    ...typescriptPlugin,
-    rules: {
-      ...typescriptRules,
-      'react/no-array-index-key': 'off'
-    }
+export default [...config, noticePlugin, reactPlugin, prettierConfig, {
+  ignores: ['**/dist']
+}, {
+  rules: {
+    'sort-imports': 'off',
+    'react/no-set-state': 'error'
   }
-];
+}, {
+  files: ['packages/*/src/**/*.{ts,tsx}'],
+  ignores: ['packages/.template/**/*.{ts,tsx}'],
+  ...typescriptPlugin,
+  rules: {
+    ...typescriptRules
+  }
+}, {
+  files: ['packages/*/src/**/*.spec.{ts,tsx}'],
+  ignores: ['packages/.template/**/*.spec.{ts,tsx}'],
+  ...typescriptPlugin,
+  ...jestPlugin,
+  rules: {
+    ...typescriptRules,
+    ...jestPlugin.rules,
+    'no-console': 'off',
+    'react/button-has-type': 'off'
+  }
+}, {
+  files: ['packages/*/demo/**/*.{ts,tsx}'],
+  ignores: ['packages/.template/**/*.{ts,tsx}'],
+  ...typescriptPlugin,
+  rules: {
+    ...typescriptRules,
+    'react/no-array-index-key': 'off'
+  }
+}, ...storybook.configs["flat/recommended"]];

@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { create } from '@storybook/theming/create';
-import { addons } from '@storybook/manager-api';
+import { create } from 'storybook/theming/create';
+import { addons } from 'storybook/manager-api';
 import { DEFAULT_THEME } from '../packages/theming/src';
 
 addons.setConfig({

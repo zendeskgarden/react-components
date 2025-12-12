@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { InputGroup, Input, VALIDATION } from '@zendeskgarden/react-forms';
 import { InputGroupStory } from './stories/InputGroupStory';
 import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';

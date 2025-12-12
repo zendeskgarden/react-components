@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { useArgs } from 'storybook/preview-api';
 import { Input } from '@zendeskgarden/react-forms';
 import { InputStory } from './stories/InputStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';

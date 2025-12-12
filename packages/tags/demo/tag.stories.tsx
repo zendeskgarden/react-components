@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Tag } from '@zendeskgarden/react-tags';
 import { TagStory } from './stories/TagStory';
 

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Timeline } from '@zendeskgarden/react-accordions';
 import { TimelineStory } from './stories/TimelineStory';
 import { TIMELINE_ITEMS as ITEMS } from './stories/data';

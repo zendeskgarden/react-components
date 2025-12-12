@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { useArgs } from 'storybook/preview-api';
 import { Select } from '@zendeskgarden/react-forms';
 import { SelectStory } from './stories/SelectStory';
 import { SELECT_OPTIONS as OPTIONS } from './stories/data';

@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';

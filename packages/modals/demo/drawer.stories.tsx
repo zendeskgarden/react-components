@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { action } from 'storybook/actions';
+import { useArgs } from 'storybook/preview-api';
 import { Drawer } from '@zendeskgarden/react-modals';
 import { DrawerStory } from './stories/DrawerStory';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-webpack5';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { AvatarStory } from './stories/AvatarStory';
 import { AVATAR_TYPE as TYPE } from './stories/data';

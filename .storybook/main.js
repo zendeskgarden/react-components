@@ -23,10 +23,10 @@ module.exports = {
   stories: ['../packages/*/demo/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   staticDirs: ['./static'],
   addons: [
-    getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-designs'),
-    getAbsolutePath('@storybook/addon-webpack5-compiler-babel')
+    getAbsolutePath('@storybook/addon-webpack5-compiler-babel'),
+    getAbsolutePath("@storybook/addon-docs")
   ],
 
   framework: {

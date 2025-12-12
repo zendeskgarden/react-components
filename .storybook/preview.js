@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components';
-import { create } from '@storybook/theming/create';
+import { create } from 'storybook/theming/create';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
 
 const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' } };
@@ -28,10 +28,10 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   backgrounds: {
     grid: { disable: true },
-    values: [
-      { name: 'light', value: LIGHT },
-      { name: 'dark', value: DARK }
-    ]
+    options: {
+      light: { name: 'light', value: LIGHT },
+      dark: { name: 'dark', value: DARK }
+    }
   },
   controls: {
     hideNoControlsWarning: true,

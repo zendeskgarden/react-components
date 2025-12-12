@@ -6,8 +6,8 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { useArgs } from 'storybook/preview-api';
 import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
 import { MenuStory } from './stories/MenuStory';
 import { BUTTON_TYPE, ITEMS } from './stories/data';

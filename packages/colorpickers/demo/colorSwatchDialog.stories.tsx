@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/preview-api';
+import type { StoryObj } from '@storybook/react-webpack5';
+import { action } from 'storybook/actions';
+import { useArgs } from 'storybook/preview-api';
 import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
 import { ColorSwatchDialogStory } from './stories/ColorSwatchDialogStory';
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
