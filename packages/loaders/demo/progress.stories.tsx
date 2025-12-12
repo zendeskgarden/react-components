@@ -15,7 +15,7 @@ export default {
   component: Progress
 };
 
-export const Default: StoryObj<typeof Progress> = {
+export const Example: StoryObj<typeof Progress> = {
   render: args => <Progress {...args} />,
   name: 'Progress',
 

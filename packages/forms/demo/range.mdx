@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Range } from '@zendeskgarden/react-forms';
-import { RangeStory } from './stories/RangeStory';
-import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
-import * as RangeStories from './range.stories';
+import * as Stories from './range.stories';
 
-<Meta of={RangeStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as RangeStories from './range.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={RangeStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={RangeStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

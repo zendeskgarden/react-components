@@ -15,7 +15,7 @@ export default {
   component: Tooltip
 };
 
-export const Menu: StoryObj<typeof MenuStory> = {
+export const Example: StoryObj<typeof MenuStory> = {
   render: args => <MenuStory {...args} />,
   name: 'Menu',
 

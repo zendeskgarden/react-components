@@ -1,32 +1,27 @@
 import { Meta, Canvas, Story, Markdown } from '@storybook/blocks';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { ArrowStylesStory } from './stories/ArrowStylesStory';
-import { MenuStylesStory } from './stories/MenuStylesStory';
-import { GetColorStory } from './stories/GetColorStory';
-import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
 import README from '../README.md';
-import * as UtilitiesStories from './utilities.stories';
+import * as Stories from './utilities.stories';
 
-<Meta of={UtilitiesStories} />
+<Meta of={Stories} />
 
 # Demo
 
 ## arrowStyles()
 
 <Canvas>
-  <Story of={UtilitiesStories.ArrowStyles} />
+  <Story of={Stories.ArrowStyles} />
 </Canvas>
 
 ## getColor()
 
 <Canvas>
-  <Story of={UtilitiesStories.GetColor} />
+  <Story of={Stories.GetColor} />
 </Canvas>
 
 ## menuStyles()
 
 <Canvas>
-  <Story of={UtilitiesStories.MenuStyles} />
+  <Story of={Stories.MenuStyles} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

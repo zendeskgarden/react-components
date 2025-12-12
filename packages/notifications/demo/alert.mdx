@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Alert } from '@zendeskgarden/react-notifications';
-import { AlertStory } from './stories/AlertStory';
 import README from '../README.md';
-import * as AlertStories from './alert.stories';
+import * as Stories from './alert.stories';
 
-<Meta of={AlertStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as AlertStories from './alert.stories';
 # Demo
 
 <Canvas>
-  <Story of={AlertStories.Alert} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

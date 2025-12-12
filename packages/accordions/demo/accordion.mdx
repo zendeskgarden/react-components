@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Accordion } from '@zendeskgarden/react-accordions';
-import { AccordionStory } from './stories/AccordionStory';
-import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 import README from '../README.md';
-import * as AccordionStories from './accordion.stories';
+import * as Stories from './accordion.stories';
 
-<Meta of={AccordionStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as AccordionStories from './accordion.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={AccordionStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={AccordionStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

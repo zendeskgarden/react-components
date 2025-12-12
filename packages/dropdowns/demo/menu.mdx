@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
-import { MenuStory } from './stories/MenuStory';
 import README from '../README.md';
-import { BUTTON_TYPE, ITEMS } from './stories/data';
-import * as MenuStories from './menu.stories';
+import * as Stories from './menu.stories';
 
-<Meta of={MenuStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -15,13 +11,13 @@ import * as MenuStories from './menu.stories';
 # Uncontrolled
 
 <Canvas>
-  <Story of={MenuStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 # Controlled
 
 <Canvas>
-  <Story of={MenuStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

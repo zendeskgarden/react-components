@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Textarea } from '@zendeskgarden/react-forms';
-import { TextareaStory } from './stories/TextareaStory';
-import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
-import * as TextareaStories from './textarea.stories';
+import * as Stories from './textarea.stories';
 
-<Meta of={TextareaStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as TextareaStories from './textarea.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={TextareaStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={TextareaStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

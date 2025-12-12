@@ -22,7 +22,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof FileStory> = {
+export const Example: StoryObj<typeof FileStory> = {
   render: args => <FileStory {...args} />,
   name: 'File',
   args: {

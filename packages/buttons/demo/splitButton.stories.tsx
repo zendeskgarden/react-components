@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof SplitButtonStory> = {
+export const Example: StoryObj<typeof SplitButtonStory> = {
   render: args => <SplitButtonStory {...args} />,
   name: 'SplitButton',
   args: {

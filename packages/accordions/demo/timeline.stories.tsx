@@ -22,7 +22,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof TimelineStory> = {
+export const Example: StoryObj<typeof TimelineStory> = {
   render: args => <TimelineStory {...args} />,
   name: 'Timeline',
 

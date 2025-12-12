@@ -16,7 +16,7 @@ export default {
   component: Skeleton
 };
 
-export const Default: StoryObj<typeof SkeletonStory> = {
+export const Example: StoryObj<typeof SkeletonStory> = {
   render: args => <SkeletonStory {...args} />,
   name: 'Skeleton',
   args: {

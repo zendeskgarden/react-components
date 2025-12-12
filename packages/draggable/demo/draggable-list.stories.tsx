@@ -21,7 +21,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof DraggableListStory> = {
+export const Example: StoryObj<typeof DraggableListStory> = {
   render: args => <DraggableListStory {...args} />,
   name: 'DraggableList',
   args: {

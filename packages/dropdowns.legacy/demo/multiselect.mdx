@@ -1,6 +1,4 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import Downshift from 'downshift';
 import {
   Multiselect,
   Dropdown,
@@ -10,12 +8,10 @@ import {
   Menu,
   Message
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { MultiselectStory } from './stories/MultiselectStory';
-import { MULTISELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 import README from '../README.md';
-import * as MultiselectStories from './multiselect.stories';
+import * as Stories from './multiselect.stories';
 
-<Meta of={MultiselectStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -28,7 +24,7 @@ instead.
 # Demo
 
 <Canvas>
-  <Story of={MultiselectStories.Multiselect} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

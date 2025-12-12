@@ -16,7 +16,7 @@ export default {
   component: Tag
 };
 
-export const FauxInput: StoryObj<typeof FauxInputStory> = {
+export const Example: StoryObj<typeof FauxInputStory> = {
   render: args => <FauxInputStory {...args} />,
   name: 'FauxInput',
 

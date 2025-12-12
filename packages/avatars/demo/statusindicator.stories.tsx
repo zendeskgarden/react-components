@@ -16,7 +16,7 @@ export default {
   component: StatusIndicator
 };
 
-export const Default: StoryObj<typeof StatusIndicatorStory> = {
+export const Example: StoryObj<typeof StatusIndicatorStory> = {
   render: args => <StatusIndicatorStory {...args} />,
   name: 'StatusIndicator',
   argTypes: {

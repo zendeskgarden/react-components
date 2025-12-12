@@ -15,7 +15,7 @@ export default {
   component: Anchor
 };
 
-export const Default: StoryObj<typeof Anchor> = {
+export const Example: StoryObj<typeof Anchor> = {
   render: args => <Anchor href="#" {...args} />,
 
   args: {

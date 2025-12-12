@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Kbd } from '@zendeskgarden/react-typography';
-import { KbdStory } from './stories/KbdStory';
 import README from '../README.md';
-import * as KbdStories from './kbd.stories';
+import * as Stories from './kbd.stories';
 
-<Meta of={KbdStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as KbdStories from './kbd.stories';
 # Demo
 
 <Canvas>
-  <Story of={KbdStories.Kbd} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

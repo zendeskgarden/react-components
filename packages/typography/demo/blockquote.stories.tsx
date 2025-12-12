@@ -16,7 +16,7 @@ export default {
   component: Blockquote
 };
 
-export const Default: StoryObj<typeof BlockquoteStory> = {
+export const Example: StoryObj<typeof BlockquoteStory> = {
   render: args => <BlockquoteStory {...args} />,
   name: 'Blockquote',
   args: {

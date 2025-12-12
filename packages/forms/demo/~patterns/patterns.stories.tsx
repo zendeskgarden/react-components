@@ -16,7 +16,7 @@ export default {
   component: FileUpload
 };
 
-export const FileUploadPattern: StoryObj<typeof FileUploadStory> = {
+export const Example: StoryObj<typeof FileUploadStory> = {
   render: args => <FileUploadStory {...args} />,
   name: 'File upload',
 

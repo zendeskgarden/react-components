@@ -15,7 +15,7 @@ export default {
   component: MD
 };
 
-export const Md: StoryObj<typeof TypescaleStory> = {
+export const Example: StoryObj<typeof TypescaleStory> = {
   render: args => <TypescaleStory {...args} size="medium" />,
   name: 'MD',
 

@@ -1,10 +1,9 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { PaletteStory } from './stories/PaletteStory';
 import README from '../README.md';
-import * as ThemeProviderStories from './themeProvider.stories';
+import * as Stories from './themeProvider.stories';
 
-<Meta of={ThemeProviderStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -15,13 +14,13 @@ import * as ThemeProviderStories from './themeProvider.stories';
 ## ThemeProvider
 
 <Canvas>
-  <Story of={ThemeProviderStories.ThemeProvider} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 ## PALETTE
 
 <Canvas>
-  <Story of={ThemeProviderStories.Palette} />
+  <Story of={Stories.Palette} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

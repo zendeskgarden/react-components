@@ -22,7 +22,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof InputGroupStory> = {
+export const Example: StoryObj<typeof InputGroupStory> = {
   render: args => <InputGroupStory {...args} />,
   name: 'InputGroup',
   args: {

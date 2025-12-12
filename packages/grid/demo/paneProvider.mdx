@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
-import { useArgs } from '@storybook/client-api';
-import { PaneProviderStory } from './stories/PaneProviderStory';
-import { PANES } from './stories/data';
 import README from '../README.md';
-import * as PaneProviderStories from './paneProvider.stories';
+import * as Stories from './paneProvider.stories';
 
-<Meta of={PaneProviderStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as PaneProviderStories from './paneProvider.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={PaneProviderStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={PaneProviderStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

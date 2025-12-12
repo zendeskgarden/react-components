@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof TagStory> = {
+export const Example: StoryObj<typeof TagStory> = {
   render: args => <TagStory {...args} />,
   name: 'Tag',
   args: {

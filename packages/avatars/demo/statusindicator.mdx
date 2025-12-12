@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { StatusIndicator } from '@zendeskgarden/react-avatars';
 import README from '../README.md';
-import * as StatusindicatorStories from './statusindicator.stories';
+import * as Stories from './statusindicator.stories';
 
-import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
-
-<Meta of={StatusindicatorStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
 # Demo
 
 <Canvas>
-  <Story of={StatusindicatorStories.StatusIndicator} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

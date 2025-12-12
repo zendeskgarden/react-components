@@ -1,12 +1,10 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
 import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
-import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import README from '../README.md';
-import * as ToggleIconButtonStories from './toggleIconButton.stories';
+import * as Stories from './toggleIconButton.stories';
 
-<Meta of={ToggleIconButtonStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -15,7 +13,7 @@ import * as ToggleIconButtonStories from './toggleIconButton.stories';
 # Demo
 
 <Canvas>
-  <Story of={ToggleIconButtonStories.ToggleIconButton} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

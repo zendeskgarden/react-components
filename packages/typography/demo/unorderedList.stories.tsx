@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof UnorderedListStory> = {
+export const Example: StoryObj<typeof UnorderedListStory> = {
   render: args => <UnorderedListStory {...args} />,
   name: 'UnorderedList',
   args: {

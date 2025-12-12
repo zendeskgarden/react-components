@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { SM } from '@zendeskgarden/react-typography';
-import { TypescaleStory } from './stories/TypescaleStory';
 import README from '../README.md';
-import * as $00SmStories from './00_sm.stories';
+import * as Stories from './00_sm.stories';
 
-<Meta of={$00SmStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as $00SmStories from './00_sm.stories';
 # Demo
 
 <Canvas>
-  <Story of={$00SmStories.Sm} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

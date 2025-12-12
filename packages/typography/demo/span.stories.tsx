@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof SpanStory> = {
+export const Example: StoryObj<typeof SpanStory> = {
   render: args => <SpanStory {...args} />,
   name: 'Span',
   args: {

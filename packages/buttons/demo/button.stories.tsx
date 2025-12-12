@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof ButtonStory> = {
+export const Example: StoryObj<typeof ButtonStory> = {
   render: args => <ButtonStory {...args} />,
   name: 'Button',
   args: {

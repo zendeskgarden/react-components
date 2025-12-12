@@ -15,7 +15,7 @@ export default {
   component: Kbd
 };
 
-export const Default: StoryObj<typeof KbdStory> = {
+export const Example: StoryObj<typeof KbdStory> = {
   render: args => <KbdStory {...args} />,
   name: 'Kbd',
   args: {

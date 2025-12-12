@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Combobox, Field, Option, OptGroup, Tag } from '@zendeskgarden/react-dropdowns';
-import { ComboboxStory } from './stories/ComboboxStory';
-import { OPTIONS } from './stories/data';
 import README from '../README.md';
-import * as ComboboxStories from './combobox.stories';
+import * as Stories from './combobox.stories';
 
-<Meta of={ComboboxStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as ComboboxStories from './combobox.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={ComboboxStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={ComboboxStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Checkbox } from '@zendeskgarden/react-forms';
-import { CheckboxStory } from './stories/CheckboxStory';
-import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
-import * as CheckboxStories from './checkbox.stories';
+import * as Stories from './checkbox.stories';
 
-<Meta of={CheckboxStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as CheckboxStories from './checkbox.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={CheckboxStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={CheckboxStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

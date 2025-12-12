@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Blockquote } from '@zendeskgarden/react-typography';
-import { BlockquoteStory } from './stories/BlockquoteStory';
-import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';
 import README from '../README.md';
-import * as BlockquoteStories from './blockquote.stories';
+import * as Stories from './blockquote.stories';
 
-<Meta of={BlockquoteStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as BlockquoteStories from './blockquote.stories';
 # Demo
 
 <Canvas>
-  <Story of={BlockquoteStories.Blockquote} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

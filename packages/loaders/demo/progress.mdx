@@ -1,9 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Progress } from '@zendeskgarden/react-loaders';
 import README from '../README.md';
-import * as ProgressStories from './progress.stories';
+import * as Stories from './progress.stories';
 
-<Meta of={ProgressStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -12,7 +11,7 @@ import * as ProgressStories from './progress.stories';
 # Demo
 
 <Canvas>
-  <Story of={ProgressStories.Progress} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof WellStory> = {
+export const Example: StoryObj<typeof WellStory> = {
   render: args => <WellStory {...args} />,
   name: 'Well',
   args: {

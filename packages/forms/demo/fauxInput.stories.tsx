@@ -22,7 +22,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof FauxInputStory> = {
+export const Example: StoryObj<typeof FauxInputStory> = {
   render: args => <FauxInputStory {...args} />,
   name: 'FauxInput',
   args: {

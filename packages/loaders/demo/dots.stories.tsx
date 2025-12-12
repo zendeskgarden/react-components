@@ -15,7 +15,7 @@ export default {
   component: Dots
 };
 
-export const Default: StoryObj<typeof Dots> = {
+export const Example: StoryObj<typeof Dots> = {
   render: args => <Dots {...args} />,
   name: 'Dots',
 

@@ -21,7 +21,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof NotificationStory> = {
+export const Example: StoryObj<typeof NotificationStory> = {
   render: args => <NotificationStory {...args} />,
   name: 'Notification',
   args: {

@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof DraggableStory> = {
+export const Example: StoryObj<typeof DraggableStory> = {
   render: args => <DraggableStory {...args} />,
   name: 'Draggable',
   args: {

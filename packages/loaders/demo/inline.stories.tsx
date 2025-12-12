@@ -15,7 +15,7 @@ export default {
   component: Inline
 };
 
-export const Default: StoryObj<typeof Inline> = {
+export const Example: StoryObj<typeof Inline> = {
   render: args => <Inline {...args} />,
   name: 'Inline',
 

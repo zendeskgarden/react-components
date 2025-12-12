@@ -1,10 +1,8 @@
 import { Meta, Canvas, Story } from '@storybook/blocks';
 import { Tag } from '@zendeskgarden/react-tags';
-import { FauxInputStory } from './stories/FauxInputStory';
-import { FAUX_INPUT_TAGS as TAGS } from './stories/data';
-import * as PatternsStories from './patterns.stories';
+import * as Stories from './patterns.stories';
 
-<Meta of={PatternsStories} />
+<Meta of={Stories} />
 
 # Patterns
 
@@ -16,5 +14,5 @@ within the tags will truncate with an ellipsis based on the available container
 width.
 
 <Canvas>
-  <Story of={PatternsStories.FauxInput} />
+  <Story of={Stories.Example} />
 </Canvas>

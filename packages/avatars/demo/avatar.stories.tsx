@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof AvatarStory> = {
+export const Example: StoryObj<typeof AvatarStory> = {
   render: args => <AvatarStory {...args} />,
   name: 'Avatar',
   args: {

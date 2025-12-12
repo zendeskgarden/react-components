@@ -1,7 +1,4 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Sheet } from '@zendeskgarden/react-chrome';
-import { SheetStory } from './stories/SheetStory';
 import {
   SHEET_BODY as BODY,
   SHEET_DESCRIPTION as DESCRIPTION,
@@ -9,9 +6,9 @@ import {
   SHEET_TITLE as TITLE
 } from './stories/data';
 import README from '../README.md';
-import * as SheetStories from './sheet.stories';
+import * as Stories from './sheet.stories';
 
-<Meta of={SheetStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -20,7 +17,7 @@ import * as SheetStories from './sheet.stories';
 # Demo
 
 <Canvas>
-  <Story of={SheetStories.Sheet} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

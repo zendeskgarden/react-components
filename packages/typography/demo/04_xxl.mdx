@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { XXL } from '@zendeskgarden/react-typography';
-import { TypescaleStory } from './stories/TypescaleStory';
 import README from '../README.md';
-import * as $04XxlStories from './04_xxl.stories';
+import * as Stories from './04_xxl.stories';
 
-<Meta of={$04XxlStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as $04XxlStories from './04_xxl.stories';
 # Demo
 
 <Canvas>
-  <Story of={$04XxlStories.Xxl} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

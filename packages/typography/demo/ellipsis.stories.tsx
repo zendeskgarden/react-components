@@ -15,7 +15,7 @@ export default {
   component: Ellipsis
 };
 
-export const Default: StoryObj<typeof Ellipsis> = {
+export const Example: StoryObj<typeof Ellipsis> = {
   render: args => <Ellipsis {...args} />,
   name: 'Ellipsis',
 

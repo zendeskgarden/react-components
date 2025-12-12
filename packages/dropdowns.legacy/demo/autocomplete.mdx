@@ -1,6 +1,4 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import Downshift from 'downshift';
 import {
   Autocomplete,
   Dropdown,
@@ -10,12 +8,10 @@ import {
   Menu,
   Message
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { AutocompleteStory } from './stories/AutocompleteStory';
-import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 import README from '../README.md';
-import * as AutocompleteStories from './autocomplete.stories';
+import * as Stories from './autocomplete.stories';
 
-<Meta of={AutocompleteStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -28,7 +24,7 @@ instead.
 # Demo
 
 <Canvas>
-  <Story of={AutocompleteStories.Autocomplete} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

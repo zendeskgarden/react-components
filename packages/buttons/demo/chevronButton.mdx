@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { ChevronButton } from '@zendeskgarden/react-buttons';
 import README from '../README.md';
-import * as ChevronButtonStories from './chevronButton.stories';
+import * as Stories from './chevronButton.stories';
 
-<Meta of={ChevronButtonStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as ChevronButtonStories from './chevronButton.stories';
 # Demo
 
 <Canvas>
-  <Story of={ChevronButtonStories.ChevronButton} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

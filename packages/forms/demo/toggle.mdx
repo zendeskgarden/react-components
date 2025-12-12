@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Toggle } from '@zendeskgarden/react-forms';
-import { ToggleStory } from './stories/ToggleStory';
-import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
-import * as ToggleStories from './toggle.stories';
+import * as Stories from './toggle.stories';
 
-<Meta of={ToggleStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as ToggleStories from './toggle.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={ToggleStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={ToggleStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

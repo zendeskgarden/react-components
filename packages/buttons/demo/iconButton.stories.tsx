@@ -16,7 +16,7 @@ export default {
   component: IconButton
 };
 
-export const Default: StoryObj<typeof IconButton> = {
+export const Example: StoryObj<typeof IconButton> = {
   render: args => (
     <IconButton {...args}>
       <Icon />

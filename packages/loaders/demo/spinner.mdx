@@ -1,9 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Spinner } from '@zendeskgarden/react-loaders';
 import README from '../README.md';
-import * as SpinnerStories from './spinner.stories';
+import * as Stories from './spinner.stories';
 
-<Meta of={SpinnerStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -12,7 +11,7 @@ import * as SpinnerStories from './spinner.stories';
 # Demo
 
 <Canvas>
-  <Story of={SpinnerStories.Spinner} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

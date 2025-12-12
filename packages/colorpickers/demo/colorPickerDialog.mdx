@@ -1,13 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
-import { ColorPickerDialogStory } from './stories/ColorPickerDialogStory';
 import README from '../README.md';
-import * as ColorPickerDialogStories from './colorPickerDialog.stories';
+import * as Stories from './colorPickerDialog.stories';
 
-<Meta of={ColorPickerDialogStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -18,13 +13,13 @@ import * as ColorPickerDialogStories from './colorPickerDialog.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={ColorPickerDialogStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={ColorPickerDialogStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

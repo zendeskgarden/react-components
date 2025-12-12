@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof FileUploadStory> = {
+export const Example: StoryObj<typeof FileUploadStory> = {
   render: args => <FileUploadStory {...args} />,
   name: 'FileUpload',
   args: {

@@ -22,7 +22,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof GlobalAlertStory> = {
+export const Example: StoryObj<typeof GlobalAlertStory> = {
   render: args => <GlobalAlertStory {...args} />,
   name: 'GlobalAlert',
   args: {

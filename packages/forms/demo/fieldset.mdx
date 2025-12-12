@@ -1,7 +1,4 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Fieldset } from '@zendeskgarden/react-forms';
-import { FieldsetStory } from './stories/FieldsetStory';
-import { FIELDSET_FIELDS as FIELDS } from './stories/data';
 import {
   hintArgs,
   hintArgTypes,
@@ -10,9 +7,9 @@ import {
   fieldSubcomponents
 } from './stories/common';
 import README from '../README.md';
-import * as FieldsetStories from './fieldset.stories';
+import * as Stories from './fieldset.stories';
 
-<Meta of={FieldsetStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -23,19 +20,19 @@ import * as FieldsetStories from './fieldset.stories';
 ## Checkbox
 
 <Canvas>
-  <Story of={FieldsetStories.Checkbox} />
+  <Story of={Stories.Checkbox} />
 </Canvas>
 
 ## Radio
 
 <Canvas>
-  <Story of={FieldsetStories.Radio} />
+  <Story of={Stories.Radio} />
 </Canvas>
 
 ## Toggle
 
 <Canvas>
-  <Story of={FieldsetStories.Toggle} />
+  <Story of={Stories.Toggle} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

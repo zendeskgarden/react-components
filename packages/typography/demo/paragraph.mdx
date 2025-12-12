@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Paragraph } from '@zendeskgarden/react-typography';
-import { ParagraphStory } from './stories/ParagraphStory';
-import { PARAGRAPH_CHILDREN as CHILDREN } from './stories/data';
 import README from '../README.md';
-import * as ParagraphStories from './paragraph.stories';
+import * as Stories from './paragraph.stories';
 
-<Meta of={ParagraphStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as ParagraphStories from './paragraph.stories';
 # Demo
 
 <Canvas>
-  <Story of={ParagraphStories.Paragraph} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

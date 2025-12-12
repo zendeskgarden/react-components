@@ -50,7 +50,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof TriggerStory> = {
+export const Example: StoryObj<typeof TriggerStory> = {
   /*account for Storybook control*/
   render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

@@ -16,7 +16,7 @@ export default {
   component: Paragraph
 };
 
-export const Default: StoryObj<typeof ParagraphStory> = {
+export const Example: StoryObj<typeof ParagraphStory> = {
   render: args => <ParagraphStory {...args} />,
   name: 'Paragraph',
   args: {

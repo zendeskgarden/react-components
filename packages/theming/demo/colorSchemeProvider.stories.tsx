@@ -15,7 +15,7 @@ export default {
   component: ColorSchemeProvider
 };
 
-export const Default: StoryObj<typeof ColorSchemeProviderStory> = {
+export const Example: StoryObj<typeof ColorSchemeProviderStory> = {
   render: args => <ColorSchemeProviderStory {...args} />,
   name: 'ColorSchemeProvider',
   args: {

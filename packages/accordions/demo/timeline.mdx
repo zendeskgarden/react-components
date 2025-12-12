@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Timeline } from '@zendeskgarden/react-accordions';
-import { TimelineStory } from './stories/TimelineStory';
-import { TIMELINE_ITEMS as ITEMS } from './stories/data';
 import README from '../README.md';
-import * as TimelineStories from './timeline.stories';
+import * as Stories from './timeline.stories';
 
-<Meta of={TimelineStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as TimelineStories from './timeline.stories';
 # Demo
 
 <Canvas>
-  <Story of={TimelineStories.Timeline} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

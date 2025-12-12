@@ -16,7 +16,7 @@ export default {
   component: ChevronButton
 };
 
-export const Default: StoryObj<typeof ChevronButton> = {
+export const Example: StoryObj<typeof ChevronButton> = {
   render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];

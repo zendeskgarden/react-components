@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof DropzoneStory> = {
+export const Example: StoryObj<typeof DropzoneStory> = {
   render: args => <DropzoneStory {...args} />,
   name: 'Dropzone',
   args: {

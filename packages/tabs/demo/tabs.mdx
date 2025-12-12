@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Tabs } from '@zendeskgarden/react-tabs';
-import { TabsStory } from './stories/TabsStory';
-import { TABS } from './stories/data';
 import README from '../README.md';
-import * as TabsStories from './tabs.stories';
+import * as Stories from './tabs.stories';
 
-<Meta of={TabsStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -17,13 +13,13 @@ import * as TabsStories from './tabs.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={TabsStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={TabsStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

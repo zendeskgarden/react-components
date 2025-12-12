@@ -1,6 +1,4 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import Downshift from 'downshift';
 import {
   AddItem,
   Dropdown,
@@ -17,12 +15,10 @@ import {
   Separator,
   Trigger
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { TriggerStory } from './stories/TriggerStory';
-import { MENU_ITEMS as ITEMS } from './stories/data';
 import README from '../README.md';
-import * as MenuStories from './menu.stories';
+import * as Stories from './menu.stories';
 
-<Meta of={MenuStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -35,7 +31,7 @@ instead.
 # Demo
 
 <Canvas>
-  <Story of={MenuStories.Menu} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

@@ -21,7 +21,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof GridStory> = {
+export const Example: StoryObj<typeof GridStory> = {
   render: args => <GridStory {...args} />,
   name: 'Grid',
   args: {

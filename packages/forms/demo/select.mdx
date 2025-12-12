@@ -1,13 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import { Select } from '@zendeskgarden/react-forms';
-import { SelectStory } from './stories/SelectStory';
-import { SELECT_OPTIONS as OPTIONS } from './stories/data';
-import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
-import * as SelectStories from './select.stories';
+import * as Stories from './select.stories';
 
-<Meta of={SelectStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -18,13 +13,13 @@ import * as SelectStories from './select.stories';
 ## Uncontrolled
 
 <Canvas>
-  <Story of={SelectStories.Uncontrolled} />
+  <Story of={Stories.Uncontrolled} />
 </Canvas>
 
 ## Controlled
 
 <Canvas>
-  <Story of={SelectStories.Controlled} />
+  <Story of={Stories.Controlled} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

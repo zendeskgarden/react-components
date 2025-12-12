@@ -1,12 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { InputGroup, Input, VALIDATION } from '@zendeskgarden/react-forms';
-import { InputGroupStory } from './stories/InputGroupStory';
-import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
-import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import README from '../README.md';
-import * as InputGroupStories from './inputGroup.stories';
+import * as Stories from './inputGroup.stories';
 
-<Meta of={InputGroupStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -15,7 +11,7 @@ import * as InputGroupStories from './inputGroup.stories';
 # Demo
 
 <Canvas>
-  <Story of={InputGroupStories.InputGroup} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

@@ -16,7 +16,7 @@ export default {
   component: Breadcrumb
 };
 
-export const Default: StoryObj<typeof BreadcrumbStory> = {
+export const Example: StoryObj<typeof BreadcrumbStory> = {
   render: args => <BreadcrumbStory {...args} />,
   name: 'Breadcrumb',
 

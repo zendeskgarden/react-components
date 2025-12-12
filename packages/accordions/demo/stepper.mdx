@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Stepper } from '@zendeskgarden/react-accordions';
-import { StepperStory } from './stories/StepperStory';
-import { STEPPER_STEPS as STEPS } from './stories/data';
 import README from '../README.md';
-import * as StepperStories from './stepper.stories';
+import * as Stories from './stepper.stories';
 
-<Meta of={StepperStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as StepperStories from './stepper.stories';
 # Demo
 
 <Canvas>
-  <Story of={StepperStories.Stepper} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

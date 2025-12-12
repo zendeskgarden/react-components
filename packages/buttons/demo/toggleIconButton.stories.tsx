@@ -18,7 +18,7 @@ export default {
   component: ToggleIconButton
 };
 
-export const Default: StoryObj<typeof ToggleIconButton> = {
+export const Example: StoryObj<typeof ToggleIconButton> = {
   render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];

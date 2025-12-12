@@ -1,13 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
-import { Drawer } from '@zendeskgarden/react-modals';
-import { DrawerStory } from './stories/DrawerStory';
-import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
 import README from '../README.md';
-import * as DrawerStories from './drawer.stories';
+import * as Stories from './drawer.stories';
 
-<Meta of={DrawerStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -16,7 +11,7 @@ import * as DrawerStories from './drawer.stories';
 # Demo
 
 <Canvas>
-  <Story of={DrawerStories.Drawer} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

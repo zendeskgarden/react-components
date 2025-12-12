@@ -14,7 +14,7 @@ export default {
   title: 'Packages/Grid/[patterns]'
 };
 
-export const PaneCardLayout: StoryObj<typeof CardStory> = {
+export const Example: StoryObj<typeof CardStory> = {
   render: args => <CardStory {...args} />,
   name: 'Pane Card Layout',
 

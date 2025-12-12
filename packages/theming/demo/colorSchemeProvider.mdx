@@ -1,10 +1,9 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
 import { ColorSchemeProvider } from '@zendeskgarden/react-theming';
-import { ColorSchemeProviderStory } from './stories/ColorSchemeProviderStory';
 import README from '../README.md';
-import * as ColorSchemeProviderStories from './colorSchemeProvider.stories';
+import * as Stories from './colorSchemeProvider.stories';
 
-<Meta of={ColorSchemeProviderStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -15,7 +14,7 @@ import * as ColorSchemeProviderStories from './colorSchemeProvider.stories';
 ## ColorSchemeProvider
 
 <Canvas>
-  <Story of={ColorSchemeProviderStories.ColorSchemeProvider} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

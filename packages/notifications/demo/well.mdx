@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Well } from '@zendeskgarden/react-notifications';
-import { WellStory } from './stories/WellStory';
 import README from '../README.md';
-import * as WellStories from './well.stories';
+import * as Stories from './well.stories';
 
-<Meta of={WellStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as WellStories from './well.stories';
 # Demo
 
 <Canvas>
-  <Story of={WellStories.Well} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

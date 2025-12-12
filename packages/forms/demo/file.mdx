@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { File } from '@zendeskgarden/react-forms';
-import { Progress } from '@zendeskgarden/react-loaders';
-import { FileStory } from './stories/FileStory';
 import README from '../README.md';
-import * as FileStories from './file.stories';
+import * as Stories from './file.stories';
 
-<Meta of={FileStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as FileStories from './file.stories';
 # Demo
 
 <Canvas>
-  <Story of={FileStories.File} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

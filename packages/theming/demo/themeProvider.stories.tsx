@@ -20,7 +20,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof ThemeProvider> = {
+export const Example: StoryObj<typeof ThemeProvider> = {
   render: args => <ThemeProvider {...args} />,
   name: 'ThemeProvider',
   args: {

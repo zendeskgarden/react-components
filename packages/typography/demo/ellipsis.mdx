@@ -1,9 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Ellipsis } from '@zendeskgarden/react-typography';
 import README from '../README.md';
-import * as EllipsisStories from './ellipsis.stories';
+import * as Stories from './ellipsis.stories';
 
-<Meta of={EllipsisStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -12,7 +11,7 @@ import * as EllipsisStories from './ellipsis.stories';
 # Demo
 
 <Canvas>
-  <Story of={EllipsisStories.Ellipsis} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

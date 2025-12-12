@@ -29,7 +29,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof TableStory> = {
+export const Example: StoryObj<typeof TableStory> = {
   render: args => <TableStory {...args} />,
   name: 'Table',
   args: {

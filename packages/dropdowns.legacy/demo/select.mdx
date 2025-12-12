@@ -1,6 +1,4 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { useArgs } from '@storybook/client-api';
-import Downshift from 'downshift';
 import {
   Dropdown,
   Field,
@@ -10,12 +8,10 @@ import {
   Message,
   Select
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { SelectStory } from './stories/SelectStory';
-import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 import README from '../README.md';
-import * as SelectStories from './select.stories';
+import * as Stories from './select.stories';
 
-<Meta of={SelectStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -28,7 +24,7 @@ instead.
 # Demo
 
 <Canvas>
-  <Story of={SelectStories.Select} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

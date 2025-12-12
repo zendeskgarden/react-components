@@ -1,11 +1,7 @@
 import { Meta, Canvas, Story } from '@storybook/blocks';
-import { Avatar } from '@zendeskgarden/react-avatars';
-import { MenuStory } from './stories/MenuStory';
-import { ChromeStory } from './stories/ChromeStory';
-import { StatusMenuStory } from './stories/StatusMenuStory';
-import * as PatternsStories from './patterns.stories';
+import * as Stories from './patterns.stories';
 
-<Meta of={PatternsStories} />
+<Meta of={Stories} />
 
 # Patterns
 
@@ -17,7 +13,7 @@ the keyboard focus ring is properly styled. Status may be added to this avatar
 without impacting the height of the header. See the code for details.
 
 <Canvas>
-  <Story of={PatternsStories.Chrome} />
+  <Story of={Stories.Chrome} />
 </Canvas>
 
 ## Menu
@@ -28,7 +24,7 @@ with the menu item's highlight color on focus and hover. See the code for
 details.
 
 <Canvas>
-  <Story of={PatternsStories.Menu} />
+  <Story of={Stories.Menu} />
 </Canvas>
 
 ## Status Menu
@@ -36,5 +32,5 @@ details.
 The following example demonstrates StatusIndicator being used in a menu.
 
 <Canvas>
-  <Story of={PatternsStories.StatusMenu} />
+  <Story of={Stories.StatusMenu} />
 </Canvas>

@@ -22,7 +22,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof TooltipStory> = {
+export const Example: StoryObj<typeof TooltipStory> = {
   render: args => <TooltipStory {...args} />,
   name: 'Tooltip',
   args: {

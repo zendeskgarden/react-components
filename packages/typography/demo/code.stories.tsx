@@ -20,7 +20,7 @@ export default {
   component: Code
 };
 
-export const Default: StoryObj<IArgs> = {
+export const Example: StoryObj<IArgs> = {
   render: args =>
     args.isAnchor ? (
       <Anchor isUnderlined={false}>

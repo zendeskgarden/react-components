@@ -1,16 +1,13 @@
 import { Meta, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
-import { BreadcrumbStory } from './stories/BreadcrumbStory';
-import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
 import README from '../README.md';
-import * as BreadcrumbStories from './breadcrumb.stories';
+import * as Stories from './breadcrumb.stories';
 
-<Meta of={BreadcrumbStories} />
+<Meta of={Stories} />
 
 # Demo
 
 <Canvas>
-  <Story of={BreadcrumbStories.Breadcrumb} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

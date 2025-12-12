@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Span } from '@zendeskgarden/react-typography';
-import { SpanStory } from './stories/SpanStory';
 import README from '../README.md';
-import * as SpanStories from './span.stories';
+import * as Stories from './span.stories';
 
-<Meta of={SpanStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as SpanStories from './span.stories';
 # Demo
 
 <Canvas>
-  <Story of={SpanStories.Span} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

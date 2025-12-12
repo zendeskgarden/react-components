@@ -1,9 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Inline } from '@zendeskgarden/react-loaders';
 import README from '../README.md';
-import * as InlineStories from './inline.stories';
+import * as Stories from './inline.stories';
 
-<Meta of={InlineStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -12,7 +11,7 @@ import * as InlineStories from './inline.stories';
 # Demo
 
 <Canvas>
-  <Story of={InlineStories.Inline} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

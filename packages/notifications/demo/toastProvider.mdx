@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { ToastProvider } from '@zendeskgarden/react-notifications';
-import { ToastProviderStory } from './stories/ToastProviderStory';
-import { TOAST_PLACEMENT_OPTIONS } from './stories/data';
 import README from '../README.md';
-import * as ToastProviderStories from './toastProvider.stories';
+import * as Stories from './toastProvider.stories';
 
-<Meta of={ToastProviderStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as ToastProviderStories from './toastProvider.stories';
 # Demo
 
 <Canvas>
-  <Story of={ToastProviderStories.ToastProvider} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

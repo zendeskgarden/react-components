@@ -14,7 +14,7 @@ export default {
   component: CodeBlock
 };
 
-export const Default = {
+export const Example = {
   render: ({ code, ...args }: any) => (
     <CodeBlock {...args}>{code[args.language || 'tsx']}</CodeBlock>
   ),

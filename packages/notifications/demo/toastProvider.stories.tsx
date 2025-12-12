@@ -16,7 +16,7 @@ export default {
   component: ToastProvider
 };
 
-export const Default: StoryObj<typeof ToastProviderStory> = {
+export const Example: StoryObj<typeof ToastProviderStory> = {
   render: args => <ToastProviderStory {...args} />,
   name: 'ToastProvider',
   args: {

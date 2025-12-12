@@ -1,11 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { GlobalAlert, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
-import { GlobalAlertStory } from './stories/GlobalAlertStory';
-import { GLOBAL_ALERT_BUTTONS } from './stories/data';
 import README from '../README.md';
-import * as GlobalAlertStories from './global-alert.stories';
+import * as Stories from './global-alert.stories';
 
-<Meta of={GlobalAlertStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -14,7 +11,7 @@ import * as GlobalAlertStories from './global-alert.stories';
 # Demo
 
 <Canvas>
-  <Story of={GlobalAlertStories.GlobalAlert} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

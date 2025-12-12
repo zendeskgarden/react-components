@@ -35,7 +35,7 @@ export default {
   }
 };
 
-export const Default: StoryObj<typeof MultiselectStory> = {
+export const Example: StoryObj<typeof MultiselectStory> = {
   /*account for Storybook control*/
   render: args => {
     // eslint-disable-next-line react-hooks/rules-of-hooks

@@ -14,7 +14,7 @@ export default {
   title: 'Packages/Draggable/[patterns]'
 };
 
-export const DragAndDrop: StoryObj<typeof DragAndDropStory> = {
+export const Example: StoryObj<typeof DragAndDropStory> = {
   render: args => <DragAndDropStory {...args} />,
   name: 'Drag and drop',
 

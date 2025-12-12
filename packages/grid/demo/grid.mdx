@@ -1,11 +1,9 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
 import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
-import { GridStory } from './stories/GridStory';
-import { GRID_ROWS as ROWS } from './stories/data';
 import README from '../README.md';
-import * as GridStories from './grid.stories';
+import * as Stories from './grid.stories';
 
-<Meta of={GridStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -20,7 +18,7 @@ The `children` control receives an array of objects that permit all related
 set any related `Grid.Col` prop along with `children` text for display.
 
 <Canvas>
-  <Story of={GridStories.Grid} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

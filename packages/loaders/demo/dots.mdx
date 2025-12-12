@@ -1,9 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Dots } from '@zendeskgarden/react-loaders';
 import README from '../README.md';
-import * as DotsStories from './dots.stories';
+import * as Stories from './dots.stories';
 
-<Meta of={DotsStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -12,7 +11,7 @@ import * as DotsStories from './dots.stories';
 # Demo
 
 <Canvas>
-  <Story of={DotsStories.Dots} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

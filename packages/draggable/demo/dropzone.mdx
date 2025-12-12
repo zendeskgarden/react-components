@@ -1,10 +1,8 @@
 import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
-import { Dropzone } from '@zendeskgarden/react-draggable';
-import { DropzoneStory } from './stories/DropzoneStory';
 import README from '../README.md';
-import * as DropzoneStories from './dropzone.stories';
+import * as Stories from './dropzone.stories';
 
-<Meta of={DropzoneStories} />
+<Meta of={Stories} />
 
 # API
 
@@ -13,7 +11,7 @@ import * as DropzoneStories from './dropzone.stories';
 # Demo
 
 <Canvas>
-  <Story of={DropzoneStories.Dropzone} />
+  <Story of={Stories.Example} />
 </Canvas>
 
 <Markdown>{README}</Markdown>

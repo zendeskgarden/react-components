@@ -15,7 +15,7 @@ export default {
   component: Spinner
 };
 
-export const Default: StoryObj<typeof Spinner> = {
+export const Example: StoryObj<typeof Spinner> = {
   render: args => <Spinner {...args} />,
   name: 'Spinner',
 

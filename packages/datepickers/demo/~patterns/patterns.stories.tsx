@@ -13,7 +13,7 @@ export default {
   title: 'Packages/DatePickers/[patterns]'
 };
 
-export const Calendar: StoryObj<typeof CalendarStory> = {
+export const Example: StoryObj<typeof CalendarStory> = {
   render: args => <CalendarStory {...args} />,
   name: 'Calendar',
 
