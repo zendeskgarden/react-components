@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { ColorSchemeProvider } from '@zendeskgarden/react-theming';
 import { ColorSchemeProviderStory } from './stories/ColorSchemeProviderStory';
 

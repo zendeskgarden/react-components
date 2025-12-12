@@ -45,6 +45,6 @@
     "utils/build/Intl.d.ts",
     "utils/test/jest.d.ts"
   ],
-  "include": ["packages/*/src/**/*", "packages/*/demo/**/*"],
+  "include": ["packages/*/src/**/*", "packages/*/demo/**/*", ".storybook/**/*"],
   "exclude": ["node_modules", "**/node_modules", "**/dist"]
 }

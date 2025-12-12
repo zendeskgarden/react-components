@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { Fieldset } from '@zendeskgarden/react-forms';
 import { FieldsetStory } from './stories/FieldsetStory';
 import { FIELDSET_FIELDS as FIELDS } from './stories/data';

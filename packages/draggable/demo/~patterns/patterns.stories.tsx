@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { DragAndDropStory } from './stories/DragAndDropStory';
 import { COLUMNS as columns } from './stories/data';
 

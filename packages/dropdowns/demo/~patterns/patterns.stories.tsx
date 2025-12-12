@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { NestedStory } from './stories/NestedStory';
 import { PortalStory } from './stories/PortalStory';
 

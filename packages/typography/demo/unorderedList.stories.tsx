@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { UnorderedList } from '@zendeskgarden/react-typography';
 import { UnorderedListStory } from './stories/UnorderedListStory';
 import { LIST_ITEMS as ITEMS } from './stories/data';

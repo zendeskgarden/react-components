@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { DraggableList } from '@zendeskgarden/react-draggable';
 import { DraggableListStory } from './stories/DraggableListStory';
 import { LIST_ITEMS as items } from './stories/data';

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { useArgs } from 'storybook/preview-api';
 import { Tabs } from '@zendeskgarden/react-tabs';
 import { TabsStory } from './stories/TabsStory';

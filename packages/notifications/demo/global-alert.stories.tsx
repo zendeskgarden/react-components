@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { GlobalAlert } from '@zendeskgarden/react-notifications';
 import { GlobalAlertStory } from './stories/GlobalAlertStory';
 

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { GetColorStory } from './stories/GetColorStory';
 import { GetColorV8Story } from './stories/GetColorV8Story';
 

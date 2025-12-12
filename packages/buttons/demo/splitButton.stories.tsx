@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { SplitButtonStory } from './stories/SplitButtonStory';
 

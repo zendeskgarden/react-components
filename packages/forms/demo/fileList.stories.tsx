@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { FileList, File } from '@zendeskgarden/react-forms';
 import { FileListStory } from './stories/FileListStory';
 import { FILELIST_ITEMS as ITEMS } from './stories/data';

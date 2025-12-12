@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 import { SkeletonStory } from './stories/SkeletonStory';
 import { TYPE_SCALE_OPTIONS } from './stories/data';

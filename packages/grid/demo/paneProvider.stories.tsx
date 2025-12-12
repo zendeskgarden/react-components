@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { useArgs } from 'storybook/preview-api';
 import { PaneProviderStory } from './stories/PaneProviderStory';

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { Dropzone } from '@zendeskgarden/react-draggable';
 import { DropzoneStory } from './stories/DropzoneStory';
 

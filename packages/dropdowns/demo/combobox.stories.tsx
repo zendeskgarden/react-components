@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { useArgs } from 'storybook/preview-api';
 import { Combobox, Field, Option, OptGroup, Tag } from '@zendeskgarden/react-dropdowns';
 import { ComboboxStory } from './stories/ComboboxStory';

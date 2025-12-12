@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
 import { ToastProviderStory } from './stories/ToastProviderStory';
 import { TOAST_PLACEMENT_OPTIONS } from './stories/data';

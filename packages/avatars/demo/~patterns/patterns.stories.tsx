@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { MenuStory } from './stories/MenuStory';
 import { ChromeStory } from './stories/ChromeStory';

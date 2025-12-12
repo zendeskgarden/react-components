@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react-webpack5';
+import type { StoryObj } from '@storybook/react';
 
 import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
 import { IconButton } from '@zendeskgarden/react-buttons';
