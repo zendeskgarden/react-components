@@ -1,4 +1,4 @@
-import { dirname, join } from "path";
+import { dirname, join } from 'node:path';
 /**
  * Copyright Zendesk, Inc.
  *
@@ -15,18 +15,22 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
   name => name !== '.template'
 );
 
+function getAbsolutePath(value) {
+  return dirname(require.resolve(join(value, 'package.json')));
+}
+
 module.exports = {
-  stories: [`../packages/${process.env.PACKAGE || '*'}/demo/**/*.stories.@(js|jsx|ts|tsx|mdx)`],
+  stories: ['../packages/*/demo/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   staticDirs: ['./static'],
   addons: [
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-a11y"),
-    getAbsolutePath("@storybook/addon-designs"),
-    getAbsolutePath("@storybook/addon-webpack5-compiler-babel")
+    getAbsolutePath('@storybook/addon-essentials'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-designs'),
+    getAbsolutePath('@storybook/addon-webpack5-compiler-babel')
   ],
 
   framework: {
-    name: getAbsolutePath("@storybook/react-webpack5"),
+    name: getAbsolutePath('@storybook/react-webpack5'),
     options: { strictMode: true }
   },
 
@@ -76,7 +80,3 @@ module.exports = {
     reactDocgen: 'react-docgen-typescript'
   }
 };
-
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
-}
