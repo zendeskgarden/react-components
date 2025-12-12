@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { DraggableList } from '@zendeskgarden/react-draggable';
+import { DraggableListStory } from './stories/DraggableListStory';
+import { LIST_ITEMS as items } from './stories/data';
+import README from '../README.md';
+import * as DraggableListStories from './draggable-list.stories';
+
+<Meta of={DraggableListStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={DraggableListStories.DraggableList} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import { CursorPagination } from '@zendeskgarden/react-pagination';
+import { CursorPaginationStory } from './stories/CursorPaginationStory';
+import README from '../README.md';
+import * as CursorPaginationStories from './cursorPagination.stories';
+
+<Meta of={CursorPaginationStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={CursorPaginationStories.CursorPagination} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

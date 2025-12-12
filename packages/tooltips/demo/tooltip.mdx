@@ -1,0 +1,23 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
+import { TooltipStory } from './stories/TooltipStory';
+import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
+import README from '../README.md';
+import { PLACEMENT } from '../src/types';
+import * as TooltipStories from './tooltip.stories';
+
+<Meta of={TooltipStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={TooltipStories.Tooltip} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

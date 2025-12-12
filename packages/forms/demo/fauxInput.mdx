@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { FauxInput } from '@zendeskgarden/react-forms';
+import { FauxInputStory } from './stories/FauxInputStory';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import README from '../README.md';
+import * as FauxInputStories from './fauxInput.stories';
+
+<Meta of={FauxInputStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={FauxInputStories.FauxInput} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import { ToggleButton } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
+import * as ToggleButtonStories from './toggleButton.stories';
+
+<Meta of={ToggleButtonStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={ToggleButtonStories.ToggleButton} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

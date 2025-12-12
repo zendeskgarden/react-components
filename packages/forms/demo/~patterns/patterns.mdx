@@ -1,0 +1,18 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { FileUpload } from '@zendeskgarden/react-forms';
+import { FileUploadStory } from './stories/FileUploadStory';
+import { FILE_TYPES } from '../stories/data';
+import * as PatternsStories from './patterns.stories';
+
+<Meta of={PatternsStories} />
+
+# Patterns
+
+## File upload
+
+The `FileUpload` component is shown here working together with the
+`react-dropzone` library.
+
+<Canvas>
+  <Story of={PatternsStories.FileUpload} />
+</Canvas>

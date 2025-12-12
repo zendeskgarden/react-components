@@ -1,0 +1,24 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions';
+import { useArgs } from '@storybook/client-api';
+import { Modal } from '@zendeskgarden/react-modals';
+import { ModalStory } from './stories/ModalStory';
+import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
+import README from '../README.md';
+import * as ModalStories from './modal.stories';
+
+<Meta of={ModalStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={ModalStories.Modal} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

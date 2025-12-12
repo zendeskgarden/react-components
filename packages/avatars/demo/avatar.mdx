@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Avatar } from '@zendeskgarden/react-avatars';
+import { AvatarStory } from './stories/AvatarStory';
+import { AVATAR_TYPE as TYPE } from './stories/data';
+import README from '../README.md';
+import * as AvatarStories from './avatar.stories';
+
+<Meta of={AvatarStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={AvatarStories.Avatar} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

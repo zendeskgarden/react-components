@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Stepper } from '@zendeskgarden/react-accordions';
+import { StepperStory } from './stories/StepperStory';
+import { STEPPER_STEPS as STEPS } from './stories/data';
+import README from '../README.md';
+import * as StepperStories from './stepper.stories';
+
+<Meta of={StepperStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={StepperStories.Stepper} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

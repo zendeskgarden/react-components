@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { OrderedList } from '@zendeskgarden/react-typography';
+import { OrderedListStory } from './stories/OrderedListStory';
+import { LIST_ITEMS as ITEMS } from './stories/data';
+import README from '../README.md';
+import * as OrderedListStories from './orderedList.stories';
+
+<Meta of={OrderedListStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={OrderedListStories.OrderedList} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

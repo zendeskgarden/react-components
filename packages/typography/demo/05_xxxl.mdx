@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { XXXL } from '@zendeskgarden/react-typography';
+import { TypescaleStory } from './stories/TypescaleStory';
+import README from '../README.md';
+import * as $05XxxlStories from './05_xxxl.stories';
+
+<Meta of={$05XxxlStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={$05XxxlStories.Xxxl} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

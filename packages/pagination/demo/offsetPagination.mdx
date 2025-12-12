@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import { OffsetPagination } from '@zendeskgarden/react-pagination';
+import README from '../README.md';
+import * as OffsetPaginationStories from './offsetPagination.stories';
+
+<Meta of={OffsetPaginationStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={OffsetPaginationStories.OffsetPagination} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

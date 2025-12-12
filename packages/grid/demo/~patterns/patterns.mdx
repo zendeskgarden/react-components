@@ -1,0 +1,14 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { CardStory } from './stories/CardStory';
+import { COLUMNS } from './stories/data';
+import * as PatternsStories from './patterns.stories';
+
+<Meta of={PatternsStories} />
+
+# Patterns
+
+## Pane Card Layout
+
+<Canvas>
+  <Story of={PatternsStories.PaneCardLayout} />
+</Canvas>

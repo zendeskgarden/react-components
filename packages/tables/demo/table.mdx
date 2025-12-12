@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Table } from '@zendeskgarden/react-tables';
+import { TableStory } from './stories/TableStory';
+import { TABLE_DATA as DATA } from './stories/data';
+import README from '../README.md';
+import * as TableStories from './table.stories';
+
+<Meta of={TableStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={TableStories.Table} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

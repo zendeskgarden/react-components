@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { FileUpload } from '@zendeskgarden/react-forms';
+import { FileUploadStory } from './stories/FileUploadStory';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import README from '../README.md';
+import * as FileUploadStories from './fileUpload.stories';
+
+<Meta of={FileUploadStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={FileUploadStories.FileUpload} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

@@ -1,0 +1,60 @@
+import { Well } from '@zendeskgarden/react-notifications';
+import { WellStory } from './stories/WellStory';
+import README from '../README.md';
+
+export default {
+  title: 'Packages/Notifications/Well',
+  component: Well,
+
+  subcomponents: {
+    'Well.Paragraph': Well.Paragraph,
+    'Well.Title': Well.Title
+  }
+};
+
+export const Well = {
+  render: args => <WellStory {...args} />,
+  name: 'Well',
+
+  args: {
+    children: 'Text',
+    title: 'Title',
+    hasParagraph: false
+  },
+
+  argTypes: {
+    title: {
+      name: 'children',
+
+      table: {
+        category: 'Well.Title'
+      }
+    },
+
+    isRegular: {
+      control: {
+        type: 'boolean'
+      },
+
+      table: {
+        category: 'Well.Title'
+      }
+    },
+
+    hasParagraph: {
+      name: 'Well.Paragraph',
+
+      table: {
+        category: 'Story'
+      }
+    }
+  },
+
+  parameters: {
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A24694'
+    }
+  }
+};

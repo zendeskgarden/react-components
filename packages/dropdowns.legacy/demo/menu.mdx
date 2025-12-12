@@ -1,0 +1,43 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import Downshift from 'downshift';
+import {
+  AddItem,
+  Dropdown,
+  HeaderIcon,
+  HeaderItem,
+  Item,
+  ItemMeta,
+  MediaBody,
+  MediaFigure,
+  MediaItem,
+  Menu,
+  NextItem,
+  PreviousItem,
+  Separator,
+  Trigger
+} from '@zendeskgarden/react-dropdowns.legacy';
+import { TriggerStory } from './stories/TriggerStory';
+import { MENU_ITEMS as ITEMS } from './stories/data';
+import README from '../README.md';
+import * as MenuStories from './menu.stories';
+
+<Meta of={MenuStories} />
+
+# API
+
+**DEPRECATED:** use `@zendeskgarden/react-dropdowns`
+[Menu](https://zendeskgarden.github.io/react-components/?path=/docs/packages-dropdowns-menu--docs)
+instead.
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={MenuStories.Menu} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

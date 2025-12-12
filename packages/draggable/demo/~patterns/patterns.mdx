@@ -1,0 +1,17 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { DragAndDropStory } from './stories/DragAndDropStory';
+import { COLUMNS as columns } from './stories/data';
+import * as PatternsStories from './patterns.stories';
+
+<Meta of={PatternsStories} />
+
+# Patterns
+
+## Drag and Drop
+
+Use a combination of `Draggable`, `DraggableList`, and `Dropzone` to create a
+drag and drop experience.
+
+<Canvas>
+  <Story of={PatternsStories.DragAndDrop} />
+</Canvas>

@@ -1,0 +1,20 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Spinner } from '@zendeskgarden/react-loaders';
+import README from '../README.md';
+import * as SpinnerStories from './spinner.stories';
+
+<Meta of={SpinnerStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={SpinnerStories.Spinner} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

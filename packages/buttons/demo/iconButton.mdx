@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
+import { IconButton } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
+import * as IconButtonStories from './iconButton.stories';
+
+<Meta of={IconButtonStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={IconButtonStories.IconButton} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

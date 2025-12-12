@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Tag } from '@zendeskgarden/react-tags';
+import { TagStory } from './stories/TagStory';
+import README from '../README.md';
+import * as TagStories from './tag.stories';
+
+<Meta of={TagStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={TagStories.Tag} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

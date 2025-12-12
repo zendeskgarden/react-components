@@ -1,0 +1,54 @@
+import { useArgs } from '@storybook/client-api';
+import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
+import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
+import { ToggleIconButton } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
+
+export default {
+  title: 'Packages/Buttons/ToggleIconButton',
+  component: ToggleIconButton
+};
+
+export const ToggleIconButton = {
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleClick = () =>
+      updateArgs({
+        isPressed: args.isPressed ? false : true
+      });
+
+    return (
+      <ToggleIconButton {...args} onClick={handleClick}>
+        {args.isPressed === true ? <IconFill /> : <IconStroke />}
+      </ToggleIconButton>
+    );
+  },
+
+  name: 'ToggleIconButton',
+
+  args: {
+    'aria-label': 'Label',
+    isBasic: true,
+    isPill: true
+  },
+
+  argTypes: {
+    disabled: {
+      control: 'boolean'
+    },
+
+    isPressed: {
+      control: 'radio',
+      options: [false, true, 'mixed']
+    }
+  },
+
+  parameters: {
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=7149%3A41375'
+    }
+  }
+};

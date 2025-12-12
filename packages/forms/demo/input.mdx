@@ -1,0 +1,31 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import { Input } from '@zendeskgarden/react-forms';
+import { InputStory } from './stories/InputStory';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import README from '../README.md';
+import * as InputStories from './input.stories';
+
+<Meta of={InputStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story of={InputStories.Uncontrolled} />
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story of={InputStories.Controlled} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

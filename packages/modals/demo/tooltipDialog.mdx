@@ -1,0 +1,25 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { action } from '@storybook/addon-actions';
+import { useArgs } from '@storybook/client-api';
+import { TooltipDialog } from '@zendeskgarden/react-modals';
+import { TooltipDialogStory } from './stories/TooltipDialogStory';
+import { TOOLTIP_DIALOG_BODY as BODY } from './stories/data';
+import { PLACEMENT } from '../src/types';
+import README from '../README.md';
+import * as TooltipDialogStories from './tooltipDialog.stories';
+
+<Meta of={TooltipDialogStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={TooltipDialogStories.TooltipDialog} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

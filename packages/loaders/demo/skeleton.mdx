@@ -1,0 +1,22 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Skeleton } from '@zendeskgarden/react-loaders';
+import { SkeletonStory } from './stories/SkeletonStory';
+import { TYPE_SCALE_OPTIONS } from './stories/data';
+import README from '../README.md';
+import * as SkeletonStories from './skeleton.stories';
+
+<Meta of={SkeletonStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={SkeletonStories.Skeleton} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

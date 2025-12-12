@@ -1,0 +1,36 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import Downshift from 'downshift';
+import {
+  Combobox,
+  Dropdown,
+  Field,
+  Hint,
+  Label,
+  Menu,
+  Message
+} from '@zendeskgarden/react-dropdowns.legacy';
+import { ComboboxStory } from './stories/ComboboxStory';
+import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+import README from '../README.md';
+import * as ComboboxStories from './combobox.stories';
+
+<Meta of={ComboboxStories} />
+
+# API
+
+**DEPRECATED:** use `@zendeskgarden/react-dropdowns`
+[Combobox](https://zendeskgarden.github.io/react-components/?path=/docs/packages-dropdowns-combobox--docs)
+instead.
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={ComboboxStories.Combobox} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { Anchor } from '@zendeskgarden/react-buttons';
+import { Code } from '@zendeskgarden/react-typography';
+import README from '../README.md';
+import * as CodeStories from './code.stories';
+
+<Meta of={CodeStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={CodeStories.Code} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from '@storybook/blocks';
+import { Menu } from '@zendeskgarden/react-dropdowns.legacy';
+import { MENU_ITEMS as ITEMS } from '../stories/data';
+import { MenuStory } from './stories/MenuStory';
+import * as PatternsStories from './patterns.stories';
+
+<Meta of={PatternsStories} />
+
+# Patterns
+
+## Render menu in a root level React portal
+
+The `appendToNode` property can be used to render the menu in a different
+DOM location than inline with the Trigger component. This is done via React
+portals under the hood.
+
+You typically will need to set this property if you are using the `Menu` inside
+an element with `overflow: hidden` / `auto` / `scroll` CSS styles.
+
+See in this example, that the menu is currently getting cropped. Change the
+`appendToNode` property to "portal" to see the full menu.
+
+<Canvas>
+  <Story of={PatternsStories.Menu} />
+</Canvas>

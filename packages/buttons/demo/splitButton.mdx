@@ -1,0 +1,21 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
+import { SplitButtonStory } from './stories/SplitButtonStory';
+import README from '../README.md';
+import * as SplitButtonStories from './splitButton.stories';
+
+<Meta of={SplitButtonStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={SplitButtonStories.SplitButton} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

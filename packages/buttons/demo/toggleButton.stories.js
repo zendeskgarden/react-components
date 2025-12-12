@@ -1,0 +1,46 @@
+import { useArgs } from '@storybook/client-api';
+import { ToggleButton } from '@zendeskgarden/react-buttons';
+import README from '../README.md';
+
+export default {
+  title: 'Packages/Buttons/ToggleButton',
+  component: ToggleButton
+};
+
+export const ToggleButton = {
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleClick = () =>
+      updateArgs({
+        isPressed: args.isPressed ? false : true
+      });
+
+    return <ToggleButton {...args} onClick={handleClick} />;
+  },
+
+  name: 'ToggleButton',
+
+  args: {
+    children: 'Text'
+  },
+
+  argTypes: {
+    disabled: {
+      control: 'boolean'
+    },
+
+    isPressed: {
+      control: 'radio',
+      options: [false, true, 'mixed']
+    }
+  },
+
+  parameters: {
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=7149%3A39389'
+    }
+  }
+};

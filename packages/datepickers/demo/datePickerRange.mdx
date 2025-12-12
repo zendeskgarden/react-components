@@ -1,0 +1,23 @@
+import { Meta, Controls, Canvas, Story, Markdown } from '@storybook/blocks';
+import { useArgs } from '@storybook/client-api';
+import { DatePickerRange } from '@zendeskgarden/react-datepickers';
+import { DatePickerRangeStory } from './stories/DatePickerRangeStory';
+import { DATE_STYLE_OPTIONS } from './stories/data';
+import README from '../README.md';
+import * as DatePickerRangeStories from './datePickerRange.stories';
+
+<Meta of={DatePickerRangeStories} />
+
+# API
+
+<Controls />
+
+# Demo
+
+<Canvas>
+  <Story of={DatePickerRangeStories.DatePickerRange} />
+</Canvas>
+
+<Markdown>
+  {README}
+</Markdown>

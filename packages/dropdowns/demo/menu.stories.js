@@ -1,0 +1,108 @@
+import { useArgs } from '@storybook/client-api';
+import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
+import { MenuStory } from './stories/MenuStory';
+import README from '../README.md';
+import { BUTTON_TYPE, ITEMS } from './stories/data';
+
+export default {
+  title: 'Packages/Dropdowns/Menu',
+  component: Menu,
+
+  subcomponents: {
+    Item,
+    'Item.Meta': Item.Meta,
+    Separator,
+    ItemGroup
+  },
+
+  argTypes: {
+    appendToNode: {
+      control: false
+    },
+
+    button: {
+      control: 'radio',
+      options: BUTTON_TYPE
+    },
+
+    label: {
+      name: 'Button label',
+
+      table: {
+        category: 'Story'
+      }
+    }
+  },
+
+  args: {
+    button: BUTTON_TYPE[0],
+    items: ITEMS,
+    label: 'Menu',
+    maxHeight: '400px',
+    placement: 'bottom-start',
+    zIndex: 1000
+  }
+};
+
+export const Uncontrolled = {
+  render: args => <MenuStory {...args} />,
+  name: 'Uncontrolled',
+
+  argTypes: {
+    isExpanded: {
+      control: false
+    },
+
+    focusedValue: {
+      control: false
+    },
+
+    selectedItems: {
+      control: false
+    }
+  }
+};
+
+export const Controlled = {
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleChange = changes => {
+      const { type, ...rest } = changes;
+
+      updateArgs(rest);
+    };
+
+    return <MenuStory {...args} onChange={handleChange} />;
+  },
+
+  name: 'Controlled',
+
+  argTypes: {
+    defaultExpanded: {
+      control: false
+    },
+
+    defaultFocusedValue: {
+      control: false
+    },
+
+    focusedValue: {
+      control: {
+        type: 'text'
+      }
+    }
+  },
+
+  args: {
+    isExpanded: false,
+    focusedValue: null,
+
+    selectedItems: [
+      {
+        value: 'aster',
+        type: 'checkbox'
+      }
+    ]
+  }
+};

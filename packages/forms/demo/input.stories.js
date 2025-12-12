@@ -1,0 +1,95 @@
+import { useArgs } from '@storybook/client-api';
+import { Input } from '@zendeskgarden/react-forms';
+import { InputStory } from './stories/InputStory';
+import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import README from '../README.md';
+
+export default {
+  title: 'Packages/Forms/Input',
+  component: Input,
+
+  subcomponents: {
+    ...fieldSubcomponents
+  },
+
+  args: {
+    ...commonArgs
+  },
+
+  /* ensures the `validation` story arg for the `Input` component is not overriden */
+  argTypes: {
+    ...{
+      ...commonArgTypes,
+      validation: {}
+    },
+
+    disabled: {
+      control: 'boolean'
+    },
+
+    readOnly: {
+      control: 'boolean'
+    },
+
+    placeholder: {
+      control: 'text'
+    },
+
+    type: {
+      control: {
+        type: 'select'
+      },
+
+      options: [
+        'date',
+        'datetime-local',
+        'email',
+        'month',
+        'number',
+        'password',
+        'search',
+        'tel',
+        'text',
+        'time',
+        'url',
+        'week'
+      ]
+    }
+  },
+
+  parameters: {
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20266'
+    }
+  }
+};
+
+export const Uncontrolled = {
+  render: args => <InputStory {...args} />,
+  name: 'Uncontrolled',
+
+  args: {
+    placeholder: 'Placeholder'
+  }
+};
+
+export const Controlled = {
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleChange = event =>
+      updateArgs({
+        value: event.target.value
+      });
+
+    return <InputStory {...args} onChange={handleChange} />;
+  },
+
+  name: 'Controlled',
+
+  args: {
+    value: 'Value'
+  }
+};
