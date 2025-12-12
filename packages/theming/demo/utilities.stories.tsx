@@ -1,15 +1,17 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
 import { GetColorStory } from './stories/GetColorStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
-import README from '../README.md';
+type Story = StoryObj<typeof GetColorStory>;
 
 export default {
   title: 'Packages/Theming/utilities'
 };
 
-export const ArrowStyles = {
+export const ArrowStyles: Story = {
   render: args => <ArrowStylesStory {...args} />,
   name: 'arrowStyles()',
 
@@ -48,7 +50,7 @@ export const ArrowStyles = {
   }
 };
 
-export const GetColor = {
+export const GetColor: Story = {
   render: args => <GetColorStory {...args} />,
   name: 'getColor()',
 
@@ -128,7 +130,7 @@ export const GetColor = {
   }
 };
 
-export const MenuStyles = {
+export const MenuStyles: Story = {
   render: args => <MenuStylesStory {...args} />,
   name: 'menuStyles()',
 

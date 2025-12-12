@@ -1,14 +1,15 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Skeleton } from '@zendeskgarden/react-loaders';
 import { SkeletonStory } from './stories/SkeletonStory';
 import { TYPE_SCALE_OPTIONS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Loaders/Skeleton',
   component: Skeleton
 };
 
-export const Skeleton = {
+export const Skeleton: StoryObj<typeof SkeletonStory> = {
   render: args => <SkeletonStory {...args} />,
   name: 'Skeleton',
 

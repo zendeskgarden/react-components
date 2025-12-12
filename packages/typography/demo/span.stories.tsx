@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Span } from '@zendeskgarden/react-typography';
 import { SpanStory } from './stories/SpanStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Span',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const Span = {
+export const Span: StoryObj<typeof SpanStory> = {
   render: args => <SpanStory {...args} />,
   name: 'Span',
 

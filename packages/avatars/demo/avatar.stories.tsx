@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { AvatarStory } from './stories/AvatarStory';
 import { AVATAR_TYPE as TYPE } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Avatars/Avatar',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const Avatar = {
+export const Avatar: StoryObj<typeof AvatarStory> = {
   render: args => <AvatarStory {...args} />,
   name: 'Avatar',
 

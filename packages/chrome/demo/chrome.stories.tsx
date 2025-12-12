@@ -1,4 +1,6 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import {
   Body,
   Chrome,
@@ -23,7 +25,6 @@ import {
   SHEET_DESCRIPTION,
   SHEET_TITLE
 } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Chrome/Chrome',
@@ -49,7 +50,7 @@ export default {
   }
 };
 
-export const Chrome = {
+export const Chrome: StoryObj<typeof ChromeStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 

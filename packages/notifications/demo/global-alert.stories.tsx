@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { GlobalAlert, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
 import { GlobalAlertStory } from './stories/GlobalAlertStory';
 import { GLOBAL_ALERT_BUTTONS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Notifications/GlobalAlert',
@@ -15,7 +16,7 @@ export default {
   }
 };
 
-export const GlobalAlert = {
+export const GlobalAlert: StoryObj<typeof GlobalAlertStory> = {
   render: args => <GlobalAlertStory {...args} />,
   name: 'GlobalAlert',
 

@@ -1,4 +1,6 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import Downshift from 'downshift';
 import {
   Multiselect,
@@ -11,7 +13,6 @@ import {
 } from '@zendeskgarden/react-dropdowns.legacy';
 import { MultiselectStory } from './stories/MultiselectStory';
 import { MULTISELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Dropdowns.Legacy/Multiselect',
@@ -27,7 +28,7 @@ export default {
   }
 };
 
-export const Multiselect = {
+export const Multiselect: StoryObj<typeof MultiselectStory> = {
   /*account for Storybook control*/
   render: args => {
     const updateArgs = useArgs()[1];

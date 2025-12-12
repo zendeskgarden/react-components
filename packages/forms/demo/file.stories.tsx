@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { FileStory } from './stories/FileStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Forms/File',
@@ -14,7 +15,7 @@ export default {
   }
 };
 
-export const File = {
+export const File: StoryObj<typeof FileStory> = {
   render: args => <FileStory {...args} />,
   name: 'File',
 

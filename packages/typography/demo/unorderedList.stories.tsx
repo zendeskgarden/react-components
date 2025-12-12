@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { UnorderedList } from '@zendeskgarden/react-typography';
 import { UnorderedListStory } from './stories/UnorderedListStory';
 import { LIST_ITEMS as ITEMS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Lists/UnorderedList',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const UnorderedList = {
+export const UnorderedList: StoryObj<typeof UnorderedListStory> = {
   render: args => <UnorderedListStory {...args} />,
   name: 'UnorderedList',
 

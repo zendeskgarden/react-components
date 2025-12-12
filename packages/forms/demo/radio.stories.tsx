@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Radio } from '@zendeskgarden/react-forms';
 import { RadioStory } from './stories/RadioStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
-import README from '../README.md';
+type Story = StoryObj<typeof RadioStory>;
 
 export default {
   title: 'Packages/Forms/Radio',
@@ -34,12 +36,12 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <RadioStory {...args} />,
   name: 'Uncontrolled'
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

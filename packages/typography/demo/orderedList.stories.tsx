@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { OrderedList } from '@zendeskgarden/react-typography';
 import { OrderedListStory } from './stories/OrderedListStory';
 import { LIST_ITEMS as ITEMS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Lists/OrderedList',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const OrderedList = {
+export const OrderedList: StoryObj<typeof OrderedListStory> = {
   render: args => <OrderedListStory {...args} />,
   name: 'OrderedList',
 

@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Alert } from '@zendeskgarden/react-notifications';
 import { AlertStory } from './stories/AlertStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Notifications/Alert',
@@ -13,7 +14,7 @@ export default {
   }
 };
 
-export const Alert = {
+export const Alert: StoryObj<typeof AlertStory> = {
   render: args => <AlertStory {...args} />,
   name: 'Alert',
 

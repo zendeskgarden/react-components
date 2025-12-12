@@ -1,8 +1,9 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { InputGroup, Input, VALIDATION } from '@zendeskgarden/react-forms';
 import { InputGroupStory } from './stories/InputGroupStory';
 import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Forms/InputGroup',
@@ -14,7 +15,7 @@ export default {
   }
 };
 
-export const InputGroup = {
+export const InputGroup: StoryObj<typeof InputGroupStory> = {
   render: args => <InputGroupStory {...args} />,
   name: 'InputGroup',
 

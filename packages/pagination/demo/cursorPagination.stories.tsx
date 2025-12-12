@@ -1,7 +1,8 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
 import { CursorPaginationStory } from './stories/CursorPaginationStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Pagination/CursorPagination',
@@ -15,7 +16,7 @@ export default {
   }
 };
 
-export const CursorPagination = {
+export const CursorPagination: StoryObj<typeof CursorPaginationStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 

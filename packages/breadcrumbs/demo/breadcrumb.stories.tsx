@@ -1,14 +1,15 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { BreadcrumbStory } from './stories/BreadcrumbStory';
 import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Breadcrumbs/Breadcrumb',
   component: Breadcrumb
 };
 
-export const Breadcrumb = {
+export const Breadcrumb: StoryObj<typeof BreadcrumbStory> = {
   render: args => <BreadcrumbStory {...args} />,
   name: 'Breadcrumb',
 

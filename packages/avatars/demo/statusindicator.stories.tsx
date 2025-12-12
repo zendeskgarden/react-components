@@ -1,5 +1,6 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
-import README from '../README.md';
 
 import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
 
@@ -8,7 +9,7 @@ export default {
   component: StatusIndicator
 };
 
-export const StatusIndicator = {
+export const StatusIndicator: StoryObj<typeof StatusIndicatorStory> = {
   render: args => <StatusIndicatorStory {...args} />,
   name: 'StatusIndicator',
 

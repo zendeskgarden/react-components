@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { MediaInput } from '@zendeskgarden/react-forms';
 import { MediaInputStory } from './stories/MediaInputStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
-import README from '../README.md';
+type Story = StoryObj<typeof MediaInputStory>;
 
 export default {
   title: 'Packages/Forms/MediaInput',
@@ -76,7 +78,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <MediaInputStory {...args} />,
   name: 'Uncontrolled',
 
@@ -85,7 +87,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

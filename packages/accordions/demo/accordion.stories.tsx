@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Accordion } from '@zendeskgarden/react-accordions';
 import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
-import README from '../README.md';
+type Story = StoryObj<typeof AccordionStory>;
 
 export default {
   title: 'Packages/Accordions/Accordion',
@@ -49,7 +51,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <AccordionStory {...args} />,
   name: 'Uncontrolled',
 
@@ -64,7 +66,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

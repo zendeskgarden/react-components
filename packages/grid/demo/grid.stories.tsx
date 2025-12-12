@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
 import { GridStory } from './stories/GridStory';
 import { GRID_ROWS as ROWS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Grid/Grid',
@@ -13,7 +14,7 @@ export default {
   }
 };
 
-export const Grid = {
+export const Grid: StoryObj<typeof GridStory> = {
   render: args => <GridStory {...args} />,
   name: 'Grid',
 

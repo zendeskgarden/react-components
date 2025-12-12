@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Combobox, Field, Option, OptGroup, Tag } from '@zendeskgarden/react-dropdowns';
 import { ComboboxStory } from './stories/ComboboxStory';
 import { OPTIONS } from './stories/data';
-import README from '../README.md';
+type Story = StoryObj<typeof ComboboxStory>;
 
 export default {
   title: 'Packages/Dropdowns/Combobox',
@@ -110,7 +112,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <ComboboxStory {...args} />,
   name: 'Uncontrolled',
 
@@ -133,7 +135,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

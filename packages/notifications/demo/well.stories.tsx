@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Well } from '@zendeskgarden/react-notifications';
 import { WellStory } from './stories/WellStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Notifications/Well',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const Well = {
+export const Well: StoryObj<typeof WellStory> = {
   render: args => <WellStory {...args} />,
   name: 'Well',
 

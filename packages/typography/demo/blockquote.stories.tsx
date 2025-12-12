@@ -1,14 +1,15 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Blockquote } from '@zendeskgarden/react-typography';
 import { BlockquoteStory } from './stories/BlockquoteStory';
 import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Blockquote',
   component: Blockquote
 };
 
-export const Blockquote = {
+export const Blockquote: StoryObj<typeof BlockquoteStory> = {
   render: args => <BlockquoteStory {...args} />,
   name: 'Blockquote',
 

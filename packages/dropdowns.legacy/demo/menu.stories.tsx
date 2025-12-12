@@ -1,4 +1,6 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import Downshift from 'downshift';
 import {
   AddItem,
@@ -18,7 +20,6 @@ import {
 } from '@zendeskgarden/react-dropdowns.legacy';
 import { TriggerStory } from './stories/TriggerStory';
 import { MENU_ITEMS as ITEMS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Dropdowns.Legacy/Menu',
@@ -42,7 +43,7 @@ export default {
   }
 };
 
-export const Menu = {
+export const Menu: StoryObj<typeof TriggerStory> = {
   /*account for Storybook control*/
   render: args => {
     const updateArgs = useArgs()[1];

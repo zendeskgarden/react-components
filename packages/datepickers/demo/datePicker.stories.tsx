@@ -1,15 +1,16 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { DatePickerStory } from './stories/DatePickerStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Datepickers/DatePicker',
   component: DatePicker
 };
 
-export const DatePicker = {
+export const DatePicker: StoryObj<typeof DatePickerStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 

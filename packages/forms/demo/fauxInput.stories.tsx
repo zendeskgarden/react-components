@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { FauxInputStory } from './stories/FauxInputStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Forms/FauxInput',
@@ -14,7 +15,7 @@ export default {
   }
 };
 
-export const FauxInput = {
+export const FauxInput: StoryObj<typeof FauxInputStory> = {
   render: args => <FauxInputStory {...args} />,
   name: 'FauxInput',
 

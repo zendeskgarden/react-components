@@ -1,4 +1,6 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import Downshift from 'downshift';
 import {
   Combobox,
@@ -11,7 +13,6 @@ import {
 } from '@zendeskgarden/react-dropdowns.legacy';
 import { ComboboxStory } from './stories/ComboboxStory';
 import { COMBOBOX_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Dropdowns.Legacy/Combobox',
@@ -27,7 +28,7 @@ export default {
   }
 };
 
-export const Combobox = {
+export const Combobox: StoryObj<typeof ComboboxStory> = {
   /*account for Storybook control*/
   render: args => {
     const updateArgs = useArgs()[1];

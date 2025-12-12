@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Tiles } from '@zendeskgarden/react-forms';
 import { TilesStory } from './stories/TilesStory';
 import { TILES } from './stories/data';
-import README from '../README.md';
+type Story = StoryObj<typeof TilesStory>;
 
 export default {
   title: 'Packages/Forms/Tiles',
@@ -45,7 +47,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <TilesStory {...args} />,
   name: 'Uncontrolled',
 
@@ -56,7 +58,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

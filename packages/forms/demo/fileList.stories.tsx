@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { FileList, File } from '@zendeskgarden/react-forms';
 import { FileListStory } from './stories/FileListStory';
 import { FILELIST_ITEMS as ITEMS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Forms/FileList',
@@ -13,7 +14,7 @@ export default {
   }
 };
 
-export const FileList = {
+export const FileList: StoryObj<typeof FileListStory> = {
   render: args => <FileListStory {...args} />,
   name: 'FileList',
 

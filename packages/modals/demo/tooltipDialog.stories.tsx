@@ -1,10 +1,11 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { TooltipDialogStory } from './stories/TooltipDialogStory';
 import { TOOLTIP_DIALOG_BODY as BODY } from './stories/data';
 import { PLACEMENT } from '../src/types';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Modals/TooltipDialog',
@@ -19,7 +20,7 @@ export default {
   }
 };
 
-export const TooltipDialog = {
+export const TooltipDialog: StoryObj<typeof TooltipDialogStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 

@@ -1,13 +1,14 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { LG } from '@zendeskgarden/react-typography';
 import { TypescaleStory } from './stories/TypescaleStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Typescale/LG',
   component: LG
 };
 
-export const Lg = {
+export const Lg: StoryObj<typeof TypescaleStory> = {
   render: args => <TypescaleStory {...args} size="large" />,
   name: 'LG',
 

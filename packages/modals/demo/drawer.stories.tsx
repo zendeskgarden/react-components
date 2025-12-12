@@ -1,9 +1,10 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import { Drawer } from '@zendeskgarden/react-modals';
 import { DrawerStory } from './stories/DrawerStory';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Modals/Drawer',
@@ -18,7 +19,7 @@ export default {
   }
 };
 
-export const Drawer = {
+export const Drawer: StoryObj<typeof DrawerStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 

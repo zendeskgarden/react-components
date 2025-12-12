@@ -1,13 +1,14 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { SM } from '@zendeskgarden/react-typography';
 import { TypescaleStory } from './stories/TypescaleStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Typescale/SM',
   component: SM
 };
 
-export const Sm = {
+export const Sm: StoryObj<typeof TypescaleStory> = {
   render: args => <TypescaleStory {...args} size="small" />,
   name: 'SM',
 

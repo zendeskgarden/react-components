@@ -1,4 +1,6 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Sheet } from '@zendeskgarden/react-chrome';
 import { SheetStory } from './stories/SheetStory';
 import {
@@ -7,7 +9,6 @@ import {
   SHEET_FOOTER_ITEMS as FOOTER_ITEMS,
   SHEET_TITLE as TITLE
 } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Chrome/Sheet',
@@ -24,7 +25,7 @@ export default {
   }
 };
 
-export const Sheet = {
+export const Sheet: StoryObj<typeof SheetStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 

@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Tabs } from '@zendeskgarden/react-tabs';
 import { TabsStory } from './stories/TabsStory';
 import { TABS } from './stories/data';
-import README from '../README.md';
+type Story = StoryObj<typeof TabsStory>;
 
 export default {
   title: 'Packages/Tabs/Tabs',
@@ -35,7 +37,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <TabsStory {...args} />,
   name: 'Uncontrolled',
 
@@ -46,7 +48,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

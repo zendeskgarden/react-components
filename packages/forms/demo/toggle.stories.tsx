@@ -1,8 +1,10 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Toggle } from '@zendeskgarden/react-forms';
 import { ToggleStory } from './stories/ToggleStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
-import README from '../README.md';
+type Story = StoryObj<typeof ToggleStory>;
 
 export default {
   title: 'Packages/Forms/Toggle',
@@ -34,12 +36,12 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <ToggleStory {...args} />,
   name: 'Uncontrolled'
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

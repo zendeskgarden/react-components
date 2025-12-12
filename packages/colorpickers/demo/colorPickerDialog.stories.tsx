@@ -1,9 +1,11 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPickerDialog } from '@zendeskgarden/react-colorpickers';
 import { ColorPickerDialogStory } from './stories/ColorPickerDialogStory';
-import README from '../README.md';
+type Story = StoryObj<typeof ColorPickerDialogStory>;
 
 export default {
   title: 'Packages/Colorpickers/ColorPickerDialog',
@@ -45,7 +47,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <ColorPickerDialogStory {...args} />,
   name: 'Uncontrolled',
 
@@ -56,7 +58,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

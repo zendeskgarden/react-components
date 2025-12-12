@@ -1,8 +1,11 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
 import { MenuStory } from './stories/MenuStory';
-import README from '../README.md';
 import { BUTTON_TYPE, ITEMS } from './stories/data';
+
+type Story = StoryObj<typeof MenuStory>;
 
 export default {
   title: 'Packages/Dropdowns/Menu',
@@ -44,7 +47,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <MenuStory {...args} />,
   name: 'Uncontrolled',
 
@@ -63,7 +66,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

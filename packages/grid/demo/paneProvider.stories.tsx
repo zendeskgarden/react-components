@@ -1,8 +1,10 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import { PaneProviderStory } from './stories/PaneProviderStory';
 import { PANES } from './stories/data';
-import README from '../README.md';
+type Story = StoryObj<typeof PaneProviderStory>;
 
 export default {
   title: 'Packages/Grid/PaneProvider',
@@ -40,7 +42,7 @@ export default {
   }
 };
 
-export const Uncontrolled = {
+export const Uncontrolled: Story = {
   render: args => <PaneProviderStory {...args} />,
   name: 'Uncontrolled',
 
@@ -67,7 +69,7 @@ export const Uncontrolled = {
   }
 };
 
-export const Controlled = {
+export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 

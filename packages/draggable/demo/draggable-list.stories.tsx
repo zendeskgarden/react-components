@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { DraggableList } from '@zendeskgarden/react-draggable';
 import { DraggableListStory } from './stories/DraggableListStory';
 import { LIST_ITEMS as items } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Draggable/DraggableList',
@@ -13,7 +14,7 @@ export default {
   }
 };
 
-export const DraggableList = {
+export const DraggableList: StoryObj<typeof DraggableListStory> = {
   render: args => <DraggableListStory {...args} />,
   name: 'DraggableList',
 

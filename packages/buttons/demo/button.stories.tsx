@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ButtonStory } from './stories/ButtonStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Buttons/Button',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const Button = {
+export const Button: StoryObj<typeof ButtonStory> = {
   render: args => <ButtonStory {...args} />,
   name: 'Button',
 

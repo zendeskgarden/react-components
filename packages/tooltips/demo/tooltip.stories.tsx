@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Tooltip, Title, Paragraph } from '@zendeskgarden/react-tooltips';
 import { TooltipStory } from './stories/TooltipStory';
 import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
-import README from '../README.md';
 import { PLACEMENT } from '../src/types';
 
 export default {
@@ -14,7 +15,7 @@ export default {
   }
 };
 
-export const Tooltip = {
+export const Tooltip: StoryObj<typeof TooltipStory> = {
   render: args => <TooltipStory {...args} />,
   name: 'Tooltip',
 

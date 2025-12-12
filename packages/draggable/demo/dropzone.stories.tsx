@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Dropzone } from '@zendeskgarden/react-draggable';
 import { DropzoneStory } from './stories/DropzoneStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Draggable/Dropzone',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const Dropzone = {
+export const Dropzone: StoryObj<typeof DropzoneStory> = {
   render: args => <DropzoneStory {...args} />,
   name: 'Dropzone',
 

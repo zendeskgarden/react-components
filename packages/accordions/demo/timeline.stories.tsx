@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Timeline } from '@zendeskgarden/react-accordions';
 import { TimelineStory } from './stories/TimelineStory';
 import { TIMELINE_ITEMS as ITEMS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Accordions/Timeline',
@@ -14,7 +15,7 @@ export default {
   }
 };
 
-export const Timeline = {
+export const Timeline: StoryObj<typeof TimelineStory> = {
   render: args => <TimelineStory {...args} />,
   name: 'Timeline',
 

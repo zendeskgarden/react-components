@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Table } from '@zendeskgarden/react-tables';
 import { TableStory } from './stories/TableStory';
 import { TABLE_DATA as DATA } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Tables/Table',
@@ -21,7 +22,7 @@ export default {
   }
 };
 
-export const Table = {
+export const Table: StoryObj<typeof TableStory> = {
   render: args => <TableStory {...args} />,
   name: 'Table',
 

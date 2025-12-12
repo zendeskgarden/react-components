@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Forms/FileUpload',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const FileUpload = {
+export const FileUpload: StoryObj<typeof FileUploadStory> = {
   render: args => <FileUploadStory {...args} />,
   name: 'FileUpload',
 

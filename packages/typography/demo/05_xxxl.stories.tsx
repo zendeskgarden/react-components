@@ -1,13 +1,14 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { XXXL } from '@zendeskgarden/react-typography';
 import { TypescaleStory } from './stories/TypescaleStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Typescale/XXXL',
   component: XXXL
 };
 
-export const Xxxl = {
+export const Xxxl: StoryObj<typeof TypescaleStory> = {
   render: args => <TypescaleStory {...args} size="3x-large" />,
   name: 'XXXL',
 

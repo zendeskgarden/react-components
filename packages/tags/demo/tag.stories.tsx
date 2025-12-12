@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Tag } from '@zendeskgarden/react-tags';
 import { TagStory } from './stories/TagStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Tags/Tag',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const Tag = {
+export const Tag: StoryObj<typeof TagStory> = {
   render: args => <TagStory {...args} />,
   name: 'Tag',
 

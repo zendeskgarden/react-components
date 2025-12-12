@@ -1,6 +1,7 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import { SplitButtonStory } from './stories/SplitButtonStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Buttons/SplitButton',
@@ -12,7 +13,7 @@ export default {
   }
 };
 
-export const SplitButton = {
+export const SplitButton: StoryObj<typeof SplitButtonStory> = {
   render: args => <SplitButtonStory {...args} />,
   name: 'SplitButton',
 

@@ -1,13 +1,14 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Kbd } from '@zendeskgarden/react-typography';
 import { KbdStory } from './stories/KbdStory';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/Kbd',
   component: Kbd
 };
 
-export const Kbd = {
+export const Kbd: StoryObj<typeof KbdStory> = {
   render: args => <KbdStory {...args} />,
   name: 'Kbd',
 

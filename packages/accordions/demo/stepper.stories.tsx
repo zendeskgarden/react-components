@@ -1,7 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { Stepper } from '@zendeskgarden/react-accordions';
 import { StepperStory } from './stories/StepperStory';
 import { STEPPER_STEPS as STEPS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Accordions/Stepper',
@@ -14,7 +15,7 @@ export default {
   }
 };
 
-export const Stepper = {
+export const Stepper: StoryObj<typeof StepperStory> = {
   render: args => <StepperStory {...args} />,
   name: 'Stepper',
 

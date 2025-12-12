@@ -1,4 +1,6 @@
-import { useArgs } from '@storybook/client-api';
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
+import { useArgs } from '@storybook/preview-api';
 import Downshift from 'downshift';
 import {
   Autocomplete,
@@ -11,7 +13,6 @@ import {
 } from '@zendeskgarden/react-dropdowns.legacy';
 import { AutocompleteStory } from './stories/AutocompleteStory';
 import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Dropdowns.Legacy/Autocomplete',
@@ -27,7 +28,7 @@ export default {
   }
 };
 
-export const Autocomplete = {
+export const Autocomplete: StoryObj<typeof AutocompleteStory> = {
   /*account for Storybook control*/
   render: args => {
     const updateArgs = useArgs()[1];

@@ -1,6 +1,8 @@
+import React from 'react';
+import type { StoryObj } from '@storybook/react';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { PaletteStory } from './stories/PaletteStory';
-import README from '../README.md';
+type Story = StoryObj<typeof PaletteStory>;
 
 export default {
   title: 'Packages/Theming/ThemeProvider',
@@ -12,7 +14,7 @@ export default {
   }
 };
 
-export const ThemeProvider = {
+export const ThemeProvider: Story = {
   render: args => <ThemeProvider {...args} />,
   name: 'ThemeProvider',
 
@@ -21,7 +23,7 @@ export const ThemeProvider = {
   }
 };
 
-export const Palette = {
+export const Palette: Story = {
   render: args => <PaletteStory {...args} />,
   name: 'PALETTE',
 
