@@ -6,9 +6,9 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { StatusIndicator, IStatusIndicatorProps } from '@zendeskgarden/react-avatars';
 
-export const StatusIndicatorStory: Story<IStatusIndicatorProps> = ({ ...args }) => {
+export const StatusIndicatorStory: StoryFn<IStatusIndicatorProps> = ({ ...args }) => {
   return <StatusIndicator {...args} />;
 };

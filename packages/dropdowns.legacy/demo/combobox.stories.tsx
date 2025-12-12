@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
@@ -28,23 +35,24 @@ export default {
   }
 };
 
-export const Combobox: StoryObj<typeof ComboboxStory> = {
+export const Default: StoryObj<typeof ComboboxStory> = {
   /*account for Storybook control*/
-  render: args => {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleInputValueChange = inputValue =>
+    const handleInputValueChange = (inputValue: any) =>
       updateArgs({
         inputValue
       });
 
-    const handleStateChange = ({ highlightedIndex, ...changes }) => {
+    const handleStateChange = ({ highlightedIndex, ...changes }: any) => {
       Number.isInteger(highlightedIndex) &&
         updateArgs({
           inputValue: args.items[highlightedIndex].text
         });
 
-      changes.hasOwnProperty('isOpen') &&
+      Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
         ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
           changes.type
         ) &&

@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { FauxInput } from '@zendeskgarden/react-forms';
@@ -15,10 +22,9 @@ export default {
   }
 };
 
-export const FauxInput: StoryObj<typeof FauxInputStory> = {
-  render: args => <FauxInputStory {...args} />,
+export const Default: StoryObj<typeof FauxInputStory> = {
+  render: (args: any) => <FauxInputStory {...args} />,
   name: 'FauxInput',
-
   args: {
     children: '',
     hasEndIcon: false,
@@ -28,10 +34,7 @@ export const FauxInput: StoryObj<typeof FauxInputStory> = {
 
   /* ensures the `validation` story arg for the `FauxInput` component is not overriden */
   argTypes: {
-    ...{
-      ...commonArgTypes,
-      validation: {}
-    },
+    ...commonArgTypes,
 
     isEndIconRotated: {
       name: 'isRotated',
@@ -65,10 +68,6 @@ export const FauxInput: StoryObj<typeof FauxInputStory> = {
       table: {
         category: 'Story'
       }
-    },
-
-    placeholder: {
-      control: 'text'
     }
   },
 

@@ -1,13 +1,20 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Buttons/Anchor',
   component: Anchor
 };
 
-export const Anchor = {
-  render: args => <Anchor href="#" {...args} />,
+export const Default = {
+  render: (args: any) => <Anchor href="#" {...args} />,
 
   args: {
     children: 'Text',

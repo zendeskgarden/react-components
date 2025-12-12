@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
@@ -16,7 +16,7 @@ interface IArgs extends IDatePickerRangeProps {
   dateStyle: DATE_STYLE;
 }
 
-export const DatePickerRangeStory: Story<IArgs> = ({ dateStyle, isCompact, ...args }) => {
+export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...args }) => {
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 

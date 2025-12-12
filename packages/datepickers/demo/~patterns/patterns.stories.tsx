@@ -1,3 +1,4 @@
+import React from 'react';
 import { CalendarStory } from './stories/CalendarStory';
 
 export default {
@@ -5,7 +6,7 @@ export default {
 };
 
 export const Calendar = {
-  render: args => <CalendarStory {...args} />,
+  render: (args: any) => <CalendarStory {...args} />,
   name: 'Calendar',
 
   args: {

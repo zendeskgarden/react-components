@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { GlobalAlert, IGlobalAlertProps } from '@zendeskgarden/react-notifications';
 import { Anchor } from '@zendeskgarden/react-buttons';
 
@@ -22,7 +22,7 @@ interface IArgs extends IGlobalAlertProps {
   isBasic?: boolean;
 }
 
-export const GlobalAlertStory: Story<IArgs> = ({
+export const GlobalAlertStory: StoryFn<IArgs> = ({
   type,
   anchor,
   isExternal,

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { MenuStory } from './stories/MenuStory';
 import { ChromeStory } from './stories/ChromeStory';
@@ -9,7 +10,7 @@ export default {
 };
 
 export const Chrome = {
-  render: args => <ChromeStory {...args} badge={args.badge ? 1 : undefined} />,
+  render: (args: any) => <ChromeStory {...args} badge={args.badge ? 1 : undefined} />,
   name: 'Chrome',
 
   parameters: {
@@ -26,7 +27,7 @@ export const Chrome = {
 };
 
 export const Menu = {
-  render: args => <MenuStory {...args} />,
+  render: (args: any) => <MenuStory {...args} />,
   name: 'Menu',
 
   parameters: {
@@ -47,7 +48,7 @@ export const Menu = {
 };
 
 export const StatusMenu = {
-  render: args => <StatusMenuStory {...args} />,
+  render: (args: any) => <StatusMenuStory {...args} />,
   name: 'StatusMenu',
 
   parameters: {

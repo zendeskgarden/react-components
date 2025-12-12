@@ -1,19 +1,27 @@
-import { useArgs } from '@storybook/client-api';
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Buttons/ChevronButton',
   component: ChevronButton
 };
 
-export const ChevronButton = {
-  render: args => {
+export const Default = {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleClick = () =>
       updateArgs({
-        isRotated: args.isRotated ? false : true
+        isRotated: !args.isRotated
       });
 
     return <ChevronButton {...args} onClick={handleClick} />;

@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { Fieldset } from '@zendeskgarden/react-forms';
@@ -55,16 +62,16 @@ export default {
 };
 
 export const Checkbox: Story = {
-  render: args => <FieldsetStory type="checkbox" {...args} />,
+  render: (args: any) => <FieldsetStory type="checkbox" {...args} />,
   name: 'Checkbox'
 };
 
 export const Radio: Story = {
-  render: args => <FieldsetStory type="radio" {...args} />,
+  render: (args: any) => <FieldsetStory type="radio" {...args} />,
   name: 'Radio'
 };
 
 export const Toggle: Story = {
-  render: args => <FieldsetStory type="toggle" {...args} />,
+  render: (args: any) => <FieldsetStory type="toggle" {...args} />,
   name: 'Toggle'
 };

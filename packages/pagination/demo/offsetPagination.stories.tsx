@@ -1,24 +1,32 @@
-import { useArgs } from '@storybook/client-api';
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
 import { OffsetPagination } from '@zendeskgarden/react-pagination';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Pagination/OffsetPagination',
   component: OffsetPagination
 };
 
-export const OffsetPagination = {
-  render: args => {
+export const Default = {
+  render: (args: any) => {
     const labels = {
-      renderPage: n => `${args.page} ${n}`,
+      renderPage: (n: any) => `${args.page} ${n}`,
       gap: args.gap,
       next: args.next,
       previous: args.previous
     };
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = currentPage =>
+    const handleChange = (currentPage: any) =>
       updateArgs({
         currentPage
       });

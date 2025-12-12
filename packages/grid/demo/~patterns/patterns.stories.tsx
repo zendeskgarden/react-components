@@ -1,3 +1,4 @@
+import React from 'react';
 import { CardStory } from './stories/CardStory';
 import { COLUMNS } from './stories/data';
 
@@ -6,7 +7,7 @@ export default {
 };
 
 export const PaneCardLayout = {
-  render: args => <CardStory {...args} />,
+  render: (args: any) => <CardStory {...args} />,
   name: 'Pane Card Layout',
 
   args: {

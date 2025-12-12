@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -20,11 +27,12 @@ export default {
   }
 };
 
-export const TooltipDialog: StoryObj<typeof TooltipDialogStory> = {
-  render: args => {
+export const Default: StoryObj<typeof TooltipDialogStory> = {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleClick = referenceElement => {
+    const handleClick = (referenceElement: any) => {
       action('onClick')(referenceElement);
 
       updateArgs({
@@ -44,9 +52,7 @@ export const TooltipDialog: StoryObj<typeof TooltipDialogStory> = {
       <TooltipDialogStory {...args} count={3} handleClick={handleClick} onClose={handleClose} />
     );
   },
-
   name: 'TooltipDialog',
-
   args: {
     focusOnMount: true,
     hasArrow: true,

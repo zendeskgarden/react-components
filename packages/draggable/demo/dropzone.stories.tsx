@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { Dropzone } from '@zendeskgarden/react-draggable';
@@ -13,10 +20,9 @@ export default {
   }
 };
 
-export const Dropzone: StoryObj<typeof DropzoneStory> = {
-  render: args => <DropzoneStory {...args} />,
+export const Default: StoryObj<typeof DropzoneStory> = {
+  render: (args: any) => <DropzoneStory {...args} />,
   name: 'Dropzone',
-
   args: {
     hasIcon: true,
     children: 'Message'

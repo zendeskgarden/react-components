@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { PaneProvider, IPaneProviderProps, Pane } from '@zendeskgarden/react-grid';
 import { ISplitterPane } from './types';
 
@@ -20,7 +20,7 @@ interface IArgs extends IPaneProviderProps {
   panes: ISplitterPane[];
 }
 
-export const PaneProviderStory: Story<IArgs> = ({
+export const PaneProviderStory: StoryFn<IArgs> = ({
   totalPanesWidth,
   totalPanesHeight,
   columnValues,

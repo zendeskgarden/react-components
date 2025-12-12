@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
@@ -20,7 +27,6 @@ import {
   CHROME_MAIN as MAIN,
   CHROME_NAV_ITEMS as NAV_ITEMS,
   CHROME_SKIP_NAV as SKIP_NAV,
-  CHROME_SUB_NAV_ITEMS as SUB_NAV_ITEMS,
   SHEET_BODY,
   SHEET_DESCRIPTION,
   SHEET_TITLE
@@ -50,8 +56,9 @@ export default {
   }
 };
 
-export const Chrome: StoryObj<typeof ChromeStory> = {
-  render: args => {
+export const Default: StoryObj<typeof ChromeStory> = {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleSheetClick = () =>
@@ -61,9 +68,7 @@ export const Chrome: StoryObj<typeof ChromeStory> = {
 
     return <ChromeStory {...args} onSheetClick={handleSheetClick} />;
   },
-
   name: 'Chrome',
-
   args: {
     isFluid: true,
     hasNav: true,

@@ -1,7 +1,14 @@
-import { useArgs } from '@storybook/client-api';
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Colorpickers/ColorPicker',
@@ -17,7 +24,7 @@ export default {
 };
 
 export const Uncontrolled = {
-  render: args => <ColorPicker {...args} />,
+  render: (args: any) => <ColorPicker {...args} />,
   name: 'Uncontrolled',
 
   argTypes: {
@@ -28,10 +35,11 @@ export const Uncontrolled = {
 };
 
 export const Controlled = {
-  render: args => {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = color =>
+    const handleChange = (color: any) =>
       updateArgs({
         color
       });

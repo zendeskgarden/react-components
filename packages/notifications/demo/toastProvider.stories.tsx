@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { ToastProvider } from '@zendeskgarden/react-notifications';
@@ -9,10 +16,9 @@ export default {
   component: ToastProvider
 };
 
-export const ToastProvider: StoryObj<typeof ToastProviderStory> = {
-  render: args => <ToastProviderStory {...args} />,
+export const Default: StoryObj<typeof ToastProviderStory> = {
+  render: (args: any) => <ToastProviderStory {...args} />,
   name: 'ToastProvider',
-
   args: {
     children: 'Notification',
     autoDismiss: true,

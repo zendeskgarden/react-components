@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
@@ -5,14 +12,13 @@ import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
 import { GetColorStory } from './stories/GetColorStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
-type Story = StoryObj<typeof GetColorStory>;
 
 export default {
   title: 'Packages/Theming/utilities'
 };
 
-export const ArrowStyles: Story = {
-  render: args => <ArrowStylesStory {...args} />,
+export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
+  render: (args: any) => <ArrowStylesStory {...args} />,
   name: 'arrowStyles()',
 
   args: {
@@ -50,15 +56,14 @@ export const ArrowStyles: Story = {
   }
 };
 
-export const GetColor: Story = {
-  render: args => <GetColorStory {...args} />,
+export const GetColor: StoryObj<typeof GetColorStory> = {
+  render: (args: any) => <GetColorStory {...args} />,
   name: 'getColor()',
 
   args: {
     theme: {
-      colors: Object.fromEntries(
-        Object.entries(DEFAULT_THEME.colors).filter(([key]) => key !== 'base')
-      ),
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      colors: (({ base, ...rest }) => rest)(DEFAULT_THEME.colors),
       opacity: DEFAULT_THEME.opacity,
       palette: DEFAULT_THEME.palette
     },
@@ -112,26 +117,16 @@ export const GetColor: Story = {
       }
     },
 
-    'colors.dark': {
-      control: false,
-
-      table: {
-        disable: true
-      }
-    },
-
-    'colors.light': {
-      control: false,
-
-      table: {
-        disable: true
+    theme: {
+      control: {
+        type: 'object'
       }
     }
   }
 };
 
-export const MenuStyles: Story = {
-  render: args => <MenuStylesStory {...args} />,
+export const MenuStyles: StoryObj<typeof MenuStylesStory> = {
+  render: (args: any) => <MenuStylesStory {...args} />,
   name: 'menuStyles()',
 
   args: {

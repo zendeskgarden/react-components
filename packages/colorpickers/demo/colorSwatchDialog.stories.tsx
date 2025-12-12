@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -46,7 +53,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: args => <ColorSwatchDialogStory {...args} />,
+  render: (args: any) => <ColorSwatchDialogStory {...args} />,
   name: 'Uncontrolled',
 
   argTypes: {
@@ -61,10 +68,11 @@ export const Uncontrolled: Story = {
 };
 
 export const Controlled: Story = {
-  render: args => {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = ({ isOpen }) => {
+    const handleChange = ({ isOpen }: any) => {
       action('onDialogChange')({
         isOpen
       });
@@ -74,7 +82,7 @@ export const Controlled: Story = {
       });
     };
 
-    const handleSelect = (selectedRowIndex, selectedColIndex) => {
+    const handleSelect = (selectedRowIndex: any, selectedColIndex: any) => {
       action('onSelect')(selectedRowIndex, selectedColIndex);
 
       updateArgs({

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { MenuStory } from './stories/MenuStory';
 
@@ -7,7 +8,7 @@ export default {
 };
 
 export const Menu = {
-  render: args => <MenuStory {...args} />,
+  render: (args: any) => <MenuStory {...args} />,
   name: 'Menu',
 
   parameters: {

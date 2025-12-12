@@ -1,5 +1,14 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
 import { Menu } from '@zendeskgarden/react-dropdowns.legacy';
-import { MENU_ITEMS as ITEMS } from '../stories/data';
+// TODO
+// import { MENU_ITEMS as ITEMS } from '../stories/data';
 import { MenuStory } from './stories/MenuStory';
 
 export default {
@@ -7,8 +16,8 @@ export default {
   component: Menu
 };
 
-export const Menu = {
-  render: args => <MenuStory {...args} />,
+export const MenuPattern = {
+  render: (args: any) => <MenuStory {...args} />,
   name: 'Menu',
 
   args: {

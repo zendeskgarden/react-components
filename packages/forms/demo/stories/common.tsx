@@ -30,12 +30,12 @@ export const messageArgTypes = {
   hasMessage: { name: 'Field.Message', table: { category: 'Story' } },
   message: { name: 'children', table: { category: 'Field.Message' } },
   validationLabel: {
-    control: { type: 'text' },
+    control: 'text' as const,
     table: { category: 'Field.Message' }
   },
   validation: {
     options: ['success', 'warning', 'error'],
-    control: { type: 'radio' },
+    control: 'radio' as const,
     table: { category: 'Field.Message' }
   }
 };

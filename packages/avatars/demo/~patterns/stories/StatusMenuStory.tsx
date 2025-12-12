@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
 import { IconButton } from '@zendeskgarden/react-buttons';
@@ -17,7 +17,7 @@ const StyledIconButton = styled(IconButton)`
   overflow: visible;
 `;
 
-export const StatusMenuStory: Story = ({ isCompact }) => {
+export const StatusMenuStory: StoryFn<{ isCompact: boolean }> = ({ isCompact }) => {
   const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>();
 
   const onChange = useCallback(({ value }: { value?: string }) => {

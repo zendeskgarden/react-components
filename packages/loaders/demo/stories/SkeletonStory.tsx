@@ -6,7 +6,7 @@
  */
 
 import React, { FC, PropsWithChildren } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';
@@ -18,7 +18,7 @@ interface IArgs extends ISkeletonProps {
   typescale?: TYPE_SCALE;
 }
 
-export const SkeletonStory: Story<IArgs> = ({ backgroundColor, count = 1, typescale, ...args }) => {
+export const SkeletonStory: StoryFn<IArgs> = ({ backgroundColor, count = 1, typescale, ...args }) => {
   let Typescale: FC<PropsWithChildren> | undefined;
 
   switch (typescale) {

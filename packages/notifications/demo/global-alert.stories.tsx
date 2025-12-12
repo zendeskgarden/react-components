@@ -1,8 +1,14 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
-import { GlobalAlert, Close, Paragraph, Title } from '@zendeskgarden/react-notifications';
+import { GlobalAlert } from '@zendeskgarden/react-notifications';
 import { GlobalAlertStory } from './stories/GlobalAlertStory';
-import { GLOBAL_ALERT_BUTTONS } from './stories/data';
 
 export default {
   title: 'Packages/Notifications/GlobalAlert',
@@ -16,10 +22,9 @@ export default {
   }
 };
 
-export const GlobalAlert: StoryObj<typeof GlobalAlertStory> = {
-  render: args => <GlobalAlertStory {...args} />,
+export const Default: StoryObj<typeof GlobalAlertStory> = {
+  render: (args: any) => <GlobalAlertStory {...args} />,
   name: 'GlobalAlert',
-
   args: {
     type: 'info',
     anchor: 'Anchor',

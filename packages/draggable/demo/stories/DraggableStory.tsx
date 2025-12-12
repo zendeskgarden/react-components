@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Draggable, IDraggableProps } from '@zendeskgarden/react-draggable';
 
 interface IArgs extends IDraggableProps {
   hasGrip?: boolean;
 }
 
-export const DraggableStory: Story<IArgs> = ({ hasGrip, children, ...args }) => (
+export const DraggableStory: StoryFn<IArgs> = ({ hasGrip, children, ...args }) => (
   <Draggable {...args}>
     {!!hasGrip && <Draggable.Grip />}
     {!!children && <Draggable.Content>{children}</Draggable.Content>}

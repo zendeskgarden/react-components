@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
@@ -19,8 +26,9 @@ export default {
   }
 };
 
-export const Modal: StoryObj<typeof ModalStory> = {
-  render: args => {
+export const Default: StoryObj<typeof ModalStory> = {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleClick = () => {
@@ -41,9 +49,7 @@ export const Modal: StoryObj<typeof ModalStory> = {
 
     return <ModalStory {...args} onClick={handleClick} onClose={handleClose} />;
   },
-
   name: 'Modal',
-
   args: {
     isAnimated: true,
     isCentered: true,

@@ -1,3 +1,4 @@
+import React from 'react';
 import { Tag } from '@zendeskgarden/react-tags';
 import { FauxInputStory } from './stories/FauxInputStory';
 import { FAUX_INPUT_TAGS as TAGS } from './stories/data';
@@ -8,7 +9,7 @@ export default {
 };
 
 export const FauxInput = {
-  render: args => <FauxInputStory {...args} />,
+  render: (args: any) => <FauxInputStory {...args} />,
   name: 'FauxInput',
 
   args: {

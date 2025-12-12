@@ -1,13 +1,20 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
 import { Inline } from '@zendeskgarden/react-loaders';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Loaders/Inline',
   component: Inline
 };
 
-export const Inline = {
-  render: args => <Inline {...args} />,
+export const Default = {
+  render: (args: any) => <Inline {...args} />,
   name: 'Inline',
 
   argTypes: {

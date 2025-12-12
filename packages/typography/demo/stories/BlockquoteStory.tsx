@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Blockquote, IBlockquoteProps } from '@zendeskgarden/react-typography';
 import { TypescaleStory } from './TypescaleStory';
 
@@ -14,7 +14,7 @@ interface IArgs extends IBlockquoteProps {
   children: string[];
 }
 
-export const BlockquoteStory: Story<IArgs> = ({ children, ...args }) => (
+export const BlockquoteStory: StoryFn<IArgs> = ({ children, ...args }) => (
   <>
     {children.map((child, index) => (
       <Blockquote key={index} {...args}>

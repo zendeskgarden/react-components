@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
@@ -13,10 +20,9 @@ export default {
   }
 };
 
-export const SplitButton: StoryObj<typeof SplitButtonStory> = {
-  render: args => <SplitButtonStory {...args} />,
+export const Default: StoryObj<typeof SplitButtonStory> = {
+  render: (args: any) => <SplitButtonStory {...args} />,
   name: 'SplitButton',
-
   args: {
     'aria-label': 'Label',
     children: 'Text'

@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
@@ -10,23 +17,21 @@ export default {
   component: DatePicker
 };
 
-export const DatePicker: StoryObj<typeof DatePickerStory> = {
-  render: args => {
+export const Default: StoryObj<typeof DatePickerStory> = {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = value =>
+    const handleChange = (value: any) =>
       updateArgs({
         value
       });
 
     return <DatePickerStory {...args} onChange={handleChange} />;
   },
-
   name: 'DatePicker',
-
   args: {
     dateStyle: DATE_STYLE_OPTIONS[1],
-    eventsEnabled: true,
     isAnimated: true,
     message: 'Message'
   },
@@ -64,7 +69,9 @@ export const DatePicker: StoryObj<typeof DatePickerStory> = {
         type: 'boolean'
       },
 
-      table: 'Story'
+      table: {
+        category: 'Story'
+      }
     },
 
     message: {

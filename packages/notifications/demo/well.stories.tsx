@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { Well } from '@zendeskgarden/react-notifications';
@@ -13,10 +20,9 @@ export default {
   }
 };
 
-export const Well: StoryObj<typeof WellStory> = {
-  render: args => <WellStory {...args} />,
+export const Default: StoryObj<typeof WellStory> = {
+  render: (args: any) => <WellStory {...args} />,
   name: 'Well',
-
   args: {
     children: 'Text',
     title: 'Title',

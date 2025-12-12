@@ -1,8 +1,14 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { PaletteStory } from './stories/PaletteStory';
-type Story = StoryObj<typeof PaletteStory>;
 
 export default {
   title: 'Packages/Theming/ThemeProvider',
@@ -14,17 +20,16 @@ export default {
   }
 };
 
-export const ThemeProvider: Story = {
-  render: args => <ThemeProvider {...args} />,
+export const Default: StoryObj<typeof ThemeProvider> = {
+  render: (args: any) => <ThemeProvider {...args} />,
   name: 'ThemeProvider',
-
   args: {
     theme: DEFAULT_THEME
   }
 };
 
-export const Palette: Story = {
-  render: args => <PaletteStory {...args} />,
+export const Palette: StoryObj<typeof PaletteStory> = {
+  render: (args: any) => <PaletteStory {...args} />,
   name: 'PALETTE',
 
   args: {
@@ -38,24 +43,6 @@ export const Palette: Story = {
       },
 
       name: 'PALETTE'
-    },
-
-    colorSchemeKey: {
-      table: {
-        disable: true
-      }
-    },
-
-    initialColorScheme: {
-      table: {
-        disable: true
-      }
-    },
-
-    theme: {
-      table: {
-        disable: true
-      }
     }
   }
 };

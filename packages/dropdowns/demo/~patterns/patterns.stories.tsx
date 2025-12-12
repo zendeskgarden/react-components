@@ -1,5 +1,6 @@
+import React from 'react';
 import { useCallback } from 'react';
-import { useArgs } from '@storybook/client-api';
+import { useArgs } from '@storybook/preview-api';
 import { NestedStory } from './stories/NestedStory';
 import { PortalStory } from './stories/PortalStory';
 
@@ -8,12 +9,12 @@ export default {
 };
 
 export const Nested = {
-  render: args => <NestedStory {...args} />,
+  render: (args: any) => <NestedStory {...args} />,
   name: 'Nested'
 };
 
 export const Portal = {
-  render: args => <PortalStory {...args} />,
+  render: (args: any) => <PortalStory {...args} />,
   name: 'Portal',
 
   args: {

@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { Alert } from '@zendeskgarden/react-notifications';
@@ -14,10 +21,9 @@ export default {
   }
 };
 
-export const Alert: StoryObj<typeof AlertStory> = {
-  render: args => <AlertStory {...args} />,
+export const Default: StoryObj<typeof AlertStory> = {
+  render: (args: any) => <AlertStory {...args} />,
   name: 'Alert',
-
   args: {
     children: 'Text',
     type: 'info',

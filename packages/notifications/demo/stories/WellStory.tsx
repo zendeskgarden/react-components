@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Well, IWellProps } from '@zendeskgarden/react-notifications';
 
 interface IArgs extends IWellProps {
@@ -15,7 +15,7 @@ interface IArgs extends IWellProps {
   hasParagraph: boolean;
 }
 
-export const WellStory: Story<IArgs> = ({ children, title, hasParagraph, isRegular, ...args }) => (
+export const WellStory: StoryFn<IArgs> = ({ children, title, hasParagraph, isRegular, ...args }) => (
   <Well {...args}>
     {!!title && <Well.Title isRegular={isRegular}>{title}</Well.Title>}
     {hasParagraph ? <Well.Paragraph>{children}</Well.Paragraph> : children}

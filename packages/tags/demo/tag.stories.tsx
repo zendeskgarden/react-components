@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { Tag } from '@zendeskgarden/react-tags';
@@ -13,10 +20,9 @@ export default {
   }
 };
 
-export const Tag: StoryObj<typeof TagStory> = {
-  render: args => <TagStory {...args} />,
+export const Default: StoryObj<typeof TagStory> = {
+  render: (args: any) => <TagStory {...args} />,
   name: 'Tag',
-
   args: {
     children: 'Tag',
     hasAvatar: false,

@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
@@ -9,10 +16,9 @@ export default {
   component: StatusIndicator
 };
 
-export const StatusIndicator: StoryObj<typeof StatusIndicatorStory> = {
-  render: args => <StatusIndicatorStory {...args} />,
+export const Default: StoryObj<typeof StatusIndicatorStory> = {
+  render: (args: any) => <StatusIndicatorStory {...args} />,
   name: 'StatusIndicator',
-
   argTypes: {
     children: {
       control: 'text'

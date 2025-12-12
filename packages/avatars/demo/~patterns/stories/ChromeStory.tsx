@@ -6,12 +6,12 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
 import { Chrome, Body, Header } from '@zendeskgarden/react-chrome';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
 
-export const ChromeStory: Story<IAvatarProps> = args => (
+export const ChromeStory: StoryFn<IAvatarProps> = args => (
   <Chrome isFluid style={{ height: 'auto' }}>
     <Body>
       <Header>

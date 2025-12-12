@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { ITagProps, Tag } from '@zendeskgarden/react-tags';
 
 export interface IArgs extends ITagProps {
@@ -15,7 +15,7 @@ export interface IArgs extends ITagProps {
   closeAriaLabel: string;
 }
 
-export const TagStory: Story<IArgs> = ({
+export const TagStory: StoryFn<IArgs> = ({
   children,
   hasAvatar,
   hasClose,

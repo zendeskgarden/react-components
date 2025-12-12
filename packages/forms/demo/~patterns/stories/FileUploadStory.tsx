@@ -6,7 +6,7 @@
  */
 
 import React, { FC, memo, useCallback, useEffect, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { DropzoneProps, useDropzone } from 'react-dropzone';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import {
@@ -104,7 +104,7 @@ interface IArgs extends IFileUploadProps {
   deleteAriaLabel: string;
 }
 
-export const FileUploadStory: Story<IArgs> = ({
+export const FileUploadStory: StoryFn<IArgs> = ({
   disabled,
   accept,
   maxFiles,

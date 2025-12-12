@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { IOrderedListProps, OrderedList } from '@zendeskgarden/react-typography';
 import { IListItem } from './types';
 
@@ -22,7 +22,7 @@ const getType = (level: number) => {
   return types[index];
 };
 
-export const OrderedListStory: Story<IArgs> = ({ items, level = 0, ...args }) => (
+export const OrderedListStory: StoryFn<IArgs> = ({ items, level = 0, ...args }) => (
   <OrderedList {...args} type={level === 0 ? args.type : getType(level)}>
     {items.map((item, index) => (
       <OrderedList.Item key={index}>

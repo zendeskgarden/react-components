@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import Avatar from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
@@ -53,7 +53,7 @@ interface IArgs extends Omit<IComboboxProps, 'startIcon' | 'endIcon' | 'renderVa
   validationLabel: string;
 }
 
-export const ComboboxStory: Story<IArgs> = ({
+export const ComboboxStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

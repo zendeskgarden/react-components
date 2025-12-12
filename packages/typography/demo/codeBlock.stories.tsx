@@ -1,14 +1,23 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
 import { CodeBlock } from '@zendeskgarden/react-typography';
 import { CODE_BLOCK_CHILDREN as CODE } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Typography/CodeBlock',
   component: CodeBlock
 };
 
-export const CodeBlock = {
-  render: ({ code, ...args }) => <CodeBlock {...args} children={code[args.language || 'tsx']} />,
+export const Default = {
+  render: ({ code, ...args }: any) => (
+    <CodeBlock {...args}>{code[args.language || 'tsx']}</CodeBlock>
+  ),
 
   name: 'CodeBlock',
 

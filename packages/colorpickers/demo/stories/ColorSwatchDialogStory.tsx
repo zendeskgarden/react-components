@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ColorSwatchDialog, IColorSwatchDialogProps } from '@zendeskgarden/react-colorpickers';
 
-export const ColorSwatchDialogStory: Story<IColorSwatchDialogProps> = args => (
+export const ColorSwatchDialogStory: StoryFn<IColorSwatchDialogProps> = args => (
   <Grid>
     <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
       <Grid.Col textAlign="center" alignSelf="center">

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { IMDProps, LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 
 interface IArgs extends IMDProps {
@@ -14,7 +14,7 @@ interface IArgs extends IMDProps {
   hasDisplayName?: boolean;
 }
 
-export const TypescaleStory: Story<IArgs> = ({ children, size, hasDisplayName, ...args }) => {
+export const TypescaleStory: StoryFn<IArgs> = ({ children, size, hasDisplayName, ...args }) => {
   let Typescale;
 
   switch (size) {

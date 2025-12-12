@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
@@ -9,8 +16,8 @@ export default {
   component: Breadcrumb
 };
 
-export const Breadcrumb: StoryObj<typeof BreadcrumbStory> = {
-  render: args => <BreadcrumbStory {...args} />,
+export const Default: StoryObj<typeof BreadcrumbStory> = {
+  render: (args: any) => <BreadcrumbStory {...args} />,
   name: 'Breadcrumb',
 
   args: {

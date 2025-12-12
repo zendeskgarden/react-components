@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Paragraph, IParagraphProps } from '@zendeskgarden/react-typography';
 import { TypescaleStory } from './TypescaleStory';
 
@@ -14,7 +14,7 @@ interface IArgs extends IParagraphProps {
   children: string[];
 }
 
-export const ParagraphStory: Story<IArgs> = ({ children, ...args }) => (
+export const ParagraphStory: StoryFn<IArgs> = ({ children, ...args }) => (
   <>
     {children.map((child, index) => (
       <Paragraph key={index} {...args}>

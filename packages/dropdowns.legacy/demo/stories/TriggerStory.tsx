@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import IconChevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Button } from '@zendeskgarden/react-buttons';
@@ -31,7 +31,7 @@ interface IArgs extends IMenuProps {
   items: ITEM[];
 }
 
-export const TriggerStory: Story<IArgs> = ({
+export const TriggerStory: StoryFn<IArgs> = ({
   onSelect,
   downshiftProps,
   highlightedIndex,

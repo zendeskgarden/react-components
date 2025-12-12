@@ -6,7 +6,7 @@
  */
 
 import React, { useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Checkbox, Field } from '@zendeskgarden/react-forms';
 import {
   Table,
@@ -32,7 +32,7 @@ interface IArgs extends ITableProps {
   isHidden?: boolean;
 }
 
-export const TableStory: Story<IArgs> = ({
+export const TableStory: StoryFn<IArgs> = ({
   caption,
   data,
   widths = [],

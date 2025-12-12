@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { UnorderedList } from '@zendeskgarden/react-typography';
@@ -13,10 +20,9 @@ export default {
   }
 };
 
-export const UnorderedList: StoryObj<typeof UnorderedListStory> = {
-  render: args => <UnorderedListStory {...args} />,
+export const Default: StoryObj<typeof UnorderedListStory> = {
+  render: (args: any) => <UnorderedListStory {...args} />,
   name: 'UnorderedList',
-
   args: {
     items: ITEMS
   },

@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
 import { Accordion, IAccordionProps } from '@zendeskgarden/react-accordions';
@@ -48,7 +48,7 @@ interface IArgs extends IAccordionProps {
   sections: IAccordionSection[];
 }
 
-export const AccordionStory: Story<IArgs> = ({ sections, ...args }: IArgs) => (
+export const AccordionStory: StoryFn<IArgs> = ({ sections, ...args }: IArgs) => (
   <Accordion {...args}>
     {sections.map((section, index) => (
       <Accordion.Section key={index}>

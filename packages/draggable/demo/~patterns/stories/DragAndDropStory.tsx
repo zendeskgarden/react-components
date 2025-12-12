@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import styled, { useTheme } from 'styled-components';
 import {
   CollisionDetection,
@@ -56,7 +56,7 @@ const StyledContainer = styled.div<{ isHorizontal: boolean }>`
   }
 `;
 
-export const DragAndDropStory: Story<IArgs> = ({
+export const DragAndDropStory: StoryFn<IArgs> = ({
   columns: defaultColumns,
   hasDropIndicator,
   hasPlaceholder,

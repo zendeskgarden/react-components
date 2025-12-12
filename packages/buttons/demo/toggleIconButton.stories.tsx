@@ -1,21 +1,29 @@
-import { useArgs } from '@storybook/client-api';
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
 import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
 import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Buttons/ToggleIconButton',
   component: ToggleIconButton
 };
 
-export const ToggleIconButton = {
-  render: args => {
+export const Default = {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleClick = () =>
       updateArgs({
-        isPressed: args.isPressed ? false : true
+        isPressed: !args.isPressed
       });
 
     return (

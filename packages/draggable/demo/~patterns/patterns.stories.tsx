@@ -1,3 +1,4 @@
+import React from 'react';
 import { DragAndDropStory } from './stories/DragAndDropStory';
 import { COLUMNS as columns } from './stories/data';
 
@@ -6,7 +7,7 @@ export default {
 };
 
 export const DragAndDrop = {
-  render: args => <DragAndDropStory {...args} />,
+  render: (args: any) => <DragAndDropStory {...args} />,
   name: 'Drag and drop',
 
   args: {

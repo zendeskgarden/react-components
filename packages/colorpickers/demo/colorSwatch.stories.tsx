@@ -1,7 +1,14 @@
-import { useArgs } from '@storybook/client-api';
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { useArgs } from '@storybook/preview-api';
 import { ColorSwatch } from '@zendeskgarden/react-colorpickers';
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
-import README from '../README.md';
 
 export default {
   title: 'Packages/Colorpickers/ColorSwatch',
@@ -22,7 +29,7 @@ export default {
 };
 
 export const Uncontrolled = {
-  render: args => <ColorSwatch {...args} />,
+  render: (args: any) => <ColorSwatch {...args} />,
   name: 'Uncontrolled',
 
   argTypes: {
@@ -37,10 +44,11 @@ export const Uncontrolled = {
 };
 
 export const Controlled = {
-  render: args => {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleSelect = (selectedRowIndex, selectedColIndex) =>
+    const handleSelect = (selectedRowIndex: any, selectedColIndex: any) =>
       updateArgs({
         selectedRowIndex,
         selectedColIndex

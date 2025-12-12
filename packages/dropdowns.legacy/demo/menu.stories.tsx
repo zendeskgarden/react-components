@@ -1,3 +1,10 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
 import React from 'react';
 import type { StoryObj } from '@storybook/react';
 import { useArgs } from '@storybook/preview-api';
@@ -43,18 +50,19 @@ export default {
   }
 };
 
-export const Menu: StoryObj<typeof TriggerStory> = {
+export const Default: StoryObj<typeof TriggerStory> = {
   /*account for Storybook control*/
-  render: args => {
+  render: (args: any) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleSelect = selectedItems =>
+    const handleSelect = (selectedItems: any) =>
       updateArgs({
         selectedItems
       });
 
-    const handleStateChange = changes =>
-      changes.hasOwnProperty('isOpen') &&
+    const handleStateChange = (changes: any) =>
+      Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
       changes.type !== Downshift.stateChangeTypes.blurInput &&
       updateArgs({
         isOpen: changes.isOpen

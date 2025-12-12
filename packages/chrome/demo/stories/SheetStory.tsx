@@ -6,7 +6,7 @@
  */
 
 import React, { ChangeEventHandler } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { DefaultTheme } from 'styled-components';
 import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
 import { Field, Toggle } from '@zendeskgarden/react-forms';
@@ -78,7 +78,7 @@ interface IArgs extends ISheetComponentProps {
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const SheetStory: Story<IArgs> = ({
+export const SheetStory: StoryFn<IArgs> = ({
   debug,
   onClick,
   onChange,

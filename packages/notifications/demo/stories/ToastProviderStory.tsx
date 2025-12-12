@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import {
   ToastProvider,
   IToastProviderProps,
@@ -21,7 +21,7 @@ interface IArgs extends IToastProviderProps {
   placement?: IToastOptions['placement'];
 }
 
-export const ToastProviderStory: Story<IArgs> = ({
+export const ToastProviderStory: StoryFn<IArgs> = ({
   children,
   autoDismiss,
   milliseconds,
