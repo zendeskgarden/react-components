@@ -12,9 +12,9 @@ import { DEFAULT_THEME } from '../packages/theming/src';
 addons.setConfig({
   panelPosition: 'right',
   theme: create({
+    base: 'dark',
     brandTitle: 'Zendesk Garden React Components',
     brandUrl: 'https://github.com/zendeskgarden/react-components',
-    brandImage: null,
     colorSecondary: DEFAULT_THEME.palette.blue[600],
     fontBase: DEFAULT_THEME.fonts.system,
     fontCode: DEFAULT_THEME.fonts.mono

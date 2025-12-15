@@ -35,10 +35,10 @@ const config: StorybookConfig = {
     disableWhatsNewNotifications: true
   },
 
-  viteFinal: async config => {
+  viteFinal: async viteConfig => {
     const { mergeConfig } = await import('vite');
 
-    return mergeConfig(config, {
+    return mergeConfig(viteConfig, {
       assetsInclude: ['**/*.md'],
       define: {
         PACKAGE_VERSION: JSON.stringify('storybook')
