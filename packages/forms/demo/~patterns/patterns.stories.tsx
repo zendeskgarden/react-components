@@ -19,70 +19,39 @@ export default {
 export const Example: StoryObj<typeof FileUploadStory> = {
   render: args => <FileUploadStory {...args} />,
   name: 'File upload',
-
   args: {
     accept: {
       'image/jpeg': [],
       'image/png': [],
       'image/gif': []
     },
-
     multiple: true,
     type: 'image'
   },
-
   argTypes: {
     isDragging: {
-      table: {
-        disable: true
-      }
+      table: { disable: true }
     },
-
-    accept: {
-      table: {
-        category: 'Dropzone'
-      }
-    },
-
+    accept: { table: { category: 'Dropzone' } },
     maxFiles: {
       control: 'number',
-
-      table: {
-        category: 'Dropzone'
-      }
+      table: { category: 'Dropzone' }
     },
-
     maxSize: {
       control: 'number',
-
-      table: {
-        category: 'Dropzone'
-      }
+      table: { category: 'Dropzone' }
     },
-
     minSize: {
       control: 'number',
-
-      table: {
-        category: 'Dropzone'
-      }
+      table: { category: 'Dropzone' }
     },
-
-    multiple: {
-      table: {
-        category: 'Dropzone'
-      }
-    },
-
+    multiple: { table: { category: 'Dropzone' } },
     type: {
       control: {
         type: 'select',
         options: FILE_TYPES
       },
-
-      table: {
-        category: 'File'
-      }
+      table: { category: 'File' }
     }
   }
 };

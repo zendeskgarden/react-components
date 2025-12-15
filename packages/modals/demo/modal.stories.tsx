@@ -16,7 +16,6 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
 export default {
   title: 'Packages/Modals/Modal',
   component: Modal,
-
   subcomponents: {
     'Modal.Body': Modal.Body,
     'Modal.Close': Modal.Close,
@@ -34,17 +33,13 @@ export const Example: StoryObj<typeof ModalStory> = {
     const handleClick = () => {
       action('onClick')();
 
-      updateArgs({
-        isVisible: true
-      });
+      updateArgs({ isVisible: true });
     };
 
     const handleClose = () => {
       action('onClose')();
 
-      updateArgs({
-        isVisible: false
-      });
+      updateArgs({ isVisible: false });
     };
 
     return <ModalStory {...args} onClick={handleClick} onClose={handleClose} />;
@@ -64,103 +59,51 @@ export const Example: StoryObj<typeof ModalStory> = {
     dialogAriaLabel: 'Header',
     closeAriaLabel: 'Close'
   },
-
   argTypes: {
-    appendToNode: {
-      control: false
-    },
-
-    isVisible: {
-      table: {
-        category: 'Story'
-      }
-    },
-
+    appendToNode: { control: false },
+    isVisible: { table: { category: 'Story' } },
     hasBody: {
       name: 'Modal.Body',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasClose: {
       name: 'Modal.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasFooter: {
       name: 'Modal.Footer',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasHeader: {
       name: 'Modal.Header',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     footerItems: {
       name: 'Modal.FooterItem[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     body: {
       name: 'children',
-
-      table: {
-        category: 'Modal.Body'
-      }
+      table: { category: 'Modal.Body' }
     },
-
     isDanger: {
       control: 'boolean',
-
-      table: {
-        category: 'Modal.Header'
-      }
+      table: { category: 'Modal.Header' }
     },
-
     tag: {
       control: 'text',
-
-      table: {
-        category: 'Modal.Header'
-      }
+      table: { category: 'Modal.Header' }
     },
-
     header: {
       name: 'children',
-
-      table: {
-        category: 'Modal.Header'
-      }
+      table: { category: 'Modal.Header' }
     },
-
     closeAriaLabel: {
       name: 'aria-label',
-
-      table: {
-        category: 'Modal.Close'
-      }
+      table: { category: 'Modal.Close' }
     },
-
-    dialogAriaLabel: {
-      name: 'aria-label'
-    }
+    dialogAriaLabel: { name: 'aria-label' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

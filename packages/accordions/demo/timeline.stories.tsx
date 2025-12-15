@@ -14,7 +14,6 @@ import { TIMELINE_ITEMS as ITEMS } from './stories/data';
 export default {
   title: 'Packages/Accordions/Timeline',
   component: Timeline,
-
   subcomponents: {
     'Timeline.Content': Timeline.Content,
     'Timeline.Item': Timeline.Item,
@@ -25,51 +24,30 @@ export default {
 export const Example: StoryObj<typeof TimelineStory> = {
   render: args => <TimelineStory {...args} />,
   name: 'Timeline',
-
   args: {
     hasIcon: false,
     hasOppositeContent: false,
     items: ITEMS
   },
-
   argTypes: {
     hasIcon: {
       name: 'icon',
-
-      table: {
-        category: 'Timeline.Item'
-      }
+      table: { category: 'Timeline.Item' }
     },
-
     surfaceColor: {
       name: 'surfaceColor',
-
-      control: {
-        type: 'color'
-      },
-
-      table: {
-        category: 'Timeline.Item'
-      }
+      control: { type: 'color' },
+      table: { category: 'Timeline.Item' }
     },
-
     hasOppositeContent: {
       name: 'Timeline.OppositeContent',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     items: {
       name: 'Timeline.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

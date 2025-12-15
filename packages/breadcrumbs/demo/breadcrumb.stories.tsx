@@ -19,12 +19,10 @@ export default {
 export const Example: StoryObj<typeof BreadcrumbStory> = {
   render: args => <BreadcrumbStory {...args} />,
   name: 'Breadcrumb',
-
   args: {
     'aria-label': 'Breadcrumbs',
     children: CHILDREN
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

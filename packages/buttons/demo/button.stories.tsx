@@ -13,7 +13,6 @@ import { ButtonStory } from './stories/ButtonStory';
 export default {
   title: 'Packages/Buttons/Button',
   component: Button,
-
   subcomponents: {
     'Button.StartIcon': Button.StartIcon,
     'Button.EndIcon': Button.EndIcon
@@ -28,47 +27,27 @@ export const Example: StoryObj<typeof ButtonStory> = {
     hasStartIcon: false,
     hasEndIcon: false
   },
-
   argTypes: {
-    disabled: {
-      control: 'boolean'
-    },
-
+    disabled: { control: 'boolean' },
     isEndIconRotated: {
       name: 'isRotated',
       control: 'boolean',
-
-      table: {
-        category: 'Button.EndIcon'
-      }
+      table: { category: 'Button.EndIcon' }
     },
-
     isStartIconRotated: {
       name: 'isRotated',
       control: 'boolean',
-
-      table: {
-        category: 'Button.StartIcon'
-      }
+      table: { category: 'Button.StartIcon' }
     },
-
     hasStartIcon: {
       name: 'Button.StartIcon',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasEndIcon: {
       name: 'Button.EndIcon',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

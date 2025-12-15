@@ -24,7 +24,6 @@ import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './storie
 export default {
   title: 'Packages/Dropdowns.Legacy/Select',
   component: Select,
-
   subcomponents: {
     Dropdown,
     Field,
@@ -51,15 +50,11 @@ export const Example: StoryObj<typeof SelectStory> = {
       ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
         changes.type
       ) &&
-      updateArgs({
-        isOpen: changes.isOpen
-      });
+      updateArgs({ isOpen: changes.isOpen });
 
     return <SelectStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
   },
-
   name: 'Select',
-
   args: {
     label: 'Label',
     isLabelRegular: false,
@@ -73,118 +68,58 @@ export const Example: StoryObj<typeof SelectStory> = {
     selectedItem: ITEMS[1],
     isOpen: false
   },
-
   argTypes: {
-    hasIcon: {
-      name: 'start'
-    },
-
+    hasIcon: { name: 'start' },
     label: {
       name: 'children',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     isLabelRegular: {
       name: 'isRegular',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     isLabelHidden: {
       name: 'hidden',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     hint: {
       name: 'children',
-
-      table: {
-        category: 'Hint'
-      }
+      table: { category: 'Hint' }
     },
-
     message: {
       name: 'children',
-
-      table: {
-        category: 'Message'
-      }
+      table: { category: 'Message' }
     },
-
     validationLabel: {
-      control: {
-        type: 'text'
-      },
-
-      table: {
-        category: 'Message'
-      }
+      control: { type: 'text' },
+      table: { category: 'Message' }
     },
-
     hasHint: {
       name: 'Hint',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasMessage: {
       name: 'Message',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     items: {
       name: 'Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     downshiftProps: {
       control: 'object',
-
-      table: {
-        category: 'Dropdown'
-      }
+      table: { category: 'Dropdown' }
     },
-
-    selectedItem: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
-    isOpen: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
+    selectedItem: { table: { category: 'Dropdown' } },
+    isOpen: { table: { category: 'Dropdown' } },
     placement: {
       control: {
         type: 'radio',
         options: PLACEMENT
       },
-
-      table: {
-        category: 'Menu'
-      }
+      table: { category: 'Menu' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

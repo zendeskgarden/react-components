@@ -15,7 +15,6 @@ import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common
 export default {
   title: 'Packages/Forms/InputGroup',
   component: InputGroup,
-
   subcomponents: {
     Input,
     ...fieldSubcomponents
@@ -30,72 +29,39 @@ export const Example: StoryObj<typeof InputGroupStory> = {
     items: ITEMS,
     isNeutral: true
   },
-
   argTypes: {
-    items: {
-      name: 'children'
-    },
+    items: { name: 'children' },
 
     ...commonArgTypes,
-
     disabled: {
       control: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
-    isNeutral: {
-      table: {
-        category: 'Button'
-      }
-    },
-
+    isNeutral: { table: { category: 'Button' } },
     isPrimary: {
       control: 'boolean',
-
-      table: {
-        category: 'Button'
-      }
+      table: { category: 'Button' }
     },
-
     isDanger: {
       control: 'boolean',
-
-      table: {
-        category: 'Button'
-      }
+      table: { category: 'Button' }
     },
-
     isToggle: {
       control: 'boolean',
       name: 'ToggleButton',
-
-      table: {
-        category: 'Button'
-      }
+      table: { category: 'Button' }
     },
-
     readOnly: {
       control: 'boolean',
-
-      table: {
-        category: 'Input'
-      }
+      table: { category: 'Input' }
     },
-
     inputValidation: {
       control: 'radio',
       name: 'validation',
       options: VALIDATION,
-
-      table: {
-        category: 'Input'
-      }
+      table: { category: 'Input' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

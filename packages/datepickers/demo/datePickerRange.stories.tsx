@@ -15,7 +15,6 @@ import { DATE_STYLE_OPTIONS } from './stories/data';
 export default {
   title: 'Packages/Datepickers/DatePickerRange',
   component: DatePickerRange,
-
   subcomponents: {
     'DatePickerRange.Calendar': DatePickerRange.Calendar,
     'DatePickerRange.End': DatePickerRange.End,
@@ -36,40 +35,19 @@ export const Example: StoryObj<typeof DatePickerRangeStory> = {
 
     return <DatePickerRangeStory {...args} onChange={handleChange} />;
   },
-
   name: 'DatePickerRange',
-
-  args: {
-    dateStyle: DATE_STYLE_OPTIONS[1]
-  },
-
+  args: { dateStyle: DATE_STYLE_OPTIONS[1] },
   argTypes: {
-    startValue: {
-      control: 'date'
-    },
-
-    endValue: {
-      control: 'date'
-    },
-
-    minValue: {
-      control: 'date'
-    },
-
-    maxValue: {
-      control: 'date'
-    },
-
+    startValue: { control: 'date' },
+    endValue: { control: 'date' },
+    minValue: { control: 'date' },
+    maxValue: { control: 'date' },
     dateStyle: {
       control: 'radio',
       options: DATE_STYLE_OPTIONS,
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

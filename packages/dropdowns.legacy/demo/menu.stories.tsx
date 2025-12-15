@@ -31,7 +31,6 @@ import { MENU_ITEMS as ITEMS } from './stories/data';
 export default {
   title: 'Packages/Dropdowns.Legacy/Menu',
   component: Menu,
-
   subcomponents: {
     AddItem,
     Dropdown,
@@ -64,15 +63,11 @@ export const Example: StoryObj<typeof TriggerStory> = {
     const handleStateChange = (changes: any) =>
       Object.prototype.hasOwnProperty.call(changes, 'isOpen') &&
       changes.type !== Downshift.stateChangeTypes.blurInput &&
-      updateArgs({
-        isOpen: changes.isOpen
-      });
+      updateArgs({ isOpen: changes.isOpen });
 
     return <TriggerStory {...args} onSelect={handleSelect} onStateChange={handleStateChange} />;
   },
-
   name: 'Menu',
-
   args: {
     eventsEnabled: true,
     isAnimated: true,
@@ -81,67 +76,31 @@ export const Example: StoryObj<typeof TriggerStory> = {
     hasMedia: false,
     isOpen: false
   },
-
   argTypes: {
     downshiftProps: {
       control: 'object',
-
-      table: {
-        category: 'Dropdown'
-      }
+      table: { category: 'Dropdown' }
     },
-
     highlightedIndex: {
       control: 'number',
-
-      table: {
-        category: 'Dropdown'
-      }
+      table: { category: 'Dropdown' }
     },
-
-    isOpen: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
-    selectedItems: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
+    isOpen: { table: { category: 'Dropdown' } },
+    selectedItems: { table: { category: 'Dropdown' } },
     disabled: {
       control: 'boolean',
-
-      table: {
-        category: 'Item'
-      }
+      table: { category: 'Item' }
     },
-
     isDanger: {
       control: 'boolean',
-
-      table: {
-        category: 'Item'
-      }
+      table: { category: 'Item' }
     },
-
-    hasMedia: {
-      table: {
-        category: 'Story'
-      }
-    },
-
+    hasMedia: { table: { category: 'Story' } },
     items: {
       name: 'Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: [
       {

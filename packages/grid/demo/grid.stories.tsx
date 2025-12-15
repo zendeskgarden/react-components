@@ -14,7 +14,6 @@ import { GRID_ROWS as ROWS } from './stories/data';
 export default {
   title: 'Packages/Grid/Grid',
   component: Grid,
-
   subcomponents: {
     'Grid.Col': Grid.Col,
     'Grid.Row': Grid.Row
@@ -29,229 +28,99 @@ export const Example: StoryObj<typeof GridStory> = {
     gutters: 'md',
     rows: ROWS
   },
-
   argTypes: {
-    rows: {
-      name: 'children'
-    },
-
+    rows: { name: 'children' },
     alignItems: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: ALIGN_ITEMS,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     alignItemsXs: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: ALIGN_ITEMS,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     alignItemsSm: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: ALIGN_ITEMS,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     alignItemsMd: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: ALIGN_ITEMS,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     alignItemsLg: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: ALIGN_ITEMS,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     alignItemsXl: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: ALIGN_ITEMS,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     justifyContent: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: JUSTIFY_CONTENT,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     justifyContentXs: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: JUSTIFY_CONTENT,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     justifyContentSm: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: JUSTIFY_CONTENT,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     justifyContentMd: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: JUSTIFY_CONTENT,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     justifyContentLg: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: JUSTIFY_CONTENT,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     justifyContentXl: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: JUSTIFY_CONTENT,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     wrap: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: WRAP,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     wrapXs: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: WRAP,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     wrapSm: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: WRAP,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     wrapMd: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: WRAP,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     wrapLg: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: WRAP,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     },
-
     wrapXl: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: WRAP,
-
-      table: {
-        category: 'Grid.Row'
-      }
+      table: { category: 'Grid.Row' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

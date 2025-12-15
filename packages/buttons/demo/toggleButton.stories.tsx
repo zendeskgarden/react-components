@@ -21,31 +21,19 @@ export const Example: StoryObj<typeof ToggleButton> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleClick = () =>
-      updateArgs({
-        isPressed: !args.isPressed
-      });
+    const handleClick = () => updateArgs({ isPressed: !args.isPressed });
 
     return <ToggleButton {...args} onClick={handleClick} />;
   },
-
   name: 'ToggleButton',
-
-  args: {
-    children: 'Text'
-  },
-
+  args: { children: 'Text' },
   argTypes: {
-    disabled: {
-      control: 'boolean'
-    },
-
+    disabled: { control: 'boolean' },
     isPressed: {
       control: 'radio',
       options: [false, true, 'mixed']
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

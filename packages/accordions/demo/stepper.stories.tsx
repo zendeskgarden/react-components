@@ -14,7 +14,6 @@ import { STEPPER_STEPS as STEPS } from './stories/data';
 export default {
   title: 'Packages/Accordions/Stepper',
   component: Stepper,
-
   subcomponents: {
     'Stepper.Content': Stepper.Content,
     'Stepper.Label': Stepper.Label,
@@ -25,53 +24,34 @@ export default {
 export const Example: StoryObj<typeof StepperStory> = {
   render: args => <StepperStory {...args} />,
   name: 'Stepper',
-
   args: {
     hasIcon: false,
     isLabelHidden: false,
     steps: STEPS,
-
     iconProps: {
       role: 'img',
       'aria-label': 'checked',
       'aria-hidden': undefined
     }
   },
-
   argTypes: {
     hasIcon: {
       name: 'icon',
-
-      table: {
-        category: 'Stepper.Label'
-      }
+      table: { category: 'Stepper.Label' }
     },
-
     isLabelHidden: {
       name: 'isHidden',
-
-      table: {
-        category: 'Stepper.Label'
-      }
+      table: { category: 'Stepper.Label' }
     },
-
     steps: {
       name: 'Stepper.Step[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     iconProps: {
       name: 'iconProps',
-
-      table: {
-        category: 'Stepper.Label'
-      }
+      table: { category: 'Stepper.Label' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

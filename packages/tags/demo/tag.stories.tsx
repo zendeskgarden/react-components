@@ -13,7 +13,6 @@ import { TagStory } from './stories/TagStory';
 export default {
   title: 'Packages/Tags/Tag',
   component: Tag,
-
   subcomponents: {
     'Tag.Avatar': Tag.Avatar,
     'Tag.Close': Tag.Close
@@ -29,37 +28,21 @@ export const Example: StoryObj<typeof TagStory> = {
     hasClose: false,
     closeAriaLabel: 'Label'
   },
-
   argTypes: {
-    hue: {
-      control: 'color'
-    },
-
+    hue: { control: 'color' },
     hasAvatar: {
       name: 'Tag.Avatar',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasClose: {
       name: 'Tag.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     closeAriaLabel: {
       name: 'aria-label',
-
-      table: {
-        category: 'Tag.Close'
-      }
+      table: { category: 'Tag.Close' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

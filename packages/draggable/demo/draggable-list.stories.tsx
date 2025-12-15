@@ -14,7 +14,6 @@ import { LIST_ITEMS as items } from './stories/data';
 export default {
   title: 'Packages/Draggable/DraggableList',
   component: DraggableList,
-
   subcomponents: {
     'DraggableList.DropIndicator': DraggableList.DropIndicator,
     'DraggableList.Item': DraggableList.Item
@@ -28,35 +27,21 @@ export const Example: StoryObj<typeof DraggableListStory> = {
     items,
     'aria-label': 'Label'
   },
-
   argTypes: {
     items: {
       name: 'DraggableList.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     indicatorIndex: {
       name: 'DraggableList.DropIndicator',
-
-      control: {
-        type: 'number'
-      },
-
-      table: {
-        category: 'Story'
-      }
+      control: { type: 'number' },
+      table: { category: 'Story' }
     },
 
     'aria-label': {
-      table: {
-        category: 'DraggableList.DropIndicator'
-      }
+      table: { category: 'DraggableList.DropIndicator' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

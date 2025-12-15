@@ -19,7 +19,5 @@ export default {
 export const Example: StoryObj<typeof ParagraphStory> = {
   render: args => <ParagraphStory {...args} />,
   name: 'Paragraph',
-  args: {
-    children: CHILDREN
-  }
+  args: { children: CHILDREN }
 };

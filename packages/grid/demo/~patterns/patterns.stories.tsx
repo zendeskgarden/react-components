@@ -17,18 +17,11 @@ export default {
 export const Example: StoryObj<typeof CardStory> = {
   render: args => <CardStory {...args} />,
   name: 'Pane Card Layout',
-
-  args: {
-    columns: COLUMNS
-  },
-
+  args: { columns: COLUMNS },
   argTypes: {
     columns: {
       name: 'columns',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   }
 };

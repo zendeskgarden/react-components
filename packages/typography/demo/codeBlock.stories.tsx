@@ -18,27 +18,12 @@ export const Example = {
   render: ({ code, ...args }: any) => (
     <CodeBlock {...args}>{code[args.language || 'tsx']}</CodeBlock>
   ),
-
   name: 'CodeBlock',
-
   args: {
     code: CODE,
-
-    containerProps: {
-      style: {
-        maxHeight: 'calc(100vh - 80px)'
-      }
-    }
+    containerProps: { style: { maxHeight: 'calc(100vh - 80px)' } }
   },
-
-  argTypes: {
-    code: {
-      table: {
-        category: 'Story'
-      }
-    }
-  },
-
+  argTypes: { code: { table: { category: 'Story' } } },
   parameters: {
     design: {
       allowFullscreen: true,

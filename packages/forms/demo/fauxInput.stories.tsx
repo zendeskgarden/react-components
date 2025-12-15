@@ -14,7 +14,6 @@ import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common
 export default {
   title: 'Packages/Forms/FauxInput',
   component: FauxInput,
-
   subcomponents: {
     'FauxInput.EndIcon': FauxInput.EndIcon,
     'FauxInput.StartIcon': FauxInput.StartIcon,
@@ -35,42 +34,25 @@ export const Example: StoryObj<typeof FauxInputStory> = {
   /* ensures the `validation` story arg for the `FauxInput` component is not overriden */
   argTypes: {
     ...commonArgTypes,
-
     isEndIconRotated: {
       name: 'isRotated',
       control: 'boolean',
-
-      table: {
-        category: 'FauxInput.EndIcon'
-      }
+      table: { category: 'FauxInput.EndIcon' }
     },
-
     isStartIconRotated: {
       name: 'isRotated',
       control: 'boolean',
-
-      table: {
-        category: 'FauxInput.StartIcon'
-      }
+      table: { category: 'FauxInput.StartIcon' }
     },
-
     hasStartIcon: {
       name: 'FauxInput.StartIcon',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasEndIcon: {
       name: 'FauxInput.EndIcon',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

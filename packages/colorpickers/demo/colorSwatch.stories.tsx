@@ -15,12 +15,10 @@ import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 export default {
   title: 'Packages/Colorpickers/ColorSwatch',
   component: ColorSwatch,
-
   args: {
     colors: COLORS,
     name: 'name'
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -33,15 +31,9 @@ export default {
 export const Uncontrolled: StoryObj<typeof ColorSwatch> = {
   render: args => <ColorSwatch {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    selectedColIndex: {
-      control: false
-    },
-
-    selectedRowIndex: {
-      control: false
-    }
+    selectedColIndex: { control: false },
+    selectedRowIndex: { control: false }
   }
 };
 
@@ -58,33 +50,15 @@ export const Controlled: StoryObj<typeof ColorSwatch> = {
 
     return <ColorSwatch {...args} onSelect={handleSelect} />;
   },
-
   name: 'Controlled',
-
   args: {
     selectedRowIndex: 0,
     selectedColIndex: 5
   },
-
   argTypes: {
-    defaultSelectedColIndex: {
-      control: false
-    },
-
-    defaultSelectedRowIndex: {
-      control: false
-    },
-
-    selectedColIndex: {
-      control: {
-        type: 'number'
-      }
-    },
-
-    selectedRowIndex: {
-      control: {
-        type: 'number'
-      }
-    }
+    defaultSelectedColIndex: { control: false },
+    defaultSelectedRowIndex: { control: false },
+    selectedColIndex: { control: { type: 'number' } },
+    selectedRowIndex: { control: { type: 'number' } }
   }
 };

@@ -17,7 +17,6 @@ export default {
 export const Example: StoryObj<typeof DragAndDropStory> = {
   render: args => <DragAndDropStory {...args} />,
   name: 'Drag and drop',
-
   args: {
     columns,
     hasDropIndicator: true,
@@ -26,42 +25,12 @@ export const Example: StoryObj<typeof DragAndDropStory> = {
     isHorizontal: false,
     isBare: false
   },
-
   argTypes: {
-    columns: {
-      table: {
-        category: 'Story'
-      }
-    },
-
-    hasDropIndicator: {
-      table: {
-        category: 'Story'
-      }
-    },
-
-    hasPlaceholder: {
-      table: {
-        category: 'Story'
-      }
-    },
-
-    isCompact: {
-      table: {
-        category: 'Story'
-      }
-    },
-
-    isHorizontal: {
-      table: {
-        category: 'Story'
-      }
-    },
-
-    isBare: {
-      table: {
-        category: 'Story'
-      }
-    }
+    columns: { table: { category: 'Story' } },
+    hasDropIndicator: { table: { category: 'Story' } },
+    hasPlaceholder: { table: { category: 'Story' } },
+    isCompact: { table: { category: 'Story' } },
+    isHorizontal: { table: { category: 'Story' } },
+    isBare: { table: { category: 'Story' } }
   }
 };

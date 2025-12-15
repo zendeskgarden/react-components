@@ -14,7 +14,6 @@ import { TABLE_DATA as DATA } from './stories/data';
 export default {
   title: 'Packages/Tables/Table',
   component: Table,
-
   subcomponents: {
     'Table.Body': Table.Body,
     'Table.Caption': Table.Caption,
@@ -38,111 +37,59 @@ export const Example: StoryObj<typeof TableStory> = {
     widths: [],
     isBold: true
   },
-
   argTypes: {
-    isReadOnly: {
-      control: 'boolean'
-    },
-
+    isReadOnly: { control: 'boolean' },
     hasOverflow: {
       control: 'boolean',
-
-      table: {
-        category: 'Table.Cell'
-      }
+      table: { category: 'Table.Cell' }
     },
-
     isTruncated: {
       control: 'boolean',
-
-      table: {
-        category: 'Table.Cell'
-      }
+      table: { category: 'Table.Cell' }
     },
-
     isHidden: {
       name: 'hidden',
       control: 'boolean',
-
-      table: {
-        category: 'Table.Cell'
-      }
+      table: { category: 'Table.Cell' }
     },
-
     caption: {
       name: 'children',
-
-      table: {
-        category: 'Table.Caption'
-      }
+      table: { category: 'Table.Caption' }
     },
-
     isBold: {
       control: 'boolean',
-
-      table: {
-        category: 'Table.GroupRow'
-      }
+      table: { category: 'Table.GroupRow' }
     },
-
     isSticky: {
       control: 'boolean',
-
-      table: {
-        category: 'Table.Head'
-      }
+      table: { category: 'Table.Head' }
     },
-
     isStriped: {
       control: 'boolean',
-
-      table: {
-        category: 'Table.Row'
-      }
+      table: { category: 'Table.Row' }
     },
-
     isSelected: {
       control: 'boolean',
-
-      table: {
-        category: 'Table.Row'
-      }
+      table: { category: 'Table.Row' }
     },
-
     data: {
       name: 'Table.Row[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     widths: {
       name: 'Table.Cell[] widths',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasSelection: {
       control: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     isSortable: {
       name: 'Table.SortableCell',
       control: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

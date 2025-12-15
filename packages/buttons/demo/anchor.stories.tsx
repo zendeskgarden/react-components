@@ -17,14 +17,11 @@ export default {
 
 export const Example: StoryObj<typeof Anchor> = {
   render: args => <Anchor href="#" {...args} />,
-
   args: {
     children: 'Text',
     isUnderlined: true
   },
-
   name: 'Anchor',
-
   parameters: {
     design: {
       allowFullscreen: true,

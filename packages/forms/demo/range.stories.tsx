@@ -16,35 +16,20 @@ type Story = StoryObj<typeof RangeStory>;
 export default {
   title: 'Packages/Forms/Range',
   component: Range,
-
   subcomponents: {
     ...fieldSubcomponents
   },
-
   args: {
     ...commonArgs
   },
-
   argTypes: {
-    disabled: {
-      control: 'boolean'
-    },
-
-    min: {
-      control: 'number'
-    },
-
-    max: {
-      control: 'number'
-    },
-
-    step: {
-      control: 'number'
-    },
+    disabled: { control: 'boolean' },
+    min: { control: 'number' },
+    max: { control: 'number' },
+    step: { control: 'number' },
 
     ...commonArgTypes
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -64,17 +49,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: any) =>
-      updateArgs({
-        value: event.target.value
-      });
+    const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <RangeStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    value: '0'
-  }
+  args: { value: '0' }
 };

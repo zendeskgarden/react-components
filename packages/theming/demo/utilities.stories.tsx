@@ -20,7 +20,6 @@ export default {
 export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
   render: args => <ArrowStylesStory {...args} />,
   name: 'arrowStyles()',
-
   args: {
     position: 'bottom',
     hasBoxShadow: true,
@@ -29,13 +28,11 @@ export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
     size: 6,
     inset: 0
   },
-
   argTypes: {
     position: {
       control: 'select',
       options: ARROW_POSITIONS
     },
-
     size: {
       control: {
         type: 'range',
@@ -44,7 +41,6 @@ export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
         step: 1
       }
     },
-
     inset: {
       control: {
         type: 'range',
@@ -59,7 +55,6 @@ export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {
 export const GetColor: StoryObj<typeof GetColorStory> = {
   render: args => <GetColorStory {...args} />,
   name: 'getColor()',
-
   args: {
     theme: {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -67,41 +62,14 @@ export const GetColor: StoryObj<typeof GetColorStory> = {
       opacity: DEFAULT_THEME.opacity,
       palette: DEFAULT_THEME.palette
     },
-
     variable: 'background.primaryEmphasis'
   },
-
   argTypes: {
-    dark: {
-      control: {
-        type: 'object'
-      }
-    },
-
-    hue: {
-      control: {
-        type: 'text'
-      }
-    },
-
-    light: {
-      control: {
-        type: 'object'
-      }
-    },
-
-    offset: {
-      control: {
-        type: 'number'
-      }
-    },
-
-    shade: {
-      control: {
-        type: 'number'
-      }
-    },
-
+    dark: { control: { type: 'object' } },
+    hue: { control: { type: 'text' } },
+    light: { control: { type: 'object' } },
+    offset: { control: { type: 'number' } },
+    shade: { control: { type: 'number' } },
     transparency: {
       control: {
         type: 'number',
@@ -110,30 +78,18 @@ export const GetColor: StoryObj<typeof GetColorStory> = {
         step: 100
       }
     },
-
-    variable: {
-      control: {
-        type: 'text'
-      }
-    },
-
-    theme: {
-      control: {
-        type: 'object'
-      }
-    }
+    variable: { control: { type: 'text' } },
+    theme: { control: { type: 'object' } }
   }
 };
 
 export const MenuStyles: StoryObj<typeof MenuStylesStory> = {
   render: args => <MenuStylesStory {...args} />,
   name: 'menuStyles()',
-
   args: {
     position: 'bottom',
     isAnimated: true
   },
-
   argTypes: {
     position: {
       control: 'radio',

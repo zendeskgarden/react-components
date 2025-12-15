@@ -23,10 +23,7 @@ export const Example: StoryObj<typeof ToggleIconButton> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleClick = () =>
-      updateArgs({
-        isPressed: !args.isPressed
-      });
+    const handleClick = () => updateArgs({ isPressed: !args.isPressed });
 
     return (
       <ToggleIconButton {...args} onClick={handleClick}>
@@ -34,26 +31,19 @@ export const Example: StoryObj<typeof ToggleIconButton> = {
       </ToggleIconButton>
     );
   },
-
   name: 'ToggleIconButton',
-
   args: {
     'aria-label': 'Label',
     isBasic: true,
     isPill: true
   },
-
   argTypes: {
-    disabled: {
-      control: 'boolean'
-    },
-
+    disabled: { control: 'boolean' },
     isPressed: {
       control: 'radio',
       options: [false, true, 'mixed']
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

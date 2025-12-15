@@ -14,7 +14,6 @@ import { FileStory } from './stories/FileStory';
 export default {
   title: 'Packages/Forms/File',
   component: File,
-
   subcomponents: {
     'File.Close': File.Close,
     'File.Delete': File.Delete,
@@ -30,56 +29,33 @@ export const Example: StoryObj<typeof FileStory> = {
     closeAriaLabel: 'Close',
     deleteAriaLabel: 'Delete'
   },
-
   argTypes: {
-    tabIndex: {
-      control: 'number'
-    },
-
+    tabIndex: { control: 'number' },
     hasClose: {
       name: 'File.Close',
       control: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasDelete: {
       name: 'File.Delete',
       control: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     value: {
       control: {
         type: 'range',
         min: 0,
         max: 100
       },
-
-      table: {
-        category: 'Progress'
-      }
+      table: { category: 'Progress' }
     },
-
     closeAriaLabel: {
       name: 'aria-label',
-
-      table: {
-        category: 'File.Close'
-      }
+      table: { category: 'File.Close' }
     },
-
     deleteAriaLabel: {
       name: 'aria-label',
-
-      table: {
-        category: 'File.Delete'
-      }
+      table: { category: 'File.Delete' }
     }
   }
 };

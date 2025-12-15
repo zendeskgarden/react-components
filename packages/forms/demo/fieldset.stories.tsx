@@ -22,36 +22,26 @@ type Story = StoryObj<typeof FieldsetStory>;
 export default {
   title: 'Packages/Forms/Fieldset',
   component: Fieldset,
-
   subcomponents: {
     'Fieldset.Legend': Fieldset.Legend,
     ...fieldSubcomponents
   },
-
   args: {
     legend: 'Legend',
     fields: FIELDS,
     ...hintArgs,
     ...messageArgs
   },
-
   argTypes: {
-    fields: {
-      name: 'children'
-    },
-
+    fields: { name: 'children' },
     legend: {
       name: 'children',
-
-      table: {
-        category: 'Legend'
-      }
+      table: { category: 'Legend' }
     },
 
     ...hintArgTypes,
     ...messageArgTypes
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

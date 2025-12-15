@@ -18,13 +18,7 @@ export default {
 export const Example: StoryObj<typeof Inline> = {
   render: args => <Inline {...args} />,
   name: 'Inline',
-
-  argTypes: {
-    color: {
-      control: 'color'
-    }
-  },
-
+  argTypes: { color: { control: 'color' } },
   parameters: {
     design: {
       allowFullscreen: true,

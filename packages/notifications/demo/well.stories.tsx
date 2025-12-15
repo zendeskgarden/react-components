@@ -13,7 +13,6 @@ import { WellStory } from './stories/WellStory';
 export default {
   title: 'Packages/Notifications/Well',
   component: Well,
-
   subcomponents: {
     'Well.Paragraph': Well.Paragraph,
     'Well.Title': Well.Title
@@ -28,35 +27,20 @@ export const Example: StoryObj<typeof WellStory> = {
     title: 'Title',
     hasParagraph: false
   },
-
   argTypes: {
     title: {
       name: 'children',
-
-      table: {
-        category: 'Well.Title'
-      }
+      table: { category: 'Well.Title' }
     },
-
     isRegular: {
-      control: {
-        type: 'boolean'
-      },
-
-      table: {
-        category: 'Well.Title'
-      }
+      control: { type: 'boolean' },
+      table: { category: 'Well.Title' }
     },
-
     hasParagraph: {
       name: 'Well.Paragraph',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

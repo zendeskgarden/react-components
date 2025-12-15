@@ -29,23 +29,14 @@ export const Example: StoryObj<IArgs> = {
     ) : (
       <Code {...args} />
     ),
-
   name: 'Code',
-
-  args: {
-    children: 'Text'
-  },
-
+  args: { children: 'Text' },
   argTypes: {
     isAnchor: {
       control: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

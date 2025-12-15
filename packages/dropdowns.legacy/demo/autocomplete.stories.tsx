@@ -24,7 +24,6 @@ import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './
 export default {
   title: 'Packages/Dropdowns.Legacy/Autocomplete',
   component: Autocomplete,
-
   subcomponents: {
     Dropdown,
     Field,
@@ -57,9 +56,7 @@ export const Example: StoryObj<typeof AutocompleteStory> = {
       ![Downshift.stateChangeTypes.blurButton, Downshift.stateChangeTypes.blurInput].includes(
         changes.type
       ) &&
-      updateArgs({
-        isOpen: changes.isOpen
-      });
+      updateArgs({ isOpen: changes.isOpen });
 
     return (
       <AutocompleteStory
@@ -70,9 +67,7 @@ export const Example: StoryObj<typeof AutocompleteStory> = {
       />
     );
   },
-
   name: 'Autocomplete',
-
   args: {
     label: 'Label',
     isLabelRegular: false,
@@ -86,127 +81,58 @@ export const Example: StoryObj<typeof AutocompleteStory> = {
     selectedItem: ITEMS[1],
     inputValue: ITEMS[1].text,
     isOpen: false,
-
-    downshiftProps: {
-      defaultHighlightedIndex: 0
-    }
+    downshiftProps: { defaultHighlightedIndex: 0 }
   },
-
   argTypes: {
-    hasIcon: {
-      name: 'start'
-    },
-
+    hasIcon: { name: 'start' },
     label: {
       name: 'children',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     isLabelRegular: {
       name: 'isRegular',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     isLabelHidden: {
       name: 'hidden',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     hint: {
       name: 'children',
-
-      table: {
-        category: 'Hint'
-      }
+      table: { category: 'Hint' }
     },
-
     message: {
       name: 'children',
-
-      table: {
-        category: 'Message'
-      }
+      table: { category: 'Message' }
     },
-
     validationLabel: {
-      control: {
-        type: 'text'
-      },
-
-      table: {
-        category: 'Message'
-      }
+      control: { type: 'text' },
+      table: { category: 'Message' }
     },
-
     hasHint: {
       name: 'Hint',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasMessage: {
       name: 'Message',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     items: {
       name: 'Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
-    downshiftProps: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
-    selectedItem: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
-    inputValue: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
-    isOpen: {
-      table: {
-        category: 'Dropdown'
-      }
-    },
-
+    downshiftProps: { table: { category: 'Dropdown' } },
+    selectedItem: { table: { category: 'Dropdown' } },
+    inputValue: { table: { category: 'Dropdown' } },
+    isOpen: { table: { category: 'Dropdown' } },
     placement: {
       control: {
         type: 'radio',
         options: PLACEMENT
       },
-
-      table: {
-        category: 'Menu'
-      }
+      table: { category: 'Menu' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

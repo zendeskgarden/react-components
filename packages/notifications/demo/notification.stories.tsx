@@ -13,7 +13,6 @@ import { NotificationStory } from './stories/NotificationStory';
 export default {
   title: 'Packages/Notifications/Notification',
   component: Notification,
-
   subcomponents: {
     'Notification.Close': Notification.Close,
     'Notification.Paragraph': Notification.Paragraph,
@@ -31,49 +30,28 @@ export const Example: StoryObj<typeof NotificationStory> = {
     hasParagraph: false,
     'aria-label': 'Close'
   },
-
   argTypes: {
     title: {
       name: 'children',
-
-      table: {
-        category: 'Notification.Title'
-      }
+      table: { category: 'Notification.Title' }
     },
-
     isRegular: {
-      control: {
-        type: 'boolean'
-      },
-
-      table: {
-        category: 'Notification.Title'
-      }
+      control: { type: 'boolean' },
+      table: { category: 'Notification.Title' }
     },
-
     hasClose: {
       name: 'Notification.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasParagraph: {
       name: 'Notification.Paragraph',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
 
     'aria-label': {
-      table: {
-        category: 'Notification.Close'
-      }
+      table: { category: 'Notification.Close' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

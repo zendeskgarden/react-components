@@ -18,18 +18,9 @@ export default {
 export const Example: StoryObj<typeof Ellipsis> = {
   render: args => <Ellipsis {...args} />,
   name: 'Ellipsis',
-
   args: {
     children: 'Veggies es bonus vobis, proinde vos postulo essum magis.',
-
-    style: {
-      width: 150
-    }
+    style: { width: 150 }
   },
-
-  argTypes: {
-    tag: {
-      control: 'text'
-    }
-  }
+  argTypes: { tag: { control: 'text' } }
 };

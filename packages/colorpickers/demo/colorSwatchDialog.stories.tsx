@@ -17,7 +17,6 @@ type Story = StoryObj<typeof ColorSwatchDialogStory>;
 export default {
   title: 'Packages/Colorpickers/ColorSwatchDialog',
   component: ColorSwatchDialog,
-
   args: {
     buttonProps: {
       'aria-label': 'Label'
@@ -28,21 +27,11 @@ export default {
     isAnimated: true,
     name: 'name'
   },
-
   argTypes: {
-    focusInset: {
-      control: 'boolean'
-    },
-
-    hasArrow: {
-      control: 'boolean'
-    },
-
-    zIndex: {
-      control: 'number'
-    }
+    focusInset: { control: 'boolean' },
+    hasArrow: { control: 'boolean' },
+    zIndex: { control: 'number' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -55,15 +44,9 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <ColorSwatchDialogStory {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    selectedColIndex: {
-      control: false
-    },
-
-    selectedRowIndex: {
-      control: false
-    }
+    selectedColIndex: { control: false },
+    selectedRowIndex: { control: false }
   }
 };
 
@@ -95,34 +78,16 @@ export const Controlled: Story = {
       <ColorSwatchDialogStory {...args} onDialogChange={handleChange} onSelect={handleSelect} />
     );
   },
-
   name: 'Controlled',
-
   args: {
     isOpen: false,
     selectedRowIndex: 0,
     selectedColIndex: 5
   },
-
   argTypes: {
-    defaultSelectedColIndex: {
-      control: false
-    },
-
-    defaultSelectedRowIndex: {
-      control: false
-    },
-
-    selectedColIndex: {
-      control: {
-        type: 'number'
-      }
-    },
-
-    selectedRowIndex: {
-      control: {
-        type: 'number'
-      }
-    }
+    defaultSelectedColIndex: { control: false },
+    defaultSelectedRowIndex: { control: false },
+    selectedColIndex: { control: { type: 'number' } },
+    selectedRowIndex: { control: { type: 'number' } }
   }
 };

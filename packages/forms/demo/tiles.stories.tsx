@@ -16,35 +16,25 @@ type Story = StoryObj<typeof TilesStory>;
 export default {
   title: 'Packages/Forms/Tiles',
   component: Tiles,
-
   subcomponents: {
     'Tiles.Description': Tiles.Description,
     'Tiles.Icon': Tiles.Icon,
     'Tiles.Label': Tiles.Label,
     'Tiles.Tile': Tiles.Tile
   },
-
   args: {
     tiles: TILES,
     isCentered: true,
     name: 'name',
     hasDescription: true
   },
-
   argTypes: {
-    tiles: {
-      name: 'children'
-    },
-
+    tiles: { name: 'children' },
     hasDescription: {
       name: 'Tiles.Description',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -57,11 +47,8 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <TilesStory {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    value: {
-      control: false
-    }
+    value: { control: false }
   }
 };
 
@@ -70,17 +57,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: any) =>
-      updateArgs({
-        value: event.target.value
-      });
+    const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <TilesStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    value: TILES[0].value
-  }
+  args: { value: TILES[0].value }
 };

@@ -16,7 +16,6 @@ import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './storie
 export default {
   title: 'Packages/Modals/Drawer',
   component: Drawer,
-
   subcomponents: {
     'Drawer.Body': Drawer.Body,
     'Drawer.Close': Drawer.Close,
@@ -34,17 +33,13 @@ export const Example: StoryObj<typeof DrawerStory> = {
     const handleClick = () => {
       action('onClick')();
 
-      updateArgs({
-        isOpen: true
-      });
+      updateArgs({ isOpen: true });
     };
 
     const handleClose = () => {
       action('onClose')();
 
-      updateArgs({
-        isOpen: false
-      });
+      updateArgs({ isOpen: false });
     };
 
     return <DrawerStory {...args} onClick={handleClick} onClose={handleClose} />;
@@ -61,89 +56,46 @@ export const Example: StoryObj<typeof DrawerStory> = {
     dialogAriaLabel: 'Header',
     closeAriaLabel: 'Close'
   },
-
   argTypes: {
-    appendToNode: {
-      control: false
-    },
-
+    appendToNode: { control: false },
     hasBody: {
       name: 'Drawer.Body',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasClose: {
       name: 'Drawer.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasFooter: {
       name: 'Drawer.Footer',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasHeader: {
       name: 'Drawer.Header',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     footerItems: {
       name: 'Drawer.FooterItem[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     body: {
       name: 'children',
-
-      table: {
-        category: 'Drawer.Body'
-      }
+      table: { category: 'Drawer.Body' }
     },
-
     header: {
       name: 'children',
-
-      table: {
-        category: 'Drawer.Header'
-      }
+      table: { category: 'Drawer.Header' }
     },
-
     tag: {
       control: 'text',
-
-      table: {
-        category: 'Drawer.Header'
-      }
+      table: { category: 'Drawer.Header' }
     },
-
     closeAriaLabel: {
       name: 'aria-label',
-
-      table: {
-        category: 'Drawer.Close'
-      }
+      table: { category: 'Drawer.Close' }
     },
-
-    dialogAriaLabel: {
-      name: 'aria-label'
-    }
+    dialogAriaLabel: { name: 'aria-label' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

@@ -13,7 +13,6 @@ import { AlertStory } from './stories/AlertStory';
 export default {
   title: 'Packages/Notifications/Alert',
   component: Alert,
-
   subcomponents: {
     'Alert.Close': Alert.Close,
     'Alert.Paragraph': Alert.Paragraph,
@@ -32,49 +31,28 @@ export const Example: StoryObj<typeof AlertStory> = {
     hasParagraph: false,
     'aria-label': 'Close'
   },
-
   argTypes: {
     title: {
       name: 'children',
-
-      table: {
-        category: 'Alert.Title'
-      }
+      table: { category: 'Alert.Title' }
     },
-
     isRegular: {
-      control: {
-        type: 'boolean'
-      },
-
-      table: {
-        category: 'Alert.Title'
-      }
+      control: { type: 'boolean' },
+      table: { category: 'Alert.Title' }
     },
-
     hasClose: {
       name: 'Alert.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasParagraph: {
       name: 'Alert.Paragraph',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
 
     'aria-label': {
-      table: {
-        category: 'Alert.Close'
-      }
+      table: { category: 'Alert.Close' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

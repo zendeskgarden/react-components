@@ -19,41 +19,26 @@ export default {
 export const Example: StoryObj<typeof SkeletonStory> = {
   render: args => <SkeletonStory {...args} />,
   name: 'Skeleton',
-  args: {
-    count: 1
-  },
-
+  args: { count: 1 },
   argTypes: {
     backgroundColor: {
       control: 'color',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     count: {
       control: {
         type: 'range',
         min: 1,
         max: 20
       },
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     typescale: {
       control: 'radio',
       options: TYPE_SCALE_OPTIONS,
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

@@ -16,25 +16,13 @@ type Story = StoryObj<typeof TabsStory>;
 export default {
   title: 'Packages/Tabs/Tabs',
   component: Tabs,
-
   subcomponents: {
     'Tabs.Tab': Tabs.Tab,
     'Tabs.TabList': Tabs.TabList,
     'Tabs.TabPanel': Tabs.TabPanel
   },
-
-  args: {
-    tabs: TABS
-  },
-
-  argTypes: {
-    tabs: {
-      table: {
-        category: 'Story'
-      }
-    }
-  },
-
+  args: { tabs: TABS },
+  argTypes: { tabs: { table: { category: 'Story' } } },
   parameters: {
     design: {
       allowFullscreen: true,
@@ -47,11 +35,8 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <TabsStory {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    selectedItem: {
-      control: false
-    }
+    selectedItem: { control: false }
   }
 };
 
@@ -67,6 +52,5 @@ export const Controlled: Story = {
 
     return <TabsStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled'
 };

@@ -18,17 +18,10 @@ export default {
 export const Example: StoryObj<typeof Dots> = {
   render: args => <Dots {...args} />,
   name: 'Dots',
-
   argTypes: {
-    color: {
-      control: 'color'
-    },
-
-    size: {
-      control: 'text'
-    }
+    color: { control: 'color' },
+    size: { control: 'text' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

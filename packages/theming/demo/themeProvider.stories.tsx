@@ -13,7 +13,6 @@ import { PaletteStory } from './stories/PaletteStory';
 export default {
   title: 'Packages/Theming/ThemeProvider',
   component: ThemeProvider,
-
   subcomponents: {
     DEFAULT_THEME,
     PALETTE
@@ -23,25 +22,16 @@ export default {
 export const Example: StoryObj<typeof ThemeProvider> = {
   render: args => <ThemeProvider {...args} />,
   name: 'ThemeProvider',
-  args: {
-    theme: DEFAULT_THEME
-  }
+  args: { theme: DEFAULT_THEME }
 };
 
 export const Palette: StoryObj<typeof PaletteStory> = {
   render: args => <PaletteStory {...args} />,
   name: 'PALETTE',
-
-  args: {
-    palette: PALETTE
-  },
-
+  args: { palette: PALETTE },
   argTypes: {
     palette: {
-      control: {
-        type: 'object'
-      },
-
+      control: { type: 'object' },
       name: 'PALETTE'
     }
   }

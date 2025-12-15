@@ -22,18 +22,15 @@ export const Nested: StoryObj<typeof NestedStory> = {
 export const Portal: StoryObj<typeof PortalStory> = {
   render: args => <PortalStory {...args} />,
   name: 'Portal',
-
   args: {
     listboxAppendToNode: false,
     menuAppendToNode: false
   },
-
   argTypes: {
     listboxAppendToNode: {
       control: 'boolean',
       name: 'Combobox listboxAppendToNode'
     },
-
     menuAppendToNode: {
       control: 'boolean',
       name: 'Menu appendToNode'

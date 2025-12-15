@@ -13,7 +13,6 @@ import { DropzoneStory } from './stories/DropzoneStory';
 export default {
   title: 'Packages/Draggable/Dropzone',
   component: Dropzone,
-
   subcomponents: {
     'Dropzone.Icon': Dropzone.Icon,
     'Dropzone.Message': Dropzone.Message
@@ -27,31 +26,17 @@ export const Example: StoryObj<typeof DropzoneStory> = {
     hasIcon: true,
     children: 'Message'
   },
-
   argTypes: {
-    tag: {
-      control: {
-        type: 'text'
-      }
-    },
-
+    tag: { control: { type: 'text' } },
     hasIcon: {
       name: 'Dropzone.Icon',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     children: {
       name: 'Dropzone.Message',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

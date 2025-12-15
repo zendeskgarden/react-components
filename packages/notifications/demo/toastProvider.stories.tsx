@@ -24,37 +24,15 @@ export const Example: StoryObj<typeof ToastProviderStory> = {
     autoDismiss: true,
     milliseconds: 5000
   },
-
   argTypes: {
-    placementProps: {
-      control: 'object'
-    },
-
-    children: {
-      table: {
-        category: 'Toast'
-      }
-    },
-
-    autoDismiss: {
-      table: {
-        category: 'Toast'
-      }
-    },
-
-    milliseconds: {
-      table: {
-        category: 'Toast'
-      }
-    },
-
+    placementProps: { control: 'object' },
+    children: { table: { category: 'Toast' } },
+    autoDismiss: { table: { category: 'Toast' } },
+    milliseconds: { table: { category: 'Toast' } },
     placement: {
       control: 'radio',
       options: TOAST_PLACEMENT_OPTIONS,
-
-      table: {
-        category: 'Toast'
-      }
+      table: { category: 'Toast' }
     }
   }
 };

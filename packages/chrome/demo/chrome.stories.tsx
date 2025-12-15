@@ -35,7 +35,6 @@ import {
 export default {
   title: 'Packages/Chrome/Chrome',
   component: Chrome,
-
   subcomponents: {
     Body,
     Content,
@@ -61,10 +60,7 @@ export const Example: StoryObj<typeof ChromeStory> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleSheetClick = () =>
-      updateArgs({
-        isSheetOpen: false
-      });
+    const handleSheetClick = () => updateArgs({ isSheetOpen: false });
 
     return <ChromeStory {...args} onSheetClick={handleSheetClick} />;
   },
@@ -89,168 +85,85 @@ export const Example: StoryObj<typeof ChromeStory> = {
     sheetTitle: SHEET_TITLE,
     sheetDescription: SHEET_DESCRIPTION
   },
-
   argTypes: {
-    hue: {
-      control: 'color'
-    },
-
-    isFluid: {
-      control: 'boolean'
-    },
-
+    hue: { control: 'color' },
+    isFluid: { control: 'boolean' },
     skipNav: {
       name: 'children',
-
-      table: {
-        category: 'SkipNav'
-      }
+      table: { category: 'SkipNav' }
     },
-
     isExpanded: {
       name: 'Nav isExpanded',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     isWrapped: {
       name: 'Nav isWrapped',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasNav: {
       name: 'Nav',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     navItems: {
       name: 'Nav.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasLogo: {
       name: 'Nav hasLogo',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasBrandmark: {
       name: 'Nav hasBrandmark',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasHeader: {
       name: 'Header',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     headerItems: {
       name: 'Header.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasFooter: {
       name: 'Footer',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     footerItems: {
       name: 'Footer.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     product: {
       name: 'Nav product',
-
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: PRODUCTS,
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     isSheetOpen: {
       name: 'isOpen',
-
-      table: {
-        category: 'Sheet'
-      }
+      table: { category: 'Sheet' }
     },
-
     isSheetCompact: {
       name: 'Sheet.Footer isCompact',
       control: 'boolean',
-
-      table: {
-        category: 'Sheet'
-      }
+      table: { category: 'Sheet' }
     },
-
     sheetBody: {
       name: 'Sheet.Body',
-
-      table: {
-        category: 'Sheet'
-      }
+      table: { category: 'Sheet' }
     },
-
     sheetTitle: {
       name: 'Sheet.Title',
-
-      table: {
-        category: 'Sheet'
-      }
+      table: { category: 'Sheet' }
     },
-
     sheetDescription: {
       name: 'Sheet.Description',
-
-      table: {
-        category: 'Sheet'
-      }
+      table: { category: 'Sheet' }
     },
-
     main: {
       name: 'children',
-
-      table: {
-        category: 'Main'
-      }
+      table: { category: 'Main' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

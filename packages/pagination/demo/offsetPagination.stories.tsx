@@ -42,9 +42,7 @@ export const Example: StoryObj<IArgs> = {
 
     return <OffsetPagination {...args} labels={labels} onChange={handleChange} />;
   },
-
   name: 'OffsetPagination',
-
   args: {
     currentPage: 1,
     totalPages: 11,
@@ -54,33 +52,12 @@ export const Example: StoryObj<IArgs> = {
     next: 'Next page',
     previous: 'Previous page'
   },
-
   argTypes: {
-    gap: {
-      table: {
-        category: 'Label'
-      }
-    },
-
-    page: {
-      table: {
-        category: 'Label'
-      }
-    },
-
-    next: {
-      table: {
-        category: 'Label'
-      }
-    },
-
-    previous: {
-      table: {
-        category: 'Label'
-      }
-    }
+    gap: { table: { category: 'Label' } },
+    page: { table: { category: 'Label' } },
+    next: { table: { category: 'Label' } },
+    previous: { table: { category: 'Label' } }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

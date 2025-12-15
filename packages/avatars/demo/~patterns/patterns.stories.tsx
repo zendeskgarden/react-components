@@ -20,59 +20,33 @@ export default {
 export const Chrome: StoryObj<typeof ChromeStory> = {
   render: args => <ChromeStory {...args} />,
   name: 'Chrome',
-
   parameters: {
     controls: {
       include: ['badge', 'status']
     }
   },
-
-  argTypes: {
-    badge: {
-      control: 'boolean'
-    }
-  }
+  argTypes: { badge: { control: 'boolean' } }
 };
 
 export const Menu: StoryObj<typeof MenuStory> = {
   render: args => <MenuStory {...args} />,
   name: 'Menu',
-
   parameters: {
-    controls: {
-      include: ['isCompact']
-    }
+    controls: { include: ['isCompact'] }
   },
-
-  args: {
-    isCompact: false
-  },
-
-  argTypes: {
-    isCompact: {
-      control: 'boolean'
-    }
-  }
+  args: { isCompact: false },
+  argTypes: { isCompact: { control: 'boolean' } }
 };
 
 export const StatusMenu: StoryObj<typeof StatusMenuStory> = {
   render: args => <StatusMenuStory {...args} />,
   name: 'StatusMenu',
-
   parameters: {
-    controls: {
-      include: ['isCompact']
-    }
+    controls: { include: ['isCompact'] }
   },
-
   args: {
     isCompact: false,
     type: 'available'
   },
-
-  argTypes: {
-    isCompact: {
-      control: 'boolean'
-    }
-  }
+  argTypes: { isCompact: { control: 'boolean' } }
 };

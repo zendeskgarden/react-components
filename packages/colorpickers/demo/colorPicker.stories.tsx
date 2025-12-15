@@ -15,7 +15,6 @@ import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 export default {
   title: 'Packages/Colorpickers/ColorPicker',
   component: ColorPicker,
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -28,11 +27,8 @@ export default {
 export const Uncontrolled: StoryObj<typeof ColorPicker> = {
   render: args => <ColorPicker {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    color: {
-      control: false
-    }
+    color: { control: false }
   }
 };
 
@@ -48,16 +44,9 @@ export const Controlled: StoryObj<typeof ColorPicker> = {
 
     return <ColorPicker {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    color: PALETTE.blue[600]
-  },
-
+  args: { color: PALETTE.blue[600] },
   argTypes: {
-    defaultColor: {
-      control: false
-    }
+    defaultColor: { control: false }
   }
 };

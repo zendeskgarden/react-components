@@ -18,21 +18,14 @@ export default {
 export const Example: StoryObj<typeof MenuStory> = {
   render: args => <MenuStory {...args} />,
   name: 'Menu',
-
   parameters: {
     controls: {
       include: ['appendToNode', 'placement']
     }
   },
-
   args: {
     appendToNode: false,
     placement: 'bottom'
   },
-
-  argTypes: {
-    appendToNode: {
-      control: 'boolean'
-    }
-  }
+  argTypes: { appendToNode: { control: 'boolean' } }
 };

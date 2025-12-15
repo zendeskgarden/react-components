@@ -21,23 +21,13 @@ export const Example: StoryObj<typeof ChevronButton> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleClick = () =>
-      updateArgs({
-        isRotated: !args.isRotated
-      });
+    const handleClick = () => updateArgs({ isRotated: !args.isRotated });
 
     return <ChevronButton {...args} onClick={handleClick} />;
   },
-
   name: 'ChevronButton',
-
   args: {
     'aria-label': 'Label'
   },
-
-  argTypes: {
-    disabled: {
-      control: 'boolean'
-    }
-  }
+  argTypes: { disabled: { control: 'boolean' } }
 };

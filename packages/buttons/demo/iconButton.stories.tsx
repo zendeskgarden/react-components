@@ -22,21 +22,13 @@ export const Example: StoryObj<typeof IconButton> = {
       <Icon />
     </IconButton>
   ),
-
   name: 'IconButton',
-
   args: {
     'aria-label': 'Label',
     isBasic: true,
     isPill: true
   },
-
-  argTypes: {
-    disabled: {
-      control: 'boolean'
-    }
-  },
-
+  argTypes: { disabled: { control: 'boolean' } },
   parameters: {
     design: {
       allowFullscreen: true,

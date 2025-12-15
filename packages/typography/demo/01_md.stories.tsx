@@ -18,17 +18,8 @@ export default {
 export const Example: StoryObj<typeof TypescaleStory> = {
   render: args => <TypescaleStory {...args} size="medium" />,
   name: 'MD',
-
-  args: {
-    children: 'Text'
-  },
-
-  argTypes: {
-    tag: {
-      control: 'text'
-    }
-  },
-
+  args: { children: 'Text' },
+  argTypes: { tag: { control: 'text' } },
   parameters: {
     design: {
       allowFullscreen: true,

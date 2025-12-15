@@ -16,24 +16,18 @@ type Story = StoryObj<typeof RadioStory>;
 export default {
   title: 'Packages/Forms/Radio',
   component: Radio,
-
   subcomponents: {
     ...fieldSubcomponents
   },
-
   args: {
     ...commonArgs,
     hasHint: false
   },
-
   argTypes: {
-    disabled: {
-      control: 'boolean'
-    },
+    disabled: { control: 'boolean' },
 
     ...commonArgTypes
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -53,17 +47,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = () =>
-      updateArgs({
-        checked: true
-      });
+    const handleChange = () => updateArgs({ checked: true });
 
     return <RadioStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    checked: false
-  }
+  args: { checked: false }
 };

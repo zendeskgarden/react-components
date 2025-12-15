@@ -17,33 +17,23 @@ type Story = StoryObj<typeof MenuStory>;
 export default {
   title: 'Packages/Dropdowns/Menu',
   component: Menu,
-
   subcomponents: {
     Item,
     'Item.Meta': Item.Meta,
     Separator,
     ItemGroup
   },
-
   argTypes: {
-    appendToNode: {
-      control: false
-    },
-
+    appendToNode: { control: false },
     button: {
       control: 'radio',
       options: BUTTON_TYPE
     },
-
     label: {
       name: 'Button label',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   args: {
     button: BUTTON_TYPE[0],
     items: ITEMS,
@@ -57,19 +47,10 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <MenuStory {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    isExpanded: {
-      control: false
-    },
-
-    focusedValue: {
-      control: false
-    },
-
-    selectedItems: {
-      control: false
-    }
+    isExpanded: { control: false },
+    focusedValue: { control: false },
+    selectedItems: { control: false }
   }
 };
 
@@ -87,29 +68,15 @@ export const Controlled: Story = {
 
     return <MenuStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
   argTypes: {
-    defaultExpanded: {
-      control: false
-    },
-
-    defaultFocusedValue: {
-      control: false
-    },
-
-    focusedValue: {
-      control: {
-        type: 'text'
-      }
-    }
+    defaultExpanded: { control: false },
+    defaultFocusedValue: { control: false },
+    focusedValue: { control: { type: 'text' } }
   },
-
   args: {
     isExpanded: false,
     focusedValue: null,
-
     selectedItems: [
       {
         value: 'aster',

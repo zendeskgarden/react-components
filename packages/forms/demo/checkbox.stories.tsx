@@ -16,24 +16,18 @@ type Story = StoryObj<typeof CheckboxStory>;
 export default {
   title: 'Packages/Forms/Checkbox',
   component: Checkbox,
-
   subcomponents: {
     ...fieldSubcomponents
   },
-
   args: {
     ...commonArgs,
     hasHint: false
   },
-
   argTypes: {
-    disabled: {
-      control: 'boolean'
-    },
+    disabled: { control: 'boolean' },
 
     ...commonArgTypes
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -53,17 +47,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = () =>
-      updateArgs({
-        checked: !args.checked
-      });
+    const handleChange = () => updateArgs({ checked: !args.checked });
 
     return <CheckboxStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    checked: false
-  }
+  args: { checked: false }
 };

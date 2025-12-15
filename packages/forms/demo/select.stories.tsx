@@ -17,11 +17,9 @@ type Story = StoryObj<typeof SelectStory>;
 export default {
   title: 'Packages/Forms/Select',
   component: Select,
-
   subcomponents: {
     ...fieldSubcomponents
   },
-
   args: {
     options: OPTIONS,
     ...commonArgs
@@ -33,14 +31,8 @@ export default {
       ...commonArgTypes,
       validation: {}
     },
-
-    options: {
-      name: 'children'
-    },
-
-    disabled: {
-      control: 'boolean'
-    }
+    options: { name: 'children' },
+    disabled: { control: 'boolean' }
   }
 };
 
@@ -54,17 +46,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: any) =>
-      updateArgs({
-        value: event.target.value
-      });
+    const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <SelectStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    value: OPTIONS.length - 1
-  }
+  args: { value: OPTIONS.length - 1 }
 };

@@ -14,7 +14,6 @@ import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common
 export default {
   title: 'Packages/Forms/FileUpload',
   component: FileUpload,
-
   subcomponents: {
     ...fieldSubcomponents
   }
@@ -27,15 +26,11 @@ export const Example: StoryObj<typeof FileUploadStory> = {
     children: 'Drag files here or click to upload',
     ...commonArgs
   },
-
   argTypes: {
-    tabIndex: {
-      control: 'number'
-    },
+    tabIndex: { control: 'number' },
 
     ...commonArgTypes
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

@@ -14,7 +14,6 @@ import { FILELIST_ITEMS as ITEMS } from './stories/data';
 export default {
   title: 'Packages/Forms/FileList',
   component: FileList,
-
   subcomponents: {
     'FileList.Item': FileList.Item,
     File
@@ -24,24 +23,14 @@ export default {
 export const Example: StoryObj<typeof FileListStory> = {
   render: args => <FileListStory {...args} />,
   name: 'FileList',
-  args: {
-    items: ITEMS
-  },
-
+  args: { items: ITEMS },
   argTypes: {
-    items: {
-      name: 'children'
-    },
-
+    items: { name: 'children' },
     isCompact: {
       control: 'boolean',
-
-      table: {
-        category: 'File'
-      }
+      table: { category: 'File' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

@@ -16,30 +16,23 @@ type Story = StoryObj<typeof PaneProviderStory>;
 export default {
   title: 'Packages/Grid/PaneProvider',
   component: PaneProvider,
-
   subcomponents: {
     Pane,
     'Pane.Content': Pane.Content,
     'Pane.Splitter': Pane.Splitter,
     'Pane.SplitterButton': Pane.SplitterButton
   },
-
   args: {
     panes: PANES,
     totalPanesWidth: 600,
     totalPanesHeight: 600
   },
-
   argTypes: {
     panes: {
       name: 'Pane[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -52,27 +45,19 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <PaneProviderStory {...args} />,
   name: 'Uncontrolled',
-
   args: {
     defaultColumnValues: {
       'column-a': 1,
       'column-b': 1
     },
-
     defaultRowValues: {
       'row-1': 1,
       'row-2': 1
     }
   },
-
   argTypes: {
-    columnValues: {
-      control: false
-    },
-
-    rowValues: {
-      control: false
-    }
+    columnValues: { control: false },
+    rowValues: { control: false }
   }
 };
 
@@ -89,28 +74,19 @@ export const Controlled: Story = {
 
     return <PaneProviderStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
   args: {
     columnValues: {
       'column-a': 1,
       'column-b': 1
     },
-
     rowValues: {
       'row-1': 1,
       'row-2': 1
     }
   },
-
   argTypes: {
-    defaultColumnValues: {
-      control: false
-    },
-
-    defaultRowValues: {
-      control: false
-    }
+    defaultColumnValues: { control: false },
+    defaultRowValues: { control: false }
   }
 };

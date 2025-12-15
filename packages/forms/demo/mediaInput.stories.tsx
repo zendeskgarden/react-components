@@ -16,11 +16,9 @@ type Story = StoryObj<typeof MediaInputStory>;
 export default {
   title: 'Packages/Forms/MediaInput',
   component: MediaInput,
-
   subcomponents: {
     ...fieldSubcomponents
   },
-
   args: {
     start: true,
     end: true,
@@ -33,31 +31,14 @@ export default {
       ...commonArgTypes,
       validation: {}
     },
-
-    disabled: {
-      control: 'boolean'
-    },
-
-    readOnly: {
-      control: 'boolean'
-    },
-
-    start: {
-      control: 'boolean'
-    },
-
-    end: {
-      control: 'boolean'
-    },
-
-    placeholder: {
-      control: 'text'
-    },
-
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    start: { control: 'boolean' },
+    end: { control: 'boolean' },
+    placeholder: { control: 'text' },
     type: {
       control: {
         type: 'select',
-
         options: [
           'date',
           'datetime-local',
@@ -75,7 +56,6 @@ export default {
       }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -88,10 +68,7 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <MediaInputStory {...args} />,
   name: 'Uncontrolled',
-
-  args: {
-    placeholder: 'Placeholder'
-  }
+  args: { placeholder: 'Placeholder' }
 };
 
 export const Controlled: Story = {
@@ -99,17 +76,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: any) =>
-      updateArgs({
-        value: event.target.value
-      });
+    const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <MediaInputStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    value: 'Value'
-  }
+  args: { value: 'Value' }
 };

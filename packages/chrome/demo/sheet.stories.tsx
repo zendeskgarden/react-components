@@ -20,7 +20,6 @@ import {
 export default {
   title: 'Packages/Chrome/Sheet',
   component: Sheet,
-
   subcomponents: {
     'Sheet.Body': Sheet.Body,
     'Sheet.Close': Sheet.Close,
@@ -37,15 +36,9 @@ export const Example: StoryObj<typeof SheetStory> = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = () =>
-      updateArgs({
-        isOpen: !args.isOpen
-      });
+    const handleChange = () => updateArgs({ isOpen: !args.isOpen });
 
-    const handleClick = () =>
-      updateArgs({
-        isOpen: false
-      });
+    const handleClick = () => updateArgs({ isOpen: false });
 
     return <SheetStory {...args} onChange={handleChange} onClick={handleClick} />;
   },
@@ -64,105 +57,56 @@ export const Example: StoryObj<typeof SheetStory> = {
     description: DESCRIPTION,
     footerItems: FOOTER_ITEMS
   },
-
   argTypes: {
     debug: {
       name: 'Grid debug',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasBody: {
       name: 'Sheet.Body',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasClose: {
       name: 'Sheet.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasFooter: {
       name: 'Sheet.Footer',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasHeader: {
       name: 'Sheet.Header',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     footerItems: {
       name: 'Sheet.FooterItem[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     body: {
       name: 'children',
-
-      table: {
-        category: 'Sheet.Body'
-      }
+      table: { category: 'Sheet.Body' }
     },
-
     hasTitle: {
       name: 'Sheet.Title',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     title: {
       name: 'children',
-
-      table: {
-        category: 'Sheet.Title'
-      }
+      table: { category: 'Sheet.Title' }
     },
-
     hasDescription: {
       name: 'Sheet.Description',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     description: {
       name: 'children',
-
-      table: {
-        category: 'Sheet.Description'
-      }
+      table: { category: 'Sheet.Description' }
     },
-
     isCompact: {
       control: 'boolean',
-
-      table: {
-        category: 'Sheet.Footer'
-      }
+      table: { category: 'Sheet.Footer' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

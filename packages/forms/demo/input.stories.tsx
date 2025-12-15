@@ -16,11 +16,9 @@ type Story = StoryObj<typeof InputStory>;
 export default {
   title: 'Packages/Forms/Input',
   component: Input,
-
   subcomponents: {
     ...fieldSubcomponents
   },
-
   args: {
     ...commonArgs
   },
@@ -31,24 +29,11 @@ export default {
       ...commonArgTypes,
       validation: {}
     },
-
-    disabled: {
-      control: 'boolean'
-    },
-
-    readOnly: {
-      control: 'boolean'
-    },
-
-    placeholder: {
-      control: 'text'
-    },
-
+    disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
+    placeholder: { control: 'text' },
     type: {
-      control: {
-        type: 'select'
-      },
-
+      control: { type: 'select' },
       options: [
         'date',
         'datetime-local',
@@ -65,7 +50,6 @@ export default {
       ]
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -78,10 +62,7 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <InputStory {...args} />,
   name: 'Uncontrolled',
-
-  args: {
-    placeholder: 'Placeholder'
-  }
+  args: { placeholder: 'Placeholder' }
 };
 
 export const Controlled: Story = {
@@ -89,17 +70,10 @@ export const Controlled: Story = {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: any) =>
-      updateArgs({
-        value: event.target.value
-      });
+    const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <InputStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    value: 'Value'
-  }
+  args: { value: 'Value' }
 };

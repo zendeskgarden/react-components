@@ -18,17 +18,10 @@ export default {
 export const Example: StoryObj<typeof Spinner> = {
   render: args => <Spinner {...args} />,
   name: 'Spinner',
-
   argTypes: {
-    color: {
-      control: 'color'
-    },
-
-    size: {
-      control: 'text'
-    }
+    color: { control: 'color' },
+    size: { control: 'text' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

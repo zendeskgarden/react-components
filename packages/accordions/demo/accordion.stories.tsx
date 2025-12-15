@@ -16,39 +16,28 @@ type Story = StoryObj<typeof AccordionStory>;
 export default {
   title: 'Packages/Accordions/Accordion',
   component: Accordion,
-
   subcomponents: {
     'Accordion.Header': Accordion.Header,
     'Accordion.Label': Accordion.Label,
     'Accordion.Panel': Accordion.Panel,
     'Accordion.Section': Accordion.Section
   },
-
   args: {
     isAnimated: true,
     level: 1,
     hasIconButtons: false,
     sections: SECTIONS
   },
-
   argTypes: {
     hasIconButtons: {
       name: 'Accordion.Header icon buttons',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     sections: {
       name: 'Accordion.Section[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -61,15 +50,9 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <AccordionStory {...args} />,
   name: 'Uncontrolled',
-
-  args: {
-    isCollapsible: true
-  },
-
+  args: { isCollapsible: true },
   argTypes: {
-    expandedSections: {
-      control: false
-    }
+    expandedSections: { control: false }
   }
 };
 
@@ -90,24 +73,11 @@ export const Controlled: Story = {
 
     return <AccordionStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
-  args: {
-    expandedSections: [2]
-  },
-
+  args: { expandedSections: [2] },
   argTypes: {
-    defaultExpandedSections: {
-      control: false
-    },
-
-    isCollapsible: {
-      control: false
-    },
-
-    isExpandable: {
-      control: false
-    }
+    defaultExpandedSections: { control: false },
+    isCollapsible: { control: false },
+    isExpandable: { control: false }
   }
 };

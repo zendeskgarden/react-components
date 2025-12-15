@@ -16,14 +16,6 @@ export default {
 export const Example: StoryObj<typeof CalendarStory> = {
   render: args => <CalendarStory {...args} />,
   name: 'Calendar',
-
-  args: {
-    appendToNode: false
-  },
-
-  argTypes: {
-    appendToNode: {
-      control: 'boolean'
-    }
-  }
+  args: { appendToNode: false },
+  argTypes: { appendToNode: { control: 'boolean' } }
 };

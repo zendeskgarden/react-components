@@ -16,7 +16,6 @@ type Story = StoryObj<typeof ComboboxStory>;
 export default {
   title: 'Packages/Dropdowns/Combobox',
   component: Combobox,
-
   subcomponents: {
     Field,
     'Field.Hint': Field.Hint,
@@ -28,7 +27,6 @@ export default {
     Tag,
     'Tag.Avatar': Tag.Avatar
   },
-
   args: {
     label: 'Label',
     isLabelRegular: false,
@@ -45,71 +43,33 @@ export default {
     listboxZIndex: 1000,
     options: OPTIONS
   },
-
   argTypes: {
     label: {
       name: 'children',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     hint: {
       name: 'children',
-
-      table: {
-        category: 'Hint'
-      }
+      table: { category: 'Hint' }
     },
-
-    startIcon: {
-      control: 'boolean'
-    },
-
-    renderValue: {
-      control: 'boolean'
-    },
-
-    endIcon: {
-      control: 'boolean'
-    },
-
-    appendListboxToNode: {
-      control: false
-    },
-
+    startIcon: { control: 'boolean' },
+    renderValue: { control: 'boolean' },
+    endIcon: { control: 'boolean' },
+    appendListboxToNode: { control: false },
     message: {
       name: 'children',
-
-      table: {
-        category: 'Message'
-      }
+      table: { category: 'Message' }
     },
-
-    validationLabel: {
-      table: {
-        category: 'Message'
-      }
-    },
-
+    validationLabel: { table: { category: 'Message' } },
     isLabelRegular: {
       name: 'isRegular',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     },
-
     isLabelHidden: {
       name: 'hidden',
-
-      table: {
-        category: 'Label'
-      }
+      table: { category: 'Label' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -122,23 +82,11 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <ComboboxStory {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    activeIndex: {
-      control: false
-    },
-
-    inputValue: {
-      control: false
-    },
-
-    isExpanded: {
-      control: false
-    },
-
-    selectionValue: {
-      control: false
-    }
+    activeIndex: { control: false },
+    inputValue: { control: false },
+    isExpanded: { control: false },
+    selectionValue: { control: false }
   }
 };
 
@@ -156,23 +104,15 @@ export const Controlled: Story = {
 
     return <ComboboxStory {...args} onChange={handleChange} />;
   },
-
   name: 'Controlled',
-
   args: {
     isExpanded: false,
     inputValue: '',
     activeIndex: -1,
     selectionValue: null
   },
-
   argTypes: {
-    defaultExpanded: {
-      control: false
-    },
-
-    selectionValue: {
-      control: false
-    }
+    defaultExpanded: { control: false },
+    selectionValue: { control: false }
   }
 };

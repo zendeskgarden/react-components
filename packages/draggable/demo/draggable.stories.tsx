@@ -13,7 +13,6 @@ import { DraggableStory } from './stories/DraggableStory';
 export default {
   title: 'Packages/Draggable/Draggable',
   component: Draggable,
-
   subcomponents: {
     'Draggable.Content': Draggable.Content,
     'Draggable.Grip': Draggable.Grip
@@ -27,31 +26,17 @@ export const Example: StoryObj<typeof DraggableStory> = {
     hasGrip: true,
     children: 'Content'
   },
-
   argTypes: {
     children: {
       name: 'Draggable.Content',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasGrip: {
       name: 'Draggable.Grip',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
-    tag: {
-      control: {
-        type: 'text'
-      }
-    }
+    tag: { control: { type: 'text' } }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

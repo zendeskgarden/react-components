@@ -18,7 +18,6 @@ export default {
 export const Example: StoryObj<typeof MenuStory> = {
   render: args => <MenuStory {...args} />,
   name: 'Menu',
-
   args: {
     items: [
       {
@@ -46,28 +45,19 @@ export const Example: StoryObj<typeof MenuStory> = {
         value: 'item-6'
       }
     ],
-
     appendToNode: 'undefined'
   },
-
   argTypes: {
     items: {
       name: 'Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     appendToNode: {
       control: {
         type: 'select',
         options: ['undefined', 'portal']
       },
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   }
 };

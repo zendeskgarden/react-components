@@ -19,10 +19,7 @@ export default {
 export const Example: StoryObj<typeof BlockquoteStory> = {
   render: args => <BlockquoteStory {...args} />,
   name: 'Blockquote',
-  args: {
-    children: CHILDREN
-  },
-
+  args: { children: CHILDREN },
   parameters: {
     design: {
       allowFullscreen: true,

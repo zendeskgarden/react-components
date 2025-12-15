@@ -35,80 +35,36 @@ export const Example: StoryObj<typeof DatePickerStory> = {
     isAnimated: true,
     message: 'Message'
   },
-
   argTypes: {
-    appendToNode: {
-      control: false
-    },
-
-    value: {
-      control: 'date'
-    },
-
-    minValue: {
-      control: 'date'
-    },
-
-    maxValue: {
-      control: 'date'
-    },
-
+    appendToNode: { control: false },
+    value: { control: 'date' },
+    minValue: { control: 'date' },
+    maxValue: { control: 'date' },
     dateStyle: {
       control: 'radio',
       options: DATE_STYLE_OPTIONS,
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasMessage: {
       name: 'Message',
-
-      control: {
-        type: 'boolean'
-      },
-
-      table: {
-        category: 'Story'
-      }
+      control: { type: 'boolean' },
+      table: { category: 'Story' }
     },
-
     message: {
       name: 'children',
-
-      control: {
-        type: 'text'
-      },
-
-      table: {
-        category: 'Message'
-      }
+      control: { type: 'text' },
+      table: { category: 'Message' }
     },
-
     validation: {
       options: ['success', 'warning', 'error'],
-
-      control: {
-        type: 'radio'
-      },
-
-      table: {
-        category: 'Input'
-      }
+      control: { type: 'radio' },
+      table: { category: 'Input' }
     },
-
     validationLabel: {
-      control: {
-        type: 'text'
-      },
-
-      table: {
-        category: 'Message'
-      }
+      control: { type: 'text' },
+      table: { category: 'Message' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

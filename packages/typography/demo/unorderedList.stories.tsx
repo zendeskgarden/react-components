@@ -14,7 +14,6 @@ import { LIST_ITEMS as ITEMS } from './stories/data';
 export default {
   title: 'Packages/Typography/Lists/UnorderedList',
   component: UnorderedList,
-
   subcomponents: {
     'UnorderedList.Item': UnorderedList.Item
   }
@@ -23,17 +22,11 @@ export default {
 export const Example: StoryObj<typeof UnorderedListStory> = {
   render: args => <UnorderedListStory {...args} />,
   name: 'UnorderedList',
-  args: {
-    items: ITEMS
-  },
-
+  args: { items: ITEMS },
   argTypes: {
     items: {
       name: 'UnorderedList.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   }
 };

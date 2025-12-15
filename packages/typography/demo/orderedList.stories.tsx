@@ -14,7 +14,6 @@ import { LIST_ITEMS as ITEMS } from './stories/data';
 export default {
   title: 'Packages/Typography/Lists/OrderedList',
   component: OrderedList,
-
   subcomponents: {
     'OrderedList.Item': OrderedList.Item
   }
@@ -23,17 +22,11 @@ export default {
 export const Example: StoryObj<typeof OrderedListStory> = {
   render: args => <OrderedListStory {...args} />,
   name: 'OrderedList',
-  args: {
-    items: ITEMS
-  },
-
+  args: { items: ITEMS },
   argTypes: {
     items: {
       name: 'OrderedList.Item[]',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     }
   }
 };

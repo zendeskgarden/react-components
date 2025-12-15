@@ -13,7 +13,6 @@ import { GlobalAlertStory } from './stories/GlobalAlertStory';
 export default {
   title: 'Packages/Notifications/GlobalAlert',
   component: GlobalAlert,
-
   subcomponents: {
     'GlobalAlert.Button': GlobalAlert.Button,
     'GlobalAlert.Close': GlobalAlert.Close,
@@ -34,88 +33,51 @@ export const Example: StoryObj<typeof GlobalAlertStory> = {
     title: 'Title',
     hasClose: true
   },
-
   argTypes: {
     hasClose: {
       name: 'GlobalAlert.Close',
       type: 'boolean',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     button: {
       name: 'children',
       type: 'string',
-
-      table: {
-        category: 'GlobalAlert.Button'
-      }
+      table: { category: 'GlobalAlert.Button' }
     },
-
     isBasic: {
       type: 'boolean',
-
-      table: {
-        category: 'GlobalAlert.Button'
-      }
+      table: { category: 'GlobalAlert.Button' }
     },
-
     ariaLabel: {
       name: 'aria-label',
       type: 'string',
-
-      table: {
-        category: 'GlobalAlert.Close'
-      }
+      table: { category: 'GlobalAlert.Close' }
     },
-
     content: {
       name: 'text',
       type: 'string',
-
-      table: {
-        category: 'GlobalAlert.Content'
-      }
+      table: { category: 'GlobalAlert.Content' }
     },
-
     anchor: {
       name: 'Anchor',
       type: 'string',
-
-      table: {
-        category: 'GlobalAlert.Content'
-      }
+      table: { category: 'GlobalAlert.Content' }
     },
-
     isExternal: {
       name: 'Anchor isExternal',
       type: 'boolean',
-
-      table: {
-        category: 'GlobalAlert.Content'
-      }
+      table: { category: 'GlobalAlert.Content' }
     },
-
     title: {
       name: 'children',
       type: 'string',
-
-      table: {
-        category: 'GlobalAlert.Title'
-      }
+      table: { category: 'GlobalAlert.Title' }
     },
-
     isRegular: {
       type: 'boolean',
-
-      table: {
-        category: 'GlobalAlert.Title'
-      }
+      table: { category: 'GlobalAlert.Title' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

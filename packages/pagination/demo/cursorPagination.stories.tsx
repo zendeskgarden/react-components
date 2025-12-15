@@ -14,7 +14,6 @@ import { CursorPaginationStory } from './stories/CursorPaginationStory';
 export default {
   title: 'Packages/Pagination/CursorPagination',
   component: CursorPagination,
-
   subcomponents: {
     'CursorPagination.First': CursorPagination.First,
     'CursorPagination.Last': CursorPagination.Last,
@@ -44,53 +43,26 @@ export const Example: StoryObj<typeof CursorPaginationStory> = {
     next: 'Next',
     last: 'Last'
   },
-
   argTypes: {
-    currentPage: {
-      table: {
-        category: 'Story'
-      }
-    },
-
-    totalPages: {
-      table: {
-        category: 'Story'
-      }
-    },
-
+    currentPage: { table: { category: 'Story' } },
+    totalPages: { table: { category: 'Story' } },
     first: {
       name: 'children',
-
-      table: {
-        category: 'CursorPagination.First'
-      }
+      table: { category: 'CursorPagination.First' }
     },
-
     previous: {
       name: 'children',
-
-      table: {
-        category: 'CursorPagination.Previous'
-      }
+      table: { category: 'CursorPagination.Previous' }
     },
-
     next: {
       name: 'children',
-
-      table: {
-        category: 'CursorPagination.Next'
-      }
+      table: { category: 'CursorPagination.Next' }
     },
-
     last: {
       name: 'children',
-
-      table: {
-        category: 'CursorPagination.Last'
-      }
+      table: { category: 'CursorPagination.Last' }
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

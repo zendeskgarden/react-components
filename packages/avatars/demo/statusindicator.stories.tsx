@@ -19,17 +19,11 @@ export default {
 export const Example: StoryObj<typeof StatusIndicatorStory> = {
   render: args => <StatusIndicatorStory {...args} />,
   name: 'StatusIndicator',
-  argTypes: {
-    children: {
-      control: 'text'
-    }
-  },
-
+  argTypes: { children: { control: 'text' } },
   args: {
     'aria-label': 'Label',
     children: 'Status'
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

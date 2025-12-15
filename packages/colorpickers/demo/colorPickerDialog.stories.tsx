@@ -17,7 +17,6 @@ type Story = StoryObj<typeof ColorPickerDialogStory>;
 export default {
   title: 'Packages/Colorpickers/ColorPickerDialog',
   component: ColorPickerDialog,
-
   args: {
     buttonProps: {
       'aria-label': 'Label'
@@ -26,25 +25,12 @@ export default {
     'aria-label': 'Title',
     isAnimated: true
   },
-
   argTypes: {
-    focusInset: {
-      control: 'boolean'
-    },
-
-    hasArrow: {
-      control: 'boolean'
-    },
-
-    isOpaque: {
-      control: 'boolean'
-    },
-
-    zIndex: {
-      control: 'number'
-    }
+    focusInset: { control: 'boolean' },
+    hasArrow: { control: 'boolean' },
+    isOpaque: { control: 'boolean' },
+    zIndex: { control: 'number' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
@@ -57,11 +43,8 @@ export default {
 export const Uncontrolled: Story = {
   render: args => <ColorPickerDialogStory {...args} />,
   name: 'Uncontrolled',
-
   argTypes: {
-    color: {
-      control: false
-    }
+    color: { control: false }
   }
 };
 
@@ -96,17 +79,12 @@ export const Controlled: Story = {
       />
     );
   },
-
   name: 'Controlled',
-
   args: {
     color: PALETTE.blue[600],
     isOpen: false
   },
-
   argTypes: {
-    defaultColor: {
-      control: false
-    }
+    defaultColor: { control: false }
   }
 };

@@ -17,7 +17,6 @@ import { PLACEMENT } from '../src/types';
 export default {
   title: 'Packages/Modals/TooltipDialog',
   component: TooltipDialog,
-
   subcomponents: {
     'TooltipDialog.Body': TooltipDialog.Body,
     'TooltipDialog.Close': TooltipDialog.Close,
@@ -43,9 +42,7 @@ export const Example: StoryObj<typeof TooltipDialogStory> = {
     const handleClose = () => {
       action('onClose')();
 
-      updateArgs({
-        referenceElement: null
-      });
+      updateArgs({ referenceElement: null });
     };
 
     return (
@@ -66,86 +63,46 @@ export const Example: StoryObj<typeof TooltipDialogStory> = {
     closeAriaLabel: 'Close',
     dialogAriaLabel: 'Title'
   },
-
   argTypes: {
-    referenceElement: {
-      control: false
-    },
-
+    referenceElement: { control: false },
     fallbackPlacements: {
       control: 'multi-select',
       options: PLACEMENT.filter(p => p !== 'auto')
     },
-
     hasBody: {
       name: 'TooltipDialog.Body',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasClose: {
       name: 'TooltipDialog.Close',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasFooter: {
       name: 'TooltipDialog.Footer',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     hasTitle: {
       name: 'TooltipDialog.Title',
-
-      table: {
-        category: 'Story'
-      }
+      table: { category: 'Story' }
     },
-
     body: {
       name: 'children',
-
-      table: {
-        category: 'TooltipDialog.Body'
-      }
+      table: { category: 'TooltipDialog.Body' }
     },
-
     title: {
       name: 'children',
-
-      table: {
-        category: 'TooltipDialog.Title'
-      }
+      table: { category: 'TooltipDialog.Title' }
     },
-
     tag: {
       control: 'text',
-
-      table: {
-        category: 'TooltipDialog.Title'
-      }
+      table: { category: 'TooltipDialog.Title' }
     },
-
     closeAriaLabel: {
       name: 'aria-label',
-
-      table: {
-        category: 'TooltipDialog.Close'
-      }
+      table: { category: 'TooltipDialog.Close' }
     },
-
-    dialogAriaLabel: {
-      name: 'aria-label'
-    }
+    dialogAriaLabel: { name: 'aria-label' }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

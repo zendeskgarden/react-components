@@ -18,12 +18,8 @@ export default {
 export const Example: StoryObj<typeof Progress> = {
   render: args => <Progress {...args} />,
   name: 'Progress',
-
   argTypes: {
-    color: {
-      control: 'color'
-    },
-
+    color: { control: 'color' },
     value: {
       control: {
         type: 'range',
@@ -32,12 +28,10 @@ export const Example: StoryObj<typeof Progress> = {
       }
     }
   },
-
   args: {
     'aria-label': 'Label',
     value: 0
   },
-
   parameters: {
     design: {
       allowFullscreen: true,

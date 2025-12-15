@@ -15,7 +15,6 @@ import { PLACEMENT } from '../src/types';
 export default {
   title: 'Packages/Tooltips/Tooltip',
   component: Tooltip,
-
   subcomponents: {
     'Tooltip.Paragraph': Tooltip.Paragraph,
     'Tooltip.Title': Tooltip.Title
@@ -30,22 +29,14 @@ export const Example: StoryObj<typeof TooltipStory> = {
     delayMS: 500,
     hasArrow: true
   },
-
   argTypes: {
-    isVisible: {
-      control: 'boolean'
-    },
-
-    appendToNode: {
-      control: false
-    },
-
+    isVisible: { control: 'boolean' },
+    appendToNode: { control: false },
     fallbackPlacements: {
       control: 'multi-select',
       options: PLACEMENT.filter(p => p !== 'auto')
     }
   },
-
   parameters: {
     design: {
       allowFullscreen: true,
