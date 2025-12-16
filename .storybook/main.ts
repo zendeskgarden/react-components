@@ -32,7 +32,8 @@ const config: StorybookConfig = {
   },
 
   core: {
-    disableWhatsNewNotifications: true
+    disableWhatsNewNotifications: true,
+    disableTelemetry: true
   },
 
   viteFinal: async viteConfig => {
