@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Accordion } from '@zendeskgarden/react-accordions';
 import { AccordionStory } from './stories/AccordionStory';
@@ -49,7 +49,6 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <AccordionStory {...args} />,
-  name: 'Uncontrolled',
   args: { isCollapsible: true },
   argTypes: {
     expandedSections: { control: false }
@@ -58,7 +57,6 @@ export const Uncontrolled: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (index: number) => {
@@ -73,7 +71,6 @@ export const Controlled: Story = {
 
     return <AccordionStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: { expandedSections: [2] },
   argTypes: {
     defaultExpandedSections: { control: false },

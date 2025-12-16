@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { useArgs } from 'storybook/preview-api';
 import { PaneProviderStory } from './stories/PaneProviderStory';
@@ -44,7 +44,6 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <PaneProviderStory {...args} />,
-  name: 'Uncontrolled',
   args: {
     defaultColumnValues: {
       'column-a': 1,
@@ -63,7 +62,6 @@ export const Uncontrolled: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (rowValues: any, columnValues: any) =>
@@ -74,7 +72,6 @@ export const Controlled: Story = {
 
     return <PaneProviderStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: {
     columnValues: {
       'column-a': 1,

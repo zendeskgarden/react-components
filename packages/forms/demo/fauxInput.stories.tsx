@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { FauxInputStory } from './stories/FauxInputStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { OrderedList } from '@zendeskgarden/react-typography';
 import { OrderedListStory } from './stories/OrderedListStory';
 import { LIST_ITEMS as ITEMS } from './stories/data';

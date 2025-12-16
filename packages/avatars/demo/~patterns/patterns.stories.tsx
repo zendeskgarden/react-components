@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { MenuStory } from './stories/MenuStory';
 import { ChromeStory } from './stories/ChromeStory';
@@ -19,7 +19,6 @@ export default {
 
 export const Chrome: StoryObj<typeof ChromeStory> = {
   render: args => <ChromeStory {...args} />,
-  name: 'Chrome',
   parameters: {
     controls: {
       include: ['badge', 'status']
@@ -30,7 +29,6 @@ export const Chrome: StoryObj<typeof ChromeStory> = {
 
 export const Menu: StoryObj<typeof MenuStory> = {
   render: args => <MenuStory {...args} />,
-  name: 'Menu',
   parameters: {
     controls: { include: ['isCompact'] }
   },

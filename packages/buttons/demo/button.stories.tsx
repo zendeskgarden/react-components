@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ButtonStory } from './stories/ButtonStory';
 

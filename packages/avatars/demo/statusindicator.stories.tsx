@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
 
 import { StatusIndicatorStory } from './stories/StatusIndicatorStory';

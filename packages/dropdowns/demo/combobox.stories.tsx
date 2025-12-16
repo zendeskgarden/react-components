@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Combobox, Field, Option, OptGroup, Tag } from '@zendeskgarden/react-dropdowns';
 import { ComboboxStory } from './stories/ComboboxStory';
@@ -81,7 +81,6 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <ComboboxStory {...args} />,
-  name: 'Uncontrolled',
   argTypes: {
     activeIndex: { control: false },
     inputValue: { control: false },
@@ -92,7 +91,6 @@ export const Uncontrolled: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (changes: any) => {
@@ -104,7 +102,6 @@ export const Controlled: Story = {
 
     return <ComboboxStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: {
     isExpanded: false,
     inputValue: '',

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { BreadcrumbStory } from './stories/BreadcrumbStory';
 import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';

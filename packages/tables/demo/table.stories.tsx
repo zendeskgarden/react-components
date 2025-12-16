@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Table } from '@zendeskgarden/react-tables';
 import { TableStory } from './stories/TableStory';
 import { TABLE_DATA as DATA } from './stories/data';

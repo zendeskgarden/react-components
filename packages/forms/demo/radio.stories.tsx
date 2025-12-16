@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Radio } from '@zendeskgarden/react-forms';
 import { RadioStory } from './stories/RadioStory';
@@ -39,18 +39,15 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <RadioStory {...args} />,
-  name: 'Uncontrolled'
 };
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = () => updateArgs({ checked: true });
 
     return <RadioStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: { checked: false }
 };

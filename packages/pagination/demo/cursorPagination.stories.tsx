@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { CursorPagination } from '@zendeskgarden/react-pagination';
 import { CursorPaginationStory } from './stories/CursorPaginationStory';
@@ -24,7 +24,6 @@ export default {
 
 export const Example: StoryObj<typeof CursorPaginationStory> = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (currentPage: any) =>

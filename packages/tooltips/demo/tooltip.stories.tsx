@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { TooltipStory } from './stories/TooltipStory';
 import { TOOLTIP_CONTENT as CONTENT } from './stories/data';

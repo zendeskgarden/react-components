@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Fieldset } from '@zendeskgarden/react-forms';
 import { FieldsetStory } from './stories/FieldsetStory';
 import { FIELDSET_FIELDS as FIELDS } from './stories/data';
@@ -53,15 +53,12 @@ export default {
 
 export const Checkbox: Story = {
   render: args => <FieldsetStory {...args} type="checkbox" />,
-  name: 'Checkbox'
 };
 
 export const Radio: Story = {
   render: args => <FieldsetStory {...args} type="radio" />,
-  name: 'Radio'
 };
 
 export const Toggle: Story = {
   render: args => <FieldsetStory {...args} type="toggle" />,
-  name: 'Toggle'
 };

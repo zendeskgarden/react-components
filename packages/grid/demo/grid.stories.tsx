@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
 import { GridStory } from './stories/GridStory';
 import { GRID_ROWS as ROWS } from './stories/data';

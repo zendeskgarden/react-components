@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 import { useArgs } from 'storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
@@ -26,7 +26,6 @@ export default {
 
 export const Uncontrolled: StoryObj<typeof ColorPicker> = {
   render: args => <ColorPicker {...args} />,
-  name: 'Uncontrolled',
   argTypes: {
     color: { control: false }
   }
@@ -34,7 +33,6 @@ export const Uncontrolled: StoryObj<typeof ColorPicker> = {
 
 export const Controlled: StoryObj<typeof ColorPicker> = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (color: any) =>
@@ -44,7 +42,6 @@ export const Controlled: StoryObj<typeof ColorPicker> = {
 
     return <ColorPicker {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: { color: PALETTE.blue[600] },
   argTypes: {
     defaultColor: { control: false }

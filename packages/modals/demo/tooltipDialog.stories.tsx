@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 import { TooltipDialog } from '@zendeskgarden/react-modals';
@@ -28,7 +28,6 @@ export default {
 
 export const Example: StoryObj<typeof TooltipDialogStory> = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleClick = (referenceElement: any) => {

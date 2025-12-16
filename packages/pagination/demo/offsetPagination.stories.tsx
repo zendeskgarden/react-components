@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 import { useArgs } from 'storybook/preview-api';
 import { IPaginationProps, OffsetPagination } from '@zendeskgarden/react-pagination';
@@ -32,7 +32,6 @@ export const Example: StoryObj<IArgs> = {
       previous: args.previous || ''
     };
 
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (currentPage: number) =>

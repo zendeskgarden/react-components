@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 import { useArgs } from 'storybook/preview-api';
 import { ColorSwatch } from '@zendeskgarden/react-colorpickers';
@@ -30,7 +30,6 @@ export default {
 
 export const Uncontrolled: StoryObj<typeof ColorSwatch> = {
   render: args => <ColorSwatch {...args} />,
-  name: 'Uncontrolled',
   argTypes: {
     selectedColIndex: { control: false },
     selectedRowIndex: { control: false }
@@ -39,7 +38,6 @@ export const Uncontrolled: StoryObj<typeof ColorSwatch> = {
 
 export const Controlled: StoryObj<typeof ColorSwatch> = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleSelect = (selectedRowIndex: any, selectedColIndex: any) =>
@@ -50,7 +48,6 @@ export const Controlled: StoryObj<typeof ColorSwatch> = {
 
     return <ColorSwatch {...args} onSelect={handleSelect} />;
   },
-  name: 'Controlled',
   args: {
     selectedRowIndex: 0,
     selectedColIndex: 5

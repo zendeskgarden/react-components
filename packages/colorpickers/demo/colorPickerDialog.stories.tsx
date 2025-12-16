@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 import { PALETTE } from '@zendeskgarden/react-theming';
@@ -42,7 +42,6 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <ColorPickerDialogStory {...args} />,
-  name: 'Uncontrolled',
   argTypes: {
     color: { control: false }
   }
@@ -50,7 +49,6 @@ export const Uncontrolled: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleDialogChange = ({ isOpen }: any) => {
@@ -79,7 +77,6 @@ export const Controlled: Story = {
       />
     );
   },
-  name: 'Controlled',
   args: {
     color: PALETTE.blue[600],
     isOpen: false

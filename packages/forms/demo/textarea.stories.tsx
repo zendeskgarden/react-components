@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Textarea } from '@zendeskgarden/react-forms';
 import { TextareaStory } from './stories/TextareaStory';
@@ -44,19 +44,16 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <TextareaStory {...args} />,
-  name: 'Uncontrolled',
   args: { placeholder: 'Placeholder' }
 };
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <TextareaStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: { value: 'Value' }
 };

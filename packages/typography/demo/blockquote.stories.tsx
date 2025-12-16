@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Blockquote } from '@zendeskgarden/react-typography';
 import { BlockquoteStory } from './stories/BlockquoteStory';
 import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';

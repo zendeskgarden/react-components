@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { PaletteStory } from './stories/PaletteStory';
 

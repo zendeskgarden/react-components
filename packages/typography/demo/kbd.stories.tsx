@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Kbd } from '@zendeskgarden/react-typography';
 import { KbdStory } from './stories/KbdStory';
 

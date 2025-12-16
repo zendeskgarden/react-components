@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { NestedStory } from './stories/NestedStory';
 import { PortalStory } from './stories/PortalStory';
 
@@ -16,12 +16,10 @@ export default {
 
 export const Nested: StoryObj<typeof NestedStory> = {
   render: args => <NestedStory {...args} />,
-  name: 'Nested'
 };
 
 export const Portal: StoryObj<typeof PortalStory> = {
   render: args => <PortalStory {...args} />,
-  name: 'Portal',
   args: {
     listboxAppendToNode: false,
     menuAppendToNode: false

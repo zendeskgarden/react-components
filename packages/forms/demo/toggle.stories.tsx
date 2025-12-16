@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Toggle } from '@zendeskgarden/react-forms';
 import { ToggleStory } from './stories/ToggleStory';
@@ -39,18 +39,15 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <ToggleStory {...args} />,
-  name: 'Uncontrolled'
 };
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = () => updateArgs({ checked: !args.checked });
 
     return <ToggleStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: { checked: false }
 };

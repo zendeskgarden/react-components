@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Range } from '@zendeskgarden/react-forms';
 import { RangeStory } from './stories/RangeStory';
@@ -41,18 +41,15 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <RangeStory {...args} />,
-  name: 'Uncontrolled'
 };
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (event: any) => updateArgs({ value: event.target.value });
 
     return <RangeStory {...args} onChange={handleChange} />;
   },
-  name: 'Controlled',
   args: { value: '0' }
 };

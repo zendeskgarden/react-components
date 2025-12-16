@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { Tabs } from '@zendeskgarden/react-tabs';
 import { TabsStory } from './stories/TabsStory';
@@ -34,7 +34,6 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <TabsStory {...args} />,
-  name: 'Uncontrolled',
   argTypes: {
     selectedItem: { control: false }
   }
@@ -42,7 +41,6 @@ export const Uncontrolled: Story = {
 
 export const Controlled: Story = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleChange = (selectedItem: any) =>
@@ -51,6 +49,5 @@ export const Controlled: Story = {
       });
 
     return <TabsStory {...args} onChange={handleChange} />;
-  },
-  name: 'Controlled'
+  }
 };

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import {
   Body,
@@ -57,7 +57,6 @@ export default {
 
 export const Example: StoryObj<typeof ChromeStory> = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleSheetClick = () => updateArgs({ isSheetOpen: false });

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 import { Stepper } from '@zendeskgarden/react-accordions';
 import { StepperStory } from './stories/StepperStory';
 import { STEPPER_STEPS as STEPS } from './stories/data';

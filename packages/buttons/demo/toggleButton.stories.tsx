@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import type { StoryObj } from '@storybook/react';
+import type { StoryObj } from '@storybook/react-vite';
 
 import { useArgs } from 'storybook/preview-api';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
@@ -18,7 +18,6 @@ export default {
 
 export const Example: StoryObj<typeof ToggleButton> = {
   render: args => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const updateArgs = useArgs()[1];
 
     const handleClick = () => updateArgs({ isPressed: !args.isPressed });
