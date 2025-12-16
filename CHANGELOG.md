@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.5 (2025-12-16)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#2073](https://github.com/zendeskgarden/react-components/pull/2073) fix(modals): prevent unexpected close on blur ([@jzempel](https://github.com/jzempel))
+
 ## v9.12.4 (2025-12-11)
 
 #### :bug: Bug Fix
