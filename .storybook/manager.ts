@@ -11,8 +11,8 @@ import { DEFAULT_THEME } from '../packages/theming/src';
 
 addons.setConfig({
   panelPosition: 'right',
+  // @ts-expect-error - Storybook types don't match implementation; omitting `base` allows OS theme inheritance
   theme: create({
-    base: 'dark',
     brandTitle: 'Zendesk Garden React Components',
     brandUrl: 'https://github.com/zendeskgarden/react-components',
     colorSecondary: DEFAULT_THEME.palette.blue[600],
