@@ -33,9 +33,7 @@ envalid.cleanEnv(process.env, {
     const usage = await cmdDu(dir);
     let url;
 
-    // TODO: Re-enable bandwidth check when Netlify fixes issue
-    /* eslint-disable-next-line */
-    if (true || bandwidth.available > usage) {
+    if (bandwidth.available > usage) {
       const repository = await githubRepository();
       const commit = await githubCommit();
       const message = `https://github.com/${repository.owner}/${repository.repo}/commit/${commit}`;
