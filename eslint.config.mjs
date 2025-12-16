@@ -1,6 +1,3 @@
-// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
-import storybook from 'eslint-plugin-storybook';
-
 /**
  * Copyright Zendesk, Inc.
  *
@@ -14,6 +11,7 @@ import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
 import jestPlugin from '@zendeskgarden/eslint-config/plugins/jest.js';
+import storybook from 'eslint-plugin-storybook';
 
 const typescriptRules = {
   ...typescriptPlugin.rules,
@@ -69,5 +67,6 @@ export default [
       'react/button-has-type': 'off'
     }
   },
+  // https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
   ...storybook.configs['flat/recommended']
 ];
