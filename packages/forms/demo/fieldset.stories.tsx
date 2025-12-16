@@ -52,13 +52,13 @@ export default {
 };
 
 export const Checkbox: Story = {
-  render: args => <FieldsetStory {...args} type="checkbox" />,
+  render: args => <FieldsetStory {...args} type="checkbox" />
 };
 
 export const Radio: Story = {
-  render: args => <FieldsetStory {...args} type="radio" />,
+  render: args => <FieldsetStory {...args} type="radio" />
 };
 
 export const Toggle: Story = {
-  render: args => <FieldsetStory {...args} type="toggle" />,
+  render: args => <FieldsetStory {...args} type="toggle" />
 };

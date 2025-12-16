@@ -38,7 +38,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: args => <CheckboxStory {...args} />,
+  render: args => <CheckboxStory {...args} />
 };
 
 export const Controlled: Story = {

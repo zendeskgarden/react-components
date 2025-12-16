@@ -40,7 +40,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: args => <RangeStory {...args} />,
+  render: args => <RangeStory {...args} />
 };
 
 export const Controlled: Story = {

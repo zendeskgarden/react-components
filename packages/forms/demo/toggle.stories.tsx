@@ -38,7 +38,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: args => <ToggleStory {...args} />,
+  render: args => <ToggleStory {...args} />
 };
 
 export const Controlled: Story = {

@@ -38,7 +38,7 @@ export default {
 };
 
 export const Uncontrolled: Story = {
-  render: args => <RadioStory {...args} />,
+  render: args => <RadioStory {...args} />
 };
 
 export const Controlled: Story = {

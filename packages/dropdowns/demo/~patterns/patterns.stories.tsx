@@ -15,7 +15,7 @@ export default {
 };
 
 export const Nested: StoryObj<typeof NestedStory> = {
-  render: args => <NestedStory {...args} />,
+  render: args => <NestedStory {...args} />
 };
 
 export const Portal: StoryObj<typeof PortalStory> = {
