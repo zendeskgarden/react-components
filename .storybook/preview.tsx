@@ -98,9 +98,7 @@ const preview: Preview = {
         dark: { name: 'dark', value: DARK }
       }
     },
-    viewport: {
-      options: MINIMAL_VIEWPORTS
-    },
+    viewport: { options: MINIMAL_VIEWPORTS },
     controls: {
       hideNoControlsWarning: true,
       sort: 'alpha'
@@ -108,12 +106,11 @@ const preview: Preview = {
     docs: {
       theme: create({
         base: DEFAULT_THEME.colors.base
-      })
+      }),
+      argTypes: { sort: 'alpha' }
     }
   },
-
   decorators: [withThemeProvider],
-
   globalTypes: {
     locale: {
       name: 'direction',
