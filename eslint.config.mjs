@@ -30,7 +30,7 @@ export default [
   reactPlugin,
   prettierConfig,
   {
-    ignores: ['**/dist']
+    ignores: ['**/dist', 'packages/.template/**']
   },
   {
     rules: {
@@ -44,7 +44,6 @@ export default [
       'packages/*/demo/**/*.{ts,tsx}',
       '.storybook/**/*.{ts,tsx}'
     ],
-    ignores: ['packages/.template/**/*.{ts,tsx}'],
     ...typescriptPlugin,
     rules: {
       ...typescriptRules
@@ -52,14 +51,12 @@ export default [
   },
   {
     files: ['packages/*/demo/**/*.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.{ts,tsx}'],
     rules: {
       'react/no-array-index-key': 'off'
     }
   },
   {
     files: ['packages/*/src/**/*.spec.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.spec.{ts,tsx}'],
     ...jestPlugin,
     rules: {
       ...jestPlugin.rules,
