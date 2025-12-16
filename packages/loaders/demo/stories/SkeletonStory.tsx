@@ -18,7 +18,12 @@ interface IArgs extends ISkeletonProps {
   typescale?: TYPE_SCALE;
 }
 
-export const SkeletonStory: StoryFn<IArgs> = ({ backgroundColor, count = 1, typescale, ...args }) => {
+export const SkeletonStory: StoryFn<IArgs> = ({
+  backgroundColor,
+  count = 1,
+  typescale,
+  ...args
+}) => {
   let Typescale: FC<PropsWithChildren> | undefined;
 
   switch (typescale) {
