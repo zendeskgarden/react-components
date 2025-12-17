@@ -7,7 +7,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styled, { ThemeProvider, useTheme } from 'styled-components';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import DarkIcon from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
 import LightIcon from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';

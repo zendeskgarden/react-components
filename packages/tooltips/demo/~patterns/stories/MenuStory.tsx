@@ -7,7 +7,7 @@
 
 import React, { forwardRef } from 'react';
 import { useTheme } from 'styled-components';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { useDocument } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';

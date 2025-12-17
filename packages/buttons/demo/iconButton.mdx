@@ -1,0 +1,18 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
+import README from '../README.md';
+import * as Stories from './iconButton.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+<Canvas>
+  <Story of={Stories.Example} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

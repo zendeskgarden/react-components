@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { useTheme } from 'styled-components';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';

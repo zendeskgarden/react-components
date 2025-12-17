@@ -6,7 +6,7 @@
  */
 
 import React, { ReactNode } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid, IColProps } from '@zendeskgarden/react-grid';
 import { Dropdown, IDropdownProps, IMenuProps } from '@zendeskgarden/react-dropdowns.legacy';
 import { IMenuItemProps, MenuStory } from './MenuStory';
@@ -20,7 +20,7 @@ interface IArgs extends IDropdownProps {
   itemProps?: IMenuItemProps;
 }
 
-export const DropdownStory: Story<IArgs> = ({
+export const DropdownStory: StoryFn<IArgs> = ({
   colProps,
   children,
   menuProps,

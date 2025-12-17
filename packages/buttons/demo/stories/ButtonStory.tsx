@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
@@ -18,7 +18,7 @@ interface IArgs extends IButtonProps {
   isEndIconRotated: boolean;
 }
 
-export const ButtonStory: Story<IArgs> = ({
+export const ButtonStory: StoryFn<IArgs> = ({
   hasStartIcon,
   hasEndIcon,
   isStartIconRotated,

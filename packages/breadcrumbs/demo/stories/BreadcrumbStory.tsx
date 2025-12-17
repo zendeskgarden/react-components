@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { BREADCRUMB_CHILDREN } from './data';
@@ -15,7 +15,7 @@ interface IArgs extends HTMLAttributes<HTMLElement> {
   children: typeof BREADCRUMB_CHILDREN;
 }
 
-export const BreadcrumbStory: Story<IArgs> = ({ children, ...args }) => (
+export const BreadcrumbStory: StoryFn<IArgs> = ({ children, ...args }) => (
   <Breadcrumb {...args}>
     {children.map((child, index) =>
       index < children.length - 1 ? (

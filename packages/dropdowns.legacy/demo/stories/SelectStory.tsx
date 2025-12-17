@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   IDropdownProps,
@@ -27,7 +27,7 @@ interface IArgs extends ISelectProps, ICommonArgs {
   placement: IMenuProps['placement'];
 }
 
-export const SelectStory: Story<IArgs> = ({
+export const SelectStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

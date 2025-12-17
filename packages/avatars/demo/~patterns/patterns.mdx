@@ -1,0 +1,36 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as Stories from './patterns.stories';
+
+<Meta of={Stories} />
+
+# Patterns
+
+## Chrome
+
+Use an `extrasmall` avatar within a Chrome `HeaderItem` in order to provide a
+user profile menu. Remember to add the `isRound` prop to the header item so that
+the keyboard focus ring is properly styled. Status may be added to this avatar
+without impacting the height of the header. See the code for details.
+
+<Canvas>
+  <Story of={Stories.Chrome} />
+</Canvas>
+
+## Menu
+
+The following example demonstrates intended avatar sizing within menus.
+Additionally, note the detail of dynamically modifying `surfaceColor` to blend
+with the menu item's highlight color on focus and hover. See the code for
+details.
+
+<Canvas>
+  <Story of={Stories.Menu} />
+</Canvas>
+
+## Status Menu
+
+The following example demonstrates StatusIndicator being used in a menu.
+
+<Canvas>
+  <Story of={Stories.StatusMenu} />
+</Canvas>

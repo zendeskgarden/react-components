@@ -6,7 +6,7 @@
  */
 
 import React, { SVGAttributes } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg';
 import { Stepper, IStepperProps } from '@zendeskgarden/react-accordions';
 import { IStepperStep } from './types';
@@ -18,7 +18,7 @@ interface IArgs extends IStepperProps {
   iconProps: SVGAttributes<SVGElement>;
 }
 
-export const StepperStory: Story<IArgs> = ({ steps, ...args }) => (
+export const StepperStory: StoryFn<IArgs> = ({ steps, ...args }) => (
   <Stepper {...args}>
     {steps.map((step, index) => (
       <Stepper.Step key={index}>

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { IUnorderedListProps, UnorderedList } from '@zendeskgarden/react-typography';
 import { IListItem } from './types';
 
@@ -22,7 +22,7 @@ const getType = (level: number) => {
   return types[index];
 };
 
-export const UnorderedListStory: Story<IArgs> = ({ items, level = 0, ...args }) => (
+export const UnorderedListStory: StoryFn<IArgs> = ({ items, level = 0, ...args }) => (
   <UnorderedList {...args} type={level === 0 ? args.type : getType(level)}>
     {items.map((item, index) => (
       <UnorderedList.Item key={index}>

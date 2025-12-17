@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import styled, { useTheme } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';

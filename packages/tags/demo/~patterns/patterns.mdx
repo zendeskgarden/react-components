@@ -1,0 +1,18 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Tag } from '@zendeskgarden/react-tags';
+import * as Stories from './patterns.stories';
+
+<Meta of={Stories} />
+
+# Patterns
+
+## FauxInput
+
+A `Tag` can be used together with a child `span` in order to handle truncation.
+Use the slider control to change the width of the `FauxInput` container. Text
+within the tags will truncate with an ellipsis based on the available container
+width.
+
+<Canvas>
+  <Story of={Stories.Example} />
+</Canvas>

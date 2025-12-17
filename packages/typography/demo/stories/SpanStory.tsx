@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/circle-stroke.svg';
 import { ISpanProps, Span } from '@zendeskgarden/react-typography';
@@ -16,7 +16,7 @@ interface IArgs extends ISpanProps {
   hasStartIcon: boolean;
 }
 
-export const SpanStory: Story<IArgs> = ({ hasIcon, hasStartIcon, ...args }) => (
+export const SpanStory: StoryFn<IArgs> = ({ hasIcon, hasStartIcon, ...args }) => (
   <Span {...args}>
     {!!hasStartIcon && (
       <Span.StartIcon>

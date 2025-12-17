@@ -6,11 +6,11 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ColorPickerDialog, IColorPickerDialogProps } from '@zendeskgarden/react-colorpickers';
 
-export const ColorPickerDialogStory: Story<IColorPickerDialogProps> = args => (
+export const ColorPickerDialogStory: StoryFn<IColorPickerDialogProps> = args => (
   <Grid>
     <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
       <Grid.Col textAlign="center" alignSelf="center">

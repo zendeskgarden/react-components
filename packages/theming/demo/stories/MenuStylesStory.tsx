@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
 import { menuStyles, arrowStyles, MenuPosition, ArrowPosition } from '@zendeskgarden/react-theming';
@@ -65,7 +65,7 @@ interface IArgs {
   isAnimated: boolean;
 }
 
-export const MenuStylesStory: Story<IArgs> = ({ isAnimated, position }) => {
+export const MenuStylesStory: StoryFn<IArgs> = ({ isAnimated, position }) => {
   const [isHidden, setIsHidden] = useState(true);
 
   const style = {

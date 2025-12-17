@@ -1,0 +1,40 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import {
+  Body,
+  Chrome,
+  Content,
+  Footer,
+  Header,
+  Main,
+  Nav,
+  Sheet,
+  SkipNav,
+  PRODUCTS
+} from '@zendeskgarden/react-chrome';
+import {
+  CHROME_FOOTER_ITEMS as FOOTER_ITEMS,
+  CHROME_HEADER_ITEMS as HEADER_ITEMS,
+  CHROME_MAIN as MAIN,
+  CHROME_NAV_ITEMS as NAV_ITEMS,
+  CHROME_SKIP_NAV as SKIP_NAV,
+  CHROME_SUB_NAV_ITEMS as SUB_NAV_ITEMS,
+  SHEET_BODY,
+  SHEET_DESCRIPTION,
+  SHEET_TITLE
+} from './stories/data';
+import README from '../README.md';
+import * as Stories from './chrome.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+<Canvas>
+  <Story of={Stories.Example} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

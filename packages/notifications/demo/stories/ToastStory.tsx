@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import IconAdd from '@zendeskgarden/svg-icons/src/16/notification-stroke.svg';
 import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';

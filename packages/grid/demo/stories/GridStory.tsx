@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid, IGridProps, IRowProps } from '@zendeskgarden/react-grid';
 import { IGridRow } from './types';
 
@@ -14,7 +14,7 @@ interface IArgs extends IGridProps, IRowProps {
   rows: IGridRow[];
 }
 
-export const GridStory: Story<IArgs> = ({
+export const GridStory: StoryFn<IArgs> = ({
   rows,
   alignItems,
   alignItemsXs,

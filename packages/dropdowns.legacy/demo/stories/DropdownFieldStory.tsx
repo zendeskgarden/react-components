@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import {
   Field,
   Hint,
@@ -26,7 +26,7 @@ export interface IArgs extends HTMLAttributes<HTMLDivElement>, ICommonArgs {
   itemProps?: IMenuItemProps;
 }
 
-export const DropdownFieldStory: Story<IArgs> = ({
+export const DropdownFieldStory: StoryFn<IArgs> = ({
   dropdownProps,
   label = 'Label',
   isLabelRegular,

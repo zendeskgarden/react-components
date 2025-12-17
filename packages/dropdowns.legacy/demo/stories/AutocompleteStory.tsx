@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   Autocomplete,
@@ -29,7 +29,7 @@ interface IArgs extends IAutocompleteProps, ICommonArgs {
   placement: IMenuProps['placement'];
 }
 
-export const AutocompleteStory: Story<IArgs> = ({
+export const AutocompleteStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

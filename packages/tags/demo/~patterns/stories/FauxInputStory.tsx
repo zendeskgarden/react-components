@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { FauxInput } from '@zendeskgarden/react-forms';
 import { IArgs as ITagStoryArgs, TagStory } from '../../stories/TagStory';
 
@@ -15,7 +15,7 @@ interface IArgs extends ITagStoryArgs {
   width: number;
 }
 
-export const FauxInputStory: Story<IArgs> = ({ tags, width, ...args }) => (
+export const FauxInputStory: StoryFn<IArgs> = ({ tags, width, ...args }) => (
   <FauxInput isCompact={args.size !== 'large'} style={{ width: `${width}%` }}>
     {tags.map((tag, index) => (
       <TagStory key={index} {...args} closeAriaLabel="Label" tabIndex={0} style={{ margin: 2 }}>

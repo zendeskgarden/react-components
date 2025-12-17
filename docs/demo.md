@@ -168,7 +168,7 @@ be properly maintained. In its basic form, a `Story` looks like this:
 
 ```tsx
 import React from 'react';
-import { Story } from '@storybook/react';
+import { Story } from '@storybook/react-vite';
 import { Component, IComponentProps } from '@zendeskgarden/react-package';
 
 interface IArgs extends IComponentProps {

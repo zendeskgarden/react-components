@@ -1,0 +1,37 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import {
+  AddItem,
+  Dropdown,
+  HeaderIcon,
+  HeaderItem,
+  Item,
+  ItemMeta,
+  MediaBody,
+  MediaFigure,
+  MediaItem,
+  Menu,
+  NextItem,
+  PreviousItem,
+  Separator,
+  Trigger
+} from '@zendeskgarden/react-dropdowns.legacy';
+import README from '../README.md';
+import * as Stories from './menu.stories';
+
+<Meta of={Stories} />
+
+# API
+
+**DEPRECATED:** use `@zendeskgarden/react-dropdowns`
+[Menu](https://zendeskgarden.github.io/react-components/?path=/docs/packages-dropdowns-menu--docs)
+instead.
+
+<ArgTypes />
+
+# Demo
+
+<Canvas>
+  <Story of={Stories.Example} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

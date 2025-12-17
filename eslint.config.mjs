@@ -11,6 +11,7 @@ import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
 import jestPlugin from '@zendeskgarden/eslint-config/plugins/jest.js';
+import storybook from 'eslint-plugin-storybook';
 
 const typescriptRules = {
   ...typescriptPlugin.rules,
@@ -29,7 +30,7 @@ export default [
   reactPlugin,
   prettierConfig,
   {
-    ignores: ['**/dist']
+    ignores: ['**/dist', 'packages/.template/**']
   },
   {
     rules: {
@@ -38,32 +39,31 @@ export default [
     }
   },
   {
-    files: ['packages/*/src/**/*.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.{ts,tsx}'],
+    files: [
+      'packages/*/src/**/*.{ts,tsx}',
+      'packages/*/demo/**/*.{ts,tsx}',
+      '.storybook/**/*.{ts,tsx}'
+    ],
     ...typescriptPlugin,
     rules: {
       ...typescriptRules
     }
   },
   {
+    files: ['packages/*/demo/**/*.{ts,tsx}'],
+    rules: {
+      'react/no-array-index-key': 'off'
+    }
+  },
+  {
     files: ['packages/*/src/**/*.spec.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.spec.{ts,tsx}'],
-    ...typescriptPlugin,
     ...jestPlugin,
     rules: {
-      ...typescriptRules,
       ...jestPlugin.rules,
       'no-console': 'off',
       'react/button-has-type': 'off'
     }
   },
-  {
-    files: ['packages/*/demo/**/*.{ts,tsx}'],
-    ignores: ['packages/.template/**/*.{ts,tsx}'],
-    ...typescriptPlugin,
-    rules: {
-      ...typescriptRules,
-      'react/no-array-index-key': 'off'
-    }
-  }
+  // https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+  ...storybook.configs['flat/recommended']
 ];

@@ -7,7 +7,7 @@
 
 import React, { useContext } from 'react';
 import useResizeObserver from 'use-resize-observer';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { ThemeContext } from 'styled-components';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { MD, LG } from '@zendeskgarden/react-typography';
@@ -77,7 +77,7 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
   );
 };
 
-export const CardStory: Story<{ columns: IColumns[] }> = ({ columns }) => {
+export const CardStory: StoryFn<{ columns: IColumns[] }> = ({ columns }) => {
   const {
     rtl,
     space: { base }

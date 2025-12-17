@@ -6,7 +6,7 @@
  */
 
 import React, { useLayoutEffect, useRef, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import {
   Dropdown,
   IItemProps,
@@ -27,7 +27,7 @@ interface IArgs extends Omit<IMenuProps, 'appendToNode'> {
   appendToNode?: 'undefined' | 'portal';
 }
 
-export const MenuStory: Story<IArgs> = ({ items, appendToNode, ...rest }) => {
+export const MenuStory: StoryFn<IArgs> = ({ items, appendToNode, ...rest }) => {
   const portalsRef = useRef<HTMLDivElement>(null);
 
   const [isReady, setIsReady] = useState<boolean>(false);

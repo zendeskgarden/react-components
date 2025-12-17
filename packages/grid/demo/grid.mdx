@@ -1,0 +1,24 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
+import README from '../README.md';
+import * as Stories from './grid.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+> Visualize the Grid component using the `debug` toggle in the Controls panel.
+
+The `children` control receives an array of objects that permit all related
+`Grid.Row` prop values along with a `cols` array. Each object in the `cols` array can
+set any related `Grid.Col` prop along with `children` text for display.
+
+<Canvas>
+  <Story of={Stories.Example} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

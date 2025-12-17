@@ -1,0 +1,25 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import README from '../README.md';
+import * as Stories from './range.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story of={Stories.Uncontrolled} />
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story of={Stories.Controlled} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

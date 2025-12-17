@@ -6,7 +6,7 @@
  */
 
 import React, { useEffect, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   Multiselect,
@@ -31,7 +31,7 @@ interface IArgs extends IMultiselectProps, ICommonArgs {
   placement: IMenuProps['placement'];
 }
 
-export const MultiselectStory: Story<IArgs> = ({
+export const MultiselectStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

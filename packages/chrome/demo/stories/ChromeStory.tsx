@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler, ReactElement, useState } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import ChatIcon from '@zendeskgarden/svg-icons/src/26/relationshape-chat.svg';
 import ExploreIcon from '@zendeskgarden/svg-icons/src/26/relationshape-explore.svg';
 import GuideIcon from '@zendeskgarden/svg-icons/src/26/relationshape-guide.svg';
@@ -90,7 +90,7 @@ interface IArgs extends IChromeProps {
   onSheetClick: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const ChromeStory: Story<IArgs> = ({
+export const ChromeStory: StoryFn<IArgs> = ({
   product,
   skipNav,
   hasNav,

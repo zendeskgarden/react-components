@@ -6,7 +6,7 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Progress } from '@zendeskgarden/react-loaders';
 import { File, IFileProps } from '@zendeskgarden/react-forms';
 

@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import { IModalProps, Modal } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
@@ -28,7 +28,7 @@ interface IArgs extends IModalProps {
   dialogAriaLabel: string;
 }
 
-export const ModalStory: Story<IArgs> = ({
+export const ModalStory: StoryFn<IArgs> = ({
   onClick,
   onClose,
   isVisible,

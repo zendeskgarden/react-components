@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { CursorPagination, IPaginationProps } from '@zendeskgarden/react-pagination';
 
 interface IArgs extends IPaginationProps {

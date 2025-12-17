@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Notification, INotificationProps } from '@zendeskgarden/react-notifications';
 
 interface IArgs extends INotificationProps {
@@ -16,7 +16,7 @@ interface IArgs extends INotificationProps {
   hasParagraph: boolean;
 }
 
-export const NotificationStory: Story<IArgs> = ({
+export const NotificationStory: StoryFn<IArgs> = ({
   children,
   title,
   hasClose,

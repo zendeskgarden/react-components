@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-draggable';
 import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.svg';
 
@@ -15,7 +15,7 @@ interface IArgs extends IDropzoneProps {
   hasIcon?: boolean;
 }
 
-export const DropzoneStory: Story<IArgs> = ({ children, hasIcon, ...args }) => (
+export const DropzoneStory: StoryFn<IArgs> = ({ children, hasIcon, ...args }) => (
   <Dropzone {...args}>
     {!!hasIcon && (
       <Dropzone.Icon>

@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   AddItem,
@@ -95,7 +95,7 @@ interface IArgs extends IMenuProps {
   itemProps?: IMenuItemProps;
 }
 
-export const MenuStory: Story<IArgs> = ({ items, itemProps, ...args }) => (
+export const MenuStory: StoryFn<IArgs> = ({ items, itemProps, ...args }) => (
   <Menu {...args}>
     {items.map((item, index) =>
       item === '---' ? (

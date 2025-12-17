@@ -6,14 +6,14 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Button, ChevronButton, IButtonProps, SplitButton } from '@zendeskgarden/react-buttons';
 
 interface IArgs extends IButtonProps {
   isRotated?: boolean;
 }
 
-export const SplitButtonStory: Story<IArgs> = ({
+export const SplitButtonStory: StoryFn<IArgs> = ({
   children,
   'aria-label': ariaLabel,
   isRotated,

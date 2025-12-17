@@ -6,7 +6,7 @@
  */
 
 import React, { useRef } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { useTheme } from 'styled-components';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
@@ -30,7 +30,7 @@ interface IArgs extends ITooltipDialogProps {
   dialogAriaLabel: string;
 }
 
-export const TooltipDialogStory: Story<IArgs> = ({
+export const TooltipDialogStory: StoryFn<IArgs> = ({
   count,
   handleClick,
   hasBody,

@@ -7,7 +7,7 @@
 
 import { useTheme } from 'styled-components';
 import React, { useCallback, useState } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
@@ -44,7 +44,11 @@ const items: {
   }
 ];
 
-export const MenuStory: StoryFn = ({ isCompact }) => {
+interface IArgs {
+  isCompact: boolean;
+}
+
+export const MenuStory: StoryFn<IArgs> = ({ isCompact }) => {
   const [highlightedValue, setHighlightedValue] = useState<string | null>();
 
   const onChange = useCallback(({ focusedValue }: { focusedValue?: string | null }) => {

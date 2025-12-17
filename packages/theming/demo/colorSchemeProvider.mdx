@@ -1,0 +1,20 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import { ColorSchemeProvider } from '@zendeskgarden/react-theming';
+import README from '../README.md';
+import * as Stories from './colorSchemeProvider.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+## ColorSchemeProvider
+
+<Canvas>
+  <Story of={Stories.Example} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

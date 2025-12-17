@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { useTheme } from 'styled-components';
 import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
 import { Drawer, IDrawerProps } from '@zendeskgarden/react-modals';
@@ -27,7 +27,7 @@ interface IArgs extends IDrawerProps {
   closeAriaLabel: string;
 }
 
-export const DrawerStory: Story<IArgs> = ({
+export const DrawerStory: StoryFn<IArgs> = ({
   onClick,
   onClose,
   hasBody,

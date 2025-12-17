@@ -6,7 +6,7 @@
  */
 
 import React, { Fragment } from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/react-draggable';
 
 interface IArgs extends IDraggableListProps {
@@ -15,7 +15,7 @@ interface IArgs extends IDraggableListProps {
   ariaLabel?: string;
 }
 
-export const DraggableListStory: Story<IArgs> = ({
+export const DraggableListStory: StoryFn<IArgs> = ({
   items,
   indicatorIndex,
   'aria-label': ariaLabel,

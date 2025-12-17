@@ -1,0 +1,27 @@
+import { Meta, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import README from '../README.md';
+import * as Stories from './utilities.stories';
+
+<Meta of={Stories} />
+
+# Demo
+
+## arrowStyles()
+
+<Canvas>
+  <Story of={Stories.ArrowStyles} />
+</Canvas>
+
+## getColor()
+
+<Canvas>
+  <Story of={Stories.GetColor} />
+</Canvas>
+
+## menuStyles()
+
+<Canvas>
+  <Story of={Stories.MenuStyles} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

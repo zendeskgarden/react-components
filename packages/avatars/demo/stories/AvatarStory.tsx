@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import IconUser from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 import IconSystem from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';

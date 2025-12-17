@@ -1,0 +1,38 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import {
+  hintArgs,
+  hintArgTypes,
+  messageArgs,
+  messageArgTypes,
+  fieldSubcomponents
+} from './stories/common';
+import README from '../README.md';
+import * as Stories from './fieldset.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+## Checkbox
+
+<Canvas>
+  <Story of={Stories.Checkbox} />
+</Canvas>
+
+## Radio
+
+<Canvas>
+  <Story of={Stories.Radio} />
+</Canvas>
+
+## Toggle
+
+<Canvas>
+  <Story of={Stories.Toggle} />
+</Canvas>
+
+<Markdown>{README}</Markdown>

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import styled from 'styled-components';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { arrowStyles, getColor, ArrowPosition } from '@zendeskgarden/react-theming';
 
 interface IArgs {

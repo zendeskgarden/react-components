@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
@@ -30,7 +30,7 @@ interface IArgs extends IComboboxProps, ICommonArgs {
   placement: IMenuProps['placement'];
 }
 
-export const ComboboxStory: Story<IArgs> = ({
+export const ComboboxStory: StoryFn<IArgs> = ({
   label,
   isLabelRegular,
   isLabelHidden,

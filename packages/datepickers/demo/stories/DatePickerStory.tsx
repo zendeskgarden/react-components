@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { DatePicker, IDatePickerProps } from '@zendeskgarden/react-datepickers';
@@ -20,7 +20,7 @@ interface IArgs extends IDatePickerProps {
   validationLabel?: string;
 }
 
-export const DatePickerStory: Story<IArgs> = ({
+export const DatePickerStory: StoryFn<IArgs> = ({
   dateStyle,
   isCompact,
   hasMessage,
