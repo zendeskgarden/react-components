@@ -6,7 +6,7 @@
  */
 
 import React, { FC, memo, useCallback, useEffect, useState } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { DropzoneProps, useDropzone } from 'react-dropzone';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import {

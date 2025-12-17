@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Notification, INotificationProps } from '@zendeskgarden/react-notifications';
 
 interface IArgs extends INotificationProps {

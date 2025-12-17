@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Button, ChevronButton, IButtonProps, SplitButton } from '@zendeskgarden/react-buttons';
 
 interface IArgs extends IButtonProps {

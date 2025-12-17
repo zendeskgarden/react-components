@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Checkbox, ICheckboxProps } from '@zendeskgarden/react-forms';
 
 import { FieldStory, IFieldArgs } from './FieldStory';

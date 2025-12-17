@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { useTheme } from 'styled-components';
 import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
 import { Drawer, IDrawerProps } from '@zendeskgarden/react-modals';

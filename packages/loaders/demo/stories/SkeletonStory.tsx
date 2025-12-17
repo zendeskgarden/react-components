@@ -6,7 +6,7 @@
  */
 
 import React, { FC, PropsWithChildren } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';

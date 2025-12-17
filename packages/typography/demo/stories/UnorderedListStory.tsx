@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { IUnorderedListProps, UnorderedList } from '@zendeskgarden/react-typography';
 import { IListItem } from './types';
 

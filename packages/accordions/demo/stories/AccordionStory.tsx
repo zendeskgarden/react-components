@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
 import { Accordion, IAccordionProps } from '@zendeskgarden/react-accordions';

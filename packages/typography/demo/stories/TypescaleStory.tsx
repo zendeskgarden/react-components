@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { IMDProps, LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 
 interface IArgs extends IMDProps {

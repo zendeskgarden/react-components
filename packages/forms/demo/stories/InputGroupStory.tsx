@@ -6,7 +6,7 @@
  */
 
 import React, { PropsWithChildren, useState } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { IInputGroupProps, IInputProps, Input, InputGroup } from '@zendeskgarden/react-forms';
 import { FieldStory, IFieldArgs } from './FieldStory';
 import { IInputGroupItem } from './types';

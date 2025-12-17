@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid, IGridProps, IRowProps } from '@zendeskgarden/react-grid';
 import { IGridRow } from './types';
 

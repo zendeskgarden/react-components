@@ -6,7 +6,7 @@
  */
 
 import React, { ChangeEventHandler } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { DefaultTheme } from 'styled-components';
 import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
 import { Field, Toggle } from '@zendeskgarden/react-forms';

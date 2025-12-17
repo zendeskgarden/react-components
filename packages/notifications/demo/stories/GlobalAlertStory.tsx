@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { GlobalAlert, IGlobalAlertProps } from '@zendeskgarden/react-notifications';
 import { Anchor } from '@zendeskgarden/react-buttons';
 

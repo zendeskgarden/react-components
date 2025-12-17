@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
 import { Grid } from '@zendeskgarden/react-grid';

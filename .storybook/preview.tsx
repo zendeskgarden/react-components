@@ -8,7 +8,7 @@
 import React from 'react';
 import { createGlobalStyle } from 'styled-components';
 import { create } from 'storybook/theming';
-import type { Preview, ReactRenderer } from '@storybook/react';
+import type { Preview, ReactRenderer } from '@storybook/react-vite';
 import type { DecoratorFunction } from 'storybook/internal/types';
 import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
 import { MINIMAL_VIEWPORTS } from 'storybook/viewport';

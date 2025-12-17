@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Draggable, IDraggableProps } from '@zendeskgarden/react-draggable';
 
 interface IArgs extends IDraggableProps {

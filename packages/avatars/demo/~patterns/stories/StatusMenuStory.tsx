@@ -6,7 +6,7 @@
  */
 
 import React, { useCallback, useState } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
 import { IconButton } from '@zendeskgarden/react-buttons';

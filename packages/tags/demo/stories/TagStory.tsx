@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { ITagProps, Tag } from '@zendeskgarden/react-tags';
 
 export interface IArgs extends ITagProps {

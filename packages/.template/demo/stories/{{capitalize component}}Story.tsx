@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { {{capitalize component}}, I{{capitalize component}}Props } from '@zendeskgarden/react-{{pluralize (lowercase component)}}';
 
 interface IArgs extends I{{capitalize component}}Props {

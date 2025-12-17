@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { DatePicker, IDatePickerProps } from '@zendeskgarden/react-datepickers';

@@ -7,7 +7,7 @@
 
 import React, { useContext } from 'react';
 import useResizeObserver from 'use-resize-observer';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { ThemeContext } from 'styled-components';
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { MD, LG } from '@zendeskgarden/react-typography';

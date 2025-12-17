@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg';
 import Icon01 from '@zendeskgarden/svg-icons/src/16/chevron-box-stroke.svg';
 import Icon02 from '@zendeskgarden/svg-icons/src/16/check-box-double-stroke.svg';

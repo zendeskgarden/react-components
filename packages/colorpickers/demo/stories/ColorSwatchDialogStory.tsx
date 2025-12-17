@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { ColorSwatchDialog, IColorSwatchDialogProps } from '@zendeskgarden/react-colorpickers';
 

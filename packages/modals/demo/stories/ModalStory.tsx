@@ -6,7 +6,7 @@
  */
 
 import React, { MouseEventHandler } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
 import { IModalProps, Modal } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';

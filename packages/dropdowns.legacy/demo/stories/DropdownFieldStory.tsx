@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-vite';
 import {
   Field,
   Hint,
