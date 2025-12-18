@@ -13,6 +13,27 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.12.6 (2025-12-18)
+
+#### :bug: Bug Fix
+* `colorpickers`, `tooltips`
+  * [#2080](https://github.com/zendeskgarden/react-components/pull/2080) fix(tooltips): prevent open on implicit focus ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#2074](https://github.com/zendeskgarden/react-components/pull/2074) refactor(Storybook): Migrate to Storybook v10 with Vite for faster builds ([@ze-flo](https://github.com/ze-flo))
+* Other
+  * [#2071](https://github.com/zendeskgarden/react-components/pull/2071) chore(deps): update dependency @rollup/plugin-commonjs to v29 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2067](https://github.com/zendeskgarden/react-components/pull/2067) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2075](https://github.com/zendeskgarden/react-components/pull/2075) chore(deps-dev): bump js-yaml from 3.14.1 to 3.14.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#2070](https://github.com/zendeskgarden/react-components/pull/2070) chore(deps): update actions/upload-pages-artifact action to v4 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2069](https://github.com/zendeskgarden/react-components/pull/2069) chore(deps): update actions/setup-node action to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2063](https://github.com/zendeskgarden/react-components/pull/2063) chore(deps-dev): bump axios from 1.7.4 to 1.13.2 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#2068](https://github.com/zendeskgarden/react-components/pull/2068) chore(deps): update actions/checkout action to v6 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2025](https://github.com/zendeskgarden/react-components/pull/2025) chore(deps): update dependency commander to v14 ([@renovate[bot]](https://github.com/apps/renovate))
+  * [#2015](https://github.com/zendeskgarden/react-components/pull/2015) chore(deps): bump @babel/runtime from 7.25.0 to 7.27.0 ([@dependabot[bot]](https://github.com/apps/dependabot))
+  * [#2026](https://github.com/zendeskgarden/react-components/pull/2026) chore(deps): update dependency lint-staged to v16 ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v9.12.5 (2025-12-16)
 
 #### :bug: Bug Fix
