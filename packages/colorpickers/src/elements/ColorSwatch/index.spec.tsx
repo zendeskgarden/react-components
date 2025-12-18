@@ -25,6 +25,23 @@ const colors = [
 describe('ColorSwatch', () => {
   const user = userEvent.setup();
 
+  beforeAll(() => {
+    const elementMatches = HTMLElement.prototype.matches;
+
+    // Override `.matches` currently missing from JSDOM
+    HTMLElement.prototype.matches = function matches(selector: string) {
+      let retVal;
+
+      if (selector === ':focus-visible') {
+        retVal = this === document.activeElement;
+      } else {
+        retVal = elementMatches.call(this, selector);
+      }
+
+      return retVal;
+    };
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = createRef<HTMLTableElement>();
 
