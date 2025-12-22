@@ -139,21 +139,21 @@ describe('Modal', () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
       await user.click(getByTestId('backdrop'));
-      expect(onCloseSpy).toHaveBeenCalled();
+      expect(onCloseSpy).toHaveBeenCalledTimes(1);
     });
 
     it('is triggered by Modal.Close element click', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
       await user.click(getByTestId('close'));
-      expect(onCloseSpy).toHaveBeenCalled();
+      expect(onCloseSpy).toHaveBeenCalledTimes(1);
     });
 
     it('is triggered by ESC keydown', async () => {
       const { getByTestId } = render(<BasicExample onClose={onCloseSpy} />);
 
       await user.type(getByTestId('modal'), '{escape}');
-      expect(onCloseSpy).toHaveBeenCalled();
+      expect(onCloseSpy).toHaveBeenCalledTimes(1);
     });
   });
 
