@@ -103,7 +103,7 @@
     "stylelint-order": "7.0.0",
     "temp": "0.9.4",
     "typescript": "5.9.3",
-    "vite": "6.3.5",
+    "vite": "6.4.1",
     "vite-plugin-svgr": "4.3.0",
     "webpack": "5.104.0"
   }
