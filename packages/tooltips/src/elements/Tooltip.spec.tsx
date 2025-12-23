@@ -48,6 +48,15 @@ describe('Tooltip', () => {
     };
   });
 
+  it('renders as expected with the `isLabel` prop', () => {
+    const id = 'test';
+    const { getByTestId } = render(<BasicExample id={id} isLabel />);
+    const element = getByTestId('trigger');
+
+    expect(element).toHaveAttribute('aria-labelledby', id);
+    expect(element).not.toHaveAttribute('aria-describedby');
+  });
+
   it('renders tooltip within appendToNode prop', () => {
     const { getByTestId } = render(<BasicExample appendToNode={document.body} />);
 

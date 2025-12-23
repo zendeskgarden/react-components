@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-tooltip": "^2.1.4",
+    "@zendeskgarden/container-tooltip": "^2.2.0",
     "@zendeskgarden/container-utilities": "^2.0.4",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",

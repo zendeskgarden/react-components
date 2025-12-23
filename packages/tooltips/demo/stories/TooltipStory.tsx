@@ -7,8 +7,9 @@
 
 import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
+import { Button, IconButton } from '@zendeskgarden/react-buttons';
+import Icon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import { ITooltipProps, Tooltip } from '@zendeskgarden/react-tooltips';
 import { ITooltipContent } from './types';
 
@@ -16,7 +17,7 @@ interface IArgs extends Omit<ITooltipProps, 'content'> {
   content: ITooltipContent;
 }
 
-export const TooltipStory: StoryFn<IArgs> = ({ content, ...args }: IArgs) => (
+export const TooltipStory: StoryFn<IArgs> = ({ content, isLabel, ...args }: IArgs) => (
   <Grid>
     <Grid.Row style={{ height: 'calc(100vh - 200px)' }}>
       <Grid.Col textAlign="center" alignSelf="center">
@@ -28,8 +29,15 @@ export const TooltipStory: StoryFn<IArgs> = ({ content, ...args }: IArgs) => (
               <Tooltip.Paragraph>{content.paragraph}</Tooltip.Paragraph>
             </>
           }
+          isLabel={isLabel}
         >
-          <span style={{ backgroundColor: PALETTE.grey[100], padding: '1em' }}>Target</span>
+          {isLabel ? (
+            <IconButton>
+              <Icon />
+            </IconButton>
+          ) : (
+            <Button>Trigger</Button>
+          )}
         </Tooltip>
       </Grid.Col>
     </Grid.Row>

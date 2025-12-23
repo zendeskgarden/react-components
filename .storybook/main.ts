@@ -19,7 +19,7 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
 );
 
 const config: StorybookConfig = {
-  stories: ['../packages/*/demo/**/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
+  stories: [`../packages/${process.env.PACKAGE || '*'}/demo/**/*.stories.@(js|jsx|ts|tsx)`],
   staticDirs: ['./static'],
 
   addons: ['@storybook/addon-a11y', '@storybook/addon-designs', '@storybook/addon-docs'],

@@ -25,6 +25,7 @@ export const PLACEMENT_DEFAULT = 'top';
 export const TooltipComponent = ({
   id,
   delayMS = 500,
+  isLabel,
   isInitialVisible,
   content,
   refKey = 'ref',
@@ -49,6 +50,7 @@ export const TooltipComponent = ({
     id,
     delayMilliseconds: delayMS,
     isVisible: isInitialVisible,
+    isLabel,
     triggerRef
   });
 
@@ -145,6 +147,7 @@ TooltipComponent.propTypes = {
   type: PropTypes.oneOf(TYPE),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isInitialVisible: PropTypes.bool,
+  isLabel: PropTypes.bool,
   refKey: PropTypes.string
 };
 
