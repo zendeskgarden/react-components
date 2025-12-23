@@ -35,6 +35,11 @@ export interface ITooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'con
   type?: (typeof TYPE)[number];
   /** Sets the `z-index` of the tooltip */
   zIndex?: number | string;
+  /**
+   * Indicates that the tooltip is used as the trigger's primary label rather
+   * than as a supplemental description
+   */
+  isLabel?: boolean;
   /** Displays the tooltip on initial render */
   isInitialVisible?: boolean;
   /** Displays the tooltip */
