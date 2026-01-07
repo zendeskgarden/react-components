@@ -18,8 +18,10 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
   name => name !== '.template'
 );
 
+const DEMO_PATH = `../packages/${process.env.PACKAGE || '*'}/demo/**`;
+
 const config: StorybookConfig = {
-  stories: [`../packages/${process.env.PACKAGE || '*'}/demo/**/*.stories.@(js|jsx|ts|tsx)`],
+  stories: [`${DEMO_PATH}/*.mdx`, `${DEMO_PATH}/*.stories.@(js|jsx|ts|tsx)`],
   staticDirs: ['./static'],
 
   addons: ['@storybook/addon-a11y', '@storybook/addon-designs', '@storybook/addon-docs'],
