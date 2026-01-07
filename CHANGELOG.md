@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.13.0 (2026-01-07)
+
+#### :rocket: New Feature
+* `tooltips`
+  * [#2082](https://github.com/zendeskgarden/react-components/pull/2082) feat(tooltips): add `isLabel` prop to `Tooltip` component ([@jzempel](https://github.com/jzempel))
+
+#### :bug: Bug Fix
+* `modals`
+  * [#2081](https://github.com/zendeskgarden/react-components/pull/2081) fix(modals): apply container backdrop event upgrade ([@jzempel](https://github.com/jzempel))
+
 ## v9.12.6 (2025-12-18)
 
 #### :bug: Bug Fix
