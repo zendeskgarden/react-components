@@ -42,6 +42,7 @@
     "@storybook/addon-a11y": "10.1.7",
     "@storybook/addon-designs": "11.1.0",
     "@storybook/addon-docs": "10.1.7",
+    "@storybook/addon-mcp": "^0.1.4-next.2",
     "@storybook/react-vite": "10.1.7",
     "@svgr/rollup": "8.1.0",
     "@swc/core": "1.15.5",

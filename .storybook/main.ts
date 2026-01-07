@@ -22,7 +22,12 @@ const config: StorybookConfig = {
   stories: [`../packages/${process.env.PACKAGE || '*'}/demo/**/*.stories.@(js|jsx|ts|tsx)`],
   staticDirs: ['./static'],
 
-  addons: ['@storybook/addon-a11y', '@storybook/addon-designs', '@storybook/addon-docs'],
+  addons: [
+    '@storybook/addon-a11y',
+    '@storybook/addon-designs',
+    '@storybook/addon-docs',
+    '@storybook/addon-mcp'
+  ],
 
   framework: {
     name: '@storybook/react-vite',
@@ -34,6 +39,11 @@ const config: StorybookConfig = {
   core: {
     disableWhatsNewNotifications: true,
     disableTelemetry: true
+  },
+
+  features: {
+    experimentalComponentsManifest: true,
+    experimentalCodeExamples: true
   },
 
   viteFinal: async viteConfig => {
