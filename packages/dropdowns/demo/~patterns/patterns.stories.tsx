@@ -11,7 +11,8 @@ import { NestedStory } from './stories/NestedStory';
 import { PortalStory } from './stories/PortalStory';
 
 export default {
-  title: 'Packages/Dropdowns/[patterns]'
+  title: 'Packages/Dropdowns/[patterns]',
+  tags: ['!manifest']
 };
 
 export const Nested: StoryObj<typeof NestedStory> = {

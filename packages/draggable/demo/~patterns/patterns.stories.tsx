@@ -11,7 +11,8 @@ import { DragAndDropStory } from './stories/DragAndDropStory';
 import { COLUMNS as columns } from './stories/data';
 
 export default {
-  title: 'Packages/Draggable/[patterns]'
+  title: 'Packages/Draggable/[patterns]',
+  tags: ['!manifest']
 };
 
 export const Example: StoryObj<typeof DragAndDropStory> = {

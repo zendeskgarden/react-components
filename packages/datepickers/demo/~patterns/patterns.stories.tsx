@@ -10,7 +10,8 @@ import type { StoryObj } from '@storybook/react-vite';
 import { CalendarStory } from './stories/CalendarStory';
 
 export default {
-  title: 'Packages/DatePickers/[patterns]'
+  title: 'Packages/DatePickers/[patterns]',
+  tags: ['!manifest']
 };
 
 export const Example: StoryObj<typeof CalendarStory> = {

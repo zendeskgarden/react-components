@@ -11,7 +11,8 @@ import { CardStory } from './stories/CardStory';
 import { COLUMNS } from './stories/data';
 
 export default {
-  title: 'Packages/Grid/[patterns]'
+  title: 'Packages/Grid/[patterns]',
+  tags: ['!manifest']
 };
 
 export const Example: StoryObj<typeof CardStory> = {

@@ -14,7 +14,8 @@ import { GetColorStory } from './stories/GetColorStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
 
 export default {
-  title: 'Packages/Theming/utilities'
+  title: 'Packages/Theming/utilities',
+  tags: ['!manifest']
 };
 
 export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {

@@ -11,7 +11,8 @@ import { GetColorStory } from './stories/GetColorStory';
 import { GetColorV8Story } from './stories/GetColorV8Story';
 
 export default {
-  title: 'Packages/Theming/[patterns]'
+  title: 'Packages/Theming/[patterns]',
+  tags: ['!manifest']
 };
 
 export const GetColorTest: StoryObj<typeof GetColorStory> = {
