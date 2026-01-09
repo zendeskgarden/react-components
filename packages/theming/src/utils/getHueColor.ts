@@ -9,10 +9,10 @@ import { HueColorParameters } from '../types';
 import { getColor } from './getColor';
 
 /**
- * Get a hue color from the theme.
+ * Get a hue color from the theme
  *
  * @param {Object} options.theme Provides values used to resolve the desired color
- * @param {string} options.hue A color variable key (i.e. 'foreground.subtle'), key hue value (i.e. 'primaryHue'), or valid CSS color
+ * @param {string} options.value A color variable key (i.e. 'foreground.subtle'), key hue value (i.e. 'primaryHue'), or valid CSS color
  */
 export const getHueColor = ({ theme, value }: HueColorParameters) => {
   const pattern = /^[a-z]+\.[a-z]+$/giu; /* ex. 'background.primaryEmphasis' */
