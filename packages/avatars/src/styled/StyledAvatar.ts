@@ -58,16 +58,14 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
 const colorStyles = ({
   theme,
   $foregroundColor = theme.palette.white as string,
+  $surfaceColor = 'background.default',
   $backgroundColor = 'transparent',
-  $surfaceColor,
   $status
 }: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   const statusColor = getStatusColor(theme, $status);
   const backgroundColor = getHueColor({ theme, value: $backgroundColor });
   const foregroundColor = getHueColor({ theme, value: $foregroundColor });
-  const surfaceColor = $status
-    ? getHueColor({ theme, value: $surfaceColor || 'background.default' })
-    : 'transparent';
+  const surfaceColor = $status ? getHueColor({ theme, value: $surfaceColor }) : 'transparent';
 
   return css`
     box-shadow: ${theme.shadows.sm(statusColor)};
