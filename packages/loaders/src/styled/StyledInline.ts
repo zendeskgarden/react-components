@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css, keyframes } from 'styled-components';
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'loaders.inline';
 
@@ -16,10 +16,10 @@ interface IStyledInlineProps {
 }
 
 const colorStyles = ({ theme, $color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
-  const options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
+  const color = getHueColor({ theme, value: $color });
 
   return css`
-    color: ${getColor(options)};
+    color: ${color};
   `;
 };
 

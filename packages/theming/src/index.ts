@@ -17,6 +17,7 @@ export { getColor } from './utils/getColor';
 export { getColorV8 } from './utils/getColorV8';
 export { getFloatingPlacements } from './utils/getFloatingPlacements';
 export { getFocusBoxShadow } from './utils/getFocusBoxShadow';
+export { getHueColor } from './utils/getHueColor';
 export { default as getLineHeight } from './utils/getLineHeight';
 export { getMenuPosition } from './utils/getMenuPosition';
 export { default as mediaQuery } from './utils/mediaQuery';
@@ -44,6 +45,7 @@ export {
   type ColorScheme,
   type FocusBoxShadowParameters,
   type FocusStylesParameters,
+  type HueColorParameters,
   type MenuPosition,
   type Placement
 } from './types';

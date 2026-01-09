@@ -234,17 +234,25 @@ const toProperty = (object: object, path: string) => {
 /* derive the property + transparency from the given rgba variable value */
 const fromRgba = (value: string) => {
   let retVal;
-  const regex =
-    /rgba\s*\(\s*(?<property>[#\w.]+)\s*,\s*(?<alpha>[\w.]+)\s*\)/gu; /* ex. 'rgba(primaryHue.700, 600)' */
-  const _rgba = regex.exec(value);
 
-  if (_rgba && _rgba.groups) {
-    const property = _rgba.groups.property;
-    const transparency = parseFloat(_rgba.groups.alpha);
+  try {
+    const [red, green, blue, transparency] = parseToRgba(value);
+    const property = _toHex(`rgb(${red}, ${green}, ${blue})`);
 
     retVal = { property, transparency };
-  } else {
-    throw new Error(`Error: invalid \`rgba\` value "${value}"`);
+  } catch {
+    const regex =
+      /rgba\s*\(\s*(?<property>[#\w.]+)\s*,\s*(?<alpha>[\w.]+)\s*\)/gu; /* ex. 'rgba(primaryHue.700, 600)' */
+    const _rgba = regex.exec(value);
+
+    if (_rgba && _rgba.groups) {
+      const property = _rgba.groups.property;
+      const transparency = parseFloat(_rgba.groups.alpha);
+
+      retVal = { property, transparency };
+    } else {
+      throw new Error(`Error: invalid \`rgba\` value "${value}"`);
+    }
   }
 
   return retVal;

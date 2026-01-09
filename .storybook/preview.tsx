@@ -80,16 +80,6 @@ const withThemeProvider: DecoratorFunction<ReactRenderer> = (Story, context) => 
 };
 
 const preview: Preview = {
-  args: {
-    '$colors.dark': DEFAULT_THEME.colors.variables.dark,
-    '$colors.light': DEFAULT_THEME.colors.variables.light
-  },
-
-  argTypes: {
-    '$colors.dark': { name: 'colors.dark', table: { category: 'Variables' } },
-    '$colors.light': { name: 'colors.light', table: { category: 'Variables' } }
-  },
-
   parameters: {
     backgrounds: {
       grid: { disable: true },

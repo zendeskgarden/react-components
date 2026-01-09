@@ -7,7 +7,12 @@
 
 import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { math } from 'polished';
-import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import {
+  componentStyles,
+  StyledBaseIcon,
+  getColor,
+  getHueColor
+} from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'timeline.icon';
 
@@ -15,17 +20,12 @@ interface IStyledItemIcon {
   $surfaceColor?: string;
 }
 
-const colorStyles = ({ $surfaceColor, theme }: IStyledItemIcon & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({
+  $surfaceColor = 'background.default',
+  theme
+}: IStyledItemIcon & ThemeProps<DefaultTheme>) => {
   const foregroundColor = getColor({ theme, variable: 'border.emphasis' });
-  let backgroundColor;
-
-  if ($surfaceColor) {
-    backgroundColor = $surfaceColor.includes('.')
-      ? getColor({ theme, variable: $surfaceColor })
-      : $surfaceColor;
-  } else {
-    backgroundColor = getColor({ theme, variable: 'background.default' });
-  }
+  const backgroundColor = getHueColor({ theme, value: $surfaceColor });
 
   return css`
     background-color: ${backgroundColor};

@@ -89,6 +89,26 @@ describe('getColor', () => {
 
         expect(color).toBe(rgba('#fd5a1e', 0.5));
       });
+
+      it('accepts a literal rgba parameter value', () => {
+        const expected = 'rgba(0,0,255,0.5)';
+        const theme: IGardenTheme = {
+          ...DEFAULT_THEME,
+          colors: {
+            ...DEFAULT_THEME.colors,
+            variables: {
+              ...DEFAULT_THEME.colors.variables,
+              light: {
+                ...DEFAULT_THEME.colors.variables.light,
+                background: { test: expected }
+              }
+            }
+          }
+        };
+        const color = getColor({ theme, variable: 'background.test' });
+
+        expect(color).toBe(expected);
+      });
     });
   });
 

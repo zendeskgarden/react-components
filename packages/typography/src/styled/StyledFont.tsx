@@ -7,7 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { hideVisually, math } from 'polished';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { SIZE } from '../types';
 
 const COMPONENT_ID = 'typography.font';
@@ -40,10 +40,10 @@ const fontStyles = ({
   const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf($size!) !== -1;
   const fontFamily = monospace && theme.fonts.mono;
   const direction = theme.rtl ? 'rtl' : 'ltr';
+  const color = $hue ? getHueColor({ theme, value: $hue }) : undefined;
   let fontSize;
   let fontWeight;
   let lineHeight;
-  let color;
 
   if (monospace) {
     if ($size === 'inherit') {
@@ -66,12 +66,6 @@ const fontStyles = ({
     fontWeight = theme.fontWeights.semibold;
   } else if ($isBold === false || $size !== 'inherit') {
     fontWeight = theme.fontWeights.regular;
-  }
-
-  if ($hue) {
-    const options = $hue.includes('.') ? { variable: $hue, theme } : { hue: $hue, theme };
-
-    color = getColor(options);
   }
 
   return css`

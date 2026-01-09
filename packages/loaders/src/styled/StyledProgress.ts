@@ -6,7 +6,7 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getColor, getHueColor } from '@zendeskgarden/react-theming';
 import { Size } from '../types';
 
 const sizeToHeight = ($size: Size, theme: DefaultTheme) => {
@@ -31,7 +31,7 @@ const PROGRESS_BACKGROUND_COMPONENT_ID = 'loaders.progress_background';
 
 const colorStyles = ({
   theme,
-  $color
+  $color = 'border.successEmphasis'
 }: IStyledProgressBackgroundProps & ThemeProps<DefaultTheme>) => {
   const backgroundColor = getColor({
     theme,
@@ -39,15 +39,7 @@ const colorStyles = ({
     light: { hue: 'neutralHue', shade: 700 },
     dark: { hue: 'white' }
   });
-  let options;
-
-  if ($color) {
-    options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
-  } else {
-    options = { variable: 'border.successEmphasis', theme };
-  }
-
-  const foregroundColor = getColor(options);
+  const foregroundColor = getHueColor({ theme, value: $color });
 
   return css`
     background-color: ${backgroundColor};

@@ -93,6 +93,11 @@ export type FocusBoxShadowParameters = {
 
 export type Hue = Record<number | string, string> | string;
 
+export type HueColorParameters = {
+  theme: IGardenTheme;
+  value: string;
+};
+
 export interface IGardenTheme {
   rtl: boolean;
   document?: any;
