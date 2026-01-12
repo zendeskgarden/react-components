@@ -45,7 +45,7 @@ describe('StyledAvatar', () => {
     it('renders surface color as expected', () => {
       const { container } = render(<StyledAvatar $status="away" $surfaceColor="red" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', 'red', {
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700], {
         modifier: '&&'
       });
     });
@@ -69,7 +69,7 @@ describe('StyledAvatar', () => {
     it('renders background color as expected', () => {
       const { container } = render(<StyledAvatar $backgroundColor="red" />);
 
-      expect(container.firstChild).toHaveStyleRule('background-color', 'red');
+      expect(container.firstChild).toHaveStyleRule('background-color', PALETTE.red[700]);
     });
 
     it('renders background color variable key as expected', () => {
@@ -83,7 +83,9 @@ describe('StyledAvatar', () => {
     it('renders foreground color as expected', () => {
       const { container } = render(<StyledAvatar $foregroundColor="red" />);
 
-      expect(container.firstChild).toHaveStyleRule('color', 'red', { modifier: '&>svg' });
+      expect(container.firstChild).toHaveStyleRule('color', PALETTE.red[700], {
+        modifier: '&>svg'
+      });
     });
 
     it('renders foreground color variable as expected', () => {
