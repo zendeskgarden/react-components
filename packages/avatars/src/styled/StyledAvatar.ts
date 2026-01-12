@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 
 import { IAvatarProps, SIZE } from '../types';
@@ -57,35 +57,15 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
  */
 const colorStyles = ({
   theme,
-  $foregroundColor,
-  $surfaceColor,
-  $backgroundColor,
+  $foregroundColor = theme.palette.white as string,
+  $surfaceColor = 'background.default',
+  $backgroundColor = 'transparent',
   $status
 }: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   const statusColor = getStatusColor(theme, $status);
-  let backgroundColor = 'transparent';
-  let foregroundColor = theme.palette.white;
-  let surfaceColor;
-
-  if ($backgroundColor) {
-    backgroundColor = $backgroundColor.includes('.')
-      ? getColor({ theme, variable: $backgroundColor })
-      : $backgroundColor;
-  }
-
-  if ($foregroundColor) {
-    foregroundColor = $foregroundColor.includes('.')
-      ? getColor({ theme, variable: $foregroundColor })
-      : $foregroundColor;
-  }
-
-  if ($status) {
-    surfaceColor = $surfaceColor?.includes('.')
-      ? getColor({ variable: $surfaceColor, theme })
-      : $surfaceColor || getColor({ variable: 'background.default', theme });
-  } else {
-    surfaceColor = 'transparent';
-  }
+  const backgroundColor = getHueColor({ theme, value: $backgroundColor });
+  const foregroundColor = getHueColor({ theme, value: $foregroundColor });
+  const surfaceColor = $status ? getHueColor({ theme, value: $surfaceColor }) : 'transparent';
 
   return css`
     box-shadow: ${theme.shadows.sm(statusColor)};

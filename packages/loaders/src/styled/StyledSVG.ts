@@ -7,7 +7,7 @@
 
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getValueAndUnit } from 'polished';
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { delayedVisibilityKeyframes } from '../utils/animations';
 
 interface IStyledSVGProps {
@@ -22,10 +22,10 @@ interface IStyledSVGProps {
 }
 
 const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
-  const options = $color.includes('.') ? { variable: $color, theme } : { hue: $color, theme };
+  const color = getHueColor({ theme, value: $color });
 
   return css`
-    color: ${getColor(options)};
+    color: ${color};
   `;
 };
 
