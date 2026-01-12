@@ -23,7 +23,7 @@
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-combobox": "^2.0.7",
-    "@zendeskgarden/container-menu": "^1.0.4",
+    "@zendeskgarden/container-menu": "^2.0.1",
     "@zendeskgarden/container-utilities": "^2.0.4",
     "@zendeskgarden/react-buttons": "^9.13.0",
     "@zendeskgarden/react-forms": "^9.13.0",
