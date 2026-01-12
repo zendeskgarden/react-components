@@ -1,4 +1,3 @@
-// This file has been automatically migrated to valid ESM format by Storybook.
 /**
  * Copyright Zendesk, Inc.
  *
