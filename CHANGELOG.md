@@ -13,6 +13,17 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.14.0 (2026-01-12)
+
+#### :rocket: New Feature
+* `dropdowns`
+  * [#2088](https://github.com/zendeskgarden/react-components/pull/2088) feat(dropdowns): allow Menu to independently use theme-provided window and document objects  ([@ze-flo](https://github.com/ze-flo))
+* `.template`, `accordions`, `avatars`, `breadcrumbs`, `buttons`, `chrome`, `colorpickers`, `datepickers`, `draggable`, `dropdowns.legacy`, `dropdowns`, `forms`, `grid`, `loaders`, `modals`, `notifications`, `pagination`, `tables`, `tabs`, `tags`, `theming`, `tooltips`, `typography`
+  * [#2086](https://github.com/zendeskgarden/react-components/pull/2086) feat: add `getHueColor` utility for improved color variable usage and fix `getColor` to accept valid RGBA ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#2085](https://github.com/zendeskgarden/react-components/pull/2085) docs(Storybook): restore API docs ([@ze-flo](https://github.com/ze-flo))
+
 ## v9.13.0 (2026-01-07)
 
 #### :rocket: New Feature
