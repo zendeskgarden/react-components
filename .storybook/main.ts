@@ -1,3 +1,4 @@
+// This file has been automatically migrated to valid ESM format by Storybook.
 /**
  * Copyright Zendesk, Inc.
  *
@@ -6,7 +7,7 @@
  */
 
 import { readdirSync } from 'node:fs';
-import path from 'node:path';
+import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import type { StorybookConfig } from '@storybook/react-vite';
 import svgr from 'vite-plugin-svgr';
@@ -20,19 +21,23 @@ const PACKAGE_NAMES = readdirSync(path.resolve(__dirname, '../packages')).filter
 
 const DEMO_PATH = `../packages/${process.env.PACKAGE || '*'}/demo/**`;
 
+const getAbsolutePath = (value: string) => {
+  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
+};
+
 const config: StorybookConfig = {
   stories: [`${DEMO_PATH}/*.mdx`, `${DEMO_PATH}/*.stories.@(js|jsx|ts|tsx)`],
   staticDirs: ['./static'],
 
   addons: [
-    '@storybook/addon-a11y',
-    '@storybook/addon-designs',
-    '@storybook/addon-docs',
-    '@storybook/addon-mcp'
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath('@storybook/addon-designs'),
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-mcp')
   ],
 
   framework: {
-    name: '@storybook/react-vite',
+    name: getAbsolutePath('@storybook/react-vite'),
     options: {
       strictMode: true
     }
