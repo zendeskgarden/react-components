@@ -46,7 +46,8 @@ export default {
     PreviousItem,
     Separator,
     Trigger
-  }
+  },
+  tags: ['!manifest']
 };
 
 export const Example: StoryObj<typeof TriggerStory> = {

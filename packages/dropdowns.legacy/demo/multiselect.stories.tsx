@@ -31,7 +31,8 @@ export default {
     Label,
     Menu,
     Message
-  }
+  },
+  tags: ['!manifest']
 };
 
 export const Example: StoryObj<typeof MultiselectStory> = {
