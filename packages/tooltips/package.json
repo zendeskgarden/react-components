@@ -2,24 +2,33 @@
   "name": "@zendeskgarden/react-tooltips",
   "version": "9.14.0",
   "description": "Collection of components and render prop containers relating to Tooltips in the Garden Design System",
-  "license": "Apache-2.0",
-  "author": "Zendesk Garden <garden@zendesk.com>",
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
   "homepage": "https://garden.zendesk.com/",
-  "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/esm/index.js",
+  "license": "Apache-2.0",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "repository": "https://github.com/zendeskgarden/react-components",
   "files": [
     "dist"
   ],
+  "sideEffects": false,
+  "main": "dist/index.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/typings/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "../../utils/scripts/build.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "sideEffects": false,
-  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-tooltip": "^2.2.0",
@@ -28,26 +37,17 @@
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0"
   },
-  "peerDependencies": {
-    "@zendeskgarden/react-theming": ">=9.14.0",
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": "^5.3.1 || ^6.0.0"
-  },
   "devDependencies": {
     "@zendeskgarden/react-buttons": "^9.14.0",
     "@zendeskgarden/react-dropdowns": "^9.14.0",
     "@zendeskgarden/react-grid": "^9.14.0",
     "@zendeskgarden/react-theming": "^9.14.0"
   },
-  "keywords": [
-    "components",
-    "garden",
-    "react",
-    "zendesk"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "@zendeskgarden/react-theming": ">=9.14.0",
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^5.3.1 || ^6.0.0"
   },
   "zendeskgarden:src": "src/index.ts"
 }

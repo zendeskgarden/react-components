@@ -33,7 +33,7 @@ ensuring the details live up to expectations.
 - Styling should endeavor to support the most canonical HTML form(s)
   possible.
 - Components extend the most appropriate semantic HTML element, e.g.
-  `` const Button = styled.button`...`; ``. <!-- markdownlint-disable -->
+  ``const Button = styled.button`...`;``. <!-- markdownlint-disable -->
 - Analytics `attrs` are added for `data-garden-id` and `data-garden-version`.
 - [Concentric](https://github.com/brandon-rhodes/Concentric-CSS) CSS order is
   maintained with the help of `stylelint`.

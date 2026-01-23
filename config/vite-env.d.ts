@@ -5,5 +5,4 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export * from './Styled{{capitalize component}}';
-export * from './Styled{{capitalize component}}Text';
+declare module 'vite-plugin-banner';

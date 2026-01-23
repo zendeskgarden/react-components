@@ -1,10 +1,4 @@
-.cache
-.changelog
-.env
-.netlify
 .vscode
+dist
 node_modules
-yarn.lock
 *.log
-demo/**/*
-packages/**/dist

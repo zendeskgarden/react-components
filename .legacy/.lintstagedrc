@@ -5,11 +5,6 @@
     "jest --config=utils/test/jest.config.js --bail --findRelatedTests --passWithNoTests",
     "prettier --write"
   ],
-  "!(*CHANGELOG|docs/changelogs/*).{md,mdx}": [
-    "markdownlint",
-    "prettier --write"
-  ],
-  "**/package.json": [
-    "prettier-package-json --write"
-  ]
+  "!(*CHANGELOG|docs/changelogs/*).{md,mdx}": ["markdownlint", "prettier --write"],
+  "**/package.json": ["prettier-package-json --write"]
 }

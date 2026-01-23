@@ -2,24 +2,33 @@
   "name": "@zendeskgarden/react-theming",
   "version": "9.14.0",
   "description": "Theming utilities and components within the Garden Design System",
-  "license": "Apache-2.0",
-  "author": "Zendesk Garden <garden@zendesk.com>",
+  "keywords": [
+    "components",
+    "garden",
+    "react",
+    "zendesk"
+  ],
   "homepage": "https://garden.zendesk.com/",
-  "repository": "https://github.com/zendeskgarden/react-components",
   "bugs": {
     "url": "https://github.com/zendeskgarden/react-components/issues"
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/esm/index.js",
+  "license": "Apache-2.0",
+  "author": "Zendesk Garden <garden@zendesk.com>",
+  "repository": "https://github.com/zendeskgarden/react-components",
   "files": [
     "dist"
   ],
+  "sideEffects": false,
+  "main": "dist/index.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/typings/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "../../utils/scripts/build.sh",
     "start": "../../utils/scripts/start.sh"
   },
-  "sideEffects": false,
-  "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
     "color2k": "^2.0.3",
@@ -28,23 +37,14 @@
     "polished": "^4.3.1",
     "prop-types": "^15.5.7"
   },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
-    "styled-components": "^4.2.0 || ^5.3.1 || ^6.0.0"
-  },
   "devDependencies": {
     "@types/lodash.get": "4.4.9",
     "@types/lodash.memoize": "4.1.9"
   },
-  "keywords": [
-    "components",
-    "garden",
-    "react",
-    "zendesk"
-  ],
-  "publishConfig": {
-    "access": "public"
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0",
+    "styled-components": "^4.2.0 || ^5.3.1 || ^6.0.0"
   },
   "zendeskgarden:src": "src/index.ts"
 }

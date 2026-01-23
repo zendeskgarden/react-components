@@ -46,12 +46,14 @@ const colorStyles = ({
   theme
 }: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
   return css`
-    background-color: ${$isHighlighted &&
-    getColor({
-      variable: 'background.primaryEmphasis',
-      transparency: theme.opacity[100],
-      theme
-    })};
+    background-color: ${
+      $isHighlighted &&
+      getColor({
+        variable: 'background.primaryEmphasis',
+        transparency: theme.opacity[100],
+        theme
+      })
+    };
   `;
 };
 

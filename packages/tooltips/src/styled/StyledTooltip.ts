@@ -106,8 +106,10 @@ const sizeStyles = ({
     font-size: ${fontSize};
     overflow-wrap: ${overflowWrap};
 
-    ${$hasArrow &&
-    arrowStyles(getArrowPosition(theme, $placement), { size: arrowSize, shift: arrowShift })};
+    ${
+      $hasArrow &&
+      arrowStyles(getArrowPosition(theme, $placement), { size: arrowSize, shift: arrowShift })
+    };
 
     ${StyledParagraph} {
       margin-top: ${paragraphMarginTop};

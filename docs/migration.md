@@ -39,7 +39,6 @@ consider additional positioning prop support on a case-by-case basis.
 #### All Packages
 
 - Garden v9 packages use `styled-components` version range `^5.3.1`.
-
   - `react-theming@v9` uses version range `^4.2.0 || ^5.3.1` to support `v8` to `v9` upgrades.
 
 - Garden v9 upgraded from `react-merge-refs` v1 to v2.

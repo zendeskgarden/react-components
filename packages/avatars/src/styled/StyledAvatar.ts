@@ -45,10 +45,12 @@ const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
     bottom: ${position};
     transition: all ${TRANSITION_DURATION}s ease-in-out;
 
-    ${props.$status === 'active' &&
-    css`
+    ${
+      props.$status === 'active' &&
+      css`
       animation: ${animation} ${TRANSITION_DURATION * 1.5}s ease-in-out;
-    `}
+    `
+    }
   `;
 };
 

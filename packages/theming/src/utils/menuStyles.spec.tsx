@@ -66,7 +66,9 @@ describe('menuStyles', () => {
   });
 
   it('renders with the expected child selector', () => {
-    const StyledChild = styled.div``;
+    const StyledChild = styled.div`
+      
+    `;
     const { container } = render(<StyledMenu $menuChildSelector={`${StyledChild}`} />);
 
     expect(container.firstChild).toHaveStyleRule('display', 'inline-block', {

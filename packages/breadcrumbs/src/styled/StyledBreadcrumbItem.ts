@@ -34,8 +34,9 @@ const colorStyles = ({
 }: IStyledBreadcrumbItemProps & ThemeProps<DefaultTheme>) => css`
   color: ${$isCurrent ? getColor({ variable: 'foreground.subtle', theme }) : 'inherit'};
 
-  ${$isCurrent &&
-  `
+  ${
+    $isCurrent &&
+    `
       & > :link,
       & > :visited,
       & > :link:hover,
@@ -44,7 +45,8 @@ const colorStyles = ({
       & > :visited:focus {
         color: inherit; /* [1] */
       }
-    `}
+    `
+  }
 `;
 
 export const StyledBreadcrumbItem = styled.li.attrs({
