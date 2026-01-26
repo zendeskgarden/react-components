@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledHeaderRow } from './StyledHeaderRow';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { StyledHeaderCell } from './StyledHeaderCell';
+import { StyledHeaderRow } from './StyledHeaderRow';
 
 const COMPONENT_ID = 'tables.head';
 

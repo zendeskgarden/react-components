@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useCallback, useReducer, forwardRef, useMemo, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { Field } from '@zendeskgarden/react-forms';
-import { ColorWell } from './ColorWell';
+import PropTypes from 'prop-types';
+import React, { useEffect, useCallback, useReducer, forwardRef, useMemo, useRef } from 'react';
+
 import {
   StyledHueRange,
   StyledSliderGroup,
@@ -22,8 +22,9 @@ import {
   StyledPreview,
   StyledColorPicker
 } from '../../styled';
-import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 import { IColor, IColorPickerProps, IHSVColor } from '../../types';
+import { ColorWell } from './ColorWell';
+import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

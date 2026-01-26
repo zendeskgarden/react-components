@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { getRenderFn } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { StyledNotification } from './StyledNotification';
+import { getRenderFn } from 'garden-test-utils';
+import React from 'react';
+import { css } from 'styled-components';
+
 import { Type } from '../types';
 import { StyledTitle } from './content/StyledTitle';
-import { css } from 'styled-components';
+import { StyledNotification } from './StyledNotification';
 
 describe('StyledNotification', () => {
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([

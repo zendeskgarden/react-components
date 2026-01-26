@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { Field as FormField } from '@zendeskgarden/react-forms';
 import React, { useState, HTMLAttributes, useMemo, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import { Field as FormField } from '@zendeskgarden/react-forms';
+
 import useDropdownContext from '../../utils/useDropdownContext';
 import { FieldContext } from '../../utils/useFieldContext';
 

@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { IHeaderItemWrapperProps } from '../../types';
+
 import { StyledHeaderItemWrapper } from '../../styled';
+import { IHeaderItemWrapperProps } from '../../types';
 
 /**
  * @deprecated use `Header.ItemWrapper` instead

@@ -6,6 +6,7 @@
  */
 
 import React, { SVGAttributes } from 'react';
+
 import { StyledAvatar } from '../styled';
 
 const AvatarComponent = (props: SVGAttributes<SVGElement>) => <StyledAvatar {...props} />;

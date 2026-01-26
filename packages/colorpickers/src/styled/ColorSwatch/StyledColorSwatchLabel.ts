@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { parseToRgb, readableColor } from 'polished';
 import { focusStyles, getColor, componentStyles } from '@zendeskgarden/react-theming';
-import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
+import { parseToRgb, readableColor } from 'polished';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+
 import { IRGBColor } from '../../types';
+import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
 
 const COMPONENT_ID = 'colorpickers.color_swatch_label';
 

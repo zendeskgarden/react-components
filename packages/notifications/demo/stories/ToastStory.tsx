@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import IconAdd from '@zendeskgarden/svg-icons/src/16/notification-stroke.svg';
-import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
-import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';
-import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   Close,
   IToastOptions,
@@ -21,6 +17,10 @@ import {
   IToast,
   useToast
 } from '@zendeskgarden/react-notifications';
+import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
+import IconAdd from '@zendeskgarden/svg-icons/src/16/notification-stroke.svg';
+import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';
+import React, { useCallback } from 'react';
 
 interface IArgs extends IToastOptions {
   children: string;

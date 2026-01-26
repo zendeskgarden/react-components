@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { MouseEventHandler } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { useTheme } from 'styled-components';
-import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
-import { Drawer, IDrawerProps } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
+import { Drawer, IDrawerProps } from '@zendeskgarden/react-modals';
+import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
+import React, { MouseEventHandler } from 'react';
+import { useTheme } from 'styled-components';
+
 import { IFooterItem } from './types';
 
 interface IArgs extends IDrawerProps {

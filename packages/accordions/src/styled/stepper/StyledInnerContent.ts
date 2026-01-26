@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
 const COMPONENT_ID = 'accordions.step_inner_content';
 

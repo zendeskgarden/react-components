@@ -6,11 +6,12 @@
  */
 
 import { addMonths } from 'date-fns/addMonths';
-import { subMonths } from 'date-fns/subMonths';
-import { isValid } from 'date-fns/isValid';
-import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
+import { parse } from 'date-fns/parse';
+import { subMonths } from 'date-fns/subMonths';
+
 import { IDatePickerProps } from '../../../types';
 
 export interface IDatePickerState {

@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+
 import { StyledFooter } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
 

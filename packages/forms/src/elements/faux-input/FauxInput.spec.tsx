@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl } from 'garden-test-utils';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
 import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {

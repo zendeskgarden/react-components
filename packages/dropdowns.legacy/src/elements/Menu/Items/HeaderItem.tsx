@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { IHeaderItemProps } from '../../../types';
+
 import { StyledHeaderItem } from '../../../styled';
+import { IHeaderItemProps } from '../../../types';
 import useMenuContext from '../../../utils/useMenuContext';
 
 /**

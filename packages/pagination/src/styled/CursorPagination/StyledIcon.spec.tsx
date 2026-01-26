@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
 import ChevronLeft from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
 import { StyledIcon } from './StyledIcon';
 
 describe('StyledIcon', () => {

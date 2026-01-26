@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { ITabsProps, Tabs } from '@zendeskgarden/react-tabs';
+import React from 'react';
+
 import { ITab } from './types';
 
 interface IArgs extends ITabsProps {

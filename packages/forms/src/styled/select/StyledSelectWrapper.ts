@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { IStyledTextFauxInputProps, StyledTextFauxInput } from '../text/StyledTextFauxInput';
 import { StyledSelect } from './StyledSelect';
 

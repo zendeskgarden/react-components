@@ -6,11 +6,12 @@
  */
 
 import React, { useMemo, forwardRef } from 'react';
+
+import { StyledTimeline } from '../../styled';
 import { ITimelineProps } from '../../types';
 import { TimelineContext } from '../../utils';
-import { StyledTimeline } from '../../styled';
-import { Item } from '../timeline/components/Item';
 import { Content } from '../timeline/components/Content';
+import { Item } from '../timeline/components/Item';
 import { OppositeContent } from '../timeline/components/OppositeContent';
 
 const TimelineComponent = forwardRef<HTMLOListElement, ITimelineProps>(

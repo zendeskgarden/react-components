@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { math } from 'polished';
-import { componentStyles } from '@zendeskgarden/react-theming';
-import { getRowHeight } from './style-utils';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { componentStyles } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled from 'styled-components';
+
 import { ITableProps } from '../types';
+import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.overflow_button';
 

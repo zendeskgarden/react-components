@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
-import { create } from 'storybook/theming';
 import type { Preview, ReactRenderer } from '@storybook/react-vite';
 import type { DecoratorFunction } from 'storybook/internal/types';
-import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
+
+import React from 'react';
+import { create } from 'storybook/theming';
 import { MINIMAL_VIEWPORTS } from 'storybook/viewport';
+import { createGlobalStyle } from 'styled-components';
+
+import { ThemeProvider, DEFAULT_THEME, getColor } from '../packages/theming/src';
 
 const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' as const } };
 const DARK = getColor({ theme: DARK_THEME, variable: 'background.default' });

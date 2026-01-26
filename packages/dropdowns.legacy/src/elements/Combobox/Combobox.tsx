@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, KeyboardEvent, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
 import { MediaInput, VALIDATION } from '@zendeskgarden/react-forms';
+import PropTypes from 'prop-types';
+import React, { forwardRef, KeyboardEvent, useEffect, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+import { Reference } from 'react-popper';
+
 import { IComboboxProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 

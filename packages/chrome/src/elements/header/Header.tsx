@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { IHeaderProps } from '../../types';
+import React from 'react';
+
 import { StyledHeader } from '../../styled';
+import { IHeaderProps } from '../../types';
 import { HeaderItem } from './HeaderItem';
 import { HeaderItemIcon } from './HeaderItemIcon';
 import { HeaderItemText } from './HeaderItemText';

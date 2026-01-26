@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { IOrderedListProps, OrderedList } from '@zendeskgarden/react-typography';
+import React from 'react';
+
 import { IListItem } from './types';
 
 interface IArgs extends IOrderedListProps {

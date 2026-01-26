@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
+import styled from 'styled-components';
 
 const COMPONENT_ID = 'buttons.external_icon';
 

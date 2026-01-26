@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { StyledValue } from './StyledValue';
 
 const COMPONENT_ID = 'dropdowns.combobox.tags_button';

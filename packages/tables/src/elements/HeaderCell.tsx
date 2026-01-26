@@ -6,8 +6,9 @@
  */
 
 import React, { forwardRef } from 'react';
-import { IHeaderCellProps } from '../types';
+
 import { StyledHeaderCell, StyledHiddenCell } from '../styled';
+import { IHeaderCellProps } from '../types';
 import { useTableContext } from '../utils/useTableContext';
 import { Cell } from './Cell';
 

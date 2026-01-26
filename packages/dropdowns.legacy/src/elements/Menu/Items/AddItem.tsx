@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import AddSvg from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
-import { Item } from './Item';
-import { IItemProps } from '../../../types';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 import { StyledAddItem, StyledItemIcon } from '../../../styled';
+import { IItemProps } from '../../../types';
 import useMenuContext from '../../../utils/useMenuContext';
+import { Item } from './Item';
 
 // eslint-disable-next-line react/display-name
 const AddItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(

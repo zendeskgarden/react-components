@@ -6,8 +6,9 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { Item } from './components/Item';
+
 import { StyledFileList } from '../../styled';
+import { Item } from './components/Item';
 
 const FileListComponent = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
   ({ ...props }, ref) => <StyledFileList {...props} ref={ref} />

@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { Children, cloneElement, ReactElement } from 'react';
+import styled from 'styled-components';
+
 import { IStyledBaseIconProps } from '../types';
 
 export const StyledBaseIcon = styled(

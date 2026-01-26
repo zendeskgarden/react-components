@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledTile } from './StyledTile';
 
 const COMPONENT_ID = 'forms.tile_icon';

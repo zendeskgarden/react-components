@@ -5,6 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-const FOO = 'bar';
+export { Accordion } from './elements/accordion/Accordion';
 
-export { FOO };
+export type { IAccordionProps } from './types/elements';

@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { getFocusBoxShadow, componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { Reference } from 'react-popper';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { Reference } from 'react-popper';
+
 import { StyledInput } from '../../styled';
-import useDropdownContext from '../../utils/useDropdownContext';
 import { ITriggerProps } from '../../types';
+import useDropdownContext from '../../utils/useDropdownContext';
 
 /**
  * @deprecated use `@zendeskgarden/react-dropdowns` Menu instead

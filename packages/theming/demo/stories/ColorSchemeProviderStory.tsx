@@ -5,13 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useState } from 'react';
-import styled, { ThemeProvider, useTheme } from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
-import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import DarkIcon from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
-import LightIcon from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
-import SystemIcon from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
+import { IconButton } from '@zendeskgarden/react-buttons';
+import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
+import { Field, Input } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
 import {
   ColorScheme,
   ColorSchemeProvider,
@@ -21,12 +19,14 @@ import {
   useColorScheme,
   useWindow
 } from '@zendeskgarden/react-theming';
-import { Grid } from '@zendeskgarden/react-grid';
-import { IconButton } from '@zendeskgarden/react-buttons';
-import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
-import { Field, Input } from '@zendeskgarden/react-forms';
-import { Code } from '@zendeskgarden/react-typography';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { Code } from '@zendeskgarden/react-typography';
+import SystemIcon from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
+import DarkIcon from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
+import LightIcon from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
+import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import React, { useEffect, useState } from 'react';
+import styled, { ThemeProvider, useTheme } from 'styled-components';
 
 const StyledGrid = styled(Grid)`
   background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};

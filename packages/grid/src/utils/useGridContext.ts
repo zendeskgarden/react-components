@@ -6,6 +6,7 @@
  */
 
 import { createContext, useContext } from 'react';
+
 import { GridNumber, Space } from '../types';
 
 interface IGridContext {

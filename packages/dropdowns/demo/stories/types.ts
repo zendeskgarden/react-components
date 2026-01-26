@@ -11,6 +11,7 @@ import {
   IOptGroupProps,
   IOptionProps
 } from '@zendeskgarden/react-dropdowns';
+
 import { BUTTON_TYPE } from './data';
 
 export interface IOption extends Omit<IOptionProps, 'icon'> {

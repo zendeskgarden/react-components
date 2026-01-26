@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { useId } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React, { useState, useMemo, useCallback } from 'react';
+
 import { IPaneProviderProps } from '../../types';
 import usePaneProviderContext, { PaneProviderContext } from '../../utils/usePaneProviderContext';
 

@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
 const COMPONENT_ID = 'forms.tile_description';
 

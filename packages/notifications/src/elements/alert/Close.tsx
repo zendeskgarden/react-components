@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
-import { StyledClose } from '../../styled';
-import { useNotificationsContext } from '../../utils/useNotificationsContext';
 import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import React, { ButtonHTMLAttributes } from 'react';
+
+import { StyledClose } from '../../styled';
+import { useNotificationsContext } from '../../utils/useNotificationsContext';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

@@ -6,6 +6,7 @@
  */
 
 import { ArrowPosition, MenuPosition } from '@zendeskgarden/react-theming';
+
 import { GardenPlacement, PopperPlacement } from '../types';
 
 /**

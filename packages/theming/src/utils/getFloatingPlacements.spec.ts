@@ -6,9 +6,10 @@
  */
 
 import { Placement as FloatingPlacement } from '@floating-ui/react-dom';
+
+import DEFAULT_THEME from '../elements/theme';
 import { PLACEMENT, Placement } from '../types';
 import { PLACEMENT_MAP, RTL_PLACEMENT_MAP, getFloatingPlacements } from './getFloatingPlacements';
-import DEFAULT_THEME from '../elements/theme';
 
 describe('getFloatingPlacements', () => {
   it.each<[Placement, FloatingPlacement]>(

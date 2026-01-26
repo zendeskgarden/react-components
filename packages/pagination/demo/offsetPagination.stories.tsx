@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 
-import { useArgs } from 'storybook/preview-api';
 import { IPaginationProps, OffsetPagination } from '@zendeskgarden/react-pagination';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 
 type IArgs = IPaginationProps & {
   gap?: string;

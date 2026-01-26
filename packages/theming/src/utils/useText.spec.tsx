@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { renderHook } from '@testing-library/react-hooks';
+import React from 'react';
+
 import { useText } from './useText';
 
 describe('useText()', () => {

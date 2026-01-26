@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen, act, waitFor } from 'garden-test-utils';
+import React, { createRef } from 'react';
+
 import { ColorSwatchDialog } from './index';
 
 const colors = [

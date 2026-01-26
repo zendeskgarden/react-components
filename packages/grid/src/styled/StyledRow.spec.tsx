@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { math } from 'polished';
-import { render } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledRow } from './StyledRow';
+import { render } from 'garden-test-utils';
+import { math } from 'polished';
+import React from 'react';
+
 import { ALIGN_ITEMS, JUSTIFY_CONTENT, SPACE, WRAP } from '../types';
+import { StyledRow } from './StyledRow';
 
 describe('StyledRow', () => {
   it('renders default styling', () => {

@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledInput } from '../select/StyledInput';
 
 const COMPONENT_ID = 'dropdowns.multiselect_input';

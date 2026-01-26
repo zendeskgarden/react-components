@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import {
   componentStyles,
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 

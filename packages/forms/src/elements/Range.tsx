@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useEffect, useCallback, useRef, ChangeEvent } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import React, { useState, useEffect, useCallback, useRef, ChangeEvent } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+
+import { StyledRangeInput } from '../styled';
 import { IRangeProps } from '../types';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledRangeInput } from '../styled';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>

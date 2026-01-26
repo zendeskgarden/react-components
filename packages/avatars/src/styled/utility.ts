@@ -6,8 +6,8 @@
  */
 
 import { getColor } from '@zendeskgarden/react-theming';
-import { ThemeProps, DefaultTheme } from 'styled-components';
 import { math } from 'polished';
+import { ThemeProps, DefaultTheme } from 'styled-components';
 
 import { SIZE, IAvatarProps } from '../types';
 

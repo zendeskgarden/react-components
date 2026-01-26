@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render } from 'garden-test-utils';
-import { Dropdown, Trigger, Menu, HeaderItem } from '../../..';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render } from 'garden-test-utils';
+import React from 'react';
+
+import { Dropdown, Trigger, Menu, HeaderItem } from '../../..';
 
 describe('HeaderItem', () => {
   it('passes ref to underlying DOM element', () => {

@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css, keyframes } from 'styled-components';
 import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css, keyframes } from 'styled-components';
 
 const COMPONENT_ID = 'loaders.inline';
 

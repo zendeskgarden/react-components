@@ -5,14 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
+import { TooltipDialog } from '@zendeskgarden/react-modals';
+import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
-import { TooltipDialog } from '@zendeskgarden/react-modals';
-import { TooltipDialogStory } from './stories/TooltipDialogStory';
-import { TOOLTIP_DIALOG_BODY as BODY } from './stories/data';
+
 import { PLACEMENT } from '../src/types';
+import { TOOLTIP_DIALOG_BODY as BODY } from './stories/data';
+import { TooltipDialogStory } from './stories/TooltipDialogStory';
 
 export default {
   title: 'Packages/Modals/TooltipDialog',

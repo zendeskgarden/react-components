@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, createRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, screen, waitForElementToBeRemoved, act } from 'garden-test-utils';
+import React, { useState, createRef } from 'react';
+
 import { ColorPickerDialog } from '.';
 import { IColor } from '../../types';
 

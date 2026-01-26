@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
+import React from 'react';
+
 import { Col } from './Col';
-import { Row } from './Row';
 import { Grid } from './Grid';
+import { Row } from './Row';
 
 describe('Col', () => {
   it('is rendered as a div', () => {

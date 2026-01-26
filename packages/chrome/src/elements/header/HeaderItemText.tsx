@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { IHeaderItemTextProps } from '../../types';
+import React from 'react';
+
 import { StyledHeaderItemText } from '../../styled';
+import { IHeaderItemTextProps } from '../../types';
 
 /**
  * @deprecated use `Header.ItemText` instead

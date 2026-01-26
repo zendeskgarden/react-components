@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { FauxInput } from '@zendeskgarden/react-forms';
+import React from 'react';
+
 import { IArgs as ITagStoryArgs, TagStory } from '../../stories/TagStory';
 
 interface IArgs extends ITagStoryArgs {

@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
-import { getValueAndUnit } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import { getValueAndUnit } from 'polished';
+import styled, { css } from 'styled-components';
 
 const COMPONENT_ID = 'loaders.loading_placeholder';
 

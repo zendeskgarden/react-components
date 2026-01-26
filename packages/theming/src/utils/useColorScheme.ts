@@ -6,6 +6,7 @@
  */
 
 import { useContext } from 'react';
+
 import { ColorSchemeContext } from '../elements/ColorSchemeProvider';
 
 /**

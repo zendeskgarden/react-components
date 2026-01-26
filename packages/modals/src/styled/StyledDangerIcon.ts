@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import AlertErrorStrokeIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
+import styled from 'styled-components';
 
 export const StyledDangerIcon = styled(AlertErrorStrokeIcon)`
   position: absolute;

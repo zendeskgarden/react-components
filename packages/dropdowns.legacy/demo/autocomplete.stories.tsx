@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
-import Downshift from 'downshift';
+
 import {
   Autocomplete,
   Dropdown,
@@ -18,6 +16,10 @@ import {
   Menu,
   Message
 } from '@zendeskgarden/react-dropdowns.legacy';
+import Downshift from 'downshift';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { AutocompleteStory } from './stories/AutocompleteStory';
 import { AUTOCOMPLETE_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
 

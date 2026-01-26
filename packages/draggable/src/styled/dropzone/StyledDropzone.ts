@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
 const COMPONENT_ID = 'dropzone';
 

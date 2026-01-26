@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { rgba } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
 import { FileUpload } from './FileUpload';
 
 describe('FileUpload', () => {

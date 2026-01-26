@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { IButtonIconProps } from '../../types';
+
 import { StyledIcon } from '../../styled';
+import { IButtonIconProps } from '../../types';
 
 const EndIconComponent = ({ isRotated, ...props }: IButtonIconProps) => (
   <StyledIcon $position="end" $isRotated={isRotated} {...props} />

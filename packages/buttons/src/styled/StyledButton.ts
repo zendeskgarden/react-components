@@ -5,9 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ButtonHTMLAttributes } from 'react';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { em, math } from 'polished';
 import {
   SELECTOR_FOCUS_VISIBLE,
   focusStyles,
@@ -15,9 +12,13 @@ import {
   getFocusBoxShadow,
   componentStyles
 } from '@zendeskgarden/react-theming';
+import { em, math } from 'polished';
+import { ButtonHTMLAttributes } from 'react';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { IButtonProps } from '../types';
-import { StyledSplitButton } from './StyledSplitButton';
 import { StyledIcon } from './StyledIcon';
+import { StyledSplitButton } from './StyledSplitButton';
 
 export const COMPONENT_ID = 'buttons.button';
 

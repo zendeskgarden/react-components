@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, act, waitFor } from 'garden-test-utils';
-import { useToast, ToastProvider } from '../../';
+import React from 'react';
 import { config } from 'react-transition-group';
+
+import { useToast, ToastProvider } from '../../';
 
 config.disabled = true;
 

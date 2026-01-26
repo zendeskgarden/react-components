@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { ChevronButton } from '@zendeskgarden/react-buttons';
+import { componentStyles } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { Orientation } from '../../types';
 
 interface IStyledSplitterButtonProps {

@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Tiles } from '@zendeskgarden/react-forms';
-import { TilesStory } from './stories/TilesStory';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { TILES } from './stories/data';
+import { TilesStory } from './stories/TilesStory';
 type Story = StoryObj<typeof TilesStory>;
 
 export default {

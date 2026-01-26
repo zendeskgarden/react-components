@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Tag } from '@zendeskgarden/react-tags';
-import { FauxInputStory } from './stories/FauxInputStory';
+import React from 'react';
+
 import { FAUX_INPUT_TAGS as TAGS } from './stories/data';
+import { FauxInputStory } from './stories/FauxInputStory';
 
 export default {
   title: 'Packages/Tags/[patterns]',

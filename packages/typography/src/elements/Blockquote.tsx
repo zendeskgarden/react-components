@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { IBlockquoteProps, SIZE } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledBlockquote } from '../styled';
+import { IBlockquoteProps, SIZE } from '../types';
 
 /**
  * @extends BlockquoteHTMLAttributes<HTMLQuoteElement>

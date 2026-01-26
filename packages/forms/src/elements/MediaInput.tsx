@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React, { useState, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import { IMediaInputProps, VALIDATION } from '../types';
+
 import { StyledTextMediaInput } from '../styled';
-import { FauxInput } from './faux-input/FauxInput';
+import { IMediaInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
+import { FauxInput } from './faux-input/FauxInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>

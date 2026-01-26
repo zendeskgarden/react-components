@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
 
 const COMPONENT_ID = 'colorpickers.colordialog_tooltipdialog';
 

@@ -6,6 +6,7 @@
  */
 
 import { IColProps } from '@zendeskgarden/react-grid';
+
 import { IGridRow, ISplitterPane } from './types';
 
 const ROW_COLUMNS_STANDARD: IColProps[] = Array.from({ length: 12 }, (_, index) => ({

@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { em, math } from 'polished';
 import {
   componentStyles,
   getLineHeight,
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
+import { em, math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { Validation } from '../../types';
 import { StyledHint } from '../common/StyledHint';
 import { StyledLabel } from '../common/StyledLabel';

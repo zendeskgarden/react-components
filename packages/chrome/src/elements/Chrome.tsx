@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { readableColor } from 'polished';
 import { DEFAULT_THEME, getColor, useDocument } from '@zendeskgarden/react-theming';
+import { readableColor } from 'polished';
+import PropTypes from 'prop-types';
+import React, { useMemo, useEffect, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+
+import { StyledChrome } from '../styled';
 import { IChromeProps } from '../types';
 import { ChromeContext } from '../utils/useChromeContext';
-import { StyledChrome } from '../styled';
 
 /**
  * @deprecated no longer for general use

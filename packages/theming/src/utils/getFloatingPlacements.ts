@@ -6,6 +6,7 @@
  */
 
 import { Placement as FloatingPlacement } from '@floating-ui/react-dom';
+
 import { IGardenTheme, MenuPosition, Placement } from '../types';
 
 /* Map Garden to Floating-UI placements */

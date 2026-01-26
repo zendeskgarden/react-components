@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
 import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
+import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useMemo } from 'react';
 
-import { TYPE, IGlobalAlertProps } from '../../types';
 import { StyledGlobalAlert, StyledGlobalAlertIcon } from '../../styled';
+import { TYPE, IGlobalAlertProps } from '../../types';
 import { GlobalAlertContext } from '../../utils/useGlobalAlertContext';
 import { GlobalAlertButton } from './GlobalAlertButton';
 import { GlobalAlertClose } from './GlobalAlertClose';

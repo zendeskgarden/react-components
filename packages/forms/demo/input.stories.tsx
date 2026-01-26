@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Input } from '@zendeskgarden/react-forms';
-import { InputStory } from './stories/InputStory';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import { InputStory } from './stories/InputStory';
 type Story = StoryObj<typeof InputStory>;
 
 export default {

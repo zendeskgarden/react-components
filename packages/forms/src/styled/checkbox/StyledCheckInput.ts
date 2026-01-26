@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { StyledRadioInput } from '../radio/StyledRadioInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 

@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
-import { StyledClose } from './StyledClose';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
 import { Type } from '../../types';
+import { StyledClose } from './StyledClose';
 
 describe('StyledClose', () => {
   it('should render with the correct styling for RTL writing systems', () => {

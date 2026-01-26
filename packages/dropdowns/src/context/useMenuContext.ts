@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
 import { IUseMenuReturnValue } from '@zendeskgarden/container-menu';
+import { createContext, useContext } from 'react';
 
 export const MenuContext = createContext<
   | {

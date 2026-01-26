@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { hideVisually } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import { hideVisually } from 'polished';
+import styled from 'styled-components';
 
 const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
 

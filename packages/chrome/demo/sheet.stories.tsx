@@ -5,17 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Sheet } from '@zendeskgarden/react-chrome';
-import { SheetStory } from './stories/SheetStory';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import {
   SHEET_BODY as BODY,
   SHEET_DESCRIPTION as DESCRIPTION,
   SHEET_FOOTER_ITEMS as FOOTER_ITEMS,
   SHEET_TITLE as TITLE
 } from './stories/data';
+import { SheetStory } from './stories/SheetStory';
 
 export default {
   title: 'Packages/Chrome/Sheet',

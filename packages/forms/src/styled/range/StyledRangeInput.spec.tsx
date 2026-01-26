@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { StyledRangeInput } from './StyledRangeInput';
-import { StyledLabel } from '../common/StyledLabel';
-import { StyledHint } from '../common/StyledHint';
-import { StyledMessage } from '../common/StyledMessage';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
+import { StyledHint } from '../common/StyledHint';
+import { StyledLabel } from '../common/StyledLabel';
+import { StyledMessage } from '../common/StyledMessage';
+import { StyledRangeInput } from './StyledRangeInput';
 
 describe('StyledRangeInput', () => {
   it('renders the expected element', () => {

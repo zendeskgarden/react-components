@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { IFileUploadProps } from '../types';
+import React from 'react';
+
 import { StyledFileUpload } from '../styled';
+import { IFileUploadProps } from '../types';
 
 /**
  * [1] A generic div is used for best support with `react-dropzone`.

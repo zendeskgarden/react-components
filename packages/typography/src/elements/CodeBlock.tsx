@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, useRef } from 'react';
-import Highlight, { Language, Prism } from 'prism-react-renderer';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
-import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
+import Highlight, { Language, Prism } from 'prism-react-renderer';
+import React, { useMemo, useRef } from 'react';
+
 import {
   StyledCodeBlock,
   StyledCodeBlockContainer,
   StyledCodeBlockLine,
   StyledCodeBlockToken
 } from '../styled';
+import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
 
 /* prism-react-renderer Token type replica */
 interface IToken {

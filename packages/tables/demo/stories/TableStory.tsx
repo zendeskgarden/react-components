@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Checkbox, Field } from '@zendeskgarden/react-forms';
 import {
@@ -15,6 +14,8 @@ import {
   ISortableCellProps,
   IRowProps
 } from '@zendeskgarden/react-tables';
+import React, { useState } from 'react';
+
 import { CELL_WIDTH, TABLE_ROW } from './types';
 
 interface IArgs extends ITableProps {

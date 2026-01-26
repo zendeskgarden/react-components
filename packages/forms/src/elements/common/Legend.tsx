@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledLegend } from '../../styled';
 
 const LegendComponent = forwardRef<HTMLLegendElement, HTMLAttributes<HTMLLegendElement>>(

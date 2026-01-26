@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
 import React from 'react';
 import { css } from 'styled-components';
-import { render, renderRtl } from 'garden-test-utils';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledStep } from './StyledStep';
+
 import { StyledContent } from './StyledContent';
 import { StyledLine } from './StyledLine';
+import { StyledStep } from './StyledStep';
 
 describe('StyledStep', () => {
   it('renders default styles', () => {

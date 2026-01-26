@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { INavItemProps, PRODUCTS } from '../../types';
+import React from 'react';
+
 import {
   StyledNavButton,
   StyledLogoNavItem,
   StyledBrandmarkNavItem,
   StyledNavListItem
 } from '../../styled';
-import { useNavContext } from '../../utils/useNavContext';
+import { INavItemProps, PRODUCTS } from '../../types';
 import { useChromeContext } from '../../utils/useChromeContext';
+import { useNavContext } from '../../utils/useNavContext';
 import { useNavListContext } from '../../utils/useNavListContext';
 
 /**

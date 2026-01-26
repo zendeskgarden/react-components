@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
 import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
+import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
 
 import { IAvatarProps, SIZE } from '../types';
-import { StyledText } from './StyledText';
 import { StyledStatusIndicator } from './StyledStatusIndicator';
+import { StyledText } from './StyledText';
 import { getStatusColor, TRANSITION_DURATION } from './utility';
 
 const COMPONENT_ID = 'avatars.avatar';

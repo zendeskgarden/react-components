@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 
-import { Item } from './Item';
-import { IItemProps } from '../../../types';
 import { StyledPreviousItem, StyledItemIcon, StyledPreviousIcon } from '../../../styled';
+import { IItemProps } from '../../../types';
 import useDropdownContext from '../../../utils/useDropdownContext';
 import useMenuContext from '../../../utils/useMenuContext';
+import { Item } from './Item';
 
 // eslint-disable-next-line react/display-name
 const PreviousItemComponent = React.forwardRef<HTMLLIElement, IItemProps>(

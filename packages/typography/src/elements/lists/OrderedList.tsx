@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Item } from './OrderedListItem';
+import React, { useMemo } from 'react';
+
+import { StyledOrderedList } from '../../styled';
 import { IOrderedListProps, SIZE, TYPE_ORDERED_LIST } from '../../types';
 import { OrderedListContext } from '../../utils/useOrderedListContext';
-import { StyledOrderedList } from '../../styled';
+import { Item } from './OrderedListItem';
 
 const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size = 'medium', type = 'decimal', ...other }, ref) => {

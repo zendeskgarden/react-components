@@ -6,9 +6,10 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+
 import { StyledItemMeta } from '../../../styled';
-import useMenuContext from '../../../utils/useMenuContext';
 import useItemContext from '../../../utils/useItemContext';
+import useMenuContext from '../../../utils/useMenuContext';
 
 /**
  * @extends HTMLAttributes<HTMLSpanElement>

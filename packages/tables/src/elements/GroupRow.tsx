@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { StyledGroupRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 

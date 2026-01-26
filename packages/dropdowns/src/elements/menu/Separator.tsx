@@ -6,8 +6,9 @@
  */
 
 import React, { LiHTMLAttributes, forwardRef } from 'react';
-import { StyledSeparator } from '../../views';
+
 import useMenuContext from '../../context/useMenuContext';
+import { StyledSeparator } from '../../views';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

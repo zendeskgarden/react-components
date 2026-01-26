@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
-import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { render } from 'garden-test-utils';
+import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { IOptionProps } from '../../types';
-import { Field } from './Field';
-import { Combobox } from './Combobox';
-import { Option } from './Option';
 import { StyledOption } from '../../views';
+import { Combobox } from './Combobox';
+import { Field } from './Field';
+import { Option } from './Option';
 
 interface ITestOptionProps extends Partial<IOptionProps> {
   optionTestId?: string;

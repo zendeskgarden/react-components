@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, useCallback, useContext, useEffect, useMemo } from 'react';
 import throttle from 'lodash.throttle';
+import React, { useRef, useState, useCallback, useContext, useEffect, useMemo } from 'react';
 import { ThemeContext } from 'styled-components';
-import { hslToHsv } from '../../utils/conversion';
-import { getNextHsv, getThumbPosition } from '../../utils/saturation';
+
 import { StyledColorWell, StyledColorWellThumb } from '../../styled';
 import { IHSVColor } from '../../types';
+import { hslToHsv } from '../../utils/conversion';
+import { getNextHsv, getThumbPosition } from '../../utils/saturation';
 
 interface IColorWellProps {
   hue: number;

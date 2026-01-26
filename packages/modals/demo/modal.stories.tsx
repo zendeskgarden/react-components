@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
+import { Modal } from '@zendeskgarden/react-modals';
+import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
-import { Modal } from '@zendeskgarden/react-modals';
-import { ModalStory } from './stories/ModalStory';
+
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
+import { ModalStory } from './stories/ModalStory';
 
 export default {
   title: 'Packages/Modals/Modal',

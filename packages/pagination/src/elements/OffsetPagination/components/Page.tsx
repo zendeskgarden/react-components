@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+
 import { StyledPage } from '../../../styled';
 
 const PageComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(

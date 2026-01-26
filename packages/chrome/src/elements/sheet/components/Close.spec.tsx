@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render, screen } from 'garden-test-utils';
-
-import { Close } from './Close';
+import React from 'react';
 
 import { useSheetContext } from '../../../utils/useSheetContext';
+import { Close } from './Close';
 
 type IMockUseSheetContextReturnValue = {
   useSheetContext: () => {

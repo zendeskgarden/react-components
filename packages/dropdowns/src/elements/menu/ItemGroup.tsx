@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
-import { IItemGroupProps } from '../../types';
+import PropTypes from 'prop-types';
+import React, { HTMLAttributes, forwardRef, useMemo } from 'react';
+
+import { ItemGroupContext } from '../../context/useItemGroupContext';
 import useMenuContext from '../../context/useMenuContext';
+import { IItemGroupProps } from '../../types';
 import {
   StyledItem,
   StyledItemContent,
@@ -17,7 +19,6 @@ import {
   StyledItemTypeIcon,
   StyledSeparator
 } from '../../views';
-import { ItemGroupContext } from '../../context/useItemGroupContext';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, keyframes, DefaultTheme, ThemeProps } from 'styled-components';
-import { math } from 'polished';
 import {
   componentStyles,
   getLineHeight,
@@ -14,6 +12,9 @@ import {
   SELECTOR_FOCUS_VISIBLE,
   getColor
 } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, keyframes, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { getHeaderHeight } from './utils';
 
 const COMPONENT_ID = 'chrome.skipnav';

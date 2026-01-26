@@ -5,6 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
 import React, {
   MouseEventHandler,
   forwardRef,
@@ -14,13 +18,10 @@ import React, {
   useState
 } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
-import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
+import { ThemeContext } from 'styled-components';
+
 import { IListboxProps } from '../../types';
 import { StyledFloatingListbox, StyledListbox } from '../../views';
-import { ThemeContext } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (

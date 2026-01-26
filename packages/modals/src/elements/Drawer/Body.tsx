@@ -6,8 +6,9 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
-import { useModalContext } from '../../utils/useModalContext';
+
 import { StyledDrawerBody } from '../../styled';
+import { useModalContext } from '../../utils/useModalContext';
 
 const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { getContentProps } = useModalContext();

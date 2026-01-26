@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { getColor, StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { Type } from '../types';
 import { validationTypes } from '../utils/icons';
 

@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { math } from 'polished';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+
 import { getNavItemHeight, getNavWidth } from '../utils';
 
 const COMPONENT_ID = 'chrome.base_nav_item';

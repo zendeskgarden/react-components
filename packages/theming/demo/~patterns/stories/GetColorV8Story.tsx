@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import styled, { useTheme } from 'styled-components';
-import { getColorV8 } from '@zendeskgarden/react-theming';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Dots } from '@zendeskgarden/react-loaders';
+import { getColorV8 } from '@zendeskgarden/react-theming';
 import { Code, Paragraph, Span } from '@zendeskgarden/react-typography';
+import React, { useEffect, useState } from 'react';
+import styled, { useTheme } from 'styled-components';
+
 import PALETTE_V8 from '../../../src/elements/palette/v8';
 
 const StyledColor = styled.div`

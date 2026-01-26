@@ -5,22 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
-import { startOfMonth } from 'date-fns/startOfMonth';
-import { endOfMonth } from 'date-fns/endOfMonth';
-import { startOfWeek } from 'date-fns/startOfWeek';
-import { endOfWeek } from 'date-fns/endOfWeek';
-import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
-import { addDays } from 'date-fns/addDays';
-import { isToday } from 'date-fns/isToday';
-import { isSameDay } from 'date-fns/isSameDay';
-import { isSameMonth } from 'date-fns/isSameMonth';
-import { isBefore } from 'date-fns/isBefore';
-import { isAfter } from 'date-fns/isAfter';
-import { subDays } from 'date-fns/subDays';
-import { compareAsc } from 'date-fns/compareAsc';
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
+import { addDays } from 'date-fns/addDays';
+import { compareAsc } from 'date-fns/compareAsc';
+import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { isAfter } from 'date-fns/isAfter';
+import { isBefore } from 'date-fns/isBefore';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
+import { isToday } from 'date-fns/isToday';
+import { startOfMonth } from 'date-fns/startOfMonth';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { subDays } from 'date-fns/subDays';
+import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
+
 import {
   StyledDatePicker,
   StyledCalendar,

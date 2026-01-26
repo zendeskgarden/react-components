@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
+import React, { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
+
 import { StyledHeader, StyledRotateIcon } from '../../../styled';
+import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { onClick, onMouseOver, onMouseOut, role, children, ...other } = props;

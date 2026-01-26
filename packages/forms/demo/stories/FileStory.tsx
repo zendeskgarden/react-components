@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { Progress } from '@zendeskgarden/react-loaders';
 import { File, IFileProps } from '@zendeskgarden/react-forms';
+import { Progress } from '@zendeskgarden/react-loaders';
+import React, { ButtonHTMLAttributes } from 'react';
 
 interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasClose?: boolean;

@@ -5,10 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useState, useContext, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
 import {
   autoPlacement,
   autoUpdate,
@@ -18,26 +14,31 @@ import {
   useFloating
 } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
-import { mergeRefs } from 'react-merge-refs';
-import { TooltipDialogContext } from '../../utils/useTooltipDialogContext';
-import {
-  StyledTooltipWrapper,
-  StyledTooltipDialog,
-  StyledTooltipDialogBackdrop
-} from '../../styled';
-import { ITooltipDialogProps, PLACEMENT } from '../../types';
-import { Title } from './Title';
-import { Body } from './Body';
-import { Close } from './Close';
-import { Footer } from './Footer';
-import { FooterItem } from './FooterItem';
 import {
   DEFAULT_THEME,
   getFloatingPlacements,
   useText,
   useDocument
 } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import React, { HTMLAttributes, useState, useContext, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { mergeRefs } from 'react-merge-refs';
+import { CSSTransition } from 'react-transition-group';
+import { ThemeContext } from 'styled-components';
+
+import {
+  StyledTooltipWrapper,
+  StyledTooltipDialog,
+  StyledTooltipDialogBackdrop
+} from '../../styled';
+import { ITooltipDialogProps, PLACEMENT } from '../../types';
+import { TooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import { Body } from './Body';
+import { Close } from './Close';
+import { Footer } from './Footer';
+import { FooterItem } from './FooterItem';
+import { Title } from './Title';
 
 const PLACEMENT_DEFAULT = 'top';
 

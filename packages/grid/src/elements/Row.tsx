@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+
+import { StyledRow } from '../styled';
 import { ALIGN_ITEMS, IRowProps, JUSTIFY_CONTENT, WRAP } from '../types';
 import useGridContext from '../utils/useGridContext';
-import { StyledRow } from '../styled';
 
 /**
  * @deprecated use `Grid.Row` instead

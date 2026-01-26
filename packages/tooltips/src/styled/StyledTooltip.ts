@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { Placement } from '@floating-ui/react-dom';
 import {
   arrowStyles,
   componentStyles,
@@ -13,7 +13,8 @@ import {
   getArrowPosition,
   getColor
 } from '@zendeskgarden/react-theming';
-import { Placement } from '@floating-ui/react-dom';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { ITooltipProps } from '../types';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';

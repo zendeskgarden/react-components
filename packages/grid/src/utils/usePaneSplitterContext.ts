@@ -6,6 +6,7 @@
  */
 
 import { createContext, useContext } from 'react';
+
 import { ISplitterProps, Orientation } from '../types';
 
 interface IPaneSplitterContext {

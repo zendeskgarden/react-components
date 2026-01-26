@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledText } from '../../styled';
 
 const TextComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => (

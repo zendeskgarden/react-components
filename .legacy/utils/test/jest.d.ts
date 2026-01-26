@@ -7,6 +7,5 @@
 
 /** JestDom matcher support */
 import '@testing-library/jest-dom';
-
 /** Jest matchers for styled-components */
 import 'jest-styled-components';

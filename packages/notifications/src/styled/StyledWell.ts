@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
+
 import { StyledBase } from './StyledBase';
 
 const COMPONENT_ID = 'notifications.well';

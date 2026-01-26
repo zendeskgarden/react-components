@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes } from 'react';
 import { ITooltipDialogProps } from '@zendeskgarden/react-modals';
+import { HTMLAttributes } from 'react';
 
 export interface IColor {
   hex: string;

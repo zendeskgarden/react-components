@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
-import { StyledTooltipDialogClose } from '../../styled';
 import { useText } from '@zendeskgarden/react-theming';
-import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+
+import { StyledTooltipDialogClose } from '../../styled';
+import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
 
 const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {

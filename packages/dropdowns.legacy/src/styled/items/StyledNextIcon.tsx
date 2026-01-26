@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import React, { HTMLAttributes } from 'react';
 import styled from 'styled-components';
-import NextIconSvg from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.next_item_icon';
 

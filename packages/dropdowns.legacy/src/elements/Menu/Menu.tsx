@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import PropTypes from 'prop-types';
 import React, { useRef, useEffect, useState, useContext, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
 import { Popper } from 'react-popper';
-import { IMenuProps, PLACEMENT, PopperPlacement } from '../../types';
+import { ThemeContext } from 'styled-components';
+
 import { StyledMenu, StyledMenuWrapper } from '../../styled/index';
-import useDropdownContext from '../../utils/useDropdownContext';
+import { IMenuProps, PLACEMENT, PopperPlacement } from '../../types';
 import { getPopperPlacement, getRtlPopperPlacement } from '../../utils/garden-placements';
+import useDropdownContext from '../../utils/useDropdownContext';
 import { MenuContext } from '../../utils/useMenuContext';
 
 /**

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME, useDocument, useText } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { ITagProps } from '../../types';
+import PropTypes from 'prop-types';
+import React, { HTMLAttributes, forwardRef, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+
 import useComboboxContext from '../../context/useComboboxContext';
+import { ITagProps } from '../../types';
 import { StyledTag } from '../../views';
 import { TagAvatar } from './TagAvatar';
 

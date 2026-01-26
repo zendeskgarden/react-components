@@ -5,18 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
+import { useMenu } from '@zendeskgarden/container-menu';
+import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
+import { DEFAULT_THEME, useDocument, useWindow } from '@zendeskgarden/react-theming';
+import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
+import React, { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { useMenu } from '@zendeskgarden/container-menu';
-import { DEFAULT_THEME, useDocument, useWindow } from '@zendeskgarden/react-theming';
-import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
-import { IMenuProps, PLACEMENT } from '../../types';
+
 import { MenuContext } from '../../context/useMenuContext';
-import { toItems } from './utils';
+import { IMenuProps, PLACEMENT } from '../../types';
 import { MenuList } from './MenuList';
-import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import { toItems } from './utils';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>

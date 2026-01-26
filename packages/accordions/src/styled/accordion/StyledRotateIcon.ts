@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
 import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
 
 const COMPONENT_ID = 'accordions.rotate_icon';
 

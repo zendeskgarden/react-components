@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
 import { render, fireEvent } from 'garden-test-utils';
+import React, { useCallback, useState } from 'react';
+
+import { IPaneProviderProps } from '../../types';
+import { Content } from './components/Content';
 import { Splitter } from './components/Splitter';
+import { SplitterButton } from './components/SplitterButton';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
-import { Content } from './components/Content';
-import { SplitterButton } from './components/SplitterButton';
-import { IPaneProviderProps } from '../../types';
 
 interface IExtendedMouseEvent extends MouseEventInit {
   offsetX?: number;

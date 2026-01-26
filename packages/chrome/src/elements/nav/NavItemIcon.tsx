@@ -6,6 +6,7 @@
  */
 
 import React, { SVGAttributes, PropsWithChildren } from 'react';
+
 import { StyledNavItemIcon } from '../../styled';
 
 /**

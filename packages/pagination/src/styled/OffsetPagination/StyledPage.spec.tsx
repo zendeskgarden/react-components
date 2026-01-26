@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
+import React from 'react';
 
 import { StyledPage } from './StyledPage';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 describe('StyledPage', () => {
   it('renders the expected element', () => {

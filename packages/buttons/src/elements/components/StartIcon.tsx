@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { IButtonIconProps } from '../../types';
+
 import { StyledIcon } from '../../styled';
+import { IButtonIconProps } from '../../types';
 
 const StartIconComponent = ({ isRotated, ...props }: IButtonIconProps) => (
   <StyledIcon $position="start" $isRotated={isRotated} {...props} />

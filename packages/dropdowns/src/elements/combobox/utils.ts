@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Children, ReactNode, isValidElement } from 'react';
 import { IOption, IUseComboboxProps } from '@zendeskgarden/container-combobox';
+import { Children, ReactNode, isValidElement } from 'react';
+
 import { IOptGroupProps, IOptionProps } from '../../types';
 
 /**

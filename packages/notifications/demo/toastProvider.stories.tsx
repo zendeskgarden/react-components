@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { ToastProvider } from '@zendeskgarden/react-notifications';
-import { ToastProviderStory } from './stories/ToastProviderStory';
+import React from 'react';
+
 import { TOAST_PLACEMENT_OPTIONS } from './stories/data';
+import { ToastProviderStory } from './stories/ToastProviderStory';
 
 export default {
   title: 'Packages/Notifications/ToastProvider',

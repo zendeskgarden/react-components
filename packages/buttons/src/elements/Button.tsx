@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { IButtonProps, SIZE } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledButton } from '../styled';
+import { IButtonProps, SIZE } from '../types';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
-import { StartIcon } from './components/StartIcon';
 import { EndIcon } from './components/EndIcon';
+import { StartIcon } from './components/StartIcon';
 
 const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
   (

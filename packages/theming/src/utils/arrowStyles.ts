@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css, keyframes } from 'styled-components';
 import { stripUnit } from 'polished';
+import { css, keyframes } from 'styled-components';
+
 import { ArrowPosition } from '../types';
 
 type ArrowOptions = {

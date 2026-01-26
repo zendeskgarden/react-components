@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Item } from './Item';
-import { IItemProps } from '../../../types';
+import React from 'react';
+
 import { StyledMediaItem } from '../../../styled';
+import { IItemProps } from '../../../types';
+import { Item } from './Item';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

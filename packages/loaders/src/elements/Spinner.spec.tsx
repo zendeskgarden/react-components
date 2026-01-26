@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
+import React from 'react';
+
 import { Spinner } from './Spinner';
 
 jest.useFakeTimers({ legacyFakeTimers: true });

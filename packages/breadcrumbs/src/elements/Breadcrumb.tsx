@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
-import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
 import { useText } from '@zendeskgarden/react-theming';
+import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
+import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
+
 import {
   StyledBreadcrumb,
   StyledBreadcrumbItem,

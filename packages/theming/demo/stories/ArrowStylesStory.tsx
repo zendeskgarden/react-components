@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { arrowStyles, getColor, ArrowPosition } from '@zendeskgarden/react-theming';
+import React from 'react';
+import styled from 'styled-components';
 
 interface IArgs {
   position: ArrowPosition;

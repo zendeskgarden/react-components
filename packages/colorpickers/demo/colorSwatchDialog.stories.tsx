@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
+import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
+import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
-import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
+
 import { ColorSwatchDialogStory } from './stories/ColorSwatchDialogStory';
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 type Story = StoryObj<typeof ColorSwatchDialogStory>;

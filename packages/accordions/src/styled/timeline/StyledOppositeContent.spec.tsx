@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render, renderRtl, screen } from 'garden-test-utils';
+import React from 'react';
+
 import { StyledOppositeContent } from './StyledOppositeContent';
 
 describe('StyledOppositeContent', () => {

@@ -7,8 +7,8 @@
 
 import DEFAULT_THEME from '../elements/theme';
 import { FocusBoxShadowParameters } from '../types';
-import { getColorV8 } from './getColorV8';
 import { getColor } from './getColor';
+import { getColorV8 } from './getColorV8';
 
 /**
  * Get a CSS `box-shadow` property value for focus state styling.

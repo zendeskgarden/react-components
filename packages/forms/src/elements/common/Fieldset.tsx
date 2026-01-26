@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Legend } from './Legend';
-import { IFieldsetProps } from '../../types';
+import React, { useMemo, forwardRef } from 'react';
+
 import { StyledFieldset } from '../../styled';
+import { IFieldsetProps } from '../../types';
 import { FieldsetContext } from '../../utils/useFieldsetContext';
+import { Legend } from './Legend';
 
 const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>(
   ({ isCompact, ...other }, ref) => {

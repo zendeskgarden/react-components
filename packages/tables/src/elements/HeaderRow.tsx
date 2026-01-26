@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+
 import { StyledHeaderRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 

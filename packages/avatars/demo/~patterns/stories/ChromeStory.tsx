@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
-import { Chrome, Body, Header } from '@zendeskgarden/react-chrome';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
+import { Chrome, Body, Header } from '@zendeskgarden/react-chrome';
+import Icon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
+import React from 'react';
 
 interface IArgs extends Omit<IAvatarProps, 'badge'> {
   badge?: boolean;

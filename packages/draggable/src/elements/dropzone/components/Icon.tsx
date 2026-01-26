@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes, useEffect } from 'react';
+
 import { StyledIcon } from '../../../styled';
 import { useDropzoneContext } from '../../../utils/useDropzoneContext';
 

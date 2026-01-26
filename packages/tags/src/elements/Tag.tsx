@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { ITagProps, SIZE } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledTag } from '../styled';
-import { Close } from './Close';
+import { ITagProps, SIZE } from '../types';
 import { Avatar } from './Avatar';
+import { Close } from './Close';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
   ({ isPill, isRound, isRegular, size = 'medium', hue, ...other }, ref) => (

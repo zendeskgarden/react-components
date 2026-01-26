@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
-import { INotificationProps, TYPE } from '../types';
+import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+
 import { StyledNotification, StyledIcon } from '../styled';
+import { INotificationProps, TYPE } from '../types';
 import { validationIcons } from '../utils/icons';
-import { Title } from './Title';
-import { Paragraph } from './Paragraph';
 import { Close } from './Close';
+import { Paragraph } from './Paragraph';
+import { Title } from './Title';
 
 export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {

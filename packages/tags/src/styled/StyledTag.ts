@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, readableColor } from 'polished';
 import {
   componentStyles,
   getLineHeight,
@@ -15,9 +13,12 @@ import {
   getColor,
   IGardenTheme
 } from '@zendeskgarden/react-theming';
+import { math, readableColor } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
+import { ITagProps } from '../types';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
-import { ITagProps } from '../types';
 
 const COMPONENT_ID = 'tags.tag_view';
 

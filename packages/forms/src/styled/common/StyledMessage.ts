@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { Validation } from '../../types';
-import { StyledMessageIcon } from './StyledMessageIcon';
 import { StyledLabel } from './StyledLabel';
+import { StyledMessageIcon } from './StyledMessageIcon';
 
 export interface IStyledMessageProps {
   $validation?: Validation;

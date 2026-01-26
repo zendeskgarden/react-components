@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { getRenderFn } from 'garden-test-utils';
 import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledDrawer } from './StyledDrawer';
+import { getRenderFn } from 'garden-test-utils';
 import { rgba } from 'polished';
+import React from 'react';
+
+import { StyledDrawer } from './StyledDrawer';
 
 describe('StyledDrawer', () => {
   type Args = [

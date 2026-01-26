@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useCallback, useLayoutEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React, { useRef, useCallback, useLayoutEffect, useState } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+
+import { StyledTextarea } from '../styled';
 import { ITextareaProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
-import { StyledTextarea } from '../styled';
 
 const parseStyleValue = (value: string) => {
   return parseInt(value, 10) || 0;

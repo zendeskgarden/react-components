@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { ITableProps, SIZE } from '../types';
+import React, { useMemo } from 'react';
+
 import { StyledTable } from '../styled';
+import { ITableProps, SIZE } from '../types';
 import { TableContext } from '../utils/useTableContext';
-import { Head } from './Head';
 import { Body } from './Body';
 import { Caption } from './Caption';
 import { Cell } from './Cell';
 import { GroupRow } from './GroupRow';
+import { Head } from './Head';
 import { HeaderCell } from './HeaderCell';
 import { HeaderRow } from './HeaderRow';
 import { OverflowButton } from './OverflowButton';

@@ -6,13 +6,14 @@
  */
 
 import React, { useState, useMemo, useRef, HTMLAttributes, forwardRef } from 'react';
-import useResizeObserver from 'use-resize-observer';
 import { mergeRefs } from 'react-merge-refs';
-import { Splitter } from './components/Splitter';
-import { Content } from './components/Content';
-import { SplitterButton } from './components/SplitterButton';
+import useResizeObserver from 'use-resize-observer';
+
 import { StyledPane } from '../../styled';
 import { PaneContext } from '../../utils/usePaneContext';
+import { Content } from './components/Content';
+import { Splitter } from './components/Splitter';
+import { SplitterButton } from './components/SplitterButton';
 
 const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, ...props }, ref) => {

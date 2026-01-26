@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes } from 'react';
-import { useDraggableListContext } from '../../../utils/useDraggableListContext';
-import { StyledDropIndicator } from '../../../styled';
 import { useText } from '@zendeskgarden/react-theming';
+import React, { forwardRef, LiHTMLAttributes } from 'react';
+
+import { StyledDropIndicator } from '../../../styled';
+import { useDraggableListContext } from '../../../utils/useDraggableListContext';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

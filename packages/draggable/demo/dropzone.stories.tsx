@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Dropzone } from '@zendeskgarden/react-draggable';
+import React from 'react';
+
 import { DropzoneStory } from './stories/DropzoneStory';
 
 export default {

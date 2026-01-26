@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DataAttributes } from 'styled-components';
 import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes } from 'styled-components';
 
 const COMPONENT_ID = 'forms.input_message_icon';
 

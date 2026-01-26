@@ -6,8 +6,8 @@
  */
 
 import { Field } from '@zendeskgarden/react-forms';
-import styled, { DefaultTheme } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme } from 'styled-components';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_rgb_field';
 

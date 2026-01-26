@@ -6,6 +6,7 @@
  */
 
 import { IFileProps } from '@zendeskgarden/react-forms';
+
 import { IFileListItem, IInputGroupItem, ITile } from './types';
 
 export const FIELDSET_FIELDS = ['Field one', 'Field two', 'Field three'];

@@ -6,12 +6,13 @@
  */
 
 import React, { Children, forwardRef, isValidElement, useMemo } from 'react';
-import { IStepperProps } from '../../types';
+
 import { StyledStepper } from '../../styled';
+import { IStepperProps } from '../../types';
 import { StepContext, StepperContext } from '../../utils';
-import { Step } from './components/Step';
-import { Label } from './components/Label';
 import { Content } from './components/Content';
+import { Label } from './components/Label';
+import { Step } from './components/Step';
 
 const DEFAULT_ACTIVE_INDEX = 0;
 

@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Item } from './UnorderedListItem';
+import React, { forwardRef, useMemo } from 'react';
+
+import { StyledUnorderedList } from '../../styled';
 import { IUnorderedListProps, SIZE, TYPE_UNORDERED_LIST } from '../../types';
 import { UnorderedListContext } from '../../utils/useUnorderedListContext';
-import { StyledUnorderedList } from '../../styled';
+import { Item } from './UnorderedListItem';
 
 const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>(
   ({ size = 'medium', type = 'disc', ...other }, ref) => {

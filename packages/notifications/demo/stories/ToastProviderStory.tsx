@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import {
   ToastProvider,
   IToastProviderProps,
   IToastOptions
 } from '@zendeskgarden/react-notifications';
+import React from 'react';
+
 import { ToastStory } from './ToastStory';
 
 interface IArgs extends IToastProviderProps {

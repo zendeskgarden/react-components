@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ChangeEventHandler } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { DefaultTheme } from 'styled-components';
-import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
-import { Field, Toggle } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
 import { Button } from '@zendeskgarden/react-buttons';
 import { ISheetProps, Sheet } from '@zendeskgarden/react-chrome';
+import { Field, Toggle } from '@zendeskgarden/react-forms';
+import { Grid } from '@zendeskgarden/react-grid';
+import { ThemeProvider, IGardenTheme } from '@zendeskgarden/react-theming';
+import React, { ChangeEventHandler } from 'react';
+import { DefaultTheme } from 'styled-components';
+
 import { IFooterItem } from './types';
 
 interface ISheetComponentProps extends ISheetProps {

@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
 import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledSeparator } from './StyledSeparator';
+import styled, { css } from 'styled-components';
+
 import { StyledTimelineContent } from './StyledContent';
 import { StyledOppositeContent } from './StyledOppositeContent';
+import { StyledSeparator } from './StyledSeparator';
 
 const COMPONENT_ID = 'timeline.item';
 

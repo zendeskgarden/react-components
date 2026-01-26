@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import { Hint as FormHint } from '@zendeskgarden/react-forms';
+import React, { HTMLAttributes } from 'react';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

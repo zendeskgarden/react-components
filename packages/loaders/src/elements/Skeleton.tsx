@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { ISkeletonProps } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledSkeleton } from '../styled';
+import { ISkeletonProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

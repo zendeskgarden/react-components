@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Button } from '@zendeskgarden/react-buttons';
+import React from 'react';
+
 import { ButtonStory } from './stories/ButtonStory';
 
 export default {

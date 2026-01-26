@@ -6,6 +6,7 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
+
 import { ArrowPosition, IGardenTheme } from '../types';
 
 /* Map Floating-UI placement to Garden arrow position */

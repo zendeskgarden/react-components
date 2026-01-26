@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, Children, useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { FILE_TYPE, FILE_VALIDATION, IFileProps } from '../../../types';
-import { Close } from './Close';
-import { Delete } from './Delete';
+import React, { forwardRef, Children, useMemo } from 'react';
+
 import { StyledFile, StyledFileIcon } from '../../../styled';
+import { FILE_TYPE, FILE_VALIDATION, IFileProps } from '../../../types';
 import { FileContext } from '../../../utils/useFileContext';
 import { fileIconsDefault, fileIconsCompact } from '../utils';
+import { Close } from './Close';
+import { Delete } from './Delete';
 
 const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
   ({ children, type, isCompact, focusInset, validation, ...props }, ref) => {

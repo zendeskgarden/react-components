@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
 
-import { getStatusSize, IStyledStatusIndicatorProps } from './utility';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
+import { getStatusSize, IStyledStatusIndicatorProps } from './utility';
 
 const COMPONENT_ID = 'avatars.status-indicator.indicator';
 

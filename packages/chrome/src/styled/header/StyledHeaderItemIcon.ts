@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 
 const COMPONENT_ID = 'chrome.header_item_icon';
 

@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css } from 'styled-components';
 import { math } from 'polished';
-import { getFocusBoxShadow } from './getFocusBoxShadow';
+import { css } from 'styled-components';
+
 import { FocusStylesParameters } from '../types';
+import { getFocusBoxShadow } from './getFocusBoxShadow';
 
 export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
 

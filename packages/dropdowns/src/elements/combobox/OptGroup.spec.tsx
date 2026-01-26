@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import { render } from 'garden-test-utils';
+import React, { forwardRef } from 'react';
+
 import { IOptGroupProps } from '../../types';
-import { Field } from './Field';
 import { Combobox } from './Combobox';
+import { Field } from './Field';
 import { OptGroup } from './OptGroup';
 import { Option } from './Option';
 

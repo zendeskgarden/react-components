@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
-import { Content } from './Content';
+import React from 'react';
+
 import { Body } from './Body';
+import { Content } from './Content';
 
 describe('Content', () => {
   it('passes ref to underlying DOM element', () => {

@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { rgba } from 'polished';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import { getRenderFn } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
 import { StyledHeaderPaddle } from './StyledHeaderPaddle';
 
 describe('StyledHeaderPaddle', () => {

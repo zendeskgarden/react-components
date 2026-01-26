@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
+import { render } from 'garden-test-utils';
+import React from 'react';
+
 import { Type } from '../../types';
 import { StyledGlobalAlertIcon } from './StyledGlobalAlertIcon';
-import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 
 describe('StyledGlobalAlertIcon', () => {
   it.each<{ type: Type; color: string }>([

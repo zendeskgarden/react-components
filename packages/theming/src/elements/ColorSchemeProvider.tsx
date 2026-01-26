@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import PropTypes from 'prop-types';
 import React, {
   createContext,
   PropsWithChildren,
@@ -13,7 +14,7 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import PropTypes from 'prop-types';
+
 import {
   ColorScheme,
   IColorSchemeContext,

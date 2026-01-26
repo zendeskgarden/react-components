@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global_alert.title';

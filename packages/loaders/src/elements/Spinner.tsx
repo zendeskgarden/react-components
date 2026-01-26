@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { useSchedule } from '@zendeskgarden/container-schedule';
+import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+
+import { StyledSpinnerCircle, StyledSVG, StyledLoadingPlaceholder } from '../styled';
 import { ISpinnerProps } from '../types';
 import {
   STROKE_WIDTH_FRAMES,
   DASHARRAY_FRAMES,
   ROTATION_FRAMES
 } from '../utils/spinner-coordinates';
-import { StyledSpinnerCircle, StyledSVG, StyledLoadingPlaceholder } from '../styled';
 
 const COMPONENT_ID = 'loaders.spinner';
 const TOTAL_FRAMES = 100;

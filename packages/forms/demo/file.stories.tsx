@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
+import React from 'react';
+
 import { FileStory } from './stories/FileStory';
 
 export default {

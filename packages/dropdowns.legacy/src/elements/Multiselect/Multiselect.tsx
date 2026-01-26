@@ -5,6 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useSelection } from '@zendeskgarden/container-selection';
+import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { useDocument } from '@zendeskgarden/react-theming';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import PropTypes from 'prop-types';
 import React, {
   useContext,
   useRef,
@@ -15,15 +20,10 @@ import React, {
   HTMLAttributes,
   ReactNode
 } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { Reference } from 'react-popper';
-import { useSelection } from '@zendeskgarden/container-selection';
-import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { useDocument } from '@zendeskgarden/react-theming';
-import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { mergeRefs } from 'react-merge-refs';
-import { IMultiselectProps } from '../../types';
+import { Reference } from 'react-popper';
+import { ThemeContext } from 'styled-components';
+
 import {
   StyledFauxInput,
   StyledMultiselectInput,
@@ -31,6 +31,7 @@ import {
   StyledMultiselectItemWrapper,
   StyledMultiselectMoreAnchor
 } from '../../styled';
+import { IMultiselectProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 import { REMOVE_ITEM_STATE_TYPE } from '../Dropdown/Dropdown';

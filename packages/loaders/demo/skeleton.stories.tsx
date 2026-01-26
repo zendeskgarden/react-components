@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Skeleton } from '@zendeskgarden/react-loaders';
-import { SkeletonStory } from './stories/SkeletonStory';
+import React from 'react';
+
 import { TYPE_SCALE_OPTIONS } from './stories/data';
+import { SkeletonStory } from './stories/SkeletonStory';
 
 export default {
   title: 'Packages/Loaders/Skeleton',

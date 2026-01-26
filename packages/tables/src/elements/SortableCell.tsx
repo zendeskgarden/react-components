@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
 import SortFillIcon from '@zendeskgarden/svg-icons/src/12/sort-fill.svg';
-import { ISortableCellProps, SORT } from '../types';
+import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+
 import {
   StyledHeaderCell,
   StyledSortableButton,
   StyledSortableStrokeIconWrapper,
   StyledSortableFillIconWrapper
 } from '../styled';
+import { ISortableCellProps, SORT } from '../types';
 
 /**
  * @deprecated use `Table.SortableCell` instead

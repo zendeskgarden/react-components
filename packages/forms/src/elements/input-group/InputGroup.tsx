@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import React, { useMemo } from 'react';
+
+import { StyledInputGroup } from '../../styled';
 import { IInputGroupProps } from '../../types';
 import { InputGroupContext } from '../../utils/useInputGroupContext';
-import { StyledInputGroup } from '../../styled';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

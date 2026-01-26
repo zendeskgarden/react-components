@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import ChevronDoubleLeft from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+
 import { StyledIcon, StyledCursor } from '../../../styled';
 
 const FirstComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(

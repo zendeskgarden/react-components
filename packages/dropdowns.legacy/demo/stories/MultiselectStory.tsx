@@ -5,18 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   Multiselect,
   IMultiselectProps,
   IDropdownProps,
   IMenuProps
 } from '@zendeskgarden/react-dropdowns.legacy';
+import { Tag } from '@zendeskgarden/react-tags';
+import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import React, { useEffect, useState } from 'react';
+
 import { DropdownFieldStory } from './DropdownFieldStory';
 import { ICommonArgs, IMenuItem } from './types';
-import { Tag } from '@zendeskgarden/react-tags';
 
 interface IArgs extends IMultiselectProps, ICommonArgs {
   downshiftProps?: IDropdownProps['downshiftProps'];

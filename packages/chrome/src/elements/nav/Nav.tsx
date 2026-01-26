@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo } from 'react';
 import { ThemeProvider } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
+import React, { useMemo } from 'react';
+
+import { StyledNav } from '../../styled';
 import { INavProps } from '../../types';
 import { useChromeContext } from '../../utils/useChromeContext';
 import { NavContext } from '../../utils/useNavContext';
-import { StyledNav } from '../../styled';
 import { NavItem } from './NavItem';
 import { NavItemIcon } from './NavItemIcon';
 import { NavItemText } from './NavItemText';

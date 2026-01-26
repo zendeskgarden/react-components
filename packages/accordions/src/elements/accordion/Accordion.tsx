@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
-import { IAccordionProps } from '../../types';
+import React, { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
+
 import { StyledAccordion } from '../../styled';
+import { IAccordionProps } from '../../types';
 import { AccordionContext, SectionContext } from '../../utils';
-import { Section } from './components/Section';
 import { Header } from './components/Header';
 import { Label } from './components/Label';
 import { Panel } from './components/Panel';
+import { Section } from './components/Section';
 
 const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (

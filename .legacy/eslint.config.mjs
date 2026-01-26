@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import prettierConfig from 'eslint-config-prettier';
 import config from '@zendeskgarden/eslint-config';
+import jestPlugin from '@zendeskgarden/eslint-config/plugins/jest.js';
 import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
-import jestPlugin from '@zendeskgarden/eslint-config/plugins/jest.js';
+import prettierConfig from 'eslint-config-prettier';
 import storybook from 'eslint-plugin-storybook';
 
 const typescriptRules = {

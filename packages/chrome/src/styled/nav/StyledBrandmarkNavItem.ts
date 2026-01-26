@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+
 import { StyledBaseNavItem } from './StyledBaseNavItem';
 
 const COMPONENT_ID = 'chrome.brandmark_nav_list_item';

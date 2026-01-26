@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, createRef } from 'react';
-import { render, renderRtl, fireEvent, screen } from 'garden-test-utils';
-import { ColorPicker } from './index';
 import userEvent from '@testing-library/user-event';
+import { render, renderRtl, fireEvent, screen } from 'garden-test-utils';
+import React, { useState, createRef } from 'react';
+
 import { IColor } from '../../types';
+import { ColorPicker } from './index';
 
 describe('ColorPicker', () => {
   const user = userEvent.setup();

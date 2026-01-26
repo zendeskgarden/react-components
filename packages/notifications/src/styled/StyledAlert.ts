@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
+import { Type } from '../types';
+import { validationTypes } from '../utils/icons';
 import { StyledTitle } from './content/StyledTitle';
 import { IStyledBaseProps, StyledBase } from './StyledBase';
-import { validationTypes } from '../utils/icons';
-import { Type } from '../types';
 
 const COMPONENT_ID = 'notifications.alert';
 

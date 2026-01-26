@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { getFooterHeight, getHeaderHeight } from '../utils';
 
 const COMPONENT_ID = 'chrome.content';

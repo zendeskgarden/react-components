@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { Button } from './Button';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
 import { COMPONENT_ID } from '../styled/StyledButton';
+import { Button } from './Button';
 
 describe('Button', () => {
   it('is rendered as a button', () => {

@@ -6,6 +6,7 @@
  */
 
 import React, { PropsWithChildren, SVGAttributes } from 'react';
+
 import { StyledHeaderItemIcon } from '../../styled';
 
 /**

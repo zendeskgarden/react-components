@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { StyledDrawerFooterItem } from '../../styled';
 
 const FooterItemComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(

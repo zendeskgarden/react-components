@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+
 import { StyledSeparator } from '../../styled';
 
 /**

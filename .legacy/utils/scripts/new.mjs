@@ -7,13 +7,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { lernaNew } from '@zendeskgarden/scripts';
 import { Command } from 'commander';
 import { execa } from 'execa';
-import { lernaNew } from '@zendeskgarden/scripts';
-import ora from 'ora';
-import pluralize from 'pluralize';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import ora from 'ora';
+import pluralize from 'pluralize';
 
 const program = new Command();
 const info = (message, spinner) => spinner.info(message).start();

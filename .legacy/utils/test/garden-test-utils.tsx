@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render, configure } from '@testing-library/react';
+import React from 'react';
+
 import { ThemeProvider, DEFAULT_THEME } from '../../packages/theming/src';
 
 configure({ testIdAttribute: 'data-test-id' });

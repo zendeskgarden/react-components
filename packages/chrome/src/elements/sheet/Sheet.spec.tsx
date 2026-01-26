@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from 'garden-test-utils';
+import React, { useState, forwardRef } from 'react';
 
-import { Sheet } from './Sheet';
 import { ISheetProps } from '../../types';
+import { Sheet } from './Sheet';
 
 describe('Sheet', () => {
   const user = userEvent.setup();

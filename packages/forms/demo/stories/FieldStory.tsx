@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Field } from '@zendeskgarden/react-forms';
+import React, { HTMLAttributes } from 'react';
+
 import { ICommonArgs, renderHint, renderLabel, renderMessage } from './common';
 
 /* eslint-disable-next-line no-duplicate-imports */

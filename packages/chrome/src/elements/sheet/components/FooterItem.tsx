@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledSheetFooterItem } from '../../../styled';
 
 const SheetFooterItem = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {

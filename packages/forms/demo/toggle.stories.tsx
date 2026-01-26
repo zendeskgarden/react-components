@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Toggle } from '@zendeskgarden/react-forms';
-import { ToggleStory } from './stories/ToggleStory';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import { ToggleStory } from './stories/ToggleStory';
 type Story = StoryObj<typeof ToggleStory>;
 
 export default {

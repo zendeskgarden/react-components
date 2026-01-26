@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import {
   Checkbox,
@@ -15,6 +14,8 @@ import {
   Radio,
   Toggle
 } from '@zendeskgarden/react-forms';
+import React from 'react';
+
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IFieldsetProps, IFieldArgs {

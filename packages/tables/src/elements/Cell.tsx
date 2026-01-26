@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+
 import { StyledCell, StyledHiddenCell } from '../styled';
-import { useTableContext } from '../utils/useTableContext';
 import { ICellProps } from '../types';
+import { useTableContext } from '../utils/useTableContext';
 
 /**
  * @deprecated use `Table.Cell` instead

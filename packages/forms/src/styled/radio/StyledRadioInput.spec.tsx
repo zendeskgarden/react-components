@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
+import { StyledMessage } from '../common/StyledMessage';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
-import { StyledMessage } from '../common/StyledMessage';
-import { rgba } from 'polished';
 
 describe('StyledRadioInput', () => {
   it('renders the expected element', () => {

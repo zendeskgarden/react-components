@@ -5,14 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
-import PropTypes from 'prop-types';
-import { mergeRefs } from 'react-merge-refs';
-import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
-import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import CheckedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
+import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
+import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 
+import { ItemContext } from '../../context/useItemContext';
+import useItemGroupContext from '../../context/useItemGroupContext';
+import useMenuContext from '../../context/useMenuContext';
 import { IItemProps, OPTION_TYPE, OptionType } from '../../types';
 import {
   StyledItem,
@@ -22,9 +25,6 @@ import {
   StyledItemTypeIcon
 } from '../../views';
 import { ItemMeta } from './ItemMeta';
-import useMenuContext from '../../context/useMenuContext';
-import useItemGroupContext from '../../context/useItemGroupContext';
-import { ItemContext } from '../../context/useItemContext';
 import { toItem } from './utils';
 
 const renderActionIcon = (itemType?: OptionType) => {

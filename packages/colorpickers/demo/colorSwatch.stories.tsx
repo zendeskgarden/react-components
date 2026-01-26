@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 
-import { useArgs } from 'storybook/preview-api';
 import { ColorSwatch } from '@zendeskgarden/react-colorpickers';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 
 export default {

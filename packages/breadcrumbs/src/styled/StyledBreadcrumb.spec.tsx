@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
 import { StyledBreadcrumb } from './StyledBreadcrumb';
 
 describe('StyledBreadcrumb', () => {

@@ -7,8 +7,8 @@
 
 import React, { forwardRef, HTMLAttributes } from 'react';
 
-import { useAccordionContext, useSectionContext } from '../../../utils';
 import { StyledPanel, StyledInnerPanel } from '../../../styled';
+import { useAccordionContext, useSectionContext } from '../../../utils';
 
 const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   ({ role, children, ...props }, ref) => {

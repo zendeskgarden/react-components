@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { ISelectProps, VALIDATION } from '../types';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 import { StyledSelect, StyledSelectWrapper } from '../styled';
-import { FauxInput } from './faux-input/FauxInput';
+import { ISelectProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
+import { FauxInput } from './faux-input/FauxInput';
 
 /**
  * @extends SelectHTMLAttributes<HTMLSelectElement>

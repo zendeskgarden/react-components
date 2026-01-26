@@ -6,16 +6,6 @@
  */
 
 import {
-  HTMLAttributes,
-  InputHTMLAttributes,
-  LabelHTMLAttributes,
-  LiHTMLAttributes,
-  ReactElement,
-  ReactNode,
-  RefObject
-} from 'react';
-import { PLACEMENT as PLACEMENT_BASE } from '@zendeskgarden/react-theming';
-import {
   IOption,
   IUseComboboxProps,
   IUseComboboxReturnValue
@@ -24,9 +14,19 @@ import {
   IUseMenuProps,
   ISelectedItem as IUseMenuSelectedItem
 } from '@zendeskgarden/container-menu';
+import { IButtonProps } from '@zendeskgarden/react-buttons';
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
-import { IButtonProps } from '@zendeskgarden/react-buttons';
+import { PLACEMENT as PLACEMENT_BASE } from '@zendeskgarden/react-theming';
+import {
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+  LiHTMLAttributes,
+  ReactElement,
+  ReactNode,
+  RefObject
+} from 'react';
 
 export type ISelectedItem = IUseMenuSelectedItem;
 

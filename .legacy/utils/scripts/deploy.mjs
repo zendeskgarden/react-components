@@ -7,7 +7,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import envalid from 'envalid';
 import {
   cmdDu,
   githubCommit,
@@ -16,6 +15,7 @@ import {
   netlifyBandwidth,
   netlifyDeploy
 } from '@zendeskgarden/scripts';
+import envalid from 'envalid';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 

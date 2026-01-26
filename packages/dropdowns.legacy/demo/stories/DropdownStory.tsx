@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ReactNode } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { Grid, IColProps } from '@zendeskgarden/react-grid';
 import { Dropdown, IDropdownProps, IMenuProps } from '@zendeskgarden/react-dropdowns.legacy';
+import { Grid, IColProps } from '@zendeskgarden/react-grid';
+import React, { ReactNode } from 'react';
+
 import { IMenuItemProps, MenuStory } from './MenuStory';
 import { IMenuItem, ITEM } from './types';
 

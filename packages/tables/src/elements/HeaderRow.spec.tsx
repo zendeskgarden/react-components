@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
+import React from 'react';
 
-import { Table } from './Table';
 import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
+import { Table } from './Table';
 
 describe('HeaderRow', () => {
   it('passes ref to underlying DOM element', () => {

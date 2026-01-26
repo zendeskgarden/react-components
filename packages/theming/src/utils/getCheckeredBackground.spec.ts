@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getCheckeredBackground } from './getCheckeredBackground';
-import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
+import DEFAULT_THEME from '../elements/theme';
+import { getCheckeredBackground } from './getCheckeredBackground';
 
 describe('getCheckeredBackground', () => {
   it('returns a valid background', () => {

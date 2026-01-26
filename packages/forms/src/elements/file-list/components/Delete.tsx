@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { useText } from '@zendeskgarden/react-theming';
 import TrashIconCompact from '@zendeskgarden/svg-icons/src/12/trash-stroke.svg';
 import TrashIconDefault from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
-import useFileContext from '../../../utils/useFileContext';
+import React, { ButtonHTMLAttributes } from 'react';
+
 import { StyledFileDelete } from '../../../styled';
-import { useText } from '@zendeskgarden/react-theming';
+import useFileContext from '../../../utils/useFileContext';
 
 const DeleteComponent = React.forwardRef<
   HTMLButtonElement,

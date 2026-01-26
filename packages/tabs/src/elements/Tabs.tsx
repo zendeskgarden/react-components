@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useContext, useMemo, forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import React, { useState, useContext, useMemo, forwardRef } from 'react';
+import { ThemeContext } from 'styled-components';
+
+import { StyledTabs } from '../styled/StyledTabs';
 import { ITabsProps } from '../types';
 import { toTabs } from '../utils/toTabs';
 import { TabsContext } from '../utils/useTabsContext';
-import { StyledTabs } from '../styled/StyledTabs';
 import { Tab } from './Tab';
 import { TabList } from './TabList';
 import { TabPanel } from './TabPanel';

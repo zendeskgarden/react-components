@@ -6,6 +6,7 @@
  */
 
 import { renderHook } from '@testing-library/react-hooks';
+
 import { useDocument } from './useDocument';
 
 describe('useDocument()', () => {

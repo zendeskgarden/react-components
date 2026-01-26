@@ -1,4 +1,14 @@
 {
   "$schema": "../node_modules/oxlint/configuration_schema.json",
-  "ignorePatterns": ["packages/**"]
+  "ignorePatterns": [".legacy/**", "packages/**"],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "react",
+        "importNames": ["default"],
+        "message": "Use named imports instead of the default React import."
+      }
+    ]
+  }
 }

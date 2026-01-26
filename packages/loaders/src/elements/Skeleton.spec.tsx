@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
-import { Skeleton } from './Skeleton';
-import { rgba } from 'polished';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
+import { Skeleton } from './Skeleton';
 
 describe('Skeleton', () => {
   type Args = ['light' | 'dark', string];

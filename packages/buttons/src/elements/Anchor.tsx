@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { AnchorHTMLAttributes, forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import { IAnchorProps } from '../types';
-import { StyledAnchor, StyledExternalIcon } from '../styled';
 import { useText } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import React, { AnchorHTMLAttributes, forwardRef } from 'react';
+
+import { StyledAnchor, StyledExternalIcon } from '../styled';
+import { IAnchorProps } from '../types';
 
 /**
  * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.

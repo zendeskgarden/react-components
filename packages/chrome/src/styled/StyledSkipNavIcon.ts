@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import LinkIcon from '@zendeskgarden/svg-icons/src/16/link-stroke.svg';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import LinkIcon from '@zendeskgarden/svg-icons/src/16/link-stroke.svg';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
 const COMPONENT_ID = 'chrome.skipnav_icon';
 

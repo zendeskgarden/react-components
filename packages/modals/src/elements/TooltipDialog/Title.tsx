@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import React, { HTMLAttributes, forwardRef, useEffect } from 'react';
+
 import { StyledTooltipDialogTitle } from '../../styled';
 import { ITooltipDialogTitleProps } from '../../types';
+import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
 
 const TitleComponent = forwardRef<HTMLDivElement, ITooltipDialogTitleProps>(
   ({ children, tag = 'div', ...other }, ref) => {

@@ -7,6 +7,7 @@
 
 import { ReactElement, useCallback, useContext } from 'react';
 import { uid } from 'react-uid';
+
 import { Placement } from '../../types';
 import { ToastContext } from './ToastContext';
 

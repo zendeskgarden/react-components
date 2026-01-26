@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Tabs } from '@zendeskgarden/react-tabs';
-import { TabsStory } from './stories/TabsStory';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { TABS } from './stories/data';
+import { TabsStory } from './stories/TabsStory';
 type Story = StoryObj<typeof TabsStory>;
 
 export default {

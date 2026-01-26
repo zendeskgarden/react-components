@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math, stripUnit } from 'polished';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import { math, stripUnit } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
+import { Orientation, PLACEMENT } from '../../types';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 import { getSize } from './StyledPaneSplitterButton';
-import { Orientation, PLACEMENT } from '../../types';
 
 const COMPONENT_ID = 'pane.splitter_button_container';
 

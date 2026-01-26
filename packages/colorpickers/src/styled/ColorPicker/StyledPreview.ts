@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { rgba } from 'polished';
 import { componentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
+import { rgba } from 'polished';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+
 import { IRGBColorProps } from '../types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';

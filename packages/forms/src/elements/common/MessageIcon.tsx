@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC, PropsWithChildren } from 'react';
-import PropTypes from 'prop-types';
 import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
 import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
 import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { FC, PropsWithChildren } from 'react';
+
 import { StyledMessageIcon } from '../../styled';
 import { IMessageIconProps, VALIDATION } from '../../types';
 

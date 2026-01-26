@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, LiHTMLAttributes, PropsWithChildren } from 'react';
+import { IFauxInputProps } from '@zendeskgarden/react-forms';
 import { ControllerStateAndHelpers, StateChangeOptions } from 'downshift';
 import { Modifiers } from 'popper.js';
-import { IFauxInputProps } from '@zendeskgarden/react-forms';
+import { HTMLAttributes, LiHTMLAttributes, PropsWithChildren } from 'react';
 
 const SHARED_PLACEMENT = [
   'auto',

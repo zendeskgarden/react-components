@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, act, renderRtl, getRenderFn } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { Tooltip } from './Tooltip';
+import { render, act, renderRtl, getRenderFn } from 'garden-test-utils';
+import React from 'react';
+
 import { ITooltipProps } from '../types';
+import { Tooltip } from './Tooltip';
 
 jest.useFakeTimers();
 

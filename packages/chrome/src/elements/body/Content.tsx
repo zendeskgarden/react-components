@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+
 import { StyledContent } from '../../styled';
 import { useBodyContext } from '../../utils/useBodyContext';
 

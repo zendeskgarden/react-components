@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { OffsetPagination } from './OffsetPagination';
+import React from 'react';
+
 import { IPaginationProps } from '../../types';
+import { OffsetPagination } from './OffsetPagination';
 
 describe('OffsetPagination', () => {
   const user = userEvent.setup();

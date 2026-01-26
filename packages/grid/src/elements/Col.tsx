@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { ALIGN_SELF, IColProps, TEXT_ALIGN } from '../types';
+import React from 'react';
+
 import { StyledCol } from '../styled';
+import { ALIGN_SELF, IColProps, TEXT_ALIGN } from '../types';
 import useGridContext from '../utils/useGridContext';
 
 /**

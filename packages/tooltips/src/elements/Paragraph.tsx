@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledParagraph } from '../styled';
 
 /**

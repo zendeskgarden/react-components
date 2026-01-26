@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useEffect, useState, KeyboardEvent, forwardRef } from 'react';
-import PropTypes from 'prop-types';
-import { Reference } from 'react-popper';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { VALIDATION } from '@zendeskgarden/react-forms';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { useRef, useEffect, useState, KeyboardEvent, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import { IAutocompleteProps } from '../../types';
+import { Reference } from 'react-popper';
+
 import { StyledFauxInput, StyledInput, StyledSelect } from '../../styled';
+import { IAutocompleteProps } from '../../types';
 import useDropdownContext from '../../utils/useDropdownContext';
 import useFieldContext from '../../utils/useFieldContext';
 

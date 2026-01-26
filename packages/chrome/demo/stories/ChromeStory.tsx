@@ -5,28 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { MouseEventHandler, ReactElement, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import ChatIcon from '@zendeskgarden/svg-icons/src/26/relationshape-chat.svg';
-import ExploreIcon from '@zendeskgarden/svg-icons/src/26/relationshape-explore.svg';
-import GuideIcon from '@zendeskgarden/svg-icons/src/26/relationshape-guide.svg';
-import SupportIcon from '@zendeskgarden/svg-icons/src/26/relationshape-support.svg';
-import TalkIcon from '@zendeskgarden/svg-icons/src/26/relationshape-talk.svg';
-import ProductIcon from '@zendeskgarden/svg-icons/src/26/garden.svg';
-import BrandmarkIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
-import NavIcon from '@zendeskgarden/svg-icons/src/26/app.svg';
-import NavIcon1 from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
-import NavIcon2 from '@zendeskgarden/svg-icons/src/26/email-fill.svg';
-import NavIcon3 from '@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg';
-import NavIcon4 from '@zendeskgarden/svg-icons/src/26/chat.svg';
-import NavIcon5 from '@zendeskgarden/svg-icons/src/26/dashboard.svg';
-import NavIcon6 from '@zendeskgarden/svg-icons/src/26/settings-fill.svg';
-import HeaderIcon from '@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg';
-import HeaderIcon1 from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import HeaderIcon2 from '@zendeskgarden/svg-icons/src/16/lifesaver-stroke.svg';
-import HeaderIcon3 from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
-import HeaderIcon4 from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { Button } from '@zendeskgarden/react-buttons';
 import {
   Body,
   Chrome,
@@ -39,10 +19,31 @@ import {
   Nav,
   SkipNav
 } from '@zendeskgarden/react-chrome';
-import { Button } from '@zendeskgarden/react-buttons';
-import { IFooterItem, IHeaderItem, INavItem } from './types';
-import { SheetComponent } from './SheetStory';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import HeaderIcon from '@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg';
+import HeaderIcon3 from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
+import HeaderIcon2 from '@zendeskgarden/svg-icons/src/16/lifesaver-stroke.svg';
+import HeaderIcon1 from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import HeaderIcon4 from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
+import NavIcon from '@zendeskgarden/svg-icons/src/26/app.svg';
+import NavIcon4 from '@zendeskgarden/svg-icons/src/26/chat.svg';
+import NavIcon3 from '@zendeskgarden/svg-icons/src/26/customer-lists-fill.svg';
+import NavIcon5 from '@zendeskgarden/svg-icons/src/26/dashboard.svg';
+import NavIcon2 from '@zendeskgarden/svg-icons/src/26/email-fill.svg';
+import ProductIcon from '@zendeskgarden/svg-icons/src/26/garden.svg';
+import NavIcon1 from '@zendeskgarden/svg-icons/src/26/home-fill.svg';
+import ChatIcon from '@zendeskgarden/svg-icons/src/26/relationshape-chat.svg';
+import ExploreIcon from '@zendeskgarden/svg-icons/src/26/relationshape-explore.svg';
+import GuideIcon from '@zendeskgarden/svg-icons/src/26/relationshape-guide.svg';
+import SupportIcon from '@zendeskgarden/svg-icons/src/26/relationshape-support.svg';
+import TalkIcon from '@zendeskgarden/svg-icons/src/26/relationshape-talk.svg';
+import NavIcon6 from '@zendeskgarden/svg-icons/src/26/settings-fill.svg';
+import BrandmarkIcon from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
+import React, { MouseEventHandler, ReactElement, useState } from 'react';
+
 import { Product } from '../../src/types';
+import { SheetComponent } from './SheetStory';
+import { IFooterItem, IHeaderItem, INavItem } from './types';
 
 const HEADER_ICONS = [
   <HeaderIcon1 key={1} />,

@@ -6,8 +6,9 @@
  */
 
 import React, { forwardRef } from 'react';
-import { ISheetFooterProps } from '../../../types';
+
 import { StyledSheetFooter } from '../../../styled';
+import { ISheetFooterProps } from '../../../types';
 
 const SheetFooter = forwardRef<HTMLElement, ISheetFooterProps>(({ isCompact, ...other }, ref) => {
   return <StyledSheetFooter ref={ref} $isCompact={isCompact} {...other} />;

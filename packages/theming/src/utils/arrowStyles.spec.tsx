@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { stripUnit } from 'polished';
-import arrowStyles from './arrowStyles';
+import React from 'react';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+
 import { ArrowPosition } from '../types';
+import arrowStyles from './arrowStyles';
 
 interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   $arrowPosition: ArrowPosition;

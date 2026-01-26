@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 
 import { Anchor } from '@zendeskgarden/react-buttons';
 import { Code } from '@zendeskgarden/react-typography';
+import React from 'react';
 
 type IArgs = React.ComponentProps<typeof Code> & {
   isAnchor?: boolean;

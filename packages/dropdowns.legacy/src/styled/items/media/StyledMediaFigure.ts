@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { componentStyles } from '@zendeskgarden/react-theming';
 import React, { Children, HTMLAttributes, PropsWithChildren } from 'react';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'dropdowns.media_figure';
 

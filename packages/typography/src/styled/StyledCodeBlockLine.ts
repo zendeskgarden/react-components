@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { Language } from 'prism-react-renderer';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { Language } from 'prism-react-renderer';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { Diff, Size } from '../types';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 

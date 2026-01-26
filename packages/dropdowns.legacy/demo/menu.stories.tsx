@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
-import Downshift from 'downshift';
+
 import {
   AddItem,
   Dropdown,
@@ -25,8 +23,12 @@ import {
   Separator,
   Trigger
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { TriggerStory } from './stories/TriggerStory';
+import Downshift from 'downshift';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { MENU_ITEMS as ITEMS } from './stories/data';
+import { TriggerStory } from './stories/TriggerStory';
 
 export default {
   title: 'Packages/Dropdowns.Legacy/Menu',

@@ -5,20 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { cloneElement, useRef, useEffect, useContext, HTMLAttributes } from 'react';
-import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import { mergeRefs } from 'react-merge-refs';
+import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import React, { cloneElement, useRef, useEffect, useContext, HTMLAttributes } from 'react';
+import { createPortal } from 'react-dom';
+import { mergeRefs } from 'react-merge-refs';
+import { ThemeContext } from 'styled-components';
+
 import { StyledTooltipWrapper, StyledTooltip } from '../styled';
 import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
-import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
-import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
-import { toSize } from './utils';
 import { Paragraph } from './Paragraph';
 import { Title } from './Title';
+import { toSize } from './utils';
 
 export const PLACEMENT_DEFAULT = 'top';
 

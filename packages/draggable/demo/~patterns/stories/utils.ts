@@ -7,6 +7,7 @@
 
 import { Announcements, UniqueIdentifier } from '@dnd-kit/core';
 import { AnimateLayoutChanges, defaultAnimateLayoutChanges } from '@dnd-kit/sortable';
+
 import { IColumns } from './types';
 
 export const animateLayoutChanges: AnimateLayoutChanges = args =>

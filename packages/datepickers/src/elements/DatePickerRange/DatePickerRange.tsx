@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import PropTypes from 'prop-types';
 import React, {
   PropsWithChildren,
   useReducer,
@@ -13,13 +14,13 @@ import React, {
   useRef,
   useMemo
 } from 'react';
-import PropTypes from 'prop-types';
+
 import { IDatePickerRangeProps } from '../../types';
+import { Calendar } from './components/Calendar';
+import { End } from './components/End';
+import { Start } from './components/Start';
 import { datepickerRangeReducer, retrieveInitialState } from './utils/date-picker-range-reducer';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
-import { Start } from './components/Start';
-import { End } from './components/End';
-import { Calendar } from './components/Calendar';
 
 const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
   const {

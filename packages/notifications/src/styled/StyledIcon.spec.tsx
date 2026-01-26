@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { getRenderFn } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import { StyledIcon } from './StyledIcon';
+import { getRenderFn } from 'garden-test-utils';
+import React from 'react';
+
 import { Type } from '../types';
+import { StyledIcon } from './StyledIcon';
 
 describe('StyledIcon', () => {
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([

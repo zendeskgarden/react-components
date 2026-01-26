@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Table } from '@zendeskgarden/react-tables';
-import { TableStory } from './stories/TableStory';
+import React from 'react';
+
 import { TABLE_DATA as DATA } from './stories/data';
+import { TableStory } from './stories/TableStory';
 
 export default {
   title: 'Packages/Tables/Table',

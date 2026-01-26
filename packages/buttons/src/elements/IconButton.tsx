@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { IIconButtonProps, SIZE } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledIconButton, StyledIcon } from '../styled';
+import { IIconButtonProps, SIZE } from '../types';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**

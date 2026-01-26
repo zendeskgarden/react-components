@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import React, { forwardRef, ButtonHTMLAttributes } from 'react';
 
 import { StyledGlobalAlertClose } from '../../styled';
 import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext';

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
-import { StyledBaseHeaderItem, IStyledBaseHeaderItemProps } from './StyledBaseHeaderItem';
-import { StyledHeaderItemText } from './StyledHeaderItemText';
+import { math } from 'polished';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { getHeaderItemSize } from '../utils';
+import { StyledBaseHeaderItem, IStyledBaseHeaderItemProps } from './StyledBaseHeaderItem';
+import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
+import { StyledHeaderItemText } from './StyledHeaderItemText';
 
 const COMPONENT_ID = 'chrome.header_item';
 

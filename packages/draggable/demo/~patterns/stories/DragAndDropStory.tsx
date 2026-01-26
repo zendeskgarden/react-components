@@ -5,9 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { StoryFn } from '@storybook/react-vite';
-import styled, { useTheme } from 'styled-components';
 import {
   CollisionDetection,
   DndContext,
@@ -28,11 +25,14 @@ import {
   useSensors
 } from '@dnd-kit/core';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
+import { StoryFn } from '@storybook/react-vite';
+import { useDocument } from '@zendeskgarden/react-theming';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import styled, { useTheme } from 'styled-components';
 
 import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
 import { IColumns } from './types';
 import { findColumn, getAnnouncements } from './utils';
-import { useDocument } from '@zendeskgarden/react-theming';
 
 interface IArgs {
   columns: IColumns;

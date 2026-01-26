@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { useTheme } from 'styled-components';
-import { getColor } from '@zendeskgarden/react-theming';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Avatar } from '@zendeskgarden/react-avatars';
+import { Button, IconButton } from '@zendeskgarden/react-buttons';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ITooltipDialogProps, TooltipDialog } from '@zendeskgarden/react-modals';
+import { getColor } from '@zendeskgarden/react-theming';
+import React, { useRef } from 'react';
+import { useTheme } from 'styled-components';
 
 const PLACEMENT = ['top-start', 'top', 'top-end', 'bottom-start', 'bottom', 'bottom-end'] as const;
 

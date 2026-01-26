@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import DashIcon from '@zendeskgarden/svg-icons/src/12/dash-fill.svg';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import DashIcon from '@zendeskgarden/svg-icons/src/12/dash-fill.svg';
+import styled from 'styled-components';
+
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 

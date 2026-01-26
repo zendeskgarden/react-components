@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getHueColor } from './getHueColor';
+import PALETTE from '../elements/palette';
 import DEFAULT_THEME from '../elements/theme';
 import { IGardenTheme } from '../types';
-import PALETTE from '../elements/palette';
+import { getHueColor } from './getHueColor';
 
 const DARK_THEME: IGardenTheme = {
   ...DEFAULT_THEME,

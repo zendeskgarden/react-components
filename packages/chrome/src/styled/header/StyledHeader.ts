@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+
 import { getHeaderHeight } from '../utils';
+import { StyledLogoHeaderItem } from './StyledLogoHeaderItem';
 
 const COMPONENT_ID = 'chrome.header';
 

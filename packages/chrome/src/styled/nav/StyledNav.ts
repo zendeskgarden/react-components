@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+
 import { getNavWidth, getNavWidthExpanded } from '../utils';
 
 const COMPONENT_ID = 'chrome.nav';

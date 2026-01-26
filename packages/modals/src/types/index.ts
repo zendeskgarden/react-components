@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, KeyboardEvent, MouseEvent } from 'react';
 import { PLACEMENT as PLACEMENT_BASE } from '@zendeskgarden/react-theming';
+import { HTMLAttributes, KeyboardEvent, MouseEvent } from 'react';
 
 export const PLACEMENT = ['auto', ...PLACEMENT_BASE] as const;
 

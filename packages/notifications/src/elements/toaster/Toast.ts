@@ -6,6 +6,7 @@
  */
 
 import { useCallback, useEffect, useRef, useState } from 'react';
+
 import { IToast, useToast } from './useToast';
 
 interface IToastProps {

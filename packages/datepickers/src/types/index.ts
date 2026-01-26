@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, ReactElement } from 'react';
 import { PLACEMENT as BASE_PLACEMENT } from '@zendeskgarden/react-theming';
+import { HTMLAttributes, ReactElement } from 'react';
 
 export const WEEK_STARTS_ON = [0, 1, 2, 3, 4, 5, 6] as const;
 

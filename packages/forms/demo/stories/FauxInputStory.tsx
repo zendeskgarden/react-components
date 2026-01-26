@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { FauxInput, IFauxInputProps } from '@zendeskgarden/react-forms';
 import StartIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import EndIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import { FauxInput, IFauxInputProps } from '@zendeskgarden/react-forms';
+import React from 'react';
+
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IFauxInputProps, IFieldArgs {

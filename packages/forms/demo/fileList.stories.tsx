@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { FileList, File } from '@zendeskgarden/react-forms';
-import { FileListStory } from './stories/FileListStory';
+import React from 'react';
+
 import { FILELIST_ITEMS as ITEMS } from './stories/data';
+import { FileListStory } from './stories/FileListStory';
 
 export default {
   title: 'Packages/Forms/FileList',

@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useEffect } from 'react';
 import userEvent from '@testing-library/user-event';
+import { KEY_CODES, KEYS } from '@zendeskgarden/container-utilities';
 import { render, fireEvent, renderRtl, act } from 'garden-test-utils';
+import React, { useState, useEffect } from 'react';
+
 import {
   Dropdown,
   Multiselect,
@@ -18,7 +20,6 @@ import {
   PreviousItem,
   IDropdownProps
 } from '../..';
-import { KEY_CODES, KEYS } from '@zendeskgarden/container-utilities';
 
 jest.useFakeTimers();
 

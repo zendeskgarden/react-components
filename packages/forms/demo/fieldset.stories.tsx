@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Fieldset } from '@zendeskgarden/react-forms';
-import { FieldsetStory } from './stories/FieldsetStory';
-import { FIELDSET_FIELDS as FIELDS } from './stories/data';
+import React from 'react';
+
 import {
   hintArgs,
   hintArgTypes,
@@ -17,6 +17,8 @@ import {
   messageArgTypes,
   fieldSubcomponents
 } from './stories/common';
+import { FIELDSET_FIELDS as FIELDS } from './stories/data';
+import { FieldsetStory } from './stories/FieldsetStory';
 type Story = StoryObj<typeof FieldsetStory>;
 
 export default {

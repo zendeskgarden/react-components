@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useContext } from 'react';
 import { ControllerStateAndHelpers } from 'downshift';
+import React, { useContext } from 'react';
 
 export type DROPDOWN_TYPE = '' | 'autocomplete' | 'combobox' | 'multiselect';
 

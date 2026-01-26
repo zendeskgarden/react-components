@@ -6,9 +6,9 @@
  */
 
 import { Range } from '@zendeskgarden/react-forms';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
-import { stripUnit } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { stripUnit } from 'polished';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
 export interface IStyledRangeProps {
   $isOpaque?: boolean;

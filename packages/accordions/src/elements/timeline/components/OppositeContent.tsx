@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledOppositeContent } from '../../../styled';
 
 const OppositeContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(

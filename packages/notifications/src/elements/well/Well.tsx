@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { IWellProps } from '../../types';
+import React from 'react';
+
 import { StyledWell } from '../../styled';
-import { Title } from '../Title';
+import { IWellProps } from '../../types';
 import { Paragraph } from '../Paragraph';
+import { Title } from '../Title';
 
 export const WellComponent = React.forwardRef<HTMLDivElement, IWellProps>(
   ({ isFloating, isRecessed, ...props }, ref) => (

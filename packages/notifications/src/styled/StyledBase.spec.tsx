@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, getRenderFn } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { StyledBase } from './StyledBase';
+import { render, getRenderFn } from 'garden-test-utils';
+import React from 'react';
+
 import { Type } from '../types';
+import { StyledBase } from './StyledBase';
 
 describe('StyledBase', () => {
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([

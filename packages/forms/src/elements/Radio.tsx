@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
+
+import { StyledRadioInput } from '../styled';
 import { IRadioProps } from '../types';
 import useFieldContext from '../utils/useFieldContext';
-import { InputContext } from '../utils/useInputContext';
-import { StyledRadioInput } from '../styled';
 import useFieldsetContext from '../utils/useFieldsetContext';
+import { InputContext } from '../utils/useInputContext';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>

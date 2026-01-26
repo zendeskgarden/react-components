@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Paragraph } from '@zendeskgarden/react-typography';
-import { ParagraphStory } from './stories/ParagraphStory';
+import React from 'react';
+
 import { PARAGRAPH_CHILDREN as CHILDREN } from './stories/data';
+import { ParagraphStory } from './stories/ParagraphStory';
 
 export default {
   title: 'Packages/Typography/Paragraph',

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { MouseEventHandler } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
 import { Accordion, IAccordionProps } from '@zendeskgarden/react-accordions';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
+import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
+import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import React, { MouseEventHandler } from 'react';
+
 import { IAccordionSection } from './types';
 
 interface IProps {

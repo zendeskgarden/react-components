@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 
-import { useArgs } from 'storybook/preview-api';
-import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
+import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
+import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
   title: 'Packages/Buttons/ToggleIconButton',

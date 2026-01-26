@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 import { componentStyles, MenuPosition, menuStyles } from '@zendeskgarden/react-theming';
+import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+
 import { IListboxProps } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.floating';

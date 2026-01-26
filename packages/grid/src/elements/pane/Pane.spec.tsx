@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { act, render } from 'garden-test-utils';
+import React from 'react';
+
 import { Content } from './components/Content';
 import { Splitter } from './components/Splitter';
 import { Pane } from './Pane';

@@ -5,8 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
+import React from 'react';
+
 import { GetColorStory } from './stories/GetColorStory';
 import { GetColorV8Story } from './stories/GetColorV8Story';
 

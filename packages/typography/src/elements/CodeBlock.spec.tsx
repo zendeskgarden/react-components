@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { rgba } from 'polished';
-import { render, waitFor } from 'garden-test-utils';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { render, waitFor } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
 import { CodeBlock } from './CodeBlock';
 
 describe('CodeBlock', () => {

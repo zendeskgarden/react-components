@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, MutableRefObject } from 'react';
 import PropTypes from 'prop-types';
+import React, { HTMLAttributes, MutableRefObject } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import { ITabProps } from '../types';
+
 import { StyledTab } from '../styled';
+import { ITabProps } from '../types';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**

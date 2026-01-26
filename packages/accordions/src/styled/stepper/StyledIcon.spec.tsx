@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { getRenderFn, render } from 'garden-test-utils';
-import { StyledIcon } from './StyledIcon';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { getRenderFn, render } from 'garden-test-utils';
+import React from 'react';
+
+import { StyledIcon } from './StyledIcon';
 
 describe('StyledIcon', () => {
   type Args = ['light' | 'dark', string, string];

@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import {
   Body,
   Chrome,
@@ -20,6 +19,9 @@ import {
   SkipNav,
   PRODUCTS
 } from '@zendeskgarden/react-chrome';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { ChromeStory } from './stories/ChromeStory';
 import {
   CHROME_FOOTER_ITEMS as FOOTER_ITEMS,

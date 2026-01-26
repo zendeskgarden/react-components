@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef, useRef } from 'react';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef, useRef } from 'react';
+
 import { DatePickerAction, IDatePickerState } from '../utils/date-picker-reducer';
 
 interface IInputProps {

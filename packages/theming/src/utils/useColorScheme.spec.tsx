@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect } from 'react';
 import { render } from 'garden-test-utils';
-import { useColorScheme } from './useColorScheme';
+import React, { useEffect } from 'react';
+
 import { ColorSchemeProvider } from '../elements/ColorSchemeProvider';
+import { useColorScheme } from './useColorScheme';
 
 const ColorSchemeConsumer = () => {
   const { colorScheme, setColorScheme } = useColorScheme();

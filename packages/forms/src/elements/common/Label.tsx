@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import useFieldContext from '../../utils/useFieldContext';
-import useFieldsetContext from '../../utils/useFieldsetContext';
-import useInputContext from '../../utils/useInputContext';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 import {
   StyledLabel,
   StyledCheckLabel,
@@ -22,6 +20,9 @@ import {
   StyledToggleSvg
 } from '../../styled';
 import { ILabelProps } from '../../types';
+import useFieldContext from '../../utils/useFieldContext';
+import useFieldsetContext from '../../utils/useFieldsetContext';
+import useInputContext from '../../utils/useInputContext';
 
 /**
  * @deprecated use `Field.Label` instead

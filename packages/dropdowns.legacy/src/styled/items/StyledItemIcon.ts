@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { getItemPaddingVertical } from './StyledItem';
 
 const COMPONENT_ID = 'dropdowns.item_icon';

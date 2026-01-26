@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+
 import { getTrackHeight, getTrackMargin } from '../common/StyledRange';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_sliders';

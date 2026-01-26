@@ -6,9 +6,10 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
-import { POSITION_MAP, RTL_POSITION_MAP, getArrowPosition } from './getArrowPosition';
-import { ArrowPosition } from '../types';
+
 import DEFAULT_THEME from '../elements/theme';
+import { ArrowPosition } from '../types';
+import { POSITION_MAP, RTL_POSITION_MAP, getArrowPosition } from './getArrowPosition';
 
 describe('getArrowPosition', () => {
   it.each<[Placement, ArrowPosition]>(Object.entries(POSITION_MAP) as [Placement, ArrowPosition][])(

@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { ISpanProps } from '../../types';
+import React, { forwardRef } from 'react';
+
 import { StyledFont } from '../../styled';
-import { StartIcon } from './StartIcon';
+import { ISpanProps } from '../../types';
 import { Icon } from './Icon';
+import { StartIcon } from './StartIcon';
 
 const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(
   ({ hue, isBold, isMonospace, tag = 'span', ...other }, ref) => (

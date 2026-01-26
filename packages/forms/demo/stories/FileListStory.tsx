@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { FileList } from '@zendeskgarden/react-forms';
-import { IFileListItem } from './types';
+import React, { HTMLAttributes } from 'react';
+
 import { FileStory } from './FileStory';
+import { IFileListItem } from './types';
 
 interface IArgs extends HTMLAttributes<HTMLUListElement> {
   items: IFileListItem[];

@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useContext, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import Downshift, { ControllerStateAndHelpers } from 'downshift';
-import { Manager } from 'react-popper';
 import { KEY_CODES, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import Downshift, { ControllerStateAndHelpers } from 'downshift';
+import PropTypes from 'prop-types';
+import React, { PropsWithChildren, useContext, useRef, useState } from 'react';
+import { Manager } from 'react-popper';
+import { ThemeContext } from 'styled-components';
+
 import { IDropdownProps } from '../../types';
 import { DropdownContext, DROPDOWN_TYPE } from '../../utils/useDropdownContext';
 

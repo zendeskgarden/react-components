@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
 import OverflowStrokeIcon from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+
 import { StyledOverflowButton } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
 

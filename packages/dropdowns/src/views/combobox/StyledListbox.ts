@@ -6,11 +6,12 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { IListboxProps } from '../../types';
+import { StyledListboxSeparator } from './StyledListboxSeparator';
+import { StyledOptGroup } from './StyledOptGroup';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { StyledOptionContent } from './StyledOptionContent';
-import { StyledOptGroup } from './StyledOptGroup';
-import { StyledListboxSeparator } from './StyledListboxSeparator';
 
 const COMPONENT_ID = 'dropdowns.combobox.listbox';
 

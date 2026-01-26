@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { render } from 'garden-test-utils';
 import React from 'react';
 import { css } from 'styled-components';
-import { render } from 'garden-test-utils';
 
-import { Table } from './Table';
+import { StyledSortableButton } from '../styled';
 import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
 import { SortableCell } from './SortableCell';
-import { StyledSortableButton } from '../styled';
+import { Table } from './Table';
 
 describe('SortableCell', () => {
   it('passes ref to underlying DOM element', () => {

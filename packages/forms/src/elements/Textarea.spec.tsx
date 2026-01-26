@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, act } from 'garden-test-utils';
-import { Textarea } from './Textarea';
+import React from 'react';
+
 import { Field } from './common/Field';
+import { Textarea } from './Textarea';
 
 const { getComputedStyle } = window;
 const originalScrollHeight = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollHeight');

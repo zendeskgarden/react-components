@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DataAttributes } from 'styled-components';
 import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes } from 'styled-components';
+
 import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
 const COMPONENT_ID = 'colorpickers.colorswatch_check';

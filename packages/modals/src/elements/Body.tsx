@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { StyledBody } from '../styled';
 import { useModalContext } from '../utils/useModalContext';
 

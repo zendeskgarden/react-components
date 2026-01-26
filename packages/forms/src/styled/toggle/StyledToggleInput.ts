@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledCheckInput } from '../checkbox/StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 

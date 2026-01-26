@@ -6,10 +6,11 @@
  */
 
 import React, { useMemo, forwardRef, Children, ReactElement } from 'react';
-import { OppositeContent } from './OppositeContent';
+
 import { StyledTimelineItem } from '../../../styled';
-import { TimelineItemContext, useTimelineContext } from '../../../utils';
 import { ITimelineItemProps } from '../../../types';
+import { TimelineItemContext, useTimelineContext } from '../../../utils';
+import { OppositeContent } from './OppositeContent';
 
 const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
   ({ icon, surfaceColor, ...props }, ref) => {

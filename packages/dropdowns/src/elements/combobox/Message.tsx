@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { VALIDATION } from '@zendeskgarden/react-forms';
-import { IMessageProps } from '../../types';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useEffect } from 'react';
+
 import useFieldContext from '../../context/useFieldContext';
+import { IMessageProps } from '../../types';
 import { StyledMessage } from '../../views';
 
 /**

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, HTMLAttributes, useMemo } from 'react';
 import { useField } from '@zendeskgarden/container-field';
-import { FieldContext } from '../../utils/useFieldContext';
+import React, { useState, HTMLAttributes, useMemo } from 'react';
+
 import { StyledField } from '../../styled';
+import { FieldContext } from '../../utils/useFieldContext';
 import { Hint } from './Hint';
-import { Message } from './Message';
 import { Label } from './Label';
+import { Message } from './Message';
 
 export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {

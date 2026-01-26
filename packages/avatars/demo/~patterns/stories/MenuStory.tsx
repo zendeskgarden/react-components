@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useTheme } from 'styled-components';
-import React, { useCallback, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
+import { Menu, Item } from '@zendeskgarden/react-dropdowns';
+import { Grid } from '@zendeskgarden/react-grid';
 import { getColor } from '@zendeskgarden/react-theming';
+import React, { useCallback, useState } from 'react';
+import { useTheme } from 'styled-components';
 
 const items: {
   value: string;

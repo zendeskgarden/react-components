@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { rgba } from 'polished';
-import { render } from 'garden-test-utils';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { render } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
 import { Type } from '../../types';
 import { StyledGlobalAlertClose } from './StyledGlobalAlertClose';
 

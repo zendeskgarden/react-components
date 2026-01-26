@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
+
 import { StyledHead } from '../styled';
 import { IHeadProps } from '../types';
 

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { IconButton } from '@zendeskgarden/react-buttons';
+import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
+import { Grid } from '@zendeskgarden/react-grid';
 import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
-import { Grid } from '@zendeskgarden/react-grid';
-import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
-import { IconButton } from '@zendeskgarden/react-buttons';
+import React from 'react';
+
 import { ButtonType, IItem, Items } from './types';
 
 const MenuItem = ({ icon, meta, ...item }: IItem) => {

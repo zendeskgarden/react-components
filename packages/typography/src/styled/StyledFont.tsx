@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { hideVisually, math } from 'polished';
 import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
+import { hideVisually, math } from 'polished';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { SIZE } from '../types';
 
 const COMPONENT_ID = 'typography.font';

@@ -6,6 +6,7 @@
  */
 
 import { ThemeProps, DefaultTheme } from 'styled-components';
+
 import { ITableProps } from '../types';
 
 export const getRowHeight = (props: { $size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {

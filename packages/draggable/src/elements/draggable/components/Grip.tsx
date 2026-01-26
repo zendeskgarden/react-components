@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
 import GripIcon from '@zendeskgarden/svg-icons/src/12/grip.svg';
+import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledGrip } from '../../../styled';
 
 /**

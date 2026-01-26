@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math, stripUnit } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
-import { StyledCode } from './StyledCode';
+import { math, stripUnit } from 'polished';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { IKbdProps } from '../types';
+import { StyledCode } from './StyledCode';
 
 const COMPONENT_ID = 'typography.kbd';
 

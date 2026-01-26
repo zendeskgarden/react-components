@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
-import { StyledFileList } from './StyledFileList';
+import styled from 'styled-components';
+
 import { StyledFileUpload } from '../file-upload/StyledFileUpload';
+import { StyledFileList } from './StyledFileList';
 
 const COMPONENT_ID = 'forms.file_list.item';
 

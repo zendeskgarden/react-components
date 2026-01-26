@@ -5,17 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import userEvent from '@testing-library/user-event';
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { render } from 'garden-test-utils';
+import { rgba } from 'polished';
 import React from 'react';
 import { css } from 'styled-components';
-import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 
-import { Table } from './Table';
+import { StyledCell } from '../styled';
 import { Body } from './Body';
 import { Row } from './Row';
-import { StyledCell } from '../styled';
-import { rgba } from 'polished';
+import { Table } from './Table';
 
 describe('Row', () => {
   const user = userEvent.setup();

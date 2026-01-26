@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { MouseEventHandler } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
-import { IModalProps, Modal } from '@zendeskgarden/react-modals';
 import { Button } from '@zendeskgarden/react-buttons';
+import { IModalProps, Modal } from '@zendeskgarden/react-modals';
+import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
+import React, { MouseEventHandler } from 'react';
+
 import { IFooterItem } from './types';
 
 interface IArgs extends IModalProps {

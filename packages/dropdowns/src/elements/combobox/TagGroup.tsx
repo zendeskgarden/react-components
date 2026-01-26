@@ -6,8 +6,9 @@
  */
 
 import React, { PropsWithChildren } from 'react';
-import { Tag } from './Tag';
+
 import { ITagGroupProps } from '../../types';
+import { Tag } from './Tag';
 
 export const TagGroup = ({
   children,

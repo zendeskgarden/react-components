@@ -6,8 +6,9 @@
  */
 
 import React, { forwardRef, LiHTMLAttributes } from 'react';
-import useOrderedListContext from '../../utils/useOrderedListContext';
+
 import { StyledOrderedListItem } from '../../styled';
+import useOrderedListContext from '../../utils/useOrderedListContext';
 
 const OrderedListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { size } = useOrderedListContext();

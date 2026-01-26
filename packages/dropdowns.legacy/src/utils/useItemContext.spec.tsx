@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
+import React from 'react';
+
 import { Dropdown } from '../elements/Dropdown/Dropdown';
-import { Menu } from '../elements/Menu/Menu';
 import { Item } from '../elements/Menu/Items/Item';
+import { Menu } from '../elements/Menu/Menu';
 import useItemContext from './useItemContext';
 
 describe('useItemContext', () => {

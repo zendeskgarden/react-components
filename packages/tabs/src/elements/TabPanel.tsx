@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import PropTypes from 'prop-types';
-import { ITabPanelProps } from '../types';
+import React, { HTMLAttributes } from 'react';
+
 import { StyledTabPanel } from '../styled';
+import { ITabPanelProps } from '../types';
 import { useTabsContext } from '../utils/useTabsContext';
 
 /**

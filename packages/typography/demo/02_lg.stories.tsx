@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { LG } from '@zendeskgarden/react-typography';
+import React from 'react';
+
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {

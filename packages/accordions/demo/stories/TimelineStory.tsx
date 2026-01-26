@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { useTheme } from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import { Timeline, ITimelineProps } from '@zendeskgarden/react-accordions';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
-import { Timeline, ITimelineProps } from '@zendeskgarden/react-accordions';
+import Icon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
+import React from 'react';
+import { useTheme } from 'styled-components';
+
 import { ITimelineItem } from './types';
 
 interface IArgs extends ITimelineProps {

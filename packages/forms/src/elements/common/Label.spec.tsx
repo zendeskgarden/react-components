@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, screen } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, screen } from 'garden-test-utils';
+import React from 'react';
+
 import { Fieldset, Field, Checkbox, Radio, Toggle, Label } from '../..';
 
 describe('Label', () => {

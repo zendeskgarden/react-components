@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes, useMemo, useState } from 'react';
+
 import { StyledBody } from '../../styled';
 import { BodyContext } from '../../utils/useBodyContext';
 

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import { PALETTE } from '@zendeskgarden/react-theming';
 import { render, renderRtl, screen } from 'garden-test-utils';
-import { StyledSplitButton } from './StyledSplitButton';
+import { rgba } from 'polished';
+import React from 'react';
+
 import { StyledButton } from './StyledButton';
 import { StyledIconButton } from './StyledIconButton';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { rgba } from 'polished';
+import { StyledSplitButton } from './StyledSplitButton';
 
 describe('StyledSplitButton', () => {
   it('renders the expected element', () => {

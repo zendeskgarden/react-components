@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
-import { hsl, rgba } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import { hsl, rgba } from 'polished';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
 

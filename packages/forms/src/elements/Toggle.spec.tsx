@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
-import { Toggle } from './Toggle';
+import React from 'react';
+
 import { Field } from './common/Field';
+import { Toggle } from './Toggle';
 
 describe('Toggle', () => {
   it('is rendered as an input of type checkbox', () => {

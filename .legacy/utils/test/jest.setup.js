@@ -7,9 +7,7 @@
 
 // Styled-Component setup
 import 'jest-styled-components';
-
 import '@testing-library/jest-dom';
-
 /* eslint-disable n/prefer-global/text-encoder */
 import { TextEncoder } from 'node:util';
 

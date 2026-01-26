@@ -6,6 +6,7 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
+
 import { MenuPosition } from '../types';
 
 /**

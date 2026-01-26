@@ -5,18 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, forwardRef, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
-import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
-import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
 import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
+import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
 import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
+import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { Children, forwardRef, useMemo } from 'react';
 
-import { IAvatarProps, SIZE, STATUS } from '../types';
 import { StyledAvatar, StyledStatusIndicator } from '../styled';
-
+import { IAvatarProps, SIZE, STATUS } from '../types';
 import { Text } from './components/Text';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(

@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IItemGroupProps, IItemProps } from '../../types';
 import { IMenuItemBase, IMenuItemSeparator, MenuItem } from '@zendeskgarden/container-menu';
 import { Children, ReactNode, isValidElement } from 'react';
+
+import { IItemGroupProps, IItemProps } from '../../types';
 
 /**
  * Convert `Item` props to a valid object for `useMenu`.

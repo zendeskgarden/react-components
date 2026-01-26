@@ -6,11 +6,12 @@
  */
 
 import React, { forwardRef, useMemo } from 'react';
-import { DropIndicator } from './components/DropIndicator';
-import { Item } from './components/Item';
+
 import { StyledDraggableList } from '../../styled';
 import { IDraggableListProps } from '../../types';
 import { DraggableListContext } from '../../utils/useDraggableListContext';
+import { DropIndicator } from './components/DropIndicator';
+import { Item } from './components/Item';
 
 const DraggableListComponent = forwardRef<HTMLUListElement, IDraggableListProps>(
   ({ isHorizontal, ...other }, ref) => {

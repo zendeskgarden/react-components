@@ -5,6 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useGrid } from '@zendeskgarden/container-grid';
+import { useId } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME, useDocument } from '@zendeskgarden/react-theming';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
+import PropTypes from 'prop-types';
 import React, {
   ChangeEventHandler,
   FocusEventHandler,
@@ -14,14 +20,9 @@ import React, {
   useRef,
   useState
 } from 'react';
-import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
-import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { useGrid } from '@zendeskgarden/container-grid';
-import { useId } from '@zendeskgarden/container-utilities';
-import { DEFAULT_THEME, useDocument } from '@zendeskgarden/react-theming';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
+
 import {
   StyledCell,
   StyledColorSwatch,

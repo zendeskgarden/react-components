@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Well, IWellProps } from '@zendeskgarden/react-notifications';
+import React from 'react';
 
 interface IArgs extends IWellProps {
   title?: string;

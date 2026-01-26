@@ -5,6 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useModal } from '@zendeskgarden/container-modal';
+import { useDocument, useText } from '@zendeskgarden/react-theming';
+import css from 'dom-helpers/css';
+import isWindow from 'dom-helpers/isWindow';
+import ownerDocument from 'dom-helpers/ownerDocument';
+import ownerWindow from 'dom-helpers/ownerWindow';
+import getScrollbarSize from 'dom-helpers/scrollbarSize';
+import PropTypes from 'prop-types';
 import React, {
   HTMLAttributes,
   useEffect,
@@ -15,16 +23,9 @@ import React, {
   forwardRef
 } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from 'styled-components';
-import PropTypes from 'prop-types';
-import { useDocument, useText } from '@zendeskgarden/react-theming';
-import { useModal } from '@zendeskgarden/container-modal';
 import { mergeRefs } from 'react-merge-refs';
-import isWindow from 'dom-helpers/isWindow';
-import ownerDocument from 'dom-helpers/ownerDocument';
-import ownerWindow from 'dom-helpers/ownerWindow';
-import css from 'dom-helpers/css';
-import getScrollbarSize from 'dom-helpers/scrollbarSize';
+import { ThemeContext } from 'styled-components';
+
 import { StyledModal, StyledBackdrop } from '../styled';
 import { IModalProps } from '../types';
 import { ModalsContext } from '../utils/useModalContext';

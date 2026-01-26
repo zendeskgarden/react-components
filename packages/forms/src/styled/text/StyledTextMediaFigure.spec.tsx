@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
-import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
+import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
 describe('StyledTextMediaFigure', () => {
   it('renders the expected element', () => {

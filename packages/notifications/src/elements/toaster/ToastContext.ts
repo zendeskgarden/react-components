@@ -6,6 +6,7 @@
  */
 
 import { createContext, Dispatch } from 'react';
+
 import { IToasterState, ToasterReducerAction } from './reducer';
 
 interface IToastContext {

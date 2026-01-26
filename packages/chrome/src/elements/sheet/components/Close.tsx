@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import React, { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
 
 import { StyledSheetClose } from '../../../styled';
 import { useSheetContext } from '../../../utils/useSheetContext';

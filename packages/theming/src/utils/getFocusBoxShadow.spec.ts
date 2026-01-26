@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getFocusBoxShadow } from './getFocusBoxShadow';
-import DEFAULT_THEME from '../elements/theme';
 import PALETTE from '../elements/palette';
+import DEFAULT_THEME from '../elements/theme';
 import { getColor } from './getColor';
+import { getFocusBoxShadow } from './getFocusBoxShadow';
 
 describe('getFocusBoxShadow', () => {
   it('defaults as expected', () => {

@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Fragment } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/react-draggable';
+import React, { Fragment } from 'react';
 
 interface IArgs extends IDraggableListProps {
   items: string[];

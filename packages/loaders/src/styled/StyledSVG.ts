@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { getValueAndUnit } from 'polished';
 import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
+import { getValueAndUnit } from 'polished';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { delayedVisibilityKeyframes } from '../utils/animations';
 
 interface IStyledSVGProps {

@@ -6,6 +6,7 @@
  */
 
 import React, { useContext } from 'react';
+
 import { ITableProps } from '../types';
 
 interface ITableContext {

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
+import React, { useMemo } from 'react';
+
+import { StyledGrid } from '../styled';
 import { IGridProps, SPACE } from '../types';
 import { GridContext } from '../utils/useGridContext';
-import { StyledGrid } from '../styled';
-import { Row } from './Row';
 import { Col } from './Col';
+import { Row } from './Row';
 
 export const GridComponent = React.forwardRef<HTMLDivElement, IGridProps>(
   ({ columns = 12, gutters = 'md', debug, ...other }, ref) => {

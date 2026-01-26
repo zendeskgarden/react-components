@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
-import { math } from 'polished';
 import { getColor, componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { Type } from '../../types';
 
 const COMPONENT_ID = 'notifications.global_alert.icon';

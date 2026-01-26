@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { ITitleProps } from '../types';
+
 import { StyledTitle } from '../styled';
+import { ITitleProps } from '../types';
 
 /**
  * @deprecated use `Alert.Title`, `Notification.Title`, or `Well.Title` instead

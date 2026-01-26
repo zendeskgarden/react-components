@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import {
   componentStyles,
   getLineHeight,
   focusStyles,
   getColor
 } from '@zendeskgarden/react-theming';
-import { StyledLabel } from '../common/StyledLabel';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledHint } from '../common/StyledHint';
+import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.file_upload';

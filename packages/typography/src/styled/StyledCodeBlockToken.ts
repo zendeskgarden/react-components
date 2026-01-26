@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { StyledCodeBlock } from './StyledCodeBlock';
 
 const COMPONENT_ID = 'typography.codeblock_token';

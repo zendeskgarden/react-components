@@ -6,9 +6,10 @@
  */
 
 import { css, DefaultTheme, keyframes } from 'styled-components';
+
 import DEFAULT_THEME from '../elements/theme';
-import { getColor } from './getColor';
 import { MenuPosition } from '../types';
+import { getColor } from './getColor';
 
 type MenuOptions = {
   theme?: DefaultTheme;

@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { componentStyles, getColor, getHueColor } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { Size } from '../types';
 
 const sizeToHeight = ($size: Size, theme: DefaultTheme) => {

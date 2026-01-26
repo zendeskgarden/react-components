@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { StyledDrawerClose } from './StyledDrawerClose';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
+import { StyledDrawerClose } from './StyledDrawerClose';
 
 describe('StyledDrawerClose', () => {
   it('renders default styling', () => {

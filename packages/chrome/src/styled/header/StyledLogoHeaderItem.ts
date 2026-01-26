@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { hideVisually } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { hideVisually } from 'polished';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { Product } from '../../types';
-import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
-import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
-import { StyledHeaderItemText } from './StyledHeaderItemText';
 import { getNavWidth, getProductColor } from '../utils';
+import { StyledBaseHeaderItem } from './StyledBaseHeaderItem';
+import { StyledHeaderItemIcon } from './StyledHeaderItemIcon';
+import { StyledHeaderItemText } from './StyledHeaderItemText';
 
 const COMPONENT_ID = 'chrome.header_item';
 

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import { StyledTextInput } from '../styled';
 import { IInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { useInputGroupContext } from '../utils/useInputGroupContext';
-import { StyledTextInput } from '../styled';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>

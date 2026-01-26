@@ -6,9 +6,10 @@
  */
 
 import React, { HTMLAttributes, useEffect } from 'react';
+
+import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 import useFieldContext from '../../utils/useFieldContext';
 import useInputContext from '../../utils/useInputContext';
-import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
 
 /**
  * @deprecated use `Field.Hint` instead

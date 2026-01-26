@@ -5,13 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Avatar from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Grid } from '@zendeskgarden/react-grid';
 import {
   Combobox,
   Field,
@@ -21,6 +16,12 @@ import {
   Option,
   Tag
 } from '@zendeskgarden/react-dropdowns';
+import { Grid } from '@zendeskgarden/react-grid';
+import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import Avatar from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
+import React, { useCallback, useState } from 'react';
+
 import { IOption, Options } from './types';
 
 const toLabel = (option: IOption) => option.label || option.value;

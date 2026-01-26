@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledRadioLabel } from './StyledRadioLabel';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledMessage } from '../common/StyledMessage';
+import { StyledRadioLabel } from './StyledRadioLabel';
 
 const COMPONENT_ID = 'forms.radio';
 

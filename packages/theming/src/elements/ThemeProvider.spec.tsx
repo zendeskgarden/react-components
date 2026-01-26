@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { render } from 'garden-test-utils';
 import React from 'react';
 import { useTheme } from 'styled-components';
-import { render } from 'garden-test-utils';
-import { ThemeProvider } from './ThemeProvider';
+
 import { IGardenTheme } from '../types';
+import { ThemeProvider } from './ThemeProvider';
 
 describe('ThemeProvider', () => {
   it('only renders children', () => {

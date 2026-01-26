@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { INavItemTextProps } from '../../types';
+import React from 'react';
+
 import { StyledNavItemText } from '../../styled';
+import { INavItemTextProps } from '../../types';
 import { useNavContext } from '../../utils/useNavContext';
 
 /**

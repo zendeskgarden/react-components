@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+
+import { ITableProps } from '../types';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
-import { ITableProps } from '../types';
 
 const COMPONENT_ID = 'tables.header_row';
 

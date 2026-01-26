@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { getRenderFn, render } from 'garden-test-utils';
 import React from 'react';
 import { css } from 'styled-components';
-import { getRenderFn, render } from 'garden-test-utils';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { Alert } from './Alert';
-import { Title } from './Title';
+
 import { StyledTitle } from '../../styled';
 import { Type } from '../../types';
+import { Alert } from './Alert';
+import { Title } from './Title';
 
 describe('Title', () => {
   it('passes ref to underlying DOM element', () => {

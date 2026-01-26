@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Button, ChevronButton, IButtonProps, SplitButton } from '@zendeskgarden/react-buttons';
+import React from 'react';
 
 interface IArgs extends IButtonProps {
   isRotated?: boolean;

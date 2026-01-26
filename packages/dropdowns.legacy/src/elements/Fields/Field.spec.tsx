@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
-import { Field } from './Field';
+import React from 'react';
+
 import { Dropdown } from '../Dropdown/Dropdown';
+import { Field } from './Field';
 
 describe('Field', () => {
   it('passes ref to underlying DOM element', () => {

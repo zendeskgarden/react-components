@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
-import { StyledLabel } from './StyledLabel';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+
 import { StyledHint } from './StyledHint';
+import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
 
 const COMPONENT_ID = 'dropdowns.combobox';

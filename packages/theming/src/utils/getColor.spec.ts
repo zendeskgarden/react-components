@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor } from './getColor';
-import DEFAULT_THEME from '../elements/theme';
-import PALETTE from '../elements/palette';
-import { IGardenTheme } from '../types';
-import { darken, lighten, rgba } from 'polished';
 import { parseToRgba } from 'color2k';
+import { darken, lighten, rgba } from 'polished';
+
+import PALETTE from '../elements/palette';
+import DEFAULT_THEME from '../elements/theme';
+import { IGardenTheme } from '../types';
+import { getColor } from './getColor';
 
 const DARK_THEME: IGardenTheme = {
   ...DEFAULT_THEME,

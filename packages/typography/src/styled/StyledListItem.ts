@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { Size } from '../types';
-import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 import { StyledFont } from './StyledFont';
+import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 
 interface IStyledListItemProps {
   $space?: Size;

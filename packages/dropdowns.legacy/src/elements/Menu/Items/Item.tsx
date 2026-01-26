@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, useRef, useMemo } from 'react';
-import PropTypes from 'prop-types';
 import SelectedSvg from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import { IItemProps } from '../../../types';
+
 import { StyledItem, StyledItemIcon } from '../../../styled';
+import { IItemProps } from '../../../types';
 import useDropdownContext from '../../../utils/useDropdownContext';
-import useMenuContext from '../../../utils/useMenuContext';
 import { ItemContext } from '../../../utils/useItemContext';
+import useMenuContext from '../../../utils/useMenuContext';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>

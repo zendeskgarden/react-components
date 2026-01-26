@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledPaneContent } from '../../../styled';
 import usePaneContext from '../../../utils/usePaneContext';
 

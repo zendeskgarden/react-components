@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
 import { IAvatarProps, SIZE } from '../types';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';

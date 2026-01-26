@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { defineConfig, globalIgnores } from 'eslint/config';
 import config from '@zendeskgarden/eslint-config';
 import noticePlugin from '@zendeskgarden/eslint-config/plugins/notice.js';
 import reactPlugin from '@zendeskgarden/eslint-config/plugins/react.js';
 import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
   globalIgnores(['.legacy', 'dist', 'packages']),

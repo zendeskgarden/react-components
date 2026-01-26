@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { StyledFileIcon } from './StyledFileIcon';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
+import { StyledFileIcon } from './StyledFileIcon';
 
 describe('StyledFileIcon', () => {
   it('renders the expected element', () => {

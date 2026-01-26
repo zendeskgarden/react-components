@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback } from 'react';
-import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
-import useDatePickerContext from '../utils/useDatePickerContext';
-
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
+import React, { useCallback } from 'react';
+
+import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
+import useDatePickerContext from '../utils/useDatePickerContext';
 
 interface IMonthSelectorProps {
   locale?: string;

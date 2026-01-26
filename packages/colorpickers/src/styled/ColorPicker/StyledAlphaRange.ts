@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { getCheckeredBackground } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+
 import { getTrackHeight, getTrackMargin, StyledRange } from '../common/StyledRange';
 import { IRGBColorProps } from '../types';
 

@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
-import { StyledNavButton } from './StyledNavButton';
+import { math } from 'polished';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { getNavWidth } from '../utils';
+import { StyledNavButton } from './StyledNavButton';
 
 const COMPONENT_ID = 'chrome.nav_item_text';
 

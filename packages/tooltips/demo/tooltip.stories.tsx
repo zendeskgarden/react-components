@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import { TooltipStory } from './stories/TooltipStory';
-import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
+import React from 'react';
+
 import { PLACEMENT } from '../src/types';
+import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
+import { TooltipStory } from './stories/TooltipStory';
 
 export default {
   title: 'Packages/Tooltips/Tooltip',

@@ -6,15 +6,16 @@
  */
 
 import { addMonths } from 'date-fns/addMonths';
-import { subMonths } from 'date-fns/subMonths';
-import { isBefore } from 'date-fns/isBefore';
-import { isValid } from 'date-fns/isValid';
-import { isSameDay } from 'date-fns/isSameDay';
+import { compareAsc } from 'date-fns/compareAsc';
 import { endOfMonth } from 'date-fns/endOfMonth';
+import { isAfter } from 'date-fns/isAfter';
+import { isBefore } from 'date-fns/isBefore';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { startOfMonth } from 'date-fns/startOfMonth';
-import { compareAsc } from 'date-fns/compareAsc';
-import { isAfter } from 'date-fns/isAfter';
+import { subMonths } from 'date-fns/subMonths';
+
 import { IDatePickerRangeProps } from '../../../types';
 
 export interface IDatePickerRangeState {

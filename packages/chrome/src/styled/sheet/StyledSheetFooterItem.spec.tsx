@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { renderRtl, render, screen } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { renderRtl, render, screen } from 'garden-test-utils';
+import React from 'react';
 
 import { StyledSheetFooterItem } from './StyledSheetFooterItem';
 

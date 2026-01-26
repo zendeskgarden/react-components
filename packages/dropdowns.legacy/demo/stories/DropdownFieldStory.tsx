@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import {
   Field,
@@ -15,9 +14,11 @@ import {
   Label,
   Message
 } from '@zendeskgarden/react-dropdowns.legacy';
+import React, { HTMLAttributes } from 'react';
+
 import { DropdownStory } from './DropdownStory';
-import { ITEM, ICommonArgs } from './types';
 import { IMenuItemProps } from './MenuStory';
+import { ITEM, ICommonArgs } from './types';
 
 export interface IArgs extends HTMLAttributes<HTMLDivElement>, ICommonArgs {
   dropdownProps: IDropdownProps;

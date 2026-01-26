@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render } from 'garden-test-utils';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { render } from 'garden-test-utils';
+import React from 'react';
 
 import { Type } from '../../types';
 import { StyledGlobalAlert } from './StyledGlobalAlert';

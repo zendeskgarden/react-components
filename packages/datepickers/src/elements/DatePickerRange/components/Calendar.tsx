@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
 import { addMonths } from 'date-fns/addMonths';
+import React, { forwardRef, HTMLAttributes } from 'react';
 
 import { StyledRangeCalendar } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';

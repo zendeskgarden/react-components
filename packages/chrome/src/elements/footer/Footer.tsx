@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes, useEffect } from 'react';
+
 import { StyledFooter } from '../../styled';
 import { useBodyContext } from '../../utils/useBodyContext';
 import { FooterItem } from './FooterItem';

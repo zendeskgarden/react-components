@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
-import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
+import React from 'react';
+
 import { DATE_STYLE } from './types';
 
 interface IArgs extends IDatePickerRangeProps {

@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledSection } from '../../../styled';
 
 const SectionComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(

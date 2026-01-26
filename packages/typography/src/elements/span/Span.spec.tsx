@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
-import { Span } from './Span';
 import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import { getRenderFn, render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
+import { Span } from './Span';
 
 describe('Span', () => {
   it('passes ref to underlying DOM element', () => {

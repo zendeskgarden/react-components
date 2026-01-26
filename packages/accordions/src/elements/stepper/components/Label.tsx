@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stroke.svg';
-import { IStepperLabelProps } from '../../../types';
+import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
+
 import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
+import { IStepperLabelProps } from '../../../types';
 import { useStepContext } from '../../../utils';
 
 const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(

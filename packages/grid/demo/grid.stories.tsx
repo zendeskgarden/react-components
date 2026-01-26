@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
-import { GridStory } from './stories/GridStory';
+import React from 'react';
+
 import { GRID_ROWS as ROWS } from './stories/data';
+import { GridStory } from './stories/GridStory';
 
 export default {
   title: 'Packages/Grid/Grid',

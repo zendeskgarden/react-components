@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+
 import { StyledSplitButton } from '../styled';
 import { SplitButtonContext } from '../utils/useSplitButtonContext';
 

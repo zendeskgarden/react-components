@@ -5,15 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { ThemeContext } from 'styled-components';
-import {
-  DEFAULT_THEME,
-  getArrowPosition,
-  getFloatingPlacements,
-  getMenuPosition
-} from '@zendeskgarden/react-theming';
 import {
   autoPlacement,
   autoUpdate,
@@ -23,9 +14,19 @@ import {
   size,
   useFloating
 } from '@floating-ui/react-dom';
+import {
+  DEFAULT_THEME,
+  getArrowPosition,
+  getFloatingPlacements,
+  getMenuPosition
+} from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ThemeContext } from 'styled-components';
+
 import { IMenuListProps, PLACEMENT } from '../../types';
 import { StyledFloatingMenu, StyledMenu } from '../../views';
-import { createPortal } from 'react-dom';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 

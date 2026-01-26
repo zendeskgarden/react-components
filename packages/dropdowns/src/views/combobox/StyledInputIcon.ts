@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
+
 import { getHeight as getInputHeight } from './StyledInput';
 import { StyledTrigger } from './StyledTrigger';
 

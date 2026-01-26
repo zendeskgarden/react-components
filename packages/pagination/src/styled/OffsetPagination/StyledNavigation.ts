@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+
 import { StyledPage } from './StyledPage';
 
 const COMPONENT_ID = 'pagination.navigation';

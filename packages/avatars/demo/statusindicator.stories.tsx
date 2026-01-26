@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { StatusIndicator } from '@zendeskgarden/react-avatars';
+import React from 'react';
 
 import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
 

@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledBaseRow } from './StyledBaseRow';
-import { IStyledRowProps } from './StyledRow';
-import { StyledCell } from './StyledCell';
-import { getLineHeight } from './StyledTable';
+import { math } from 'polished';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { ITableProps } from '../types';
+import { StyledBaseRow } from './StyledBaseRow';
+import { StyledCell } from './StyledCell';
+import { IStyledRowProps } from './StyledRow';
+import { getLineHeight } from './StyledTable';
 
 const COMPONENT_ID = 'tables.group_row';
 

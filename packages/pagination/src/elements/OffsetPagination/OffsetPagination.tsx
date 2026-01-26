@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, forwardRef, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 import { useText } from '@zendeskgarden/react-theming';
-import { IPaginationProps } from '../../types';
+import PropTypes from 'prop-types';
+import React, { useState, forwardRef, useCallback } from 'react';
+
 import { StyledListItem, StyledNav, StyledList } from '../../styled';
-import { Previous } from './components/Previous';
+import { IPaginationProps } from '../../types';
+import { Gap } from './components/Gap';
 import { Next } from './components/Next';
 import { Page } from './components/Page';
-import { Gap } from './components/Gap';
+import { Previous } from './components/Previous';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';

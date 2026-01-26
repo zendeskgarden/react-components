@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Accordion } from '@zendeskgarden/react-accordions';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 type Story = StoryObj<typeof AccordionStory>;

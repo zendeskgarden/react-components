@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { IDotsProps } from '../types';
+import React, { forwardRef } from 'react';
+
 import {
   StyledDotsCircleOne,
   StyledDotsCircleTwo,
   StyledDotsCircleThree,
   StyledSVG
 } from '../styled';
+import { IDotsProps } from '../types';
 
 const COMPONENT_ID = 'loaders.dots';
 

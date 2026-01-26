@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import EndIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   Combobox,
   IComboboxProps,
   IDropdownProps,
   IMenuProps
 } from '@zendeskgarden/react-dropdowns.legacy';
+import EndIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import React from 'react';
+
 import { DropdownFieldStory } from './DropdownFieldStory';
 import { IMenuItem, ICommonArgs } from './types';
 

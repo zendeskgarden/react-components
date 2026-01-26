@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { Grid } from '@zendeskgarden/react-grid';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
-import Icon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
+import { Grid } from '@zendeskgarden/react-grid';
 import { ITooltipProps, Tooltip } from '@zendeskgarden/react-tooltips';
+import Icon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
+import React from 'react';
+
 import { ITooltipContent } from './types';
 
 interface IArgs extends Omit<ITooltipProps, 'content'> {

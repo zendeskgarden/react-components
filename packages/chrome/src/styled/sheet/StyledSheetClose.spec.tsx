@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { renderRtl, render, screen } from 'garden-test-utils';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import Icon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import { renderRtl, render, screen } from 'garden-test-utils';
+import React from 'react';
 
 import { StyledSheetClose } from './StyledSheetClose';
 

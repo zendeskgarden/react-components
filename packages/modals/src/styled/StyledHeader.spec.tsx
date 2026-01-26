@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { render, renderDark } from 'garden-test-utils';
+import React from 'react';
 
 import { StyledHeader } from './StyledHeader';
 

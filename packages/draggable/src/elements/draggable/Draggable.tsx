@@ -6,10 +6,11 @@
  */
 
 import React, { forwardRef } from 'react';
-import { Content } from './components/Content';
-import { Grip } from './components/Grip';
+
 import { StyledDraggable } from '../../styled';
 import { IDraggableProps } from '../../types';
+import { Content } from './components/Content';
+import { Grip } from './components/Grip';
 
 const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(
   (

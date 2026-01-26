@@ -5,6 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { Button } from '@zendeskgarden/react-buttons';
+import { PLACEMENT } from '@zendeskgarden/react-modals';
+import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
+import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import PropTypes from 'prop-types';
 import React, {
   useRef,
   useState,
@@ -15,13 +21,7 @@ import React, {
   ReactElement
 } from 'react';
 import { useTheme } from 'styled-components';
-import PropTypes from 'prop-types';
-import { Button } from '@zendeskgarden/react-buttons';
-import { PLACEMENT } from '@zendeskgarden/react-modals';
-import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
-import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { ColorSwatch } from '../ColorSwatch';
+
 import {
   StyledButton,
   StyledButtonPreview,
@@ -29,6 +29,7 @@ import {
   StyledTooltipBody
 } from '../../styled';
 import { IColorSwatchDialogProps } from '../../types';
+import { ColorSwatch } from '../ColorSwatch';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

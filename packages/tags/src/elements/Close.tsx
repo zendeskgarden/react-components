@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
-import { StyledClose } from '../styled';
-import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
 import { useText } from '@zendeskgarden/react-theming';
+import XIcon from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
+import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+
+import { StyledClose } from '../styled';
 
 const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {

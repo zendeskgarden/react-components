@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { IFauxInputProps, VALIDATION } from '../../types';
+import PropTypes from 'prop-types';
+import React, { useState, forwardRef } from 'react';
+
 import { StyledTextFauxInput } from '../../styled';
-import { StartIcon } from './components/StartIcon';
+import { IFauxInputProps, VALIDATION } from '../../types';
 import { EndIcon } from './components/EndIcon';
+import { StartIcon } from './components/StartIcon';
 
 const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
   (

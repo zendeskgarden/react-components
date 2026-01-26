@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { Placement } from '@floating-ui/react-dom';
 import { getMenuPosition, menuStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
 
 interface IStyledTooltipWrapperProps {
   $placement: Placement;

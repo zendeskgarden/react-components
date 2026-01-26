@@ -28,6 +28,13 @@
     "lint": "oxlint --config config/oxlintrc.json",
     "start": "storybook dev --config-dir config/storybook --no-version-updates -p 6006"
   },
+  "dependencies": {
+    "@zendeskgarden/container-accordion": "^3.0.15",
+    "@zendeskgarden/container-utilities": "^2.0.5",
+    "@zendeskgarden/react-theming": "9.14.0",
+    "@zendeskgarden/svg-icons": "8.1.0",
+    "styled-components": "6.3.8"
+  },
   "devDependencies": {
     "@storybook/react-vite": "10.2.0",
     "@types/node": "25.0.10",
@@ -42,8 +49,7 @@
     "react-dom": "19.2.3",
     "storybook": "10.2.0",
     "typescript": "5.9.3",
-    "vite": "npm:rolldown-vite@7.3.1",
-    "vite-plugin-banner": "0.8.1"
+    "vite": "npm:rolldown-vite@7.3.1"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",

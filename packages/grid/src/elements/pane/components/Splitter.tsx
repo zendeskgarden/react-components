@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useSplitter } from '@zendeskgarden/container-splitter';
+import { useDocument, useText } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
 import React, { useContext, useEffect, forwardRef, useMemo, useRef, HTMLAttributes } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { useSplitter } from '@zendeskgarden/container-splitter';
-import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
-import usePaneContext from '../../../utils/usePaneContext';
-import { ISplitterProps, ORIENTATION } from '../../../types';
+
 import { StyledPaneSplitter } from '../../../styled';
+import { ISplitterProps, ORIENTATION } from '../../../types';
+import usePaneContext from '../../../utils/usePaneContext';
+import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
 import { PaneSplitterContext } from '../../../utils/usePaneSplitterContext';
-import { useDocument, useText } from '@zendeskgarden/react-theming';
 
 const paneToSplitterOrientation: Record<string, 'vertical' | 'horizontal'> = {
   start: 'vertical',

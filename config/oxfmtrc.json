@@ -1,6 +1,7 @@
 {
   "$schema": "../node_modules/oxfmt/configuration_schema.json",
   "arrowParens": "avoid",
+  "experimentalSortImports": {},
   "singleQuote": true,
   "trailingComma": "none"
 }

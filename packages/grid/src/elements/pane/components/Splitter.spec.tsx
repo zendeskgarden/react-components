@@ -5,18 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import userEvent from '@testing-library/user-event';
+import { fireEvent, render } from 'garden-test-utils';
+import { ISplitterProps } from 'packages/grid/src/types';
 import React, {
   KeyboardEventHandler,
   MouseEventHandler,
   RefObject,
   TouchEventHandler
 } from 'react';
-import userEvent from '@testing-library/user-event';
-import { fireEvent, render } from 'garden-test-utils';
-import { PaneProvider } from '../PaneProvider';
+
 import { Pane } from '../Pane';
+import { PaneProvider } from '../PaneProvider';
 import { Splitter } from './Splitter';
-import { ISplitterProps } from 'packages/grid/src/types';
 
 const UncontrolledTestSplitter = ({
   splitterRef,

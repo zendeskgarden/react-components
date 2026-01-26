@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
-import { StyledTextInput } from '../text/StyledTextInput';
-import { StyledLabel } from '../common/StyledLabel';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
 import { StyledHint } from '../common/StyledHint';
+import { StyledLabel } from '../common/StyledLabel';
 import { StyledMessage } from '../common/StyledMessage';
+import { StyledTextInput } from '../text/StyledTextInput';
 
 const COMPONENT_ID = 'forms.input_group';
 

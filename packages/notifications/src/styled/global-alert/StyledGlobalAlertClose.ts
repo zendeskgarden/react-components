@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
-import { focusStyles, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { focusStyles, componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+
 import { IGlobalAlertProps } from '../../types';
 
 const COMPONENT_ID = 'notifications.global_alert.close';

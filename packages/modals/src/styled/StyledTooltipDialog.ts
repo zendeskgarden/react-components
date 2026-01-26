@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 import { Placement } from '@floating-ui/react-dom';
 import { arrowStyles, componentStyles, getArrowPosition } from '@zendeskgarden/react-theming';
-import { StyledTooltipDialogClose } from '../styled/StyledTooltipDialogClose';
 import { TransitionStatus } from 'react-transition-group';
+import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+
+import { StyledTooltipDialogClose } from '../styled/StyledTooltipDialogClose';
 
 const COMPONENT_ID = 'modals.tooltip_dialog';
 

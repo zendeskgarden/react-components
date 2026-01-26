@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import React from 'react';
+
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
-import { MenuStylesStory } from './stories/MenuStylesStory';
-import { GetColorStory } from './stories/GetColorStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
+import { GetColorStory } from './stories/GetColorStory';
+import { MenuStylesStory } from './stories/MenuStylesStory';
 
 export default {
   title: 'Packages/Theming/utilities'

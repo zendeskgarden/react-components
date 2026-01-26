@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
+
 import { Checkbox } from '@zendeskgarden/react-forms';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { CheckboxStory } from './stories/CheckboxStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 type Story = StoryObj<typeof CheckboxStory>;

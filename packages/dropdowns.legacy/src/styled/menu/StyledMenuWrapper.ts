@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { menuStyles, componentStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+
 import { PopperPlacement } from '../../types';
 import { getMenuPosition } from '../../utils/garden-placements';
 

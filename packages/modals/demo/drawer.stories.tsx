@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
+import { Drawer } from '@zendeskgarden/react-modals';
+import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
-import { Drawer } from '@zendeskgarden/react-modals';
-import { DrawerStory } from './stories/DrawerStory';
+
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
+import { DrawerStory } from './stories/DrawerStory';
 
 export default {
   title: 'Packages/Modals/Drawer',

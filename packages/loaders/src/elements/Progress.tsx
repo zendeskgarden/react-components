@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
-import { IProgressProps, SIZE } from '../types';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
+import { IProgressProps, SIZE } from '../types';
 
 const COMPONENT_ID = 'loaders.progress';
 

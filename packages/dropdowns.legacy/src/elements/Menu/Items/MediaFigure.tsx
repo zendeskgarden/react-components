@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes } from 'react';
+
 import { StyledMediaFigure } from '../../../styled';
 import useMenuContext from '../../../utils/useMenuContext';
 

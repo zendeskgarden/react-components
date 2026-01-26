@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { IFauxInputIconProps } from '../../../types';
+
 import { StyledTextMediaFigure } from '../../../styled';
+import { IFauxInputIconProps } from '../../../types';
 
 const StartIconComponent = ({
   isDisabled,

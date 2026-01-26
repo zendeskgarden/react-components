@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import DEFAULT_THEME from '../elements/theme';
-import { DefaultTheme } from 'styled-components';
 import { getValueAndUnit } from 'polished';
+import { DefaultTheme } from 'styled-components';
+
+import DEFAULT_THEME from '../elements/theme';
 
 type QUERY = 'up' | 'down' | 'only' | 'between';
 type BREAKPOINT = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Alert, IAlertProps } from '@zendeskgarden/react-notifications';
+import React from 'react';
 
 interface IArgs extends IAlertProps {
   title?: string;

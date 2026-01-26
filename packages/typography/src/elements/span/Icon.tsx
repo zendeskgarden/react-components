@@ -6,6 +6,7 @@
  */
 
 import React, { SVGAttributes } from 'react';
+
 import { StyledIcon } from '../../styled';
 
 const IconComponent = (props: SVGAttributes<SVGElement>) => <StyledIcon {...props} />;

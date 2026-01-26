@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC, PropsWithChildren } from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
-import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';
+import React, { FC, PropsWithChildren } from 'react';
+
 import { TYPE_SCALE } from './types';
 
 interface IArgs extends ISkeletonProps {

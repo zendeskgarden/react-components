@@ -6,6 +6,7 @@
  */
 
 import styled, { keyframes, css } from 'styled-components';
+
 import { dotOneKeyframes, dotTwoKeyframes, dotThreeKeyframes } from '../utils/animations';
 
 const StyledDotsCircle = styled.circle.attrs({

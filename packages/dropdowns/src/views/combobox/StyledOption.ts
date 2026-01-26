@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
-import { hideVisually, math } from 'polished';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { hideVisually, math } from 'polished';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+
 import { OptionType } from '../../types';
 
 const COMPONENT_ID = 'dropdowns.combobox.option';

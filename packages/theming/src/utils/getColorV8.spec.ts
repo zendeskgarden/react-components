@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColorV8 } from './getColorV8';
+import { darken, lighten, rgba } from 'polished';
+
 import PALETTE_V8 from '../elements/palette/v8';
 import DEFAULT_THEME from '../elements/theme';
-import { darken, lighten, rgba } from 'polished';
+import { getColorV8 } from './getColorV8';
 
 describe('getColorV8', () => {
   describe('by hue', () => {

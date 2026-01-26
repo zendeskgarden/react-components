@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { PaneProvider, IPaneProviderProps, Pane } from '@zendeskgarden/react-grid';
+import React from 'react';
+import styled from 'styled-components';
+
 import { ISplitterPane } from './types';
 
 const StyledPanes = styled.div`

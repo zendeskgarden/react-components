@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState, createRef, forwardRef } from 'react';
 import userEvent from '@testing-library/user-event';
 import { screen, render, waitFor } from 'garden-test-utils';
-import { Drawer } from './Drawer';
+import React, { useRef, useState, createRef, forwardRef } from 'react';
+
 import { IDrawerProps } from '../../types';
+import { Drawer } from './Drawer';
 
 describe('Drawer', () => {
   const user = userEvent.setup();

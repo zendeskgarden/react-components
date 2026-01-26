@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
-import { SplitButton } from './SplitButton';
+import React from 'react';
+
 import { Button } from './Button';
 import { ChevronButton } from './ChevronButton';
+import { SplitButton } from './SplitButton';
 
 describe('SplitButton', () => {
   it('renders child buttons as expected', () => {

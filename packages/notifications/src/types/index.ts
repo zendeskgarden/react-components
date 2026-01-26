@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, ButtonHTMLAttributes } from 'react';
 import { IButtonProps } from '@zendeskgarden/react-buttons';
+import { HTMLAttributes, ButtonHTMLAttributes } from 'react';
 
 export const PLACEMENT = [
   'top-start',

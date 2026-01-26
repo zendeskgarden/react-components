@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, act, waitFor } from 'garden-test-utils';
-import { TooltipDialog } from './TooltipDialog';
+import React, { useState } from 'react';
+
 import { ITooltipDialogProps } from '../../types';
+import { TooltipDialog } from './TooltipDialog';
 
 describe('TooltipDialog', () => {
   const user = userEvent.setup();

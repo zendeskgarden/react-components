@@ -6,8 +6,9 @@
  */
 
 import React, { forwardRef, LiHTMLAttributes } from 'react';
-import useUnorderedListContext from '../../utils/useUnorderedListContext';
+
 import { StyledUnorderedListItem } from '../../styled';
+import useUnorderedListContext from '../../utils/useUnorderedListContext';
 
 const UnorderedListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   (props, ref) => {

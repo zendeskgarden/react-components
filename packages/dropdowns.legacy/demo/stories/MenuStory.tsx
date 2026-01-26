@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
 import {
   AddItem,
   HeaderIcon,
@@ -24,6 +22,9 @@ import {
   PreviousItem,
   Separator
 } from '@zendeskgarden/react-dropdowns.legacy';
+import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
+import React from 'react';
+
 import { IMenuItem, ITEM } from './types';
 
 export interface IMenuItemProps extends IItemProps, Omit<IMenuItem, 'text' | 'value'> {}

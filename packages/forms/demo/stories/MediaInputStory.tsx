@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import EndIcon from '@zendeskgarden/svg-icons/src/16/location-stroke.svg';
 import { IMediaInputProps, MediaInput } from '@zendeskgarden/react-forms';
+import EndIcon from '@zendeskgarden/svg-icons/src/16/location-stroke.svg';
+import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
+import React from 'react';
+
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IMediaInputProps, IFieldArgs {}

@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
 import { useText } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
 
-import { IMessageProps, VALIDATION } from '../../types';
-import useFieldContext from '../../utils/useFieldContext';
-import useInputContext from '../../utils/useInputContext';
 import {
   StyledMessage,
   StyledCheckMessage,
   StyledRadioMessage,
   StyledToggleMessage
 } from '../../styled';
+import { IMessageProps, VALIDATION } from '../../types';
+import useFieldContext from '../../utils/useFieldContext';
+import useInputContext from '../../utils/useInputContext';
 import { MessageIcon } from './MessageIcon';
 
 /**

@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { Stepper } from '@zendeskgarden/react-accordions';
-import { StepperStory } from './stories/StepperStory';
+import React from 'react';
+
 import { STEPPER_STEPS as STEPS } from './stories/data';
+import { StepperStory } from './stories/StepperStory';
 
 export default {
   title: 'Packages/Accordions/Stepper',

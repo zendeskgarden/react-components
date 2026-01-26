@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
+import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
+
 import { parseInputValue } from '../utils/date-picker-range-reducer';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 

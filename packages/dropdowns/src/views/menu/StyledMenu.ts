@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { componentStyles, arrowStyles, ArrowPosition } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+
 import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
 
 const COMPONENT_ID = 'dropdowns.menu';

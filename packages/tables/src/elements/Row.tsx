@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { IRowProps } from '../types';
+import PropTypes from 'prop-types';
+import React, { useState, useMemo, forwardRef } from 'react';
+
 import { StyledRow } from '../styled';
+import { IRowProps } from '../types';
 import { useTableContext } from '../utils/useTableContext';
 
 /**

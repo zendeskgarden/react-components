@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { RefObject } from 'react';
 import { render, renderRtl } from 'garden-test-utils';
-import { PaneProvider } from '../PaneProvider';
+import React, { RefObject } from 'react';
+
 import { Pane } from '../Pane';
+import { PaneProvider } from '../PaneProvider';
 import { Splitter } from './Splitter';
 import { SplitterButton } from './SplitterButton';
 

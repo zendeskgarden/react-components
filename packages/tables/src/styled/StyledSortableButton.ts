@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { math } from 'polished';
 import {
   componentStyles,
   focusStyles,
   SELECTOR_FOCUS_VISIBLE,
   getColor
 } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { ISortableCellProps } from '../types';
 
 const COMPONENT_ID = 'tables.sortable';

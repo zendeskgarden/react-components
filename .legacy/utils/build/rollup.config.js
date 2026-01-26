@@ -5,18 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import path from 'node:path';
-import fs from 'node:fs';
 import { DEFAULT_EXTENSIONS } from '@babel/core';
-import commonjs from '@rollup/plugin-commonjs';
-import replace from '@rollup/plugin-replace';
-import nodeResolve from '@rollup/plugin-node-resolve';
-import typescript from 'rollup-plugin-typescript2';
 import { babel } from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import svgr from '@svgr/rollup';
+import fs from 'node:fs';
+import path from 'node:path';
 import analyze from 'rollup-plugin-analyzer';
 import cleanup from 'rollup-plugin-cleanup';
 import del from 'rollup-plugin-delete';
-import svgr from '@svgr/rollup';
+import typescript from 'rollup-plugin-typescript2';
 import tsc from 'typescript';
 
 const pkg = require(path.resolve('./package.json'));

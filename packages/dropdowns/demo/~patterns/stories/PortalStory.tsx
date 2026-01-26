@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import styled from 'styled-components';
 import { Combobox, Field, Item, Menu, Option } from '@zendeskgarden/react-dropdowns';
 import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
 
 interface IArgs {
   listboxAppendToNode: boolean;

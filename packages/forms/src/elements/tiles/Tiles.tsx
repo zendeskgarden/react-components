@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ChangeEventHandler, useCallback, useState, useMemo, forwardRef } from 'react';
-import PropTypes from 'prop-types';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React, { ChangeEventHandler, useCallback, useState, useMemo, forwardRef } from 'react';
+
 import { ITilesProps } from '../../types';
 import { TilesContext } from '../../utils/useTilesContext';
-import { Tile } from './components/Tile';
 import { Description } from './components/Description';
 import { Icon } from './components/Icon';
 import { Label } from './components/Label';
+import { Tile } from './components/Tile';
 
 const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
   ({ onChange, value: controlledValue, name, isCentered = true, ...props }, ref) => {

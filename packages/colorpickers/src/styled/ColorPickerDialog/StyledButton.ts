@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { Button } from '@zendeskgarden/react-buttons';
+import styled from 'styled-components';
 
 /**
  * 1. IE11 group width override.

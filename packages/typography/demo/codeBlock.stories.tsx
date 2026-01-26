@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { CodeBlock } from '@zendeskgarden/react-typography';
+import React from 'react';
+
 import { CODE_BLOCK_CHILDREN as CODE } from './stories/data';
 
 export default {

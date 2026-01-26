@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { Button } from '@zendeskgarden/react-buttons';
 import {
   getColor,
   focusStyles,
   componentStyles,
   ColorParameters
 } from '@zendeskgarden/react-theming';
-import { Button } from '@zendeskgarden/react-buttons';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
 import { IGlobalAlertProps } from '../../types';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';

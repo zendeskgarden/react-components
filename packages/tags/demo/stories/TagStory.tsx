@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { ITagProps, Tag } from '@zendeskgarden/react-tags';
+import React from 'react';
 
 export interface IArgs extends ITagProps {
   hasAvatar: boolean;

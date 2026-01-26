@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
-import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
+import { subDays } from 'date-fns/subDays';
 import { subMonths } from 'date-fns/subMonths';
+import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import { DatePickerRange } from './DatePickerRange';
+import React from 'react';
+
 import { IDatePickerRangeProps } from '../../types';
+import { DatePickerRange } from './DatePickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);

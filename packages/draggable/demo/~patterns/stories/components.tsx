@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { RefObject, forwardRef, useEffect } from 'react';
 import { useDraggable, useDroppable } from '@dnd-kit/core';
 import {
   SortableContext,
@@ -14,12 +13,13 @@ import {
   verticalListSortingStrategy
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-
 import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-draggable';
+import { LG, MD } from '@zendeskgarden/react-typography';
+import React, { RefObject, forwardRef, useEffect } from 'react';
+
+import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
 
 import { animateLayoutChanges } from './utils';
-import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
-import { LG, MD } from '@zendeskgarden/react-typography';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {
   const { isOverlay, data, tabIndex, ...restProps } = props;

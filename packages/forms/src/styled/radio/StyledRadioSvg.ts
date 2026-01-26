@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
+import styled from 'styled-components';
+
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 

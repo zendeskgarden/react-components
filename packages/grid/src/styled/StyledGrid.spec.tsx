@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { math } from 'polished';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
-import { StyledGrid } from './StyledGrid';
+import { math } from 'polished';
+import React from 'react';
+
 import { SPACE } from '../types';
+import { StyledGrid } from './StyledGrid';
 
 describe('StyledGrid', () => {
   it('renders default styling', () => {

@@ -6,6 +6,7 @@
  */
 
 import styled from 'styled-components';
+
 import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
 export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem).attrs({

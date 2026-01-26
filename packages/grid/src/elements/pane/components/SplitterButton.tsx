@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useCallback } from 'react';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { Tooltip } from '@zendeskgarden/react-tooltips';
+import React, { forwardRef, useCallback } from 'react';
+
 import { StyledPaneSplitterButton, StyledPaneSplitterButtonContainer } from '../../../styled';
 import { ISplitterButtonProps } from '../../../types';
-import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
 import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
+import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
 
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
   ({ label, placement: defaultPlacement, ...other }, ref) => {

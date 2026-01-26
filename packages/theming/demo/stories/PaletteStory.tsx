@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import styled from 'styled-components';
-import { readableColor } from 'polished';
-import { IGardenTheme, PALETTE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { Grid } from '@zendeskgarden/react-grid';
+import { IGardenTheme, PALETTE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
+import { readableColor } from 'polished';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 
 const StyledColorHex = styled.figcaption`
   margin-left: auto;

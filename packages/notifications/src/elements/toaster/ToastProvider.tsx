@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
 import PropTypes from 'prop-types';
+import React, { useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
+
 import { IToastProviderProps, Placement } from '../../types';
 import { toasterReducer, getInitialState } from './reducer';
 import { ToastContext } from './ToastContext';

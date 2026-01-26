@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import DEFAULT_THEME from '../elements/theme';
-import PALETTE_V8 from '../elements/palette/v8';
-import { Hue } from '../types';
+import memoize from 'lodash.memoize';
 import { darken, lighten, rgba } from 'polished';
 import { DefaultTheme } from 'styled-components';
-import memoize from 'lodash.memoize';
+
+import PALETTE_V8 from '../elements/palette/v8';
+import DEFAULT_THEME from '../elements/theme';
+import { Hue } from '../types';
 
 export const DEFAULT_SHADE = 600;
 

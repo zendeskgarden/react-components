@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
-import Downshift from 'downshift';
+
 import {
   Dropdown,
   Field,
@@ -18,8 +16,12 @@ import {
   Message,
   Select
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { SelectStory } from './stories/SelectStory';
+import Downshift from 'downshift';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { SELECT_ITEMS as ITEMS, DROPDOWN_PLACEMENT as PLACEMENT } from './stories/data';
+import { SelectStory } from './stories/SelectStory';
 
 export default {
   title: 'Packages/Dropdowns.Legacy/Select',

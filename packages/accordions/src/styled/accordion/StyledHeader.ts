@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { componentStyles, focusStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'accordions.header';

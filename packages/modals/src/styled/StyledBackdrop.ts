@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'modals.backdrop';
 

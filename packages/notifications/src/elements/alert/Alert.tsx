@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import PropTypes from 'prop-types';
-import { IAlertProps, TYPE } from '../../types';
+import React from 'react';
+
 import { StyledAlert, StyledIcon } from '../../styled';
+import { IAlertProps, TYPE } from '../../types';
 import { validationIcons } from '../../utils/icons';
 import { NotificationsContext } from '../../utils/useNotificationsContext';
-import { Title } from './Title';
-import { Paragraph } from './Paragraph';
 import { Close } from './Close';
+import { Paragraph } from './Paragraph';
+import { Title } from './Title';
 
 export const AlertComponent = React.forwardRef<HTMLDivElement, IAlertProps>(
   ({ role, type, ...props }, ref) => {

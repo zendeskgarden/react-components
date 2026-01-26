@@ -6,8 +6,9 @@
  */
 
 import React from 'react';
-import { ITitleProps } from '../../types';
+
 import { StyledTitle } from '../../styled';
+import { ITitleProps } from '../../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

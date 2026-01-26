@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
 import { IUseFieldReturnValue } from '@zendeskgarden/container-field';
+import { createContext, useContext } from 'react';
 
 interface IFieldContext extends IUseFieldReturnValue {
   getMessageProps: (messageProps: any) => any;

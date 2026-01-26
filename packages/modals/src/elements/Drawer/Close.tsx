@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, useEffect, forwardRef } from 'react';
-import { StyledDrawerClose } from '../../styled';
 import { useText } from '@zendeskgarden/react-theming';
-import { useModalContext } from '../../utils/useModalContext';
 import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import React, { ButtonHTMLAttributes, useEffect, forwardRef } from 'react';
+
+import { StyledDrawerClose } from '../../styled';
+import { useModalContext } from '../../utils/useModalContext';
 
 const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {

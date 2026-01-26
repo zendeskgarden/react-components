@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes } from 'react';
-import { StyledGapListItem } from '../../../styled';
 import { useText } from '@zendeskgarden/react-theming';
+import React, { forwardRef, LiHTMLAttributes } from 'react';
+
+import { StyledGapListItem } from '../../../styled';
 
 const GapComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const ariaLabel = useText(

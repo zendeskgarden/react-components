@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
 import { StyledBaseIcon, getColor, componentStyles } from '@zendeskgarden/react-theming';
+import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+
 import { FileValidation } from '../../types';
 
 const COMPONENT_ID = 'forms.file.icon';

@@ -6,6 +6,7 @@
  */
 
 import { createContext, useContext } from 'react';
+
 import { Type } from '../types';
 
 export const NotificationsContext = createContext<Type | undefined>(undefined);

@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
-import { IconButton } from './IconButton';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import React, { forwardRef } from 'react';
+
 import { IIconButtonProps } from '../types';
+import { IconButton } from './IconButton';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>

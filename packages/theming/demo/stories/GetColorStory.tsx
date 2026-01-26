@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import styled, { useTheme } from 'styled-components';
-import { opacify } from 'color2k';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Tag } from '@zendeskgarden/react-tags';
 import {
   ColorParameters,
   IGardenTheme,
@@ -16,8 +15,9 @@ import {
   getColor
 } from '@zendeskgarden/react-theming';
 import { LG, SM } from '@zendeskgarden/react-typography';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Tag } from '@zendeskgarden/react-tags';
+import { opacify } from 'color2k';
+import React from 'react';
+import styled, { useTheme } from 'styled-components';
 
 const StyledDiv = styled.div.attrs<{ $background: string }>(p => ({
   style: { background: p.$background }

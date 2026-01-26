@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { ITypescaleMonospaceProps } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledFont } from '../styled';
+import { ITypescaleMonospaceProps } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

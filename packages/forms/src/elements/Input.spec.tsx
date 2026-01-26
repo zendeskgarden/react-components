@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
-import { Input } from './Input';
+import React from 'react';
+
 import { Field } from './common/Field';
+import { Input } from './Input';
 
 describe('Input', () => {
   const user = userEvent.setup();

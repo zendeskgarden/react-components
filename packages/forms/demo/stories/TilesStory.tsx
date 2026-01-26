@@ -5,22 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg';
-import Icon01 from '@zendeskgarden/svg-icons/src/16/chevron-box-stroke.svg';
-import Icon02 from '@zendeskgarden/svg-icons/src/16/check-box-double-stroke.svg';
-import Icon03 from '@zendeskgarden/svg-icons/src/16/text-stroke.svg';
-import Icon04 from '@zendeskgarden/svg-icons/src/16/multiline-stroke.svg';
-import Icon05 from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import Icon06 from '@zendeskgarden/svg-icons/src/16/number-stroke.svg';
-import Icon07 from '@zendeskgarden/svg-icons/src/16/decimal-stroke.svg';
-import Icon08 from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
-import Icon09 from '@zendeskgarden/svg-icons/src/16/credit-card-stroke.svg';
-import Icon10 from '@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg';
 import { ITilesProps, Tiles } from '@zendeskgarden/react-forms';
-import { ITile } from './types';
 import { Grid } from '@zendeskgarden/react-grid';
+import Icon10 from '@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg';
+import Icon from '@zendeskgarden/svg-icons/src/16/box-3d-stroke.svg';
+import Icon08 from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
+import Icon02 from '@zendeskgarden/svg-icons/src/16/check-box-double-stroke.svg';
+import Icon05 from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import Icon01 from '@zendeskgarden/svg-icons/src/16/chevron-box-stroke.svg';
+import Icon09 from '@zendeskgarden/svg-icons/src/16/credit-card-stroke.svg';
+import Icon07 from '@zendeskgarden/svg-icons/src/16/decimal-stroke.svg';
+import Icon04 from '@zendeskgarden/svg-icons/src/16/multiline-stroke.svg';
+import Icon06 from '@zendeskgarden/svg-icons/src/16/number-stroke.svg';
+import Icon03 from '@zendeskgarden/svg-icons/src/16/text-stroke.svg';
+import React from 'react';
+
+import { ITile } from './types';
 
 const TILE_ICONS = [
   <Icon01 key={1} />,

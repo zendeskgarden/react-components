@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
+import React, { useRef } from 'react';
+
+import { StyledTile, StyledTileInput } from '../../../styled';
 import { ITilesTileProps } from '../../../types';
 import { useTilesContext } from '../../../utils/useTilesContext';
-import { StyledTile, StyledTileInput } from '../../../styled';
 
 const TileComponent = React.forwardRef<HTMLLabelElement, ITilesTileProps>(
   ({ children, value, disabled, ...props }, ref) => {

@@ -5,6 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
+import { VALIDATION } from '@zendeskgarden/react-forms';
+import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
+import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
+import PropTypes from 'prop-types';
 import React, {
   HTMLAttributes,
   InputHTMLAttributes,
@@ -16,15 +21,11 @@ import React, {
   useRef,
   useState
 } from 'react';
-import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
-import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
-import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
-import { VALIDATION } from '@zendeskgarden/react-forms';
-import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { IComboboxProps, IOptionProps } from '../../types';
+
 import { ComboboxContext } from '../../context/useComboboxContext';
 import useFieldContext from '../../context/useFieldContext';
+import { IComboboxProps, IOptionProps } from '../../types';
 import {
   StyledCombobox,
   StyledContainer,

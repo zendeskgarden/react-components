@@ -5,23 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
 import { useId } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import React, { useRef, useMemo, useState } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { ISheetProps, PLACEMENT } from '../../types';
 import { StyledSheet, StyledSheetWrapper } from '../../styled';
-import { SheetContext } from '../../utils/useSheetContext';
+import { ISheetProps, PLACEMENT } from '../../types';
 import { useFocusableMount } from '../../utils/useFocusableMount';
-
-import { Title } from './components/Title';
-import { Description } from './components/Description';
-import { Header } from './components/Header';
+import { SheetContext } from '../../utils/useSheetContext';
 import { Body } from './components/Body';
+import { Close } from './components/Close';
+import { Description } from './components/Description';
 import { Footer } from './components/Footer';
 import { FooterItem } from './components/FooterItem';
-import { Close } from './components/Close';
+import { Header } from './components/Header';
+import { Title } from './components/Title';
 
 const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
   (

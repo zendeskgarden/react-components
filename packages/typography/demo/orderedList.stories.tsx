@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { OrderedList } from '@zendeskgarden/react-typography';
-import { OrderedListStory } from './stories/OrderedListStory';
+import React from 'react';
+
 import { LIST_ITEMS as ITEMS } from './stories/data';
+import { OrderedListStory } from './stories/OrderedListStory';
 
 export default {
   title: 'Packages/Typography/Lists/OrderedList',

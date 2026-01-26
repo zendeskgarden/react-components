@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useCallback, useContext, useEffect, useState } from 'react';
-import { ThemeContext } from 'styled-components';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { useDocument } from '@zendeskgarden/react-theming';
+import React, { HTMLAttributes, useCallback, useContext, useEffect, useState } from 'react';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { ThemeContext } from 'styled-components';
+
 import { Placement } from '../../types';
-import { Toast } from './Toast';
 import { StyledFadeInTransition, StyledTransitionContainer, TRANSITION_CLASS } from './styled';
+import { Toast } from './Toast';
 import { IToast } from './useToast';
 
 interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {

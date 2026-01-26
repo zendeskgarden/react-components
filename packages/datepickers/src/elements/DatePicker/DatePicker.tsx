@@ -5,6 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
+import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
+import PropTypes from 'prop-types';
 import React, {
   useRef,
   useEffect,
@@ -16,17 +19,15 @@ import React, {
   forwardRef
 } from 'react';
 import { createPortal } from 'react-dom';
-import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
-import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
+
+import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
+import { Input } from './components/Input';
 import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
-import { StyledMenu, StyledMenuWrapper } from '../../styled';
-import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
-import { Input } from './components/Input';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 

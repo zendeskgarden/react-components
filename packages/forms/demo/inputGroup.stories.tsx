@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+
 import { InputGroup, Input, VALIDATION } from '@zendeskgarden/react-forms';
-import { InputGroupStory } from './stories/InputGroupStory';
-import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
+import React from 'react';
+
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
+import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
+import { InputGroupStory } from './stories/InputGroupStory';
 
 export default {
   title: 'Packages/Forms/InputGroup',

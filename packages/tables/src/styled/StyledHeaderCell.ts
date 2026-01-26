@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
 import { componentStyles } from '@zendeskgarden/react-theming';
+import { math } from 'polished';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+
+import { getRowHeight } from './style-utils';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
 import { getLineHeight } from './StyledTable';
-import { getRowHeight } from './style-utils';
 
 const COMPONENT_ID = 'tables.header_cell';
 

@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import { StyledModal } from './StyledModal';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
+import React from 'react';
+
+import { StyledModal } from './StyledModal';
 
 describe('StyledModal', () => {
   it('renders default styling', () => {

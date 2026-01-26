@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 import { focusStyles, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
+import styled, { DefaultTheme, css, ThemeProps } from 'styled-components';
 
 const COMPONENT_ID = 'tabs.tab';
 

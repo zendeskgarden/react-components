@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import styled from 'styled-components';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Input } from '@zendeskgarden/react-forms';
-import { Paragraph } from '@zendeskgarden/react-typography';
 import { getColor } from '@zendeskgarden/react-theming';
+import { Paragraph } from '@zendeskgarden/react-typography';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
 
 interface IArgs {
   appendToNode: boolean;

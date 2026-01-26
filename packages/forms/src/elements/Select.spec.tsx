@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render } from 'garden-test-utils';
-import { Select } from './Select';
+import React from 'react';
+
 import { Field } from './common/Field';
+import { Select } from './Select';
 
 describe('Select', () => {
   it('is rendered as a select', () => {

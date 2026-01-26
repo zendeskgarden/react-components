@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { HUE, ICodeProps, INHERIT_SIZE } from '../types';
+import React, { forwardRef } from 'react';
+
 import { StyledCode } from '../styled';
+import { HUE, ICodeProps, INHERIT_SIZE } from '../types';
 
 /**
  * @extends HTMLAttributes<HTMLElement>

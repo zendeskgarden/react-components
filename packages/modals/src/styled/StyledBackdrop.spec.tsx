@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, renderDark, renderRtl } from 'garden-test-utils';
-import { StyledBackdrop } from './StyledBackdrop';
-import { rgba } from 'polished';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { render, renderDark, renderRtl } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React from 'react';
+
+import { StyledBackdrop } from './StyledBackdrop';
 
 describe('StyledBackdrop', () => {
   it('renders default styling', () => {

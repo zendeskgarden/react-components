@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { render, renderDark } from 'garden-test-utils';
+import React from 'react';
 import styled from 'styled-components';
-import { focusStyles } from './focusStyles';
-import { FocusStylesParameters } from '../types';
-import DEFAULT_THEME from '../elements/theme';
+
 import PALETTE from '../elements/palette';
+import DEFAULT_THEME from '../elements/theme';
+import { FocusStylesParameters } from '../types';
+import { focusStyles } from './focusStyles';
 
 interface IStyledDivProps {
   $boxShadow?: FocusStylesParameters['boxShadow'];

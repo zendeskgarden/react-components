@@ -6,6 +6,7 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { StyledDrawerFooter } from '../../styled';
 
 const FooterComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (

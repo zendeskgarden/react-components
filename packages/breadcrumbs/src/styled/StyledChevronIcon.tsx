@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
-import { em } from 'polished';
 import { getColor, StyledBaseIcon } from '@zendeskgarden/react-theming';
+import { em } from 'polished';
+import styled from 'styled-components';
 
 export const StyledChevronIcon = styled(StyledBaseIcon)`
   transform: ${p => p.theme.rtl && `rotate(180deg);`};

@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo, useState } from 'react';
 import TrashIcon from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
-import { Message } from './components/Message';
-import { Icon } from './components/Icon';
+import React, { forwardRef, useMemo, useState } from 'react';
+
 import { StyledDropzone, StyledIcon } from '../../styled';
 import { IDropzoneProps } from '../../types';
 import { DropzoneContext } from '../../utils/useDropzoneContext';
+import { Icon } from './components/Icon';
+import { Message } from './components/Message';
 
 const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
   ({ children, isActive, isDanger, isDisabled, isHighlighted, isVertical, tag, ...other }, ref) => {

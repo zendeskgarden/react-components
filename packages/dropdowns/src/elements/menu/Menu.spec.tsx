@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
-import { render, renderRtl } from 'garden-test-utils';
-import userEvent from '@testing-library/user-event';
 import { act } from '@testing-library/react';
-import { IMenuProps } from '../../types';
-import { Menu } from './Menu';
-import { ItemGroup } from './ItemGroup';
-import { Item } from './Item';
-import { Separator } from './Separator';
+import userEvent from '@testing-library/user-event';
 import { PALETTE } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
+import React, { forwardRef } from 'react';
+
+import { IMenuProps } from '../../types';
+import { Item } from './Item';
+import { ItemGroup } from './ItemGroup';
+import { Menu } from './Menu';
+import { Separator } from './Separator';
 
 interface TestMenuProps extends Omit<IMenuProps, 'button'> {
   button?: IMenuProps['button'];

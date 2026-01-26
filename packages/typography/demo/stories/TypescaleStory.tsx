@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { IMDProps, LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
+import React from 'react';
 
 interface IArgs extends IMDProps {
   size?: 'small' | 'medium' | 'large' | 'extra-large' | '2x-large' | '3x-large';

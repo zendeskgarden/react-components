@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { SVGAttributes } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import Icon from '@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg';
 import { Stepper, IStepperProps } from '@zendeskgarden/react-accordions';
+import Icon from '@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg';
+import React, { SVGAttributes } from 'react';
+
 import { IStepperStep } from './types';
 
 interface IArgs extends IStepperProps {

@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { FC, memo, useCallback, useEffect, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { DropzoneProps, useDropzone } from 'react-dropzone';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import {
   File,
@@ -17,6 +15,9 @@ import {
   IFileUploadProps,
   Input
 } from '@zendeskgarden/react-forms';
+import React, { FC, memo, useCallback, useEffect, useState } from 'react';
+import { DropzoneProps, useDropzone } from 'react-dropzone';
+
 import { FieldStory } from '../../stories/FieldStory';
 import { FileStory } from '../../stories/FileStory';
 

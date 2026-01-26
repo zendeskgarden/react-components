@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useLayoutEffect, useRef, useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { Button } from '@zendeskgarden/react-buttons';
 import {
   Dropdown,
   IItemProps,
@@ -15,9 +15,10 @@ import {
   Menu,
   Trigger
 } from '@zendeskgarden/react-dropdowns.legacy';
-import { IMenuItem } from '../../stories/types';
-import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
+import React, { useLayoutEffect, useRef, useState } from 'react';
+
+import { IMenuItem } from '../../stories/types';
 
 export interface IMenuItemProps extends IItemProps, Omit<IMenuItem, 'text' | 'value'> {}
 

@@ -7,6 +7,7 @@
 
 import React, { PropsWithChildren } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
+
 import { IGardenTheme, IThemeProviderProps } from '../types';
 import DEFAULT_THEME from './theme';
 

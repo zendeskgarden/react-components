@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent } from 'garden-test-utils';
 import { KEY_CODES } from '@zendeskgarden/container-utilities';
+import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import React from 'react';
 
 import { Dropdown, Trigger, Menu, Item, NextItem, PreviousItem, IDropdownProps } from '../..';
 

@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { Anchor } from '@zendeskgarden/react-buttons';
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
+import { Anchor } from '@zendeskgarden/react-buttons';
+import React, { HTMLAttributes } from 'react';
+
 import { BREADCRUMB_CHILDREN } from './data';
 
 interface IArgs extends HTMLAttributes<HTMLElement> {

@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { hideVisually } from 'polished';
 import { render, renderRtl } from 'garden-test-utils';
+import { hideVisually } from 'polished';
+import React from 'react';
 
-import { Table } from './Table';
 import { Body } from './Body';
-import { Row } from './Row';
 import { Cell } from './Cell';
+import { Row } from './Row';
+import { Table } from './Table';
 
 describe('Cell', () => {
   it('passes ref to underlying DOM element', () => {

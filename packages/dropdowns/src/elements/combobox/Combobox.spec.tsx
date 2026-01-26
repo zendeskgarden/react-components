@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
-import { render, renderRtl } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
+import { render, renderRtl } from 'garden-test-utils';
+import { rgba } from 'polished';
+import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
+
 import { IComboboxProps, ISelectedOption } from '../../types';
 import { Combobox } from './Combobox';
+import { Field } from './Field';
 import { OptGroup } from './OptGroup';
 import { Option } from './Option';
-import { Field } from './Field';
-import { rgba } from 'polished';
 
 interface ITestComboboxProps extends IComboboxProps {
   fieldTestId?: string;

@@ -6,11 +6,12 @@
  */
 
 import React, { HTMLAttributes, forwardRef } from 'react';
+
+import { StyledCursorPagination } from '../../styled';
 import { First } from './components/First';
+import { Last } from './components/Last';
 import { Next } from './components/Next';
 import { Previous } from './components/Previous';
-import { Last } from './components/Last';
-import { StyledCursorPagination } from '../../styled';
 
 const CursorPaginationComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => <StyledCursorPagination ref={ref} {...props} />

@@ -7,17 +7,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
 import { Command } from 'commander';
 import { execa, execaCommand } from 'execa';
-import fs from 'node:fs';
-import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
-import ora from 'ora';
 import inquirer from 'inquirer';
+import fs from 'node:fs';
+import { createRequire } from 'node:module';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { track } from 'temp';
 import util from 'node:util';
-import { createRequire } from 'node:module';
+import ora from 'ora';
+import { track } from 'temp';
 
 const lernaConfig = createRequire(import.meta.url)('../../lerna.json');
 const temp = track();

@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+
 import { IBlockquoteProps } from '../types';
 import { THEME_SIZES } from './StyledFont';
 

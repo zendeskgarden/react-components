@@ -6,8 +6,9 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { useTilesContext } from '../../../utils/useTilesContext';
+
 import { StyledTileIcon } from '../../../styled';
+import { useTilesContext } from '../../../utils/useTilesContext';
 
 const IconComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => {
   const tileContext = useTilesContext();

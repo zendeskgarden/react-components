@@ -5,6 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useModal } from '@zendeskgarden/container-modal';
+import { useDocument, useText } from '@zendeskgarden/react-theming';
+import activeElement from 'dom-helpers/activeElement';
+import PropTypes from 'prop-types';
 import React, {
   HTMLAttributes,
   useEffect,
@@ -15,21 +19,18 @@ import React, {
   forwardRef
 } from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
-import { useModal } from '@zendeskgarden/container-modal';
-import { useDocument, useText } from '@zendeskgarden/react-theming';
-import activeElement from 'dom-helpers/activeElement';
-import { ModalsContext } from '../../utils/useModalContext';
+
 import { StyledBackdrop, StyledDrawer } from '../../styled';
 import { IDrawerProps } from '../../types';
-import { Header } from './Header';
+import { ModalsContext } from '../../utils/useModalContext';
 import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
 import { FooterItem } from './FooterItem';
+import { Header } from './Header';
 
 /**
  * [1] implementation of focus management for Drawer usage to support focus edge cases

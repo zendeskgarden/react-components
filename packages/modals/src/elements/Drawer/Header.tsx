@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useEffect, HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { useModalContext } from '../../utils/useModalContext';
+import React, { useEffect, HTMLAttributes, forwardRef } from 'react';
+
 import { StyledDrawerHeader } from '../../styled';
 import { IDrawerHeaderProps } from '../../types';
+import { useModalContext } from '../../utils/useModalContext';
 
 const HeaderComponent = forwardRef<HTMLDivElement, IDrawerHeaderProps>(
   ({ tag = 'div', ...other }, ref) => {

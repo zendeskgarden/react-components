@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
 import { IMessageProps, Message as FormMessage, VALIDATION } from '@zendeskgarden/react-forms';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

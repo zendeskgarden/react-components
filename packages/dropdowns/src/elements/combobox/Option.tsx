@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
-import PropTypes from 'prop-types';
-import { mergeRefs } from 'react-merge-refs';
-import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
-import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
 import SelectionIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
-import { IOptionProps, OPTION_TYPE, OptionType } from '../../types';
+import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
+import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
+import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
+import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
+import { mergeRefs } from 'react-merge-refs';
+
 import useComboboxContext from '../../context/useComboboxContext';
 import { OptionContext } from '../../context/useOptionContext';
+import { IOptionProps, OPTION_TYPE, OptionType } from '../../types';
 import {
   StyledOption,
   StyledOptionContent,

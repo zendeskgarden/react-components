@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import mediaQuery from './mediaQuery';
 import DEFAULT_THEME from '../elements/theme';
+import mediaQuery from './mediaQuery';
 
 type TYPE_QUERY = 'up' | 'down' | 'only' | 'between';
 type TYPE_BREAKPOINT = 'xs' | 'sm' | 'md' | 'lg' | 'xl';

@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import React, { forwardRef } from 'react';
 
-import { IGlobalAlertTitleProps } from '../../types';
 import { StyledGlobalAlertTitle } from '../../styled';
+import { IGlobalAlertTitleProps } from '../../types';
 import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext';
 
 /**

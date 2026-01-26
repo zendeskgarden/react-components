@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 
-import { useArgs } from 'storybook/preview-api';
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
+import { PALETTE } from '@zendeskgarden/react-theming';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
   title: 'Packages/Colorpickers/ColorPicker',

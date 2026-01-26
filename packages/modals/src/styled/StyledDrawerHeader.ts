@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
-import { StyledHeader } from './StyledHeader';
+import styled from 'styled-components';
+
 import { BASE_MULTIPLIERS } from './StyledDrawerClose';
+import { StyledHeader } from './StyledHeader';
 
 const COMPONENT_ID = 'modals.drawer_modal.header';
 

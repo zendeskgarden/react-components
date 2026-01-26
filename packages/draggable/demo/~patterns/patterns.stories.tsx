@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { DragAndDropStory } from './stories/DragAndDropStory';
+
+import React from 'react';
+
 import { COLUMNS as columns } from './stories/data';
+import { DragAndDropStory } from './stories/DragAndDropStory';
 
 export default {
   title: 'Packages/Draggable/[patterns]'

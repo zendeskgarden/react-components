@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { createRef, useState } from 'react';
-import { render, screen } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
-import { ColorSwatch } from './index';
+import { render, screen } from 'garden-test-utils';
+import React, { createRef, useState } from 'react';
+
 import { IColorSwatchProps } from '../../types';
+import { ColorSwatch } from './index';
 
 const colors = [
   [

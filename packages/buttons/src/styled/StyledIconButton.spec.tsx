@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { PALETTE } from '@zendeskgarden/react-theming';
+import { render } from 'garden-test-utils';
+import { rgba } from 'polished';
 import React from 'react';
 import { css } from 'styled-components';
-import { render } from 'garden-test-utils';
-import { COMPONENT_ID, StyledIconButton } from './StyledIconButton';
+
 import { StyledIcon } from './StyledIcon';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { rgba } from 'polished';
+import { COMPONENT_ID, StyledIconButton } from './StyledIconButton';
 
 describe('StyledIconButton', () => {
   it('renders the expected element', () => {

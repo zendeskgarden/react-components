@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
 import { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import { createContext, useContext } from 'react';
+
 import { IAccordionProps } from '../types';
 
 export interface IAccordionContext<Value>
