@@ -7,13 +7,69 @@
 
 import type { Preview } from '@storybook/react-vite';
 
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { create } from 'storybook/theming';
+
+import { DARK, LIGHT, withThemeProvider } from './withThemeProvider';
+
 const preview: Preview = {
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(?:background|color)$/iu,
-        date: /Date$/iu
+  decorators: [withThemeProvider],
+  globalTypes: {
+    locale: {
+      name: 'direction',
+      description: 'Locale direction',
+      toolbar: {
+        icon: 'globe',
+        items: [
+          { value: 'ltr', title: 'LTR' },
+          { value: 'rtl', title: 'RTL' }
+        ]
       }
+    },
+    bedrock: {
+      name: 'bedrock',
+      description: 'CSS Bedrock',
+      toolbar: {
+        icon: 'link',
+        items: [
+          { value: 'disabled', title: 'Bedrock disabled' },
+          { value: 'enabled', title: 'Bedrock enabled' }
+        ]
+      }
+    },
+    primaryHue: {
+      name: 'primaryHue',
+      description: 'Primary hue',
+      toolbar: {
+        icon: 'paintbrush',
+        items: [
+          { value: DEFAULT_THEME.colors.primaryHue, title: 'Default primary hue' },
+          { value: 'fuschia', title: 'Custom primary hue' }
+        ]
+      }
+    }
+  },
+  parameters: {
+    backgrounds: {
+      grid: { disable: true },
+      options: {
+        light: { name: 'light', value: LIGHT },
+        dark: { name: 'dark', value: DARK }
+      }
+    },
+    controls: {
+      hideNoControlsWarning: true,
+      matchers: {
+        color: /(?:background|color|hue)$/iu,
+        date: /Date$/iu
+      },
+      sort: 'alpha'
+    },
+    docs: {
+      theme: create({
+        base: DEFAULT_THEME.colors.base
+      }),
+      argTypes: { sort: 'alpha' }
     }
   }
 };

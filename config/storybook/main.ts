@@ -8,9 +8,14 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
 const config: StorybookConfig = {
-  stories: ['../../demo/**/*.stories.ts'],
-  addons: [],
-  framework: '@storybook/react-vite'
+  addons: ['@storybook/addon-a11y', '@storybook/addon-designs', '@storybook/addon-docs'],
+  core: {
+    disableWhatsNewNotifications: true,
+    disableTelemetry: true
+  },
+  framework: '@storybook/react-vite',
+  stories: ['../../demo/**/*.stories.tsx'],
+  staticDirs: ['./static']
 };
 
 export default config;
