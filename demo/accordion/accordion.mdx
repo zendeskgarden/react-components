@@ -1,0 +1,22 @@
+import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
+import * as Stories from './accordion.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+## Uncontrolled
+
+<Canvas>
+  <Story of={Stories.Uncontrolled} />
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story of={Stories.Controlled} />
+</Canvas>
