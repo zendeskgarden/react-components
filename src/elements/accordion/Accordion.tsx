@@ -87,6 +87,8 @@ const AccordionComponent = ({
   );
 };
 
+AccordionComponent.displayName = 'Accordion';
+
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */

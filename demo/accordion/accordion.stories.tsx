@@ -16,7 +16,7 @@ import { SECTIONS } from './data';
 type Story = StoryObj<typeof AccordionStory>;
 
 export default {
-  title: 'Packages/Accordions/Accordion',
+  title: 'Components/Accordion',
   component: Accordion,
   subcomponents: {
     'Accordion.Header': Accordion.Header,

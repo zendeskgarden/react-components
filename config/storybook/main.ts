@@ -14,7 +14,7 @@ const config: StorybookConfig = {
     disableTelemetry: true
   },
   framework: '@storybook/react-vite',
-  stories: ['../../demo/**/*.stories.tsx'],
+  stories: ['../../demo/**/*.@(mdx|stories.tsx)'],
   staticDirs: ['./static']
 };
 
