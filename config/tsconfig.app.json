@@ -25,5 +25,5 @@
     "noUncheckedSideEffectImports": true
   },
   "files": ["app.d.ts"],
-  "include": ["../demo", "../src", "storybook/withThemeProvider.tsx"]
+  "include": ["../demo", "../src"]
 }

@@ -6,12 +6,13 @@
  */
 
 import react from '@vitejs/plugin-react';
+import { dirname } from 'node:path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
 import pkg from '../package.json' with { type: 'json' };
 
-const BANNER = `/*!
+const banner = `/*!
  * Copyright Zendesk, Inc.
  *
  * Use of this source code is governed under the Apache License, Version 2.0
@@ -27,14 +28,24 @@ export default defineConfig({
   build: {
     lib: {
       entry: 'src/index.ts',
-      fileName: 'index',
-      formats: ['es', 'cjs']
+      fileName: 'index'
     },
     rollupOptions: {
       external,
-      output: {
-        banner: BANNER
-      }
+      output: [
+        {
+          banner,
+          format: 'cjs'
+        },
+        {
+          banner,
+          dir: dirname(pkg.module),
+          entryFileNames: '[name].js',
+          format: 'es',
+          preserveModules: true,
+          preserveModulesRoot: 'src'
+        }
+      ]
     }
   },
   define: {

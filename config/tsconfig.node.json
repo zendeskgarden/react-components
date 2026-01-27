@@ -23,5 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite-env.d.ts", "vite.config.ts", "./storybook"]
+  "include": ["vite-env.d.ts", "vite.config.ts", "./storybook", "../scripts"]
 }

@@ -5,8 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-declare namespace Intl {
-  interface DateTimeFormatOptions extends Intl.DateTimeFormatOptions {
-    dateStyle?: 'full' | 'long' | 'medium' | 'short';
+export default {
+  customSyntax: 'postcss-styled-syntax',
+  extends: '@zendeskgarden/stylelint-config',
+  rules: {
+    'nesting-selector-no-missing-scoping-root': null
   }
-}
+};

@@ -83,7 +83,7 @@ export const Header = ({
           onMouseOver={headerProps.onMouseOver}
           onMouseOut={headerProps.onMouseOut}
         >
-          <ChevronDown />
+          <ChevronDown aria-hidden />
         </StyledRotateIcon>
       </StyledHeader>
     </HeaderProvider>
