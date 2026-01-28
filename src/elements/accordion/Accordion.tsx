@@ -6,6 +6,7 @@
  */
 
 import { useAccordion } from '@zendeskgarden/container-accordion';
+import PropTypes from 'prop-types';
 import { Children, isValidElement, useMemo, type ReactElement } from 'react';
 
 import type { IAccordionProps } from '../../types/elements';
@@ -88,6 +89,18 @@ const AccordionComponent = ({
 };
 
 AccordionComponent.displayName = 'Accordion';
+
+AccordionComponent.propTypes = {
+  level: PropTypes.number.isRequired,
+  expandedSections: PropTypes.array,
+  defaultExpandedSections: PropTypes.array,
+  isBare: PropTypes.bool,
+  isCollapsible: PropTypes.bool,
+  isCompact: PropTypes.bool,
+  isAnimated: PropTypes.bool,
+  isExpandable: PropTypes.bool,
+  onChange: PropTypes.func
+};
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

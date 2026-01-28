@@ -33,17 +33,19 @@
   "dependencies": {
     "@zendeskgarden/container-accordion": "^3.0.15",
     "@zendeskgarden/container-utilities": "^2.0.5",
-    "@zendeskgarden/react-theming": "9.14.0",
-    "@zendeskgarden/svg-icons": "8.1.0",
-    "styled-components": "6.3.8"
+    "@zendeskgarden/react-theming": "^9.14.0",
+    "prop-types": "^15.8.1",
+    "styled-components": "6.3.6"
   },
   "devDependencies": {
     "@storybook/addon-a11y": "10.2.1",
     "@storybook/addon-designs": "11.1.1",
     "@storybook/addon-docs": "10.2.1",
     "@storybook/react-vite": "10.2.1",
+    "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
     "@types/node": "25.0.10",
+    "@types/prop-types": "15.7.15",
     "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
     "@vitejs/plugin-react": "5.1.2",
@@ -53,6 +55,7 @@
     "@zendeskgarden/react-buttons": "9.14.0",
     "@zendeskgarden/react-tooltips": "9.14.0",
     "@zendeskgarden/stylelint-config": "23.0.0",
+    "@zendeskgarden/svg-icons": "8.1.0",
     "eslint": "9.39.2",
     "jsdom": "27.4.0",
     "oxfmt": "0.26.0",

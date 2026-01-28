@@ -24,6 +24,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "files": ["app.d.ts"],
+  "files": ["app.d.ts", "vitest.setup.ts"],
   "include": ["../demo", "../src"]
 }

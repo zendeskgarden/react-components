@@ -9,8 +9,8 @@ import type { MouseEventHandler } from 'react';
 
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
-import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg?react';
+import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg?react';
 
 import type { IAccordionSection } from './types';
 
@@ -24,7 +24,7 @@ const handleClick: MouseEventHandler<HTMLButtonElement> = event => event.prevent
 
 const IconButtons = ({ isCompact }: IProps) => (
   <>
-    <Tooltip content="Settings">
+    <Tooltip content="Settings" isLabel>
       <IconButton
         focusInset={isCompact}
         size={isCompact ? 'small' : 'medium'}
@@ -33,7 +33,7 @@ const IconButtons = ({ isCompact }: IProps) => (
         <Icon1 />
       </IconButton>
     </Tooltip>
-    <Tooltip content="Folders">
+    <Tooltip content="Folders" isLabel>
       <IconButton
         focusInset={isCompact}
         size={isCompact ? 'small' : 'medium'}
