@@ -133,7 +133,7 @@ const sync = async (main, spinner) => {
     await execa('git', ['pull']);
     await execa('git', ['fetch', '--tags', '--prune', '--prune-tags']);
     spinner.stop();
-    await execa('npm', ['install', '--force'], { stdout: process.stdout });
+    await execa('pnpm', ['install', '--force'], { stdout: process.stdout });
   } else {
     throw new Error(`Switch to the ${main} branch`);
   }
