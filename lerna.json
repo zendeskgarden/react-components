@@ -1,5 +1,5 @@
 {
-  "version": "10.0.0",
+  "version": "9.14.1",
   "packages": ["."],
   "npmClient": "pnpm",
   "changelog": {
