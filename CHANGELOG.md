@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.14.1 (2026-01-29)
+
+#### :bug: Bug Fix
+* `forms`
+  * [#2090](https://github.com/zendeskgarden/react-components/pull/2090) fix(forms): constrain height for radio/checkbox/toggle with hidden label ([@jzempel](https://github.com/jzempel))
+
 ## v9.14.0 (2026-01-12)
 
 #### :rocket: New Feature

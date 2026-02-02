@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-modals",
-  "version": "9.14.0",
+  "version": "9.14.1",
   "description": "Components relating to modals in the Garden Design System",
   "keywords": [
     "components",
@@ -33,7 +33,7 @@
     "@floating-ui/react-dom": "^2.0.0",
     "@zendeskgarden/container-modal": "^1.0.24",
     "@zendeskgarden/container-utilities": "^2.0.4",
-    "@zendeskgarden/react-buttons": "^9.14.0",
+    "@zendeskgarden/react-buttons": "^9.14.1",
     "dom-helpers": "^5.1.0",
     "prop-types": "^15.5.7",
     "react-merge-refs": "^2.0.0",

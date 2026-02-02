@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-notifications",
-  "version": "9.14.0",
+  "version": "9.14.1",
   "description": "Notification and Well components within the Garden Design System",
   "keywords": [
     "components",
@@ -30,7 +30,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-buttons": "^9.14.0",
+    "@zendeskgarden/react-buttons": "^9.14.1",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",
     "react-transition-group": "^4.4.2",

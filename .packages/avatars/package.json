@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-avatars",
-  "version": "9.14.0",
+  "version": "9.14.1",
   "description": "Components relating to avatars in the Garden Design System",
   "keywords": [
     "components",
@@ -30,7 +30,7 @@
     "start": "../../utils/scripts/start.sh"
   },
   "dependencies": {
-    "@zendeskgarden/react-typography": "^9.14.0",
+    "@zendeskgarden/react-typography": "^9.14.1",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7"
   },

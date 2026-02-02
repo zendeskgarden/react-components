@@ -1,6 +1,6 @@
 {
   "name": "@zendeskgarden/react-chrome",
-  "version": "9.14.0",
+  "version": "9.14.1",
   "description": "Components relating to Chrome within the Garden Design System.",
   "keywords": [
     "components",
@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@zendeskgarden/container-utilities": "^2.0.4",
-    "@zendeskgarden/react-buttons": "^9.14.0",
+    "@zendeskgarden/react-buttons": "^9.14.1",
     "dom-helpers": "^5.2.1",
     "polished": "^4.3.1",
     "prop-types": "^15.5.7",
