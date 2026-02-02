@@ -19,7 +19,7 @@ import util from 'node:util';
 import ora from 'ora';
 import { track } from 'temp';
 
-const lernaConfig = createRequire(import.meta.url)('../../lerna.json');
+const lernaConfig = createRequire(import.meta.url)('../config/lerna.json');
 const temp = track();
 
 const program = new Command();
