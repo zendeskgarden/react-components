@@ -52,7 +52,7 @@ const changelog = async (tag, spinner) => {
   const readFile = util.promisify(fs.readFile);
   const INSERTION_SLUG = '<!-- insert-new-changelog-here -->';
   const currentDir = dirname(fileURLToPath(import.meta.url));
-  const changelogPath = resolve(currentDir, '..', '..', 'CHANGELOG.md');
+  const changelogPath = resolve(currentDir, '..', 'CHANGELOG.md');
   const data = await readFile(changelogPath, 'utf8');
 
   if (data.includes(INSERTION_SLUG)) {
