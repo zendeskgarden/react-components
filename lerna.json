@@ -19,7 +19,7 @@
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
-      "allowBranch": "jzempel/v10",
+      "allowBranch": "main",
       "message": "chore(release): publish",
       "preid": "next"
     }
