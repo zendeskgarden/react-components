@@ -38,7 +38,7 @@
     "@types/lodash.debounce": "4.0.9",
     "@zendeskgarden/react-theming": "^9.14.2",
     "@zendeskgarden/svg-icons": "7.6.0",
-    "react-dropzone": "14.3.8"
+    "react-dropzone": "14.4.1"
   },
   "keywords": [
     "components",
