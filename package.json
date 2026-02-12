@@ -56,7 +56,7 @@
     "@types/react": "18.3.27",
     "@types/react-dom": "18.3.7",
     "@zendeskgarden/css-bedrock": "10.0.1",
-    "@zendeskgarden/eslint-config": "45.0.0",
+    "@zendeskgarden/eslint-config": "47.1.0",
     "@zendeskgarden/scripts": "2.5.1",
     "@zendeskgarden/stylelint-config": "22.0.0",
     "@zendeskgarden/svg-icons": "7.6.0",
