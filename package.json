@@ -105,6 +105,6 @@
     "typescript": "5.9.3",
     "vite": "6.3.5",
     "vite-plugin-svgr": "4.3.0",
-    "webpack": "5.104.0"
+    "webpack": "5.104.1"
   }
 }
