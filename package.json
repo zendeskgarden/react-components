@@ -59,7 +59,7 @@
     "@zendeskgarden/eslint-config": "45.0.0",
     "@zendeskgarden/scripts": "2.5.1",
     "@zendeskgarden/stylelint-config": "22.0.0",
-    "@zendeskgarden/svg-icons": "7.6.0",
+    "@zendeskgarden/svg-icons": "8.1.0",
     "babel-plugin-module-resolver": "5.0.2",
     "babel-plugin-react-remove-properties": "0.3.1",
     "babel-plugin-styled-components": "2.1.4",
