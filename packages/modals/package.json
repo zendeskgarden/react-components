@@ -39,7 +39,7 @@
   "devDependencies": {
     "@types/react-transition-group": "4.4.12",
     "@zendeskgarden/react-theming": "^9.14.2",
-    "@zendeskgarden/svg-icons": "7.6.0"
+    "@zendeskgarden/svg-icons": "8.1.0"
   },
   "keywords": [
     "components",
