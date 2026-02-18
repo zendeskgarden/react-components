@@ -202,6 +202,8 @@ export interface ITagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {
 export interface ITagGroupProps {
   /** Indicates that the tag group is not interactive */
   isDisabled?: boolean;
+  /** Determines whether the combobox is editable or select-only */
+  isEditable?: boolean;
   /** Determines tag group expansion */
   isExpanded: boolean;
   /** Indicates the `z-index` of the listbox */

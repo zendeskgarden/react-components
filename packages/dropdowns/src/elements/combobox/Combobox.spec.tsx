@@ -592,6 +592,32 @@ describe('Combobox', () => {
       expect(input).toHaveFocus();
     });
 
+    it('focuses trigger on non-editable expand tags click', async () => {
+      const { getByTestId, getByText } = render(
+        <TestCombobox
+          isEditable={false}
+          isMultiselectable
+          maxTags={1}
+          renderExpandTags={() => 'test'}
+        >
+          <Option isSelected value="value-1" />
+          <Option isSelected value="value-2" />
+        </TestCombobox>
+      );
+      const button = getByText('test');
+      const combobox = getByTestId('combobox');
+      const trigger = combobox.firstChild as HTMLElement;
+
+      await user.click(button);
+
+      expect(trigger).toHaveFocus();
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+
+      await user.click(document.body);
+
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    });
+
     it('focuses input on value click', async () => {
       const { getByTestId } = render(<TestCombobox />);
       const input = getByTestId('input');

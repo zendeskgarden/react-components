@@ -21,6 +21,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 
     &[hidden] {
       padding-${props.theme.rtl ? 'right' : 'left'}: ${size}px;
+      height: ${lineHeight}px;
       line-height: ${lineHeight}px;
     }
   `;
