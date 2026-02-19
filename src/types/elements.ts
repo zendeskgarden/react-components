@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import type { IUseAccordionProps } from '@zendeskgarden/container-accordion';
 import type { ComponentPropsWithRef, HTMLAttributes } from 'react';
-
-import { type IUseAccordionProps } from '@zendeskgarden/container-accordion';
 
 export interface IAccordionProps<SectionValue = any> extends Omit<
   ComponentPropsWithRef<'div'>,

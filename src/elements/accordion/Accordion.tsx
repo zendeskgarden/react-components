@@ -38,6 +38,7 @@ const AccordionComponent = ({
       Children.toArray(children)
         .filter(isValidElement)
         .map((child, index) => (
+          /* eslint-disable-next-line react/no-array-index-key */
           <SectionProvider key={index} value={index}>
             {child}
           </SectionProvider>

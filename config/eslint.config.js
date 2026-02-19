@@ -12,7 +12,7 @@ import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['.legacy', 'dist', 'packages']),
+  globalIgnores(['.packages', 'dist']),
 
   ...config,
   reactPlugin,
@@ -27,6 +27,7 @@ export default defineConfig([
     },
     rules: {
       'sort-imports': 'off',
+      'react/jsx-handler-names': 'off',
       'react/react-in-jsx-scope': 'off'
     }
   },
@@ -36,7 +37,19 @@ export default defineConfig([
     files: ['**/*.{ts,tsx}'],
     ...typescriptPlugin,
     rules: {
-      '@typescript-eslint/explicit-function-return-type': 'off'
+      ...typescriptPlugin.rules,
+      '@typescript-eslint/explicit-function-return-type': 'off',
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-explicit-any': 'off'
+    }
+  },
+
+  /* Demo files */
+  {
+    files: ['demo/**/*.{ts,tsx}'],
+    rules: {
+      'react/no-array-index-key': 'off',
+      'react-hooks/rules-of-hooks': 'off'
     }
   }
 ]);

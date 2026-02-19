@@ -7,4 +7,4 @@
 
 declare const PACKAGE_VERSION: string;
 
-declare module "*.svg";
+declare module '*.svg';

@@ -8,7 +8,7 @@
 import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
 
-import { type IStyledAccordion } from '../../types/views';
+import type { IStyledAccordion } from '../../types/views';
 
 const colorStyles = ({ theme, $isBare }: IStyledAccordion) => {
   const borderBottomColor = $isBare
@@ -22,9 +22,9 @@ const colorStyles = ({ theme, $isBare }: IStyledAccordion) => {
 
 const sizeStyles = ({ theme, $isCompact, $isExpanded }: IStyledAccordion) => {
   const { base } = theme.space;
-  let paddingTop = base * 2;
-  let paddingHorizontal = base * ($isCompact ? 3 : 5);
+  const paddingHorizontal = base * ($isCompact ? 3 : 5);
   let paddingBottom = base * ($isCompact ? 4 : 8);
+  let paddingTop = base * 2;
 
   if ($isExpanded === false) {
     paddingTop = 0;
