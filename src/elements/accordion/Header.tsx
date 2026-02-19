@@ -6,7 +6,7 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg?react';
+import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import { useState, type ComponentPropsWithRef } from 'react';
 
 import { HeaderProvider } from '../../context/accordion/HeaderContext';

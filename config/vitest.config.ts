@@ -5,18 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { defineConfig, mergeConfig } from 'vitest/config';
+import svgr from 'vite-plugin-svgr';
+import { defineConfig } from 'vitest/config';
 
-import viteConfig from './vite.config';
+import svgrConfig from './svgr.config.json' with { type: 'json' };
 
-export default mergeConfig(
-  viteConfig,
-  defineConfig({
-    test: {
-      environment: 'jsdom',
-      globals: true,
-      include: ['src/**/*.test.ts?(x)'],
-      setupFiles: ['config/vitest.setup.ts']
-    }
-  })
-);
+const PACKAGE_VERSION = JSON.stringify('version');
+
+export default defineConfig({
+  define: { PACKAGE_VERSION },
+  plugins: [svgr(svgrConfig as any)],
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    include: ['src/**/*.test.ts?(x)'],
+    setupFiles: ['config/vitest.setup.ts']
+  }
+});

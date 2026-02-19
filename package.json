@@ -14,23 +14,30 @@
   },
   "license": "Apache-2.0",
   "author": "Zendesk Garden <garden@zendesk.com>",
-  "repository": "https://github.com/zendeskgarden/react-components",
+  "repository": "github:zendeskgarden/react-components",
   "files": [
     "dist"
   ],
   "type": "module",
   "main": "dist/index.cjs",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc -b && vite --config config/vite.config.ts build",
+    "build": "tsc -b && tsdown --config config/tsdown.config.ts",
     "format": "oxfmt --config config/oxfmtrc.json",
     "lint:css": "stylelint --config config/stylelint.config.js ./src/views/**/*.ts",
     "lint:js": "eslint --config config/eslint.config.js .",
     "lint": "oxlint --config config/oxlintrc.json",
     "start": "storybook dev --config-dir config/storybook --no-version-updates -p 6006",
     "tag": "scripts/tag.js",
-    "test": "vitest --config config/vitest.config.ts"
+    "test": "vitest --config config/vitest.config.ts",
+    "typecheck": "tsc"
   },
   "dependencies": {
     "@zendeskgarden/container-accordion": "^3.0.15",
@@ -40,17 +47,19 @@
     "styled-components": "6.3.6"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "10.2.1",
+    "@storybook/addon-a11y": "10.2.10",
     "@storybook/addon-designs": "11.1.1",
-    "@storybook/addon-docs": "10.2.1",
-    "@storybook/react-vite": "10.2.1",
+    "@storybook/addon-docs": "10.2.10",
+    "@storybook/react-vite": "10.2.10",
+    "@svgr/plugin-jsx": "8.1.0",
+    "@svgr/plugin-svgo": "8.1.0",
     "@testing-library/jest-dom": "6.9.1",
     "@testing-library/react": "16.3.2",
+    "@tsconfig/strictest": "2.0.8",
     "@types/node": "25.0.10",
     "@types/prop-types": "15.7.15",
     "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
-    "@vitejs/plugin-react": "5.1.2",
     "@vitest/coverage-v8": "4.0.18",
     "@vitest/ui": "4.0.18",
     "@zendeskgarden/eslint-config": "47.1.0",
@@ -69,13 +78,14 @@
     "oxfmt": "0.26.0",
     "oxlint": "1.41.0",
     "postcss-styled-syntax": "0.7.1",
+    "publint": "0.3.17",
     "react": "19.2.3",
     "react-dom": "19.2.3",
-    "storybook": "10.2.1",
+    "storybook": "10.2.10",
     "stylelint": "16.26.1",
     "temp": "0.9.4",
+    "tsdown": "0.20.3",
     "typescript": "5.9.3",
-    "vite": "npm:rolldown-vite@7.3.1",
     "vite-plugin-svgr": "4.5.0",
     "vitest": "4.0.18"
   },
@@ -83,7 +93,7 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
-  "packageManager": "pnpm@10.28.2",
+  "packageManager": "pnpm@10.30.0",
   "pnpm": {
     "overrides": {
       "vite": "npm:rolldown-vite@7.3.1"
