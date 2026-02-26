@@ -73,9 +73,9 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
           zIndex={2}
           style={{ cursor: 'default' }}
           onMouseDown={e => e.stopPropagation()}
+          isLabel
         >
           <StyledPaneSplitterButton
-            aria-label={label}
             {...other}
             $orientation={orientation!}
             $isRotated={isMin}

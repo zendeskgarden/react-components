@@ -34,29 +34,36 @@ const UncontrolledTestSplitter = ({ buttonRef }: { buttonRef?: RefObject<HTMLBut
 
 describe('SplitterButton', () => {
   it('is rendered as a button', () => {
-    const { getByLabelText } = render(<UncontrolledTestSplitter />);
+    const { queryByRole } = render(<UncontrolledTestSplitter />);
 
-    expect(getByLabelText('toggle a').nodeName).toBe('BUTTON');
+    expect(queryByRole('button', { name: 'toggle a', hidden: true })).toHaveAttribute(
+      'aria-labelledby'
+    );
   });
 
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLButtonElement>();
 
-    render(<UncontrolledTestSplitter buttonRef={ref} />);
+    const { getByRole } = render(<UncontrolledTestSplitter buttonRef={ref} />);
 
-    expect(ref.current?.getAttribute('aria-label')).toBe('toggle a');
+    expect(ref.current).toBe(getByRole('button', { name: 'toggle a', hidden: true }));
   });
-  it('is rendered as rtl', () => {
-    const { getByLabelText } = renderRtl(<UncontrolledTestSplitter />);
 
-    expect(getByLabelText('toggle a').querySelector('svg')).toBeDefined();
+  it('is rendered as rtl', () => {
+    const { getByRole } = renderRtl(<UncontrolledTestSplitter />);
+
+    const button = getByRole('button', { name: 'toggle a', hidden: true });
+    expect(button.querySelector('svg')).toBeDefined();
   });
 
   describe('`data-garden-id` attribute', () => {
     it('has the correct `data-garden-id`', () => {
-      const { getByLabelText } = render(<UncontrolledTestSplitter />);
+      const { getByRole } = render(<UncontrolledTestSplitter />);
 
-      expect(getByLabelText('toggle a')).toHaveAttribute('data-garden-id', 'buttons.icon_button');
+      expect(getByRole('button', { name: 'toggle a', hidden: true })).toHaveAttribute(
+        'data-garden-id',
+        'buttons.icon_button'
+      );
     });
   });
 });

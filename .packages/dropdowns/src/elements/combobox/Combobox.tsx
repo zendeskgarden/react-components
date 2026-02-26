@@ -250,6 +250,10 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       return () => messageProps && setMessageProps(undefined);
     }, [getMessageProps, messageProps, setMessageProps]);
 
+    useEffect(() => {
+      inputRef.current?.scrollIntoView?.();
+    }, [selection]);
+
     return (
       <ComboboxContext.Provider value={contextValue}>
         <StyledCombobox
@@ -280,6 +284,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                 {!!isMultiselectable && Array.isArray(selection) && (
                   <TagGroup
                     isDisabled={isDisabled}
+                    isEditable={isEditable}
                     isExpanded={isTagGroupExpanded}
                     maxTags={maxTags}
                     optionTagProps={optionTagProps}
@@ -287,9 +292,12 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   >
                     {selection.length > maxTags && (
                       <StyledTagsButton
+                        $isCompact={isCompact}
                         disabled={isDisabled}
                         hidden={isTagGroupExpanded}
-                        $isCompact={isCompact}
+                        onMouseDown={() => {
+                          triggerRef.current?.focus();
+                        }}
                         tabIndex={-1}
                         type="button"
                       >
