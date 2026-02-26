@@ -7,6 +7,7 @@
 
 import type { StorybookConfig } from '@storybook/react-vite';
 
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import svgr from 'vite-plugin-svgr';
 
 import svgrConfig from '../svgr.config.json' with { type: 'json' };
@@ -19,7 +20,7 @@ const viteFinal: StorybookConfig['viteFinal'] = config => ({
     ...config.define,
     PACKAGE_VERSION
   },
-  plugins: [...(config.plugins ?? []), svgr(svgrConfig as any)]
+  plugins: [...(config.plugins ?? []), svgr(svgrConfig as any), vanillaExtractPlugin()]
 });
 
 const config: StorybookConfig = {

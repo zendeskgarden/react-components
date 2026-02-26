@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vanillaExtractPlugin } from '@vanilla-extract/rollup-plugin';
 import { defineConfig } from 'tsdown';
 import svgr from 'vite-plugin-svgr';
 
@@ -18,16 +19,18 @@ const banner = `/**
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */`;
 
+const define = { PACKAGE_VERSION: JSON.stringify(pkg.version) };
+
 const external = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {})
 ].map(value => new RegExp(`^${value}/?.*`, 'u'));
 
-const PACKAGE_VERSION = JSON.stringify(pkg.version);
+const plugins = [svgr(svgrConfig as any), vanillaExtractPlugin()];
 
 export default defineConfig({
   banner,
-  define: { PACKAGE_VERSION },
+  define,
   entry: '../src/index.ts',
   external,
   format: ['cjs', 'esm'],
@@ -35,7 +38,7 @@ export default defineConfig({
   minify: true,
   outDir: '../dist',
   platform: 'browser',
-  plugins: [svgr(svgrConfig as any)],
+  plugins,
   publint: true,
   unbundle: true
 });

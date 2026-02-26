@@ -5,16 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import svgr from 'vite-plugin-svgr';
 import { defineConfig } from 'vitest/config';
 
 import svgrConfig from './svgr.config.json' with { type: 'json' };
 
-const PACKAGE_VERSION = JSON.stringify('version');
+const define = { PACKAGE_VERSION: JSON.stringify('version') };
+const plugins = [svgr(svgrConfig as any), vanillaExtractPlugin()];
 
 export default defineConfig({
-  define: { PACKAGE_VERSION },
-  plugins: [svgr(svgrConfig as any)],
+  define,
+  plugins,
   test: {
     environment: 'jsdom',
     globals: true,
