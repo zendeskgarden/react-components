@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Alert } from '@zendeskgarden/react-notifications';
 import React from 'react';
 

@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Tag } from '@zendeskgarden/react-tags';
 import React from 'react';
 

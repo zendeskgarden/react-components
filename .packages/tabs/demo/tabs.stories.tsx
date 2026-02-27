@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Tabs } from '@zendeskgarden/react-tabs';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

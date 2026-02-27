@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Sheet } from '@zendeskgarden/react-chrome';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

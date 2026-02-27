@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { SplitButton, Button, ChevronButton } from '@zendeskgarden/react-buttons';
 import React from 'react';
 

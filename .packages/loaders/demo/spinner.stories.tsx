@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Spinner } from '@zendeskgarden/react-loaders';
 import React from 'react';
 

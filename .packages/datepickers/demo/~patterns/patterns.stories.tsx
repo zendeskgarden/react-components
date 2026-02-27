@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import React from 'react';
 
 import { CalendarStory } from './stories/CalendarStory';

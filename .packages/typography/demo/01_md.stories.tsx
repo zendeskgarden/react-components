@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { MD } from '@zendeskgarden/react-typography';
 import React from 'react';
 

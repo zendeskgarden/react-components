@@ -16,8 +16,9 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 ## v9.14.2 (2026-02-12)
 
 #### :bug: Bug Fix
-* `dropdowns`
-  * [#2100](https://github.com/zendeskgarden/react-components/pull/2100) fix(dropdowns): non-editable multiselectable `Combobox` behavior ([@jzempel](https://github.com/jzempel))
+
+- `dropdowns`
+  - [#2100](https://github.com/zendeskgarden/react-components/pull/2100) fix(dropdowns): non-editable multiselectable `Combobox` behavior ([@jzempel](https://github.com/jzempel))
 
 ## v9.14.1 (2026-01-29)
 

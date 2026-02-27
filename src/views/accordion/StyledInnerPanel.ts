@@ -9,7 +9,6 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 import type { IStyledAccordion } from '../../types/views';
-
 import { StyledPanel } from './StyledPanel';
 
 export const StyledInnerPanel = styled.div<IStyledAccordion>`

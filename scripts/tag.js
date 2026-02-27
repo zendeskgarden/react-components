@@ -7,15 +7,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
-import { Command } from 'commander';
-import { execa, execaCommand } from 'execa';
-import inquirer from 'inquirer';
 import fs from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import util from 'node:util';
+
+import { githubBranch, githubRelease, lernaChangelog } from '@zendeskgarden/scripts';
+import { Command } from 'commander';
+import { execa, execaCommand } from 'execa';
+import inquirer from 'inquirer';
 import ora from 'ora';
 import { track } from 'temp';
 

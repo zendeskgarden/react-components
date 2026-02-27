@@ -7,6 +7,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import {
   cmdDu,
   githubCommit,
@@ -16,8 +19,6 @@ import {
   netlifyDeploy
 } from '@zendeskgarden/scripts';
 import envalid from 'envalid';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
 
 envalid.cleanEnv(process.env, {
   GITHUB_TOKEN: envalid.str(),

@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { ToggleIconButton } from '@zendeskgarden/react-buttons';
 import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
 import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';

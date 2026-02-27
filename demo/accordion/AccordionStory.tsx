@@ -5,16 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { MouseEventHandler } from 'react';
-
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
 import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-
-import type { IAccordionSection } from './types';
+import type { MouseEventHandler } from 'react';
 
 import { Accordion, type IAccordionProps } from '../../src';
+import type { IAccordionSection } from './types';
 
 interface IProps {
   isCompact: boolean;

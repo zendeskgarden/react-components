@@ -18,7 +18,6 @@ import { LG, MD } from '@zendeskgarden/react-typography';
 import React, { RefObject, forwardRef, useEffect } from 'react';
 
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
-
 import { animateLayoutChanges } from './utils';
 
 export const DraggableItem = forwardRef<HTMLDivElement, IDraggableItemProps>((props, ref) => {

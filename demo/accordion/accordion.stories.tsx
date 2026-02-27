@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { useArgs } from 'storybook/preview-api';
 
 import { Accordion } from '../../src';

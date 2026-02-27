@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import React from 'react';
 

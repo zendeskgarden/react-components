@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import React from 'react';
 

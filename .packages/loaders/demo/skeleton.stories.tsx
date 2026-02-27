@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Skeleton } from '@zendeskgarden/react-loaders';
 import React from 'react';
 

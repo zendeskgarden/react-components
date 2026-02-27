@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Menu } from '@zendeskgarden/react-dropdowns.legacy';
 import React from 'react';
 

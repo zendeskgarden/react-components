@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { ColorPicker } from '@zendeskgarden/react-colorpickers';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import React from 'react';

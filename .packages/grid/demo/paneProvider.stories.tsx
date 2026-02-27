@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

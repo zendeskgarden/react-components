@@ -6,9 +6,8 @@
  */
 
 import type { ReactRenderer } from '@storybook/react-vite';
-import type { DecoratorFunction } from 'storybook/internal/csf';
-
 import { DEFAULT_THEME, getColor, ThemeProvider } from '@zendeskgarden/react-theming';
+import type { DecoratorFunction } from 'storybook/internal/csf';
 import { createGlobalStyle } from 'styled-components';
 
 const DARK_THEME = { ...DEFAULT_THEME, colors: { ...DEFAULT_THEME.colors, base: 'dark' as const } };

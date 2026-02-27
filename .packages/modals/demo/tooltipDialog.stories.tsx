@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { TooltipDialog } from '@zendeskgarden/react-modals';
 import React from 'react';
 import { action } from 'storybook/actions';

@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
 import React from 'react';

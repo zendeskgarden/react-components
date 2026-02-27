@@ -9,10 +9,9 @@ import { useAccordion } from '@zendeskgarden/container-accordion';
 import PropTypes from 'prop-types';
 import { Children, forwardRef, isValidElement, useMemo, type ReactElement } from 'react';
 
-import type { IAccordionProps } from '../../types/elements';
-
 import { AccordionProvider } from '../../context/accordion/AccordionContext';
 import { SectionProvider } from '../../context/accordion/SectionContext';
+import type { IAccordionProps } from '../../types/elements';
 import { StyledAccordion } from '../../views/accordion/StyledAccordion';
 import { COMPONENT_IDS } from '../utils';
 import { Header } from './Header';

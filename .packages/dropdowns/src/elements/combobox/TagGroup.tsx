@@ -6,6 +6,7 @@
  */
 
 import React, { PropsWithChildren, useEffect, useRef } from 'react';
+
 import { ITagGroupProps } from '../../types';
 import { Tag } from './Tag';
 

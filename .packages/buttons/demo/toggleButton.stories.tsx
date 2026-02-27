@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { ToggleButton } from '@zendeskgarden/react-buttons';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

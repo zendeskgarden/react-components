@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { DatePicker } from '@zendeskgarden/react-datepickers';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

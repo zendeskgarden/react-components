@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { ColorSwatch } from '@zendeskgarden/react-colorpickers';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

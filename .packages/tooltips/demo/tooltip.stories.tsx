@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import React from 'react';
 

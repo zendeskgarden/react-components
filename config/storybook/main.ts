@@ -6,7 +6,6 @@
  */
 
 import type { StorybookConfig } from '@storybook/react-vite';
-
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 import svgr from 'vite-plugin-svgr';
 

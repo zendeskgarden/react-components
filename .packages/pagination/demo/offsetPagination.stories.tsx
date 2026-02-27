@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { IPaginationProps, OffsetPagination } from '@zendeskgarden/react-pagination';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Fieldset } from '@zendeskgarden/react-forms';
 import React from 'react';
 

@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

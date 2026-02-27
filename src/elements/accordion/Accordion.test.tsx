@@ -9,9 +9,8 @@ import { userEvent } from '@testing-library/user-event';
 import { ComponentPropsWithRef, createRef } from 'react';
 import { describe, expect, it, vi } from 'vitest';
 
-import type { IAccordionProps } from '../../types/elements';
-
 import { render } from '../../test/render';
+import type { IAccordionProps } from '../../types/elements';
 import { Accordion } from './Accordion';
 
 const TEST_ID = 'accordion';

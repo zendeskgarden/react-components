@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { ReactElement } from 'react';
-
 import { render as _render, type RenderOptions } from '@testing-library/react';
 import { DEFAULT_THEME, ThemeProvider, type IGardenTheme } from '@zendeskgarden/react-theming';
+import type { ReactElement } from 'react';
 
 interface IOptions extends RenderOptions {
   theme?: IGardenTheme;

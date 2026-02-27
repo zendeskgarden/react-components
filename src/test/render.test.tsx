@@ -10,7 +10,6 @@ import styled, { useTheme } from 'styled-components';
 import { describe, expect, it } from 'vitest';
 
 import type { IStyledBaseProps } from '../types/views';
-
 import { DARK_THEME, render, RTL_DARK_THEME, RTL_THEME } from './render';
 
 const StyledTest = styled.div<IStyledBaseProps>`

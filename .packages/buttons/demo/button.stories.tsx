@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Button } from '@zendeskgarden/react-buttons';
 import React from 'react';
 

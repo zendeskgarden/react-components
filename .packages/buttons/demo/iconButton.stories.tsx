@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { IconButton } from '@zendeskgarden/react-buttons';
 import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
 import React from 'react';

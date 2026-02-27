@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Timeline } from '@zendeskgarden/react-accordions';
 import React from 'react';
 

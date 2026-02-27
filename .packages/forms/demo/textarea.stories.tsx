@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Textarea } from '@zendeskgarden/react-forms';
 import React from 'react';
 import { useArgs } from 'storybook/preview-api';

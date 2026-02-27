@@ -9,7 +9,6 @@ import { componentStyles, focusStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 import type { IStyledAccordion } from '../../types/views';
-
 import { StyledButton } from './StyledButton';
 
 export const StyledHeader = styled.div<IStyledAccordion>`

@@ -6,7 +6,6 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-
 import { Dropzone } from '@zendeskgarden/react-draggable';
 import React from 'react';
 
