@@ -84,7 +84,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "storybook": "10.2.10",
-    "styled-components": "6.3.6",
+    "styled-components": "6.3.11",
     "stylelint": "16.26.1",
     "temp": "0.9.4",
     "tsdown": "0.20.3",
