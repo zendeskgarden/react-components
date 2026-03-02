@@ -18,7 +18,7 @@ const COMPONENT_ID = 'buttons.anchor';
 export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  as: 'a',
+  as: props.as || 'a',
   dir: props.theme.rtl ? 'rtl' : undefined,
   $isLink: true,
   type: undefined
