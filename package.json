@@ -92,7 +92,7 @@
     "react-is": "18.3.1",
     "react-test-renderer": "18.3.1",
     "regenerator-runtime": "0.14.1",
-    "rollup": "4.53.5",
+    "rollup": "4.59.0",
     "rollup-plugin-analyzer": "4.0.0",
     "rollup-plugin-cleanup": "3.2.1",
     "rollup-plugin-delete": "2.2.0",
