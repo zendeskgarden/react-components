@@ -36,6 +36,23 @@ describe('StyledAnchor', () => {
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
+  it('supports "as" prop', () => {
+    const CustomAnchor = (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
+      return (
+        <a id="custom-anchor" {...props}>
+          Custom text
+        </a>
+      );
+    };
+
+    const { container } = render(<StyledAnchor as={CustomAnchor} href="#" />);
+
+    expect(container.firstChild!.nodeName).toBe('A');
+    expect(container.firstChild!.textContent).toBe('Custom text');
+    expect(container.firstChild).toHaveAttribute('id', 'custom-anchor');
+    expect(container.firstChild).toHaveAttribute('href', '#');
+  });
+
   describe('`data-garden-id` attribute', () => {
     it('has the correct `data-garden-id`', () => {
       const { container } = render(<StyledAnchor />);
