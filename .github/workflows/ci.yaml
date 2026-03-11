@@ -120,7 +120,6 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build:demo
-      - run: mv .cache/coverage .cache/demo
       - run: scripts/deploy.js
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
