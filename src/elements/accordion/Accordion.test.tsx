@@ -112,8 +112,7 @@ describe('Accordion', () => {
     );
     const element = getByTestId(HEADER_TEST_ID);
 
-    await userEvent.hover(element);
-    element.click();
+    await userEvent.click(element);
     await userEvent.unhover(element);
     expect(handleClick).toHaveBeenCalledTimes(1);
     expect(handleMouseOver).toHaveBeenCalledTimes(1);

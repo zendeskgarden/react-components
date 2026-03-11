@@ -11,6 +11,7 @@ import { defineConfig } from 'vitest/config';
 
 import svgrConfig from './svgr.config.json' with { type: 'json' };
 
+const coverage = { reportsDirectory: '.cache/coverage' };
 const define = { PACKAGE_VERSION: JSON.stringify('version') };
 const plugins = [svgr(svgrConfig as any), vanillaExtractPlugin()];
 
@@ -18,6 +19,7 @@ export default defineConfig({
   define,
   plugins,
   test: {
+    coverage,
     environment: 'jsdom',
     globals: true,
     include: ['src/**/*.test.ts?(x)'],
