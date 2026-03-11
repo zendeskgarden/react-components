@@ -101,7 +101,7 @@ jobs:
 
   deploy:
     if: > # temporarily disable to preserve v9 storybook demo
-      contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/jzempel/v10')
+      contains(needs.initialize.outputs.teams, 'Writers')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
     permissions:
