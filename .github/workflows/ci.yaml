@@ -31,7 +31,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - run: pnpm build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: dist-artifact
           path: dist
@@ -62,7 +62,7 @@ jobs:
           cache: pnpm
 
       - run: pnpm install
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dist-artifact
           path: packages
@@ -150,7 +150,7 @@ jobs:
 
       - run: pnpm install
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dist-artifact
           path: packages
