@@ -20,18 +20,15 @@ import { COMPONENT_IDS } from '../utils';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  ({ children, onClick, onMouseOver, onMouseOut, role, ...other }, ref) => {
-    const [isHovered, setIsHovered] = useState(false);
+  ({ children, onClick, role, ...other }, ref) => {
     const {
       level: ariaLevel,
       isCompact,
       isCollapsible,
       getHeaderProps,
-      getTriggerProps,
-      expandedSections
+      getTriggerProps
     } = useAccordionContext();
     const sectionValue = useSectionContext();
-    const isExpanded = expandedSections.includes(sectionValue);
     /**
      *  Pressing the space key on a button triggers the `onTriggerClick` callback.
      * `onKeyDown` is plucked out and not passed to the Label (button) element
@@ -51,16 +48,13 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
       'aria-level': ariaLevel,
       role: role === undefined || role === null ? role : 'heading',
       onClick: composeEventHandlers(onClick, onTriggerClick),
-      onMouseOver: composeEventHandlers(onMouseOver, () => setIsHovered(true)),
-      onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
       ...other
     }) as any; // HACK to workaround https://github.com/styled-components/styled-components/issues/5652
 
     return (
-      <HeaderProvider isHovered={isHovered} {...triggerProps}>
+      <HeaderProvider {...triggerProps}>
         <StyledHeader
           $isCollapsible={isCollapsible}
-          $isExpanded={isExpanded}
           {...headerProps}
           data-garden-id={COMPONENT_IDS['accordions.header']}
           data-garden-version={PACKAGE_VERSION}
@@ -68,8 +62,6 @@ export const Header = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
           {children}
           <StyledRotateIcon
             $isCompact={isCompact}
-            $isHovered={isHovered}
-            $isRotated={isExpanded}
             $isCollapsible={isCollapsible}
             data-garden-id={COMPONENT_IDS['accordions.rotate_icon']}
             data-garden-version={PACKAGE_VERSION}

@@ -9,6 +9,8 @@ import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-t
 import styled, { css } from 'styled-components';
 
 import type { IStyledAccordion } from '../../types/views';
+import { StyledHeader } from './StyledHeader';
+import { StyledLabel } from './StyledLabel';
 
 const colorStyles = ({ theme, $isBare }: IStyledAccordion) => {
   const borderBottomColor = $isBare
@@ -20,28 +22,27 @@ const colorStyles = ({ theme, $isBare }: IStyledAccordion) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact, $isExpanded }: IStyledAccordion) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledAccordion) => {
   const { base } = theme.space;
-  const paddingHorizontal = base * ($isCompact ? 3 : 5);
-  let paddingBottom = base * ($isCompact ? 4 : 8);
-  let paddingTop = base * 2;
-
-  if ($isExpanded === false) {
-    paddingTop = 0;
-    paddingBottom = 0;
-  }
-
   const fontSize = theme.fontSizes.md;
-  const gridTemplateRows = $isExpanded ? '1fr' : '0fr';
   const lineHeight = getLineHeight(base * 5, fontSize);
+  const paddingHorizontal = base * ($isCompact ? 3 : 5);
+  const paddingBottom = base * ($isCompact ? 4 : 8);
+  const paddingTop = base * 2;
   const padding = `${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px`;
 
   return css`
-    grid-template-rows: ${gridTemplateRows};
+    grid-template-rows: 1fr;
     border-bottom: ${theme.borders.sm};
     padding: ${padding};
     line-height: ${lineHeight};
     font-size: ${fontSize};
+
+    ${StyledHeader}:has(${StyledLabel}[aria-expanded='false']) ~ & {
+      grid-template-rows: 0fr;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
   `;
 };
 

@@ -17,7 +17,4 @@ export interface IStyledAccordion extends IStyledBaseProps {
   $isBare?: boolean;
   $isCollapsible?: boolean;
   $isCompact?: boolean;
-  $isExpanded?: boolean;
-  $isHovered?: boolean;
-  $isRotated?: boolean;
 }

@@ -7,22 +7,15 @@
 
 import { createContext, useMemo, type PropsWithChildren } from 'react';
 
-import type { IAccordionHeaderContext } from '../../types/context';
+import type { AccordionHeaderContext } from '../../types/context';
 
-export const HeaderContext = createContext<IAccordionHeaderContext | undefined>(undefined);
+export const HeaderContext = createContext<AccordionHeaderContext | undefined>(undefined);
 
 export const HeaderProvider = ({
   children,
-  isHovered,
   ...other
-}: PropsWithChildren<IAccordionHeaderContext>) => {
-  const value = useMemo(
-    () => ({
-      isHovered,
-      ...other
-    }),
-    [isHovered, other]
-  );
+}: PropsWithChildren<AccordionHeaderContext>) => {
+  const value = useMemo(() => other, [other]);
 
   return <HeaderContext.Provider value={value}>{children}</HeaderContext.Provider>;
 };

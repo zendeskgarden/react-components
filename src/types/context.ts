@@ -18,6 +18,4 @@ export interface IAccordionContext<SectionValue>
       'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
     > {}
 
-export interface IAccordionHeaderContext extends HTMLProps<Element> {
-  isHovered: boolean;
-}
+export type AccordionHeaderContext = HTMLProps<Element>;

@@ -10,20 +10,20 @@ import styled, { css } from 'styled-components';
 
 import type { IStyledAccordion } from '../../types/views';
 
-const colorStyles = ({ $isCollapsible, $isExpanded, $isHovered, theme }: IStyledAccordion) => {
-  const showColor = $isCollapsible || !$isExpanded;
-  const color = getColor({
-    theme,
-    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.default'
-  });
+const colorStyles = ({ $isCollapsible, theme }: IStyledAccordion) => {
+  const color = getColor({ theme, variable: 'foreground.default' });
+  const hoverColor = getColor({ theme, variable: 'foreground.primary' });
 
   return css`
     background: transparent;
     color: ${color};
 
     &:hover {
-      cursor: ${showColor && 'pointer'};
-      color: ${showColor && color};
+      color: ${hoverColor};
+
+      &[aria-expanded='true'] {
+        color: ${$isCollapsible ? undefined : color};
+      }
     }
   `;
 };
@@ -47,24 +47,21 @@ const sizeStyles = ({ $isCompact, theme }: IStyledAccordion) => {
  * 1. <button> override.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledButton = styled.button<IStyledAccordion>`
+export const StyledLabel = styled.button<IStyledAccordion>`
   transition: color 0.1s ease-in-out;
   outline: none;
   border: none;
   text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
   font-family: inherit; /* [1] */
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
-
-  ${sizeStyles};
-  ${colorStyles};
+  cursor: inherit;
 
   &::-moz-focus-inner {
     border: 0; /* [2] */
   }
 
-  &:hover {
-    cursor: ${props => (props.$isCollapsible || !props.$isExpanded) && 'pointer'};
-  }
+  ${sizeStyles};
+  ${colorStyles};
 
   ${componentStyles};
 `;

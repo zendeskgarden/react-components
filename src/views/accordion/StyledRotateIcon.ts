@@ -9,19 +9,22 @@ import { componentStyles, getColor, StyledBaseIcon } from '@zendeskgarden/react-
 import styled, { css } from 'styled-components';
 
 import type { IStyledAccordion } from '../../types/views';
+import { StyledHeader } from './StyledHeader';
+import { StyledLabel } from './StyledLabel';
 
-const colorStyles = ({ $isCollapsible, $isHovered, $isRotated, theme }: IStyledAccordion) => {
-  const showColor = $isCollapsible || !$isRotated;
-  const color = getColor({
-    theme,
-    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.subtle'
-  });
+const colorStyles = ({ $isCollapsible, theme }: IStyledAccordion) => {
+  const color = getColor({ theme, variable: 'foreground.subtle' });
+  const hoverColor = getColor({ theme, variable: 'foreground.primary' });
 
   return css`
     color: ${color};
 
-    &:hover {
-      color: ${showColor && color};
+    ${StyledHeader}:hover > & {
+      color: ${hoverColor};
+    }
+
+    ${StyledHeader}:hover:has(${StyledLabel}[aria-expanded='true']) > & {
+      color: ${$isCollapsible ? undefined : color};
     }
   `;
 };
@@ -42,11 +45,14 @@ const sizeStyles = ({ $isCompact, theme }: IStyledAccordion) => {
 };
 
 export const StyledRotateIcon = styled(StyledBaseIcon)<IStyledAccordion>`
-  transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,
     color 0.1s ease-in-out;
   vertical-align: middle;
+
+  ${StyledLabel}[aria-expanded='true'] ~ & {
+    transform: rotate(${({ theme }) => (theme.rtl ? '-' : '+')}180deg);
+  }
 
   ${sizeStyles};
   ${colorStyles};

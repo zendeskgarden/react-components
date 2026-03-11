@@ -9,7 +9,7 @@ import { componentStyles, focusStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
 import type { IStyledAccordion } from '../../types/views';
-import { StyledButton } from './StyledButton';
+import { StyledLabel } from './StyledLabel';
 
 export const StyledHeader = styled.div<IStyledAccordion>`
   display: flex;
@@ -18,14 +18,18 @@ export const StyledHeader = styled.div<IStyledAccordion>`
   font-size: ${({ theme }) => theme.fontSizes.md};
 
   &:hover {
-    cursor: ${props => (props.$isCollapsible || !props.$isExpanded) && 'pointer'};
+    cursor: ${props => (props.$isCollapsible ? 'pointer' : undefined)};
+
+    &:has(${StyledLabel}[aria-expanded='false']) {
+      cursor: pointer;
+    }
   }
 
   ${props =>
     focusStyles({
       theme: props.theme,
       inset: true,
-      selector: `&:has(${StyledButton}:focus-visible)`
+      selector: `&:has(${StyledLabel}:focus-visible)`
     })}
 
   ${componentStyles};
