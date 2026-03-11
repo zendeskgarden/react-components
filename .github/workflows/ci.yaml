@@ -93,7 +93,7 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build:demo
-      - run: scripts/deploy.mjs
+      - run: scripts/deploy.js
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
