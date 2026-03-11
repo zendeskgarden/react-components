@@ -88,9 +88,8 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & ThemeProps<D
     ${SELECTOR_FOCUS_VISIBLE} {
       color: ${fgPrimaryActive};
 
-      ${
-        $sort === undefined &&
-        `
+      ${$sort === undefined &&
+      `
         ${StyledSortableFillIconWrapper} {
           opacity: 1;
           color: ${fgPrimaryActive};
@@ -100,28 +99,23 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & ThemeProps<D
         ${StyledSortableStrokeIconWrapper} {
           opacity: 0;
         }
-      `
-      };
+      `};
 
-      ${
-        $sort === 'asc' &&
-        `
+      ${$sort === 'asc' &&
+      `
         ${StyledSortableFillIconWrapper} {
           color: ${fgPrimaryActive};
           fill: ${fgPrimaryInactive};
         }
-      `
-      }
+      `}
 
-      ${
-        $sort === 'desc' &&
-        `
+      ${$sort === 'desc' &&
+      `
         ${StyledSortableFillIconWrapper} {
           color: ${fgPrimaryInactive};
           fill: ${fgPrimaryActive};
         }
-      `
-      }
+      `}
     }
 
     ${focusStyles({ theme })}

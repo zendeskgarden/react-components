@@ -7,7 +7,7 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { forwardRef, HTMLAttributes, useState } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
 import { HeaderProvider } from '../../context/accordion/HeaderContext';
 import { useAccordionContext } from '../../hooks/accordion/useAccordionContext';

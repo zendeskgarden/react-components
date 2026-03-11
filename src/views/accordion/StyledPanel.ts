@@ -48,7 +48,8 @@ const sizeStyles = ({ theme, $isCompact }: IStyledAccordion) => {
 
 export const StyledPanel = styled.section<IStyledAccordion>`
   display: grid;
-  transition: ${({ $isAnimated }) => $isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
+  transition: ${({ $isAnimated }) =>
+    $isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
   overflow: hidden;
 
   ${sizeStyles}

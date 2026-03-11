@@ -49,11 +49,9 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
     width: ${width};
     min-width: ${width};
 
-    ${
-      props.$isBasic &&
-      !(props.$isPrimary || props.$isDanger || props.disabled) &&
-      iconColorStyles(props)
-    };
+    ${props.$isBasic &&
+    !(props.$isPrimary || props.$isDanger || props.disabled) &&
+    iconColorStyles(props)};
 
     &:disabled {
       background-color: ${!props.$isPrimary && 'transparent'};

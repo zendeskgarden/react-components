@@ -16,12 +16,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 ## v9.15.0 (2026-03-02)
 
 #### :rocket: New Feature
-* `buttons`
-  * [#2104](https://github.com/zendeskgarden/react-components/pull/2104) feat(buttons): support "as" prop for anchor component ([@chris-schneider-zen](https://github.com/chris-schneider-zen))
+
+- `buttons`
+  - [#2104](https://github.com/zendeskgarden/react-components/pull/2104) feat(buttons): support "as" prop for anchor component ([@chris-schneider-zen](https://github.com/chris-schneider-zen))
 
 #### :seedling: Internal
-* `grid`
-  * [#2102](https://github.com/zendeskgarden/react-components/pull/2102) chore(grid): update SplitterButton's Tooltip component to have isLabel prop ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+- `grid`
+  - [#2102](https://github.com/zendeskgarden/react-components/pull/2102) chore(grid): update SplitterButton's Tooltip component to have isLabel prop ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
 
 ## v9.14.2 (2026-02-12)
 

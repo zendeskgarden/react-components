@@ -51,10 +51,10 @@ export const StyledLabel = styled.button<IStyledAccordion>`
   transition: color 0.1s ease-in-out;
   outline: none;
   border: none;
+  cursor: inherit;
   text-align: ${({ theme }) => (theme.rtl ? 'right' : 'left')};
   font-family: inherit; /* [1] */
   font-weight: ${({ theme }) => theme.fontWeights.semibold};
-  cursor: inherit;
 
   &::-moz-focus-inner {
     border: 0; /* [2] */
