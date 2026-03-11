@@ -101,12 +101,18 @@ jobs:
 
   deploy:
     if: > # temporarily disable to preserve v9 storybook demo
-      contains(needs.initialize.outputs.teams, 'Writers')
+      false &&
+      contains(needs.initialize.outputs.teams, 'Writers') &&
+      github.ref == 'refs/heads/main'
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
-      deployments: write
+      pages: write
+      id-token: write
     concurrency:
       group: 'gh-pages'
       cancel-in-progress: false
@@ -120,11 +126,13 @@ jobs:
 
       - run: pnpm install
       - run: pnpm build:demo
-      - run: scripts/deploy.js
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: './.cache/demo'
+      - id: deployment
+        uses: actions/deploy-pages@v4
 
   publish:
     needs: [initialize, lint, test]
