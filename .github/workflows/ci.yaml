@@ -101,17 +101,12 @@ jobs:
 
   deploy:
     if: > # temporarily disable to preserve v9 storybook demo
-      false &&
-      contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main')
+      contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/jzempel/v10')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     permissions:
       contents: read
-      pages: write
-      id-token: write
+      deployments: write
     concurrency:
       group: 'gh-pages'
       cancel-in-progress: false
@@ -126,7 +121,7 @@ jobs:
       - run: pnpm install
       - run: pnpm build:demo
       - run: mv .cache/coverage .cache/demo
-      - run: scripts/deploy.mjs
+      - run: scripts/deploy.js
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

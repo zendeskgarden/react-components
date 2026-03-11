@@ -35,7 +35,7 @@ envalid.cleanEnv(process.env, {
     const dir = resolve(currentDir, '..', '.cache', 'demo');
     let url;
 
-    if (branch === 'main') {
+    if (branch === 'jzempel/v10') {
       url = await githubPages({ dir });
     } else {
       const bandwidth = await netlifyBandwidth();
