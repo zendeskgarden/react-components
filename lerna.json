@@ -4,7 +4,7 @@
   "npmClient": "pnpm",
   "changelog": {
     "repo": "zendeskgarden/react-components",
-    "cacheDir": ".changelog",
+    "cacheDir": ".cache/changelog",
     "labels": {
       "PR: Breaking Change :boom:": ":boom: Breaking Change",
       "PR: New Feature :rocket:": ":rocket: New Feature",
