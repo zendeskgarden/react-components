@@ -12,16 +12,9 @@ import svgr from 'vite-plugin-svgr';
 import pkg from '../package.json' with { type: 'json' };
 import svgrConfig from './svgr.config.json' with { type: 'json' };
 
-const banner = `/**
- * Copyright Zendesk, Inc.
- *
- * Use of this source code is governed under the Apache License, Version 2.0
- * found at http://www.apache.org/licenses/LICENSE-2.0.
- */`;
-
 const define = { PACKAGE_VERSION: JSON.stringify(pkg.version) };
 
-const external = [
+const neverBundle = [
   ...Object.keys(pkg.peerDependencies || {}),
   ...Object.keys(pkg.dependencies || {})
 ].map(value => new RegExp(`^${value}/?.*`, 'u'));
@@ -29,12 +22,13 @@ const external = [
 const plugins = [svgr(svgrConfig as any), vanillaExtractPlugin()];
 
 export default defineConfig({
-  banner,
+  deps: {
+    neverBundle,
+    onlyBundle: false
+  },
   define,
   entry: '../src/index.ts',
-  external,
   format: ['cjs', 'esm'],
-  inlineOnly: false,
   outDir: '../dist',
   platform: 'browser',
   plugins,
