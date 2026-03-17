@@ -33,5 +33,6 @@ export default defineConfig({
   platform: 'browser',
   plugins,
   publint: true,
+  target: 'es2022',
   unbundle: true
 });
