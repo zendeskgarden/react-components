@@ -35,7 +35,6 @@ export default defineConfig({
   external,
   format: ['cjs', 'esm'],
   inlineOnly: false,
-  minify: true,
   outDir: '../dist',
   platform: 'browser',
   plugins,
