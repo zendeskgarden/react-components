@@ -1,1 +1,0 @@
-npm exec lint-staged && npm run build -- --since HEAD --exclude-dependents

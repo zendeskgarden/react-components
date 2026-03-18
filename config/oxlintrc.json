@@ -1,0 +1,15 @@
+{
+  "$schema": "../node_modules/oxlint/configuration_schema.json",
+  "ignorePatterns": [".packages/**"],
+  "rules": {
+    "curly": "error",
+    "no-restricted-imports": [
+      "error",
+      {
+        "name": "react",
+        "importNames": ["default"],
+        "message": "Use named imports instead of the default React import."
+      }
+    ]
+  }
+}

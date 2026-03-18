@@ -21,14 +21,17 @@ From version 9 onwards, Garden components will no longer accept the theme object
 ## Consequences
 
 ### Positive
+
 - **Consistency and Single Source of Truth:** By mandating the `ThemeProvider`, we establish a single, consistent method for theme distribution, avoiding confusion and potential conflicts from dual theme sources.
 - **Dynamic Theming Support:** This alteration is vital for dynamic theming scenarios where themes can change in real-time, ensuring all components update uniformly.
 - **Alignment with Industry Standards:** Garden now aligns with the practices of other leading React libraries, reducing the learning curve for developers familiar with similar ecosystems.
 
 ### Negative
-- **Migration Effort:** Users upgrading from v8 to v9 will need to wrap their Garden components with `ThemeProvider`.  This adjustment may require some effort, but it simplifies long-term maintenance and enhances flexibility in theming.
+
+- **Migration Effort:** Users upgrading from v8 to v9 will need to wrap their Garden components with `ThemeProvider`. This adjustment may require some effort, but it simplifies long-term maintenance and enhances flexibility in theming.
 
 By enforcing the use of `ThemeProvider`, Garden not only adopts a robust and scalable approach to theming but also adheres to contemporary React development best practices, enhancing both user experience and developer productivity.
 
 ### Links
-**Reference PR:** https://github.com/zendeskgarden/react-components/pull/1905 
+
+**Reference PR:** https://github.com/zendeskgarden/react-components/pull/1905

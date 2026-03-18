@@ -1,0 +1,62 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
+
+const COMPONENT_ID = 'accordions.rotate_icon';
+
+interface IStyledRotateIcon {
+  $isCompact?: boolean;
+  $isRotated?: boolean;
+  $isHovered?: boolean;
+  $isCollapsible?: boolean;
+}
+
+const colorStyles = ({
+  $isCollapsible,
+  $isHovered,
+  $isRotated,
+  theme
+}: ThemeProps<DefaultTheme> & any) => {
+  const showColor = $isCollapsible || !$isRotated;
+  const color = getColor({
+    theme,
+    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.subtle'
+  });
+
+  return css`
+    color: ${color};
+
+    &:hover {
+      color: ${showColor && color};
+    }
+  `;
+};
+
+export const StyledRotateIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledRotateIcon>`
+  transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
+  transition:
+    transform 0.25s ease-in-out,
+    color 0.1s ease-in-out;
+  box-sizing: content-box;
+  padding: ${props =>
+    props.$isCompact
+      ? `${props.theme.space.base * 1.5}px ${props.theme.space.base * 3}px`
+      : `${props.theme.space.base * 5}px`};
+  width: ${props => props.theme.iconSizes.md};
+  min-width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
+  vertical-align: middle;
+
+  ${colorStyles}
+
+  ${componentStyles};
+`;

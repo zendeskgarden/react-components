@@ -1,0 +1,30 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { Tag } from '@zendeskgarden/react-tags';
+import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import { hideVisually } from 'polished';
+import styled from 'styled-components';
+
+const COMPONENT_ID = 'dropdowns.combobox.tag';
+
+export const StyledTag = styled(Tag).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
+  &[aria-disabled='true'] {
+    color: ${props =>
+      props.hue ? undefined : getColor({ theme: props.theme, variable: 'foreground.disabled' })};
+  }
+
+  &[hidden] {
+    display: revert;
+    ${hideVisually()}
+  }
+
+  ${componentStyles};
+`;

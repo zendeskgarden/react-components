@@ -18,53 +18,56 @@ jobs:
       teams: ${{ steps.get-teams.outputs.teams }}
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
-          cache: npm
+          node-version-file: .node-version
+          cache: pnpm
 
-      - run: npm ci --ignore-scripts
+      - run: pnpm install
       - id: get-teams
-        run: echo "teams=$(npm exec garden github-teams -- --user ${{ github.triggering_actor }} --token $GH_TOKEN)" >> $GITHUB_OUTPUT
+        run: echo "teams=$(pnpm garden github-teams --user ${{ github.triggering_actor }} --token $GH_TOKEN)" >> $GITHUB_OUTPUT
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - run: npm exec -- lerna run build --concurrency=2
-      - uses: actions/upload-artifact@v4
+      - run: pnpm build
+      - uses: actions/upload-artifact@v7
         with:
           name: dist-artifact
-          path: packages/**/dist
+          path: dist
 
   lint:
     needs: [initialize]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
-          cache: npm
+          node-version-file: .node-version
+          cache: pnpm
 
-      - run: npm ci --ignore-scripts
-      - run: npm run lint:ci
+      - run: pnpm install
+      - run: pnpm lint:ci
 
   test:
     needs: [initialize]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
-          cache: npm
+          node-version-file: .node-version
+          cache: pnpm
 
-      - run: npm ci --ignore-scripts
-      - uses: actions/download-artifact@v4
+      - run: pnpm install
+      - uses: actions/download-artifact@v8
         with:
           name: dist-artifact
           path: packages
 
-      - run: npm run test:ci
+      - run: pnpm test run --coverage --coverage.reporter lcov
       - uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2.3.6
         with:
           file: .cache/coverage/lcov.info
@@ -82,21 +85,25 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
-          cache: npm
+          node-version-file: .node-version
+          cache: pnpm
 
-      - run: npm ci --ignore-scripts
-      - run: npm run build:demo
-      - run: utils/scripts/deploy.mjs
+      - run: pnpm install
+      - run: pnpm build:demo
+      - run: scripts/deploy.js
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   deploy:
-    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main')
+    if: > # temporarily disable to preserve v9 storybook demo
+      false &&
+      contains(needs.initialize.outputs.teams, 'Writers') &&
+      github.ref == 'refs/heads/main'
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
     environment:
@@ -111,18 +118,19 @@ jobs:
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
-          cache: npm
+          node-version-file: .node-version
+          cache: pnpm
 
-      - run: npm ci --ignore-scripts
-      - run: npm run build:demo
+      - run: pnpm install
+      - run: pnpm build:demo
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
-          path: './demo'
+          path: './.cache/demo'
       - id: deployment
         uses: actions/deploy-pages@v4
 
@@ -135,19 +143,20 @@ jobs:
         with:
           fetch-depth: 0 # Lerna requires the full history, including tags
 
+      - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v6
         with:
-          node-version-file: .nvmrc
-          cache: npm
+          node-version-file: .node-version
+          cache: pnpm
           registry-url: https://registry.npmjs.org # Sets the registry in the project level .npmrc
 
-      - run: npm ci --ignore-scripts
+      - run: pnpm install
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           name: dist-artifact
           path: packages
 
-      - run: npm exec -- lerna publish from-git --ignore-scripts --yes
+      - run: pnpm lerna publish from-git --ignore-scripts --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

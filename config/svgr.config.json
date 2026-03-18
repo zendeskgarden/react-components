@@ -1,0 +1,16 @@
+{
+  "include": "**/*.svg",
+  "svgrOptions": {
+    "plugins": ["@svgr/plugin-svgo", "@svgr/plugin-jsx"],
+    "svgoConfig": {
+      "plugins": [
+        {
+          "name": "addAttributesToSVGElement",
+          "params": {
+            "attributes": [{ "aria-hidden": "true" }]
+          }
+        }
+      ]
+    }
+  }
+}

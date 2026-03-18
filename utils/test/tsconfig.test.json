@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "module": "commonjs",
-    "target": "ES2019",
-    "jsx": "react",
-    "noEmit": false
-  }
-}
