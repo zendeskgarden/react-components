@@ -1,10 +1,10 @@
 {
   "extends": ["config:recommended"],
   "rebaseWhen": "behind-base-branch",
-  "ignorePaths": ["**/node_modules/**", "packages/dropdowns.legacy/**"],
+  "ignorePaths": ["**/node_modules/**", ".packages/**"],
   "schedule": ["on Monday every 9 weeks of the year starting on the 6th week"],
   "labels": ["PR: Internal :seedling:"],
-  "postUpdateOptions": ["npmDedupe"],
+  "postUpdateOptions": ["pnpmDedupe"],
   "packageRules": [
     {
       "matchFileNames": ["package.json"],
@@ -13,18 +13,12 @@
       "groupSlug": "shared-minor-patch"
     },
     {
-      "matchFileNames": ["packages/**"],
-      "matchUpdateTypes": ["patch", "minor"],
-      "groupName": "non-major package dependencies",
-      "groupSlug": "packages-minor-patch"
-    },
-    {
       "enabled": false,
       "matchPackageNames": ["/^@zendeskgarden/react/"]
     },
     {
-      "matchDepTypes": ["peerDependencies"],
-      "enabled": false
+      "enabled": false,
+      "matchDepTypes": ["peerDependencies"]
     }
   ]
 }
