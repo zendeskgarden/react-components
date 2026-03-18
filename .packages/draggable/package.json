@@ -43,7 +43,7 @@
     "@dnd-kit/utilities": "3.2.2",
     "@zendeskgarden/react-theming": "^9.14.0",
     "@zendeskgarden/react-typography": "^9.14.0",
-    "@zendeskgarden/svg-icons": "7.6.0"
+    "@zendeskgarden/svg-icons": "8.2.0"
   },
   "peerDependencies": {
     "@zendeskgarden/react-theming": ">=9.14.0",
