@@ -13,6 +13,22 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v10.0.0-next.0 (2026-03-19)
+
+#### :boom: Breaking Change
+* `.template`, `accordions`, `theming`, `typography`
+  * [#2109](https://github.com/zendeskgarden/react-components/pull/2109) chore!: configure for v10 single package architecture ([@jzempel](https://github.com/jzempel))
+
+#### :seedling: Internal
+* [#2112](https://github.com/zendeskgarden/react-components/pull/2112) chore(deps): update pnpm/action-setup action to v5 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#2111](https://github.com/zendeskgarden/react-components/pull/2111) chore(deps): update dependency jsdom to v29 ([@renovate[bot]](https://github.com/apps/renovate))
+* [#2110](https://github.com/zendeskgarden/react-components/pull/2110) chore: update renovate for reconfigured v10 architecture ([@jzempel](https://github.com/jzempel))
+* [#2091](https://github.com/zendeskgarden/react-components/pull/2091) chore(deps): update non-major shared dependencies ([@renovate[bot]](https://github.com/apps/renovate))
+* [#2076](https://github.com/zendeskgarden/react-components/pull/2076) chore(deps): update dependency vite to v6.4.1 [security] ([@renovate[bot]](https://github.com/apps/renovate))
+* [#2099](https://github.com/zendeskgarden/react-components/pull/2099) chore(deps): update dependency webpack to v5.104.1 [security] ([@renovate[bot]](https://github.com/apps/renovate))
+* [#2106](https://github.com/zendeskgarden/react-components/pull/2106) chore(deps): update dependency rollup to v4.59.0 [security] ([@renovate[bot]](https://github.com/apps/renovate))
+* [#2107](https://github.com/zendeskgarden/react-components/pull/2107) chore(deps-dev): bump storybook from 10.1.7 to 10.2.10 ([@dependabot[bot]](https://github.com/apps/dependabot))
+
 ## v9.15.0 (2026-03-02)
 
 #### :rocket: New Feature
