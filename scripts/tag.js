@@ -152,9 +152,7 @@ const sync = async (main, spinner) => {
  */
 const version = async (bump, preid, main, spinner) => {
   const lernaArgs = [
-    'exec',
     'lerna',
-    '--',
     'version',
     '--conventional-commits',
     '--force-git-tag',
@@ -185,7 +183,7 @@ const version = async (bump, preid, main, spinner) => {
     lernaArgs.push('--allow-branch', main);
   }
 
-  await execa('npm', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
+  await execa('pnpm', lernaArgs, { stdin: process.stdin, stdout: process.stdout });
 
   const retVal = (await execa('git', describeArgs)).stdout.toString();
 
