@@ -65,7 +65,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: dist-artifact
-          path: packages
+          path: dist
 
       - run: pnpm test run --coverage --coverage.reporter lcov
       - uses: coverallsapp/github-action@648a8eb78e6d50909eff900e4ec85cab4524a45b # v2.3.6
@@ -155,7 +155,7 @@ jobs:
       - uses: actions/download-artifact@v8
         with:
           name: dist-artifact
-          path: packages
+          path: dist
 
       - run: pnpm lerna publish from-git --ignore-scripts --yes
         env:
