@@ -13,6 +13,11 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v10.0.0-next.1 (2026-03-19)
+
+#### :seedling: Internal
+* [#2113](https://github.com/zendeskgarden/react-components/pull/2113) chore: ignore CHANGELOG and lerna config formatting ([@jzempel](https://github.com/jzempel))
+
 ## v10.0.0-next.0 (2026-03-19)
 
 #### :boom: Breaking Change
