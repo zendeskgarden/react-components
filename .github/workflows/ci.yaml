@@ -35,6 +35,7 @@ jobs:
         with:
           name: dist-artifact
           path: dist
+          include-hidden-files: true
 
   lint:
     needs: [initialize]
