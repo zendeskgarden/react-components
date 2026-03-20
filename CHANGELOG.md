@@ -13,6 +13,11 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v10.0.0-next.2 (2026-03-20)
+
+#### :seedling: Internal
+* [#2114](https://github.com/zendeskgarden/react-components/pull/2114) fix(accordion): restore `data-garden-id` and `data-garden-version` attributes on `Accordion.Label` ([@jzempel](https://github.com/jzempel))
+
 ## v10.0.0-next.1 (2026-03-19)
 
 #### :seedling: Internal
