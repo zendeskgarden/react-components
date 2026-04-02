@@ -249,9 +249,20 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       return () => messageProps && setMessageProps(undefined);
     }, [getMessageProps, messageProps, setMessageProps]);
 
+    // Derive a stable primitive from selection so the effect only fires when values actually change,
+    // not when the selection object/array reference changes on re-render.
+    const selectionFingerprint = Array.isArray(selection)
+      ? selection.map(o => o.value).join('\0')
+      : (selection?.value ?? null);
+
+    const prevSelectionRef = useRef(selectionFingerprint);
+
     useEffect(() => {
-      inputRef.current?.scrollIntoView?.();
-    }, [selection]);
+      if (prevSelectionRef.current !== selectionFingerprint) {
+        prevSelectionRef.current = selectionFingerprint;
+        inputRef.current?.scrollIntoView?.();
+      }
+    }, [selectionFingerprint]);
 
     return (
       <ComboboxContext.Provider value={contextValue}>

@@ -20,13 +20,22 @@ export const TagGroup = ({
   selection
 }: PropsWithChildren<ITagGroupProps>) => {
   const lastTagRef = useRef<HTMLDivElement>(null);
+  const isMountedRef = useRef(false);
+
+  // Derive a stable primitive from selection so the effect only fires when values actually change,
+  // not when the selection array reference changes on re-render.
+  const selectionFingerprint = selection.map(o => o.value).join('\0');
 
   useEffect(() => {
-    if (!isEditable) {
-      // Scroll the last tag into view.
-      lastTagRef.current?.scrollIntoView?.();
+    if (isMountedRef.current) {
+      if (!isEditable) {
+        // Scroll the last tag into view.
+        lastTagRef.current?.scrollIntoView?.();
+      }
+    } else {
+      isMountedRef.current = true;
     }
-  }, [isEditable, selection]);
+  }, [isEditable, selectionFingerprint]);
 
   return (
     <>
