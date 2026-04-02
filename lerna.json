@@ -1,5 +1,5 @@
 {
-  "version": "9.15.1",
+  "version": "9.15.0",
   "changelog": {
     "repo": "zendeskgarden/react-components",
     "cacheDir": ".changelog",
@@ -21,12 +21,11 @@
   ],
   "command": {
     "publish": {
-      "distTag": "v9",
       "preDistTag": "next",
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
-      "allowBranch": "v9",
+      "allowBranch": "main",
       "message": "chore(release): publish",
       "preid": "next"
     }
