@@ -718,4 +718,68 @@ describe('Combobox', () => {
       expect(selectionValue).toMatchObject(['value-2']);
     });
   });
+
+  describe('scrollIntoView', () => {
+    it('does not scroll the input into view on mount', () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      render(
+        <TestCombobox>
+          <Option isSelected value="value" />
+        </TestCombobox>
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('does not scroll the input into view on mount with initial selection', () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      render(
+        <TestCombobox selectionValue="value">
+          <Option value="value" />
+        </TestCombobox>
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('scrolls the input into view when selection changes after mount', async () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      const { getByTestId } = render(
+        <TestCombobox defaultExpanded>
+          <Option data-test-id="option" value="value" />
+        </TestCombobox>
+      );
+
+      // Reset mock to ignore any scrollIntoView calls from Option active state on initial render
+      scrollIntoView.mockClear();
+
+      await user.click(getByTestId('option'));
+
+      expect(scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+    });
+
+    it('does not scroll the last tag into view on mount for non-editable multiselectable', () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      render(
+        <TestCombobox isEditable={false} isMultiselectable selectionValue={['value-1', 'value-2']}>
+          <Option value="value-1" />
+          <Option value="value-2" />
+        </TestCombobox>
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+  });
 });
