@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - main
-      - next
+      - v9
 
 permissions:
   contents: read
@@ -96,7 +96,7 @@ jobs:
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
   deploy:
-    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main')
+    if: contains(needs.initialize.outputs.teams, 'Writers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/v9')
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
     environment:
@@ -129,7 +129,7 @@ jobs:
   publish:
     needs: [initialize, lint, test]
     runs-on: ubuntu-latest
-    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
+    if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/v9')
     steps:
       - uses: actions/checkout@v6
         with:
