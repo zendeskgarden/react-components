@@ -18,6 +18,8 @@ export const StyledInnerContent = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledInnerContentProps>`
+  margin: -${props => props.theme.space.xxs};
+  padding: ${props => props.theme.space.xxs};
   overflow: hidden;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
