@@ -91,7 +91,7 @@
     "stylelint": "17.4.0",
     "temp": "0.9.4",
     "tsdown": "0.21.4",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "vite-plugin-svgr": "4.5.0",
     "vitest": "4.1.0"
   },
