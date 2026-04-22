@@ -39,6 +39,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     ref
   ) => {
     const floatingRef = useRef<HTMLDivElement>(null);
+    const isMountedRef = useRef(true);
     const [isVisible, setIsVisible] = useState(false);
     const [height, setHeight] = useState<number>();
     const [width, setWidth] = useState<number>();
@@ -58,7 +59,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         size({
           apply: ({ rects, availableHeight }) => {
             /* istanbul ignore if */
-            if (rects.reference.width > 0) {
+            if (rects.reference.width > 0 && isMountedRef.current) {
               setWidth(rects.reference.width);
 
               if (
@@ -74,6 +75,10 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     });
     /* Prevent listbox close on scrollbar click */
     const handleMouseDown: MouseEventHandler = event => event.preventDefault();
+
+    useEffect(() => () => {
+      isMountedRef.current = false;
+    }, []);
 
     useEffect(() => {
       // Only allow listbox positioning updates on expanded combobox.
@@ -93,11 +98,13 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
 
       /* istanbul ignore else */
       if (isExpanded) {
-        setIsVisible(true);
+        if (isMountedRef.current) setIsVisible(true);
       } else {
         timeout = setTimeout(() => {
-          setIsVisible(false);
-          setHeight(undefined);
+          if (isMountedRef.current) {
+            setIsVisible(false);
+            setHeight(undefined);
+          }
         }, 200 /* match menu opacity transition */);
       }
 
@@ -109,7 +116,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         /* istanbul ignore if */
         if (height) {
           // Reset height on options change.
-          setHeight(undefined);
+          if (isMountedRef.current) setHeight(undefined);
           update();
         }
       },
