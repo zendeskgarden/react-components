@@ -51,6 +51,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
     ref
   ) => {
     const floatingRef = useRef<HTMLDivElement>(null);
+    const isMountedRef = useRef(true);
     const [isVisible, setIsVisible] = useState(isExpanded);
     const [height, setHeight] = useState<number>();
     /* istanbul ignore next */
@@ -84,7 +85,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
           apply: ({ rects, availableHeight }) => {
             /* istanbul ignore if */
             if (!(minHeight === null || minHeight === 'fit-content')) {
-              if (rects.floating.height > availableHeight) {
+              if (rects.floating.height > availableHeight && isMountedRef.current) {
                 setHeight(availableHeight);
               }
             }
@@ -92,6 +93,10 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
         })
       ]
     });
+
+    useEffect(() => () => {
+      isMountedRef.current = false;
+    }, []);
 
     useEffect(() => {
       // Only allow positioning updates on expanded menu.
@@ -111,11 +116,13 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
 
       /* istanbul ignore else */
       if (isExpanded) {
-        setIsVisible(true);
+        if (isMountedRef.current) setIsVisible(true);
       } else {
         timeout = setTimeout(() => {
-          setIsVisible(false);
-          setHeight(undefined);
+          if (isMountedRef.current) {
+            setIsVisible(false);
+            setHeight(undefined);
+          }
         }, 200 /* match menu opacity transition */);
       }
 
@@ -127,7 +134,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
         /* istanbul ignore if */
         if (height) {
           // Reset height on options change.
-          setHeight(undefined);
+          if (isMountedRef.current) setHeight(undefined);
           update();
         }
       },
