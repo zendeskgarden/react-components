@@ -13,6 +13,12 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.3 (2026-04-23)
+
+#### :bug: Bug Fix
+* [#2125](https://github.com/zendeskgarden/react-components/pull/2125) fix(publishing): ensure `latest` tag is applied to most recent release ([@ze-flo](https://github.com/ze-flo))
+
+
 ## v9.15.2 (2026-04-23)
 
 #### :bug: Bug Fix
