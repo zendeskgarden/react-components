@@ -94,9 +94,12 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
       ]
     });
 
-    useEffect(() => () => {
-      isMountedRef.current = false;
-    }, []);
+    useEffect(
+      () => () => {
+        isMountedRef.current = false;
+      },
+      []
+    );
 
     useEffect(() => {
       // Only allow positioning updates on expanded menu.

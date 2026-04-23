@@ -76,9 +76,12 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     /* Prevent listbox close on scrollbar click */
     const handleMouseDown: MouseEventHandler = event => event.preventDefault();
 
-    useEffect(() => () => {
-      isMountedRef.current = false;
-    }, []);
+    useEffect(
+      () => () => {
+        isMountedRef.current = false;
+      },
+      []
+    );
 
     useEffect(() => {
       // Only allow listbox positioning updates on expanded combobox.
