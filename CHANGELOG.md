@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.2 (2026-04-23)
+
+#### :bug: Bug Fix
+* `accordions`, `dropdowns`
+  * [#2123](https://github.com/zendeskgarden/react-components/pull/2123) fix(accordions): prevent focus ring clipping in stepper content ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`
+  * [#2124](https://github.com/zendeskgarden/react-components/pull/2124) fix(dropdowns): guard Listbox and MenuList state setters against post-unmount updates ([@jamesbrauman](https://github.com/jamesbrauman))
+
+
+
 ## v9.15.1 (2026-04-02)
 
 #### :bug: Bug Fix
