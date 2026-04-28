@@ -232,6 +232,35 @@ describe('TooltipDialog', () => {
 
       expect(onCloseSpy).toHaveBeenCalled();
     });
+
+    describe('blur behavior (closeOnBlur: true)', () => {
+      it('is triggered when focus moves outside the dialog', async () => {
+        const { getByText } = render(<Example onClose={onCloseSpy} />);
+
+        await act(async () => {
+          await user.click(getByText('open'));
+        });
+
+        await waitFor(async () => {
+          await user.click(document.body);
+        });
+
+        expect(onCloseSpy).toHaveBeenCalled();
+      });
+
+      it('is not triggered when focus moves to an element inside the dialog', async () => {
+        const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
+
+        await act(async () => {
+          await user.click(getByText('open'));
+        });
+
+        // Click the dialog itself (tabIndex=-1) — focus stays inside, no close
+        await user.click(getByRole('dialog'));
+
+        expect(onCloseSpy).not.toHaveBeenCalled();
+      });
+    });
   });
 
   describe('keepMounted', () => {

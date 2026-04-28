@@ -156,6 +156,13 @@ describe('Modal', () => {
       await user.type(getByTestId('modal'), '{escape}');
       expect(onCloseSpy).toHaveBeenCalledTimes(1);
     });
+
+    it('is not triggered when focus moves outside the modal', async () => {
+      render(<BasicExample onClose={onCloseSpy} />);
+
+      await user.click(document.body);
+      expect(onCloseSpy).not.toHaveBeenCalled();
+    });
   });
 
   describe('appendToNode', () => {
