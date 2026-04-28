@@ -74,6 +74,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
     };
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
+        closeOnBlur: true,
         idPrefix: id,
         onClose: handleClose,
         modalRef,
