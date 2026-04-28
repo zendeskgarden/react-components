@@ -177,6 +177,18 @@ describe('Drawer', () => {
     await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
   });
 
+  it('does not close the drawer modal when focus moves outside', async () => {
+    const { getByText, getByRole } = render(<Example />);
+
+    await user.click(getByText('Open Drawer'));
+
+    expect(getByRole('dialog')).toBeInTheDocument();
+
+    await user.click(document.body);
+
+    expect(getByRole('dialog')).toBeInTheDocument();
+  });
+
   describe('focus management', () => {
     it('correctly focuses on the Drawer when open', async () => {
       const { getByText, getByRole } = render(<Example />);
