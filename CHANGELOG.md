@@ -13,6 +13,16 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.4 (2026-04-27)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#2127](https://github.com/zendeskgarden/react-components/pull/2127) fix(modals): upgrade `container-modal` to v2 to fix blur-close behavior ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`
+  * [#2126](https://github.com/zendeskgarden/react-components/pull/2126) fix(dropdowns): restore isMountedRef on remount to fix StrictMode regression ([@ze-flo](https://github.com/ze-flo))
+
+
+
 ## v9.15.3 (2026-04-23)
 
 #### :bug: Bug Fix
