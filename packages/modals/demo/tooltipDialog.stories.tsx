@@ -11,8 +11,64 @@ import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 import { TooltipDialog } from '@zendeskgarden/react-modals';
 import { TooltipDialogStory } from './stories/TooltipDialogStory';
+import { TooltipDialogPopupStory } from './stories/TooltipDialogPopupStory';
 import { TOOLTIP_DIALOG_BODY as BODY } from './stories/data';
 import { PLACEMENT } from '../src/types';
+
+const defaultArgs = {
+  focusOnMount: true,
+  hasArrow: true,
+  restoreFocus: true,
+  hasBody: true,
+  body: BODY,
+  hasClose: true,
+  hasFooter: true,
+  hasTitle: true,
+  title: 'Title',
+  closeAriaLabel: 'Close',
+  dialogAriaLabel: 'Title'
+};
+
+const sharedArgTypes = {
+  referenceElement: { control: false },
+  fallbackPlacements: {
+    control: 'multi-select',
+    options: PLACEMENT.filter(p => p !== 'auto')
+  },
+  hasBody: {
+    name: 'TooltipDialog.Body',
+    table: { category: 'Story' }
+  },
+  hasClose: {
+    name: 'TooltipDialog.Close',
+    table: { category: 'Story' }
+  },
+  hasFooter: {
+    name: 'TooltipDialog.Footer',
+    table: { category: 'Story' }
+  },
+  hasTitle: {
+    name: 'TooltipDialog.Title',
+    table: { category: 'Story' }
+  },
+  body: {
+    name: 'children',
+    table: { category: 'TooltipDialog.Body' }
+  },
+  title: {
+    name: 'children',
+    table: { category: 'TooltipDialog.Title' }
+  },
+  tag: {
+    control: 'text',
+    table: { category: 'TooltipDialog.Title' }
+  },
+  closeAriaLabel: {
+    name: 'aria-label',
+    table: { category: 'TooltipDialog.Close' }
+  },
+  dialogAriaLabel: { name: 'aria-label' }
+};
 
 export default {
   title: 'Packages/Modals/TooltipDialog',
@@ -49,59 +105,8 @@ export const Example: StoryObj<typeof TooltipDialogStory> = {
     );
   },
   name: 'TooltipDialog',
-  args: {
-    focusOnMount: true,
-    hasArrow: true,
-    restoreFocus: true,
-    hasBody: true,
-    body: BODY,
-    hasClose: true,
-    hasFooter: true,
-    hasTitle: true,
-    title: 'Title',
-    closeAriaLabel: 'Close',
-    dialogAriaLabel: 'Title'
-  },
-  argTypes: {
-    referenceElement: { control: false },
-    fallbackPlacements: {
-      control: 'multi-select',
-      options: PLACEMENT.filter(p => p !== 'auto')
-    },
-    hasBody: {
-      name: 'TooltipDialog.Body',
-      table: { category: 'Story' }
-    },
-    hasClose: {
-      name: 'TooltipDialog.Close',
-      table: { category: 'Story' }
-    },
-    hasFooter: {
-      name: 'TooltipDialog.Footer',
-      table: { category: 'Story' }
-    },
-    hasTitle: {
-      name: 'TooltipDialog.Title',
-      table: { category: 'Story' }
-    },
-    body: {
-      name: 'children',
-      table: { category: 'TooltipDialog.Body' }
-    },
-    title: {
-      name: 'children',
-      table: { category: 'TooltipDialog.Title' }
-    },
-    tag: {
-      control: 'text',
-      table: { category: 'TooltipDialog.Title' }
-    },
-    closeAriaLabel: {
-      name: 'aria-label',
-      table: { category: 'TooltipDialog.Close' }
-    },
-    dialogAriaLabel: { name: 'aria-label' }
-  },
+  args: defaultArgs,
+  argTypes: sharedArgTypes,
   parameters: {
     design: {
       allowFullscreen: true,
@@ -109,4 +114,14 @@ export const Example: StoryObj<typeof TooltipDialogStory> = {
       url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A25593'
     }
   }
+};
+
+export const Popup: StoryObj<typeof TooltipDialogPopupStory> = {
+  render: args => <TooltipDialogPopupStory {...args} onClose={action('onClose')} />,
+  name: 'TooltipDialog in Popup',
+  args: {
+    ...defaultArgs,
+    hasFooter: false
+  },
+  argTypes: sharedArgTypes
 };
