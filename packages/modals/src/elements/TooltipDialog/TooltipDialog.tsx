@@ -15,6 +15,7 @@ import {
   flip,
   offset,
   platform,
+  shift,
   useFloating
 } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
@@ -104,7 +105,8 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       placement: floatingPlacement,
       middleware: [
         offset(_offset === undefined ? theme.space.base * 3 : _offset),
-        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements })
+        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements }),
+        shift({ mainAxis: false, crossAxis: true })
       ]
     });
 
