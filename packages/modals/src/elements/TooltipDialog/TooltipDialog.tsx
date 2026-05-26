@@ -90,6 +90,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,
       _fallbackPlacements
     );
+    const isAutoPlacement = _placement === 'auto';
 
     const {
       refs,
@@ -105,8 +106,8 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       placement: floatingPlacement,
       middleware: [
         offset(_offset === undefined ? theme.space.base * 3 : _offset),
-        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements }),
-        shift({ mainAxis: false, crossAxis: true })
+        isAutoPlacement ? autoPlacement() : flip({ fallbackPlacements }),
+        ...(isAutoPlacement ? [shift({ mainAxis: true, crossAxis: true })] : [])
       ]
     });
 
