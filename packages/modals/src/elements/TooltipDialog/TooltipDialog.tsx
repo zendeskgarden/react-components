@@ -95,6 +95,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
     const {
       refs,
       placement,
+      middlewareData,
       update,
       floatingStyles: { transform }
     } = useFloating({
@@ -110,6 +111,11 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
         ...(isAutoPlacement ? [shift({ mainAxis: true, crossAxis: true })] : [])
       ]
     });
+    const placementSide = placement.split('-')[0];
+    const arrowShift =
+      placementSide === 'top' || placementSide === 'bottom'
+        ? -(middlewareData.shift?.x || 0)
+        : -(middlewareData.shift?.y || 0);
 
     useEffect(() => {
       // Only allow positioning updates on visible tooltip modal.
@@ -201,6 +207,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                   <StyledTooltipDialog
                     $transitionState={transitionState}
                     $placement={placement}
+                    $arrowShift={arrowShift}
                     $hasArrow={hasArrow}
                     $isAnimated={isAnimated}
                     inert={isHidden ? '' : undefined}

@@ -15,6 +15,7 @@ const COMPONENT_ID = 'modals.tooltip_dialog';
 
 export interface IStyledTooltipDialogProps {
   $hasArrow?: boolean;
+  $arrowShift?: number;
   $isAnimated?: boolean;
   $placement: Placement;
   $transitionState?: TransitionStatus;
@@ -40,6 +41,7 @@ export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(p
     const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.$placement), {
       size: `${props.theme.space.base * 2}px`,
       inset: '1px',
+      shift: `${props.$arrowShift || 0}px`,
       animationModifier: '.is-animated'
     });
 
