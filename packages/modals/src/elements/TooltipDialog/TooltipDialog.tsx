@@ -108,7 +108,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       middleware: [
         offset(_offset === undefined ? theme.space.base * 3 : _offset),
         isAutoPlacement ? autoPlacement() : flip({ fallbackPlacements }),
-        ...(isAutoPlacement ? [shift({ mainAxis: true, crossAxis: true })] : [])
+        shift({ mainAxis: true, crossAxis: true })
       ]
     });
     const placementSide = placement.split('-')[0];
