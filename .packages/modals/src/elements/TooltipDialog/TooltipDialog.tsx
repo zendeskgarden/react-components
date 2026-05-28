@@ -11,6 +11,7 @@ import {
   flip,
   offset,
   platform,
+  shift,
   useFloating
 } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
@@ -90,10 +91,12 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,
       _fallbackPlacements
     );
+    const isAutoPlacement = _placement === 'auto';
 
     const {
       refs,
       placement,
+      middlewareData,
       update,
       floatingStyles: { transform }
     } = useFloating({
@@ -105,9 +108,15 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
       placement: floatingPlacement,
       middleware: [
         offset(_offset === undefined ? theme.space.base * 3 : _offset),
-        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements })
+        isAutoPlacement ? autoPlacement() : flip({ fallbackPlacements }),
+        shift({ mainAxis: true, crossAxis: true })
       ]
     });
+    const placementSide = placement.split('-')[0];
+    const arrowShift =
+      placementSide === 'top' || placementSide === 'bottom'
+        ? -(middlewareData.shift?.x || 0)
+        : -(middlewareData.shift?.y || 0);
 
     useEffect(() => {
       // Only allow positioning updates on visible tooltip modal.
@@ -199,6 +208,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                   <StyledTooltipDialog
                     $transitionState={transitionState}
                     $placement={placement}
+                    $arrowShift={arrowShift}
                     $hasArrow={hasArrow}
                     $isAnimated={isAnimated}
                     inert={isHidden ? '' : undefined}
