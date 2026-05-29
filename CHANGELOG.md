@@ -13,6 +13,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.5 (2026-05-28)
+
+#### :bug: Bug Fix
+* `modals`, `theming`
+  * [#2130](https://github.com/zendeskgarden/react-components/pull/2130) fix(modals): keep tooltip dialog within viewport bounds ([@bmson](https://github.com/bmson))
+
+
 ## v9.15.4 (2026-04-27)
 
 #### :bug: Bug Fix
