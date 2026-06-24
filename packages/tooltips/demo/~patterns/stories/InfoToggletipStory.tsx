@@ -28,11 +28,6 @@ export const InfoToggletipStory: StoryFn<ITooltipProps> = (args: ITooltipProps) 
             </>
           }
         >
-          {/*
-            A toggletip announces its content via a live region rather than
-            naming the trigger, so an icon-only trigger still needs its own
-            accessible name.
-          */}
           <IconButton aria-label="More information" size="small">
             <Icon />
           </IconButton>

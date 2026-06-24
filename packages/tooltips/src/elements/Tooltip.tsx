@@ -102,13 +102,6 @@ export const TooltipComponent = ({
     children
   );
 
-  /*
-   * A toggletip's live region (role="status") must stay mounted so screen
-   * readers re-announce on every open, so its props go on the always-present
-   * wrapper and the visible bubble is gated on `isAnnouncementReady` — this also
-   * prevents an empty bubble from flashing before content lands. A tooltip keeps
-   * its hover handlers on the visible bubble, which always renders.
-   */
   const { ref: liveRegionRef, ...liveRegionProps } = (
     isToggletip ? getTooltipProps() : {}
   ) as HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>;
