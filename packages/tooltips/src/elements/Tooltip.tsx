@@ -26,6 +26,7 @@ export const TooltipComponent = ({
   id,
   delayMS = 500,
   isLabel,
+  isToggletip,
   isInitialVisible,
   content,
   refKey = 'ref',
@@ -46,11 +47,19 @@ export const TooltipComponent = ({
   const triggerRef = useRef<HTMLButtonElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
 
-  const { isVisible, getTooltipProps, getTriggerProps, openTooltip, closeTooltip } = useTooltip({
+  const {
+    isVisible,
+    isAnnouncementReady,
+    getTooltipProps,
+    getTriggerProps,
+    openTooltip,
+    closeTooltip
+  } = useTooltip({
     id,
     delayMilliseconds: delayMS,
     isVisible: isInitialVisible,
     isLabel,
+    isToggletip,
     triggerRef
   });
 
@@ -93,27 +102,43 @@ export const TooltipComponent = ({
     children
   );
 
+  /*
+   * A toggletip's live region (role="status") must stay mounted so screen
+   * readers re-announce on every open, so its props go on the always-present
+   * wrapper and the visible bubble is gated on `isAnnouncementReady` — this also
+   * prevents an empty bubble from flashing before content lands. A tooltip keeps
+   * its hover handlers on the visible bubble, which always renders.
+   */
+  const { ref: liveRegionRef, ...liveRegionProps } = (
+    isToggletip ? getTooltipProps() : {}
+  ) as HTMLAttributes<HTMLDivElement> & React.RefAttributes<HTMLDivElement>;
+
   const Node = (
     <StyledTooltipWrapper
-      ref={floatingRef}
+      ref={liveRegionRef ? mergeRefs([floatingRef, liveRegionRef]) : floatingRef}
       style={{ transform }}
       $zIndex={zIndex}
       aria-hidden={!controlledIsVisible}
+      {...liveRegionProps}
     >
-      <StyledTooltip
-        $hasArrow={hasArrow}
-        $placement={placement}
-        $size={toSize(size, type)}
-        $type={type}
-        {...(getTooltipProps({
-          'aria-hidden': !controlledIsVisible,
-          onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
-          onFocus: composeEventHandlers(onFocus, openTooltip),
-          ...props
-        }) as HTMLAttributes<HTMLDivElement>)}
-      >
-        {content}
-      </StyledTooltip>
+      {!isToggletip || isAnnouncementReady ? (
+        <StyledTooltip
+          $hasArrow={hasArrow}
+          $placement={placement}
+          $size={toSize(size, type)}
+          $type={type}
+          {...((isToggletip
+            ? props
+            : getTooltipProps({
+                'aria-hidden': !controlledIsVisible,
+                onBlur: composeEventHandlers(onBlur, () => closeTooltip(0)),
+                onFocus: composeEventHandlers(onFocus, openTooltip),
+                ...props
+              })) as HTMLAttributes<HTMLDivElement>)}
+        >
+          {content}
+        </StyledTooltip>
+      ) : null}
     </StyledTooltipWrapper>
   );
 
@@ -148,6 +173,7 @@ TooltipComponent.propTypes = {
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isInitialVisible: PropTypes.bool,
   isLabel: PropTypes.bool,
+  isToggletip: PropTypes.bool,
   refKey: PropTypes.string
 };
 
