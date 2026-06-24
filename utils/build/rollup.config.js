@@ -55,6 +55,7 @@ export default [
        */
       del({ targets: 'dist/*' }),
       nodeResolve({
+        extensions: ['.mjs', '.js', '.jsx', '.ts', '.tsx', '.json'],
         mainFields: ['module', 'main', 'jsnext', 'browser']
       }),
       commonjs({
