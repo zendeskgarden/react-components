@@ -27,6 +27,8 @@ export const DateTimePickerStory: StoryFn<IArgs> = ({
   ...args
 }) => {
   const value = args.value ? new Date(args.value) : undefined;
+  const minValue = args.minValue ? new Date(args.minValue) : undefined;
+  const maxValue = args.maxValue ? new Date(args.maxValue) : undefined;
 
   return (
     <Grid>
@@ -34,7 +36,13 @@ export const DateTimePickerStory: StoryFn<IArgs> = ({
         <Grid.Col alignSelf="center">
           <Field>
             <Field.Label hidden>{DateTimePicker.displayName}</Field.Label>
-            <DateTimePicker {...args} value={value} isCompact={isCompact}>
+            <DateTimePicker
+              {...args}
+              value={value}
+              minValue={minValue}
+              maxValue={maxValue}
+              isCompact={isCompact}
+            >
               <Input isCompact={isCompact} validation={validation} />
             </DateTimePicker>
             {!!hasMessage && (
