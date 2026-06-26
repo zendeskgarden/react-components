@@ -25,5 +25,10 @@ export const StyledInnerContent = styled.div.attrs({
   color: ${({ theme }) => getColor({ theme, variable: 'foreground.default' })};
   font-size: ${props => props.theme.fontSizes.md};
 
+  &[aria-hidden='true'] {
+    margin: 0;
+    padding: 0;
+  }
+
   ${componentStyles};
 `;
