@@ -13,6 +13,14 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.6 (2026-06-26)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#2137](https://github.com/zendeskgarden/react-components/pull/2137) fix(accordions): prevent step content overflow when collapsed ([@ze-flo](https://github.com/ze-flo))
+
+
+
 ## v9.15.5 (2026-05-28)
 
 #### :bug: Bug Fix
