@@ -10,6 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { DateTimePicker } from '@zendeskgarden/react-datepickers';
 import { DateTimePickerStory } from './stories/DateTimePickerStory';
+import { DATE_STYLE_OPTIONS } from './stories/data';
 
 export default {
   title: 'Packages/Datepickers/DateTimePicker',
@@ -29,6 +30,7 @@ export const Example: StoryObj<typeof DateTimePickerStory> = {
   },
   name: 'DateTimePicker',
   args: {
+    dateStyle: DATE_STYLE_OPTIONS[1],
     isAnimated: true,
     timeStep: 1,
     isAmPm: 'auto' as any,
@@ -39,6 +41,11 @@ export const Example: StoryObj<typeof DateTimePickerStory> = {
     value: { control: 'date' },
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
+    dateStyle: {
+      control: 'radio',
+      options: DATE_STYLE_OPTIONS,
+      table: { category: 'Story' }
+    },
     timeStep: {
       control: { type: 'select' },
       options: [1, 5, 10, 15, 30]

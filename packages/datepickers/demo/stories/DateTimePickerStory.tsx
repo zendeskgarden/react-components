@@ -10,8 +10,10 @@ import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { DateTimePicker, IDateTimePickerProps } from '@zendeskgarden/react-datepickers';
+import { DATE_STYLE } from './types';
 
 interface IArgs extends IDateTimePickerProps {
+  dateStyle: DATE_STYLE;
   hasMessage?: boolean;
   message?: string;
   validation?: 'success' | 'warning' | 'error';
@@ -19,6 +21,7 @@ interface IArgs extends IDateTimePickerProps {
 }
 
 export const DateTimePickerStory: StoryFn<IArgs> = ({
+  dateStyle,
   isCompact,
   hasMessage,
   message,
@@ -29,6 +32,8 @@ export const DateTimePickerStory: StoryFn<IArgs> = ({
   const value = args.value ? new Date(args.value) : undefined;
   const minValue = args.minValue ? new Date(args.minValue) : undefined;
   const maxValue = args.maxValue ? new Date(args.maxValue) : undefined;
+  const formatDate = (date: Date) =>
+    new Intl.DateTimeFormat(args.locale, { dateStyle, timeStyle: 'short' }).format(date);
 
   return (
     <Grid>
@@ -41,6 +46,7 @@ export const DateTimePickerStory: StoryFn<IArgs> = ({
               value={value}
               minValue={minValue}
               maxValue={maxValue}
+              formatDate={formatDate}
               isCompact={isCompact}
             >
               <Input isCompact={isCompact} validation={validation} />
