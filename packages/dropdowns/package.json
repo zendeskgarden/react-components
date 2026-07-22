@@ -22,7 +22,7 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-combobox": "file:local-deps/zendeskgarden-container-combobox-2.0.9-alpha.1.tgz",
+    "@zendeskgarden/container-combobox": "file:local-deps/zendeskgarden-container-combobox-2.0.9-alpha.2.tgz",
     "@zendeskgarden/container-menu": "^2.0.1",
     "@zendeskgarden/container-utilities": "^2.0.4",
     "@zendeskgarden/react-buttons": "^9.15.6",
