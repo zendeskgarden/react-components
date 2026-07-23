@@ -13,6 +13,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.7 (2026-07-23)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2140](https://github.com/zendeskgarden/react-components/pull/2140) fix(dropdowns): stop auto-activating first option while editing autocomplete Combobox ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+
 ## v9.15.6 (2026-06-26)
 
 #### :bug: Bug Fix
