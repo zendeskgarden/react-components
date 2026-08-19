@@ -51,13 +51,11 @@ const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) 
 
 const ORDERED_ID = 'typography.ordered_list_item';
 
-export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
-  () => ({
-    'data-garden-id': ORDERED_ID,
-    'data-garden-version': PACKAGE_VERSION,
-    as: 'li'
-  })
-)<IStyledListItemProps>`
+export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(() => ({
+  'data-garden-id': ORDERED_ID,
+  'data-garden-version': PACKAGE_VERSION,
+  as: 'li'
+}))<IStyledListItemProps>`
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
