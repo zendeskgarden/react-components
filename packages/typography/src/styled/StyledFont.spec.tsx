@@ -49,6 +49,12 @@ describe('StyledFont', () => {
       expect(container.firstChild).not.toHaveStyleRule('font-weight');
     });
 
+    it('renders inherited size when size is explicitly undefined', () => {
+      const { container } = render(<StyledFont $isMonospace $size={undefined} />);
+
+      expect(container.firstChild).toHaveStyleRule('font-size', 'calc(1em - 1px)');
+    });
+
     it('renders small size', () => {
       const { container } = render(<StyledFont $size="small" />);
 

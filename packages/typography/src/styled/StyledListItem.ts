@@ -52,11 +52,10 @@ const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) 
 const ORDERED_ID = 'typography.ordered_list_item';
 
 export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
-  props => ({
+  () => ({
     'data-garden-id': ORDERED_ID,
     'data-garden-version': PACKAGE_VERSION,
-    as: 'li',
-    $space: props.$space ?? 'medium'
+    as: 'li'
   })
 )<IStyledListItemProps>`
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
@@ -72,11 +71,10 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledLis
 const UNORDERED_ID = 'typography.unordered_list_item';
 
 export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
-  props => ({
+  () => ({
     'data-garden-id': UNORDERED_ID,
     'data-garden-version': PACKAGE_VERSION,
-    as: 'li',
-    $space: props.$space ?? 'medium'
+    as: 'li'
   })
 )<IStyledListItemProps>`
   ${listItemStyles};
