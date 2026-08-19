@@ -25,6 +25,7 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
       isPrimary,
       isStretched,
       size = 'medium',
+      type = 'button',
       ...other
     },
     ref
@@ -34,6 +35,7 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
     return (
       <StyledButton
         {...other}
+        type={type}
         $focusInset={focusInset || splitButtonFocusInset}
         $isBasic={isBasic}
         $isDanger={isDanger}

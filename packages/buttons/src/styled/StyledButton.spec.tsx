@@ -74,10 +74,20 @@ describe('StyledButton', () => {
     expect(container.firstChild).toHaveStyleRule('width', '100%');
   });
 
-  it('renders default type of "button"', () => {
+  /*
+   * the `type="button"` default is applied by the Button/IconButton elements;
+   * direct styled consumption without `type` renders no attribute
+   */
+  it('renders no type attribute by default', () => {
     const { container } = render(<StyledButton />);
 
-    expect(container.firstChild).toHaveAttribute('type', 'button');
+    expect(container.firstChild).not.toHaveAttribute('type');
+  });
+
+  it('renders no type attribute if explicitly undefined', () => {
+    const { container } = render(<StyledButton type={undefined} />);
+
+    expect(container.firstChild).not.toHaveAttribute('type');
   });
 
   it('renders custom type if provided', () => {
