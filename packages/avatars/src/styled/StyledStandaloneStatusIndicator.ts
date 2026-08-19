@@ -21,8 +21,13 @@ export const StyledStandaloneStatusIndicator = styled(
 }))<IStyledStatusIndicatorProps>`
   position: relative;
   box-sizing: content-box;
-  margin-top: ${props =>
-    `calc((${props.theme.lineHeights.md} - ${getStatusSize(props, '0')}) / 2)`};
+  margin-top: ${props => {
+    /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+     * explicitly passed undefined props, so `$size` may still be undefined here */
+    const sizeProps = { ...props, $size: props.$size ?? 'medium' };
+
+    return `calc((${props.theme.lineHeights.md} - ${getStatusSize(sizeProps, '0')}) / 2)`;
+  }};
 
   ${componentStyles};
 `;
