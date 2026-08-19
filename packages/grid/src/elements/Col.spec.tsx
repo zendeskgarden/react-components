@@ -6,7 +6,9 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { render } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { Col } from './Col';
 import { Row } from './Row';
 import { Grid } from './Grid';
@@ -16,6 +18,29 @@ describe('Col', () => {
     const { container } = render(<Col />);
 
     expect(container.firstChild!.nodeName).toBe('DIV');
+  });
+
+  it('renders a numeric breakpoint size without a containing Grid', () => {
+    const { getByTestId } = render(<Col data-test-id="test" sm={12} />);
+
+    expect(getByTestId('test')).toHaveStyleRule('max-width', '100%', {
+      media: `(min-width:  ${DEFAULT_THEME.breakpoints.sm})`
+    });
+  });
+
+  it('renders a numeric size without a containing Grid', () => {
+    const { getByTestId } = render(<Col data-test-id="test" size={6} />);
+
+    expect(getByTestId('test')).toHaveStyleRule('max-width', '50%');
+  });
+
+  it('renders when wrapped with styled() without a containing Grid', () => {
+    const StyledCol = styled(Col)``;
+    const { getByTestId } = render(<StyledCol data-test-id="test" md={4} />);
+
+    expect(getByTestId('test')).toHaveStyleRule('max-width', `${(4 / 12) * 100}%`, {
+      media: `(min-width:  ${DEFAULT_THEME.breakpoints.md})`
+    });
   });
 
   it('passes ref to underlying DOM element', () => {

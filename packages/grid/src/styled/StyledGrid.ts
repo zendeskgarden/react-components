@@ -35,7 +35,10 @@ const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
 };
 
 const sizeStyles = ({ theme, $gutters }: IStyledGridProps) => {
-  const padding = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$gutters` may still be undefined here */
+  const gutters = $gutters ?? 'md';
+  const padding = gutters ? math(`${theme.space[gutters]} / 2`) : 0;
 
   return css`
     padding-right: ${padding};
@@ -48,10 +51,9 @@ interface IStyledGridProps extends ThemeProps<DefaultTheme> {
   $gutters?: IGridProps['gutters'];
 }
 
-export const StyledGrid = styled.div.attrs<IStyledGridProps>(props => ({
+export const StyledGrid = styled.div.attrs<IStyledGridProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $gutters: props.$gutters ?? 'md'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledGridProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   margin-right: auto;

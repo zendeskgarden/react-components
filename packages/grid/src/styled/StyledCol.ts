@@ -70,7 +70,10 @@ const flexStyles = (
   order: GridNumber | undefined,
   props: IStyledColProps
 ) => {
-  const margin = offset && `${math(`${offset} / ${props.$columns} * 100`)}%`;
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$columns` may still be undefined here */
+  const columns = props.$columns ?? 12;
+  const margin = offset && `${math(`${offset} / ${columns} * 100`)}%`;
   let flexBasis;
   let flexGrow;
   let maxWidth;
@@ -86,7 +89,7 @@ const flexStyles = (
     maxWidth = '100%';
     width = 'auto';
   } else if (size !== undefined) {
-    flexBasis = `${math(`${size} / ${props.$columns} * 100`)}%`;
+    flexBasis = `${math(`${size} / ${columns} * 100`)}%`;
     flexGrow = 0;
     maxWidth = flexBasis;
   }
@@ -106,7 +109,7 @@ const flexStyles = (
   if (order === 'first') {
     flexOrder = -1;
   } else if (order === 'last') {
-    flexOrder = math(`${props.$columns} + 1`);
+    flexOrder = math(`${columns} + 1`);
   } else {
     flexOrder = order;
   }
@@ -150,10 +153,9 @@ const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
   `;
 };
 
-export const StyledCol = styled.div.attrs<IStyledColProps>(props => ({
+export const StyledCol = styled.div.attrs<IStyledColProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $columns: props.$columns ?? 12
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledColProps>`
   box-sizing: border-box;
   width: 100%;
