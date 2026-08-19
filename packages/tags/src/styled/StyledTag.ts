@@ -210,10 +210,9 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   `;
 };
 
-export const StyledTag = styled.div.attrs<IStyledTagProps>(props => ({
+export const StyledTag = styled.div.attrs<IStyledTagProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $size: props.$size ?? 'medium'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
