@@ -26,6 +26,26 @@ describe('Avatar', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('renders medium size by default', () => {
+    const { container } = render(
+      <Avatar>
+        <img alt="" />
+      </Avatar>
+    );
+
+    expect(container.firstChild).toHaveStyleRule('width', '40px!important');
+  });
+
+  it('renders a medium status indicator by default', () => {
+    const { container } = render(
+      <Avatar status="available">
+        <img alt="" />
+      </Avatar>
+    );
+
+    expect(container.querySelector('figcaption')).toHaveStyleRule('height', '12px');
+  });
+
   it('renders badge if provided', () => {
     const badge = '2';
     const { getByText } = render(

@@ -15,10 +15,9 @@ const COMPONENT_ID = 'avatars.status-indicator.indicator';
 
 export const StyledStandaloneStatusIndicator = styled(
   StyledStatusIndicatorBase
-).attrs<IStyledStatusIndicatorProps>(props => ({
+).attrs<IStyledStatusIndicatorProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $type: props.$type ?? 'offline'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledStatusIndicatorProps>`
   position: relative;
   box-sizing: content-box;
