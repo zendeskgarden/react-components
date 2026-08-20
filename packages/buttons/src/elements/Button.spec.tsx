@@ -31,6 +31,26 @@ describe('Button', () => {
     expect(container.firstChild).toHaveStyleRule('text-decoration', 'underline');
   });
 
+  describe('`type` attribute', () => {
+    it('renders default type of "button"', () => {
+      const { container } = render(<Button />);
+
+      expect(container.firstChild).toHaveAttribute('type', 'button');
+    });
+
+    it('renders default type of "button" if explicitly undefined', () => {
+      const { container } = render(<Button type={undefined} />);
+
+      expect(container.firstChild).toHaveAttribute('type', 'button');
+    });
+
+    it('renders custom type if provided', () => {
+      const { container } = render(<Button type="submit" />);
+
+      expect(container.firstChild).toHaveAttribute('type', 'submit');
+    });
+  });
+
   describe('`data-garden-id` attribute', () => {
     it('sets a default data-garden-id attribute', () => {
       const { getByRole } = render(<Button />);

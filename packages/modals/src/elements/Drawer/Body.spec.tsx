@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { render } from 'garden-test-utils';
 import { Drawer } from './Drawer';
 
@@ -19,5 +20,18 @@ describe('Drawer.Body', () => {
     );
 
     expect(getByText('content')).toBe(ref.current);
+  });
+
+  it('renders when wrapped with styled()', () => {
+    const StyledBody = styled(Drawer.Body)`
+      padding-bottom: 10px;
+    `;
+    const { getByText } = render(
+      <Drawer isOpen>
+        <StyledBody>content</StyledBody>
+      </Drawer>
+    );
+
+    expect(getByText('content')).toHaveStyleRule('padding-bottom', '10px');
   });
 });

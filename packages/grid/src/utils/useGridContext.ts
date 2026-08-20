@@ -14,7 +14,7 @@ interface IGridContext {
   debug?: boolean;
 }
 
-export const GridContext = createContext<IGridContext>({ gutters: 'md' });
+export const GridContext = createContext<IGridContext>({ columns: 12, gutters: 'md' });
 
 /**
  * Retrieve Grid component context

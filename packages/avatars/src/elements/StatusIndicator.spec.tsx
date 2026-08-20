@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render, renderRtl, cleanup } from 'garden-test-utils';
+import { PALETTE } from '@zendeskgarden/react-theming';
 
 import { StatusIndicator } from './StatusIndicator';
 import { STATUS } from '../types';
@@ -33,6 +34,12 @@ describe('StatusIndicator', () => {
     const { getByText } = render(<StatusIndicator type="available">{text}</StatusIndicator>);
 
     expect(getByText(text).nodeName).toBe('FIGCAPTION');
+  });
+
+  it('renders offline type by default', () => {
+    const { getByRole } = render(<StatusIndicator />);
+
+    expect(getByRole('img')).toHaveStyleRule('border-color', PALETTE.grey[500]);
   });
 
   it('renders in compact mode', () => {

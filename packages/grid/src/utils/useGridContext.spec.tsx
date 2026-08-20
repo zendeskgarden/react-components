@@ -20,4 +20,15 @@ describe('useGridContext', () => {
 
     expect(container.firstChild).toHaveAttribute('data-gutters', 'md');
   });
+
+  it('contains default column count', () => {
+    const GridContextConsumer = () => {
+      const { columns } = useGridContext();
+
+      return <div data-columns={columns}>test</div>;
+    };
+    const { container } = render(<GridContextConsumer />);
+
+    expect(container.firstChild).toHaveAttribute('data-columns', '12');
+  });
 });
