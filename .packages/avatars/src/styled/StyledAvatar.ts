@@ -19,9 +19,12 @@ const COMPONENT_ID = 'avatars.avatar';
 const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
   const [xxs, xs, s, m, l] = SIZE;
 
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$size` may still be undefined here */
+  const size = props.$size ?? 'medium';
   let position = `${props.theme.space.base * -1}px`;
 
-  switch (props.$size) {
+  switch (size) {
     case xxs:
     case xs:
       position = math(`${position}  + 3`);
@@ -160,10 +163,9 @@ export interface IStyledAvatarProps {
 /**
  * Accepts all `<figure>` props
  */
-export const StyledAvatar = styled.figure.attrs<IStyledAvatarProps>(props => ({
+export const StyledAvatar = styled.figure.attrs<IStyledAvatarProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $size: props.$size ?? 'medium'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledAvatarProps>`
   display: inline-flex;
   position: relative;

@@ -30,6 +30,12 @@ describe('StyledListItem', () => {
       expect(container.firstChild).toHaveStyleRule('padding-top', '4px');
     });
 
+    it('renders medium spacing when space is explicitly undefined', () => {
+      const { container } = render(<StyledListItem $space={undefined} />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-top', '4px');
+    });
+
     it('renders large spacing', () => {
       const { container } = render(<StyledListItem $space="large" />);
 

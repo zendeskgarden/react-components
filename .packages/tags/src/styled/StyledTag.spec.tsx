@@ -75,6 +75,12 @@ describe('StyledTag', () => {
       expect(container.firstChild).toHaveStyleRule('height', '20px');
     });
 
+    it('renders medium styling when size is explicitly undefined', () => {
+      const { container } = render(<StyledTag $size={undefined} />);
+
+      expect(container.firstChild).toHaveStyleRule('height', '20px');
+    });
+
     it('renders large styling if provided', () => {
       const { container } = render(<StyledTag $size="large" />);
 

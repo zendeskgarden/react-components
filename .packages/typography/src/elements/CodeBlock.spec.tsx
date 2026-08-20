@@ -126,6 +126,14 @@ describe('CodeBlock', () => {
   });
 
   describe('size', () => {
+    it('renders medium size by default', async () => {
+      const { container } = render(<CodeBlock />);
+
+      await waitFor(() => {
+        expect(container.getElementsByTagName('code')[0]).toHaveStyleRule('font-size', '13px');
+      });
+    });
+
     it('renders small size', async () => {
       const { container } = render(<CodeBlock size="small" />);
 

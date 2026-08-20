@@ -100,15 +100,16 @@ const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
   `;
 };
 
-export const StyledRow = styled.div.attrs<IStyledRowProps>(props => ({
+export const StyledRow = styled.div.attrs<IStyledRowProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $wrapAll: props.$wrapAll ?? 'wrap'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledRowProps>`
   display: flex;
   box-sizing: border-box;
 
-  ${props => flexStyles(props.$alignItems, props.$justifyContent, props.$wrapAll)}
+  /* the $wrapAll fallback cannot live in attrs: styled-components >= 6.3.12
+     preserves explicitly passed undefined props */
+  ${props => flexStyles(props.$alignItems, props.$justifyContent, props.$wrapAll ?? 'wrap')}
 
   ${sizeStyles};
 

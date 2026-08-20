@@ -11,6 +11,12 @@ import React from 'react';
 import { Tag } from './Tag';
 
 describe('Tag', () => {
+  it('renders medium size by default', () => {
+    const { container } = render(<Tag />);
+
+    expect(container.firstChild).toHaveStyleRule('height', '20px');
+  });
+
   it('applies correct styling with RTL locale', () => {
     const { container } = renderRtl(<Tag />);
 
