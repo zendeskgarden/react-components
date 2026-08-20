@@ -13,6 +13,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.8 (2026-08-20)
+
+#### :bug: Bug Fix
+* `accordions`, `avatars`, `buttons`, `grid`, `tags`, `typography`
+  * [#2143](https://github.com/zendeskgarden/react-components/pull/2143) fix: keep components behavior stable for users on styled-components >= 6.3.12 ([@ze-flo](https://github.com/ze-flo))
+
+
 ## v9.15.7 (2026-07-23)
 
 #### :bug: Bug Fix
