@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
 import React from 'react';
 import styled from 'styled-components';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 
 import { Col } from './Col';
 import { Grid } from './Grid';

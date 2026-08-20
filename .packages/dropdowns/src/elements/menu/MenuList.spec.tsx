@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
 import { act, render } from 'garden-test-utils';
+import React, { useRef } from 'react';
+
 import { MenuList } from './MenuList';
 
 interface ITestMenuListProps {
