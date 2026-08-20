@@ -29,7 +29,7 @@ import useDatePickerContext from '../utils/useDatePickerContext';
 import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 
-interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
+interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: Date;
   minValue?: Date;
   maxValue?: Date;
