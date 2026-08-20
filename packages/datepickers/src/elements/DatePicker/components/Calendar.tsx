@@ -36,10 +36,11 @@ interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
   isCompact?: boolean;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
+  onChange?: (date: Date) => void;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn }, ref) => {
+  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange }, ref) => {
     const { state, dispatch } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
@@ -103,6 +104,10 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             aria-disabled={isDisabled || undefined}
             onClick={() => {
               if (!isDisabled) {
+                if (onChange && !isSameDay(value!, date)) {
+                  onChange(date);
+                }
+
                 dispatch({ type: 'SELECT_DATE', value: date });
               }
             }}
