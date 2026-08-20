@@ -8,6 +8,7 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 import { CalendarStory } from './stories/CalendarStory';
+import { CustomDateFormatStory } from './stories/CustomDateFormatStory';
 
 export default {
   title: 'Packages/DatePickers/[patterns]'
@@ -18,4 +19,9 @@ export const Example: StoryObj<typeof CalendarStory> = {
   name: 'Calendar',
   args: { appendToNode: false },
   argTypes: { appendToNode: { control: 'boolean' } }
+};
+
+export const CustomDateFormat: StoryObj<typeof CustomDateFormatStory> = {
+  render: () => <CustomDateFormatStory />,
+  name: 'Custom date format'
 };
