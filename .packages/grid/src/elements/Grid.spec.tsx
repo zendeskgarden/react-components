@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
+import { math } from 'polished';
 import React from 'react';
 
 import { Grid } from './Grid';
@@ -15,6 +17,14 @@ describe('Grid', () => {
     const { container } = render(<Grid />);
 
     expect(container.firstChild!.nodeName).toBe('DIV');
+  });
+
+  it('renders medium gutters by default', () => {
+    const { container } = render(<Grid />);
+    const padding = math(`${DEFAULT_THEME.space.md} / 2`);
+
+    expect(container.firstChild).toHaveStyleRule('padding-right', padding);
+    expect(container.firstChild).toHaveStyleRule('padding-left', padding);
   });
 
   it('passes ref to underlying DOM element', () => {

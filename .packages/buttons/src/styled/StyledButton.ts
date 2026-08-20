@@ -439,10 +439,14 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
  * 2. FF <input type="submit"> fix
  * 3. Shifting :focus-visible from LVHFA order to preserve `text-decoration` on hover
  */
+/*
+ * the `type="button"` default lives in the `Button`/`IconButton` elements: an
+ * attrs fallback would be discarded by styled-components >= 6.3.12 when a
+ * caller explicitly passes `type={undefined}`
+ */
 export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: props.type || 'button'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledButtonProps>`
   display: ${props => (props.$isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.$isLink && 'center'};
