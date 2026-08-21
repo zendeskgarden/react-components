@@ -33,3 +33,38 @@ correctly once the field reformats to the committed value.
 <Canvas>
   <Story of={Stories.CustomDateFormat} />
 </Canvas>
+
+## Surfacing an invalid date
+
+`onValueSettled` reports `{ date, inputValue, valid }` whenever the field's value settles — on
+blur after typing, or when a date is selected from the calendar. Unlike `onChange`, which only
+fires for dates that parse successfully, `onValueSettled` fires either way, so it's the signal to
+use for driving a `Field.Message`/`Input` `validation` state. Because it only fires on
+blur/selection rather than on every keystroke, an error won't clear until the field settles again
+— it's meant for validating a completed entry, not live-as-you-type feedback.
+
+Typing text that can't be parsed into a date (e.g. missing the year) reports `valid: false`:
+
+<Canvas>
+  <Story of={Stories.InvalidDate} />
+</Canvas>
+
+## Surfacing a date outside the allowed range
+
+`onValueSettled` also reports `valid: false` for a date that parses correctly but falls outside
+`minValue`/`maxValue` — the same range a disabled calendar day already enforces, now enforced
+for typed input too:
+
+<Canvas>
+  <Story of={Stories.InvalidRange} />
+</Canvas>
+
+## Surfacing a required field left empty
+
+`onValueSettled` treats an empty field as valid by default, since "nothing entered yet" isn't
+the same as "entered something wrong." It only reports `valid: false` for an empty field when
+the input element passed as `DatePicker`'s child has the native HTML `required` attribute:
+
+<Canvas>
+  <Story of={Stories.InvalidRequired} />
+</Canvas>
