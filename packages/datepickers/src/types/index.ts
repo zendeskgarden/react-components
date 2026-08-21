@@ -78,6 +78,10 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * Sets the `z-index` of the calendar
    */
   zIndex?: number;
+  /**
+   * Provides a customized/translated label for the calendar trigger button
+   */
+  openCalendarLabel?: string;
   /** @ignore ReactNode override */
   children: ReactElement;
 }
