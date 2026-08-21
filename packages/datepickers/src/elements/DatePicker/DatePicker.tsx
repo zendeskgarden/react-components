@@ -26,6 +26,7 @@ import { Calendar } from './components/Calendar';
 import {
   datepickerReducer,
   formatInputValue,
+  resolveSettledValue,
   retrieveInitialState
 } from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
@@ -166,6 +167,22 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   }, [state.isOpen, focusIntoGrid]);
 
   /**
+   * Reports whether the typed input currently holds a valid date, for
+   * closes that don't come from a fresh calendar selection.
+   */
+  const settleValue = useCallback(() => {
+    onValueSettled?.(
+      resolveSettledValue({
+        inputValue: state.inputValue,
+        required: Child.props.required,
+        minValue,
+        maxValue,
+        customParseDate
+      })
+    );
+  }, [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]);
+
+  /**
    * Close the calendar when a click or focus event lands outside the input,
    * trigger button, and popover, per the non-modal APG dialog pattern.
    */
@@ -181,6 +198,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
     const handleOutsideInteraction = (e: Event) => {
       if (isOutsideWidget(e.target as Node)) {
+        settleValue();
         dispatch({ type: 'CLOSE' });
       }
     };
@@ -192,7 +210,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       document.removeEventListener('mousedown', handleOutsideInteraction);
       document.removeEventListener('focusin', handleOutsideInteraction);
     };
-  }, [state.isOpen]);
+  }, [state.isOpen, settleValue]);
 
   const Node = (
     <StyledMenuWrapper
@@ -212,6 +230,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           {...menuProps}
           onKeyDown={e => {
             if (e.key === KEYS.ESCAPE) {
+              settleValue();
               dispatch({ type: 'CLOSE' });
               triggerButtonRef.current?.focus();
             }

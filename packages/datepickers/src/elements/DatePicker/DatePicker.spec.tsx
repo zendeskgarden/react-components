@@ -487,6 +487,36 @@ describe('DatePicker', () => {
 
       expect(input).toHaveValue('1/4/2019');
     });
+
+    it('preserves the typed format after closing the calendar by clicking outside', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.mouseDown(document.body);
+
+      expect(input).toHaveValue('1/4/2019');
+    });
+
+    it('does not discard unparseable typed text when closing the calendar by clicking outside', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.mouseDown(document.body);
+
+      expect(input).toHaveValue('invalid date');
+    });
   });
 
   describe('onValueSettled', () => {
@@ -598,6 +628,43 @@ describe('DatePicker', () => {
         date: undefined,
         inputValue: '1/4/2019',
         valid: false
+      });
+    });
+
+    it('reports invalid when closing the calendar by clicking outside after typing unparseable text', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.mouseDown(document.body);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false
+      });
+    });
+
+    it('reports a valid date when closing the calendar by clicking outside after typing a parseable date', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.mouseDown(document.body);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: new Date(2019, 0, 4),
+        inputValue: '1/4/2019',
+        valid: true
       });
     });
 
