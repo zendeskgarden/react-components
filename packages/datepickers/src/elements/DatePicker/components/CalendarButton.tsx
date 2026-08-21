@@ -28,7 +28,7 @@ export const CalendarButton = forwardRef<HTMLButtonElement, ICalendarButtonProps
       <StyledCalendarButton
         ref={ref}
         type="button"
-        $isCompact={!!isCompact}
+        size={isCompact ? 'small' : 'medium'}
         aria-label={ariaLabel}
         aria-haspopup="dialog"
         data-test-id="calendar-button"
