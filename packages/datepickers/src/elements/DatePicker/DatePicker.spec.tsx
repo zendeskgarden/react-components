@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
@@ -225,6 +225,36 @@ describe('DatePicker', () => {
       fireEvent.click(days[days.length - 1]);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not warn about updating a component while rendering another when controlled', async () => {
+      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn());
+
+      const Controlled = () => {
+        const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
+
+        return (
+          <DatePicker value={value} onChange={setValue}>
+            <input data-test-id="input" />
+          </DatePicker>
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(<Controlled />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(input);
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      const hasRenderPhaseUpdateWarning = consoleErrorSpy.mock.calls.some(
+        args => typeof args[0] === 'string' && args[0].includes('Cannot update a component')
+      );
+
+      expect(hasRenderPhaseUpdateWarning).toBe(false);
+
+      consoleErrorSpy.mockRestore();
     });
   });
 

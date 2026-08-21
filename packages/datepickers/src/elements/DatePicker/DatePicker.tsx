@@ -54,10 +54,11 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   } = props;
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedReducer = useCallback(
-    datepickerReducer({ value, formatDate, locale, customParseDate, onChange }),
-    [value, formatDate, locale, onChange, customParseDate]
-  );
+  const memoizedReducer = useCallback(datepickerReducer({ value, formatDate, locale }), [
+    value,
+    formatDate,
+    locale
+  ]);
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const triggerRef = useRef<HTMLInputElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
@@ -148,6 +149,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             maxValue={maxValue}
             locale={locale}
             weekStartsOn={weekStartsOn}
+            onChange={onChange}
           />
         </StyledMenu>
       )}
@@ -161,6 +163,9 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         dispatch={dispatch}
         state={state}
         refKey={refKey!}
+        value={value}
+        onChange={onChange}
+        customParseDate={customParseDate}
         ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
       />
       <DatePickerContext.Provider value={contextValue}>
