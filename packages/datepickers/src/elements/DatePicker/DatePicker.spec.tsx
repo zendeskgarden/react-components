@@ -308,6 +308,36 @@ describe('DatePicker', () => {
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
+    it('does not open the datepicker while typing', async () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('does not revert in-progress typed text on Enter/Escape while the calendar is closed', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'Jan' } });
+      fireEvent.keyDown(input, { key: KEYS.ENTER });
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(input).toHaveValue('Jan');
+
+      fireEvent.change(input, { target: { value: 'Jan 4' } });
+      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
+
+      expect(input).toHaveValue('Jan 4');
+    });
+
     it('leaves datepicker closed on label click', () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
@@ -318,23 +348,6 @@ describe('DatePicker', () => {
         jest.runOnlyPendingTimers();
         fireEvent.click(getByTestId('input'));
       });
-
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-    });
-
-    it('closes datepicker when correct keys are used', async () => {
-      const { getByTestId, queryByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      await user.click(getByTestId('calendar-button'));
-      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
-
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-
-      await user.click(getByTestId('calendar-button'));
-      fireEvent.keyDown(input, { key: KEYS.ENTER });
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
