@@ -37,10 +37,11 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   locale?: string;
   weekStartsOn?: DateFnsIndex;
   onChange?: (date: Date) => void;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange }, ref) => {
+  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange, inputRef }, ref) => {
     const { state, dispatch } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
@@ -102,6 +103,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             $isCompact={isCompact!}
             aria-selected={isSelected || undefined}
             aria-disabled={isDisabled || undefined}
+            tabIndex={-1}
             onClick={() => {
               if (!isDisabled) {
                 if (onChange && !isSameDay(value!, date)) {
@@ -109,6 +111,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
                 }
 
                 dispatch({ type: 'SELECT_DATE', value: date });
+                inputRef?.current?.focus();
               }
             }}
             data-test-id="day"

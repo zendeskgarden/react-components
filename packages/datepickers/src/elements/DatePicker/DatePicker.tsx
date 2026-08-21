@@ -20,13 +20,15 @@ import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
+import { KEYS, useId } from '@zendeskgarden/container-utilities';
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
-import { StyledMenu, StyledMenuWrapper } from '../../styled';
+import { StyledInputGroup, StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { Input } from './components/Input';
+import { CalendarButton } from './components/CalendarButton';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -50,6 +52,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     locale = 'en-US',
     weekStartsOn,
     customParseDate,
+    openCalendarLabel,
     ...menuProps
   } = props;
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
@@ -61,13 +64,16 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   ]);
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const triggerRef = useRef<HTMLInputElement>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
+  const shouldFocusGridRef = useRef(false);
   const [isVisible, setIsVisible] = useState(state.isOpen);
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
   const [floatingPlacement] = getFloatingPlacements(
     theme,
     _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
   );
+  const menuId = useId();
 
   const {
     refs,
@@ -127,9 +133,67 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
+  /**
+   * Move focus onto the selected date, today, or the first day cell in the
+   * grid, in that priority order.
+   */
+  const focusIntoGrid = useCallback(() => {
+    if (!floatingRef.current) {
+      return;
+    }
+
+    const target =
+      floatingRef.current.querySelector<HTMLElement>('[data-test-selected="true"]') ||
+      floatingRef.current.querySelector<HTMLElement>('[data-test-today="true"]') ||
+      floatingRef.current.querySelector<HTMLElement>('[data-test-id="day"]');
+
+    target?.focus();
+  }, []);
+
+  /**
+   * When the trigger button opens the calendar, wait for the grid to render
+   * before moving focus into it.
+   */
+  useEffect(() => {
+    if (state.isOpen && shouldFocusGridRef.current) {
+      focusIntoGrid();
+      shouldFocusGridRef.current = false;
+    }
+  }, [state.isOpen, focusIntoGrid]);
+
+  /**
+   * Close the calendar when a click or focus event lands outside the input,
+   * trigger button, and popover, per the non-modal APG dialog pattern.
+   */
+  useEffect(() => {
+    if (!state.isOpen) {
+      return undefined;
+    }
+
+    const isOutsideWidget = (target: Node) =>
+      !triggerRef.current?.contains(target) &&
+      !triggerButtonRef.current?.contains(target) &&
+      !floatingRef.current?.contains(target);
+
+    const handleOutsideInteraction = (e: Event) => {
+      if (isOutsideWidget(e.target as Node)) {
+        dispatch({ type: 'CLOSE' });
+      }
+    };
+
+    document.addEventListener('mousedown', handleOutsideInteraction);
+    document.addEventListener('focusin', handleOutsideInteraction);
+
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideInteraction);
+      document.removeEventListener('focusin', handleOutsideInteraction);
+    };
+  }, [state.isOpen]);
+
   const Node = (
     <StyledMenuWrapper
       ref={floatingRef}
+      id={menuId}
       style={{ transform }}
       $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
       $placement={placement}
@@ -140,7 +204,15 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       data-test-rtl={theme.rtl}
     >
       {!!(state.isOpen || isVisible) && (
-        <StyledMenu {...menuProps}>
+        <StyledMenu
+          {...menuProps}
+          onKeyDown={e => {
+            if (e.key === KEYS.ESCAPE) {
+              dispatch({ type: 'CLOSE' });
+              triggerButtonRef.current?.focus();
+            }
+          }}
+        >
           <Calendar
             ref={calendarRef}
             isCompact={isCompact}
@@ -150,6 +222,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             locale={locale}
             weekStartsOn={weekStartsOn}
             onChange={onChange}
+            inputRef={triggerRef}
           />
         </StyledMenu>
       )}
@@ -158,16 +231,33 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   return (
     <>
-      <Input
-        element={Child}
-        dispatch={dispatch}
-        state={state}
-        refKey={refKey!}
-        value={value}
-        onChange={onChange}
-        customParseDate={customParseDate}
-        ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
-      />
+      <StyledInputGroup>
+        <Input
+          element={Child}
+          dispatch={dispatch}
+          state={state}
+          refKey={refKey!}
+          value={value}
+          onChange={onChange}
+          customParseDate={customParseDate}
+          ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
+        />
+        <CalendarButton
+          ref={triggerButtonRef}
+          isCompact={isCompact}
+          openCalendarLabel={openCalendarLabel}
+          aria-expanded={state.isOpen}
+          aria-controls={menuId}
+          onClick={() => {
+            if (state.isOpen) {
+              focusIntoGrid();
+            } else {
+              dispatch({ type: 'OPEN' });
+              shouldFocusGridRef.current = true;
+            }
+          }}
+        />
+      </StyledInputGroup>
       <DatePickerContext.Provider value={contextValue}>
         {appendToNode ? createPortal(Node, appendToNode) : Node}
       </DatePickerContext.Provider>
@@ -191,5 +281,6 @@ DatePicker.propTypes = {
   refKey: PropTypes.string,
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
-  zIndex: PropTypes.number
+  zIndex: PropTypes.number,
+  openCalendarLabel: PropTypes.string
 };
