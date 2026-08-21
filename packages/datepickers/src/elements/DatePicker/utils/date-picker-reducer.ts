@@ -123,7 +123,7 @@ export const datepickerReducer =
       case 'MANUALLY_UPDATE_INPUT': {
         const inputValue = action.value;
 
-        return { ...state, isOpen: true, inputValue };
+        return { ...state, inputValue };
       }
       case 'CONTROLLED_VALUE_CHANGE': {
         const previewDate = action.value || new Date();

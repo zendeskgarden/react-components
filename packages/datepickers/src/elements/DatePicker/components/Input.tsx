@@ -8,7 +8,7 @@
 import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef } from 'react';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
-import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
 
 interface IInputProps {
@@ -34,19 +34,9 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
     };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      switch (e.key) {
-        case KEYS.ESCAPE:
-        case KEYS.ENTER:
-          dispatch({ type: 'CLOSE' });
-          break;
-      }
-    };
-
     return cloneElement(element, {
       [refKey!]: ref,
       onChange: composeEventHandlers(element.props.onChange, handleChange),
-      onKeyDown: composeEventHandlers(element.props.onKeyDown, handleKeyDown),
       autoComplete: 'off',
       value: state.inputValue
     });
