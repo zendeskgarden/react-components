@@ -428,6 +428,65 @@ describe('DatePicker', () => {
 
       expect(getByTestId('input')).toHaveValue('February 6, 2019');
     });
+
+    it('preserves the typed format after the controlled value round-trips through onChange', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(input).toHaveValue('1/4/2019');
+    });
+
+    it('reformats to the canonical format if the controlled value changes to a different date', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return (
+          <>
+            <Example value={value} onChange={setValue} />
+            <button
+              type="button"
+              data-test-id="set-externally"
+              onClick={() => setValue(addDays(DEFAULT_DATE, 1))}
+            >
+              Fill date
+            </button>
+          </>
+        );
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('set-externally'));
+
+      expect(input).toHaveValue('February 6, 2019');
+    });
+
+    it('preserves the typed format after closing the calendar without selecting a different day', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
+
+      expect(input).toHaveValue('1/4/2019');
+    });
   });
 
   describe('onValueSettled', () => {
