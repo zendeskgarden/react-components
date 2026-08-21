@@ -9,7 +9,12 @@ import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef } from 
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
+import {
+  DatePickerAction,
+  IDatePickerState,
+  parseInputValue,
+  resolveSettledValue
+} from '../utils/date-picker-reducer';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
 interface IInputProps {
@@ -59,22 +64,15 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
     };
 
     const handleBlur = () => {
-      if (!onValueSettled) {
-        return;
-      }
-
-      const { inputValue } = state;
-
-      if (inputValue === '') {
-        onValueSettled({ date: undefined, inputValue, valid: !element.props.required });
-
-        return;
-      }
-
-      const currentDate = parseInputValue({ inputValue, customParseDate });
-      const valid = isValid(currentDate) && isDateWithinRange(currentDate, minValue, maxValue);
-
-      onValueSettled({ date: valid ? currentDate : undefined, inputValue, valid });
+      onValueSettled?.(
+        resolveSettledValue({
+          inputValue: state.inputValue,
+          required: element.props.required,
+          minValue,
+          maxValue,
+          customParseDate
+        })
+      );
     };
 
     return cloneElement(element, {
