@@ -23,7 +23,11 @@ import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floatin
 import { KEYS, useId } from '@zendeskgarden/container-utilities';
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
-import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
+import {
+  datepickerReducer,
+  formatInputValue,
+  retrieveInitialState
+} from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
 import { StyledInputGroup, StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
@@ -53,6 +57,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     weekStartsOn,
     customParseDate,
     openCalendarLabel,
+    onValueSettled,
     ...menuProps
   } = props;
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
@@ -221,7 +226,14 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             maxValue={maxValue}
             locale={locale}
             weekStartsOn={weekStartsOn}
-            onChange={onChange}
+            onChange={date => {
+              onChange?.(date);
+              onValueSettled?.({
+                date,
+                inputValue: formatInputValue({ date, locale, formatDate }),
+                valid: true
+              });
+            }}
             inputRef={triggerRef}
           />
         </StyledMenu>
@@ -238,7 +250,10 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           state={state}
           refKey={refKey!}
           value={value}
+          minValue={minValue}
+          maxValue={maxValue}
           onChange={onChange}
+          onValueSettled={onValueSettled}
           customParseDate={customParseDate}
           ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
         />
@@ -271,6 +286,7 @@ DatePicker.propTypes = {
   appendToNode: PropTypes.any,
   value: PropTypes.any,
   onChange: PropTypes.any,
+  onValueSettled: PropTypes.func,
   formatDate: PropTypes.func,
   locale: PropTypes.any,
   weekStartsOn: PropTypes.oneOf(WEEK_STARTS_ON),

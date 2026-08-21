@@ -270,6 +270,23 @@ describe('DatePicker', () => {
 
       consoleErrorSpy.mockRestore();
     });
+
+    it('does not call onChange when a typed date falls outside minValue/maxValue', async () => {
+      const { getByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
   });
 
   describe('Input', () => {
@@ -410,6 +427,131 @@ describe('DatePicker', () => {
       rerender(<Example value={addDays(DEFAULT_DATE, 1)} onChange={onChangeSpy} />);
 
       expect(getByTestId('input')).toHaveValue('February 6, 2019');
+    });
+  });
+
+  describe('onValueSettled', () => {
+    let onValueSettledSpy: (result: { date?: Date; inputValue: string; valid: boolean }) => void;
+
+    beforeEach(() => {
+      onValueSettledSpy = jest.fn();
+    });
+
+    it('reports a valid date when blurring after typing a parseable date', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: new Date(2019, 0, 4),
+        inputValue: '1/4/2019',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring after typing unparseable text', () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false
+      });
+    });
+
+    it('reports valid when blurring an empty, non-required field', () => {
+      const { getByTestId } = render(
+        <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring an empty, required field', () => {
+      const RequiredExample = (props: Omit<IDatePickerProps, 'children'>) => (
+        <DatePicker {...props}>
+          <input data-test-id="input" required />
+        </DatePicker>
+      );
+      const { getByTestId } = render(
+        <RequiredExample onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: false
+      });
+    });
+
+    it('reports a valid date when a day is selected from the calendar', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: new Date(2019, 0, 28),
+        inputValue: 'January 28, 2019',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring after typing a date outside minValue/maxValue', () => {
+      const { getByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: '1/4/2019' } });
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '1/4/2019',
+        valid: false
+      });
+    });
+
+    it('does not affect the existing onChange behavior', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
     });
   });
 

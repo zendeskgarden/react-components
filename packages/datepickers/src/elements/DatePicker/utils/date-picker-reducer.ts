@@ -57,7 +57,7 @@ export function parseInputValue({
 /**
  * Format inputValue with the correct locale
  */
-function formatInputValue({
+export function formatInputValue({
   date,
   locale,
   formatDate
