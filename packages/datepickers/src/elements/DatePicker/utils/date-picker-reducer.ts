@@ -10,6 +10,7 @@ import { subMonths } from 'date-fns/subMonths';
 import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
+import { isSameDay } from 'date-fns/isSameDay';
 import { IDatePickerProps } from '../../../types';
 
 export interface IDatePickerState {
@@ -95,11 +96,13 @@ export const datepickerReducer =
   ({
     value,
     formatDate,
-    locale
+    locale,
+    customParseDate
   }: {
     value?: Date;
     formatDate?: (date: Date) => string;
     locale: any;
+    customParseDate?: (inputValue: string) => Date;
   }) =>
   (state: IDatePickerState, action: DatePickerAction): IDatePickerState => {
     switch (action.type) {
@@ -127,7 +130,13 @@ export const datepickerReducer =
       }
       case 'CONTROLLED_VALUE_CHANGE': {
         const previewDate = action.value || new Date();
-        const inputValue = formatInputValue({ date: action.value, locale, formatDate });
+
+        const currentTypedDate = parseInputValue({ inputValue: state.inputValue, customParseDate });
+        const matchesCurrentInput =
+          action.value && isValid(currentTypedDate) && isSameDay(currentTypedDate, action.value);
+        const inputValue = matchesCurrentInput
+          ? state.inputValue
+          : formatInputValue({ date: action.value, locale, formatDate });
 
         return { ...state, previewDate, inputValue };
       }

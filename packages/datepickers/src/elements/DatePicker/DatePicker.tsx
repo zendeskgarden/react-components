@@ -62,11 +62,10 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   } = props;
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedReducer = useCallback(datepickerReducer({ value, formatDate, locale }), [
-    value,
-    formatDate,
-    locale
-  ]);
+  const memoizedReducer = useCallback(
+    datepickerReducer({ value, formatDate, locale, customParseDate }),
+    [value, formatDate, locale, customParseDate]
+  );
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const triggerRef = useRef<HTMLInputElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
