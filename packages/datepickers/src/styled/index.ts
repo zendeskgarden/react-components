@@ -17,3 +17,5 @@ export { StyledCalendarItem } from './StyledCalendarItem';
 export { StyledDayLabel } from './StyledDayLabel';
 export { StyledHighlight } from './StyledHighlight';
 export { StyledDay } from './StyledDay';
+export { StyledCalendarButton } from './StyledCalendarButton';
+export { StyledInputGroup } from './StyledInputGroup';
