@@ -11,13 +11,16 @@ import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Input } from '@zendeskgarden/react-forms';
 
 export const InvalidDateStory: StoryFn = () => {
-  const [value, setValue] = useState<Date | undefined>(new Date());
+  const [value, setValue] = useState<Date | undefined>(undefined);
   const [validation, setValidation] = useState<'error' | undefined>(undefined);
 
   return (
     <Field>
       <Field.Label>Date</Field.Label>
-      <Field.Hint>Accepted formats: M/D/YYYY, MMM D, YYYY, or Month D, YYYY</Field.Hint>
+      <Field.Hint>
+        3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+        YYYY&quot;
+      </Field.Hint>
       <DatePicker
         value={value}
         onChange={setValue}
@@ -27,7 +30,8 @@ export const InvalidDateStory: StoryFn = () => {
       </DatePicker>
       {validation === 'error' && (
         <Field.Message validation="error">
-          Date must be in M/D/YYYY, MMM D, YYYY, or Month D, YYYY format.
+          Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+          YYYY&quot; format.
         </Field.Message>
       )}
     </Field>
