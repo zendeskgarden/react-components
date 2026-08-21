@@ -5,6 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { isBefore } from 'date-fns/isBefore';
+import { isAfter } from 'date-fns/isAfter';
+import { isSameDay } from 'date-fns/isSameDay';
 import { IDatePickerProps } from '../types';
 
 /**
@@ -82,6 +85,21 @@ const LANGUAGE_MAPPINGS: Record<string, DateFnsIndex> = {
   vi: 1,
   zh: 1
 };
+
+/**
+ * Determine whether a date falls within an optional minValue/maxValue range (inclusive)
+ */
+export function isDateWithinRange(date: Date, minValue?: Date, maxValue?: Date): boolean {
+  if (minValue !== undefined && isBefore(date, minValue) && !isSameDay(date, minValue)) {
+    return false;
+  }
+
+  if (maxValue !== undefined && isAfter(date, maxValue) && !isSameDay(date, maxValue)) {
+    return false;
+  }
+
+  return true;
+}
 
 /**
  * Return start day of week based on locale

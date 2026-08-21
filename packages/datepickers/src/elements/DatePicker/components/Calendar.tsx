@@ -15,8 +15,6 @@ import { addDays } from 'date-fns/addDays';
 import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
-import { isBefore } from 'date-fns/isBefore';
-import { isAfter } from 'date-fns/isAfter';
 import { getDate } from 'date-fns/getDate';
 import {
   StyledDatePicker,
@@ -26,7 +24,7 @@ import {
   StyledDay
 } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerContext';
-import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
+import { DateFnsIndex, getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 
 interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -85,15 +83,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       const isPreviousMonth = !isSameMonth(date, state.previewDate);
       const isSelected = value && isSameDay(date, value);
 
-      let isDisabled = false;
-
-      if (minValue !== undefined) {
-        isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
-      }
-
-      if (maxValue !== undefined) {
-        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
-      }
+      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
         <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
