@@ -20,3 +20,16 @@ See in this example, that the calendar is currently getting cropped. Enable the
 <Canvas>
   <Story of={Stories.Example} />
 </Canvas>
+
+## Custom date format
+
+`formatDate` and `customParseDate` let you display and parse dates in a
+format other than the default. They work as a matched pair: `formatDate`
+controls how the committed value is displayed in the input, and
+`customParseDate` controls how typed text is read back into a `Date`. Both
+need to agree on the same shape, otherwise typed input stops parsing
+correctly once the field reformats to the committed value.
+
+<Canvas>
+  <Story of={Stories.CustomDateFormat} />
+</Canvas>

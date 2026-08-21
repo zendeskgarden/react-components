@@ -30,17 +30,18 @@ import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import { MonthSelector } from './MonthSelector';
 
-interface ICalendarProps extends HTMLAttributes<HTMLDivElement> {
+interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: Date;
   minValue?: Date;
   maxValue?: Date;
   isCompact?: boolean;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
+  onChange?: (date: Date) => void;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn }, ref) => {
+  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange }, ref) => {
     const { state, dispatch } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
@@ -104,6 +105,10 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             aria-disabled={isDisabled || undefined}
             onClick={() => {
               if (!isDisabled) {
+                if (onChange && !isSameDay(value!, date)) {
+                  onChange(date);
+                }
+
                 dispatch({ type: 'SELECT_DATE', value: date });
               }
             }}

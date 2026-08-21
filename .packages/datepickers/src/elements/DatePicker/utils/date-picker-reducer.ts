@@ -7,7 +7,6 @@
 
 import { addMonths } from 'date-fns/addMonths';
 import { isBefore } from 'date-fns/isBefore';
-import { isSameDay } from 'date-fns/isSameDay';
 import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { subMonths } from 'date-fns/subMonths';
@@ -23,7 +22,7 @@ export interface IDatePickerState {
 /**
  * Parse string input value using current locale and date formats
  */
-function parseInputValue({
+export function parseInputValue({
   inputValue,
   customParseDate
 }: {
@@ -97,15 +96,11 @@ export const datepickerReducer =
   ({
     value,
     formatDate,
-    locale,
-    customParseDate,
-    onChange
+    locale
   }: {
     value?: Date;
     formatDate?: (date: Date) => string;
     locale: any;
-    customParseDate?: (inputValue: string) => Date;
-    onChange?: (date: Date) => void;
   }) =>
   (state: IDatePickerState, action: DatePickerAction): IDatePickerState => {
     switch (action.type) {
@@ -128,11 +123,6 @@ export const datepickerReducer =
       }
       case 'MANUALLY_UPDATE_INPUT': {
         const inputValue = action.value;
-        const currentDate = parseInputValue({ inputValue, customParseDate });
-
-        if (onChange && currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
-          onChange(currentDate);
-        }
 
         return { ...state, isOpen: true, inputValue };
       }
@@ -149,10 +139,6 @@ export const datepickerReducer =
       }
       case 'SELECT_DATE': {
         const inputValue = formatInputValue({ date: action.value, locale, formatDate });
-
-        if (onChange && action.value && isValid(action.value) && !isSameDay(value!, action.value)) {
-          onChange(action.value);
-        }
 
         return { ...state, isOpen: false, inputValue };
       }
