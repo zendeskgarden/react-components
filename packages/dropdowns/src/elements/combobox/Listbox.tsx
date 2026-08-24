@@ -6,6 +6,7 @@
  */
 
 import React, {
+  CSSProperties,
   MouseEventHandler,
   forwardRef,
   useContext,
@@ -41,7 +42,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     const floatingRef = useRef<HTMLDivElement>(null);
     const isMountedRef = useRef(true);
     const [isVisible, setIsVisible] = useState(false);
-    const [height, setHeight] = useState<number>();
+    const [availableHeight, setAvailableHeight] = useState<number>();
     const [width, setWidth] = useState<number>();
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
@@ -57,16 +58,25 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         offset(theme.space.base),
         flip(),
         size({
-          apply: ({ rects, availableHeight }) => {
+          apply: ({ rects, availableHeight: nextAvailableHeight }) => {
             /* istanbul ignore if */
             if (rects.reference.width > 0 && isMountedRef.current) {
-              setWidth(rects.reference.width);
+              /**
+               * Round to whole pixels and skip no-op updates. At high browser
+               * zoom, subpixel measurements oscillate between Floating UI
+               * updates; writing them straight to state causes a render loop
+               * that presents as listbox flicker.
+               */
+              const nextWidth = Math.round(rects.reference.width);
 
-              if (
-                !(minHeight === null || minHeight === 'fit-content') &&
-                rects.floating.height > availableHeight
-              ) {
-                setHeight(availableHeight);
+              setWidth(previous => (previous === nextWidth ? previous : nextWidth));
+
+              if (!(minHeight === null || minHeight === 'fit-content')) {
+                const nextMaxHeight = Math.max(0, Math.floor(nextAvailableHeight));
+
+                setAvailableHeight(previous =>
+                  previous === nextMaxHeight ? previous : nextMaxHeight
+                );
               }
             }
           }
@@ -107,7 +117,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         timeout = setTimeout(() => {
           if (isMountedRef.current) {
             setIsVisible(false);
-            setHeight(undefined);
+            setAvailableHeight(undefined);
           }
         }, 200 /* match menu opacity transition */);
       }
@@ -115,21 +125,17 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
       return () => clearTimeout(timeout);
     }, [isExpanded]);
 
-    useEffect(
-      () => {
-        /* istanbul ignore if */
-        if (height) {
-          // Reset height on options change.
-          if (isMountedRef.current) setHeight(undefined);
-          update();
-        }
-      },
-      /* eslint-disable-line react-hooks/exhaustive-deps */ [
-        /* height, // prevent height update loop */
-        children,
-        update
-      ]
-    );
+    const listboxStyle: CSSProperties = {};
+
+    if (availableHeight !== undefined) {
+      /**
+       * Constrain with `max-height` rather than a fixed `height` so the listbox
+       * shrinks naturally when options change, without a state reset cycle.
+       */
+      listboxStyle.maxHeight = maxHeight
+        ? `min(${maxHeight}, ${availableHeight}px)`
+        : availableHeight;
+    }
 
     const Node = (
       <StyledFloatingListbox
@@ -149,7 +155,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
             !isExpanded
           }
           onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
-          style={{ height }}
+          style={listboxStyle}
           {...props}
           ref={ref}
         >

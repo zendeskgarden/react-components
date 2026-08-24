@@ -109,6 +109,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
+    const blurTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useWindow(theme);
@@ -179,6 +180,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const triggerProps = getTriggerProps({
       onFocus: () => {
         if (!isDisabled) {
+          // Focus (re-)entered the trigger; cancel any pending blur response
+          clearTimeout(blurTimeoutRef.current);
+
           if (isEditable) {
             setIsInputHidden(false);
           }
@@ -190,13 +194,32 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       },
       onBlur: event => {
         if (event.relatedTarget === null || !triggerRef.current?.contains(event.relatedTarget)) {
-          if (isEditable) {
-            setIsInputHidden(true);
-          }
+          /**
+           * Defer the blur response to the next task. `relatedTarget` is `null`
+           * for transient blurs — e.g. when Floating UI repositions the listbox
+           * at high browser zoom — so re-check where focus actually landed before
+           * hiding the input. Hiding an input that still owns focus fires a
+           * follow-up blur that downstream state (`useCombobox`) treats as a
+           * listbox close.
+           */
+          clearTimeout(blurTimeoutRef.current);
 
-          if (isMultiselectable) {
-            setIsTagGroupExpanded(false);
-          }
+          blurTimeoutRef.current = setTimeout(() => {
+            const activeElement = triggerRef.current?.ownerDocument.activeElement ?? null;
+            const isFocusContained =
+              !!triggerRef.current?.contains(activeElement) ||
+              !!listboxRef.current?.contains(activeElement);
+
+            if (!isFocusContained) {
+              if (isEditable) {
+                setIsInputHidden(true);
+              }
+
+              if (isMultiselectable) {
+                setIsTagGroupExpanded(false);
+              }
+            }
+          }, 0);
         }
       }
     }) as HTMLAttributes<HTMLDivElement>;
@@ -212,6 +235,11 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const listboxProps = getListboxProps({
       'aria-label': _listboxAriaLabel!
     }) as HTMLAttributes<HTMLUListElement>;
+
+    useEffect(() => {
+      // Cancel a pending deferred blur response on unmount
+      return () => clearTimeout(blurTimeoutRef.current);
+    }, []);
 
     useEffect(() => {
       // context callback
