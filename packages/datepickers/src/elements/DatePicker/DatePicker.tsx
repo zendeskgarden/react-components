@@ -261,7 +261,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   return (
     <>
-      <StyledInputGroup>
+      <StyledInputGroup $isCompact={isCompact}>
         <Input
           element={Child}
           dispatch={dispatch}
