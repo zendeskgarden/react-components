@@ -183,34 +183,30 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   }, [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]);
 
   /**
-   * Close the calendar when a click or focus event lands outside the input,
-   * trigger button, and popover, per the non-modal APG dialog pattern.
+   * Close the calendar when focus moves outside the input, trigger button,
+   * and popover, per the non-modal APG dialog pattern. Checks
+   * `event.relatedTarget`, matching the `useCombobox` convention.
    */
-  useEffect(() => {
-    if (!state.isOpen) {
-      return undefined;
-    }
+  const handleWidgetBlur = useCallback(
+    (e: React.FocusEvent) => {
+      if (!state.isOpen) {
+        return;
+      }
 
-    const isOutsideWidget = (target: Node) =>
-      !triggerRef.current?.contains(target) &&
-      !triggerButtonRef.current?.contains(target) &&
-      !floatingRef.current?.contains(target);
+      const nextTarget = e.relatedTarget as Node | null;
+      const isInsideWidget =
+        !!nextTarget &&
+        (triggerRef.current?.contains(nextTarget) ||
+          triggerButtonRef.current?.contains(nextTarget) ||
+          floatingRef.current?.contains(nextTarget));
 
-    const handleOutsideInteraction = (e: Event) => {
-      if (isOutsideWidget(e.target as Node)) {
+      if (!isInsideWidget) {
         settleValue();
         dispatch({ type: 'CLOSE' });
       }
-    };
-
-    document.addEventListener('mousedown', handleOutsideInteraction);
-    document.addEventListener('focusin', handleOutsideInteraction);
-
-    return () => {
-      document.removeEventListener('mousedown', handleOutsideInteraction);
-      document.removeEventListener('focusin', handleOutsideInteraction);
-    };
-  }, [state.isOpen, settleValue]);
+    },
+    [state.isOpen, settleValue]
+  );
 
   const Node = (
     <StyledMenuWrapper
@@ -228,6 +224,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       {!!(state.isOpen || isVisible) && (
         <StyledMenu
           {...menuProps}
+          onBlur={handleWidgetBlur}
           onKeyDown={e => {
             if (e.key === KEYS.ESCAPE) {
               settleValue();
@@ -261,7 +258,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   return (
     <>
-      <StyledInputGroup $isCompact={isCompact}>
+      <StyledInputGroup $isCompact={isCompact} onBlur={handleWidgetBlur}>
         <Input
           element={Child}
           dispatch={dispatch}
