@@ -263,7 +263,7 @@ describe('DatePicker', () => {
 
       await user.clear(input);
       await user.type(input, '1/4/2019');
-      await user.click(input);
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getAllByTestId('day')[1]);
 
       const hasRenderPhaseUpdateWarning = consoleErrorSpy.mock.calls.some(
