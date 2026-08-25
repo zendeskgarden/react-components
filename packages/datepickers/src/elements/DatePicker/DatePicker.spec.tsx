@@ -613,6 +613,17 @@ describe('DatePicker', () => {
       });
     });
 
+    it('does not report a stale value when a day is selected from the calendar', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+    });
+
     it('reports invalid when blurring after typing a date outside minValue/maxValue', () => {
       const { getByTestId } = render(
         <Example
@@ -769,6 +780,18 @@ describe('DatePicker', () => {
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
 
       await user.click(getByTestId('outside-background'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('closes the calendar when the input receives focus', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('input'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });

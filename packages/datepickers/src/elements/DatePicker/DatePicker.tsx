@@ -183,9 +183,14 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   }, [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]);
 
   /**
-   * Close the calendar when focus moves outside the input, trigger button,
-   * and popover, per the non-modal APG dialog pattern. Checks
-   * `event.relatedTarget`, matching the `useCombobox` convention.
+   * Close the calendar when focus moves outside the trigger button and
+   * popover, or back onto the input, per the non-modal APG dialog pattern.
+   * Checks `event.relatedTarget`, matching the `useCombobox` convention.
+   *
+   * Skips `settleValue()` when focus returns to the input, since that also
+   * happens as a side effect of selecting a day, which already reports its
+   * own settled value via `Calendar`'s `onChange`; settling here too would
+   * report a stale, pre-selection value.
    */
   const handleWidgetBlur = useCallback(
     (e: React.FocusEvent) => {
@@ -194,13 +199,15 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       }
 
       const nextTarget = e.relatedTarget as Node | null;
+      const isReturningToInput = !!nextTarget && triggerRef.current === nextTarget;
       const isInsideWidget =
         !!nextTarget &&
-        (triggerRef.current?.contains(nextTarget) ||
-          triggerButtonRef.current?.contains(nextTarget) ||
+        (triggerButtonRef.current?.contains(nextTarget) ||
           floatingRef.current?.contains(nextTarget));
 
-      if (!isInsideWidget) {
+      if (isReturningToInput) {
+        dispatch({ type: 'CLOSE' });
+      } else if (!isInsideWidget) {
         settleValue();
         dispatch({ type: 'CLOSE' });
       }
