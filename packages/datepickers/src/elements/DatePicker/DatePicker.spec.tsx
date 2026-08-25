@@ -25,6 +25,10 @@ const Example = (props: Omit<IDatePickerProps, 'children'>) => (
     <DatePicker {...props}>
       <input data-test-id="input" id="input" />
     </DatePicker>
+    <button data-test-id="outside" type="button">
+      Outside
+    </button>
+    <div data-test-id="outside-background">Non-interactive background</div>
   </>
 );
 
@@ -501,7 +505,7 @@ describe('DatePicker', () => {
       await user.type(input, '1/4/2019');
       await user.click(getByTestId('calendar-button'));
 
-      fireEvent.mouseDown(document.body);
+      await user.click(getByTestId('outside'));
 
       expect(input).toHaveValue('1/4/2019');
     });
@@ -513,7 +517,7 @@ describe('DatePicker', () => {
       fireEvent.change(input, { target: { value: 'invalid date' } });
       await user.click(getByTestId('calendar-button'));
 
-      fireEvent.mouseDown(document.body);
+      await user.click(getByTestId('outside'));
 
       expect(input).toHaveValue('invalid date');
     });
@@ -640,7 +644,7 @@ describe('DatePicker', () => {
       fireEvent.change(input, { target: { value: 'invalid date' } });
       await user.click(getByTestId('calendar-button'));
 
-      fireEvent.mouseDown(document.body);
+      await user.click(getByTestId('outside'));
 
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: undefined,
@@ -659,7 +663,7 @@ describe('DatePicker', () => {
       await user.type(input, '1/4/2019');
       await user.click(getByTestId('calendar-button'));
 
-      fireEvent.mouseDown(document.body);
+      await user.click(getByTestId('outside'));
 
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: new Date(2019, 0, 4),
@@ -752,7 +756,19 @@ describe('DatePicker', () => {
       await user.click(button);
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
 
-      fireEvent.mouseDown(document.body);
+      await user.click(getByTestId('outside'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('closes the calendar when clicking a non-interactive element outside the widget', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('outside-background'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
