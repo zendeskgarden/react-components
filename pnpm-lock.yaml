@@ -97,8 +97,8 @@ importers:
         specifier: 8.2.0
         version: 8.2.0
       commander:
-        specifier: 14.0.3
-        version: 14.0.3
+        specifier: 15.0.0
+        version: 15.0.0
       envalid:
         specifier: 8.1.1
         version: 8.1.1
@@ -2954,6 +2954,10 @@ packages:
     resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
     engines: {node: '>=20'}
 
+  commander@15.0.0:
+    resolution: {integrity: sha512-z67u4ZhzCL/Tydu1lJARtEZYWbWaN7oYLHbsuzocr6y4N6WZAagG3RQ4FW61V1/0+jImpj293XfrcYnd1qxtPg==}
+    engines: {node: '>=22.12.0'}
+
   commander@7.2.0:
     resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
     engines: {node: '>= 10'}
@@ -2997,6 +3001,7 @@ packages:
   conventional-changelog-core@5.0.1:
     resolution: {integrity: sha512-Rvi5pH+LvgsqGwZPZ3Cq/tz4ty7mjijhr3qR4m9IBXNbxGGYgTVVO+duXzz9aArmHxFtwZ+LRkrNIMDQzgoY4A==}
     engines: {node: '>=14'}
+    deprecated: Deprecated and no longer maintained. Please use conventional-changelog instead.
 
   conventional-changelog-preset-loader@3.0.0:
     resolution: {integrity: sha512-qy9XbdSLmVnwnvzEisjxdDiLA4OmV3o8db+Zdg4WiFw14fP3B6XNz98X0swPPpkTd/pc1K7+adKgEDM1JCUMiA==}
@@ -3531,6 +3536,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -3887,7 +3893,7 @@ packages:
   git-raw-commits@3.0.0:
     resolution: {integrity: sha512-b5OHmZ3vAgGrDn/X0kS+9qCfNKWe4K/jFnhwzVWWg0/k5eLa3060tZShrRg8Dja5kPc+YjS0Gc6y7cRr44Lpjw==}
     engines: {node: '>=14'}
-    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-remote-origin-url@2.0.0:
@@ -3897,7 +3903,7 @@ packages:
   git-semver-tags@5.0.1:
     resolution: {integrity: sha512-hIvOeZwRbQ+7YEUmCkHqo8FOLQZCEn18yevLHADlFPZY02KJGsu5FZt9YW/lybfK2uhWFI7Qg/07LekJiTv7iA==}
     engines: {node: '>=14'}
-    deprecated: This package is no longer maintained. For the JavaScript API, please use @conventional-changelog/git-client instead.
+    deprecated: Deprecated and no longer maintained. Use @conventional-changelog/git-client instead.
     hasBin: true
 
   git-up@7.0.0:
@@ -9780,6 +9786,8 @@ snapshots:
   commander@14.0.2: {}
 
   commander@14.0.3: {}
+
+  commander@15.0.0: {}
 
   commander@7.2.0: {}
 
