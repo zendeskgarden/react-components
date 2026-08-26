@@ -140,25 +140,28 @@ const itemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
   return css`
-    & > * {
-      z-index: -1;
-    }
+    ${!props.$isSeamless &&
+    css`
+      & > * {
+        z-index: -1;
+      }
 
-    & > ${StyledTextInput} {
-      z-index: 0; /* [2] */
-    }
+      & > ${StyledTextInput} {
+        z-index: 0; /* [2] */
+      }
 
-    & > ${StyledTextInput}:disabled {
-      z-index: -2;
-    }
+      & > ${StyledTextInput}:disabled {
+        z-index: -2;
+      }
 
-    & > ${StyledTextInput}:hover, & > button:hover,
-    & > ${StyledTextInput}:focus-visible, & > button:focus-visible,
-    & > ${StyledTextInput}:active, & > button:active,
-    & > button[aria-pressed='true'],
-    & > button[aria-pressed='mixed'] {
-      z-index: 1;
-    }
+      & > ${StyledTextInput}:hover, & > button:hover,
+      & > ${StyledTextInput}:focus-visible, & > button:focus-visible,
+      & > ${StyledTextInput}:active, & > button:active,
+      & > button[aria-pressed='true'],
+      & > button[aria-pressed='mixed'] {
+        z-index: 1;
+      }
+    `}
 
     & > button:disabled {
       border-top-width: 0;

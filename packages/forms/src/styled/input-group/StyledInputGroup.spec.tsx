@@ -10,6 +10,7 @@ import { render } from 'garden-test-utils';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledButton, StyledIconButton } from '@zendeskgarden/react-buttons';
 import { StyledInputGroup } from './StyledInputGroup';
+import { StyledTextInput } from '../text/StyledTextInput';
 
 describe('StyledInputGroup', () => {
   describe('$isSeamless', () => {
@@ -106,6 +107,24 @@ describe('StyledInputGroup', () => {
 
       expect(container.firstChild).not.toHaveStyleRule('margin-left', '-1px', {
         modifier: '&>*:not(:first-child)'
+      });
+    });
+
+    it('does not apply the item z-index layering used by the non-seamless variant', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+
+      expect(container.firstChild).not.toHaveStyleRule('z-index', '-1', { modifier: '&>*' });
+      expect(container.firstChild).not.toHaveStyleRule('z-index', '0', {
+        modifier: `&>${StyledTextInput}`
+      });
+    });
+
+    it('still applies item z-index layering for the non-seamless border-overlap variant', () => {
+      const { container } = render(<StyledInputGroup />);
+
+      expect(container.firstChild).toHaveStyleRule('z-index', '-1', { modifier: '&>*' });
+      expect(container.firstChild).toHaveStyleRule('z-index', '0', {
+        modifier: `&>${StyledTextInput}`
       });
     });
   });
