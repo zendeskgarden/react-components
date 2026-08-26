@@ -18,6 +18,8 @@ interface IFieldContext extends IUseFieldReturnValue {
   hasHint: boolean;
   setHasMessage: (messagePresent: boolean) => void;
   hasMessage: boolean;
+  setHasLabel: (labelPresent: boolean) => void;
+  hasLabel: boolean;
 }
 
 export const FieldContext = createContext<IFieldContext | undefined>(undefined);

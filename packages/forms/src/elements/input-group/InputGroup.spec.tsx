@@ -10,6 +10,67 @@ import { render, fireEvent, renderRtl } from 'garden-test-utils';
 import { Field, Input, InputGroup } from '../..';
 
 describe('InputGroup', () => {
+  it('always renders role="group"', () => {
+    const { getByTestId } = render(
+      <InputGroup data-test-id="input-group">
+        <Input />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input-group')).toHaveAttribute('role', 'group');
+  });
+
+  it('does not allow role to be overridden', () => {
+    const { getByTestId } = render(
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+      <InputGroup data-test-id="input-group" role="presentation">
+        <Input />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input-group')).toHaveAttribute('role', 'group');
+  });
+
+  it("labels the group via the enclosing Field's rendered label", () => {
+    const { getByTestId, getByText } = render(
+      <Field>
+        <Field.Label>Departure date</Field.Label>
+        <InputGroup data-test-id="input-group">
+          <Input />
+        </InputGroup>
+      </Field>
+    );
+
+    const label = getByText('Departure date');
+
+    expect(getByTestId('input-group')).toHaveAttribute('aria-labelledby', label.id);
+  });
+
+  it('does not dangle aria-labelledby when Field context exists but no Label is rendered', () => {
+    const { getByTestId } = render(
+      <Field>
+        <InputGroup data-test-id="input-group">
+          <Input aria-label="Departure date" />
+        </InputGroup>
+      </Field>
+    );
+
+    expect(getByTestId('input-group')).not.toHaveAttribute('aria-labelledby');
+  });
+
+  it('respects an explicit aria-labelledby override', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Field.Label>Departure date</Field.Label>
+        <InputGroup data-test-id="input-group" aria-labelledby="custom-id">
+          <Input />
+        </InputGroup>
+      </Field>
+    );
+
+    expect(getByTestId('input-group')).toHaveAttribute('aria-labelledby', 'custom-id');
+  });
+
   it('passes ref to underlying DOM element', () => {
     const ref = React.createRef<HTMLDivElement>();
     const { getByTestId } = render(
@@ -25,7 +86,7 @@ describe('InputGroup', () => {
   });
 
   it('applies focusInset styling to Input through context', () => {
-    const { getByLabelText } = render(
+    const { getByRole } = render(
       <Field>
         <Field.Label>Input</Field.Label>
         <InputGroup>
@@ -34,7 +95,7 @@ describe('InputGroup', () => {
       </Field>
     );
 
-    const input = getByLabelText('Input');
+    const input = getByRole('textbox', { name: 'Input' });
 
     fireEvent.focus(input);
 

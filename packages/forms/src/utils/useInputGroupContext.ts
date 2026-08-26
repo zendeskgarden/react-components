@@ -9,6 +9,7 @@ import { createContext, useContext } from 'react';
 
 interface IInputGroupContext {
   isCompact?: boolean;
+  isSeamless?: boolean;
 }
 
 export const InputGroupContext = createContext<IInputGroupContext | undefined>(undefined);

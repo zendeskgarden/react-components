@@ -33,6 +33,10 @@ export const Example: StoryObj<typeof InputGroupStory> = {
     items: { name: 'children' },
 
     ...commonArgTypes,
+    isSeamless: {
+      control: 'boolean',
+      table: { category: 'Story' }
+    },
     disabled: {
       control: 'boolean',
       table: { category: 'Story' }

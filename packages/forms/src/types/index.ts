@@ -42,7 +42,10 @@ export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetEleme
 }
 
 export interface IInputGroupProps
-  extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {}
+  extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {
+  /** Applies seamless styling so the group is bordered/focused as a single field */
+  isSeamless?: boolean;
+}
 
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */

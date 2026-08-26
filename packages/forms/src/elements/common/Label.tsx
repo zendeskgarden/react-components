@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import useFieldContext from '../../utils/useFieldContext';
@@ -33,6 +33,13 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
     const fieldContext = useFieldContext();
     const fieldsetContext = useFieldsetContext();
     const type = useInputContext();
+    const { setHasLabel } = fieldContext || {};
+
+    useEffect(() => {
+      setHasLabel?.(true);
+
+      return () => setHasLabel?.(false);
+    }, [setHasLabel]);
 
     const $isRegular = fieldsetContext && isRegular === undefined ? true : isRegular;
     let combinedProps = other;

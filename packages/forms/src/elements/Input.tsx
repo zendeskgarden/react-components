@@ -37,7 +37,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
         ref={ref}
         onSelect={onSelectHandler}
         {...combinedProps}
-        $isBare={isBare}
+        $isBare={isBare === undefined && inputGroupContext?.isSeamless ? true : isBare}
         $isCompact={inputGroupContext ? inputGroupContext.isCompact : isCompact}
         $focusInset={inputGroupContext && focusInset === undefined ? true : focusInset}
         $validation={validation}
