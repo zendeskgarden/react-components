@@ -72,7 +72,7 @@
     "@zendeskgarden/scripts": "2.5.3",
     "@zendeskgarden/stylelint-config": "23.0.0",
     "@zendeskgarden/svg-icons": "8.2.0",
-    "commander": "14.0.3",
+    "commander": "15.0.0",
     "envalid": "8.1.1",
     "eslint": "9.39.4",
     "execa": "9.6.1",
