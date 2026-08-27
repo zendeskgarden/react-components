@@ -95,6 +95,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   });
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const focusBorderColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+  const buttonLineHeight = math(`${buttonSize} - (${theme.borderWidths.sm} * 2)`);
 
   return css`
     box-sizing: border-box;
@@ -136,9 +137,15 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
      * can't be cleanly subtracted from the gap above. Overriding it to a fixed value that
      * matches the container's own edge spacing keeps the visual rhythm at ${horizontalSpacing}px
      * regardless of button size, without duplicating StyledButton's private padding formula.
+     *
+     * height/line-height are shrunk to match the IconButton size too, so a text Button doesn't
+     * grow the container past its own min-height.
      */
     & ${StyledButton}:not(${StyledIconButton}) {
       padding-inline: ${horizontalSpacing}px;
+      height: ${buttonSize};
+      min-height: ${buttonSize};
+      line-height: ${buttonLineHeight};
     }
 
     /*

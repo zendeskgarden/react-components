@@ -70,10 +70,24 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).toHaveStyleRule('min-width', '24px', { modifier });
     });
 
-    it('does not resize plain text buttons', () => {
+    it('does not resize the width of plain text buttons', () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
 
       expect(container.firstChild).not.toHaveStyleRule('width', '28px', { modifier: '& button' });
+    });
+
+    it("shrinks a plain text button's height to match the icon button size, so it doesn't grow the container beyond its own min-height", () => {
+      const { container: regular } = render(<StyledInputGroup $isSeamless />);
+      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const modifier = `& ${StyledButton}:not(${StyledIconButton})`;
+
+      expect(regular.firstChild).toHaveStyleRule('height', '28px', { modifier });
+      expect(regular.firstChild).toHaveStyleRule('min-height', '28px', { modifier });
+      expect(regular.firstChild).toHaveStyleRule('line-height', '26px', { modifier });
+
+      expect(compact.firstChild).toHaveStyleRule('height', '24px', { modifier });
+      expect(compact.firstChild).toHaveStyleRule('min-height', '24px', { modifier });
+      expect(compact.firstChild).toHaveStyleRule('line-height', '22px', { modifier });
     });
 
     it('centers children and adds inter-item spacing', () => {
