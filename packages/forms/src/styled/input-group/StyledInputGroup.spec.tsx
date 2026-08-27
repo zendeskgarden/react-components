@@ -56,18 +56,32 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).toHaveStyleRule('min-height', '32px');
     });
 
-    it('sizes icon buttons to fit within the container with focus-ring clearance', () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+    it('does not resize a regular IconButton, since its own small size already fits with room to spare', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
       const modifier = `& ${StyledIconButton}`;
 
-      expect(regular.firstChild).toHaveStyleRule('width', '28px', { modifier });
-      expect(regular.firstChild).toHaveStyleRule('min-width', '28px', { modifier });
-      expect(regular.firstChild).toHaveStyleRule('height', '28px', { modifier });
-      expect(regular.firstChild).toHaveStyleRule('min-height', '28px', { modifier });
+      expect(container.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
+      expect(container.firstChild).not.toHaveStyleRule('height', expect.any(String), {
+        modifier
+      });
+    });
 
-      expect(compact.firstChild).toHaveStyleRule('width', '24px', { modifier });
-      expect(compact.firstChild).toHaveStyleRule('min-width', '24px', { modifier });
+    it("shrinks a compact IconButton to fit, since its own small size (32px) doesn't fit within a 32px container plus border", () => {
+      const { container } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const modifier = `& ${StyledIconButton}`;
+
+      expect(container.firstChild).toHaveStyleRule('width', '30px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('min-width', '30px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('height', '30px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('min-height', '30px', { modifier });
+    });
+
+    it("sets the container's vertical padding to fit a regular IconButton's own small size, and to 0 once a compact IconButton is shrunk to fit", () => {
+      const { container: regular } = render(<StyledInputGroup $isSeamless />);
+      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+
+      expect(regular.firstChild).toHaveStyleRule('padding-block', '3px');
+      expect(compact.firstChild).toHaveStyleRule('padding-block', '0px');
     });
 
     it('does not resize the width of plain text buttons', () => {
@@ -108,8 +122,8 @@ describe('StyledInputGroup', () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
       const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
-      const regularIconInset = (28 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
-      const compactIconInset = (24 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
+      const regularIconInset = (32 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
+      const compactIconInset = (30 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
       const regularPadding = `calc(${paddingHorizontal} - ${regularIconInset}px)`;
       const compactPadding = `calc(${paddingHorizontal} - ${compactIconInset}px)`;
 
@@ -164,12 +178,21 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it('draws an inset focus ring on icon buttons when compact, since there is no room for an outward ring', () => {
-      const { container } = render(<StyledInputGroup $isSeamless $isCompact />);
+    it('does not impose an inset focus ring on icon buttons via CSS, leaving that to the consumer via the focusInset prop', () => {
+      const { container: regular } = render(<StyledInputGroup $isSeamless />);
+      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const modifier = `& ${StyledIconButton}:focus-visible`;
 
-      expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
-        modifier: `& ${StyledIconButton}:focus-visible`
-      });
+      expect(regular.firstChild).not.toHaveStyleRule(
+        'box-shadow',
+        expect.stringContaining('inset'),
+        { modifier }
+      );
+      expect(compact.firstChild).not.toHaveStyleRule(
+        'box-shadow',
+        expect.stringContaining('inset'),
+        { modifier }
+      );
     });
 
     it('does not apply the border-overlap hacks used by the non-seamless variant', () => {

@@ -32,13 +32,19 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   }
 
   const containerSize = $isCompact ? 32 : 40;
-  const buttonSizeValue = $isCompact ? 24 : 28;
   const horizontalSpacing = theme.space.base * 2;
   const paddingInline = em(`${theme.space.base * 3}px`, fontSize);
+  /*
+   * InputGroup forces a child IconButton to size="small" (32px) whenever isSeamless. That fits
+   * a regular 40px container with room to spare, but not a 32px compact container plus its own
+   * border - seamlessStyles shrinks the IconButton to fit in that case, so buttonSize here tracks
+   * whichever size actually renders.
+   */
+  const iconButtonSize = $isCompact ? containerSize - parseFloat(theme.borderWidths.sm) * 2 : 32;
   const verticalPadding = math(
-    `(${containerSize}px - ${buttonSizeValue}px - (${theme.borderWidths.sm} * 2)) / 2`
+    `(${containerSize}px - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
   );
-  const iconButtonInset = (buttonSizeValue - parseFloat(theme.iconSizes.md)) / 2;
+  const iconButtonInset = (iconButtonSize - parseFloat(theme.iconSizes.md)) / 2;
   const iconButtonPaddingInline = `calc(${paddingInline} - ${iconButtonInset}px)`;
   const textButtonPaddingInline = `calc(${paddingInline} - ${horizontalSpacing}px)`;
 
@@ -86,6 +92,9 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   const containerSize = $isCompact ? 32 : 40;
   const buttonSizeValue = $isCompact ? 24 : 28;
   const buttonSize = `${buttonSizeValue}px`;
+  const iconButtonSize = $isCompact
+    ? `${containerSize - parseFloat(theme.borderWidths.sm) * 2}px`
+    : undefined;
   const horizontalSpacing = theme.space.base * 2;
   const borderColor = getColor({
     theme,
@@ -107,29 +116,19 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     min-height: ${containerSize}px;
 
     /*
-     * scoped to IconButton specifically (not text Buttons, which size by their own content) -
-     * both width/height + min-width/min-height are set, since IconButton sets its own
-     * min-width/min-height to its size token, which beats a smaller explicit width/height alone.
+     * a regular IconButton's own small size (32px) already fits within the container with room
+     * to spare, so it's left unstyled - but that same 32px doesn't fit within a 32px compact
+     * container plus its own border, so it's shrunk down to fit in that case. Either way, the
+     * consumer is expected to pass focusInset for a seamless group, since padding-block is too
+     * tight for an outward ring to clear.
      */
     & ${StyledIconButton} {
       flex: none;
       align-self: center;
-      width: ${buttonSize};
-      min-width: ${buttonSize};
-      height: ${buttonSize};
-      min-height: ${buttonSize};
-
-      /*
-       * the compact button (24px, the WCAG 2.5.8 floor) doesn't have room for the default
-       * outward focus ring within a 32px container without clipping - draw it inward instead
-       */
-      ${$isCompact &&
-      focusStyles({
-        theme,
-        inset: true,
-        color: { variable: 'border.primaryEmphasis' },
-        styles: { borderColor: focusBorderColor }
-      })}
+      width: ${iconButtonSize};
+      min-width: ${iconButtonSize};
+      height: ${iconButtonSize};
+      min-height: ${iconButtonSize};
     }
 
     /*

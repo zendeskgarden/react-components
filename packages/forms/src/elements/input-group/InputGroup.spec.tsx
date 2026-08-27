@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { render, fireEvent, renderRtl } from 'garden-test-utils';
+import { IconButton } from '@zendeskgarden/react-buttons';
 import { Field, Input, InputGroup } from '../..';
 
 describe('InputGroup', () => {
@@ -102,6 +103,98 @@ describe('InputGroup', () => {
     expect(input).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
       modifier: '&:focus-visible'
     });
+  });
+
+  it('forces focusInset on an IconButton child when isSeamless', () => {
+    const { getByRole } = render(
+      <InputGroup isSeamless>
+        <IconButton aria-label="Icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    const iconButton = getByRole('button', { name: 'Icon button' });
+
+    fireEvent.focus(iconButton);
+
+    expect(iconButton).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+      modifier: '&:focus-visible'
+    });
+  });
+
+  it('does not force focusInset on an IconButton child when not isSeamless', () => {
+    const { getByRole } = render(
+      <InputGroup>
+        <IconButton aria-label="Icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    const iconButton = getByRole('button', { name: 'Icon button' });
+
+    fireEvent.focus(iconButton);
+
+    expect(iconButton).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+      modifier: '&:focus-visible'
+    });
+  });
+
+  it('rejects an explicit focusInset override on an IconButton child, since an outward ring breaks the isSeamless styles', () => {
+    const { getByRole } = render(
+      <InputGroup isSeamless>
+        <IconButton focusInset={false} aria-label="Icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    const iconButton = getByRole('button', { name: 'Icon button' });
+
+    fireEvent.focus(iconButton);
+
+    expect(iconButton).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+      modifier: '&:focus-visible'
+    });
+  });
+
+  it('forces size="small" on an IconButton child when isSeamless, regardless of isCompact', () => {
+    const { getByRole: getByRoleRegular } = render(
+      <InputGroup isSeamless>
+        <IconButton aria-label="Regular icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+    const { getByRole: getByRoleCompact } = render(
+      <InputGroup isSeamless isCompact>
+        <IconButton aria-label="Compact icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    expect(getByRoleRegular('button', { name: 'Regular icon button' })).toHaveStyleRule(
+      'height',
+      '32px'
+    );
+    expect(getByRoleCompact('button', { name: 'Compact icon button' })).toHaveStyleRule(
+      'height',
+      '32px'
+    );
+  });
+
+  it('rejects an explicit size override on an IconButton child, since any other size breaks the isSeamless styles', () => {
+    const { getByRole } = render(
+      <InputGroup isSeamless>
+        <IconButton size="large" aria-label="Icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '32px');
   });
 
   describe('InputGroup child items', () => {
