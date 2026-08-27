@@ -119,11 +119,19 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).toHaveStyleRule('line-height', '22px', { modifier });
     });
 
-    it('adds inter-item spacing without overriding the default stretched alignment', () => {
+    it('centers children and adds inter-item spacing', () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
 
-      expect(container.firstChild).toHaveStyleRule('align-items', 'stretch');
+      expect(container.firstChild).toHaveStyleRule('align-items', 'center');
       expect(container.firstChild).toHaveStyleRule('gap', '8px');
+    });
+
+    it('stretches StyledTextInput to the container height, despite the container centering its other children', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+
+      expect(container.firstChild).toHaveStyleRule('align-self', 'stretch', {
+        modifier: `& ${StyledTextInput}`
+      });
     });
 
     it("matches the container's inline edge padding to StyledTextInput's own non-bare horizontal padding", () => {

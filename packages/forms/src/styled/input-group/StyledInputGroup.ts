@@ -155,6 +155,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
   return css`
     box-sizing: border-box;
+    align-items: center;
     /* prettier-ignore */
     transition: border-color 0.25s ease-in-out;
     border: ${theme.borders.sm};
@@ -165,6 +166,14 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
     &:hover {
       border-color: ${focusBorderColor};
+    }
+
+    /*
+     * the container centers its children by default, but the text input itself should still
+     * stretch to fill the container's full height
+     */
+    & ${StyledTextInput} {
+      align-self: stretch;
     }
 
     /*
