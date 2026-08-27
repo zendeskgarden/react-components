@@ -59,6 +59,20 @@ describe('InputGroup', () => {
     expect(getByTestId('input-group')).not.toHaveAttribute('aria-labelledby');
   });
 
+  it('omits the auto-derived aria-labelledby when an explicit aria-label is provided', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Field.Label>Departure date</Field.Label>
+        <InputGroup data-test-id="input-group" aria-label="Custom label">
+          <Input />
+        </InputGroup>
+      </Field>
+    );
+
+    expect(getByTestId('input-group')).not.toHaveAttribute('aria-labelledby');
+    expect(getByTestId('input-group')).toHaveAttribute('aria-label', 'Custom label');
+  });
+
   it('respects an explicit aria-labelledby override', () => {
     const { getByTestId } = render(
       <Field>

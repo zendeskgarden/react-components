@@ -47,10 +47,10 @@ export const DateFieldStory: StoryFn<IArgs> = ({
       validationLabel={validationLabel}
     >
       <InputGroup {...args}>
-        <InputGroup aria-label="Foo" isSeamless focusInset>
+        <InputGroup isSeamless focusInset>
           <Input ref={inputRef} value={value} onChange={e => setValue(e.target.value)} />
           {value.length > 0 && (
-            <IconButton aria-label={`Clear: ${label}`} isBasic onClick={onClearClick}>
+            <IconButton aria-label={`Clear value: ${label}`} isBasic onClick={onClearClick}>
               <ClearIcon />
             </IconButton>
           )}

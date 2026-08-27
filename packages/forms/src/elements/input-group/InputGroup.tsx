@@ -20,7 +20,10 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
   ({ isCompact, isSeamless, focusInset, children, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const contextValue = useMemo(() => ({ isCompact, isSeamless }), [isCompact, isSeamless]);
-    const labelId = fieldContext?.hasLabel ? fieldContext.getLabelProps({}).id : undefined;
+    const labelId =
+      fieldContext?.hasLabel && !other['aria-label']
+        ? fieldContext.getLabelProps({}).id
+        : undefined;
 
     const mappedChildren = Children.map(children, child => {
       if (!isValidElement(child) || child.type !== IconButton) {
