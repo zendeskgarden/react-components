@@ -6,7 +6,7 @@
  */
 
 import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
-import { render, renderRtl } from 'garden-test-utils';
+import { fireEvent, render, renderRtl, waitFor } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { IComboboxProps, ISelectedOption } from '../../types';
@@ -638,7 +638,51 @@ describe('Combobox', () => {
 
       await user.keyboard('{Tab}');
 
-      expect(input).toHaveAttribute('hidden');
+      // Input hiding is deferred to the next task so transient blurs are ignored
+      await waitFor(() => expect(input).toHaveAttribute('hidden'));
+    });
+
+    it('does not hide input on transient blur when focus returns to the trigger', async () => {
+      const { getByTestId } = render(<TestCombobox />);
+      const combobox = getByTestId('combobox');
+      const input = getByTestId('input');
+
+      await user.click(combobox.firstChild as HTMLElement);
+
+      expect(input).not.toHaveAttribute('hidden');
+
+      // Simulate a transient blur (null `relatedTarget`) as fired when Floating
+      // UI repositions the listbox at high browser zoom, with focus returning
+      // within the same task
+      fireEvent.focusOut(input, { relatedTarget: null });
+      fireEvent.focusIn(input);
+
+      // Wait past the deferred blur response
+      await new Promise(resolve => {
+        setTimeout(resolve, 10);
+      });
+
+      expect(input).not.toHaveAttribute('hidden');
+    });
+
+    it('does not hide input on spurious blur when focus never left the combobox', async () => {
+      const { getByTestId } = render(<TestCombobox />);
+      const combobox = getByTestId('combobox');
+      const input = getByTestId('input');
+
+      await user.click(combobox.firstChild as HTMLElement);
+
+      expect(input).not.toHaveAttribute('hidden');
+
+      // `fireEvent.focusOut` dispatches without moving `document.activeElement`,
+      // simulating a spurious blur where focus never actually left the input
+      fireEvent.focusOut(input, { relatedTarget: null });
+
+      await new Promise(resolve => {
+        setTimeout(resolve, 10);
+      });
+
+      expect(input).not.toHaveAttribute('hidden');
     });
   });
 
