@@ -45,6 +45,8 @@ export interface IInputGroupProps
   extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {
   /** Applies seamless styling so the group is bordered/focused as a single field */
   isSeamless?: boolean;
+  /** Insets the container's own `isSeamless` focus ring, e.g. when nested inside another group */
+  focusInset?: boolean;
 }
 
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {

@@ -159,6 +159,38 @@ describe('InputGroup', () => {
     });
   });
 
+  it('applies an inset focus ring to a seamless container itself when focusInset is set', () => {
+    const { getByTestId, getByRole } = render(
+      <InputGroup data-test-id="input-group" isSeamless focusInset>
+        <Input aria-label="Input" />
+      </InputGroup>
+    );
+
+    fireEvent.focus(getByRole('textbox', { name: 'Input' }));
+
+    expect(getByTestId('input-group')).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining('inset'),
+      { modifier: '&:focus-within:not(:has(button:focus-visible))' }
+    );
+  });
+
+  it('does not apply an inset focus ring to a seamless container by default', () => {
+    const { getByTestId, getByRole } = render(
+      <InputGroup data-test-id="input-group" isSeamless>
+        <Input aria-label="Input" />
+      </InputGroup>
+    );
+
+    fireEvent.focus(getByRole('textbox', { name: 'Input' }));
+
+    expect(getByTestId('input-group')).not.toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining('inset'),
+      { modifier: '&:focus-within:not(:has(button:focus-visible))' }
+    );
+  });
+
   it('forces size="small" on an IconButton child when isSeamless, regardless of isCompact', () => {
     const { getByRole: getByRoleRegular } = render(
       <InputGroup isSeamless>

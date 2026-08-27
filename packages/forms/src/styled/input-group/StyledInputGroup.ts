@@ -19,6 +19,7 @@ const COMPONENT_ID = 'forms.input_group';
 interface IStyledInputGroupProps {
   $isCompact?: boolean;
   $isSeamless?: boolean;
+  $focusInset?: boolean;
 }
 
 const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
@@ -88,7 +89,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     return undefined;
   }
 
-  const { theme, $isCompact } = props;
+  const { theme, $isCompact, $focusInset } = props;
   const containerSize = $isCompact ? 32 : 40;
   const buttonSizeValue = $isCompact ? 24 : 28;
   const buttonSize = `${buttonSizeValue}px`;
@@ -108,12 +109,17 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
   return css`
     box-sizing: border-box;
-    align-items: center;
+    /* prettier-ignore */
+    transition: border-color 0.25s ease-in-out;
     border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
     border-color: ${borderColor};
     background-color: ${backgroundColor};
     min-height: ${containerSize}px;
+
+    &:hover {
+      border-color: ${focusBorderColor};
+    }
 
     /*
      * a regular IconButton's own small size (32px) already fits within the container with room
@@ -155,6 +161,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
      */
     ${focusStyles({
       theme,
+      inset: $focusInset,
       color: { variable: 'border.primaryEmphasis' },
       selector: '&:focus-within:not(:has(button:focus-visible))',
       styles: { borderColor: focusBorderColor }

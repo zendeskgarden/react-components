@@ -104,10 +104,10 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).toHaveStyleRule('line-height', '22px', { modifier });
     });
 
-    it('centers children and adds inter-item spacing', () => {
+    it('adds inter-item spacing without overriding the default stretched alignment', () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
 
-      expect(container.firstChild).toHaveStyleRule('align-items', 'center');
+      expect(container.firstChild).toHaveStyleRule('align-items', 'stretch');
       expect(container.firstChild).toHaveStyleRule('gap', '8px');
     });
 
@@ -176,6 +176,27 @@ describe('StyledInputGroup', () => {
       expect(container.firstChild).toHaveStyleRule('border-color', focusBorderColor, {
         modifier: '&:focus-within:not(:has(button:focus-visible))'
       });
+    });
+
+    it('highlights the container border on hover, matching StyledTextInput', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+      const hoverBorderColor = getColor({
+        theme: DEFAULT_THEME,
+        variable: 'border.primaryEmphasis'
+      });
+
+      expect(container.firstChild).toHaveStyleRule('border-color', hoverBorderColor, {
+        modifier: '&:hover'
+      });
+    });
+
+    it('transitions border-color smoothly, matching StyledTextInput', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'transition',
+        expect.stringContaining('border-color 0.25s ease-in-out')
+      );
     });
 
     it('does not impose an inset focus ring on icon buttons via CSS, leaving that to the consumer via the focusInset prop', () => {

@@ -10,6 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
 import { ClearValueStory } from './stories/ClearValueStory';
+import { DateFieldStory } from './stories/DateFieldStory';
 import { FILE_TYPES } from '../stories/data';
 
 export default {
@@ -22,6 +23,15 @@ export const ClearValue: StoryObj<typeof ClearValueStory> = {
   name: 'Clear value',
   args: {
     label: 'Plant name',
+    hasHint: false
+  }
+};
+
+export const DateField: StoryObj<typeof DateFieldStory> = {
+  render: args => <DateFieldStory {...args} />,
+  name: 'Date field',
+  args: {
+    label: 'Date',
     hasHint: false
   }
 };

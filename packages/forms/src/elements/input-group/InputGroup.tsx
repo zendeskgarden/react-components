@@ -17,7 +17,7 @@ import { StyledInputGroup } from '../../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
-  ({ isCompact, isSeamless, children, ...other }, ref) => {
+  ({ isCompact, isSeamless, focusInset, children, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const contextValue = useMemo(() => ({ isCompact, isSeamless }), [isCompact, isSeamless]);
     const labelId = fieldContext?.hasLabel ? fieldContext.getLabelProps({}).id : undefined;
@@ -49,6 +49,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
           ref={ref}
           $isCompact={isCompact}
           $isSeamless={isSeamless}
+          $focusInset={focusInset}
           {...other}
           role="group"
         >
@@ -63,5 +64,6 @@ InputGroup.displayName = 'InputGroup';
 
 InputGroup.propTypes = {
   isCompact: PropTypes.bool,
-  isSeamless: PropTypes.bool
+  isSeamless: PropTypes.bool,
+  focusInset: PropTypes.bool
 };
