@@ -18,21 +18,25 @@ interface IGroupButtonProps extends PropsWithChildren {
   isPrimary?: boolean;
   isDanger?: boolean;
   isToggle?: boolean;
+  isSeamless?: boolean;
   size?: IButtonProps['size'];
 }
 
-const GroupButton = ({ isToggle, ...props }: IGroupButtonProps) => {
+const GroupButton = ({ isToggle, isSeamless, ...props }: IGroupButtonProps) => {
   const [isPressed, setIsPressed] = useState(false);
+  /* the non-seamless variant's overlapping borders need an inset ring to avoid clipping;
+   * the seamless variant has room around each button for the default outward ring */
+  const focusInset = !isSeamless;
 
   return isToggle ? (
     <ToggleButton
-      focusInset
+      focusInset={focusInset}
       {...props}
       isPressed={isPressed}
       onClick={() => setIsPressed(!isPressed)}
     />
   ) : (
-    <Button focusInset {...props} />
+    <Button focusInset={focusInset} {...props} />
   );
 };
 
@@ -87,6 +91,7 @@ export const InputGroupStory: StoryFn<IArgs> = ({
             isPrimary={isPrimary}
             isDanger={isDanger}
             isToggle={isToggle}
+            isSeamless={args.isSeamless}
             size={args.isCompact ? 'small' : undefined}
           >
             {item.text}
