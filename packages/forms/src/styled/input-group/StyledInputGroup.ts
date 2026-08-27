@@ -6,7 +6,7 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { math } from 'polished';
+import { em, math } from 'polished';
 import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledButton, StyledIconButton } from '@zendeskgarden/react-buttons';
 import { StyledTextInput } from '../text/StyledTextInput';
@@ -21,6 +21,32 @@ interface IStyledInputGroupProps {
   $isSeamless?: boolean;
 }
 
+const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme, $isCompact, $isSeamless } = props;
+  const fontSize = theme.fontSizes.md;
+
+  if (!$isSeamless) {
+    return css`
+      font-size: ${fontSize};
+    `;
+  }
+
+  const containerSize = $isCompact ? 32 : 40;
+  const buttonSizeValue = $isCompact ? 24 : 28;
+  const horizontalSpacing = theme.space.base * 2;
+  const paddingInline = em(`${theme.space.base * 3}px`, fontSize);
+  const verticalPadding = math(
+    `(${containerSize}px - ${buttonSizeValue}px - (${theme.borderWidths.sm} * 2)) / 2`
+  );
+
+  return css`
+    font-size: ${fontSize};
+    padding-block: ${verticalPadding};
+    padding-inline: ${paddingInline};
+    gap: ${horizontalSpacing}px;
+  `;
+};
+
 const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   if (!props.$isSeamless) {
     return undefined;
@@ -31,9 +57,6 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   const buttonSizeValue = $isCompact ? 24 : 28;
   const buttonSize = `${buttonSizeValue}px`;
   const horizontalSpacing = theme.space.base * 2;
-  const verticalPadding = math(
-    `(${containerSize}px - ${buttonSizeValue}px - (${theme.borderWidths.sm} * 2)) / 2`
-  );
   const borderColor = getColor({
     theme,
     variable: 'border.default',
@@ -50,8 +73,6 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     border-radius: ${theme.borderRadii.md};
     border-color: ${borderColor};
     background-color: ${backgroundColor};
-    padding: ${verticalPadding} ${horizontalSpacing}px;
-    gap: ${horizontalSpacing}px;
     min-height: ${containerSize}px;
 
     /*
@@ -202,6 +223,7 @@ export const StyledInputGroup = styled.div.attrs({
   z-index: 0;
   width: 100%;
 
+  ${props => sizeStyles(props)};
   ${props => positionStyles(props)};
   ${props => itemStyles(props)};
   ${props => seamlessStyles(props)};

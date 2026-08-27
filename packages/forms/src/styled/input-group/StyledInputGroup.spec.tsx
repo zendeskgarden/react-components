@@ -7,12 +7,25 @@
 
 import React from 'react';
 import { render } from 'garden-test-utils';
+import { em } from 'polished';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledButton, StyledIconButton } from '@zendeskgarden/react-buttons';
 import { StyledInputGroup } from './StyledInputGroup';
 import { StyledTextInput } from '../text/StyledTextInput';
 
 describe('StyledInputGroup', () => {
+  it('sets a font-size matching StyledTextInput, regardless of $isCompact or $isSeamless', () => {
+    const { container: plain } = render(<StyledInputGroup />);
+    const { container: compact } = render(<StyledInputGroup $isCompact />);
+    const { container: seamless } = render(<StyledInputGroup $isSeamless />);
+    const { container: compactSeamless } = render(<StyledInputGroup $isSeamless $isCompact />);
+
+    expect(plain.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+    expect(compact.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+    expect(seamless.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+    expect(compactSeamless.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+  });
+
   describe('$isSeamless', () => {
     it('renders a container border and radius', () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
@@ -63,12 +76,18 @@ describe('StyledInputGroup', () => {
       expect(container.firstChild).not.toHaveStyleRule('width', '28px', { modifier: '& button' });
     });
 
-    it('centers children and adds edge padding and inter-item spacing', () => {
+    it('centers children and adds inter-item spacing', () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
 
       expect(container.firstChild).toHaveStyleRule('align-items', 'center');
       expect(container.firstChild).toHaveStyleRule('gap', '8px');
-      expect(container.firstChild).toHaveStyleRule('padding', expect.stringContaining('8px'));
+    });
+
+    it("matches the container's inline edge padding to StyledTextInput's own non-bare horizontal padding", () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+      const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline', paddingHorizontal);
     });
 
     it("overrides a text button's own padding so it visually matches the container gap, without touching IconButton", () => {
@@ -126,6 +145,13 @@ describe('StyledInputGroup', () => {
       expect(container.firstChild).toHaveStyleRule('z-index', '0', {
         modifier: `&>${StyledTextInput}`
       });
+    });
+
+    it('does not apply seamless gap or edge padding to the non-seamless variant', () => {
+      const { container } = render(<StyledInputGroup />);
+
+      expect(container.firstChild).not.toHaveStyleRule('gap', '8px');
+      expect(container.firstChild).not.toHaveStyleRule('padding-inline', expect.any(String));
     });
   });
 });
