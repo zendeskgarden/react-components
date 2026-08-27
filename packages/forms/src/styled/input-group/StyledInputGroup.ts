@@ -38,12 +38,28 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   const verticalPadding = math(
     `(${containerSize}px - ${buttonSizeValue}px - (${theme.borderWidths.sm} * 2)) / 2`
   );
+  const iconButtonInset = (buttonSizeValue - parseFloat(theme.iconSizes.md)) / 2;
+  const iconButtonPaddingInline = `calc(${paddingInline} - ${iconButtonInset}px)`;
 
   return css`
     font-size: ${fontSize};
     padding-block: ${verticalPadding};
     padding-inline: ${paddingInline};
     gap: ${horizontalSpacing}px;
+
+    /*
+     * an edge IconButton's own icon is inset within the button by (button size - icon size) / 2,
+     * so pairing the container's declared edge padding with the button's own inset would push
+     * the icon in twice as far as intended - tuck the button closer to the edge to compensate,
+     * landing the icon itself at the container's declared padding
+     */
+    &:has(> ${StyledIconButton}:first-child) {
+      padding-inline-start: ${iconButtonPaddingInline};
+    }
+
+    &:has(> ${StyledIconButton}:last-child) {
+      padding-inline-end: ${iconButtonPaddingInline};
+    }
   `;
 };
 

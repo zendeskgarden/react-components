@@ -90,6 +90,29 @@ describe('StyledInputGroup', () => {
       expect(container.firstChild).toHaveStyleRule('padding-inline', paddingHorizontal);
     });
 
+    it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the icon itself sits at the container's declared padding", () => {
+      const { container: regular } = render(<StyledInputGroup $isSeamless />);
+      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
+      const regularIconInset = (28 - DEFAULT_THEME.iconSizes.md.replace('px', '')) / 2;
+      const compactIconInset = (24 - DEFAULT_THEME.iconSizes.md.replace('px', '')) / 2;
+      const regularPadding = `calc(${paddingHorizontal} - ${regularIconInset}px)`;
+      const compactPadding = `calc(${paddingHorizontal} - ${compactIconInset}px)`;
+
+      expect(regular.firstChild).toHaveStyleRule('padding-inline-end', regularPadding, {
+        modifier: `&:has(> ${StyledIconButton}:last-child)`
+      });
+      expect(regular.firstChild).toHaveStyleRule('padding-inline-start', regularPadding, {
+        modifier: `&:has(> ${StyledIconButton}:first-child)`
+      });
+      expect(compact.firstChild).toHaveStyleRule('padding-inline-end', compactPadding, {
+        modifier: `&:has(> ${StyledIconButton}:last-child)`
+      });
+      expect(compact.firstChild).toHaveStyleRule('padding-inline-start', compactPadding, {
+        modifier: `&:has(> ${StyledIconButton}:first-child)`
+      });
+    });
+
     it("overrides a text button's own padding so it visually matches the container gap, without touching IconButton", () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
 
