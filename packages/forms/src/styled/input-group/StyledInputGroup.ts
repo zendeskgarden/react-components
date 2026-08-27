@@ -17,6 +17,13 @@ import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.input_group';
 
+/*
+ * how much smaller a seamless group's IconButton renders than its own "small" size (32px),
+ * once compact - shared between sizeStyles' padding math and seamlessStyles' actual override so
+ * the two stay in sync
+ */
+const COMPACT_ICON_BUTTON_SHRINK = 4;
+
 interface IStyledInputGroupProps {
   $isCompact?: boolean;
   $isSeamless?: boolean;
@@ -42,11 +49,12 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
    * border - seamlessStyles shrinks the IconButton to fit in that case, so buttonSize here tracks
    * whichever size actually renders.
    */
-  const iconButtonSize = $isCompact ? containerSize - parseFloat(theme.borderWidths.sm) * 2 : 32;
+  const iconButtonSize = $isCompact ? containerSize - COMPACT_ICON_BUTTON_SHRINK : 32;
   const verticalPadding = math(
     `(${containerSize}px - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
   );
-  const iconButtonInset = (iconButtonSize - parseFloat(theme.iconSizes.md)) / 2;
+  const iconGlyphSize = $isCompact ? theme.iconSizes.sm : theme.iconSizes.md;
+  const iconButtonInset = (iconButtonSize - parseFloat(iconGlyphSize)) / 2;
   const iconButtonPaddingInline = `calc(${paddingInline} - ${iconButtonInset}px)`;
   const textButtonPaddingInline = `calc(${paddingInline} - ${horizontalSpacing}px)`;
 
@@ -133,9 +141,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   const containerSize = $isCompact ? 32 : 40;
   const buttonSizeValue = $isCompact ? 24 : 28;
   const buttonSize = `${buttonSizeValue}px`;
-  const iconButtonSize = $isCompact
-    ? `${containerSize - parseFloat(theme.borderWidths.sm) * 2}px`
-    : undefined;
+  const iconButtonSize = $isCompact ? `${containerSize - COMPACT_ICON_BUTTON_SHRINK}px` : undefined;
   const horizontalSpacing = theme.space.base * 2;
   const borderColor = getColor({
     theme,
@@ -175,6 +181,12 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       min-width: ${iconButtonSize};
       height: ${iconButtonSize};
       min-height: ${iconButtonSize};
+
+      /* the icon glyph itself is otherwise always rendered at iconSizes.md, regardless of size */
+      & svg {
+        width: ${$isCompact ? theme.iconSizes.sm : undefined};
+        height: ${$isCompact ? theme.iconSizes.sm : undefined};
+      }
     }
 
     /*

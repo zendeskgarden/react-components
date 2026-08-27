@@ -70,18 +70,33 @@ describe('StyledInputGroup', () => {
       const { container } = render(<StyledInputGroup $isSeamless $isCompact />);
       const modifier = `& ${StyledIconButton}`;
 
-      expect(container.firstChild).toHaveStyleRule('width', '30px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('min-width', '30px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('height', '30px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('min-height', '30px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('width', '28px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('min-width', '28px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('height', '28px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('min-height', '28px', { modifier });
     });
 
-    it("sets the container's vertical padding to fit a regular IconButton's own small size, and to 0 once a compact IconButton is shrunk to fit", () => {
+    it('shrinks a compact IconButton icon glyph to iconSizes.sm (12px), leaving a regular icon at its own default size', () => {
+      const { container: regular } = render(<StyledInputGroup $isSeamless />);
+      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const modifier = `& ${StyledIconButton} svg`;
+
+      expect(compact.firstChild).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.sm, {
+        modifier
+      });
+      expect(compact.firstChild).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.sm, {
+        modifier
+      });
+      expect(regular.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
+      expect(regular.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
+    });
+
+    it("sets the container's vertical padding to fit a regular IconButton's own small size, and to 1px once a compact IconButton is shrunk to fit", () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
 
       expect(regular.firstChild).toHaveStyleRule('padding-block', '3px');
-      expect(compact.firstChild).toHaveStyleRule('padding-block', '0px');
+      expect(compact.firstChild).toHaveStyleRule('padding-block', '1px');
     });
 
     it('does not resize the width of plain text buttons', () => {
@@ -123,7 +138,7 @@ describe('StyledInputGroup', () => {
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
       const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
       const regularIconInset = (32 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
-      const compactIconInset = (30 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
+      const compactIconInset = (28 - parseFloat(DEFAULT_THEME.iconSizes.sm)) / 2;
       const regularPadding = `calc(${paddingHorizontal} - ${regularIconInset}px)`;
       const compactPadding = `calc(${paddingHorizontal} - ${compactIconInset}px)`;
 

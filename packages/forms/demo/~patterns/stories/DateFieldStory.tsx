@@ -26,7 +26,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
   validationLabel,
   ...args
 }) => {
-  const label = 'Date';
+  const label = 'Expiration date';
   const [value, setValue] = useState('03/05/2024');
   const [isTouched, setIsTouched] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -55,11 +55,12 @@ export const DateFieldStory: StoryFn<IArgs> = ({
       validationLabel={validationLabel}
     >
       <InputGroup {...args}>
-        <InputGroup isSeamless focusInset>
+        <InputGroup isSeamless focusInset isCompact={args.isCompact}>
           <Input
             ref={inputRef}
             value={value}
             aria-required="true"
+            isCompact={args.isCompact}
             validation={validation}
             onChange={e => setValue(e.target.value)}
             onBlur={onInputBlur}
@@ -76,6 +77,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           isPill={false}
           isNeutral
           focusInset
+          size={args.isCompact ? 'small' : undefined}
         >
           <CalendarIcon />
         </IconButton>
