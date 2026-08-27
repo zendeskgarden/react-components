@@ -40,6 +40,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   );
   const iconButtonInset = (buttonSizeValue - parseFloat(theme.iconSizes.md)) / 2;
   const iconButtonPaddingInline = `calc(${paddingInline} - ${iconButtonInset}px)`;
+  const textButtonPaddingInline = `calc(${paddingInline} - ${horizontalSpacing}px)`;
 
   return css`
     font-size: ${fontSize};
@@ -59,6 +60,19 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
 
     &:has(> ${StyledIconButton}:last-child) {
       padding-inline-end: ${iconButtonPaddingInline};
+    }
+
+    /*
+     * a text Button's own padding is overridden below to ${horizontalSpacing}px, so the same
+     * over-compensation applies at the edges - tuck it in so the button's own text, not its
+     * padding, lands at the container's declared padding
+     */
+    &:has(> ${StyledButton}:not(${StyledIconButton}):first-child) {
+      padding-inline-start: ${textButtonPaddingInline};
+    }
+
+    &:has(> ${StyledButton}:not(${StyledIconButton}):last-child) {
+      padding-inline-end: ${textButtonPaddingInline};
     }
   `;
 };

@@ -94,8 +94,8 @@ describe('StyledInputGroup', () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
       const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
-      const regularIconInset = (28 - DEFAULT_THEME.iconSizes.md.replace('px', '')) / 2;
-      const compactIconInset = (24 - DEFAULT_THEME.iconSizes.md.replace('px', '')) / 2;
+      const regularIconInset = (28 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
+      const compactIconInset = (24 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
       const regularPadding = `calc(${paddingHorizontal} - ${regularIconInset}px)`;
       const compactPadding = `calc(${paddingHorizontal} - ${compactIconInset}px)`;
 
@@ -110,6 +110,20 @@ describe('StyledInputGroup', () => {
       });
       expect(compact.firstChild).toHaveStyleRule('padding-inline-start', compactPadding, {
         modifier: `&:has(> ${StyledIconButton}:first-child)`
+      });
+    });
+
+    it("tucks a trailing/leading text button's own overridden padding into the container's edge padding, so the button's text sits at the container's declared padding", () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+      const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
+      const horizontalSpacing = DEFAULT_THEME.space.base * 2;
+      const buttonPadding = `calc(${paddingHorizontal} - ${horizontalSpacing}px)`;
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-end', buttonPadding, {
+        modifier: `&:has(> ${StyledButton}:not(${StyledIconButton}):last-child)`
+      });
+      expect(container.firstChild).toHaveStyleRule('padding-inline-start', buttonPadding, {
+        modifier: `&:has(> ${StyledButton}:not(${StyledIconButton}):first-child)`
       });
     });
 
