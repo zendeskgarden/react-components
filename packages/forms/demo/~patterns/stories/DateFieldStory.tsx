@@ -16,39 +16,54 @@ import { FieldStory, IFieldArgs } from '../../stories/FieldStory';
 interface IArgs extends IInputGroupProps, IFieldArgs {}
 
 export const DateFieldStory: StoryFn<IArgs> = ({
-  label,
   isLabelRegular,
   isLabelHidden,
   hasHint,
   hint,
   hasMessage,
   message,
+  validation: controlValidation,
   validationLabel,
   ...args
 }) => {
-  const [value, setValue] = useState('18/12/2021');
+  const label = 'Date';
+  const [value, setValue] = useState('03/05/2024');
+  const [isTouched, setIsTouched] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const isRequiredError = isTouched && value.trim().length === 0;
+  const validation = isRequiredError ? 'error' : controlValidation;
+  const errorMessage = isRequiredError ? 'A date is required.' : message;
 
   const onClearClick = () => {
     setValue('');
     inputRef.current?.focus();
   };
 
+  const onInputBlur = () => setIsTouched(true);
+
   return (
     <FieldStory
-      label={label}
+      label={`${label}*`}
       isLabelRegular={isLabelRegular}
       isLabelHidden={isLabelHidden}
       hasHint={hasHint}
       hint={hint}
-      hasMessage={hasMessage}
-      message={message}
-      validation={args.validation}
+      hasMessage={hasMessage || isRequiredError}
+      message={errorMessage}
+      validation={validation}
       validationLabel={validationLabel}
     >
       <InputGroup {...args}>
         <InputGroup isSeamless focusInset>
-          <Input ref={inputRef} value={value} onChange={e => setValue(e.target.value)} />
+          <Input
+            ref={inputRef}
+            value={value}
+            aria-required="true"
+            validation={validation}
+            onChange={e => setValue(e.target.value)}
+            onBlur={onInputBlur}
+          />
           {value.length > 0 && (
             <IconButton aria-label={`Clear value: ${label}`} isBasic onClick={onClearClick}>
               <ClearIcon />

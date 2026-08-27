@@ -199,6 +199,59 @@ describe('StyledInputGroup', () => {
       );
     });
 
+    describe('validation', () => {
+      const VALIDATION_BORDER_VARIABLE = {
+        success: 'border.successEmphasis',
+        warning: 'border.warningEmphasis',
+        error: 'border.dangerEmphasis'
+      } as const;
+
+      it.each(['success', 'warning', 'error'] as const)(
+        'highlights the container border in the %s color at rest, based on a descendant data-validation attribute',
+        validation => {
+          const { container } = render(<StyledInputGroup $isSeamless />);
+          const borderColor = getColor({
+            theme: DEFAULT_THEME,
+            variable: VALIDATION_BORDER_VARIABLE[validation]
+          });
+
+          expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
+            modifier: `&:has(${StyledTextInput}[data-validation="${validation}"])`
+          });
+        }
+      );
+
+      it.each(['success', 'warning', 'error'] as const)(
+        'highlights the container border in the %s color on hover, based on a descendant data-validation attribute',
+        validation => {
+          const { container } = render(<StyledInputGroup $isSeamless />);
+          const borderColor = getColor({
+            theme: DEFAULT_THEME,
+            variable: VALIDATION_BORDER_VARIABLE[validation]
+          });
+
+          expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
+            modifier: `&:hover:has(${StyledTextInput}[data-validation="${validation}"])`
+          });
+        }
+      );
+
+      it.each(['success', 'warning', 'error'] as const)(
+        'highlights the container border in the %s color on focus-within, based on a descendant data-validation attribute',
+        validation => {
+          const { container } = render(<StyledInputGroup $isSeamless />);
+          const borderColor = getColor({
+            theme: DEFAULT_THEME,
+            variable: VALIDATION_BORDER_VARIABLE[validation]
+          });
+
+          expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
+            modifier: `&:focus-within:has(${StyledTextInput}[data-validation="${validation}"]):not(:has(button:focus-visible))`
+          });
+        }
+      );
+    });
+
     it('does not impose an inset focus ring on icon buttons via CSS, leaving that to the consumer via the focusInset prop', () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);

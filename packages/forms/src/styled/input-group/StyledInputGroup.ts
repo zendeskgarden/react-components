@@ -9,6 +9,7 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { em, math } from 'polished';
 import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledButton, StyledIconButton } from '@zendeskgarden/react-buttons';
+import { Validation } from '../../types';
 import { StyledTextInput } from '../text/StyledTextInput';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
@@ -82,6 +83,45 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       padding-inline-end: ${textButtonPaddingInline};
     }
   `;
+};
+
+/*
+ * StyledTextInput reflects its own $validation as a data-validation attribute (rather than
+ * something the container could read as a styled-components prop), so a seamless container - a
+ * sibling in the DOM, not an ancestor of anything that carries the prop - can select on it here
+ * via :has() to color its own border/focus ring the same way.
+ */
+const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
+  success: 'border.successEmphasis',
+  warning: 'border.warningEmphasis',
+  error: 'border.dangerEmphasis'
+};
+
+const validationStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme, $focusInset } = props;
+
+  return (Object.keys(VALIDATION_BORDER_VARIABLE) as Validation[]).map(validation => {
+    const selector = `${StyledTextInput}[data-validation="${validation}"]`;
+    const borderColor = getColor({ theme, variable: VALIDATION_BORDER_VARIABLE[validation] });
+
+    return css`
+      &:has(${selector}) {
+        border-color: ${borderColor};
+      }
+
+      &:hover:has(${selector}) {
+        border-color: ${borderColor};
+      }
+
+      ${focusStyles({
+        theme,
+        inset: $focusInset,
+        color: { variable: VALIDATION_BORDER_VARIABLE[validation] },
+        selector: `&:focus-within:has(${selector}):not(:has(button:focus-visible))`,
+        styles: { borderColor }
+      })}
+    `;
+  });
 };
 
 const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
@@ -166,6 +206,8 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       selector: '&:focus-within:not(:has(button:focus-visible))',
       styles: { borderColor: focusBorderColor }
     })}
+
+    ${validationStyles(props)}
   `;
 };
 
