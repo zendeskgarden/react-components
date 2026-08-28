@@ -46,7 +46,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
 }) => {
   return (
     <FieldStory
-      label={`${label}*`}
+      label={label}
       isLabelRegular={isLabelRegular}
       isLabelHidden={isLabelHidden}
       hasHint={hasHint}
