@@ -88,7 +88,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
             {...buttonProps}
             onClick={composeEventHandlers(onClick, onClearButtonClick, onClear)}
           >
-            <ClearIcon />
+            <ClearIcon aria-hidden="true" />
           </IconButton>
         ) : null}
       </InputGroup>

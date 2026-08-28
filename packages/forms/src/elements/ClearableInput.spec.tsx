@@ -95,6 +95,16 @@ describe('ClearableInput', () => {
     expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
   });
 
+  it('hides the clear button icon from assistive technology', () => {
+    const { getByRole } = render(
+      <ClearableInput aria-label="Search" value="hello" onChange={jest.fn()} />
+    );
+
+    const icon = getByRole('button', { name: 'Clear' }).querySelector('svg');
+
+    expect(icon).toHaveAttribute('aria-hidden', 'true');
+  });
+
   it('drives the controlled value to empty via onChange when the clear button is clicked', () => {
     const { getByRole } = render(<ControlledClearableInput />);
 
