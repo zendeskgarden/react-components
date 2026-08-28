@@ -15,21 +15,6 @@ The `FileUpload` component is shown here working together with the
   <Story of={Stories.Example} />
 </Canvas>
 
-## Clear value
-
-An `InputGroup` with `isSeamless` styled and behaving like a single bordered
-field, with a clear button that appears once there's a value to clear.
-
-Since the button unmounts as soon as the value is cleared, this pattern
-must move focus back to the input itself when the button is activated —
-otherwise focus would silently fall back to `<body>`, which is a keyboard
-and screen reader trap. This is the consuming application's responsibility,
-not something `InputGroup` manages on its own.
-
-<Canvas>
-  <Story of={Stories.ClearValue} />
-</Canvas>
-
 ## Date field
 
 Two `InputGroup`s nested inside a bare outer `InputGroup`: an inner

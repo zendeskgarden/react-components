@@ -9,22 +9,12 @@ import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 import { FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
-import { ClearValueStory } from './stories/ClearValueStory';
 import { DateFieldStory } from './stories/DateFieldStory';
 import { FILE_TYPES } from '../stories/data';
 
 export default {
   title: 'Packages/Forms/[patterns]',
   component: FileUpload
-};
-
-export const ClearValue: StoryObj<typeof ClearValueStory> = {
-  render: args => <ClearValueStory {...args} />,
-  name: 'Clear value',
-  args: {
-    label: 'Plant name',
-    hasHint: false
-  }
 };
 
 export const DateField: StoryObj<typeof DateFieldStory> = {
