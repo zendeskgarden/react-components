@@ -30,11 +30,10 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
         return child;
       }
 
-      const props = child.props as { focusInset?: boolean; size?: string };
+      const props = child.props as { size?: string };
 
-      /* isSeamless assumes a "small", inset-ring IconButton for its padding math, so neither is left to the consumer */
+      /* isSeamless assumes a "small" IconButton for its padding math, so that isn't left to the consumer */
       return cloneElement(child, {
-        focusInset: isSeamless ? true : props.focusInset,
         size: isSeamless ? 'small' : props.size
       });
     });

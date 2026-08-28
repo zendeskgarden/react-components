@@ -66,37 +66,33 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it("shrinks a compact IconButton to fit, since its own small size (32px) doesn't fit within a 32px container plus border", () => {
+    it("shrinks a compact IconButton to 24px, since its own small size (32px) doesn't fit within a 32px container plus border", () => {
       const { container } = render(<StyledInputGroup $isSeamless $isCompact />);
       const modifier = `& ${StyledIconButton}`;
 
-      expect(container.firstChild).toHaveStyleRule('width', '28px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('min-width', '28px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('height', '28px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('min-height', '28px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('width', '24px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('min-width', '24px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('height', '24px', { modifier });
+      expect(container.firstChild).toHaveStyleRule('min-height', '24px', { modifier });
     });
 
-    it('shrinks a compact IconButton icon glyph to iconSizes.sm (12px), leaving a regular icon at its own default size', () => {
+    it('leaves the IconButton icon glyph at its own default size (iconSizes.md, 16px), regardless of $isCompact', () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
       const modifier = `& ${StyledIconButton} svg`;
 
-      expect(compact.firstChild).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.sm, {
-        modifier
-      });
-      expect(compact.firstChild).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.sm, {
-        modifier
-      });
       expect(regular.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
       expect(regular.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
+      expect(compact.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
+      expect(compact.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
     });
 
-    it("sets the container's vertical padding to fit a regular IconButton's own small size, and to 1px once a compact IconButton is shrunk to fit", () => {
+    it("sets the container's vertical padding to fit a regular IconButton's own small size, and to 3px once a compact IconButton is shrunk to fit", () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
 
       expect(regular.firstChild).toHaveStyleRule('padding-block', '3px');
-      expect(compact.firstChild).toHaveStyleRule('padding-block', '1px');
+      expect(compact.firstChild).toHaveStyleRule('padding-block', '3px');
     });
 
     it('does not resize the width of plain text buttons', () => {
@@ -141,14 +137,14 @@ describe('StyledInputGroup', () => {
       expect(container.firstChild).toHaveStyleRule('padding-inline', paddingHorizontal);
     });
 
-    it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the icon itself sits at the container's declared padding", () => {
+    it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the button's visible edge sits a constant 4px from the container edge regardless of $isCompact", () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
       const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
-      const regularIconInset = (32 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
-      const compactIconInset = (28 - parseFloat(DEFAULT_THEME.iconSizes.sm)) / 2;
-      const regularPadding = `calc(${paddingHorizontal} - ${regularIconInset}px)`;
-      const compactPadding = `calc(${paddingHorizontal} - ${compactIconInset}px)`;
+      /* always derived from the regular (unshrunk) IconButton's own geometry, since a compact IconButton's icon doesn't shrink alongside it */
+      const iconInset = (32 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
+      const regularPadding = `calc(${paddingHorizontal} - ${iconInset}px)`;
+      const compactPadding = `calc(${paddingHorizontal} - ${iconInset}px)`;
 
       expect(regular.firstChild).toHaveStyleRule('padding-inline-end', regularPadding, {
         modifier: `&:has(> ${StyledIconButton}:last-child)`

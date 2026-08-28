@@ -119,7 +119,7 @@ describe('InputGroup', () => {
     });
   });
 
-  it('forces focusInset on an IconButton child when isSeamless', () => {
+  it('does not force focusInset on an IconButton child when isSeamless, leaving it to the consumer', () => {
     const { getByRole } = render(
       <InputGroup isSeamless>
         <IconButton aria-label="Icon button">
@@ -132,7 +132,7 @@ describe('InputGroup', () => {
 
     fireEvent.focus(iconButton);
 
-    expect(iconButton).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+    expect(iconButton).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
       modifier: '&:focus-visible'
     });
   });
@@ -155,10 +155,10 @@ describe('InputGroup', () => {
     });
   });
 
-  it('rejects an explicit focusInset override on an IconButton child, since an outward ring breaks the isSeamless styles', () => {
+  it('respects an explicit focusInset override on an IconButton child when isSeamless', () => {
     const { getByRole } = render(
       <InputGroup isSeamless>
-        <IconButton focusInset={false} aria-label="Icon button">
+        <IconButton focusInset aria-label="Icon button">
           <span />
         </IconButton>
       </InputGroup>
