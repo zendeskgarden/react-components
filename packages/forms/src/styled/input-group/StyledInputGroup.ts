@@ -48,7 +48,6 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   /* always derived from the regular (unshrunk) 32px IconButton, since its icon glyph doesn't shrink alongside a compact IconButton */
   const iconButtonInset = (32 - parseFloat(iconGlyphSize)) / 2;
   const iconButtonPaddingInline = `calc(${paddingInline} - ${iconButtonInset}px)`;
-  const textButtonPaddingInline = `calc(${paddingInline} - ${horizontalSpacing}px)`;
 
   return css`
     font-size: ${fontSize};
@@ -63,15 +62,6 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
 
     &:has(> ${StyledIconButton}:last-child) {
       padding-inline-end: ${iconButtonPaddingInline};
-    }
-
-    /* same compensation, for the Button padding override below */
-    &:has(> ${StyledButton}:not(${StyledIconButton}):first-child) {
-      padding-inline-start: ${textButtonPaddingInline};
-    }
-
-    &:has(> ${StyledButton}:not(${StyledIconButton}):last-child) {
-      padding-inline-end: ${textButtonPaddingInline};
     }
   `;
 };
@@ -120,7 +110,6 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   const buttonSizeValue = $isCompact ? 24 : 28;
   const buttonSize = `${buttonSizeValue}px`;
   const iconButtonSize = $isCompact ? `${COMPACT_ICON_BUTTON_SIZE}px` : undefined;
-  const horizontalSpacing = theme.space.base * 2;
   const borderColor = getColor({
     theme,
     variable: 'border.default',
@@ -160,9 +149,8 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       min-height: ${iconButtonSize};
     }
 
-    /* overrides Button's own em-based padding to match the container's edge spacing, and shrinks height to match the IconButton */
+    /* shrinks a text button's height to fit the container, without touching its own padding */
     & ${StyledButton}:not(${StyledIconButton}) {
-      padding-inline: ${horizontalSpacing}px;
       height: ${buttonSize};
       min-height: ${buttonSize};
       line-height: ${buttonLineHeight};

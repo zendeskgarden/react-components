@@ -160,28 +160,22 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it("tucks a trailing/leading text button's own overridden padding into the container's edge padding, so the button's text sits at the container's declared padding", () => {
+    it("does not override the container's edge padding for a trailing/leading text button, leaving the button's own padding untouched", () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
-      const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
-      const horizontalSpacing = DEFAULT_THEME.space.base * 2;
-      const buttonPadding = `calc(${paddingHorizontal} - ${horizontalSpacing}px)`;
 
-      expect(container.firstChild).toHaveStyleRule('padding-inline-end', buttonPadding, {
+      expect(container.firstChild).not.toHaveStyleRule('padding-inline-end', expect.any(String), {
         modifier: `&:has(> ${StyledButton}:not(${StyledIconButton}):last-child)`
       });
-      expect(container.firstChild).toHaveStyleRule('padding-inline-start', buttonPadding, {
+      expect(container.firstChild).not.toHaveStyleRule('padding-inline-start', expect.any(String), {
         modifier: `&:has(> ${StyledButton}:not(${StyledIconButton}):first-child)`
       });
     });
 
-    it("overrides a text button's own padding so it visually matches the container gap, without touching IconButton", () => {
+    it("does not touch a text button's own padding-inline, only resizing it to fit the container", () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
 
-      expect(container.firstChild).toHaveStyleRule('padding-inline', '8px', {
+      expect(container.firstChild).not.toHaveStyleRule('padding-inline', expect.any(String), {
         modifier: `& ${StyledButton}:not(${StyledIconButton})`
-      });
-      expect(container.firstChild).not.toHaveStyleRule('padding-inline', '8px', {
-        modifier: `& ${StyledIconButton}`
       });
     });
 
