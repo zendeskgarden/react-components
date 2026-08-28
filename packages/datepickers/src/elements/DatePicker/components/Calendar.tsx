@@ -15,8 +15,6 @@ import { addDays } from 'date-fns/addDays';
 import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
-import { isBefore } from 'date-fns/isBefore';
-import { isAfter } from 'date-fns/isAfter';
 import { getDate } from 'date-fns/getDate';
 import {
   StyledDatePicker,
@@ -26,7 +24,7 @@ import {
   StyledDay
 } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerContext';
-import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
+import { DateFnsIndex, getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
 import { MonthSelector } from './MonthSelector';
 
 interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -37,10 +35,11 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   locale?: string;
   weekStartsOn?: DateFnsIndex;
   onChange?: (date: Date) => void;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange }, ref) => {
+  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange, inputRef }, ref) => {
     const { state, dispatch } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
@@ -84,15 +83,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       const isPreviousMonth = !isSameMonth(date, state.previewDate);
       const isSelected = value && isSameDay(date, value);
 
-      let isDisabled = false;
-
-      if (minValue !== undefined) {
-        isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
-      }
-
-      if (maxValue !== undefined) {
-        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
-      }
+      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
         <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
@@ -102,6 +93,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             $isCompact={isCompact!}
             aria-selected={isSelected || undefined}
             aria-disabled={isDisabled || undefined}
+            tabIndex={-1}
             onClick={() => {
               if (!isDisabled) {
                 if (onChange && !isSameDay(value!, date)) {
@@ -109,6 +101,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
                 }
 
                 dispatch({ type: 'SELECT_DATE', value: date });
+                inputRef?.current?.focus();
               }
             }}
             data-test-id="day"

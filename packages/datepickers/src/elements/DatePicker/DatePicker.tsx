@@ -20,13 +20,20 @@ import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
+import { KEYS, useId } from '@zendeskgarden/container-utilities';
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
-import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
+import {
+  datepickerReducer,
+  formatInputValue,
+  resolveSettledValue,
+  retrieveInitialState
+} from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
-import { StyledMenu, StyledMenuWrapper } from '../../styled';
+import { StyledInputGroup, StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { Input } from './components/Input';
+import { CalendarButton } from './components/CalendarButton';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -50,24 +57,28 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     locale = 'en-US',
     weekStartsOn,
     customParseDate,
+    openCalendarLabel,
+    onValueSettled,
     ...menuProps
   } = props;
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedReducer = useCallback(datepickerReducer({ value, formatDate, locale }), [
-    value,
-    formatDate,
-    locale
-  ]);
+  const memoizedReducer = useCallback(
+    datepickerReducer({ value, formatDate, locale, customParseDate }),
+    [value, formatDate, locale, customParseDate]
+  );
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const triggerRef = useRef<HTMLInputElement>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
+  const shouldFocusGridRef = useRef(false);
   const [isVisible, setIsVisible] = useState(state.isOpen);
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
   const [floatingPlacement] = getFloatingPlacements(
     theme,
     _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
   );
+  const menuId = useId();
 
   const {
     refs,
@@ -127,9 +138,80 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
+  /**
+   * Move focus onto the selected date, today, or the first day cell in the
+   * grid, in that priority order.
+   */
+  const focusIntoGrid = useCallback(() => {
+    if (!floatingRef.current) {
+      return;
+    }
+
+    const target =
+      floatingRef.current.querySelector<HTMLElement>('[data-test-selected="true"]') ||
+      floatingRef.current.querySelector<HTMLElement>('[data-test-today="true"]') ||
+      floatingRef.current.querySelector<HTMLElement>('[data-test-id="day"]');
+
+    target?.focus();
+  }, []);
+
+  /**
+   * When the trigger button opens the calendar, wait for the grid to render
+   * before moving focus into it.
+   */
+  useEffect(() => {
+    if (state.isOpen && shouldFocusGridRef.current) {
+      focusIntoGrid();
+      shouldFocusGridRef.current = false;
+    }
+  }, [state.isOpen, focusIntoGrid]);
+
+  /**
+   * Reports whether the typed input currently holds a valid date, for
+   * closes that don't come from a fresh calendar selection.
+   */
+  const settleValue = useCallback(() => {
+    onValueSettled?.(
+      resolveSettledValue({
+        inputValue: state.inputValue,
+        required: Child.props.required,
+        minValue,
+        maxValue,
+        customParseDate
+      })
+    );
+  }, [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]);
+
+  /**
+   * Close the calendar when focus moves outside the input, trigger button,
+   * and popover, per the non-modal APG dialog pattern. Checks
+   * `event.relatedTarget`, matching the `useCombobox` convention.
+   */
+  const handleWidgetBlur = useCallback(
+    (e: React.FocusEvent) => {
+      if (!state.isOpen) {
+        return;
+      }
+
+      const nextTarget = e.relatedTarget as Node | null;
+      const isInsideWidget =
+        !!nextTarget &&
+        (triggerRef.current?.contains(nextTarget) ||
+          triggerButtonRef.current?.contains(nextTarget) ||
+          floatingRef.current?.contains(nextTarget));
+
+      if (!isInsideWidget) {
+        settleValue();
+        dispatch({ type: 'CLOSE' });
+      }
+    },
+    [state.isOpen, settleValue]
+  );
+
   const Node = (
     <StyledMenuWrapper
       ref={floatingRef}
+      id={menuId}
       style={{ transform }}
       $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
       $placement={placement}
@@ -140,7 +222,17 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       data-test-rtl={theme.rtl}
     >
       {!!(state.isOpen || isVisible) && (
-        <StyledMenu {...menuProps}>
+        <StyledMenu
+          {...menuProps}
+          onBlur={handleWidgetBlur}
+          onKeyDown={e => {
+            if (e.key === KEYS.ESCAPE) {
+              settleValue();
+              dispatch({ type: 'CLOSE' });
+              triggerButtonRef.current?.focus();
+            }
+          }}
+        >
           <Calendar
             ref={calendarRef}
             isCompact={isCompact}
@@ -149,7 +241,15 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             maxValue={maxValue}
             locale={locale}
             weekStartsOn={weekStartsOn}
-            onChange={onChange}
+            onChange={date => {
+              onChange?.(date);
+              onValueSettled?.({
+                date,
+                inputValue: formatInputValue({ date, locale, formatDate }),
+                valid: true
+              });
+            }}
+            inputRef={triggerRef}
           />
         </StyledMenu>
       )}
@@ -158,16 +258,36 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   return (
     <>
-      <Input
-        element={Child}
-        dispatch={dispatch}
-        state={state}
-        refKey={refKey!}
-        value={value}
-        onChange={onChange}
-        customParseDate={customParseDate}
-        ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
-      />
+      <StyledInputGroup $isCompact={isCompact} onBlur={handleWidgetBlur}>
+        <Input
+          element={Child}
+          dispatch={dispatch}
+          state={state}
+          refKey={refKey!}
+          value={value}
+          minValue={minValue}
+          maxValue={maxValue}
+          onChange={onChange}
+          onValueSettled={onValueSettled}
+          customParseDate={customParseDate}
+          ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
+        />
+        <CalendarButton
+          ref={triggerButtonRef}
+          isCompact={isCompact}
+          openCalendarLabel={openCalendarLabel}
+          aria-expanded={state.isOpen}
+          aria-controls={menuId}
+          onClick={() => {
+            if (state.isOpen) {
+              focusIntoGrid();
+            } else {
+              dispatch({ type: 'OPEN' });
+              shouldFocusGridRef.current = true;
+            }
+          }}
+        />
+      </StyledInputGroup>
       <DatePickerContext.Provider value={contextValue}>
         {appendToNode ? createPortal(Node, appendToNode) : Node}
       </DatePickerContext.Provider>
@@ -181,6 +301,7 @@ DatePicker.propTypes = {
   appendToNode: PropTypes.any,
   value: PropTypes.any,
   onChange: PropTypes.any,
+  onValueSettled: PropTypes.func,
   formatDate: PropTypes.func,
   locale: PropTypes.any,
   weekStartsOn: PropTypes.oneOf(WEEK_STARTS_ON),
@@ -191,5 +312,6 @@ DatePicker.propTypes = {
   refKey: PropTypes.string,
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
-  zIndex: PropTypes.number
+  zIndex: PropTypes.number,
+  openCalendarLabel: PropTypes.string
 };

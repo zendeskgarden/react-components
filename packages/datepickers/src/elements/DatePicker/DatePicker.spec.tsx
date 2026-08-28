@@ -25,6 +25,10 @@ const Example = (props: Omit<IDatePickerProps, 'children'>) => (
     <DatePicker {...props}>
       <input data-test-id="input" id="input" />
     </DatePicker>
+    <button data-test-id="outside" type="button">
+      Outside
+    </button>
+    <div data-test-id="outside-background">Non-interactive background</div>
   </>
 );
 
@@ -54,7 +58,7 @@ describe('DatePicker', () => {
     it('displays dates with correct previous styling', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const days = getAllByTestId('day');
 
       for (let x = 0; x < days.length; x++) {
@@ -71,7 +75,7 @@ describe('DatePicker', () => {
     it('displays dates with selected and today styling', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const days = getAllByTestId('day');
 
       expect(days[9]).toHaveAttribute('data-test-selected', 'true');
@@ -81,7 +85,7 @@ describe('DatePicker', () => {
     it('displays "Sun" as default first day of week', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const dayLabels = getAllByTestId('day-label');
 
       expect(dayLabels[0]).toHaveTextContent('Sun');
@@ -92,7 +96,7 @@ describe('DatePicker', () => {
         <Example value={DEFAULT_DATE} locale="en-GB" />
       );
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const dayLabels = getAllByTestId('day-label');
 
       expect(dayLabels[0]).toHaveTextContent('Mon');
@@ -103,7 +107,7 @@ describe('DatePicker', () => {
         <Example value={DEFAULT_DATE} locale="en-GB" weekStartsOn={3} />
       );
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const dayLabels = getAllByTestId('day-label');
 
       expect(dayLabels[0]).toHaveTextContent('Wed');
@@ -118,7 +122,7 @@ describe('DatePicker', () => {
         />
       );
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const days = getAllByTestId('day');
 
       for (let x = 0; x < days.length; x++) {
@@ -137,7 +141,7 @@ describe('DatePicker', () => {
     it('displays selected month in correct format', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
@@ -145,7 +149,7 @@ describe('DatePicker', () => {
     it('displays previous month if previous paddle is clicked', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getByTestId('previous-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('January 2019');
@@ -154,7 +158,7 @@ describe('DatePicker', () => {
     it('displays next month if next paddle is clicked', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getByTestId('next-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
@@ -163,7 +167,7 @@ describe('DatePicker', () => {
     it('displays current month if no value is provided', async () => {
       const { getByTestId } = render(<Example />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
@@ -175,7 +179,7 @@ describe('DatePicker', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
@@ -188,10 +192,24 @@ describe('DatePicker', () => {
 
       const input = getByTestId('input');
 
-      await user.click(input);
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveValue('January 28, 2019');
+    });
+
+    it('returns focus to the input when a date is selected', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      const input = getByTestId('input');
+
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(input).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
     it('updates input value when controlled value is updated', () => {
@@ -218,7 +236,7 @@ describe('DatePicker', () => {
         />
       );
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
       const days = getAllByTestId('day');
 
       fireEvent.click(days[0]);
@@ -245,7 +263,7 @@ describe('DatePicker', () => {
 
       await user.clear(input);
       await user.type(input, '1/4/2019');
-      await user.click(input);
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getAllByTestId('day')[1]);
 
       const hasRenderPhaseUpdateWarning = consoleErrorSpy.mock.calls.some(
@@ -255,6 +273,23 @@ describe('DatePicker', () => {
       expect(hasRenderPhaseUpdateWarning).toBe(false);
 
       consoleErrorSpy.mockRestore();
+    });
+
+    it('does not call onChange when a typed date falls outside minValue/maxValue', async () => {
+      const { getByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
     });
   });
 
@@ -271,24 +306,57 @@ describe('DatePicker', () => {
       expect(getByTestId('input')).toHaveValue('');
     });
 
-    it('opens datepicker on focus', async () => {
+    it('does not open the datepicker on click', async () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('input'));
 
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
-    it('opens datepicker on click', async () => {
+    it('does not open the datepicker on arrow keys', () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
+      const input = getByTestId('input');
 
-      await user.click(getByTestId('input'));
+      fireEvent.keyDown(input, { key: KEYS.UP });
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
 
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      fireEvent.keyDown(input, { key: KEYS.DOWN });
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('does not open the datepicker while typing', async () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('does not revert in-progress typed text on Enter/Escape while the calendar is closed', () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'Jan' } });
+      fireEvent.keyDown(input, { key: KEYS.ENTER });
+
+      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(input).toHaveValue('Jan');
+
+      fireEvent.change(input, { target: { value: 'Jan 4' } });
+      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
+
+      expect(input).toHaveValue('Jan 4');
     });
 
     it('leaves datepicker closed on label click', () => {
@@ -305,71 +373,10 @@ describe('DatePicker', () => {
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
-    it('closes datepicker on blur', async () => {
-      const { getByTestId, queryByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      await user.click(input);
-      await user.tab();
-
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-    });
-
-    it('closes datepicker when not animated', async () => {
-      const { getByTestId, queryByTestId } = render(
-        <Example isAnimated={false} value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      await user.click(input);
-      await user.tab();
-
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-    });
-
-    it('opens datepicker when correct keys are used', async () => {
-      const { getByTestId, queryByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      fireEvent.keyDown(input, { key: KEYS.UP });
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      await user.tab();
-
-      fireEvent.keyDown(input, { key: KEYS.DOWN });
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      await user.tab();
-
-      await user.type(input, ' ');
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      await user.tab();
-    });
-
-    it('closes datepicker when correct keys are used', async () => {
-      const { getByTestId, queryByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      await user.click(input);
-      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
-
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-
-      await user.click(input);
-      fireEvent.keyDown(input, { key: KEYS.ENTER });
-
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-    });
-
     it('leaves datepicker open if calendar is moused down', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-      const input = getByTestId('input');
 
-      await user.click(input);
+      await user.click(getByTestId('calendar-button'));
       fireEvent.click(getByTestId('calendar-wrapper'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
@@ -425,6 +432,367 @@ describe('DatePicker', () => {
 
       expect(getByTestId('input')).toHaveValue('February 6, 2019');
     });
+
+    it('preserves the typed format after the controlled value round-trips through onChange', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(input).toHaveValue('1/4/2019');
+    });
+
+    it('reformats to the canonical format if the controlled value changes to a different date', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return (
+          <>
+            <Example value={value} onChange={setValue} />
+            <button
+              type="button"
+              data-test-id="set-externally"
+              onClick={() => setValue(addDays(DEFAULT_DATE, 1))}
+            >
+              Fill date
+            </button>
+          </>
+        );
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('set-externally'));
+
+      expect(input).toHaveValue('February 6, 2019');
+    });
+
+    it('preserves the typed format after closing the calendar without selecting a different day', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.keyDown(input, { key: KEYS.ESCAPE });
+
+      expect(input).toHaveValue('1/4/2019');
+    });
+
+    it('preserves the typed format after closing the calendar by clicking outside', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+
+      await user.click(getByTestId('outside'));
+
+      expect(input).toHaveValue('1/4/2019');
+    });
+
+    it('does not discard unparseable typed text when closing the calendar by clicking outside', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+      await user.click(getByTestId('calendar-button'));
+
+      await user.click(getByTestId('outside'));
+
+      expect(input).toHaveValue('invalid date');
+    });
+  });
+
+  describe('onValueSettled', () => {
+    let onValueSettledSpy: (result: { date?: Date; inputValue: string; valid: boolean }) => void;
+
+    beforeEach(() => {
+      onValueSettledSpy = jest.fn();
+    });
+
+    it('reports a valid date when blurring after typing a parseable date', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: new Date(2019, 0, 4),
+        inputValue: '1/4/2019',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring after typing unparseable text', () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false
+      });
+    });
+
+    it('reports valid when blurring an empty, non-required field', () => {
+      const { getByTestId } = render(
+        <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring an empty, required field', () => {
+      const RequiredExample = (props: Omit<IDatePickerProps, 'children'>) => (
+        <DatePicker {...props}>
+          <input data-test-id="input" required />
+        </DatePicker>
+      );
+      const { getByTestId } = render(
+        <RequiredExample onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: false
+      });
+    });
+
+    it('reports a valid date when a day is selected from the calendar', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: new Date(2019, 0, 28),
+        inputValue: 'January 28, 2019',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring after typing a date outside minValue/maxValue', () => {
+      const { getByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: '1/4/2019' } });
+      fireEvent.blur(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '1/4/2019',
+        valid: false
+      });
+    });
+
+    it('reports invalid when closing the calendar by clicking outside after typing unparseable text', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'invalid date' } });
+      await user.click(getByTestId('calendar-button'));
+
+      await user.click(getByTestId('outside'));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false
+      });
+    });
+
+    it('reports a valid date when closing the calendar by clicking outside after typing a parseable date', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+
+      await user.click(getByTestId('outside'));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: new Date(2019, 0, 4),
+        inputValue: '1/4/2019',
+        valid: true
+      });
+    });
+
+    it('does not affect the existing onChange behavior', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+  });
+
+  describe('Calendar trigger button', () => {
+    it('has an accessible name, aria-haspopup, aria-expanded, and aria-controls', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const button = getByTestId('calendar-button');
+      const menu = getByTestId('datepicker-menu');
+
+      expect(button).toHaveAttribute('aria-haspopup', 'dialog');
+      expect(button).toHaveAttribute('aria-expanded', 'false');
+      expect(button).toHaveAttribute('aria-controls', menu.id);
+      expect(button).toHaveAccessibleName();
+    });
+
+    it('opens the calendar and moves focus onto the selected day when clicked', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(button).toHaveAttribute('aria-expanded', 'true');
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+    });
+
+    it('opens the calendar when activated with the keyboard', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const button = getByTestId('calendar-button');
+
+      button.focus();
+      await user.keyboard('{Enter}');
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+    });
+
+    it('moves focus onto todays date when no value is selected', async () => {
+      const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+      const today = days.find(day => day.getAttribute('data-test-today') === 'true');
+
+      expect(today).toHaveFocus();
+    });
+
+    it('closes the calendar and returns focus to the button on Escape', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+
+      fireEvent.keyDown(getAllByTestId('day')[9], { key: KEYS.ESCAPE });
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(button).toHaveFocus();
+    });
+
+    it('closes the calendar when clicking outside of the widget', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('outside'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('closes the calendar when clicking a non-interactive element outside the widget', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('outside-background'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('opens on a typed, valid date and focuses/selects it', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = React.useState<Date | undefined>(DEFAULT_DATE);
+
+        return <Example value={value} onChange={setValue} />;
+      };
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, '1/4/2019');
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      );
+
+      expect(selectedDay).toHaveTextContent('4');
+      expect(selectedDay).toHaveFocus();
+    });
   });
 
   describe('customParseDate()', () => {
@@ -474,7 +842,7 @@ describe('DatePicker', () => {
     it('applies LTR classes by default', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
     });
@@ -482,7 +850,7 @@ describe('DatePicker', () => {
     it('applies RTL classes if provided', async () => {
       const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('input'));
+      await user.click(getByTestId('calendar-button'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
     });

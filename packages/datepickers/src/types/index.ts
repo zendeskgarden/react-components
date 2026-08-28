@@ -28,6 +28,16 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    */
   onChange?: (date: Date) => void;
   /**
+   * Called when the input value settles — on blur after typing, or when a date
+   * is selected from the calendar — reporting whether the current value is valid
+   *
+   * @param {Object} result The settled value
+   * @param {Date} [result.date] The parsed or selected date, if valid
+   * @param {string} result.inputValue The input's current displayed value
+   * @param {boolean} result.valid Whether the current value is valid
+   */
+  onValueSettled?: (result: { date?: Date; inputValue: string; valid: boolean }) => void;
+  /**
    * Customizes the input element's date formatting
    *
    *  @param {Date} date The selected date
@@ -78,6 +88,10 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * Sets the `z-index` of the calendar
    */
   zIndex?: number;
+  /**
+   * Provides a customized/translated label for the calendar trigger button
+   */
+  openCalendarLabel?: string;
   /** @ignore ReactNode override */
   children: ReactElement;
 }
