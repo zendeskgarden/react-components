@@ -10,6 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
 import { DateFieldStory } from './stories/DateFieldStory';
+import { commonArgs, commonArgTypes } from '../stories/common';
 import { FILE_TYPES } from '../stories/data';
 
 export default {
@@ -21,10 +22,11 @@ export const DateField: StoryObj<typeof DateFieldStory> = {
   render: args => <DateFieldStory {...args} />,
   name: 'Date field',
   args: {
-    hasHint: false
+    ...commonArgs
   },
   argTypes: {
-    hasHint: { table: { disable: true } },
+    ...commonArgTypes,
+    /* the pattern's label is a fixed "Employee start date*" example, not meant to be edited */
     label: { table: { disable: true } }
   }
 };
