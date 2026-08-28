@@ -28,6 +28,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
       value,
       defaultValue,
       onChange,
+      disabled,
       ...props
     },
     ref
@@ -74,13 +75,14 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
         <Input
           ref={mergeRefs([inputRef, ref])}
           {...props}
+          disabled={disabled}
           value={value}
           defaultValue={defaultValue}
           onChange={composeEventHandlers(onChange, onInputChange)}
           id={inputId}
           data-garden-id="forms.clearable_input"
         />
-        {hasValue ? (
+        {hasValue && !disabled ? (
           <IconButton
             aria-label={ariaLabel}
             aria-controls={inputId}

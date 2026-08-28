@@ -276,6 +276,35 @@ describe('StyledInputGroup', () => {
       );
     });
 
+    describe('disabled', () => {
+      it("highlights the container border and background in disabled colors, based on a descendant's :disabled state", () => {
+        const { container } = render(<StyledInputGroup $isSeamless />);
+        const borderColor = getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' });
+        const backgroundColor = getColor({ theme: DEFAULT_THEME, variable: 'background.disabled' });
+
+        expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
+          modifier: `&:has(${StyledTextInput}:disabled)`
+        });
+        expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor, {
+          modifier: `&:has(${StyledTextInput}:disabled)`
+        });
+      });
+
+      it('shows a text cursor by default', () => {
+        const { container } = render(<StyledInputGroup $isSeamless />);
+
+        expect(container.firstChild).toHaveStyleRule('cursor', 'text');
+      });
+
+      it("shows a default cursor based on a descendant's :disabled state", () => {
+        const { container } = render(<StyledInputGroup $isSeamless />);
+
+        expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
+          modifier: `&:has(${StyledTextInput}:disabled)`
+        });
+      });
+    });
+
     it('does not impose an inset focus ring on icon buttons via CSS, leaving that to the consumer via the focusInset prop', () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);

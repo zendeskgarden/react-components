@@ -107,6 +107,21 @@ const validationStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPro
   });
 };
 
+/* mirrors MediaInput's own disabled treatment, since a descendant input's disabled state isn't otherwise reflected on this container */
+const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme } = props;
+  const borderColor = getColor({ theme, variable: 'border.disabled' });
+  const backgroundColor = getColor({ theme, variable: 'background.disabled' });
+
+  return css`
+    &:has(${StyledTextInput}:disabled) {
+      border-color: ${borderColor};
+      background-color: ${backgroundColor};
+      cursor: default;
+    }
+  `;
+};
+
 const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   if (!props.$isSeamless) {
     return undefined;
@@ -134,6 +149,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     border-radius: ${theme.borderRadii.md};
     border-color: ${borderColor};
     background-color: ${backgroundColor};
+    cursor: text;
     min-height: ${containerSize};
 
     &:hover {
@@ -167,6 +183,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     })}
 
     ${validationStyles(props)}
+    ${disabledStyles(props)}
   `;
 };
 
