@@ -25,7 +25,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
   validationLabel,
   ...args
 }) => {
-  const label = 'Expiration date';
+  const label = 'Employee start date';
   const [value, setValue] = useState('03/05/2024');
   const [isTouched, setIsTouched] = useState(false);
 
