@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { IInputGroupProps, Input, InputGroup } from '@zendeskgarden/react-forms';
+import { ClearableInput, IInputGroupProps, InputGroup } from '@zendeskgarden/react-forms';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import CalendarIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
 import { FieldStory, IFieldArgs } from '../../stories/FieldStory';
 
@@ -29,16 +28,10 @@ export const DateFieldStory: StoryFn<IArgs> = ({
   const label = 'Expiration date';
   const [value, setValue] = useState('03/05/2024');
   const [isTouched, setIsTouched] = useState(false);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const isRequiredError = isTouched && value.trim().length === 0;
   const validation = isRequiredError ? 'error' : controlValidation;
   const errorMessage = isRequiredError ? 'A date is required.' : message;
-
-  const onClearClick = () => {
-    setValue('');
-    inputRef.current?.focus();
-  };
 
   const onInputBlur = () => setIsTouched(true);
 
@@ -55,22 +48,16 @@ export const DateFieldStory: StoryFn<IArgs> = ({
       validationLabel={validationLabel}
     >
       <InputGroup {...args}>
-        <InputGroup isSeamless focusInset isCompact={args.isCompact}>
-          <Input
-            ref={inputRef}
-            value={value}
-            aria-required="true"
-            isCompact={args.isCompact}
-            validation={validation}
-            onChange={e => setValue(e.target.value)}
-            onBlur={onInputBlur}
-          />
-          {value.length > 0 && (
-            <IconButton aria-label={`Clear value: ${label}`} isBasic onClick={onClearClick}>
-              <ClearIcon />
-            </IconButton>
-          )}
-        </InputGroup>
+        <ClearableInput
+          value={value}
+          aria-required="true"
+          isCompact={args.isCompact}
+          validation={validation}
+          onChange={e => setValue(e.target.value)}
+          onBlur={onInputBlur}
+          clearButtonLabel={`Clear value: ${label}`}
+          wrapperProps={{ focusInset: true }}
+        />
         <IconButton
           aria-label={`Choose date: ${label}`}
           isBasic={false}

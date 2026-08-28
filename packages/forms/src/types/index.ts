@@ -11,10 +11,12 @@ import {
   InputHTMLAttributes,
   LabelHTMLAttributes,
   ReactElement,
+  Ref,
   SelectHTMLAttributes,
   SVGAttributes,
   TextareaHTMLAttributes
 } from 'react';
+import { IIconButtonProps } from '@zendeskgarden/react-buttons';
 
 export const VALIDATION = ['success', 'warning', 'error'] as const;
 
@@ -91,6 +93,19 @@ export interface IInputProps extends IRadioProps {
   focusInset?: boolean;
   /** Applies validation state styling */
   validation?: Validation;
+}
+
+export interface IClearableInputProps extends IInputProps {
+  /** Fires when the clear button is activated */
+  onClear?: () => void;
+  /** Defines the clear button's `aria-label` */
+  clearButtonLabel?: string;
+  /** Applies props to the wrapping [InputGroup](#inputgroup) element */
+  wrapperProps?: Omit<IInputGroupProps, 'children'>;
+  /** Applies a ref to the wrapping [InputGroup](#inputgroup) element */
+  wrapperRef?: Ref<HTMLDivElement>;
+  /** Applies props to the clear [IconButton](/components/icon_button) element */
+  buttonProps?: IIconButtonProps;
 }
 
 export interface IMediaInputProps extends IInputProps {
