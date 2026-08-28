@@ -33,7 +33,11 @@ export const DateFieldStory: StoryFn<IArgs> = ({
   const validation = isRequiredError ? 'error' : controlValidation;
   const errorMessage = isRequiredError ? 'A date is required.' : message;
 
-  const onInputBlur = () => setIsTouched(true);
+  const onGroupBlur = (event: React.FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget)) {
+      setIsTouched(true);
+    }
+  };
 
   return (
     <FieldStory
@@ -47,14 +51,13 @@ export const DateFieldStory: StoryFn<IArgs> = ({
       validation={validation}
       validationLabel={validationLabel}
     >
-      <InputGroup {...args}>
+      <InputGroup {...args} onBlur={onGroupBlur}>
         <ClearableInput
           value={value}
           aria-required="true"
           isCompact={args.isCompact}
           validation={validation}
           onChange={e => setValue(e.target.value)}
-          onBlur={onInputBlur}
           clearButtonLabel={`Clear: ${label}`}
           wrapperProps={{ focusInset: true }}
         />
