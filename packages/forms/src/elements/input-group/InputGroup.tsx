@@ -32,12 +32,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
 
       const props = child.props as { focusInset?: boolean; size?: string };
 
-      /*
-       * neither is left to the consumer to override when isSeamless - the container's vertical
-       * padding and edge-padding compensation are computed assuming an IconButton renders at
-       * "small" with an inset ring, so any other size or an outward ring would break those
-       * calculations
-       */
+      /* isSeamless assumes a "small", inset-ring IconButton for its padding math, so neither is left to the consumer */
       return cloneElement(child, {
         focusInset: isSeamless ? true : props.focusInset,
         size: isSeamless ? 'small' : props.size

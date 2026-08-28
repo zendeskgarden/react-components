@@ -11,7 +11,6 @@ import { ClearableInput } from './ClearableInput';
 import { Field } from './common/Field';
 import { IClearableInputProps } from '../types';
 
-/** Mirrors how a real consumer wires up a controlled ClearableInput. */
 const ControlledClearableInput = ({
   initialValue = 'hello',
   ...props

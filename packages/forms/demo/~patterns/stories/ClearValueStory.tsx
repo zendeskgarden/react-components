@@ -30,8 +30,7 @@ export const ClearValueStory: StoryFn<IArgs> = ({
 
   const onClearClick = () => {
     setValue('');
-    /* the clear button unmounts once value is empty; keep focus on the input rather than
-     * letting it fall back to <body> */
+    /* keep focus on the input rather than letting it fall back to <body> */
     inputRef.current?.focus();
   };
 

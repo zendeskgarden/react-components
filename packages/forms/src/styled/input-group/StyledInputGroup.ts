@@ -17,11 +17,7 @@ import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.input_group';
 
-/*
- * how much smaller a seamless group's IconButton renders than its own "small" size (32px),
- * once compact - shared between sizeStyles' padding math and seamlessStyles' actual override so
- * the two stay in sync
- */
+/* shared between sizeStyles' padding math and seamlessStyles' actual override, to keep them in sync */
 const COMPACT_ICON_BUTTON_SHRINK = 4;
 
 interface IStyledInputGroupProps {
@@ -43,12 +39,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   const containerSize = $isCompact ? 32 : 40;
   const horizontalSpacing = theme.space.base * 2;
   const paddingInline = em(`${theme.space.base * 3}px`, fontSize);
-  /*
-   * InputGroup forces a child IconButton to size="small" (32px) whenever isSeamless. That fits
-   * a regular 40px container with room to spare, but not a 32px compact container plus its own
-   * border - seamlessStyles shrinks the IconButton to fit in that case, so buttonSize here tracks
-   * whichever size actually renders.
-   */
+  /* tracks the size seamlessStyles actually renders, which is shrunk when compact */
   const iconButtonSize = $isCompact ? containerSize - COMPACT_ICON_BUTTON_SHRINK : 32;
   const verticalPadding = math(
     `(${containerSize}px - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
@@ -64,12 +55,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
     padding-inline: ${paddingInline};
     gap: ${horizontalSpacing}px;
 
-    /*
-     * an edge IconButton's own icon is inset within the button by (button size - icon size) / 2,
-     * so pairing the container's declared edge padding with the button's own inset would push
-     * the icon in twice as far as intended - tuck the button closer to the edge to compensate,
-     * landing the icon itself at the container's declared padding
-     */
+    /* compensates for the IconButton's own inset so its icon, not its edge, lands at the container's declared padding */
     &:has(> ${StyledIconButton}:first-child) {
       padding-inline-start: ${iconButtonPaddingInline};
     }
@@ -78,11 +64,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
-    /*
-     * a text Button's own padding is overridden below to ${horizontalSpacing}px, so the same
-     * over-compensation applies at the edges - tuck it in so the button's own text, not its
-     * padding, lands at the container's declared padding
-     */
+    /* same compensation, for the Button padding override below */
     &:has(> ${StyledButton}:not(${StyledIconButton}):first-child) {
       padding-inline-start: ${textButtonPaddingInline};
     }
@@ -93,12 +75,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   `;
 };
 
-/*
- * StyledTextInput reflects its own $validation as a data-validation attribute (rather than
- * something the container could read as a styled-components prop), so a seamless container - a
- * sibling in the DOM, not an ancestor of anything that carries the prop - can select on it here
- * via :has() to color its own border/focus ring the same way.
- */
+/* selects on StyledTextInput's data-validation attribute, since $validation isn't available as a prop here */
 const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
   success: 'border.successEmphasis',
   warning: 'border.warningEmphasis',
@@ -168,21 +145,11 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       border-color: ${focusBorderColor};
     }
 
-    /*
-     * the container centers its children by default, but the text input itself should still
-     * stretch to fill the container's full height
-     */
     & ${StyledTextInput} {
-      align-self: stretch;
+      align-self: stretch; /* override the container's own centered children */
     }
 
-    /*
-     * a regular IconButton's own small size (32px) already fits within the container with room
-     * to spare, so it's left unstyled - but that same 32px doesn't fit within a 32px compact
-     * container plus its own border, so it's shrunk down to fit in that case. Either way, the
-     * consumer is expected to pass focusInset for a seamless group, since padding-block is too
-     * tight for an outward ring to clear.
-     */
+    /* only shrunk when compact - a regular 32px IconButton already fits with room to spare */
     & ${StyledIconButton} {
       flex: none;
       align-self: center;
@@ -198,15 +165,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       }
     }
 
-    /*
-     * Button's own horizontal padding is computed in em units relative to font-size, so it
-     * can't be cleanly subtracted from the gap above. Overriding it to a fixed value that
-     * matches the container's own edge spacing keeps the visual rhythm at ${horizontalSpacing}px
-     * regardless of button size, without duplicating StyledButton's private padding formula.
-     *
-     * height/line-height are shrunk to match the IconButton size too, so a text Button doesn't
-     * grow the container past its own min-height.
-     */
+    /* overrides Button's own em-based padding to match the container's edge spacing, and shrinks height to match the IconButton */
     & ${StyledButton}:not(${StyledIconButton}) {
       padding-inline: ${horizontalSpacing}px;
       height: ${buttonSize};
@@ -214,12 +173,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       line-height: ${buttonLineHeight};
     }
 
-    /*
-     * an action button shows its own focus-visible ring instead - the outer box's ring
-     * should not also fire while a button is showing that ring. Keyed off :focus-visible, not
-     * :focus: a mouse-clicked button gets :focus but not :focus-visible, so keying off :focus
-     * alone would suppress the outer ring with no button ring to replace it.
-     */
+    /* suppressed while a button shows its own :focus-visible ring instead */
     ${focusStyles({
       theme,
       inset: $focusInset,

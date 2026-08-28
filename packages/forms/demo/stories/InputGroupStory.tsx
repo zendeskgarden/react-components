@@ -24,8 +24,7 @@ interface IGroupButtonProps extends PropsWithChildren {
 
 const GroupButton = ({ isToggle, isSeamless, ...props }: IGroupButtonProps) => {
   const [isPressed, setIsPressed] = useState(false);
-  /* the non-seamless variant's overlapping borders need an inset ring to avoid clipping;
-   * the seamless variant has room around each button for the default outward ring */
+  /* the non-seamless variant's overlapping borders need an inset ring to avoid clipping */
   const focusInset = !isSeamless;
 
   return isToggle ? (
