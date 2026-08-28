@@ -134,7 +134,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     box-sizing: border-box;
     align-items: center;
     /* prettier-ignore */
-    transition: border-color 0.25s ease-in-out;
+    transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
     border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
     border-color: ${borderColor};

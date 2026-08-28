@@ -222,6 +222,15 @@ describe('StyledInputGroup', () => {
       );
     });
 
+    it('transitions box-shadow smoothly, matching the focus indicator timing used by MediaInput', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'transition',
+        expect.stringContaining('box-shadow 0.1s ease-in-out')
+      );
+    });
+
     describe('validation', () => {
       const VALIDATION_BORDER_VARIABLE = {
         success: 'border.successEmphasis',
