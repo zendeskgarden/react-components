@@ -26,6 +26,7 @@ export default {
   argTypes: {
     ...commonArgTypes,
     disabled: { control: 'boolean' },
+    readOnly: { control: 'boolean' },
     isCompact: { control: 'boolean' },
     clearButtonLabel: { control: 'text' }
   },

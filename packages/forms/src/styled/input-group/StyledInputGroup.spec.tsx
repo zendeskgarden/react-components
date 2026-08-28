@@ -305,6 +305,29 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    describe('readOnly', () => {
+      it("highlights the container background in the disabled background color, based on a descendant's readonly attribute", () => {
+        const { container } = render(<StyledInputGroup $isSeamless />);
+        const backgroundColor = getColor({ theme: DEFAULT_THEME, variable: 'background.disabled' });
+
+        expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor, {
+          modifier: `&:has(${StyledTextInput}[readonly])`
+        });
+      });
+
+      it("does not change the container's border-color or cursor, since a read-only input remains focusable and selectable", () => {
+        const { container } = render(<StyledInputGroup $isSeamless />);
+        const modifier = `&:has(${StyledTextInput}[readonly])`;
+
+        expect(container.firstChild).not.toHaveStyleRule('border-color', expect.any(String), {
+          modifier
+        });
+        expect(container.firstChild).not.toHaveStyleRule('cursor', expect.any(String), {
+          modifier
+        });
+      });
+    });
+
     it('does not impose an inset focus ring on icon buttons via CSS, leaving that to the consumer via the focusInset prop', () => {
       const { container: regular } = render(<StyledInputGroup $isSeamless />);
       const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);

@@ -107,6 +107,18 @@ const validationStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPro
   });
 };
 
+/* mirrors MediaInput's own read-only treatment: only the background changes, since a read-only input remains focusable and selectable */
+const readOnlyStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme } = props;
+  const backgroundColor = getColor({ theme, variable: 'background.disabled' });
+
+  return css`
+    &:has(${StyledTextInput}[readonly]) {
+      background-color: ${backgroundColor};
+    }
+  `;
+};
+
 /* mirrors MediaInput's own disabled treatment, since a descendant input's disabled state isn't otherwise reflected on this container */
 const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   const { theme } = props;
@@ -183,6 +195,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     })}
 
     ${validationStyles(props)}
+    ${readOnlyStyles(props)}
     ${disabledStyles(props)}
   `;
 };

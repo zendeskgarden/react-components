@@ -70,6 +70,12 @@ describe('ClearableInput', () => {
     expect(queryByRole('button')).not.toBeInTheDocument();
   });
 
+  it('does not render the clear button when readOnly, even with a non-empty value', () => {
+    const { queryByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} readOnly />);
+
+    expect(queryByRole('button')).not.toBeInTheDocument();
+  });
+
   it('renders the clear button with an accessible name when value is non-empty', () => {
     const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
 
