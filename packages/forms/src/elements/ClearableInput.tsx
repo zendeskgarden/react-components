@@ -16,8 +16,6 @@ import useFieldContext from '../utils/useFieldContext';
 import { Input } from './Input';
 import { InputGroup } from './input-group/InputGroup';
 
-const hasStringValue = (value: unknown) => String(value ?? '').length > 0;
-
 export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInputProps>(
   (
     {
@@ -41,23 +39,12 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
     const ariaLabel = useText(ClearableInput, { clearButtonLabel }, 'clearButtonLabel', 'Clear');
 
     const isControlled = value !== undefined;
-    const [uncontrolledHasValue, setUncontrolledHasValue] = useState(() =>
-      hasStringValue(defaultValue)
-    );
-    const hasValue = isControlled ? hasStringValue(value) : uncontrolledHasValue;
-
-    const onInputChange = composeEventHandlers(
-      onChange,
-      (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (!isControlled) {
-          setUncontrolledHasValue(hasStringValue(event.target.value));
-        }
-      }
-    );
+    const [uncontrolledHasValue, setUncontrolledHasValue] = useState(() => !!defaultValue);
+    const hasValue = isControlled ? !!value : uncontrolledHasValue;
 
     const { onClick, ...buttonProps } = _buttonProps;
 
-    const onClearClick = composeEventHandlers(onClick, () => {
+    const onClearButtonClick = () => {
       const input = inputRef.current;
 
       if (input) {
@@ -68,9 +55,13 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
         input.dispatchEvent(new Event('input', { bubbles: true }));
         input.focus();
       }
+    };
 
-      onClear?.();
-    });
+    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      if (!isControlled) {
+        setUncontrolledHasValue(!!event.target.value);
+      }
+    };
 
     return (
       <InputGroup
@@ -85,7 +76,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
           {...props}
           value={value}
           defaultValue={defaultValue}
-          onChange={onInputChange}
+          onChange={composeEventHandlers(onChange, onInputChange)}
           id={inputId}
           data-garden-id="forms.clearable_input"
         />
@@ -95,7 +86,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
             aria-controls={inputId}
             isBasic
             {...buttonProps}
-            onClick={onClearClick}
+            onClick={composeEventHandlers(onClick, onClearButtonClick, onClear)}
           >
             <ClearIcon />
           </IconButton>

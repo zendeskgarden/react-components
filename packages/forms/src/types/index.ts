@@ -95,7 +95,11 @@ export interface IInputProps extends IRadioProps {
   validation?: Validation;
 }
 
-export interface IClearableInputProps extends IInputProps {
+export interface IClearableInputProps extends Omit<IInputProps, 'value' | 'defaultValue'> {
+  /** Sets the input's value */
+  value?: string;
+  /** Sets the input's default value */
+  defaultValue?: string;
   /** Fires when the clear button is activated */
   onClear?: () => void;
   /** Defines the clear button's `aria-label` */
