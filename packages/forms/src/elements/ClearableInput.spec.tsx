@@ -275,4 +275,61 @@ describe('ClearableInput', () => {
     expect(input).toHaveAttribute('id', 'custom-id');
     expect(button).toHaveAttribute('aria-controls', 'custom-id');
   });
+
+  it('re-syncs the clear button when a controlled value prop changes externally, not via onChange', () => {
+    const { getByRole, rerender } = render(
+      <ClearableInput aria-label="Search" value="hello" onChange={jest.fn()} />
+    );
+
+    expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
+
+    rerender(<ClearableInput aria-label="Search" value="" onChange={jest.fn()} />);
+
+    expect(() => getByRole('button', { name: 'Clear' })).toThrow();
+  });
+
+  describe('uncontrolled usage', () => {
+    it('does not render the clear button for an uncontrolled input with no defaultValue', () => {
+      const { queryByRole } = render(<ClearableInput aria-label="Search" />);
+
+      expect(queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('renders the clear button for an uncontrolled input with a non-empty defaultValue', () => {
+      const { getByRole } = render(<ClearableInput aria-label="Search" defaultValue="hello" />);
+
+      expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
+    });
+
+    it('shows and hides the clear button as the user types into an uncontrolled input', () => {
+      const { getByRole, queryByRole } = render(<ClearableInput aria-label="Search" />);
+
+      const input = getByRole('textbox', { name: 'Search' });
+
+      fireEvent.change(input, { target: { value: 'abc' } });
+      expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
+
+      fireEvent.change(input, { target: { value: '' } });
+      expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
+    });
+
+    it('clears an uncontrolled input by clicking the clear button, with no onChange required', () => {
+      const { getByRole, queryByRole } = render(
+        <ClearableInput aria-label="Search" defaultValue="hello" />
+      );
+
+      fireEvent.click(getByRole('button', { name: 'Clear' }));
+
+      expect(getByRole('textbox', { name: 'Search' })).toHaveValue('');
+      expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
+    });
+
+    it('returns focus to an uncontrolled input when the clear button is clicked', () => {
+      const { getByRole } = render(<ClearableInput aria-label="Search" defaultValue="hello" />);
+
+      fireEvent.click(getByRole('button', { name: 'Clear' }));
+
+      expect(getByRole('textbox', { name: 'Search' })).toHaveFocus();
+    });
+  });
 });

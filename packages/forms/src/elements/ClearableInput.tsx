@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import { useText } from '@zendeskgarden/react-theming';
@@ -16,17 +16,7 @@ import useFieldContext from '../utils/useFieldContext';
 import { Input } from './Input';
 import { InputGroup } from './input-group/InputGroup';
 
-/** Sets a controlled `<input>`'s value and dispatches a real `input` event, so the
- * consumer's `onChange` fires exactly as it would for user-driven input. */
-const clearNativeInputValue = (input: HTMLInputElement) => {
-  const valueSetter = Object.getOwnPropertyDescriptor(
-    window.HTMLInputElement.prototype,
-    'value'
-  )?.set;
-
-  valueSetter?.call(input, '');
-  input.dispatchEvent(new Event('input', { bubbles: true }));
-};
+const hasStringValue = (value: unknown) => String(value ?? '').length > 0;
 
 export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInputProps>(
   (
@@ -37,6 +27,9 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
       wrapperRef,
       buttonProps: _buttonProps = {},
       isCompact,
+      value,
+      defaultValue,
+      onChange,
       ...props
     },
     ref
@@ -47,13 +40,32 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
     const inputId = props.id ?? fieldContext?.getInputProps<HTMLInputElement>().id ?? generatedId;
     const ariaLabel = useText(ClearableInput, { clearButtonLabel }, 'clearButtonLabel', 'Clear');
 
+    const isControlled = value !== undefined;
+    const [uncontrolledHasValue, setUncontrolledHasValue] = useState(() =>
+      hasStringValue(defaultValue)
+    );
+    const hasValue = isControlled ? hasStringValue(value) : uncontrolledHasValue;
+
+    const onInputChange = composeEventHandlers(
+      onChange,
+      (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (!isControlled) {
+          setUncontrolledHasValue(hasStringValue(event.target.value));
+        }
+      }
+    );
+
     const { onClick, ...buttonProps } = _buttonProps;
 
     const onClearClick = composeEventHandlers(onClick, () => {
       const input = inputRef.current;
 
       if (input) {
-        clearNativeInputValue(input);
+        Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set?.call(
+          input,
+          ''
+        );
+        input.dispatchEvent(new Event('input', { bubbles: true }));
         input.focus();
       }
 
@@ -71,10 +83,13 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
         <Input
           ref={mergeRefs([inputRef, ref])}
           {...props}
+          value={value}
+          defaultValue={defaultValue}
+          onChange={onInputChange}
           id={inputId}
           data-garden-id="forms.clearable_input"
         />
-        {String(props.value ?? '').length > 0 && (
+        {hasValue ? (
           <IconButton
             aria-label={ariaLabel}
             aria-controls={inputId}
@@ -84,7 +99,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
           >
             <ClearIcon />
           </IconButton>
-        )}
+        ) : null}
       </InputGroup>
     );
   }

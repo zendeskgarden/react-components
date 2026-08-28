@@ -21,8 +21,7 @@ export default {
     ...fieldSubcomponents
   },
   args: {
-    ...commonArgs,
-    value: 'Value'
+    ...commonArgs
   },
   argTypes: {
     ...commonArgTypes,
@@ -39,6 +38,11 @@ export default {
   }
 };
 
+export const Uncontrolled: Story = {
+  render: args => <ClearableInputStory {...args} />,
+  args: { defaultValue: 'Value' }
+};
+
 export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
@@ -47,5 +51,6 @@ export const Controlled: Story = {
       updateArgs({ value: event.target.value });
 
     return <ClearableInputStory {...args} onChange={handleChange} />;
-  }
+  },
+  args: { value: 'Value' }
 };
