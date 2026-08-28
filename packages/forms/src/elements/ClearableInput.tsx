@@ -45,12 +45,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
     const inputRef = useRef<HTMLInputElement>(null);
     const generatedId = useId(props.id);
     const inputId = props.id ?? fieldContext?.getInputProps<HTMLInputElement>().id ?? generatedId;
-    const ariaLabel = useText(
-      ClearableInput,
-      { clearButtonLabel },
-      'clearButtonLabel',
-      'Clear value'
-    );
+    const ariaLabel = useText(ClearableInput, { clearButtonLabel }, 'clearButtonLabel', 'Clear');
 
     const { onClick, ...buttonProps } = _buttonProps;
 

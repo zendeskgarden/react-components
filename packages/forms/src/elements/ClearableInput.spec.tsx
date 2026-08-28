@@ -93,13 +93,13 @@ describe('ClearableInput', () => {
       <ClearableInput aria-label="Search" value="hello" onChange={jest.fn()} />
     );
 
-    expect(getByRole('button', { name: 'Clear value' })).toBeInTheDocument();
+    expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
   });
 
   it('drives the controlled value to empty via onChange when the clear button is clicked', () => {
     const { getByRole } = render(<ControlledClearableInput />);
 
-    fireEvent.click(getByRole('button', { name: 'Clear value' }));
+    fireEvent.click(getByRole('button', { name: 'Clear' }));
 
     expect(getByRole('textbox', { name: 'Search' })).toHaveValue('');
   });
@@ -108,7 +108,7 @@ describe('ClearableInput', () => {
     const onClear = jest.fn();
     const { getByRole } = render(<ControlledClearableInput onClear={onClear} />);
 
-    fireEvent.click(getByRole('button', { name: 'Clear value' }));
+    fireEvent.click(getByRole('button', { name: 'Clear' }));
 
     expect(onClear).toHaveBeenCalledTimes(1);
   });
@@ -116,9 +116,9 @@ describe('ClearableInput', () => {
   it('returns focus to the input when the clear button is clicked, even though the button unmounts as a result', () => {
     const { getByRole, queryByRole } = render(<ControlledClearableInput />);
 
-    fireEvent.click(getByRole('button', { name: 'Clear value' }));
+    fireEvent.click(getByRole('button', { name: 'Clear' }));
 
-    expect(queryByRole('button', { name: 'Clear value' })).not.toBeInTheDocument();
+    expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
     expect(getByRole('textbox', { name: 'Search' })).toHaveFocus();
   });
 
@@ -148,7 +148,7 @@ describe('ClearableInput', () => {
       />
     );
 
-    fireEvent.click(getByRole('button', { name: 'Clear value' }));
+    fireEvent.click(getByRole('button', { name: 'Clear' }));
 
     expect(onClick).toHaveBeenCalledTimes(1);
     expect(onClear).toHaveBeenCalledTimes(1);
@@ -164,7 +164,7 @@ describe('ClearableInput', () => {
       />
     );
 
-    expect(getByRole('button', { name: 'Clear value' })).toBeDisabled();
+    expect(getByRole('button', { name: 'Clear' })).toBeDisabled();
   });
 
   it('allows buttonProps to override the default aria-label', () => {
@@ -244,7 +244,7 @@ describe('ClearableInput', () => {
     );
 
     const input = getByRole('textbox', { name: 'Search' });
-    const button = getByRole('button', { name: 'Clear value' });
+    const button = getByRole('button', { name: 'Clear' });
 
     expect(input.id).toBeTruthy();
     expect(button).toHaveAttribute('aria-controls', input.id);
@@ -259,7 +259,7 @@ describe('ClearableInput', () => {
     );
 
     const input = getByRole('textbox', { name: 'Search' });
-    const button = getByRole('button', { name: 'Clear value' });
+    const button = getByRole('button', { name: 'Clear' });
 
     expect(button).toHaveAttribute('aria-controls', input.id);
   });
@@ -270,7 +270,7 @@ describe('ClearableInput', () => {
     );
 
     const input = getByRole('textbox', { name: 'Search' });
-    const button = getByRole('button', { name: 'Clear value' });
+    const button = getByRole('button', { name: 'Clear' });
 
     expect(input).toHaveAttribute('id', 'custom-id');
     expect(button).toHaveAttribute('aria-controls', 'custom-id');

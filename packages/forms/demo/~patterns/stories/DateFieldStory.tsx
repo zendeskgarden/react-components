@@ -55,7 +55,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           validation={validation}
           onChange={e => setValue(e.target.value)}
           onBlur={onInputBlur}
-          clearButtonLabel={`Clear value: ${label}`}
+          clearButtonLabel={`Clear: ${label}`}
           wrapperProps={{ focusInset: true }}
         />
         <IconButton
