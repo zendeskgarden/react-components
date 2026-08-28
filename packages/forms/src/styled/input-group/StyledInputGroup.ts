@@ -18,7 +18,7 @@ import { StyledMessage } from '../common/StyledMessage';
 const COMPONENT_ID = 'forms.input_group';
 
 /* shared between sizeStyles' padding math and seamlessStyles' actual override, to keep them in sync */
-const COMPACT_ICON_BUTTON_SIZE = 24;
+const getCompactIconButtonSize = (theme: DefaultTheme) => math(`${theme.space.base}px * 6`);
 
 interface IStyledInputGroupProps {
   $isCompact?: boolean;
@@ -36,32 +36,39 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
     `;
   }
 
-  const containerSize = $isCompact ? 32 : 40;
-  const horizontalSpacing = theme.space.base * 2;
-  const paddingInline = em(`${theme.space.base * 3}px`, fontSize);
+  const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
+  /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
+  const buttonEdgeTarget = em(theme.space.sm, fontSize);
   /* tracks the size seamlessStyles actually renders, which is shrunk when compact */
-  const iconButtonSize = $isCompact ? COMPACT_ICON_BUTTON_SIZE : 32;
+  const iconButtonSize = $isCompact
+    ? parseFloat(getCompactIconButtonSize(theme))
+    : parseFloat(theme.space.lg);
   const verticalPadding = math(
-    `(${containerSize}px - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
+    `(${containerSize} - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
   );
   const iconGlyphSize = theme.iconSizes.md;
   /* always derived from the regular (unshrunk) 32px IconButton, since its icon glyph doesn't shrink alongside a compact IconButton */
-  const iconButtonInset = (32 - parseFloat(iconGlyphSize)) / 2;
-  const iconButtonPaddingInline = `calc(${paddingInline} - ${iconButtonInset}px)`;
+  const iconButtonInset = (parseFloat(theme.space.lg) - parseFloat(iconGlyphSize)) / 2;
+  const iconButtonPaddingInline = `calc(${buttonEdgeTarget} - ${iconButtonInset}px)`;
 
   return css`
     font-size: ${fontSize};
     padding-block: ${verticalPadding};
-    padding-inline: ${paddingInline};
-    gap: ${horizontalSpacing}px;
+    padding-inline: ${theme.space.xs};
+    gap: ${theme.space.xs};
 
-    /* compensates for the IconButton's own inset so its icon, not its edge, lands at the container's declared padding */
+    /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
     &:has(> ${StyledIconButton}:first-child) {
       padding-inline-start: ${iconButtonPaddingInline};
     }
 
     &:has(> ${StyledIconButton}:last-child) {
       padding-inline-end: ${iconButtonPaddingInline};
+    }
+
+    /* adds back the difference between the container's own edge padding and the target edge distance, regardless of the Input's position among siblings */
+    & > ${StyledTextInput} {
+      padding-inline-start: ${theme.space.xxs};
     }
   `;
 };
@@ -106,10 +113,9 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   }
 
   const { theme, $isCompact, $focusInset } = props;
-  const containerSize = $isCompact ? 32 : 40;
-  const buttonSizeValue = $isCompact ? 24 : 28;
-  const buttonSize = `${buttonSizeValue}px`;
-  const iconButtonSize = $isCompact ? `${COMPACT_ICON_BUTTON_SIZE}px` : undefined;
+  const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
+  const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
+  const iconButtonSize = $isCompact ? getCompactIconButtonSize(theme) : undefined;
   const borderColor = getColor({
     theme,
     variable: 'border.default',
@@ -129,7 +135,7 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
     border-radius: ${theme.borderRadii.md};
     border-color: ${borderColor};
     background-color: ${backgroundColor};
-    min-height: ${containerSize}px;
+    min-height: ${containerSize};
 
     &:hover {
       border-color: ${focusBorderColor};

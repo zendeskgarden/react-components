@@ -130,11 +130,22 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it("matches the container's inline edge padding to StyledTextInput's own non-bare horizontal padding", () => {
+    it("matches the container's inline edge padding to the inter-item gap", () => {
       const { container } = render(<StyledInputGroup $isSeamless />);
-      const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
 
-      expect(container.firstChild).toHaveStyleRule('padding-inline', paddingHorizontal);
+      expect(container.firstChild).toHaveStyleRule('padding-inline', '8px');
+    });
+
+    it('gives a child Input a theme.space.xxs padding-inline-start, regardless of its position among siblings, so its text totals 12px from whatever precedes it', () => {
+      const { container } = render(<StyledInputGroup $isSeamless />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'padding-inline-start',
+        DEFAULT_THEME.space.xxs,
+        {
+          modifier: `&>${StyledTextInput}`
+        }
+      );
     });
 
     it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the button's visible edge sits a constant 4px from the container edge regardless of $isCompact", () => {
