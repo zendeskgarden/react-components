@@ -65,9 +65,9 @@ export const DateField: StoryObj<typeof DateFieldStory> = {
   args: {
     ...commonArgs,
     label: 'Employee start date',
-    value: '03/05/2024',
+    value: '3/5/2024',
     clearButtonLabel: 'Clear: Employee start date',
-    hint: '3 accepted formats: "M/D/YYYY", "Mon D, YYYY", or "Month D, YYYY"',
+    hint: 'Accepted formats: "M/D/YYYY", "Mon D, YYYY", or "Month D, YYYY"',
     hasMessage: false
   },
   argTypes: dateFieldArgTypes
