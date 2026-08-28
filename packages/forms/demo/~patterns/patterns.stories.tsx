@@ -7,7 +7,8 @@
 
 import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { FileUpload } from '@zendeskgarden/react-forms';
+import { useArgs } from 'storybook/preview-api';
+import { ClearableInput, FileUpload } from '@zendeskgarden/react-forms';
 import { FileUploadStory } from './stories/FileUploadStory';
 import { DateFieldStory } from './stories/DateFieldStory';
 import { commonArgs, commonArgTypes } from '../stories/common';
@@ -15,20 +16,61 @@ import { FILE_TYPES } from '../stories/data';
 
 export default {
   title: 'Packages/Forms/[patterns]',
-  component: FileUpload
+  component: FileUpload,
+  subcomponents: {
+    ClearableInput
+  }
+};
+
+/* untyped so isDragging (a FileUpload-only arg leaking in via the shared meta's `component`) can be disabled without an excess-property error */
+const dateFieldArgTypes = {
+  ...commonArgTypes,
+  isDragging: { table: { disable: true } },
+  value: {
+    control: 'text' as const,
+    table: { category: 'ClearableInput' }
+  },
+  disabled: {
+    control: 'boolean' as const,
+    table: { category: 'ClearableInput' }
+  },
+  readOnly: {
+    control: 'boolean' as const,
+    table: { category: 'ClearableInput' }
+  },
+  isCompact: {
+    control: 'boolean' as const,
+    table: { category: 'ClearableInput' }
+  },
+  placeholder: {
+    control: 'text' as const,
+    table: { category: 'ClearableInput' }
+  },
+  clearButtonLabel: {
+    control: 'text' as const,
+    table: { category: 'ClearableInput' }
+  }
 };
 
 export const DateField: StoryObj<typeof DateFieldStory> = {
-  render: args => <DateFieldStory {...args} />,
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+      updateArgs({ value: event.target.value });
+
+    return <DateFieldStory {...args} onChange={handleChange} />;
+  },
   name: 'Date field',
   args: {
-    ...commonArgs
+    ...commonArgs,
+    label: 'Employee start date',
+    value: '03/05/2024',
+    clearButtonLabel: 'Clear: Employee start date',
+    hint: '3 accepted formats: "M/D/YYYY", "Mon D, YYYY", or "Month D, YYYY"',
+    hasMessage: false
   },
-  argTypes: {
-    ...commonArgTypes,
-    /* the pattern's label is a fixed "Employee start date*" example, not meant to be edited */
-    label: { table: { disable: true } }
-  }
+  argTypes: dateFieldArgTypes
 };
 
 export const Example: StoryObj<typeof FileUploadStory> = {

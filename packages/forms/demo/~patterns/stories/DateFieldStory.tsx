@@ -5,40 +5,45 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { ClearableInput, IInputGroupProps, InputGroup } from '@zendeskgarden/react-forms';
+import {
+  ClearableInput,
+  IClearableInputProps,
+  IInputGroupProps,
+  InputGroup
+} from '@zendeskgarden/react-forms';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import CalendarIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
 import { FieldStory, IFieldArgs } from '../../stories/FieldStory';
 
-interface IArgs extends IInputGroupProps, IFieldArgs {}
+interface IArgs
+  extends
+    Omit<IInputGroupProps, 'onChange'>,
+    IFieldArgs,
+    Pick<
+      IClearableInputProps,
+      'disabled' | 'readOnly' | 'clearButtonLabel' | 'placeholder' | 'value' | 'onChange'
+    > {}
 
 export const DateFieldStory: StoryFn<IArgs> = ({
+  label,
   isLabelRegular,
   isLabelHidden,
   hasHint,
   hint,
   hasMessage,
   message,
-  validation: controlValidation,
+  validation,
   validationLabel,
+  disabled,
+  readOnly,
+  clearButtonLabel,
+  placeholder,
+  value = '',
+  onChange,
   ...args
 }) => {
-  const label = 'Employee start date';
-  const [value, setValue] = useState('03/05/2024');
-  const [isTouched, setIsTouched] = useState(false);
-
-  const isRequiredError = isTouched && value.trim().length === 0;
-  const validation = isRequiredError ? 'error' : controlValidation;
-  const errorMessage = isRequiredError ? 'A date is required.' : message;
-
-  const onGroupBlur = (event: React.FocusEvent<HTMLDivElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      setIsTouched(true);
-    }
-  };
-
   return (
     <FieldStory
       label={`${label}*`}
@@ -46,19 +51,22 @@ export const DateFieldStory: StoryFn<IArgs> = ({
       isLabelHidden={isLabelHidden}
       hasHint={hasHint}
       hint={hint}
-      hasMessage={hasMessage || isRequiredError}
-      message={errorMessage}
+      hasMessage={hasMessage}
+      message={message}
       validation={validation}
       validationLabel={validationLabel}
     >
-      <InputGroup {...args} onBlur={onGroupBlur}>
+      <InputGroup {...args}>
         <ClearableInput
           value={value}
           aria-required="true"
           isCompact={args.isCompact}
+          disabled={disabled}
+          readOnly={readOnly}
+          placeholder={placeholder}
           validation={validation}
-          onChange={e => setValue(e.target.value)}
-          clearButtonLabel={`Clear: ${label}`}
+          onChange={onChange}
+          clearButtonLabel={clearButtonLabel}
           wrapperProps={{ focusInset: true }}
         />
         <IconButton
@@ -67,6 +75,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           isPill={false}
           isNeutral
           focusInset
+          disabled={disabled}
           size={args.isCompact ? 'small' : undefined}
         >
           <CalendarIcon aria-hidden="true" />
