@@ -22,20 +22,20 @@ const ControlledClearableInput = ({
 
 describe('ClearableInput', () => {
   it('renders an Input inside a seamless InputGroup', () => {
-    const { getByRole } = render(<ClearableInput value="" onChange={jest.fn()} />);
+    const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
 
     expect(getByRole('group')).toBeInTheDocument();
     expect(getByRole('textbox')).toBeInTheDocument();
   });
 
   it("sets the input's data-garden-id to forms.clearable_input", () => {
-    const { getByRole } = render(<ClearableInput value="" onChange={jest.fn()} />);
+    const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
 
     expect(getByRole('textbox')).toHaveAttribute('data-garden-id', 'forms.clearable_input');
   });
 
   it('does not apply an inset focus ring to the InputGroup by default', () => {
-    const { getByRole } = render(<ClearableInput value="" onChange={jest.fn()} />);
+    const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
 
     const wrapper = getByRole('group');
 
@@ -47,7 +47,7 @@ describe('ClearableInput', () => {
 
   it('applies an inset focus ring to the InputGroup when wrapperProps.focusInset is true', () => {
     const { getByRole } = render(
-      <ClearableInput value="" onChange={jest.fn()} wrapperProps={{ focusInset: true }} />
+      <ClearableInput onChange={jest.fn()} wrapperProps={{ focusInset: true }} />
     );
 
     const wrapper = getByRole('group');
@@ -152,7 +152,7 @@ describe('ClearableInput', () => {
 
   it('forwards its ref to the underlying input DOM node', () => {
     const ref = React.createRef<HTMLInputElement>();
-    const { getByRole } = render(<ClearableInput ref={ref} value="" onChange={jest.fn()} />);
+    const { getByRole } = render(<ClearableInput ref={ref} onChange={jest.fn()} />);
 
     expect(getByRole('textbox')).toBe(ref.current);
   });
@@ -183,7 +183,7 @@ describe('ClearableInput', () => {
 
   it('passes arbitrary props through wrapperProps to the InputGroup', () => {
     const { getByRole } = render(
-      <ClearableInput value="" onChange={jest.fn()} wrapperProps={{ className: 'custom-class' }} />
+      <ClearableInput onChange={jest.fn()} wrapperProps={{ className: 'custom-class' }} />
     );
 
     expect(getByRole('group')).toHaveClass('custom-class');
@@ -191,9 +191,7 @@ describe('ClearableInput', () => {
 
   it('resolves wrapperRef to the InputGroup DOM node', () => {
     const wrapperRef = React.createRef<HTMLDivElement>();
-    const { getByRole } = render(
-      <ClearableInput wrapperRef={wrapperRef} value="" onChange={jest.fn()} />
-    );
+    const { getByRole } = render(<ClearableInput wrapperRef={wrapperRef} onChange={jest.fn()} />);
 
     expect(getByRole('group')).toBe(wrapperRef.current);
   });
