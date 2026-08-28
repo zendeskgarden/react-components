@@ -50,6 +50,8 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
       const input = inputRef.current;
 
       if (input) {
+        // Use the native setter (bypassing React's patched one) so React doesn't think the
+        // value is unchanged, which would cause it to swallow the `input` event dispatched below.
         Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value')?.set?.call(
           input,
           ''
