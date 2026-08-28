@@ -24,9 +24,7 @@ export const DateField: StoryObj<typeof DateFieldStory> = {
     hasHint: false
   },
   argTypes: {
-    disabled: { table: { disable: true } },
     hasHint: { table: { disable: true } },
-    isDragging: { table: { disable: true } },
     label: { table: { disable: true } }
   }
 };
