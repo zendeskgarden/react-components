@@ -25,6 +25,12 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
         ? fieldContext.getLabelProps({}).id
         : undefined;
 
+    let seamlessIconButtonSize: 'small' | 'smallest' | undefined;
+
+    if (isSeamless) {
+      seamlessIconButtonSize = isCompact ? 'smallest' : 'small';
+    }
+
     const mappedChildren = Children.map(children, child => {
       if (!isValidElement(child) || child.type !== IconButton) {
         return child;
@@ -32,9 +38,9 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
 
       const props = child.props as { size?: string };
 
-      /* isSeamless assumes a "small" IconButton for its padding math, so that isn't left to the consumer */
+      /* isSeamless assumes a "small"/"smallest" IconButton for its padding math, so that isn't left to the consumer */
       return cloneElement(child, {
-        size: isSeamless ? 'small' : props.size
+        size: seamlessIconButtonSize || props.size
       });
     });
 

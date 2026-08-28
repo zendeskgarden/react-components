@@ -7,7 +7,7 @@
 
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { IIconButtonProps, SIZE } from '../types';
+import { IIconButtonProps, ICON_BUTTON_SIZE } from '../types';
 import { StyledIconButton, StyledIcon } from '../styled';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
@@ -62,5 +62,5 @@ IconButton.propTypes = {
   isPill: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isRotated: PropTypes.bool,
-  size: PropTypes.oneOf(SIZE)
+  size: PropTypes.oneOf(ICON_BUTTON_SIZE)
 };

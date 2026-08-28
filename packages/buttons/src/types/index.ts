@@ -9,6 +9,9 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes, SVGAttributes } from 'react
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
+/** "smallest" is only meaningful for an icon-only button, whose icon glyph never shrinks below `iconSizes.md` */
+export const ICON_BUTTON_SIZE = ['smallest', ...SIZE] as const;
+
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
   isDanger?: boolean;
@@ -38,9 +41,11 @@ export interface IToggleButtonProps extends IButtonProps {
   isPressed?: boolean | 'mixed';
 }
 
-export interface IIconButtonProps extends Omit<IButtonProps, 'isStretched' | 'isLink'> {
+export interface IIconButtonProps extends Omit<IButtonProps, 'isStretched' | 'isLink' | 'size'> {
   /** Rotates icon 180 degrees */
   isRotated?: boolean;
+  /** Specifies the button size */
+  size?: (typeof ICON_BUTTON_SIZE)[number];
 }
 
 export interface IToggleIconButtonProps

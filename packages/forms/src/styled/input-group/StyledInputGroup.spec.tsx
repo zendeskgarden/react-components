@@ -56,24 +56,15 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).toHaveStyleRule('min-height', '32px');
     });
 
-    it('does not resize a regular IconButton, since its own small size already fits with room to spare', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+    it('does not resize the IconButton via CSS, since InputGroup delegates sizing to its "small"/"smallest" size prop instead', () => {
+      const { container: regular } = render(<StyledInputGroup $isSeamless />);
+      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
       const modifier = `& ${StyledIconButton}`;
 
-      expect(container.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
-      expect(container.firstChild).not.toHaveStyleRule('height', expect.any(String), {
-        modifier
-      });
-    });
-
-    it("shrinks a compact IconButton to 24px, since its own small size (32px) doesn't fit within a 32px container plus border", () => {
-      const { container } = render(<StyledInputGroup $isSeamless $isCompact />);
-      const modifier = `& ${StyledIconButton}`;
-
-      expect(container.firstChild).toHaveStyleRule('width', '24px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('min-width', '24px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('height', '24px', { modifier });
-      expect(container.firstChild).toHaveStyleRule('min-height', '24px', { modifier });
+      expect(regular.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
+      expect(regular.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
+      expect(compact.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
+      expect(compact.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
     });
 
     it('leaves the IconButton icon glyph at its own default size (iconSizes.md, 16px), regardless of $isCompact', () => {

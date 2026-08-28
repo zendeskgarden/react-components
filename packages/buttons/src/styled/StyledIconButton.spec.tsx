@@ -55,6 +55,17 @@ describe('StyledIconButton', () => {
   });
 
   describe('Sizes', () => {
+    it('renders smallest styling if provided, without shrinking the icon glyph', () => {
+      const { container } = render(<StyledIconButton $size="smallest" />);
+
+      expect(container.firstChild).toHaveStyleRule('width', '24px');
+      expect(container.firstChild).toHaveStyleRule('width', '16px', {
+        modifier: css`
+          ${StyledIcon}
+        ` as unknown as string
+      });
+    });
+
     it('renders small styling if provided', () => {
       const { container } = render(<StyledIconButton $size="small" />);
 

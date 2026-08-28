@@ -205,33 +205,31 @@ describe('InputGroup', () => {
     );
   });
 
-  it('forces size="small" on an IconButton child when isSeamless, regardless of isCompact', () => {
-    const { getByRole: getByRoleRegular } = render(
+  it('forces size="small" on an IconButton child when isSeamless and not compact', () => {
+    const { getByRole } = render(
       <InputGroup isSeamless>
-        <IconButton aria-label="Regular icon button">
-          <span />
-        </IconButton>
-      </InputGroup>
-    );
-    const { getByRole: getByRoleCompact } = render(
-      <InputGroup isSeamless isCompact>
-        <IconButton aria-label="Compact icon button">
+        <IconButton aria-label="Icon button">
           <span />
         </IconButton>
       </InputGroup>
     );
 
-    expect(getByRoleRegular('button', { name: 'Regular icon button' })).toHaveStyleRule(
-      'height',
-      '32px'
-    );
-    expect(getByRoleCompact('button', { name: 'Compact icon button' })).toHaveStyleRule(
-      'height',
-      '32px'
-    );
+    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '32px');
   });
 
-  it('rejects an explicit size override on an IconButton child, since any other size breaks the isSeamless styles', () => {
+  it('forces size="smallest" on an IconButton child when isSeamless and isCompact', () => {
+    const { getByRole } = render(
+      <InputGroup isSeamless isCompact>
+        <IconButton aria-label="Icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '24px');
+  });
+
+  it('rejects an explicit size override on an IconButton child when isSeamless and not compact, since any other size breaks the isSeamless styles', () => {
     const { getByRole } = render(
       <InputGroup isSeamless>
         <IconButton size="large" aria-label="Icon button">
@@ -241,6 +239,18 @@ describe('InputGroup', () => {
     );
 
     expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '32px');
+  });
+
+  it('rejects an explicit size override on an IconButton child when isSeamless and isCompact, since any other size breaks the isSeamless styles', () => {
+    const { getByRole } = render(
+      <InputGroup isSeamless isCompact>
+        <IconButton size="large" aria-label="Icon button">
+          <span />
+        </IconButton>
+      </InputGroup>
+    );
+
+    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '24px');
   });
 
   describe('InputGroup child items', () => {

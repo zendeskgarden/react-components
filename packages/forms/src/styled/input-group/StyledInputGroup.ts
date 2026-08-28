@@ -115,7 +115,6 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   const { theme, $isCompact, $focusInset } = props;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
-  const iconButtonSize = $isCompact ? getCompactIconButtonSize(theme) : undefined;
   const borderColor = getColor({
     theme,
     variable: 'border.default',
@@ -145,14 +144,10 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       align-self: stretch; /* override the container's own centered children */
     }
 
-    /* only shrunk when compact - a regular 32px IconButton already fits with room to spare */
+    /* IconButton sizes itself via its own "small"/"smallest" size prop, forced by InputGroup */
     & ${StyledIconButton} {
       flex: none;
       align-self: center;
-      width: ${iconButtonSize};
-      min-width: ${iconButtonSize};
-      height: ${iconButtonSize};
-      min-height: ${iconButtonSize};
     }
 
     /* shrinks a text button's height to fit the container, without touching its own padding */
