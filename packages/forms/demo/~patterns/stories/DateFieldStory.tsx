@@ -69,7 +69,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           focusInset
           size={args.isCompact ? 'small' : undefined}
         >
-          <CalendarIcon />
+          <CalendarIcon aria-hidden="true" />
         </IconButton>
       </InputGroup>
     </FieldStory>

@@ -95,7 +95,7 @@ describe('ClearableInput', () => {
     expect(onClear).toHaveBeenCalledTimes(1);
   });
 
-  it('returns focus to the input when the clear button is clicked, even though the button unmounts as a result', () => {
+  it('returns focus to the input when the clear button is clicked, because the button unmounts as a result', () => {
     const { getByRole, queryByRole } = render(<ControlledClearableInput />);
 
     fireEvent.click(getByRole('button', { name: 'Clear' }));
