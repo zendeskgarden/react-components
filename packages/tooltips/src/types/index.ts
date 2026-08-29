@@ -40,6 +40,12 @@ export interface ITooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'con
    * than as a supplemental description
    */
   isLabel?: boolean;
+  /**
+   * Enables toggletip behavior (click-to-toggle) rather than the default
+   * tooltip behavior (hover/focus). Toggletip content is announced via a live
+   * region and the trigger must be a `<button>` element for accessibility.
+   */
+  isToggletip?: boolean;
   /** Displays the tooltip on initial render */
   isInitialVisible?: boolean;
   /** Displays the tooltip */
