@@ -21,7 +21,7 @@ const ControlledClearableInput = ({
 };
 
 describe('ClearableInput', () => {
-  it('renders an Input inside a seamless InputGroup', () => {
+  it('renders an Input inside a unified InputGroup', () => {
     const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
 
     expect(getByRole('group')).toBeInTheDocument();

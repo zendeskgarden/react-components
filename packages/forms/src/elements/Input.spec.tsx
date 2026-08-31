@@ -15,9 +15,9 @@ import { InputGroup } from './input-group/InputGroup';
 describe('Input', () => {
   const user = userEvent.setup();
 
-  it('is bare by default inside a seamless InputGroup', () => {
+  it('is bare by default inside a unified InputGroup', () => {
     const { getByTestId } = render(
-      <InputGroup isSeamless>
+      <InputGroup isUnified>
         <Input data-test-id="input" />
       </InputGroup>
     );
@@ -25,9 +25,9 @@ describe('Input', () => {
     expect(getByTestId('input')).toHaveStyleRule('border', 'none');
   });
 
-  it('respects an explicit isBare override inside a seamless InputGroup', () => {
+  it('respects an explicit isBare override inside a unified InputGroup', () => {
     const { getByTestId } = render(
-      <InputGroup isSeamless>
+      <InputGroup isUnified>
         <Input data-test-id="input" isBare={false} />
       </InputGroup>
     );

@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { Children, cloneElement, isValidElement, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { IconButton } from '@zendeskgarden/react-buttons';
 import { IInputGroupProps } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
 import { InputGroupContext } from '../../utils/useInputGroupContext';
@@ -17,32 +16,13 @@ import { StyledInputGroup } from '../../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
-  ({ isCompact, isSeamless, focusInset, children, ...other }, ref) => {
+  ({ isCompact, isUnified, focusInset, children, ...other }, ref) => {
     const fieldContext = useFieldContext();
-    const contextValue = useMemo(() => ({ isCompact, isSeamless }), [isCompact, isSeamless]);
+    const contextValue = useMemo(() => ({ isCompact, isUnified }), [isCompact, isUnified]);
     const labelId =
       fieldContext?.hasLabel && !other['aria-label']
         ? fieldContext.getLabelProps({}).id
         : undefined;
-
-    let seamlessIconButtonSize: 'small' | 'smallest' | undefined;
-
-    if (isSeamless) {
-      seamlessIconButtonSize = isCompact ? 'smallest' : 'small';
-    }
-
-    const mappedChildren = Children.map(children, child => {
-      if (!isValidElement(child) || child.type !== IconButton) {
-        return child;
-      }
-
-      const props = child.props as { size?: string };
-
-      /* isSeamless assumes a "small"/"smallest" IconButton for its padding math, so that isn't left to the consumer */
-      return cloneElement(child, {
-        size: seamlessIconButtonSize || props.size
-      });
-    });
 
     return (
       <InputGroupContext.Provider value={contextValue}>
@@ -51,12 +31,12 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
           aria-labelledby={labelId}
           ref={ref}
           $isCompact={isCompact}
-          $isSeamless={isSeamless}
+          $isUnified={isUnified}
           $focusInset={focusInset}
           {...other}
           role="group"
         >
-          {mappedChildren}
+          {children}
         </StyledInputGroup>
       </InputGroupContext.Provider>
     );
@@ -67,6 +47,6 @@ InputGroup.displayName = 'InputGroup';
 
 InputGroup.propTypes = {
   isCompact: PropTypes.bool,
-  isSeamless: PropTypes.bool,
+  isUnified: PropTypes.bool,
   focusInset: PropTypes.bool
 };

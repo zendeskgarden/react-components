@@ -13,9 +13,6 @@ export { SplitButton } from './elements/SplitButton';
 export { ToggleButton } from './elements/ToggleButton';
 export { ToggleIconButton } from './elements/ToggleIconButton';
 
-export { StyledButton } from './styled/StyledButton';
-export { StyledIconButton } from './styled/StyledIconButton';
-
 export type {
   IButtonProps,
   IButtonIconProps as IButtonEndIconProps,
