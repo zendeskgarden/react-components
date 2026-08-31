@@ -9,33 +9,35 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { em } from 'polished';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { StyledButton, StyledIconButton } from '@zendeskgarden/react-buttons';
 import { StyledInputGroup } from './StyledInputGroup';
 import { StyledTextInput } from '../text/StyledTextInput';
 
+const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
+const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
+
 describe('StyledInputGroup', () => {
-  it('sets a font-size matching StyledTextInput, regardless of $isCompact or $isSeamless', () => {
+  it('sets a font-size matching StyledTextInput, regardless of $isCompact or $isUnified', () => {
     const { container: plain } = render(<StyledInputGroup />);
     const { container: compact } = render(<StyledInputGroup $isCompact />);
-    const { container: seamless } = render(<StyledInputGroup $isSeamless />);
-    const { container: compactSeamless } = render(<StyledInputGroup $isSeamless $isCompact />);
+    const { container: unified } = render(<StyledInputGroup $isUnified />);
+    const { container: compactUnified } = render(<StyledInputGroup $isUnified $isCompact />);
 
     expect(plain.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
     expect(compact.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
-    expect(seamless.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
-    expect(compactSeamless.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+    expect(unified.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+    expect(compactUnified.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
   });
 
-  describe('$isSeamless', () => {
+  describe('$isUnified', () => {
     it('renders a container border and radius', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('border', '1px solid');
       expect(container.firstChild).toHaveStyleRule('border-radius', '4px');
     });
 
-    it('renders default border-color and background-color, matching the non-seamless field colors', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+    it('renders default border-color and background-color, matching the non-unified field colors', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
       const borderColor = getColor({
         theme: DEFAULT_THEME,
         variable: 'border.default',
@@ -49,17 +51,32 @@ describe('StyledInputGroup', () => {
     });
 
     it('renders a 40px minimum height by default, and 32px when compact', () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
 
       expect(regular.firstChild).toHaveStyleRule('min-height', '40px');
       expect(compact.firstChild).toHaveStyleRule('min-height', '32px');
     });
 
-    it('does not resize the IconButton via CSS, since InputGroup delegates sizing to its "small"/"smallest" size prop instead', () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
-      const modifier = `& ${StyledIconButton}`;
+    it('sizes icon buttons to fit the container via CSS: 32px, or 24px when compact', () => {
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `& ${ICON_BUTTON_SELECTOR}`;
+
+      expect(regular.firstChild).toHaveStyleRule('width', '32px', { modifier });
+      expect(regular.firstChild).toHaveStyleRule('min-width', '32px', { modifier });
+      expect(regular.firstChild).toHaveStyleRule('height', '32px', { modifier });
+      expect(regular.firstChild).toHaveStyleRule('min-height', '32px', { modifier });
+      expect(compact.firstChild).toHaveStyleRule('width', '24px', { modifier });
+      expect(compact.firstChild).toHaveStyleRule('min-width', '24px', { modifier });
+      expect(compact.firstChild).toHaveStyleRule('height', '24px', { modifier });
+      expect(compact.firstChild).toHaveStyleRule('min-height', '24px', { modifier });
+    });
+
+    it('applies no [aria-pressed] exception, so a ToggleIconButton is sized like any icon button', () => {
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `& ${ICON_BUTTON_SELECTOR}:not([aria-pressed])`;
 
       expect(regular.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
       expect(regular.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
@@ -68,9 +85,9 @@ describe('StyledInputGroup', () => {
     });
 
     it('leaves the IconButton icon glyph at its own default size (iconSizes.md, 16px), regardless of $isCompact', () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
-      const modifier = `& ${StyledIconButton} svg`;
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `& ${ICON_BUTTON_SELECTOR} svg`;
 
       expect(regular.firstChild).not.toHaveStyleRule('width', expect.any(String), { modifier });
       expect(regular.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
@@ -78,24 +95,24 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
     });
 
-    it("sets the container's vertical padding to fit a regular IconButton's own small size, and to 3px once a compact IconButton is shrunk to fit", () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+    it("sets the container's vertical padding to fit the CSS-sized IconButton, regular or compact", () => {
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
 
       expect(regular.firstChild).toHaveStyleRule('padding-block', '3px');
       expect(compact.firstChild).toHaveStyleRule('padding-block', '3px');
     });
 
     it('does not resize the width of plain text buttons', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).not.toHaveStyleRule('width', '28px', { modifier: '& button' });
     });
 
     it("shrinks a plain text button's height to match the icon button size, so it doesn't grow the container beyond its own min-height", () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
-      const modifier = `& ${StyledButton}:not(${StyledIconButton})`;
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `& ${BUTTON_SELECTOR}`;
 
       expect(regular.firstChild).toHaveStyleRule('height', '28px', { modifier });
       expect(regular.firstChild).toHaveStyleRule('min-height', '28px', { modifier });
@@ -107,14 +124,14 @@ describe('StyledInputGroup', () => {
     });
 
     it('centers children and adds inter-item spacing', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('align-items', 'center');
       expect(container.firstChild).toHaveStyleRule('gap', '8px');
     });
 
     it('stretches StyledTextInput to the container height, despite the container centering its other children', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('align-self', 'stretch', {
         modifier: `& ${StyledTextInput}`
@@ -122,13 +139,13 @@ describe('StyledInputGroup', () => {
     });
 
     it("matches the container's inline edge padding to the inter-item gap", () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('padding-inline', '8px');
     });
 
     it('gives a child Input a theme.space.xxs padding-inline-start, regardless of its position among siblings, so its text totals 12px from whatever precedes it', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule(
         'padding-inline-start',
@@ -140,8 +157,8 @@ describe('StyledInputGroup', () => {
     });
 
     it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the button's visible edge sits a constant 4px from the container edge regardless of $isCompact", () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
       const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
       /* always derived from the regular (unshrunk) IconButton's own geometry, since a compact IconButton's icon doesn't shrink alongside it */
       const iconInset = (32 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
@@ -149,40 +166,40 @@ describe('StyledInputGroup', () => {
       const compactPadding = `calc(${paddingHorizontal} - ${iconInset}px)`;
 
       expect(regular.firstChild).toHaveStyleRule('padding-inline-end', regularPadding, {
-        modifier: `&:has(> ${StyledIconButton}:last-child)`
+        modifier: `&:has(> ${ICON_BUTTON_SELECTOR}:last-child)`
       });
       expect(regular.firstChild).toHaveStyleRule('padding-inline-start', regularPadding, {
-        modifier: `&:has(> ${StyledIconButton}:first-child)`
+        modifier: `&:has(> ${ICON_BUTTON_SELECTOR}:first-child)`
       });
       expect(compact.firstChild).toHaveStyleRule('padding-inline-end', compactPadding, {
-        modifier: `&:has(> ${StyledIconButton}:last-child)`
+        modifier: `&:has(> ${ICON_BUTTON_SELECTOR}:last-child)`
       });
       expect(compact.firstChild).toHaveStyleRule('padding-inline-start', compactPadding, {
-        modifier: `&:has(> ${StyledIconButton}:first-child)`
+        modifier: `&:has(> ${ICON_BUTTON_SELECTOR}:first-child)`
       });
     });
 
     it("does not override the container's edge padding for a trailing/leading text button, leaving the button's own padding untouched", () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).not.toHaveStyleRule('padding-inline-end', expect.any(String), {
-        modifier: `&:has(> ${StyledButton}:not(${StyledIconButton}):last-child)`
+        modifier: `&:has(> ${BUTTON_SELECTOR}:last-child)`
       });
       expect(container.firstChild).not.toHaveStyleRule('padding-inline-start', expect.any(String), {
-        modifier: `&:has(> ${StyledButton}:not(${StyledIconButton}):first-child)`
+        modifier: `&:has(> ${BUTTON_SELECTOR}:first-child)`
       });
     });
 
     it("does not touch a text button's own padding-inline, only resizing it to fit the container", () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).not.toHaveStyleRule('padding-inline', expect.any(String), {
-        modifier: `& ${StyledButton}:not(${StyledIconButton})`
+        modifier: `& ${BUTTON_SELECTOR}`
       });
     });
 
     it('highlights the container border on focus-within, unless a button owns the focus-visible ring', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
       const focusBorderColor = getColor({
         theme: DEFAULT_THEME,
         variable: 'border.primaryEmphasis'
@@ -194,7 +211,7 @@ describe('StyledInputGroup', () => {
     });
 
     it('highlights the container border on hover, matching StyledTextInput', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
       const hoverBorderColor = getColor({
         theme: DEFAULT_THEME,
         variable: 'border.primaryEmphasis'
@@ -206,7 +223,7 @@ describe('StyledInputGroup', () => {
     });
 
     it('transitions border-color smoothly, matching StyledTextInput', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule(
         'transition',
@@ -215,7 +232,7 @@ describe('StyledInputGroup', () => {
     });
 
     it('transitions box-shadow smoothly, matching the focus indicator timing used by MediaInput', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule(
         'transition',
@@ -233,7 +250,7 @@ describe('StyledInputGroup', () => {
       it.each(['success', 'warning', 'error'] as const)(
         'highlights the container border in the %s color at rest, based on a descendant data-validation attribute',
         validation => {
-          const { container } = render(<StyledInputGroup $isSeamless />);
+          const { container } = render(<StyledInputGroup $isUnified />);
           const borderColor = getColor({
             theme: DEFAULT_THEME,
             variable: VALIDATION_BORDER_VARIABLE[validation]
@@ -248,7 +265,7 @@ describe('StyledInputGroup', () => {
       it.each(['success', 'warning', 'error'] as const)(
         'highlights the container border in the %s color on hover, based on a descendant data-validation attribute',
         validation => {
-          const { container } = render(<StyledInputGroup $isSeamless />);
+          const { container } = render(<StyledInputGroup $isUnified />);
           const borderColor = getColor({
             theme: DEFAULT_THEME,
             variable: VALIDATION_BORDER_VARIABLE[validation]
@@ -263,7 +280,7 @@ describe('StyledInputGroup', () => {
       it.each(['success', 'warning', 'error'] as const)(
         'highlights the container border in the %s color on focus-within, based on a descendant data-validation attribute',
         validation => {
-          const { container } = render(<StyledInputGroup $isSeamless />);
+          const { container } = render(<StyledInputGroup $isUnified />);
           const borderColor = getColor({
             theme: DEFAULT_THEME,
             variable: VALIDATION_BORDER_VARIABLE[validation]
@@ -278,7 +295,7 @@ describe('StyledInputGroup', () => {
 
     describe('disabled', () => {
       it("highlights the container border and background in disabled colors, based on a descendant's :disabled state", () => {
-        const { container } = render(<StyledInputGroup $isSeamless />);
+        const { container } = render(<StyledInputGroup $isUnified />);
         const borderColor = getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' });
         const backgroundColor = getColor({ theme: DEFAULT_THEME, variable: 'background.disabled' });
 
@@ -291,13 +308,13 @@ describe('StyledInputGroup', () => {
       });
 
       it('shows a text cursor by default', () => {
-        const { container } = render(<StyledInputGroup $isSeamless />);
+        const { container } = render(<StyledInputGroup $isUnified />);
 
         expect(container.firstChild).toHaveStyleRule('cursor', 'text');
       });
 
       it("shows a default cursor based on a descendant's :disabled state", () => {
-        const { container } = render(<StyledInputGroup $isSeamless />);
+        const { container } = render(<StyledInputGroup $isUnified />);
 
         expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
           modifier: `&:has(${StyledTextInput}:disabled)`
@@ -307,7 +324,7 @@ describe('StyledInputGroup', () => {
 
     describe('readOnly', () => {
       it("highlights the container background in the disabled background color, based on a descendant's readonly attribute", () => {
-        const { container } = render(<StyledInputGroup $isSeamless />);
+        const { container } = render(<StyledInputGroup $isUnified />);
         const backgroundColor = getColor({ theme: DEFAULT_THEME, variable: 'background.disabled' });
 
         expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor, {
@@ -316,7 +333,7 @@ describe('StyledInputGroup', () => {
       });
 
       it("does not change the container's border-color or cursor, since a read-only input remains focusable and selectable", () => {
-        const { container } = render(<StyledInputGroup $isSeamless />);
+        const { container } = render(<StyledInputGroup $isUnified />);
         const modifier = `&:has(${StyledTextInput}[readonly])`;
 
         expect(container.firstChild).not.toHaveStyleRule('border-color', expect.any(String), {
@@ -329,9 +346,9 @@ describe('StyledInputGroup', () => {
     });
 
     it('does not impose an inset focus ring on icon buttons via CSS, leaving that to the consumer via the focusInset prop', () => {
-      const { container: regular } = render(<StyledInputGroup $isSeamless />);
-      const { container: compact } = render(<StyledInputGroup $isSeamless $isCompact />);
-      const modifier = `& ${StyledIconButton}:focus-visible`;
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `& ${ICON_BUTTON_SELECTOR}:focus-visible`;
 
       expect(regular.firstChild).not.toHaveStyleRule(
         'box-shadow',
@@ -345,16 +362,16 @@ describe('StyledInputGroup', () => {
       );
     });
 
-    it('does not apply the border-overlap hacks used by the non-seamless variant', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+    it('does not apply the border-overlap hacks used by the non-unified variant', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).not.toHaveStyleRule('margin-left', '-1px', {
         modifier: '&>*:not(:first-child)'
       });
     });
 
-    it('does not apply the item z-index layering used by the non-seamless variant', () => {
-      const { container } = render(<StyledInputGroup $isSeamless />);
+    it('does not apply the item z-index layering used by the non-unified variant', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).not.toHaveStyleRule('z-index', '-1', { modifier: '&>*' });
       expect(container.firstChild).not.toHaveStyleRule('z-index', '0', {
@@ -362,7 +379,7 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it('still applies item z-index layering for the non-seamless border-overlap variant', () => {
+    it('still applies item z-index layering for the non-unified border-overlap variant', () => {
       const { container } = render(<StyledInputGroup />);
 
       expect(container.firstChild).toHaveStyleRule('z-index', '-1', { modifier: '&>*' });
@@ -371,7 +388,7 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it('does not apply seamless gap or edge padding to the non-seamless variant', () => {
+    it('does not apply unified gap or edge padding to the non-unified variant', () => {
       const { container } = render(<StyledInputGroup />);
 
       expect(container.firstChild).not.toHaveStyleRule('gap', '8px');

@@ -97,12 +97,6 @@ describe('StyledButton', () => {
   });
 
   describe('Sizes', () => {
-    it('renders smallest styling if provided', () => {
-      const { container } = render(<StyledButton $size="smallest" />);
-
-      expect(container.firstChild).toHaveStyleRule('line-height', '22px');
-    });
-
     it('renders small styling if provided', () => {
       const { container } = render(<StyledButton $size="small" />);
 

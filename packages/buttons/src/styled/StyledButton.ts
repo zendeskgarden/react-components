@@ -15,7 +15,7 @@ import {
   getFocusBoxShadow,
   componentStyles
 } from '@zendeskgarden/react-theming';
-import { ICON_BUTTON_SIZE } from '../types';
+import { IButtonProps } from '../types';
 import { StyledSplitButton } from './StyledSplitButton';
 import { StyledIcon } from './StyledIcon';
 
@@ -24,8 +24,7 @@ export const COMPONENT_ID = 'buttons.button';
 export interface IStyledButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   $isUnderlined?: boolean;
   $isDanger?: boolean;
-  /* widened to include IconButton's "smallest" option, since IconButton shares this styled component */
-  $size?: (typeof ICON_BUTTON_SIZE)[number];
+  $size?: IButtonProps['size'];
   $isStretched?: boolean;
   $isNeutral?: boolean;
   $isPrimary?: boolean;
@@ -44,9 +43,7 @@ const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
 };
 
 export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
-  if (props.$size === 'smallest') {
-    return `${props.theme.space.base * 6}px`;
-  } else if (props.$size === 'small') {
+  if (props.$size === 'small') {
     return `${props.theme.space.base * 8}px`;
   } else if (props.$size === 'large') {
     return `${props.theme.space.base * 12}px`;

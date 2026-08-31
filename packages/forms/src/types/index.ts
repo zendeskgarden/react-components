@@ -45,9 +45,9 @@ export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetEleme
 
 export interface IInputGroupProps
   extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {
-  /** Applies seamless styling so the group is bordered/focused as a single field */
-  isSeamless?: boolean;
-  /** Insets the container's own `isSeamless` focus ring, e.g. when nested inside another group */
+  /** Applies unified styling so the group is bordered/focused as a single field */
+  isUnified?: boolean;
+  /** Insets the container's own `isUnified` focus ring, e.g. when nested inside another group */
   focusInset?: boolean;
 }
 

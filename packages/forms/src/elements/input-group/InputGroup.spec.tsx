@@ -119,9 +119,9 @@ describe('InputGroup', () => {
     });
   });
 
-  it('does not force focusInset on an IconButton child when isSeamless, leaving it to the consumer', () => {
+  it('does not force focusInset on an IconButton child when isUnified, leaving it to the consumer', () => {
     const { getByRole } = render(
-      <InputGroup isSeamless>
+      <InputGroup isUnified>
         <IconButton aria-label="Icon button">
           <span />
         </IconButton>
@@ -137,7 +137,7 @@ describe('InputGroup', () => {
     });
   });
 
-  it('does not force focusInset on an IconButton child when not isSeamless', () => {
+  it('does not force focusInset on an IconButton child when not isUnified', () => {
     const { getByRole } = render(
       <InputGroup>
         <IconButton aria-label="Icon button">
@@ -155,9 +155,9 @@ describe('InputGroup', () => {
     });
   });
 
-  it('respects an explicit focusInset override on an IconButton child when isSeamless', () => {
+  it('respects an explicit focusInset override on an IconButton child when isUnified', () => {
     const { getByRole } = render(
-      <InputGroup isSeamless>
+      <InputGroup isUnified>
         <IconButton focusInset aria-label="Icon button">
           <span />
         </IconButton>
@@ -173,9 +173,9 @@ describe('InputGroup', () => {
     });
   });
 
-  it('applies an inset focus ring to a seamless container itself when focusInset is set', () => {
+  it('applies an inset focus ring to a unified container itself when focusInset is set', () => {
     const { getByTestId, getByRole } = render(
-      <InputGroup data-test-id="input-group" isSeamless focusInset>
+      <InputGroup data-test-id="input-group" isUnified focusInset>
         <Input aria-label="Input" />
       </InputGroup>
     );
@@ -189,9 +189,9 @@ describe('InputGroup', () => {
     );
   });
 
-  it('does not apply an inset focus ring to a seamless container by default', () => {
+  it('does not apply an inset focus ring to a unified container by default', () => {
     const { getByTestId, getByRole } = render(
-      <InputGroup data-test-id="input-group" isSeamless>
+      <InputGroup data-test-id="input-group" isUnified>
         <Input aria-label="Input" />
       </InputGroup>
     );
@@ -205,52 +205,16 @@ describe('InputGroup', () => {
     );
   });
 
-  it('forces size="small" on an IconButton child when isSeamless and not compact', () => {
+  it('does not override an IconButton child size prop, since unified sizing is applied via CSS', () => {
     const { getByRole } = render(
-      <InputGroup isSeamless>
-        <IconButton aria-label="Icon button">
-          <span />
-        </IconButton>
-      </InputGroup>
-    );
-
-    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '32px');
-  });
-
-  it('forces size="smallest" on an IconButton child when isSeamless and isCompact', () => {
-    const { getByRole } = render(
-      <InputGroup isSeamless isCompact>
-        <IconButton aria-label="Icon button">
-          <span />
-        </IconButton>
-      </InputGroup>
-    );
-
-    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '24px');
-  });
-
-  it('rejects an explicit size override on an IconButton child when isSeamless and not compact, since any other size breaks the isSeamless styles', () => {
-    const { getByRole } = render(
-      <InputGroup isSeamless>
+      <InputGroup isUnified isCompact>
         <IconButton size="large" aria-label="Icon button">
           <span />
         </IconButton>
       </InputGroup>
     );
 
-    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '32px');
-  });
-
-  it('rejects an explicit size override on an IconButton child when isSeamless and isCompact, since any other size breaks the isSeamless styles', () => {
-    const { getByRole } = render(
-      <InputGroup isSeamless isCompact>
-        <IconButton size="large" aria-label="Icon button">
-          <span />
-        </IconButton>
-      </InputGroup>
-    );
-
-    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '24px');
+    expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '48px');
   });
 
   describe('InputGroup child items', () => {

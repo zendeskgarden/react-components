@@ -8,7 +8,6 @@
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { em, math } from 'polished';
 import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
-import { StyledButton, StyledIconButton } from '@zendeskgarden/react-buttons';
 import { Validation } from '../../types';
 import { StyledTextInput } from '../text/StyledTextInput';
 import { StyledLabel } from '../common/StyledLabel';
@@ -17,20 +16,27 @@ import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.input_group';
 
-/* shared between sizeStyles' padding math and seamlessStyles' actual override, to keep them in sync */
+/* targets react-buttons' public data-garden-id hooks, since its styled components are private; a consumer-overridden data-garden-id exempts that button from these styles 
+TODO: remove this once packages are unified
+
+*/
+const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
+const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
+
+/* shared between sizeStyles' padding math and unifiedStyles' actual override, to keep them in sync */
 const getCompactIconButtonSize = (theme: DefaultTheme) => math(`${theme.space.base}px * 6`);
 
 interface IStyledInputGroupProps {
   $isCompact?: boolean;
-  $isSeamless?: boolean;
+  $isUnified?: boolean;
   $focusInset?: boolean;
 }
 
 const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const { theme, $isCompact, $isSeamless } = props;
+  const { theme, $isCompact, $isUnified } = props;
   const fontSize = theme.fontSizes.md;
 
-  if (!$isSeamless) {
+  if (!$isUnified) {
     return css`
       font-size: ${fontSize};
     `;
@@ -39,7 +45,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
   const buttonEdgeTarget = em(theme.space.sm, fontSize);
-  /* tracks the size seamlessStyles actually renders, which is shrunk when compact */
+  /* tracks the size unifiedStyles actually renders, which is shrunk when compact */
   const iconButtonSize = $isCompact
     ? parseFloat(getCompactIconButtonSize(theme))
     : parseFloat(theme.space.lg);
@@ -58,11 +64,11 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
     gap: ${theme.space.xs};
 
     /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
-    &:has(> ${StyledIconButton}:first-child) {
+    &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
       padding-inline-start: ${iconButtonPaddingInline};
     }
 
-    &:has(> ${StyledIconButton}:last-child) {
+    &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
@@ -134,14 +140,15 @@ const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   `;
 };
 
-const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  if (!props.$isSeamless) {
+const unifiedStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  if (!props.$isUnified) {
     return undefined;
   }
 
   const { theme, $isCompact, $focusInset } = props;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
+  const iconButtonSize = $isCompact ? getCompactIconButtonSize(theme) : theme.space.lg;
   const borderColor = getColor({
     theme,
     variable: 'border.default',
@@ -172,14 +179,18 @@ const seamlessStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
       align-self: stretch; /* override the container's own centered children */
     }
 
-    /* IconButton sizes itself via its own "small"/"smallest" size prop, forced by InputGroup */
-    & ${StyledIconButton} {
+    /* sizes any icon button (IconButton, ToggleIconButton, ...) to fit the container; its icon glyph stays iconSizes.md regardless, and pressed-state styling is geometry-independent */
+    & ${ICON_BUTTON_SELECTOR} {
       flex: none;
       align-self: center;
+      width: ${iconButtonSize};
+      min-width: ${iconButtonSize};
+      height: ${iconButtonSize};
+      min-height: ${iconButtonSize};
     }
 
     /* shrinks a text button's height to fit the container, without touching its own padding */
-    & ${StyledButton}:not(${StyledIconButton}) {
+    & ${BUTTON_SELECTOR} {
       height: ${buttonSize};
       min-height: ${buttonSize};
       line-height: ${buttonLineHeight};
@@ -235,7 +246,7 @@ const itemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
   return css`
-    ${!props.$isSeamless &&
+    ${!props.$isUnified &&
     css`
       & > * {
         z-index: -1;
@@ -263,7 +274,7 @@ const itemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       border-bottom-width: 0;
     }
 
-    ${!props.$isSeamless &&
+    ${!props.$isUnified &&
     css`
       & > *:not(:first-child) {
         margin-${startDirection}: -${props.theme.borderWidths.sm}; /* [1] */
@@ -300,7 +311,7 @@ export const StyledInputGroup = styled.div.attrs({
   ${props => sizeStyles(props)};
   ${props => positionStyles(props)};
   ${props => itemStyles(props)};
-  ${props => seamlessStyles(props)};
+  ${props => unifiedStyles(props)};
 
   ${componentStyles};
 `;

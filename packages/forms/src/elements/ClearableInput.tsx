@@ -69,7 +69,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
 
     return (
       <InputGroup
-        isSeamless
+        isUnified
         focusInset={false}
         isCompact={isCompact}
         {...wrapperProps}
