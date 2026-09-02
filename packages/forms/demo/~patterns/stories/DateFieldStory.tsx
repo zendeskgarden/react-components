@@ -75,6 +75,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           disabled={disabled}
           isPill={!!args.isUnified}
           isBasic={!!args.isUnified}
+          tabIndex={-1}
           isNeutral
         >
           <CalendarIcon aria-hidden="true" />

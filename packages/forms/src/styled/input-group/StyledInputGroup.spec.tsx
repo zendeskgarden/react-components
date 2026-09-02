@@ -123,11 +123,16 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).toHaveStyleRule('line-height', '22px', { modifier });
     });
 
-    it('centers children and adds inter-item spacing', () => {
+    it('centers children', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('align-items', 'center');
-      expect(container.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xxs);
+    });
+
+    it('does not add a gap between flex items — each item owns its own spacing via margin and padding', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).not.toHaveStyleRule('gap', expect.any(String));
     });
 
     it('stretches StyledTextInput to the container height, despite the container centering its other children', () => {
@@ -138,24 +143,21 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it("matches the container's inline edge padding to the inter-item gap", () => {
+    it('sets a 4px base container inline padding as the fallback edge spacing for non-input, non-icon-button children', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('padding-inline', DEFAULT_THEME.space.xxs);
     });
 
-    it('gives a first-child Input all 12px of start padding and removes the container start padding, so the text starts 12px from the container edge', () => {
+    it('removes the container start padding when an Input is the first child, so the Input owns all start spacing', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('padding-inline-start', '0', {
         modifier: `&:has(>${StyledTextInput}:first-child)`
       });
-      expect(container.firstChild).toHaveStyleRule('padding-inline-start', DEFAULT_THEME.space.sm, {
-        modifier: `&>${StyledTextInput}:first-child`
-      });
     });
 
-    it('removes the container start padding when a nested InputGroup (e.g. ClearableInput) is the first child, matching the first-child StyledTextInput behavior', () => {
+    it('removes the container start padding when a nested InputGroup (e.g. ClearableInput) is the first child', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('padding-inline-start', '0', {
@@ -163,11 +165,62 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it('gives a non-first-child Input 8px of start padding so its text lands 12px from the preceding element edge (4px gap + 8px padding)', () => {
+    it('removes the container end padding when an Input is the last child, so the Input owns all end spacing', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
-      expect(container.firstChild).toHaveStyleRule('padding-inline-start', DEFAULT_THEME.space.xs, {
-        modifier: `&>${StyledTextInput}:not(:first-child)`
+      expect(container.firstChild).toHaveStyleRule('padding-inline-end', '0', {
+        modifier: `&:has(>${StyledTextInput}:last-child)`
+      });
+    });
+
+    it('removes the container end padding when a nested InputGroup is the last child', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-end', '0', {
+        modifier: `&:has(>[data-garden-id='forms.input_group']:last-child)`
+      });
+    });
+
+    it('gives every Input 8px of inline padding on both sides as a base, so it never bumps flush against an adjacent element', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline', DEFAULT_THEME.space.xs, {
+        modifier: `&>${StyledTextInput}`
+      });
+    });
+
+    it('overrides the first-child Input start padding to 12px so its text starts 12px from the container edge', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-start', DEFAULT_THEME.space.sm, {
+        modifier: `&>${StyledTextInput}:first-child`
+      });
+    });
+
+    it('overrides the last-child Input end padding to 12px so its text ends 12px from the container edge', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-end', DEFAULT_THEME.space.sm, {
+        modifier: `&>${StyledTextInput}:last-child`
+      });
+    });
+
+    it('gives a non-first Input 4px of margin-inline-start so its text lands 12px from the preceding element edge (4px margin + 8px padding)', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xxs, {
+        modifier: `&>*+${StyledTextInput}`
+      });
+    });
+
+    it('gives a non-first plain text Button 4px of margin-inline-start via the adjacent sibling selector, so spacing is owned entirely by the following element', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xxs, {
+        modifier: `&>*+${BUTTON_SELECTOR}`
+      });
+      expect(container.firstChild).not.toHaveStyleRule('margin-inline', expect.any(String), {
+        modifier: `&>${BUTTON_SELECTOR}`
       });
     });
 
@@ -486,14 +539,14 @@ describe('StyledInputGroup', () => {
         expect(container.firstChild).toHaveStyleRule('padding-inline', '0', { modifier });
       }
 
-      expect(regular.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xxs, { modifier });
-      expect(compact.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xxs, { modifier });
+      expect(regular.firstChild).not.toHaveStyleRule('gap', expect.any(String), { modifier });
+      expect(compact.firstChild).not.toHaveStyleRule('gap', expect.any(String), { modifier });
     });
 
     it('does not apply unified gap or edge padding to the non-unified variant', () => {
       const { container } = render(<StyledInputGroup />);
 
-      expect(container.firstChild).not.toHaveStyleRule('gap', '8px');
+      expect(container.firstChild).not.toHaveStyleRule('gap', expect.any(String));
       expect(container.firstChild).not.toHaveStyleRule('padding-inline', expect.any(String));
     });
   });

@@ -55,7 +55,6 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
   return css`
     font-size: ${fontSize};
     padding-inline: ${theme.space.xxs};
-    gap: ${theme.space.xxs};
 
     /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
     &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
@@ -66,10 +65,30 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
-    /* first-child Input (or nested InputGroup wrapping one) owns all 12px of start spacing; non-first gets 8px to bridge the 4px gap */
+    /* first-child Input/nested group owns all start spacing; last-child owns all end spacing */
     &:has(> ${StyledTextInput}:first-child),
     &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
       padding-inline-start: 0;
+    }
+
+    &:has(> ${StyledTextInput}:last-child),
+    &:has(> [data-garden-id='${COMPONENT_ID}']:last-child) {
+      padding-inline-end: 0;
+    }
+
+    /* non-first Button bridges the 0-gap with its own 4px start margin */
+    & > * + ${BUTTON_SELECTOR} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
+    /* base 8px padding on both sides; first/last child overrides to 12px below */
+    & > ${StyledTextInput} {
+      padding-inline: ${theme.space.xs};
+    }
+
+    /* non-first Input bridges the 0-gap with its own 4px margin (4px + 8px padding = 12px from preceding edge) */
+    & > * + ${StyledTextInput} {
+      margin-inline-start: ${theme.space.xxs};
     }
 
     & > ${StyledTextInput}:first-child {
@@ -81,10 +100,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
     & > ${StyledTextInput}:last-child {
       border-start-end-radius: ${theme.borderRadii.md};
       border-end-end-radius: ${theme.borderRadii.md};
-    }
-
-    & > ${StyledTextInput}:not(:first-child) {
-      padding-inline-start: ${theme.space.xs};
+      padding-inline-end: ${theme.space.sm};
     }
 
     & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
@@ -220,7 +236,6 @@ const unifiedStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps)
       min-height: 0;
       padding-block: 0;
       padding-inline: 0;
-      gap: ${theme.space.xxs};
 
       &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
         padding-inline-end: 0;
