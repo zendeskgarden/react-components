@@ -34,146 +34,6 @@ describe('ClearableInput', () => {
     expect(getByRole('textbox')).toHaveAttribute('data-garden-id', 'forms.clearable_input');
   });
 
-  it('does not apply an inset focus ring to the InputGroup by default', () => {
-    const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
-
-    const wrapper = getByRole('group');
-
-    fireEvent.focus(getByRole('textbox'));
-    expect(wrapper).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
-      modifier: '&:focus-within:not(:has(button:focus-visible))'
-    });
-  });
-
-  it('applies an inset focus ring to the InputGroup when wrapperProps.focusInset is true', () => {
-    const { getByRole } = render(
-      <ClearableInput onChange={jest.fn()} wrapperProps={{ focusInset: true }} />
-    );
-
-    const wrapper = getByRole('group');
-
-    fireEvent.focus(getByRole('textbox'));
-    expect(wrapper).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
-      modifier: '&:focus-within:not(:has(button:focus-visible))'
-    });
-  });
-
-  it('does not render the clear button when value is empty', () => {
-    const { queryByRole } = render(<ClearableInput value="" onChange={jest.fn()} />);
-
-    expect(queryByRole('button')).not.toBeInTheDocument();
-  });
-
-  it('does not render the clear button when disabled, even with a non-empty value', () => {
-    const { queryByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} disabled />);
-
-    expect(queryByRole('button')).not.toBeInTheDocument();
-  });
-
-  it('does not render the clear button when readOnly, even with a non-empty value', () => {
-    const { queryByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} readOnly />);
-
-    expect(queryByRole('button')).not.toBeInTheDocument();
-  });
-
-  it('renders the clear button with an accessible name when value is non-empty', () => {
-    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
-
-    expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
-  });
-
-  it('hides the clear button icon from assistive technology', () => {
-    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
-
-    const icon = getByRole('button', { name: 'Clear' }).querySelector('svg');
-
-    expect(icon).toHaveAttribute('aria-hidden', 'true');
-  });
-
-  it('drives the controlled value to empty via onChange when the clear button is clicked', () => {
-    const { getByRole } = render(<ControlledClearableInput />);
-
-    fireEvent.click(getByRole('button', { name: 'Clear' }));
-
-    expect(getByRole('textbox')).toHaveValue('');
-  });
-
-  it('calls onClear, in addition to clearing the value, when the clear button is clicked', () => {
-    const onClear = jest.fn();
-    const { getByRole } = render(<ControlledClearableInput onClear={onClear} />);
-
-    fireEvent.click(getByRole('button', { name: 'Clear' }));
-
-    expect(onClear).toHaveBeenCalledTimes(1);
-  });
-
-  it('returns focus to the input when the clear button is clicked, because the button unmounts as a result', () => {
-    const { getByRole, queryByRole } = render(<ControlledClearableInput />);
-
-    fireEvent.click(getByRole('button', { name: 'Clear' }));
-
-    expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
-    expect(getByRole('textbox')).toHaveFocus();
-  });
-
-  it('uses a custom clearButtonLabel as the clear button accessible name', () => {
-    const { getByRole } = render(
-      <ClearableInput value="hello" onChange={jest.fn()} clearButtonLabel="Clear search" />
-    );
-
-    expect(getByRole('button', { name: 'Clear search' })).toBeInTheDocument();
-  });
-
-  it('composes an onClick from buttonProps with the internal clear handler', () => {
-    const onClear = jest.fn();
-    const onClick = jest.fn();
-    const { getByRole } = render(
-      <ClearableInput
-        value="hello"
-        onChange={jest.fn()}
-        onClear={onClear}
-        buttonProps={{ onClick }}
-      />
-    );
-
-    fireEvent.click(getByRole('button', { name: 'Clear' }));
-
-    expect(onClick).toHaveBeenCalledTimes(1);
-    expect(onClear).toHaveBeenCalledTimes(1);
-  });
-
-  it('passes disabled from buttonProps to the clear button', () => {
-    const { getByRole } = render(
-      <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ disabled: true }} />
-    );
-
-    expect(getByRole('button', { name: 'Clear' })).toBeDisabled();
-  });
-
-  it('does not allow buttonProps to override focusInset', () => {
-    const { getByRole } = render(
-      <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ focusInset: false }} />
-    );
-
-    const button = getByRole('button', { name: 'Clear' });
-
-    expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
-      modifier: '&:focus-visible'
-    });
-  });
-
-  it('allows buttonProps to override the default aria-label', () => {
-    const { getByRole } = render(
-      <ClearableInput
-        value="hello"
-        onChange={jest.fn()}
-        buttonProps={{ 'aria-label': 'Custom clear label' }}
-      />
-    );
-
-    expect(getByRole('button', { name: 'Custom clear label' })).toBeInTheDocument();
-  });
-
   it('forwards its ref to the underlying input DOM node', () => {
     const ref = React.createRef<HTMLInputElement>();
     const { getByRole } = render(<ClearableInput ref={ref} onChange={jest.fn()} />);
@@ -205,26 +65,6 @@ describe('ClearableInput', () => {
     expect(getByRole('group')).toHaveStyleRule('min-height', '32px');
   });
 
-  it('applies an inset focus ring to the clear button by default', () => {
-    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
-
-    const button = getByRole('button', { name: 'Clear' });
-
-    expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
-      modifier: '&:focus-visible'
-    });
-  });
-
-  it('does not apply an inset focus ring to the clear button when isCompact is set', () => {
-    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} isCompact />);
-
-    const button = getByRole('button', { name: 'Clear' });
-
-    expect(button).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
-      modifier: '&:focus-visible'
-    });
-  });
-
   it('passes arbitrary props through wrapperProps to the InputGroup', () => {
     const { getByRole } = render(
       <ClearableInput onChange={jest.fn()} wrapperProps={{ className: 'custom-class' }} />
@@ -240,92 +80,260 @@ describe('ClearableInput', () => {
     expect(getByRole('group')).toBe(wrapperRef.current);
   });
 
-  it('sets aria-controls on the clear button to a generated input id when there is no Field', () => {
-    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
-
-    const input = getByRole('textbox');
-    const button = getByRole('button', { name: 'Clear' });
-
-    expect(input.id).toBeTruthy();
-    expect(button).toHaveAttribute('aria-controls', input.id);
-  });
-
-  it('sets aria-controls to the Field-generated input id when rendered inside a Field', () => {
-    const { getByRole } = render(
-      <Field>
-        <Field.Label>Search</Field.Label>
-        <ClearableInput value="hello" onChange={jest.fn()} />
-      </Field>
-    );
-
-    const input = getByRole('textbox');
-    const button = getByRole('button', { name: 'Clear' });
-
-    expect(button).toHaveAttribute('aria-controls', input.id);
-  });
-
-  it('respects an explicit id prop for both the input and aria-controls', () => {
-    const { getByRole } = render(
-      <ClearableInput id="custom-id" value="hello" onChange={jest.fn()} />
-    );
-
-    const input = getByRole('textbox');
-    const button = getByRole('button', { name: 'Clear' });
-
-    expect(input).toHaveAttribute('id', 'custom-id');
-    expect(button).toHaveAttribute('aria-controls', 'custom-id');
-  });
-
-  it('re-syncs the clear button when a controlled value prop changes externally, not via onChange', () => {
-    const { getByRole, rerender } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
-
-    expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
-
-    rerender(<ClearableInput value="" onChange={jest.fn()} />);
-
-    expect(() => getByRole('button', { name: 'Clear' })).toThrow();
-  });
-
-  describe('uncontrolled usage', () => {
-    it('does not render the clear button for an uncontrolled input with no defaultValue', () => {
-      const { queryByRole } = render(<ClearableInput />);
+  describe('clear button', () => {
+    it('does not render the clear button when value is empty', () => {
+      const { queryByRole } = render(<ClearableInput value="" onChange={jest.fn()} />);
 
       expect(queryByRole('button')).not.toBeInTheDocument();
     });
 
-    it('renders the clear button for an uncontrolled input with a non-empty defaultValue', () => {
-      const { getByRole } = render(<ClearableInput defaultValue="hello" />);
+    it('does not render the clear button when disabled, even with a non-empty value', () => {
+      const { queryByRole } = render(
+        <ClearableInput value="hello" onChange={jest.fn()} disabled />
+      );
+
+      expect(queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('does not render the clear button when readOnly, even with a non-empty value', () => {
+      const { queryByRole } = render(
+        <ClearableInput value="hello" onChange={jest.fn()} readOnly />
+      );
+
+      expect(queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('renders the clear button with an accessible name when value is non-empty', () => {
+      const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
 
       expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
     });
 
-    it('shows and hides the clear button as the user types into an uncontrolled input', () => {
-      const { getByRole, queryByRole } = render(<ClearableInput />);
+    it('hides the clear button icon from assistive technology', () => {
+      const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
 
-      const input = getByRole('textbox');
+      const icon = getByRole('button', { name: 'Clear' }).querySelector('svg');
 
-      fireEvent.change(input, { target: { value: 'abc' } });
-      expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
-
-      fireEvent.change(input, { target: { value: '' } });
-      expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
+      expect(icon).toHaveAttribute('aria-hidden', 'true');
     });
 
-    it('clears an uncontrolled input by clicking the clear button, with no onChange required', () => {
-      const { getByRole, queryByRole } = render(<ClearableInput defaultValue="hello" />);
+    it('drives the controlled value to empty via onChange when the clear button is clicked', () => {
+      const { getByRole } = render(<ControlledClearableInput />);
 
       fireEvent.click(getByRole('button', { name: 'Clear' }));
 
       expect(getByRole('textbox')).toHaveValue('');
-      expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
     });
 
-    it('returns focus to an uncontrolled input when the clear button is clicked', () => {
-      const { getByRole } = render(<ClearableInput defaultValue="hello" />);
+    it('calls onClear, in addition to clearing the value, when the clear button is clicked', () => {
+      const onClear = jest.fn();
+      const { getByRole } = render(<ControlledClearableInput onClear={onClear} />);
 
       fireEvent.click(getByRole('button', { name: 'Clear' }));
 
+      expect(onClear).toHaveBeenCalledTimes(1);
+    });
+
+    it('returns focus to the input when the clear button is clicked, because the button unmounts as a result', () => {
+      const { getByRole, queryByRole } = render(<ControlledClearableInput />);
+
+      fireEvent.click(getByRole('button', { name: 'Clear' }));
+
+      expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
       expect(getByRole('textbox')).toHaveFocus();
+    });
+
+    it('uses a custom clearButtonLabel as the clear button accessible name', () => {
+      const { getByRole } = render(
+        <ClearableInput value="hello" onChange={jest.fn()} clearButtonLabel="Clear search" />
+      );
+
+      expect(getByRole('button', { name: 'Clear search' })).toBeInTheDocument();
+    });
+
+    it('re-syncs the clear button when a controlled value prop changes externally, not via onChange', () => {
+      const { getByRole, rerender } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
+
+      expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
+
+      rerender(<ClearableInput value="" onChange={jest.fn()} />);
+
+      expect(() => getByRole('button', { name: 'Clear' })).toThrow();
+    });
+
+    it('composes an onClick from buttonProps with the internal clear handler', () => {
+      const onClear = jest.fn();
+      const onClick = jest.fn();
+      const { getByRole } = render(
+        <ClearableInput
+          value="hello"
+          onChange={jest.fn()}
+          onClear={onClear}
+          buttonProps={{ onClick }}
+        />
+      );
+
+      fireEvent.click(getByRole('button', { name: 'Clear' }));
+
+      expect(onClick).toHaveBeenCalledTimes(1);
+      expect(onClear).toHaveBeenCalledTimes(1);
+    });
+
+    it('passes disabled from buttonProps to the clear button', () => {
+      const { getByRole } = render(
+        <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ disabled: true }} />
+      );
+
+      expect(getByRole('button', { name: 'Clear' })).toBeDisabled();
+    });
+
+    it('allows buttonProps to override the default aria-label', () => {
+      const { getByRole } = render(
+        <ClearableInput
+          value="hello"
+          onChange={jest.fn()}
+          buttonProps={{ 'aria-label': 'Custom clear label' }}
+        />
+      );
+
+      expect(getByRole('button', { name: 'Custom clear label' })).toBeInTheDocument();
+    });
+
+    it('sets aria-controls on the clear button to a generated input id when there is no Field', () => {
+      const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
+
+      const input = getByRole('textbox');
+      const button = getByRole('button', { name: 'Clear' });
+
+      expect(input.id).toBeTruthy();
+      expect(button).toHaveAttribute('aria-controls', input.id);
+    });
+
+    it('sets aria-controls to the Field-generated input id when rendered inside a Field', () => {
+      const { getByRole } = render(
+        <Field>
+          <Field.Label>Search</Field.Label>
+          <ClearableInput value="hello" onChange={jest.fn()} />
+        </Field>
+      );
+
+      const input = getByRole('textbox');
+      const button = getByRole('button', { name: 'Clear' });
+
+      expect(button).toHaveAttribute('aria-controls', input.id);
+    });
+
+    it('respects an explicit id prop for both the input and aria-controls', () => {
+      const { getByRole } = render(
+        <ClearableInput id="custom-id" value="hello" onChange={jest.fn()} />
+      );
+
+      const input = getByRole('textbox');
+      const button = getByRole('button', { name: 'Clear' });
+
+      expect(input).toHaveAttribute('id', 'custom-id');
+      expect(button).toHaveAttribute('aria-controls', 'custom-id');
+    });
+
+    describe('uncontrolled usage', () => {
+      it('does not render the clear button for an uncontrolled input with no defaultValue', () => {
+        const { queryByRole } = render(<ClearableInput />);
+
+        expect(queryByRole('button')).not.toBeInTheDocument();
+      });
+
+      it('renders the clear button for an uncontrolled input with a non-empty defaultValue', () => {
+        const { getByRole } = render(<ClearableInput defaultValue="hello" />);
+
+        expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
+      });
+
+      it('shows and hides the clear button as the user types into an uncontrolled input', () => {
+        const { getByRole, queryByRole } = render(<ClearableInput />);
+
+        const input = getByRole('textbox');
+
+        fireEvent.change(input, { target: { value: 'abc' } });
+        expect(getByRole('button', { name: 'Clear' })).toBeInTheDocument();
+
+        fireEvent.change(input, { target: { value: '' } });
+        expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
+      });
+
+      it('clears an uncontrolled input by clicking the clear button, with no onChange required', () => {
+        const { getByRole, queryByRole } = render(<ClearableInput defaultValue="hello" />);
+
+        fireEvent.click(getByRole('button', { name: 'Clear' }));
+
+        expect(getByRole('textbox')).toHaveValue('');
+        expect(queryByRole('button', { name: 'Clear' })).not.toBeInTheDocument();
+      });
+
+      it('returns focus to an uncontrolled input when the clear button is clicked', () => {
+        const { getByRole } = render(<ClearableInput defaultValue="hello" />);
+
+        fireEvent.click(getByRole('button', { name: 'Clear' }));
+
+        expect(getByRole('textbox')).toHaveFocus();
+      });
+    });
+  });
+
+  describe('focus ring', () => {
+    it('does not apply an inset focus ring to the InputGroup by default', () => {
+      const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
+
+      const wrapper = getByRole('group');
+
+      fireEvent.focus(getByRole('textbox'));
+      expect(wrapper).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-within:not(:has(button:focus-visible))'
+      });
+    });
+
+    it('applies an inset focus ring to the InputGroup when wrapperProps.focusInset is true', () => {
+      const { getByRole } = render(
+        <ClearableInput onChange={jest.fn()} wrapperProps={{ focusInset: true }} />
+      );
+
+      const wrapper = getByRole('group');
+
+      fireEvent.focus(getByRole('textbox'));
+      expect(wrapper).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-within:not(:has(button:focus-visible))'
+      });
+    });
+
+    it('applies an inset focus ring to the clear button by default', () => {
+      const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
+
+      const button = getByRole('button', { name: 'Clear' });
+
+      expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-visible'
+      });
+    });
+
+    it('does not apply an inset focus ring to the clear button when isCompact is set', () => {
+      const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} isCompact />);
+
+      const button = getByRole('button', { name: 'Clear' });
+
+      expect(button).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-visible'
+      });
+    });
+
+    it('does not allow buttonProps to override focusInset', () => {
+      const { getByRole } = render(
+        <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ focusInset: false }} />
+      );
+
+      const button = getByRole('button', { name: 'Clear' });
+
+      expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-visible'
+      });
     });
   });
 });
