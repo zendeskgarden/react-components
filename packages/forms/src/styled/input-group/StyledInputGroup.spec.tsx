@@ -237,6 +237,29 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    it('gives a non-first ToggleButton the same 4px margin-inline-start as a plain Button, since both share the buttons.button data-garden-id', () => {
+      const TOGGLE_BUTTON_SELECTOR = BUTTON_SELECTOR;
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xxs, {
+        modifier: `&>*+${TOGGLE_BUTTON_SELECTOR}`
+      });
+    });
+
+    it('gives a non-first ToggleIconButton the same margin treatment as an IconButton, since both share the buttons.icon_button data-garden-id', () => {
+      const TOGGLE_ICON_BUTTON_SELECTOR = ICON_BUTTON_SELECTOR;
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const modifier = `&>[data-garden-id='forms.input_group']+${TOGGLE_ICON_BUTTON_SELECTOR}`;
+
+      expect(compact.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xs, {
+        modifier
+      });
+      expect(regular.firstChild).not.toHaveStyleRule('margin-inline-start', expect.any(String), {
+        modifier
+      });
+    });
+
     it('gives a first-child Input the container border-radius on its leading corners to prevent autofill highlight clipping', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
