@@ -188,6 +188,33 @@ const unifiedStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps)
       min-height: ${iconButtonSize};
     }
 
+    /* a nested InputGroup (e.g. ClearableInput's wrapper) fills remaining space as a transparent flex wrapper;
+       the outer provides the visual container, so the inner's own border/background/sizing is stripped */
+    & > [data-garden-id='${COMPONENT_ID}'] {
+      flex: 1 1 auto;
+      align-self: stretch;
+      border: none;
+      background-color: transparent;
+      min-width: 0;
+      min-height: 0;
+      padding-block: 0;
+      padding-inline: 0;
+      gap: ${theme.space.xs};
+
+      &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
+        padding-inline-end: 0;
+      }
+
+      &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
+        padding-inline-start: 0;
+      }
+
+      &:focus-within:not(:has(button:focus-visible)) {
+        border-color: transparent;
+        box-shadow: none;
+      }
+    }
+
     /* shrinks a text button's height to fit the container, without touching its own padding */
     & ${BUTTON_SELECTOR} {
       height: ${buttonSize};

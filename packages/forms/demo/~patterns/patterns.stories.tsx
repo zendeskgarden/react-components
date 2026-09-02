@@ -26,6 +26,14 @@ export default {
 const dateFieldArgTypes = {
   ...commonArgTypes,
   isDragging: { table: { disable: true } },
+  isUnified: {
+    control: 'boolean' as const,
+    table: { category: 'InputGroup' }
+  },
+  isCompact: {
+    control: 'boolean' as const,
+    table: { category: 'InputGroup' }
+  },
   value: {
     control: 'text' as const,
     table: { category: 'ClearableInput' }
@@ -35,10 +43,6 @@ const dateFieldArgTypes = {
     table: { category: 'ClearableInput' }
   },
   readOnly: {
-    control: 'boolean' as const,
-    table: { category: 'ClearableInput' }
-  },
-  isCompact: {
     control: 'boolean' as const,
     table: { category: 'ClearableInput' }
   },

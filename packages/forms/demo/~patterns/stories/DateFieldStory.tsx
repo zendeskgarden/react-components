@@ -67,16 +67,15 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           validation={validation}
           onChange={onChange}
           clearButtonLabel={clearButtonLabel}
-          wrapperProps={{ focusInset: true }}
+          wrapperProps={{ focusInset: !args.isUnified }}
         />
         <IconButton
           aria-label={`Choose date: ${label}`}
-          isBasic={false}
-          isPill={false}
-          isNeutral
-          focusInset
+          focusInset={!args.isCompact}
           disabled={disabled}
-          size={args.isCompact ? 'small' : undefined}
+          isPill={!!args.isUnified}
+          isBasic={!!args.isUnified}
+          isNeutral
         >
           <CalendarIcon aria-hidden="true" />
         </IconButton>

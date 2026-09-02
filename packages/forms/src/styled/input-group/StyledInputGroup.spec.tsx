@@ -391,6 +391,26 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    it('strips the visual container from a direct nested InputGroup child and makes it a transparent flex wrapper that fills the remaining space', () => {
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `&>[data-garden-id='forms.input_group']`;
+
+      for (const container of [regular, compact]) {
+        expect(container.firstChild).toHaveStyleRule('flex', '1 1 auto', { modifier });
+        expect(container.firstChild).toHaveStyleRule('align-self', 'stretch', { modifier });
+        expect(container.firstChild).toHaveStyleRule('min-width', '0', { modifier });
+        expect(container.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xs, { modifier });
+        expect(container.firstChild).toHaveStyleRule('border', 'none', { modifier });
+        expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
+          modifier
+        });
+        expect(container.firstChild).toHaveStyleRule('min-height', '0', { modifier });
+        expect(container.firstChild).toHaveStyleRule('padding-block', '0', { modifier });
+        expect(container.firstChild).toHaveStyleRule('padding-inline', '0', { modifier });
+      }
+    });
+
     it('does not apply unified gap or edge padding to the non-unified variant', () => {
       const { container } = render(<StyledInputGroup />);
 
