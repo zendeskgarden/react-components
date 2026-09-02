@@ -26,13 +26,10 @@ export default {
 const dateFieldArgTypes = {
   ...commonArgTypes,
   isDragging: { table: { disable: true } },
-  isUnified: {
-    control: 'boolean' as const,
-    table: { category: 'InputGroup' }
-  },
+  isUnified: { table: { disable: true } },
   isCompact: {
     control: 'boolean' as const,
-    table: { category: 'InputGroup' }
+    table: { category: 'Date Picker' }
   },
   value: {
     control: 'text' as const,

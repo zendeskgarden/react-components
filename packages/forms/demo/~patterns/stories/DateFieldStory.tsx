@@ -56,7 +56,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
       validation={validation}
       validationLabel={validationLabel}
     >
-      <InputGroup {...args}>
+      <InputGroup {...args} isUnified>
         <ClearableInput
           value={value}
           aria-required="true"
@@ -67,14 +67,14 @@ export const DateFieldStory: StoryFn<IArgs> = ({
           validation={validation}
           onChange={onChange}
           clearButtonLabel={clearButtonLabel}
-          wrapperProps={{ focusInset: !args.isUnified }}
+          wrapperProps={{ focusInset: false }}
         />
         <IconButton
           aria-label={`Choose date: ${label}`}
           focusInset={!args.isCompact}
           disabled={disabled}
-          isPill={!!args.isUnified}
-          isBasic={!!args.isUnified}
+          isPill
+          isBasic
           tabIndex={-1}
           isNeutral
         >
