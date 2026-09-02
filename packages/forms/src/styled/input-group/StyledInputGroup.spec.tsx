@@ -155,6 +155,14 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    it('removes the container start padding when a nested InputGroup (e.g. ClearableInput) is the first child, matching the first-child StyledTextInput behavior', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-start', '0', {
+        modifier: `&:has(>[data-garden-id='forms.input_group']:first-child)`
+      });
+    });
+
     it('gives a non-first-child Input 8px of start padding so its text lands 12px from the preceding element edge (4px gap + 8px padding)', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
@@ -190,6 +198,38 @@ describe('StyledInputGroup', () => {
         'border-end-end-radius',
         DEFAULT_THEME.borderRadii.md,
         { modifier: `&>${StyledTextInput}:last-child` }
+      );
+    });
+
+    it('gives a first-child nested InputGroup (e.g. ClearableInput) the container border-radius on the leading corners of its first-child Input', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+      const modifier = `&>[data-garden-id='forms.input_group']:first-child>${StyledTextInput}:first-child`;
+
+      expect(container.firstChild).toHaveStyleRule(
+        'border-start-start-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'border-end-start-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier }
+      );
+    });
+
+    it('gives a last-child nested InputGroup (e.g. ClearableInput) the container border-radius on the trailing corners of its last-child Input', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+      const modifier = `&>[data-garden-id='forms.input_group']:last-child>${StyledTextInput}:last-child`;
+
+      expect(container.firstChild).toHaveStyleRule(
+        'border-start-end-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'border-end-end-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier }
       );
     });
 
@@ -446,8 +486,8 @@ describe('StyledInputGroup', () => {
         expect(container.firstChild).toHaveStyleRule('padding-inline', '0', { modifier });
       }
 
-      expect(regular.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xs, { modifier });
-      expect(compact.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xs, { modifier });
+      expect(regular.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xxs, { modifier });
+      expect(compact.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xxs, { modifier });
     });
 
     it('does not apply unified gap or edge padding to the non-unified variant', () => {

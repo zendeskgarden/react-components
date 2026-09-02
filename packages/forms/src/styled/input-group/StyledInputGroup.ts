@@ -66,8 +66,9 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
-    /* first-child Input owns all 12px of start spacing; non-first gets 8px to bridge the 4px gap */
-    &:has(> ${StyledTextInput}:first-child) {
+    /* first-child Input (or nested InputGroup wrapping one) owns all 12px of start spacing; non-first gets 8px to bridge the 4px gap */
+    &:has(> ${StyledTextInput}:first-child),
+    &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
       padding-inline-start: 0;
     }
 
@@ -84,6 +85,16 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
 
     & > ${StyledTextInput}:not(:first-child) {
       padding-inline-start: ${theme.space.xs};
+    }
+
+    & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+    }
+
+    & > [data-garden-id='${COMPONENT_ID}']:last-child > ${StyledTextInput}:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
     }
   `;
 };
@@ -209,7 +220,7 @@ const unifiedStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps)
       min-height: 0;
       padding-block: 0;
       padding-inline: 0;
-      gap: ${theme.space.xs};
+      gap: ${theme.space.xxs};
 
       &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
         padding-inline-end: 0;
