@@ -81,6 +81,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       margin-inline-start: ${theme.space.xxs};
     }
 
+    ${$isCompact &&
+    css`
+      & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
+        margin-inline-start: ${theme.space.xs};
+      }
+    `}
+
     /* base 8px padding on both sides; first/last child overrides to 12px below */
     & > ${StyledTextInput} {
       padding-inline: ${theme.space.xs};

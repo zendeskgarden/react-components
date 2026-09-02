@@ -213,6 +213,19 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    it('adds 4px margin-inline-start to an IconButton following a nested InputGroup in compact mode, to maintain visual breathing room between adjacent compact icons', () => {
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const modifier = `&>[data-garden-id='forms.input_group']+${ICON_BUTTON_SELECTOR}`;
+
+      expect(compact.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xs, {
+        modifier
+      });
+      expect(regular.firstChild).not.toHaveStyleRule('margin-inline-start', expect.any(String), {
+        modifier
+      });
+    });
+
     it('gives a non-first plain text Button 4px of margin-inline-start via the adjacent sibling selector, so spacing is owned entirely by the following element', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
