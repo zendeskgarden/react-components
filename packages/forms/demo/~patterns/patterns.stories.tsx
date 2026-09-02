@@ -37,11 +37,11 @@ const dateFieldArgTypes = {
   },
   disabled: {
     control: 'boolean' as const,
-    table: { category: 'ClearableInput' }
+    table: { category: 'Date Picker' }
   },
   readOnly: {
     control: 'boolean' as const,
-    table: { category: 'ClearableInput' }
+    table: { category: 'Date Picker' }
   },
   placeholder: {
     control: 'text' as const,

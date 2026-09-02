@@ -256,6 +256,13 @@ const unifiedStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps)
         border-color: transparent;
         box-shadow: none;
       }
+
+      /* the inner group's own disabled/readOnly styles would re-apply the background color on top of
+         the outer's already-colored background, doubling its darkness; force it back to transparent */
+      &:has(${StyledTextInput}:disabled),
+      &:has(${StyledTextInput}[readonly]) {
+        background-color: transparent;
+      }
     }
 
     /* shrinks a text button's height to fit the container, without touching its own padding */

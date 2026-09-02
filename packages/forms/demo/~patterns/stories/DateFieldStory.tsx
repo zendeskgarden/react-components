@@ -72,7 +72,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
         <IconButton
           aria-label={`Choose date: ${label}`}
           focusInset={!args.isCompact}
-          disabled={disabled}
+          disabled={disabled || readOnly}
           isPill
           isBasic
           tabIndex={-1}

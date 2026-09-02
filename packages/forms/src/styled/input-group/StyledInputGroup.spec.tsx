@@ -489,6 +489,15 @@ describe('StyledInputGroup', () => {
           modifier: `&:has(${StyledTextInput}:disabled)`
         });
       });
+
+      it('resets a nested InputGroup background to transparent when disabled, to prevent the disabled color from doubling up inside the outer container', () => {
+        const { container } = render(<StyledInputGroup $isUnified />);
+        const modifier = `&>[data-garden-id='forms.input_group']:has(${StyledTextInput}:disabled)`;
+
+        expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
+          modifier
+        });
+      });
     });
 
     describe('readOnly', () => {
@@ -509,6 +518,15 @@ describe('StyledInputGroup', () => {
           modifier
         });
         expect(container.firstChild).not.toHaveStyleRule('cursor', expect.any(String), {
+          modifier
+        });
+      });
+
+      it('resets a nested InputGroup background to transparent when read-only, to prevent the read-only color from doubling up inside the outer container', () => {
+        const { container } = render(<StyledInputGroup $isUnified />);
+        const modifier = `&>[data-garden-id='forms.input_group']:has(${StyledTextInput}[readonly])`;
+
+        expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
           modifier
         });
       });
