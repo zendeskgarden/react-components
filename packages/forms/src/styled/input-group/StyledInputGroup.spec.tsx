@@ -95,12 +95,12 @@ describe('StyledInputGroup', () => {
       expect(compact.firstChild).not.toHaveStyleRule('height', expect.any(String), { modifier });
     });
 
-    it("sets the container's vertical padding to fit the CSS-sized IconButton, regular or compact", () => {
+    it('has no block padding on the container — the Input fills the height via align-self: stretch', () => {
       const { container: regular } = render(<StyledInputGroup $isUnified />);
       const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
 
-      expect(regular.firstChild).toHaveStyleRule('padding-block', '3px');
-      expect(compact.firstChild).toHaveStyleRule('padding-block', '3px');
+      expect(regular.firstChild).not.toHaveStyleRule('padding-block', expect.any(String));
+      expect(compact.firstChild).not.toHaveStyleRule('padding-block', expect.any(String));
     });
 
     it('does not resize the width of plain text buttons', () => {
@@ -127,7 +127,7 @@ describe('StyledInputGroup', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule('align-items', 'center');
-      expect(container.firstChild).toHaveStyleRule('gap', '8px');
+      expect(container.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xxs);
     });
 
     it('stretches StyledTextInput to the container height, despite the container centering its other children', () => {
@@ -141,18 +141,55 @@ describe('StyledInputGroup', () => {
     it("matches the container's inline edge padding to the inter-item gap", () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
-      expect(container.firstChild).toHaveStyleRule('padding-inline', '8px');
+      expect(container.firstChild).toHaveStyleRule('padding-inline', DEFAULT_THEME.space.xxs);
     });
 
-    it('gives a child Input a theme.space.xxs padding-inline-start, regardless of its position among siblings, so its text totals 12px from whatever precedes it', () => {
+    it('gives a first-child Input all 12px of start padding and removes the container start padding, so the text starts 12px from the container edge', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-start', '0', {
+        modifier: `&:has(>${StyledTextInput}:first-child)`
+      });
+      expect(container.firstChild).toHaveStyleRule('padding-inline-start', DEFAULT_THEME.space.sm, {
+        modifier: `&>${StyledTextInput}:first-child`
+      });
+    });
+
+    it('gives a non-first-child Input 8px of start padding so its text lands 12px from the preceding element edge (4px gap + 8px padding)', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule('padding-inline-start', DEFAULT_THEME.space.xs, {
+        modifier: `&>${StyledTextInput}:not(:first-child)`
+      });
+    });
+
+    it('gives a first-child Input the container border-radius on its leading corners to prevent autofill highlight clipping', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).toHaveStyleRule(
-        'padding-inline-start',
-        DEFAULT_THEME.space.xxs,
-        {
-          modifier: `&>${StyledTextInput}`
-        }
+        'border-start-start-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier: `&>${StyledTextInput}:first-child` }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'border-end-start-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier: `&>${StyledTextInput}:first-child` }
+      );
+    });
+
+    it('gives a last-child Input the container border-radius on its trailing corners to prevent autofill highlight clipping', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'border-start-end-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier: `&>${StyledTextInput}:last-child` }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'border-end-end-radius',
+        DEFAULT_THEME.borderRadii.md,
+        { modifier: `&>${StyledTextInput}:last-child` }
       );
     });
 
@@ -400,7 +437,6 @@ describe('StyledInputGroup', () => {
         expect(container.firstChild).toHaveStyleRule('flex', '1 1 auto', { modifier });
         expect(container.firstChild).toHaveStyleRule('align-self', 'stretch', { modifier });
         expect(container.firstChild).toHaveStyleRule('min-width', '0', { modifier });
-        expect(container.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xs, { modifier });
         expect(container.firstChild).toHaveStyleRule('border', 'none', { modifier });
         expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
           modifier
@@ -409,6 +445,9 @@ describe('StyledInputGroup', () => {
         expect(container.firstChild).toHaveStyleRule('padding-block', '0', { modifier });
         expect(container.firstChild).toHaveStyleRule('padding-inline', '0', { modifier });
       }
+
+      expect(regular.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xs, { modifier });
+      expect(compact.firstChild).toHaveStyleRule('gap', DEFAULT_THEME.space.xs, { modifier });
     });
 
     it('does not apply unified gap or edge padding to the non-unified variant', () => {

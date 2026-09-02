@@ -42,25 +42,20 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
     `;
   }
 
-  const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
   const buttonEdgeTarget = em(theme.space.sm, fontSize);
   /* tracks the size unifiedStyles actually renders, which is shrunk when compact */
   const iconButtonSize = $isCompact
     ? parseFloat(getCompactIconButtonSize(theme))
     : parseFloat(theme.space.lg);
-  const verticalPadding = math(
-    `(${containerSize} - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
-  );
   const iconGlyphSize = theme.iconSizes.md;
   const iconButtonInset = (iconButtonSize - parseFloat(iconGlyphSize)) / 2;
   const iconButtonPaddingInline = `calc(${buttonEdgeTarget} - ${iconButtonInset}px)`;
 
   return css`
     font-size: ${fontSize};
-    padding-block: ${verticalPadding};
-    padding-inline: ${theme.space.xs};
-    gap: ${theme.space.xs};
+    padding-inline: ${theme.space.xxs};
+    gap: ${theme.space.xxs};
 
     /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
     &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
@@ -71,9 +66,24 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
-    /* adds back the difference between the container's own edge padding and the target edge distance, regardless of the Input's position among siblings */
-    & > ${StyledTextInput} {
-      padding-inline-start: ${theme.space.xxs};
+    /* first-child Input owns all 12px of start spacing; non-first gets 8px to bridge the 4px gap */
+    &:has(> ${StyledTextInput}:first-child) {
+      padding-inline-start: 0;
+    }
+
+    & > ${StyledTextInput}:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+      padding-inline-start: ${theme.space.sm};
+    }
+
+    & > ${StyledTextInput}:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
+    }
+
+    & > ${StyledTextInput}:not(:first-child) {
+      padding-inline-start: ${theme.space.xs};
     }
   `;
 };
