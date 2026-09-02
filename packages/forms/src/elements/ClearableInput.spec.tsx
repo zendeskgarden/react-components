@@ -150,6 +150,18 @@ describe('ClearableInput', () => {
     expect(getByRole('button', { name: 'Clear' })).toBeDisabled();
   });
 
+  it('does not allow buttonProps to override focusInset', () => {
+    const { getByRole } = render(
+      <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ focusInset: false }} />
+    );
+
+    const button = getByRole('button', { name: 'Clear' });
+
+    expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+      modifier: '&:focus-visible'
+    });
+  });
+
   it('allows buttonProps to override the default aria-label', () => {
     const { getByRole } = render(
       <ClearableInput
@@ -191,6 +203,26 @@ describe('ClearableInput', () => {
     const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} isCompact />);
 
     expect(getByRole('group')).toHaveStyleRule('min-height', '32px');
+  });
+
+  it('applies an inset focus ring to the clear button by default', () => {
+    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
+
+    const button = getByRole('button', { name: 'Clear' });
+
+    expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+      modifier: '&:focus-visible'
+    });
+  });
+
+  it('does not apply an inset focus ring to the clear button when isCompact is set', () => {
+    const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} isCompact />);
+
+    const button = getByRole('button', { name: 'Clear' });
+
+    expect(button).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+      modifier: '&:focus-visible'
+    });
   });
 
   it('passes arbitrary props through wrapperProps to the InputGroup', () => {

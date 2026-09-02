@@ -92,6 +92,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
             aria-controls={inputId}
             isBasic
             {...buttonProps}
+            focusInset={!isCompact}
             onClick={composeEventHandlers(onClick, onClearButtonClick, onClear)}
           >
             <ClearIcon aria-hidden="true" />

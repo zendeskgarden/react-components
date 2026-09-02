@@ -53,8 +53,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
     `(${containerSize} - ${iconButtonSize}px - (${theme.borderWidths.sm} * 2)) / 2`
   );
   const iconGlyphSize = theme.iconSizes.md;
-  /* always derived from the regular (unshrunk) 32px IconButton, since its icon glyph doesn't shrink alongside a compact IconButton */
-  const iconButtonInset = (parseFloat(theme.space.lg) - parseFloat(iconGlyphSize)) / 2;
+  const iconButtonInset = (iconButtonSize - parseFloat(iconGlyphSize)) / 2;
   const iconButtonPaddingInline = `calc(${buttonEdgeTarget} - ${iconButtonInset}px)`;
 
   return css`

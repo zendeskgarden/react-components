@@ -156,14 +156,17 @@ describe('StyledInputGroup', () => {
       );
     });
 
-    it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the button's visible edge sits a constant 4px from the container edge regardless of $isCompact", () => {
+    it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the icon glyph lands at the same distance from the container edge in both regular and compact", () => {
       const { container: regular } = render(<StyledInputGroup $isUnified />);
       const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
       const paddingHorizontal = em(`${DEFAULT_THEME.space.base * 3}px`, DEFAULT_THEME.fontSizes.md);
-      /* always derived from the regular (unshrunk) IconButton's own geometry, since a compact IconButton's icon doesn't shrink alongside it */
-      const iconInset = (32 - parseFloat(DEFAULT_THEME.iconSizes.md)) / 2;
-      const regularPadding = `calc(${paddingHorizontal} - ${iconInset}px)`;
-      const compactPadding = `calc(${paddingHorizontal} - ${iconInset}px)`;
+      const regularIconButtonSize = 32;
+      const compactIconButtonSize = DEFAULT_THEME.space.base * 6;
+      const iconGlyphSize = parseFloat(DEFAULT_THEME.iconSizes.md);
+      const regularIconInset = (regularIconButtonSize - iconGlyphSize) / 2;
+      const compactIconInset = (compactIconButtonSize - iconGlyphSize) / 2;
+      const regularPadding = `calc(${paddingHorizontal} - ${regularIconInset}px)`;
+      const compactPadding = `calc(${paddingHorizontal} - ${compactIconInset}px)`;
 
       expect(regular.firstChild).toHaveStyleRule('padding-inline-end', regularPadding, {
         modifier: `&:has(> ${ICON_BUTTON_SELECTOR}:last-child)`
