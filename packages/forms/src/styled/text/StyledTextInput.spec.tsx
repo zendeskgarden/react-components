@@ -72,21 +72,5 @@ describe('StyledTextInput', () => {
 
       expect(container.firstChild).toHaveStyleRule('border-color', PALETTE.red[700]);
     });
-
-    it('reflects $validation as a data-validation attribute, so ancestors can select on it', () => {
-      const { container: success } = render(<StyledTextInput $validation="success" />);
-      const { container: warning } = render(<StyledTextInput $validation="warning" />);
-      const { container: error } = render(<StyledTextInput $validation="error" />);
-
-      expect(success.firstChild).toHaveAttribute('data-validation', 'success');
-      expect(warning.firstChild).toHaveAttribute('data-validation', 'warning');
-      expect(error.firstChild).toHaveAttribute('data-validation', 'error');
-    });
-
-    it('does not render a data-validation attribute when no validation is provided', () => {
-      const { container } = render(<StyledTextInput />);
-
-      expect(container.firstChild).not.toHaveAttribute('data-validation');
-    });
   });
 });

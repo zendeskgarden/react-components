@@ -234,8 +234,7 @@ export interface IStyledTextInputProps {
 export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': isInvalid(props.$validation),
-  'data-validation': props.$validation
+  'aria-invalid': isInvalid(props.$validation)
 }))<IStyledTextInputProps>`
   appearance: none;
   /* prettier-ignore */

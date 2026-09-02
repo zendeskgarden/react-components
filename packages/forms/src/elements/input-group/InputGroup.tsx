@@ -9,7 +9,7 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { IInputGroupProps } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
-import { InputGroupContext } from '../../utils/useInputGroupContext';
+import { InputGroupContext, useInputGroupValidationState } from '../../utils/useInputGroupContext';
 import { StyledInputGroup } from '../../styled';
 
 /**
@@ -18,7 +18,11 @@ import { StyledInputGroup } from '../../styled';
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
   ({ isCompact, isUnified, focusInset, children, ...other }, ref) => {
     const fieldContext = useFieldContext();
-    const contextValue = useMemo(() => ({ isCompact, isUnified }), [isCompact, isUnified]);
+    const { validation, registerValidation } = useInputGroupValidationState();
+    const contextValue = useMemo(
+      () => ({ isCompact, isUnified, registerValidation }),
+      [isCompact, isUnified, registerValidation]
+    );
     const labelId =
       fieldContext?.hasLabel && !other['aria-label']
         ? fieldContext.getLabelProps({}).id
@@ -34,6 +38,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
           $isUnified={isUnified}
           $focusInset={focusInset}
           {...other}
+          $validation={validation}
           role="group"
         >
           {children}

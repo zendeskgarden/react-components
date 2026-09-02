@@ -417,46 +417,44 @@ describe('StyledInputGroup', () => {
       } as const;
 
       it.each(['success', 'warning', 'error'] as const)(
-        'highlights the container border in the %s color at rest, based on a descendant data-validation attribute',
+        'highlights the container border in the %s color at rest when $validation is set',
         validation => {
-          const { container } = render(<StyledInputGroup $isUnified />);
+          const { container } = render(<StyledInputGroup $isUnified $validation={validation} />);
+          const borderColor = getColor({
+            theme: DEFAULT_THEME,
+            variable: VALIDATION_BORDER_VARIABLE[validation]
+          });
+
+          expect(container.firstChild).toHaveStyleRule('border-color', borderColor);
+        }
+      );
+
+      it.each(['success', 'warning', 'error'] as const)(
+        'highlights the container border in the %s color on hover when $validation is set',
+        validation => {
+          const { container } = render(<StyledInputGroup $isUnified $validation={validation} />);
           const borderColor = getColor({
             theme: DEFAULT_THEME,
             variable: VALIDATION_BORDER_VARIABLE[validation]
           });
 
           expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
-            modifier: `&:has(${StyledTextInput}[data-validation="${validation}"])`
+            modifier: '&:hover'
           });
         }
       );
 
       it.each(['success', 'warning', 'error'] as const)(
-        'highlights the container border in the %s color on hover, based on a descendant data-validation attribute',
+        'highlights the container border in the %s color on focus-within when $validation is set',
         validation => {
-          const { container } = render(<StyledInputGroup $isUnified />);
+          const { container } = render(<StyledInputGroup $isUnified $validation={validation} />);
           const borderColor = getColor({
             theme: DEFAULT_THEME,
             variable: VALIDATION_BORDER_VARIABLE[validation]
           });
 
           expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
-            modifier: `&:hover:has(${StyledTextInput}[data-validation="${validation}"])`
-          });
-        }
-      );
-
-      it.each(['success', 'warning', 'error'] as const)(
-        'highlights the container border in the %s color on focus-within, based on a descendant data-validation attribute',
-        validation => {
-          const { container } = render(<StyledInputGroup $isUnified />);
-          const borderColor = getColor({
-            theme: DEFAULT_THEME,
-            variable: VALIDATION_BORDER_VARIABLE[validation]
-          });
-
-          expect(container.firstChild).toHaveStyleRule('border-color', borderColor, {
-            modifier: `&:focus-within:has(${StyledTextInput}[data-validation="${validation}"]):not(:has(button:focus-visible))`
+            modifier: '&:focus-within:not(:has(button:focus-visible))'
           });
         }
       );
