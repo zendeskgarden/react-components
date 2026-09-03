@@ -6,12 +6,13 @@
  */
 
 import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import { useText } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import { IClearableInputProps } from '../types';
+import { IClearableInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { Input } from './Input';
 import { InputGroup } from './input-group/InputGroup';
@@ -104,3 +105,14 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
 );
 
 ClearableInput.displayName = 'ClearableInput';
+
+ClearableInput.propTypes = {
+  isCompact: PropTypes.bool,
+  isBare: PropTypes.bool,
+  focusInset: PropTypes.bool,
+  validation: PropTypes.oneOf(VALIDATION),
+  clearButtonLabel: PropTypes.string,
+  wrapperProps: PropTypes.object,
+  wrapperRef: PropTypes.any,
+  buttonProps: PropTypes.object
+};
