@@ -15,7 +15,7 @@ import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import { IClearableInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { Input } from './Input';
-import { InputGroup } from './input-group/InputGroup';
+import { StyledClearableInput } from '../styled/input-group/StyledClearableInput';
 
 export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInputProps>(
   (
@@ -27,6 +27,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
       buttonProps: _buttonProps = {},
       isCompact,
       focusInset,
+      isBare,
       value,
       defaultValue,
       onChange,
@@ -70,11 +71,12 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
     };
 
     return (
-      <InputGroup
+      <StyledClearableInput
         focusInset={focusInset}
         {...wrapperProps}
         isUnified
         isCompact={isCompact}
+        $isBare={isBare}
         onClick={composeEventHandlers(wrapperProps?.onClick, () => {
           inputRef.current?.focus();
         })}
@@ -103,7 +105,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
             <ClearIcon aria-hidden="true" />
           </IconButton>
         ) : null}
-      </InputGroup>
+      </StyledClearableInput>
     );
   }
 );

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import { IInputGroupProps } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
 import { InputGroupContext } from '../../utils/useInputGroupContext';
-import { StyledInputGroup } from '../../styled';
+import { StyledInputGroup } from '../../styled/input-group/StyledInputGroup';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

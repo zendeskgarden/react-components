@@ -10,6 +10,7 @@ import { render, fireEvent } from 'garden-test-utils';
 import { ClearableInput } from './ClearableInput';
 import { Field } from './common/Field';
 import { IClearableInputProps } from '../types';
+import { StyledInputGroup } from '../styled/input-group/StyledInputGroup';
 
 const ControlledClearableInput = ({
   initialValue = 'hello',
@@ -402,6 +403,56 @@ describe('ClearableInput', () => {
 
       expect(button).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
         modifier: '&:focus-visible'
+      });
+    });
+  });
+
+  describe('isBare', () => {
+    it('does not remove the outer border or focus indicator by default', () => {
+      const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
+
+      const wrapper = getByRole('group');
+
+      expect(wrapper).not.toHaveStyleRule('border', 'none', {
+        modifier: `&&${StyledInputGroup}`
+      });
+    });
+
+    it('removes the outer border when the top-level isBare prop is true', () => {
+      const { getByRole } = render(<ClearableInput onChange={jest.fn()} isBare />);
+
+      const wrapper = getByRole('group');
+
+      expect(wrapper).toHaveStyleRule('border', 'none', {
+        modifier: `&&${StyledInputGroup}`
+      });
+    });
+
+    it('suppresses the visible focus indicator when the top-level isBare prop is true', () => {
+      const { getByRole } = render(<ClearableInput onChange={jest.fn()} isBare />);
+
+      const wrapper = getByRole('group');
+
+      fireEvent.focus(getByRole('textbox'));
+      expect(wrapper).toHaveStyleRule('box-shadow', 'none', {
+        modifier: `&&${StyledInputGroup}:focus-within`
+      });
+    });
+
+    it('does not allow wrapperProps to override isBare, since the top-level prop is the single source of truth', () => {
+      const { getByRole } = render(
+        <ClearableInput
+          onChange={jest.fn()}
+          isBare
+          // @ts-expect-error isBare is not part of wrapperProps' type, since it's never respected there; verify the runtime lock-down still holds for a consumer who bypasses the type checker
+          wrapperProps={{ isBare: false }}
+        />
+      );
+
+      const wrapper = getByRole('group');
+
+      expect(wrapper).toHaveStyleRule('border', 'none', {
+        modifier: `&&${StyledInputGroup}`
       });
     });
   });
