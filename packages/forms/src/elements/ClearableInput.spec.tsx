@@ -80,6 +80,42 @@ describe('ClearableInput', () => {
     expect(getByRole('group')).toBe(wrapperRef.current);
   });
 
+  it('does not allow wrapperProps to override isUnified, since the InputGroup is always unified here', () => {
+    const { getByRole } = render(
+      <ClearableInput onChange={jest.fn()} wrapperProps={{ isUnified: false }} />
+    );
+
+    expect(getByRole('group')).toHaveStyleRule('cursor', 'text');
+  });
+
+  it('does not allow wrapperProps to override isCompact, since the top-level prop is the single source of truth', () => {
+    const { getByRole } = render(
+      <ClearableInput onChange={jest.fn()} isCompact wrapperProps={{ isCompact: false }} />
+    );
+
+    expect(getByRole('group')).toHaveStyleRule('min-height', '32px');
+  });
+
+  it('focuses the input when the wrapper is clicked', () => {
+    const { getByRole } = render(<ClearableInput onChange={jest.fn()} />);
+
+    fireEvent.click(getByRole('group'));
+
+    expect(getByRole('textbox')).toHaveFocus();
+  });
+
+  it('composes an onClick from wrapperProps with the internal wrapper-click focus handler', () => {
+    const onClick = jest.fn();
+    const { getByRole } = render(
+      <ClearableInput onChange={jest.fn()} wrapperProps={{ onClick }} />
+    );
+
+    fireEvent.click(getByRole('group'));
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(getByRole('textbox')).toHaveFocus();
+  });
+
   describe('clear button', () => {
     it('does not render the clear button when value is empty', () => {
       const { queryByRole } = render(<ClearableInput value="" onChange={jest.fn()} />);
@@ -291,6 +327,17 @@ describe('ClearableInput', () => {
       });
     });
 
+    it('applies an inset focus ring to the InputGroup when the top-level focusInset prop is true', () => {
+      const { getByRole } = render(<ClearableInput onChange={jest.fn()} focusInset />);
+
+      const wrapper = getByRole('group');
+
+      fireEvent.focus(getByRole('textbox'));
+      expect(wrapper).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-within:not(:has(button:focus-visible))'
+      });
+    });
+
     it('applies an inset focus ring to the InputGroup when wrapperProps.focusInset is true', () => {
       const { getByRole } = render(
         <ClearableInput onChange={jest.fn()} wrapperProps={{ focusInset: true }} />
@@ -300,6 +347,19 @@ describe('ClearableInput', () => {
 
       fireEvent.focus(getByRole('textbox'));
       expect(wrapper).toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
+        modifier: '&:focus-within:not(:has(button:focus-visible))'
+      });
+    });
+
+    it('allows wrapperProps.focusInset to override the top-level focusInset prop', () => {
+      const { getByRole } = render(
+        <ClearableInput onChange={jest.fn()} focusInset wrapperProps={{ focusInset: false }} />
+      );
+
+      const wrapper = getByRole('group');
+
+      fireEvent.focus(getByRole('textbox'));
+      expect(wrapper).not.toHaveStyleRule('box-shadow', expect.stringContaining('inset'), {
         modifier: '&:focus-within:not(:has(button:focus-visible))'
       });
     });

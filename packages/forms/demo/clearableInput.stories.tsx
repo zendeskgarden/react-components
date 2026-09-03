@@ -28,6 +28,7 @@ export default {
     disabled: { control: 'boolean' },
     readOnly: { control: 'boolean' },
     isCompact: { control: 'boolean' },
+    focusInset: { control: 'boolean' },
     clearButtonLabel: { control: 'text' }
   },
   parameters: {

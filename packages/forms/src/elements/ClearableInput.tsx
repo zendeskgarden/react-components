@@ -26,6 +26,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
       wrapperRef,
       buttonProps: _buttonProps = {},
       isCompact,
+      focusInset,
       value,
       defaultValue,
       onChange,
@@ -70,10 +71,13 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
 
     return (
       <InputGroup
-        isUnified
-        focusInset={false}
-        isCompact={isCompact}
+        focusInset={focusInset}
         {...wrapperProps}
+        isUnified
+        isCompact={isCompact}
+        onClick={composeEventHandlers(wrapperProps?.onClick, () => {
+          inputRef.current?.focus();
+        })}
         ref={wrapperRef}
       >
         <Input
