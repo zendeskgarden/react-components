@@ -76,7 +76,7 @@
     "envalid": "8.1.1",
     "eslint": "9.39.4",
     "execa": "9.6.1",
-    "inquirer": "13.3.2",
+    "inquirer": "14.2.1",
     "jsdom": "29.0.0",
     "lerna": "9.0.7",
     "ora": "9.3.0",
