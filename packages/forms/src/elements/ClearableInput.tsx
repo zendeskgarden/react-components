@@ -23,7 +23,6 @@ import { StyledClearableInput } from '../styled/input-group/StyledClearableInput
 export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInputProps>(
   (
     {
-      onClear,
       clearButtonLabel,
       wrapperProps,
       wrapperRef,
@@ -103,7 +102,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
             isBasic
             {...buttonProps}
             focusInset={!isCompact}
-            onClick={composeEventHandlers(onClick, onClearButtonClick, onClear)}
+            onClick={composeEventHandlers(onClick, onClearButtonClick)}
           >
             <ClearIcon aria-hidden="true" />
           </IconButton>

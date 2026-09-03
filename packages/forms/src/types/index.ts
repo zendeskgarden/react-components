@@ -100,8 +100,6 @@ export interface IClearableInputProps extends Omit<IInputProps, 'value' | 'defau
   value?: string;
   /** Sets the input's default value */
   defaultValue?: string;
-  /** Fires when the clear button is activated */
-  onClear?: () => void;
   /** Defines the clear button's `aria-label` */
   clearButtonLabel?: string;
   /** Applies props to the wrapping InputGroup element */

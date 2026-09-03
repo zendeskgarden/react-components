@@ -171,15 +171,6 @@ describe('ClearableInput', () => {
       expect(getByRole('textbox')).toHaveValue('');
     });
 
-    it('calls onClear, in addition to clearing the value, when the clear button is clicked', () => {
-      const onClear = jest.fn();
-      const { getByRole } = render(<ControlledClearableInput onClear={onClear} />);
-
-      fireEvent.click(getByRole('button', { name: 'Clear' }));
-
-      expect(onClear).toHaveBeenCalledTimes(1);
-    });
-
     it('returns focus to the input when the clear button is clicked, because the button unmounts as a result', () => {
       const { getByRole, queryByRole } = render(<ControlledClearableInput />);
 
@@ -208,21 +199,14 @@ describe('ClearableInput', () => {
     });
 
     it('composes an onClick from buttonProps with the internal clear handler', () => {
-      const onClear = jest.fn();
       const onClick = jest.fn();
       const { getByRole } = render(
-        <ClearableInput
-          value="hello"
-          onChange={jest.fn()}
-          onClear={onClear}
-          buttonProps={{ onClick }}
-        />
+        <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ onClick }} />
       );
 
       fireEvent.click(getByRole('button', { name: 'Clear' }));
 
       expect(onClick).toHaveBeenCalledTimes(1);
-      expect(onClear).toHaveBeenCalledTimes(1);
     });
 
     it('passes disabled from buttonProps to the clear button', () => {
