@@ -28,13 +28,13 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
       <InputGroupContext.Provider value={contextValue}>
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <StyledInputGroup
+          role="group"
           aria-labelledby={labelId}
           ref={ref}
           $isCompact={isCompact}
           $isUnified={isUnified}
           $focusInset={focusInset}
           {...other}
-          role="group"
         >
           {children}
         </StyledInputGroup>

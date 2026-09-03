@@ -21,15 +21,14 @@ describe('InputGroup', () => {
     expect(getByTestId('input-group')).toHaveAttribute('role', 'group');
   });
 
-  it('does not allow role to be overridden', () => {
+  it('allows role to be overridden', () => {
     const { getByTestId } = render(
-      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
-      <InputGroup data-test-id="input-group" role="presentation">
+      <InputGroup data-test-id="input-group" role="none">
         <Input />
       </InputGroup>
     );
 
-    expect(getByTestId('input-group')).toHaveAttribute('role', 'group');
+    expect(getByTestId('input-group')).toHaveAttribute('role', 'none');
   });
 
   it("labels the group via the enclosing Field's rendered label", () => {
