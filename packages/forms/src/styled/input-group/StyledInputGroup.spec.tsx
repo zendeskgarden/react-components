@@ -230,6 +230,19 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    it('gives an IconButton following an Input 4px of margin-inline-start, so it does not sit flush against the input', () => {
+      const { container: regular } = render(<StyledInputGroup $isUnified />);
+      const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);
+      const modifier = `&>${StyledTextInput}+${ICON_BUTTON_SELECTOR}`;
+
+      expect(regular.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xxs, {
+        modifier
+      });
+      expect(compact.firstChild).toHaveStyleRule('margin-inline-start', DEFAULT_THEME.space.xxs, {
+        modifier
+      });
+    });
+
     it('gives a non-first plain text Button 4px of margin-inline-start via the adjacent sibling selector, so spacing is owned entirely by the following element', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 

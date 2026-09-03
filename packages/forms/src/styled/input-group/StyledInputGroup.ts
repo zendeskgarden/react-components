@@ -145,6 +145,11 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       margin-inline-start: ${theme.space.xxs};
     }
 
+    /* an IconButton following an Input otherwise sits flush against it, since neither owns a gap-closing margin for the other */
+    & > ${StyledTextInput} + ${ICON_BUTTON_SELECTOR} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
     ${$isCompact &&
     css`
       & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
