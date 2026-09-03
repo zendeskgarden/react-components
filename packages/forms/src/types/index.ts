@@ -105,7 +105,7 @@ export interface IClearableInputProps extends Omit<IInputProps, 'value' | 'defau
   /** Defines the clear button's `aria-label` */
   clearButtonLabel?: string;
   /** Applies props to the wrapping InputGroup element */
-  wrapperProps?: Omit<IInputGroupProps, 'children'>;
+  wrapperProps?: Omit<IInputGroupProps, 'children' | 'isUnified' | 'isCompact'>;
   /** Applies a ref to the wrapping InputGroup element */
   wrapperRef?: Ref<HTMLDivElement>;
   /** Applies props to the clear IconButton element */

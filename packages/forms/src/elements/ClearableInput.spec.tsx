@@ -82,7 +82,11 @@ describe('ClearableInput', () => {
 
   it('does not allow wrapperProps to override isUnified, since the InputGroup is always unified here', () => {
     const { getByRole } = render(
-      <ClearableInput onChange={jest.fn()} wrapperProps={{ isUnified: false }} />
+      <ClearableInput
+        onChange={jest.fn()}
+        // @ts-expect-error isUnified is omitted from wrapperProps' type, since it's never respected here; verify the runtime lock-down still holds for a consumer who bypasses the type checker
+        wrapperProps={{ isUnified: false }}
+      />
     );
 
     expect(getByRole('group')).toHaveStyleRule('cursor', 'text');
@@ -90,7 +94,12 @@ describe('ClearableInput', () => {
 
   it('does not allow wrapperProps to override isCompact, since the top-level prop is the single source of truth', () => {
     const { getByRole } = render(
-      <ClearableInput onChange={jest.fn()} isCompact wrapperProps={{ isCompact: false }} />
+      <ClearableInput
+        onChange={jest.fn()}
+        isCompact
+        // @ts-expect-error isCompact is omitted from wrapperProps' type, since it's never respected here; verify the runtime lock-down still holds for a consumer who bypasses the type checker
+        wrapperProps={{ isCompact: false }}
+      />
     );
 
     expect(getByRole('group')).toHaveStyleRule('min-height', '32px');
