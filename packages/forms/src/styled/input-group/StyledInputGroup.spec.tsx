@@ -575,6 +575,28 @@ describe('StyledInputGroup', () => {
       });
     });
 
+    it('does not strip horizontal borders from a disabled button, since unified children no longer overlap', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).not.toHaveStyleRule('border-top-width', '0', {
+        modifier: '&>button:disabled'
+      });
+      expect(container.firstChild).not.toHaveStyleRule('border-bottom-width', '0', {
+        modifier: '&>button:disabled'
+      });
+    });
+
+    it('still strips horizontal borders from a disabled button for the non-unified border-overlap variant', () => {
+      const { container } = render(<StyledInputGroup />);
+
+      expect(container.firstChild).toHaveStyleRule('border-top-width', '0', {
+        modifier: '&>button:disabled'
+      });
+      expect(container.firstChild).toHaveStyleRule('border-bottom-width', '0', {
+        modifier: '&>button:disabled'
+      });
+    });
+
     it('strips the visual container from a direct nested InputGroup child and makes it a transparent flex wrapper that fills the remaining space', () => {
       const { container: regular } = render(<StyledInputGroup $isUnified />);
       const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);

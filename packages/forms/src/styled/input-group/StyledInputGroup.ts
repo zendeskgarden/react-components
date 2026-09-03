@@ -23,7 +23,7 @@ TODO: remove this once packages are unified
 const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
 const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
 
-/* shared between sizeStyles' padding math and unifiedStyles' actual override, to keep them in sync */
+/* shared between sizeStyles' padding math and unifiedItemStyles' actual override, to keep them in sync */
 const getCompactIconButtonSize = (theme: DefaultTheme) => math(`${theme.space.base}px * 6`);
 
 interface IStyledInputGroupProps {
@@ -44,7 +44,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) =>
 
   /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
   const buttonEdgeTarget = em(theme.space.sm, fontSize);
-  /* tracks the size unifiedStyles actually renders, which is shrunk when compact */
+  /* tracks the size unifiedItemStyles actually renders, which is shrunk when compact */
   const iconButtonSize = $isCompact
     ? parseFloat(getCompactIconButtonSize(theme))
     : parseFloat(theme.space.lg);
@@ -183,11 +183,7 @@ const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   `;
 };
 
-const unifiedStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  if (!props.$isUnified) {
-    return undefined;
-  }
-
+const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   const { theme, $isCompact, $focusInset } = props;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
@@ -317,59 +313,53 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
  * 1. remove border overlap in items
  * 2. keep text inputs above other elements for validation states
  */
-const itemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+const segmentedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   const startDirection = props.theme.rtl ? 'right' : 'left';
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
   return css`
-    ${!props.$isUnified &&
-    css`
-      & > * {
-        z-index: -1;
-      }
+    & > * {
+      z-index: -1;
+    }
 
-      & > ${StyledTextInput} {
-        z-index: 0; /* [2] */
-      }
+    & > ${StyledTextInput} {
+      z-index: 0; /* [2] */
+    }
 
-      & > ${StyledTextInput}:disabled {
-        z-index: -2;
-      }
+    & > ${StyledTextInput}:disabled {
+      z-index: -2;
+    }
 
-      & > ${StyledTextInput}:hover, & > button:hover,
-      & > ${StyledTextInput}:focus-visible, & > button:focus-visible,
-      & > ${StyledTextInput}:active, & > button:active,
-      & > button[aria-pressed='true'],
-      & > button[aria-pressed='mixed'] {
-        z-index: 1;
-      }
-    `}
+    & > ${StyledTextInput}:hover, & > button:hover,
+    & > ${StyledTextInput}:focus-visible, & > button:focus-visible,
+    & > ${StyledTextInput}:active, & > button:active,
+    & > button[aria-pressed='true'],
+    & > button[aria-pressed='mixed'] {
+      z-index: 1;
+    }
 
     & > button:disabled {
       border-top-width: 0;
       border-bottom-width: 0;
     }
 
-    ${!props.$isUnified &&
-    css`
-      & > *:not(:first-child) {
-        margin-${startDirection}: -${props.theme.borderWidths.sm}; /* [1] */
-      }
+    & > *:not(:first-child) {
+      margin-${startDirection}: -${props.theme.borderWidths.sm}; /* [1] */
+    }
 
-      & > *:first-child:not(:last-child) {
-        border-top-${endDirection}-radius: 0;
-        border-bottom-${endDirection}-radius: 0;
-      }
+    & > *:first-child:not(:last-child) {
+      border-top-${endDirection}-radius: 0;
+      border-bottom-${endDirection}-radius: 0;
+    }
 
-      & > *:last-child:not(:first-child) {
-        border-top-${startDirection}-radius: 0;
-        border-bottom-${startDirection}-radius: 0;
-      }
+    & > *:last-child:not(:first-child) {
+      border-top-${startDirection}-radius: 0;
+      border-bottom-${startDirection}-radius: 0;
+    }
 
-      & > *:not(:first-child):not(:last-child) {
-        border-radius: 0;
-      }
-    `}
+    & > *:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
   `;
 };
 
@@ -386,8 +376,8 @@ export const StyledInputGroup = styled.div.attrs({
 
   ${props => sizeStyles(props)};
   ${props => positionStyles(props)};
-  ${props => itemStyles(props)};
-  ${props => unifiedStyles(props)};
+  ${props => !props.$isUnified && segmentedItemStyles(props)};
+  ${props => props.$isUnified && unifiedItemStyles(props)};
 
   ${componentStyles};
 `;
