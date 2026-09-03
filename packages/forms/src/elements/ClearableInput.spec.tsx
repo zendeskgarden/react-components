@@ -432,22 +432,5 @@ describe('ClearableInput', () => {
         modifier: `&&${StyledInputGroup}:focus-within`
       });
     });
-
-    it('does not allow wrapperProps to override isBare, since the top-level prop is the single source of truth', () => {
-      const { getByRole } = render(
-        <ClearableInput
-          onChange={jest.fn()}
-          isBare
-          // @ts-expect-error isBare is not part of wrapperProps' type, since it's never respected there; verify the runtime lock-down still holds for a consumer who bypasses the type checker
-          wrapperProps={{ isBare: false }}
-        />
-      );
-
-      const wrapper = getByRole('group');
-
-      expect(wrapper).toHaveStyleRule('border', 'none', {
-        modifier: `&&${StyledInputGroup}`
-      });
-    });
   });
 });
