@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { render, fireEvent } from 'garden-test-utils';
+import userEvent from '@testing-library/user-event';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ClearableInput } from './ClearableInput';
 import { Field } from './common/Field';
@@ -315,6 +316,50 @@ describe('ClearableInput', () => {
         fireEvent.click(getByRole('button', { name: 'Clear' }));
 
         expect(getByRole('textbox')).toHaveFocus();
+      });
+    });
+
+    describe('mousedown focus guard', () => {
+      const user = userEvent.setup();
+
+      it('prevents the clear button from taking focus on mousedown, so a mouse click does not blur the input before the value clears', () => {
+        const { getByRole } = render(<ClearableInput value="hello" onChange={jest.fn()} />);
+
+        const result = fireEvent.mouseDown(getByRole('button', { name: 'Clear' }));
+
+        expect(result).toBe(false);
+      });
+
+      it('composes an onMouseDown from buttonProps with the internal focus-guard handler', () => {
+        const onMouseDown = jest.fn();
+        const { getByRole } = render(
+          <ClearableInput value="hello" onChange={jest.fn()} buttonProps={{ onMouseDown }} />
+        );
+
+        const result = fireEvent.mouseDown(getByRole('button', { name: 'Clear' }));
+
+        expect(onMouseDown).toHaveBeenCalledTimes(1);
+        expect(result).toBe(false);
+      });
+
+      it('clears the value on Enter key activation, unaffected by the mousedown focus guard', async () => {
+        const { getByRole } = render(<ControlledClearableInput />);
+        const button = getByRole('button', { name: 'Clear' });
+
+        button.focus();
+        await user.keyboard('{Enter}');
+
+        expect(getByRole('textbox')).toHaveValue('');
+      });
+
+      it('clears the value on Space key activation, unaffected by the mousedown focus guard', async () => {
+        const { getByRole } = render(<ControlledClearableInput />);
+        const button = getByRole('button', { name: 'Clear' });
+
+        button.focus();
+        await user.keyboard(' ');
+
+        expect(getByRole('textbox')).toHaveValue('');
       });
     });
   });

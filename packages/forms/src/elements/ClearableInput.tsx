@@ -49,7 +49,13 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
     const [uncontrolledHasValue, setUncontrolledHasValue] = useState(() => !!defaultValue);
     const hasValue = isControlled ? !!value : uncontrolledHasValue;
 
-    const { onClick, ...buttonProps } = _buttonProps;
+    const { onClick, onMouseDown, ...buttonProps } = _buttonProps;
+
+    const onClearButtonMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+      // Stops the button from taking focus on mousedown, so a mouse click doesn't blur the
+      // input (with its pre-clear value) before the value actually clears.
+      event.preventDefault();
+    };
 
     const onClearButtonClick = () => {
       const input = inputRef.current;
@@ -102,6 +108,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
             isBasic
             {...buttonProps}
             focusInset={!isCompact}
+            onMouseDown={composeEventHandlers(onMouseDown, onClearButtonMouseDown)}
             onClick={composeEventHandlers(onClick, onClearButtonClick)}
           >
             <ClearIcon aria-hidden="true" />
