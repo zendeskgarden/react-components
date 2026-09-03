@@ -16,16 +16,20 @@ const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
 const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
 
 describe('StyledInputGroup', () => {
-  it('sets a font-size matching StyledTextInput, regardless of $isCompact or $isUnified', () => {
-    const { container: plain } = render(<StyledInputGroup />);
-    const { container: compact } = render(<StyledInputGroup $isCompact />);
+  it('sets a font-size matching StyledTextInput when $isUnified, since only that variant computes em-based padding against it', () => {
     const { container: unified } = render(<StyledInputGroup $isUnified />);
     const { container: compactUnified } = render(<StyledInputGroup $isUnified $isCompact />);
 
-    expect(plain.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
-    expect(compact.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
     expect(unified.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
     expect(compactUnified.firstChild).toHaveStyleRule('font-size', DEFAULT_THEME.fontSizes.md);
+  });
+
+  it('does not set a font-size for the segmented variant, since it has no em-based padding math to ground', () => {
+    const { container: plain } = render(<StyledInputGroup />);
+    const { container: compact } = render(<StyledInputGroup $isCompact />);
+
+    expect(plain.firstChild).not.toHaveStyleRule('font-size', expect.any(String));
+    expect(compact.firstChild).not.toHaveStyleRule('font-size', expect.any(String));
   });
 
   describe('$isUnified', () => {

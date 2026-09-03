@@ -23,7 +23,7 @@ TODO: remove this once packages are unified
 const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
 const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
 
-/* shared between sizeStyles' padding math and unifiedItemStyles' actual override, to keep them in sync */
+/* shared between unifiedItemStyles' padding math and its own icon button size override, to keep them in sync */
 const getCompactIconButtonSize = (theme: DefaultTheme) => math(`${theme.space.base}px * 6`);
 
 interface IStyledInputGroupProps {
@@ -31,96 +31,6 @@ interface IStyledInputGroupProps {
   $isUnified?: boolean;
   $focusInset?: boolean;
 }
-
-const sizeStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const { theme, $isCompact, $isUnified } = props;
-  const fontSize = theme.fontSizes.md;
-
-  if (!$isUnified) {
-    return css`
-      font-size: ${fontSize};
-    `;
-  }
-
-  /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
-  const buttonEdgeTarget = em(theme.space.sm, fontSize);
-  /* tracks the size unifiedItemStyles actually renders, which is shrunk when compact */
-  const iconButtonSize = $isCompact
-    ? parseFloat(getCompactIconButtonSize(theme))
-    : parseFloat(theme.space.lg);
-  const iconGlyphSize = theme.iconSizes.md;
-  const iconButtonInset = (iconButtonSize - parseFloat(iconGlyphSize)) / 2;
-  const iconButtonPaddingInline = `calc(${buttonEdgeTarget} - ${iconButtonInset}px)`;
-
-  return css`
-    font-size: ${fontSize};
-    padding-inline: ${theme.space.xxs};
-
-    /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
-    &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
-      padding-inline-start: ${iconButtonPaddingInline};
-    }
-
-    &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
-      padding-inline-end: ${iconButtonPaddingInline};
-    }
-
-    /* first-child Input/nested group owns all start spacing; last-child owns all end spacing */
-    &:has(> ${StyledTextInput}:first-child),
-    &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
-      padding-inline-start: 0;
-    }
-
-    &:has(> ${StyledTextInput}:last-child),
-    &:has(> [data-garden-id='${COMPONENT_ID}']:last-child) {
-      padding-inline-end: 0;
-    }
-
-    /* non-first Button bridges the 0-gap with its own 4px start margin */
-    & > * + ${BUTTON_SELECTOR} {
-      margin-inline-start: ${theme.space.xxs};
-    }
-
-    ${$isCompact &&
-    css`
-      & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
-        margin-inline-start: ${theme.space.xs};
-      }
-    `}
-
-    /* base 8px padding on both sides; first/last child overrides to 12px below */
-    & > ${StyledTextInput} {
-      padding-inline: ${theme.space.xs};
-    }
-
-    /* non-first Input bridges the 0-gap with its own 4px margin (4px + 8px padding = 12px from preceding edge) */
-    & > * + ${StyledTextInput} {
-      margin-inline-start: ${theme.space.xxs};
-    }
-
-    & > ${StyledTextInput}:first-child {
-      border-start-start-radius: ${theme.borderRadii.md};
-      border-end-start-radius: ${theme.borderRadii.md};
-      padding-inline-start: ${theme.space.sm};
-    }
-
-    & > ${StyledTextInput}:last-child {
-      border-start-end-radius: ${theme.borderRadii.md};
-      border-end-end-radius: ${theme.borderRadii.md};
-      padding-inline-end: ${theme.space.sm};
-    }
-
-    & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
-      border-start-start-radius: ${theme.borderRadii.md};
-      border-end-start-radius: ${theme.borderRadii.md};
-    }
-
-    & > [data-garden-id='${COMPONENT_ID}']:last-child > ${StyledTextInput}:last-child {
-      border-start-end-radius: ${theme.borderRadii.md};
-      border-end-end-radius: ${theme.borderRadii.md};
-    }
-  `;
-};
 
 /* selects on StyledTextInput's data-validation attribute, since $validation isn't available as a prop here */
 const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
@@ -185,6 +95,7 @@ const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 
 const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   const { theme, $isCompact, $focusInset } = props;
+  const fontSize = theme.fontSizes.md;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
   const iconButtonSize = $isCompact ? getCompactIconButtonSize(theme) : theme.space.lg;
@@ -198,6 +109,11 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
   const focusBorderColor = getColor({ theme, variable: 'border.primaryEmphasis' });
   const buttonLineHeight = math(`${buttonSize} - (${theme.borderWidths.sm} * 2)`);
 
+  /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
+  const buttonEdgeTarget = em(theme.space.sm, fontSize);
+  const iconButtonInset = (parseFloat(iconButtonSize) - parseFloat(theme.iconSizes.md)) / 2;
+  const iconButtonPaddingInline = `calc(${buttonEdgeTarget} - ${iconButtonInset}px)`;
+
   return css`
     box-sizing: border-box;
     align-items: center;
@@ -209,13 +125,79 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     background-color: ${backgroundColor};
     cursor: text;
     min-height: ${containerSize};
+    font-size: ${fontSize};
+    padding-inline: ${theme.space.xxs};
 
     &:hover {
       border-color: ${focusBorderColor};
     }
 
+    /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
+    &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
+      padding-inline-start: ${iconButtonPaddingInline};
+    }
+
+    &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
+      padding-inline-end: ${iconButtonPaddingInline};
+    }
+
+    /* first-child Input/nested group owns all start spacing; last-child owns all end spacing */
+    &:has(> ${StyledTextInput}:first-child),
+    &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
+      padding-inline-start: 0;
+    }
+
+    &:has(> ${StyledTextInput}:last-child),
+    &:has(> [data-garden-id='${COMPONENT_ID}']:last-child) {
+      padding-inline-end: 0;
+    }
+
+    /* non-first Button bridges the 0-gap with its own 4px start margin */
+    & > * + ${BUTTON_SELECTOR} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
+    ${$isCompact &&
+    css`
+      & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
+        margin-inline-start: ${theme.space.xs};
+      }
+    `}
+
     & ${StyledTextInput} {
       align-self: stretch; /* override the container's own centered children */
+    }
+
+    /* base 8px padding on both sides; first/last child overrides to 12px below */
+    & > ${StyledTextInput} {
+      padding-inline: ${theme.space.xs};
+    }
+
+    /* non-first Input bridges the 0-gap with its own 4px margin (4px + 8px padding = 12px from preceding edge) */
+    & > * + ${StyledTextInput} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
+    & > ${StyledTextInput}:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+      padding-inline-start: ${theme.space.sm};
+    }
+
+    & > ${StyledTextInput}:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
+      padding-inline-end: ${theme.space.sm};
+    }
+
+    & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+    }
+
+    & > [data-garden-id='${COMPONENT_ID}']:last-child > ${StyledTextInput}:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
     }
 
     /* sizes any icon button (IconButton, ToggleIconButton, ...) to fit the container; its icon glyph stays iconSizes.md regardless, and pressed-state styling is geometry-independent */
@@ -374,7 +356,6 @@ export const StyledInputGroup = styled.div.attrs({
   z-index: 0;
   width: 100%;
 
-  ${props => sizeStyles(props)};
   ${props => positionStyles(props)};
   ${props => !props.$isUnified && segmentedItemStyles(props)};
   ${props => props.$isUnified && unifiedItemStyles(props)};
