@@ -35,6 +35,12 @@ describe('Input', () => {
     expect(getByTestId('input')).not.toHaveStyleRule('border', 'none');
   });
 
+  it('sets aria-invalid when validation is error', () => {
+    const { getByRole } = render(<Input aria-label="Input" validation="error" />);
+
+    expect(getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+  });
+
   it('is rendered as an input', () => {
     const { getByTestId } = render(
       <Field>

@@ -30,40 +30,14 @@ interface IStyledInputGroupProps {
   $isCompact?: boolean;
   $isUnified?: boolean;
   $focusInset?: boolean;
+  $validation?: Validation;
 }
 
-/* selects on StyledTextInput's data-validation attribute, since $validation isn't available as a prop here */
+/* Input publishes validation via InputGroupContext; $validation is a transient prop and never lands on the DOM */
 const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
   success: 'border.successEmphasis',
   warning: 'border.warningEmphasis',
   error: 'border.dangerEmphasis'
-};
-
-const validationStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const { theme, $focusInset } = props;
-
-  return (Object.keys(VALIDATION_BORDER_VARIABLE) as Validation[]).map(validation => {
-    const selector = `${StyledTextInput}[data-validation="${validation}"]`;
-    const borderColor = getColor({ theme, variable: VALIDATION_BORDER_VARIABLE[validation] });
-
-    return css`
-      &:has(${selector}) {
-        border-color: ${borderColor};
-      }
-
-      &:hover:has(${selector}) {
-        border-color: ${borderColor};
-      }
-
-      ${focusStyles({
-        theme,
-        inset: $focusInset,
-        color: { variable: VALIDATION_BORDER_VARIABLE[validation] },
-        selector: `&:focus-within:has(${selector}):not(:has(button:focus-visible))`,
-        styles: { borderColor }
-      })}
-    `;
-  });
 };
 
 /* mirrors MediaInput's own read-only treatment: only the background changes, since a read-only input remains focusable and selectable */
@@ -94,20 +68,34 @@ const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 };
 
 const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const { theme, $isCompact, $focusInset } = props;
+  const { theme, $isCompact, $focusInset, $validation } = props;
   const fontSize = theme.fontSizes.md;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
   const iconButtonSize = $isCompact ? getCompactIconButtonSize(theme) : theme.space.lg;
-  const borderColor = getColor({
-    theme,
-    variable: 'border.default',
-    dark: { offset: -100 },
-    light: { offset: 100 }
-  });
   const backgroundColor = getColor({ theme, variable: 'background.default' });
-  const focusBorderColor = getColor({ theme, variable: 'border.primaryEmphasis' });
   const buttonLineHeight = math(`${buttonSize} - (${theme.borderWidths.sm} * 2)`);
+  /* mirrors StyledTextInput's color model: a set validation replaces the rest, hover, and focus border colors */
+  let borderColor: string;
+  let hoverBorderColor: string;
+  let borderVariable: string;
+
+  if ($validation) {
+    borderVariable = VALIDATION_BORDER_VARIABLE[$validation];
+    borderColor = getColor({ theme, variable: borderVariable });
+    hoverBorderColor = borderColor;
+  } else {
+    borderVariable = 'border.primaryEmphasis';
+    borderColor = getColor({
+      theme,
+      variable: 'border.default',
+      dark: { offset: -100 },
+      light: { offset: 100 }
+    });
+    hoverBorderColor = getColor({ theme, variable: borderVariable });
+  }
+
+  const focusBorderColor = hoverBorderColor;
 
   /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
   const buttonEdgeTarget = em(theme.space.sm, fontSize);
@@ -129,7 +117,7 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     padding-inline: ${theme.space.xxs};
 
     &:hover {
-      border-color: ${focusBorderColor};
+      border-color: ${hoverBorderColor};
     }
 
     /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
@@ -254,12 +242,11 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     ${focusStyles({
       theme,
       inset: $focusInset,
-      color: { variable: 'border.primaryEmphasis' },
+      color: { variable: borderVariable },
       selector: '&:focus-within:not(:has(button:focus-visible))',
       styles: { borderColor: focusBorderColor }
     })}
 
-    ${validationStyles(props)}
     ${readOnlyStyles(props)}
     ${disabledStyles(props)}
   `;

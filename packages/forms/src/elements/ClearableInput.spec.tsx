@@ -7,6 +7,7 @@
 
 import React, { useState } from 'react';
 import { render, fireEvent } from 'garden-test-utils';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ClearableInput } from './ClearableInput';
 import { Field } from './common/Field';
 import { IClearableInputProps } from '../types';
@@ -58,6 +59,15 @@ describe('ClearableInput', () => {
     expect(input).toHaveAttribute('placeholder', 'Type to search');
     expect(input).toBeDisabled();
     expect(input).toHaveAttribute('aria-invalid', 'true');
+  });
+
+  it('reflects Input validation on the wrapping unified InputGroup', () => {
+    const { getByRole } = render(
+      <ClearableInput value="hello" onChange={jest.fn()} validation="error" />
+    );
+    const errorColor = getColor({ theme: DEFAULT_THEME, variable: 'border.dangerEmphasis' });
+
+    expect(getByRole('group')).toHaveStyleRule('border-color', errorColor);
   });
 
   it('forwards isCompact so the InputGroup renders at its compact size', () => {

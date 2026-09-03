@@ -8,7 +8,8 @@
 import React from 'react';
 import { render, fireEvent, renderRtl } from 'garden-test-utils';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { Field, Input, InputGroup } from '../..';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { Field, Input, InputGroup, Textarea } from '../..';
 
 describe('InputGroup', () => {
   it('always renders role="group"', () => {
@@ -214,6 +215,211 @@ describe('InputGroup', () => {
     );
 
     expect(getByRole('button', { name: 'Icon button' })).toHaveStyleRule('height', '48px');
+  });
+
+  describe('unified validation', () => {
+    const errorColor = getColor({ theme: DEFAULT_THEME, variable: 'border.dangerEmphasis' });
+    const successColor = getColor({ theme: DEFAULT_THEME, variable: 'border.successEmphasis' });
+    const defaultBorderColor = getColor({
+      theme: DEFAULT_THEME,
+      variable: 'border.default',
+      dark: { offset: -100 },
+      light: { offset: 100 }
+    });
+
+    it('reflects a child Input validation on the unified container', () => {
+      const { getByTestId } = render(
+        <InputGroup isUnified data-test-id="input-group">
+          <Input aria-label="Input" validation="error" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', errorColor);
+    });
+
+    it('does not reflect child Input validation on a classic (non-unified) container', () => {
+      const { getByTestId } = render(
+        <InputGroup data-test-id="input-group">
+          <Input aria-label="Input" validation="error" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).not.toHaveStyleRule('border-color', errorColor);
+    });
+
+    it('updates the unified container when Input validation changes', () => {
+      const { getByTestId, rerender } = render(
+        <InputGroup isUnified data-test-id="input-group">
+          <Input aria-label="Input" validation="error" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', errorColor);
+
+      rerender(
+        <InputGroup isUnified data-test-id="input-group">
+          <Input aria-label="Input" validation="success" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', successColor);
+    });
+
+    it('clears the unified container validation when Input validation is removed', () => {
+      const { getByTestId, rerender } = render(
+        <InputGroup isUnified data-test-id="input-group">
+          <Input aria-label="Input" validation="error" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', errorColor);
+
+      rerender(
+        <InputGroup isUnified data-test-id="input-group">
+          <Input aria-label="Input" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', defaultBorderColor);
+    });
+
+    it('clears the unified container validation when the Input unmounts', () => {
+      const Example = ({ showInput }: { showInput: boolean }) => (
+        <InputGroup isUnified data-test-id="input-group">
+          {showInput ? <Input aria-label="Input" validation="error" /> : null}
+        </InputGroup>
+      );
+
+      const { getByTestId, rerender } = render(<Example showInput />);
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', errorColor);
+
+      rerender(<Example showInput={false} />);
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', defaultBorderColor);
+    });
+
+    it('does not reflect a Textarea validation on the unified container', () => {
+      const { getByTestId } = render(
+        <InputGroup isUnified data-test-id="input-group">
+          <Textarea aria-label="Notes" validation="error" />
+        </InputGroup>
+      );
+
+      expect(getByTestId('input-group')).toHaveStyleRule('border-color', defaultBorderColor);
+    });
+
+    it('applies nested Input validation only to the nearest unified group', () => {
+      const { getByTestId } = render(
+        <InputGroup data-test-id="outer">
+          <InputGroup isUnified data-test-id="inner">
+            <Input aria-label="Input" validation="error" />
+          </InputGroup>
+        </InputGroup>
+      );
+
+      expect(getByTestId('inner')).toHaveStyleRule('border-color', errorColor);
+      expect(getByTestId('outer')).not.toHaveStyleRule('border-color', errorColor);
+    });
+
+    /* mirrors the useText warning specs in react-theming: save/restore NODE_ENV + console.warn */
+    describe('multiple validation-bearing Inputs', () => {
+      const environment = process.env.NODE_ENV;
+      const consoleWarning = console.warn;
+
+      beforeEach(() => {
+        process.env.NODE_ENV = 'development';
+        console.warn = jest.fn();
+      });
+
+      afterEach(() => {
+        process.env.NODE_ENV = environment;
+        console.warn = consoleWarning;
+      });
+
+      it('warns when a second Input with validation registers', () => {
+        const spy = jest.spyOn(console, 'warn');
+
+        render(
+          <InputGroup isUnified>
+            <Input aria-label="First" validation="error" />
+            <Input aria-label="Second" validation="success" />
+          </InputGroup>
+        );
+
+        expect(spy).toHaveBeenCalledTimes(1);
+        expect(spy.mock.calls[0][0]).toStrictEqual(expect.stringContaining('<InputGroup>'));
+      });
+
+      it('warns even when both Inputs share the same validation value', () => {
+        const spy = jest.spyOn(console, 'warn');
+
+        render(
+          <InputGroup isUnified>
+            <Input aria-label="First" validation="error" />
+            <Input aria-label="Second" validation="error" />
+          </InputGroup>
+        );
+
+        expect(spy).toHaveBeenCalledTimes(1);
+      });
+
+      it('does not warn for a single Input with validation', () => {
+        const spy = jest.spyOn(console, 'warn');
+
+        render(
+          <InputGroup isUnified>
+            <Input aria-label="Input" validation="error" />
+          </InputGroup>
+        );
+
+        expect(spy).not.toHaveBeenCalled();
+      });
+
+      it('does not warn when only one of two Inputs has validation', () => {
+        const spy = jest.spyOn(console, 'warn');
+
+        render(
+          <InputGroup isUnified>
+            <Input aria-label="First" validation="error" />
+            <Input aria-label="Second" />
+          </InputGroup>
+        );
+
+        expect(spy).not.toHaveBeenCalled();
+      });
+
+      it('does not warn in production', () => {
+        process.env.NODE_ENV = 'production';
+        const spy = jest.spyOn(console, 'warn');
+
+        render(
+          <InputGroup isUnified>
+            <Input aria-label="First" validation="error" />
+            <Input aria-label="Second" validation="success" />
+          </InputGroup>
+        );
+
+        expect(spy).not.toHaveBeenCalled();
+      });
+
+      it('keeps the remaining Input validation when a sibling Input unmounts', () => {
+        const Example = ({ showSecond }: { showSecond: boolean }) => (
+          <InputGroup isUnified data-test-id="input-group">
+            <Input aria-label="First" validation="error" />
+            {showSecond ? <Input aria-label="Second" validation="success" /> : null}
+          </InputGroup>
+        );
+
+        const { getByTestId, rerender } = render(<Example showSecond />);
+
+        expect(getByTestId('input-group')).toHaveStyleRule('border-color', successColor);
+
+        rerender(<Example showSecond={false} />);
+
+        expect(getByTestId('input-group')).toHaveStyleRule('border-color', errorColor);
+      });
+    });
   });
 
   describe('InputGroup child items', () => {

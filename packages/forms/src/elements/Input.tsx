@@ -10,7 +10,10 @@ import PropTypes from 'prop-types';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { IInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
-import { useInputGroupContext } from '../utils/useInputGroupContext';
+import {
+  useInputGroupContext,
+  usePublishInputGroupValidation
+} from '../utils/useInputGroupContext';
 import { StyledTextInput } from '../styled';
 
 /**
@@ -20,6 +23,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
   ({ onSelect, isBare, isCompact, focusInset, validation, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const inputGroupContext = useInputGroupContext();
+    usePublishInputGroupValidation(validation);
     let combinedProps = other;
 
     if (fieldContext) {
