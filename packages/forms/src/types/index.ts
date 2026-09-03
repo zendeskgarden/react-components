@@ -104,11 +104,11 @@ export interface IClearableInputProps extends Omit<IInputProps, 'value' | 'defau
   onClear?: () => void;
   /** Defines the clear button's `aria-label` */
   clearButtonLabel?: string;
-  /** Applies props to the wrapping [InputGroup](#inputgroup) element */
+  /** Applies props to the wrapping InputGroup element */
   wrapperProps?: Omit<IInputGroupProps, 'children'>;
-  /** Applies a ref to the wrapping [InputGroup](#inputgroup) element */
+  /** Applies a ref to the wrapping InputGroup element */
   wrapperRef?: Ref<HTMLDivElement>;
-  /** Applies props to the clear [IconButton](/components/icon_button) element */
+  /** Applies props to the clear IconButton element */
   buttonProps?: IIconButtonProps;
 }
 
@@ -117,9 +117,9 @@ export interface IMediaInputProps extends IInputProps {
   start?: ReactElement;
   /** Accepts an "end" icon to display */
   end?: ReactElement;
-  /** Applies props to the wrapping [FauxInput](#fauxinput) element */
+  /** Applies props to the wrapping FauxInput element */
   wrapperProps?: any;
-  /** Applies a ref to the wrapping [FauxInput](#fauxinput) element */
+  /** Applies a ref to the wrapping FauxInput element */
   wrapperRef?: any;
 }
 
