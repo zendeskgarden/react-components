@@ -17,6 +17,9 @@ import useFieldContext from '../utils/useFieldContext';
 import { Input } from './Input';
 import { StyledClearableInput } from '../styled/input-group/StyledClearableInput';
 
+/**
+ * @extends InputHTMLAttributes<HTMLInputElement>
+ */
 export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInputProps>(
   (
     {
