@@ -7,6 +7,7 @@
 
 import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
+import { expect, userEvent, within } from 'storybook/test';
 import { CalendarStory } from './stories/CalendarStory';
 import { CustomDateFormatStory } from './stories/CustomDateFormatStory';
 import { InvalidDateStory } from './stories/InvalidDateStory';
@@ -31,15 +32,51 @@ export const CustomDateFormat: StoryObj<typeof CustomDateFormatStory> = {
 
 export const InvalidDate: StoryObj<typeof InvalidDateStory> = {
   render: () => <InvalidDateStory />,
-  name: 'Invalid date'
+  name: 'Invalid date',
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+
+    await userEvent.type(input, 'not a date');
+    // Settling requires leaving the widget entirely: tab past the clear button, then the calendar button.
+    await userEvent.tab();
+    await userEvent.tab();
+    await userEvent.tab();
+
+    await expect(canvas.getByText(/Date must be in/u)).toBeVisible();
+  }
 };
 
 export const InvalidRange: StoryObj<typeof InvalidRangeStory> = {
   render: () => <InvalidRangeStory />,
-  name: 'Invalid range'
+  name: 'Invalid range',
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+
+    await userEvent.clear(input);
+    await userEvent.type(input, '1/1/2000');
+    // Settling requires leaving the widget entirely: tab past the clear button, then the calendar button.
+    await userEvent.tab();
+    await userEvent.tab();
+    await userEvent.tab();
+
+    await expect(canvas.getByText(/Date is out of range/u)).toBeVisible();
+  }
 };
 
 export const InvalidRequired: StoryObj<typeof InvalidRequiredStory> = {
   render: () => <InvalidRequiredStory />,
-  name: 'Invalid required'
+  name: 'Invalid required',
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const input = canvas.getByRole('textbox');
+
+    await userEvent.click(input);
+    // No clear button while empty: settling only requires tabbing past the calendar button.
+    await userEvent.tab();
+    await userEvent.tab();
+
+    await expect(canvas.getByText(/cannot be blank/u)).toBeVisible();
+  }
 };

@@ -559,7 +559,8 @@ describe('DatePicker', () => {
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: undefined,
         inputValue: 'invalid date',
-        valid: false
+        valid: false,
+        reason: 'malformed'
       });
     });
 
@@ -594,7 +595,8 @@ describe('DatePicker', () => {
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: undefined,
         inputValue: '',
-        valid: false
+        valid: false,
+        reason: 'required'
       });
     });
 
@@ -642,7 +644,8 @@ describe('DatePicker', () => {
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: undefined,
         inputValue: '1/4/2019',
-        valid: false
+        valid: false,
+        reason: 'out-of-range'
       });
     });
 
@@ -660,7 +663,8 @@ describe('DatePicker', () => {
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: undefined,
         inputValue: 'invalid date',
-        valid: false
+        valid: false,
+        reason: 'malformed'
       });
     });
 

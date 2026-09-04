@@ -7,13 +7,13 @@
 
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { DatePicker } from '@zendeskgarden/react-datepickers';
+import { DatePicker, DatePickerInvalidReason } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { customParseShortDate, formatShortDate } from './utils';
 
 export const InvalidRequiredStory: StoryFn = () => {
   const [value, setValue] = useState<Date | undefined>(undefined);
-  const [validation, setValidation] = useState<'error' | undefined>(undefined);
+  const [reason, setReason] = useState<DatePickerInvalidReason | undefined>(undefined);
 
   return (
     <Field>
@@ -26,15 +26,15 @@ export const InvalidRequiredStory: StoryFn = () => {
         onChange={setValue}
         formatDate={formatShortDate}
         customParseDate={customParseShortDate}
-        onValueSettled={({ valid }) => setValidation(valid ? undefined : 'error')}
+        onValueSettled={({ reason: nextReason }) => setReason(nextReason)}
       >
         <ClearableInput
           required
-          validation={validation}
-          buttonProps={{ onClick: () => setValidation(undefined) }}
+          validation={reason ? 'error' : undefined}
+          buttonProps={{ onClick: () => setReason(undefined) }}
         />
       </DatePicker>
-      {validation === 'error' && (
+      {reason === 'required' && (
         <Field.Message validation="error">Date cannot be blank.</Field.Message>
       )}
     </Field>
