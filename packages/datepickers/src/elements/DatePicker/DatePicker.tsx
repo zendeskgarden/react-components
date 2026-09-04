@@ -173,6 +173,24 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     }
   }, [state.isOpen, focusIntoGrid]);
 
+  const openOrFocusGrid = useCallback(() => {
+    if (state.isOpen) {
+      focusIntoGrid();
+    } else {
+      dispatch({ type: 'OPEN' });
+      shouldFocusGridRef.current = true;
+    }
+  }, [state.isOpen, focusIntoGrid]);
+
+  const handleInputKeyDown = useCallback(
+    (e: React.KeyboardEvent<HTMLInputElement>) => {
+      if (e.key === KEYS.DOWN) {
+        openOrFocusGrid();
+      }
+    },
+    [openOrFocusGrid]
+  );
+
   /**
    * Reports whether the typed input currently holds a valid date, for
    * closes that don't come from a fresh calendar selection.
@@ -286,6 +304,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           minValue={minValue}
           maxValue={maxValue}
           onChange={onChange}
+          onKeyDown={handleInputKeyDown}
           customParseDate={customParseDate}
           ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
         />
@@ -295,14 +314,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           openCalendarLabel={openCalendarLabel}
           aria-expanded={state.isOpen}
           aria-controls={menuId}
-          onClick={() => {
-            if (state.isOpen) {
-              focusIntoGrid();
-            } else {
-              dispatch({ type: 'OPEN' });
-              shouldFocusGridRef.current = true;
-            }
-          }}
+          onClick={openOrFocusGrid}
         />
       </InputGroup>
       {appendToNode ? createPortal(Node, appendToNode) : Node}
