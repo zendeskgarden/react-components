@@ -12,7 +12,8 @@ import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { ClearableInput } from '@zendeskgarden/react-forms';
+import { ClearableInput, Input } from '@zendeskgarden/react-forms';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { DatePicker } from './DatePicker';
 import { IDatePickerProps } from '../../types';
 
@@ -749,6 +750,53 @@ describe('DatePicker', () => {
         valid: false,
         reason: 'malformed'
       });
+    });
+  });
+
+  describe('validation', () => {
+    const errorColor = getColor({ theme: DEFAULT_THEME, variable: 'border.dangerEmphasis' });
+
+    it("reflects a ClearableInput child's validation on the outer widget group", () => {
+      const { container } = render(
+        <DatePicker value={DEFAULT_DATE}>
+          <ClearableInput data-test-id="input" validation="error" />
+        </DatePicker>
+      );
+
+      const outerGroup = container.querySelector("[data-garden-id='forms.input_group']");
+
+      expect(outerGroup).toHaveStyleRule('border-color', errorColor);
+    });
+
+    it("reflects a plain Input child's validation on the outer widget group", () => {
+      const { container } = render(
+        <DatePicker value={DEFAULT_DATE}>
+          <Input data-test-id="input" validation="error" />
+        </DatePicker>
+      );
+
+      const outerGroup = container.querySelector("[data-garden-id='forms.input_group']");
+
+      expect(outerGroup).toHaveStyleRule('border-color', errorColor);
+    });
+
+    it('does not warn about multiple validation-bearing Inputs for a plain Input child', () => {
+      const environment = process.env.NODE_ENV;
+      const consoleWarning = console.warn;
+
+      process.env.NODE_ENV = 'development';
+      console.warn = jest.fn();
+
+      render(
+        <DatePicker value={DEFAULT_DATE}>
+          <Input data-test-id="input" validation="error" />
+        </DatePicker>
+      );
+
+      expect(console.warn).not.toHaveBeenCalledWith(expect.stringContaining('<InputGroup>'));
+
+      process.env.NODE_ENV = environment;
+      console.warn = consoleWarning;
     });
   });
 
