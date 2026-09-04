@@ -30,7 +30,8 @@ import {
   retrieveInitialState
 } from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
-import { StyledInputGroup, StyledMenu, StyledMenuWrapper } from '../../styled';
+import { InputGroup } from '@zendeskgarden/react-forms';
+import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import { Input } from './components/Input';
 import { CalendarButton } from './components/CalendarButton';
@@ -265,7 +266,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   return (
     <>
-      <StyledInputGroup $isCompact={isCompact} onBlur={handleWidgetBlur}>
+      <InputGroup isUnified isCompact={isCompact} onBlur={handleWidgetBlur}>
         <Input
           element={Child}
           dispatch={dispatch}
@@ -294,7 +295,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             }
           }}
         />
-      </StyledInputGroup>
+      </InputGroup>
       <DatePickerContext.Provider value={contextValue}>
         {appendToNode ? createPortal(Node, appendToNode) : Node}
       </DatePickerContext.Provider>
