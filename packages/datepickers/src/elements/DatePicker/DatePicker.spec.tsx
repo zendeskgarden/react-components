@@ -197,6 +197,64 @@ describe('DatePicker', () => {
     });
   });
 
+  describe('Month navigation buttons', () => {
+    it('renders as buttons with accessible names', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('button', { name: 'Previous month' })).toBeInTheDocument();
+      expect(getByRole('button', { name: 'Next month' })).toBeInTheDocument();
+    });
+
+    it('changes month on Enter and Space, matching click behavior', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextButton = getByRole('button', { name: 'Next month' });
+
+      nextButton.focus();
+      await user.keyboard('{Enter}');
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+
+      const previousButton = getByRole('button', { name: 'Previous month' });
+
+      previousButton.focus();
+      await user.keyboard(' ');
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+    });
+
+    it('sets lang="en" on the default labels', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('button', { name: 'Previous month' })).toHaveAttribute('lang', 'en');
+      expect(getByRole('button', { name: 'Next month' })).toHaveAttribute('lang', 'en');
+    });
+
+    it('reflects consumer-provided labels without setting lang', async () => {
+      const { getByTestId, getByRole } = render(
+        <Example
+          value={DEFAULT_DATE}
+          previousMonthLabel="Mois précédent"
+          nextMonthLabel="Mois suivant"
+        />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousButton = getByRole('button', { name: 'Mois précédent' });
+      const nextButton = getByRole('button', { name: 'Mois suivant' });
+
+      expect(previousButton).not.toHaveAttribute('lang');
+      expect(nextButton).not.toHaveAttribute('lang');
+    });
+  });
+
   describe('Calendar selection', () => {
     it('calls onChange when date is selected', async () => {
       const { getByTestId, getAllByTestId } = render(

@@ -7,6 +7,7 @@
 
 import React, { useCallback } from 'react';
 import { useId } from '@zendeskgarden/container-utilities';
+import { useText } from '@zendeskgarden/react-theming';
 import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerContext';
 
@@ -16,14 +17,31 @@ import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-righ
 interface IMonthSelectorProps {
   locale?: string;
   isCompact: boolean;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
 }
 
 export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   locale,
-  isCompact
+  isCompact,
+  previousMonthLabel,
+  nextMonthLabel
 }) => {
   const { state, dispatch } = useDatePickerContext();
   const headingId = useId();
+
+  const previousMonthAriaLabel = useText(
+    MonthSelector,
+    { previousMonthLabel },
+    'previousMonthLabel',
+    'Previous month'
+  );
+  const nextMonthAriaLabel = useText(
+    MonthSelector,
+    { nextMonthLabel },
+    'nextMonthLabel',
+    'Next month'
+  );
 
   const headerLabelFormatter = useCallback<(date: Date) => string>(
     date => {
@@ -40,7 +58,13 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   return (
     <StyledHeader $isCompact={isCompact}>
       <StyledHeaderPaddle
-        $isCompact={isCompact}
+        type="button"
+        isPill
+        isBasic
+        isNeutral
+        focusInset={!isCompact}
+        lang={previousMonthLabel === undefined ? 'en' : undefined}
+        aria-label={previousMonthAriaLabel}
         onClick={() => {
           dispatch({
             type: 'PREVIEW_PREVIOUS_MONTH'
@@ -59,7 +83,13 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
         {headerLabelFormatter(state.previewDate)}
       </StyledHeaderLabel>
       <StyledHeaderPaddle
-        $isCompact={isCompact}
+        type="button"
+        isPill
+        isBasic
+        isNeutral
+        focusInset={!isCompact}
+        lang={nextMonthLabel === undefined ? 'en' : undefined}
+        aria-label={nextMonthAriaLabel}
         onClick={() => {
           dispatch({
             type: 'PREVIEW_NEXT_MONTH'
