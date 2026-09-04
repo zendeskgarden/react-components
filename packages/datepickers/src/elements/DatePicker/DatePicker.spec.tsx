@@ -329,16 +329,14 @@ describe('DatePicker', () => {
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
-    it('does not open the datepicker on arrow keys', () => {
+    it('does not open the datepicker on Up Arrow', () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
       const input = getByTestId('input');
 
       fireEvent.keyDown(input, { key: KEYS.UP });
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
 
-      fireEvent.keyDown(input, { key: KEYS.DOWN });
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
@@ -557,6 +555,54 @@ describe('DatePicker', () => {
       await user.click(getByTestId('calendar-button'));
 
       expect(getByRole('combobox', { expanded: true })).toBeInTheDocument();
+    });
+  });
+
+  describe('Opening the calendar from the input', () => {
+    it('opens on Down Arrow and moves focus onto the selected day', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.keyDown(input, { key: KEYS.DOWN });
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+    });
+
+    it('opens on Alt+Down Arrow and moves focus onto the selected day', () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.keyDown(input, { key: KEYS.DOWN, altKey: true });
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+    });
+
+    it("moves focus onto today's date on Down Arrow when no value is selected", () => {
+      const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.keyDown(input, { key: KEYS.DOWN });
+
+      const days = getAllByTestId('day');
+      const today = days.find(day => day.getAttribute('data-test-today') === 'true');
+
+      expect(today).toHaveFocus();
+    });
+
+    it('does not close or error on Down Arrow while already open', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      fireEvent.keyDown(input, { key: KEYS.DOWN });
+      fireEvent.keyDown(input, { key: KEYS.DOWN });
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
   });
 
