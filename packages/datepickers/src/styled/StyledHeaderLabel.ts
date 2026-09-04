@@ -10,7 +10,7 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.header_label';
 
-export const StyledHeaderLabel = styled.div.attrs({
+export const StyledHeaderLabel = styled.h2.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<{ $isCompact: boolean }>`
@@ -18,6 +18,7 @@ export const StyledHeaderLabel = styled.div.attrs({
   flex-grow: 1;
   align-items: center;
   justify-content: center;
+  margin: 0;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
