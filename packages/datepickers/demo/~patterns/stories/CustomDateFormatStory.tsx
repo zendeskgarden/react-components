@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
 const DATE_PATTERN = /^(?<day>\d{2})\.(?<month>\d{2})\.(?<year>\d{4})$/u;
 
@@ -50,7 +50,7 @@ export const CustomDateFormatStory: StoryFn = () => {
         formatDate={formatDate}
         customParseDate={customParseDate}
       >
-        <Input />
+        <ClearableInput />
       </DatePicker>
     </Field>
   );

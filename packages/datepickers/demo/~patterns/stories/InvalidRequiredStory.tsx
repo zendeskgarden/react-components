@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { customParseShortDate, formatShortDate } from './utils';
 
 export const InvalidRequiredStory: StoryFn = () => {
@@ -28,7 +28,11 @@ export const InvalidRequiredStory: StoryFn = () => {
         customParseDate={customParseShortDate}
         onValueSettled={({ valid }) => setValidation(valid ? undefined : 'error')}
       >
-        <Input required validation={validation} />
+        <ClearableInput
+          required
+          validation={validation}
+          buttonProps={{ onClick: () => setValidation(undefined) }}
+        />
       </DatePicker>
       {validation === 'error' && (
         <Field.Message validation="error">Date cannot be blank.</Field.Message>
