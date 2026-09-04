@@ -9,7 +9,11 @@ import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { IInputGroupProps } from '../../types';
 import useFieldContext from '../../utils/useFieldContext';
-import { InputGroupContext, useInputGroupValidationState } from '../../utils/useInputGroupContext';
+import {
+  InputGroupContext,
+  useInputGroupValidationState,
+  usePublishInputGroupValidation
+} from '../../utils/useInputGroupContext';
 import { StyledInputGroup } from '../../styled/input-group/StyledInputGroup';
 
 /**
@@ -19,6 +23,12 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
   ({ isCompact, isUnified, focusInset, children, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const { validation, registerValidation } = useInputGroupValidationState();
+
+    // Bubbles this group's own derived validation to an ancestor unified group, so a composed
+    // control with its own internal InputGroup (e.g. ClearableInput) still reports validation to
+    // whatever unified group it's nested inside, exactly as a plain Input would.
+    usePublishInputGroupValidation(validation);
+
     const contextValue = useMemo(
       () => ({ isCompact, isUnified, registerValidation }),
       [isCompact, isUnified, registerValidation]
