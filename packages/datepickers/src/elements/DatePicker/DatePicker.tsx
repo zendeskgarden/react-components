@@ -76,7 +76,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const floatingRef = useRef<HTMLDivElement>(null);
   const shouldFocusGridRef = useRef(false);
   const [isVisible, setIsVisible] = useState(state.isOpen);
-  const { menuId, getInputProps } = useDatePicker({ isOpen: state.isOpen });
+  const { menuId, buttonId, getInputProps } = useDatePicker({ isOpen: state.isOpen });
 
   const contextValue = useMemo(
     () => ({ state, dispatch, getInputProps }),
@@ -247,9 +247,13 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   );
 
   const Node = (
+    // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- native <dialog> couples focus/backdrop behavior we don't want for this floating, non-modal popover
     <StyledMenuWrapper
       ref={floatingRef}
       id={menuId}
+      role="dialog"
+      aria-modal="false"
+      aria-labelledby={buttonId}
       style={{ transform }}
       $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
       $placement={placement}
@@ -310,6 +314,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         />
         <CalendarButton
           ref={triggerButtonRef}
+          id={buttonId}
           isCompact={isCompact}
           openCalendarLabel={openCalendarLabel}
           aria-expanded={state.isOpen}
