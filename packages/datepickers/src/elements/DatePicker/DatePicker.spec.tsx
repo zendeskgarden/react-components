@@ -536,6 +536,30 @@ describe('DatePicker', () => {
     });
   });
 
+  describe('Combobox input attributes', () => {
+    it('exposes the input as a combobox with haspopup, autocomplete, and controls attributes', () => {
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+      const input = getByRole('combobox', { expanded: false });
+      const menu = getByTestId('datepicker-menu');
+
+      expect(input).toHaveAttribute('aria-haspopup', 'dialog');
+      expect(input).toHaveAttribute('aria-autocomplete', 'none');
+      expect(input).toHaveAttribute('aria-controls', menu.id);
+    });
+
+    it('sets aria-expanded to true when the calendar opens', async () => {
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('combobox', { expanded: true })).toBeInTheDocument();
+    });
+  });
+
   describe('onValueSettled', () => {
     let onValueSettledSpy: (result: { date?: Date; inputValue: string; valid: boolean }) => void;
 

@@ -11,6 +11,7 @@ import { IDatePickerState, DatePickerAction } from './date-picker-reducer';
 export interface IDatePickerContext {
   state: IDatePickerState;
   dispatch: React.Dispatch<DatePickerAction>;
+  getInputProps: (props?: Record<string, unknown>) => Record<string, unknown>;
 }
 
 export const DatePickerContext = createContext<IDatePickerContext | undefined>(undefined);

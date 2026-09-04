@@ -20,7 +20,7 @@ import PropTypes from 'prop-types';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
-import { KEYS, useId } from '@zendeskgarden/container-utilities';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import {
@@ -30,6 +30,7 @@ import {
   retrieveInitialState
 } from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
+import { useDatePicker } from './utils/useDatePicker';
 import { InputGroup } from '@zendeskgarden/react-forms';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
@@ -75,12 +76,16 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const floatingRef = useRef<HTMLDivElement>(null);
   const shouldFocusGridRef = useRef(false);
   const [isVisible, setIsVisible] = useState(state.isOpen);
-  const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
+  const { menuId, getInputProps } = useDatePicker({ isOpen: state.isOpen });
+
+  const contextValue = useMemo(
+    () => ({ state, dispatch, getInputProps }),
+    [state, dispatch, getInputProps]
+  );
   const [floatingPlacement] = getFloatingPlacements(
     theme,
     _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!
   );
-  const menuId = useId();
 
   const {
     refs,
@@ -272,12 +277,10 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   );
 
   return (
-    <>
+    <DatePickerContext.Provider value={contextValue}>
       <InputGroup ref={widgetRef} isUnified isCompact={isCompact} onBlur={handleWidgetBlur}>
         <Input
           element={Child}
-          dispatch={dispatch}
-          state={state}
           refKey={refKey!}
           value={value}
           minValue={minValue}
@@ -302,10 +305,8 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           }}
         />
       </InputGroup>
-      <DatePickerContext.Provider value={contextValue}>
-        {appendToNode ? createPortal(Node, appendToNode) : Node}
-      </DatePickerContext.Provider>
-    </>
+      {appendToNode ? createPortal(Node, appendToNode) : Node}
+    </DatePickerContext.Provider>
   );
 });
 
