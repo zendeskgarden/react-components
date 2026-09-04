@@ -9,12 +9,7 @@ import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef } from 
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import {
-  DatePickerAction,
-  IDatePickerState,
-  parseInputValue,
-  resolveSettledValue
-} from '../utils/date-picker-reducer';
+import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
 interface IInputProps {
@@ -26,24 +21,12 @@ interface IInputProps {
   minValue?: Date;
   maxValue?: Date;
   onChange?: (date: Date) => void;
-  onValueSettled?: (result: { date?: Date; inputValue: string; valid: boolean }) => void;
   customParseDate?: (inputValue: string) => Date;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
   (
-    {
-      element,
-      dispatch,
-      state,
-      refKey,
-      value,
-      minValue,
-      maxValue,
-      onChange,
-      onValueSettled,
-      customParseDate
-    },
+    { element, dispatch, state, refKey, value, minValue, maxValue, onChange, customParseDate },
     ref
   ) => {
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -63,22 +46,9 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
     };
 
-    const handleBlur = () => {
-      onValueSettled?.(
-        resolveSettledValue({
-          inputValue: state.inputValue,
-          required: element.props.required,
-          minValue,
-          maxValue,
-          customParseDate
-        })
-      );
-    };
-
     return cloneElement(element, {
       [refKey!]: ref,
       onChange: composeEventHandlers(element.props.onChange, handleChange),
-      onBlur: composeEventHandlers(element.props.onBlur, handleBlur),
       autoComplete: 'off',
       value: state.inputValue
     });
