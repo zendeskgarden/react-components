@@ -833,7 +833,18 @@ describe('DatePicker', () => {
       expect(button).toHaveAttribute('aria-haspopup', 'dialog');
       expect(button).toHaveAttribute('aria-expanded', 'false');
       expect(button).toHaveAttribute('aria-controls', menu.id);
-      expect(button).toHaveAccessibleName();
+      expect(button).toHaveAccessibleName('Choose date');
+    });
+
+    it('is excluded from the Tab sequence, but can still receive programmatic focus', () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const button = getByTestId('calendar-button');
+
+      expect(button).toHaveAttribute('tabindex', '-1');
+
+      button.focus();
+
+      expect(button).toHaveFocus();
     });
 
     it('opens the calendar and moves focus onto the selected day when clicked', async () => {
