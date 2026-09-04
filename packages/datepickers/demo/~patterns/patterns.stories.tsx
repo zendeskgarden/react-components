@@ -44,6 +44,7 @@ export const InvalidDate: StoryObj<typeof InvalidDateStory> = {
     await userEvent.tab();
 
     await expect(canvas.getByText(/Date must be in/u)).toBeVisible();
+    await expect(input).toHaveAttribute('aria-invalid', 'true');
   }
 };
 
@@ -62,6 +63,7 @@ export const InvalidRange: StoryObj<typeof InvalidRangeStory> = {
     await userEvent.tab();
 
     await expect(canvas.getByText(/Date is out of range/u)).toBeVisible();
+    await expect(input).toHaveAttribute('aria-invalid', 'true');
   }
 };
 
@@ -78,5 +80,6 @@ export const InvalidRequired: StoryObj<typeof InvalidRequiredStory> = {
     await userEvent.tab();
 
     await expect(canvas.getByText(/cannot be blank/u)).toBeVisible();
+    await expect(input).toHaveAttribute('aria-invalid', 'true');
   }
 };

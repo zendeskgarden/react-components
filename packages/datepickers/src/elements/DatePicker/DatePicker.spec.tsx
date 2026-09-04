@@ -12,6 +12,7 @@ import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DatePicker } from './DatePicker';
 import { IDatePickerProps } from '../../types';
 
@@ -29,6 +30,17 @@ const Example = (props: Omit<IDatePickerProps, 'children'>) => (
       Outside
     </button>
     <div data-test-id="outside-background">Non-interactive background</div>
+  </>
+);
+
+const ClearableExample = (props: Omit<IDatePickerProps, 'children'>) => (
+  <>
+    <DatePicker {...props}>
+      <ClearableInput data-test-id="input" />
+    </DatePicker>
+    <button data-test-id="outside" type="button">
+      Outside
+    </button>
   </>
 );
 
@@ -697,6 +709,46 @@ describe('DatePicker', () => {
       await user.type(input, '1/4/2019');
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
+    });
+
+    it('does not settle when focus moves to another focusable element inside the input group, like a ClearableInput clear button', async () => {
+      const { getByTestId } = render(
+        <ClearableExample
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, 'invalid date');
+      await user.tab();
+
+      expect(onValueSettledSpy).not.toHaveBeenCalled();
+    });
+
+    it('settles once focus actually leaves the input group, after passing through a clear button', async () => {
+      const { getByTestId } = render(
+        <ClearableExample
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+      await user.type(input, 'invalid date');
+      await user.tab();
+      await user.click(getByTestId('outside'));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false,
+        reason: 'malformed'
+      });
     });
   });
 
