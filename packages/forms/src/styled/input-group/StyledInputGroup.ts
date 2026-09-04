@@ -266,9 +266,9 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   return css`
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
-    ${StyledMessage} + &&,
+    ${StyledMessage} ~ &&,
     && + ${StyledHint},
-    && + ${StyledMessage} {
+    && ~ ${StyledMessage} {
       margin-top: ${topMargin};
     }
 
