@@ -9,8 +9,6 @@ import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
-const COMPONENT_ID = 'datepickers.calendar_button';
-
 /*
  * Mirrors `ToggleIconButton`'s `aria-pressed` active styling, mapped to
  * `aria-expanded` so the button appears active while the calendar is open.
@@ -36,10 +34,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledCalendarButton = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledCalendarButton = styled(IconButton)`
   flex: none;
 
   ${colorStyles};
