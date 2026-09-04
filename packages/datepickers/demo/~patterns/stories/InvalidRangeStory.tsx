@@ -10,7 +10,7 @@ import { StoryFn } from '@storybook/react-vite';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { customParseShortDate, formatShortDate } from './utils';
 
 const TODAY = new Date();
@@ -37,7 +37,10 @@ export const InvalidRangeStory: StoryFn = () => {
         customParseDate={customParseShortDate}
         onValueSettled={({ valid }) => setValidation(valid ? undefined : 'error')}
       >
-        <Input validation={validation} />
+        <ClearableInput
+          validation={validation}
+          buttonProps={{ onClick: () => setValidation(undefined) }}
+        />
       </DatePicker>
       {validation === 'error' && (
         <Field.Message validation="error">

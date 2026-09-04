@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
 export const InvalidDateStory: StoryFn = () => {
   const [value, setValue] = useState<Date | undefined>(undefined);
@@ -26,7 +26,10 @@ export const InvalidDateStory: StoryFn = () => {
         onChange={setValue}
         onValueSettled={({ valid }) => setValidation(valid ? undefined : 'error')}
       >
-        <Input validation={validation} />
+        <ClearableInput
+          validation={validation}
+          buttonProps={{ onClick: () => setValidation(undefined) }}
+        />
       </DatePicker>
       {validation === 'error' && (
         <Field.Message validation="error">
