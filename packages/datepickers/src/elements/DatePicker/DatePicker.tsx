@@ -71,6 +71,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const triggerRef = useRef<HTMLInputElement>(null);
   const triggerButtonRef = useRef<HTMLButtonElement>(null);
+  const widgetRef = useRef<HTMLDivElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
   const shouldFocusGridRef = useRef(false);
   const [isVisible, setIsVisible] = useState(state.isOpen);
@@ -184,9 +185,15 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   }, [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]);
 
   /**
-   * Close the calendar when focus moves outside the trigger button and
-   * popover, or back onto the input, per the non-modal APG dialog pattern.
-   * Checks `event.relatedTarget`, matching the `useCombobox` convention.
+   * Settle the typed value and close the calendar when focus moves outside
+   * the widget (input group and popover), or just close when it moves back
+   * onto the input, per the non-modal APG dialog pattern. Checks
+   * `event.relatedTarget`, matching the `useCombobox` convention.
+   *
+   * Checking `widgetRef` (rather than enumerating specific children) means
+   * this tolerates any focusable element the input group's child renders,
+   * like `ClearableInput`'s clear button — moving focus there stays "inside"
+   * the widget and doesn't settle prematurely.
    *
    * Skips `settleValue()` when focus returns to the input, since that also
    * happens as a side effect of selecting a day, which already reports its
@@ -195,22 +202,22 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
    */
   const handleWidgetBlur = useCallback(
     (e: React.FocusEvent) => {
-      if (!state.isOpen) {
-        return;
-      }
-
       const nextTarget = e.relatedTarget as Node | null;
       const isReturningToInput = !!nextTarget && triggerRef.current === nextTarget;
       const isInsideWidget =
         !!nextTarget &&
-        (triggerButtonRef.current?.contains(nextTarget) ||
-          floatingRef.current?.contains(nextTarget));
+        (widgetRef.current?.contains(nextTarget) || floatingRef.current?.contains(nextTarget));
 
       if (isReturningToInput) {
-        dispatch({ type: 'CLOSE' });
+        if (state.isOpen) {
+          dispatch({ type: 'CLOSE' });
+        }
       } else if (!isInsideWidget) {
         settleValue();
-        dispatch({ type: 'CLOSE' });
+
+        if (state.isOpen) {
+          dispatch({ type: 'CLOSE' });
+        }
       }
     },
     [state.isOpen, settleValue]
@@ -266,7 +273,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   return (
     <>
-      <InputGroup isUnified isCompact={isCompact} onBlur={handleWidgetBlur}>
+      <InputGroup ref={widgetRef} isUnified isCompact={isCompact} onBlur={handleWidgetBlur}>
         <Input
           element={Child}
           dispatch={dispatch}
@@ -276,7 +283,6 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           minValue={minValue}
           maxValue={maxValue}
           onChange={onChange}
-          onValueSettled={onValueSettled}
           customParseDate={customParseDate}
           ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
         />
