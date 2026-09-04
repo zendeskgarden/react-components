@@ -14,6 +14,19 @@ export const PLACEMENT = ['auto', ...BASE_PLACEMENT] as const;
 
 export type GardenPlacement = (typeof PLACEMENT)[number];
 
+export type DatePickerInvalidReason = 'required' | 'malformed' | 'out-of-range';
+
+export interface IDatePickerValueSettledResult {
+  /** The parsed or selected date, if valid */
+  date?: Date;
+  /** The input's current displayed value */
+  inputValue: string;
+  /** Whether the current value is valid */
+  valid: boolean;
+  /** Why the value is invalid, present only when `valid` is `false` */
+  reason?: DatePickerInvalidReason;
+}
+
 export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   /** Appends the calendar to the element provided */
   appendToNode?: Element | DocumentFragment;
@@ -35,8 +48,9 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * @param {Date} [result.date] The parsed or selected date, if valid
    * @param {string} result.inputValue The input's current displayed value
    * @param {boolean} result.valid Whether the current value is valid
+   * @param {string} [result.reason] Why the value is invalid, present only when `valid` is `false`
    */
-  onValueSettled?: (result: { date?: Date; inputValue: string; valid: boolean }) => void;
+  onValueSettled?: (result: IDatePickerValueSettledResult) => void;
   /**
    * Customizes the input element's date formatting
    *

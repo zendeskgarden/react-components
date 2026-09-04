@@ -11,7 +11,7 @@ import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
-import { IDatePickerProps } from '../../../types';
+import { IDatePickerProps, IDatePickerValueSettledResult } from '../../../types';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
 export interface IDatePickerState {
@@ -99,15 +99,24 @@ export function resolveSettledValue({
   minValue?: Date;
   maxValue?: Date;
   customParseDate?: (value: string) => Date;
-}): { date?: Date; inputValue: string; valid: boolean } {
+}): IDatePickerValueSettledResult {
   if (inputValue === '') {
-    return { date: undefined, inputValue, valid: !required };
+    const valid = !required;
+
+    return { date: undefined, inputValue, valid, reason: valid ? undefined : 'required' };
   }
 
   const date = parseInputValue({ inputValue, customParseDate });
-  const valid = isValid(date) && isDateWithinRange(date, minValue, maxValue);
 
-  return { date: valid ? date : undefined, inputValue, valid };
+  if (!isValid(date)) {
+    return { date: undefined, inputValue, valid: false, reason: 'malformed' };
+  }
+
+  if (!isDateWithinRange(date, minValue, maxValue)) {
+    return { date: undefined, inputValue, valid: false, reason: 'out-of-range' };
+  }
+
+  return { date, inputValue, valid: true };
 }
 
 export type DatePickerAction =

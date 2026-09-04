@@ -7,12 +7,12 @@
 
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { DatePicker } from '@zendeskgarden/react-datepickers';
+import { DatePicker, DatePickerInvalidReason } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
 export const InvalidDateStory: StoryFn = () => {
   const [value, setValue] = useState<Date | undefined>(undefined);
-  const [validation, setValidation] = useState<'error' | undefined>(undefined);
+  const [reason, setReason] = useState<DatePickerInvalidReason | undefined>(undefined);
 
   return (
     <Field>
@@ -24,14 +24,14 @@ export const InvalidDateStory: StoryFn = () => {
       <DatePicker
         value={value}
         onChange={setValue}
-        onValueSettled={({ valid }) => setValidation(valid ? undefined : 'error')}
+        onValueSettled={({ reason: nextReason }) => setReason(nextReason)}
       >
         <ClearableInput
-          validation={validation}
-          buttonProps={{ onClick: () => setValidation(undefined) }}
+          validation={reason ? 'error' : undefined}
+          buttonProps={{ onClick: () => setReason(undefined) }}
         />
       </DatePicker>
-      {validation === 'error' && (
+      {reason === 'malformed' && (
         <Field.Message validation="error">
           Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
           YYYY&quot; format.
