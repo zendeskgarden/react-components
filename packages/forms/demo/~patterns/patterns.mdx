@@ -14,3 +14,16 @@ The `FileUpload` component is shown here working together with the
 <Canvas>
   <Story of={Stories.Example} />
 </Canvas>
+
+## Date field
+
+Two `InputGroup`s nested inside a bare outer `InputGroup`: an inner
+`isUnified` group for the text input and its clear button (bordered and
+focused as one field, `focusInset` since it sits close to a sibling), plus a
+plain bordered `IconButton` that would open the calendar. The outer group
+supplies only layout (spacing between the two segments) and groups them under
+one field - it draws no border or background of its own.
+
+<Canvas>
+  <Story of={Stories.DateField} />
+</Canvas>

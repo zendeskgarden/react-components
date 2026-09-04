@@ -11,10 +11,12 @@ import {
   InputHTMLAttributes,
   LabelHTMLAttributes,
   ReactElement,
+  Ref,
   SelectHTMLAttributes,
   SVGAttributes,
   TextareaHTMLAttributes
 } from 'react';
+import { IIconButtonProps } from '@zendeskgarden/react-buttons';
 
 export const VALIDATION = ['success', 'warning', 'error'] as const;
 
@@ -42,7 +44,12 @@ export interface IFieldsetProps extends FieldsetHTMLAttributes<HTMLFieldSetEleme
 }
 
 export interface IInputGroupProps
-  extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {}
+  extends Pick<IFieldsetProps, 'isCompact'>, HTMLAttributes<HTMLDivElement> {
+  /** Applies unified styling so the group is bordered/focused as a single field */
+  isUnified?: boolean;
+  /** Insets the container's own `isUnified` focus ring, e.g. when nested inside another group */
+  focusInset?: boolean;
+}
 
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /** Applies regular (non-bold) font weight */
@@ -88,14 +95,29 @@ export interface IInputProps extends IRadioProps {
   validation?: Validation;
 }
 
+export interface IClearableInputProps extends Omit<IInputProps, 'value' | 'defaultValue'> {
+  /** Sets the input's value */
+  value?: string;
+  /** Sets the input's default value */
+  defaultValue?: string;
+  /** Defines the clear button's `aria-label` */
+  clearButtonLabel?: string;
+  /** Applies props to the wrapping InputGroup element */
+  wrapperProps?: Omit<IInputGroupProps, 'children' | 'isUnified' | 'isCompact'>;
+  /** Applies a ref to the wrapping InputGroup element */
+  wrapperRef?: Ref<HTMLDivElement>;
+  /** Applies props to the clear IconButton element */
+  buttonProps?: IIconButtonProps;
+}
+
 export interface IMediaInputProps extends IInputProps {
   /** Accepts a "start" icon to display */
   start?: ReactElement;
   /** Accepts an "end" icon to display */
   end?: ReactElement;
-  /** Applies props to the wrapping [FauxInput](#fauxinput) element */
+  /** Applies props to the wrapping FauxInput element */
   wrapperProps?: any;
-  /** Applies a ref to the wrapping [FauxInput](#fauxinput) element */
+  /** Applies a ref to the wrapping FauxInput element */
   wrapperRef?: any;
 }
 

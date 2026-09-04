@@ -29,6 +29,7 @@ export * from './text/StyledTextMediaFigure';
  * InputGroup styles
  */
 export * from './input-group/StyledInputGroup';
+export * from './input-group/StyledClearableInput';
 
 /**
  * Checkbox styles

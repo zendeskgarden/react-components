@@ -6,7 +6,9 @@
  */
 
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
-import { componentStyles } from '@zendeskgarden/react-theming';
+import { em, math } from 'polished';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { Validation } from '../../types';
 import { StyledTextInput } from '../text/StyledTextInput';
 import { StyledLabel } from '../common/StyledLabel';
 import { StyledHint } from '../common/StyledHint';
@@ -14,9 +16,246 @@ import { StyledMessage } from '../common/StyledMessage';
 
 const COMPONENT_ID = 'forms.input_group';
 
+/* targets react-buttons' public data-garden-id hooks, since its styled components are private; a consumer-overridden data-garden-id exempts that button from these styles 
+TODO: remove this once packages are unified
+
+*/
+const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
+const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
+
+/* shared between unifiedItemStyles' padding math and its own icon button size override, to keep them in sync */
+const getCompactIconButtonSize = (theme: DefaultTheme) => math(`${theme.space.base}px * 6`);
+
 interface IStyledInputGroupProps {
   $isCompact?: boolean;
+  $isUnified?: boolean;
+  $focusInset?: boolean;
+  $validation?: Validation;
 }
+
+/* Input publishes validation via InputGroupContext; $validation is a transient prop and never lands on the DOM */
+const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
+  success: 'border.successEmphasis',
+  warning: 'border.warningEmphasis',
+  error: 'border.dangerEmphasis'
+};
+
+/* mirrors MediaInput's own read-only treatment: only the background changes, since a read-only input remains focusable and selectable */
+const readOnlyStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme } = props;
+  const backgroundColor = getColor({ theme, variable: 'background.disabled' });
+
+  return css`
+    &:has(${StyledTextInput}[readonly]) {
+      background-color: ${backgroundColor};
+    }
+  `;
+};
+
+/* mirrors MediaInput's own disabled treatment, since a descendant input's disabled state isn't otherwise reflected on this container */
+const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme } = props;
+  const borderColor = getColor({ theme, variable: 'border.disabled' });
+  const backgroundColor = getColor({ theme, variable: 'background.disabled' });
+
+  return css`
+    &:has(${StyledTextInput}:disabled) {
+      border-color: ${borderColor};
+      background-color: ${backgroundColor};
+      cursor: default;
+    }
+  `;
+};
+
+const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
+  const { theme, $isCompact, $focusInset, $validation } = props;
+  const fontSize = theme.fontSizes.md;
+  const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
+  const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
+  const iconButtonSize = $isCompact ? getCompactIconButtonSize(theme) : theme.space.lg;
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const buttonLineHeight = math(`${buttonSize} - (${theme.borderWidths.sm} * 2)`);
+  /* mirrors StyledTextInput's color model: a set validation replaces the rest, hover, and focus border colors */
+  let borderColor: string;
+  let hoverBorderColor: string;
+  let borderVariable: string;
+
+  if ($validation) {
+    borderVariable = VALIDATION_BORDER_VARIABLE[$validation];
+    borderColor = getColor({ theme, variable: borderVariable });
+    hoverBorderColor = borderColor;
+  } else {
+    borderVariable = 'border.primaryEmphasis';
+    borderColor = getColor({
+      theme,
+      variable: 'border.default',
+      dark: { offset: -100 },
+      light: { offset: 100 }
+    });
+    hoverBorderColor = getColor({ theme, variable: borderVariable });
+  }
+
+  const focusBorderColor = hoverBorderColor;
+
+  /* the target edge-to-icon distance for a leading/trailing IconButton, kept independent of the container's own padding-inline below */
+  const buttonEdgeTarget = em(theme.space.sm, fontSize);
+  const iconButtonInset = (parseFloat(iconButtonSize) - parseFloat(theme.iconSizes.md)) / 2;
+  const iconButtonPaddingInline = `calc(${buttonEdgeTarget} - ${iconButtonInset}px)`;
+
+  return css`
+    box-sizing: border-box;
+    align-items: center;
+    /* prettier-ignore */
+    transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
+    border: ${theme.borders.sm};
+    border-radius: ${theme.borderRadii.md};
+    border-color: ${borderColor};
+    background-color: ${backgroundColor};
+    cursor: text;
+    min-height: ${containerSize};
+    font-size: ${fontSize};
+    padding-inline: ${theme.space.xxs};
+
+    &:hover {
+      border-color: ${hoverBorderColor};
+    }
+
+    /* compensates for the IconButton's own inset so its icon, not its edge, lands at the target edge distance */
+    &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
+      padding-inline-start: ${iconButtonPaddingInline};
+    }
+
+    &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
+      padding-inline-end: ${iconButtonPaddingInline};
+    }
+
+    /* first-child Input/nested group owns all start spacing; last-child owns all end spacing */
+    &:has(> ${StyledTextInput}:first-child),
+    &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
+      padding-inline-start: 0;
+    }
+
+    &:has(> ${StyledTextInput}:last-child),
+    &:has(> [data-garden-id='${COMPONENT_ID}']:last-child) {
+      padding-inline-end: 0;
+    }
+
+    /* non-first Button bridges the 0-gap with its own 4px start margin */
+    & > * + ${BUTTON_SELECTOR} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
+    /* an IconButton following an Input otherwise sits flush against it, since neither owns a gap-closing margin for the other */
+    & > ${StyledTextInput} + ${ICON_BUTTON_SELECTOR} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
+    ${$isCompact &&
+    css`
+      & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
+        margin-inline-start: ${theme.space.xs};
+      }
+    `}
+
+    & ${StyledTextInput} {
+      align-self: stretch; /* override the container's own centered children */
+    }
+
+    /* base 8px padding on both sides; first/last child overrides to 12px below */
+    & > ${StyledTextInput} {
+      padding-inline: ${theme.space.xs};
+    }
+
+    /* non-first Input bridges the 0-gap with its own 4px margin (4px + 8px padding = 12px from preceding edge) */
+    & > * + ${StyledTextInput} {
+      margin-inline-start: ${theme.space.xxs};
+    }
+
+    & > ${StyledTextInput}:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+      padding-inline-start: ${theme.space.sm};
+    }
+
+    & > ${StyledTextInput}:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
+      padding-inline-end: ${theme.space.sm};
+    }
+
+    & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+    }
+
+    & > [data-garden-id='${COMPONENT_ID}']:last-child > ${StyledTextInput}:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
+    }
+
+    /* sizes any icon button (IconButton, ToggleIconButton, ...) to fit the container; its icon glyph stays iconSizes.md regardless, and pressed-state styling is geometry-independent */
+    & ${ICON_BUTTON_SELECTOR} {
+      flex: none;
+      align-self: center;
+      width: ${iconButtonSize};
+      min-width: ${iconButtonSize};
+      height: ${iconButtonSize};
+      min-height: ${iconButtonSize};
+    }
+
+    /* a nested InputGroup (e.g. ClearableInput's wrapper) fills remaining space as a transparent flex wrapper;
+       the outer provides the visual container, so the inner's own border/background/sizing is stripped */
+    & > [data-garden-id='${COMPONENT_ID}'] {
+      flex: 1 1 auto;
+      align-self: stretch;
+      border: none;
+      background-color: transparent;
+      min-width: 0;
+      min-height: 0;
+      padding-block: 0;
+      padding-inline: 0;
+
+      &:has(> ${ICON_BUTTON_SELECTOR}:last-child) {
+        padding-inline-end: 0;
+      }
+
+      &:has(> ${ICON_BUTTON_SELECTOR}:first-child) {
+        padding-inline-start: 0;
+      }
+
+      &:focus-within:not(:has(button:focus-visible)) {
+        border-color: transparent;
+        box-shadow: none;
+      }
+
+      /* the inner group's own disabled/readOnly styles would re-apply the background color on top of
+         the outer's already-colored background, doubling its darkness; force it back to transparent */
+      &:has(${StyledTextInput}:disabled),
+      &:has(${StyledTextInput}[readonly]) {
+        background-color: transparent;
+      }
+    }
+
+    /* shrinks a text button's height to fit the container, without touching its own padding */
+    & ${BUTTON_SELECTOR} {
+      height: ${buttonSize};
+      min-height: ${buttonSize};
+      line-height: ${buttonLineHeight};
+    }
+
+    /* suppressed while a button shows its own :focus-visible ring instead */
+    ${focusStyles({
+      theme,
+      inset: $focusInset,
+      color: { variable: borderVariable },
+      selector: '&:focus-within:not(:has(button:focus-visible))',
+      styles: { borderColor: focusBorderColor }
+    })}
+
+    ${readOnlyStyles(props)}
+    ${disabledStyles(props)}
+  `;
+};
 
 /**
  * [1] - Override the default `width: 100%` style
@@ -27,9 +266,9 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
   return css`
     ${StyledLabel}:not([hidden]) + &&,
     ${StyledHint} + &&,
-    ${StyledMessage} + &&,
+    ${StyledMessage} ~ &&,
     && + ${StyledHint},
-    && + ${StyledMessage} {
+    && ~ ${StyledMessage} {
       margin-top: ${topMargin};
     }
 
@@ -48,7 +287,7 @@ const positionStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
  * 1. remove border overlap in items
  * 2. keep text inputs above other elements for validation states
  */
-const itemStyles = (props: ThemeProps<DefaultTheme>) => {
+const segmentedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
   const startDirection = props.theme.rtl ? 'right' : 'left';
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
@@ -65,12 +304,9 @@ const itemStyles = (props: ThemeProps<DefaultTheme>) => {
       z-index: -2;
     }
 
-    & > ${StyledTextInput}:hover,
-    & > button:hover,
-    & > ${StyledTextInput}:focus-visible,
-    & > button:focus-visible,
-    & > ${StyledTextInput}:active,
-    & > button:active,
+    & > ${StyledTextInput}:hover, & > button:hover,
+    & > ${StyledTextInput}:focus-visible, & > button:focus-visible,
+    & > ${StyledTextInput}:active, & > button:active,
     & > button[aria-pressed='true'],
     & > button[aria-pressed='mixed'] {
       z-index: 1;
@@ -113,7 +349,8 @@ export const StyledInputGroup = styled.div.attrs({
   width: 100%;
 
   ${props => positionStyles(props)};
-  ${props => itemStyles(props)};
+  ${props => !props.$isUnified && segmentedItemStyles(props)};
+  ${props => props.$isUnified && unifiedItemStyles(props)};
 
   ${componentStyles};
 `;
