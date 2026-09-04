@@ -1003,6 +1003,20 @@ describe('DatePicker', () => {
     });
   });
 
+  describe('Calendar dialog', () => {
+    it('has dialog role, aria-modal="false", and an accessible name matching the calendar button', async () => {
+      const { getByTestId, getByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByRole('dialog', { name: 'Choose date' });
+
+      expect(dialog).toHaveAttribute('aria-modal', 'false');
+    });
+  });
+
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
