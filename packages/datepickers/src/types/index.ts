@@ -106,6 +106,14 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * Provides a customized/translated label for the calendar trigger button
    */
   openCalendarLabel?: string;
+  /**
+   * Provides a customized/translated label for the previous month button
+   */
+  previousMonthLabel?: string;
+  /**
+   * Provides a customized/translated label for the next month button
+   */
+  nextMonthLabel?: string;
   /** @ignore ReactNode override */
   children: ReactElement;
 }
