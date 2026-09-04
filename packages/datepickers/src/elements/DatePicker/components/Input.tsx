@@ -5,18 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef } from 'react';
+import { ReactElement, RefAttributes, cloneElement, forwardRef } from 'react';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
+import { parseInputValue } from '../utils/date-picker-reducer';
+import useDatePickerContext from '../utils/useDatePickerContext';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
 interface IInputProps {
-  dispatch: Dispatch<DatePickerAction>;
   element: ReactElement & RefAttributes<HTMLInputElement>;
   refKey: string;
-  state: IDatePickerState;
   value?: Date;
   minValue?: Date;
   maxValue?: Date;
@@ -25,10 +24,9 @@ interface IInputProps {
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  (
-    { element, dispatch, state, refKey, value, minValue, maxValue, onChange, customParseDate },
-    ref
-  ) => {
+  ({ element, refKey, value, minValue, maxValue, onChange, customParseDate }, ref) => {
+    const { state, dispatch, getInputProps } = useDatePickerContext();
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const inputValue = e.target.value;
       const currentDate = parseInputValue({ inputValue, customParseDate });
@@ -46,12 +44,14 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
     };
 
-    return cloneElement(element, {
+    const combinedProps = {
       [refKey!]: ref,
       onChange: composeEventHandlers(element.props.onChange, handleChange),
       autoComplete: 'off',
       value: state.inputValue
-    });
+    };
+
+    return cloneElement(element, getInputProps(combinedProps));
   }
 );
 
