@@ -6,6 +6,7 @@
  */
 
 import React, { useCallback } from 'react';
+import { useId } from '@zendeskgarden/container-utilities';
 import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerContext';
 
@@ -22,6 +23,7 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   isCompact
 }) => {
   const { state, dispatch } = useDatePickerContext();
+  const headingId = useId();
 
   const headerLabelFormatter = useCallback<(date: Date) => string>(
     date => {
@@ -48,7 +50,12 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
       >
         <ChevronLeftStrokeIcon />
       </StyledHeaderPaddle>
-      <StyledHeaderLabel $isCompact={isCompact} data-test-id="month-display">
+      <StyledHeaderLabel
+        id={headingId}
+        aria-live="polite"
+        $isCompact={isCompact}
+        data-test-id="month-display"
+      >
         {headerLabelFormatter(state.previewDate)}
       </StyledHeaderLabel>
       <StyledHeaderPaddle
