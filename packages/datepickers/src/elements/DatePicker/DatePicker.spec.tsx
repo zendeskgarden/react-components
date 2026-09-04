@@ -159,6 +159,17 @@ describe('DatePicker', () => {
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
 
+    it('renders the month/year heading as an aria-live h2 with an id', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const heading = getByRole('heading', { level: 2 });
+
+      expect(heading).toHaveAttribute('aria-live', 'polite');
+      expect(heading).toHaveAttribute('id');
+    });
+
     it('displays previous month if previous paddle is clicked', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
