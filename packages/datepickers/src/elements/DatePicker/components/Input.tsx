@@ -20,11 +20,12 @@ interface IInputProps {
   minValue?: Date;
   maxValue?: Date;
   onChange?: (date: Date) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   customParseDate?: (inputValue: string) => Date;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  ({ element, refKey, value, minValue, maxValue, onChange, customParseDate }, ref) => {
+  ({ element, refKey, value, minValue, maxValue, onChange, onKeyDown, customParseDate }, ref) => {
     const { state, dispatch, getInputProps } = useDatePickerContext();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,6 +48,7 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
     const combinedProps = {
       [refKey!]: ref,
       onChange: composeEventHandlers(element.props.onChange, handleChange),
+      onKeyDown: composeEventHandlers(element.props.onKeyDown, onKeyDown),
       autoComplete: 'off',
       value: state.inputValue
     };
