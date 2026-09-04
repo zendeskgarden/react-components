@@ -32,6 +32,7 @@ export const CalendarButton = forwardRef<HTMLButtonElement, ICalendarButtonProps
         isBasic
         isNeutral
         focusInset={!isCompact}
+        tabIndex={-1}
         aria-label={ariaLabel}
         aria-haspopup="dialog"
         data-test-id="calendar-button"
