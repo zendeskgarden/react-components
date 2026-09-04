@@ -285,7 +285,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       >
         <StyledHeader $isCompact={isCompact!}>
           <StyledHeaderPaddle
-            $isCompact={isCompact!}
             onClick={() => {
               dispatch({
                 type: 'PREVIEW_PREVIOUS_MONTH'
@@ -300,7 +299,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             {headerLabelFormatter(displayDate)}
           </StyledHeaderLabel>
           <StyledHeaderPaddle
-            $isCompact={isCompact!}
             aria-hidden={isNextHidden || undefined}
             onClick={() => {
               dispatch({

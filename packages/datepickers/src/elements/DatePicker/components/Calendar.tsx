@@ -36,10 +36,26 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   weekStartsOn?: DateFnsIndex;
   onChange?: (date: Date) => void;
   inputRef?: React.RefObject<HTMLInputElement | null>;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
-  ({ value, minValue, maxValue, isCompact, locale, weekStartsOn, onChange, inputRef }, ref) => {
+  (
+    {
+      value,
+      minValue,
+      maxValue,
+      isCompact,
+      locale,
+      weekStartsOn,
+      onChange,
+      inputRef,
+      previousMonthLabel,
+      nextMonthLabel
+    },
+    ref
+  ) => {
     const { state, dispatch } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
@@ -126,7 +142,12 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           e.preventDefault();
         }}
       >
-        <MonthSelector locale={locale} isCompact={isCompact!} />
+        <MonthSelector
+          locale={locale}
+          isCompact={isCompact!}
+          previousMonthLabel={previousMonthLabel}
+          nextMonthLabel={nextMonthLabel}
+        />
         <StyledCalendar $isCompact={isCompact!}>
           {dayLabels}
           {items}
