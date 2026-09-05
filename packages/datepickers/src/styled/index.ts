@@ -14,7 +14,7 @@ export { StyledHeaderPaddle } from './StyledHeaderPaddle';
 export { StyledHeaderLabel } from './StyledHeaderLabel';
 export { StyledCalendar } from './StyledCalendar';
 export { StyledDayLabel } from './StyledDayLabel';
-export { StyledHighlight } from './StyledHighlight';
 export { StyledCalendarButton } from './StyledCalendarButton';
 export { StyledCalendarRow } from './StyledCalendarRow';
 export { StyledDayButton } from './StyledDayButton';
+export { StyledRangeDayCell } from './StyledRangeDayCell';
