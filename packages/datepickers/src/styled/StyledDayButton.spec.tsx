@@ -56,4 +56,17 @@ describe('StyledDayButton', () => {
 
     expect(container.firstChild).not.toHaveStyleRule('color', PALETTE.grey[700]);
   });
+
+  it.each<{ mode: 'light' | 'dark'; color: string }>([
+    { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
+    { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
+  ])('shows an opaque tinted $mode mode hover background when not pressed', ({ mode, color }) => {
+    const { container } = getRenderFn(mode)(
+      <StyledDayButton $isCompact={false}>5</StyledDayButton>
+    );
+
+    expect(container.firstChild).toHaveStyleRule('background-color', color, {
+      modifier: "&&[aria-pressed='false']:not(:disabled):hover"
+    });
+  });
 });
