@@ -16,7 +16,7 @@ import { Month } from './Month';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state } = useDatePickerContext();
+  const { state, previousMonthLabel, nextMonthLabel } = useDatePickerContext();
 
   return (
     <StyledRangeCalendar
@@ -26,8 +26,18 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       data-test-id="range-calendar"
       {...props}
     >
-      <Month displayDate={state.previewDate} isNextHidden />
-      <Month displayDate={addMonths(state.previewDate, 1)} isPreviousHidden />
+      <Month
+        displayDate={state.previewDate}
+        isNextHidden
+        previousMonthLabel={previousMonthLabel}
+        nextMonthLabel={nextMonthLabel}
+      />
+      <Month
+        displayDate={addMonths(state.previewDate, 1)}
+        isPreviousHidden
+        previousMonthLabel={previousMonthLabel}
+        nextMonthLabel={nextMonthLabel}
+      />
     </StyledRangeCalendar>
   );
 });

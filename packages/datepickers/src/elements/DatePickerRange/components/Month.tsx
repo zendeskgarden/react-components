@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
+import { useText } from '@zendeskgarden/react-theming';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
@@ -39,10 +40,12 @@ interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;
   isPreviousHidden?: boolean;
   isNextHidden?: boolean;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  ({ displayDate, isPreviousHidden, isNextHidden }, ref) => {
+  ({ displayDate, isPreviousHidden, isNextHidden, previousMonthLabel, nextMonthLabel }, ref) => {
     const {
       state,
       dispatch,
@@ -55,6 +58,14 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       endValue,
       onChange
     } = useDatePickerContext();
+
+    const previousMonthAriaLabel = useText(
+      Month,
+      { previousMonthLabel },
+      'previousMonthLabel',
+      'Previous month'
+    );
+    const nextMonthAriaLabel = useText(Month, { nextMonthLabel }, 'nextMonthLabel', 'Next month');
 
     const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
@@ -289,31 +300,45 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         }}
       >
         <StyledHeader $isCompact={isCompact!}>
-          <StyledHeaderPaddle
-            onClick={() => {
-              dispatch({
-                type: 'PREVIEW_PREVIOUS_MONTH'
-              });
-            }}
-            aria-hidden={isPreviousHidden || undefined}
-            data-test-id="previous-month"
-          >
-            <ChevronLeftStrokeIcon />
-          </StyledHeaderPaddle>
+          {!isPreviousHidden && (
+            <StyledHeaderPaddle
+              type="button"
+              isPill
+              isBasic
+              isNeutral
+              lang={previousMonthLabel === undefined ? 'en' : undefined}
+              aria-label={previousMonthAriaLabel}
+              onClick={() => {
+                dispatch({
+                  type: 'PREVIEW_PREVIOUS_MONTH'
+                });
+              }}
+              data-test-id="previous-month"
+            >
+              <ChevronLeftStrokeIcon />
+            </StyledHeaderPaddle>
+          )}
           <StyledHeaderLabel $isCompact={isCompact!} data-test-id="month-display">
             {headerLabelFormatter(displayDate)}
           </StyledHeaderLabel>
-          <StyledHeaderPaddle
-            aria-hidden={isNextHidden || undefined}
-            onClick={() => {
-              dispatch({
-                type: 'PREVIEW_NEXT_MONTH'
-              });
-            }}
-            data-test-id="next-month"
-          >
-            <ChevronRightStrokeIcon />
-          </StyledHeaderPaddle>
+          {!isNextHidden && (
+            <StyledHeaderPaddle
+              type="button"
+              isPill
+              isBasic
+              isNeutral
+              lang={nextMonthLabel === undefined ? 'en' : undefined}
+              aria-label={nextMonthAriaLabel}
+              onClick={() => {
+                dispatch({
+                  type: 'PREVIEW_NEXT_MONTH'
+                });
+              }}
+              data-test-id="next-month"
+            >
+              <ChevronRightStrokeIcon />
+            </StyledHeaderPaddle>
+          )}
         </StyledHeader>
         <StyledCalendar
           as="table"
