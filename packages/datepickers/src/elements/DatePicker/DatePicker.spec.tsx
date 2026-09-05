@@ -253,6 +253,166 @@ describe('DatePicker', () => {
       expect(previousButton).not.toHaveAttribute('lang');
       expect(nextButton).not.toHaveAttribute('lang');
     });
+
+    it('leaves focus on the paddle and marks the corresponding day in the new month as tabbable', async () => {
+      const { getByTestId, getAllByTestId, getByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextButton = getByRole('button', { name: 'Next month' });
+
+      nextButton.focus();
+      fireEvent.click(nextButton);
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+      expect(nextButton).toHaveFocus();
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveTextContent('5');
+      expect(focusedDay).not.toHaveFocus();
+    });
+
+    it('clamps to the last day of the month when paddle navigation lands on a day that does not exist', async () => {
+      const { getByTestId, getAllByTestId, getByRole } = render(
+        <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextButton = getByRole('button', { name: 'Next month' });
+
+      nextButton.focus();
+      fireEvent.click(nextButton);
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(nextButton).toHaveFocus();
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveTextContent('28');
+    });
+  });
+
+  describe('Year navigation buttons', () => {
+    it('renders as buttons with accessible names', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('button', { name: 'Previous year' })).toBeInTheDocument();
+      expect(getByRole('button', { name: 'Next year' })).toBeInTheDocument();
+    });
+
+    it('changes year on Enter and Space, matching click behavior', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextButton = getByRole('button', { name: 'Next year' });
+
+      nextButton.focus();
+      await user.keyboard('{Enter}');
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+
+      const previousButton = getByRole('button', { name: 'Previous year' });
+
+      previousButton.focus();
+      await user.keyboard(' ');
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+    });
+
+    it('sets lang="en" on the default labels', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('button', { name: 'Previous year' })).toHaveAttribute('lang', 'en');
+      expect(getByRole('button', { name: 'Next year' })).toHaveAttribute('lang', 'en');
+    });
+
+    it('reflects consumer-provided labels without setting lang', async () => {
+      const { getByTestId, getByRole } = render(
+        <Example
+          value={DEFAULT_DATE}
+          previousYearLabel="Année précédente"
+          nextYearLabel="Année suivante"
+        />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousButton = getByRole('button', { name: 'Année précédente' });
+      const nextButton = getByRole('button', { name: 'Année suivante' });
+
+      expect(previousButton).not.toHaveAttribute('lang');
+      expect(nextButton).not.toHaveAttribute('lang');
+    });
+
+    it('leaves focus on the paddle and marks the corresponding day next year as tabbable, matching Shift+PageDown', async () => {
+      const { getByTestId, getAllByTestId, getByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextButton = getByRole('button', { name: 'Next year' });
+
+      nextButton.focus();
+      fireEvent.click(nextButton);
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+      expect(nextButton).toHaveFocus();
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveTextContent('5');
+      expect(focusedDay).not.toHaveFocus();
+    });
+
+    it('leaves focus on the paddle and marks the corresponding day previous year as tabbable, matching Shift+PageUp', async () => {
+      const { getByTestId, getAllByTestId, getByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousButton = getByRole('button', { name: 'Previous year' });
+
+      previousButton.focus();
+      fireEvent.click(previousButton);
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2018');
+      expect(previousButton).toHaveFocus();
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('clamps February 29 to February 28 when navigating into a non-leap year', async () => {
+      mockDate.set(new Date(2020, 1, 29));
+
+      const { getByTestId, getAllByTestId, getByRole } = render(
+        <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.click(getByRole('button', { name: 'Next year' }));
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2021');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveTextContent('28');
+
+      mockDate.set(DEFAULT_DATE);
+    });
   });
 
   describe('Calendar selection', () => {
@@ -1111,6 +1271,128 @@ describe('DatePicker', () => {
       fireEvent.keyDown(days[9], { key: KEYS.END });
 
       expect(days[13]).toHaveFocus();
+    });
+
+    it('moves focus to the same day next month when PageDown is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_DOWN });
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous month when PageUp is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_UP });
+
+      expect(getByTestId('month-display')).toHaveTextContent('January 2019');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('clamps to the last day of the month when PageDown lands on a day that does not exist', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('28');
+    });
+
+    it('moves focus to the same day next year when Shift+PageDown is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_DOWN, shiftKey: true });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous year when Shift+PageUp is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_UP, shiftKey: true });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2018');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('clamps February 29 to February 28 when Shift+PageDown crosses into a non-leap year', async () => {
+      mockDate.set(new Date(2020, 1, 29));
+
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN, shiftKey: true });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2021');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('28');
+
+      mockDate.set(DEFAULT_DATE);
     });
 
     it('advances the month display and focuses day 1 of the new month when navigating past the end of the month', async () => {
