@@ -11,6 +11,7 @@ import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
 import { IDatePickerProps, IDatePickerValueSettledResult } from '../../../types';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
@@ -128,7 +129,8 @@ export type DatePickerAction =
   | { type: 'MANUALLY_UPDATE_INPUT'; value: string }
   | { type: 'CONTROLLED_VALUE_CHANGE'; value?: Date }
   | { type: 'CONTROLLED_LOCALE_CHANGE' }
-  | { type: 'SELECT_DATE'; value: Date };
+  | { type: 'SELECT_DATE'; value: Date }
+  | { type: 'FOCUS_DATE'; value: Date };
 
 export const datepickerReducer =
   ({
@@ -187,6 +189,14 @@ export const datepickerReducer =
         const inputValue = formatInputValue({ date: action.value, locale, formatDate });
 
         return { ...state, isOpen: false, inputValue };
+      }
+      case 'FOCUS_DATE': {
+        const focusedDate = action.value;
+        const previewDate = isSameMonth(focusedDate, state.previewDate)
+          ? state.previewDate
+          : focusedDate;
+
+        return { ...state, focusedDate, previewDate };
       }
       /* istanbul ignore next */
       default:
