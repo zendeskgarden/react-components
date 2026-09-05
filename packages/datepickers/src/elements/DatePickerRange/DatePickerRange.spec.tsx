@@ -330,7 +330,7 @@ describe('DatePickerRange', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      await user.click(getAllByTestId('next-month')[1]);
+      await user.click(getAllByTestId('next-month')[0]);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -345,6 +345,44 @@ describe('DatePickerRange', () => {
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+
+    it('renders the functional month paddles with default accessible names and lang="en"', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousButton = getByRole('button', { name: 'Previous month' });
+      const nextButton = getByRole('button', { name: 'Next month' });
+
+      expect(previousButton).toHaveAttribute('lang', 'en');
+      expect(nextButton).toHaveAttribute('lang', 'en');
+    });
+
+    it('reflects consumer-provided paddle labels without setting lang', () => {
+      const { getByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          previousMonthLabel="Mois précédent"
+          nextMonthLabel="Mois suivant"
+        />
+      );
+
+      const previousButton = getByRole('button', { name: 'Mois précédent' });
+      const nextButton = getByRole('button', { name: 'Mois suivant' });
+
+      expect(previousButton).not.toHaveAttribute('lang');
+      expect(nextButton).not.toHaveAttribute('lang');
+    });
+
+    it('does not render the hidden inner paddle between the two months at all', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getAllByTestId('previous-month')).toHaveLength(1);
+      expect(getAllByTestId('next-month')).toHaveLength(1);
     });
 
     it('resets preview date if start value is updated while outside of visible range', async () => {
@@ -371,7 +409,7 @@ describe('DatePickerRange', () => {
     it('resets preview date if end value is updated while outside of visible range', async () => {
       const { getAllByTestId, rerender } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const nextPaddle = getAllByTestId('next-month')[1];
+      const nextPaddle = getAllByTestId('next-month')[0];
 
       await user.click(nextPaddle);
       await user.click(nextPaddle);
@@ -417,7 +455,7 @@ describe('DatePickerRange', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const nextPaddle = getAllByTestId('next-month')[1];
+      const nextPaddle = getAllByTestId('next-month')[0];
 
       await user.click(nextPaddle);
       await user.click(nextPaddle);
