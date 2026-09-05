@@ -7,6 +7,7 @@
 
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
+import { Span } from '@zendeskgarden/react-typography';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
@@ -133,15 +134,9 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       if (isPreviousMonth) {
         return (
           <td key={date.toISOString()}>
-            <StyledDayButton
-              $isCompact={isCompact!}
-              $isPreviousMonth
-              disabled
-              data-test-id="day"
-              data-test-hidden="true"
-            >
-              &nbsp;
-            </StyledDayButton>
+            <Span hidden data-test-id="day" data-test-hidden="true">
+              {formattedDayLabel}, {headerLabelFormatter(date)}
+            </Span>
           </td>
         );
       }
