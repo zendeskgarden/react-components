@@ -62,6 +62,8 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     openCalendarLabel,
     previousMonthLabel,
     nextMonthLabel,
+    previousYearLabel,
+    nextYearLabel,
     onValueSettled,
     ...menuProps
   } = props;
@@ -332,6 +334,8 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             weekStartsOn={weekStartsOn}
             previousMonthLabel={previousMonthLabel}
             nextMonthLabel={nextMonthLabel}
+            previousYearLabel={previousYearLabel}
+            nextYearLabel={nextYearLabel}
             headingId={headingId}
             onChange={date => {
               onChange?.(date);
