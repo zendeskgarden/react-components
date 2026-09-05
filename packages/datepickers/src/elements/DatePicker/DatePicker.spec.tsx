@@ -1005,6 +1005,26 @@ describe('DatePicker', () => {
       expect(today).toHaveFocus();
     });
 
+    it('gives exactly one day button tabindex="0", matching the focused day', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+      const focusedDay = days[9];
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveAttribute('tabindex', '0');
+
+      days
+        .filter(day => day !== focusedDay)
+        .forEach(day => {
+          expect(day).toHaveAttribute('tabindex', '-1');
+        });
+    });
+
     it('closes the calendar and returns focus to the button on Escape', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />

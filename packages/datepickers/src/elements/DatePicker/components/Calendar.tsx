@@ -126,6 +126,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             isPrimary={!!isSelected}
             disabled={isDisabled}
             aria-current={isCurrentDate ? 'date' : undefined}
+            tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
             onClick={() => {
               if (onChange && !isSameDay(value!, date)) {
                 onChange(date);
