@@ -17,6 +17,7 @@ import { isDateWithinRange } from '../../../utils/calendar-utils';
 export interface IDatePickerState {
   isOpen: boolean;
   previewDate: Date;
+  focusedDate: Date;
   inputValue: string;
 }
 
@@ -143,8 +144,11 @@ export const datepickerReducer =
   }) =>
   (state: IDatePickerState, action: DatePickerAction): IDatePickerState => {
     switch (action.type) {
-      case 'OPEN':
-        return { ...state, isOpen: true, previewDate: value || new Date() };
+      case 'OPEN': {
+        const openDate = value || new Date();
+
+        return { ...state, isOpen: true, previewDate: openDate, focusedDate: openDate };
+      }
       case 'CLOSE':
         return { ...state, isOpen: false };
       case 'PREVIEW_NEXT_MONTH': {
@@ -217,6 +221,7 @@ export function retrieveInitialState(initialProps: IDatePickerProps): IDatePicke
   return {
     isOpen: false,
     previewDate,
+    focusedDate: previewDate,
     inputValue
   };
 }
