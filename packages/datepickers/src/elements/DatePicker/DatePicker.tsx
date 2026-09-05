@@ -75,7 +75,6 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   );
   const [state, dispatch] = useReducer(memoizedReducer, retrieveInitialState(props));
   const triggerRef = useRef<HTMLInputElement>(null);
-  const triggerButtonRef = useRef<HTMLButtonElement>(null);
   const widgetRef = useRef<HTMLDivElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
   const shouldFocusGridRef = useRef(false);
@@ -320,7 +319,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             if (e.key === KEYS.ESCAPE) {
               settleValue();
               dispatch({ type: 'CLOSE' });
-              triggerButtonRef.current?.focus();
+              triggerRef.current?.focus();
             }
           }}
         >
@@ -370,7 +369,6 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
         />
         <CalendarButton
-          ref={triggerButtonRef}
           id={buttonId}
           isCompact={isCompact}
           openCalendarLabel={openCalendarLabel}
