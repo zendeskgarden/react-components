@@ -388,15 +388,14 @@ describe('DatePicker', () => {
       expect(getByTestId('input')).toHaveValue('');
     });
 
-    it('opens the calendar when the input is clicked', async () => {
-      const { getByTestId, getAllByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
+    it('opens the calendar when the input is clicked, without moving focus into the grid', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
 
-      await user.click(getByTestId('input'));
+      await user.click(input);
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(input).toHaveFocus();
     });
 
     it('does not open the calendar when the input receives keyboard focus', async () => {
@@ -451,15 +450,13 @@ describe('DatePicker', () => {
       expect(input).toHaveValue('Jan 4');
     });
 
-    it('opens the calendar when the associated label is clicked', async () => {
-      const { getByTestId, getAllByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
+    it('opens the calendar when the associated label is clicked, without moving focus into the grid', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
       await user.click(getByTestId('label'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(getByTestId('input')).toHaveFocus();
     });
 
     it('leaves datepicker open if calendar is moused down', async () => {

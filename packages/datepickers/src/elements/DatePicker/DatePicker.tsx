@@ -226,18 +226,20 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   /**
    * Opens the calendar on a pointer click (direct, or forwarded by a
-   * `<label>`) arriving from outside the widget. Never fires for
-   * keyboard-only (Tab) focus, since that never dispatches `click`.
+   * `<label>`) arriving from outside the widget, leaving focus on the input
+   * rather than moving it into the grid (unlike the button/Down Arrow, which
+   * both do). Never fires for keyboard-only (Tab) focus, since that never
+   * dispatches `click`.
    */
   const handleInputClick = useCallback(() => {
     const previousActiveElement = previousActiveElementRef.current;
 
     previousActiveElementRef.current = null;
 
-    if (!previousActiveElement || !isInsideWidget(previousActiveElement)) {
-      openOrFocusGrid();
+    if (!state.isOpen && (!previousActiveElement || !isInsideWidget(previousActiveElement))) {
+      dispatch({ type: 'OPEN' });
     }
-  }, [isInsideWidget, openOrFocusGrid]);
+  }, [state.isOpen, isInsideWidget]);
 
   /**
    * Reports whether the typed input currently holds a valid date, for
