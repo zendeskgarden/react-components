@@ -69,4 +69,10 @@ describe('StyledDayButton', () => {
       modifier: "&&[aria-pressed='false']:not(:disabled):hover"
     });
   });
+
+  it('does not transition, so its background change stays in sync with the day cell', () => {
+    const { container } = render(<StyledDayButton $isCompact={false}>5</StyledDayButton>);
+
+    expect(container.firstChild).toHaveStyleRule('transition', 'none');
+  });
 });
