@@ -224,9 +224,9 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             isPill
             isBasic={!isSelected}
             isNeutral={!isSelected}
+            isPressed={!!(!isInvalidDateRange && isSelected)}
             isPrimary={!!(!isInvalidDateRange && isSelected)}
             disabled={isDisabled}
-            aria-selected={(!isInvalidDateRange && isSelected) || undefined}
             aria-current={isCurrentDate ? 'date' : undefined}
             onClick={() => {
               if (!isDisabled) {
