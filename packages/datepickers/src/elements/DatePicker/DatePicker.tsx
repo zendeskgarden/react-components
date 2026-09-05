@@ -78,7 +78,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   const floatingRef = useRef<HTMLDivElement>(null);
   const shouldFocusGridRef = useRef(false);
   const [isVisible, setIsVisible] = useState(state.isOpen);
-  const { menuId, buttonId, getInputProps } = useDatePicker({ isOpen: state.isOpen });
+  const { menuId, buttonId, headingId, getInputProps } = useDatePicker({ isOpen: state.isOpen });
 
   const contextValue = useMemo(
     () => ({ state, dispatch, getInputProps }),
@@ -332,6 +332,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
             weekStartsOn={weekStartsOn}
             previousMonthLabel={previousMonthLabel}
             nextMonthLabel={nextMonthLabel}
+            headingId={headingId}
             onChange={date => {
               onChange?.(date);
               onValueSettled?.({
