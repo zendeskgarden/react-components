@@ -42,6 +42,17 @@ const colorStyles = ({
   `;
 };
 
+const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const emphasis = getColor({ variable: 'background.primaryEmphasis', theme });
+  const background = getColor({ variable: 'background.default', theme });
+
+  return css`
+    &&[aria-pressed='false']:not(:disabled):hover {
+      background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
+    }
+  `;
+};
+
 export const StyledDayButton = styled(ToggleButton)<IStyledDayButtonProps>`
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
 
@@ -51,6 +62,7 @@ export const StyledDayButton = styled(ToggleButton)<IStyledDayButtonProps>`
 
   ${sizeStyles}
   ${colorStyles}
+  ${hoverStyles}
 
   ${componentStyles};
 `;
