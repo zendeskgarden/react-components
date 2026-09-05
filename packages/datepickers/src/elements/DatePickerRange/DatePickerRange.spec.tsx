@@ -82,6 +82,20 @@ describe('DatePickerRange', () => {
       }
     });
 
+    it('renders a visually-hidden date instead of a disabled button in empty previous-month cells', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const emptyDay = firstMonthDays[0];
+
+      expect(emptyDay.tagName).not.toBe('BUTTON');
+      expect(emptyDay).toHaveTextContent('27, January 2019');
+      expect(emptyDay).toHaveAttribute('data-test-hidden', 'true');
+    });
+
     it('displays dates with selected and today styling', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
