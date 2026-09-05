@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent } from 'garden-test-utils';
+import { render, renderRtl, fireEvent, within } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
@@ -1132,6 +1132,107 @@ describe('DatePicker', () => {
       const input = getByTestId('input');
 
       expect(input).toHaveValue(FORMATTED_DATE);
+    });
+  });
+
+  describe('Calendar grid roles', () => {
+    it('has grid role and is labelled by the month/year heading', async () => {
+      const { getByTestId, getByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const heading = getByRole('heading', { level: 2 });
+      const grid = getByRole('grid');
+
+      expect(grid).toHaveAttribute('aria-labelledby', heading.id);
+    });
+
+    it('labels day-label cells as columnheaders with the full weekday name', async () => {
+      const { getByTestId, getAllByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const columnHeaders = getAllByRole('columnheader');
+
+      expect(columnHeaders[0]).toHaveAttribute('abbr', 'Sunday');
+      expect(columnHeaders[0]).toHaveTextContent('Sun');
+    });
+
+    it('groups the day-label cells and each week of days into rows of 7', async () => {
+      const { getByTestId, getAllByTestId, getAllByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const rows = getAllByRole('row');
+      const headerRow = rows.find(row => within(row).queryAllByRole('columnheader').length > 0);
+      const weekRows = rows.filter(row => within(row).queryAllByRole('gridcell').length > 0);
+      const expectedWeekCount = getAllByTestId('day').length / 7;
+
+      expect(headerRow).toBeDefined();
+      expect(within(headerRow!).getAllByRole('columnheader')).toHaveLength(7);
+      expect(weekRows).toHaveLength(expectedWeekCount);
+      weekRows.forEach(row => {
+        expect(within(row).getAllByRole('gridcell')).toHaveLength(7);
+      });
+    });
+
+    it('wraps each day in a non-focusable, unnamed gridcell containing exactly one button', async () => {
+      const { getByTestId, getAllByTestId, getAllByRole } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dayButtons = getAllByTestId('day');
+      const gridcells = getAllByRole('gridcell');
+
+      expect(dayButtons[9].tagName).toBe('BUTTON');
+      expect(gridcells).toHaveLength(dayButtons.length);
+
+      const gridcell = gridcells[9];
+
+      expect(gridcell).toHaveAttribute('role', 'gridcell');
+      expect(gridcell).not.toHaveAttribute('tabindex');
+      expect(within(gridcell).getAllByRole('button')).toHaveLength(1);
+      expect(within(gridcell).getByRole('button')).toBe(dayButtons[9]);
+    });
+
+    it('marks the committed value with aria-pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-pressed', 'true');
+    });
+
+    it('marks today with aria-current when it is not the committed value', async () => {
+      const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+      const today = days.find(day => day.getAttribute('data-test-today') === 'true');
+
+      expect(today).toHaveAttribute('aria-current', 'date');
+      expect(today).toHaveAttribute('aria-pressed', 'false');
+    });
+
+    it('never renders aria-selected in the grid', async () => {
+      const { getByTestId, container } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(container.querySelectorAll('[aria-selected]')).toHaveLength(0);
     });
   });
 

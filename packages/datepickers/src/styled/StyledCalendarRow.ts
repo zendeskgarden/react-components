@@ -8,20 +8,11 @@
 import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
-const COMPONENT_ID = 'datepickers.calendar';
+const COMPONENT_ID = 'datepickers.calendar_row';
 
-interface IStyledCalendarProps {
-  $isCompact?: boolean;
-}
-
-export const StyledCalendar = styled.div.attrs({
+export const StyledCalendarRow = styled.tr.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledCalendarProps>`
-  width: ${props =>
-    props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
-  table-layout: fixed;
-  border-collapse: collapse;
-
+})`
   ${componentStyles};
 `;
