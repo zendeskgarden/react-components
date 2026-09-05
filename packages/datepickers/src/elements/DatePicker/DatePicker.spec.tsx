@@ -454,6 +454,46 @@ describe('DatePicker', () => {
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
+    it('selects, closes, and returns focus to the input on Enter', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      const input = getByTestId('input');
+
+      await user.click(getByTestId('calendar-button'));
+
+      const day = getAllByTestId('day')[1];
+
+      day.focus();
+      await user.keyboard('{Enter}');
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
+      expect(input).toHaveValue('January 28, 2019');
+      expect(input).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('selects, closes, and returns focus to the input on Space', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      const input = getByTestId('input');
+
+      await user.click(getByTestId('calendar-button'));
+
+      const day = getAllByTestId('day')[1];
+
+      day.focus();
+      await user.keyboard(' ');
+
+      expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
+      expect(input).toHaveValue('January 28, 2019');
+      expect(input).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    });
+
     it('updates input value when controlled value is updated', () => {
       const { getByTestId, rerender } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
@@ -1418,7 +1458,7 @@ describe('DatePicker', () => {
       expect(focusedDay).toHaveAttribute('data-test-previous', 'false');
     });
 
-    it('closes the calendar and returns focus to the button on Escape', async () => {
+    it('closes the calendar and returns focus to the input on Escape, without selecting a date', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
@@ -1430,7 +1470,8 @@ describe('DatePicker', () => {
       fireEvent.keyDown(getAllByTestId('day')[9], { key: KEYS.ESCAPE });
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
-      expect(button).toHaveFocus();
+      expect(getByTestId('input')).toHaveFocus();
+      expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
     it('closes the calendar when clicking outside of the widget', async () => {
