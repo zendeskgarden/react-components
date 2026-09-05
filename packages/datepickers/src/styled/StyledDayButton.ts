@@ -54,6 +54,7 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 };
 
 export const StyledDayButton = styled(ToggleButton)<IStyledDayButtonProps>`
+  transition: none;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
 
   &[aria-current='date'] {
