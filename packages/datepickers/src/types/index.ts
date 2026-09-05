@@ -128,7 +128,14 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
 
 export interface IDatePickerRangeProps extends Pick<
   IDatePickerProps,
-  'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'
+  | 'locale'
+  | 'weekStartsOn'
+  | 'minValue'
+  | 'maxValue'
+  | 'formatDate'
+  | 'isCompact'
+  | 'previousMonthLabel'
+  | 'nextMonthLabel'
 > {
   /**
    * Sets the start date

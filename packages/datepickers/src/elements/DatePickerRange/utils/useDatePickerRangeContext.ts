@@ -23,6 +23,8 @@ export interface IDatePickerRangeContext {
   startInputRef: MutableRefObject<HTMLInputElement | undefined>;
   endInputRef: MutableRefObject<HTMLInputElement | undefined>;
   customParseDate?: (inputValue?: string) => Date;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
 }
 
 export const DatePickerRangeContext = createContext<IDatePickerRangeContext | undefined>(undefined);

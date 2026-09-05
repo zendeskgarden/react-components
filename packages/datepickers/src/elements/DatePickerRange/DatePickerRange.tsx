@@ -33,6 +33,8 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     isCompact = false,
     minValue,
     maxValue,
+    previousMonthLabel,
+    nextMonthLabel,
     children
   } = props;
 
@@ -98,7 +100,9 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       onChange,
       startInputRef,
       endInputRef,
-      customParseDate
+      customParseDate,
+      previousMonthLabel,
+      nextMonthLabel
     }),
     [
       state,
@@ -113,7 +117,9 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       onChange,
       startInputRef,
       endInputRef,
-      customParseDate
+      customParseDate,
+      previousMonthLabel,
+      nextMonthLabel
     ]
   );
 
