@@ -650,6 +650,21 @@ describe('DatePickerRange', () => {
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
+    it('selects start value via keyboard when no values are selected', async () => {
+      const { getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const day = globalGetAllByTestId(calendarWrappers[1], 'day')[6];
+
+      day.focus();
+      await user.keyboard('{Enter}');
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 2),
+        endValue: undefined
+      });
+    });
+
     it('updates valid start value when start input is focused', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example
