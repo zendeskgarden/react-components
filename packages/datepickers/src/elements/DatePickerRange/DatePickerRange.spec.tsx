@@ -7,7 +7,12 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
+import {
+  render,
+  getAllByTestId as globalGetAllByTestId,
+  within,
+  renderRtl
+} from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
@@ -437,6 +442,49 @@ describe('DatePickerRange', () => {
       expect(calendarWrappers[0]).toHaveStyleRule('margin', '16px');
       rerender(<Example />);
       expect(calendarWrappers[0]).toHaveStyleRule('margin', '20px');
+    });
+  });
+
+  describe('Calendar grid structure', () => {
+    it('renders each month as a table with th day-labels and td days', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-internal-wrapper');
+
+      calendarWrappers.forEach(wrapper => {
+        expect(wrapper.tagName).toBe('TABLE');
+
+        const dayLabels = globalGetAllByTestId(wrapper, 'day-label');
+        const days = globalGetAllByTestId(wrapper, 'day');
+
+        dayLabels.forEach(label => {
+          expect(label.closest('th')).not.toBeNull();
+        });
+        days.forEach(day => {
+          expect(day.closest('td')).not.toBeNull();
+        });
+      });
+    });
+
+    it('groups day-label cells and each week of days into table rows', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const wrapper = getAllByTestId('calendar-internal-wrapper')[0];
+      const days = globalGetAllByTestId(wrapper, 'day');
+      const rows = within(wrapper).getAllByRole('row');
+      const headerRow = rows.find(row => within(row).queryAllByRole('columnheader').length > 0);
+      const weekRows = rows.filter(row => row !== headerRow);
+
+      expect(headerRow).toBeDefined();
+      expect(within(headerRow!).getAllByRole('columnheader')).toHaveLength(7);
+      expect(weekRows).toHaveLength(days.length / 7);
+      weekRows.forEach(row => {
+        expect(within(row).getAllByRole('cell')).toHaveLength(7);
+      });
     });
   });
 
