@@ -29,10 +29,10 @@ import {
   StyledCalendarRow,
   StyledDayLabel,
   StyledDayButton,
+  StyledRangeDayCell,
   StyledHeaderPaddle,
   StyledHeader,
-  StyledHeaderLabel,
-  StyledHighlight
+  StyledHeaderLabel
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
@@ -208,16 +208,16 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       return (
-        <td key={date.toISOString()} style={{ position: 'relative' }}>
-          <StyledHighlight
-            $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
-            $isStart={!isInvalidDateRange && isHighlightStart}
-            $isEnd={!isInvalidDateRange && isHighlightEnd}
-            data-test-id="highlight"
-            data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
-            data-test-start={!isInvalidDateRange && isHighlightStart}
-            data-test-end={!isInvalidDateRange && isHighlightEnd}
-          />
+        <StyledRangeDayCell
+          key={date.toISOString()}
+          $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
+          $isHighlightStart={!isInvalidDateRange && isHighlightStart}
+          $isHighlightEnd={!isInvalidDateRange && isHighlightEnd}
+          data-test-id="day-cell"
+          data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
+          data-test-start={!isInvalidDateRange && isHighlightStart}
+          data-test-end={!isInvalidDateRange && isHighlightEnd}
+        >
           <StyledDayButton
             $isCompact={isCompact!}
             $isPreviousMonth={isPreviousMonth}
@@ -278,7 +278,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           >
             {formattedDayLabel}
           </StyledDayButton>
-        </td>
+        </StyledRangeDayCell>
       );
     });
 

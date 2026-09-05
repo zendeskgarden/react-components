@@ -142,35 +142,35 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
 
-      for (let x = 0; x < firstMonthHighlights.length; x++) {
-        const highlight = firstMonthHighlights[x];
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
 
         if (x < 4) {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
         } else {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
         }
 
         if (x === 4) {
-          expect(highlight).toHaveAttribute('data-test-start', 'true');
+          expect(cell).toHaveAttribute('data-test-start', 'true');
         }
       }
 
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
 
-      for (let x = 0; x < secondMonthHighlights.length; x++) {
-        const highlight = secondMonthHighlights[x];
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
 
         if (x < 5) {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
         } else {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
         }
 
         if (x === 4) {
-          expect(highlight).toHaveAttribute('data-test-end', 'true');
+          expect(cell).toHaveAttribute('data-test-end', 'true');
         }
       }
     });
@@ -181,35 +181,35 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
 
-      for (let x = 0; x < firstMonthHighlights.length; x++) {
-        const highlight = firstMonthHighlights[x];
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
 
         if (x < 4) {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
         } else {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
         }
 
         if (x === 4) {
-          expect(highlight).toHaveAttribute('data-test-start', 'true');
+          expect(cell).toHaveAttribute('data-test-start', 'true');
         }
       }
 
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
 
-      for (let x = 0; x < secondMonthHighlights.length; x++) {
-        const highlight = secondMonthHighlights[x];
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
 
         if (x < 5) {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
         } else {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
         }
 
         if (x === 4) {
-          expect(highlight).toHaveAttribute('data-test-end', 'true');
+          expect(cell).toHaveAttribute('data-test-end', 'true');
         }
       }
     });
@@ -218,36 +218,36 @@ describe('DatePickerRange', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
 
       await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
 
-      for (let x = 0; x < firstMonthHighlights.length; x++) {
-        const highlight = firstMonthHighlights[x];
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
 
         if (x < 4) {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
         } else {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
         }
 
         if (x === 4) {
-          expect(highlight).toHaveAttribute('data-test-start', 'true');
+          expect(cell).toHaveAttribute('data-test-start', 'true');
         }
       }
 
-      for (let x = 0; x < secondMonthHighlights.length; x++) {
-        const highlight = secondMonthHighlights[x];
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
 
         if (x < 5) {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'true');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
         } else {
-          expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
         }
 
         if (x === 4) {
-          expect(highlight).toHaveAttribute('data-test-end', 'true');
+          expect(cell).toHaveAttribute('data-test-end', 'true');
         }
       }
     });
@@ -256,18 +256,18 @@ describe('DatePickerRange', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
 
       await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
       await user.unhover(getAllByTestId('calendar-internal-wrapper')[1]);
 
-      firstMonthHighlights.forEach(highlight => {
-        expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
       });
 
-      secondMonthHighlights.forEach(highlight => {
-        expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
       });
     });
 
