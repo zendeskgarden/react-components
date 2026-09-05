@@ -112,6 +112,30 @@ describe('DatePickerRange', () => {
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
     });
 
+    it('marks the committed start and end values with aria-pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+
+      expect(firstMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
+      expect(firstMonthDays[8]).toHaveAttribute('aria-pressed', 'false');
+
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+
+      expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
+    });
+
+    it('never renders aria-selected in the grid', () => {
+      const { container } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(container.querySelector('[aria-selected]')).toBeNull();
+    });
+
     it('displays "Sun" as default first day of week', () => {
       const { getAllByTestId } = render(<Example />);
 
