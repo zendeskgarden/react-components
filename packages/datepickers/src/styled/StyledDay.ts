@@ -13,7 +13,7 @@ interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   $isToday?: boolean;
   $isCompact: boolean;
   'aria-selected'?: boolean;
-  'aria-disabled'?: boolean;
+  disabled?: boolean;
 }
 
 const sizeStyles = () => {
@@ -26,7 +26,7 @@ const sizeStyles = () => {
 
 const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDayProps) => {
   const isSelected = props['aria-selected'];
-  const isDisabled = props['aria-disabled'];
+  const isDisabled = props.disabled;
 
   let backgroundColor = 'inherit';
   let foreground;
@@ -74,12 +74,12 @@ const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDay
     background-color: ${backgroundColor};
     color: ${foreground};
 
-    &:not([aria-disabled]):not([aria-selected]):hover {
+    &:not(:disabled):not([aria-selected]):hover {
       background-color: ${backgroundHover};
       color: ${foregroundHover};
     }
 
-    &:not([aria-disabled]):not([aria-selected]):active {
+    &:not(:disabled):not([aria-selected]):active {
       background-color: ${backgroundActive};
       color: ${foregroundActive};
     }
@@ -88,18 +88,24 @@ const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDay
 
 const COMPONENT_ID = 'datepickers.day';
 
-export const StyledDay = styled.div.attrs<IStyledDayProps>({
+export const StyledDay = styled.button.attrs<IStyledDayProps>({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
+  'data-garden-version': PACKAGE_VERSION,
+  type: 'button'
 })<IStyledDayProps>`
   display: flex;
   position: absolute;
   align-items: center;
   justify-content: center;
-  cursor: ${props => (props['aria-disabled'] ? 'inherit' : 'pointer')};
+  margin: 0;
+  border: none;
+  background: transparent;
+  cursor: ${props => (props.disabled ? 'inherit' : 'pointer')};
+  padding: 0;
+  font-family: inherit;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props =>
-    props.$isToday && !props['aria-disabled'] ? props.theme.fontWeights.semibold : 'inherit'};
+    props.$isToday && !props.disabled ? props.theme.fontWeights.semibold : 'inherit'};
 
   ${sizeStyles}
   ${colorStyles}

@@ -38,7 +38,7 @@ describe('StyledDay', () => {
     { mode: 'dark', color: PALETTE.grey[700] }
   ])('uses correct $mode mode foreground color when disabled', ({ mode, color }) => {
     const { container } = getRenderFn(mode)(
-      <StyledDay $isCompact={false} aria-disabled>
+      <StyledDay $isCompact={false} disabled>
         3
       </StyledDay>
     );
