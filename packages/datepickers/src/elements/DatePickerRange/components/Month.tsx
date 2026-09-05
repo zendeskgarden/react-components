@@ -136,7 +136,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             <StyledDay
               $isCompact={isCompact!}
               $isPreviousMonth
-              aria-disabled
+              disabled
               data-test-id="day"
               data-test-hidden="true"
             >
@@ -227,7 +227,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             $isToday={isCurrentDate}
             $isPreviousMonth={isPreviousMonth}
             aria-selected={(!isInvalidDateRange && isSelected) || undefined}
-            aria-disabled={isDisabled || undefined}
+            disabled={isDisabled}
             $isCompact={isCompact!}
             onClick={() => {
               if (!isDisabled) {
