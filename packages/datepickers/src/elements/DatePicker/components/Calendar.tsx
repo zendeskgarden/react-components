@@ -19,9 +19,9 @@ import { getDate } from 'date-fns/getDate';
 import {
   StyledDatePicker,
   StyledCalendar,
-  StyledCalendarItem,
+  StyledCalendarRow,
   StyledDayLabel,
-  StyledDay
+  StyledDayButton
 } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import { DateFnsIndex, getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
@@ -38,6 +38,7 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   inputRef?: React.RefObject<HTMLInputElement | null>;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
+  headingId: string;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
@@ -52,7 +53,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       onChange,
       inputRef,
       previousMonthLabel,
-      nextMonthLabel
+      nextMonthLabel,
+      headingId
     },
     ref
   ) => {
@@ -79,21 +81,32 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       [locale]
     );
 
+    const fullDayLabelFormatter = useCallback<(date: Date) => string>(
+      date => {
+        const formatter = new Intl.DateTimeFormat(locale, {
+          weekday: 'long'
+        });
+
+        return formatter.format(date);
+      },
+      [locale]
+    );
+
     const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
       date => {
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} $isCompact={isCompact}>
+          <th key={`day-label-${formattedDayLabel}`} scope="col" abbr={fullDayLabelFormatter(date)}>
             <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
-          </StyledCalendarItem>
+          </th>
         );
       }
     );
 
-    const items = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
+    const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = getDate(date);
       const isCurrentDate = isToday(date);
       const isPreviousMonth = !isSameMonth(date, state.previewDate);
@@ -102,23 +115,24 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
-        <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
-          <StyledDay
-            $isToday={isCurrentDate}
-            $isPreviousMonth={isPreviousMonth}
+        <td key={date.toISOString()} role="gridcell">
+          <StyledDayButton
             $isCompact={isCompact!}
-            aria-selected={isSelected || undefined}
-            aria-disabled={isDisabled || undefined}
-            tabIndex={-1}
+            $isPreviousMonth={isPreviousMonth}
+            isPressed={!!isSelected}
+            isPill
+            isBasic={!isSelected}
+            isNeutral={!isSelected}
+            isPrimary={!!isSelected}
+            disabled={isDisabled}
+            aria-current={isCurrentDate ? 'date' : undefined}
             onClick={() => {
-              if (!isDisabled) {
-                if (onChange && !isSameDay(value!, date)) {
-                  onChange(date);
-                }
-
-                dispatch({ type: 'SELECT_DATE', value: date });
-                inputRef?.current?.focus();
+              if (onChange && !isSameDay(value!, date)) {
+                onChange(date);
               }
+
+              dispatch({ type: 'SELECT_DATE', value: date });
+              inputRef?.current?.focus();
             }}
             data-test-id="day"
             data-test-previous={isPreviousMonth}
@@ -127,10 +141,15 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             data-test-today={isCurrentDate}
           >
             {formattedDayLabel}
-          </StyledDay>
-        </StyledCalendarItem>
+          </StyledDayButton>
+        </td>
       );
     });
+
+    const weeks = Array.from({ length: Math.ceil(days.length / 7) }, (_, weekIndex) => ({
+      key: addDays(startDate, weekIndex * 7).toISOString(),
+      days: days.slice(weekIndex * 7, weekIndex * 7 + 7)
+    }));
 
     return (
       <StyledDatePicker
@@ -147,10 +166,15 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           isCompact={isCompact!}
           previousMonthLabel={previousMonthLabel}
           nextMonthLabel={nextMonthLabel}
+          headingId={headingId}
         />
-        <StyledCalendar $isCompact={isCompact!}>
-          {dayLabels}
-          {items}
+        <StyledCalendar as="table" $isCompact={isCompact!} role="grid" aria-labelledby={headingId}>
+          <tbody>
+            <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
+            {weeks.map(week => (
+              <StyledCalendarRow key={week.key}>{week.days}</StyledCalendarRow>
+            ))}
+          </tbody>
         </StyledCalendar>
       </StyledDatePicker>
     );

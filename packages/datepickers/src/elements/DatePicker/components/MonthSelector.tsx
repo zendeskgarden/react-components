@@ -6,7 +6,6 @@
  */
 
 import React, { useCallback } from 'react';
-import { useId } from '@zendeskgarden/container-utilities';
 import { useText } from '@zendeskgarden/react-theming';
 import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
 import useDatePickerContext from '../utils/useDatePickerContext';
@@ -19,16 +18,17 @@ interface IMonthSelectorProps {
   isCompact: boolean;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
+  headingId: string;
 }
 
 export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   locale,
   isCompact,
   previousMonthLabel,
-  nextMonthLabel
+  nextMonthLabel,
+  headingId
 }) => {
   const { state, dispatch } = useDatePickerContext();
-  const headingId = useId();
 
   const previousMonthAriaLabel = useText(
     MonthSelector,

@@ -16,6 +16,7 @@ interface IUseDatePickerOptions {
 export interface IUseDatePickerReturnValue {
   menuId: string;
   buttonId: string;
+  headingId: string;
   getInputProps: (props?: Record<string, unknown>) => Record<string, unknown>;
 }
 
@@ -26,6 +27,7 @@ export function useDatePicker({
   const prefix = useId(idPrefix);
   const menuId = `${prefix}--menu`;
   const buttonId = `${prefix}--button`;
+  const headingId = `${prefix}--heading`;
 
   const getInputProps = useCallback(
     (props: Record<string, unknown> = {}) => ({
@@ -39,5 +41,8 @@ export function useDatePicker({
     [isOpen, menuId]
   );
 
-  return useMemo(() => ({ menuId, buttonId, getInputProps }), [menuId, buttonId, getInputProps]);
+  return useMemo(
+    () => ({ menuId, buttonId, headingId, getInputProps }),
+    [menuId, buttonId, headingId, getInputProps]
+  );
 }
