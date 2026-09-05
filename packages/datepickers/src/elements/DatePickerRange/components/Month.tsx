@@ -24,7 +24,7 @@ import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-righ
 import {
   StyledDatePicker,
   StyledCalendar,
-  StyledCalendarItem,
+  StyledCalendarRow,
   StyledDayLabel,
   StyledDay,
   StyledHeaderPaddle,
@@ -105,23 +105,23 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} $isCompact={isCompact}>
+          <th key={`day-label-${formattedDayLabel}`} scope="col">
             <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
-          </StyledCalendarItem>
+          </th>
         );
       }
     );
 
-    const items = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
+    const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = dayFormatter(date);
       const isCurrentDate = isToday(date);
       const isPreviousMonth = !isSameMonth(date, displayDate);
 
       if (isPreviousMonth) {
         return (
-          <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
+          <td key={date.toISOString()} style={{ position: 'relative' }}>
             <StyledDay
               $isCompact={isCompact!}
               $isPreviousMonth
@@ -131,7 +131,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             >
               &nbsp;
             </StyledDay>
-          </StyledCalendarItem>
+          </td>
         );
       }
 
@@ -202,7 +202,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       return (
-        <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
+        <td key={date.toISOString()} style={{ position: 'relative' }}>
           <StyledHighlight
             $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
             $isStart={!isInvalidDateRange && isHighlightStart}
@@ -268,9 +268,14 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           >
             {formattedDayLabel}
           </StyledDay>
-        </StyledCalendarItem>
+        </td>
       );
     });
+
+    const weeks = Array.from({ length: Math.ceil(days.length / 7) }, (_, weekIndex) => ({
+      key: addDays(startDate, weekIndex * 7).toISOString(),
+      days: days.slice(weekIndex * 7, weekIndex * 7 + 7)
+    }));
 
     return (
       <StyledDatePicker
@@ -311,14 +316,19 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           </StyledHeaderPaddle>
         </StyledHeader>
         <StyledCalendar
+          as="table"
           $isCompact={isCompact!}
           data-test-id="calendar-internal-wrapper"
           onMouseLeave={() => {
             dispatch({ type: 'HOVER_DATE', value: undefined });
           }}
         >
-          {dayLabels}
-          {items}
+          <tbody>
+            <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
+            {weeks.map(week => (
+              <StyledCalendarRow key={week.key}>{week.days}</StyledCalendarRow>
+            ))}
+          </tbody>
         </StyledCalendar>
       </StyledDatePicker>
     );
