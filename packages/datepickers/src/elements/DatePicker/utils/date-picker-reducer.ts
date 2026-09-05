@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { addMonths } from 'date-fns/addMonths';
-import { subMonths } from 'date-fns/subMonths';
 import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { isBefore } from 'date-fns/isBefore';
@@ -124,8 +122,6 @@ export function resolveSettledValue({
 export type DatePickerAction =
   | { type: 'OPEN' }
   | { type: 'CLOSE' }
-  | { type: 'PREVIEW_NEXT_MONTH' }
-  | { type: 'PREVIEW_PREVIOUS_MONTH' }
   | { type: 'MANUALLY_UPDATE_INPUT'; value: string }
   | { type: 'CONTROLLED_VALUE_CHANGE'; value?: Date }
   | { type: 'CONTROLLED_LOCALE_CHANGE' }
@@ -153,16 +149,6 @@ export const datepickerReducer =
       }
       case 'CLOSE':
         return { ...state, isOpen: false };
-      case 'PREVIEW_NEXT_MONTH': {
-        const previewDate = addMonths(state.previewDate, 1);
-
-        return { ...state, previewDate };
-      }
-      case 'PREVIEW_PREVIOUS_MONTH': {
-        const previewDate = subMonths(state.previewDate, 1);
-
-        return { ...state, previewDate };
-      }
       case 'MANUALLY_UPDATE_INPUT': {
         const inputValue = action.value;
 

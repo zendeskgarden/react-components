@@ -13,6 +13,10 @@ import { endOfWeek } from 'date-fns/endOfWeek';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
+import { addMonths } from 'date-fns/addMonths';
+import { subMonths } from 'date-fns/subMonths';
+import { addYears } from 'date-fns/addYears';
+import { subYears } from 'date-fns/subYears';
 import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
@@ -40,6 +44,8 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   inputRef?: React.RefObject<HTMLInputElement | null>;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
+  previousYearLabel?: string;
+  nextYearLabel?: string;
   headingId: string;
 }
 
@@ -56,6 +62,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       inputRef,
       previousMonthLabel,
       nextMonthLabel,
+      previousYearLabel,
+      nextYearLabel,
       headingId
     },
     ref
@@ -65,22 +73,21 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
 
-    const hasMountedRef = useRef(false);
+    const pendingGridFocusRef = useRef(false);
 
     useEffect(() => {
       /**
-       * `Calendar` only mounts while the dialog is open, so its own first
-       * effect run always corresponds to the open transition - initial focus
-       * placement there is DatePicker.tsx's job. Every run after that
-       * corresponds to a focusedDate change from arrow-key navigation, so
-       * follow it with real DOM focus.
+       * Only follow a focusedDate change with real DOM focus when it was
+       * triggered by keyboard navigation from within the grid itself (flagged
+       * by handleDayKeyDown below) - month/year paddle clicks also update
+       * focusedDate (so the roving tabindex stays correct), but deliberately
+       * leave real focus on the paddle button that was clicked.
        */
-      if (!hasMountedRef.current) {
-        hasMountedRef.current = true;
-
+      if (!pendingGridFocusRef.current) {
         return;
       }
 
+      pendingGridFocusRef.current = false;
       tableRef.current?.querySelector<HTMLButtonElement>('[tabindex="0"]')?.focus();
     }, [state.focusedDate]);
 
@@ -107,11 +114,18 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           case KEYS.END:
             targetDate = endOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
             break;
+          case KEYS.PAGE_DOWN:
+            targetDate = event.shiftKey ? addYears(date, 1) : addMonths(date, 1);
+            break;
+          case KEYS.PAGE_UP:
+            targetDate = event.shiftKey ? subYears(date, 1) : subMonths(date, 1);
+            break;
           default:
             return;
         }
 
         event.preventDefault();
+        pendingGridFocusRef.current = true;
         dispatch({ type: 'FOCUS_DATE', value: targetDate });
       },
       [dispatch, preferredWeekStartsOn]
@@ -223,6 +237,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           isCompact={isCompact!}
           previousMonthLabel={previousMonthLabel}
           nextMonthLabel={nextMonthLabel}
+          previousYearLabel={previousYearLabel}
+          nextYearLabel={nextYearLabel}
           headingId={headingId}
         />
         <StyledCalendar
