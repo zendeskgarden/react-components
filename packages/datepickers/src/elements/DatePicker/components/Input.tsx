@@ -21,11 +21,29 @@ interface IInputProps {
   maxValue?: Date;
   onChange?: (date: Date) => void;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onMouseDown?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   customParseDate?: (inputValue: string) => Date;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  ({ element, refKey, value, minValue, maxValue, onChange, onKeyDown, customParseDate }, ref) => {
+  (
+    {
+      element,
+      refKey,
+      value,
+      minValue,
+      maxValue,
+      onChange,
+      onKeyDown,
+      onMouseDown,
+      onFocus,
+      onClick,
+      customParseDate
+    },
+    ref
+  ) => {
     const { state, dispatch, getInputProps } = useDatePickerContext();
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,6 +67,9 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       [refKey!]: ref,
       onChange: composeEventHandlers(element.props.onChange, handleChange),
       onKeyDown: composeEventHandlers(element.props.onKeyDown, onKeyDown),
+      onMouseDown: composeEventHandlers(element.props.onMouseDown, onMouseDown),
+      onFocus: composeEventHandlers(element.props.onFocus, onFocus),
+      onClick: composeEventHandlers(element.props.onClick, onClick),
       autoComplete: 'off',
       value: state.inputValue
     };

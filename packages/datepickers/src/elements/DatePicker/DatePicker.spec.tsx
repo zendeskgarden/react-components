@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
+import { render, renderRtl, fireEvent } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
@@ -388,13 +388,25 @@ describe('DatePicker', () => {
       expect(getByTestId('input')).toHaveValue('');
     });
 
-    it('does not open the datepicker on click', async () => {
-      const { getByTestId, queryByTestId } = render(
+    it('opens the calendar when the input is clicked', async () => {
+      const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('input'));
 
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+    });
+
+    it('does not open the calendar when the input receives keyboard focus', async () => {
+      const { getByTestId, queryByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.tab();
+
+      expect(getByTestId('input')).toHaveFocus();
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
@@ -409,14 +421,14 @@ describe('DatePicker', () => {
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
-    it('does not open the datepicker while typing', async () => {
+    it('typing into the input does not open the calendar if it is not already open', () => {
       const { getByTestId, queryByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
       const input = getByTestId('input');
 
-      await user.clear(input);
-      await user.type(input, '1/4/2019');
+      input.focus();
+      fireEvent.change(input, { target: { value: '1/4/2019' } });
 
       expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
@@ -439,18 +451,15 @@ describe('DatePicker', () => {
       expect(input).toHaveValue('Jan 4');
     });
 
-    it('leaves datepicker closed on label click', () => {
-      const { getByTestId, queryByTestId } = render(
+    it('opens the calendar when the associated label is clicked', async () => {
+      const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      act(() => {
-        fireEvent.mouseUp(getByTestId('input'));
-        jest.runOnlyPendingTimers();
-        fireEvent.click(getByTestId('input'));
-      });
+      await user.click(getByTestId('label'));
 
-      expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByTestId('day')[9]).toHaveFocus();
     });
 
     it('leaves datepicker open if calendar is moused down', async () => {

@@ -193,6 +193,52 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     [openOrFocusGrid]
   );
 
+  const isInsideWidget = useCallback(
+    (target: Node) =>
+      !!(widgetRef.current?.contains(target) || floatingRef.current?.contains(target)),
+    []
+  );
+
+  /**
+   * Tracks whatever was focused immediately before the input, so the click
+   * handler below can tell "a click arriving from outside the widget"
+   * (should open) apart from "a click returning focus from within the
+   * widget" (already handled, as a close, by `handleWidgetBlur`) — even
+   * though by click time `state.isOpen` may already reflect that close.
+   *
+   * Set by `onMouseDown` when the input itself receives the pointer event
+   * directly. A label associated with the input forwards a `click` (and a
+   * `focus`) to it without ever dispatching `mousedown` on the input, so
+   * `onFocus` backfills the same ref from `event.relatedTarget` when
+   * `onMouseDown` hasn't already set it.
+   */
+  const previousActiveElementRef = useRef<Element | null>(null);
+
+  const handleInputMouseDown = useCallback(() => {
+    previousActiveElementRef.current = document.activeElement;
+  }, []);
+
+  const handleInputFocus = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+    if (!previousActiveElementRef.current) {
+      previousActiveElementRef.current = (e.relatedTarget as Element) || document.body;
+    }
+  }, []);
+
+  /**
+   * Opens the calendar on a pointer click (direct, or forwarded by a
+   * `<label>`) arriving from outside the widget. Never fires for
+   * keyboard-only (Tab) focus, since that never dispatches `click`.
+   */
+  const handleInputClick = useCallback(() => {
+    const previousActiveElement = previousActiveElementRef.current;
+
+    previousActiveElementRef.current = null;
+
+    if (!previousActiveElement || !isInsideWidget(previousActiveElement)) {
+      openOrFocusGrid();
+    }
+  }, [isInsideWidget, openOrFocusGrid]);
+
   /**
    * Reports whether the typed input currently holds a valid date, for
    * closes that don't come from a fresh calendar selection.
@@ -229,15 +275,12 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     (e: React.FocusEvent) => {
       const nextTarget = e.relatedTarget as Node | null;
       const isReturningToInput = !!nextTarget && triggerRef.current === nextTarget;
-      const isInsideWidget =
-        !!nextTarget &&
-        (widgetRef.current?.contains(nextTarget) || floatingRef.current?.contains(nextTarget));
 
       if (isReturningToInput) {
         if (state.isOpen) {
           dispatch({ type: 'CLOSE' });
         }
-      } else if (!isInsideWidget) {
+      } else if (!nextTarget || !isInsideWidget(nextTarget)) {
         settleValue();
 
         if (state.isOpen) {
@@ -245,7 +288,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         }
       }
     },
-    [state.isOpen, settleValue]
+    [state.isOpen, settleValue, isInsideWidget]
   );
 
   const Node = (
@@ -313,6 +356,9 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           maxValue={maxValue}
           onChange={onChange}
           onKeyDown={handleInputKeyDown}
+          onMouseDown={handleInputMouseDown}
+          onFocus={handleInputFocus}
+          onClick={handleInputClick}
           customParseDate={customParseDate}
           ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
         />
