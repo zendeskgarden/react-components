@@ -1025,6 +1025,117 @@ describe('DatePicker', () => {
         });
     });
 
+    it('moves focus to the next day when ArrowRight is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
+
+      expect(days[10]).toHaveFocus();
+      expect(days[10]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous day when ArrowLeft is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.LEFT });
+
+      expect(days[8]).toHaveFocus();
+      expect(days[8]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus one week forward when ArrowDown is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.DOWN });
+
+      expect(days[16]).toHaveFocus();
+    });
+
+    it('moves focus one week back when ArrowUp is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.UP });
+
+      expect(days[2]).toHaveFocus();
+    });
+
+    it('moves focus to the start of the week when Home is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.HOME });
+
+      expect(days[7]).toHaveFocus();
+    });
+
+    it('moves focus to the end of the week when End is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.END });
+
+      expect(days[13]).toHaveFocus();
+    });
+
+    it('advances the month display and focuses day 1 of the new month when navigating past the end of the month', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={new Date(2019, 1, 28)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.RIGHT });
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+
+      const newDays = getAllByTestId('day');
+      const focusedDay = newDays.find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('1');
+      expect(focusedDay).toHaveAttribute('data-test-previous', 'false');
+    });
+
     it('closes the calendar and returns focus to the button on Escape', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
