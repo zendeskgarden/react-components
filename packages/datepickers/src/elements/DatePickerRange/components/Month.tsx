@@ -27,7 +27,7 @@ import {
   StyledCalendar,
   StyledCalendarRow,
   StyledDayLabel,
-  StyledDay,
+  StyledDayButton,
   StyledHeaderPaddle,
   StyledHeader,
   StyledHeaderLabel,
@@ -132,8 +132,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       if (isPreviousMonth) {
         return (
-          <td key={date.toISOString()} style={{ position: 'relative' }}>
-            <StyledDay
+          <td key={date.toISOString()}>
+            <StyledDayButton
               $isCompact={isCompact!}
               $isPreviousMonth
               disabled
@@ -141,7 +141,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
               data-test-hidden="true"
             >
               &nbsp;
-            </StyledDay>
+            </StyledDayButton>
           </td>
         );
       }
@@ -223,12 +223,16 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             data-test-start={!isInvalidDateRange && isHighlightStart}
             data-test-end={!isInvalidDateRange && isHighlightEnd}
           />
-          <StyledDay
-            $isToday={isCurrentDate}
-            $isPreviousMonth={isPreviousMonth}
-            aria-selected={(!isInvalidDateRange && isSelected) || undefined}
-            disabled={isDisabled}
+          <StyledDayButton
             $isCompact={isCompact!}
+            $isPreviousMonth={isPreviousMonth}
+            isPill
+            isBasic={!isSelected}
+            isNeutral={!isSelected}
+            isPrimary={!!(!isInvalidDateRange && isSelected)}
+            disabled={isDisabled}
+            aria-selected={(!isInvalidDateRange && isSelected) || undefined}
+            aria-current={isCurrentDate ? 'date' : undefined}
             onClick={() => {
               if (!isDisabled) {
                 dispatch({ type: 'CLICK_DATE', value: date });
@@ -278,7 +282,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             data-test-hidden="false"
           >
             {formattedDayLabel}
-          </StyledDay>
+          </StyledDayButton>
         </td>
       );
     });
