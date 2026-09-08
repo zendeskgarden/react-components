@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import { PALETTE, DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { PALETTE, DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { getRenderFn, render } from 'garden-test-utils';
 import { StyledDayButton } from './StyledDayButton';
 
@@ -48,7 +48,7 @@ describe('StyledDayButton', () => {
       </StyledDayButton>
     );
 
-    expect(container.firstChild).toHaveStyleRule('color', color, { modifier: '&&:not(:disabled)' });
+    expect(container.firstChild).toHaveStyleRule('color', color, { modifier: '&&' });
   });
 
   it('does not dim the foreground color for the current month', () => {
@@ -66,7 +66,7 @@ describe('StyledDayButton', () => {
     );
 
     expect(container.firstChild).toHaveStyleRule('background-color', color, {
-      modifier: "&&[aria-pressed='false']:not(:disabled):hover"
+      modifier: "&&[aria-pressed='false']:not([aria-disabled='true']):hover"
     });
   });
 
@@ -74,5 +74,17 @@ describe('StyledDayButton', () => {
     const { container } = render(<StyledDayButton $isCompact={false}>5</StyledDayButton>);
 
     expect(container.firstChild).toHaveStyleRule('transition', 'none');
+  });
+
+  it('dims the foreground color and shows a default cursor when aria-disabled', () => {
+    const foreground = getColor({ theme: DEFAULT_THEME, variable: 'foreground.disabled' });
+    const { container } = render(<StyledDayButton $isCompact={false}>5</StyledDayButton>);
+
+    expect(container.firstChild).toHaveStyleRule('color', foreground, {
+      modifier: "&&[aria-disabled='true']"
+    });
+    expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
+      modifier: "&&[aria-disabled='true']"
+    });
   });
 });

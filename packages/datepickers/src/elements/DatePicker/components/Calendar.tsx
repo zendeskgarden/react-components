@@ -188,21 +188,23 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           <StyledDayButton
             $isCompact={isCompact!}
             $isPreviousMonth={isPreviousMonth}
-            isPressed={!!isSelected}
+            isPressed={!!(isSelected && !isDisabled)}
             isPill
             isBasic={!isSelected}
             isNeutral={!isSelected}
-            isPrimary={!!isSelected}
-            disabled={isDisabled}
+            isPrimary={!!(isSelected && !isDisabled)}
+            aria-disabled={isDisabled || undefined}
             aria-current={isCurrentDate ? 'date' : undefined}
             tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
             onClick={() => {
-              if (onChange && !isSameDay(value!, date)) {
-                onChange(date);
-              }
+              if (!isDisabled) {
+                if (onChange && !isSameDay(value!, date)) {
+                  onChange(date);
+                }
 
-              dispatch({ type: 'SELECT_DATE', value: date });
-              inputRef?.current?.focus();
+                dispatch({ type: 'SELECT_DATE', value: date });
+                inputRef?.current?.focus();
+              }
             }}
             onKeyDown={event => handleDayKeyDown(event, date)}
             data-test-id="day"

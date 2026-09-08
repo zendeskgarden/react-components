@@ -36,7 +36,7 @@ const colorStyles = ({
   const foreground = getColor({ variable: 'foreground.subtle', theme });
 
   return css`
-    &&:not(:disabled) {
+    && {
       color: ${foreground};
     }
   `;
@@ -47,8 +47,19 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const background = getColor({ variable: 'background.default', theme });
 
   return css`
-    &&[aria-pressed='false']:not(:disabled):hover {
+    &&[aria-pressed='false']:not([aria-disabled='true']):hover {
       background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
+    }
+  `;
+};
+
+const disabledStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const foreground = getColor({ variable: 'foreground.disabled', theme });
+
+  return css`
+    &&[aria-disabled='true'] {
+      cursor: default;
+      color: ${foreground};
     }
   `;
 };
@@ -64,6 +75,7 @@ export const StyledDayButton = styled(ToggleButton)<IStyledDayButtonProps>`
   ${sizeStyles}
   ${colorStyles}
   ${hoverStyles}
+  ${disabledStyles}
 
   ${componentStyles};
 `;

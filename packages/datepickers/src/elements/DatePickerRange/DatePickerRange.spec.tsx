@@ -709,6 +709,36 @@ describe('DatePickerRange', () => {
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
+    it('does not select a disabled date via keyboard, but keeps it focusable', async () => {
+      const { getAllByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_START_VALUE, 2)}
+          maxValue={addDays(DEFAULT_END_VALUE, 2)}
+        />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day').filter(
+        day => day.tagName === 'BUTTON'
+      );
+      const disabledDay = firstMonthDays[0];
+
+      expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
+      expect(disabledDay).toHaveAttribute('aria-disabled', 'true');
+      expect(disabledDay).not.toHaveAttribute('disabled');
+
+      disabledDay.focus();
+
+      expect(disabledDay).toHaveFocus();
+
+      await user.keyboard('{Enter}');
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
     it('selects start value via keyboard when no values are selected', async () => {
       const { getAllByTestId } = render(<Example onChange={onChangeSpy} />);
 

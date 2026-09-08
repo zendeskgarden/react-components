@@ -288,8 +288,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             isNeutral={!isSelected}
             isPressed={!!(!isInvalidDateRange && isSelected)}
             isPrimary={!!(!isInvalidDateRange && isSelected)}
-            disabled={isDisabled}
             aria-current={isCurrentDate ? 'date' : undefined}
+            aria-disabled={isDisabled || undefined}
             tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
             onClick={() => {
               if (!isDisabled) {

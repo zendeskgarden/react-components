@@ -527,6 +527,32 @@ describe('DatePicker', () => {
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
+    it('does not select a disabled date via keyboard, but keeps it focusable', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_DATE, 2)}
+          maxValue={addDays(DEFAULT_DATE, 2)}
+        />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+      const disabledDay = getAllByTestId('day')[0];
+
+      expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
+      expect(disabledDay).toHaveAttribute('aria-disabled', 'true');
+      expect(disabledDay).not.toHaveAttribute('disabled');
+
+      disabledDay.focus();
+
+      expect(disabledDay).toHaveFocus();
+
+      await user.keyboard('{Enter}');
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
     it('does not warn about updating a component while rendering another when controlled', async () => {
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn());
 
