@@ -34,7 +34,7 @@ correctly once the field reformats to the committed value.
   <Story of={Stories.CustomDateFormat} />
 </Canvas>
 
-## Surfacing an invalid date
+## Surfacing an invalid date (DatePicker)
 
 `onValueSettled` reports `{ date, inputValue, valid }` whenever the field's value settles — on
 blur after typing, or when a date is selected from the calendar. Unlike `onChange`, which only
@@ -46,25 +46,61 @@ blur/selection rather than on every keystroke, an error won't clear until the fi
 Typing text that can't be parsed into a date (e.g. missing the year) reports `valid: false`:
 
 <Canvas>
-  <Story of={Stories.InvalidDate} />
+  <Story of={Stories.DatePickerInvalidDate} />
 </Canvas>
 
-## Surfacing a date outside the allowed range
+## Surfacing a date outside the allowed range (DatePicker)
 
 `onValueSettled` also reports `valid: false` for a date that parses correctly but falls outside
 `minValue`/`maxValue` — the same range a disabled calendar day already enforces, now enforced
 for typed input too:
 
 <Canvas>
-  <Story of={Stories.InvalidRange} />
+  <Story of={Stories.DatePickerOutOfRange} />
 </Canvas>
 
-## Surfacing a required field left empty
+## Surfacing a required field left empty (DatePicker)
 
 `onValueSettled` treats an empty field as valid by default, since "nothing entered yet" isn't
 the same as "entered something wrong." It only reports `valid: false` for an empty field when
 the input element passed as `DatePicker`'s child has the native HTML `required` attribute:
 
 <Canvas>
-  <Story of={Stories.InvalidRequired} />
+  <Story of={Stories.DatePickerInvalidRequired} />
+</Canvas>
+
+## Surfacing an invalid date (DatePickerRange)
+
+`DatePickerRange`'s `onValueSettled` reports the same shape, extended with a `field: 'start' |
+'end'` discriminator, since it has two independent inputs instead of one. Track each field's
+`reason` separately to drive its own `Field.Message`:
+
+<Canvas>
+  <Story of={Stories.DatePickerRangeInvalidDate} />
+</Canvas>
+
+## Surfacing a date outside the allowed range (DatePickerRange)
+
+`minValue`/`maxValue` apply to both inputs:
+
+<Canvas>
+  <Story of={Stories.DatePickerRangeOutOfRange} />
+</Canvas>
+
+## Surfacing a required field left empty (DatePickerRange)
+
+Each input reports `required` independently:
+
+<Canvas>
+  <Story of={Stories.DatePickerRangeInvalidRequired} />
+</Canvas>
+
+## Surfacing a start/end date out of order (DatePickerRange)
+
+`DatePickerRange` reports a `'out-of-order'` reason - unique to the range component - when a
+typed value conflicts with the _other_ field's current value: a typed start date after the
+current end date, or a typed end date before the current start date:
+
+<Canvas>
+  <Story of={Stories.DatePickerRangeOutOfOrder} />
 </Canvas>
