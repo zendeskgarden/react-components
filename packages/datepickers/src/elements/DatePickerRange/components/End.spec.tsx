@@ -501,5 +501,41 @@ describe('DatePickerRange', () => {
       });
       expect(endInput).toHaveValue('invalid date');
     });
+
+    it('does not clobber the typed value when settling causes the parent to re-render', async () => {
+      const ReasonTrackingExample = () => {
+        const [reason, setReason] = React.useState<string | undefined>(undefined);
+
+        return (
+          <DatePickerRange
+            startValue={DEFAULT_START_VALUE}
+            endValue={DEFAULT_END_VALUE}
+            onChange={onChangeSpy}
+            onValueSettled={result => {
+              onValueSettledSpy(result);
+              setReason(result.reason);
+            }}
+          >
+            <DatePickerRange.Start>
+              <input data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" aria-invalid={!!reason} />
+            </DatePickerRange.End>
+            <DatePickerRange.Calendar />
+          </DatePickerRange>
+        );
+      };
+
+      const { getByTestId } = render(<ReasonTrackingExample />);
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, 'invalid date');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalled();
+      expect(endInput).toHaveValue('invalid date');
+    });
   });
 });
