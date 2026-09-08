@@ -46,6 +46,7 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   nextMonthLabel?: string;
   previousYearLabel?: string;
   nextYearLabel?: string;
+  toolbarLabel?: string;
   headingId: string;
 }
 
@@ -64,6 +65,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       nextMonthLabel,
       previousYearLabel,
       nextYearLabel,
+      toolbarLabel,
       headingId
     },
     ref
@@ -241,6 +243,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           nextMonthLabel={nextMonthLabel}
           previousYearLabel={previousYearLabel}
           nextYearLabel={nextYearLabel}
+          toolbarLabel={toolbarLabel}
           headingId={headingId}
         />
         <StyledCalendar
