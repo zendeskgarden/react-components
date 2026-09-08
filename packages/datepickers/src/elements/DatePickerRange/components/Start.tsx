@@ -21,6 +21,7 @@ export const Start = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputEl
     startValue,
     endValue,
     startInputRef,
+    getInputProps,
     minValue,
     maxValue,
     customParseDate
@@ -159,14 +160,17 @@ export const Start = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputEl
 
   return (
     <div ref={wrapperRef} style={{ display: 'contents' }} onBlur={onWrapperBlur}>
-      {React.cloneElement(childElement, {
-        value: state.startInputValue || '',
-        ref: startInputRef,
-        onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
-        onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
-        onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeyDownCallback),
-        onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
-      })}
+      {React.cloneElement(
+        childElement,
+        getInputProps({
+          value: state.startInputValue || '',
+          ref: startInputRef,
+          onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
+          onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
+          onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeyDownCallback),
+          onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
+        })
+      )}
     </div>
   );
 };

@@ -24,6 +24,8 @@ export interface IDatePickerRangeContext {
   onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
   startInputRef: MutableRefObject<HTMLInputElement | undefined>;
   endInputRef: MutableRefObject<HTMLInputElement | undefined>;
+  calendarId: string;
+  getInputProps: (props?: Record<string, unknown>) => Record<string, unknown>;
   customParseDate?: (inputValue?: string) => Date;
   previousMonthLabel?: string;
   nextMonthLabel?: string;

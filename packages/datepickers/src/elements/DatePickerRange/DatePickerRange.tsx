@@ -17,6 +17,7 @@ import PropTypes from 'prop-types';
 import { IDatePickerRangeProps } from '../../types';
 import { datepickerRangeReducer, retrieveInitialState } from './utils/date-picker-range-reducer';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
+import { useDatePickerRange } from './utils/useDatePickerRange';
 import { Start } from './components/Start';
 import { End } from './components/End';
 import { Calendar } from './components/Calendar';
@@ -53,6 +54,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
   const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
   const startInputRef = useRef<HTMLInputElement>();
   const endInputRef = useRef<HTMLInputElement>();
+  const { calendarId, getInputProps } = useDatePickerRange();
 
   useEffect(() => {
     dispatch({
@@ -83,6 +85,8 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       onValueSettled,
       startInputRef,
       endInputRef,
+      calendarId,
+      getInputProps,
       customParseDate,
       previousMonthLabel,
       nextMonthLabel
@@ -101,6 +105,8 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       onValueSettled,
       startInputRef,
       endInputRef,
+      calendarId,
+      getInputProps,
       customParseDate,
       previousMonthLabel,
       nextMonthLabel
