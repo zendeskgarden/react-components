@@ -233,6 +233,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             isPrimary={!!(!isInvalidDateRange && isSelected)}
             disabled={isDisabled}
             aria-current={isCurrentDate ? 'date' : undefined}
+            tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
             onClick={() => {
               if (!isDisabled) {
                 dispatch({ type: 'CLICK_DATE', value: date });
