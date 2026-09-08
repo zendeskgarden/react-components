@@ -1069,6 +1069,42 @@ describe('DatePickerRange', () => {
 
       expect(focusedDays).toHaveLength(1);
     });
+
+    it('highlights the candidate range as focus moves via keyboard, matching mouse hover', () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
+
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 4) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+      }
+    });
   });
 
   describe('customParseDate()', () => {

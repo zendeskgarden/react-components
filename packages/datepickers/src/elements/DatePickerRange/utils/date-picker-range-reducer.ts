@@ -301,7 +301,7 @@ export const datepickerRangeReducer =
             : subMonths(startOfMonth(focusedDate), 1);
         }
 
-        return { ...state, focusedDate, previewDate };
+        return { ...state, focusedDate, previewDate, hoverDate: focusedDate };
       }
       case 'PREVIEW_NEXT_MONTH': {
         const previewDate = addMonths(state.previewDate, 1);
