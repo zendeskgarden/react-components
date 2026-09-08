@@ -6,15 +6,73 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { FileUpload } from '@zendeskgarden/react-forms';
+import { ClearableInput, FileUpload } from '@zendeskgarden/react-forms';
 import React from 'react';
+import { useArgs } from 'storybook/preview-api';
 
+import { commonArgs, commonArgTypes } from '../stories/common';
 import { FILE_TYPES } from '../stories/data';
+import { DateFieldStory } from './stories/DateFieldStory';
 import { FileUploadStory } from './stories/FileUploadStory';
 
 export default {
   title: 'Packages/Forms/[patterns]',
-  component: FileUpload
+  component: FileUpload,
+  subcomponents: {
+    ClearableInput
+  }
+};
+
+/* untyped so isDragging (a FileUpload-only arg leaking in via the shared meta's `component`) can be disabled without an excess-property error */
+const dateFieldArgTypes = {
+  ...commonArgTypes,
+  isDragging: { table: { disable: true } },
+  isUnified: { table: { disable: true } },
+  isCompact: {
+    control: 'boolean' as const,
+    table: { category: 'Date Picker' }
+  },
+  value: {
+    control: 'text' as const,
+    table: { category: 'ClearableInput' }
+  },
+  disabled: {
+    control: 'boolean' as const,
+    table: { category: 'Date Picker' }
+  },
+  readOnly: {
+    control: 'boolean' as const,
+    table: { category: 'Date Picker' }
+  },
+  placeholder: {
+    control: 'text' as const,
+    table: { category: 'ClearableInput' }
+  },
+  clearButtonLabel: {
+    control: 'text' as const,
+    table: { category: 'ClearableInput' }
+  }
+};
+
+export const DateField: StoryObj<typeof DateFieldStory> = {
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+      updateArgs({ value: event.target.value });
+
+    return <DateFieldStory {...args} onChange={handleChange} />;
+  },
+  name: 'Date field',
+  args: {
+    ...commonArgs,
+    label: 'Employee start date',
+    value: 'March 5, 2024',
+    clearButtonLabel: 'Clear: Employee start date',
+    hint: 'Accepted formats: "M/D/YYYY", "Mon D, YYYY", or "Month D, YYYY"',
+    hasMessage: false
+  },
+  argTypes: dateFieldArgTypes
 };
 
 export const Example: StoryObj<typeof FileUploadStory> = {
