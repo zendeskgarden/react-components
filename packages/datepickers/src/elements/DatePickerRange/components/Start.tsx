@@ -163,6 +163,7 @@ export const Start = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputEl
       {React.cloneElement(
         childElement,
         getInputProps({
+          ...childElement.props,
           value: state.startInputValue || '',
           ref: startInputRef,
           onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
