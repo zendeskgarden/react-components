@@ -39,7 +39,7 @@ export const DatePickerInvalidDate: StoryObj<typeof DatePickerInvalidDateStory> 
   name: 'DatePicker: Invalid date',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
+    const input = canvas.getByRole('combobox');
 
     await userEvent.type(input, 'not a date');
     // Settling requires leaving the widget entirely: tab past the clear button, then the calendar button.
@@ -57,7 +57,7 @@ export const DatePickerOutOfRange: StoryObj<typeof DatePickerOutOfRangeStory> = 
   name: 'DatePicker: Out of range',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
+    const input = canvas.getByRole('combobox');
 
     await userEvent.clear(input);
     await userEvent.type(input, '1/1/2000');
@@ -76,7 +76,7 @@ export const DatePickerInvalidRequired: StoryObj<typeof DatePickerInvalidRequire
   name: 'DatePicker: Invalid required',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const input = canvas.getByRole('textbox');
+    const input = canvas.getByRole('combobox');
 
     await userEvent.click(input);
     // No clear button while empty: settling only requires tabbing past the calendar button.
