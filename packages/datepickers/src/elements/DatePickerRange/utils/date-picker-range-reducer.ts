@@ -10,6 +10,7 @@ import { subMonths } from 'date-fns/subMonths';
 import { isBefore } from 'date-fns/isBefore';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
+import { isSameMonth } from 'date-fns/isSameMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
 import { parse } from 'date-fns/parse';
 import { startOfMonth } from 'date-fns/startOfMonth';
@@ -94,7 +95,8 @@ export type DatePickerRangeAction =
   | { type: 'START_FOCUS' }
   | { type: 'END_FOCUS' }
   | { type: 'CONTROLLED_START_VALUE_CHANGE'; value?: Date }
-  | { type: 'CONTROLLED_END_VALUE_CHANGE'; value?: Date };
+  | { type: 'CONTROLLED_END_VALUE_CHANGE'; value?: Date }
+  | { type: 'FOCUS_DATE'; value: Date };
 
 export const datepickerRangeReducer =
   ({
@@ -284,6 +286,23 @@ export const datepickerRangeReducer =
       }
       case 'HOVER_DATE':
         return { ...state, hoverDate: action.value };
+      case 'FOCUS_DATE': {
+        const focusedDate = action.value;
+        const secondMonthDate = addMonths(state.previewDate, 1);
+
+        let previewDate = state.previewDate;
+
+        if (
+          !isSameMonth(focusedDate, state.previewDate) &&
+          !isSameMonth(focusedDate, secondMonthDate)
+        ) {
+          previewDate = isBefore(focusedDate, state.previewDate)
+            ? startOfMonth(focusedDate)
+            : subMonths(startOfMonth(focusedDate), 1);
+        }
+
+        return { ...state, focusedDate, previewDate };
+      }
       case 'PREVIEW_NEXT_MONTH': {
         const previewDate = addMonths(state.previewDate, 1);
 

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
+import React, { forwardRef, HTMLAttributes, MutableRefObject, useCallback } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
 import { startOfMonth } from 'date-fns/startOfMonth';
@@ -21,6 +21,7 @@ import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { subDays } from 'date-fns/subDays';
 import { compareAsc } from 'date-fns/compareAsc';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import {
@@ -44,10 +45,21 @@ interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   isNextHidden?: boolean;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
+  pendingGridFocusRef: MutableRefObject<boolean>;
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  ({ displayDate, isPreviousHidden, isNextHidden, previousMonthLabel, nextMonthLabel }, ref) => {
+  (
+    {
+      displayDate,
+      isPreviousHidden,
+      isNextHidden,
+      previousMonthLabel,
+      nextMonthLabel,
+      pendingGridFocusRef
+    },
+    ref
+  ) => {
     const {
       state,
       dispatch,
@@ -106,6 +118,35 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     );
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
+
+    const handleDayKeyDown = useCallback(
+      (event: React.KeyboardEvent<HTMLButtonElement>, date: Date) => {
+        let targetDate: Date;
+
+        switch (event.key) {
+          case KEYS.RIGHT:
+            targetDate = addDays(date, 1);
+            break;
+          case KEYS.LEFT:
+            targetDate = subDays(date, 1);
+            break;
+          case KEYS.DOWN:
+            targetDate = addDays(date, 7);
+            break;
+          case KEYS.UP:
+            targetDate = subDays(date, 7);
+            break;
+          default:
+            return;
+        }
+
+        event.preventDefault();
+        pendingGridFocusRef.current = true;
+        dispatch({ type: 'FOCUS_DATE', value: targetDate });
+      },
+      [dispatch, pendingGridFocusRef]
+    );
+
     const monthStartDate = startOfMonth(displayDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
@@ -275,6 +316,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
                 dispatch({ type: 'HOVER_DATE', value: date });
               }
             }}
+            onKeyDown={event => handleDayKeyDown(event, date)}
             data-test-id="day"
             data-test-previous={isPreviousMonth}
             data-test-selected={!isInvalidDateRange && isSelected}
