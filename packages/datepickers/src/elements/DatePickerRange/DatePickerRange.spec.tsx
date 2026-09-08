@@ -9,10 +9,12 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import {
   render,
+  fireEvent,
   getAllByTestId as globalGetAllByTestId,
   within,
   renderRtl
 } from 'garden-test-utils';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
@@ -826,6 +828,83 @@ describe('DatePickerRange', () => {
         .forEach(day => {
           expect(day).toHaveAttribute('tabindex', '-1');
         });
+    });
+
+    it('moves focus to the next day when ArrowRight is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[5]).toHaveFocus();
+      expect(days[5]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous day when ArrowLeft is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[3]).toHaveFocus();
+      expect(days[3]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus one week forward when ArrowDown is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.DOWN });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[11]).toHaveFocus();
+    });
+
+    it('moves focus one week back when ArrowUp is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[11], { key: KEYS.UP });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[4]).toHaveFocus();
+    });
+
+    it('moves focus into the second month grid when ArrowRight crosses the month boundary', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+      const lastDayOfFebruary = firstMonthDays[firstMonthDays.length - 1];
+
+      fireEvent.keyDown(lastDayOfFebruary, { key: KEYS.RIGHT });
+
+      const secondMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[1]);
+
+      expect(secondMonthDays[0]).toHaveFocus();
+      expect(secondMonthDays[0]).toHaveTextContent('1');
     });
   });
 
