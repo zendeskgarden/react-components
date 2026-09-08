@@ -97,10 +97,28 @@ Each input reports `required` independently:
 
 ## Surfacing a start/end date out of order (DatePickerRange)
 
-`DatePickerRange` reports a `'out-of-order'` reason - unique to the range component - when a
+`DatePickerRange` reports a `'out-of-order'` reason, unique to the range component, when a
 typed value conflicts with the _other_ field's current value: a typed start date after the
 current end date, or a typed end date before the current start date:
 
 <Canvas>
   <Story of={Stories.DatePickerRangeOutOfOrder} />
+</Canvas>
+
+## Composing DatePickerRange inside a dialog
+
+`DatePickerRange`'s calendar is always visible by design; unlike `DatePicker`, it never closes
+or drops out of the tab order. That means a keyboard user who's done typing into the Start/End
+inputs still has to tab through both months' navigation controls and day grids before reaching
+whatever's next on the page, even if they never touch the calendar at all.
+
+This pattern shows how a consumer can compose `DatePickerRange` so its calendar lives inside a
+`role="dialog"` that opens and closes, mirroring `DatePicker`'s own UX from the outside. A
+dedicated button (and Down Arrow on either input) opens it and moves focus into the grid,
+Escape closes it and returns focus to the input, and leaving the dialog by any other means,
+such as tabbing past its last control, closes it too. This is one way to compose it, not
+`DatePickerRange`'s own default behavior. Try it out below:
+
+<Canvas>
+  <Story of={Stories.DatePickerRangeInDialog} />
 </Canvas>
