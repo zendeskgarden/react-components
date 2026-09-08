@@ -102,6 +102,7 @@ export const DatePickerRangeInvalidDate: StoryObj<typeof DatePickerRangeInvalidD
 
     await expect(canvas.getByText(/Date must be in/u)).toBeVisible();
     await expect(startInput).toHaveAttribute('aria-invalid', 'true');
+    await expect(startInput).toHaveValue('not a date');
   }
 };
 
@@ -119,6 +120,7 @@ export const DatePickerRangeOutOfRange: StoryObj<typeof DatePickerRangeOutOfRang
 
     await expect(canvas.getByText(/Date is out of range/u)).toBeVisible();
     await expect(startInput).toHaveAttribute('aria-invalid', 'true');
+    await expect(startInput).toHaveValue('1/1/2000');
   }
 };
 
@@ -154,5 +156,6 @@ export const DatePickerRangeOutOfOrder: StoryObj<typeof DatePickerRangeOutOfOrde
 
     await expect(canvas.getByText(/must be on or after/u)).toBeVisible();
     await expect(endInput).toHaveAttribute('aria-invalid', 'true');
+    await expect(endInput).toHaveValue('1/1/2000');
   }
 };
