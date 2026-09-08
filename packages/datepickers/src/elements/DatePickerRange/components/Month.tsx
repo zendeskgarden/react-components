@@ -40,7 +40,7 @@ import {
   StyledHeaderLabel
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
-import { useDatePicker } from '../../../utils/useDatePicker';
+import { useDatePickerRange } from '../utils/useDatePickerRange';
 import { formatValue } from '../utils/date-picker-range-reducer';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
@@ -79,7 +79,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       onValueSettled
     } = useDatePickerContext();
 
-    const { headingId } = useDatePicker({ isOpen: false });
+    const { headingId } = useDatePickerRange();
 
     const previousMonthAriaLabel = useText(
       Month,

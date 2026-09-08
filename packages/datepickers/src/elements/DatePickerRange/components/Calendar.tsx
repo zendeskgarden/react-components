@@ -17,7 +17,7 @@ import { Month } from './Month';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state, previousMonthLabel, nextMonthLabel } = useDatePickerContext();
+  const { state, previousMonthLabel, nextMonthLabel, calendarId } = useDatePickerContext();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const pendingGridFocusRef = useRef(false);
 
@@ -40,6 +40,7 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   return (
     <StyledRangeCalendar
       ref={mergeRefs([ref, wrapperRef])}
+      id={calendarId}
       data-garden-id="datepickers.range"
       data-garden-version={PACKAGE_VERSION}
       data-test-id="range-calendar"
