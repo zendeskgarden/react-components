@@ -936,6 +936,100 @@ describe('DatePickerRange', () => {
       expect(days[8]).toHaveFocus();
       expect(days[8]).toHaveTextContent('9');
     });
+
+    it('moves focus to the same day next month, into the second grid, when PageDown is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
+
+      const secondMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[1]);
+
+      expect(secondMonthDays[4]).toHaveFocus();
+      expect(secondMonthDays[4]).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous month, shifting the window, when PageUp is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP });
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+
+      expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('January 2019');
+      expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('February 2019');
+
+      const days = getDayButtons(wrappers[0]);
+
+      expect(days[4]).toHaveFocus();
+      expect(days[4]).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day next year when Shift+PageDown is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN, shiftKey: true });
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+
+      expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('January 2020');
+      expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('February 2020');
+
+      const days = getDayButtons(wrappers[1]);
+
+      expect(days[4]).toHaveFocus();
+      expect(days[4]).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous year when Shift+PageUp is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP, shiftKey: true });
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+
+      expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('February 2018');
+      expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('March 2018');
+
+      const days = getDayButtons(wrappers[0]);
+
+      expect(days[4]).toHaveFocus();
+      expect(days[4]).toHaveTextContent('5');
+    });
+
+    it('clamps to the last day of the month when PageDown lands on a day that does not exist', () => {
+      mockDate.set(new Date(2019, 0, 31));
+
+      const { getAllByTestId } = render(<Example startValue={new Date(2019, 0, 31)} />);
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const selectedDay = firstMonthDays.find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
+
+      const secondMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[1]);
+      const focusedDay = secondMonthDays.find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('28');
+    });
   });
 
   describe('customParseDate()', () => {

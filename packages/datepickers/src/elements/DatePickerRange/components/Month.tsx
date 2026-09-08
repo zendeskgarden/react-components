@@ -14,6 +14,10 @@ import { startOfWeek } from 'date-fns/startOfWeek';
 import { endOfWeek } from 'date-fns/endOfWeek';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
+import { addMonths } from 'date-fns/addMonths';
+import { subMonths } from 'date-fns/subMonths';
+import { addYears } from 'date-fns/addYears';
+import { subYears } from 'date-fns/subYears';
 import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
@@ -141,6 +145,12 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             break;
           case KEYS.END:
             targetDate = endOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
+            break;
+          case KEYS.PAGE_DOWN:
+            targetDate = event.shiftKey ? addYears(date, 1) : addMonths(date, 1);
+            break;
+          case KEYS.PAGE_UP:
+            targetDate = event.shiftKey ? subYears(date, 1) : subMonths(date, 1);
             break;
           default:
             return;
