@@ -585,6 +585,26 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('Combobox semantics', () => {
+    it('marks both inputs as a permanently-expanded combobox controlling the calendar', () => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendar = getByTestId('range-calendar');
+      const startInput = getByTestId('start');
+      const endInput = getByTestId('end');
+
+      [startInput, endInput].forEach(input => {
+        expect(input).toHaveAttribute('role', 'combobox');
+        expect(input).toHaveAttribute('aria-expanded', 'true');
+        expect(input).toHaveAttribute('aria-autocomplete', 'none');
+        expect(input).toHaveAttribute('aria-controls', calendar.id);
+        expect(input).not.toHaveAttribute('aria-haspopup');
+      });
+    });
+  });
+
   describe('Calendar selection', () => {
     it('clears end value when date is selected', async () => {
       const { getAllByTestId } = render(
