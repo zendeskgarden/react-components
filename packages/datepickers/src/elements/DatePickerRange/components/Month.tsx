@@ -41,6 +41,7 @@ import {
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
 import { useDatePicker } from '../../../utils/useDatePicker';
+import { formatValue } from '../utils/date-picker-range-reducer';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -74,7 +75,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       maxValue,
       startValue,
       endValue,
-      onChange
+      onChange,
+      onValueSettled
     } = useDatePickerContext();
 
     const { headingId } = useDatePicker({ isOpen: false });
@@ -292,40 +294,46 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             aria-disabled={isDisabled || undefined}
             tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
             onClick={() => {
-              if (!isDisabled) {
-                dispatch({ type: 'CLICK_DATE', value: date });
-                if (onChange) {
-                  if (state.isStartFocused) {
-                    if (
-                      endValue !== undefined &&
-                      (isBefore(date, endValue) || isSameDay(date, endValue))
-                    ) {
-                      onChange({ startValue: date, endValue });
-                    } else {
-                      onChange({ startValue: date, endValue: undefined });
-                    }
-                  } else if (state.isEndFocused) {
-                    if (
-                      startValue !== undefined &&
-                      (isAfter(date, startValue) || isSameDay(date, startValue))
-                    ) {
-                      onChange({ startValue, endValue: date });
-                    } else {
-                      onChange({ startValue: date, endValue: undefined });
-                    }
-                  } else if (startValue === undefined) {
-                    onChange({ startValue: date, endValue: undefined });
-                  } else if (endValue === undefined) {
-                    if (isBefore(date, startValue)) {
-                      onChange({ startValue: date, endValue: undefined });
-                    } else {
-                      onChange({ startValue, endValue: date });
-                    }
-                  } else {
-                    onChange({ startValue: date, endValue: undefined });
-                  }
-                }
+              if (isDisabled) {
+                return;
               }
+
+              dispatch({ type: 'CLICK_DATE', value: date });
+
+              let result: { startValue?: Date; endValue?: Date };
+
+              if (state.isStartFocused) {
+                result =
+                  endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
+                    ? { startValue: date, endValue }
+                    : { startValue: date, endValue: undefined };
+              } else if (state.isEndFocused) {
+                result =
+                  startValue !== undefined &&
+                  (isAfter(date, startValue) || isSameDay(date, startValue))
+                    ? { startValue, endValue: date }
+                    : { startValue: date, endValue: undefined };
+              } else if (startValue === undefined) {
+                result = { startValue: date, endValue: undefined };
+              } else if (endValue === undefined) {
+                result = isBefore(date, startValue)
+                  ? { startValue: date, endValue: undefined }
+                  : { startValue, endValue: date };
+              } else {
+                result = { startValue: date, endValue: undefined };
+              }
+
+              onChange?.(result);
+
+              const field = isSameDay(result.startValue!, date) ? 'start' : 'end';
+              const fieldValue = field === 'start' ? result.startValue : result.endValue;
+
+              onValueSettled?.({
+                field,
+                date: fieldValue,
+                inputValue: formatValue({ value: fieldValue }),
+                valid: true
+              });
             }}
             onMouseEnter={() => {
               if (!isSelected) {
