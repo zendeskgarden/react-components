@@ -153,14 +153,12 @@ export const datepickerRangeReducer =
     startValue,
     endValue,
     locale,
-    formatDate,
-    customParseDate
+    formatDate
   }: {
     startValue?: Date;
     endValue?: Date;
     locale?: string;
     formatDate?: any;
-    customParseDate?: (inputValue?: string) => Date;
   }) =>
   (state: IDatePickerRangeState, action: DatePickerRangeAction): IDatePickerRangeState => {
     switch (action.type) {
@@ -196,47 +194,10 @@ export const datepickerRangeReducer =
 
         return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
       }
-      case 'START_BLUR': {
-        let parsedDate;
-
-        if (customParseDate) {
-          parsedDate = customParseDate(state.startInputValue);
-        } else {
-          parsedDate = parseInputValue({
-            inputValue: state.startInputValue
-          });
-        }
-
-        const startInputValue = formatValue({ value: parsedDate, locale, formatDate });
-
-        return {
-          ...state,
-          startInputValue:
-            startInputValue || formatValue({ value: startValue, locale, formatDate }),
-          isStartFocused: false
-        };
-      }
-      case 'END_BLUR': {
-        let parsedDate;
-
-        if (customParseDate) {
-          parsedDate = customParseDate(state.endInputValue);
-        } else {
-          parsedDate = parseInputValue({
-            inputValue: state.endInputValue
-          });
-        }
-
-        const endInputValue =
-          formatValue({ value: parsedDate, locale, formatDate }) ||
-          formatValue({ value: endValue, locale, formatDate });
-
-        return {
-          ...state,
-          endInputValue,
-          isEndFocused: false
-        };
-      }
+      case 'START_BLUR':
+        return { ...state, isStartFocused: false };
+      case 'END_BLUR':
+        return { ...state, isEndFocused: false };
       case 'CONTROLLED_START_VALUE_CHANGE': {
         const startInputValue = formatValue({ value: action.value, locale, formatDate });
 

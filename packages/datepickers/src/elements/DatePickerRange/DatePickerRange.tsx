@@ -45,15 +45,12 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       startValue,
       locale,
       formatDate,
-      endValue,
-      customParseDate
+      endValue
     }),
-    [startValue, endValue, locale, formatDate, onChange, customParseDate]
+    [startValue, endValue, locale, formatDate, onChange]
   );
 
   const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
-  const previousStartValue = useRef(startValue);
-  const previousEndValue = useRef(endValue);
   const startInputRef = useRef<HTMLInputElement>();
   const endInputRef = useRef<HTMLInputElement>();
 
@@ -62,16 +59,6 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       type: 'CONTROLLED_START_VALUE_CHANGE',
       value: startValue
     });
-
-    if (
-      endInputRef.current &&
-      previousStartValue.current !== startValue &&
-      startValue !== undefined
-    ) {
-      endInputRef.current.focus();
-    }
-
-    previousStartValue.current = startValue;
   }, [props, startValue]);
 
   useEffect(() => {
@@ -79,12 +66,6 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       type: 'CONTROLLED_END_VALUE_CHANGE',
       value: endValue
     });
-
-    if (startInputRef.current && previousEndValue.current !== endValue && endValue !== undefined) {
-      startInputRef.current.focus();
-    }
-
-    previousEndValue.current = endValue;
   }, [props, endValue]);
 
   const value = useMemo(

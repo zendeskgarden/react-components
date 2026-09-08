@@ -470,7 +470,7 @@ describe('DatePickerRange', () => {
       expect(startInput).toHaveValue('invalid date');
     });
 
-    it('settles once focus actually leaves the input, after passing through its own clear button', async () => {
+    it('does not revert the typed value once settled, leaving it for the user to fix or clear themselves', async () => {
       const { getByTestId } = render(
         <DatePickerRange
           startValue={DEFAULT_START_VALUE}
@@ -501,7 +501,7 @@ describe('DatePickerRange', () => {
         valid: false,
         reason: 'malformed'
       });
-      expect(startInput).toHaveValue('February 5, 2019');
+      expect(startInput).toHaveValue('invalid date');
     });
   });
 });
