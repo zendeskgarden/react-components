@@ -415,6 +415,139 @@ describe('DatePicker', () => {
     });
   });
 
+  describe('Header toolbar', () => {
+    it('gives the header a toolbar role and an accessible name', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('toolbar')).toHaveAccessibleName('Calendar view');
+    });
+
+    it('sets lang="en" on the default toolbar label', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('toolbar')).toHaveAttribute('lang', 'en');
+    });
+
+    it('reflects a consumer-provided toolbar label without setting lang', async () => {
+      const { getByTestId, getByRole } = render(
+        <Example value={DEFAULT_DATE} toolbarLabel="Navigation du calendrier" />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const toolbar = getByRole('toolbar');
+
+      expect(toolbar).toHaveAccessibleName('Navigation du calendrier');
+      expect(toolbar).not.toHaveAttribute('lang');
+    });
+
+    it('gives exactly one paddle tabindex="0" initially, matching the first control', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousYear = getByRole('button', { name: 'Previous year' });
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+      const nextMonth = getByRole('button', { name: 'Next month' });
+      const nextYear = getByRole('button', { name: 'Next year' });
+
+      expect(previousYear).toHaveAttribute('tabindex', '0');
+      [previousMonth, nextMonth, nextYear].forEach(button => {
+        expect(button).toHaveAttribute('tabindex', '-1');
+      });
+    });
+
+    it('moves focus to the next paddle when ArrowRight is pressed', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousYear = getByRole('button', { name: 'Previous year' });
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+
+      previousYear.focus();
+      fireEvent.keyDown(previousYear, { key: KEYS.RIGHT });
+
+      expect(previousMonth).toHaveFocus();
+      expect(previousMonth).toHaveAttribute('tabindex', '0');
+      expect(previousYear).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous paddle when ArrowLeft is pressed', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+      const previousYear = getByRole('button', { name: 'Previous year' });
+
+      previousMonth.focus();
+      fireEvent.keyDown(previousMonth, { key: KEYS.LEFT });
+
+      expect(previousYear).toHaveFocus();
+    });
+
+    it('wraps focus from the last paddle to the first when ArrowRight is pressed', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextYear = getByRole('button', { name: 'Next year' });
+      const previousYear = getByRole('button', { name: 'Previous year' });
+
+      nextYear.focus();
+      fireEvent.keyDown(nextYear, { key: KEYS.RIGHT });
+
+      expect(previousYear).toHaveFocus();
+    });
+
+    it('wraps focus from the first paddle to the last when ArrowLeft is pressed', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousYear = getByRole('button', { name: 'Previous year' });
+      const nextYear = getByRole('button', { name: 'Next year' });
+
+      previousYear.focus();
+      fireEvent.keyDown(previousYear, { key: KEYS.LEFT });
+
+      expect(nextYear).toHaveFocus();
+    });
+
+    it('moves focus to the first paddle when Home is pressed', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const nextMonth = getByRole('button', { name: 'Next month' });
+      const previousYear = getByRole('button', { name: 'Previous year' });
+
+      nextMonth.focus();
+      fireEvent.keyDown(nextMonth, { key: KEYS.HOME });
+
+      expect(previousYear).toHaveFocus();
+    });
+
+    it('moves focus to the last paddle when End is pressed', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+      const nextYear = getByRole('button', { name: 'Next year' });
+
+      previousMonth.focus();
+      fireEvent.keyDown(previousMonth, { key: KEYS.END });
+
+      expect(nextYear).toHaveFocus();
+    });
+  });
+
   describe('Calendar selection', () => {
     it('calls onChange when date is selected', async () => {
       const { getByTestId, getAllByTestId } = render(

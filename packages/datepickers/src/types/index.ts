@@ -138,6 +138,11 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * Provides a customized/translated label for the next year button
    */
   nextYearLabel?: string;
+  /**
+   * Provides a customized/translated accessible name for the header's month/year
+   * navigation toolbar
+   */
+  toolbarLabel?: string;
   /** @ignore ReactNode override */
   children: ReactElement;
 }
