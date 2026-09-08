@@ -7,7 +7,7 @@
 
 import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { expect, userEvent, within } from 'storybook/test';
+import { expect, fireEvent, userEvent, within } from 'storybook/test';
 import { CalendarStory } from './stories/CalendarStory';
 import { CustomDateFormatStory } from './stories/CustomDateFormatStory';
 import { DatePickerInvalidDateStory } from './stories/DatePickerInvalidDateStory';
@@ -41,14 +41,18 @@ export const DatePickerInvalidDate: StoryObj<typeof DatePickerInvalidDateStory> 
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');
 
-    await userEvent.type(input, 'not a date');
-    // Settling requires leaving the widget entirely: tab past the clear button, then the calendar button.
-    await userEvent.tab();
+    // Focus programmatically, not via click/type, since clicking the input opens the
+    // calendar (Phase 4) - which would add the whole grid's tab stops to the sequence below.
+    input.focus();
+    fireEvent.change(input, { target: { value: 'not a date' } });
+    // The calendar button is permanently excluded from the tab order (tabindex="-1"), so with
+    // the calendar closed, one tab past the clear button leaves the widget entirely and settles.
     await userEvent.tab();
     await userEvent.tab();
 
     await expect(canvas.getByText(/Date must be in/u)).toBeVisible();
     await expect(input).toHaveAttribute('aria-invalid', 'true');
+    await expect(input).toHaveValue('not a date');
   }
 };
 
@@ -59,15 +63,14 @@ export const DatePickerOutOfRange: StoryObj<typeof DatePickerOutOfRangeStory> = 
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');
 
-    await userEvent.clear(input);
-    await userEvent.type(input, '1/1/2000');
-    // Settling requires leaving the widget entirely: tab past the clear button, then the calendar button.
-    await userEvent.tab();
+    input.focus();
+    fireEvent.change(input, { target: { value: '1/1/2000' } });
     await userEvent.tab();
     await userEvent.tab();
 
     await expect(canvas.getByText(/Date is out of range/u)).toBeVisible();
     await expect(input).toHaveAttribute('aria-invalid', 'true');
+    await expect(input).toHaveValue('1/1/2000');
   }
 };
 
@@ -78,9 +81,9 @@ export const DatePickerInvalidRequired: StoryObj<typeof DatePickerInvalidRequire
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');
 
-    await userEvent.click(input);
-    // No clear button while empty: settling only requires tabbing past the calendar button.
-    await userEvent.tab();
+    // No clear button while empty, and the calendar button is always excluded from the tab
+    // order - one tab leaves the widget entirely.
+    input.focus();
     await userEvent.tab();
 
     await expect(canvas.getByText(/cannot be blank/u)).toBeVisible();
