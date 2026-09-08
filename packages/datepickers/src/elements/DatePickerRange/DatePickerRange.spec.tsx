@@ -559,7 +559,26 @@ describe('DatePickerRange', () => {
       expect(within(headerRow!).getAllByRole('columnheader')).toHaveLength(7);
       expect(weekRows).toHaveLength(days.length / 7);
       weekRows.forEach(row => {
-        expect(within(row).getAllByRole('cell')).toHaveLength(7);
+        expect(within(row).getAllByRole('gridcell')).toHaveLength(7);
+      });
+    });
+  });
+
+  describe('Calendar grid roles', () => {
+    it('gives each month table a grid role labelled by its own month/year heading', () => {
+      const { getAllByTestId, getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
+
+      expect(grids).toHaveLength(2);
+
+      calendarWrappers.forEach((wrapper, index) => {
+        const heading = within(wrapper).getByRole('heading', { level: 2 });
+
+        expect(grids[index]).toHaveAttribute('aria-labelledby', heading.id);
       });
     });
   });

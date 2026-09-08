@@ -35,6 +35,7 @@ import {
   StyledHeaderLabel
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
+import { useDatePicker } from '../../../utils/useDatePicker';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -59,6 +60,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       endValue,
       onChange
     } = useDatePickerContext();
+
+    const { headingId } = useDatePicker({ isOpen: false });
 
     const previousMonthAriaLabel = useText(
       Month,
@@ -133,7 +136,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       if (isPreviousMonth) {
         return (
-          <td key={date.toISOString()}>
+          <td key={date.toISOString()} role="gridcell">
             <Span hidden data-test-id="day" data-test-hidden="true">
               {formattedDayLabel}, {headerLabelFormatter(date)}
             </Span>
@@ -208,8 +211,10 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       return (
+        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledRangeDayCell already renders a <td>; eslint can't see through the styled-component wrapper
         <StyledRangeDayCell
           key={date.toISOString()}
+          role="gridcell"
           $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
           $isHighlightStart={!isInvalidDateRange && isHighlightStart}
           $isHighlightEnd={!isInvalidDateRange && isHighlightEnd}
@@ -317,7 +322,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
               <ChevronLeftStrokeIcon />
             </StyledHeaderPaddle>
           )}
-          <StyledHeaderLabel $isCompact={isCompact!} data-test-id="month-display">
+          <StyledHeaderLabel id={headingId} $isCompact={isCompact!} data-test-id="month-display">
             {headerLabelFormatter(displayDate)}
           </StyledHeaderLabel>
           {!isNextHidden && (
@@ -342,6 +347,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         <StyledCalendar
           as="table"
           $isCompact={isCompact!}
+          role="grid"
+          aria-labelledby={headingId}
           data-test-id="calendar-internal-wrapper"
           onMouseLeave={() => {
             dispatch({ type: 'HOVER_DATE', value: undefined });

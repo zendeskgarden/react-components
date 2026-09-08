@@ -30,7 +30,7 @@ import {
   retrieveInitialState
 } from './utils/date-picker-reducer';
 import { DatePickerContext } from './utils/useDatePickerContext';
-import { useDatePicker } from './utils/useDatePicker';
+import { useDatePicker } from '../../utils/useDatePicker';
 import { InputGroup } from '@zendeskgarden/react-forms';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
