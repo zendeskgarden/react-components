@@ -16,7 +16,8 @@ import { parse } from 'date-fns/parse';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { compareAsc } from 'date-fns/compareAsc';
 import { isAfter } from 'date-fns/isAfter';
-import { IDatePickerRangeProps } from '../../../types';
+import { IDatePickerRangeProps, IDatePickerRangeValueSettledResult } from '../../../types';
+import { isDateWithinRange } from '../../../utils/calendar-utils';
 
 export interface IDatePickerRangeState {
   previewDate: Date;
@@ -81,6 +82,55 @@ export function parseInputValue({ inputValue }: { inputValue?: string }): Date {
   }
 
   return new Date(NaN);
+}
+
+/**
+ * Determine whether a typed input value currently represents a valid,
+ * in-range, correctly-ordered date, for reporting via `onValueSettled`.
+ */
+export function resolveSettledValue({
+  inputValue,
+  required,
+  minValue,
+  maxValue,
+  notBefore,
+  notAfter,
+  customParseDate
+}: {
+  inputValue?: string;
+  required?: boolean;
+  minValue?: Date;
+  maxValue?: Date;
+  notBefore?: Date;
+  notAfter?: Date;
+  customParseDate?: (inputValue?: string) => Date;
+}): Omit<IDatePickerRangeValueSettledResult, 'field'> {
+  if (!inputValue) {
+    const valid = !required;
+
+    return {
+      date: undefined,
+      inputValue: inputValue || '',
+      valid,
+      reason: valid ? undefined : 'required'
+    };
+  }
+
+  const date = customParseDate ? customParseDate(inputValue) : parseInputValue({ inputValue });
+
+  if (!isValid(date)) {
+    return { date: undefined, inputValue, valid: false, reason: 'malformed' };
+  }
+
+  if (!isDateWithinRange(date, minValue, maxValue)) {
+    return { date: undefined, inputValue, valid: false, reason: 'out-of-range' };
+  }
+
+  if ((notBefore && isBefore(date, notBefore)) || (notAfter && isAfter(date, notAfter))) {
+    return { date: undefined, inputValue, valid: false, reason: 'out-of-order' };
+  }
+
+  return { date, inputValue, valid: true };
 }
 
 export type DatePickerRangeAction =

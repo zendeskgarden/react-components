@@ -5,36 +5,61 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
+import React, { PropsWithChildren, HTMLAttributes, useCallback, useRef } from 'react';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
-import { parseInputValue } from '../utils/date-picker-range-reducer';
+import { parseInputValue, resolveSettledValue } from '../utils/date-picker-range-reducer';
 
-export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
-  const { state, dispatch, onChange, startValue, endValue, startInputRef, customParseDate } =
-    useDatePickerContext();
+export const Start = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
+  const {
+    state,
+    dispatch,
+    onChange,
+    onValueSettled,
+    startValue,
+    endValue,
+    startInputRef,
+    minValue,
+    maxValue,
+    customParseDate
+  } = useDatePickerContext();
+
+  const childElement = React.Children.only(children as React.ReactElement);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const isBlurPendingRef = useRef(false);
 
   const onChangeCallback = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'START_INPUT_ONCHANGE', value: e.target.value });
 
-      (props.children as any).props.onChange && (props.children as any).props.onChange(e);
+      childElement.props.onChange && childElement.props.onChange(e);
     },
-    [dispatch, props.children]
+    [dispatch, childElement]
   );
 
   const onFocusCallback = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
       dispatch({ type: 'START_FOCUS' });
 
-      (props.children as any).props.onFocus && (props.children as any).props.onFocus(e);
+      childElement.props.onFocus && childElement.props.onFocus(e);
     },
-    [dispatch, props.children]
+    [dispatch, childElement]
   );
 
-  const handleBlur = useCallback(() => {
+  /**
+   * Reparses the typed value, reformats/reverts it via START_BLUR, fires
+   * onChange for a valid new value, and reports the settled result - the
+   * full set of "the field is truly done being edited" side effects. Reads
+   * state.startInputValue live, so it must only run once we know focus has
+   * actually left this field's own composed group (see handleBlur and
+   * onWrapperBlur below) - committing early, while focus is still moving
+   * within the same ClearableInput, would revert the typed text (and
+   * potentially unmount a just-focused clear button) out from under the
+   * user before they're done interacting with the field.
+   */
+  const commitBlur = useCallback(() => {
     let parsedDate;
 
     if (customParseDate) {
@@ -45,12 +70,48 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
       });
     }
 
+    const settled = resolveSettledValue({
+      inputValue: state.startInputValue,
+      required: childElement.props.required,
+      minValue,
+      maxValue,
+      notAfter: endValue,
+      customParseDate
+    });
+
     dispatch({ type: 'START_BLUR' });
 
     if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
       onChange && onChange({ startValue: parsedDate, endValue });
     }
-  }, [dispatch, onChange, startValue, endValue, customParseDate, state.startInputValue]);
+
+    onValueSettled?.({ field: 'start', ...settled });
+  }, [
+    dispatch,
+    onChange,
+    onValueSettled,
+    startValue,
+    endValue,
+    minValue,
+    maxValue,
+    customParseDate,
+    state.startInputValue,
+    childElement.props.required
+  ]);
+
+  const handleBlur = useCallback(
+    (relatedTarget: Element | null = null) => {
+      const stillInsideOwnGroup = !!relatedTarget && !!wrapperRef.current?.contains(relatedTarget);
+
+      if (stillInsideOwnGroup) {
+        isBlurPendingRef.current = true;
+      } else {
+        isBlurPendingRef.current = false;
+        commitBlur();
+      }
+    },
+    [commitBlur]
+  );
 
   const onKeyDownCallback = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -59,30 +120,55 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
         handleBlur();
       }
 
-      (props.children as any).props.onKeyDown && (props.children as any).props.onKeyDown(e);
+      childElement.props.onKeyDown && childElement.props.onKeyDown(e);
     },
-    [handleBlur, props.children]
+    [handleBlur, childElement]
   );
 
   const onBlurCallback = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
-      handleBlur();
+      handleBlur(e.relatedTarget as Element | null);
 
-      (props.children as any).props.onBlur && (props.children as any).props.onBlur(e);
+      childElement.props.onBlur && childElement.props.onBlur(e);
     },
-    [handleBlur, props.children]
+    [handleBlur, childElement]
   );
 
-  const childElement = React.Children.only(props.children as React.ReactElement);
+  /**
+   * Catches blur events from any other focusable descendant the child renders
+   * (e.g. a ClearableInput's clear button) via bubbling, since only the input
+   * itself has the above onBlurCallback wired up directly. Skips the input's
+   * own blur, already handled by onBlurCallback, to avoid double-committing.
+   */
+  const onWrapperBlur = useCallback(
+    (e: React.FocusEvent<HTMLDivElement>) => {
+      if (e.target === startInputRef.current || !isBlurPendingRef.current) {
+        return;
+      }
 
-  return React.cloneElement(childElement, {
-    value: state.startInputValue || '',
-    ref: startInputRef,
-    onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
-    onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
-    onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeyDownCallback),
-    onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
-  });
+      const relatedTarget = e.relatedTarget as Element | null;
+      const stillInsideOwnGroup = !!relatedTarget && !!wrapperRef.current?.contains(relatedTarget);
+
+      if (!stillInsideOwnGroup) {
+        isBlurPendingRef.current = false;
+        commitBlur();
+      }
+    },
+    [startInputRef, commitBlur]
+  );
+
+  return (
+    <div ref={wrapperRef} style={{ display: 'contents' }} onBlur={onWrapperBlur}>
+      {React.cloneElement(childElement, {
+        value: state.startInputValue || '',
+        ref: startInputRef,
+        onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
+        onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
+        onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeyDownCallback),
+        onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
+      })}
+    </div>
+  );
 };
 
 Start.displayName = 'DatePickerRange.Start';
