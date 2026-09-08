@@ -164,6 +164,7 @@ export const End = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputElem
       {React.cloneElement(
         childElement,
         getInputProps({
+          ...childElement.props,
           value: state.endInputValue || '',
           ref: endInputRef,
           onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),

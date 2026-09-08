@@ -242,6 +242,31 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('Combobox semantics', () => {
+    it('defaults to aria-expanded="true" when the consumer does not override it', () => {
+      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
+
+      expect(getByTestId('end')).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('lets a consumer-supplied aria-expanded override the default', () => {
+      const { getByTestId } = render(
+        <DatePickerRange onChange={onChangeSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props -- DatePickerRange.End clones this element with role="combobox" (and aria-controls) at runtime, which does support aria-expanded */}
+            <input data-test-id="end" aria-expanded="false" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(getByTestId('end')).toHaveAttribute('aria-expanded', 'false');
+    });
+  });
+
   describe('onValueSettled', () => {
     let onValueSettledSpy: (result: {
       field: string;
