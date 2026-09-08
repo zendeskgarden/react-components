@@ -1,0 +1,39 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import { StoryFn } from '@storybook/react-vite';
+import { ClearableInput, IClearableInputProps } from '@zendeskgarden/react-forms';
+import { FieldStory, IFieldArgs } from './FieldStory';
+
+interface IArgs extends IClearableInputProps, IFieldArgs {}
+
+export const ClearableInputStory: StoryFn<IArgs> = ({
+  label,
+  isLabelRegular,
+  isLabelHidden,
+  hasHint,
+  hint,
+  hasMessage,
+  message,
+  validationLabel,
+  ...args
+}) => (
+  <FieldStory
+    label={label}
+    isLabelRegular={isLabelRegular}
+    isLabelHidden={isLabelHidden}
+    hasHint={hasHint}
+    hint={hint}
+    hasMessage={hasMessage}
+    message={message}
+    validationLabel={validationLabel}
+    validation={args.validation}
+  >
+    <ClearableInput {...args} />
+  </FieldStory>
+);

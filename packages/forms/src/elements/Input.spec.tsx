@@ -10,9 +10,36 @@ import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { Input } from './Input';
 import { Field } from './common/Field';
+import { InputGroup } from './input-group/InputGroup';
 
 describe('Input', () => {
   const user = userEvent.setup();
+
+  it('is bare by default inside a unified InputGroup', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified>
+        <Input data-test-id="input" />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input')).toHaveStyleRule('border', 'none');
+  });
+
+  it('respects an explicit isBare override inside a unified InputGroup', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified>
+        <Input data-test-id="input" isBare={false} />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input')).not.toHaveStyleRule('border', 'none');
+  });
+
+  it('sets aria-invalid when validation is error', () => {
+    const { getByRole } = render(<Input aria-label="Input" validation="error" />);
+
+    expect(getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+  });
 
   it('is rendered as an input', () => {
     const { getByTestId } = render(
