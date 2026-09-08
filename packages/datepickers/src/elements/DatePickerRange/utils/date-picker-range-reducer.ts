@@ -305,13 +305,15 @@ export const datepickerRangeReducer =
       }
       case 'PREVIEW_NEXT_MONTH': {
         const previewDate = addMonths(state.previewDate, 1);
+        const focusedDate = addMonths(state.focusedDate, 1);
 
-        return { ...state, previewDate, hoverDate: undefined };
+        return { ...state, previewDate, focusedDate, hoverDate: undefined };
       }
       case 'PREVIEW_PREVIOUS_MONTH': {
         const previewDate = subMonths(state.previewDate, 1);
+        const focusedDate = subMonths(state.focusedDate, 1);
 
-        return { ...state, previewDate, hoverDate: undefined };
+        return { ...state, previewDate, focusedDate, hoverDate: undefined };
       }
       /* istanbul ignore next */
       default:

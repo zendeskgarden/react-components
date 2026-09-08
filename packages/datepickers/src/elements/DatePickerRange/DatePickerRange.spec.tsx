@@ -1030,6 +1030,45 @@ describe('DatePickerRange', () => {
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('28');
     });
+
+    it('keeps exactly one day tabbable, without moving focus off the paddle, when next-month is clicked', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const nextButton = getAllByTestId('next-month')[0];
+
+      nextButton.focus();
+      fireEvent.click(nextButton);
+
+      expect(nextButton).toHaveFocus();
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+      const allDays = [...getDayButtons(wrappers[0]), ...getDayButtons(wrappers[1])];
+      const focusedDays = allDays.filter(day => day.getAttribute('tabindex') === '0');
+
+      expect(focusedDays).toHaveLength(1);
+      expect(focusedDays[0]).not.toHaveFocus();
+    });
+
+    it('keeps exactly one day tabbable, without moving focus off the paddle, when previous-month is clicked', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousButton = getAllByTestId('previous-month')[0];
+
+      previousButton.focus();
+      fireEvent.click(previousButton);
+
+      expect(previousButton).toHaveFocus();
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+      const allDays = [...getDayButtons(wrappers[0]), ...getDayButtons(wrappers[1])];
+      const focusedDays = allDays.filter(day => day.getAttribute('tabindex') === '0');
+
+      expect(focusedDays).toHaveLength(1);
+    });
   });
 
   describe('customParseDate()', () => {
