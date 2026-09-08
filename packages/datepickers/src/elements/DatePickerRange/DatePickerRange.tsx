@@ -59,14 +59,14 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       type: 'CONTROLLED_START_VALUE_CHANGE',
       value: startValue
     });
-  }, [props, startValue]);
+  }, [startValue]);
 
   useEffect(() => {
     dispatch({
       type: 'CONTROLLED_END_VALUE_CHANGE',
       value: endValue
     });
-  }, [props, endValue]);
+  }, [endValue]);
 
   const value = useMemo(
     () => ({
