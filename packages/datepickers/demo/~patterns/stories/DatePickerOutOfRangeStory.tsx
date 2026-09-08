@@ -7,23 +7,34 @@
 
 import React, { useState } from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { addDays } from 'date-fns/addDays';
+import { subDays } from 'date-fns/subDays';
 import { DatePicker, DatePickerInvalidReason } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
+import { customParseShortDate, formatShortDate } from './utils';
 
-export const InvalidDateStory: StoryFn = () => {
-  const [value, setValue] = useState<Date | undefined>(undefined);
+const TODAY = new Date();
+const MIN_VALUE = subDays(TODAY, 7);
+const MAX_VALUE = addDays(TODAY, 7);
+
+export const DatePickerOutOfRangeStory: StoryFn = () => {
+  const [value, setValue] = useState<Date | undefined>(TODAY);
   const [reason, setReason] = useState<DatePickerInvalidReason | undefined>(undefined);
 
   return (
     <Field>
       <Field.Label>Date</Field.Label>
       <Field.Hint>
-        3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-        YYYY&quot;
+        Must be between {formatShortDate(MIN_VALUE)} and {formatShortDate(MAX_VALUE)}, in M/D/YYYY
+        format
       </Field.Hint>
       <DatePicker
         value={value}
         onChange={setValue}
+        minValue={MIN_VALUE}
+        maxValue={MAX_VALUE}
+        formatDate={formatShortDate}
+        customParseDate={customParseShortDate}
         onValueSettled={({ reason: nextReason }) => setReason(nextReason)}
       >
         <ClearableInput
@@ -31,10 +42,10 @@ export const InvalidDateStory: StoryFn = () => {
           buttonProps={{ onClick: () => setReason(undefined) }}
         />
       </DatePicker>
-      {reason === 'malformed' && (
+      {reason === 'out-of-range' && (
         <Field.Message validation="error">
-          Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-          YYYY&quot; format.
+          Date is out of range. Please enter a date between {formatShortDate(MIN_VALUE)} and{' '}
+          {formatShortDate(MAX_VALUE)}.
         </Field.Message>
       )}
     </Field>

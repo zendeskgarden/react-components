@@ -10,7 +10,9 @@ export { DatePickerRange } from './elements/DatePickerRange/DatePickerRange';
 
 export type {
   DatePickerInvalidReason,
+  DatePickerRangeInvalidReason,
   IDatePickerProps,
   IDatePickerRangeProps,
+  IDatePickerRangeValueSettledResult,
   IDatePickerValueSettledResult
 } from './types';

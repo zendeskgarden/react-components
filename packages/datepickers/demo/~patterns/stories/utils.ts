@@ -14,7 +14,7 @@ const SHORT_DATE_PATTERN = /^(?<month>\d{1,2})\/(?<day>\d{1,2})\/(?<year>\d{4})$
 export const formatShortDate = (date: Date) =>
   `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 
-export const customParseShortDate = (value: string) => {
+export const customParseShortDate = (value = '') => {
   const match = SHORT_DATE_PATTERN.exec(value);
 
   if (!match?.groups) {
