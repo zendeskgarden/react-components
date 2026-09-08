@@ -906,6 +906,36 @@ describe('DatePickerRange', () => {
       expect(secondMonthDays[0]).toHaveFocus();
       expect(secondMonthDays[0]).toHaveTextContent('1');
     });
+
+    it('moves focus to the start of the week when Home is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.HOME });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[2]).toHaveFocus();
+      expect(days[2]).toHaveTextContent('3');
+    });
+
+    it('moves focus to the end of the week when End is pressed', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.END });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[8]).toHaveFocus();
+      expect(days[8]).toHaveTextContent('9');
+    });
   });
 
   describe('customParseDate()', () => {

@@ -136,6 +136,12 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           case KEYS.UP:
             targetDate = subDays(date, 7);
             break;
+          case KEYS.HOME:
+            targetDate = startOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
+            break;
+          case KEYS.END:
+            targetDate = endOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
+            break;
           default:
             return;
         }
@@ -144,7 +150,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         pendingGridFocusRef.current = true;
         dispatch({ type: 'FOCUS_DATE', value: targetDate });
       },
-      [dispatch, pendingGridFocusRef]
+      [dispatch, pendingGridFocusRef, preferredWeekStartsOn]
     );
 
     const monthStartDate = startOfMonth(displayDate);
