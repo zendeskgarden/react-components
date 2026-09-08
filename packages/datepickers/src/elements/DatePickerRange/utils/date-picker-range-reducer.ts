@@ -19,6 +19,7 @@ import { IDatePickerRangeProps } from '../../../types';
 
 export interface IDatePickerRangeState {
   previewDate: Date;
+  focusedDate: Date;
   hoverDate?: Date;
   isStartFocused: boolean;
   isEndFocused: boolean;
@@ -323,6 +324,7 @@ export function retrieveInitialState(initialProps: IDatePickerRangeProps): IDate
 
   return {
     previewDate,
+    focusedDate: previewDate,
     startInputValue,
     endInputValue,
     isStartFocused: false,

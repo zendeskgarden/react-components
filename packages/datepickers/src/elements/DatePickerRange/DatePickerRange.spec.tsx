@@ -803,6 +803,32 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('Keyboard navigation', () => {
+    const getDayButtons = (wrapper: HTMLElement) =>
+      within(wrapper)
+        .getAllByRole('button')
+        .filter(button => button.getAttribute('data-test-id') === 'day');
+
+    it('gives exactly one day button tabindex="0" across both months, matching the start value', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+      const secondMonthDays = getDayButtons(calendarWrappers[1]);
+      const focusedDay = firstMonthDays[4];
+
+      expect(focusedDay).toHaveAttribute('tabindex', '0');
+
+      [...firstMonthDays, ...secondMonthDays]
+        .filter(day => day !== focusedDay)
+        .forEach(day => {
+          expect(day).toHaveAttribute('tabindex', '-1');
+        });
+    });
+  });
+
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
