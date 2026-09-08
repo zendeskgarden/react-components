@@ -835,6 +835,70 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('onValueSettled', () => {
+    let onValueSettledSpy: (result: {
+      field: string;
+      date?: Date;
+      inputValue: string;
+      valid: boolean;
+      reason?: string;
+    }) => void;
+
+    beforeEach(() => {
+      onValueSettledSpy = jest.fn();
+    });
+
+    it('reports a valid start date when a day is selected from the calendar with no values set', async () => {
+      const { getAllByTestId } = render(
+        <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: new Date(2019, 2, 2),
+        inputValue: 'March 2, 2019',
+        valid: true
+      });
+    });
+
+    it('reports a valid end date when an additional day is selected from the calendar', async () => {
+      const { getAllByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: new Date(2019, 2, 2),
+        inputValue: 'March 2, 2019',
+        valid: true
+      });
+    });
+
+    it('does not report a stale value when a day is selected from the calendar', async () => {
+      const { getAllByTestId } = render(
+        <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+
+      expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+    });
+  });
+
   describe('Keyboard navigation', () => {
     const getDayButtons = (wrapper: HTMLElement) =>
       within(wrapper)
