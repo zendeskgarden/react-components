@@ -11,6 +11,7 @@ import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
 
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
 
@@ -240,6 +241,267 @@ describe('DatePickerRange', () => {
       await user.type(getByTestId('start'), 'hello');
 
       expect(onKeyDownSpy).toHaveBeenCalled();
+    });
+  });
+
+  describe('onValueSettled', () => {
+    let onValueSettledSpy: (result: {
+      field: string;
+      date?: Date;
+      inputValue: string;
+      valid: boolean;
+      reason?: string;
+    }) => void;
+
+    beforeEach(() => {
+      onValueSettledSpy = jest.fn();
+    });
+
+    it('reports a valid date when blurring after typing a parseable date', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/4/2019');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: new Date(2019, 0, 4),
+        inputValue: '1/4/2019',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring after typing unparseable text', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, 'invalid date');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false,
+        reason: 'malformed'
+      });
+    });
+
+    it('reports valid when blurring an empty, non-required field', async () => {
+      const { getByTestId } = render(
+        <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      await user.click(getByTestId('start'));
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring an empty, required field', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange onChange={onChangeSpy} onValueSettled={onValueSettledSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" required />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByTestId('start'));
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: '',
+        valid: false,
+        reason: 'required'
+      });
+    });
+
+    it('reports invalid when blurring after typing a date outside minValue/maxValue', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+          minValue={new Date(2019, 1, 1)}
+          maxValue={new Date(2019, 1, 10)}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/4/2019');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: '1/4/2019',
+        valid: false,
+        reason: 'out-of-range'
+      });
+    });
+
+    it('reports invalid when the typed start date is after the current end date', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '3/10/2019');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: '3/10/2019',
+        valid: false,
+        reason: 'out-of-order'
+      });
+    });
+
+    it('reports a valid date when ENTER key is used', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/4/2019');
+      fireEvent.keyDown(startInput, { key: KEYS.ENTER });
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: new Date(2019, 0, 4),
+        inputValue: '1/4/2019',
+        valid: true
+      });
+    });
+
+    it('does not settle when focus moves to its own ClearableInput clear button', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <ClearableInput data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, 'invalid date');
+      await user.tab();
+
+      expect(onValueSettledSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not revert the typed value while focus moves to its own ClearableInput clear button', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <ClearableInput data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, 'invalid date');
+      await user.tab();
+
+      expect(startInput).toHaveValue('invalid date');
+    });
+
+    it('settles once focus actually leaves the input, after passing through its own clear button', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <ClearableInput data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, 'invalid date');
+      await user.tab();
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false,
+        reason: 'malformed'
+      });
+      expect(startInput).toHaveValue('February 5, 2019');
     });
   });
 });

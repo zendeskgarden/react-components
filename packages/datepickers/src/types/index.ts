@@ -16,6 +16,8 @@ export type GardenPlacement = (typeof PLACEMENT)[number];
 
 export type DatePickerInvalidReason = 'required' | 'malformed' | 'out-of-range';
 
+export type DatePickerRangeInvalidReason = DatePickerInvalidReason | 'out-of-order';
+
 export interface IDatePickerValueSettledResult {
   /** The parsed or selected date, if valid */
   date?: Date;
@@ -25,6 +27,20 @@ export interface IDatePickerValueSettledResult {
   valid: boolean;
   /** Why the value is invalid, present only when `valid` is `false` */
   reason?: DatePickerInvalidReason;
+}
+
+export interface IDatePickerRangeValueSettledResult extends Omit<
+  IDatePickerValueSettledResult,
+  'reason'
+> {
+  /** Which input settled */
+  field: 'start' | 'end';
+  /**
+   * Why the value is invalid, present only when `valid` is `false`. `'out-of-order'`
+   * means the typed value conflicts with the other field's current value (e.g. a
+   * typed end date before the current start date)
+   */
+  reason?: DatePickerRangeInvalidReason;
 }
 
 export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -160,4 +176,17 @@ export interface IDatePickerRangeProps extends Pick<
    * @returns {Date} the parsed date
    */
   customParseDate?: (inputValue?: string) => Date;
+  /**
+   * Called when either input's value settles — on blur after typing, or when a date
+   * is selected from the calendar — reporting which field settled and whether its
+   * current value is valid
+   *
+   * @param {Object} result The settled value
+   * @param {'start'|'end'} result.field Which input settled
+   * @param {Date} [result.date] The parsed or selected date, if valid
+   * @param {string} result.inputValue The input's current displayed value
+   * @param {boolean} result.valid Whether the current value is valid
+   * @param {string} [result.reason] Why the value is invalid, present only when `valid` is `false`
+   */
+  onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
 }

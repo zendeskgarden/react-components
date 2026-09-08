@@ -6,6 +6,7 @@
  */
 
 import { useContext, createContext, MutableRefObject } from 'react';
+import { IDatePickerRangeValueSettledResult } from '../../../types';
 import { DateFnsIndex } from '../../../utils/calendar-utils';
 import { IDatePickerRangeState, DatePickerRangeAction } from './date-picker-range-reducer';
 
@@ -20,6 +21,7 @@ export interface IDatePickerRangeContext {
   startValue?: Date;
   endValue?: Date;
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
+  onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
   startInputRef: MutableRefObject<HTMLInputElement | undefined>;
   endInputRef: MutableRefObject<HTMLInputElement | undefined>;
   customParseDate?: (inputValue?: string) => Date;
