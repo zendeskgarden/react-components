@@ -14,8 +14,14 @@ import {
   IDatePickerRangeValueSettledResult
 } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
 import { customParseShortDate, formatShortDate } from './utils';
+
+const gridStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 280px)',
+  gridTemplateRows: 'auto auto',
+  gap: '20px'
+};
 
 export const DatePickerRangeInvalidRequiredStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);
@@ -50,51 +56,41 @@ export const DatePickerRangeInvalidRequiredStory: StoryFn = () => {
       onChange={handleChange}
       onValueSettled={handleValueSettled}
     >
-      <Grid>
-        <Grid.Row>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label>
-                Start date<span aria-hidden="true">*</span>
-              </Field.Label>
-              <Field.Hint>Must be M/D/YYYY format</Field.Hint>
-              <DatePickerRange.Start>
-                <ClearableInput
-                  required
-                  validation={startReason ? 'error' : undefined}
-                  buttonProps={{ onClick: () => setStartReason(undefined) }}
-                />
-              </DatePickerRange.Start>
-              {startReason === 'required' && (
-                <Field.Message validation="error">Start date cannot be blank.</Field.Message>
-              )}
-            </Field>
-          </Grid.Col>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label>
-                End date<span aria-hidden="true">*</span>
-              </Field.Label>
-              <Field.Hint>Must be M/D/YYYY format</Field.Hint>
-              <DatePickerRange.End>
-                <ClearableInput
-                  required
-                  validation={endReason ? 'error' : undefined}
-                  buttonProps={{ onClick: () => setEndReason(undefined) }}
-                />
-              </DatePickerRange.End>
-              {endReason === 'required' && (
-                <Field.Message validation="error">End date cannot be blank.</Field.Message>
-              )}
-            </Field>
-          </Grid.Col>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Col>
-            <DatePickerRange.Calendar />
-          </Grid.Col>
-        </Grid.Row>
-      </Grid>
+      <div style={gridStyles}>
+        <Field>
+          <Field.Label>
+            Start date<span aria-hidden="true">*</span>
+          </Field.Label>
+          <Field.Hint>Must be M/D/YYYY format</Field.Hint>
+          <DatePickerRange.Start>
+            <ClearableInput
+              required
+              validation={startReason ? 'error' : undefined}
+              buttonProps={{ onClick: () => setStartReason(undefined) }}
+            />
+          </DatePickerRange.Start>
+          {startReason === 'required' && (
+            <Field.Message validation="error">Start date cannot be blank.</Field.Message>
+          )}
+        </Field>
+        <Field>
+          <Field.Label>
+            End date<span aria-hidden="true">*</span>
+          </Field.Label>
+          <Field.Hint>Must be M/D/YYYY format</Field.Hint>
+          <DatePickerRange.End>
+            <ClearableInput
+              required
+              validation={endReason ? 'error' : undefined}
+              buttonProps={{ onClick: () => setEndReason(undefined) }}
+            />
+          </DatePickerRange.End>
+          {endReason === 'required' && (
+            <Field.Message validation="error">End date cannot be blank.</Field.Message>
+          )}
+        </Field>
+        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
+      </div>
     </DatePickerRange>
   );
 };
