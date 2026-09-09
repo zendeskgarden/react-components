@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent, within } from 'garden-test-utils';
+import { act, render, renderRtl, fireEvent, within } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
@@ -214,14 +214,18 @@ describe('DatePicker', () => {
 
       const nextButton = getByRole('button', { name: 'Next month' });
 
-      nextButton.focus();
+      act(() => {
+        nextButton.focus();
+      });
       await user.keyboard('{Enter}');
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
 
       const previousButton = getByRole('button', { name: 'Previous month' });
 
-      previousButton.focus();
+      act(() => {
+        previousButton.focus();
+      });
       await user.keyboard(' ');
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
@@ -263,7 +267,9 @@ describe('DatePicker', () => {
 
       const nextButton = getByRole('button', { name: 'Next month' });
 
-      nextButton.focus();
+      act(() => {
+        nextButton.focus();
+      });
       fireEvent.click(nextButton);
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
@@ -284,7 +290,9 @@ describe('DatePicker', () => {
 
       const nextButton = getByRole('button', { name: 'Next month' });
 
-      nextButton.focus();
+      act(() => {
+        nextButton.focus();
+      });
       fireEvent.click(nextButton);
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
@@ -313,14 +321,18 @@ describe('DatePicker', () => {
 
       const nextButton = getByRole('button', { name: 'Next year' });
 
-      nextButton.focus();
+      act(() => {
+        nextButton.focus();
+      });
       await user.keyboard('{Enter}');
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2020');
 
       const previousButton = getByRole('button', { name: 'Previous year' });
 
-      previousButton.focus();
+      act(() => {
+        previousButton.focus();
+      });
       await user.keyboard(' ');
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
@@ -362,7 +374,9 @@ describe('DatePicker', () => {
 
       const nextButton = getByRole('button', { name: 'Next year' });
 
-      nextButton.focus();
+      act(() => {
+        nextButton.focus();
+      });
       fireEvent.click(nextButton);
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2020');
@@ -383,7 +397,9 @@ describe('DatePicker', () => {
 
       const previousButton = getByRole('button', { name: 'Previous year' });
 
-      previousButton.focus();
+      act(() => {
+        previousButton.focus();
+      });
       fireEvent.click(previousButton);
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2018');
@@ -422,6 +438,14 @@ describe('DatePicker', () => {
       await user.click(getByTestId('calendar-button'));
 
       expect(getByRole('toolbar')).toHaveAccessibleName('Calendar view');
+    });
+
+    it('isolates the toolbar into its own stacking context, so it paints above the overlapping month box', async () => {
+      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByRole('toolbar')).toHaveStyleRule('isolation', 'isolate');
     });
 
     it('sets lang="en" on the default toolbar label', async () => {
@@ -469,7 +493,9 @@ describe('DatePicker', () => {
       const previousYear = getByRole('button', { name: 'Previous year' });
       const previousMonth = getByRole('button', { name: 'Previous month' });
 
-      previousYear.focus();
+      act(() => {
+        previousYear.focus();
+      });
       fireEvent.keyDown(previousYear, { key: KEYS.RIGHT });
 
       expect(previousMonth).toHaveFocus();
@@ -485,7 +511,9 @@ describe('DatePicker', () => {
       const previousMonth = getByRole('button', { name: 'Previous month' });
       const previousYear = getByRole('button', { name: 'Previous year' });
 
-      previousMonth.focus();
+      act(() => {
+        previousMonth.focus();
+      });
       fireEvent.keyDown(previousMonth, { key: KEYS.LEFT });
 
       expect(previousYear).toHaveFocus();
@@ -499,7 +527,9 @@ describe('DatePicker', () => {
       const nextYear = getByRole('button', { name: 'Next year' });
       const previousYear = getByRole('button', { name: 'Previous year' });
 
-      nextYear.focus();
+      act(() => {
+        nextYear.focus();
+      });
       fireEvent.keyDown(nextYear, { key: KEYS.RIGHT });
 
       expect(previousYear).toHaveFocus();
@@ -513,7 +543,9 @@ describe('DatePicker', () => {
       const previousYear = getByRole('button', { name: 'Previous year' });
       const nextYear = getByRole('button', { name: 'Next year' });
 
-      previousYear.focus();
+      act(() => {
+        previousYear.focus();
+      });
       fireEvent.keyDown(previousYear, { key: KEYS.LEFT });
 
       expect(nextYear).toHaveFocus();
@@ -527,7 +559,9 @@ describe('DatePicker', () => {
       const nextMonth = getByRole('button', { name: 'Next month' });
       const previousYear = getByRole('button', { name: 'Previous year' });
 
-      nextMonth.focus();
+      act(() => {
+        nextMonth.focus();
+      });
       fireEvent.keyDown(nextMonth, { key: KEYS.HOME });
 
       expect(previousYear).toHaveFocus();
@@ -541,7 +575,9 @@ describe('DatePicker', () => {
       const previousMonth = getByRole('button', { name: 'Previous month' });
       const nextYear = getByRole('button', { name: 'Next year' });
 
-      previousMonth.focus();
+      act(() => {
+        previousMonth.focus();
+      });
       fireEvent.keyDown(previousMonth, { key: KEYS.END });
 
       expect(nextYear).toHaveFocus();

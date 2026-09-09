@@ -10,6 +10,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { addMonths } from 'date-fns/addMonths';
 
 import { StyledRangeCalendar } from '../../../styled';
+import { Toolbar } from '../../../components/Toolbar';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { Month } from './Month';
 
@@ -17,7 +18,17 @@ import { Month } from './Month';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state, previousMonthLabel, nextMonthLabel, calendarId } = useDatePickerContext();
+  const {
+    state,
+    dispatch,
+    isCompact,
+    previousMonthLabel,
+    nextMonthLabel,
+    previousYearLabel,
+    nextYearLabel,
+    toolbarLabel,
+    calendarId
+  } = useDatePickerContext();
   const wrapperRef = useRef<HTMLDivElement>(null);
   const pendingGridFocusRef = useRef(false);
 
@@ -34,7 +45,9 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     }
 
     pendingGridFocusRef.current = false;
-    wrapperRef.current?.querySelector<HTMLButtonElement>('[tabindex="0"]')?.focus();
+    wrapperRef.current
+      ?.querySelector<HTMLButtonElement>('[data-test-id="day"][tabindex="0"]')
+      ?.focus();
   }, [state.focusedDate]);
 
   return (
@@ -46,18 +59,29 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       data-test-id="range-calendar"
       {...props}
     >
-      <Month
-        displayDate={state.previewDate}
-        isNextHidden
+      <Toolbar
+        isCompact={isCompact}
         previousMonthLabel={previousMonthLabel}
         nextMonthLabel={nextMonthLabel}
-        pendingGridFocusRef={pendingGridFocusRef}
+        previousYearLabel={previousYearLabel}
+        nextYearLabel={nextYearLabel}
+        toolbarLabel={toolbarLabel}
+        onPreviousYear={() => {
+          dispatch({ type: 'PREVIEW_PREVIOUS_YEAR' });
+        }}
+        onPreviousMonth={() => {
+          dispatch({ type: 'PREVIEW_PREVIOUS_MONTH' });
+        }}
+        onNextMonth={() => {
+          dispatch({ type: 'PREVIEW_NEXT_MONTH' });
+        }}
+        onNextYear={() => {
+          dispatch({ type: 'PREVIEW_NEXT_YEAR' });
+        }}
       />
+      <Month displayDate={state.previewDate} pendingGridFocusRef={pendingGridFocusRef} />
       <Month
         displayDate={addMonths(state.previewDate, 1)}
-        isPreviousHidden
-        previousMonthLabel={previousMonthLabel}
-        nextMonthLabel={nextMonthLabel}
         pendingGridFocusRef={pendingGridFocusRef}
       />
     </StyledRangeCalendar>

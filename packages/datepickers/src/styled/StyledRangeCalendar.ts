@@ -15,7 +15,6 @@ export const StyledRangeCalendar = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })`
-  display: flex;
   overflow: auto;
 
   ${StyledDatePicker} {

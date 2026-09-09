@@ -10,7 +10,7 @@ import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.calendar';
 
-interface IStyledCalendarProps {
+export interface IStyledCalendarProps {
   $isCompact?: boolean;
 }
 
@@ -18,10 +18,10 @@ export const StyledCalendar = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledCalendarProps>`
-  width: ${props =>
-    props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
+  width: 100%;
   table-layout: fixed;
   border-collapse: collapse;
+  border-spacing: 0;
 
   ${componentStyles};
 `;

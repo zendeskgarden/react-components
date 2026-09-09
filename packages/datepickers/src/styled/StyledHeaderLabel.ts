@@ -14,10 +14,6 @@ export const StyledHeaderLabel = styled.h2.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<{ $isCompact: boolean }>`
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
   margin: 0;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
   font-weight: ${props => props.theme.fontWeights.semibold};

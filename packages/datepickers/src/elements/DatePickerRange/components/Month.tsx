@@ -6,7 +6,6 @@
  */
 
 import React, { forwardRef, HTMLAttributes, MutableRefObject, useCallback } from 'react';
-import { useText } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
@@ -26,8 +25,6 @@ import { isAfter } from 'date-fns/isAfter';
 import { subDays } from 'date-fns/subDays';
 import { compareAsc } from 'date-fns/compareAsc';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import {
   StyledDatePicker,
   StyledCalendar,
@@ -35,8 +32,6 @@ import {
   StyledDayLabel,
   StyledDayButton,
   StyledRangeDayCell,
-  StyledHeaderPaddle,
-  StyledHeader,
   StyledHeaderLabel
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
@@ -46,25 +41,11 @@ import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;
-  isPreviousHidden?: boolean;
-  isNextHidden?: boolean;
-  previousMonthLabel?: string;
-  nextMonthLabel?: string;
   pendingGridFocusRef: MutableRefObject<boolean>;
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  (
-    {
-      displayDate,
-      isPreviousHidden,
-      isNextHidden,
-      previousMonthLabel,
-      nextMonthLabel,
-      pendingGridFocusRef
-    },
-    ref
-  ) => {
+  ({ displayDate, pendingGridFocusRef }, ref) => {
     const {
       state,
       dispatch,
@@ -80,14 +61,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     } = useDatePickerContext();
 
     const { headingId } = useDatePickerRange();
-
-    const previousMonthAriaLabel = useText(
-      Month,
-      { previousMonthLabel },
-      'previousMonthLabel',
-      'Previous month'
-    );
-    const nextMonthAriaLabel = useText(Month, { nextMonthLabel }, 'nextMonthLabel', 'Next month');
 
     const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
@@ -370,47 +343,14 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           e.preventDefault();
         }}
       >
-        <StyledHeader $isCompact={isCompact!}>
-          {!isPreviousHidden && (
-            <StyledHeaderPaddle
-              type="button"
-              isPill
-              isBasic
-              isNeutral
-              lang={previousMonthLabel === undefined ? 'en' : undefined}
-              aria-label={previousMonthAriaLabel}
-              onClick={() => {
-                dispatch({
-                  type: 'PREVIEW_PREVIOUS_MONTH'
-                });
-              }}
-              data-test-id="previous-month"
-            >
-              <ChevronLeftStrokeIcon />
-            </StyledHeaderPaddle>
-          )}
-          <StyledHeaderLabel id={headingId} $isCompact={isCompact!} data-test-id="month-display">
-            {headerLabelFormatter(displayDate)}
-          </StyledHeaderLabel>
-          {!isNextHidden && (
-            <StyledHeaderPaddle
-              type="button"
-              isPill
-              isBasic
-              isNeutral
-              lang={nextMonthLabel === undefined ? 'en' : undefined}
-              aria-label={nextMonthAriaLabel}
-              onClick={() => {
-                dispatch({
-                  type: 'PREVIEW_NEXT_MONTH'
-                });
-              }}
-              data-test-id="next-month"
-            >
-              <ChevronRightStrokeIcon />
-            </StyledHeaderPaddle>
-          )}
-        </StyledHeader>
+        <StyledHeaderLabel
+          id={headingId}
+          aria-live="polite"
+          $isCompact={isCompact!}
+          data-test-id="month-display"
+        >
+          {headerLabelFormatter(displayDate)}
+        </StyledHeaderLabel>
         <StyledCalendar
           as="table"
           $isCompact={isCompact!}
