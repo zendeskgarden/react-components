@@ -245,19 +245,25 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   /**
    * Reports whether the typed input currently holds a valid date, for
-   * closes that don't come from a fresh calendar selection.
+   * closes that don't come from a fresh calendar selection. Accepts an
+   * explicit `inputValue` for callers reporting a just-typed change before
+   * it's reflected in `state` (e.g. `Input`'s `onCleared`, called before its
+   * `MANUALLY_UPDATE_INPUT` dispatch is processed).
    */
-  const settleValue = useCallback(() => {
-    onValueSettled?.(
-      resolveSettledValue({
-        inputValue: state.inputValue,
-        required: Child.props.required,
-        minValue,
-        maxValue,
-        customParseDate
-      })
-    );
-  }, [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]);
+  const settleValue = useCallback(
+    (inputValue: string = state.inputValue) => {
+      onValueSettled?.(
+        resolveSettledValue({
+          inputValue,
+          required: Child.props.required,
+          minValue,
+          maxValue,
+          customParseDate
+        })
+      );
+    },
+    [state.inputValue, customParseDate, minValue, maxValue, onValueSettled, Child.props.required]
+  );
 
   /**
    * Settle the typed value and close the calendar when focus moves outside
@@ -367,6 +373,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           onMouseDown={handleInputMouseDown}
           onFocus={handleInputFocus}
           onClick={handleInputClick}
+          onCleared={settleValue}
           customParseDate={customParseDate}
           ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
         />
