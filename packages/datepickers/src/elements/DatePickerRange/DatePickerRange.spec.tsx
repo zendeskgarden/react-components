@@ -280,6 +280,84 @@ describe('DatePickerRange', () => {
       }
     });
 
+    it('displays highlighted days correctly when hovering the day cell instead of its button', async () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const hoveredButton = globalGetAllByTestId(calendarWrappers[1], 'day')[9];
+
+      await user.hover(hoveredButton.closest('[data-test-id="day-cell"]') as HTMLElement);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 4) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('highlights backward from a hovered day cell to the end value when only the end value is set', async () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const hoveredButton = globalGetAllByTestId(calendarWrappers[0], 'day')[6];
+
+      await user.hover(hoveredButton.closest('[data-test-id="day-cell"]') as HTMLElement);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 1) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 1) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
     it('highlights backward from a hovered day to the end value when only the end value is set', async () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
@@ -334,6 +412,34 @@ describe('DatePickerRange', () => {
       secondMonthCells.forEach(cell => {
         expect(cell).toHaveAttribute('data-test-highlighted', 'false');
       });
+    });
+
+    it('shows no tint at all for a hovered end candidate on the first day of its row', async () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[14]; // Feb 10, 2019 - a Sunday
+      const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+
+      await user.hover(hoverCell);
+
+      expect(hoverCell).toHaveAttribute('data-test-end', 'true');
+      expect(hoverCell).not.toHaveStyleRule('background-image');
+      expect(hoverCell).not.toHaveStyleRule('background-color', 'rgba(31,115,183,0.08)');
+    });
+
+    it('shows no tint at all for a hovered start candidate on the last day of its row', async () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[13]; // Feb 9, 2019 - a Saturday
+      const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+
+      await user.hover(hoverCell);
+
+      expect(hoverCell).toHaveAttribute('data-test-start', 'true');
+      expect(hoverCell).not.toHaveStyleRule('background-image');
+      expect(hoverCell).not.toHaveStyleRule('background-color', 'rgba(31,115,183,0.08)');
     });
 
     it('removes highlighted days when moused away', async () => {
