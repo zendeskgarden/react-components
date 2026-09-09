@@ -280,6 +280,62 @@ describe('DatePickerRange', () => {
       }
     });
 
+    it('highlights backward from a hovered day to the end value when only the end value is set', async () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      await user.hover(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 1) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 1) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('shows no highlight when hovering a day after the end value, with no start value set', async () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[14]);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
     it('removes highlighted days when moused away', async () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
@@ -1241,6 +1297,57 @@ describe('DatePickerRange', () => {
 
       expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
     });
+
+    it('preserves the end value and reports a valid start date when the new start is before the existing end', async () => {
+      const { getAllByTestId } = render(
+        <Example
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 2),
+        endValue: DEFAULT_END_VALUE
+      });
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: new Date(2019, 1, 2),
+        inputValue: 'February 2, 2019',
+        valid: true
+      });
+    });
+
+    it('preserves the end value and reports an invalid, out-of-order start date when the new start is after the existing end', async () => {
+      const { getAllByTestId } = render(
+        <Example
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[14]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 10),
+        endValue: DEFAULT_END_VALUE
+      });
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: undefined,
+        inputValue: 'March 10, 2019',
+        valid: false,
+        reason: 'out-of-order'
+      });
+    });
   });
 
   describe('Keyboard navigation', () => {
@@ -1533,6 +1640,42 @@ describe('DatePickerRange', () => {
         }
 
         if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+      }
+    });
+
+    it('highlights backward from the focused day to the end value when only the end value is set, matching mouse hover', () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
+
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 3) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 3) {
           expect(cell).toHaveAttribute('data-test-start', 'true');
         }
       }

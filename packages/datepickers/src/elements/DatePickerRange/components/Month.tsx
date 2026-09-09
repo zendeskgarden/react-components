@@ -213,10 +213,19 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         isHighlighted =
           (isAfter(date, startValue) || isSameDay(date, startValue)) &&
           (isBefore(date, state.hoverDate) || isSameDay(date, state.hoverDate));
+      } else if (endValue !== undefined && state.hoverDate !== undefined) {
+        isHighlighted =
+          (isAfter(date, state.hoverDate) || isSameDay(date, state.hoverDate)) &&
+          (isBefore(date, endValue) || isSameDay(date, endValue));
       }
 
       const isHighlightStart =
-        (isHighlighted && startValue && isSameDay(date, startValue)) || false;
+        (isHighlighted && startValue && isSameDay(date, startValue)) ||
+        (isHighlighted &&
+          startValue === undefined &&
+          !!state.hoverDate &&
+          isSameDay(date, state.hoverDate)) ||
+        false;
 
       const isHighlightEnd =
         (isHighlighted && endValue && isSameDay(date, endValue)) ||
@@ -279,6 +288,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
               dispatch({ type: 'CLICK_DATE', value: date });
 
               let result: { startValue?: Date; endValue?: Date };
+              let isOutOfOrder = false;
 
               if (state.isStartFocused) {
                 result =
@@ -292,7 +302,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
                     ? { startValue, endValue: date }
                     : { startValue: date, endValue: undefined };
               } else if (startValue === undefined) {
-                result = { startValue: date, endValue: undefined };
+                isOutOfOrder = endValue !== undefined && isAfter(date, endValue);
+                result = { startValue: date, endValue };
               } else if (endValue === undefined) {
                 result = isBefore(date, startValue)
                   ? { startValue: date, endValue: undefined }
@@ -308,9 +319,10 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
               onValueSettled?.({
                 field,
-                date: fieldValue,
+                date: isOutOfOrder ? undefined : fieldValue,
                 inputValue: formatValue({ value: fieldValue }),
-                valid: true
+                valid: !isOutOfOrder,
+                ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
               });
             }}
             onMouseEnter={() => {
