@@ -48,7 +48,8 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const background = getColor({ variable: 'background.default', theme });
 
   return css`
-    &&[aria-pressed='false']:not([aria-disabled='true']):hover {
+    &&[aria-pressed='false']:not([aria-disabled='true']):hover,
+    &&[aria-pressed='false']:not([aria-disabled='true']):focus-visible {
       background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
     }
   `;
