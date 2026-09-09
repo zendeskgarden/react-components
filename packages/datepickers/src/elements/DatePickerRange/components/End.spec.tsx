@@ -441,6 +441,55 @@ describe('DatePickerRange', () => {
       });
     });
 
+    it('settles immediately when the input is manually cleared, without waiting for blur', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('settles immediately when a ClearableInput clear button is clicked, without waiting for blur', async () => {
+      const { getByRole } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByRole('button', { name: 'Clear' }));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
     it('does not settle when focus moves to its own ClearableInput clear button', async () => {
       const { getByTestId } = render(
         <DatePickerRange
@@ -460,8 +509,7 @@ describe('DatePickerRange', () => {
       );
       const endInput = getByTestId('end');
 
-      await user.clear(endInput);
-      await user.type(endInput, 'invalid date');
+      fireEvent.change(endInput, { target: { value: 'invalid date' } });
       await user.tab();
 
       expect(onValueSettledSpy).not.toHaveBeenCalled();
