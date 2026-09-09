@@ -30,4 +30,28 @@ describe('StyledHeaderPaddle', () => {
 
     expect(container.firstChild).toHaveStyleRule('transform', 'rotate(180deg)');
   });
+
+  it('renders at the default size when not compact', () => {
+    const { container } = render(
+      <StyledHeaderPaddle>
+        <ChevronLeftStrokeIcon />
+      </StyledHeaderPaddle>
+    );
+
+    expect(container.firstChild).toHaveStyleRule('width', '40px');
+    expect(container.firstChild).toHaveStyleRule('min-width', '40px');
+    expect(container.firstChild).toHaveStyleRule('height', '40px');
+  });
+
+  it('shrinks to match the calendar button when compact', () => {
+    const { container } = render(
+      <StyledHeaderPaddle $isCompact>
+        <ChevronLeftStrokeIcon />
+      </StyledHeaderPaddle>
+    );
+
+    expect(container.firstChild).toHaveStyleRule('width', '32px');
+    expect(container.firstChild).toHaveStyleRule('min-width', '32px');
+    expect(container.firstChild).toHaveStyleRule('height', '32px');
+  });
 });
