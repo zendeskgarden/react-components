@@ -70,6 +70,22 @@ describe('StyledDayButton', () => {
     });
   });
 
+  it.each<{ mode: 'light' | 'dark'; color: string }>([
+    { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
+    { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
+  ])(
+    'shows the same $mode mode tinted background when focused via keyboard, instead of the half-highlight behind it',
+    ({ mode, color }) => {
+      const { container } = getRenderFn(mode)(
+        <StyledDayButton $isCompact={false}>5</StyledDayButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('background-color', color, {
+        modifier: "&&[aria-pressed='false']:not([aria-disabled='true']):focus-visible"
+      });
+    }
+  );
+
   it('does not transition, so its background change stays in sync with the day cell', () => {
     const { container } = render(<StyledDayButton $isCompact={false}>5</StyledDayButton>);
 
