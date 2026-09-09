@@ -28,7 +28,15 @@ export const Example: StoryObj<typeof DatePickerStory> = {
         value
       });
 
-    return <DatePickerStory {...args} onChange={handleChange} />;
+    const handleValueSettled = (result: { date?: Date; valid: boolean }) => {
+      if (result.valid) {
+        updateArgs({ value: result.date });
+      }
+    };
+
+    return (
+      <DatePickerStory {...args} onChange={handleChange} onValueSettled={handleValueSettled} />
+    );
   },
   name: 'DatePicker',
   args: {

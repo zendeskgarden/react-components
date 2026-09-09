@@ -24,6 +24,7 @@ interface IInputProps {
   onMouseDown?: (e: React.MouseEvent<HTMLInputElement>) => void;
   onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
+  onCleared?: (inputValue: string) => void;
   customParseDate?: (inputValue: string) => Date;
 }
 
@@ -40,6 +41,7 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       onMouseDown,
       onFocus,
       onClick,
+      onCleared,
       customParseDate
     },
     ref
@@ -58,6 +60,8 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
         !isSameDay(value!, currentDate)
       ) {
         onChange(currentDate);
+      } else if (inputValue === '' && state.inputValue !== '') {
+        onCleared?.(inputValue);
       }
 
       dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
