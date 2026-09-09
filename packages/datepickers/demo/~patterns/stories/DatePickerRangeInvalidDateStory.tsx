@@ -14,7 +14,13 @@ import {
   IDatePickerRangeValueSettledResult
 } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
+
+const gridStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 280px)',
+  gridTemplateRows: 'auto auto',
+  gap: '20px'
+};
 
 export const DatePickerRangeInvalidDateStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);
@@ -47,57 +53,47 @@ export const DatePickerRangeInvalidDateStory: StoryFn = () => {
       onChange={handleChange}
       onValueSettled={handleValueSettled}
     >
-      <Grid>
-        <Grid.Row>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label>Start date</Field.Label>
-              <Field.Hint>
-                3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-                YYYY&quot;
-              </Field.Hint>
-              <DatePickerRange.Start>
-                <ClearableInput
-                  validation={startReason ? 'error' : undefined}
-                  buttonProps={{ onClick: () => setStartReason(undefined) }}
-                />
-              </DatePickerRange.Start>
-              {startReason === 'malformed' && (
-                <Field.Message validation="error">
-                  Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-                  YYYY&quot; format.
-                </Field.Message>
-              )}
-            </Field>
-          </Grid.Col>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label>End date</Field.Label>
-              <Field.Hint>
-                3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-                YYYY&quot;
-              </Field.Hint>
-              <DatePickerRange.End>
-                <ClearableInput
-                  validation={endReason ? 'error' : undefined}
-                  buttonProps={{ onClick: () => setEndReason(undefined) }}
-                />
-              </DatePickerRange.End>
-              {endReason === 'malformed' && (
-                <Field.Message validation="error">
-                  Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-                  YYYY&quot; format.
-                </Field.Message>
-              )}
-            </Field>
-          </Grid.Col>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Col>
-            <DatePickerRange.Calendar />
-          </Grid.Col>
-        </Grid.Row>
-      </Grid>
+      <div style={gridStyles}>
+        <Field>
+          <Field.Label>Start date</Field.Label>
+          <Field.Hint>
+            3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+            YYYY&quot;
+          </Field.Hint>
+          <DatePickerRange.Start>
+            <ClearableInput
+              validation={startReason ? 'error' : undefined}
+              buttonProps={{ onClick: () => setStartReason(undefined) }}
+            />
+          </DatePickerRange.Start>
+          {startReason === 'malformed' && (
+            <Field.Message validation="error">
+              Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+              YYYY&quot; format.
+            </Field.Message>
+          )}
+        </Field>
+        <Field>
+          <Field.Label>End date</Field.Label>
+          <Field.Hint>
+            3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+            YYYY&quot;
+          </Field.Hint>
+          <DatePickerRange.End>
+            <ClearableInput
+              validation={endReason ? 'error' : undefined}
+              buttonProps={{ onClick: () => setEndReason(undefined) }}
+            />
+          </DatePickerRange.End>
+          {endReason === 'malformed' && (
+            <Field.Message validation="error">
+              Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+              YYYY&quot; format.
+            </Field.Message>
+          )}
+        </Field>
+        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
+      </div>
     </DatePickerRange>
   );
 };

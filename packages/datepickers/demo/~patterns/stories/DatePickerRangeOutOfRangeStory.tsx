@@ -16,12 +16,18 @@ import {
   IDatePickerRangeValueSettledResult
 } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
 import { customParseShortDate, formatShortDate } from './utils';
 
 const TODAY = new Date();
 const MIN_VALUE = subDays(TODAY, 7);
 const MAX_VALUE = addDays(TODAY, 7);
+
+const gridStyles = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 280px)',
+  gridTemplateRows: 'auto auto',
+  gap: '20px'
+};
 
 export const DatePickerRangeOutOfRangeStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(TODAY);
@@ -58,57 +64,47 @@ export const DatePickerRangeOutOfRangeStory: StoryFn = () => {
       onChange={handleChange}
       onValueSettled={handleValueSettled}
     >
-      <Grid>
-        <Grid.Row>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label>Start date</Field.Label>
-              <Field.Hint>
-                Must be between {formatShortDate(MIN_VALUE)} and {formatShortDate(MAX_VALUE)}, in
-                M/D/YYYY format
-              </Field.Hint>
-              <DatePickerRange.Start>
-                <ClearableInput
-                  validation={startReason ? 'error' : undefined}
-                  buttonProps={{ onClick: () => setStartReason(undefined) }}
-                />
-              </DatePickerRange.Start>
-              {startReason === 'out-of-range' && (
-                <Field.Message validation="error">
-                  Date is out of range. Please enter a date between {formatShortDate(MIN_VALUE)} and{' '}
-                  {formatShortDate(MAX_VALUE)}.
-                </Field.Message>
-              )}
-            </Field>
-          </Grid.Col>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label>End date</Field.Label>
-              <Field.Hint>
-                Must be between {formatShortDate(MIN_VALUE)} and {formatShortDate(MAX_VALUE)}, in
-                M/D/YYYY format
-              </Field.Hint>
-              <DatePickerRange.End>
-                <ClearableInput
-                  validation={endReason ? 'error' : undefined}
-                  buttonProps={{ onClick: () => setEndReason(undefined) }}
-                />
-              </DatePickerRange.End>
-              {endReason === 'out-of-range' && (
-                <Field.Message validation="error">
-                  Date is out of range. Please enter a date between {formatShortDate(MIN_VALUE)} and{' '}
-                  {formatShortDate(MAX_VALUE)}.
-                </Field.Message>
-              )}
-            </Field>
-          </Grid.Col>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Col>
-            <DatePickerRange.Calendar />
-          </Grid.Col>
-        </Grid.Row>
-      </Grid>
+      <div style={gridStyles}>
+        <Field>
+          <Field.Label>Start date</Field.Label>
+          <Field.Hint>
+            Must be between {formatShortDate(MIN_VALUE)} and {formatShortDate(MAX_VALUE)}, in
+            M/D/YYYY format
+          </Field.Hint>
+          <DatePickerRange.Start>
+            <ClearableInput
+              validation={startReason ? 'error' : undefined}
+              buttonProps={{ onClick: () => setStartReason(undefined) }}
+            />
+          </DatePickerRange.Start>
+          {startReason === 'out-of-range' && (
+            <Field.Message validation="error">
+              Date is out of range. Please enter a date between {formatShortDate(MIN_VALUE)} and{' '}
+              {formatShortDate(MAX_VALUE)}.
+            </Field.Message>
+          )}
+        </Field>
+        <Field>
+          <Field.Label>End date</Field.Label>
+          <Field.Hint>
+            Must be between {formatShortDate(MIN_VALUE)} and {formatShortDate(MAX_VALUE)}, in
+            M/D/YYYY format
+          </Field.Hint>
+          <DatePickerRange.End>
+            <ClearableInput
+              validation={endReason ? 'error' : undefined}
+              buttonProps={{ onClick: () => setEndReason(undefined) }}
+            />
+          </DatePickerRange.End>
+          {endReason === 'out-of-range' && (
+            <Field.Message validation="error">
+              Date is out of range. Please enter a date between {formatShortDate(MIN_VALUE)} and{' '}
+              {formatShortDate(MAX_VALUE)}.
+            </Field.Message>
+          )}
+        </Field>
+        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
+      </div>
     </DatePickerRange>
   );
 };
