@@ -33,7 +33,21 @@ export const Example: StoryObj<typeof DatePickerRangeStory> = {
         startValue
       });
 
-    return <DatePickerRangeStory {...args} onChange={handleChange} />;
+    const handleValueSettled = (result: {
+      field: 'start' | 'end';
+      date?: Date;
+      valid: boolean;
+    }) => {
+      if (result.valid) {
+        updateArgs(
+          result.field === 'start' ? { startValue: result.date } : { endValue: result.date }
+        );
+      }
+    };
+
+    return (
+      <DatePickerRangeStory {...args} onChange={handleChange} onValueSettled={handleValueSettled} />
+    );
   },
   name: 'DatePickerRange',
   args: { dateStyle: DATE_STYLE_OPTIONS[1] },
@@ -67,7 +81,25 @@ export const ClearableExample: StoryObj<typeof DatePickerRangeClearableStory> = 
         startValue
       });
 
-    return <DatePickerRangeClearableStory {...args} onChange={handleChange} />;
+    const handleValueSettled = (result: {
+      field: 'start' | 'end';
+      date?: Date;
+      valid: boolean;
+    }) => {
+      if (result.valid) {
+        updateArgs(
+          result.field === 'start' ? { startValue: result.date } : { endValue: result.date }
+        );
+      }
+    };
+
+    return (
+      <DatePickerRangeClearableStory
+        {...args}
+        onChange={handleChange}
+        onValueSettled={handleValueSettled}
+      />
+    );
   },
   name: 'DatePickerRange (ClearableInput)',
   args: { dateStyle: DATE_STYLE_OPTIONS[1] },
