@@ -8,7 +8,6 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -24,33 +23,30 @@ export const DatePickerRangeClearableStory: StoryFn<IArgs> = ({
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 
+  const gridStyles = {
+    display: 'grid',
+    gridTemplateColumns: `repeat(2, ${isCompact ? '224px' : '280px'})`,
+    gridTemplateRows: `${isCompact ? '32px' : '40px'} auto`,
+    gap: isCompact ? '16px' : '20px'
+  };
+
   return (
     <DatePickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
-      <Grid>
-        <Grid.Row>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
-              <DatePickerRange.Start>
-                <ClearableInput isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
-              </DatePickerRange.Start>
-            </Field>
-          </Grid.Col>
-          <Grid.Col size="auto">
-            <Field>
-              <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
-              <DatePickerRange.End>
-                <ClearableInput isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
-              </DatePickerRange.End>
-            </Field>
-          </Grid.Col>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Col>
-            <DatePickerRange.Calendar />
-          </Grid.Col>
-        </Grid.Row>
-      </Grid>
+      <div style={gridStyles}>
+        <Field>
+          <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
+          <DatePickerRange.Start>
+            <ClearableInput isCompact={isCompact} />
+          </DatePickerRange.Start>
+        </Field>
+        <Field>
+          <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
+          <DatePickerRange.End>
+            <ClearableInput isCompact={isCompact} />
+          </DatePickerRange.End>
+        </Field>
+        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
+      </div>
     </DatePickerRange>
   );
 };
