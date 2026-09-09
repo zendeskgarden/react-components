@@ -5,10 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.calendar_grid';
+
+interface IStyledCalendarGridProps {
+  $isCompact?: boolean;
+}
+
+const sizeStyles = ({ $isCompact, theme }: IStyledCalendarGridProps & ThemeProps<DefaultTheme>) => {
+  const columnWidth = theme.space.base * ($isCompact ? 8 : 10);
+  const padding = theme.space.base * ($isCompact ? 4 : 5);
+
+  return css`
+    grid-template-columns: repeat(7, ${columnWidth}px);
+    padding: ${padding}px;
+  `;
+};
 
 /**
  * `DatePicker`'s outer calendar wrapper. Establishes the explicit column
@@ -20,12 +34,11 @@ const COMPONENT_ID = 'datepickers.calendar_grid';
 export const StyledCalendarGrid = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})`
+})<IStyledCalendarGridProps>`
   display: grid;
-  grid-template-columns: repeat(7, 40px);
   grid-template-rows: auto auto;
   align-items: center;
-  padding: ${props => props.theme.space.base * 5}px;
 
+  ${sizeStyles}
   ${componentStyles};
 `;

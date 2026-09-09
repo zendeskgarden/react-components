@@ -8,7 +8,7 @@
 import React, { useCallback, useRef, useState } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { StyledHeader, StyledCalendarToolbar, StyledHeaderPaddle } from '../styled';
+import { StyledCalendarToolbar, StyledHeaderPaddle } from '../styled';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
@@ -17,14 +17,6 @@ import ChevronDoubleRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevro
 
 export interface IToolbarProps {
   isCompact?: boolean;
-  /**
-   * Renders the toolbar as a CSS grid, subgridding into its parent's column
-   * tracks so its paddles can align to specific columns - used only by
-   * `DatePicker`, whose calendar wrapper (`StyledCalendarGrid`) provides
-   * those tracks. `DatePickerRange` doesn't set this, since its calendar
-   * wrapper isn't (yet) a grid.
-   */
-  isGrid?: boolean;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   previousYearLabel?: string;
@@ -49,7 +41,6 @@ const PADDLE_ORDER: Paddle[] = ['previousYear', 'previousMonth', 'nextMonth', 'n
  */
 export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   isCompact,
-  isGrid,
   previousMonthLabel,
   nextMonthLabel,
   previousYearLabel,
@@ -126,10 +117,8 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
     []
   );
 
-  const Header = isGrid ? StyledCalendarToolbar : StyledHeader;
-
   return (
-    <Header
+    <StyledCalendarToolbar
       role="toolbar"
       lang={toolbarLabel === undefined ? 'en' : undefined}
       aria-label={toolbarAriaLabel}
@@ -147,7 +136,8 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         tabIndex={focusedPaddle === 'previousYear' ? 0 : -1}
         onFocus={() => setFocusedPaddle('previousYear')}
         onClick={onPreviousYear}
-        $gridColumn={isGrid ? '1' : undefined}
+        $gridColumn="1"
+        $isCompact={isCompact}
         data-test-id="previous-year"
       >
         <ChevronDoubleLeftStrokeIcon />
@@ -164,7 +154,8 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         tabIndex={focusedPaddle === 'previousMonth' ? 0 : -1}
         onFocus={() => setFocusedPaddle('previousMonth')}
         onClick={onPreviousMonth}
-        $gridColumn={isGrid ? '2' : undefined}
+        $gridColumn="2"
+        $isCompact={isCompact}
         data-test-id="previous-month"
       >
         <ChevronLeftStrokeIcon />
@@ -181,7 +172,8 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         tabIndex={focusedPaddle === 'nextMonth' ? 0 : -1}
         onFocus={() => setFocusedPaddle('nextMonth')}
         onClick={onNextMonth}
-        $gridColumn={isGrid ? '-3' : undefined}
+        $gridColumn="-3"
+        $isCompact={isCompact}
         data-test-id="next-month"
       >
         <ChevronRightStrokeIcon />
@@ -198,12 +190,13 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         tabIndex={focusedPaddle === 'nextYear' ? 0 : -1}
         onFocus={() => setFocusedPaddle('nextYear')}
         onClick={onNextYear}
-        $gridColumn={isGrid ? '-2' : undefined}
+        $gridColumn="-2"
+        $isCompact={isCompact}
         data-test-id="next-year"
       >
         <ChevronDoubleRightStrokeIcon />
       </StyledHeaderPaddle>
-    </Header>
+    </StyledCalendarToolbar>
   );
 };
 

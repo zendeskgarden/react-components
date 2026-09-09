@@ -186,6 +186,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         return (
           <StyledDayLabelHeader
             key={`day-label-${formattedDayLabel}`}
+            $isCompact={isCompact}
             scope="col"
             abbr={fullDayLabelFormatter(date)}
           >
@@ -250,6 +251,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     return (
       <StyledCalendarGrid
         ref={ref}
+        $isCompact={isCompact}
         data-test-id="calendar-wrapper"
         onMouseDown={(e: React.MouseEvent) => {
           /** Stop focus from escaping input */
@@ -258,7 +260,6 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       >
         <Toolbar
           isCompact={isCompact}
-          isGrid
           previousMonthLabel={previousMonthLabel}
           nextMonthLabel={nextMonthLabel}
           previousYearLabel={previousYearLabel}
