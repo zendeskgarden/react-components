@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import {
   act,
@@ -21,6 +21,7 @@ import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
 import { subMonths } from 'date-fns/subMonths';
 import mockDate from 'mockdate';
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DatePickerRange } from './DatePickerRange';
 import { IDatePickerRangeProps } from '../../types';
 
@@ -905,6 +906,62 @@ describe('DatePickerRange', () => {
         startValue: new Date(2019, 1, 5),
         endValue: new Date(2019, 2, 2)
       });
+    });
+
+    it('advances from start to end again after clearing both fields via ClearableInput', async () => {
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <DatePickerRange
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+            onValueSettled={result => {
+              if (result.valid) {
+                if (result.field === 'start') {
+                  setStartValue(result.date);
+                } else {
+                  setEndValue(result.date);
+                }
+              }
+            }}
+          >
+            <DatePickerRange.Start>
+              <ClearableInput data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <ClearableInput data-test-id="end" />
+            </DatePickerRange.End>
+            <DatePickerRange.Calendar />
+          </DatePickerRange>
+        );
+      };
+
+      const { getAllByTestId, getByTestId, getAllByRole } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const clearButtons = getAllByRole('button', { name: 'Clear' });
+
+      await user.click(clearButtons[1]);
+      await user.click(clearButtons[0]);
+
+      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+
+      expect(getByTestId('start')).toHaveValue('February 2, 2019');
+      expect(getByTestId('end')).toHaveValue('March 2, 2019');
     });
 
     it('selects start value if no values are selected', async () => {
