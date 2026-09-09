@@ -16,4 +16,5 @@ import { StyledCalendar } from './StyledCalendar';
 export const StyledCalendarTable = styled(StyledCalendar)`
   grid-row: 2;
   grid-column: 1 / -1;
+  align-self: start;
 `;

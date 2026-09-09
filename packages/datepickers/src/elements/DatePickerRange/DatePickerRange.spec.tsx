@@ -515,12 +515,17 @@ describe('DatePickerRange', () => {
     });
 
     it('renders compact styling correctly', () => {
-      const { getAllByTestId, rerender } = render(<Example isCompact />);
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const { getByTestId, rerender } = render(<Example isCompact />);
 
-      expect(calendarWrappers[0]).toHaveStyleRule('margin', '16px');
+      expect(getByTestId('range-calendar')).toHaveStyleRule(
+        'grid-template-columns',
+        'repeat(7, 32px) 16px repeat(7, 32px)'
+      );
       rerender(<Example />);
-      expect(calendarWrappers[0]).toHaveStyleRule('margin', '20px');
+      expect(getByTestId('range-calendar')).toHaveStyleRule(
+        'grid-template-columns',
+        'repeat(7, 40px) 20px repeat(7, 40px)'
+      );
     });
   });
 

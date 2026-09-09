@@ -8,14 +8,21 @@
 import styled from 'styled-components';
 import { StyledDatePicker } from './StyledDatePicker';
 
+interface IStyledCalendarMonthProps {
+  $gridColumn?: string;
+}
+
 /**
- * `DatePicker`'s month box (heading + day grid), nested inside
- * `StyledCalendarGrid`. Spans its parent's full column/row tracks and
- * inherits them via `subgrid`, so the heading and table can each be placed
- * against those same tracks (see `StyledHeaderLabel`/`StyledCalendar`).
+ * Month box (heading + day grid), nested inside `StyledCalendarGrid` (used
+ * by `DatePicker`) or `StyledRangeCalendar` (used by `DatePickerRange`,
+ * which renders two of these side by side). Spans the given column range -
+ * the whole parent by default, or just one month's 7 columns for
+ * `DatePickerRange` - and inherits those tracks via `subgrid`, so the
+ * heading and table can each be placed against them (see
+ * `StyledCalendarHeading`/`StyledCalendarTable`).
  */
-export const StyledCalendarMonth = styled(StyledDatePicker)`
-  grid-column: 1 / -1;
+export const StyledCalendarMonth = styled(StyledDatePicker)<IStyledCalendarMonthProps>`
+  grid-column: ${props => props.$gridColumn || '1 / -1'};
   grid-row: 1 / -1;
   display: grid;
   grid-template-columns: subgrid;

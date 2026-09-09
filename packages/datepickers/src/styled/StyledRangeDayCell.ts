@@ -50,6 +50,9 @@ export const StyledRangeDayCell = styled.td.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledRangeDayCellProps>`
+  margin: 0;
+  padding: 0;
+
   ${highlightStyles}
 
   ${componentStyles};

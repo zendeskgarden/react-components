@@ -5,14 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
-/**
- * `DatePicker`'s day-of-week `<th>`, sized to match the 40px day columns it
- * sits above in `StyledCalendarGrid`.
- */
-export const StyledDayLabelHeader = styled.th`
+interface IStyledDayLabelHeaderProps {
+  $isCompact?: boolean;
+}
+
+const sizeStyles = ({
+  $isCompact,
+  theme
+}: IStyledDayLabelHeaderProps & ThemeProps<DefaultTheme>) => {
+  const size = theme.space.base * ($isCompact ? 8 : 10);
+
+  return css`
+    width: ${size}px;
+    height: ${size}px;
+  `;
+};
+
+export const StyledDayLabelHeader = styled.th<IStyledDayLabelHeaderProps>`
   padding: 0;
-  height: 40px;
   text-align: center;
+
+  ${sizeStyles}
 `;

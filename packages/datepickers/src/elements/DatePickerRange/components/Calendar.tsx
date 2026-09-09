@@ -54,6 +54,7 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     <StyledRangeCalendar
       ref={mergeRefs([ref, wrapperRef])}
       id={calendarId}
+      $isCompact={isCompact}
       data-garden-id="datepickers.range"
       data-garden-version={PACKAGE_VERSION}
       data-test-id="range-calendar"
@@ -79,9 +80,14 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
           dispatch({ type: 'PREVIEW_NEXT_YEAR' });
         }}
       />
-      <Month displayDate={state.previewDate} pendingGridFocusRef={pendingGridFocusRef} />
+      <Month
+        displayDate={state.previewDate}
+        gridColumn="1 / 8"
+        pendingGridFocusRef={pendingGridFocusRef}
+      />
       <Month
         displayDate={addMonths(state.previewDate, 1)}
+        gridColumn="9 / 16"
         pendingGridFocusRef={pendingGridFocusRef}
       />
     </StyledRangeCalendar>

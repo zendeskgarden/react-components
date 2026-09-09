@@ -26,13 +26,14 @@ import { subDays } from 'date-fns/subDays';
 import { compareAsc } from 'date-fns/compareAsc';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import {
-  StyledDatePicker,
-  StyledCalendar,
+  StyledCalendarMonth,
+  StyledCalendarHeading,
+  StyledCalendarTable,
   StyledCalendarRow,
+  StyledDayLabelHeader,
   StyledDayLabel,
   StyledDayButton,
-  StyledRangeDayCell,
-  StyledHeaderLabel
+  StyledRangeDayCell
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
 import { useDatePickerRange } from '../utils/useDatePickerRange';
@@ -41,11 +42,12 @@ import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;
+  gridColumn: string;
   pendingGridFocusRef: MutableRefObject<boolean>;
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  ({ displayDate, pendingGridFocusRef }, ref) => {
+  ({ displayDate, gridColumn, pendingGridFocusRef }, ref) => {
     const {
       state,
       dispatch,
@@ -152,11 +154,15 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <th key={`day-label-${formattedDayLabel}`} scope="col">
+          <StyledDayLabelHeader
+            key={`day-label-${formattedDayLabel}`}
+            $isCompact={isCompact}
+            scope="col"
+          >
             <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
-          </th>
+          </StyledDayLabelHeader>
         );
       }
     );
@@ -333,9 +339,10 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     }));
 
     return (
-      <StyledDatePicker
+      <StyledCalendarMonth
         ref={ref}
         $isCompact={isCompact!}
+        $gridColumn={gridColumn}
         data-test-id="calendar-wrapper"
         onMouseDown={e => {
           /** Stop focus from escaping input */
@@ -343,15 +350,15 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           e.preventDefault();
         }}
       >
-        <StyledHeaderLabel
+        <StyledCalendarHeading
           id={headingId}
           aria-live="polite"
           $isCompact={isCompact!}
           data-test-id="month-display"
         >
           {headerLabelFormatter(displayDate)}
-        </StyledHeaderLabel>
-        <StyledCalendar
+        </StyledCalendarHeading>
+        <StyledCalendarTable
           as="table"
           $isCompact={isCompact!}
           role="grid"
@@ -367,8 +374,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
               <StyledCalendarRow key={week.key}>{week.days}</StyledCalendarRow>
             ))}
           </tbody>
-        </StyledCalendar>
-      </StyledDatePicker>
+        </StyledCalendarTable>
+      </StyledCalendarMonth>
     );
   }
 );

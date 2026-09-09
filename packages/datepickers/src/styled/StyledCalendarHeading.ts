@@ -9,12 +9,12 @@ import styled from 'styled-components';
 import { StyledHeaderLabel } from './StyledHeaderLabel';
 
 /**
- * `DatePicker`'s month/year heading, placed against `StyledCalendarGrid`'s
- * day columns (3 through 5, between the toolbar's inner paddles) via the
- * month box's (`StyledCalendarMonth`) inherited `subgrid` tracks.
+ * Month/year heading, spanning all 7 of its month's day columns via the
+ * month box's (`StyledCalendarMonth`) inherited `subgrid` tracks, so it has
+ * room to grow without wrapping or squishing when compact.
  */
 export const StyledCalendarHeading = styled(StyledHeaderLabel)`
   grid-row: 1;
-  grid-column: 3 / 6;
+  grid-column: 1 / 8;
   text-align: center;
 `;
