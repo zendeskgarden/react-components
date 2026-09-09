@@ -55,7 +55,8 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 
   return css`
     &&[aria-pressed='false']:not([aria-disabled='true']):hover,
-    &&[aria-pressed='false']:not([aria-disabled='true']):focus-visible {
+    &&[aria-pressed='false']:not([aria-disabled='true']):focus-visible,
+    td:hover > &&[aria-pressed='false']:not([aria-disabled='true']) {
       background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
     }
   `;
