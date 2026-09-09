@@ -31,13 +31,56 @@ export const End = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputElem
   const wrapperRef = useRef<HTMLDivElement>(null);
   const isBlurPendingRef = useRef(false);
 
+  /**
+   * Resolves and reports the settled value for a given (or, by default, the
+   * current) input value, without any of commitBlur's other side effects -
+   * used both by commitBlur itself and by onChangeCallback below, which
+   * needs to report immediately when the field becomes empty, before its
+   * own MANUALLY_UPDATE_INPUT-equivalent dispatch is reflected in state.
+   */
+  const reportSettled = useCallback(
+    (inputValue: string = state.endInputValue) => {
+      const settled = resolveSettledValue({
+        inputValue,
+        required: childElement.props.required,
+        minValue,
+        maxValue,
+        notBefore: startValue,
+        customParseDate
+      });
+
+      onValueSettled?.({ field: 'end', ...settled });
+    },
+    [
+      onValueSettled,
+      startValue,
+      minValue,
+      maxValue,
+      customParseDate,
+      childElement.props.required,
+      state.endInputValue
+    ]
+  );
+
+  /**
+   * Reports an empty field as settled immediately, since a ClearableInput's
+   * clear button never blurs the input (it clears the value then calls
+   * focus() to keep focus on the input) - without this, clearing the field
+   * that way would never be reported at all.
+   */
   const onChangeCallback = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch({ type: 'END_INPUT_ONCHANGE', value: e.target.value });
+      const inputValue = e.target.value;
+
+      dispatch({ type: 'END_INPUT_ONCHANGE', value: inputValue });
+
+      if (inputValue === '' && state.endInputValue !== '') {
+        reportSettled(inputValue);
+      }
 
       childElement.props.onChange && childElement.props.onChange(e);
     },
-    [dispatch, childElement]
+    [dispatch, childElement, reportSettled, state.endInputValue]
   );
 
   const onFocusCallback = useCallback(
@@ -71,33 +114,21 @@ export const End = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputElem
       });
     }
 
-    const settled = resolveSettledValue({
-      inputValue: state.endInputValue,
-      required: childElement.props.required,
-      minValue,
-      maxValue,
-      notBefore: startValue,
-      customParseDate
-    });
-
     dispatch({ type: 'END_BLUR' });
 
     if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
       onChange && onChange({ startValue, endValue: parsedDate });
     }
 
-    onValueSettled?.({ field: 'end', ...settled });
+    reportSettled();
   }, [
     dispatch,
     onChange,
-    onValueSettled,
     startValue,
     endValue,
-    minValue,
-    maxValue,
     customParseDate,
     state.endInputValue,
-    childElement.props.required
+    reportSettled
   ]);
 
   const handleBlur = useCallback(
