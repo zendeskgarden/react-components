@@ -1252,6 +1252,39 @@ describe('DatePicker', () => {
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 4));
     });
 
+    it('settles immediately when the input is manually cleared, without waiting for blur', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.clear(input);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('settles immediately when a ClearableInput clear button is clicked, without waiting for blur', async () => {
+      const { getByRole } = render(
+        <ClearableExample
+          value={DEFAULT_DATE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+
+      await user.click(getByRole('button', { name: 'Clear' }));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
     it('does not settle when focus moves to another focusable element inside the input group, like a ClearableInput clear button', async () => {
       const { getByTestId } = render(
         <ClearableExample
@@ -1262,8 +1295,7 @@ describe('DatePicker', () => {
       );
       const input = getByTestId('input');
 
-      await user.clear(input);
-      await user.type(input, 'invalid date');
+      fireEvent.change(input, { target: { value: 'invalid date' } });
       await user.tab();
 
       expect(onValueSettledSpy).not.toHaveBeenCalled();
