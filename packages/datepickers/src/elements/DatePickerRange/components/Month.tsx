@@ -265,10 +265,9 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             $isCompact={isCompact!}
             $isPreviousMonth={isPreviousMonth}
             isPill
-            isBasic={!isSelected}
+            isBasic
             isNeutral={!isSelected}
             isPressed={!!(!isInvalidDateRange && isSelected)}
-            isPrimary={!!(!isInvalidDateRange && isSelected)}
             aria-current={isCurrentDate ? 'date' : undefined}
             aria-disabled={isDisabled || undefined}
             tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
