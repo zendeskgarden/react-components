@@ -8,6 +8,13 @@
 export { StyledMenu } from './StyledMenu';
 export { StyledMenuWrapper } from './StyledMenuWrapper';
 export { StyledDatePicker } from './StyledDatePicker';
+export { StyledCalendarGrid } from './StyledCalendarGrid';
+export { StyledCalendarMonth } from './StyledCalendarMonth';
+export { StyledCalendarToolbar } from './StyledCalendarToolbar';
+export { StyledCalendarHeading } from './StyledCalendarHeading';
+export { StyledCalendarTable } from './StyledCalendarTable';
+export { StyledDayLabelHeader } from './StyledDayLabelHeader';
+export { StyledCalendarGridCell } from './StyledCalendarGridCell';
 export { StyledRangeCalendar } from './StyledRangeCalendar';
 export { StyledHeader } from './StyledHeader';
 export { StyledHeaderPaddle } from './StyledHeaderPaddle';

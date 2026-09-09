@@ -8,6 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import {
+  act,
   render,
   fireEvent,
   getAllByTestId as globalGetAllByTestId,
@@ -520,6 +521,267 @@ describe('DatePickerRange', () => {
       expect(calendarWrappers[0]).toHaveStyleRule('margin', '16px');
       rerender(<Example />);
       expect(calendarWrappers[0]).toHaveStyleRule('margin', '20px');
+    });
+  });
+
+  describe('Header toolbar', () => {
+    it('gives the header a toolbar role and an accessible name', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getByRole('toolbar')).toHaveAccessibleName('Calendar view');
+    });
+
+    it('sets lang="en" on the default toolbar label', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getByRole('toolbar')).toHaveAttribute('lang', 'en');
+    });
+
+    it('reflects a consumer-provided toolbar label without setting lang', () => {
+      const { getByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          toolbarLabel="Navigation du calendrier"
+        />
+      );
+
+      const toolbar = getByRole('toolbar');
+
+      expect(toolbar).toHaveAccessibleName('Navigation du calendrier');
+      expect(toolbar).not.toHaveAttribute('lang');
+    });
+
+    it('renders the year paddles with default accessible names and lang="en"', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousButton = getByRole('button', { name: 'Previous year' });
+      const nextButton = getByRole('button', { name: 'Next year' });
+
+      expect(previousButton).toHaveAttribute('lang', 'en');
+      expect(nextButton).toHaveAttribute('lang', 'en');
+    });
+
+    it('reflects consumer-provided year paddle labels without setting lang', () => {
+      const { getByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          previousYearLabel="Année précédente"
+          nextYearLabel="Année suivante"
+        />
+      );
+
+      const previousButton = getByRole('button', { name: 'Année précédente' });
+      const nextButton = getByRole('button', { name: 'Année suivante' });
+
+      expect(previousButton).not.toHaveAttribute('lang');
+      expect(nextButton).not.toHaveAttribute('lang');
+    });
+
+    it('renders exactly one previous-year and next-year paddle', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getAllByRole('button', { name: 'Previous year' })).toHaveLength(1);
+      expect(getAllByRole('button', { name: 'Next year' })).toHaveLength(1);
+    });
+
+    it('displays the same months one year earlier if the previous year paddle is clicked', async () => {
+      const { getByRole, getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      await user.click(getByRole('button', { name: 'Previous year' }));
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2018');
+      expect(monthDisplays[1]).toHaveTextContent('March 2018');
+    });
+
+    it('displays the same months one year later if the next year paddle is clicked', async () => {
+      const { getByRole, getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      await user.click(getByRole('button', { name: 'Next year' }));
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2020');
+      expect(monthDisplays[1]).toHaveTextContent('March 2020');
+    });
+
+    it('gives exactly one paddle tabindex="0" initially, matching the first control', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousYear = getByRole('button', { name: 'Previous year' });
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+      const nextMonth = getByRole('button', { name: 'Next month' });
+      const nextYear = getByRole('button', { name: 'Next year' });
+
+      expect(previousYear).toHaveAttribute('tabindex', '0');
+      [previousMonth, nextMonth, nextYear].forEach(button => {
+        expect(button).toHaveAttribute('tabindex', '-1');
+      });
+    });
+
+    it('moves focus to the next paddle when ArrowRight is pressed', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousYear = getByRole('button', { name: 'Previous year' });
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+
+      act(() => {
+        previousYear.focus();
+      });
+      fireEvent.keyDown(previousYear, { key: KEYS.RIGHT });
+
+      expect(previousMonth).toHaveFocus();
+      expect(previousMonth).toHaveAttribute('tabindex', '0');
+      expect(previousYear).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous paddle when ArrowLeft is pressed', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+      const previousYear = getByRole('button', { name: 'Previous year' });
+
+      act(() => {
+        previousMonth.focus();
+      });
+      fireEvent.keyDown(previousMonth, { key: KEYS.LEFT });
+
+      expect(previousYear).toHaveFocus();
+    });
+
+    it('wraps focus from the last paddle to the first when ArrowRight is pressed', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const nextYear = getByRole('button', { name: 'Next year' });
+      const previousYear = getByRole('button', { name: 'Previous year' });
+
+      act(() => {
+        nextYear.focus();
+      });
+      fireEvent.keyDown(nextYear, { key: KEYS.RIGHT });
+
+      expect(previousYear).toHaveFocus();
+    });
+
+    it('wraps focus from the first paddle to the last when ArrowLeft is pressed', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousYear = getByRole('button', { name: 'Previous year' });
+      const nextYear = getByRole('button', { name: 'Next year' });
+
+      act(() => {
+        previousYear.focus();
+      });
+      fireEvent.keyDown(previousYear, { key: KEYS.LEFT });
+
+      expect(nextYear).toHaveFocus();
+    });
+
+    it('moves focus to the first paddle when Home is pressed', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const nextMonth = getByRole('button', { name: 'Next month' });
+      const previousYear = getByRole('button', { name: 'Previous year' });
+
+      act(() => {
+        nextMonth.focus();
+      });
+      fireEvent.keyDown(nextMonth, { key: KEYS.HOME });
+
+      expect(previousYear).toHaveFocus();
+    });
+
+    it('moves focus to the last paddle when End is pressed', () => {
+      const { getByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousMonth = getByRole('button', { name: 'Previous month' });
+      const nextYear = getByRole('button', { name: 'Next year' });
+
+      act(() => {
+        previousMonth.focus();
+      });
+      fireEvent.keyDown(previousMonth, { key: KEYS.END });
+
+      expect(nextYear).toHaveFocus();
+    });
+
+    it('keeps exactly one day tabbable, without moving focus off the paddle, when previous-year is clicked', () => {
+      const { getByRole, getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const previousButton = getByRole('button', { name: 'Previous year' });
+
+      act(() => {
+        previousButton.focus();
+      });
+      fireEvent.click(previousButton);
+
+      expect(previousButton).toHaveFocus();
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+      const allDays = wrappers.flatMap(wrapper =>
+        within(wrapper)
+          .getAllByRole('button')
+          .filter(button => button.getAttribute('data-test-id') === 'day')
+      );
+      const focusedDays = allDays.filter(day => day.getAttribute('tabindex') === '0');
+
+      expect(focusedDays).toHaveLength(1);
+    });
+
+    it('keeps exactly one day tabbable, without moving focus off the paddle, when next-year is clicked', () => {
+      const { getByRole, getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const nextButton = getByRole('button', { name: 'Next year' });
+
+      act(() => {
+        nextButton.focus();
+      });
+      fireEvent.click(nextButton);
+
+      expect(nextButton).toHaveFocus();
+
+      const wrappers = getAllByTestId('calendar-wrapper');
+      const allDays = wrappers.flatMap(wrapper =>
+        within(wrapper)
+          .getAllByRole('button')
+          .filter(button => button.getAttribute('data-test-id') === 'day')
+      );
+      const focusedDays = allDays.filter(day => day.getAttribute('tabindex') === '0');
+
+      expect(focusedDays).toHaveLength(1);
     });
   });
 
@@ -1152,7 +1414,9 @@ describe('DatePickerRange', () => {
 
       const nextButton = getAllByTestId('next-month')[0];
 
-      nextButton.focus();
+      act(() => {
+        nextButton.focus();
+      });
       fireEvent.click(nextButton);
 
       expect(nextButton).toHaveFocus();
@@ -1172,7 +1436,9 @@ describe('DatePickerRange', () => {
 
       const previousButton = getAllByTestId('previous-month')[0];
 
-      previousButton.focus();
+      act(() => {
+        previousButton.focus();
+      });
       fireEvent.click(previousButton);
 
       expect(previousButton).toHaveFocus();

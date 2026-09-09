@@ -23,15 +23,19 @@ import { isSameMonth } from 'date-fns/isSameMonth';
 import { getDate } from 'date-fns/getDate';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import {
-  StyledDatePicker,
-  StyledCalendar,
+  StyledCalendarGrid,
+  StyledCalendarMonth,
+  StyledCalendarHeading,
+  StyledCalendarTable,
   StyledCalendarRow,
+  StyledDayLabelHeader,
   StyledDayLabel,
+  StyledCalendarGridCell,
   StyledDayButton
 } from '../../../styled';
+import { Toolbar } from '../../../components/Toolbar';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import { DateFnsIndex, getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
-import { MonthSelector } from './MonthSelector';
 
 interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: Date;
@@ -141,6 +145,18 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       weekStartsOn: preferredWeekStartsOn
     });
 
+    const headerLabelFormatter = useCallback<(date: Date) => string>(
+      date => {
+        const formatter = new Intl.DateTimeFormat(locale, {
+          month: 'long',
+          year: 'numeric'
+        });
+
+        return formatter.format(date);
+      },
+      [locale]
+    );
+
     const dayLabelFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
@@ -168,11 +184,15 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <th key={`day-label-${formattedDayLabel}`} scope="col" abbr={fullDayLabelFormatter(date)}>
+          <StyledDayLabelHeader
+            key={`day-label-${formattedDayLabel}`}
+            scope="col"
+            abbr={fullDayLabelFormatter(date)}
+          >
             <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
-          </th>
+          </StyledDayLabelHeader>
         );
       }
     );
@@ -186,7 +206,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
-        <td key={date.toISOString()} role="gridcell">
+        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledCalendarGridCell already renders a <td>; eslint can't see through the styled-component wrapper
+        <StyledCalendarGridCell key={date.toISOString()} role="gridcell">
           <StyledDayButton
             $isCompact={isCompact!}
             $isPreviousMonth={isPreviousMonth}
@@ -217,7 +238,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           >
             {formattedDayLabel}
           </StyledDayButton>
-        </td>
+        </StyledCalendarGridCell>
       );
     });
 
@@ -227,40 +248,60 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     }));
 
     return (
-      <StyledDatePicker
+      <StyledCalendarGrid
         ref={ref}
-        $isCompact={isCompact!}
         data-test-id="calendar-wrapper"
-        onMouseDown={e => {
+        onMouseDown={(e: React.MouseEvent) => {
           /** Stop focus from escaping input */
           e.preventDefault();
         }}
       >
-        <MonthSelector
-          locale={locale}
-          isCompact={isCompact!}
+        <Toolbar
+          isCompact={isCompact}
+          isGrid
           previousMonthLabel={previousMonthLabel}
           nextMonthLabel={nextMonthLabel}
           previousYearLabel={previousYearLabel}
           nextYearLabel={nextYearLabel}
           toolbarLabel={toolbarLabel}
-          headingId={headingId}
+          onPreviousYear={() => {
+            dispatch({ type: 'FOCUS_DATE', value: subYears(state.focusedDate, 1) });
+          }}
+          onPreviousMonth={() => {
+            dispatch({ type: 'FOCUS_DATE', value: subMonths(state.focusedDate, 1) });
+          }}
+          onNextMonth={() => {
+            dispatch({ type: 'FOCUS_DATE', value: addMonths(state.focusedDate, 1) });
+          }}
+          onNextYear={() => {
+            dispatch({ type: 'FOCUS_DATE', value: addYears(state.focusedDate, 1) });
+          }}
         />
-        <StyledCalendar
-          as="table"
-          ref={tableRef}
-          $isCompact={isCompact!}
-          role="grid"
-          aria-labelledby={headingId}
-        >
-          <tbody>
-            <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
-            {weeks.map(week => (
-              <StyledCalendarRow key={week.key}>{week.days}</StyledCalendarRow>
-            ))}
-          </tbody>
-        </StyledCalendar>
-      </StyledDatePicker>
+        <StyledCalendarMonth $isCompact={isCompact!}>
+          <StyledCalendarHeading
+            id={headingId}
+            aria-live="polite"
+            $isCompact={isCompact!}
+            data-test-id="month-display"
+          >
+            {headerLabelFormatter(state.previewDate)}
+          </StyledCalendarHeading>
+          <StyledCalendarTable
+            as="table"
+            ref={tableRef}
+            $isCompact={isCompact!}
+            role="grid"
+            aria-labelledby={headingId}
+          >
+            <tbody>
+              <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
+              {weeks.map(week => (
+                <StyledCalendarRow key={week.key}>{week.days}</StyledCalendarRow>
+              ))}
+            </tbody>
+          </StyledCalendarTable>
+        </StyledCalendarMonth>
+      </StyledCalendarGrid>
     );
   }
 );

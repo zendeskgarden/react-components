@@ -7,6 +7,8 @@
 
 import { addMonths } from 'date-fns/addMonths';
 import { subMonths } from 'date-fns/subMonths';
+import { addYears } from 'date-fns/addYears';
+import { subYears } from 'date-fns/subYears';
 import { isBefore } from 'date-fns/isBefore';
 import { isValid } from 'date-fns/isValid';
 import { isSameDay } from 'date-fns/isSameDay';
@@ -138,6 +140,8 @@ export type DatePickerRangeAction =
   | { type: 'CLICK_DATE'; value: Date }
   | { type: 'PREVIEW_NEXT_MONTH' }
   | { type: 'PREVIEW_PREVIOUS_MONTH' }
+  | { type: 'PREVIEW_NEXT_YEAR' }
+  | { type: 'PREVIEW_PREVIOUS_YEAR' }
   | { type: 'START_INPUT_ONCHANGE'; value: string }
   | { type: 'END_INPUT_ONCHANGE'; value: string }
   | { type: 'START_BLUR' }
@@ -323,6 +327,18 @@ export const datepickerRangeReducer =
       case 'PREVIEW_PREVIOUS_MONTH': {
         const previewDate = subMonths(state.previewDate, 1);
         const focusedDate = subMonths(state.focusedDate, 1);
+
+        return { ...state, previewDate, focusedDate, hoverDate: undefined };
+      }
+      case 'PREVIEW_NEXT_YEAR': {
+        const previewDate = addYears(state.previewDate, 1);
+        const focusedDate = addYears(state.focusedDate, 1);
+
+        return { ...state, previewDate, focusedDate, hoverDate: undefined };
+      }
+      case 'PREVIEW_PREVIOUS_YEAR': {
+        const previewDate = subYears(state.previewDate, 1);
+        const focusedDate = subYears(state.focusedDate, 1);
 
         return { ...state, previewDate, focusedDate, hoverDate: undefined };
       }

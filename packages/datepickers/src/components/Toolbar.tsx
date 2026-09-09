@@ -6,72 +6,75 @@
  */
 
 import React, { useCallback, useRef, useState } from 'react';
-import { addMonths } from 'date-fns/addMonths';
-import { subMonths } from 'date-fns/subMonths';
-import { addYears } from 'date-fns/addYears';
-import { subYears } from 'date-fns/subYears';
 import { useText } from '@zendeskgarden/react-theming';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
-import useDatePickerContext from '../utils/useDatePickerContext';
+import { StyledHeader, StyledCalendarToolbar, StyledHeaderPaddle } from '../styled';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import ChevronDoubleLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
 import ChevronDoubleRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-double-right-stroke.svg';
 
-interface IMonthSelectorProps {
-  locale?: string;
-  isCompact: boolean;
+export interface IToolbarProps {
+  isCompact?: boolean;
+  /**
+   * Renders the toolbar as a CSS grid, subgridding into its parent's column
+   * tracks so its paddles can align to specific columns - used only by
+   * `DatePicker`, whose calendar wrapper (`StyledCalendarGrid`) provides
+   * those tracks. `DatePickerRange` doesn't set this, since its calendar
+   * wrapper isn't (yet) a grid.
+   */
+  isGrid?: boolean;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   previousYearLabel?: string;
   nextYearLabel?: string;
   toolbarLabel?: string;
-  headingId: string;
+  onPreviousYear: () => void;
+  onPreviousMonth: () => void;
+  onNextMonth: () => void;
+  onNextYear: () => void;
 }
 
 type Paddle = 'previousYear' | 'previousMonth' | 'nextMonth' | 'nextYear';
 
 const PADDLE_ORDER: Paddle[] = ['previousYear', 'previousMonth', 'nextMonth', 'nextYear'];
 
-export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
-  locale,
+/**
+ * Shared month/year navigation toolbar rendered by both `DatePicker` and
+ * `DatePickerRange`. Purely presentational - each consumer supplies its own
+ * `onPrevious*`/`onNext*` callbacks, since the two components dispatch
+ * different reducer actions to shift their (single- or dual-month) preview
+ * window.
+ */
+export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   isCompact,
+  isGrid,
   previousMonthLabel,
   nextMonthLabel,
   previousYearLabel,
   nextYearLabel,
   toolbarLabel,
-  headingId
+  onPreviousYear,
+  onPreviousMonth,
+  onNextMonth,
+  onNextYear
 }) => {
-  const { state, dispatch } = useDatePickerContext();
-
   const previousMonthAriaLabel = useText(
-    MonthSelector,
+    Toolbar,
     { previousMonthLabel },
     'previousMonthLabel',
     'Previous month'
   );
-  const nextMonthAriaLabel = useText(
-    MonthSelector,
-    { nextMonthLabel },
-    'nextMonthLabel',
-    'Next month'
-  );
+  const nextMonthAriaLabel = useText(Toolbar, { nextMonthLabel }, 'nextMonthLabel', 'Next month');
   const previousYearAriaLabel = useText(
-    MonthSelector,
+    Toolbar,
     { previousYearLabel },
     'previousYearLabel',
     'Previous year'
   );
-  const nextYearAriaLabel = useText(MonthSelector, { nextYearLabel }, 'nextYearLabel', 'Next year');
-  const toolbarAriaLabel = useText(
-    MonthSelector,
-    { toolbarLabel },
-    'toolbarLabel',
-    'Calendar view'
-  );
+  const nextYearAriaLabel = useText(Toolbar, { nextYearLabel }, 'nextYearLabel', 'Next year');
+  const toolbarAriaLabel = useText(Toolbar, { toolbarLabel }, 'toolbarLabel', 'Calendar view');
 
   /**
    * Roving tabindex across the toolbar's 4 paddles, per the APG Toolbar
@@ -123,21 +126,10 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
     []
   );
 
-  const headerLabelFormatter = useCallback<(date: Date) => string>(
-    date => {
-      const formatter = new Intl.DateTimeFormat(locale, {
-        month: 'long',
-        year: 'numeric'
-      });
-
-      return formatter.format(date);
-    },
-    [locale]
-  );
+  const Header = isGrid ? StyledCalendarToolbar : StyledHeader;
 
   return (
-    <StyledHeader
-      $isCompact={isCompact}
+    <Header
       role="toolbar"
       lang={toolbarLabel === undefined ? 'en' : undefined}
       aria-label={toolbarAriaLabel}
@@ -154,9 +146,8 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
         aria-label={previousYearAriaLabel}
         tabIndex={focusedPaddle === 'previousYear' ? 0 : -1}
         onFocus={() => setFocusedPaddle('previousYear')}
-        onClick={() => {
-          dispatch({ type: 'FOCUS_DATE', value: subYears(state.focusedDate, 1) });
-        }}
+        onClick={onPreviousYear}
+        $gridColumn={isGrid ? '1' : undefined}
         data-test-id="previous-year"
       >
         <ChevronDoubleLeftStrokeIcon />
@@ -172,21 +163,12 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
         aria-label={previousMonthAriaLabel}
         tabIndex={focusedPaddle === 'previousMonth' ? 0 : -1}
         onFocus={() => setFocusedPaddle('previousMonth')}
-        onClick={() => {
-          dispatch({ type: 'FOCUS_DATE', value: subMonths(state.focusedDate, 1) });
-        }}
+        onClick={onPreviousMonth}
+        $gridColumn={isGrid ? '2' : undefined}
         data-test-id="previous-month"
       >
         <ChevronLeftStrokeIcon />
       </StyledHeaderPaddle>
-      <StyledHeaderLabel
-        id={headingId}
-        aria-live="polite"
-        $isCompact={isCompact}
-        data-test-id="month-display"
-      >
-        {headerLabelFormatter(state.previewDate)}
-      </StyledHeaderLabel>
       <StyledHeaderPaddle
         ref={paddleRefs.nextMonth}
         type="button"
@@ -198,9 +180,8 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
         aria-label={nextMonthAriaLabel}
         tabIndex={focusedPaddle === 'nextMonth' ? 0 : -1}
         onFocus={() => setFocusedPaddle('nextMonth')}
-        onClick={() => {
-          dispatch({ type: 'FOCUS_DATE', value: addMonths(state.focusedDate, 1) });
-        }}
+        onClick={onNextMonth}
+        $gridColumn={isGrid ? '-3' : undefined}
         data-test-id="next-month"
       >
         <ChevronRightStrokeIcon />
@@ -216,13 +197,14 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
         aria-label={nextYearAriaLabel}
         tabIndex={focusedPaddle === 'nextYear' ? 0 : -1}
         onFocus={() => setFocusedPaddle('nextYear')}
-        onClick={() => {
-          dispatch({ type: 'FOCUS_DATE', value: addYears(state.focusedDate, 1) });
-        }}
+        onClick={onNextYear}
+        $gridColumn={isGrid ? '-2' : undefined}
         data-test-id="next-year"
       >
         <ChevronDoubleRightStrokeIcon />
       </StyledHeaderPaddle>
-    </StyledHeader>
+    </Header>
   );
 };
+
+Toolbar.displayName = 'Toolbar';

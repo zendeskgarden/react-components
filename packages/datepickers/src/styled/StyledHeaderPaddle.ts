@@ -9,7 +9,12 @@ import styled from 'styled-components';
 import { componentStyles } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
-export const StyledHeaderPaddle = styled(IconButton)`
+interface IStyledHeaderPaddleProps {
+  $gridColumn?: string;
+}
+
+export const StyledHeaderPaddle = styled(IconButton)<IStyledHeaderPaddleProps>`
+  grid-column: ${props => props.$gridColumn};
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
 
   ${componentStyles};

@@ -18,6 +18,7 @@ const sizeStyles = ({ $isCompact, theme }: IStyledDayButtonProps & ThemeProps<De
   const size = theme.space.base * ($isCompact ? 8 : 10);
 
   return css`
+    margin: 0;
     border-radius: 50%;
     padding: 0;
     width: ${size}px;

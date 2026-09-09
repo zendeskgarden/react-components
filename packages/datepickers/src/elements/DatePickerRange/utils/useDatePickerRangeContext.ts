@@ -29,6 +29,9 @@ export interface IDatePickerRangeContext {
   customParseDate?: (inputValue?: string) => Date;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
+  previousYearLabel?: string;
+  nextYearLabel?: string;
+  toolbarLabel?: string;
 }
 
 export const DatePickerRangeContext = createContext<IDatePickerRangeContext | undefined>(undefined);

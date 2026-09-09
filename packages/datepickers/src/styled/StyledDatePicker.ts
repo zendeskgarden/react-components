@@ -10,15 +10,17 @@ import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.datepicker';
 
-interface IStyledDatePickerProps {
+export interface IStyledDatePickerProps {
   $isCompact: boolean;
 }
 
 const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & ThemeProps<DefaultTheme>) => {
   const margin = theme.space.base * ($isCompact ? 4 : 5);
+  const maxWidth = theme.space.base * ($isCompact ? 56 : 70);
 
   return css`
     margin: ${margin}px;
+    max-width: ${maxWidth}px;
   `;
 };
 

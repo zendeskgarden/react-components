@@ -157,6 +157,9 @@ export interface IDatePickerRangeProps extends Pick<
   | 'isCompact'
   | 'previousMonthLabel'
   | 'nextMonthLabel'
+  | 'previousYearLabel'
+  | 'nextYearLabel'
+  | 'toolbarLabel'
 > {
   /**
    * Sets the start date
