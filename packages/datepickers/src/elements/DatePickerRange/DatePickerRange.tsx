@@ -37,6 +37,9 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     maxValue,
     previousMonthLabel,
     nextMonthLabel,
+    previousYearLabel,
+    nextYearLabel,
+    toolbarLabel,
     children
   } = props;
 
@@ -89,7 +92,10 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       getInputProps,
       customParseDate,
       previousMonthLabel,
-      nextMonthLabel
+      nextMonthLabel,
+      previousYearLabel,
+      nextYearLabel,
+      toolbarLabel
     }),
     [
       state,
@@ -109,7 +115,10 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       getInputProps,
       customParseDate,
       previousMonthLabel,
-      nextMonthLabel
+      nextMonthLabel,
+      previousYearLabel,
+      nextYearLabel,
+      toolbarLabel
     ]
   );
 
