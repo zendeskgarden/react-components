@@ -256,12 +256,16 @@ export const datepickerRangeReducer =
           ) {
             return {
               ...state,
+              isStartFocused: false,
+              isEndFocused: false,
               startInputValue: formatValue({ value: action.value })
             };
           }
 
           return {
             ...state,
+            isStartFocused: false,
+            isEndFocused: false,
             startInputValue: formatValue({ value: action.value }),
             endInputValue: undefined
           };
@@ -270,10 +274,20 @@ export const datepickerRangeReducer =
             startValue !== undefined &&
             (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
           ) {
-            return { ...state, endInputValue: formatValue({ value: action.value }) };
+            return {
+              ...state,
+              isStartFocused: false,
+              isEndFocused: false,
+              endInputValue: formatValue({ value: action.value })
+            };
           }
 
-          return { ...state, startInputValue: formatValue({ value: action.value }) };
+          return {
+            ...state,
+            isStartFocused: false,
+            isEndFocused: false,
+            startInputValue: formatValue({ value: action.value })
+          };
         } else if (startValue === undefined) {
           return {
             ...state,
