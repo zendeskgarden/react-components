@@ -102,6 +102,22 @@ describe('StyledDayButton', () => {
     }
   );
 
+  it.each<{ mode: 'light' | 'dark'; color: string }>([
+    { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
+    { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
+  ])(
+    'shows the same $mode mode tinted background when the enclosing cell is hovered, instead of the half-filled tint behind it',
+    ({ mode, color }) => {
+      const { container } = getRenderFn(mode)(
+        <StyledDayButton $isCompact={false}>5</StyledDayButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('background-color', color, {
+        modifier: "td:hover>&&[aria-pressed='false']:not([aria-disabled='true'])"
+      });
+    }
+  );
+
   it.each<{ mode: 'light' | 'dark'; background: string; color: string }>([
     { mode: 'light', background: '#1f73b7', color: '#fff' },
     { mode: 'dark', background: '#2694d6', color: '#151a1e' }

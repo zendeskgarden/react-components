@@ -232,6 +232,28 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         (state.hoverDate && isSameDay(date, state.hoverDate) && !isBefore(date, endValue!)) ||
         false;
 
+      /**
+       * A hovered (not yet committed) boundary candidate tints the half of
+       * its cell that continues into the range - but if that candidate lands
+       * on the first or last day of its row, that tinted half has no
+       * neighboring cell in the same row to blend into, and shows up as a
+       * disconnected patch of color. There's no committed pin to anchor it
+       * either, so the cell is left untinted entirely rather than falling
+       * back to a solid fill.
+       */
+      const isRowStart = isSameDay(
+        date,
+        startOfWeek(date, { weekStartsOn: preferredWeekStartsOn })
+      );
+      const isRowEnd = isSameDay(date, endOfWeek(date, { weekStartsOn: preferredWeekStartsOn }));
+      const suppressHighlight =
+        (isHighlightEnd && endValue === undefined && isRowStart) ||
+        (isHighlightStart && startValue === undefined && isRowEnd);
+
+      const showHighlighted = isHighlighted && !suppressHighlight && !isDisabled;
+      const showHighlightStartGradient = isHighlightStart && !suppressHighlight;
+      const showHighlightEndGradient = isHighlightEnd && !suppressHighlight;
+
       let isInvalidDateRange =
         (endValue && startValue && compareAsc(endValue, startValue) === -1) || false;
 
@@ -262,13 +284,18 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         <StyledRangeDayCell
           key={date.toISOString()}
           role="gridcell"
-          $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
-          $isHighlightStart={!isInvalidDateRange && isHighlightStart}
-          $isHighlightEnd={!isInvalidDateRange && isHighlightEnd}
+          $isHighlighted={!isInvalidDateRange && showHighlighted}
+          $isHighlightStart={!isInvalidDateRange && showHighlightStartGradient}
+          $isHighlightEnd={!isInvalidDateRange && showHighlightEndGradient}
           data-test-id="day-cell"
           data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
           data-test-start={!isInvalidDateRange && isHighlightStart}
           data-test-end={!isInvalidDateRange && isHighlightEnd}
+          onMouseEnter={() => {
+            if (!isSelected) {
+              dispatch({ type: 'HOVER_DATE', value: date });
+            }
+          }}
         >
           <StyledDayButton
             $isCompact={isCompact!}
@@ -324,11 +351,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
                 valid: !isOutOfOrder,
                 ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
               });
-            }}
-            onMouseEnter={() => {
-              if (!isSelected) {
-                dispatch({ type: 'HOVER_DATE', value: date });
-              }
             }}
             onKeyDown={event => handleDayKeyDown(event, date)}
             data-test-id="day"
