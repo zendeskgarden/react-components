@@ -58,6 +58,22 @@ describe('StyledDayButton', () => {
   });
 
   it.each<{ mode: 'light' | 'dark'; color: string }>([
+    { mode: 'light', color: PALETTE.blue[700] },
+    { mode: 'dark', color: PALETTE.blue[600] }
+  ])(
+    'shows a primary $mode mode foreground for current-month days by default',
+    ({ mode, color }) => {
+      const { container } = getRenderFn(mode)(
+        <StyledDayButton $isCompact={false}>5</StyledDayButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('color', color, {
+        modifier: "&&:not([aria-current='date'])"
+      });
+    }
+  );
+
+  it.each<{ mode: 'light' | 'dark'; color: string }>([
     { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
     { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
   ])('shows an opaque tinted $mode mode hover background when not pressed', ({ mode, color }) => {
@@ -82,6 +98,25 @@ describe('StyledDayButton', () => {
 
       expect(container.firstChild).toHaveStyleRule('background-color', color, {
         modifier: "&&[aria-pressed='false']:not([aria-disabled='true']):focus-visible"
+      });
+    }
+  );
+
+  it.each<{ mode: 'light' | 'dark'; background: string; color: string }>([
+    { mode: 'light', background: '#1f73b7', color: '#fff' },
+    { mode: 'dark', background: '#2694d6', color: '#151a1e' }
+  ])(
+    'shows a solid $mode mode background when selected, regardless of press state',
+    ({ mode, background, color }) => {
+      const { container } = getRenderFn(mode)(
+        <StyledDayButton $isCompact={false}>5</StyledDayButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('background-color', background, {
+        modifier: "&&[aria-pressed='true']"
+      });
+      expect(container.firstChild).toHaveStyleRule('color', color, {
+        modifier: "&&[aria-pressed='true']"
       });
     }
   );

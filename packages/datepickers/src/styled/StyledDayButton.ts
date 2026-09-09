@@ -30,14 +30,20 @@ const colorStyles = ({
   $isPreviousMonth,
   theme
 }: IStyledDayButtonProps & ThemeProps<DefaultTheme>) => {
-  if (!$isPreviousMonth) {
-    return undefined;
+  if ($isPreviousMonth) {
+    const foreground = getColor({ variable: 'foreground.subtle', theme });
+
+    return css`
+      && {
+        color: ${foreground};
+      }
+    `;
   }
 
-  const foreground = getColor({ variable: 'foreground.subtle', theme });
+  const foreground = getColor({ variable: 'foreground.primary', theme });
 
   return css`
-    && {
+    &&:not([aria-current='date']) {
       color: ${foreground};
     }
   `;
@@ -51,6 +57,18 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     &&[aria-pressed='false']:not([aria-disabled='true']):hover,
     &&[aria-pressed='false']:not([aria-disabled='true']):focus-visible {
       background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
+    }
+  `;
+};
+
+const pressedStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const background = getColor({ variable: 'background.primaryEmphasis', theme });
+  const foreground = getColor({ variable: 'foreground.onEmphasis', theme });
+
+  return css`
+    &&[aria-pressed='true'] {
+      background-color: ${background};
+      color: ${foreground};
     }
   `;
 };
@@ -77,6 +95,7 @@ export const StyledDayButton = styled(ToggleButton)<IStyledDayButtonProps>`
   ${sizeStyles}
   ${colorStyles}
   ${hoverStyles}
+  ${pressedStyles}
   ${disabledStyles}
 
   ${componentStyles};

@@ -214,9 +214,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             $isPreviousMonth={isPreviousMonth}
             isPressed={!!(isSelected && !isDisabled)}
             isPill
-            isBasic={!isSelected}
+            isBasic
             isNeutral={!isSelected}
-            isPrimary={!!(isSelected && !isDisabled)}
             aria-disabled={isDisabled || undefined}
             aria-current={isCurrentDate ? 'date' : undefined}
             tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
