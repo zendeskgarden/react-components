@@ -291,8 +291,7 @@ export const datepickerRangeReducer =
         } else if (startValue === undefined) {
           return {
             ...state,
-            startInputValue: formatValue({ value: action.value }),
-            endInputValue: undefined
+            startInputValue: formatValue({ value: action.value })
           };
         } else if (endValue === undefined) {
           if (isBefore(action.value, startValue)) {
