@@ -292,9 +292,13 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           data-test-start={!isInvalidDateRange && isHighlightStart}
           data-test-end={!isInvalidDateRange && isHighlightEnd}
           onMouseEnter={() => {
-            if (!isSelected) {
-              dispatch({ type: 'HOVER_DATE', value: date });
-            }
+            /**
+             * Hovering an already-selected day has no candidate to preview,
+             * but must still clear any stale hoverDate left over from
+             * hovering a nearby day right before this one - otherwise the
+             * highlight from that day lingers indefinitely.
+             */
+            dispatch({ type: 'HOVER_DATE', value: isSelected ? undefined : date });
           }}
         >
           <StyledDayButton
