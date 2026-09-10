@@ -13,6 +13,8 @@ import { useDatePickerRange } from './utils/useDatePickerRange';
 import { Start } from './components/Start';
 import { End } from './components/End';
 import { Calendar } from './components/Calendar';
+import { Trigger } from './components/Trigger';
+import { Dialog } from './components/Dialog';
 
 const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
   const {
@@ -109,8 +111,12 @@ export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRang
   Calendar: typeof Calendar;
   End: typeof End;
   Start: typeof Start;
+  Trigger: typeof Trigger;
+  Dialog: typeof Dialog;
 };
 
 DatePickerRange.Calendar = Calendar;
 DatePickerRange.End = End;
 DatePickerRange.Start = Start;
+DatePickerRange.Trigger = Trigger;
+DatePickerRange.Dialog = Dialog;
