@@ -5,23 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useCallback, useEffect, useRef } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
 import { endOfWeek } from 'date-fns/endOfWeek';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
-import { subDays } from 'date-fns/subDays';
-import { addMonths } from 'date-fns/addMonths';
-import { subMonths } from 'date-fns/subMonths';
-import { addYears } from 'date-fns/addYears';
-import { subYears } from 'date-fns/subYears';
-import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
 import { getDate } from 'date-fns/getDate';
-import { KEYS } from '@zendeskgarden/container-utilities';
 import {
   StyledCalendarGrid,
   StyledCalendarMonth,
@@ -44,14 +37,11 @@ interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'
   isCompact?: boolean;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
-  onChange?: (date: Date) => void;
-  inputRef?: React.RefObject<HTMLInputElement | null>;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   previousYearLabel?: string;
   nextYearLabel?: string;
   toolbarLabel?: string;
-  headingId: string;
 }
 
 export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
@@ -63,80 +53,29 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       isCompact,
       locale,
       weekStartsOn,
-      onChange,
-      inputRef,
       previousMonthLabel,
       nextMonthLabel,
       previousYearLabel,
       nextYearLabel,
-      toolbarLabel,
-      headingId
+      toolbarLabel
     },
     ref
   ) => {
-    const { state, dispatch } = useDatePickerContext();
-    const tableRef = useRef<HTMLTableElement>(null);
+    const {
+      previewDate,
+      getCalendarProps,
+      getGridProps,
+      getHeadingProps,
+      getDayProps,
+      focusPreviousMonth,
+      focusNextMonth,
+      focusPreviousYear,
+      focusNextYear
+    } = useDatePickerContext();
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
 
-    const pendingGridFocusRef = useRef(false);
-
-    useEffect(() => {
-      /**
-       * Only follow a focusedDate change with real DOM focus when it was
-       * triggered by keyboard navigation from within the grid itself (flagged
-       * by handleDayKeyDown below) - month/year paddle clicks also update
-       * focusedDate (so the roving tabindex stays correct), but deliberately
-       * leave real focus on the paddle button that was clicked.
-       */
-      if (!pendingGridFocusRef.current) {
-        return;
-      }
-
-      pendingGridFocusRef.current = false;
-      tableRef.current?.querySelector<HTMLButtonElement>('[tabindex="0"]')?.focus();
-    }, [state.focusedDate]);
-
-    const handleDayKeyDown = useCallback(
-      (event: React.KeyboardEvent<HTMLButtonElement>, date: Date) => {
-        let targetDate: Date;
-
-        switch (event.key) {
-          case KEYS.RIGHT:
-            targetDate = addDays(date, 1);
-            break;
-          case KEYS.LEFT:
-            targetDate = subDays(date, 1);
-            break;
-          case KEYS.DOWN:
-            targetDate = addDays(date, 7);
-            break;
-          case KEYS.UP:
-            targetDate = subDays(date, 7);
-            break;
-          case KEYS.HOME:
-            targetDate = startOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
-            break;
-          case KEYS.END:
-            targetDate = endOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
-            break;
-          case KEYS.PAGE_DOWN:
-            targetDate = event.shiftKey ? addYears(date, 1) : addMonths(date, 1);
-            break;
-          case KEYS.PAGE_UP:
-            targetDate = event.shiftKey ? subYears(date, 1) : subMonths(date, 1);
-            break;
-          default:
-            return;
-        }
-
-        event.preventDefault();
-        pendingGridFocusRef.current = true;
-        dispatch({ type: 'FOCUS_DATE', value: targetDate });
-      },
-      [dispatch, preferredWeekStartsOn]
-    );
-    const monthStartDate = startOfMonth(state.previewDate);
+    const monthStartDate = startOfMonth(previewDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
       weekStartsOn: preferredWeekStartsOn
@@ -145,7 +84,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       weekStartsOn: preferredWeekStartsOn
     });
 
-    const headerLabelFormatter = useCallback<(date: Date) => string>(
+    const headerLabelFormatter = React.useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           month: 'long',
@@ -157,7 +96,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       [locale]
     );
 
-    const dayLabelFormatter = useCallback<(date: Date) => string>(
+    const dayLabelFormatter = React.useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           weekday: 'short'
@@ -168,7 +107,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       [locale]
     );
 
-    const fullDayLabelFormatter = useCallback<(date: Date) => string>(
+    const fullDayLabelFormatter = React.useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
           weekday: 'long'
@@ -200,10 +139,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
 
     const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = getDate(date);
-      const isCurrentDate = isToday(date);
-      const isPreviousMonth = !isSameMonth(date, state.previewDate);
-      const isSelected = value && isSameDay(date, value);
-
+      const isPreviousMonth = !isSameMonth(date, previewDate);
+      const isSelected = !!(value && isSameDay(date, value));
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
@@ -216,25 +153,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             isPill
             isBasic
             isNeutral={!isSelected}
-            aria-disabled={isDisabled || undefined}
-            aria-current={isCurrentDate ? 'date' : undefined}
-            tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
-            onClick={() => {
-              if (!isDisabled) {
-                if (onChange && !isSameDay(value!, date)) {
-                  onChange(date);
-                }
-
-                dispatch({ type: 'SELECT_DATE', value: date });
-                inputRef?.current?.focus();
-              }
-            }}
-            onKeyDown={event => handleDayKeyDown(event, date)}
-            data-test-id="day"
             data-test-previous={isPreviousMonth}
-            data-test-selected={isSelected}
-            data-test-disabled={isDisabled}
-            data-test-today={isCurrentDate}
+            {...getDayProps({ date })}
           >
             {formattedDayLabel}
           </StyledDayButton>
@@ -252,10 +172,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         ref={ref}
         $isCompact={isCompact}
         data-test-id="calendar-wrapper"
-        onMouseDown={(e: React.MouseEvent) => {
-          /** Stop focus from escaping input */
-          e.preventDefault();
-        }}
+        {...getCalendarProps()}
       >
         <Toolbar
           isCompact={isCompact}
@@ -264,35 +181,20 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           previousYearLabel={previousYearLabel}
           nextYearLabel={nextYearLabel}
           toolbarLabel={toolbarLabel}
-          onPreviousYear={() => {
-            dispatch({ type: 'FOCUS_DATE', value: subYears(state.focusedDate, 1) });
-          }}
-          onPreviousMonth={() => {
-            dispatch({ type: 'FOCUS_DATE', value: subMonths(state.focusedDate, 1) });
-          }}
-          onNextMonth={() => {
-            dispatch({ type: 'FOCUS_DATE', value: addMonths(state.focusedDate, 1) });
-          }}
-          onNextYear={() => {
-            dispatch({ type: 'FOCUS_DATE', value: addYears(state.focusedDate, 1) });
-          }}
+          onPreviousYear={focusPreviousYear}
+          onPreviousMonth={focusPreviousMonth}
+          onNextMonth={focusNextMonth}
+          onNextYear={focusNextYear}
         />
         <StyledCalendarMonth $isCompact={isCompact!}>
           <StyledCalendarHeading
-            id={headingId}
-            aria-live="polite"
             $isCompact={isCompact!}
             data-test-id="month-display"
+            {...getHeadingProps()}
           >
-            {headerLabelFormatter(state.previewDate)}
+            {headerLabelFormatter(previewDate)}
           </StyledCalendarHeading>
-          <StyledCalendarTable
-            as="table"
-            ref={tableRef}
-            $isCompact={isCompact!}
-            role="grid"
-            aria-labelledby={headingId}
-          >
+          <StyledCalendarTable as="table" $isCompact={isCompact!} {...getGridProps()}>
             <tbody>
               <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
               {weeks.map(week => (
