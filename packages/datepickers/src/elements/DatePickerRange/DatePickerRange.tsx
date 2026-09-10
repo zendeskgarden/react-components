@@ -5,17 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  PropsWithChildren,
-  useReducer,
-  useCallback,
-  useEffect,
-  useRef,
-  useMemo
-} from 'react';
+import React, { PropsWithChildren, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { IDatePickerRangeProps } from '../../types';
-import { datepickerRangeReducer, retrieveInitialState } from './utils/date-picker-range-reducer';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
 import { useDatePickerRange } from './utils/useDatePickerRange';
 import { Start } from './components/Start';
@@ -43,40 +35,27 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     children
   } = props;
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const reducer = useCallback(
-    datepickerRangeReducer({
-      startValue,
-      locale,
-      formatDate,
-      endValue
-    }),
-    [startValue, endValue, locale, formatDate, onChange]
-  );
+  const startInputRef = useRef<HTMLInputElement>(null);
+  const endInputRef = useRef<HTMLInputElement>(null);
 
-  const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
-  const startInputRef = useRef<HTMLInputElement>();
-  const endInputRef = useRef<HTMLInputElement>();
-  const { calendarId, getInputProps } = useDatePickerRange();
-
-  useEffect(() => {
-    dispatch({
-      type: 'CONTROLLED_START_VALUE_CHANGE',
-      value: startValue
-    });
-  }, [startValue]);
-
-  useEffect(() => {
-    dispatch({
-      type: 'CONTROLLED_END_VALUE_CHANGE',
-      value: endValue
-    });
-  }, [endValue]);
+  const datePickerRange = useDatePickerRange({
+    startValue,
+    endValue,
+    minValue,
+    maxValue,
+    locale,
+    weekStartsOn,
+    formatDate,
+    customParseDate,
+    onChange,
+    onValueSettled,
+    startInputRef,
+    endInputRef
+  });
 
   const value = useMemo(
     () => ({
-      state,
-      dispatch,
+      ...datePickerRange,
       isCompact,
       locale,
       weekStartsOn,
@@ -84,13 +63,6 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       maxValue,
       startValue,
       endValue,
-      onChange,
-      onValueSettled,
-      startInputRef,
-      endInputRef,
-      calendarId,
-      getInputProps,
-      customParseDate,
       previousMonthLabel,
       nextMonthLabel,
       previousYearLabel,
@@ -98,8 +70,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       toolbarLabel
     }),
     [
-      state,
-      dispatch,
+      datePickerRange,
       isCompact,
       locale,
       weekStartsOn,
@@ -107,13 +78,6 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       maxValue,
       startValue,
       endValue,
-      onChange,
-      onValueSettled,
-      startInputRef,
-      endInputRef,
-      calendarId,
-      getInputProps,
-      customParseDate,
       previousMonthLabel,
       nextMonthLabel,
       previousYearLabel,
