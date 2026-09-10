@@ -97,8 +97,7 @@ export interface IUseDatePickerRangeReturnValue {
   getStartInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   getEndInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   /** Spread onto any field (in addition to getStartInputProps/getEndInputProps) that should open/focus the opt-in dialog. */
-  getFieldTriggerProps: (props?: HTMLProps<HTMLInputElement>) => HTMLProps<HTMLInputElement>;
-  getGroupProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
+  getFieldTriggerProps: (props?: IFieldInputProps) => IFieldInputProps;
   getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
   getDialogProps: (
     props: { 'aria-label': string } & ElementProps<HTMLDivElement>
@@ -199,8 +198,26 @@ export function useDatePickerRange({
 
   // --- Opt-in dialog mode ---
 
-  const groupRef = useRef<HTMLDivElement>(null);
+  /**
+   * Every element focus must leave for the widget to count as "left", for
+   * the dialog's blur-to-close and click-to-open detection - Start's/End's
+   * own wrapper divs, the trigger button, and the dialog itself. No single
+   * combining wrapper is needed: React's `onBlur` already bubbles within
+   * each of these independently, so attaching the same check to each is
+   * equivalent to attaching it once to a shared ancestor. Wrapped in
+   * `useMemo` (not recreated each render) purely so it stays a stable
+   * dependency for the getters below - the refs themselves are already
+   * stable.
+   */
+  const startWrapperRef = useRef<HTMLDivElement>(null);
+  const endWrapperRef = useRef<HTMLDivElement>(null);
+  const triggerElementRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
+  const widgetRefs = useMemo(
+    () => [startWrapperRef, endWrapperRef, triggerElementRef, dialogRef],
+    []
+  );
+
   const [isOpen, setIsOpen] = useState(false);
   const shouldFocusDialogRef = useRef(false);
   const previousActiveElementRef = useRef<Element | null>(null);
@@ -227,42 +244,31 @@ export function useDatePickerRange({
       const { shouldClose } = resolveWidgetBlur({
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [startInputRef, endInputRef],
-        widgetRefs: [groupRef, dialogRef]
+        widgetRefs
       });
 
       if (shouldClose && isOpen) {
         setIsOpen(false);
       }
     },
-    [isOpen, startInputRef, endInputRef]
-  );
-
-  const getGroupProps = useCallback(
-    (props: ElementProps<HTMLDivElement> = {}) => {
-      const { onBlur, ...other } = props;
-
-      return {
-        ref: groupRef,
-        onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
-        ...other
-      };
-    },
-    [handleWidgetBlur]
+    [isOpen, startInputRef, endInputRef, widgetRefs]
   );
 
   const getTriggerProps = useCallback(
     (props: ElementProps<HTMLButtonElement> = {}) => {
-      const { onClick, ...other } = props;
+      const { onClick, onBlur, ...other } = props;
 
       return {
+        ref: triggerElementRef,
         'aria-haspopup': 'dialog' as const,
         'aria-expanded': isOpen,
         'aria-controls': dialogId,
         onClick: composeEventHandlers(onClick, openOrFocusDialog),
+        onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
         ...other
       };
     },
-    [isOpen, dialogId, openOrFocusDialog]
+    [isOpen, dialogId, openOrFocusDialog, handleWidgetBlur]
   );
 
   const getDialogProps = useCallback(
@@ -290,7 +296,7 @@ export function useDatePickerRange({
   );
 
   const getFieldTriggerProps = useCallback(
-    (props: HTMLProps<HTMLInputElement> = {}) => {
+    (props: IFieldInputProps = {}) => {
       const { onMouseDown, onFocus, onClick, onKeyDown, ...other } = props;
 
       const handleMouseDown = () => {
@@ -310,13 +316,7 @@ export function useDatePickerRange({
 
         previousActiveElementRef.current = null;
 
-        if (
-          shouldOpenOnFieldClick({
-            isOpen,
-            previousActiveElement,
-            widgetRefs: [groupRef, dialogRef]
-          })
-        ) {
+        if (shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs })) {
           setIsOpen(true);
         }
       };
@@ -335,12 +335,11 @@ export function useDatePickerRange({
         ...other
       };
     },
-    [isOpen, openOrFocusDialog]
+    [isOpen, openOrFocusDialog, widgetRefs]
   );
 
   // --- Start field ---
 
-  const startWrapperRef = useRef<HTMLDivElement>(null);
   const startIsBlurPendingRef = useRef(false);
   const startRequiredRef = useRef<boolean | undefined>(undefined);
 
@@ -411,11 +410,11 @@ export function useDatePickerRange({
       return {
         ref: startWrapperRef,
         style: { display: 'contents' },
-        onBlur: composeEventHandlers(onBlur, onStartWrapperBlur),
+        onBlur: composeEventHandlers(onBlur, onStartWrapperBlur, handleWidgetBlur),
         ...other
       };
     },
-    [commitStartBlur, startInputRef]
+    [commitStartBlur, startInputRef, handleWidgetBlur]
   );
 
   const getStartInputProps = useCallback(
@@ -468,7 +467,6 @@ export function useDatePickerRange({
 
   // --- End field ---
 
-  const endWrapperRef = useRef<HTMLDivElement>(null);
   const endIsBlurPendingRef = useRef(false);
   const endRequiredRef = useRef<boolean | undefined>(undefined);
 
@@ -539,11 +537,11 @@ export function useDatePickerRange({
       return {
         ref: endWrapperRef,
         style: { display: 'contents' },
-        onBlur: composeEventHandlers(onBlur, onEndWrapperBlur),
+        onBlur: composeEventHandlers(onBlur, onEndWrapperBlur, handleWidgetBlur),
         ...other
       };
     },
-    [commitEndBlur, endInputRef]
+    [commitEndBlur, endInputRef, handleWidgetBlur]
   );
 
   const getEndInputProps = useCallback(
@@ -826,7 +824,6 @@ export function useDatePickerRange({
       getStartInputProps,
       getEndInputProps,
       getFieldTriggerProps,
-      getGroupProps,
       getTriggerProps,
       getDialogProps,
       getCalendarProps,
@@ -857,7 +854,6 @@ export function useDatePickerRange({
       getStartInputProps,
       getEndInputProps,
       getFieldTriggerProps,
-      getGroupProps,
       getTriggerProps,
       getDialogProps,
       getCalendarProps,

@@ -8,22 +8,31 @@
 import React, { PropsWithChildren, HTMLAttributes, cloneElement } from 'react';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
-export const End = ({ children }: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
-  const { getEndGroupProps, getEndInputProps } = useDatePickerContext();
+interface IEndProps extends HTMLAttributes<HTMLInputElement> {
+  /**
+   * Also wires this field to open/focus a consumer-composed
+   * `DatePickerRange.Dialog`, via `getFieldTriggerProps` layered on top of
+   * this field's own input wiring. Has no effect unless a
+   * `DatePickerRange.Dialog` is also rendered.
+   */
+  opensDialog?: boolean;
+}
+
+export const End = ({ children, opensDialog }: PropsWithChildren<IEndProps>) => {
+  const { getEndGroupProps, getEndInputProps, getFieldTriggerProps } = useDatePickerContext();
 
   const childElement = React.Children.only(children as React.ReactElement);
 
-  return (
-    <div {...getEndGroupProps()}>
-      {cloneElement(
-        childElement,
-        getEndInputProps({
-          ...childElement.props,
-          required: childElement.props.required
-        })
-      )}
-    </div>
-  );
+  let inputProps = getEndInputProps({
+    ...childElement.props,
+    required: childElement.props.required
+  });
+
+  if (opensDialog) {
+    inputProps = getFieldTriggerProps(inputProps);
+  }
+
+  return <div {...getEndGroupProps()}>{cloneElement(childElement, inputProps)}</div>;
 };
 
 End.displayName = 'DatePickerRange.End';
