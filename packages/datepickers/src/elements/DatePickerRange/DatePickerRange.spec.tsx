@@ -461,6 +461,59 @@ describe('DatePickerRange', () => {
       });
     });
 
+    it('clears the highlight when moving from a hovered start candidate onto the committed end value', () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const endButton = globalGetAllByTestId(calendarWrappers[1], 'day')[9]; // March 5, 2019
+      const endCell = endButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+      const candidateCell = globalGetAllByTestId(calendarWrappers[1], 'day')[6] // March 2, 2019
+        .closest('[data-test-id="day-cell"]') as HTMLElement;
+
+      expect(endButton).toHaveAttribute('aria-pressed', 'true');
+
+      // fireEvent.mouseEnter is used instead of user.hover so no synthetic
+      // leave events are dispatched on ancestors along the way - matching
+      // moving the mouse directly from one cell to an adjacent one.
+      fireEvent.mouseEnter(candidateCell);
+      fireEvent.mouseEnter(endCell);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('clears the highlight when moving from a hovered end candidate onto the committed start value', () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const startButton = globalGetAllByTestId(calendarWrappers[0], 'day')[9]; // Feb 5, 2019
+      const startCell = startButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+      const candidateCell = globalGetAllByTestId(calendarWrappers[0], 'day')[12] // Feb 8, 2019
+        .closest('[data-test-id="day-cell"]') as HTMLElement;
+
+      expect(startButton).toHaveAttribute('aria-pressed', 'true');
+
+      fireEvent.mouseEnter(candidateCell);
+      fireEvent.mouseEnter(startCell);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
     it('displays disabled styling for minimum and maximum values', () => {
       const { getAllByTestId } = render(
         <Example
