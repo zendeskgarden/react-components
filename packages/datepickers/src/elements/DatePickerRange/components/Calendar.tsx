@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useEffect, useRef } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { addMonths } from 'date-fns/addMonths';
 
@@ -19,45 +19,32 @@ import { Month } from './Month';
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {
-    state,
-    dispatch,
+    previewDate,
     isCompact,
     previousMonthLabel,
     nextMonthLabel,
     previousYearLabel,
     nextYearLabel,
     toolbarLabel,
-    calendarId
+    calendarId,
+    getCalendarProps,
+    focusPreviousMonth,
+    focusNextMonth,
+    focusPreviousYear,
+    focusNextYear
   } = useDatePickerContext();
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const pendingGridFocusRef = useRef(false);
 
-  useEffect(() => {
-    /**
-     * Only follow a focusedDate change with real DOM focus when it was
-     * triggered by keyboard navigation from within one of the two grids
-     * themselves (flagged by Month's handleDayKeyDown) - the two grids
-     * share this one focus-follow effect since arrow-key navigation can
-     * cross from one month's grid into the other's.
-     */
-    if (!pendingGridFocusRef.current) {
-      return;
-    }
-
-    pendingGridFocusRef.current = false;
-    wrapperRef.current
-      ?.querySelector<HTMLButtonElement>('[data-test-id="day"][tabindex="0"]')
-      ?.focus();
-  }, [state.focusedDate]);
+  const { ref: calendarWrapperRef, ...calendarProps } = getCalendarProps();
 
   return (
     <StyledRangeCalendar
-      ref={mergeRefs([ref, wrapperRef])}
+      ref={mergeRefs([ref, calendarWrapperRef])}
       id={calendarId}
       $isCompact={isCompact}
       data-garden-id="datepickers.range"
       data-garden-version={PACKAGE_VERSION}
       data-test-id="range-calendar"
+      {...calendarProps}
       {...props}
     >
       <Toolbar
@@ -67,29 +54,13 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
         previousYearLabel={previousYearLabel}
         nextYearLabel={nextYearLabel}
         toolbarLabel={toolbarLabel}
-        onPreviousYear={() => {
-          dispatch({ type: 'PREVIEW_PREVIOUS_YEAR' });
-        }}
-        onPreviousMonth={() => {
-          dispatch({ type: 'PREVIEW_PREVIOUS_MONTH' });
-        }}
-        onNextMonth={() => {
-          dispatch({ type: 'PREVIEW_NEXT_MONTH' });
-        }}
-        onNextYear={() => {
-          dispatch({ type: 'PREVIEW_NEXT_YEAR' });
-        }}
+        onPreviousYear={focusPreviousYear}
+        onPreviousMonth={focusPreviousMonth}
+        onNextMonth={focusNextMonth}
+        onNextYear={focusNextYear}
       />
-      <Month
-        displayDate={state.previewDate}
-        gridColumn="1 / 8"
-        pendingGridFocusRef={pendingGridFocusRef}
-      />
-      <Month
-        displayDate={addMonths(state.previewDate, 1)}
-        gridColumn="9 / 16"
-        pendingGridFocusRef={pendingGridFocusRef}
-      />
+      <Month displayDate={previewDate} offset={0} gridColumn="1 / 8" />
+      <Month displayDate={addMonths(previewDate, 1)} offset={1} gridColumn="9 / 16" />
     </StyledRangeCalendar>
   );
 });

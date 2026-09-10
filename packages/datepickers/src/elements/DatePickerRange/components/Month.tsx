@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, MutableRefObject, useCallback } from 'react';
+import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
 import { Span } from '@zendeskgarden/react-typography';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
@@ -13,18 +13,12 @@ import { startOfWeek } from 'date-fns/startOfWeek';
 import { endOfWeek } from 'date-fns/endOfWeek';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
-import { addMonths } from 'date-fns/addMonths';
-import { subMonths } from 'date-fns/subMonths';
-import { addYears } from 'date-fns/addYears';
-import { subYears } from 'date-fns/subYears';
-import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
 import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { subDays } from 'date-fns/subDays';
 import { compareAsc } from 'date-fns/compareAsc';
-import { KEYS } from '@zendeskgarden/container-utilities';
 import {
   StyledCalendarMonth,
   StyledCalendarHeading,
@@ -36,21 +30,17 @@ import {
   StyledRangeDayCell
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
-import { useDatePickerRange } from '../utils/useDatePickerRange';
-import { formatValue } from '../utils/date-picker-range-reducer';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;
+  offset: 0 | 1;
   gridColumn: string;
-  pendingGridFocusRef: MutableRefObject<boolean>;
 }
 
 export const Month = forwardRef<HTMLDivElement, IMonthProps>(
-  ({ displayDate, gridColumn, pendingGridFocusRef }, ref) => {
+  ({ displayDate, offset, gridColumn }, ref) => {
     const {
-      state,
-      dispatch,
       locale,
       weekStartsOn,
       isCompact,
@@ -58,11 +48,13 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       maxValue,
       startValue,
       endValue,
-      onChange,
-      onValueSettled
+      hoverDate,
+      setHoverDate,
+      getMonthProps,
+      getGridProps,
+      getHeadingProps,
+      getDayProps
     } = useDatePickerContext();
-
-    const { headingId } = useDatePickerRange();
 
     const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
@@ -100,46 +92,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
 
-    const handleDayKeyDown = useCallback(
-      (event: React.KeyboardEvent<HTMLButtonElement>, date: Date) => {
-        let targetDate: Date;
-
-        switch (event.key) {
-          case KEYS.RIGHT:
-            targetDate = addDays(date, 1);
-            break;
-          case KEYS.LEFT:
-            targetDate = subDays(date, 1);
-            break;
-          case KEYS.DOWN:
-            targetDate = addDays(date, 7);
-            break;
-          case KEYS.UP:
-            targetDate = subDays(date, 7);
-            break;
-          case KEYS.HOME:
-            targetDate = startOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
-            break;
-          case KEYS.END:
-            targetDate = endOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
-            break;
-          case KEYS.PAGE_DOWN:
-            targetDate = event.shiftKey ? addYears(date, 1) : addMonths(date, 1);
-            break;
-          case KEYS.PAGE_UP:
-            targetDate = event.shiftKey ? subYears(date, 1) : subMonths(date, 1);
-            break;
-          default:
-            return;
-        }
-
-        event.preventDefault();
-        pendingGridFocusRef.current = true;
-        dispatch({ type: 'FOCUS_DATE', value: targetDate });
-      },
-      [dispatch, pendingGridFocusRef, preferredWeekStartsOn]
-    );
-
     const monthStartDate = startOfMonth(displayDate);
     const monthEndDate = endOfMonth(monthStartDate);
     const startDate = startOfWeek(monthStartDate, {
@@ -169,7 +121,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
     const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = dayFormatter(date);
-      const isCurrentDate = isToday(date);
       const isPreviousMonth = !isSameMonth(date, displayDate);
 
       if (isPreviousMonth) {
@@ -209,27 +160,24 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           (isAfter(date, startValue) || isSameDay(date, startValue)) &&
           (isBefore(date, endValue) || isSameDay(date, endValue)) &&
           !isSameDay(startValue, endValue);
-      } else if (startValue !== undefined && state.hoverDate !== undefined) {
+      } else if (startValue !== undefined && hoverDate !== undefined) {
         isHighlighted =
           (isAfter(date, startValue) || isSameDay(date, startValue)) &&
-          (isBefore(date, state.hoverDate) || isSameDay(date, state.hoverDate));
-      } else if (endValue !== undefined && state.hoverDate !== undefined) {
+          (isBefore(date, hoverDate) || isSameDay(date, hoverDate));
+      } else if (endValue !== undefined && hoverDate !== undefined) {
         isHighlighted =
-          (isAfter(date, state.hoverDate) || isSameDay(date, state.hoverDate)) &&
+          (isAfter(date, hoverDate) || isSameDay(date, hoverDate)) &&
           (isBefore(date, endValue) || isSameDay(date, endValue));
       }
 
       const isHighlightStart =
         (isHighlighted && startValue && isSameDay(date, startValue)) ||
-        (isHighlighted &&
-          startValue === undefined &&
-          !!state.hoverDate &&
-          isSameDay(date, state.hoverDate)) ||
+        (isHighlighted && startValue === undefined && !!hoverDate && isSameDay(date, hoverDate)) ||
         false;
 
       const isHighlightEnd =
         (isHighlighted && endValue && isSameDay(date, endValue)) ||
-        (state.hoverDate && isSameDay(date, state.hoverDate) && !isBefore(date, endValue!)) ||
+        (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, endValue!)) ||
         false;
 
       /**
@@ -298,7 +246,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
              * hovering a nearby day right before this one - otherwise the
              * highlight from that day lingers indefinitely.
              */
-            dispatch({ type: 'HOVER_DATE', value: isSelected ? undefined : date });
+            setHoverDate(isSelected ? undefined : date);
           }}
         >
           <StyledDayButton
@@ -308,61 +256,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             isBasic
             isNeutral={!isSelected}
             isPressed={!!(!isInvalidDateRange && isSelected)}
-            aria-current={isCurrentDate ? 'date' : undefined}
-            aria-disabled={isDisabled || undefined}
-            tabIndex={isSameDay(date, state.focusedDate) ? 0 : -1}
-            onClick={() => {
-              if (isDisabled) {
-                return;
-              }
-
-              dispatch({ type: 'CLICK_DATE', value: date });
-
-              let result: { startValue?: Date; endValue?: Date };
-              let isOutOfOrder = false;
-
-              if (state.isStartFocused) {
-                result =
-                  endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
-                    ? { startValue: date, endValue }
-                    : { startValue: date, endValue: undefined };
-              } else if (state.isEndFocused) {
-                result =
-                  startValue !== undefined &&
-                  (isAfter(date, startValue) || isSameDay(date, startValue))
-                    ? { startValue, endValue: date }
-                    : { startValue: date, endValue: undefined };
-              } else if (startValue === undefined) {
-                isOutOfOrder = endValue !== undefined && isAfter(date, endValue);
-                result = { startValue: date, endValue };
-              } else if (endValue === undefined) {
-                result = isBefore(date, startValue)
-                  ? { startValue: date, endValue: undefined }
-                  : { startValue, endValue: date };
-              } else {
-                result = { startValue: date, endValue: undefined };
-              }
-
-              onChange?.(result);
-
-              const field = isSameDay(result.startValue!, date) ? 'start' : 'end';
-              const fieldValue = field === 'start' ? result.startValue : result.endValue;
-
-              onValueSettled?.({
-                field,
-                date: isOutOfOrder ? undefined : fieldValue,
-                inputValue: formatValue({ value: fieldValue }),
-                valid: !isOutOfOrder,
-                ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
-              });
-            }}
-            onKeyDown={event => handleDayKeyDown(event, date)}
-            data-test-id="day"
-            data-test-previous={isPreviousMonth}
+            {...getDayProps({ date })}
             data-test-selected={!isInvalidDateRange && isSelected}
-            data-test-disabled={isDisabled}
-            data-test-today={isCurrentDate}
-            data-test-hidden="false"
           >
             {formattedDayLabel}
           </StyledDayButton>
@@ -381,30 +276,16 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         $isCompact={isCompact!}
         $gridColumn={gridColumn}
         data-test-id="calendar-wrapper"
-        onMouseDown={e => {
-          /** Stop focus from escaping input */
-          /* istanbul ignore next */
-          e.preventDefault();
-        }}
+        {...getMonthProps()}
       >
         <StyledCalendarHeading
-          id={headingId}
-          aria-live="polite"
           $isCompact={isCompact!}
           data-test-id="month-display"
+          {...getHeadingProps({ offset })}
         >
           {headerLabelFormatter(displayDate)}
         </StyledCalendarHeading>
-        <StyledCalendarTable
-          as="table"
-          $isCompact={isCompact!}
-          role="grid"
-          aria-labelledby={headingId}
-          data-test-id="calendar-internal-wrapper"
-          onMouseLeave={() => {
-            dispatch({ type: 'HOVER_DATE', value: undefined });
-          }}
-        >
+        <StyledCalendarTable as="table" $isCompact={isCompact!} {...getGridProps({ offset })}>
           <tbody>
             <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
             {weeks.map(week => (

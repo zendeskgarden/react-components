@@ -5,14 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext, createContext, MutableRefObject } from 'react';
-import { IDatePickerRangeValueSettledResult } from '../../../types';
+import { useContext, createContext } from 'react';
 import { DateFnsIndex } from '../../../utils/calendar-utils';
-import { IDatePickerRangeState, DatePickerRangeAction } from './date-picker-range-reducer';
+import { IUseDatePickerRangeReturnValue } from './useDatePickerRange';
 
-export interface IDatePickerRangeContext {
-  state: IDatePickerRangeState;
-  dispatch: React.Dispatch<DatePickerRangeAction>;
+export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue {
   locale?: string;
   weekStartsOn?: DateFnsIndex;
   isCompact?: boolean;
@@ -20,13 +17,6 @@ export interface IDatePickerRangeContext {
   maxValue?: Date;
   startValue?: Date;
   endValue?: Date;
-  onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
-  onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
-  startInputRef: MutableRefObject<HTMLInputElement | undefined>;
-  endInputRef: MutableRefObject<HTMLInputElement | undefined>;
-  calendarId: string;
-  getInputProps: (props?: Record<string, unknown>) => Record<string, unknown>;
-  customParseDate?: (inputValue?: string) => Date;
   previousMonthLabel?: string;
   nextMonthLabel?: string;
   previousYearLabel?: string;
@@ -36,11 +26,14 @@ export interface IDatePickerRangeContext {
 
 export const DatePickerRangeContext = createContext<IDatePickerRangeContext | undefined>(undefined);
 
-/**
- * Retrieve Dropdown component context
- */
 const useDatePickerContext = () => {
-  return useContext<IDatePickerRangeContext>(DatePickerRangeContext as any);
+  const context = useContext(DatePickerRangeContext);
+
+  if (!context) {
+    throw new Error('This component must be rendered within a <DatePickerRange>.');
+  }
+
+  return context;
 };
 
 export default useDatePickerContext;
