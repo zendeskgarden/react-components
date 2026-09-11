@@ -152,6 +152,7 @@ export function useDatePickerRange({
   const handleWidgetBlur = useCallback(
     (e: React.FocusEvent) => {
       const { shouldClose } = resolveWidgetBlur({
+        target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [startInputRef, endInputRef],
         widgetRefs
