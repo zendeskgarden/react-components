@@ -6,7 +6,7 @@
  */
 
 import { useContext, createContext } from 'react';
-import { IUseDatePickerReturnValue } from '../../../utils/useDatePicker';
+import { IUseDatePickerReturnValue } from '../../../types';
 
 export type IDatePickerContext = IUseDatePickerReturnValue;
 

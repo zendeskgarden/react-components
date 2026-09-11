@@ -6,8 +6,7 @@
  */
 
 import { useContext, createContext } from 'react';
-import { DateFnsIndex } from '../../../utils/calendar-utils';
-import { IUseDatePickerRangeReturnValue } from './useDatePickerRange';
+import { DateFnsIndex, IUseDatePickerRangeReturnValue } from '../../../types';
 
 export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue {
   locale?: string;
