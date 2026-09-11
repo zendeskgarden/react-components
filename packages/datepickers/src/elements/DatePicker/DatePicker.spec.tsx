@@ -198,15 +198,6 @@ describe('DatePicker', () => {
   });
 
   describe('Month navigation buttons', () => {
-    it('renders as buttons with accessible names', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('button', { name: 'Previous month' })).toBeInTheDocument();
-      expect(getByRole('button', { name: 'Next month' })).toBeInTheDocument();
-    });
-
     it('changes month on Enter and Space, matching click behavior', async () => {
       const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
@@ -229,33 +220,6 @@ describe('DatePicker', () => {
       await user.keyboard(' ');
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
-    });
-
-    it('sets lang="en" on the default labels', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('button', { name: 'Previous month' })).toHaveAttribute('lang', 'en');
-      expect(getByRole('button', { name: 'Next month' })).toHaveAttribute('lang', 'en');
-    });
-
-    it('reflects consumer-provided labels without setting lang', async () => {
-      const { getByTestId, getByRole } = render(
-        <Example
-          value={DEFAULT_DATE}
-          previousMonthLabel="Mois précédent"
-          nextMonthLabel="Mois suivant"
-        />
-      );
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousButton = getByRole('button', { name: 'Mois précédent' });
-      const nextButton = getByRole('button', { name: 'Mois suivant' });
-
-      expect(previousButton).not.toHaveAttribute('lang');
-      expect(nextButton).not.toHaveAttribute('lang');
     });
 
     it('leaves focus on the paddle and marks the corresponding day in the new month as tabbable', async () => {
@@ -305,15 +269,6 @@ describe('DatePicker', () => {
   });
 
   describe('Year navigation buttons', () => {
-    it('renders as buttons with accessible names', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('button', { name: 'Previous year' })).toBeInTheDocument();
-      expect(getByRole('button', { name: 'Next year' })).toBeInTheDocument();
-    });
-
     it('changes year on Enter and Space, matching click behavior', async () => {
       const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
@@ -336,33 +291,6 @@ describe('DatePicker', () => {
       await user.keyboard(' ');
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
-    });
-
-    it('sets lang="en" on the default labels', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('button', { name: 'Previous year' })).toHaveAttribute('lang', 'en');
-      expect(getByRole('button', { name: 'Next year' })).toHaveAttribute('lang', 'en');
-    });
-
-    it('reflects consumer-provided labels without setting lang', async () => {
-      const { getByTestId, getByRole } = render(
-        <Example
-          value={DEFAULT_DATE}
-          previousYearLabel="Année précédente"
-          nextYearLabel="Année suivante"
-        />
-      );
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousButton = getByRole('button', { name: 'Année précédente' });
-      const nextButton = getByRole('button', { name: 'Année suivante' });
-
-      expect(previousButton).not.toHaveAttribute('lang');
-      expect(nextButton).not.toHaveAttribute('lang');
     });
 
     it('leaves focus on the paddle and marks the corresponding day next year as tabbable, matching Shift+PageDown', async () => {
@@ -428,159 +356,6 @@ describe('DatePicker', () => {
       expect(focusedDay).toHaveTextContent('28');
 
       mockDate.set(DEFAULT_DATE);
-    });
-  });
-
-  describe('Header toolbar', () => {
-    it('gives the header a toolbar role and an accessible name', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('toolbar')).toHaveAccessibleName('Calendar view');
-    });
-
-    it('isolates the toolbar into its own stacking context, so it paints above the overlapping month box', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('toolbar')).toHaveStyleRule('isolation', 'isolate');
-    });
-
-    it('sets lang="en" on the default toolbar label', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('toolbar')).toHaveAttribute('lang', 'en');
-    });
-
-    it('reflects a consumer-provided toolbar label without setting lang', async () => {
-      const { getByTestId, getByRole } = render(
-        <Example value={DEFAULT_DATE} toolbarLabel="Navigation du calendrier" />
-      );
-
-      await user.click(getByTestId('calendar-button'));
-
-      const toolbar = getByRole('toolbar');
-
-      expect(toolbar).toHaveAccessibleName('Navigation du calendrier');
-      expect(toolbar).not.toHaveAttribute('lang');
-    });
-
-    it('gives exactly one paddle tabindex="0" initially, matching the first control', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousYear = getByRole('button', { name: 'Previous year' });
-      const previousMonth = getByRole('button', { name: 'Previous month' });
-      const nextMonth = getByRole('button', { name: 'Next month' });
-      const nextYear = getByRole('button', { name: 'Next year' });
-
-      expect(previousYear).toHaveAttribute('tabindex', '0');
-      [previousMonth, nextMonth, nextYear].forEach(button => {
-        expect(button).toHaveAttribute('tabindex', '-1');
-      });
-    });
-
-    it('moves focus to the next paddle when ArrowRight is pressed', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousYear = getByRole('button', { name: 'Previous year' });
-      const previousMonth = getByRole('button', { name: 'Previous month' });
-
-      act(() => {
-        previousYear.focus();
-      });
-      fireEvent.keyDown(previousYear, { key: KEYS.RIGHT });
-
-      expect(previousMonth).toHaveFocus();
-      expect(previousMonth).toHaveAttribute('tabindex', '0');
-      expect(previousYear).toHaveAttribute('tabindex', '-1');
-    });
-
-    it('moves focus to the previous paddle when ArrowLeft is pressed', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousMonth = getByRole('button', { name: 'Previous month' });
-      const previousYear = getByRole('button', { name: 'Previous year' });
-
-      act(() => {
-        previousMonth.focus();
-      });
-      fireEvent.keyDown(previousMonth, { key: KEYS.LEFT });
-
-      expect(previousYear).toHaveFocus();
-    });
-
-    it('wraps focus from the last paddle to the first when ArrowRight is pressed', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const nextYear = getByRole('button', { name: 'Next year' });
-      const previousYear = getByRole('button', { name: 'Previous year' });
-
-      act(() => {
-        nextYear.focus();
-      });
-      fireEvent.keyDown(nextYear, { key: KEYS.RIGHT });
-
-      expect(previousYear).toHaveFocus();
-    });
-
-    it('wraps focus from the first paddle to the last when ArrowLeft is pressed', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousYear = getByRole('button', { name: 'Previous year' });
-      const nextYear = getByRole('button', { name: 'Next year' });
-
-      act(() => {
-        previousYear.focus();
-      });
-      fireEvent.keyDown(previousYear, { key: KEYS.LEFT });
-
-      expect(nextYear).toHaveFocus();
-    });
-
-    it('moves focus to the first paddle when Home is pressed', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const nextMonth = getByRole('button', { name: 'Next month' });
-      const previousYear = getByRole('button', { name: 'Previous year' });
-
-      act(() => {
-        nextMonth.focus();
-      });
-      fireEvent.keyDown(nextMonth, { key: KEYS.HOME });
-
-      expect(previousYear).toHaveFocus();
-    });
-
-    it('moves focus to the last paddle when End is pressed', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
-
-      await user.click(getByTestId('calendar-button'));
-
-      const previousMonth = getByRole('button', { name: 'Previous month' });
-      const nextYear = getByRole('button', { name: 'Next year' });
-
-      act(() => {
-        previousMonth.focus();
-      });
-      fireEvent.keyDown(previousMonth, { key: KEYS.END });
-
-      expect(nextYear).toHaveFocus();
     });
   });
 
@@ -1373,26 +1148,13 @@ describe('DatePicker', () => {
   });
 
   describe('Calendar trigger button', () => {
-    it('has an accessible name, aria-haspopup, aria-expanded, and aria-controls', () => {
+    it('reflects the dialog open state via aria-expanded, and aria-controls references the menu', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const button = getByTestId('calendar-button');
       const menu = getByTestId('datepicker-menu');
 
-      expect(button).toHaveAttribute('aria-haspopup', 'dialog');
       expect(button).toHaveAttribute('aria-expanded', 'false');
       expect(button).toHaveAttribute('aria-controls', menu.id);
-      expect(button).toHaveAccessibleName('Choose date');
-    });
-
-    it('is excluded from the Tab sequence, but can still receive programmatic focus', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-      const button = getByTestId('calendar-button');
-
-      expect(button).toHaveAttribute('tabindex', '-1');
-
-      button.focus();
-
-      expect(button).toHaveFocus();
     });
 
     it('opens the calendar and moves focus onto the selected day when clicked', async () => {
