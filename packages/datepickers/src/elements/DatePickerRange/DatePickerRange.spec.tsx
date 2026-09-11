@@ -1363,6 +1363,38 @@ describe('DatePickerRange', () => {
       expect(days[4]).toHaveAttribute('tabindex', '-1');
     });
 
+    it('moves focus to the previous day when ArrowRight is pressed, in RTL', () => {
+      const { getAllByTestId } = renderRtl(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[3]).toHaveFocus();
+      expect(days[3]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the next day when ArrowLeft is pressed, in RTL', () => {
+      const { getAllByTestId } = renderRtl(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
+
+      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      expect(days[5]).toHaveFocus();
+      expect(days[5]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
     it('moves focus one week forward when ArrowDown is pressed', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />

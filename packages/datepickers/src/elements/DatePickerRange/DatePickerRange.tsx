@@ -5,8 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useMemo, useRef } from 'react';
+import React, { PropsWithChildren, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { IDatePickerRangeProps } from '../../types';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
 import { useDatePickerRange } from './utils/useDatePickerRange';
@@ -39,6 +41,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
 
   const startInputRef = useRef<HTMLInputElement>(null);
   const endInputRef = useRef<HTMLInputElement>(null);
+  const theme = useContext(ThemeContext) || DEFAULT_THEME;
 
   const datePickerRange = useDatePickerRange({
     startValue,
@@ -47,6 +50,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     maxValue,
     locale,
     weekStartsOn,
+    rtl: theme.rtl,
     formatDate,
     customParseDate,
     onChange,
