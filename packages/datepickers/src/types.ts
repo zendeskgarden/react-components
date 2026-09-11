@@ -265,6 +265,9 @@ export interface IUseDatePickerRangeReturnValue {
   getDialogProps: (
     props: { 'aria-label': string } & ElementProps<HTMLDivElement>
   ) => ElementProps<HTMLDivElement>;
+  dialogRef: RefObject<HTMLDivElement | null>;
+  /** Resolves the element the dialog should float relative to: `Start`'s input, falling back to `End`'s input, then the `Trigger` button, whichever is rendered. **/
+  getReferenceElement: () => Element | null;
   getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getMonthProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getGridProps: (
