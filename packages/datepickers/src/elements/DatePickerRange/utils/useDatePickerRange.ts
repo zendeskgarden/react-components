@@ -205,6 +205,11 @@ export function useDatePickerRange({
     [dialogId, handleWidgetBlur, startInputRef]
   );
 
+  const getReferenceElement = useCallback(
+    () => startInputRef.current ?? endInputRef.current ?? triggerElementRef.current,
+    [startInputRef, endInputRef]
+  );
+
   const getFieldTriggerProps = useCallback(
     (props: IFieldInputProps = {}) => {
       const { onMouseDown, onFocus, onClick, onKeyDown, ...other } = props;
@@ -744,6 +749,8 @@ export function useDatePickerRange({
       getFieldTriggerProps,
       getTriggerProps,
       getDialogProps,
+      dialogRef,
+      getReferenceElement,
       getCalendarProps,
       getMonthProps,
       getGridProps,
@@ -774,6 +781,8 @@ export function useDatePickerRange({
       getFieldTriggerProps,
       getTriggerProps,
       getDialogProps,
+      dialogRef,
+      getReferenceElement,
       getCalendarProps,
       getMonthProps,
       getGridProps,
