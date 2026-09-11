@@ -137,7 +137,7 @@ export function resolveSettledValue({
 
 export type DatePickerRangeAction =
   | { type: 'HOVER_DATE'; value?: Date }
-  | { type: 'CLICK_DATE'; value: Date }
+  | { type: 'CLICK_DATE'; value: Date; startValue?: Date; endValue?: Date }
   | { type: 'PREVIEW_NEXT_MONTH' }
   | { type: 'PREVIEW_PREVIOUS_MONTH' }
   | { type: 'PREVIEW_NEXT_YEAR' }
@@ -146,220 +146,234 @@ export type DatePickerRangeAction =
   | { type: 'END_INPUT_ONCHANGE'; value: string }
   | { type: 'START_BLUR' }
   | { type: 'END_BLUR' }
-  | { type: 'START_FOCUS' }
-  | { type: 'END_FOCUS' }
-  | { type: 'CONTROLLED_START_VALUE_CHANGE'; value?: Date }
-  | { type: 'CONTROLLED_END_VALUE_CHANGE'; value?: Date }
+  | { type: 'START_FOCUS'; startValue?: Date }
+  | { type: 'END_FOCUS'; endValue?: Date }
+  | {
+      type: 'CONTROLLED_START_VALUE_CHANGE';
+      value?: Date;
+      locale?: string;
+      formatDate?: any;
+    }
+  | {
+      type: 'CONTROLLED_END_VALUE_CHANGE';
+      value?: Date;
+      locale?: string;
+      formatDate?: any;
+    }
   | { type: 'FOCUS_DATE'; value: Date };
 
-export const datepickerRangeReducer =
-  ({
-    startValue,
-    endValue,
-    locale,
-    formatDate
-  }: {
-    startValue?: Date;
-    endValue?: Date;
-    locale?: string;
-    formatDate?: any;
-  }) =>
-  (state: IDatePickerRangeState, action: DatePickerRangeAction): IDatePickerRangeState => {
-    switch (action.type) {
-      case 'START_FOCUS': {
-        let previewDate = state.previewDate;
+export const datepickerRangeReducer = (
+  state: IDatePickerRangeState,
+  action: DatePickerRangeAction
+): IDatePickerRangeState => {
+  switch (action.type) {
+    case 'START_FOCUS': {
+      const { startValue } = action;
+      let previewDate = state.previewDate;
 
-        if (startValue) {
-          if (
-            compareAsc(startValue, startOfMonth(state.previewDate)) === 1 &&
-            compareAsc(startValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
-          ) {
-            previewDate = state.previewDate;
-          } else {
-            previewDate = startOfMonth(startValue);
-          }
+      if (startValue) {
+        if (
+          compareAsc(startValue, startOfMonth(state.previewDate)) === 1 &&
+          compareAsc(startValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
+        ) {
+          previewDate = state.previewDate;
+        } else {
+          previewDate = startOfMonth(startValue);
         }
-
-        return { ...state, previewDate, isStartFocused: true, isEndFocused: false };
       }
-      case 'END_FOCUS': {
-        let previewDate = state.previewDate;
 
-        if (endValue) {
-          if (
-            compareAsc(endValue, startOfMonth(state.previewDate)) === 1 &&
-            compareAsc(endValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
-          ) {
-            previewDate = state.previewDate;
-          } else {
-            previewDate = startOfMonth(endValue);
-          }
+      return { ...state, previewDate, isStartFocused: true, isEndFocused: false };
+    }
+    case 'END_FOCUS': {
+      const { endValue } = action;
+      let previewDate = state.previewDate;
+
+      if (endValue) {
+        if (
+          compareAsc(endValue, startOfMonth(state.previewDate)) === 1 &&
+          compareAsc(endValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
+        ) {
+          previewDate = state.previewDate;
+        } else {
+          previewDate = startOfMonth(endValue);
         }
-
-        return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
       }
-      case 'START_BLUR':
-        return { ...state, isStartFocused: false };
-      case 'END_BLUR':
-        return { ...state, isEndFocused: false };
-      case 'CONTROLLED_START_VALUE_CHANGE': {
-        const startInputValue = formatValue({ value: action.value, locale, formatDate });
 
-        let previewDate = state.previewDate;
+      return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
+    }
+    case 'START_BLUR':
+      return { ...state, isStartFocused: false };
+    case 'END_BLUR':
+      return { ...state, isEndFocused: false };
+    case 'CONTROLLED_START_VALUE_CHANGE': {
+      const startInputValue = formatValue({
+        value: action.value,
+        locale: action.locale,
+        formatDate: action.formatDate
+      });
 
-        if (action.value) {
-          if (
-            compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &&
-            compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
-          ) {
-            previewDate = state.previewDate;
-          } else {
-            previewDate = startOfMonth(action.value);
-          }
+      let previewDate = state.previewDate;
+
+      if (action.value) {
+        if (
+          compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &&
+          compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
+        ) {
+          previewDate = state.previewDate;
+        } else {
+          previewDate = startOfMonth(action.value);
         }
-
-        return {
-          ...state,
-          startInputValue,
-          hoverDate: undefined,
-          previewDate
-        };
       }
-      case 'CONTROLLED_END_VALUE_CHANGE': {
-        const endInputValue = formatValue({ value: action.value, locale, formatDate });
 
-        let previewDate = state.previewDate;
+      return {
+        ...state,
+        startInputValue,
+        hoverDate: undefined,
+        previewDate
+      };
+    }
+    case 'CONTROLLED_END_VALUE_CHANGE': {
+      const endInputValue = formatValue({
+        value: action.value,
+        locale: action.locale,
+        formatDate: action.formatDate
+      });
 
-        if (action.value) {
-          if (
-            compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &&
-            compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
-          ) {
-            previewDate = state.previewDate;
-          } else {
-            previewDate = startOfMonth(action.value);
-          }
+      let previewDate = state.previewDate;
+
+      if (action.value) {
+        if (
+          compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &&
+          compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
+        ) {
+          previewDate = state.previewDate;
+        } else {
+          previewDate = startOfMonth(action.value);
         }
-
-        return {
-          ...state,
-          endInputValue,
-          hoverDate: undefined,
-          previewDate
-        };
       }
-      case 'CLICK_DATE':
-        if (state.isStartFocused) {
-          if (
-            endValue !== undefined &&
-            (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
-          ) {
-            return {
-              ...state,
-              isStartFocused: false,
-              isEndFocused: false,
-              startInputValue: formatValue({ value: action.value })
-            };
-          }
 
+      return {
+        ...state,
+        endInputValue,
+        hoverDate: undefined,
+        previewDate
+      };
+    }
+    case 'CLICK_DATE': {
+      const { startValue, endValue } = action;
+
+      if (state.isStartFocused) {
+        if (
+          endValue !== undefined &&
+          (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
+        ) {
           return {
             ...state,
             isStartFocused: false,
             isEndFocused: false,
+            startInputValue: formatValue({ value: action.value })
+          };
+        }
+
+        return {
+          ...state,
+          isStartFocused: false,
+          isEndFocused: false,
+          startInputValue: formatValue({ value: action.value }),
+          endInputValue: undefined
+        };
+      } else if (state.isEndFocused) {
+        if (
+          startValue !== undefined &&
+          (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
+        ) {
+          return {
+            ...state,
+            isStartFocused: false,
+            isEndFocused: false,
+            endInputValue: formatValue({ value: action.value })
+          };
+        }
+
+        return {
+          ...state,
+          isStartFocused: false,
+          isEndFocused: false,
+          startInputValue: formatValue({ value: action.value })
+        };
+      } else if (startValue === undefined) {
+        return {
+          ...state,
+          startInputValue: formatValue({ value: action.value })
+        };
+      } else if (endValue === undefined) {
+        if (isBefore(action.value, startValue)) {
+          return {
+            ...state,
             startInputValue: formatValue({ value: action.value }),
             endInputValue: undefined
           };
-        } else if (state.isEndFocused) {
-          if (
-            startValue !== undefined &&
-            (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
-          ) {
-            return {
-              ...state,
-              isStartFocused: false,
-              isEndFocused: false,
-              endInputValue: formatValue({ value: action.value })
-            };
-          }
-
-          return {
-            ...state,
-            isStartFocused: false,
-            isEndFocused: false,
-            startInputValue: formatValue({ value: action.value })
-          };
-        } else if (startValue === undefined) {
-          return {
-            ...state,
-            startInputValue: formatValue({ value: action.value })
-          };
-        } else if (endValue === undefined) {
-          if (isBefore(action.value, startValue)) {
-            return {
-              ...state,
-              startInputValue: formatValue({ value: action.value }),
-              endInputValue: undefined
-            };
-          }
-
-          return { ...state, endInputValue: formatValue({ value: action.value }) };
         }
 
-        return state;
-      case 'START_INPUT_ONCHANGE': {
-        return { ...state, startInputValue: action.value };
+        return { ...state, endInputValue: formatValue({ value: action.value }) };
       }
-      case 'END_INPUT_ONCHANGE': {
-        return { ...state, endInputValue: action.value };
-      }
-      case 'HOVER_DATE':
-        return { ...state, hoverDate: action.value };
-      case 'FOCUS_DATE': {
-        const focusedDate = action.value;
-        const secondMonthDate = addMonths(state.previewDate, 1);
 
-        let previewDate = state.previewDate;
-
-        if (
-          !isSameMonth(focusedDate, state.previewDate) &&
-          !isSameMonth(focusedDate, secondMonthDate)
-        ) {
-          previewDate = isBefore(focusedDate, state.previewDate)
-            ? startOfMonth(focusedDate)
-            : subMonths(startOfMonth(focusedDate), 1);
-        }
-
-        return { ...state, focusedDate, previewDate, hoverDate: focusedDate };
-      }
-      case 'PREVIEW_NEXT_MONTH': {
-        const previewDate = addMonths(state.previewDate, 1);
-        const focusedDate = addMonths(state.focusedDate, 1);
-
-        return { ...state, previewDate, focusedDate, hoverDate: undefined };
-      }
-      case 'PREVIEW_PREVIOUS_MONTH': {
-        const previewDate = subMonths(state.previewDate, 1);
-        const focusedDate = subMonths(state.focusedDate, 1);
-
-        return { ...state, previewDate, focusedDate, hoverDate: undefined };
-      }
-      case 'PREVIEW_NEXT_YEAR': {
-        const previewDate = addYears(state.previewDate, 1);
-        const focusedDate = addYears(state.focusedDate, 1);
-
-        return { ...state, previewDate, focusedDate, hoverDate: undefined };
-      }
-      case 'PREVIEW_PREVIOUS_YEAR': {
-        const previewDate = subYears(state.previewDate, 1);
-        const focusedDate = subYears(state.focusedDate, 1);
-
-        return { ...state, previewDate, focusedDate, hoverDate: undefined };
-      }
-      /* istanbul ignore next */
-      default:
-        throw new Error();
+      return state;
     }
-  };
+    case 'START_INPUT_ONCHANGE': {
+      return { ...state, startInputValue: action.value };
+    }
+    case 'END_INPUT_ONCHANGE': {
+      return { ...state, endInputValue: action.value };
+    }
+    case 'HOVER_DATE':
+      return { ...state, hoverDate: action.value };
+    case 'FOCUS_DATE': {
+      const focusedDate = action.value;
+      const secondMonthDate = addMonths(state.previewDate, 1);
+
+      let previewDate = state.previewDate;
+
+      if (
+        !isSameMonth(focusedDate, state.previewDate) &&
+        !isSameMonth(focusedDate, secondMonthDate)
+      ) {
+        previewDate = isBefore(focusedDate, state.previewDate)
+          ? startOfMonth(focusedDate)
+          : subMonths(startOfMonth(focusedDate), 1);
+      }
+
+      return { ...state, focusedDate, previewDate, hoverDate: focusedDate };
+    }
+    case 'PREVIEW_NEXT_MONTH': {
+      const previewDate = addMonths(state.previewDate, 1);
+      const focusedDate = addMonths(state.focusedDate, 1);
+
+      return { ...state, previewDate, focusedDate, hoverDate: undefined };
+    }
+    case 'PREVIEW_PREVIOUS_MONTH': {
+      const previewDate = subMonths(state.previewDate, 1);
+      const focusedDate = subMonths(state.focusedDate, 1);
+
+      return { ...state, previewDate, focusedDate, hoverDate: undefined };
+    }
+    case 'PREVIEW_NEXT_YEAR': {
+      const previewDate = addYears(state.previewDate, 1);
+      const focusedDate = addYears(state.focusedDate, 1);
+
+      return { ...state, previewDate, focusedDate, hoverDate: undefined };
+    }
+    case 'PREVIEW_PREVIOUS_YEAR': {
+      const previewDate = subYears(state.previewDate, 1);
+      const focusedDate = subYears(state.focusedDate, 1);
+
+      return { ...state, previewDate, focusedDate, hoverDate: undefined };
+    }
+    /* istanbul ignore next */
+    default:
+      throw new Error();
+  }
+};
 
 /**
  * Retrieve initial state for the DatePicker reducer
