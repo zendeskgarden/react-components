@@ -6,12 +6,32 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, InputGroup } from '@zendeskgarden/react-forms';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
+import { getColor } from '@zendeskgarden/react-theming';
 import CalendarStrokeIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
+
+const StyledCalendarIconButton = styled(IconButton)`
+  &&[aria-expanded='true'] {
+    background-color: ${p =>
+      getColor({
+        theme: p.theme,
+        variable: 'background.primaryEmphasis',
+        transparency: p.theme.opacity[200]
+      })};
+    color: ${p =>
+      getColor({
+        theme: p.theme,
+        variable: 'foreground.subtle',
+        dark: { offset: -200 },
+        light: { offset: 200 }
+      })};
+  }
+`;
 
 /**
  * Demonstrates composing DatePickerRange so its calendar lives inside a
@@ -21,7 +41,13 @@ import CalendarStrokeIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.
  * and Start/End's `opensDialog` prop), since DatePickerRange itself always
  * renders its calendar inline and never closes it on its own.
  * DatePickerRange.Dialog styles and floats itself the same way DatePicker's
- * own popover does, so no manual positioning/styling is needed here.
+ * own popover does, so no manual positioning/styling is needed here. Each
+ * field gets its own calendar button, mirroring DatePicker's own
+ * Input+CalendarButton pairing - DatePickerRange.Trigger supports composing
+ * more than one at once for exactly this case. Start/End compose their
+ * child as a true, direct child of InputGroup (rather than through a
+ * wrapper of their own), so ClearableInput's nested input group still
+ * merges seamlessly with the calendar button below.
  */
 export const DatePickerRangeDialogStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);
@@ -42,31 +68,44 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
             <Grid.Col size="auto">
               <Field>
                 <Field.Label>Start date</Field.Label>
-                <DatePickerRange.Start opensDialog>
-                  <Input />
-                </DatePickerRange.Start>
+                <InputGroup isUnified>
+                  <DatePickerRange.Start opensDialog>
+                    <ClearableInput />
+                  </DatePickerRange.Start>
+                  <DatePickerRange.Trigger>
+                    <StyledCalendarIconButton
+                      isPill
+                      isBasic
+                      isNeutral
+                      aria-label="Choose start date"
+                      data-test-id="start-calendar-button"
+                    >
+                      <CalendarStrokeIcon />
+                    </StyledCalendarIconButton>
+                  </DatePickerRange.Trigger>
+                </InputGroup>
               </Field>
             </Grid.Col>
             <Grid.Col size="auto">
               <Field>
                 <Field.Label>End date</Field.Label>
-                <DatePickerRange.End opensDialog>
-                  <Input />
-                </DatePickerRange.End>
+                <InputGroup isUnified>
+                  <DatePickerRange.End opensDialog>
+                    <ClearableInput />
+                  </DatePickerRange.End>
+                  <DatePickerRange.Trigger>
+                    <StyledCalendarIconButton
+                      isPill
+                      isBasic
+                      isNeutral
+                      aria-label="Choose end date"
+                      data-test-id="end-calendar-button"
+                    >
+                      <CalendarStrokeIcon />
+                    </StyledCalendarIconButton>
+                  </DatePickerRange.Trigger>
+                </InputGroup>
               </Field>
-            </Grid.Col>
-            <Grid.Col size="auto">
-              <DatePickerRange.Trigger>
-                <IconButton
-                  isPill
-                  isBasic
-                  isNeutral
-                  aria-label="Choose dates"
-                  data-test-id="calendar-button"
-                >
-                  <CalendarStrokeIcon />
-                </IconButton>
-              </DatePickerRange.Trigger>
             </Grid.Col>
           </Grid.Row>
         </Grid>
