@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLProps, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { RefObject, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
@@ -111,21 +111,31 @@ export function useDatePickerRange({
   /**
    * Every element focus must leave for the widget to count as "left", for
    * the dialog's blur-to-close and click-to-open detection - Start's/End's
-   * own wrapper divs, the trigger button, and the dialog itself. No single
-   * combining wrapper is needed: React's `onBlur` already bubbles within
-   * each of these independently, so attaching the same check to each is
-   * equivalent to attaching it once to a shared ancestor. Wrapped in
-   * `useMemo` (not recreated each render) purely so it stays a stable
-   * dependency for the getters below - the refs themselves are already
-   * stable.
+   * own wrapper divs, every rendered `Trigger` button, and the dialog
+   * itself. No single combining wrapper is needed: React's `onBlur` already
+   * bubbles within each of these independently, so attaching the same check
+   * to each is equivalent to attaching it once to a shared ancestor. A
+   * consumer may compose more than one `Trigger` at once (e.g. one per
+   * field), so `getTriggerProps` collects every ref it's given into this
+   * `Set` - adding the same (stable, per-`Trigger`-instance) ref again on a
+   * later render is a no-op, and a ref left behind by an unmounted
+   * `Trigger` is harmless, since React clears its `current` to `null`.
    */
   const startWrapperRef = useRef<HTMLDivElement>(null);
   const endWrapperRef = useRef<HTMLDivElement>(null);
-  const triggerElementRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const widgetRefs = useMemo(
-    () => [startWrapperRef, endWrapperRef, triggerElementRef, dialogRef],
-    []
+  const triggerRefsRef = useRef<Set<RefObject<HTMLButtonElement | null>>>(new Set());
+
+  const getWidgetRefs = useCallback(
+    () => [
+      startWrapperRef,
+      endWrapperRef,
+      startInputRef,
+      endInputRef,
+      dialogRef,
+      ...triggerRefsRef.current
+    ],
+    [startInputRef, endInputRef]
   );
 
   const [isOpen, setIsOpen] = useState(false);
@@ -155,22 +165,26 @@ export function useDatePickerRange({
         target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [startInputRef, endInputRef],
-        widgetRefs
+        widgetRefs: getWidgetRefs()
       });
 
       if (shouldClose && isOpen) {
         setIsOpen(false);
       }
     },
-    [isOpen, startInputRef, endInputRef, widgetRefs]
+    [isOpen, startInputRef, endInputRef, getWidgetRefs]
   );
 
   const getTriggerProps = useCallback(
     (props: ElementProps<HTMLButtonElement> = {}) => {
-      const { onClick, onBlur, ...other } = props;
+      const { onClick, onBlur, ref, ...other } = props;
+
+      if (ref && typeof ref === 'object' && 'current' in ref) {
+        triggerRefsRef.current.add(ref);
+      }
 
       return {
-        ref: triggerElementRef,
+        ref,
         'aria-haspopup': 'dialog' as const,
         'aria-expanded': isOpen,
         'aria-controls': dialogId,
@@ -206,10 +220,11 @@ export function useDatePickerRange({
     [dialogId, handleWidgetBlur, startInputRef]
   );
 
-  const getReferenceElement = useCallback(
-    () => startInputRef.current ?? endInputRef.current ?? triggerElementRef.current,
-    [startInputRef, endInputRef]
-  );
+  const getReferenceElement = useCallback(() => {
+    const [firstTriggerRef] = triggerRefsRef.current;
+
+    return startInputRef.current ?? endInputRef.current ?? firstTriggerRef?.current ?? null;
+  }, [startInputRef, endInputRef]);
 
   const getFieldTriggerProps = useCallback(
     (props: IFieldInputProps = {}) => {
@@ -232,7 +247,9 @@ export function useDatePickerRange({
 
         previousActiveElementRef.current = null;
 
-        if (shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs })) {
+        if (
+          shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })
+        ) {
           setIsOpen(true);
         }
       };
@@ -251,7 +268,7 @@ export function useDatePickerRange({
         ...other
       };
     },
-    [isOpen, openOrFocusDialog, widgetRefs]
+    [isOpen, openOrFocusDialog, getWidgetRefs]
   );
 
   // --- Start field ---
@@ -304,34 +321,35 @@ export function useDatePickerRange({
     [commitStartBlur]
   );
 
-  const getStartGroupProps = useCallback(
-    (props: HTMLProps<HTMLDivElement> = {}) => {
-      const { onBlur, ...other } = props;
+  /**
+   * For a composite child (e.g. `ClearableInput`) that renders extra
+   * focusable elements alongside its own input (e.g. a clear button),
+   * merged into that child's own `wrapperRef`/`wrapperProps` instead of a
+   * wrapping element of our own - `Start` renders no wrapper, so a plain
+   * `<input>` composes as a true, direct child of whatever the consumer
+   * wraps it in (e.g. `InputGroup`).
+   */
+  const getStartWrapperProps = useCallback(() => {
+    const onStartWrapperBlur = (e: React.FocusEvent) => {
+      if (e.target === startInputRef.current || !startIsBlurPendingRef.current) {
+        return;
+      }
 
-      const onStartWrapperBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-        if (e.target === startInputRef.current || !startIsBlurPendingRef.current) {
-          return;
-        }
+      const relatedTarget = e.relatedTarget as Element | null;
+      const stillInsideOwnGroup =
+        !!relatedTarget && !!startWrapperRef.current?.contains(relatedTarget);
 
-        const relatedTarget = e.relatedTarget as Element | null;
-        const stillInsideOwnGroup =
-          !!relatedTarget && !!startWrapperRef.current?.contains(relatedTarget);
+      if (!stillInsideOwnGroup) {
+        startIsBlurPendingRef.current = false;
+        commitStartBlur();
+      }
+    };
 
-        if (!stillInsideOwnGroup) {
-          startIsBlurPendingRef.current = false;
-          commitStartBlur();
-        }
-      };
-
-      return {
-        ref: startWrapperRef,
-        style: { display: 'contents' },
-        onBlur: composeEventHandlers(onBlur, onStartWrapperBlur, handleWidgetBlur),
-        ...other
-      };
-    },
-    [commitStartBlur, startInputRef, handleWidgetBlur]
-  );
+    return {
+      ref: startWrapperRef,
+      onBlur: composeEventHandlers(onStartWrapperBlur, handleWidgetBlur)
+    };
+  }, [commitStartBlur, startInputRef, handleWidgetBlur]);
 
   const getStartInputProps = useCallback(
     (props: IFieldInputProps & { required?: boolean } = {}) => {
@@ -362,6 +380,7 @@ export function useDatePickerRange({
 
       const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
         handleStartBlur(e.relatedTarget as Element | null);
+        handleWidgetBlur(e);
       };
 
       return {
@@ -383,6 +402,7 @@ export function useDatePickerRange({
       state.startInputValue,
       reportStartSettled,
       handleStartBlur,
+      handleWidgetBlur,
       startInputRef,
       startValue
     ]
@@ -438,34 +458,32 @@ export function useDatePickerRange({
     [commitEndBlur]
   );
 
-  const getEndGroupProps = useCallback(
-    (props: HTMLProps<HTMLDivElement> = {}) => {
-      const { onBlur, ...other } = props;
+  /**
+   * See `getStartWrapperProps` - the `End` equivalent, merged into a
+   * composite child's own `wrapperRef`/`wrapperProps` instead of a wrapping
+   * element of our own.
+   */
+  const getEndWrapperProps = useCallback(() => {
+    const onEndWrapperBlur = (e: React.FocusEvent) => {
+      if (e.target === endInputRef.current || !endIsBlurPendingRef.current) {
+        return;
+      }
 
-      const onEndWrapperBlur = (e: React.FocusEvent<HTMLDivElement>) => {
-        if (e.target === endInputRef.current || !endIsBlurPendingRef.current) {
-          return;
-        }
+      const relatedTarget = e.relatedTarget as Element | null;
+      const stillInsideOwnGroup =
+        !!relatedTarget && !!endWrapperRef.current?.contains(relatedTarget);
 
-        const relatedTarget = e.relatedTarget as Element | null;
-        const stillInsideOwnGroup =
-          !!relatedTarget && !!endWrapperRef.current?.contains(relatedTarget);
+      if (!stillInsideOwnGroup) {
+        endIsBlurPendingRef.current = false;
+        commitEndBlur();
+      }
+    };
 
-        if (!stillInsideOwnGroup) {
-          endIsBlurPendingRef.current = false;
-          commitEndBlur();
-        }
-      };
-
-      return {
-        ref: endWrapperRef,
-        style: { display: 'contents' },
-        onBlur: composeEventHandlers(onBlur, onEndWrapperBlur, handleWidgetBlur),
-        ...other
-      };
-    },
-    [commitEndBlur, endInputRef, handleWidgetBlur]
-  );
+    return {
+      ref: endWrapperRef,
+      onBlur: composeEventHandlers(onEndWrapperBlur, handleWidgetBlur)
+    };
+  }, [commitEndBlur, endInputRef, handleWidgetBlur]);
 
   const getEndInputProps = useCallback(
     (props: IFieldInputProps & { required?: boolean } = {}) => {
@@ -496,6 +514,7 @@ export function useDatePickerRange({
 
       const onBlurCallback = (e: React.FocusEvent<HTMLInputElement>) => {
         handleEndBlur(e.relatedTarget as Element | null);
+        handleWidgetBlur(e);
       };
 
       return {
@@ -512,7 +531,15 @@ export function useDatePickerRange({
         onBlur: composeEventHandlers(onBlur, onBlurCallback)
       };
     },
-    [calendarId, state.endInputValue, reportEndSettled, handleEndBlur, endInputRef, endValue]
+    [
+      calendarId,
+      state.endInputValue,
+      reportEndSettled,
+      handleEndBlur,
+      handleWidgetBlur,
+      endInputRef,
+      endValue
+    ]
   );
 
   // --- Calendar grid ---
@@ -743,8 +770,8 @@ export function useDatePickerRange({
       endInputValue: state.endInputValue,
       calendarId,
       isOpen,
-      getStartGroupProps,
-      getEndGroupProps,
+      getStartWrapperProps,
+      getEndWrapperProps,
       getStartInputProps,
       getEndInputProps,
       getFieldTriggerProps,
@@ -775,8 +802,8 @@ export function useDatePickerRange({
       state.endInputValue,
       calendarId,
       isOpen,
-      getStartGroupProps,
-      getEndGroupProps,
+      getStartWrapperProps,
+      getEndWrapperProps,
       getStartInputProps,
       getEndInputProps,
       getFieldTriggerProps,
