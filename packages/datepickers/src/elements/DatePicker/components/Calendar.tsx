@@ -28,7 +28,8 @@ import {
 } from '../../../styled';
 import { Toolbar } from '../../../components/Toolbar';
 import useDatePickerContext from '../utils/useDatePickerContext';
-import { DateFnsIndex, getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
+import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
+import { DateFnsIndex } from '../../../types';
 
 interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: Date;

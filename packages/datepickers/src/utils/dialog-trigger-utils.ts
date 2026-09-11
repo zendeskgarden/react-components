@@ -5,18 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, Ref, RefObject } from 'react';
+import { RefObject } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-
-/**
- * `React.HTMLProps<T>` resolves to `AllHTMLAttributes<T>` - the union of
- * every attribute across every HTML element, regardless of `T` - which
- * collides with Garden's own strictly-typed props (e.g. Button's `size`)
- * when spread directly onto a styled component in JSX. This narrows to the
- * attributes actually common to any element, properly scoped by `T`, using
- * the modern `Ref<T>` (not `React.ClassAttributes`' legacy string ref).
- */
-export type ElementProps<T extends Element> = HTMLAttributes<T> & { ref?: Ref<T> };
+import { ElementProps } from '../types';
 
 /**
  * Move focus onto the selected date, today, or the first day cell in a

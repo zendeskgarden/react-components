@@ -5,16 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  HTMLProps,
-  RefObject,
-  useCallback,
-  useEffect,
-  useMemo,
-  useReducer,
-  useRef,
-  useState
-} from 'react';
+import { HTMLProps, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
@@ -29,10 +20,15 @@ import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { isValid } from 'date-fns/isValid';
 import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
-import { IDatePickerRangeValueSettledResult } from '../../../types';
-import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
 import {
   ElementProps,
+  IFieldInputProps,
+  IGetRangeDayPropsOptions,
+  IUseDatePickerRangeProps,
+  IUseDatePickerRangeReturnValue
+} from '../../../types';
+import { getStartOfWeek } from '../../../utils/calendar-utils';
+import {
   composeActionButtonProps,
   focusIntoDialog,
   resolveWidgetBlur,
@@ -45,90 +41,6 @@ import {
   resolveSettledValue,
   retrieveInitialState
 } from './date-picker-range-reducer';
-
-export interface IUseDatePickerRangeProps {
-  idPrefix?: string;
-  startValue?: Date;
-  endValue?: Date;
-  minValue?: Date;
-  maxValue?: Date;
-  locale?: string;
-  weekStartsOn?: DateFnsIndex;
-  formatDate?: (date: Date) => string;
-  customParseDate?: (inputValue?: string) => Date;
-  onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
-  onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
-  /** The rendered Start/End text inputs - created by the caller since they're merged with consumer-supplied refs. */
-  startInputRef: RefObject<HTMLInputElement | null>;
-  endInputRef: RefObject<HTMLInputElement | null>;
-}
-
-export interface IGetRangeDayPropsOptions extends ElementProps<HTMLButtonElement> {
-  date: Date;
-}
-
-/**
- * `HTMLProps<T>`'s `ref` field is `LegacyRef<T>`, which requires a non-null
- * `RefObject<T>` - incompatible with the `RefObject<T | null>` `useRef(null)`
- * actually produces. `getStartInputProps`/`getEndInputProps` set `ref`
- * directly (Start/End have no separate ref-merge step of their own), so
- * this widens just that one field to accept it.
- */
-type IFieldInputProps = Omit<HTMLProps<HTMLInputElement>, 'ref'> & {
-  ref?: RefObject<HTMLInputElement | null>;
-};
-
-export interface IUseDatePickerRangeReturnValue {
-  previewDate: Date;
-  focusedDate: Date;
-  hoverDate?: Date;
-  startInputValue?: string;
-  endInputValue?: string;
-  calendarId: string;
-  /**
-   * Opt-in dialog mode - unused by default (`DatePickerRange.Calendar`
-   * always renders inline regardless of `isOpen`), for a consumer composing
-   * DatePickerRange's calendar inside a popover, mirroring `useDatePicker`'s
-   * own dialog pattern.
-   */
-  isOpen: boolean;
-  getStartGroupProps: (props?: HTMLProps<HTMLDivElement>) => HTMLProps<HTMLDivElement>;
-  getEndGroupProps: (props?: HTMLProps<HTMLDivElement>) => HTMLProps<HTMLDivElement>;
-  getStartInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
-  getEndInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
-  /** Spread onto any field (in addition to getStartInputProps/getEndInputProps) that should open/focus the opt-in dialog. */
-  getFieldTriggerProps: (props?: IFieldInputProps) => IFieldInputProps;
-  getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
-  getDialogProps: (
-    props: { 'aria-label': string } & ElementProps<HTMLDivElement>
-  ) => ElementProps<HTMLDivElement>;
-  getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getMonthProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getGridProps: (
-    props: { offset: 0 | 1 } & ElementProps<HTMLTableElement>
-  ) => ElementProps<HTMLTableElement>;
-  getHeadingProps: (
-    props: { offset: 0 | 1 } & ElementProps<HTMLHeadingElement>
-  ) => ElementProps<HTMLHeadingElement>;
-  getDayProps: (props: IGetRangeDayPropsOptions) => ElementProps<HTMLButtonElement>;
-  getPreviousMonthButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  getNextMonthButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  getPreviousYearButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  getNextYearButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  setHoverDate: (date: Date | undefined) => void;
-  focusPreviousMonth: () => void;
-  focusNextMonth: () => void;
-  focusPreviousYear: () => void;
-  focusNextYear: () => void;
-}
 
 /**
  * Headless, self-contained state and prop-getters for a date-range picker:
