@@ -131,6 +131,32 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Cross-field focus', () => {
+    it('stays open when focus moves directly from Start to End', async () => {
+      const { getByTestId } = render(<Example />);
+
+      await user.click(getByTestId('start'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('end'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+
+    it('stays open when focus moves directly from End to Start', async () => {
+      const { getByTestId } = render(<Example />);
+
+      await user.click(getByTestId('end'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('start'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+  });
+
   describe('RTL', () => {
     it('applies LTR classes by default', () => {
       const { getByTestId } = render(<Example />);

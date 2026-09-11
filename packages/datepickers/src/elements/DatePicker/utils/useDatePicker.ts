@@ -136,6 +136,7 @@ export function useDatePicker({
   const handleWidgetBlur = useCallback(
     (e: React.FocusEvent) => {
       const { shouldSettle, shouldClose } = resolveWidgetBlur({
+        target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [inputRef],
         widgetRefs: [groupRef, dialogRef]
