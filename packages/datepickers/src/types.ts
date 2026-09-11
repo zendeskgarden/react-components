@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, HTMLProps, ReactElement, Ref, RefObject } from 'react';
+import { FocusEventHandler, HTMLAttributes, HTMLProps, ReactElement, Ref, RefObject } from 'react';
 import { PLACEMENT as BASE_PLACEMENT } from '@zendeskgarden/react-theming';
 
 export const WEEK_STARTS_ON = [0, 1, 2, 3, 4, 5, 6] as const;
@@ -255,18 +255,21 @@ export interface IUseDatePickerRangeReturnValue {
   calendarId: string;
   /** Opt-in dialog mode, unused by default (`DatePickerRange.Calendar` always renders inline regardless of `isOpen`), for a consumer composing DatePickerRange's calendar inside a popover, mirroring `useDatePicker`'s own dialog pattern. **/
   isOpen: boolean;
-  getStartGroupProps: (props?: HTMLProps<HTMLDivElement>) => HTMLProps<HTMLDivElement>;
-  getEndGroupProps: (props?: HTMLProps<HTMLDivElement>) => HTMLProps<HTMLDivElement>;
+  /** For a composite child (e.g. `ClearableInput`) that renders extra focusable elements alongside its own input - merged into that child's own `wrapperRef`/`wrapperProps`, so `Start` itself renders no wrapper of its own. **/
+  getStartWrapperProps: () => { ref: RefObject<HTMLDivElement | null>; onBlur: FocusEventHandler };
+  /** See `getStartWrapperProps` - the `End` equivalent. **/
+  getEndWrapperProps: () => { ref: RefObject<HTMLDivElement | null>; onBlur: FocusEventHandler };
   getStartInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   getEndInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   /** Spread onto any field (in addition to getStartInputProps/getEndInputProps) that should open/focus the opt-in dialog. **/
   getFieldTriggerProps: (props?: IFieldInputProps) => IFieldInputProps;
+  /** Also tracks the button's ref as part of the open widget, so more than one `Trigger` may be composed at once (e.g. one per field) without breaking blur/focus detection. **/
   getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
   getDialogProps: (
     props: { 'aria-label': string } & ElementProps<HTMLDivElement>
   ) => ElementProps<HTMLDivElement>;
   dialogRef: RefObject<HTMLDivElement | null>;
-  /** Resolves the element the dialog should float relative to: `Start`'s input, falling back to `End`'s input, then the `Trigger` button, whichever is rendered. **/
+  /** Resolves the element the dialog should float relative to: `Start`'s input, falling back to `End`'s input, then the first rendered `Trigger` button. **/
   getReferenceElement: () => Element | null;
   getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getMonthProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;

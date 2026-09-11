@@ -157,6 +157,46 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Multiple triggers', () => {
+    const TwoTriggerExample = (props: IDatePickerRangeProps) => (
+      <DatePickerRange {...props}>
+        <div style={{ position: 'relative', display: 'inline-block' }}>
+          <DatePickerRange.Start opensDialog>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.Trigger>
+            <button data-test-id="start-trigger">Open start</button>
+          </DatePickerRange.Trigger>
+          <DatePickerRange.End opensDialog>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Trigger>
+            <button data-test-id="end-trigger">Open end</button>
+          </DatePickerRange.Trigger>
+          <DatePickerRange.Dialog>
+            <DatePickerRange.Calendar />
+          </DatePickerRange.Dialog>
+        </div>
+      </DatePickerRange>
+    );
+
+    it('stays open when focus moves directly between two Trigger buttons', async () => {
+      const { getByTestId } = render(<TwoTriggerExample />);
+
+      await user.click(getByTestId('end-trigger'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      // Moves focus directly (no click), so Trigger's own unconditional
+      // open-on-click can't mask a tracking bug in the blur handler itself.
+      act(() => {
+        getByTestId('start-trigger').focus();
+      });
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+  });
+
   describe('RTL', () => {
     it('applies LTR classes by default', () => {
       const { getByTestId } = render(<Example />);
