@@ -14,7 +14,7 @@ import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floatin
 import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
 import { Calendar } from './components/Calendar';
 import { DatePickerContext } from './utils/useDatePickerContext';
-import { useDatePicker } from '../../utils/useDatePicker';
+import { useDatePicker } from './utils/useDatePicker';
 import { InputGroup } from '@zendeskgarden/react-forms';
 import { StyledMenu, StyledMenuWrapper } from '../../styled';
 import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';

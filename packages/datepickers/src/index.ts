@@ -8,7 +8,7 @@
 export { DatePicker } from './elements/DatePicker/DatePicker';
 export { DatePickerRange } from './elements/DatePickerRange/DatePickerRange';
 
-export { useDatePicker } from './utils/useDatePicker';
+export { useDatePicker } from './elements/DatePicker/utils/useDatePicker';
 export { useDatePickerRange } from './elements/DatePickerRange/utils/useDatePickerRange';
 
 export type {

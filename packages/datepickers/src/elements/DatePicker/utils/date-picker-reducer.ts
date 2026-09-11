@@ -120,75 +120,91 @@ export function resolveSettledValue({
 }
 
 export type DatePickerAction =
-  | { type: 'OPEN' }
+  | { type: 'OPEN'; value?: Date }
   | { type: 'CLOSE' }
   | { type: 'MANUALLY_UPDATE_INPUT'; value: string }
-  | { type: 'CONTROLLED_VALUE_CHANGE'; value?: Date }
-  | { type: 'CONTROLLED_LOCALE_CHANGE' }
-  | { type: 'SELECT_DATE'; value: Date }
+  | {
+      type: 'CONTROLLED_VALUE_CHANGE';
+      value?: Date;
+      locale: string;
+      formatDate?: (date: Date) => string;
+      customParseDate?: (inputValue: string) => Date;
+    }
+  | {
+      type: 'CONTROLLED_LOCALE_CHANGE';
+      value?: Date;
+      locale: string;
+      formatDate?: (date: Date) => string;
+    }
+  | {
+      type: 'SELECT_DATE';
+      value: Date;
+      locale: string;
+      formatDate?: (date: Date) => string;
+    }
   | { type: 'FOCUS_DATE'; value: Date };
 
-export const datepickerReducer =
-  ({
-    value,
-    formatDate,
-    locale,
-    customParseDate
-  }: {
-    value?: Date;
-    formatDate?: (date: Date) => string;
-    locale: any;
-    customParseDate?: (inputValue: string) => Date;
-  }) =>
-  (state: IDatePickerState, action: DatePickerAction): IDatePickerState => {
-    switch (action.type) {
-      case 'OPEN': {
-        const openDate = value || new Date();
+export const datepickerReducer = (
+  state: IDatePickerState,
+  action: DatePickerAction
+): IDatePickerState => {
+  switch (action.type) {
+    case 'OPEN': {
+      const openDate = action.value || new Date();
 
-        return { ...state, isOpen: true, previewDate: openDate, focusedDate: openDate };
-      }
-      case 'CLOSE':
-        return { ...state, isOpen: false };
-      case 'MANUALLY_UPDATE_INPUT': {
-        const inputValue = action.value;
-
-        return { ...state, inputValue };
-      }
-      case 'CONTROLLED_VALUE_CHANGE': {
-        const previewDate = action.value || new Date();
-
-        const currentTypedDate = parseInputValue({ inputValue: state.inputValue, customParseDate });
-        const matchesCurrentInput =
-          action.value && isValid(currentTypedDate) && isSameDay(currentTypedDate, action.value);
-        const inputValue = matchesCurrentInput
-          ? state.inputValue
-          : formatInputValue({ date: action.value, locale, formatDate });
-
-        return { ...state, previewDate, inputValue };
-      }
-      case 'CONTROLLED_LOCALE_CHANGE': {
-        const inputValue = formatInputValue({ date: value, locale, formatDate });
-
-        return { ...state, inputValue };
-      }
-      case 'SELECT_DATE': {
-        const inputValue = formatInputValue({ date: action.value, locale, formatDate });
-
-        return { ...state, isOpen: false, inputValue };
-      }
-      case 'FOCUS_DATE': {
-        const focusedDate = action.value;
-        const previewDate = isSameMonth(focusedDate, state.previewDate)
-          ? state.previewDate
-          : focusedDate;
-
-        return { ...state, focusedDate, previewDate };
-      }
-      /* istanbul ignore next */
-      default:
-        throw new Error();
+      return { ...state, isOpen: true, previewDate: openDate, focusedDate: openDate };
     }
-  };
+    case 'CLOSE':
+      return { ...state, isOpen: false };
+    case 'MANUALLY_UPDATE_INPUT': {
+      const inputValue = action.value;
+
+      return { ...state, inputValue };
+    }
+    case 'CONTROLLED_VALUE_CHANGE': {
+      const { value, locale, formatDate, customParseDate } = action;
+      const previewDate = value || new Date();
+
+      const currentTypedDate = parseInputValue({ inputValue: state.inputValue, customParseDate });
+      const matchesCurrentInput =
+        value && isValid(currentTypedDate) && isSameDay(currentTypedDate, value);
+      const inputValue = matchesCurrentInput
+        ? state.inputValue
+        : formatInputValue({ date: value, locale, formatDate });
+
+      return { ...state, previewDate, inputValue };
+    }
+    case 'CONTROLLED_LOCALE_CHANGE': {
+      const inputValue = formatInputValue({
+        date: action.value,
+        locale: action.locale,
+        formatDate: action.formatDate
+      });
+
+      return { ...state, inputValue };
+    }
+    case 'SELECT_DATE': {
+      const inputValue = formatInputValue({
+        date: action.value,
+        locale: action.locale,
+        formatDate: action.formatDate
+      });
+
+      return { ...state, isOpen: false, inputValue };
+    }
+    case 'FOCUS_DATE': {
+      const focusedDate = action.value;
+      const previewDate = isSameMonth(focusedDate, state.previewDate)
+        ? state.previewDate
+        : focusedDate;
+
+      return { ...state, focusedDate, previewDate };
+    }
+    /* istanbul ignore next */
+    default:
+      throw new Error();
+  }
+};
 
 /**
  * Retrieve initial state for the DatePicker reducer
