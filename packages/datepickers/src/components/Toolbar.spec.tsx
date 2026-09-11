@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { act, render, fireEvent } from 'garden-test-utils';
+import { act, render, renderRtl, fireEvent } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { IToolbarProps, Toolbar } from './Toolbar';
 
@@ -16,6 +16,17 @@ describe('Toolbar', () => {
 
   const renderToolbar = (props: Partial<IToolbarProps> = {}) =>
     render(
+      <Toolbar
+        onPreviousYear={jest.fn()}
+        onPreviousMonth={jest.fn()}
+        onNextMonth={jest.fn()}
+        onNextYear={jest.fn()}
+        {...props}
+      />
+    );
+
+  const renderToolbarRtl = (props: Partial<IToolbarProps> = {}) =>
+    renderRtl(
       <Toolbar
         onPreviousYear={jest.fn()}
         onPreviousMonth={jest.fn()}
@@ -155,6 +166,62 @@ describe('Toolbar', () => {
     expect(nextYear).toHaveFocus();
   });
 
+  it('moves focus to the previous paddle when ArrowRight is pressed, in RTL', () => {
+    const { getByRole } = renderToolbarRtl();
+
+    const previousYear = getByRole('button', { name: 'Previous year' });
+    const previousMonth = getByRole('button', { name: 'Previous month' });
+
+    act(() => {
+      previousMonth.focus();
+    });
+    fireEvent.keyDown(previousMonth, { key: KEYS.RIGHT });
+
+    expect(previousYear).toHaveFocus();
+  });
+
+  it('moves focus to the next paddle when ArrowLeft is pressed, in RTL', () => {
+    const { getByRole } = renderToolbarRtl();
+
+    const previousYear = getByRole('button', { name: 'Previous year' });
+    const previousMonth = getByRole('button', { name: 'Previous month' });
+
+    act(() => {
+      previousYear.focus();
+    });
+    fireEvent.keyDown(previousYear, { key: KEYS.LEFT });
+
+    expect(previousMonth).toHaveFocus();
+  });
+
+  it('wraps focus from the first paddle to the last when ArrowRight is pressed, in RTL', () => {
+    const { getByRole } = renderToolbarRtl();
+
+    const previousYear = getByRole('button', { name: 'Previous year' });
+    const nextYear = getByRole('button', { name: 'Next year' });
+
+    act(() => {
+      previousYear.focus();
+    });
+    fireEvent.keyDown(previousYear, { key: KEYS.RIGHT });
+
+    expect(nextYear).toHaveFocus();
+  });
+
+  it('wraps focus from the last paddle to the first when ArrowLeft is pressed, in RTL', () => {
+    const { getByRole } = renderToolbarRtl();
+
+    const nextYear = getByRole('button', { name: 'Next year' });
+    const previousYear = getByRole('button', { name: 'Previous year' });
+
+    act(() => {
+      nextYear.focus();
+    });
+    fireEvent.keyDown(nextYear, { key: KEYS.LEFT });
+
+    expect(previousYear).toHaveFocus();
+  });
+
   it('moves focus to the first paddle when Home is pressed', () => {
     const { getByRole } = renderToolbar();
 
@@ -171,6 +238,34 @@ describe('Toolbar', () => {
 
   it('moves focus to the last paddle when End is pressed', () => {
     const { getByRole } = renderToolbar();
+
+    const previousMonth = getByRole('button', { name: 'Previous month' });
+    const nextYear = getByRole('button', { name: 'Next year' });
+
+    act(() => {
+      previousMonth.focus();
+    });
+    fireEvent.keyDown(previousMonth, { key: KEYS.END });
+
+    expect(nextYear).toHaveFocus();
+  });
+
+  it('moves focus to the first paddle when Home is pressed, in RTL', () => {
+    const { getByRole } = renderToolbarRtl();
+
+    const nextMonth = getByRole('button', { name: 'Next month' });
+    const previousYear = getByRole('button', { name: 'Previous year' });
+
+    act(() => {
+      nextMonth.focus();
+    });
+    fireEvent.keyDown(nextMonth, { key: KEYS.HOME });
+
+    expect(previousYear).toHaveFocus();
+  });
+
+  it('moves focus to the last paddle when End is pressed, in RTL', () => {
+    const { getByRole } = renderToolbarRtl();
 
     const previousMonth = getByRole('button', { name: 'Previous month' });
     const nextYear = getByRole('button', { name: 'Next year' });
