@@ -35,21 +35,26 @@ export const isInsideWidget = (
  * Decides what a non-modal calendar dialog should do when focus leaves one
  * of its widget elements, per the APG dialog pattern: settle the typed
  * value and close when focus leaves the widget entirely, just close (no
- * settle) when it returns to one of the widget's own trigger fields, or do
- * nothing when it simply moves between other elements still inside the
- * widget (e.g. a `ClearableInput`'s clear button).
+ * settle) when it returns to one of the widget's own trigger fields *from
+ * elsewhere in the widget* (e.g. the dialog), or do nothing when it simply
+ * moves between other elements still inside the widget (e.g. a
+ * `ClearableInput`'s clear button, or - for a multi-field widget like
+ * `DatePickerRange` - another one of its own trigger fields).
  */
 export const resolveWidgetBlur = ({
+  target,
   relatedTarget,
   fieldRefs,
   widgetRefs
 }: {
+  target: Node;
   relatedTarget: Node | null;
   fieldRefs: RefObject<HTMLElement | null>[];
   widgetRefs: RefObject<HTMLElement | null>[];
 }): { shouldSettle: boolean; shouldClose: boolean } => {
+  const isBlurringFromField = fieldRefs.some(ref => ref.current === target);
   const isReturningToField =
-    !!relatedTarget && fieldRefs.some(ref => ref.current === relatedTarget);
+    !isBlurringFromField && !!relatedTarget && fieldRefs.some(ref => ref.current === relatedTarget);
 
   if (isReturningToField) {
     return { shouldSettle: false, shouldClose: true };
