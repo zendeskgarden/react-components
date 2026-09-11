@@ -38,7 +38,7 @@ export const CalendarButton = forwardRef<HTMLButtonElement, ICalendarButtonProps
         data-test-id="calendar-button"
         {...props}
       >
-        <CalendarStrokeIcon />
+        <CalendarStrokeIcon aria-hidden="true" />
       </StyledCalendarButton>
     );
   }
