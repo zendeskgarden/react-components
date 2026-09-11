@@ -51,6 +51,7 @@ export function useDatePicker({
   maxValue,
   locale = 'en-US',
   weekStartsOn,
+  rtl,
   formatDate,
   customParseDate,
   required,
@@ -351,10 +352,10 @@ export function useDatePicker({
 
         switch (e.key) {
           case KEYS.RIGHT:
-            targetDate = addDays(date, 1);
+            targetDate = rtl ? subDays(date, 1) : addDays(date, 1);
             break;
           case KEYS.LEFT:
-            targetDate = subDays(date, 1);
+            targetDate = rtl ? addDays(date, 1) : subDays(date, 1);
             break;
           case KEYS.DOWN:
             targetDate = addDays(date, 7);
@@ -406,6 +407,7 @@ export function useDatePicker({
       formatDate,
       inputRef,
       preferredWeekStartsOn,
+      rtl,
       state.focusedDate
     ]
   );

@@ -170,6 +170,7 @@ export interface IUseDatePickerProps {
   maxValue?: Date;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
+  rtl?: boolean;
   formatDate?: (date: Date) => string;
   customParseDate?: (inputValue: string) => Date;
   required?: boolean;
@@ -226,6 +227,7 @@ export interface IUseDatePickerRangeProps {
   maxValue?: Date;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
+  rtl?: boolean;
   formatDate?: (date: Date) => string;
   customParseDate?: (inputValue?: string) => Date;
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;

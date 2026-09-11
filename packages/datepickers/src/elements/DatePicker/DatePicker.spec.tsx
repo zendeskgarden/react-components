@@ -1246,6 +1246,38 @@ describe('DatePicker', () => {
       expect(days[9]).toHaveAttribute('tabindex', '-1');
     });
 
+    it('moves focus to the previous day when ArrowRight is pressed, in RTL', async () => {
+      const { getByTestId, getAllByTestId } = renderRtl(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
+
+      expect(days[8]).toHaveFocus();
+      expect(days[8]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the next day when ArrowLeft is pressed, in RTL', async () => {
+      const { getByTestId, getAllByTestId } = renderRtl(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.LEFT });
+
+      expect(days[10]).toHaveFocus();
+      expect(days[10]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
     it('moves focus one week forward when ArrowDown is pressed', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
