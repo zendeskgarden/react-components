@@ -66,6 +66,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     maxValue,
     locale,
     weekStartsOn,
+    rtl: theme.rtl,
     formatDate,
     customParseDate,
     required: Child.props.required,
