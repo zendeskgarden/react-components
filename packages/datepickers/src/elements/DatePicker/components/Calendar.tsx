@@ -23,7 +23,7 @@ import {
   StyledCalendarRow,
   StyledDayLabelHeader,
   StyledDayLabel,
-  StyledCalendarGridCell,
+  StyledDayCell,
   StyledDayButton
 } from '../../../styled';
 import { Toolbar } from '../../../components/Toolbar';
@@ -145,8 +145,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
-        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledCalendarGridCell already renders a <td>; eslint can't see through the styled-component wrapper
-        <StyledCalendarGridCell key={date.toISOString()} role="gridcell">
+        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledDayCell already renders a <td>; eslint can't see through the styled-component wrapper
+        <StyledDayCell key={date.toISOString()} role="gridcell">
           <StyledDayButton
             $isCompact={isCompact!}
             $isPreviousMonth={isPreviousMonth}
@@ -159,7 +159,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           >
             {formattedDayLabel}
           </StyledDayButton>
-        </StyledCalendarGridCell>
+        </StyledDayCell>
       );
     });
 
