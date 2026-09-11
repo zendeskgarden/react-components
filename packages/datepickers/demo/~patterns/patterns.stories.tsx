@@ -42,12 +42,8 @@ export const DatePickerInvalidDate: StoryObj<typeof DatePickerInvalidDateStory> 
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');
 
-    // Focus programmatically, not via click/type, since clicking the input opens the
-    // calendar (Phase 4) - which would add the whole grid's tab stops to the sequence below.
     input.focus();
     fireEvent.change(input, { target: { value: 'not a date' } });
-    // The calendar button is permanently excluded from the tab order (tabindex="-1"), so with
-    // the calendar closed, one tab past the clear button leaves the widget entirely and settles.
     await userEvent.tab();
     await userEvent.tab();
 
@@ -82,8 +78,6 @@ export const DatePickerInvalidRequired: StoryObj<typeof DatePickerInvalidRequire
     const canvas = within(canvasElement);
     const input = canvas.getByRole('combobox');
 
-    // No clear button while empty, and the calendar button is always excluded from the tab
-    // order - one tab leaves the widget entirely.
     input.focus();
     await userEvent.tab();
 
@@ -100,7 +94,6 @@ export const DatePickerRangeInvalidDate: StoryObj<typeof DatePickerRangeInvalidD
     const [startInput] = canvas.getAllByRole('combobox');
 
     await userEvent.type(startInput, 'not a date');
-    // Settling requires leaving the input's own group: tab past its clear button, onto the End input.
     await userEvent.tab();
     await userEvent.tab();
 
@@ -137,7 +130,6 @@ export const DatePickerRangeInvalidRequired: StoryObj<typeof DatePickerRangeInva
       const [startInput] = canvas.getAllByRole('combobox');
 
       await userEvent.click(startInput);
-      // No clear button while empty: settling only requires tabbing onto the End input.
       await userEvent.tab();
 
       await expect(canvas.getByText(/cannot be blank/u)).toBeVisible();
@@ -154,7 +146,6 @@ export const DatePickerRangeOutOfOrder: StoryObj<typeof DatePickerRangeOutOfOrde
 
     await userEvent.clear(endInput);
     await userEvent.type(endInput, '1/1/2000');
-    // Settling requires leaving the input's own group: tab past its clear button, onto the calendar.
     await userEvent.tab();
     await userEvent.tab();
 
