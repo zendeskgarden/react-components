@@ -23,21 +23,21 @@ import {
   IUseDatePickerProps,
   IUseDatePickerReturnValue,
   IGetDayPropsOptions
-} from '../types';
-import { getStartOfWeek, isDateWithinRange } from './calendar-utils';
+} from '../../../types';
+import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
 import {
   composeActionButtonProps,
   focusIntoDialog,
   resolveWidgetBlur,
   shouldOpenOnFieldClick
-} from './dialog-trigger-utils';
+} from '../../../utils/dialog-trigger-utils';
 import {
   datepickerReducer,
   formatInputValue,
   parseInputValue,
   resolveSettledValue,
   retrieveInitialState
-} from '../elements/DatePicker/utils/date-picker-reducer';
+} from './date-picker-reducer';
 
 /**
  * Headless, self-contained state and prop-getters for a single-date picker:
@@ -70,24 +70,21 @@ export function useDatePicker({
   const previousActiveElementRef = useRef<Element | null>(null);
   const pendingGridFocusRef = useRef(false);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedReducer = useCallback(
-    datepickerReducer({ value, formatDate, locale, customParseDate }),
-    [value, formatDate, locale, customParseDate]
-  );
   const [state, dispatch] = useReducer(
-    memoizedReducer,
+    datepickerReducer,
     retrieveInitialState({ value, formatDate, locale } as any)
   );
 
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
 
   useEffect(() => {
-    dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value });
+    dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value, locale, formatDate, customParseDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
   useEffect(() => {
-    dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
+    dispatch({ type: 'CONTROLLED_LOCALE_CHANGE', value, locale, formatDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
   const settleValue = useCallback(
@@ -103,10 +100,10 @@ export function useDatePicker({
     if (state.isOpen) {
       focusIntoDialog(dialogRef.current);
     } else {
-      dispatch({ type: 'OPEN' });
+      dispatch({ type: 'OPEN', value });
       shouldFocusDialogRef.current = true;
     }
-  }, [state.isOpen]);
+  }, [state.isOpen, value]);
 
   /**
    * When a trigger opens the dialog, wait for it to render before moving
@@ -253,7 +250,7 @@ export function useDatePicker({
             widgetRefs: [groupRef, dialogRef]
           })
         ) {
-          dispatch({ type: 'OPEN' });
+          dispatch({ type: 'OPEN', value });
         }
       };
 
@@ -345,7 +342,7 @@ export function useDatePicker({
           });
         }
 
-        dispatch({ type: 'SELECT_DATE', value: date });
+        dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate });
         inputRef.current?.focus();
       };
 

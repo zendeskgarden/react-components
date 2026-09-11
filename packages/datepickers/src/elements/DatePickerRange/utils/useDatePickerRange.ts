@@ -71,22 +71,19 @@ export function useDatePickerRange({
 
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const memoizedReducer = useCallback(
-    datepickerRangeReducer({ startValue, endValue, locale, formatDate }),
-    [startValue, endValue, locale, formatDate]
-  );
   const [state, dispatch] = useReducer(
-    memoizedReducer,
+    datepickerRangeReducer,
     retrieveInitialState({ startValue, endValue, locale, formatDate } as any)
   );
 
   useEffect(() => {
-    dispatch({ type: 'CONTROLLED_START_VALUE_CHANGE', value: startValue });
+    dispatch({ type: 'CONTROLLED_START_VALUE_CHANGE', value: startValue, locale, formatDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startValue]);
 
   useEffect(() => {
-    dispatch({ type: 'CONTROLLED_END_VALUE_CHANGE', value: endValue });
+    dispatch({ type: 'CONTROLLED_END_VALUE_CHANGE', value: endValue, locale, formatDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endValue]);
 
   /**
@@ -346,7 +343,7 @@ export function useDatePickerRange({
       };
 
       const onFocusCallback = () => {
-        dispatch({ type: 'START_FOCUS' });
+        dispatch({ type: 'START_FOCUS', startValue });
       };
 
       const onKeyDownCallback = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -374,7 +371,14 @@ export function useDatePickerRange({
         onBlur: composeEventHandlers(onBlur, onBlurCallback)
       };
     },
-    [calendarId, state.startInputValue, reportStartSettled, handleStartBlur, startInputRef]
+    [
+      calendarId,
+      state.startInputValue,
+      reportStartSettled,
+      handleStartBlur,
+      startInputRef,
+      startValue
+    ]
   );
 
   // --- End field ---
@@ -473,7 +477,7 @@ export function useDatePickerRange({
       };
 
       const onFocusCallback = () => {
-        dispatch({ type: 'END_FOCUS' });
+        dispatch({ type: 'END_FOCUS', endValue });
       };
 
       const onKeyDownCallback = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -501,7 +505,7 @@ export function useDatePickerRange({
         onBlur: composeEventHandlers(onBlur, onBlurCallback)
       };
     },
-    [calendarId, state.endInputValue, reportEndSettled, handleEndBlur, endInputRef]
+    [calendarId, state.endInputValue, reportEndSettled, handleEndBlur, endInputRef, endValue]
   );
 
   // --- Calendar grid ---
@@ -576,7 +580,7 @@ export function useDatePickerRange({
           return;
         }
 
-        dispatch({ type: 'CLICK_DATE', value: date });
+        dispatch({ type: 'CLICK_DATE', value: date, startValue, endValue });
 
         let result: { startValue?: Date; endValue?: Date };
         let isOutOfOrder = false;
