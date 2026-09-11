@@ -140,7 +140,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         $isCompact={isCompact}
         data-test-id="previous-year"
       >
-        <ChevronDoubleLeftStrokeIcon />
+        <ChevronDoubleLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
         ref={paddleRefs.previousMonth}
@@ -158,7 +158,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         $isCompact={isCompact}
         data-test-id="previous-month"
       >
-        <ChevronLeftStrokeIcon />
+        <ChevronLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
         ref={paddleRefs.nextMonth}
@@ -176,7 +176,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         $isCompact={isCompact}
         data-test-id="next-month"
       >
-        <ChevronRightStrokeIcon />
+        <ChevronRightStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
         ref={paddleRefs.nextYear}
@@ -194,7 +194,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         $isCompact={isCompact}
         data-test-id="next-year"
       >
-        <ChevronDoubleRightStrokeIcon />
+        <ChevronDoubleRightStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
     </StyledCalendarToolbar>
   );
