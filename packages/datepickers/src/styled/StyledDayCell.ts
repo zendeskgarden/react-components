@@ -8,22 +8,17 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
-interface IStyledRangeDayCellProps {
+interface IStyledDayCellProps {
   $isHighlighted?: boolean;
   $isHighlightStart?: boolean;
   $isHighlightEnd?: boolean;
 }
 
 const highlightStyles = ({
-  $isHighlighted,
   $isHighlightStart,
   $isHighlightEnd,
   theme
-}: IStyledRangeDayCellProps & ThemeProps<DefaultTheme>) => {
-  if (!$isHighlighted) {
-    return undefined;
-  }
-
+}: IStyledDayCellProps & ThemeProps<DefaultTheme>) => {
   const tint = getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],
@@ -44,16 +39,16 @@ const highlightStyles = ({
   `;
 };
 
-const COMPONENT_ID = 'datepickers.range_day_cell';
+const COMPONENT_ID = 'datepickers.day_cell';
 
-export const StyledRangeDayCell = styled.td.attrs({
+export const StyledDayCell = styled.td.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledRangeDayCellProps>`
+})<IStyledDayCellProps>`
   margin: 0;
   padding: 0;
 
-  ${highlightStyles}
+  ${props => props.$isHighlighted && highlightStyles(props)}
 
   ${componentStyles};
 `;

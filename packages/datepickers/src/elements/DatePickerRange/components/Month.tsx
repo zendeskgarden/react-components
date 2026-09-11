@@ -27,7 +27,7 @@ import {
   StyledDayLabelHeader,
   StyledDayLabel,
   StyledDayButton,
-  StyledRangeDayCell
+  StyledDayCell
 } from '../../../styled';
 import { getStartOfWeek } from '../../../utils/calendar-utils';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
@@ -228,8 +228,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       return (
-        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledRangeDayCell already renders a <td>; eslint can't see through the styled-component wrapper
-        <StyledRangeDayCell
+        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledDayCell already renders a <td>; eslint can't see through the styled-component wrapper
+        <StyledDayCell
           key={date.toISOString()}
           role="gridcell"
           $isHighlighted={!isInvalidDateRange && showHighlighted}
@@ -261,7 +261,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           >
             {formattedDayLabel}
           </StyledDayButton>
-        </StyledRangeDayCell>
+        </StyledDayCell>
       );
     });
 
