@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback, useRef, useState } from 'react';
-import { useText } from '@zendeskgarden/react-theming';
+import React, { useCallback, useContext, useRef, useState } from 'react';
+import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { StyledCalendarToolbar, StyledHeaderPaddle } from '../styled';
 
@@ -29,8 +30,6 @@ export interface IToolbarProps {
 }
 
 type Paddle = 'previousYear' | 'previousMonth' | 'nextMonth' | 'nextYear';
-
-const PADDLE_ORDER: Paddle[] = ['previousYear', 'previousMonth', 'nextMonth', 'nextYear'];
 
 /**
  * Shared month/year navigation toolbar rendered by both `DatePicker` and
@@ -67,25 +66,23 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   const nextYearAriaLabel = useText(Toolbar, { nextYearLabel }, 'nextYearLabel', 'Next year');
   const toolbarAriaLabel = useText(Toolbar, { toolbarLabel }, 'toolbarLabel', 'Calendar view');
 
-  /**
-   * Roving tabindex across the toolbar's 4 paddles, per the APG Toolbar
-   * pattern: exactly one paddle is tabbable at a time, kept in sync with
-   * wherever real DOM focus actually lands (click, Tab, or an arrow key
-   * below), so the toolbar naturally "remembers" the last-focused paddle.
-   */
+  const { rtl } = useContext(ThemeContext) || DEFAULT_THEME;
+
   const [focusedPaddle, setFocusedPaddle] = useState<Paddle>('previousYear');
-  const paddleRefs = {
-    previousYear: useRef<HTMLButtonElement>(null),
-    previousMonth: useRef<HTMLButtonElement>(null),
-    nextMonth: useRef<HTMLButtonElement>(null),
-    nextYear: useRef<HTMLButtonElement>(null)
+  const paddleRefs = useRef<HTMLButtonElement[]>([]);
+
+  paddleRefs.current = [];
+
+  const paddleRef = (el: HTMLButtonElement | null) => {
+    if (el) {
+      paddleRefs.current.push(el);
+    }
   };
 
   const handleToolbarKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
-      const currentIndex = PADDLE_ORDER.findIndex(
-        paddle => paddleRefs[paddle].current === e.target
-      );
+      const paddles = paddleRefs.current;
+      const currentIndex = paddles.indexOf(e.target as HTMLButtonElement);
 
       if (currentIndex === -1) {
         return;
@@ -95,26 +92,29 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
 
       switch (e.key) {
         case KEYS.RIGHT:
-          nextIndex = (currentIndex + 1) % PADDLE_ORDER.length;
+          nextIndex = rtl
+            ? (currentIndex - 1 + paddles.length) % paddles.length
+            : (currentIndex + 1) % paddles.length;
           break;
         case KEYS.LEFT:
-          nextIndex = (currentIndex - 1 + PADDLE_ORDER.length) % PADDLE_ORDER.length;
+          nextIndex = rtl
+            ? (currentIndex + 1) % paddles.length
+            : (currentIndex - 1 + paddles.length) % paddles.length;
           break;
         case KEYS.HOME:
           nextIndex = 0;
           break;
         case KEYS.END:
-          nextIndex = PADDLE_ORDER.length - 1;
+          nextIndex = paddles.length - 1;
           break;
         default:
           return;
       }
 
       e.preventDefault();
-      paddleRefs[PADDLE_ORDER[nextIndex]].current?.focus();
+      paddles[nextIndex]?.focus();
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
+    [rtl]
   );
 
   return (
@@ -125,7 +125,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
       onKeyDown={handleToolbarKeyDown}
     >
       <StyledHeaderPaddle
-        ref={paddleRefs.previousYear}
+        ref={paddleRef}
         type="button"
         isPill
         isBasic
@@ -143,7 +143,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         <ChevronDoubleLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
-        ref={paddleRefs.previousMonth}
+        ref={paddleRef}
         type="button"
         isPill
         isBasic
@@ -161,7 +161,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         <ChevronLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
-        ref={paddleRefs.nextMonth}
+        ref={paddleRef}
         type="button"
         isPill
         isBasic
@@ -179,7 +179,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         <ChevronRightStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
-        ref={paddleRefs.nextYear}
+        ref={paddleRef}
         type="button"
         isPill
         isBasic
