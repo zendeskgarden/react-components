@@ -8,7 +8,7 @@
 import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { isSameDay } from 'date-fns/isSameDay';
-import { IDatePickerProps } from '../types';
+import { DateFnsIndex } from '../types';
 
 /**
  * The following mappings use the Date offests:
@@ -16,9 +16,6 @@ import { IDatePickerProps } from '../types';
  * 1 - Monday
  * 6 - Saturday
  */
-
-/** This type matches definition required by date-fns utilities */
-export type DateFnsIndex = IDatePickerProps['weekStartsOn'];
 
 const REGION_MAPPINGS: Record<string, DateFnsIndex> = {
   'ar-DZ': 0,

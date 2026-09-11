@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLProps, RefObject, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import { HTMLProps, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
@@ -18,10 +18,14 @@ import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isValid } from 'date-fns/isValid';
 import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
-import { IDatePickerValueSettledResult } from '../types';
-import { DateFnsIndex, getStartOfWeek, isDateWithinRange } from './calendar-utils';
 import {
   ElementProps,
+  IUseDatePickerProps,
+  IUseDatePickerReturnValue,
+  IGetDayPropsOptions
+} from '../types';
+import { getStartOfWeek, isDateWithinRange } from './calendar-utils';
+import {
   composeActionButtonProps,
   focusIntoDialog,
   resolveWidgetBlur,
@@ -34,61 +38,6 @@ import {
   resolveSettledValue,
   retrieveInitialState
 } from '../elements/DatePicker/utils/date-picker-reducer';
-
-export interface IUseDatePickerProps {
-  idPrefix?: string;
-  value?: Date;
-  minValue?: Date;
-  maxValue?: Date;
-  locale?: string;
-  weekStartsOn?: DateFnsIndex;
-  formatDate?: (date: Date) => string;
-  customParseDate?: (inputValue: string) => Date;
-  required?: boolean;
-  onChange?: (date: Date) => void;
-  onValueSettled?: (result: IDatePickerValueSettledResult) => void;
-  /** The rendered text input - created by the caller since it's merged with a consumer-supplied ref. */
-  inputRef: RefObject<HTMLInputElement | null>;
-}
-
-export interface IGetDayPropsOptions extends ElementProps<HTMLButtonElement> {
-  date: Date;
-}
-
-export interface IUseDatePickerReturnValue {
-  isOpen: boolean;
-  previewDate: Date;
-  inputValue: string;
-  menuId: string;
-  buttonId: string;
-  headingId: string;
-  dialogRef: RefObject<HTMLDivElement | null>;
-  getGroupProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getInputProps: (props?: HTMLProps<HTMLInputElement>) => HTMLProps<HTMLInputElement>;
-  getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
-  getDialogProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getGridProps: (props?: ElementProps<HTMLTableElement>) => ElementProps<HTMLTableElement>;
-  getHeadingProps: (props?: ElementProps<HTMLHeadingElement>) => ElementProps<HTMLHeadingElement>;
-  getDayProps: (props: IGetDayPropsOptions) => ElementProps<HTMLButtonElement>;
-  getPreviousMonthButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  getNextMonthButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  getPreviousYearButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  getNextYearButtonProps: (
-    props?: ElementProps<HTMLButtonElement>
-  ) => ElementProps<HTMLButtonElement>;
-  focusPreviousMonth: () => void;
-  focusNextMonth: () => void;
-  focusPreviousYear: () => void;
-  focusNextYear: () => void;
-  settleValue: (inputValue?: string) => void;
-}
 
 /**
  * Headless, self-contained state and prop-getters for a single-date picker:

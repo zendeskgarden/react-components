@@ -8,19 +8,8 @@
 export { DatePicker } from './elements/DatePicker/DatePicker';
 export { DatePickerRange } from './elements/DatePickerRange/DatePickerRange';
 
-export {
-  useDatePicker,
-  type IGetDayPropsOptions,
-  type IUseDatePickerProps,
-  type IUseDatePickerReturnValue
-} from './utils/useDatePicker';
-
-export {
-  useDatePickerRange,
-  type IGetRangeDayPropsOptions,
-  type IUseDatePickerRangeProps,
-  type IUseDatePickerRangeReturnValue
-} from './elements/DatePickerRange/utils/useDatePickerRange';
+export { useDatePicker } from './utils/useDatePicker';
+export { useDatePickerRange } from './elements/DatePickerRange/utils/useDatePickerRange';
 
 export type {
   DatePickerInvalidReason,
@@ -28,5 +17,11 @@ export type {
   IDatePickerProps,
   IDatePickerRangeProps,
   IDatePickerRangeValueSettledResult,
-  IDatePickerValueSettledResult
+  IDatePickerValueSettledResult,
+  IGetDayPropsOptions,
+  IGetRangeDayPropsOptions,
+  IUseDatePickerProps,
+  IUseDatePickerRangeProps,
+  IUseDatePickerRangeReturnValue,
+  IUseDatePickerReturnValue
 } from './types';
