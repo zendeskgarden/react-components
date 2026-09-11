@@ -20,6 +20,8 @@ import CalendarStrokeIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.
  * dialog building blocks (DatePickerRange.Trigger, DatePickerRange.Dialog,
  * and Start/End's `opensDialog` prop), since DatePickerRange itself always
  * renders its calendar inline and never closes it on its own.
+ * DatePickerRange.Dialog styles and floats itself the same way DatePicker's
+ * own popover does, so no manual positioning/styling is needed here.
  */
 export const DatePickerRangeDialogStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);
@@ -68,19 +70,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
             </Grid.Col>
           </Grid.Row>
         </Grid>
-        <DatePickerRange.Dialog
-          aria-label="Choose dates"
-          data-test-id="range-dialog"
-          style={{
-            position: 'absolute',
-            zIndex: 1000,
-            marginTop: 4,
-            background: 'white',
-            border: '1px solid #d8dcde',
-            borderRadius: 4,
-            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
-          }}
-        >
+        <DatePickerRange.Dialog>
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>
       </div>
