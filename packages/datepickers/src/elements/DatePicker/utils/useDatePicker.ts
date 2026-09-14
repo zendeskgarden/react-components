@@ -209,7 +209,15 @@ export function useDatePicker({
 
   const getInputProps = useCallback(
     (props: HTMLProps<HTMLInputElement> = {}) => {
-      const { onChange: onInputChange, onKeyDown, onMouseDown, onFocus, onClick, ...other } = props;
+      const {
+        onChange: onInputChange,
+        onKeyDown,
+        onMouseDown,
+        onFocus,
+        onClick,
+        autoComplete = 'off',
+        ...other
+      } = props;
 
       const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
@@ -268,7 +276,7 @@ export function useDatePicker({
         'aria-autocomplete': 'none' as const,
         'aria-expanded': state.isOpen,
         'aria-controls': menuId,
-        autoComplete: 'off',
+        autoComplete,
         value: state.inputValue,
         onChange: composeEventHandlers(onInputChange, handleChange),
         onMouseDown: composeEventHandlers(onMouseDown, handleMouseDown),
