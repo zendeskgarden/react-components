@@ -6,6 +6,7 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import {
@@ -15,12 +16,18 @@ import {
 } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
-const gridStyles = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 280px)',
-  gridTemplateRows: 'auto auto',
-  gap: '20px'
-};
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 280px);
+  grid-template-rows: auto auto;
+  gap: 20px;
+`;
+
+const StyledCalendar = styled(DatePickerRange.Calendar)`
+  grid-column: 1 / -1;
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+`;
 
 export const DatePickerRangeInvalidDateStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);
@@ -53,7 +60,7 @@ export const DatePickerRangeInvalidDateStory: StoryFn = () => {
       onChange={handleChange}
       onValueSettled={handleValueSettled}
     >
-      <div style={gridStyles}>
+      <StyledGrid>
         <Field>
           <Field.Label>Start date</Field.Label>
           <Field.Hint>
@@ -92,8 +99,8 @@ export const DatePickerRangeInvalidDateStory: StoryFn = () => {
             </Field.Message>
           )}
         </Field>
-        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
-      </div>
+        <StyledCalendar />
+      </StyledGrid>
     </DatePickerRange>
   );
 };

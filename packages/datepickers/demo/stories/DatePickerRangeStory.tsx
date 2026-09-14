@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
@@ -15,20 +16,26 @@ interface IArgs extends IDatePickerRangeProps {
   dateStyle: DATE_STYLE;
 }
 
+const StyledGrid = styled.div<{ isCompact?: boolean }>`
+  display: grid;
+  grid-template-columns: repeat(2, ${p => (p.isCompact ? '224px' : '280px')});
+  grid-template-rows: ${p => (p.isCompact ? '32px' : '40px')} auto;
+  gap: ${p => (p.isCompact ? '16px' : '20px')};
+`;
+
+const StyledCalendar = styled(DatePickerRange.Calendar)`
+  grid-column: 1 / -1;
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+`;
+
 export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...args }) => {
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 
-  const gridStyles = {
-    display: 'grid',
-    gridTemplateColumns: `repeat(2, ${isCompact ? '224px' : '280px'})`,
-    gridTemplateRows: `${isCompact ? '32px' : '40px'} auto`,
-    gap: isCompact ? '16px' : '20px'
-  };
-
   return (
     <DatePickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
-      <div style={gridStyles}>
+      <StyledGrid isCompact={isCompact}>
         <Field>
           <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
           <DatePickerRange.Start>
@@ -41,8 +48,8 @@ export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...
             <Input isCompact={isCompact} />
           </DatePickerRange.End>
         </Field>
-        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
-      </div>
+        <StyledCalendar />
+      </StyledGrid>
     </DatePickerRange>
   );
 };
