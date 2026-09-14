@@ -82,6 +82,10 @@ const disabledStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       cursor: default;
       color: ${foreground};
     }
+
+    &&[aria-disabled='true']:hover {
+      background-color: transparent;
+    }
   `;
 };
 
