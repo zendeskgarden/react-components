@@ -15,6 +15,11 @@ import { Grid } from '@zendeskgarden/react-grid';
 import { getColor } from '@zendeskgarden/react-theming';
 import CalendarStrokeIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
 
+const StyledWrapper = styled.div`
+  display: inline-block;
+  position: relative;
+`;
+
 const StyledCalendarIconButton = styled(IconButton)`
   &&[aria-expanded='true'] {
     background-color: ${p =>
@@ -62,7 +67,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
         setEndValue(values.endValue);
       }}
     >
-      <div style={{ position: 'relative', display: 'inline-block' }}>
+      <StyledWrapper>
         <Grid>
           <Grid.Row alignItems="end">
             <Grid.Col size="auto">
@@ -112,7 +117,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
         <DatePickerRange.Dialog>
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>
-      </div>
+      </StyledWrapper>
     </DatePickerRange>
   );
 };
