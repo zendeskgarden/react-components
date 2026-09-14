@@ -621,8 +621,13 @@ export function useDatePickerRange({
     [headingId0, headingId1]
   );
 
+  const getInRangeId = useCallback(
+    (date: Date) => `${prefix}--in-range-${date.getTime()}`,
+    [prefix]
+  );
+
   const getDayProps = useCallback(
-    ({ date, onClick, onKeyDown, ...other }: IGetRangeDayPropsOptions) => {
+    ({ date, onClick, onKeyDown, isHighlighted, ...other }: IGetRangeDayPropsOptions) => {
       const isSelected =
         (startValue !== undefined && isSameDay(date, startValue)) ||
         (endValue !== undefined && isSameDay(date, endValue));
@@ -725,6 +730,7 @@ export function useDatePickerRange({
         tabIndex: isSameDay(date, state.focusedDate) ? 0 : -1,
         'aria-current': isCurrentDate ? ('date' as const) : undefined,
         'aria-disabled': isDisabled || undefined,
+        'aria-describedby': isHighlighted ? getInRangeId(date) : undefined,
         onClick: composeEventHandlers(onClick, handleClick),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
         'data-test-id': 'day',
@@ -740,6 +746,7 @@ export function useDatePickerRange({
       maxValue,
       startValue,
       endValue,
+      getInRangeId,
       state.isStartFocused,
       state.isEndFocused,
       state.isStartValueInvalid,
@@ -750,6 +757,15 @@ export function useDatePickerRange({
       preferredWeekStartsOn,
       rtl
     ]
+  );
+
+  const getInRangeDescriptionProps = useCallback(
+    ({ date, ...other }: { date: Date } & ElementProps<HTMLSpanElement>) => ({
+      id: getInRangeId(date),
+      hidden: true,
+      ...other
+    }),
+    [getInRangeId]
   );
 
   const setHoverDate = useCallback((date: Date | undefined) => {
@@ -818,6 +834,7 @@ export function useDatePickerRange({
       getGridProps,
       getHeadingProps,
       getDayProps,
+      getInRangeDescriptionProps,
       getPreviousMonthButtonProps,
       getNextMonthButtonProps,
       getPreviousYearButtonProps,
@@ -852,6 +869,7 @@ export function useDatePickerRange({
       getGridProps,
       getHeadingProps,
       getDayProps,
+      getInRangeDescriptionProps,
       getPreviousMonthButtonProps,
       getNextMonthButtonProps,
       getPreviousYearButtonProps,

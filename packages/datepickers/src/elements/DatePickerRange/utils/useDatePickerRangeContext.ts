@@ -21,6 +21,9 @@ export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue 
   previousYearLabel?: string;
   nextYearLabel?: string;
   toolbarLabel?: string;
+  inRangeLabel?: string;
+  startOfRangeLabel?: string;
+  endOfRangeLabel?: string;
 }
 
 export const DatePickerRangeContext = createContext<IDatePickerRangeContext | undefined>(undefined);
