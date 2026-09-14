@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+import { Span } from '@zendeskgarden/react-typography';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
@@ -129,11 +130,13 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             key={`day-label-${formattedDayLabel}`}
             $isCompact={isCompact}
             scope="col"
-            abbr={fullDayLabelFormatter(date)}
           >
-            <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
+            <StyledDayLabel $isCompact={isCompact!} aria-hidden="true" data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
+            <Span hidden data-test-id="day-label-full">
+              {fullDayLabelFormatter(date)}
+            </Span>
           </StyledDayLabelHeader>
         );
       }

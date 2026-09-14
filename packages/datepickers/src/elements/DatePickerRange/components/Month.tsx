@@ -90,6 +90,17 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       [locale]
     );
 
+    const fullDayLabelFormatter = useCallback<(date: Date) => string>(
+      date => {
+        const formatter = new Intl.DateTimeFormat(locale, {
+          weekday: 'long'
+        });
+
+        return formatter.format(date);
+      },
+      [locale]
+    );
+
     const dayFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
@@ -122,9 +133,12 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             $isCompact={isCompact}
             scope="col"
           >
-            <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
+            <StyledDayLabel $isCompact={isCompact!} aria-hidden="true" data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
+            <Span hidden data-test-id="day-label-full">
+              {fullDayLabelFormatter(date)}
+            </Span>
           </StyledDayLabelHeader>
         );
       }
