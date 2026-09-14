@@ -6,6 +6,7 @@
  */
 
 import React, { useState } from 'react';
+import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
 import { addDays } from 'date-fns/addDays';
@@ -17,12 +18,18 @@ import {
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { customParseShortDate, formatShortDate } from './utils';
 
-const gridStyles = {
-  display: 'grid',
-  gridTemplateColumns: 'repeat(2, 280px)',
-  gridTemplateRows: 'auto auto',
-  gap: '20px'
-};
+const StyledGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 280px);
+  grid-template-rows: auto auto;
+  gap: 20px;
+`;
+
+const StyledCalendar = styled(DatePickerRange.Calendar)`
+  grid-column: 1 / -1;
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+`;
 
 const TODAY = new Date();
 const DEFAULT_END_VALUE = addDays(TODAY, 7);
@@ -60,7 +67,7 @@ export const DatePickerRangeOutOfOrderStory: StoryFn = () => {
       onChange={handleChange}
       onValueSettled={handleValueSettled}
     >
-      <div style={gridStyles}>
+      <StyledGrid>
         <Field>
           <Field.Label>Start date</Field.Label>
           <Field.Hint>Must be M/D/YYYY format, on or before the end date</Field.Hint>
@@ -91,8 +98,8 @@ export const DatePickerRangeOutOfOrderStory: StoryFn = () => {
             </Field.Message>
           )}
         </Field>
-        <DatePickerRange.Calendar style={{ gridColumn: '1 / -1', padding: 0 }} />
-      </div>
+        <StyledCalendar />
+      </StyledGrid>
     </DatePickerRange>
   );
 };
