@@ -863,6 +863,23 @@ describe('DatePickerRange', () => {
         expect(grids[index]).toHaveAttribute('aria-labelledby', heading.id);
       });
     });
+
+    it('hides the abbreviated day-label from screen readers in favor of a visually-hidden full weekday name', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const wrapper = getAllByTestId('calendar-wrapper')[0];
+      const columnHeaders = within(wrapper).getAllByRole('columnheader');
+      const dayLabels = globalGetAllByTestId(wrapper, 'day-label');
+      const fullDayLabels = globalGetAllByTestId(wrapper, 'day-label-full');
+
+      expect(columnHeaders[0]).not.toHaveAttribute('abbr');
+      expect(dayLabels[0]).toHaveTextContent('Sun');
+      expect(dayLabels[0]).toHaveAttribute('aria-hidden', 'true');
+      expect(fullDayLabels[0]).toHaveTextContent('Sunday');
+      expect(fullDayLabels[0]).toHaveAttribute('hidden');
+    });
   });
 
   describe('Combobox semantics', () => {

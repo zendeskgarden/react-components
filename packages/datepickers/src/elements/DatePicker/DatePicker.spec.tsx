@@ -1665,17 +1665,22 @@ describe('DatePicker', () => {
       expect(grid).toHaveAttribute('aria-labelledby', heading.id);
     });
 
-    it('labels day-label cells as columnheaders with the full weekday name', async () => {
-      const { getByTestId, getAllByRole } = render(
+    it('hides the abbreviated day-label from screen readers in favor of a visually-hidden full weekday name', async () => {
+      const { getByTestId, getAllByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
       const columnHeaders = getAllByRole('columnheader');
+      const dayLabels = getAllByTestId('day-label');
+      const fullDayLabels = getAllByTestId('day-label-full');
 
-      expect(columnHeaders[0]).toHaveAttribute('abbr', 'Sunday');
-      expect(columnHeaders[0]).toHaveTextContent('Sun');
+      expect(columnHeaders[0]).not.toHaveAttribute('abbr');
+      expect(dayLabels[0]).toHaveTextContent('Sun');
+      expect(dayLabels[0]).toHaveAttribute('aria-hidden', 'true');
+      expect(fullDayLabels[0]).toHaveTextContent('Sunday');
+      expect(fullDayLabels[0]).toHaveAttribute('hidden');
     });
 
     it('groups the day-label cells and each week of days into rows of 7', async () => {
