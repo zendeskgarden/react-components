@@ -48,6 +48,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       maxValue,
       startValue,
       endValue,
+      isStartValueInvalid,
+      isEndValueInvalid,
       hoverDate,
       setHoverDate,
       getMonthProps,
@@ -55,6 +57,15 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       getHeadingProps,
       getDayProps
     } = useDatePickerContext();
+
+    /**
+     * A rejected out-of-range/malformed blur leaves `startValue`/`endValue`
+     * pointing at the last-committed date even though the field visibly
+     * shows an unresolved error - suppress that stale date's calendar
+     * selection/highlighting until a new value actually commits.
+     */
+    const effectiveStartValue = isStartValueInvalid ? undefined : startValue;
+    const effectiveEndValue = isEndValueInvalid ? undefined : endValue;
 
     const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
@@ -135,12 +146,12 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       let isSelected = false;
 
-      if (startValue !== undefined) {
-        isSelected = isSameDay(date, startValue);
+      if (effectiveStartValue !== undefined) {
+        isSelected = isSameDay(date, effectiveStartValue);
       }
 
-      if (endValue !== undefined) {
-        isSelected = isSelected || isSameDay(date, endValue);
+      if (effectiveEndValue !== undefined) {
+        isSelected = isSelected || isSameDay(date, effectiveEndValue);
       }
 
       let isDisabled = false;
@@ -155,29 +166,32 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       let isHighlighted = false;
 
-      if (startValue !== undefined && endValue !== undefined) {
+      if (effectiveStartValue !== undefined && effectiveEndValue !== undefined) {
         isHighlighted =
-          (isAfter(date, startValue) || isSameDay(date, startValue)) &&
-          (isBefore(date, endValue) || isSameDay(date, endValue)) &&
-          !isSameDay(startValue, endValue);
-      } else if (startValue !== undefined && hoverDate !== undefined) {
+          (isAfter(date, effectiveStartValue) || isSameDay(date, effectiveStartValue)) &&
+          (isBefore(date, effectiveEndValue) || isSameDay(date, effectiveEndValue)) &&
+          !isSameDay(effectiveStartValue, effectiveEndValue);
+      } else if (effectiveStartValue !== undefined && hoverDate !== undefined) {
         isHighlighted =
-          (isAfter(date, startValue) || isSameDay(date, startValue)) &&
+          (isAfter(date, effectiveStartValue) || isSameDay(date, effectiveStartValue)) &&
           (isBefore(date, hoverDate) || isSameDay(date, hoverDate));
-      } else if (endValue !== undefined && hoverDate !== undefined) {
+      } else if (effectiveEndValue !== undefined && hoverDate !== undefined) {
         isHighlighted =
           (isAfter(date, hoverDate) || isSameDay(date, hoverDate)) &&
-          (isBefore(date, endValue) || isSameDay(date, endValue));
+          (isBefore(date, effectiveEndValue) || isSameDay(date, effectiveEndValue));
       }
 
       const isHighlightStart =
-        (isHighlighted && startValue && isSameDay(date, startValue)) ||
-        (isHighlighted && startValue === undefined && !!hoverDate && isSameDay(date, hoverDate)) ||
+        (isHighlighted && effectiveStartValue && isSameDay(date, effectiveStartValue)) ||
+        (isHighlighted &&
+          effectiveStartValue === undefined &&
+          !!hoverDate &&
+          isSameDay(date, hoverDate)) ||
         false;
 
       const isHighlightEnd =
-        (isHighlighted && endValue && isSameDay(date, endValue)) ||
-        (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, endValue!)) ||
+        (isHighlighted && effectiveEndValue && isSameDay(date, effectiveEndValue)) ||
+        (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, effectiveEndValue!)) ||
         false;
 
       /**
@@ -195,8 +209,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       );
       const isRowEnd = isSameDay(date, endOfWeek(date, { weekStartsOn: preferredWeekStartsOn }));
       const suppressHighlight =
-        (isHighlightEnd && endValue === undefined && isRowStart) ||
-        (isHighlightStart && startValue === undefined && isRowEnd);
+        (isHighlightEnd && effectiveEndValue === undefined && isRowStart) ||
+        (isHighlightStart && effectiveStartValue === undefined && isRowEnd);
 
       const showHighlighted = isHighlighted && !suppressHighlight && !isDisabled;
       const showHighlightStartGradient = isHighlightStart && !suppressHighlight;

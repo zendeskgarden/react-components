@@ -90,9 +90,16 @@ export function useDatePicker({
 
   const settleValue = useCallback(
     (inputValue: string = state.inputValue) => {
-      onValueSettled?.(
-        resolveSettledValue({ inputValue, required, minValue, maxValue, customParseDate })
-      );
+      const settled = resolveSettledValue({
+        inputValue,
+        required,
+        minValue,
+        maxValue,
+        customParseDate
+      });
+
+      dispatch({ type: 'VALUE_SETTLED', valid: settled.valid });
+      onValueSettled?.(settled);
     },
     [state.inputValue, required, minValue, maxValue, customParseDate, onValueSettled]
   );
@@ -335,7 +342,7 @@ export function useDatePicker({
   const getDayProps = useCallback(
     ({ date, onClick, onKeyDown, ...other }: IGetDayPropsOptions) => {
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
-      const isSelected = value !== undefined && isSameDay(date, value);
+      const isSelected = value !== undefined && !state.isValueInvalid && isSameDay(date, value);
       const isCurrentDate = isToday(date);
 
       const handleClick = () => {
@@ -417,7 +424,8 @@ export function useDatePicker({
       inputRef,
       preferredWeekStartsOn,
       rtl,
-      state.focusedDate
+      state.focusedDate,
+      state.isValueInvalid
     ]
   );
 
@@ -463,6 +471,7 @@ export function useDatePicker({
       isOpen: state.isOpen,
       previewDate: state.previewDate,
       inputValue: state.inputValue,
+      isValueInvalid: state.isValueInvalid,
       menuId,
       buttonId,
       headingId,
@@ -489,6 +498,7 @@ export function useDatePicker({
       state.isOpen,
       state.previewDate,
       state.inputValue,
+      state.isValueInvalid,
       menuId,
       buttonId,
       headingId,

@@ -994,6 +994,30 @@ describe('DatePicker', () => {
       });
     });
 
+    it('does not move the calendar view when blurring after typing a date outside minValue/maxValue', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
+
+        return (
+          <Example
+            value={value}
+            onChange={setValue}
+            minValue={subDays(DEFAULT_DATE, 2)}
+            maxValue={addDays(DEFAULT_DATE, 2)}
+          />
+        );
+      };
+      const { getByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.change(input, { target: { value: '1/1/2020' } });
+      fireEvent.blur(input);
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+    });
+
     it('reports invalid when closing the calendar by clicking outside after typing unparseable text', async () => {
       const { getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
@@ -1703,6 +1727,30 @@ describe('DatePicker', () => {
       await user.click(getByTestId('calendar-button'));
 
       expect(getAllByTestId('day')[9]).toHaveAttribute('aria-pressed', 'true');
+    });
+
+    it('clears aria-pressed on the stale value after a rejected out-of-range blur', async () => {
+      const ControlledExample = () => {
+        const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
+
+        return (
+          <Example
+            value={value}
+            onChange={setValue}
+            minValue={subDays(DEFAULT_DATE, 2)}
+            maxValue={addDays(DEFAULT_DATE, 2)}
+          />
+        );
+      };
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const input = getByTestId('input');
+
+      await user.click(getByTestId('calendar-button'));
+
+      fireEvent.change(input, { target: { value: '1/1/2020' } });
+      fireEvent.blur(input);
+
+      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-pressed', 'false');
     });
 
     it('marks today with aria-current when it is not the committed value', async () => {

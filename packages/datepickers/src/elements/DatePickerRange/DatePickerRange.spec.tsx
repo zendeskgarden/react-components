@@ -1332,6 +1332,159 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('Out-of-range input', () => {
+    const ControlledExample = ({
+      startValue: initialStartValue,
+      endValue: initialEndValue,
+      ...props
+    }: IDatePickerRangeProps) => {
+      const [startValue, setStartValue] = useState(initialStartValue);
+      const [endValue, setEndValue] = useState(initialEndValue);
+
+      return (
+        <Example
+          {...props}
+          startValue={startValue}
+          endValue={endValue}
+          onChange={value => {
+            setStartValue(value.startValue);
+            setEndValue(value.endValue);
+          }}
+        />
+      );
+    };
+
+    it('does not move the calendar view when a typed start date is out of range', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          minValue={DEFAULT_START_VALUE}
+          maxValue={DEFAULT_END_VALUE}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/1/2020');
+      await user.tab();
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2019');
+      expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+
+    it('does not move the calendar view when a typed end date is out of range', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          minValue={DEFAULT_START_VALUE}
+          maxValue={DEFAULT_END_VALUE}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '1/1/2020');
+      await user.tab();
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2019');
+      expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+
+    it('clears the stale start value pressed state and range highlight after a rejected out-of-range blur', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          minValue={DEFAULT_START_VALUE}
+          maxValue={DEFAULT_END_VALUE}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/1/2020');
+      await user.tab();
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      expect(firstMonthDays[9]).toHaveAttribute('aria-pressed', 'false');
+      expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('clears the stale end value pressed state and range highlight after a rejected out-of-range blur', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          minValue={DEFAULT_START_VALUE}
+          maxValue={DEFAULT_END_VALUE}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '1/1/2020');
+      await user.tab();
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      expect(firstMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
+      expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'false');
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('preserves the still-valid end value when a new valid start date is chosen from the calendar after a rejected out-of-range start commit', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          minValue={DEFAULT_START_VALUE}
+          maxValue={DEFAULT_END_VALUE}
+        />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/1/2020');
+      await user.keyboard('{Enter}');
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+
+      await user.click(firstMonthDays[10]); // February 6, 2019
+
+      expect(startInput).toHaveValue('February 6, 2019');
+      expect(getByTestId('end')).toHaveValue('March 5, 2019');
+    });
+  });
+
   describe('Keyboard navigation', () => {
     const getDayButtons = (wrapper: HTMLElement) =>
       within(wrapper)
