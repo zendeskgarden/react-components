@@ -27,6 +27,8 @@ export interface IDatePickerRangeState {
   hoverDate?: Date;
   isStartFocused: boolean;
   isEndFocused: boolean;
+  isStartValueInvalid: boolean;
+  isEndValueInvalid: boolean;
   startInputValue?: string;
   endInputValue?: string;
 }
@@ -144,8 +146,8 @@ export type DatePickerRangeAction =
   | { type: 'PREVIEW_PREVIOUS_YEAR' }
   | { type: 'START_INPUT_ONCHANGE'; value: string }
   | { type: 'END_INPUT_ONCHANGE'; value: string }
-  | { type: 'START_BLUR' }
-  | { type: 'END_BLUR' }
+  | { type: 'START_BLUR'; isRejected: boolean }
+  | { type: 'END_BLUR'; isRejected: boolean }
   | { type: 'START_FOCUS'; startValue?: Date }
   | { type: 'END_FOCUS'; endValue?: Date }
   | {
@@ -202,9 +204,9 @@ export const datepickerRangeReducer = (
       return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
     }
     case 'START_BLUR':
-      return { ...state, isStartFocused: false };
+      return { ...state, isStartFocused: false, isStartValueInvalid: action.isRejected };
     case 'END_BLUR':
-      return { ...state, isEndFocused: false };
+      return { ...state, isEndFocused: false, isEndValueInvalid: action.isRejected };
     case 'CONTROLLED_START_VALUE_CHANGE': {
       const startInputValue = formatValue({
         value: action.value,
@@ -229,7 +231,8 @@ export const datepickerRangeReducer = (
         ...state,
         startInputValue,
         hoverDate: undefined,
-        previewDate
+        previewDate,
+        isStartValueInvalid: false
       };
     }
     case 'CONTROLLED_END_VALUE_CHANGE': {
@@ -256,7 +259,8 @@ export const datepickerRangeReducer = (
         ...state,
         endInputValue,
         hoverDate: undefined,
-        previewDate
+        previewDate,
+        isEndValueInvalid: false
       };
     }
     case 'CLICK_DATE': {
@@ -403,6 +407,8 @@ export function retrieveInitialState(initialProps: IDatePickerRangeProps): IDate
     startInputValue,
     endInputValue,
     isStartFocused: false,
-    isEndFocused: false
+    isEndFocused: false,
+    isStartValueInvalid: false,
+    isEndValueInvalid: false
   };
 }

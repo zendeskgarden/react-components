@@ -27,7 +27,7 @@ import {
   IUseDatePickerRangeProps,
   IUseDatePickerRangeReturnValue
 } from '../../../types';
-import { getStartOfWeek } from '../../../utils/calendar-utils';
+import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
 import {
   composeActionButtonProps,
   focusIntoDialog,
@@ -296,15 +296,29 @@ export function useDatePickerRange({
     const parsedDate = customParseDate
       ? customParseDate(state.startInputValue)
       : parseInputValue({ inputValue: state.startInputValue });
+    const isParsedDateValid =
+      isValid(parsedDate) && isDateWithinRange(parsedDate, minValue, maxValue);
 
-    dispatch({ type: 'START_BLUR' });
+    dispatch({
+      type: 'START_BLUR',
+      isRejected: !isParsedDateValid && !!state.startInputValue
+    });
 
-    if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, startValue!)) {
+    if (isParsedDateValid && !isSameDay(parsedDate, startValue!)) {
       onChange?.({ startValue: parsedDate, endValue });
     }
 
     reportStartSettled();
-  }, [onChange, startValue, endValue, customParseDate, state.startInputValue, reportStartSettled]);
+  }, [
+    onChange,
+    startValue,
+    endValue,
+    minValue,
+    maxValue,
+    customParseDate,
+    state.startInputValue,
+    reportStartSettled
+  ]);
 
   const handleStartBlur = useCallback(
     (relatedTarget: Element | null = null) => {
@@ -434,15 +448,29 @@ export function useDatePickerRange({
     const parsedDate = customParseDate
       ? customParseDate(state.endInputValue)
       : parseInputValue({ inputValue: state.endInputValue });
+    const isParsedDateValid =
+      isValid(parsedDate) && isDateWithinRange(parsedDate, minValue, maxValue);
 
-    dispatch({ type: 'END_BLUR' });
+    dispatch({
+      type: 'END_BLUR',
+      isRejected: !isParsedDateValid && !!state.endInputValue
+    });
 
-    if (parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
+    if (isParsedDateValid && !isSameDay(parsedDate, endValue!)) {
       onChange?.({ startValue, endValue: parsedDate });
     }
 
     reportEndSettled();
-  }, [onChange, startValue, endValue, customParseDate, state.endInputValue, reportEndSettled]);
+  }, [
+    onChange,
+    startValue,
+    endValue,
+    minValue,
+    maxValue,
+    customParseDate,
+    state.endInputValue,
+    reportEndSettled
+  ]);
 
   const handleEndBlur = useCallback(
     (relatedTarget: Element | null = null) => {
@@ -621,12 +649,12 @@ export function useDatePickerRange({
         let result: { startValue?: Date; endValue?: Date };
         let isOutOfOrder = false;
 
-        if (state.isStartFocused) {
+        if (state.isStartFocused || state.isStartValueInvalid) {
           result =
             endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
               ? { startValue: date, endValue }
               : { startValue: date, endValue: undefined };
-        } else if (state.isEndFocused) {
+        } else if (state.isEndFocused || state.isEndValueInvalid) {
           result =
             startValue !== undefined && (isAfter(date, startValue) || isSameDay(date, startValue))
               ? { startValue, endValue: date }
@@ -714,6 +742,8 @@ export function useDatePickerRange({
       endValue,
       state.isStartFocused,
       state.isEndFocused,
+      state.isStartValueInvalid,
+      state.isEndValueInvalid,
       state.focusedDate,
       onChange,
       onValueSettled,
@@ -770,6 +800,8 @@ export function useDatePickerRange({
       hoverDate: state.hoverDate,
       startInputValue: state.startInputValue,
       endInputValue: state.endInputValue,
+      isStartValueInvalid: state.isStartValueInvalid,
+      isEndValueInvalid: state.isEndValueInvalid,
       calendarId,
       isOpen,
       getStartWrapperProps,
@@ -802,6 +834,8 @@ export function useDatePickerRange({
       state.hoverDate,
       state.startInputValue,
       state.endInputValue,
+      state.isStartValueInvalid,
+      state.isEndValueInvalid,
       calendarId,
       isOpen,
       getStartWrapperProps,

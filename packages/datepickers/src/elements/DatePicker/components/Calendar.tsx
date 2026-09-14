@@ -64,6 +64,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
   ) => {
     const {
       previewDate,
+      isValueInvalid,
       getCalendarProps,
       getGridProps,
       getHeadingProps,
@@ -141,7 +142,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = getDate(date);
       const isPreviousMonth = !isSameMonth(date, previewDate);
-      const isSelected = !!(value && isSameDay(date, value));
+      const isSelected = !!(value && !isValueInvalid && isSameDay(date, value));
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
