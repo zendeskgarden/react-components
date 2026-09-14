@@ -94,7 +94,7 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   /** Sets the `z-index` of the calendar **/
   zIndex?: number;
   /** Provides a customized/translated label for the calendar trigger button **/
-  openCalendarLabel?: string;
+  toggleCalendarLabel?: string;
   /** Provides a customized/translated label for the previous month button **/
   previousMonthLabel?: string;
   /** Provides a customized/translated label for the next month button **/

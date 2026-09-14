@@ -12,15 +12,15 @@ import { StyledCalendarButton } from '../../../styled';
 
 interface ICalendarButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isCompact?: boolean;
-  openCalendarLabel?: string;
+  toggleCalendarLabel?: string;
 }
 
 export const CalendarButton = forwardRef<HTMLButtonElement, ICalendarButtonProps>(
-  ({ isCompact, openCalendarLabel, ...props }, ref) => {
+  ({ isCompact, toggleCalendarLabel, ...props }, ref) => {
     const ariaLabel = useText(
       CalendarButton,
-      { openCalendarLabel },
-      'openCalendarLabel',
+      { toggleCalendarLabel },
+      'toggleCalendarLabel',
       'Choose date'
     );
 

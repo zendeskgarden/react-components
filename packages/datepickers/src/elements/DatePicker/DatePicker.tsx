@@ -43,7 +43,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     locale = 'en-US',
     weekStartsOn,
     customParseDate,
-    openCalendarLabel,
+    toggleCalendarLabel,
     previousMonthLabel,
     nextMonthLabel,
     previousYearLabel,
@@ -169,7 +169,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         <CalendarButton
           id={buttonId}
           isCompact={isCompact}
-          openCalendarLabel={openCalendarLabel}
+          toggleCalendarLabel={toggleCalendarLabel}
           {...getTriggerProps()}
         />
       </InputGroup>
@@ -196,5 +196,5 @@ DatePicker.propTypes = {
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
   zIndex: PropTypes.number,
-  openCalendarLabel: PropTypes.string
+  toggleCalendarLabel: PropTypes.string
 };
