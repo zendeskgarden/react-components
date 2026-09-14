@@ -883,6 +883,32 @@ describe('DatePickerRange', () => {
         expect(input).not.toHaveAttribute('aria-haspopup');
       });
     });
+
+    it('sets a native `autocomplete="off"` attribute on both inputs by default', () => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getByTestId('start')).toHaveAttribute('autocomplete', 'off');
+      expect(getByTestId('end')).toHaveAttribute('autocomplete', 'off');
+    });
+
+    it('allows the native `autocomplete` attribute to be overridden on both inputs', () => {
+      const { getByTestId } = render(
+        <DatePickerRange startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" autoComplete="username" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" autoComplete="bday" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(getByTestId('start')).toHaveAttribute('autocomplete', 'username');
+      expect(getByTestId('end')).toHaveAttribute('autocomplete', 'bday');
+    });
   });
 
   describe('Calendar selection', () => {

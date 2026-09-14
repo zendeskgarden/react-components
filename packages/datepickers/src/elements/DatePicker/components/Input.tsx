@@ -24,7 +24,8 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(({ element, refKe
       onKeyDown: element.props.onKeyDown,
       onMouseDown: element.props.onMouseDown,
       onFocus: element.props.onFocus,
-      onClick: element.props.onClick
+      onClick: element.props.onClick,
+      autoComplete: element.props.autoComplete
     })
   );
 });
