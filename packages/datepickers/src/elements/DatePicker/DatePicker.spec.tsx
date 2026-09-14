@@ -792,6 +792,23 @@ describe('DatePicker', () => {
       expect(input).toHaveAttribute('aria-controls', menu.id);
     });
 
+    it('sets a native `autocomplete="off"` attribute by default', () => {
+      const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByRole('combobox', { expanded: false });
+
+      expect(input).toHaveAttribute('autocomplete', 'off');
+    });
+
+    it('allows the native `autocomplete` attribute to be overridden', () => {
+      const { getByTestId } = render(
+        <DatePicker value={DEFAULT_DATE} onChange={onChangeSpy}>
+          <input data-test-id="input" autoComplete="username" />
+        </DatePicker>
+      );
+
+      expect(getByTestId('input')).toHaveAttribute('autocomplete', 'username');
+    });
+
     it('sets aria-expanded to true when the calendar opens', async () => {
       const { getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
