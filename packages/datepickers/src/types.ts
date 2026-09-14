@@ -188,6 +188,8 @@ export interface IUseDatePickerReturnValue {
   isOpen: boolean;
   previewDate: Date;
   inputValue: string;
+  /** True when the most recent blur/settle commit was rejected (malformed or out of range), leaving `value` stale - consumed to suppress that stale value's calendar selection. **/
+  isValueInvalid: boolean;
   menuId: string;
   buttonId: string;
   headingId: string;
@@ -252,6 +254,10 @@ export interface IUseDatePickerRangeReturnValue {
   hoverDate?: Date;
   startInputValue?: string;
   endInputValue?: string;
+  /** True when the most recent blur commit for `Start` was rejected (malformed or out of range), leaving `startValue` stale - consumed to suppress that stale value's calendar selection/highlighting. **/
+  isStartValueInvalid: boolean;
+  /** See `isStartValueInvalid` - the `End` equivalent. **/
+  isEndValueInvalid: boolean;
   calendarId: string;
   /** Opt-in dialog mode, unused by default (`DatePickerRange.Calendar` always renders inline regardless of `isOpen`), for a consumer composing DatePickerRange's calendar inside a popover, mirroring `useDatePicker`'s own dialog pattern. **/
   isOpen: boolean;

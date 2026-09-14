@@ -18,6 +18,7 @@ export interface IDatePickerState {
   previewDate: Date;
   focusedDate: Date;
   inputValue: string;
+  isValueInvalid: boolean;
 }
 
 /**
@@ -142,7 +143,8 @@ export type DatePickerAction =
       locale: string;
       formatDate?: (date: Date) => string;
     }
-  | { type: 'FOCUS_DATE'; value: Date };
+  | { type: 'FOCUS_DATE'; value: Date }
+  | { type: 'VALUE_SETTLED'; valid: boolean };
 
 export const datepickerReducer = (
   state: IDatePickerState,
@@ -172,8 +174,10 @@ export const datepickerReducer = (
         ? state.inputValue
         : formatInputValue({ date: value, locale, formatDate });
 
-      return { ...state, previewDate, inputValue };
+      return { ...state, previewDate, inputValue, isValueInvalid: false };
     }
+    case 'VALUE_SETTLED':
+      return { ...state, isValueInvalid: !action.valid };
     case 'CONTROLLED_LOCALE_CHANGE': {
       const inputValue = formatInputValue({
         date: action.value,
@@ -234,6 +238,7 @@ export function retrieveInitialState(initialProps: IDatePickerProps): IDatePicke
     isOpen: false,
     previewDate,
     focusedDate: previewDate,
-    inputValue
+    inputValue,
+    isValueInvalid: false
   };
 }
