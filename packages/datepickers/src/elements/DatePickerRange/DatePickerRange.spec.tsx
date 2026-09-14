@@ -882,6 +882,78 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('In-range description', () => {
+    it('renders a visually-hidden span immediately after each highlighted day button, describing only that button', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      expect(within(firstMonthCells[0]).queryByTestId('in-range-description')).toBeNull();
+      expect(within(secondMonthCells[5]).queryByTestId('in-range-description')).toBeNull();
+
+      const startButton = within(firstMonthCells[4]).getByTestId('day');
+      const startDescription = within(firstMonthCells[4]).getByTestId('in-range-description');
+
+      expect(startDescription).toHaveAttribute('hidden');
+      expect(startButton).toHaveAttribute('aria-describedby', startDescription.id);
+      expect(startButton.nextElementSibling).toBe(startDescription);
+
+      const endButton = within(secondMonthCells[4]).getByTestId('day');
+      const endDescription = within(secondMonthCells[4]).getByTestId('in-range-description');
+
+      expect(endButton).toHaveAttribute('aria-describedby', endDescription.id);
+      expect(endDescription.id).not.toBe(startDescription.id);
+    });
+
+    it('labels the range boundaries as "start of range"/"end of range", and interior days as "included in range"', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      const startDescription = within(firstMonthCells[4]).getByTestId('in-range-description');
+      const interiorDescription = within(firstMonthCells[5]).getByTestId('in-range-description');
+      const endDescription = within(secondMonthCells[4]).getByTestId('in-range-description');
+
+      expect(startDescription).toHaveTextContent('(start of range)');
+      expect(interiorDescription).toHaveTextContent('(included in range)');
+      expect(endDescription).toHaveTextContent('(end of range)');
+    });
+
+    it('accepts custom startOfRangeLabel, endOfRangeLabel and inRangeLabel', () => {
+      const { getAllByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          startOfRangeLabel="début de la plage"
+          endOfRangeLabel="fin de la plage"
+          inRangeLabel="dans la plage"
+        />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+
+      expect(within(firstMonthCells[4]).getByTestId('in-range-description')).toHaveTextContent(
+        'début de la plage'
+      );
+      expect(within(firstMonthCells[5]).getByTestId('in-range-description')).toHaveTextContent(
+        'dans la plage'
+      );
+      expect(within(secondMonthCells[4]).getByTestId('in-range-description')).toHaveTextContent(
+        'fin de la plage'
+      );
+    });
+  });
+
   describe('Combobox semantics', () => {
     it('marks both inputs as a permanently-expanded combobox controlling the calendar', () => {
       const { getByTestId } = render(

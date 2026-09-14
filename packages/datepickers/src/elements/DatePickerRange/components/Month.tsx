@@ -7,6 +7,7 @@
 
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
 import { Span } from '@zendeskgarden/react-typography';
+import { useText } from '@zendeskgarden/react-theming';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
@@ -55,7 +56,11 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       getMonthProps,
       getGridProps,
       getHeadingProps,
-      getDayProps
+      getDayProps,
+      inRangeLabel,
+      startOfRangeLabel,
+      endOfRangeLabel,
+      getInRangeDescriptionProps
     } = useDatePickerContext();
 
     /**
@@ -66,6 +71,15 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
      */
     const effectiveStartValue = isStartValueInvalid ? undefined : startValue;
     const effectiveEndValue = isEndValueInvalid ? undefined : endValue;
+
+    const inRangeText = useText(Month, { inRangeLabel }, 'inRangeLabel', '(included in range)');
+    const startOfRangeText = useText(
+      Month,
+      { startOfRangeLabel },
+      'startOfRangeLabel',
+      '(start of range)'
+    );
+    const endOfRangeText = useText(Month, { endOfRangeLabel }, 'endOfRangeLabel', '(end of range)');
 
     const headerLabelFormatter = useCallback<(date: Date) => string>(
       date => {
@@ -255,6 +269,22 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         }
       }
 
+      const isStartOfRange = !isInvalidDateRange && showHighlightStartGradient;
+      const isEndOfRange = !isInvalidDateRange && showHighlightEndGradient;
+      const isDescribedAsInRange =
+        isStartOfRange || isEndOfRange || (!isInvalidDateRange && showHighlighted);
+
+      let inRangeDescriptionLabel = inRangeLabel;
+      let inRangeDescriptionText = inRangeText;
+
+      if (isStartOfRange) {
+        inRangeDescriptionLabel = startOfRangeLabel;
+        inRangeDescriptionText = startOfRangeText;
+      } else if (isEndOfRange) {
+        inRangeDescriptionLabel = endOfRangeLabel;
+        inRangeDescriptionText = endOfRangeText;
+      }
+
       return (
         // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledDayCell already renders a <td>; eslint can't see through the styled-component wrapper
         <StyledDayCell
@@ -284,11 +314,20 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             isBasic
             isNeutral={!isSelected}
             isPressed={!!(!isInvalidDateRange && isSelected)}
-            {...getDayProps({ date })}
+            {...getDayProps({ date, isHighlighted: isDescribedAsInRange })}
             data-test-selected={!isInvalidDateRange && isSelected}
           >
             {formattedDayLabel}
           </StyledDayButton>
+          {isDescribedAsInRange ? (
+            <Span
+              {...getInRangeDescriptionProps({ date })}
+              lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
+              data-test-id="in-range-description"
+            >
+              {inRangeDescriptionText}
+            </Span>
+          ) : null}
         </StyledDayCell>
       );
     });

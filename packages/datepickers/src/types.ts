@@ -127,6 +127,12 @@ export interface IDatePickerRangeProps extends Pick<
   startValue?: Date;
   /** Sets the end date **/
   endValue?: Date;
+  /** Provides a customized/translated description, applied via `aria-describedby`, for interior day buttons within the selected range **/
+  inRangeLabel?: string;
+  /** See `inRangeLabel` - describes the range's start-date day button **/
+  startOfRangeLabel?: string;
+  /** See `inRangeLabel` - describes the range's end-date day button **/
+  endOfRangeLabel?: string;
   /**
    * Handles start and end date changes
    *
@@ -241,6 +247,8 @@ export interface IUseDatePickerRangeProps {
 
 export interface IGetRangeDayPropsOptions extends ElementProps<HTMLButtonElement> {
   date: Date;
+  /** Whether this day falls within the selected/previewed range - adds `aria-describedby`, pointing at `getInRangeDescriptionProps`' element, describing it as included in the range **/
+  isHighlighted?: boolean;
 }
 
 /** `HTMLProps<T>`'s `ref` field is `LegacyRef<T>`, which requires a non-null `RefObject<T>`, incompatible with the `RefObject<T | null>` `useRef(null)` actually produces. `getStartInputProps`/`getEndInputProps` set `ref` directly (Start/End have no separate ref-merge step of their own), so this widens just that one field to accept it. **/
@@ -286,6 +294,10 @@ export interface IUseDatePickerRangeReturnValue {
     props: { offset: 0 | 1 } & ElementProps<HTMLHeadingElement>
   ) => ElementProps<HTMLHeadingElement>;
   getDayProps: (props: IGetRangeDayPropsOptions) => ElementProps<HTMLButtonElement>;
+  /** Spread onto a visually-hidden element rendered adjacent to a highlighted day's button, describing it via that button's `aria-describedby` (see `getDayProps`' `isHighlighted` option) **/
+  getInRangeDescriptionProps: (
+    props: { date: Date } & ElementProps<HTMLSpanElement>
+  ) => ElementProps<HTMLSpanElement>;
   getPreviousMonthButtonProps: (
     props?: ElementProps<HTMLButtonElement>
   ) => ElementProps<HTMLButtonElement>;
