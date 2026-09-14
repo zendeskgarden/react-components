@@ -154,4 +154,12 @@ describe('StyledDayButton', () => {
       modifier: "&&[aria-disabled='true']"
     });
   });
+
+  it('does not tint the background on hover when aria-disabled', () => {
+    const { container } = render(<StyledDayButton $isCompact={false}>5</StyledDayButton>);
+
+    expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
+      modifier: "&&[aria-disabled='true']:hover"
+    });
+  });
 });
