@@ -44,7 +44,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     const {
       locale,
       weekStartsOn,
-      isCompact,
+      isCompact = false,
       minValue,
       maxValue,
       startValue,
@@ -147,7 +147,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             $isCompact={isCompact}
             scope="col"
           >
-            <StyledDayLabel $isCompact={isCompact!} aria-hidden="true" data-test-id="day-label">
+            <StyledDayLabel $isCompact={isCompact} aria-hidden="true" data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
             <Span hidden data-test-id="day-label-full">
@@ -308,7 +308,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           }}
         >
           <StyledDayButton
-            $isCompact={isCompact!}
+            $isCompact={isCompact}
             $isPreviousMonth={isPreviousMonth}
             isPill
             isBasic
@@ -340,19 +340,19 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     return (
       <StyledCalendarMonth
         ref={ref}
-        $isCompact={isCompact!}
+        $isCompact={isCompact}
         $gridColumn={gridColumn}
         data-test-id="calendar-wrapper"
         {...getMonthProps()}
       >
         <StyledCalendarHeading
-          $isCompact={isCompact!}
+          $isCompact={isCompact}
           data-test-id="month-display"
           {...getHeadingProps({ offset })}
         >
           {headerLabelFormatter(displayDate)}
         </StyledCalendarHeading>
-        <StyledCalendarTable as="table" $isCompact={isCompact!} {...getGridProps({ offset })}>
+        <StyledCalendarTable as="table" $isCompact={isCompact} {...getGridProps({ offset })}>
           <tbody>
             <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
             {weeks.map(week => (

@@ -52,7 +52,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       value,
       minValue,
       maxValue,
-      isCompact,
+      isCompact = false,
       locale,
       weekStartsOn,
       previousMonthLabel,
@@ -131,7 +131,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             $isCompact={isCompact}
             scope="col"
           >
-            <StyledDayLabel $isCompact={isCompact!} aria-hidden="true" data-test-id="day-label">
+            <StyledDayLabel $isCompact={isCompact} aria-hidden="true" data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
             <Span hidden data-test-id="day-label-full">
@@ -152,7 +152,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledDayCell already renders a <td>; eslint can't see through the styled-component wrapper
         <StyledDayCell key={date.toISOString()} role="gridcell">
           <StyledDayButton
-            $isCompact={isCompact!}
+            $isCompact={isCompact}
             $isPreviousMonth={isPreviousMonth}
             isPressed={!!(isSelected && !isDisabled)}
             isPill
@@ -191,15 +191,15 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
           onNextMonth={focusNextMonth}
           onNextYear={focusNextYear}
         />
-        <StyledCalendarMonth $isCompact={isCompact!}>
+        <StyledCalendarMonth $isCompact={isCompact}>
           <StyledCalendarHeading
-            $isCompact={isCompact!}
+            $isCompact={isCompact}
             data-test-id="month-display"
             {...getHeadingProps()}
           >
             {headerLabelFormatter(previewDate)}
           </StyledCalendarHeading>
-          <StyledCalendarTable as="table" $isCompact={isCompact!} {...getGridProps()}>
+          <StyledCalendarTable as="table" $isCompact={isCompact} {...getGridProps()}>
             <tbody>
               <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
               {weeks.map(week => (
