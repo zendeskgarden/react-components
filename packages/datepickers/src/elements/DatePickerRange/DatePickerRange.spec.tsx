@@ -309,6 +309,87 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('Out-of-order input', () => {
+    const ControlledExample = ({
+      startValue: initialStartValue,
+      endValue: initialEndValue,
+      ...props
+    }: IDatePickerRangeProps) => {
+      const [startValue, setStartValue] = useState(initialStartValue);
+      const [endValue, setEndValue] = useState(initialEndValue);
+
+      return (
+        <Example
+          {...props}
+          startValue={startValue}
+          endValue={endValue}
+          onChange={value => {
+            setStartValue(value.startValue);
+            setEndValue(value.endValue);
+          }}
+        />
+      );
+    };
+
+    it('does not move the calendar view when a typed end date is before the start date', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '1/1/2000');
+      await user.tab();
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2019');
+      expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+
+    it('does not move the calendar view when a typed start date is after the end date', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/1/2020');
+      await user.tab();
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2019');
+      expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+
+    it('preserves the valid start value when a typed end date is out of order', async () => {
+      const { getByTestId } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '1/1/2000');
+      await user.tab();
+
+      expect(getByTestId('start')).toHaveValue('February 5, 2019');
+    });
+
+    it('preserves the valid end value when a typed start date is out of order', async () => {
+      const { getByTestId } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const startInput = getByTestId('start');
+
+      await user.clear(startInput);
+      await user.type(startInput, '1/1/2020');
+      await user.tab();
+
+      expect(getByTestId('end')).toHaveValue('March 5, 2019');
+    });
+  });
+
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
