@@ -6,6 +6,7 @@
  */
 
 import React from 'react';
+import { SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
 import { StyledCalendarGrid } from './StyledCalendarGrid';
 
@@ -22,5 +23,23 @@ describe('StyledCalendarGrid', () => {
 
     expect(container.firstChild).toHaveStyleRule('grid-template-columns', 'repeat(7, 32px)');
     expect(container.firstChild).toHaveStyleRule('padding', '16px');
+  });
+
+  it('scrolls overflowing content instead of clipping it', () => {
+    const { container } = render(<StyledCalendarGrid />);
+
+    expect(container.firstChild).toHaveStyleRule('overflow', 'auto');
+  });
+
+  it('shows a visible focus indicator when it becomes keyboard-focusable', () => {
+    const { container } = render(<StyledCalendarGrid />);
+
+    expect(container.firstChild).toHaveStyleRule('outline', 'none', { modifier: '&:focus' });
+    expect(container.firstChild).toHaveStyleRule('outline', '2px solid transparent', {
+      modifier: SELECTOR_FOCUS_VISIBLE
+    });
+    expect(container.firstChild).toHaveStyleRule('outline-offset', '1px', {
+      modifier: SELECTOR_FOCUS_VISIBLE
+    });
   });
 });

@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes, useRef } from 'react';
+import { mergeRefs } from 'react-merge-refs';
+import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import { Span } from '@zendeskgarden/react-typography';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { endOfMonth } from 'date-fns/endOfMonth';
@@ -66,6 +68,7 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     const {
       previewDate,
       isValueInvalid,
+      buttonId,
       getCalendarProps,
       getGridProps,
       getHeadingProps,
@@ -75,6 +78,9 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       focusPreviousYear,
       focusNextYear
     } = useDatePickerContext();
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const containerTabIndex = useScrollRegion({ containerRef, dependency: isCompact });
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
 
@@ -173,9 +179,13 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
     }));
 
     return (
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledCalendarGrid
-        ref={ref}
+        ref={mergeRefs([ref, containerRef])}
         $isCompact={isCompact}
+        role="region"
+        aria-labelledby={buttonId}
+        tabIndex={containerTabIndex}
         data-test-id="calendar-wrapper"
         {...getCalendarProps()}
       >
