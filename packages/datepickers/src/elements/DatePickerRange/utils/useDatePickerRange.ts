@@ -722,6 +722,7 @@ export function useDatePickerRange({
         }
 
         e.preventDefault();
+        e.stopPropagation();
         pendingGridFocusRef.current = true;
         dispatch({ type: 'FOCUS_DATE', value: targetDate });
       };

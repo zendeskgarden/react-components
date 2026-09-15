@@ -69,63 +69,71 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   const { rtl } = useContext(ThemeContext) || DEFAULT_THEME;
 
   const [focusedPaddle, setFocusedPaddle] = useState<Paddle>('previousYear');
-  const paddleRefs = useRef<HTMLButtonElement[]>([]);
+  const toolbarRef = useRef<HTMLDivElement>(null);
 
-  paddleRefs.current = [];
-
-  const paddleRef = (el: HTMLButtonElement | null) => {
-    if (el) {
-      paddleRefs.current.push(el);
-    }
-  };
-
+  /**
+   * Queries the DOM fresh on every keypress, in actual DOM/reading order,
+   * rather than caching a ref array - JSX order (via each paddle's
+   * `$gridColumn`) is the only source of truth for paddle order, and a
+   * fresh query can't drift out of sync with it the way a
+   * separately-maintained list could.
+   */
   const handleToolbarKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
-      const paddles = paddleRefs.current;
+      const paddles = Array.from(
+        toolbarRef.current?.querySelectorAll<HTMLButtonElement>('button') ?? []
+      );
       const currentIndex = paddles.indexOf(e.target as HTMLButtonElement);
 
       if (currentIndex === -1) {
         return;
       }
 
-      let nextIndex: number;
-
       switch (e.key) {
-        case KEYS.RIGHT:
-          nextIndex = rtl
+        case KEYS.RIGHT: {
+          const nextIndex = rtl
             ? (currentIndex - 1 + paddles.length) % paddles.length
             : (currentIndex + 1) % paddles.length;
+
+          paddles[nextIndex]?.focus();
           break;
-        case KEYS.LEFT:
-          nextIndex = rtl
+        }
+        case KEYS.LEFT: {
+          const nextIndex = rtl
             ? (currentIndex + 1) % paddles.length
             : (currentIndex - 1 + paddles.length) % paddles.length;
+
+          paddles[nextIndex]?.focus();
           break;
+        }
         case KEYS.HOME:
-          nextIndex = 0;
+          paddles[0]?.focus();
           break;
         case KEYS.END:
-          nextIndex = paddles.length - 1;
+          paddles[paddles.length - 1]?.focus();
+          break;
+        case KEYS.UP:
+        case KEYS.DOWN:
           break;
         default:
           return;
       }
 
       e.preventDefault();
-      paddles[nextIndex]?.focus();
+      e.stopPropagation();
     },
     [rtl]
   );
 
   return (
     <StyledCalendarToolbar
+      ref={toolbarRef}
       role="toolbar"
       lang={toolbarLabel === undefined ? 'en' : undefined}
       aria-label={toolbarAriaLabel}
       onKeyDown={handleToolbarKeyDown}
     >
       <StyledHeaderPaddle
-        ref={paddleRef}
         type="button"
         isPill
         isBasic
@@ -143,7 +151,6 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         <ChevronDoubleLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
-        ref={paddleRef}
         type="button"
         isPill
         isBasic
@@ -161,7 +168,6 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         <ChevronLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
-        ref={paddleRef}
         type="button"
         isPill
         isBasic
@@ -179,7 +185,6 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         <ChevronRightStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
       <StyledHeaderPaddle
-        ref={paddleRef}
         type="button"
         isPill
         isBasic

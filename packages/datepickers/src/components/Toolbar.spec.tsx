@@ -303,4 +303,36 @@ describe('Toolbar', () => {
       expect(spy).toHaveBeenCalledTimes(2);
     }
   );
+
+  describe('Keyboard event bubbling', () => {
+    const renderToolbarWithAncestorSpy = (ancestorKeyDownSpy: jest.Mock) =>
+      render(
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div onKeyDown={ancestorKeyDownSpy}>
+          <Toolbar
+            onPreviousYear={jest.fn()}
+            onPreviousMonth={jest.fn()}
+            onNextMonth={jest.fn()}
+            onNextYear={jest.fn()}
+          />
+        </div>
+      );
+
+    it.each([KEYS.RIGHT, KEYS.LEFT, KEYS.UP, KEYS.DOWN, KEYS.HOME, KEYS.END])(
+      'does not let "%s" bubble past the toolbar to an ancestor',
+      key => {
+        const ancestorKeyDownSpy = jest.fn();
+        const { getByRole } = renderToolbarWithAncestorSpy(ancestorKeyDownSpy);
+
+        const previousYear = getByRole('button', { name: 'Previous year' });
+
+        act(() => {
+          previousYear.focus();
+        });
+        fireEvent.keyDown(previousYear, { key });
+
+        expect(ancestorKeyDownSpy).not.toHaveBeenCalled();
+      }
+    );
+  });
 });

@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import { SELECTOR_FOCUS_VISIBLE } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
 import { StyledCalendarGrid } from './StyledCalendarGrid';
 
@@ -25,21 +24,10 @@ describe('StyledCalendarGrid', () => {
     expect(container.firstChild).toHaveStyleRule('padding', '16px');
   });
 
-  it('scrolls overflowing content instead of clipping it', () => {
+  it("does not scroll its own overflow, since that would hijack Toolbar's unhandled arrow keys", () => {
     const { container } = render(<StyledCalendarGrid />);
 
-    expect(container.firstChild).toHaveStyleRule('overflow', 'auto');
-  });
-
-  it('shows a visible focus indicator when it becomes keyboard-focusable', () => {
-    const { container } = render(<StyledCalendarGrid />);
-
-    expect(container.firstChild).toHaveStyleRule('outline', 'none', { modifier: '&:focus' });
-    expect(container.firstChild).toHaveStyleRule('outline', '2px solid transparent', {
-      modifier: SELECTOR_FOCUS_VISIBLE
-    });
-    expect(container.firstChild).toHaveStyleRule('outline-offset', '1px', {
-      modifier: SELECTOR_FOCUS_VISIBLE
-    });
+    expect(container.firstChild).not.toHaveStyleRule('overflow', 'auto');
+    expect(container.firstChild).not.toHaveStyleRule('overflow', 'scroll');
   });
 });

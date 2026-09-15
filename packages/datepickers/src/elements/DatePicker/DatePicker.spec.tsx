@@ -1594,6 +1594,35 @@ describe('DatePicker', () => {
     });
   });
 
+  describe('Day navigation keyboard event bubbling', () => {
+    it.each([
+      KEYS.RIGHT,
+      KEYS.LEFT,
+      KEYS.UP,
+      KEYS.DOWN,
+      KEYS.HOME,
+      KEYS.END,
+      KEYS.PAGE_UP,
+      KEYS.PAGE_DOWN
+    ])('does not let "%s" bubble past the day grid to an ancestor', async key => {
+      const ancestorKeyDownSpy = jest.fn();
+      const { getByTestId, getAllByTestId } = render(
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div onKeyDown={ancestorKeyDownSpy}>
+          <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+        </div>
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key });
+
+      expect(ancestorKeyDownSpy).not.toHaveBeenCalled();
+    });
+  });
+
   describe('Calendar dialog', () => {
     it('has dialog role, aria-modal="false", and an accessible name matching the calendar button', async () => {
       const { getByTestId, getByRole } = render(
