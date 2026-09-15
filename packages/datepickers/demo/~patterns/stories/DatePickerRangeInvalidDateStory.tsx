@@ -9,6 +9,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { action } from 'storybook/actions';
+import { focusStyles } from '@zendeskgarden/react-theming';
 import {
   DatePickerRange,
   DatePickerRangeInvalidReason,
@@ -16,11 +17,16 @@ import {
 } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
-const StyledGrid = styled.div`
+const StyledGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(2, 280px);
   grid-template-rows: auto auto;
   gap: 20px;
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+  max-width: 580px;
+  overflow: auto;
+  ${p => focusStyles({ theme: p.theme })}
 `;
 
 const StyledCalendar = styled(DatePickerRange.Calendar)`
@@ -60,7 +66,7 @@ export const DatePickerRangeInvalidDateStory: StoryFn = () => {
       onChange={handleChange}
       onValueSettled={handleValueSettled}
     >
-      <StyledGrid>
+      <StyledGrid tabIndex={0} aria-label="Date range picker with invalid date validation">
         <Field>
           <Field.Label>Start date</Field.Label>
           <Field.Hint>
