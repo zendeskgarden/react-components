@@ -8,8 +8,6 @@
 import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
 import { Span } from '@zendeskgarden/react-typography';
 import { useText } from '@zendeskgarden/react-theming';
-import { startOfMonth } from 'date-fns/startOfMonth';
-import { endOfMonth } from 'date-fns/endOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
 import { endOfWeek } from 'date-fns/endOfWeek';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
@@ -25,12 +23,15 @@ import {
   StyledCalendarHeading,
   StyledCalendarTable,
   StyledCalendarRow,
-  StyledDayLabelHeader,
-  StyledDayLabel,
   StyledDayButton,
   StyledDayCell
 } from '../../../styled';
-import { getStartOfWeek } from '../../../utils/calendar-utils';
+import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
+import {
+  formatMonthHeading,
+  getMonthDateRange,
+  getStartOfWeek
+} from '../../../utils/calendar-utils';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -81,40 +82,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     );
     const endOfRangeText = useText(Month, { endOfRangeLabel }, 'endOfRangeLabel', '(end of range)');
 
-    const headerLabelFormatter = useCallback<(date: Date) => string>(
-      date => {
-        const formatter = new Intl.DateTimeFormat(locale, {
-          month: 'long',
-          year: 'numeric'
-        });
-
-        return formatter.format(date);
-      },
-      [locale]
-    );
-
-    const dayLabelFormatter = useCallback<(date: Date) => string>(
-      date => {
-        const formatter = new Intl.DateTimeFormat(locale, {
-          weekday: 'short'
-        });
-
-        return formatter.format(date);
-      },
-      [locale]
-    );
-
-    const fullDayLabelFormatter = useCallback<(date: Date) => string>(
-      date => {
-        const formatter = new Intl.DateTimeFormat(locale, {
-          weekday: 'long'
-        });
-
-        return formatter.format(date);
-      },
-      [locale]
-    );
-
     const dayFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
@@ -127,36 +94,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     );
 
     const preferredWeekStartsOn = weekStartsOn || getStartOfWeek(locale);
-
-    const monthStartDate = startOfMonth(displayDate);
-    const monthEndDate = endOfMonth(monthStartDate);
-    const startDate = startOfWeek(monthStartDate, {
-      weekStartsOn: preferredWeekStartsOn
-    });
-    const endDate = endOfWeek(monthEndDate, {
-      weekStartsOn: preferredWeekStartsOn
-    });
-
-    const dayLabels = eachDayOfInterval({ start: startDate, end: addDays(startDate, 6) }).map(
-      date => {
-        const formattedDayLabel = dayLabelFormatter(date);
-
-        return (
-          <StyledDayLabelHeader
-            key={`day-label-${formattedDayLabel}`}
-            $isCompact={isCompact}
-            scope="col"
-          >
-            <StyledDayLabel $isCompact={isCompact} aria-hidden="true" data-test-id="day-label">
-              {formattedDayLabel}
-            </StyledDayLabel>
-            <Span hidden data-test-id="day-label-full">
-              {fullDayLabelFormatter(date)}
-            </Span>
-          </StyledDayLabelHeader>
-        );
-      }
-    );
+    const { startDate, endDate } = getMonthDateRange(displayDate, weekStartsOn, locale);
 
     const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = dayFormatter(date);
@@ -166,7 +104,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         return (
           <td key={date.toISOString()} role="gridcell">
             <Span hidden data-test-id="day" data-test-hidden="true">
-              {formattedDayLabel}, {headerLabelFormatter(date)}
+              {formattedDayLabel}, {formatMonthHeading(date, locale)}
             </Span>
           </td>
         );
@@ -350,11 +288,11 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           data-test-id="month-display"
           {...getHeadingProps({ offset })}
         >
-          {headerLabelFormatter(displayDate)}
+          {formatMonthHeading(displayDate, locale)}
         </StyledCalendarHeading>
         <StyledCalendarTable as="table" $isCompact={isCompact} {...getGridProps({ offset })}>
           <tbody>
-            <StyledCalendarRow>{dayLabels}</StyledCalendarRow>
+            <WeekdayHeaderRow startDate={startDate} locale={locale} isCompact={isCompact} />
             {weeks.map(week => (
               <StyledCalendarRow key={week.key}>{week.days}</StyledCalendarRow>
             ))}
