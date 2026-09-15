@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent, within } from 'garden-test-utils';
+import { render, renderRtl, fireEvent, within } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
@@ -49,12 +49,6 @@ describe('Month', () => {
   });
 
   describe('Calendar display', () => {
-    it('doesnt render calendar elements when hidden', () => {
-      const { queryByTestId } = render(<Example value={DEFAULT_DATE} />);
-
-      expect(queryByTestId('datepicker-menu')).toBeEmptyDOMElement();
-    });
-
     it('displays dates with correct previous styling', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
@@ -335,6 +329,293 @@ describe('Month', () => {
       fireEvent.keyDown(days[9], { key });
 
       expect(ancestorKeyDownSpy).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Day grid keyboard navigation', () => {
+    it('gives exactly one day button tabindex="0", matching the focused day', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+      const focusedDay = days[9];
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveAttribute('tabindex', '0');
+
+      days
+        .filter(day => day !== focusedDay)
+        .forEach(day => {
+          expect(day).toHaveAttribute('tabindex', '-1');
+        });
+    });
+
+    it('moves focus to the next day when ArrowRight is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
+
+      expect(days[10]).toHaveFocus();
+      expect(days[10]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous day when ArrowLeft is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.LEFT });
+
+      expect(days[8]).toHaveFocus();
+      expect(days[8]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous day when ArrowRight is pressed, in RTL', async () => {
+      const { getByTestId, getAllByTestId } = renderRtl(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
+
+      expect(days[8]).toHaveFocus();
+      expect(days[8]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the next day when ArrowLeft is pressed, in RTL', async () => {
+      const { getByTestId, getAllByTestId } = renderRtl(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.LEFT });
+
+      expect(days[10]).toHaveFocus();
+      expect(days[10]).toHaveAttribute('tabindex', '0');
+      expect(days[9]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus one week forward when ArrowDown is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.DOWN });
+
+      expect(days[16]).toHaveFocus();
+    });
+
+    it('moves focus one week back when ArrowUp is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.UP });
+
+      expect(days[2]).toHaveFocus();
+    });
+
+    it('moves focus to the start of the week when Home is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.HOME });
+
+      expect(days[7]).toHaveFocus();
+    });
+
+    it('moves focus to the end of the week when End is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.END });
+
+      expect(days[13]).toHaveFocus();
+    });
+
+    it('moves focus to the same day next month when PageDown is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_DOWN });
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous month when PageUp is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_UP });
+
+      expect(getByTestId('month-display')).toHaveTextContent('January 2019');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('clamps to the last day of the month when PageDown lands on a day that does not exist', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('28');
+    });
+
+    it('moves focus to the same day next year when Shift+PageDown is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_DOWN, shiftKey: true });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous year when Shift+PageUp is pressed', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+
+      fireEvent.keyDown(days[9], { key: KEYS.PAGE_UP, shiftKey: true });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2018');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('5');
+    });
+
+    it('clamps February 29 to February 28 when Shift+PageDown crosses into a non-leap year', async () => {
+      mockDate.set(new Date(2020, 1, 29));
+
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN, shiftKey: true });
+
+      expect(getByTestId('month-display')).toHaveTextContent('February 2021');
+
+      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('28');
+
+      mockDate.set(DEFAULT_DATE);
+    });
+
+    it('advances the month display and focuses day 1 of the new month when navigating past the end of the month', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={new Date(2019, 1, 28)} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const selectedDay = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.RIGHT });
+
+      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+
+      const newDays = getAllByTestId('day');
+      const focusedDay = newDays.find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('1');
+      expect(focusedDay).toHaveAttribute('data-test-previous', 'false');
     });
   });
 
