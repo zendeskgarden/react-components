@@ -297,7 +297,9 @@ export function useDatePickerRange({
       ? customParseDate(state.startInputValue)
       : parseInputValue({ inputValue: state.startInputValue });
     const isParsedDateValid =
-      isValid(parsedDate) && isDateWithinRange(parsedDate, minValue, maxValue);
+      isValid(parsedDate) &&
+      isDateWithinRange(parsedDate, minValue, maxValue) &&
+      !(endValue !== undefined && isAfter(parsedDate, endValue));
 
     dispatch({
       type: 'START_BLUR',
@@ -449,7 +451,9 @@ export function useDatePickerRange({
       ? customParseDate(state.endInputValue)
       : parseInputValue({ inputValue: state.endInputValue });
     const isParsedDateValid =
-      isValid(parsedDate) && isDateWithinRange(parsedDate, minValue, maxValue);
+      isValid(parsedDate) &&
+      isDateWithinRange(parsedDate, minValue, maxValue) &&
+      !(startValue !== undefined && isBefore(parsedDate, startValue));
 
     dispatch({
       type: 'END_BLUR',

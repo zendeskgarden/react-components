@@ -134,12 +134,12 @@ describe('DatePickerRange', () => {
       const endInput = getByTestId('end');
 
       await user.clear(endInput);
-      await user.type(endInput, 'January 4th, 2019');
+      await user.type(endInput, 'April 4th, 2019');
       fireEvent.keyDown(endInput, { key: KEYS.ENTER });
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
-        endValue: new Date(2019, 0, 4)
+        endValue: new Date(2019, 3, 4)
       });
     });
 
