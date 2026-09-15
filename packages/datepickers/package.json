@@ -22,7 +22,6 @@
   "types": "dist/typings/index.d.ts",
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-scrollregion": "^1.0.9",
     "@zendeskgarden/container-utilities": "^2.0.4",
     "@zendeskgarden/react-buttons": "^9.15.8",
     "@zendeskgarden/react-forms": "^9.15.9",

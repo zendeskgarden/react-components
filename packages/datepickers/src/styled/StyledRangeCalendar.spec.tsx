@@ -29,4 +29,10 @@ describe('StyledRangeCalendar', () => {
     );
     expect(container.firstChild).toHaveStyleRule('padding', '16px');
   });
+
+  it('scrolls overflowing content instead of clipping it', () => {
+    const { container } = render(<StyledRangeCalendar />);
+
+    expect(container.firstChild).toHaveStyleRule('overflow', 'auto');
+  });
 });

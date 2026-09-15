@@ -396,6 +396,7 @@ export function useDatePicker({
         }
 
         e.preventDefault();
+        e.stopPropagation();
         pendingGridFocusRef.current = true;
         dispatch({ type: 'FOCUS_DATE', value: targetDate });
       };

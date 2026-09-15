@@ -1948,6 +1948,38 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('Day navigation keyboard event bubbling', () => {
+    const getDayButtons = (wrapper: HTMLElement) =>
+      within(wrapper)
+        .getAllByRole('button')
+        .filter(button => button.getAttribute('data-test-id') === 'day');
+
+    it.each([
+      KEYS.RIGHT,
+      KEYS.LEFT,
+      KEYS.UP,
+      KEYS.DOWN,
+      KEYS.HOME,
+      KEYS.END,
+      KEYS.PAGE_UP,
+      KEYS.PAGE_DOWN
+    ])('does not let "%s" bubble past the day grid to an ancestor', key => {
+      const ancestorKeyDownSpy = jest.fn();
+      const { getAllByTestId } = render(
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div onKeyDown={ancestorKeyDownSpy}>
+          <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+        </div>
+      );
+
+      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key });
+
+      expect(ancestorKeyDownSpy).not.toHaveBeenCalled();
+    });
+  });
+
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
