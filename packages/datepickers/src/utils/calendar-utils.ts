@@ -8,6 +8,10 @@
 import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { isSameDay } from 'date-fns/isSameDay';
+import { startOfMonth } from 'date-fns/startOfMonth';
+import { endOfMonth } from 'date-fns/endOfMonth';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { endOfWeek } from 'date-fns/endOfWeek';
 import { DateFnsIndex } from '../types';
 
 /**
@@ -122,4 +126,44 @@ export function getStartOfWeek(locale?: string) {
 
   // Return Sunday as default
   return 0;
+}
+
+/**
+ * The calendar grid's first and last dates for the month containing
+ * `displayDate` - including the leading/trailing days of adjacent months
+ * needed to fill out full weeks. Identical between `DatePicker` and
+ * `DatePickerRange`'s single-month grids, since it depends only on the
+ * displayed month, locale, and week-start preference.
+ */
+export function getMonthDateRange(displayDate: Date, weekStartsOn?: DateFnsIndex, locale?: string) {
+  const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
+  const monthStartDate = startOfMonth(displayDate);
+  const monthEndDate = endOfMonth(monthStartDate);
+
+  return {
+    startDate: startOfWeek(monthStartDate, { weekStartsOn: preferredWeekStartsOn }),
+    endDate: endOfWeek(monthEndDate, { weekStartsOn: preferredWeekStartsOn })
+  };
+}
+
+/**
+ * The calendar heading's "Month Year" text, e.g. "January 2026".
+ */
+export function formatMonthHeading(date: Date, locale?: string): string {
+  return new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(date);
+}
+
+/**
+ * The abbreviated weekday column label, e.g. "Mon".
+ */
+export function formatWeekdayLabel(date: Date, locale?: string): string {
+  return new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date);
+}
+
+/**
+ * The full weekday name, e.g. "Monday" - paired with `formatWeekdayLabel`'s
+ * abbreviation as a visually-hidden full-name span for assistive tech.
+ */
+export function formatFullWeekdayLabel(date: Date, locale?: string): string {
+  return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
 }
