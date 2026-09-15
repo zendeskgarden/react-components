@@ -7,8 +7,7 @@
 
 import React, { HTMLAttributes, PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
-import { useText } from '@zendeskgarden/react-theming';
-import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import useDatePickerContext from '../utils/useDatePickerContext';
 import { GardenPlacement } from '../../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../../styled';
 import { useFloatingDialog } from '../../../utils/use-floating-dialog';
@@ -27,12 +26,10 @@ interface IDialogProps extends HTMLAttributes<HTMLDivElement> {
 const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
- * Wraps `DatePickerRange.Calendar` in a non-modal `role="dialog"` that
- * opens/closes via a consumer-composed `DatePickerRange.Trigger` and/or a
- * field with `opensDialog`. Styled and floated the same way `DatePicker`'s
- * own popover is - via `StyledMenuWrapper`/`StyledMenu` and `floating-ui`
- * positioning - anchored to `Start`'s input, falling back to `End`'s input
- * then the `Trigger` button, whichever is rendered.
+ * Wraps `DatePicker`'s calendar in a non-modal `role="dialog"` that
+ * opens/closes via the internal `Trigger`/input wiring. Already labelled
+ * via `aria-labelledby` (see `getDialogProps` in `useDatePicker`), so unlike
+ * `DatePickerRange.Dialog` it takes no `aria-label` of its own.
  */
 export const Dialog = ({
   children,
@@ -40,10 +37,9 @@ export const Dialog = ({
   isAnimated = true,
   zIndex = 1000,
   appendToNode,
-  ...props
+  ...menuProps
 }: PropsWithChildren<IDialogProps>) => {
   const { isOpen, dialogRef, getDialogProps, getReferenceElement } = useDatePickerContext();
-  const ariaLabel = useText(Dialog, props, 'aria-label', 'Choose dates');
 
   const { placement, transform, isVisible, rtl } = useFloatingDialog({
     isOpen,
@@ -55,24 +51,20 @@ export const Dialog = ({
 
   const Node = (
     <StyledMenuWrapper
-      {...getDialogProps({
-        ...props,
-        'aria-label': ariaLabel!,
-        style: { transform, ...props.style }
-      })}
+      {...getDialogProps({ style: { transform } })}
       $isAnimated={!!isAnimated && (isOpen || isVisible)}
       $placement={placement}
       $zIndex={zIndex}
       aria-hidden={!isOpen || undefined}
-      data-test-id="range-dialog"
+      data-test-id="datepicker-menu"
       data-test-open={isOpen}
       data-test-rtl={rtl}
     >
-      {!!(isOpen || isVisible) && <StyledMenu>{children}</StyledMenu>}
+      {!!(isOpen || isVisible) && <StyledMenu {...menuProps}>{children}</StyledMenu>}
     </StyledMenuWrapper>
   );
 
   return appendToNode ? createPortal(Node, appendToNode) : Node;
 };
 
-Dialog.displayName = 'DatePickerRange.Dialog';
+Dialog.displayName = 'DatePicker.Dialog';

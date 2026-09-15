@@ -307,6 +307,8 @@ export function useDatePicker({
     ]
   );
 
+  const getReferenceElement = useCallback(() => inputRef.current, [inputRef]);
+
   const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
     const { onMouseDown, ...other } = props;
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -481,6 +483,7 @@ export function useDatePicker({
       getInputProps,
       getTriggerProps,
       getDialogProps,
+      getReferenceElement,
       getCalendarProps,
       getGridProps,
       getHeadingProps,
@@ -507,6 +510,7 @@ export function useDatePicker({
       getInputProps,
       getTriggerProps,
       getDialogProps,
+      getReferenceElement,
       getCalendarProps,
       getGridProps,
       getHeadingProps,

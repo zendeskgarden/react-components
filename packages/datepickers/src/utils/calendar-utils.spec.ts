@@ -7,7 +7,14 @@
 
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
-import { getStartOfWeek, isDateWithinRange } from './calendar-utils';
+import {
+  formatFullWeekdayLabel,
+  formatMonthHeading,
+  formatWeekdayLabel,
+  getMonthDateRange,
+  getStartOfWeek,
+  isDateWithinRange
+} from './calendar-utils';
 
 const DATE = new Date(2019, 1, 5);
 
@@ -66,6 +73,47 @@ describe('Calendar Utilities', () => {
     it('returns false if the date falls outside both minValue and maxValue', () => {
       expect(isDateWithinRange(subDays(DATE, 3), subDays(DATE, 2), addDays(DATE, 2))).toBe(false);
       expect(isDateWithinRange(addDays(DATE, 3), subDays(DATE, 2), addDays(DATE, 2))).toBe(false);
+    });
+  });
+
+  describe('getMonthDateRange()', () => {
+    it("returns the grid's first/last dates, padded out to full weeks starting on Sunday by default", () => {
+      const { startDate, endDate } = getMonthDateRange(DATE);
+
+      expect(startDate).toStrictEqual(new Date(2019, 0, 27));
+      expect(endDate).toStrictEqual(new Date(2019, 2, 2, 23, 59, 59, 999));
+    });
+
+    it('honors an explicit weekStartsOn over the locale default', () => {
+      const { startDate, endDate } = getMonthDateRange(DATE, 1, 'en-US');
+
+      expect(startDate).toStrictEqual(new Date(2019, 0, 28));
+      expect(endDate).toStrictEqual(new Date(2019, 2, 3, 23, 59, 59, 999));
+    });
+
+    it('falls back to the locale default when weekStartsOn is omitted', () => {
+      const { startDate, endDate } = getMonthDateRange(DATE, undefined, 'en-GB');
+
+      expect(startDate).toStrictEqual(new Date(2019, 0, 28));
+      expect(endDate).toStrictEqual(new Date(2019, 2, 3, 23, 59, 59, 999));
+    });
+  });
+
+  describe('formatMonthHeading()', () => {
+    it('formats the month and year', () => {
+      expect(formatMonthHeading(DATE, 'en-US')).toBe('February 2019');
+    });
+  });
+
+  describe('formatWeekdayLabel()', () => {
+    it('formats an abbreviated weekday name', () => {
+      expect(formatWeekdayLabel(DATE, 'en-US')).toBe('Tue');
+    });
+  });
+
+  describe('formatFullWeekdayLabel()', () => {
+    it('formats a full weekday name', () => {
+      expect(formatFullWeekdayLabel(DATE, 'en-US')).toBe('Tuesday');
     });
   });
 });

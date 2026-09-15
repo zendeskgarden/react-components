@@ -204,6 +204,8 @@ export interface IUseDatePickerReturnValue {
   getInputProps: (props?: HTMLProps<HTMLInputElement>) => HTMLProps<HTMLInputElement>;
   getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
   getDialogProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
+  /** Resolves the element the dialog should float relative to. **/
+  getReferenceElement: () => Element | null;
   getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getGridProps: (props?: ElementProps<HTMLTableElement>) => ElementProps<HTMLTableElement>;
   getHeadingProps: (props?: ElementProps<HTMLHeadingElement>) => ElementProps<HTMLHeadingElement>;

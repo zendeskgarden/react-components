@@ -26,9 +26,7 @@ const Example = ({
       <DatePickerRange.End opensDialog>
         <input data-test-id="end" />
       </DatePickerRange.End>
-      <DatePickerRange.Trigger>
-        <button data-test-id="trigger">Open</button>
-      </DatePickerRange.Trigger>
+      <DatePickerRange.Trigger data-test-id="trigger" />
       <DatePickerRange.Dialog {...dialogProps}>
         <DatePickerRange.Calendar />
       </DatePickerRange.Dialog>
@@ -164,15 +162,11 @@ describe('DatePickerRange.Dialog', () => {
           <DatePickerRange.Start opensDialog>
             <input data-test-id="start" />
           </DatePickerRange.Start>
-          <DatePickerRange.Trigger>
-            <button data-test-id="start-trigger">Open start</button>
-          </DatePickerRange.Trigger>
+          <DatePickerRange.Trigger data-test-id="start-trigger" />
           <DatePickerRange.End opensDialog>
             <input data-test-id="end" />
           </DatePickerRange.End>
-          <DatePickerRange.Trigger>
-            <button data-test-id="end-trigger">Open end</button>
-          </DatePickerRange.Trigger>
+          <DatePickerRange.Trigger data-test-id="end-trigger" />
           <DatePickerRange.Dialog>
             <DatePickerRange.Calendar />
           </DatePickerRange.Dialog>
