@@ -245,6 +245,43 @@ describe('DatePickerRange', () => {
   });
 
   describe('Combobox semantics', () => {
+    it('exposes the input as a combobox with autocomplete and controls attributes, but no aria-haspopup', () => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const calendar = getByTestId('range-calendar');
+      const startInput = getByTestId('start');
+
+      expect(startInput).toHaveAttribute('role', 'combobox');
+      expect(startInput).toHaveAttribute('aria-autocomplete', 'none');
+      expect(startInput).toHaveAttribute('aria-controls', calendar.id);
+      expect(startInput).not.toHaveAttribute('aria-haspopup');
+    });
+
+    it('sets a native `autocomplete="off"` attribute by default', () => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getByTestId('start')).toHaveAttribute('autocomplete', 'off');
+    });
+
+    it('allows the native `autocomplete` attribute to be overridden', () => {
+      const { getByTestId } = render(
+        <DatePickerRange startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" autoComplete="username" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(getByTestId('start')).toHaveAttribute('autocomplete', 'username');
+    });
+
     it('defaults to aria-expanded="true" when the consumer does not override it', () => {
       const { getByTestId } = render(<Example onChange={onChangeSpy} />);
 

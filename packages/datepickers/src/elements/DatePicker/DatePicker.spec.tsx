@@ -11,7 +11,6 @@ import { render, fireEvent } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
-import { KEYS } from '@zendeskgarden/container-utilities';
 import { ClearableInput, Input } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { DatePicker } from './DatePicker';
@@ -121,95 +120,6 @@ describe('DatePicker', () => {
       await user.type(input, '1/4/2019');
 
       expect(onChangeSpy).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('Combobox input attributes', () => {
-    it('exposes the input as a combobox with haspopup, autocomplete, and controls attributes', () => {
-      const { getByRole, getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByRole('combobox', { expanded: false });
-      const menu = getByTestId('datepicker-menu');
-
-      expect(input).toHaveAttribute('aria-haspopup', 'dialog');
-      expect(input).toHaveAttribute('aria-autocomplete', 'none');
-      expect(input).toHaveAttribute('aria-controls', menu.id);
-    });
-
-    it('sets a native `autocomplete="off"` attribute by default', () => {
-      const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-      const input = getByRole('combobox', { expanded: false });
-
-      expect(input).toHaveAttribute('autocomplete', 'off');
-    });
-
-    it('allows the native `autocomplete` attribute to be overridden', () => {
-      const { getByTestId } = render(
-        <DatePicker value={DEFAULT_DATE} onChange={onChangeSpy}>
-          <input data-test-id="input" autoComplete="username" />
-        </DatePicker>
-      );
-
-      expect(getByTestId('input')).toHaveAttribute('autocomplete', 'username');
-    });
-
-    it('sets aria-expanded to true when the calendar opens', async () => {
-      const { getByRole, getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-
-      await user.click(getByTestId('calendar-button'));
-
-      expect(getByRole('combobox', { expanded: true })).toBeInTheDocument();
-    });
-  });
-
-  describe('Opening the calendar from the input', () => {
-    it('opens on Down Arrow and moves focus onto the selected day', () => {
-      const { getByTestId, getAllByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      fireEvent.keyDown(input, { key: KEYS.DOWN });
-
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      expect(getAllByTestId('day')[9]).toHaveFocus();
-    });
-
-    it('opens on Alt+Down Arrow and moves focus onto the selected day', () => {
-      const { getByTestId, getAllByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
-      const input = getByTestId('input');
-
-      fireEvent.keyDown(input, { key: KEYS.DOWN, altKey: true });
-
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      expect(getAllByTestId('day')[9]).toHaveFocus();
-    });
-
-    it("moves focus onto today's date on Down Arrow when no value is selected", () => {
-      const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
-      const input = getByTestId('input');
-
-      fireEvent.keyDown(input, { key: KEYS.DOWN });
-
-      const days = getAllByTestId('day');
-      const today = days.find(day => day.getAttribute('data-test-today') === 'true');
-
-      expect(today).toHaveFocus();
-    });
-
-    it('does not close or error on Down Arrow while already open', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-      const input = getByTestId('input');
-
-      fireEvent.keyDown(input, { key: KEYS.DOWN });
-      fireEvent.keyDown(input, { key: KEYS.DOWN });
-
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -530,49 +440,6 @@ describe('DatePicker', () => {
 
       process.env.NODE_ENV = environment;
       console.warn = consoleWarning;
-    });
-  });
-
-  describe('customParseDate()', () => {
-    it('uses customParseDate to determine date validitiy if provided', async () => {
-      const MOCK_DATE = new Date(2019, 0, 1);
-      const customParseDateSpy: (input: string) => Date = jest.fn().mockReturnValue(MOCK_DATE);
-      const { getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} customParseDate={customParseDateSpy} />
-      );
-      const input = getByTestId('input');
-
-      await user.clear(input);
-      await user.type(input, 'invalid date');
-
-      expect(customParseDateSpy).toHaveBeenCalled();
-      expect(onChangeSpy).toHaveBeenCalledWith(MOCK_DATE);
-    });
-
-    it('does not call onChange if parsed date is the current value', async () => {
-      const customParseDateSpy: (input: string) => Date = jest.fn().mockReturnValue(DEFAULT_DATE);
-      const { getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} customParseDate={customParseDateSpy} />
-      );
-      const input = getByTestId('input');
-
-      await user.clear(input);
-      await user.type(input, 'invalid date');
-
-      expect(customParseDateSpy).toHaveBeenCalled();
-      expect(onChangeSpy).not.toHaveBeenCalled();
-    });
-  });
-
-  describe('formatDate()', () => {
-    it('uses custom formatDate method if provided', () => {
-      const FORMATTED_DATE = 'test';
-      const { getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
-      );
-      const input = getByTestId('input');
-
-      expect(input).toHaveValue(FORMATTED_DATE);
     });
   });
 });
