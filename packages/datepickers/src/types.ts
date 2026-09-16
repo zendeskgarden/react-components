@@ -292,7 +292,6 @@ export interface IUseDatePickerRangeReturnValue {
   /** Resolves the element the dialog should float relative to: `Start`'s input, falling back to `End`'s input, then the first rendered `Trigger` button. **/
   getReferenceElement: () => Element | null;
   getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getMonthProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getGridProps: (
     props: { offset: 0 | 1 } & ElementProps<HTMLTableElement>
   ) => ElementProps<HTMLTableElement>;

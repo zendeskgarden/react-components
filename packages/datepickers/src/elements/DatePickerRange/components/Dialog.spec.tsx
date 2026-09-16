@@ -62,6 +62,20 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Focus containment', () => {
+    it('does not close when mousedown lands on non-interactive toolbar space', async () => {
+      const { getByTestId, getByRole } = render(<Example />);
+
+      await user.click(getByTestId('trigger'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.pointer([{ target: getByRole('toolbar'), keys: '[MouseLeft]' }]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+  });
+
   describe('Consumer passthrough props', () => {
     it('applies a consumer className to StyledMenu, not the outer positioned wrapper', async () => {
       const { getByTestId } = render(<Example dialogProps={{ className: 'consumer-class' }} />);
