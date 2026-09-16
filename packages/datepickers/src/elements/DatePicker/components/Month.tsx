@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
 import { isSameDay } from 'date-fns/isSameDay';
@@ -26,18 +26,9 @@ import {
   getMonthDateRange,
   isDateWithinRange
 } from '../../../utils/calendar-utils';
-import { DateFnsIndex } from '../../../types';
+import { IDatePickerMonthProps } from '../../../types';
 
-interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  value?: Date;
-  minValue?: Date;
-  maxValue?: Date;
-  isCompact?: boolean;
-  locale?: string;
-  weekStartsOn?: DateFnsIndex;
-}
-
-export const Month = forwardRef<HTMLDivElement, IMonthProps>(
+export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
   ({ value, minValue, maxValue, isCompact = false, locale, weekStartsOn }, ref) => {
     const { previewDate, isValueInvalid, getGridProps, getHeadingProps, getDayProps } =
       useDatePickerContext();

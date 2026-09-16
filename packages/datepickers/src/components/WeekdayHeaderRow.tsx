@@ -11,12 +11,7 @@ import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
 import { StyledCalendarRow, StyledDayLabel, StyledDayLabelHeader } from '../styled';
 import { formatFullWeekdayLabel, formatWeekdayLabel } from '../utils/calendar-utils';
-
-export interface IWeekdayHeaderRowProps {
-  startDate: Date;
-  locale?: string;
-  isCompact?: boolean;
-}
+import { IWeekdayHeaderRowProps } from '../types';
 
 /** Shared by `DatePicker` and `DatePickerRange`'s own `Month` - the row of abbreviated weekday labels above the day grid. */
 export const WeekdayHeaderRow = ({

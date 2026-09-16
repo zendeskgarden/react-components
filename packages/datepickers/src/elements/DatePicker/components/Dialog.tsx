@@ -5,19 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, PropsWithChildren } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { createPortal } from 'react-dom';
 import useDatePickerContext from '../utils/useDatePickerContext';
-import { GardenPlacement } from '../../../types';
+import { IDatePickerDialogProps } from '../../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../../styled';
 import { useFloatingDialog } from '../../../utils/use-floating-dialog';
-
-interface IDialogProps extends HTMLAttributes<HTMLDivElement> {
-  appendToNode?: Element | DocumentFragment;
-  placement?: GardenPlacement;
-  isAnimated?: boolean;
-  zIndex?: number;
-}
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -29,7 +22,7 @@ export const Dialog = ({
   zIndex = 1000,
   appendToNode,
   ...menuProps
-}: PropsWithChildren<IDialogProps>) => {
+}: PropsWithChildren<IDatePickerDialogProps>) => {
   const { isOpen, dialogRef, getDialogProps, getReferenceElement } = useDatePickerContext();
 
   const { placement, transform, isVisible, rtl } = useFloatingDialog({
