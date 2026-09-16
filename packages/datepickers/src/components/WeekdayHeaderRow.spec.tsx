@@ -9,7 +9,7 @@ import React from 'react';
 import { render } from 'garden-test-utils';
 import { WeekdayHeaderRow } from './WeekdayHeaderRow';
 
-const START_DATE = new Date(2019, 0, 27); // Sunday
+const START_DATE = new Date(2019, 0, 27);
 
 describe('WeekdayHeaderRow', () => {
   it('renders one abbreviated weekday label per day of the week, starting from startDate', () => {

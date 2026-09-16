@@ -35,12 +35,7 @@ interface IUseFloatingDialogReturnValue {
   rtl: boolean;
 }
 
-/**
- * Shared by `DatePicker` and `DatePickerRange`'s own `Dialog` - the
- * floating-ui positioning and open/close fade-timing bookkeeping is
- * identical between the two; only the surrounding markup (labelling,
- * pass-through prop targets) differs, so that part stays in each `Dialog`.
- */
+/** Shared floating-ui positioning and open/close fade-timing bookkeeping for `DatePicker` and `DatePickerRange`'s own `Dialog`. */
 export function useFloatingDialog({
   isOpen,
   dialogRef,
@@ -75,7 +70,6 @@ export function useFloatingDialog({
   });
 
   useEffect(() => {
-    // Only allow positioning updates on visible tooltip.
     let cleanup: () => void;
 
     if (isOpen && refs.reference.current && refs.floating.current) {

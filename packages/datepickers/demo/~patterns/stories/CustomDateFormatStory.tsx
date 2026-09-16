@@ -12,12 +12,7 @@ import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
 const DATE_PATTERN = /^(?<day>\d{2})\.(?<month>\d{2})\.(?<year>\d{4})$/u;
 
-/**
- * formatDate and customParseDate are a matched pair: formatDate controls how
- * the committed value is displayed, and customParseDate controls how typed
- * text is read back into a Date. They must agree on the same shape, or typed
- * input stops parsing once the field reformats to the committed value.
- */
+/** Must agree with `customParseDate`'s shape, or typed input stops parsing once the field reformats. */
 const formatDate = (date: Date) => {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');

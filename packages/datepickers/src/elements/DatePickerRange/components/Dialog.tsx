@@ -28,13 +28,8 @@ interface IDialogProps extends HTMLAttributes<HTMLDivElement> {
 const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
- * Wraps `DatePickerRange.Calendar` in a non-modal `role="dialog"` that
- * opens/closes via a consumer-composed `DatePickerRange.Trigger` and/or
- * `Start`/`End`, which automatically wire themselves to it once it's
- * rendered. Styled and floated the same way `DatePicker`'s
- * own popover is - via `StyledMenuWrapper`/`StyledMenu` and `floating-ui`
- * positioning - anchored to `Start`'s input, falling back to `End`'s input
- * then the `Trigger` button, whichever is rendered.
+ * Anchors its floating position to `Start`'s input, falling back to
+ * `End`'s input then the first rendered `Trigger` button.
  */
 export const Dialog = ({
   children,

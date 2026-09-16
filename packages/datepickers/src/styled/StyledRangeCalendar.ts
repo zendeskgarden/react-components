@@ -27,14 +27,7 @@ const sizeStyles = ({
   `;
 };
 
-/**
- * `DatePickerRange`'s outer calendar wrapper. Establishes the explicit
- * column tracks - two 7-day month grids, each sized to match
- * `StyledDayButton`'s own compact/default day-button size, separated by a
- * gap column - that both the toolbar (`StyledHeader`) and each month box
- * (`StyledCalendarMonth`) inherit via `subgrid`, mirroring `DatePicker`'s
- * `StyledCalendarGrid`.
- */
+/** Mirrors `StyledCalendarGrid`, but with two 7-day month tracks side by side. */
 export const StyledRangeCalendar = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
