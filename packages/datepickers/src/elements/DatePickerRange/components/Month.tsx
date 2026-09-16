@@ -30,7 +30,8 @@ import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
 import {
   formatMonthHeading,
   getMonthDateRange,
-  getStartOfWeek
+  getStartOfWeek,
+  isDateWithinRange
 } from '../../../utils/calendar-utils';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
@@ -119,15 +120,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         isSelected = isSelected || isSameDay(date, effectiveEndValue);
       }
 
-      let isDisabled = false;
-
-      if (minValue !== undefined) {
-        isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
-      }
-
-      if (maxValue !== undefined) {
-        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
-      }
+      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       let isHighlighted = false;
 
