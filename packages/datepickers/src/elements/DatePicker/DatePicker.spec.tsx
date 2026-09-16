@@ -75,6 +75,19 @@ describe('DatePicker', () => {
       expect(input).toHaveValue('February 6, 2019');
     });
 
+    it('reformats the input when only the locale prop changes', () => {
+      const { getByTestId, rerender } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} locale="en-US" />
+      );
+      const input = getByTestId('input');
+
+      expect(input).toHaveValue('February 5, 2019');
+
+      rerender(<Example value={DEFAULT_DATE} onChange={onChangeSpy} locale="fr-FR" />);
+
+      expect(input).toHaveValue('5 février 2019');
+    });
+
     it('does not warn about updating a component while rendering another when controlled', async () => {
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn());
 

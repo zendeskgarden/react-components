@@ -162,6 +162,13 @@ export type DatePickerRangeAction =
       locale?: string;
       formatDate?: any;
     }
+  | {
+      type: 'CONTROLLED_LOCALE_CHANGE';
+      startValue?: Date;
+      endValue?: Date;
+      locale?: string;
+      formatDate?: any;
+    }
   | { type: 'FOCUS_DATE'; value: Date };
 
 export const datepickerRangeReducer = (
@@ -262,6 +269,20 @@ export const datepickerRangeReducer = (
         previewDate,
         isEndValueInvalid: false
       };
+    }
+    case 'CONTROLLED_LOCALE_CHANGE': {
+      const startInputValue = formatValue({
+        value: action.startValue,
+        locale: action.locale,
+        formatDate: action.formatDate
+      });
+      const endInputValue = formatValue({
+        value: action.endValue,
+        locale: action.locale,
+        formatDate: action.formatDate
+      });
+
+      return { ...state, startInputValue, endInputValue };
     }
     case 'CLICK_DATE': {
       const { startValue, endValue } = action;

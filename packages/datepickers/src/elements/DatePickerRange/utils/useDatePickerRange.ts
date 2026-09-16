@@ -87,6 +87,11 @@ export function useDatePickerRange({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endValue]);
 
+  useEffect(() => {
+    dispatch({ type: 'CONTROLLED_LOCALE_CHANGE', startValue, endValue, locale, formatDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
+
   /**
    * Cross-grid arrow-key focus-follow, matching `useDatePicker`'s own
    * single-grid version - one ref spanning both months, since arrow-key
