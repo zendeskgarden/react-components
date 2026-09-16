@@ -648,7 +648,7 @@ describe('Month', () => {
   });
 
   describe('In-range description', () => {
-    it('renders a visually-hidden span immediately after each highlighted day button, describing only that button', () => {
+    it('renders a visually-hidden span inside each highlighted day button, describing only that button', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
@@ -665,7 +665,7 @@ describe('Month', () => {
 
       expect(startDescription).toHaveAttribute('hidden');
       expect(startButton).toHaveAttribute('aria-describedby', startDescription.id);
-      expect(startButton.nextElementSibling).toBe(startDescription);
+      expect(startButton).toContainElement(startDescription);
 
       const endButton = within(secondMonthCells[4]).getByTestId('day');
       const endDescription = within(secondMonthCells[4]).getByTestId('in-range-description');

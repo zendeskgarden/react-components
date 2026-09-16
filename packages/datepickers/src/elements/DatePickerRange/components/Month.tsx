@@ -243,16 +243,16 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
             data-test-selected={!isInvalidDateRange && isSelected}
           >
             {formattedDayLabel}
+            {isDescribedAsInRange ? (
+              <Span
+                {...getInRangeDescriptionProps({ date })}
+                lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
+                data-test-id="in-range-description"
+              >
+                {inRangeDescriptionText}
+              </Span>
+            ) : null}
           </StyledDayButton>
-          {isDescribedAsInRange ? (
-            <Span
-              {...getInRangeDescriptionProps({ date })}
-              lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
-              data-test-id="in-range-description"
-            >
-              {inRangeDescriptionText}
-            </Span>
-          ) : null}
         </StyledDayCell>
       );
     });
