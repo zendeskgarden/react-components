@@ -9,25 +9,21 @@ import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement } from 'rea
 import { mergeRefs } from 'react-merge-refs';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
-interface IEndProps extends HTMLAttributes<HTMLInputElement> {
-  /**
-   * Also wires this field to open/focus a consumer-composed
-   * `DatePickerRange.Dialog`, via `getFieldTriggerProps` layered on top of
-   * this field's own input wiring. Has no effect unless a
-   * `DatePickerRange.Dialog` is also rendered.
-   */
-  opensDialog?: boolean;
-}
+type IEndProps = HTMLAttributes<HTMLInputElement>;
 
 /**
  * Renders no wrapper of its own, so the child composes as a true, direct
  * child of whatever the consumer wraps it in (e.g. `InputGroup`) - a
  * composite child (e.g. `ClearableInput`) instead receives its own
  * `wrapperRef`/`wrapperProps` (see `getEndWrapperProps`) so blur detection
- * still spans its extra focusable elements (e.g. a clear button).
+ * still spans its extra focusable elements (e.g. a clear button). Once a
+ * consumer-composed `DatePickerRange.Dialog` is rendered, this field
+ * automatically wires itself to open/focus it, via `getFieldTriggerProps`
+ * layered on top of this field's own input wiring.
  */
-export const End = ({ children, opensDialog }: PropsWithChildren<IEndProps>) => {
-  const { getEndInputProps, getEndWrapperProps, getFieldTriggerProps } = useDatePickerContext();
+export const End = ({ children }: PropsWithChildren<IEndProps>) => {
+  const { hasDialog, getEndInputProps, getEndWrapperProps, getFieldTriggerProps } =
+    useDatePickerContext();
 
   const childElement = React.Children.only(
     children as React.ReactElement & React.RefAttributes<HTMLInputElement>
@@ -50,7 +46,7 @@ export const End = ({ children, opensDialog }: PropsWithChildren<IEndProps>) => 
     inputProps = { ...inputProps, wrapperRef, wrapperProps: { onBlur: wrapperOnBlur } };
   }
 
-  if (opensDialog) {
+  if (hasDialog) {
     inputProps = getFieldTriggerProps(inputProps);
   }
 
