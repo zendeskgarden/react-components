@@ -5,7 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, cloneElement } from 'react';
+import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 interface IStartProps extends HTMLAttributes<HTMLInputElement> {
@@ -29,13 +30,20 @@ interface IStartProps extends HTMLAttributes<HTMLInputElement> {
 export const Start = ({ children, opensDialog }: PropsWithChildren<IStartProps>) => {
   const { getStartInputProps, getStartWrapperProps, getFieldTriggerProps } = useDatePickerContext();
 
-  const childElement = React.Children.only(children as React.ReactElement);
+  const childElement = React.Children.only(
+    children as React.ReactElement & React.RefAttributes<HTMLInputElement>
+  );
   const isComponent = typeof childElement.type !== 'string';
 
   let inputProps: Record<string, unknown> = getStartInputProps({
     ...childElement.props,
     required: childElement.props.required
   });
+
+  inputProps = {
+    ...inputProps,
+    ref: mergeRefs([inputProps.ref as Ref<HTMLInputElement>, childElement.ref ?? null])
+  };
 
   if (isComponent) {
     const { ref: wrapperRef, onBlur: wrapperOnBlur } = getStartWrapperProps();
