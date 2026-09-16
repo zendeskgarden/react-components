@@ -8,11 +8,6 @@
 import styled from 'styled-components';
 import { StyledCalendar } from './StyledCalendar';
 
-/**
- * `DatePicker`'s day grid table, spanning every column of
- * `StyledCalendarGrid` on the second row, via the month box's
- * (`StyledCalendarMonth`) inherited `subgrid` tracks.
- */
 export const StyledCalendarTable = styled(StyledCalendar)`
   grid-row: 2;
   grid-column: 1 / -1;

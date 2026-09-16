@@ -14,11 +14,7 @@ import { startOfWeek } from 'date-fns/startOfWeek';
 import { endOfWeek } from 'date-fns/endOfWeek';
 import { DateFnsIndex } from '../types';
 
-/**
- * `getWeekInfo` isn't in TypeScript's bundled `Intl.Locale` typings yet,
- * despite being implemented in every currently-supported browser - see
- * `getNativeStartOfWeek` below, which feature-detects it at runtime anyway.
- */
+/** `getWeekInfo` isn't in TypeScript's bundled `Intl.Locale` typings yet, despite being implemented in every currently-supported browser. */
 declare global {
   // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Intl {
@@ -101,9 +97,7 @@ const LANGUAGE_MAPPINGS: Record<string, DateFnsIndex> = {
   zh: 1
 };
 
-/**
- * Determine whether a date falls within an optional minValue/maxValue range (inclusive)
- */
+/** Inclusive of minValue/maxValue. */
 export function isDateWithinRange(date: Date, minValue?: Date, maxValue?: Date): boolean {
   if (minValue !== undefined && isBefore(date, minValue) && !isSameDay(date, minValue)) {
     return false;
@@ -116,12 +110,7 @@ export function isDateWithinRange(date: Date, minValue?: Date, maxValue?: Date):
   return true;
 }
 
-/**
- * Prefers the browser's own CLDR week data over the static tables below,
- * which can drift from real-world locale conventions over time - guarded
- * since `getWeekInfo` isn't available in every currently-supported browser
- * yet, and `Intl.Locale` throws on a malformed locale string.
- */
+/** Prefers the browser's own CLDR week data over the static tables below, which can drift from real-world locale conventions over time. */
 function getNativeStartOfWeek(locale: string): DateFnsIndex | undefined {
   if (typeof Intl.Locale !== 'function') {
     return undefined;
@@ -174,13 +163,7 @@ export function getStartOfWeek(locale?: string): DateFnsIndex {
   return 0;
 }
 
-/**
- * The calendar grid's first and last dates for the month containing
- * `displayDate` - including the leading/trailing days of adjacent months
- * needed to fill out full weeks. Identical between `DatePicker` and
- * `DatePickerRange`'s single-month grids, since it depends only on the
- * displayed month, locale, and week-start preference.
- */
+/** Shared by `DatePicker` and `DatePickerRange`'s single-month grids. */
 export function getMonthDateRange(displayDate: Date, weekStartsOn?: DateFnsIndex, locale?: string) {
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
   const monthStartDate = startOfMonth(displayDate);
@@ -192,24 +175,17 @@ export function getMonthDateRange(displayDate: Date, weekStartsOn?: DateFnsIndex
   };
 }
 
-/**
- * The calendar heading's "Month Year" text, e.g. "January 2026".
- */
+/** e.g. "January 2026" */
 export function formatMonthHeading(date: Date, locale?: string): string {
   return new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(date);
 }
 
-/**
- * The abbreviated weekday column label, e.g. "Mon".
- */
+/** e.g. "Mon" */
 export function formatWeekdayLabel(date: Date, locale?: string): string {
   return new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date);
 }
 
-/**
- * The full weekday name, e.g. "Monday" - paired with `formatWeekdayLabel`'s
- * abbreviation as a visually-hidden full-name span for assistive tech.
- */
+/** e.g. "Monday" - the visually-hidden full-name pair to `formatWeekdayLabel`'s abbreviation. */
 export function formatFullWeekdayLabel(date: Date, locale?: string): string {
   return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
 }

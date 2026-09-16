@@ -17,15 +17,7 @@ export interface ICalendarButtonProps extends ButtonHTMLAttributes<HTMLButtonEle
   getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
 }
 
-/**
- * Shared by `DatePicker` and `DatePickerRange` - the trigger IS a calendar
- * icon button, self-sufficient rather than wrapping an arbitrary
- * consumer-supplied child (mirroring Garden's own `Menu`, whose trigger is
- * likewise a button by default rather than a separately composed wrapper).
- * Each component's own `Trigger`/`CalendarButton` reads `getTriggerProps`
- * (and any other context-only values, like `DatePicker`'s `buttonId`) from
- * its own context and supplies it here.
- */
+/** Shared by `DatePicker` and `DatePickerRange` - each supplies its own `getTriggerProps` from context. */
 export const CalendarButton = ({
   isCompact,
   toggleCalendarLabel,

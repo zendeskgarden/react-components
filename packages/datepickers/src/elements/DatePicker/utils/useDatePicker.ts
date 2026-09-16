@@ -39,11 +39,7 @@ import {
   retrieveInitialState
 } from './date-picker-reducer';
 
-/**
- * Headless, self-contained state and prop-getters for a single-date picker:
- * a text input paired with a non-modal calendar dialog, following the
- * `@zendeskgarden/container-*` prop-getter convention (see `useCombobox`).
- */
+/** Headless state and prop-getters for a single-date picker, following the `@zendeskgarden/container-*` prop-getter convention. */
 export function useDatePicker({
   idPrefix,
   value,
@@ -113,10 +109,7 @@ export function useDatePicker({
     }
   }, [state.isOpen, value]);
 
-  /**
-   * When a trigger opens the dialog, wait for it to render before moving
-   * focus into it.
-   */
+  /** Waits for the dialog to render before moving focus into it. */
   useEffect(() => {
     if (state.isOpen && shouldFocusDialogRef.current) {
       focusIntoDialog(dialogRef.current);
@@ -125,11 +118,9 @@ export function useDatePicker({
   }, [state.isOpen]);
 
   /**
-   * Only follow a `focusedDate` change with real DOM focus when it was
-   * triggered by keyboard navigation from within the grid itself (flagged
-   * by `getDayProps`' `onKeyDown` below) - month/year paddle clicks also
-   * update `focusedDate` (so the roving tabindex stays correct), but
-   * deliberately leave real focus on the paddle button that was clicked.
+   * Only follows a `focusedDate` change with real DOM focus when it came from
+   * keyboard navigation within the grid - paddle clicks update `focusedDate`
+   * too (for the roving tabindex) but should leave real focus on the paddle.
    */
   useEffect(() => {
     if (!pendingGridFocusRef.current) {

@@ -15,12 +15,9 @@ interface ITriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * A calendar-icon button that opens/focuses a consumer-composed
- * `DatePickerRange.Dialog`. Unused unless a `DatePickerRange.Dialog` is
- * also rendered. More than one `Trigger` may be composed at once (e.g. one
- * per field, each with its own `toggleCalendarLabel`) - `getTriggerProps`
- * tracks each one's ref, so blur/focus detection treats every one of them
- * as part of the same open widget.
+ * More than one `Trigger` may be composed at once (e.g. one per field) -
+ * `getTriggerProps` tracks each one's ref, so blur/focus detection treats
+ * all of them as part of the same open widget.
  */
 export const Trigger = ({ toggleCalendarLabel, ...props }: ITriggerProps) => {
   const { isCompact, getTriggerProps } = useDatePickerContext();

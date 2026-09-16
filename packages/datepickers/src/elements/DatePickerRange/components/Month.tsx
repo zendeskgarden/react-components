@@ -64,12 +64,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       getInRangeDescriptionProps
     } = useDatePickerContext();
 
-    /**
-     * A rejected out-of-range/malformed blur leaves `startValue`/`endValue`
-     * pointing at the last-committed date even though the field visibly
-     * shows an unresolved error - suppress that stale date's calendar
-     * selection/highlighting until a new value actually commits.
-     */
+    // A rejected blur leaves startValue/endValue pointing at the stale, last-committed date -
+    // suppress its calendar selection until a new value actually commits.
     const effectiveStartValue = isStartValueInvalid ? undefined : startValue;
     const effectiveEndValue = isEndValueInvalid ? undefined : endValue;
 
@@ -152,15 +148,9 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, effectiveEndValue!)) ||
         false;
 
-      /**
-       * A hovered (not yet committed) boundary candidate tints the half of
-       * its cell that continues into the range - but if that candidate lands
-       * on the first or last day of its row, that tinted half has no
-       * neighboring cell in the same row to blend into, and shows up as a
-       * disconnected patch of color. There's no committed pin to anchor it
-       * either, so the cell is left untinted entirely rather than falling
-       * back to a solid fill.
-       */
+      // A hovered boundary candidate at the start/end of a row has no neighbor to blend its tint
+      // into and no committed pin to anchor it, so it's left untinted rather than showing a
+      // disconnected patch of color.
       const isRowStart = isSameDay(
         date,
         startOfWeek(date, { weekStartsOn: preferredWeekStartsOn })
@@ -228,12 +218,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           data-test-start={!isInvalidDateRange && isHighlightStart}
           data-test-end={!isInvalidDateRange && isHighlightEnd}
           onMouseEnter={() => {
-            /**
-             * Hovering an already-selected day has no candidate to preview,
-             * but must still clear any stale hoverDate left over from
-             * hovering a nearby day right before this one - otherwise the
-             * highlight from that day lingers indefinitely.
-             */
+            // Still clears any stale hoverDate left from a previously-hovered neighbor.
             setHoverDate(isSelected ? undefined : date);
           }}
         >

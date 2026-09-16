@@ -84,10 +84,7 @@ export function formatInputValue({
   }).format(date);
 }
 
-/**
- * Determine whether a typed input value currently represents a valid,
- * in-range date, for reporting via `onValueSettled`.
- */
+/** Reports whether a typed input value currently represents a valid, in-range date, for `onValueSettled`. */
 export function resolveSettledValue({
   inputValue,
   required,

@@ -9,10 +9,7 @@ import { RefObject } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { ElementProps } from '../types';
 
-/**
- * Move focus onto the selected date, today, or the first day cell in a
- * calendar dialog's grid, in that priority order.
- */
+/** Focuses the selected date, else today, else the first day cell - in that priority order. */
 export const focusIntoDialog = (dialogEl: HTMLElement | null): void => {
   if (!dialogEl) {
     return;
@@ -32,14 +29,10 @@ export const isInsideWidget = (
 ): boolean => widgetRefs.some(ref => !!ref.current?.contains(target));
 
 /**
- * Decides what a non-modal calendar dialog should do when focus leaves one
- * of its widget elements, per the APG dialog pattern: settle the typed
- * value and close when focus leaves the widget entirely, just close (no
- * settle) when it returns to one of the widget's own trigger fields *from
- * elsewhere in the widget* (e.g. the dialog), or do nothing when it simply
- * moves between other elements still inside the widget (e.g. a
- * `ClearableInput`'s clear button, or - for a multi-field widget like
- * `DatePickerRange` - another one of its own trigger fields).
+ * Per the APG dialog pattern: settle and close when focus leaves the widget
+ * entirely, just close (no settle) when it returns to a trigger field from
+ * elsewhere in the widget, otherwise do nothing (e.g. moving between two
+ * fields, or into a `ClearableInput`'s own clear button).
  */
 export const resolveWidgetBlur = ({
   target,
@@ -67,12 +60,7 @@ export const resolveWidgetBlur = ({
   return { shouldSettle: false, shouldClose: false };
 };
 
-/**
- * Opens on a pointer click (direct, or forwarded by a `<label>`) arriving
- * from outside the widget, leaving focus on the field rather than moving it
- * into the dialog (unlike a toggle button/Down Arrow, which both do). Never
- * true for keyboard-only (Tab) focus, since that never dispatches `click`.
- */
+/** True only for a pointer click arriving from outside the widget - never for Tab focus, which dispatches no `click`. */
 export const shouldOpenOnFieldClick = ({
   isOpen,
   previousActiveElement,
@@ -84,11 +72,7 @@ export const shouldOpenOnFieldClick = ({
 }): boolean =>
   !isOpen && (!previousActiveElement || !isInsideWidget(previousActiveElement, widgetRefs));
 
-/**
- * Composes a plain action (e.g. shifting a calendar's preview window) onto
- * a `type="button"` prop-getter's output - shared shape for every toolbar
- * paddle getter across both `useDatePicker` and `useDatePickerRange`.
- */
+/** Shared shape for every toolbar paddle getter across both `useDatePicker` and `useDatePickerRange`. */
 export const composeActionButtonProps = (
   action: () => void,
   props: ElementProps<HTMLButtonElement> & { type?: 'button' | 'submit' | 'reset' } = {}

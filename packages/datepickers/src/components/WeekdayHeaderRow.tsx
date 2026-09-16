@@ -13,19 +13,12 @@ import { StyledCalendarRow, StyledDayLabel, StyledDayLabelHeader } from '../styl
 import { formatFullWeekdayLabel, formatWeekdayLabel } from '../utils/calendar-utils';
 
 export interface IWeekdayHeaderRowProps {
-  /** The grid's first displayed date (a week-start date) - used to derive all seven weekday labels **/
   startDate: Date;
   locale?: string;
   isCompact?: boolean;
 }
 
-/**
- * Shared by `DatePicker` and `DatePickerRange`'s own `Month` - the row of
- * abbreviated weekday labels (each paired with a visually-hidden full-name
- * span) above the day grid. Identical in both regardless of single- vs
- * range-selection, since it depends only on locale and the grid's start
- * date.
- */
+/** Shared by `DatePicker` and `DatePickerRange`'s own `Month` - the row of abbreviated weekday labels above the day grid. */
 export const WeekdayHeaderRow = ({
   startDate,
   locale,

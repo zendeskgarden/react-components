@@ -7,10 +7,7 @@
 
 const SHORT_DATE_PATTERN = /^(?<month>\d{1,2})\/(?<day>\d{1,2})\/(?<year>\d{4})$/u;
 
-/**
- * formatDate and customParseDate are a matched pair for the M/D/YYYY format,
- * used to keep these stories' typed-input and displayed-value formats in sync.
- */
+/** Must agree with `customParseShortDate`'s shape. */
 export const formatShortDate = (date: Date) =>
   `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
 

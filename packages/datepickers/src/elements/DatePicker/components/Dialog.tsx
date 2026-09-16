@@ -13,24 +13,15 @@ import { StyledMenu, StyledMenuWrapper } from '../../../styled';
 import { useFloatingDialog } from '../../../utils/use-floating-dialog';
 
 interface IDialogProps extends HTMLAttributes<HTMLDivElement> {
-  /** Appends the dialog to the element provided **/
   appendToNode?: Element | DocumentFragment;
-  /** Adjusts the position of the dialog **/
   placement?: GardenPlacement;
-  /** Animates the dialog **/
   isAnimated?: boolean;
-  /** Sets the `z-index` of the dialog **/
   zIndex?: number;
 }
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
-/**
- * Wraps `DatePicker`'s calendar in a non-modal `role="dialog"` that
- * opens/closes via the internal `Trigger`/input wiring. Already labelled
- * via `aria-labelledby` (see `getDialogProps` in `useDatePicker`), so unlike
- * `DatePickerRange.Dialog` it takes no `aria-label` of its own.
- */
+/** Already labelled via `aria-labelledby` (see `getDialogProps`), unlike `DatePickerRange.Dialog`. */
 export const Dialog = ({
   children,
   placement: _placement = PLACEMENT_DEFAULT,

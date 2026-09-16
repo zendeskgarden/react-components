@@ -29,16 +29,12 @@ describe('Calendar Utilities', () => {
     });
 
     it('defers to the CLDR root default for a syntactically valid but unregistered locale (e.g. invalid)', () => {
-      // Intl.Locale accepts any syntactically valid language subtag, even an
-      // unregistered one, and getWeekInfo() resolves it against the CLDR
-      // root locale (Monday) rather than throwing - so this never reaches
-      // our own table-miss fallback below.
+      // "invalid" resolves against the CLDR root locale (Monday) rather than throwing.
       expect(getStartOfWeek('invalid')).toBe(1);
     });
 
     it('provides Sunday start date if no match is found in the static tables', () => {
-      // A genuinely malformed locale string makes Intl.Locale throw, which
-      // is what actually exercises our own table-miss fallback.
+      // "???" is malformed enough to make Intl.Locale throw, exercising our table-miss fallback.
       expect(getStartOfWeek('???')).toBe(0);
     });
 

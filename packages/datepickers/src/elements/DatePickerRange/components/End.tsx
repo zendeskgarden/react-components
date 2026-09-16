@@ -16,10 +16,7 @@ type IEndProps = HTMLAttributes<HTMLInputElement>;
  * child of whatever the consumer wraps it in (e.g. `InputGroup`) - a
  * composite child (e.g. `ClearableInput`) instead receives its own
  * `wrapperRef`/`wrapperProps` (see `getEndWrapperProps`) so blur detection
- * still spans its extra focusable elements (e.g. a clear button). Once a
- * consumer-composed `DatePickerRange.Dialog` is rendered, this field
- * automatically wires itself to open/focus it, via `getFieldTriggerProps`
- * layered on top of this field's own input wiring.
+ * still spans its extra focusable elements (e.g. a clear button).
  */
 export const End = ({ children }: PropsWithChildren<IEndProps>) => {
   const { hasDialog, getEndInputProps, getEndWrapperProps, getFieldTriggerProps } =

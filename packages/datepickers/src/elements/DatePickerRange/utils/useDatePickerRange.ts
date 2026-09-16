@@ -43,10 +43,8 @@ import {
 } from './date-picker-range-reducer';
 
 /**
- * Headless, self-contained state and prop-getters for a date-range picker:
- * paired Start/End text inputs plus an always-inline, two-month calendar
- * (with an opt-in dialog mode), following the `@zendeskgarden/container-*`
- * prop-getter convention (see `useCombobox`).
+ * Follows the `@zendeskgarden/container-*` prop-getter convention (see
+ * `useCombobox`).
  */
 export function useDatePickerRange({
   idPrefix,
@@ -92,11 +90,7 @@ export function useDatePickerRange({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
-  /**
-   * Cross-grid arrow-key focus-follow, matching `useDatePicker`'s own
-   * single-grid version - one ref spanning both months, since arrow-key
-   * navigation can cross from one month's grid into the other's.
-   */
+  // Spans both months' grids, since arrow-key navigation can cross between them.
   const calendarWrapperRef = useRef<HTMLDivElement>(null);
   const pendingGridFocusRef = useRef(false);
 
@@ -111,21 +105,8 @@ export function useDatePickerRange({
       ?.focus();
   }, [state.focusedDate]);
 
-  // --- Opt-in dialog mode ---
-
-  /**
-   * Every element focus must leave for the widget to count as "left", for
-   * the dialog's blur-to-close and click-to-open detection - Start's/End's
-   * own wrapper divs, every rendered `Trigger` button, and the dialog
-   * itself. No single combining wrapper is needed: React's `onBlur` already
-   * bubbles within each of these independently, so attaching the same check
-   * to each is equivalent to attaching it once to a shared ancestor. A
-   * consumer may compose more than one `Trigger` at once (e.g. one per
-   * field), so `getTriggerProps` collects every ref it's given into this
-   * `Set` - adding the same (stable, per-`Trigger`-instance) ref again on a
-   * later render is a no-op, and a ref left behind by an unmounted
-   * `Trigger` is harmless, since React clears its `current` to `null`.
-   */
+  // A consumer may compose more than one `Trigger` at once (e.g. one per field), so refs are
+  // collected into a `Set` rather than a single ref.
   const startWrapperRef = useRef<HTMLDivElement>(null);
   const endWrapperRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -283,8 +264,6 @@ export function useDatePickerRange({
     [isOpen, openOrFocusDialog, getWidgetRefs]
   );
 
-  // --- Start field ---
-
   const startIsBlurPendingRef = useRef(false);
   const startRequiredRef = useRef<boolean | undefined>(undefined);
 
@@ -349,14 +328,6 @@ export function useDatePickerRange({
     [commitStartBlur]
   );
 
-  /**
-   * For a composite child (e.g. `ClearableInput`) that renders extra
-   * focusable elements alongside its own input (e.g. a clear button),
-   * merged into that child's own `wrapperRef`/`wrapperProps` instead of a
-   * wrapping element of our own - `Start` renders no wrapper, so a plain
-   * `<input>` composes as a true, direct child of whatever the consumer
-   * wraps it in (e.g. `InputGroup`).
-   */
   const getStartWrapperProps = useCallback(() => {
     const onStartWrapperBlur = (e: React.FocusEvent) => {
       if (e.target === startInputRef.current || !startIsBlurPendingRef.current) {
@@ -446,8 +417,6 @@ export function useDatePickerRange({
     ]
   );
 
-  // --- End field ---
-
   const endIsBlurPendingRef = useRef(false);
   const endRequiredRef = useRef<boolean | undefined>(undefined);
 
@@ -512,11 +481,6 @@ export function useDatePickerRange({
     [commitEndBlur]
   );
 
-  /**
-   * See `getStartWrapperProps` - the `End` equivalent, merged into a
-   * composite child's own `wrapperRef`/`wrapperProps` instead of a wrapping
-   * element of our own.
-   */
   const getEndWrapperProps = useCallback(() => {
     const onEndWrapperBlur = (e: React.FocusEvent) => {
       if (e.target === endInputRef.current || !endIsBlurPendingRef.current) {
@@ -605,8 +569,6 @@ export function useDatePickerRange({
       endValue
     ]
   );
-
-  // --- Calendar grid ---
 
   const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
     const { onMouseDown, ...other } = props;

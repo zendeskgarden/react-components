@@ -17,9 +17,7 @@ type IStartProps = HTMLAttributes<HTMLInputElement>;
  * composite child (e.g. `ClearableInput`) instead receives its own
  * `wrapperRef`/`wrapperProps` (see `getStartWrapperProps`) so blur
  * detection still spans its extra focusable elements (e.g. a clear
- * button). Once a consumer-composed `DatePickerRange.Dialog` is rendered,
- * this field automatically wires itself to open/focus it, via
- * `getFieldTriggerProps` layered on top of this field's own input wiring.
+ * button).
  */
 export const Start = ({ children }: PropsWithChildren<IStartProps>) => {
   const { hasDialog, getStartInputProps, getStartWrapperProps, getFieldTriggerProps } =

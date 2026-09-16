@@ -31,13 +31,7 @@ export interface IToolbarProps {
 
 type Paddle = 'previousYear' | 'previousMonth' | 'nextMonth' | 'nextYear';
 
-/**
- * Shared month/year navigation toolbar rendered by both `DatePicker` and
- * `DatePickerRange`. Purely presentational - each consumer supplies its own
- * `onPrevious*`/`onNext*` callbacks, since the two components dispatch
- * different reducer actions to shift their (single- or dual-month) preview
- * window.
- */
+/** Shared month/year navigation toolbar rendered by both `DatePicker` and `DatePickerRange`; purely presentational. */
 export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   isCompact,
   previousMonthLabel,
@@ -71,13 +65,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   const [focusedPaddle, setFocusedPaddle] = useState<Paddle>('previousYear');
   const toolbarRef = useRef<HTMLDivElement>(null);
 
-  /**
-   * Queries the DOM fresh on every keypress, in actual DOM/reading order,
-   * rather than caching a ref array - JSX order (via each paddle's
-   * `$gridColumn`) is the only source of truth for paddle order, and a
-   * fresh query can't drift out of sync with it the way a
-   * separately-maintained list could.
-   */
+  /** Queries the DOM fresh each keypress rather than caching a ref array, so paddle order can't drift out of sync with JSX/DOM order. */
   const handleToolbarKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLDivElement>) => {
       const paddles = Array.from(

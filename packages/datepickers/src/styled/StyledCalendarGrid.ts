@@ -25,11 +25,9 @@ const sizeStyles = ({ $isCompact, theme }: IStyledCalendarGridProps & ThemeProps
 };
 
 /**
- * `DatePicker`'s outer calendar wrapper. Establishes the explicit column
- * tracks that both the toolbar (`StyledHeader`) and the month box
- * (`StyledCalendarMonth`) inherit via `subgrid`, so the toolbar's paddles
- * can align to specific day columns while remaining one contiguous
- * `role="toolbar"` element in DOM/reading order.
+ * Establishes the column tracks that the toolbar and month box inherit via
+ * `subgrid`, so the toolbar's paddles can align to day columns while
+ * staying one contiguous `role="toolbar"` element.
  */
 export const StyledCalendarGrid = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
