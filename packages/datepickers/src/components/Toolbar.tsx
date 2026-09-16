@@ -10,24 +10,12 @@ import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { StyledCalendarToolbar, StyledHeaderPaddle } from '../styled';
+import { IToolbarProps } from '../types';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import ChevronDoubleLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
 import ChevronDoubleRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-double-right-stroke.svg';
-
-export interface IToolbarProps {
-  isCompact?: boolean;
-  previousMonthLabel?: string;
-  nextMonthLabel?: string;
-  previousYearLabel?: string;
-  nextYearLabel?: string;
-  toolbarLabel?: string;
-  onPreviousYear: () => void;
-  onPreviousMonth: () => void;
-  onNextMonth: () => void;
-  onNextYear: () => void;
-}
 
 type Paddle = 'previousYear' | 'previousMonth' | 'nextMonth' | 'nextYear';
 

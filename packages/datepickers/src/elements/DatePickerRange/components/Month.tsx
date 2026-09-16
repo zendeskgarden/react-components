@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 import { Span } from '@zendeskgarden/react-typography';
 import { useText } from '@zendeskgarden/react-theming';
 import { startOfWeek } from 'date-fns/startOfWeek';
@@ -34,14 +34,9 @@ import {
   isDateWithinRange
 } from '../../../utils/calendar-utils';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import { IDatePickerRangeMonthProps } from '../../../types';
 
-interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  displayDate: Date;
-  offset: 0 | 1;
-  gridColumn: string;
-}
-
-export const Month = forwardRef<HTMLDivElement, IMonthProps>(
+export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
   ({ displayDate, offset, gridColumn }, ref) => {
     const {
       locale,

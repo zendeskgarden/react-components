@@ -5,25 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { useText } from '@zendeskgarden/react-theming';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
-import { GardenPlacement, PLACEMENT } from '../../../types';
+import { IDatePickerRangeDialogProps, PLACEMENT } from '../../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../../styled';
 import { useFloatingDialog } from '../../../utils/use-floating-dialog';
-
-interface IDialogProps extends HTMLAttributes<HTMLDivElement> {
-  /** Appends the dialog to the element provided **/
-  appendToNode?: Element | DocumentFragment;
-  /** Adjusts the position of the dialog **/
-  placement?: GardenPlacement;
-  /** Animates the dialog **/
-  isAnimated?: boolean;
-  /** Sets the `z-index` of the dialog **/
-  zIndex?: number;
-}
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -39,7 +28,7 @@ export const Dialog = ({
   appendToNode,
   'aria-label': ariaLabelProp,
   ...menuProps
-}: PropsWithChildren<IDialogProps>) => {
+}: PropsWithChildren<IDatePickerRangeDialogProps>) => {
   const { isOpen, dialogRef, getDialogProps, getReferenceElement, registerDialog } =
     useDatePickerContext();
   const ariaLabel = useText(Dialog, { 'aria-label': ariaLabelProp }, 'aria-label', 'Choose dates');

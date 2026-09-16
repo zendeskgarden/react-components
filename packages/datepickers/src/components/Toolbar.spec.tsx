@@ -9,7 +9,8 @@ import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, render, renderRtl, fireEvent } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { IToolbarProps, Toolbar } from './Toolbar';
+import { Toolbar } from './Toolbar';
+import { IToolbarProps } from '../types';
 
 describe('Toolbar', () => {
   const user = userEvent.setup({ delay: null });

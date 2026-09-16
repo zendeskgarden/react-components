@@ -5,17 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ButtonHTMLAttributes, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useText } from '@zendeskgarden/react-theming';
 import CalendarStrokeIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
 import { StyledCalendarButton } from '../styled';
-import { ElementProps } from '../types';
-
-export interface ICalendarButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  isCompact?: boolean;
-  toggleCalendarLabel?: string;
-  getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
-}
+import { ICalendarButtonProps } from '../types';
 
 /** Shared by `DatePicker` and `DatePickerRange` - each supplies its own `getTriggerProps` from context. */
 export const CalendarButton = ({
