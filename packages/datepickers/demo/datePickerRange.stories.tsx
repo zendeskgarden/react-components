@@ -10,7 +10,6 @@ import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
 import { DatePickerRangeStory } from './stories/DatePickerRangeStory';
-import { DatePickerRangeClearableStory } from './stories/DatePickerRangeClearableStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';
 
 export default {
@@ -18,8 +17,10 @@ export default {
   component: DatePickerRange,
   subcomponents: {
     'DatePickerRange.Calendar': DatePickerRange.Calendar,
+    'DatePickerRange.Dialog': DatePickerRange.Dialog,
     'DatePickerRange.End': DatePickerRange.End,
-    'DatePickerRange.Start': DatePickerRange.Start
+    'DatePickerRange.Start': DatePickerRange.Start,
+    'DatePickerRange.Trigger': DatePickerRange.Trigger
   }
 };
 
@@ -67,51 +68,6 @@ export const Example: StoryObj<typeof DatePickerRangeStory> = {
       allowFullscreen: true,
       type: 'figma',
       url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=134%3A32'
-    }
-  }
-};
-
-export const ClearableExample: StoryObj<typeof DatePickerRangeClearableStory> = {
-  render: args => {
-    const updateArgs = useArgs()[1];
-
-    const handleChange = ({ endValue, startValue }: any) =>
-      updateArgs({
-        endValue,
-        startValue
-      });
-
-    const handleValueSettled = (result: {
-      field: 'start' | 'end';
-      date?: Date;
-      valid: boolean;
-    }) => {
-      if (result.valid) {
-        updateArgs(
-          result.field === 'start' ? { startValue: result.date } : { endValue: result.date }
-        );
-      }
-    };
-
-    return (
-      <DatePickerRangeClearableStory
-        {...args}
-        onChange={handleChange}
-        onValueSettled={handleValueSettled}
-      />
-    );
-  },
-  name: 'DatePickerRange (ClearableInput)',
-  args: { dateStyle: DATE_STYLE_OPTIONS[1] },
-  argTypes: {
-    startValue: { control: 'date' },
-    endValue: { control: 'date' },
-    minValue: { control: 'date' },
-    maxValue: { control: 'date' },
-    dateStyle: {
-      control: 'radio',
-      options: DATE_STYLE_OPTIONS,
-      table: { category: 'Story' }
     }
   }
 };

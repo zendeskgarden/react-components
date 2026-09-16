@@ -8,7 +8,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -39,13 +39,13 @@ export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...
         <Field>
           <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
           <DatePickerRange.Start>
-            <Input isCompact={isCompact} />
+            <ClearableInput isCompact={isCompact} />
           </DatePickerRange.Start>
         </Field>
         <Field>
           <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
           <DatePickerRange.End>
-            <Input isCompact={isCompact} />
+            <ClearableInput isCompact={isCompact} />
           </DatePickerRange.End>
         </Field>
         <StyledCalendar />
