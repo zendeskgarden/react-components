@@ -8,13 +8,9 @@
 import React from 'react';
 import { CalendarButton } from '../../../components/CalendarButton';
 import useDatePickerContext from '../utils/useDatePickerContext';
+import { IDatePickerTriggerProps } from '../../../types';
 
-interface ITriggerProps {
-  isCompact?: boolean;
-  toggleCalendarLabel?: string;
-}
-
-export const Trigger = ({ isCompact, toggleCalendarLabel }: ITriggerProps) => {
+export const Trigger = ({ isCompact, toggleCalendarLabel }: IDatePickerTriggerProps) => {
   const { buttonId, getTriggerProps } = useDatePickerContext();
 
   return (

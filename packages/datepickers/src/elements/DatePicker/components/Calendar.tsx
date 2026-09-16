@@ -5,28 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef } from 'react';
 import { StyledCalendarGrid } from '../../../styled';
 import { Toolbar } from '../../../components/Toolbar';
 import useDatePickerContext from '../utils/useDatePickerContext';
-import { DateFnsIndex } from '../../../types';
+import { IDatePickerCalendarProps } from '../../../types';
 import { Month } from './Month';
 
-interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
-  value?: Date;
-  minValue?: Date;
-  maxValue?: Date;
-  isCompact?: boolean;
-  locale?: string;
-  weekStartsOn?: DateFnsIndex;
-  previousMonthLabel?: string;
-  nextMonthLabel?: string;
-  previousYearLabel?: string;
-  nextYearLabel?: string;
-  toolbarLabel?: string;
-}
-
-export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
+export const Calendar = forwardRef<HTMLDivElement, IDatePickerCalendarProps>(
   (
     {
       value,

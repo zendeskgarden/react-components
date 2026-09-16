@@ -5,7 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { FocusEventHandler, HTMLAttributes, HTMLProps, ReactElement, Ref, RefObject } from 'react';
+import {
+  ButtonHTMLAttributes,
+  FocusEventHandler,
+  HTMLAttributes,
+  HTMLProps,
+  ReactElement,
+  RefAttributes,
+  Ref,
+  RefObject
+} from 'react';
 import { PLACEMENT as BASE_PLACEMENT } from '@zendeskgarden/react-theming';
 
 export const WEEK_STARTS_ON = [0, 1, 2, 3, 4, 5, 6] as const;
@@ -320,4 +329,94 @@ export interface IUseDatePickerRangeReturnValue {
   focusNextMonth: () => void;
   focusPreviousYear: () => void;
   focusNextYear: () => void;
+}
+
+export interface IDatePickerCalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  value?: Date;
+  minValue?: Date;
+  maxValue?: Date;
+  isCompact?: boolean;
+  locale?: string;
+  weekStartsOn?: DateFnsIndex;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
+  previousYearLabel?: string;
+  nextYearLabel?: string;
+  toolbarLabel?: string;
+}
+
+export interface IDatePickerMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
+  value?: Date;
+  minValue?: Date;
+  maxValue?: Date;
+  isCompact?: boolean;
+  locale?: string;
+  weekStartsOn?: DateFnsIndex;
+}
+
+export interface IDatePickerTriggerProps {
+  isCompact?: boolean;
+  toggleCalendarLabel?: string;
+}
+
+export interface IDatePickerDialogProps extends HTMLAttributes<HTMLDivElement> {
+  appendToNode?: Element | DocumentFragment;
+  placement?: GardenPlacement;
+  isAnimated?: boolean;
+  zIndex?: number;
+}
+
+export interface IDatePickerInputProps {
+  element: ReactElement & RefAttributes<HTMLInputElement>;
+  refKey: string;
+}
+
+export interface IDatePickerRangeMonthProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'onChange'
+> {
+  displayDate: Date;
+  offset: 0 | 1;
+  gridColumn: string;
+}
+
+export interface IDatePickerRangeTriggerProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Provides a customized/translated label for the calendar trigger button **/
+  toggleCalendarLabel?: string;
+}
+
+export interface IDatePickerRangeDialogProps extends HTMLAttributes<HTMLDivElement> {
+  /** Appends the dialog to the element provided **/
+  appendToNode?: Element | DocumentFragment;
+  /** Adjusts the position of the dialog **/
+  placement?: GardenPlacement;
+  /** Animates the dialog **/
+  isAnimated?: boolean;
+  /** Sets the `z-index` of the dialog **/
+  zIndex?: number;
+}
+
+export interface ICalendarButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  isCompact?: boolean;
+  toggleCalendarLabel?: string;
+  getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
+}
+
+export interface IToolbarProps {
+  isCompact?: boolean;
+  previousMonthLabel?: string;
+  nextMonthLabel?: string;
+  previousYearLabel?: string;
+  nextYearLabel?: string;
+  toolbarLabel?: string;
+  onPreviousYear: () => void;
+  onPreviousMonth: () => void;
+  onNextMonth: () => void;
+  onNextYear: () => void;
+}
+
+export interface IWeekdayHeaderRowProps {
+  startDate: Date;
+  locale?: string;
+  isCompact?: boolean;
 }
