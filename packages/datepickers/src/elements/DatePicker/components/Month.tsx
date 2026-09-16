@@ -22,6 +22,7 @@ import {
 import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import {
+  formatFullDate,
   formatMonthHeading,
   getMonthDateRange,
   isDateWithinRange
@@ -53,6 +54,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
             isNeutral={!isSelected}
             data-test-previous={isPreviousMonth}
             {...getDayProps({ date })}
+            aria-label={`${formattedDayLabel}: ${formatFullDate(date, locale)}`}
           >
             {formattedDayLabel}
           </StyledDayButton>

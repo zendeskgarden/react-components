@@ -76,6 +76,16 @@ describe('Month', () => {
       expect(days[9]).toHaveAttribute('data-test-today', 'true');
     });
 
+    it('labels each day button with its full date, not just the bare day number', async () => {
+      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+      const days = getAllByTestId('day');
+
+      expect(days[9]).toHaveTextContent('5');
+      expect(days[9]).toHaveAttribute('aria-label', '5: Tuesday, February 5, 2019');
+    });
+
     it('displays "Sun" as default first day of week', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
