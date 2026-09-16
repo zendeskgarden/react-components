@@ -18,21 +18,9 @@ const StyledWrapper = styled.div`
 `;
 
 /**
- * Demonstrates composing DatePickerRange so its calendar lives inside a
- * role="dialog" that opens and closes, mirroring DatePicker's own default
- * UX from the outside - entirely through DatePickerRange's own opt-in
- * dialog building blocks (DatePickerRange.Trigger and DatePickerRange.Dialog),
- * since DatePickerRange itself always renders its calendar inline and never
- * closes it on its own. Once a Dialog is composed, Start/End automatically
- * wire themselves to open/focus it.
- * DatePickerRange.Dialog styles and floats itself the same way DatePicker's
- * own popover does, so no manual positioning/styling is needed here. Each
- * field gets its own DatePickerRange.Trigger, mirroring DatePicker's own
- * Input+CalendarButton pairing - DatePickerRange.Trigger supports composing
- * more than one at once for exactly this case. Start/End compose their
- * child as a true, direct child of InputGroup (rather than through a
- * wrapper of their own), so ClearableInput's nested input group still
- * merges seamlessly with the calendar button below.
+ * DatePickerRange normally renders its calendar inline; composing
+ * Trigger + Dialog opts into DatePicker's popover UX instead. Start/End
+ * auto-wire to the Dialog once it's composed.
  */
 export const DatePickerRangeDialogStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);

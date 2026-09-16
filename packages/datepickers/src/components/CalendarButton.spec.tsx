@@ -10,14 +10,6 @@ import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { CalendarButton } from './CalendarButton';
 
-/**
- * Exercises the shared `CalendarButton` directly, with `getTriggerProps`
- * supplied as a mock mirroring both real implementations' shape (they both
- * always set `aria-haspopup`/`aria-expanded`/`aria-controls`) - the real
- * wiring is already covered end-to-end via `DatePicker`'s "Calendar trigger
- * button" tests and `DatePickerRange/components/Dialog.spec.tsx`'s
- * "Multiple triggers" tests.
- */
 describe('CalendarButton', () => {
   const user = userEvent.setup({ delay: null });
 

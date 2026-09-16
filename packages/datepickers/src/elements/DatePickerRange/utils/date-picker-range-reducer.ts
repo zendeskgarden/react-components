@@ -88,10 +88,6 @@ export function parseInputValue({ inputValue }: { inputValue?: string }): Date {
   return new Date(NaN);
 }
 
-/**
- * Determine whether a typed input value currently represents a valid,
- * in-range, correctly-ordered date, for reporting via `onValueSettled`.
- */
 export function resolveSettledValue({
   inputValue,
   required,
