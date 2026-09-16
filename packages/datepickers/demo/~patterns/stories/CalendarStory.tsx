@@ -9,7 +9,7 @@ import React, { useRef } from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import styled from 'styled-components';
 import { DatePicker } from '@zendeskgarden/react-datepickers';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { getColor } from '@zendeskgarden/react-theming';
 
@@ -37,7 +37,7 @@ export const CalendarStory: StoryFn<IArgs> = ({ appendToNode }) => {
         <Field>
           <Field.Label>Calendar portal pattern</Field.Label>
           <DatePicker appendToNode={appendToNode ? portalNode.current || undefined : undefined}>
-            <Input />
+            <ClearableInput />
           </DatePicker>
         </Field>
         <Paragraph style={{ marginTop: 20 }}>

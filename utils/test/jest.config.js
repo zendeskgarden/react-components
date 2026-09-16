@@ -16,6 +16,7 @@ module.exports = {
     '<rootDir>/packages/*/src/**/*.{js,jsx,ts,tsx}',
     '!<rootDir>/packages/*/src/index.{js,jsx,ts,tsx}',
     '!<rootDir>/packages/*/src/types/index.{js,jsx,ts,tsx}',
+    '!<rootDir>/packages/*/src/types.{js,jsx,ts,tsx}',
     '!<rootDir>/packages/.template/**',
     '!**/node_modules/**',
     '!**/vendor/**'

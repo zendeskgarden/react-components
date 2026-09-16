@@ -5,84 +5,48 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
-import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { isValid } from 'date-fns/isValid';
-import { isSameDay } from 'date-fns/isSameDay';
-import { parseInputValue } from '../utils/date-picker-range-reducer';
+import React, { PropsWithChildren, HTMLAttributes, cloneElement } from 'react';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
-export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
-  const { state, dispatch, onChange, startValue, endValue, endInputRef, customParseDate } =
-    useDatePickerContext();
+interface IEndProps extends HTMLAttributes<HTMLInputElement> {
+  /**
+   * Also wires this field to open/focus a consumer-composed
+   * `DatePickerRange.Dialog`, via `getFieldTriggerProps` layered on top of
+   * this field's own input wiring. Has no effect unless a
+   * `DatePickerRange.Dialog` is also rendered.
+   */
+  opensDialog?: boolean;
+}
 
-  const onChangeCallback = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch({ type: 'END_INPUT_ONCHANGE', value: e.target.value });
+/**
+ * Renders no wrapper of its own, so the child composes as a true, direct
+ * child of whatever the consumer wraps it in (e.g. `InputGroup`) - a
+ * composite child (e.g. `ClearableInput`) instead receives its own
+ * `wrapperRef`/`wrapperProps` (see `getEndWrapperProps`) so blur detection
+ * still spans its extra focusable elements (e.g. a clear button).
+ */
+export const End = ({ children, opensDialog }: PropsWithChildren<IEndProps>) => {
+  const { getEndInputProps, getEndWrapperProps, getFieldTriggerProps } = useDatePickerContext();
 
-      (props.children as any).props.onChange && (props.children as any).props.onChange(e);
-    },
-    [dispatch, props.children]
-  );
+  const childElement = React.Children.only(children as React.ReactElement);
+  const isComponent = typeof childElement.type !== 'string';
 
-  const onFocusCallback = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      dispatch({ type: 'END_FOCUS' });
-
-      (props.children as any).props.onFocus && (props.children as any).props.onFocus(e);
-    },
-    [dispatch, props.children]
-  );
-
-  const handleBlur = useCallback(() => {
-    dispatch({ type: 'END_BLUR' });
-    let parsedDate;
-
-    if (customParseDate) {
-      parsedDate = customParseDate(state.endInputValue);
-    } else {
-      parsedDate = parseInputValue({
-        inputValue: state.endInputValue
-      });
-    }
-
-    if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
-      onChange && onChange({ startValue, endValue: parsedDate });
-    }
-  }, [dispatch, onChange, startValue, endValue, customParseDate, state.endInputValue]);
-
-  const onKeydownCallback = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === KEYS.ENTER) {
-        handleBlur();
-
-        e.preventDefault();
-      }
-
-      (props.children as any).props.onKeyDown && (props.children as any).props.onKeyDown(e);
-    },
-    [handleBlur, props.children]
-  );
-
-  const onBlurCallback = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      handleBlur();
-
-      (props.children as any).props.onBlur && (props.children as any).props.onBlur(e);
-    },
-    [handleBlur, props.children]
-  );
-
-  const childElement = React.Children.only(props.children as React.ReactElement);
-
-  return React.cloneElement(childElement, {
-    value: state.endInputValue || '',
-    ref: endInputRef,
-    onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
-    onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
-    onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeydownCallback),
-    onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
+  let inputProps: Record<string, unknown> = getEndInputProps({
+    ...childElement.props,
+    required: childElement.props.required
   });
+
+  if (isComponent) {
+    const { ref: wrapperRef, onBlur: wrapperOnBlur } = getEndWrapperProps();
+
+    inputProps = { ...inputProps, wrapperRef, wrapperProps: { onBlur: wrapperOnBlur } };
+  }
+
+  if (opensDialog) {
+    inputProps = getFieldTriggerProps(inputProps);
+  }
+
+  return cloneElement(childElement, inputProps);
 };
 
 End.displayName = 'DatePickerRange.End';

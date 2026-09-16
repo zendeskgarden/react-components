@@ -8,7 +8,7 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DatePicker, IDatePickerProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -39,7 +39,7 @@ export const DatePickerStory: StoryFn<IArgs> = ({
           <Field>
             <Field.Label hidden>{DatePicker.displayName}</Field.Label>
             <DatePicker {...args} formatDate={formatDate} isCompact={isCompact}>
-              <Input isCompact={isCompact} validation={validation} />
+              <ClearableInput isCompact={isCompact} validation={validation} />
             </DatePicker>
             {!!hasMessage && (
               <Field.Message validation={validation} validationLabel={validationLabel}>
