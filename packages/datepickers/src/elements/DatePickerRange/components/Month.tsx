@@ -54,7 +54,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       isEndValueInvalid,
       hoverDate,
       setHoverDate,
-      getMonthProps,
       getGridProps,
       getHeadingProps,
       getDayProps,
@@ -281,7 +280,6 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         $isCompact={isCompact}
         $gridColumn={gridColumn}
         data-test-id="calendar-wrapper"
-        {...getMonthProps()}
       >
         <StyledCalendarHeading
           $isCompact={isCompact}

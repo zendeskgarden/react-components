@@ -604,15 +604,7 @@ export function useDatePickerRange({
 
   // --- Calendar grid ---
 
-  const getCalendarProps = useCallback(
-    (props: ElementProps<HTMLDivElement> = {}) => ({
-      ref: calendarWrapperRef,
-      ...props
-    }),
-    []
-  );
-
-  const getMonthProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
+  const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
     const { onMouseDown, ...other } = props;
     const handleMouseDown = (e: React.MouseEvent) => {
       /** Stop focus from escaping input */
@@ -620,6 +612,7 @@ export function useDatePickerRange({
     };
 
     return {
+      ref: calendarWrapperRef,
       onMouseDown: composeEventHandlers(onMouseDown, handleMouseDown),
       ...other
     };
@@ -863,7 +856,6 @@ export function useDatePickerRange({
       dialogRef,
       getReferenceElement,
       getCalendarProps,
-      getMonthProps,
       getGridProps,
       getHeadingProps,
       getDayProps,
@@ -900,7 +892,6 @@ export function useDatePickerRange({
       dialogRef,
       getReferenceElement,
       getCalendarProps,
-      getMonthProps,
       getGridProps,
       getHeadingProps,
       getDayProps,
