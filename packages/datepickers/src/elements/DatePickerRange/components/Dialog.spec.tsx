@@ -21,10 +21,10 @@ const Example = ({
   <>
     <DatePickerRange {...props}>
       <div style={{ position: 'relative', display: 'inline-block' }}>
-        <DatePickerRange.Start opensDialog>
+        <DatePickerRange.Start>
           <input data-test-id="start" />
         </DatePickerRange.Start>
-        <DatePickerRange.End opensDialog>
+        <DatePickerRange.End>
           <input data-test-id="end" />
         </DatePickerRange.End>
         <DatePickerRange.Trigger data-test-id="trigger" />
@@ -123,6 +123,31 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(getByTestId('outside-background'));
 
       expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+    });
+  });
+
+  describe('Automatic combobox wiring', () => {
+    it('opens the dialog when Start is clicked', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Trigger data-test-id="trigger" />
+          <DatePickerRange.Dialog>
+            <DatePickerRange.Calendar />
+          </DatePickerRange.Dialog>
+        </DatePickerRange>
+      );
+      const startInput = getByTestId('start');
+
+      await user.click(startInput);
+
+      expect(startInput).toHaveAttribute('aria-expanded', 'true');
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -281,11 +306,11 @@ describe('DatePickerRange.Dialog', () => {
     const TwoTriggerExample = (props: IDatePickerRangeProps) => (
       <DatePickerRange {...props}>
         <div style={{ position: 'relative', display: 'inline-block' }}>
-          <DatePickerRange.Start opensDialog>
+          <DatePickerRange.Start>
             <input data-test-id="start" />
           </DatePickerRange.Start>
           <DatePickerRange.Trigger data-test-id="start-trigger" />
-          <DatePickerRange.End opensDialog>
+          <DatePickerRange.End>
             <input data-test-id="end" />
           </DatePickerRange.End>
           <DatePickerRange.Trigger data-test-id="end-trigger" />

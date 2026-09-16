@@ -6,6 +6,7 @@
  */
 
 import React, { ButtonHTMLAttributes } from 'react';
+import PropTypes from 'prop-types';
 import { CalendarButton } from '../../../components/CalendarButton';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
@@ -35,3 +36,7 @@ export const Trigger = ({ toggleCalendarLabel, ...props }: ITriggerProps) => {
 };
 
 Trigger.displayName = 'DatePickerRange.Trigger';
+
+Trigger.propTypes = {
+  toggleCalendarLabel: PropTypes.string
+};

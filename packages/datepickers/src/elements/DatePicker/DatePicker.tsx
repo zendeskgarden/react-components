@@ -128,5 +128,10 @@ DatePicker.propTypes = {
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
   zIndex: PropTypes.number,
-  toggleCalendarLabel: PropTypes.string
+  toggleCalendarLabel: PropTypes.string,
+  previousMonthLabel: PropTypes.string,
+  nextMonthLabel: PropTypes.string,
+  previousYearLabel: PropTypes.string,
+  nextYearLabel: PropTypes.string,
+  toolbarLabel: PropTypes.string
 };

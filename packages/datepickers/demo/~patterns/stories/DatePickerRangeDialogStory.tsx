@@ -21,9 +21,10 @@ const StyledWrapper = styled.div`
  * Demonstrates composing DatePickerRange so its calendar lives inside a
  * role="dialog" that opens and closes, mirroring DatePicker's own default
  * UX from the outside - entirely through DatePickerRange's own opt-in
- * dialog building blocks (DatePickerRange.Trigger, DatePickerRange.Dialog,
- * and Start/End's `opensDialog` prop), since DatePickerRange itself always
- * renders its calendar inline and never closes it on its own.
+ * dialog building blocks (DatePickerRange.Trigger and DatePickerRange.Dialog),
+ * since DatePickerRange itself always renders its calendar inline and never
+ * closes it on its own. Once a Dialog is composed, Start/End automatically
+ * wire themselves to open/focus it.
  * DatePickerRange.Dialog styles and floats itself the same way DatePicker's
  * own popover does, so no manual positioning/styling is needed here. Each
  * field gets its own DatePickerRange.Trigger, mirroring DatePicker's own
@@ -53,7 +54,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
               <Field>
                 <Field.Label>Start date</Field.Label>
                 <InputGroup isUnified>
-                  <DatePickerRange.Start opensDialog>
+                  <DatePickerRange.Start>
                     <ClearableInput />
                   </DatePickerRange.Start>
                   <DatePickerRange.Trigger
@@ -67,7 +68,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
               <Field>
                 <Field.Label>End date</Field.Label>
                 <InputGroup isUnified>
-                  <DatePickerRange.End opensDialog>
+                  <DatePickerRange.End>
                     <ClearableInput />
                   </DatePickerRange.End>
                   <DatePickerRange.Trigger

@@ -9,7 +9,7 @@ import React, { PropsWithChildren, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { IDatePickerRangeProps } from '../../types';
+import { IDatePickerRangeProps, WEEK_STARTS_ON } from '../../types';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
 import { useDatePickerRange } from './utils/useDatePickerRange';
 import { Start } from './components/Start';
@@ -108,7 +108,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
 
 DatePickerRangeComponent.propTypes = {
   locale: PropTypes.string,
-  weekStartsOn: PropTypes.number,
+  weekStartsOn: PropTypes.oneOf(WEEK_STARTS_ON),
   startValue: PropTypes.instanceOf(Date),
   endValue: PropTypes.instanceOf(Date),
   minValue: PropTypes.instanceOf(Date),
@@ -117,7 +117,15 @@ DatePickerRangeComponent.propTypes = {
   onValueSettled: PropTypes.func,
   formatDate: PropTypes.func,
   customParseDate: PropTypes.func,
-  isCompact: PropTypes.bool
+  isCompact: PropTypes.bool,
+  previousMonthLabel: PropTypes.string,
+  nextMonthLabel: PropTypes.string,
+  previousYearLabel: PropTypes.string,
+  nextYearLabel: PropTypes.string,
+  toolbarLabel: PropTypes.string,
+  inRangeLabel: PropTypes.string,
+  startOfRangeLabel: PropTypes.string,
+  endOfRangeLabel: PropTypes.string
 };
 
 export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRangeComponent & {

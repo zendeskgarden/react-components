@@ -6,10 +6,11 @@
  */
 
 import React, { HTMLAttributes, PropsWithChildren, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
 import { useText } from '@zendeskgarden/react-theming';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
-import { GardenPlacement } from '../../../types';
+import { GardenPlacement, PLACEMENT } from '../../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../../styled';
 import { useFloatingDialog } from '../../../utils/use-floating-dialog';
 
@@ -28,8 +29,9 @@ const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
  * Wraps `DatePickerRange.Calendar` in a non-modal `role="dialog"` that
- * opens/closes via a consumer-composed `DatePickerRange.Trigger` and/or a
- * field with `opensDialog`. Styled and floated the same way `DatePicker`'s
+ * opens/closes via a consumer-composed `DatePickerRange.Trigger` and/or
+ * `Start`/`End`, which automatically wire themselves to it once it's
+ * rendered. Styled and floated the same way `DatePicker`'s
  * own popover is - via `StyledMenuWrapper`/`StyledMenu` and `floating-ui`
  * positioning - anchored to `Start`'s input, falling back to `End`'s input
  * then the `Trigger` button, whichever is rendered.
@@ -76,3 +78,10 @@ export const Dialog = ({
 };
 
 Dialog.displayName = 'DatePickerRange.Dialog';
+
+Dialog.propTypes = {
+  appendToNode: PropTypes.any,
+  placement: PropTypes.oneOf(PLACEMENT),
+  isAnimated: PropTypes.bool,
+  zIndex: PropTypes.number
+};
