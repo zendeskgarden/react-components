@@ -45,7 +45,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
     const {
       locale,
       weekStartsOn,
-      isCompact = false,
+      isCompact,
       minValue,
       maxValue,
       startValue,

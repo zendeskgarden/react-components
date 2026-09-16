@@ -11,7 +11,7 @@ import { DateFnsIndex, IUseDatePickerRangeReturnValue } from '../../../types';
 export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue {
   locale?: string;
   weekStartsOn?: DateFnsIndex;
-  isCompact?: boolean;
+  isCompact: boolean;
   minValue?: Date;
   maxValue?: Date;
   startValue?: Date;

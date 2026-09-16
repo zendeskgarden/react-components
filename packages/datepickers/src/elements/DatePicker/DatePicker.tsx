@@ -33,7 +33,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     isAnimated = true,
     refKey = 'ref',
     value,
-    isCompact,
+    isCompact = false,
     onChange,
     formatDate,
     minValue,
