@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { focusStyles } from '@zendeskgarden/react-theming';
+import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
@@ -17,14 +18,18 @@ interface IArgs extends IDatePickerRangeProps {
   dateStyle: DATE_STYLE;
 }
 
-const StyledGrid = styled.section<{ isCompact?: boolean }>`
+const StyledScrollRegion = styled.section`
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+  overflow: auto;
+  ${p => focusStyles({ theme: p.theme })}
+`;
+
+const StyledGrid = styled.div<{ isCompact?: boolean }>`
   display: grid;
   grid-template-columns: repeat(2, ${p => (p.isCompact ? '224px' : '280px')});
   grid-template-rows: ${p => (p.isCompact ? '32px' : '40px')} auto;
   gap: ${p => (p.isCompact ? '16px' : '20px')};
-  margin: -${p => p.theme.shadowWidths.md};
-  padding: ${p => p.theme.shadowWidths.md};
-  ${p => focusStyles({ theme: p.theme })}
 `;
 
 const StyledCalendar = styled(DatePickerRange.Calendar)`
@@ -34,26 +39,35 @@ const StyledCalendar = styled(DatePickerRange.Calendar)`
 `;
 
 export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...args }) => {
+  const containerRef = useRef<HTMLElement>(null);
+  const containerTabIndex = useScrollRegion({ containerRef, dependency: isCompact });
+
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 
   return (
     <DatePickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
-      <StyledGrid tabIndex={0} aria-label="Date range picker" isCompact={isCompact}>
-        <Field>
-          <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
-          <DatePickerRange.Start>
-            <ClearableInput isCompact={isCompact} />
-          </DatePickerRange.Start>
-        </Field>
-        <Field>
-          <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
-          <DatePickerRange.End>
-            <ClearableInput isCompact={isCompact} />
-          </DatePickerRange.End>
-        </Field>
-        <StyledCalendar />
-      </StyledGrid>
+      <StyledScrollRegion
+        ref={containerRef}
+        tabIndex={containerTabIndex}
+        aria-label="Date range picker"
+      >
+        <StyledGrid isCompact={isCompact}>
+          <Field>
+            <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
+            <DatePickerRange.Start>
+              <ClearableInput isCompact={isCompact} />
+            </DatePickerRange.Start>
+          </Field>
+          <Field>
+            <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
+            <DatePickerRange.End>
+              <ClearableInput isCompact={isCompact} />
+            </DatePickerRange.End>
+          </Field>
+          <StyledCalendar />
+        </StyledGrid>
+      </StyledScrollRegion>
     </DatePickerRange>
   );
 };
