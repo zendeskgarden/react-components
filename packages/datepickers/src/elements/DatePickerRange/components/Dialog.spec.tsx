@@ -18,20 +18,26 @@ const Example = ({
   dialogProps,
   ...props
 }: IDatePickerRangeProps & { dialogProps?: Partial<ComponentProps<typeof Dialog>> }) => (
-  <DatePickerRange {...props}>
-    <div style={{ position: 'relative', display: 'inline-block' }}>
-      <DatePickerRange.Start opensDialog>
-        <input data-test-id="start" />
-      </DatePickerRange.Start>
-      <DatePickerRange.End opensDialog>
-        <input data-test-id="end" />
-      </DatePickerRange.End>
-      <DatePickerRange.Trigger data-test-id="trigger" />
-      <DatePickerRange.Dialog {...dialogProps}>
-        <DatePickerRange.Calendar />
-      </DatePickerRange.Dialog>
-    </div>
-  </DatePickerRange>
+  <>
+    <DatePickerRange {...props}>
+      <div style={{ position: 'relative', display: 'inline-block' }}>
+        <DatePickerRange.Start opensDialog>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.End opensDialog>
+          <input data-test-id="end" />
+        </DatePickerRange.End>
+        <DatePickerRange.Trigger data-test-id="trigger" />
+        <DatePickerRange.Dialog {...dialogProps}>
+          <DatePickerRange.Calendar />
+        </DatePickerRange.Dialog>
+      </div>
+    </DatePickerRange>
+    <button data-test-id="outside" type="button">
+      Outside
+    </button>
+    <div data-test-id="outside-background">Non-interactive background</div>
+  </>
 );
 
 describe('DatePickerRange.Dialog', () => {
@@ -59,6 +65,64 @@ describe('DatePickerRange.Dialog', () => {
       const dialog = getByRole('dialog');
 
       expect(dialog).toHaveAttribute('aria-modal', 'false');
+    });
+  });
+
+  describe('Closing', () => {
+    it('closes the dialog and returns focus to the field on Escape, without selecting a date', async () => {
+      const onChangeSpy = jest.fn();
+      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
+      const startInput = getByTestId('start');
+
+      await user.click(startInput);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.keyboard('{Escape}');
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(startInput).toHaveFocus();
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('closes the dialog on Escape when focus never left the End field', async () => {
+      const onChangeSpy = jest.fn();
+      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
+      const endInput = getByTestId('end');
+
+      await user.click(endInput);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(endInput).toHaveFocus();
+
+      await user.keyboard('{Escape}');
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('closes the dialog when clicking outside of the widget', async () => {
+      const { getByTestId } = render(<Example />);
+
+      await user.click(getByTestId('trigger'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('outside'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('closes the dialog when clicking a non-interactive element outside the widget', async () => {
+      const { getByTestId } = render(<Example />);
+
+      await user.click(getByTestId('trigger'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('outside-background'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
     });
   });
 

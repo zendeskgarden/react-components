@@ -112,6 +112,21 @@ describe('Dialog', () => {
     expect(onChangeSpy).not.toHaveBeenCalled();
   });
 
+  it('closes the calendar on Escape when focus never left the input', async () => {
+    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const input = getByTestId('input');
+
+    await user.click(input);
+
+    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(input).toHaveFocus();
+
+    await user.keyboard('{Escape}');
+
+    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(onChangeSpy).not.toHaveBeenCalled();
+  });
+
   it('closes the calendar when clicking outside of the widget', async () => {
     const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
     const button = getByTestId('calendar-button');

@@ -274,6 +274,9 @@ export function useDatePicker({
       const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === KEYS.DOWN) {
           openOrFocusDialog();
+        } else if (e.key === KEYS.ESCAPE && state.isOpen) {
+          settleValue();
+          dispatch({ type: 'CLOSE' });
         }
       };
 
