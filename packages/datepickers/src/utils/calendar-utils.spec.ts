@@ -28,12 +28,52 @@ describe('Calendar Utilities', () => {
       expect(getStartOfWeek('ko')).toBe(0);
     });
 
-    it('provides Sunday start date if no match is found', () => {
-      expect(getStartOfWeek('invalid')).toBe(0);
+    it('defers to the CLDR root default for a syntactically valid but unregistered locale (e.g. invalid)', () => {
+      // Intl.Locale accepts any syntactically valid language subtag, even an
+      // unregistered one, and getWeekInfo() resolves it against the CLDR
+      // root locale (Monday) rather than throwing - so this never reaches
+      // our own table-miss fallback below.
+      expect(getStartOfWeek('invalid')).toBe(1);
+    });
+
+    it('provides Sunday start date if no match is found in the static tables', () => {
+      // A genuinely malformed locale string makes Intl.Locale throw, which
+      // is what actually exercises our own table-miss fallback.
+      expect(getStartOfWeek('???')).toBe(0);
     });
 
     it('provides Sunday start date if no locale is provided', () => {
       expect(getStartOfWeek()).toBe(0);
+    });
+
+    it('returns Sunday for the ja locale, via native CLDR data', () => {
+      expect(getStartOfWeek('ja')).toBe(0);
+    });
+
+    describe('when Intl.Locale.getWeekInfo is unavailable', () => {
+      const OriginalLocale = Intl.Locale;
+
+      beforeEach(() => {
+        // @ts-expect-error -- simulating a browser without Intl.Locale support
+        delete Intl.Locale;
+      });
+
+      afterEach(() => {
+        // @ts-expect-error -- restoring Intl.Locale after simulating its absence above
+        Intl.Locale = OriginalLocale;
+      });
+
+      it('falls back to the static table for a region mapping (zh-TW)', () => {
+        expect(getStartOfWeek('zh-TW')).toBe(0);
+      });
+
+      it('falls back to the static table for a language mapping (ja)', () => {
+        expect(getStartOfWeek('ja')).toBe(0);
+      });
+
+      it('still provides Sunday start date if no match is found', () => {
+        expect(getStartOfWeek('invalid')).toBe(0);
+      });
     });
   });
 
