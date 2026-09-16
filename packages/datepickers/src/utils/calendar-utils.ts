@@ -189,3 +189,13 @@ export function formatWeekdayLabel(date: Date, locale?: string): string {
 export function formatFullWeekdayLabel(date: Date, locale?: string): string {
   return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
 }
+
+/** e.g. "Monday, June 5, 2023" - a day button's accessible name pairs this with its bare day number. */
+export function formatFullDate(date: Date, locale?: string): string {
+  return new Intl.DateTimeFormat(locale, {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
