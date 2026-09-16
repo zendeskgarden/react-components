@@ -62,6 +62,27 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Combobox semantics', () => {
+    it('exposes combobox semantics on Start/End once a Dialog is composed, tracking isOpen', async () => {
+      const { getByTestId } = render(<Example />);
+      const startInput = getByTestId('start');
+      const dialog = getByTestId('range-dialog');
+
+      expect(startInput).toHaveAttribute('role', 'combobox');
+      expect(startInput).toHaveAttribute('aria-haspopup', 'dialog');
+      expect(startInput).toHaveAttribute('aria-controls', dialog.id);
+      expect(startInput).toHaveAttribute('aria-expanded', 'false');
+
+      await user.click(getByTestId('trigger'));
+
+      expect(startInput).toHaveAttribute('aria-expanded', 'true');
+
+      await user.keyboard('{Escape}');
+
+      expect(startInput).toHaveAttribute('aria-expanded', 'false');
+    });
+  });
+
   describe('Accessible name', () => {
     it('has a default accessible name', async () => {
       const { getByTestId, getByRole } = render(<Example />);

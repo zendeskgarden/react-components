@@ -271,6 +271,10 @@ export interface IUseDatePickerRangeReturnValue {
   calendarId: string;
   /** Opt-in dialog mode, unused by default (`DatePickerRange.Calendar` always renders inline regardless of `isOpen`), for a consumer composing DatePickerRange's calendar inside a popover, mirroring `useDatePicker`'s own dialog pattern. **/
   isOpen: boolean;
+  /** True once a `DatePickerRange.Dialog` has been mounted, so `Start`/`End` know whether they're paired with a real, toggleable popup - determines whether they expose combobox semantics (`role`, `aria-haspopup`, `aria-expanded`) at all. **/
+  hasDialog: boolean;
+  /** Called by `DatePickerRange.Dialog` on mount to flip `hasDialog` true; returns a cleanup that flips it back false on unmount. **/
+  registerDialog: () => () => void;
   /** For a composite child (e.g. `ClearableInput`) that renders extra focusable elements alongside its own input - merged into that child's own `wrapperRef`/`wrapperProps`, so `Start` itself renders no wrapper of its own. **/
   getStartWrapperProps: () => { ref: RefObject<HTMLDivElement | null>; onBlur: FocusEventHandler };
   /** See `getStartWrapperProps` - the `End` equivalent. **/
