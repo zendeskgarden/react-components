@@ -452,4 +452,34 @@ describe('DatePickerRange', () => {
       expect(startInput).toHaveValue(FORMATTED_DATE);
     });
   });
+
+  describe('locale changes', () => {
+    it('reformats Start/End when only the locale prop changes', () => {
+      const { getByTestId, rerender } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          locale="en-US"
+        />
+      );
+      const startInput = getByTestId('start');
+      const endInput = getByTestId('end');
+
+      expect(startInput).toHaveValue('February 5, 2019');
+      expect(endInput).toHaveValue('March 5, 2019');
+
+      rerender(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          locale="fr-FR"
+        />
+      );
+
+      expect(startInput).toHaveValue('5 février 2019');
+      expect(endInput).toHaveValue('5 mars 2019');
+    });
+  });
 });
