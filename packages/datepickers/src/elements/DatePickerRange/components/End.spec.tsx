@@ -243,17 +243,17 @@ describe('DatePickerRange', () => {
   });
 
   describe('Combobox semantics', () => {
-    it('exposes the input as a combobox with autocomplete and controls attributes, but no aria-haspopup', () => {
+    it('exposes no combobox semantics when no Dialog is composed', () => {
       const { getByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
-      const calendar = getByTestId('range-calendar');
       const endInput = getByTestId('end');
 
-      expect(endInput).toHaveAttribute('role', 'combobox');
-      expect(endInput).toHaveAttribute('aria-autocomplete', 'none');
-      expect(endInput).toHaveAttribute('aria-controls', calendar.id);
+      expect(endInput).not.toHaveAttribute('role');
+      expect(endInput).not.toHaveAttribute('aria-autocomplete');
+      expect(endInput).not.toHaveAttribute('aria-controls');
       expect(endInput).not.toHaveAttribute('aria-haspopup');
+      expect(endInput).not.toHaveAttribute('aria-expanded');
     });
 
     it('sets a native `autocomplete="off"` attribute by default', () => {
@@ -280,20 +280,14 @@ describe('DatePickerRange', () => {
       expect(getByTestId('end')).toHaveAttribute('autocomplete', 'bday');
     });
 
-    it('defaults to aria-expanded="true" when the consumer does not override it', () => {
-      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
-
-      expect(getByTestId('end')).toHaveAttribute('aria-expanded', 'true');
-    });
-
-    it('lets a consumer-supplied aria-expanded override the default', () => {
+    it('lets a consumer set aria-expanded even when no Dialog is composed', () => {
       const { getByTestId } = render(
         <DatePickerRange onChange={onChangeSpy}>
           <DatePickerRange.Start>
             <input data-test-id="start" />
           </DatePickerRange.Start>
           <DatePickerRange.End>
-            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props -- DatePickerRange.End clones this element with role="combobox" (and aria-controls) at runtime, which does support aria-expanded */}
+            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props -- static analysis can't see that DatePickerRange.End may clone this with combobox semantics at runtime, when composed with a Dialog */}
             <input data-test-id="end" aria-expanded="false" />
           </DatePickerRange.End>
           <DatePickerRange.Calendar />
