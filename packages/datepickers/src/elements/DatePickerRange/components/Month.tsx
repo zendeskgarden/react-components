@@ -188,10 +188,20 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
         }
       }
 
-      const isStartOfRange = !isInvalidDateRange && showHighlightStartGradient;
-      const isEndOfRange = !isInvalidDateRange && showHighlightEndGradient;
+      const isRangeCommitted = effectiveStartValue !== undefined && effectiveEndValue !== undefined;
+      const isCommittedStart =
+        effectiveStartValue !== undefined && isSameDay(date, effectiveStartValue);
+      const isCommittedEnd = effectiveEndValue !== undefined && isSameDay(date, effectiveEndValue);
+
+      const isStartOfRange =
+        !isInvalidDateRange &&
+        (isCommittedStart || (isRangeCommitted && showHighlightStartGradient));
+      const isEndOfRange =
+        !isInvalidDateRange && (isCommittedEnd || (isRangeCommitted && showHighlightEndGradient));
       const isDescribedAsInRange =
-        isStartOfRange || isEndOfRange || (!isInvalidDateRange && showHighlighted);
+        isStartOfRange ||
+        isEndOfRange ||
+        (isRangeCommitted && !isInvalidDateRange && showHighlighted);
 
       let inRangeDescriptionLabel = inRangeLabel;
       let inRangeDescriptionText = inRangeText;

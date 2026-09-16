@@ -696,13 +696,54 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[10]; // Feb 9, 2019 - not a row edge
+      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[10]; // Feb 6, 2019 - not a row edge
       const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
 
       await user.hover(hoverCell);
 
       expect(hoverCell).toHaveAttribute('data-test-end', 'false');
       expect(within(hoverCell).queryByTestId('in-range-description')).toBeNull();
+    });
+
+    it('does not describe days as part of a range while only one value is committed, even as focus previews a candidate range', () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+
+      fireEvent.keyDown(firstMonthDays[9], { key: KEYS.RIGHT }); // Feb 5, 2019 - the start value
+
+      // day-cell only wraps real (current-month) days, unlike the unfiltered `day` list above,
+      // so index 5 here is Feb 6, 2019 - one day after the start value.
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+
+      expect(firstMonthCells[5]).toHaveAttribute('data-test-highlighted', 'true');
+      expect(within(firstMonthCells[5]).queryByTestId('in-range-description')).toBeNull();
+      expect(document.activeElement).not.toHaveAttribute('aria-describedby');
+    });
+
+    it('describes the committed start value as "start of range" immediately, before an end value is set', () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const startCell = firstMonthCells[4]; // Feb 5, 2019 - the start value
+
+      expect(within(startCell).getByTestId('in-range-description')).toHaveTextContent(
+        '(start of range)'
+      );
+    });
+
+    it('describes the committed end value as "end of range" immediately, before a start value is set', () => {
+      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const endCell = secondMonthCells[4]; // March 5, 2019 - the end value
+
+      expect(within(endCell).getByTestId('in-range-description')).toHaveTextContent(
+        '(end of range)'
+      );
     });
 
     it('accepts custom startOfRangeLabel, endOfRangeLabel and inRangeLabel', () => {
