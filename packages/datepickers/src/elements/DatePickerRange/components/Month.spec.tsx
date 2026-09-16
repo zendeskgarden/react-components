@@ -129,6 +129,18 @@ describe('Month', () => {
       expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
     });
 
+    it('labels each day button with its full date, not just the bare day number', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+
+      expect(firstMonthDays[9]).toHaveTextContent('5');
+      expect(firstMonthDays[9]).toHaveAttribute('aria-label', '5: Tuesday, February 5, 2019');
+    });
+
     it('never renders aria-selected in the grid', () => {
       const { container } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
@@ -678,6 +690,19 @@ describe('Month', () => {
       expect(startDescription).toHaveTextContent('(start of range)');
       expect(interiorDescription).toHaveTextContent('(included in range)');
       expect(endDescription).toHaveTextContent('(end of range)');
+    });
+
+    it('does not describe a hovered day as part of a range when neither startValue nor endValue is set', async () => {
+      const { getAllByTestId } = render(<Example />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[10]; // Feb 9, 2019 - not a row edge
+      const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+
+      await user.hover(hoverCell);
+
+      expect(hoverCell).toHaveAttribute('data-test-end', 'false');
+      expect(within(hoverCell).queryByTestId('in-range-description')).toBeNull();
     });
 
     it('accepts custom startOfRangeLabel, endOfRangeLabel and inRangeLabel', () => {

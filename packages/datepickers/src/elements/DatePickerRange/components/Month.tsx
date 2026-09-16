@@ -28,6 +28,7 @@ import {
 } from '../../../styled';
 import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
 import {
+  formatFullDate,
   formatMonthHeading,
   getMonthDateRange,
   getStartOfWeek,
@@ -140,7 +141,10 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
 
       const isHighlightEnd =
         (isHighlighted && effectiveEndValue && isSameDay(date, effectiveEndValue)) ||
-        (hoverDate && isSameDay(date, hoverDate) && !isBefore(date, effectiveEndValue!)) ||
+        (isHighlighted &&
+          effectiveEndValue === undefined &&
+          !!hoverDate &&
+          isSameDay(date, hoverDate)) ||
         false;
 
       // A hovered boundary candidate at the start/end of a row has no neighbor to blend its tint
@@ -225,6 +229,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
             isNeutral={!isSelected}
             isPressed={!!(!isInvalidDateRange && isSelected)}
             {...getDayProps({ date, isHighlighted: isDescribedAsInRange })}
+            aria-label={`${formattedDayLabel}: ${formatFullDate(date, locale)}`}
             data-test-selected={!isInvalidDateRange && isSelected}
           >
             {formattedDayLabel}
