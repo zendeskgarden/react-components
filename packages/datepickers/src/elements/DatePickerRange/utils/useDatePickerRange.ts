@@ -659,15 +659,7 @@ export function useDatePickerRange({
         (startValue !== undefined && isSameDay(date, startValue)) ||
         (endValue !== undefined && isSameDay(date, endValue));
 
-      let isDisabled = false;
-
-      if (minValue !== undefined) {
-        isDisabled = isBefore(date, minValue) && !isSameDay(date, minValue);
-      }
-
-      if (maxValue !== undefined) {
-        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
-      }
+      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       const isCurrentDate = isToday(date);
 
