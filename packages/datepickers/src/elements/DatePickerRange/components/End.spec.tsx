@@ -240,6 +240,24 @@ describe('DatePickerRange', () => {
 
       expect(onKeyDownSpy).toHaveBeenCalled();
     });
+
+    it('forwards a consumer-provided ref to the underlying input element', () => {
+      const ref = { current: null as HTMLInputElement | null };
+
+      const { getByTestId } = render(
+        <DatePickerRange>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" ref={ref} />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(ref.current).toBe(getByTestId('end'));
+    });
   });
 
   describe('Combobox semantics', () => {
