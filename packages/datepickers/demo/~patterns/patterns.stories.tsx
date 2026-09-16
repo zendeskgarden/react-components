@@ -91,7 +91,7 @@ export const DatePickerRangeInvalidDate: StoryObj<typeof DatePickerRangeInvalidD
   name: 'DatePickerRange: Invalid date',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const [startInput] = canvas.getAllByRole('combobox');
+    const [startInput] = canvas.getAllByRole('textbox');
 
     await userEvent.type(startInput, 'not a date');
     await userEvent.tab();
@@ -108,7 +108,7 @@ export const DatePickerRangeOutOfRange: StoryObj<typeof DatePickerRangeOutOfRang
   name: 'DatePickerRange: Out of range',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const [startInput] = canvas.getAllByRole('combobox');
+    const [startInput] = canvas.getAllByRole('textbox');
 
     await userEvent.clear(startInput);
     await userEvent.type(startInput, '1/1/2000');
@@ -127,7 +127,7 @@ export const DatePickerRangeInvalidRequired: StoryObj<typeof DatePickerRangeInva
     name: 'DatePickerRange: Invalid required',
     play: async ({ canvasElement }) => {
       const canvas = within(canvasElement);
-      const [startInput] = canvas.getAllByRole('combobox');
+      const [startInput] = canvas.getAllByRole('textbox');
 
       await userEvent.click(startInput);
       await userEvent.tab();
@@ -142,7 +142,7 @@ export const DatePickerRangeOutOfOrder: StoryObj<typeof DatePickerRangeOutOfOrde
   name: 'DatePickerRange: Out of order',
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const [, endInput] = canvas.getAllByRole('combobox');
+    const [, endInput] = canvas.getAllByRole('textbox');
 
     await userEvent.clear(endInput);
     await userEvent.type(endInput, '1/1/2000');
