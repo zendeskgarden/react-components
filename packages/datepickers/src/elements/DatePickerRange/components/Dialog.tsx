@@ -40,11 +40,12 @@ export const Dialog = ({
   isAnimated = true,
   zIndex = 1000,
   appendToNode,
-  ...props
+  'aria-label': ariaLabelProp,
+  ...menuProps
 }: PropsWithChildren<IDialogProps>) => {
   const { isOpen, dialogRef, getDialogProps, getReferenceElement, registerDialog } =
     useDatePickerContext();
-  const ariaLabel = useText(Dialog, props, 'aria-label', 'Choose dates');
+  const ariaLabel = useText(Dialog, { 'aria-label': ariaLabelProp }, 'aria-label', 'Choose dates');
 
   useEffect(() => registerDialog(), [registerDialog]);
 
@@ -58,11 +59,7 @@ export const Dialog = ({
 
   const Node = (
     <StyledMenuWrapper
-      {...getDialogProps({
-        ...props,
-        'aria-label': ariaLabel!,
-        style: { transform, ...props.style }
-      })}
+      {...getDialogProps({ 'aria-label': ariaLabel!, style: { transform } })}
       $isAnimated={!!isAnimated && (isOpen || isVisible)}
       $placement={placement}
       $zIndex={zIndex}
@@ -71,7 +68,7 @@ export const Dialog = ({
       data-test-open={isOpen}
       data-test-rtl={rtl}
     >
-      {!!(isOpen || isVisible) && <StyledMenu>{children}</StyledMenu>}
+      {!!(isOpen || isVisible) && <StyledMenu {...menuProps}>{children}</StyledMenu>}
     </StyledMenuWrapper>
   );
 

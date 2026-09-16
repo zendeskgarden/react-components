@@ -62,6 +62,29 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Consumer passthrough props', () => {
+    it('applies a consumer className to StyledMenu, not the outer positioned wrapper', async () => {
+      const { getByTestId } = render(<Example dialogProps={{ className: 'consumer-class' }} />);
+
+      await user.click(getByTestId('trigger'));
+
+      const dialog = getByTestId('range-dialog');
+
+      expect(dialog).not.toHaveClass('consumer-class');
+      expect(dialog.firstChild).toHaveClass('consumer-class');
+    });
+
+    it('does not let a consumer-supplied style.transform override the floating-ui positioning transform', async () => {
+      const { getByTestId } = render(
+        <Example dialogProps={{ style: { transform: 'translate(9999px, 9999px)' } }} />
+      );
+
+      await user.click(getByTestId('trigger'));
+
+      expect(getByTestId('range-dialog').style.transform).not.toBe('translate(9999px, 9999px)');
+    });
+  });
+
   describe('Combobox semantics', () => {
     it('exposes combobox semantics on Start/End once a Dialog is composed, tracking isOpen', async () => {
       const { getByTestId } = render(<Example />);
