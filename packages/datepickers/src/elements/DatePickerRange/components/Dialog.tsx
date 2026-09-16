@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, PropsWithChildren } from 'react';
+import React, { HTMLAttributes, PropsWithChildren, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useText } from '@zendeskgarden/react-theming';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
@@ -42,8 +42,11 @@ export const Dialog = ({
   appendToNode,
   ...props
 }: PropsWithChildren<IDialogProps>) => {
-  const { isOpen, dialogRef, getDialogProps, getReferenceElement } = useDatePickerContext();
+  const { isOpen, dialogRef, getDialogProps, getReferenceElement, registerDialog } =
+    useDatePickerContext();
   const ariaLabel = useText(Dialog, props, 'aria-label', 'Choose dates');
+
+  useEffect(() => registerDialog(), [registerDialog]);
 
   const { placement, transform, isVisible, rtl } = useFloatingDialog({
     isOpen,

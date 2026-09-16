@@ -139,6 +139,7 @@ export function useDatePickerRange({
   );
 
   const [isOpen, setIsOpen] = useState(false);
+  const [hasDialog, setHasDialog] = useState(false);
   const shouldFocusDialogRef = useRef(false);
   const previousActiveElementRef = useRef<Element | null>(null);
   const lastActiveFieldRef = useRef<HTMLElement | null>(null);
@@ -174,6 +175,12 @@ export function useDatePickerRange({
     },
     [isOpen, startInputRef, endInputRef, getWidgetRefs]
   );
+
+  const registerDialog = useCallback(() => {
+    setHasDialog(true);
+
+    return () => setHasDialog(false);
+  }, []);
 
   const getTriggerProps = useCallback(
     (props: ElementProps<HTMLButtonElement> = {}) => {
@@ -400,10 +407,15 @@ export function useDatePickerRange({
       };
 
       return {
-        role: 'combobox' as const,
-        'aria-autocomplete': 'none' as const,
-        'aria-expanded': 'true' as const,
-        'aria-controls': calendarId,
+        ...(hasDialog
+          ? {
+              role: 'combobox' as const,
+              'aria-autocomplete': 'none' as const,
+              'aria-haspopup': 'dialog' as const,
+              'aria-expanded': isOpen,
+              'aria-controls': dialogId
+            }
+          : {}),
         autoComplete: 'off',
         ...other,
         value: state.startInputValue || '',
@@ -415,7 +427,9 @@ export function useDatePickerRange({
       };
     },
     [
-      calendarId,
+      hasDialog,
+      isOpen,
+      dialogId,
       state.startInputValue,
       reportStartSettled,
       handleStartBlur,
@@ -551,10 +565,15 @@ export function useDatePickerRange({
       };
 
       return {
-        role: 'combobox' as const,
-        'aria-autocomplete': 'none' as const,
-        'aria-expanded': 'true' as const,
-        'aria-controls': calendarId,
+        ...(hasDialog
+          ? {
+              role: 'combobox' as const,
+              'aria-autocomplete': 'none' as const,
+              'aria-haspopup': 'dialog' as const,
+              'aria-expanded': isOpen,
+              'aria-controls': dialogId
+            }
+          : {}),
         autoComplete: 'off',
         ...other,
         value: state.endInputValue || '',
@@ -566,7 +585,9 @@ export function useDatePickerRange({
       };
     },
     [
-      calendarId,
+      hasDialog,
+      isOpen,
+      dialogId,
       state.endInputValue,
       reportEndSettled,
       handleEndBlur,
@@ -825,6 +846,8 @@ export function useDatePickerRange({
       isEndValueInvalid: state.isEndValueInvalid,
       calendarId,
       isOpen,
+      hasDialog,
+      registerDialog,
       getStartWrapperProps,
       getEndWrapperProps,
       getStartInputProps,
@@ -860,6 +883,8 @@ export function useDatePickerRange({
       state.isEndValueInvalid,
       calendarId,
       isOpen,
+      hasDialog,
+      registerDialog,
       getStartWrapperProps,
       getEndWrapperProps,
       getStartInputProps,
