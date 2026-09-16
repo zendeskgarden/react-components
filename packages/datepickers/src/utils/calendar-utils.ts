@@ -15,6 +15,20 @@ import { endOfWeek } from 'date-fns/endOfWeek';
 import { DateFnsIndex } from '../types';
 
 /**
+ * `getWeekInfo` isn't in TypeScript's bundled `Intl.Locale` typings yet,
+ * despite being implemented in every currently-supported browser - see
+ * `getNativeStartOfWeek` below, which feature-detects it at runtime anyway.
+ */
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
+  namespace Intl {
+    interface Locale {
+      getWeekInfo?: () => { firstDay: number; weekend: number[]; minimalDays: number };
+    }
+  }
+}
+
+/**
  * The following mappings use the Date offests:
  * 0 - Sunday
  * 1 - Monday
@@ -22,17 +36,17 @@ import { DateFnsIndex } from '../types';
  */
 
 const REGION_MAPPINGS: Record<string, DateFnsIndex> = {
-  'ar-DZ': 0,
+  'ar-DZ': 6,
   'ar-SA': 0,
   'en-CA': 0,
   'en-GB': 1,
   'en-US': 0,
-  'fa-IR': 0,
+  'fa-IR': 6,
   'fr-CH': 1,
   'nl-BE': 1,
   'pt-BR': 0,
   'zh-CN': 1,
-  'zh-TW': 1
+  'zh-TW': 0
 };
 
 const LANGUAGE_MAPPINGS: Record<string, DateFnsIndex> = {
@@ -50,7 +64,7 @@ const LANGUAGE_MAPPINGS: Record<string, DateFnsIndex> = {
   eo: 1,
   es: 1,
   et: 1,
-  fa: 0,
+  fa: 6,
   fi: 1,
   fil: 0,
   fr: 1,
@@ -58,10 +72,10 @@ const LANGUAGE_MAPPINGS: Record<string, DateFnsIndex> = {
   he: 0,
   hr: 1,
   hu: 1,
-  id: 1,
-  is: 1,
+  id: 0,
+  is: 0,
   it: 1,
-  ja: 1,
+  ja: 0,
   ka: 1,
   ko: 0,
   lt: 1,
@@ -79,9 +93,9 @@ const LANGUAGE_MAPPINGS: Record<string, DateFnsIndex> = {
   sl: 1,
   sr: 1,
   sv: 1,
-  th: 1,
+  th: 0,
   tr: 1,
-  ug: 0,
+  ug: 1,
   uk: 1,
   vi: 1,
   zh: 1
@@ -103,11 +117,43 @@ export function isDateWithinRange(date: Date, minValue?: Date, maxValue?: Date):
 }
 
 /**
+ * Prefers the browser's own CLDR week data over the static tables below,
+ * which can drift from real-world locale conventions over time - guarded
+ * since `getWeekInfo` isn't available in every currently-supported browser
+ * yet, and `Intl.Locale` throws on a malformed locale string.
+ */
+function getNativeStartOfWeek(locale: string): DateFnsIndex | undefined {
+  if (typeof Intl.Locale !== 'function') {
+    return undefined;
+  }
+
+  try {
+    const localeInstance = new Intl.Locale(locale);
+
+    if (typeof localeInstance.getWeekInfo !== 'function') {
+      return undefined;
+    }
+
+    const { firstDay } = localeInstance.getWeekInfo();
+
+    return (firstDay === 7 ? 0 : firstDay) as DateFnsIndex;
+  } catch {
+    return undefined;
+  }
+}
+
+/**
  * Return start day of week based on locale
  */
-export function getStartOfWeek(locale?: string) {
+export function getStartOfWeek(locale?: string): DateFnsIndex {
   if (!locale) {
     return 0;
+  }
+
+  const nativeStartOfWeek = getNativeStartOfWeek(locale);
+
+  if (nativeStartOfWeek !== undefined) {
+    return nativeStartOfWeek;
   }
 
   /** Check is explicit region is mapped */
