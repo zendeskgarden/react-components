@@ -6,18 +6,21 @@
  */
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import { ToggleButton } from '@zendeskgarden/react-buttons';
+import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
+import { StyledDayCell } from './StyledDayCell';
 
-interface IStyledDayButtonProps {
+interface IStyledDayNumberProps {
   $isPreviousMonth?: boolean;
   $isCompact: boolean;
 }
 
-const sizeStyles = ({ $isCompact, theme }: IStyledDayButtonProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ $isCompact, theme }: IStyledDayNumberProps & ThemeProps<DefaultTheme>) => {
   const size = theme.space.base * ($isCompact ? 8 : 10);
 
   return css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0;
     border-radius: 50%;
     padding: 0;
@@ -29,7 +32,7 @@ const sizeStyles = ({ $isCompact, theme }: IStyledDayButtonProps & ThemeProps<De
 const colorStyles = ({
   $isPreviousMonth,
   theme
-}: IStyledDayButtonProps & ThemeProps<DefaultTheme>) => {
+}: IStyledDayNumberProps & ThemeProps<DefaultTheme>) => {
   if ($isPreviousMonth) {
     const foreground = getColor({ variable: 'foreground.subtle', theme });
 
@@ -43,7 +46,7 @@ const colorStyles = ({
   const foreground = getColor({ variable: 'foreground.primary', theme });
 
   return css`
-    &&:not([aria-current='date']) {
+    ${StyledDayCell}:not([aria-current='date']) & {
       color: ${foreground};
     }
   `;
@@ -54,20 +57,19 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const background = getColor({ variable: 'background.default', theme });
 
   return css`
-    &&[aria-pressed='false']:not([aria-disabled='true']):hover,
-    &&[aria-pressed='false']:not([aria-disabled='true']):focus-visible,
-    td:hover > &&[aria-pressed='false']:not([aria-disabled='true']) {
+    ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &,
+    ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):focus-visible & {
       background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
     }
   `;
 };
 
-const pressedStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const selectedStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const background = getColor({ variable: 'background.primaryEmphasis', theme });
   const foreground = getColor({ variable: 'foreground.onEmphasis', theme });
 
   return css`
-    &&[aria-pressed='true'] {
+    ${StyledDayCell}[aria-selected='true'] & {
       background-color: ${background};
       color: ${foreground};
     }
@@ -78,30 +80,38 @@ const disabledStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const foreground = getColor({ variable: 'foreground.disabled', theme });
 
   return css`
-    &&[aria-disabled='true'] {
+    ${StyledDayCell}[aria-disabled='true'] & {
       cursor: default;
       color: ${foreground};
     }
 
-    &&[aria-disabled='true']:hover {
+    ${StyledDayCell}[aria-disabled='true']:hover & {
       background-color: transparent;
     }
   `;
 };
 
-export const StyledDayButton = styled(ToggleButton)<IStyledDayButtonProps>`
+const focusRingStyles = ({ theme }: ThemeProps<DefaultTheme>) =>
+  focusStyles({
+    theme,
+    selector: `${StyledDayCell}:focus-visible &`
+  });
+
+export const StyledDayNumber = styled.div<IStyledDayNumberProps>`
   transition: none;
+  cursor: pointer;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
 
-  &[aria-current='date'] {
+  ${StyledDayCell}[aria-current='date'] & {
     font-weight: ${props => props.theme.fontWeights.semibold};
   }
 
   ${sizeStyles}
   ${colorStyles}
   ${hoverStyles}
-  ${pressedStyles}
+  ${selectedStyles}
   ${disabledStyles}
+  ${focusRingStyles}
 
   ${componentStyles};
 `;

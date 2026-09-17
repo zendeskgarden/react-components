@@ -76,14 +76,25 @@ describe('Month', () => {
       expect(days[9]).toHaveAttribute('data-test-today', 'true');
     });
 
-    it('labels each day button with its full date, not just the bare day number', async () => {
+    it('renders the visible day number plus a visually-hidden full date', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByTestId('calendar-button'));
       const days = getAllByTestId('day');
 
       expect(days[9]).toHaveTextContent('5');
-      expect(days[9]).toHaveAttribute('aria-label', '5: Tuesday, February 5, 2019');
+      expect(within(days[9]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
+      expect(within(days[9]).getByTestId('full-date')).toHaveTextContent('5 February 2019');
+    });
+
+    it('describes each real day cell as a selectable cell', async () => {
+      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      getAllByTestId('day').forEach(day => {
+        expect(day).toHaveAttribute('aria-roledescription', 'selectable cell');
+      });
     });
 
     it('displays "Sun" as default first day of week', async () => {
@@ -681,38 +692,38 @@ describe('Month', () => {
       });
     });
 
-    it('wraps each day in a non-focusable, unnamed gridcell containing exactly one button', async () => {
+    it('makes each gridcell itself the focusable roving-tabindex element, with no nested button', async () => {
       const { getByTestId, getAllByTestId, getAllByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      const dayButtons = getAllByTestId('day');
+      const days = getAllByTestId('day');
       const gridcells = getAllByRole('gridcell');
 
-      expect(dayButtons[9].tagName).toBe('BUTTON');
-      expect(gridcells).toHaveLength(dayButtons.length);
+      expect(gridcells).toHaveLength(days.length);
 
       const gridcell = gridcells[9];
 
+      expect(gridcell).toBe(days[9]);
+      expect(gridcell.tagName).toBe('TD');
       expect(gridcell).toHaveAttribute('role', 'gridcell');
-      expect(gridcell).not.toHaveAttribute('tabindex');
-      expect(within(gridcell).getAllByRole('button')).toHaveLength(1);
-      expect(within(gridcell).getByRole('button')).toBe(dayButtons[9]);
+      expect(gridcell).toHaveAttribute('tabindex');
+      expect(within(gridcell).queryAllByRole('button')).toHaveLength(0);
     });
 
-    it('marks the committed value with aria-pressed', async () => {
+    it('marks the committed value with aria-selected', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-pressed', 'true');
+      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('clears aria-pressed on the stale value after a rejected out-of-range blur', async () => {
+    it('clears aria-selected on the stale value after a rejected out-of-range blur', async () => {
       const ControlledExample = () => {
         const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
 
@@ -733,7 +744,7 @@ describe('Month', () => {
       fireEvent.change(input, { target: { value: '1/1/2020' } });
       fireEvent.blur(input);
 
-      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-pressed', 'false');
+      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-selected', 'false');
     });
 
     it('marks today with aria-current when it is not the committed value', async () => {
@@ -745,17 +756,19 @@ describe('Month', () => {
       const today = days.find(day => day.getAttribute('data-test-today') === 'true');
 
       expect(today).toHaveAttribute('aria-current', 'date');
-      expect(today).toHaveAttribute('aria-pressed', 'false');
+      expect(today).toHaveAttribute('aria-selected', 'false');
     });
 
-    it('never renders aria-selected in the grid', async () => {
-      const { getByTestId, container } = render(
+    it('renders aria-selected on every day cell, true only for the committed value', async () => {
+      const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      expect(container.querySelectorAll('[aria-selected]')).toHaveLength(0);
+      getAllByTestId('day').forEach((day, index) => {
+        expect(day).toHaveAttribute('aria-selected', index === 9 ? 'true' : 'false');
+      });
     });
   });
 });

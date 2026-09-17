@@ -57,4 +57,24 @@ describe('StyledDayCell', () => {
 
     expect(container.firstChild).not.toHaveStyleRule('background-color', TINT);
   });
+
+  it('shows a pointer cursor by default', () => {
+    const { container } = render(<StyledDayCell />);
+
+    expect(container.firstChild).toHaveStyleRule('cursor', 'pointer');
+  });
+
+  it('shows a default cursor when aria-disabled', () => {
+    const { container } = render(<StyledDayCell />);
+
+    expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
+      modifier: "&[aria-disabled='true']"
+    });
+  });
+
+  it('suppresses its own native focus outline, since the visible ring is drawn on the day-number glyph', () => {
+    const { container } = render(<StyledDayCell />);
+
+    expect(container.firstChild).toHaveStyleRule('outline', 'none', { modifier: '&:focus' });
+  });
 });
