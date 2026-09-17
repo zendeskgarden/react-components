@@ -32,6 +32,7 @@ export const DatePickerInvalidRequiredStory: StoryFn = () => {
           required
           validation={reason ? 'error' : undefined}
           buttonProps={{ onClick: () => setReason(undefined) }}
+          wrapperProps={{ role: null, 'aria-labelledby': null } as any}
         />
       </DatePicker>
       {reason === 'required' && (
