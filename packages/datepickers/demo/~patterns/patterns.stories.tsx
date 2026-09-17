@@ -8,6 +8,7 @@
 import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 import { expect, fireEvent, userEvent, within } from 'storybook/test';
+import { ApgComboboxDatePickerStory } from './stories/ApgComboboxDatePickerStory';
 import { CalendarStory } from './stories/CalendarStory';
 import { CustomDateFormatStory } from './stories/CustomDateFormatStory';
 import { DatePickerInvalidDateStory } from './stories/DatePickerInvalidDateStory';
@@ -158,4 +159,9 @@ export const DatePickerRangeOutOfOrder: StoryObj<typeof DatePickerRangeOutOfOrde
 export const DatePickerRangeInDialog: StoryObj<typeof DatePickerRangeDialogStory> = {
   render: () => <DatePickerRangeDialogStory />,
   name: 'DatePickerRange: Composed inside a dialog'
+};
+
+export const ApgComboboxDatePicker: StoryObj<typeof ApgComboboxDatePickerStory> = {
+  render: () => <ApgComboboxDatePickerStory />,
+  name: 'Reference: APG combobox date picker'
 };
