@@ -43,7 +43,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
                 <Field.Label>Start date</Field.Label>
                 <InputGroup isUnified>
                   <DatePickerRange.Start>
-                    <ClearableInput />
+                    <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
                   </DatePickerRange.Start>
                   <DatePickerRange.Trigger
                     toggleCalendarLabel="Choose start date"
@@ -57,7 +57,7 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
                 <Field.Label>End date</Field.Label>
                 <InputGroup isUnified>
                   <DatePickerRange.End>
-                    <ClearableInput />
+                    <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
                   </DatePickerRange.End>
                   <DatePickerRange.Trigger
                     toggleCalendarLabel="Choose end date"

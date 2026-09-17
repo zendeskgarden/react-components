@@ -39,7 +39,11 @@ export const DatePickerStory: StoryFn<IArgs> = ({
           <Field>
             <Field.Label hidden>{DatePicker.displayName}</Field.Label>
             <DatePicker {...args} formatDate={formatDate} isCompact={isCompact}>
-              <ClearableInput isCompact={isCompact} validation={validation} />
+              <ClearableInput
+                isCompact={isCompact}
+                validation={validation}
+                wrapperProps={{ role: null, 'aria-labelledby': null } as any}
+              />
             </DatePicker>
             {!!hasMessage && (
               <Field.Message validation={validation} validationLabel={validationLabel}>

@@ -45,7 +45,7 @@ export const CustomDateFormatStory: StoryFn = () => {
         formatDate={formatDate}
         customParseDate={customParseDate}
       >
-        <ClearableInput />
+        <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
       </DatePicker>
     </Field>
   );

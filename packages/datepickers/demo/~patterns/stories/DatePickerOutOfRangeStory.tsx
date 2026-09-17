@@ -40,6 +40,7 @@ export const DatePickerOutOfRangeStory: StoryFn = () => {
         <ClearableInput
           validation={reason ? 'error' : undefined}
           buttonProps={{ onClick: () => setReason(undefined) }}
+          wrapperProps={{ role: null, 'aria-labelledby': null } as any}
         />
       </DatePicker>
       {reason === 'out-of-range' && (

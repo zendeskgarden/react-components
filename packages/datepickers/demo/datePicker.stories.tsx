@@ -123,7 +123,10 @@ const ForcedOpenDatePicker = ({ isCompact }: { isCompact?: boolean }) => {
       <Field>
         <Field.Label hidden>{DatePicker.displayName}</Field.Label>
         <DatePicker value={new Date()} isAnimated={false} isCompact={isCompact}>
-          <ClearableInput isCompact={isCompact} />
+          <ClearableInput
+            isCompact={isCompact}
+            wrapperProps={{ role: null, 'aria-labelledby': null } as any}
+          />
         </DatePicker>
       </Field>
     </div>
