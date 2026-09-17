@@ -195,7 +195,7 @@ export interface IUseDatePickerProps {
   inputRef: RefObject<HTMLInputElement | null>;
 }
 
-export interface IGetDayPropsOptions extends ElementProps<HTMLButtonElement> {
+export interface IGetCellPropsOptions extends ElementProps<HTMLTableCellElement> {
   date: Date;
 }
 
@@ -218,7 +218,7 @@ export interface IUseDatePickerReturnValue {
   getCalendarProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getGridProps: (props?: ElementProps<HTMLTableElement>) => ElementProps<HTMLTableElement>;
   getHeadingProps: (props?: ElementProps<HTMLHeadingElement>) => ElementProps<HTMLHeadingElement>;
-  getDayProps: (props: IGetDayPropsOptions) => ElementProps<HTMLButtonElement>;
+  getCellProps: (props: IGetCellPropsOptions) => ElementProps<HTMLTableCellElement>;
   getPreviousMonthButtonProps: (
     props?: ElementProps<HTMLButtonElement>
   ) => ElementProps<HTMLButtonElement>;
@@ -256,10 +256,8 @@ export interface IUseDatePickerRangeProps {
   endInputRef: RefObject<HTMLInputElement | null>;
 }
 
-export interface IGetRangeDayPropsOptions extends ElementProps<HTMLButtonElement> {
+export interface IGetRangeCellPropsOptions extends ElementProps<HTMLTableCellElement> {
   date: Date;
-  /** Whether this day falls within the selected/previewed range - adds `aria-describedby`, pointing at `getInRangeDescriptionProps`' element, describing it as included in the range **/
-  isHighlighted?: boolean;
 }
 
 /** `HTMLProps<T>`'s `ref` field is `LegacyRef<T>`, which requires a non-null `RefObject<T>`, incompatible with the `RefObject<T | null>` `useRef(null)` actually produces. `getStartInputProps`/`getEndInputProps` set `ref` directly (Start/End have no separate ref-merge step of their own), so this widens just that one field to accept it. **/
@@ -307,11 +305,7 @@ export interface IUseDatePickerRangeReturnValue {
   getHeadingProps: (
     props: { offset: 0 | 1 } & ElementProps<HTMLHeadingElement>
   ) => ElementProps<HTMLHeadingElement>;
-  getDayProps: (props: IGetRangeDayPropsOptions) => ElementProps<HTMLButtonElement>;
-  /** Spread onto a visually-hidden element rendered adjacent to a highlighted day's button, describing it via that button's `aria-describedby` (see `getDayProps`' `isHighlighted` option) **/
-  getInRangeDescriptionProps: (
-    props: { date: Date } & ElementProps<HTMLSpanElement>
-  ) => ElementProps<HTMLSpanElement>;
+  getCellProps: (props: IGetRangeCellPropsOptions) => ElementProps<HTMLTableCellElement>;
   getPreviousMonthButtonProps: (
     props?: ElementProps<HTMLButtonElement>
   ) => ElementProps<HTMLButtonElement>;

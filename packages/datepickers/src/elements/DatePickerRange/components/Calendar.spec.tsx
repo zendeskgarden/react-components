@@ -252,8 +252,8 @@ describe('Calendar', () => {
       const wrappers = getAllByTestId('calendar-wrapper');
       const allDays = wrappers.flatMap(wrapper =>
         within(wrapper)
-          .getAllByRole('button')
-          .filter(button => button.getAttribute('data-test-id') === 'day')
+          .getAllByRole('gridcell')
+          .filter(cell => cell.getAttribute('data-test-id') === 'day')
       );
       const focusedDays = allDays.filter(day => day.getAttribute('tabindex') === '0');
 
@@ -277,8 +277,8 @@ describe('Calendar', () => {
       const wrappers = getAllByTestId('calendar-wrapper');
       const allDays = wrappers.flatMap(wrapper =>
         within(wrapper)
-          .getAllByRole('button')
-          .filter(button => button.getAttribute('data-test-id') === 'day')
+          .getAllByRole('gridcell')
+          .filter(cell => cell.getAttribute('data-test-id') === 'day')
       );
       const focusedDays = allDays.filter(day => day.getAttribute('tabindex') === '0');
 
@@ -289,8 +289,8 @@ describe('Calendar', () => {
   describe('Keyboard navigation', () => {
     const getDayButtons = (wrapper: HTMLElement) =>
       within(wrapper)
-        .getAllByRole('button')
-        .filter(button => button.getAttribute('data-test-id') === 'day');
+        .getAllByRole('gridcell')
+        .filter(cell => cell.getAttribute('data-test-id') === 'day');
 
     it('keeps exactly one day tabbable, without moving focus off the paddle, when next-month is clicked', () => {
       const { getAllByTestId } = render(

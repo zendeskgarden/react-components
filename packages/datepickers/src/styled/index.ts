@@ -22,5 +22,5 @@ export { StyledCalendar } from './StyledCalendar';
 export { StyledDayLabel } from './StyledDayLabel';
 export { StyledCalendarButton } from './StyledCalendarButton';
 export { StyledCalendarRow } from './StyledCalendarRow';
-export { StyledDayButton } from './StyledDayButton';
+export { StyledDayNumber } from './StyledDayNumber';
 export { StyledDayCell } from './StyledDayCell';

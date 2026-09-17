@@ -37,6 +37,12 @@ const Example = (props: IDatePickerRangeProps) => (
   </DatePickerRange>
 );
 
+/** Real (current-month, interactive) day cells only - excludes the visually-hidden previous-month placeholders. */
+const getDays = (wrapper: HTMLElement) =>
+  within(wrapper)
+    .getAllByRole('gridcell')
+    .filter(cell => cell.getAttribute('data-test-id') === 'day');
+
 describe('Month', () => {
   const user = userEvent.setup();
 
@@ -93,7 +99,7 @@ describe('Month', () => {
       const emptyDay = firstMonthDays[0];
 
       expect(emptyDay.tagName).not.toBe('BUTTON');
-      expect(emptyDay).toHaveTextContent('27, January 2019');
+      expect(emptyDay).toHaveTextContent('27 January 2019');
       expect(emptyDay).toHaveAttribute('data-test-hidden', 'true');
     });
 
@@ -113,40 +119,63 @@ describe('Month', () => {
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
     });
 
-    it('marks the committed start and end values with aria-pressed', () => {
+    it('marks the committed start and end values with aria-selected', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const firstMonthDays = getDays(calendarWrappers[0]);
 
-      expect(firstMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
-      expect(firstMonthDays[8]).toHaveAttribute('aria-pressed', 'false');
+      expect(firstMonthDays[4]).toHaveAttribute('aria-selected', 'true');
+      expect(firstMonthDays[3]).toHaveAttribute('aria-selected', 'false');
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = getDays(calendarWrappers[1]);
 
-      expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
+      expect(secondMonthDays[4]).toHaveAttribute('aria-selected', 'true');
     });
 
-    it('labels each day button with its full date, not just the bare day number', () => {
+    it('renders the visible day number plus a visually-hidden full date', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const firstMonthDays = getDays(calendarWrappers[0]);
 
-      expect(firstMonthDays[9]).toHaveTextContent('5');
-      expect(firstMonthDays[9]).toHaveAttribute('aria-label', '5: Tuesday, February 5, 2019');
+      expect(firstMonthDays[4]).toHaveTextContent('5');
+      expect(within(firstMonthDays[4]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
+      expect(within(firstMonthDays[4]).getByTestId('full-date')).toHaveTextContent(
+        '5 February 2019'
+      );
     });
 
-    it('never renders aria-selected in the grid', () => {
-      const { container } = render(
+    it('describes each real day cell as a selectable cell', () => {
+      const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      expect(container.querySelector('[aria-selected]')).toBeNull();
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      [...getDays(calendarWrappers[0]), ...getDays(calendarWrappers[1])].forEach(day => {
+        expect(day).toHaveAttribute('aria-roledescription', 'selectable cell');
+      });
+    });
+
+    it('renders aria-selected on every real day cell, true only for the committed start/end values', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      getDays(calendarWrappers[0]).forEach((day, index) => {
+        expect(day).toHaveAttribute('aria-selected', index === 4 ? 'true' : 'false');
+      });
+
+      getDays(calendarWrappers[1]).forEach((day, index) => {
+        expect(day).toHaveAttribute('aria-selected', index === 4 ? 'true' : 'false');
+      });
     });
 
     it('displays "Sun" as default first day of week', () => {
@@ -179,7 +208,7 @@ describe('Month', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -195,7 +224,7 @@ describe('Month', () => {
         }
       }
 
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       for (let x = 0; x < secondMonthCells.length; x++) {
         const cell = secondMonthCells[x];
@@ -218,7 +247,7 @@ describe('Month', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -234,7 +263,7 @@ describe('Month', () => {
         }
       }
 
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       for (let x = 0; x < secondMonthCells.length; x++) {
         const cell = secondMonthCells[x];
@@ -255,8 +284,8 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
 
@@ -289,90 +318,12 @@ describe('Month', () => {
       }
     });
 
-    it('displays highlighted days correctly when hovering the day cell instead of its button', async () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
-
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
-      const hoveredButton = globalGetAllByTestId(calendarWrappers[1], 'day')[9];
-
-      await user.hover(hoveredButton.closest('[data-test-id="day-cell"]') as HTMLElement);
-
-      for (let x = 0; x < firstMonthCells.length; x++) {
-        const cell = firstMonthCells[x];
-
-        if (x < 4) {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
-        } else {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
-        }
-
-        if (x === 4) {
-          expect(cell).toHaveAttribute('data-test-start', 'true');
-        }
-      }
-
-      for (let x = 0; x < secondMonthCells.length; x++) {
-        const cell = secondMonthCells[x];
-
-        if (x < 5) {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
-        } else {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
-        }
-
-        if (x === 4) {
-          expect(cell).toHaveAttribute('data-test-end', 'true');
-        }
-      }
-    });
-
-    it('highlights backward from a hovered day cell to the end value when only the end value is set', async () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
-
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
-      const hoveredButton = globalGetAllByTestId(calendarWrappers[0], 'day')[6];
-
-      await user.hover(hoveredButton.closest('[data-test-id="day-cell"]') as HTMLElement);
-
-      for (let x = 0; x < firstMonthCells.length; x++) {
-        const cell = firstMonthCells[x];
-
-        if (x < 1) {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
-        } else {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
-        }
-
-        if (x === 1) {
-          expect(cell).toHaveAttribute('data-test-start', 'true');
-        }
-      }
-
-      for (let x = 0; x < secondMonthCells.length; x++) {
-        const cell = secondMonthCells[x];
-
-        if (x < 5) {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
-        } else {
-          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
-        }
-
-        if (x === 4) {
-          expect(cell).toHaveAttribute('data-test-end', 'true');
-        }
-      }
-    });
-
     it('highlights backward from a hovered day to the end value when only the end value is set', async () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       await user.hover(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
 
@@ -409,8 +360,8 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[14]);
 
@@ -427,8 +378,7 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[14]; // Feb 10, 2019 - a Sunday
-      const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+      const hoverCell = globalGetAllByTestId(calendarWrappers[0], 'day')[14]; // Feb 10, 2019 - a Sunday
 
       await user.hover(hoverCell);
 
@@ -441,8 +391,7 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[13]; // Feb 9, 2019 - a Saturday
-      const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+      const hoverCell = globalGetAllByTestId(calendarWrappers[0], 'day')[13]; // Feb 9, 2019 - a Saturday
 
       await user.hover(hoverCell);
 
@@ -455,8 +404,8 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
       await user.unhover(getAllByTestId('calendar-internal-wrapper')[1]);
@@ -474,14 +423,12 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
-      const endButton = globalGetAllByTestId(calendarWrappers[1], 'day')[9]; // March 5, 2019
-      const endCell = endButton.closest('[data-test-id="day-cell"]') as HTMLElement;
-      const candidateCell = globalGetAllByTestId(calendarWrappers[1], 'day')[6] // March 2, 2019
-        .closest('[data-test-id="day-cell"]') as HTMLElement;
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
+      const endCell = globalGetAllByTestId(calendarWrappers[1], 'day')[9]; // March 5, 2019
+      const candidateCell = globalGetAllByTestId(calendarWrappers[1], 'day')[6]; // March 2, 2019
 
-      expect(endButton).toHaveAttribute('aria-pressed', 'true');
+      expect(endCell).toHaveAttribute('aria-selected', 'true');
 
       // fireEvent.mouseEnter is used instead of user.hover so no synthetic
       // leave events are dispatched on ancestors along the way - matching
@@ -502,14 +449,12 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
-      const startButton = globalGetAllByTestId(calendarWrappers[0], 'day')[9]; // Feb 5, 2019
-      const startCell = startButton.closest('[data-test-id="day-cell"]') as HTMLElement;
-      const candidateCell = globalGetAllByTestId(calendarWrappers[0], 'day')[12] // Feb 8, 2019
-        .closest('[data-test-id="day-cell"]') as HTMLElement;
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
+      const startCell = globalGetAllByTestId(calendarWrappers[0], 'day')[9]; // Feb 5, 2019
+      const candidateCell = globalGetAllByTestId(calendarWrappers[0], 'day')[12]; // Feb 8, 2019
 
-      expect(startButton).toHaveAttribute('aria-pressed', 'true');
+      expect(startCell).toHaveAttribute('aria-selected', 'true');
 
       fireEvent.mouseEnter(candidateCell);
       fireEvent.mouseEnter(startCell);
@@ -648,30 +593,29 @@ describe('Month', () => {
   });
 
   describe('In-range description', () => {
-    it('renders a visually-hidden span inside each highlighted day button, describing only that button', () => {
+    it('renders visually-hidden in-range description text as a sibling of the day number, only for described days', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       expect(within(firstMonthCells[0]).queryByTestId('in-range-description')).toBeNull();
       expect(within(secondMonthCells[5]).queryByTestId('in-range-description')).toBeNull();
 
-      const startButton = within(firstMonthCells[4]).getByTestId('day');
-      const startDescription = within(firstMonthCells[4]).getByTestId('in-range-description');
+      const startCell = firstMonthCells[4];
+      const startDescription = within(startCell).getByTestId('in-range-description');
 
       expect(startDescription).toHaveAttribute('hidden');
-      expect(startButton).toHaveAttribute('aria-describedby', startDescription.id);
-      expect(startButton).toContainElement(startDescription);
+      expect(startCell).not.toHaveAttribute('aria-describedby');
+      expect(startCell).toContainElement(startDescription);
 
-      const endButton = within(secondMonthCells[4]).getByTestId('day');
-      const endDescription = within(secondMonthCells[4]).getByTestId('in-range-description');
+      const endCell = secondMonthCells[4];
 
-      expect(endButton).toHaveAttribute('aria-describedby', endDescription.id);
-      expect(endDescription.id).not.toBe(startDescription.id);
+      expect(within(endCell).getByTestId('in-range-description')).toHaveAttribute('hidden');
+      expect(endCell).not.toHaveAttribute('aria-describedby');
     });
 
     it('labels the range boundaries as "start of range"/"end of range", and interior days as "included in range"', () => {
@@ -680,8 +624,8 @@ describe('Month', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       const startDescription = within(firstMonthCells[4]).getByTestId('in-range-description');
       const interiorDescription = within(firstMonthCells[5]).getByTestId('in-range-description');
@@ -696,8 +640,7 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverButton = globalGetAllByTestId(calendarWrappers[0], 'day')[10]; // Feb 6, 2019 - not a row edge
-      const hoverCell = hoverButton.closest('[data-test-id="day-cell"]') as HTMLElement;
+      const hoverCell = globalGetAllByTestId(calendarWrappers[0], 'day')[10]; // Feb 6, 2019 - not a row edge
 
       await user.hover(hoverCell);
 
@@ -713,20 +656,19 @@ describe('Month', () => {
 
       fireEvent.keyDown(firstMonthDays[9], { key: KEYS.RIGHT }); // Feb 5, 2019 - the start value
 
-      // day-cell only wraps real (current-month) days, unlike the unfiltered `day` list above,
+      // getDays only wraps real (current-month) days, unlike the unfiltered `day` list above,
       // so index 5 here is Feb 6, 2019 - one day after the start value.
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
 
       expect(firstMonthCells[5]).toHaveAttribute('data-test-highlighted', 'true');
       expect(within(firstMonthCells[5]).queryByTestId('in-range-description')).toBeNull();
-      expect(document.activeElement).not.toHaveAttribute('aria-describedby');
     });
 
     it('describes the committed start value as "start of range" immediately, before an end value is set', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
       const startCell = firstMonthCells[4]; // Feb 5, 2019 - the start value
 
       expect(within(startCell).getByTestId('in-range-description')).toHaveTextContent(
@@ -738,7 +680,7 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const secondMonthCells = getDays(calendarWrappers[1]);
       const endCell = secondMonthCells[4]; // March 5, 2019 - the end value
 
       expect(within(endCell).getByTestId('in-range-description')).toHaveTextContent(
@@ -758,8 +700,8 @@ describe('Month', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       expect(within(firstMonthCells[4]).getByTestId('in-range-description')).toHaveTextContent(
         'début de la plage'
@@ -965,9 +907,7 @@ describe('Month', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day').filter(
-        day => day.tagName === 'BUTTON'
-      );
+      const firstMonthDays = getDays(calendarWrappers[0]);
       const disabledDay = firstMonthDays[0];
 
       expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
@@ -1080,19 +1020,14 @@ describe('Month', () => {
   });
 
   describe('Keyboard navigation', () => {
-    const getDayButtons = (wrapper: HTMLElement) =>
-      within(wrapper)
-        .getAllByRole('button')
-        .filter(button => button.getAttribute('data-test-id') === 'day');
-
     it('gives exactly one day button tabindex="0" across both months, matching the start value', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDayButtons(calendarWrappers[0]);
-      const secondMonthDays = getDayButtons(calendarWrappers[1]);
+      const firstMonthDays = getDays(calendarWrappers[0]);
+      const secondMonthDays = getDays(calendarWrappers[1]);
       const focusedDay = firstMonthDays[4];
 
       expect(focusedDay).toHaveAttribute('tabindex', '0');
@@ -1109,11 +1044,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[5]).toHaveFocus();
       expect(days[5]).toHaveAttribute('tabindex', '0');
@@ -1125,11 +1060,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[3]).toHaveFocus();
       expect(days[3]).toHaveAttribute('tabindex', '0');
@@ -1141,11 +1076,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[3]).toHaveFocus();
       expect(days[3]).toHaveAttribute('tabindex', '0');
@@ -1157,11 +1092,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[5]).toHaveFocus();
       expect(days[5]).toHaveAttribute('tabindex', '0');
@@ -1173,11 +1108,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.DOWN });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[11]).toHaveFocus();
     });
@@ -1187,11 +1122,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[11], { key: KEYS.UP });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[4]).toHaveFocus();
     });
@@ -1202,12 +1137,12 @@ describe('Month', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+      const firstMonthDays = getDays(calendarWrappers[0]);
       const lastDayOfFebruary = firstMonthDays[firstMonthDays.length - 1];
 
       fireEvent.keyDown(lastDayOfFebruary, { key: KEYS.RIGHT });
 
-      const secondMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[1]);
+      const secondMonthDays = getDays(getAllByTestId('calendar-wrapper')[1]);
 
       expect(secondMonthDays[0]).toHaveFocus();
       expect(secondMonthDays[0]).toHaveTextContent('1');
@@ -1218,11 +1153,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.HOME });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[2]).toHaveFocus();
       expect(days[2]).toHaveTextContent('3');
@@ -1233,11 +1168,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.END });
 
-      const days = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       expect(days[8]).toHaveFocus();
       expect(days[8]).toHaveTextContent('9');
@@ -1248,11 +1183,11 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
 
-      const secondMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[1]);
+      const secondMonthDays = getDays(getAllByTestId('calendar-wrapper')[1]);
 
       expect(secondMonthDays[4]).toHaveFocus();
       expect(secondMonthDays[4]).toHaveTextContent('5');
@@ -1263,7 +1198,7 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP });
 
@@ -1272,7 +1207,7 @@ describe('Month', () => {
       expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('January 2019');
       expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('February 2019');
 
-      const days = getDayButtons(wrappers[0]);
+      const days = getDays(wrappers[0]);
 
       expect(days[4]).toHaveFocus();
       expect(days[4]).toHaveTextContent('5');
@@ -1283,7 +1218,7 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN, shiftKey: true });
 
@@ -1292,7 +1227,7 @@ describe('Month', () => {
       expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('January 2020');
       expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('February 2020');
 
-      const days = getDayButtons(wrappers[1]);
+      const days = getDays(wrappers[1]);
 
       expect(days[4]).toHaveFocus();
       expect(days[4]).toHaveTextContent('5');
@@ -1303,7 +1238,7 @@ describe('Month', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP, shiftKey: true });
 
@@ -1312,7 +1247,7 @@ describe('Month', () => {
       expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('February 2018');
       expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('March 2018');
 
-      const days = getDayButtons(wrappers[0]);
+      const days = getDays(wrappers[0]);
 
       expect(days[4]).toHaveFocus();
       expect(days[4]).toHaveTextContent('5');
@@ -1323,14 +1258,14 @@ describe('Month', () => {
 
       const { getAllByTestId } = render(<Example startValue={new Date(2019, 0, 31)} />);
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
       const selectedDay = firstMonthDays.find(
         day => day.getAttribute('data-test-selected') === 'true'
       )!;
 
       fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
 
-      const secondMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[1]);
+      const secondMonthDays = getDays(getAllByTestId('calendar-wrapper')[1]);
       const focusedDay = secondMonthDays.find(day => day.getAttribute('tabindex') === '0')!;
 
       expect(focusedDay).toHaveFocus();
@@ -1341,12 +1276,12 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+      const firstMonthDays = getDays(calendarWrappers[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
 
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -1377,12 +1312,12 @@ describe('Month', () => {
       const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDayButtons(calendarWrappers[0]);
+      const firstMonthDays = getDays(calendarWrappers[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
 
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = getDays(calendarWrappers[0]);
+      const secondMonthCells = getDays(calendarWrappers[1]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -1411,11 +1346,6 @@ describe('Month', () => {
   });
 
   describe('Day navigation keyboard event bubbling', () => {
-    const getDayButtons = (wrapper: HTMLElement) =>
-      within(wrapper)
-        .getAllByRole('button')
-        .filter(button => button.getAttribute('data-test-id') === 'day');
-
     it.each([
       KEYS.RIGHT,
       KEYS.LEFT,
@@ -1434,7 +1364,7 @@ describe('Month', () => {
         </div>
       );
 
-      const firstMonthDays = getDayButtons(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key });
 

@@ -46,7 +46,17 @@ export const StyledDayCell = styled.td.attrs({
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDayCellProps>`
   margin: 0;
+  cursor: pointer;
   padding: 0;
+
+  /* The visible focus ring is drawn on StyledDayNumber instead, scoped to this cell's :focus-visible state. */
+  &:focus {
+    outline: none;
+  }
+
+  &[aria-disabled='true'] {
+    cursor: default;
+  }
 
   ${props => props.$isHighlighted && highlightStyles(props)}
 

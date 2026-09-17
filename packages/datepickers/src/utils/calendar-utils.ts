@@ -190,12 +190,21 @@ export function formatFullWeekdayLabel(date: Date, locale?: string): string {
   return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
 }
 
-/** e.g. "Monday, June 5, 2023" - a day button's accessible name pairs this with its bare day number. */
+/**
+ * e.g. "17 September 2026" - day-first (matching the visible day number, for speech-input users)
+ * with a locale-correct month name; a day cell's visually-hidden description. Its weekday comes
+ * separately from the grid's column header, so it isn't repeated here.
+ */
 export function formatFullDate(date: Date, locale?: string): string {
-  return new Intl.DateTimeFormat(locale, {
-    weekday: 'long',
-    year: 'numeric',
+  const parts = new Intl.DateTimeFormat(locale, {
+    day: 'numeric',
     month: 'long',
-    day: 'numeric'
-  }).format(date);
+    year: 'numeric'
+  }).formatToParts(date);
+
+  const day = parts.find(part => part.type === 'day')?.value ?? '';
+  const month = parts.find(part => part.type === 'month')?.value ?? '';
+  const year = parts.find(part => part.type === 'year')?.value ?? '';
+
+  return `${day} ${month} ${year}`;
 }

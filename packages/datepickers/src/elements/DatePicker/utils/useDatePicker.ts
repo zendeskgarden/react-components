@@ -22,7 +22,7 @@ import {
   ElementProps,
   IUseDatePickerProps,
   IUseDatePickerReturnValue,
-  IGetDayPropsOptions
+  IGetCellPropsOptions
 } from '../../../types';
 import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
 import {
@@ -128,7 +128,7 @@ export function useDatePicker({
     }
 
     pendingGridFocusRef.current = false;
-    gridRef.current?.querySelector<HTMLButtonElement>('[tabindex="0"]')?.focus();
+    gridRef.current?.querySelector<HTMLTableCellElement>('[tabindex="0"]')?.focus();
   }, [state.focusedDate]);
 
   const handleWidgetBlur = useCallback(
@@ -335,8 +335,8 @@ export function useDatePicker({
     [headingId]
   );
 
-  const getDayProps = useCallback(
-    ({ date, onClick, onKeyDown, ...other }: IGetDayPropsOptions) => {
+  const getCellProps = useCallback(
+    ({ date, onClick, onKeyDown, ...other }: IGetCellPropsOptions) => {
       const isDisabled = !isDateWithinRange(date, minValue, maxValue);
       const isSelected = value !== undefined && !state.isValueInvalid && isSameDay(date, value);
       const isCurrentDate = isToday(date);
@@ -359,7 +359,14 @@ export function useDatePicker({
         inputRef.current?.focus();
       };
 
-      const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
+        if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
+          e.preventDefault();
+          handleClick();
+
+          return;
+        }
+
         let targetDate: Date;
 
         switch (e.key) {
@@ -401,6 +408,7 @@ export function useDatePicker({
         tabIndex: isSameDay(date, state.focusedDate) ? 0 : -1,
         'aria-disabled': isDisabled || undefined,
         'aria-current': isCurrentDate ? ('date' as const) : undefined,
+        'aria-selected': isSelected,
         onClick: composeEventHandlers(onClick, handleClick),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
         'data-test-id': 'day',
@@ -481,7 +489,7 @@ export function useDatePicker({
       getCalendarProps,
       getGridProps,
       getHeadingProps,
-      getDayProps,
+      getCellProps,
       getPreviousMonthButtonProps,
       getNextMonthButtonProps,
       getPreviousYearButtonProps,
@@ -508,7 +516,7 @@ export function useDatePicker({
       getCalendarProps,
       getGridProps,
       getHeadingProps,
-      getDayProps,
+      getCellProps,
       getPreviousMonthButtonProps,
       getNextMonthButtonProps,
       getPreviousYearButtonProps,
