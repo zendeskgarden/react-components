@@ -238,11 +238,15 @@ describe('DatePickerRange', () => {
       const calendarWrappers = getAllByTestId('calendar-wrapper');
       const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
       const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = firstMonthDays.filter(
+        day => day.getAttribute('data-test-hidden') !== 'true'
+      );
+      const secondMonthCells = secondMonthDays.filter(
+        day => day.getAttribute('data-test-hidden') !== 'true'
+      );
 
-      expect(firstMonthDays[9]).toHaveAttribute('aria-pressed', 'false');
-      expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
+      expect(firstMonthDays[9]).toHaveAttribute('aria-selected', 'false');
+      expect(secondMonthDays[9]).toHaveAttribute('aria-selected', 'true');
 
       firstMonthCells.forEach(cell => {
         expect(cell).toHaveAttribute('data-test-highlighted', 'false');
@@ -270,11 +274,15 @@ describe('DatePickerRange', () => {
       const calendarWrappers = getAllByTestId('calendar-wrapper');
       const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
       const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
-      const firstMonthCells = globalGetAllByTestId(calendarWrappers[0], 'day-cell');
-      const secondMonthCells = globalGetAllByTestId(calendarWrappers[1], 'day-cell');
+      const firstMonthCells = firstMonthDays.filter(
+        day => day.getAttribute('data-test-hidden') !== 'true'
+      );
+      const secondMonthCells = secondMonthDays.filter(
+        day => day.getAttribute('data-test-hidden') !== 'true'
+      );
 
-      expect(firstMonthDays[9]).toHaveAttribute('aria-pressed', 'true');
-      expect(secondMonthDays[9]).toHaveAttribute('aria-pressed', 'false');
+      expect(firstMonthDays[9]).toHaveAttribute('aria-selected', 'true');
+      expect(secondMonthDays[9]).toHaveAttribute('aria-selected', 'false');
 
       firstMonthCells.forEach(cell => {
         expect(cell).toHaveAttribute('data-test-highlighted', 'false');

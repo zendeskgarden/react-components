@@ -6,9 +6,9 @@
  */
 
 import React, { forwardRef } from 'react';
+import { Span } from '@zendeskgarden/react-typography';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
-import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
 import { getDate } from 'date-fns/getDate';
 import {
@@ -17,47 +17,46 @@ import {
   StyledCalendarTable,
   StyledCalendarRow,
   StyledDayCell,
-  StyledDayButton
+  StyledDayNumber
 } from '../../../styled';
 import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import {
   formatFullDate,
   formatMonthHeading,
-  getMonthDateRange,
-  isDateWithinRange
+  getMonthDateRange
 } from '../../../utils/calendar-utils';
 import { IDatePickerMonthProps } from '../../../types';
 
 export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
-  ({ value, minValue, maxValue, isCompact = false, locale, weekStartsOn }, ref) => {
-    const { previewDate, isValueInvalid, getGridProps, getHeadingProps, getDayProps } =
-      useDatePickerContext();
+  ({ isCompact = false, locale, weekStartsOn }, ref) => {
+    const { previewDate, getGridProps, getHeadingProps, getCellProps } = useDatePickerContext();
 
     const { startDate, endDate } = getMonthDateRange(previewDate, weekStartsOn, locale);
 
     const days = eachDayOfInterval({ start: startDate, end: endDate }).map(date => {
       const formattedDayLabel = getDate(date);
       const isPreviousMonth = !isSameMonth(date, previewDate);
-      const isSelected = !!(value && !isValueInvalid && isSameDay(date, value));
-      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
 
       return (
         // eslint-disable-next-line jsx-a11y/prefer-tag-over-role -- StyledDayCell already renders a <td>; eslint can't see through the styled-component wrapper
-        <StyledDayCell key={date.toISOString()} role="gridcell">
-          <StyledDayButton
+        <StyledDayCell
+          key={date.toISOString()}
+          role="gridcell"
+          data-test-previous={isPreviousMonth}
+          aria-roledescription="selectable cell"
+          {...getCellProps({ date })}
+        >
+          <StyledDayNumber
             $isCompact={isCompact}
             $isPreviousMonth={isPreviousMonth}
-            isPressed={!!(isSelected && !isDisabled)}
-            isPill
-            isBasic
-            isNeutral={!isSelected}
-            data-test-previous={isPreviousMonth}
-            {...getDayProps({ date })}
-            aria-label={`${formattedDayLabel}: ${formatFullDate(date, locale)}`}
+            aria-hidden="true"
           >
             {formattedDayLabel}
-          </StyledDayButton>
+          </StyledDayNumber>
+          <Span hidden data-test-id="full-date">
+            {formatFullDate(date, locale)}
+          </Span>
         </StyledDayCell>
       );
     });

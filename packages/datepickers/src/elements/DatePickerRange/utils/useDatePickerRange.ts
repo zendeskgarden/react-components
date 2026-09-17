@@ -23,7 +23,7 @@ import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-util
 import {
   ElementProps,
   IFieldInputProps,
-  IGetRangeDayPropsOptions,
+  IGetRangeCellPropsOptions,
   IUseDatePickerRangeProps,
   IUseDatePickerRangeReturnValue
 } from '../../../types';
@@ -101,7 +101,7 @@ export function useDatePickerRange({
 
     pendingGridFocusRef.current = false;
     calendarWrapperRef.current
-      ?.querySelector<HTMLButtonElement>('[data-test-id="day"][tabindex="0"]')
+      ?.querySelector<HTMLTableCellElement>('[data-test-id="day"][tabindex="0"]')
       ?.focus();
   }, [state.focusedDate]);
 
@@ -610,13 +610,8 @@ export function useDatePickerRange({
     [headingId0, headingId1]
   );
 
-  const getInRangeId = useCallback(
-    (date: Date) => `${prefix}--in-range-${date.getTime()}`,
-    [prefix]
-  );
-
-  const getDayProps = useCallback(
-    ({ date, onClick, onKeyDown, isHighlighted, ...other }: IGetRangeDayPropsOptions) => {
+  const getCellProps = useCallback(
+    ({ date, onClick, onKeyDown, ...other }: IGetRangeCellPropsOptions) => {
       const isSelected =
         (startValue !== undefined && isSameDay(date, startValue)) ||
         (endValue !== undefined && isSameDay(date, endValue));
@@ -670,7 +665,14 @@ export function useDatePickerRange({
         });
       };
 
-      const handleKeyDown = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+      const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
+        if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
+          e.preventDefault();
+          handleClick();
+
+          return;
+        }
+
         let targetDate: Date;
 
         switch (e.key) {
@@ -712,7 +714,7 @@ export function useDatePickerRange({
         tabIndex: isSameDay(date, state.focusedDate) ? 0 : -1,
         'aria-current': isCurrentDate ? ('date' as const) : undefined,
         'aria-disabled': isDisabled || undefined,
-        'aria-describedby': isHighlighted ? getInRangeId(date) : undefined,
+        'aria-selected': isSelected,
         onClick: composeEventHandlers(onClick, handleClick),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
         'data-test-id': 'day',
@@ -728,7 +730,6 @@ export function useDatePickerRange({
       maxValue,
       startValue,
       endValue,
-      getInRangeId,
       state.isStartFocused,
       state.isEndFocused,
       state.isStartValueInvalid,
@@ -739,15 +740,6 @@ export function useDatePickerRange({
       preferredWeekStartsOn,
       rtl
     ]
-  );
-
-  const getInRangeDescriptionProps = useCallback(
-    ({ date, ...other }: { date: Date } & ElementProps<HTMLSpanElement>) => ({
-      id: getInRangeId(date),
-      hidden: true,
-      ...other
-    }),
-    [getInRangeId]
   );
 
   const setHoverDate = useCallback((date: Date | undefined) => {
@@ -816,8 +808,7 @@ export function useDatePickerRange({
       getCalendarProps,
       getGridProps,
       getHeadingProps,
-      getDayProps,
-      getInRangeDescriptionProps,
+      getCellProps,
       getPreviousMonthButtonProps,
       getNextMonthButtonProps,
       getPreviousYearButtonProps,
@@ -852,8 +843,7 @@ export function useDatePickerRange({
       getCalendarProps,
       getGridProps,
       getHeadingProps,
-      getDayProps,
-      getInRangeDescriptionProps,
+      getCellProps,
       getPreviousMonthButtonProps,
       getNextMonthButtonProps,
       getPreviousYearButtonProps,

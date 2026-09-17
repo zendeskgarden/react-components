@@ -23,7 +23,7 @@ import {
   StyledCalendarHeading,
   StyledCalendarTable,
   StyledCalendarRow,
-  StyledDayButton,
+  StyledDayNumber,
   StyledDayCell
 } from '../../../styled';
 import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
@@ -53,11 +53,10 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
       setHoverDate,
       getGridProps,
       getHeadingProps,
-      getDayProps,
+      getCellProps,
       inRangeLabel,
       startOfRangeLabel,
-      endOfRangeLabel,
-      getInRangeDescriptionProps
+      endOfRangeLabel
     } = useDatePickerContext();
 
     // A rejected blur leaves startValue/endValue pointing at the stale, last-committed date -
@@ -96,7 +95,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
         return (
           <td key={date.toISOString()} role="gridcell">
             <Span hidden data-test-id="day" data-test-hidden="true">
-              {formattedDayLabel}, {formatMonthHeading(date, locale)}
+              {formatFullDate(date, locale)}
             </Span>
           </td>
         );
@@ -222,7 +221,6 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
           $isHighlighted={!isInvalidDateRange && showHighlighted}
           $isHighlightStart={!isInvalidDateRange && showHighlightStartGradient}
           $isHighlightEnd={!isInvalidDateRange && showHighlightEndGradient}
-          data-test-id="day-cell"
           data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
           data-test-start={!isInvalidDateRange && isHighlightStart}
           data-test-end={!isInvalidDateRange && isHighlightEnd}
@@ -230,29 +228,32 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
             // Still clears any stale hoverDate left from a previously-hovered neighbor.
             setHoverDate(isSelected ? undefined : date);
           }}
+          {...getCellProps({ date })}
+          aria-roledescription="selectable cell"
+          aria-selected={!isInvalidDateRange && isSelected}
+          data-test-selected={!isInvalidDateRange && isSelected}
         >
-          <StyledDayButton
+          <StyledDayNumber
             $isCompact={isCompact}
             $isPreviousMonth={isPreviousMonth}
-            isPill
-            isBasic
-            isNeutral={!isSelected}
-            isPressed={!!(!isInvalidDateRange && isSelected)}
-            {...getDayProps({ date, isHighlighted: isDescribedAsInRange })}
-            aria-label={`${formattedDayLabel}: ${formatFullDate(date, locale)}`}
-            data-test-selected={!isInvalidDateRange && isSelected}
+            aria-hidden="true"
           >
             {formattedDayLabel}
-            {isDescribedAsInRange ? (
-              <Span
-                {...getInRangeDescriptionProps({ date })}
-                lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
-                data-test-id="in-range-description"
-              >
-                {inRangeDescriptionText}
-              </Span>
-            ) : null}
-          </StyledDayButton>
+          </StyledDayNumber>
+          <Span hidden data-test-id="full-date">
+            {formatFullDate(date, locale)}
+          </Span>
+          {isDescribedAsInRange ? (
+            <Span
+              hidden
+              lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
+              data-test-id="in-range-description"
+            >
+              {/* U+2063 (invisible separator, not classified as whitespace) keeps Safari's accessible-name
+                  computation from trimming this leading space and running it into the full-date sibling. */}
+              {`⁣ ${inRangeDescriptionText}`}
+            </Span>
+          ) : null}
         </StyledDayCell>
       );
     });
