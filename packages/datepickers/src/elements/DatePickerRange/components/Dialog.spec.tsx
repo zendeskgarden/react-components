@@ -212,6 +212,56 @@ describe('DatePickerRange.Dialog', () => {
 
       mockDate.reset();
     });
+
+    it('sets the End date first when End is opened before Start, then sets Start, closes, and returns focus to Start on the second pick', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <Example
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+          />
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const startInput = getByTestId('start');
+      const endInput = getByTestId('end');
+
+      await user.click(endInput);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      const days = getAllByTestId('day');
+
+      await user.click(days[11]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(endInput).toHaveValue('February 7, 2019');
+      expect(startInput).toHaveValue('');
+
+      await user.click(days[10]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(startInput).toHaveFocus();
+      expect(startInput).toHaveValue('February 6, 2019');
+      expect(endInput).toHaveValue('February 7, 2019');
+
+      mockDate.reset();
+    });
   });
 
   describe('Automatic combobox wiring', () => {
