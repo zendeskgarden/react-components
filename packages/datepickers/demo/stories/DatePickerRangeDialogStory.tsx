@@ -73,7 +73,7 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
                 <ClearableInput
                   ref={startInputRef}
                   isCompact={isCompact}
-                  wrapperProps={{ role: null, 'aria-labelledby': null } as any}
+                  wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                 />
               </DatePickerRange.Start>
               <DatePickerRange.Trigger
@@ -89,7 +89,7 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
                 <ClearableInput
                   ref={endInputRef}
                   isCompact={isCompact}
-                  wrapperProps={{ role: null, 'aria-labelledby': null } as any}
+                  wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                 />
               </DatePickerRange.End>
               <DatePickerRange.Trigger
