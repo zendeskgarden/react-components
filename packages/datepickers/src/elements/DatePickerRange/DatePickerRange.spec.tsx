@@ -317,6 +317,52 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('calendar view stability', () => {
+    const ControlledExample = ({
+      startValue: initialStartValue,
+      endValue: initialEndValue,
+      ...props
+    }: IDatePickerRangeProps) => {
+      const [startValue, setStartValue] = useState(initialStartValue);
+      const [endValue, setEndValue] = useState(initialEndValue);
+
+      return (
+        <Example
+          {...props}
+          startValue={startValue}
+          endValue={endValue}
+          onChange={value => {
+            setStartValue(value.startValue);
+            setEndValue(value.endValue);
+          }}
+        />
+      );
+    };
+
+    it('does not advance the calendar view when the last day of the second month is selected via the keyboard, even though that month has more days than the first', async () => {
+      // February 2019 (28 days) is the first month, March 2019 (31 days) the second - the
+      // mismatched month lengths are what previously threw off the "is this still within the
+      // visible two months?" window check off by a day.
+      const { getAllByTestId } = render(<ControlledExample startValue={DEFAULT_START_VALUE} />);
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day').filter(
+        day => day.getAttribute('data-test-hidden') !== 'true'
+      );
+      const lastDayOfSecondMonth = secondMonthDays[secondMonthDays.length - 1]; // March 31, 2019
+
+      expect(lastDayOfSecondMonth).toHaveTextContent('31');
+
+      lastDayOfSecondMonth.focus();
+      await user.keyboard('{Enter}');
+
+      const monthDisplays = getAllByTestId('month-display');
+
+      expect(monthDisplays[0]).toHaveTextContent('February 2019');
+      expect(monthDisplays[1]).toHaveTextContent('March 2019');
+    });
+  });
+
   describe('Out-of-order input', () => {
     const ControlledExample = ({
       startValue: initialStartValue,

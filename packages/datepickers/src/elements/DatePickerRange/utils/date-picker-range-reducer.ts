@@ -21,6 +21,20 @@ import { isAfter } from 'date-fns/isAfter';
 import { IDatePickerRangeProps, IDatePickerRangeValueSettledResult } from '../../../types';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
+/**
+ * Whether `date` falls within the two currently-visible months (`previewDate`'s month and the
+ * one after it). Compares against the true end of the *second* month, since `addMonths(endOfMonth
+ * (previewDate), 1)` miscalculates whenever that month has more days than the first (e.g. Feb 28
+ * + 1 month lands on Mar 28, not Mar 31).
+ */
+function isWithinVisibleMonths(date: Date, previewDate: Date): boolean {
+  const secondMonthEnd = endOfMonth(addMonths(previewDate, 1));
+
+  return (
+    compareAsc(date, startOfMonth(previewDate)) !== -1 && compareAsc(date, secondMonthEnd) !== 1
+  );
+}
+
 export interface IDatePickerRangeState {
   previewDate: Date;
   focusedDate: Date;
@@ -177,14 +191,9 @@ export const datepickerRangeReducer = (
       let previewDate = state.previewDate;
 
       if (startValue) {
-        if (
-          compareAsc(startValue, startOfMonth(state.previewDate)) === 1 &&
-          compareAsc(startValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(startValue);
-        }
+        previewDate = isWithinVisibleMonths(startValue, state.previewDate)
+          ? state.previewDate
+          : startOfMonth(startValue);
       }
 
       return { ...state, previewDate, isStartFocused: true, isEndFocused: false };
@@ -194,14 +203,9 @@ export const datepickerRangeReducer = (
       let previewDate = state.previewDate;
 
       if (endValue) {
-        if (
-          compareAsc(endValue, startOfMonth(state.previewDate)) === 1 &&
-          compareAsc(endValue, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(endValue);
-        }
+        previewDate = isWithinVisibleMonths(endValue, state.previewDate)
+          ? state.previewDate
+          : startOfMonth(endValue);
       }
 
       return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
@@ -220,14 +224,9 @@ export const datepickerRangeReducer = (
       let previewDate = state.previewDate;
 
       if (action.value) {
-        if (
-          compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &&
-          compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(action.value);
-        }
+        previewDate = isWithinVisibleMonths(action.value, state.previewDate)
+          ? state.previewDate
+          : startOfMonth(action.value);
       }
 
       return {
@@ -248,14 +247,9 @@ export const datepickerRangeReducer = (
       let previewDate = state.previewDate;
 
       if (action.value) {
-        if (
-          compareAsc(action.value, startOfMonth(state.previewDate)) === 1 &&
-          compareAsc(action.value, addMonths(endOfMonth(state.previewDate), 1)) === -1
-        ) {
-          previewDate = state.previewDate;
-        } else {
-          previewDate = startOfMonth(action.value);
-        }
+        previewDate = isWithinVisibleMonths(action.value, state.previewDate)
+          ? state.previewDate
+          : startOfMonth(action.value);
       }
 
       return {
