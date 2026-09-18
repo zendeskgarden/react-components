@@ -728,10 +728,14 @@ export function useDatePickerRange({
               ? { startValue: date, endValue }
               : { startValue: date, endValue: undefined };
         } else if (state.isEndFocused || state.isEndValueInvalid) {
-          result =
-            startValue !== undefined && (isAfter(date, startValue) || isSameDay(date, startValue))
-              ? { startValue, endValue: date }
-              : { startValue: date, endValue: undefined };
+          if (startValue === undefined) {
+            result = { startValue: undefined, endValue: date };
+          } else {
+            result =
+              isAfter(date, startValue) || isSameDay(date, startValue)
+                ? { startValue, endValue: date }
+                : { startValue: date, endValue: undefined };
+          }
         } else if (startValue === undefined) {
           isOutOfOrder = endValue !== undefined && isAfter(date, endValue);
           result = { startValue: date, endValue };
@@ -745,7 +749,8 @@ export function useDatePickerRange({
 
         onChange?.(result);
 
-        const field = isSameDay(result.startValue!, date) ? 'start' : 'end';
+        const field =
+          result.startValue !== undefined && isSameDay(result.startValue, date) ? 'start' : 'end';
         const fieldValue = field === 'start' ? result.startValue : result.endValue;
 
         onValueSettled?.({

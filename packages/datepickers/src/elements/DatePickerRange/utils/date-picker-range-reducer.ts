@@ -305,8 +305,9 @@ export const datepickerRangeReducer = (
         };
       } else if (state.isEndFocused) {
         if (
-          startValue !== undefined &&
-          (isAfter(action.value, startValue) || isSameDay(action.value, startValue))
+          startValue === undefined ||
+          isAfter(action.value, startValue) ||
+          isSameDay(action.value, startValue)
         ) {
           return {
             ...state,
