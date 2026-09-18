@@ -411,6 +411,14 @@ export function useDatePickerRange({
 
         if (inputValue === '' && state.startInputValue !== '') {
           reportStartSettled(inputValue);
+
+          // A `ClearableInput`'s clear button dispatches a plain `Event`, not a real
+          // `InputEvent` (which typing/backspacing always produces), so this is how we tell
+          // "user explicitly cleared the field" apart from incidental backspacing mid-edit -
+          // only the former should commit immediately, without waiting for blur.
+          if (!(e.nativeEvent instanceof InputEvent) && startValue !== undefined) {
+            onChange?.({ startValue: undefined, endValue });
+          }
         }
       };
 
@@ -461,7 +469,9 @@ export function useDatePickerRange({
       handleStartBlur,
       handleWidgetBlur,
       startInputRef,
-      startValue
+      startValue,
+      endValue,
+      onChange
     ]
   );
 
@@ -589,6 +599,13 @@ export function useDatePickerRange({
 
         if (inputValue === '' && state.endInputValue !== '') {
           reportEndSettled(inputValue);
+
+          // See the equivalent comment in getStartInputProps: a `ClearableInput`'s clear
+          // button dispatches a plain `Event`, not a real `InputEvent`, which is how we tell
+          // an explicit clear apart from incidental backspacing mid-edit.
+          if (!(e.nativeEvent instanceof InputEvent) && endValue !== undefined) {
+            onChange?.({ startValue, endValue: undefined });
+          }
         }
       };
 
@@ -639,7 +656,9 @@ export function useDatePickerRange({
       handleEndBlur,
       handleWidgetBlur,
       endInputRef,
-      endValue
+      endValue,
+      startValue,
+      onChange
     ]
   );
 
