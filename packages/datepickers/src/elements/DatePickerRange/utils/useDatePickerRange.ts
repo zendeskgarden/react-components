@@ -761,7 +761,12 @@ export function useDatePickerRange({
           ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
         });
 
-        if (!isOutOfOrder && result.startValue !== undefined && result.endValue !== undefined) {
+        if (
+          hasDialog &&
+          !isOutOfOrder &&
+          result.startValue !== undefined &&
+          result.endValue !== undefined
+        ) {
           setIsOpen(false);
           (field === 'start' ? startInputRef : endInputRef).current?.focus();
         }
@@ -840,7 +845,8 @@ export function useDatePickerRange({
       preferredWeekStartsOn,
       rtl,
       startInputRef,
-      endInputRef
+      endInputRef,
+      hasDialog
     ]
   );
 
