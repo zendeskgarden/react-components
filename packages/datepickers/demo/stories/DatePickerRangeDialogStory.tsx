@@ -8,11 +8,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
-import { DatePickerRange } from '@zendeskgarden/react-datepickers';
+import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
-const FIELD_WIDTH_PX = 280;
-const COMPACT_FIELD_WIDTH_PX = 224;
+const FIELD_WIDTH_PX = 302;
+const COMPACT_FIELD_WIDTH_PX = 235;
 const GAP_PX = 20;
 const COMPACT_GAP_PX = 16;
 
@@ -21,7 +21,6 @@ const getSideBySideBreakpointPx = (isCompact?: boolean) =>
   isCompact ? COMPACT_FIELD_WIDTH_PX * 2 + COMPACT_GAP_PX : FIELD_WIDTH_PX * 2 + GAP_PX;
 
 const StyledWrapper = styled.div`
-  display: inline-block;
   position: relative;
 `;
 
@@ -37,9 +36,10 @@ const StyledField = styled(Field)<{ $isCompact?: boolean }>`
   width: min(100%, ${p => (p.$isCompact ? `${COMPACT_FIELD_WIDTH_PX}px` : `${FIELD_WIDTH_PX}px`)});
 `;
 
-export const DatePickerRangeDialogStory: StoryFn = ({ isCompact, ...args }) => {
-  const [startValue, setStartValue] = useState<Date | undefined>(undefined);
-  const [endValue, setEndValue] = useState<Date | undefined>(undefined);
+export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
+  isCompact,
+  ...args
+}) => {
   const [isSideBySide, setIsSideBySide] = useState<boolean | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
   const startInputRef = useRef<HTMLInputElement>(null);
@@ -63,15 +63,7 @@ export const DatePickerRangeDialogStory: StoryFn = ({ isCompact, ...args }) => {
   }, [isCompact]);
 
   return (
-    <DatePickerRange
-      startValue={startValue}
-      endValue={endValue}
-      onChange={values => {
-        setStartValue(values.startValue);
-        setEndValue(values.endValue);
-      }}
-      {...args}
-    >
+    <DatePickerRange {...args} isCompact={isCompact}>
       <StyledWrapper>
         <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
           <StyledField>
@@ -80,6 +72,7 @@ export const DatePickerRangeDialogStory: StoryFn = ({ isCompact, ...args }) => {
               <DatePickerRange.Start>
                 <ClearableInput
                   ref={startInputRef}
+                  isCompact={isCompact}
                   wrapperProps={{ role: null, 'aria-labelledby': null } as any}
                 />
               </DatePickerRange.Start>
@@ -95,6 +88,7 @@ export const DatePickerRangeDialogStory: StoryFn = ({ isCompact, ...args }) => {
               <DatePickerRange.End>
                 <ClearableInput
                   ref={endInputRef}
+                  isCompact={isCompact}
                   wrapperProps={{ role: null, 'aria-labelledby': null } as any}
                 />
               </DatePickerRange.End>
