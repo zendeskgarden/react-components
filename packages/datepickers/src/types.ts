@@ -371,6 +371,7 @@ export interface IDatePickerDialogProps extends HTMLAttributes<HTMLDivElement> {
   placement?: GardenPlacement;
   isAnimated?: boolean;
   zIndex?: number;
+  isCompact?: boolean;
 }
 
 export interface IDatePickerInputProps {

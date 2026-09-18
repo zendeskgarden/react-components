@@ -27,6 +27,7 @@ interface IUseFloatingDialogOptions {
   getReferenceElement: () => Element | null;
   placement?: GardenPlacement;
   isAnimated?: boolean;
+  isCompact?: boolean;
 }
 
 interface IUseFloatingDialogReturnValue {
@@ -42,10 +43,12 @@ export function useFloatingDialog({
   dialogRef,
   getReferenceElement,
   placement: _placement = PLACEMENT_DEFAULT,
-  isAnimated = true
+  isAnimated = true,
+  isCompact
 }: IUseFloatingDialogOptions): IUseFloatingDialogReturnValue {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const [isVisible, setIsVisible] = useState(false);
+  const viewportPadding = theme.space.base * (isCompact ? 4 : 5);
 
   const [floatingPlacement] = getFloatingPlacements(
     theme,
@@ -70,6 +73,7 @@ export function useFloatingDialog({
     middleware: [
       _placement === 'auto' ? autoPlacement() : flip(),
       size({
+        padding: viewportPadding,
         apply({ availableWidth, availableHeight, elements }) {
           Object.assign(elements.floating.style, {
             maxWidth: `${Math.max(0, availableWidth)}px`,

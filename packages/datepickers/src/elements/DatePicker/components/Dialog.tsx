@@ -21,6 +21,7 @@ export const Dialog = ({
   isAnimated = true,
   zIndex = 1000,
   appendToNode,
+  isCompact,
   ...menuProps
 }: PropsWithChildren<IDatePickerDialogProps>) => {
   const { isOpen, dialogRef, getDialogProps, getReferenceElement } = useDatePickerContext();
@@ -30,7 +31,8 @@ export const Dialog = ({
     dialogRef,
     getReferenceElement,
     placement: _placement,
-    isAnimated
+    isAnimated,
+    isCompact
   });
 
   const Node = (
