@@ -16,7 +16,7 @@ import {
   DatePickerRangeInvalidReason,
   IDatePickerRangeValueSettledResult
 } from '@zendeskgarden/react-datepickers';
-import { ClearableInput, Field } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 
 const StyledScrollRegion = styled.section`
   margin: -${p => p.theme.shadowWidths.md};
@@ -78,47 +78,50 @@ export const DatePickerRangeInvalidDateStory: StoryFn = () => {
         tabIndex={containerTabIndex}
         aria-label="Date range picker with invalid date validation"
       >
-        <StyledGrid>
-          <Field>
-            <Field.Label>Start date</Field.Label>
-            <Field.Hint>
-              3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-              YYYY&quot;
-            </Field.Hint>
-            <DatePickerRange.Start>
-              <ClearableInput
-                validation={startReason ? 'error' : undefined}
-                buttonProps={{ onClick: () => setStartReason(undefined) }}
-              />
-            </DatePickerRange.Start>
-            {startReason === 'malformed' && (
-              <Field.Message validation="error">
-                Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-                YYYY&quot; format.
-              </Field.Message>
-            )}
-          </Field>
-          <Field>
-            <Field.Label>End date</Field.Label>
-            <Field.Hint>
-              3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-              YYYY&quot;
-            </Field.Hint>
-            <DatePickerRange.End>
-              <ClearableInput
-                validation={endReason ? 'error' : undefined}
-                buttonProps={{ onClick: () => setEndReason(undefined) }}
-              />
-            </DatePickerRange.End>
-            {endReason === 'malformed' && (
-              <Field.Message validation="error">
-                Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
-                YYYY&quot; format.
-              </Field.Message>
-            )}
-          </Field>
-          <StyledCalendar />
-        </StyledGrid>
+        <Fieldset>
+          <Fieldset.Legend hidden>Date range</Fieldset.Legend>
+          <StyledGrid>
+            <Field>
+              <Field.Label isRegular={false}>Start date</Field.Label>
+              <Field.Hint>
+                3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+                YYYY&quot;
+              </Field.Hint>
+              <DatePickerRange.Start>
+                <ClearableInput
+                  validation={startReason ? 'error' : undefined}
+                  buttonProps={{ onClick: () => setStartReason(undefined) }}
+                />
+              </DatePickerRange.Start>
+              {startReason === 'malformed' && (
+                <Field.Message validation="error">
+                  Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+                  YYYY&quot; format.
+                </Field.Message>
+              )}
+            </Field>
+            <Field>
+              <Field.Label isRegular={false}>End date</Field.Label>
+              <Field.Hint>
+                3 accepted formats: &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+                YYYY&quot;
+              </Field.Hint>
+              <DatePickerRange.End>
+                <ClearableInput
+                  validation={endReason ? 'error' : undefined}
+                  buttonProps={{ onClick: () => setEndReason(undefined) }}
+                />
+              </DatePickerRange.End>
+              {endReason === 'malformed' && (
+                <Field.Message validation="error">
+                  Date must be in &quot;M/D/YYYY&quot;, &quot;Mon D, YYYY&quot;, or &quot;Month D,
+                  YYYY&quot; format.
+                </Field.Message>
+              )}
+            </Field>
+            <StyledCalendar />
+          </StyledGrid>
+        </Fieldset>
       </StyledScrollRegion>
     </DatePickerRange>
   );
