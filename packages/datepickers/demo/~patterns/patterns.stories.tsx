@@ -17,7 +17,6 @@ import { DatePickerRangeInvalidDateStory } from './stories/DatePickerRangeInvali
 import { DatePickerRangeOutOfRangeStory } from './stories/DatePickerRangeOutOfRangeStory';
 import { DatePickerRangeInvalidRequiredStory } from './stories/DatePickerRangeInvalidRequiredStory';
 import { DatePickerRangeOutOfOrderStory } from './stories/DatePickerRangeOutOfOrderStory';
-import { DatePickerRangeDialogStory } from './stories/DatePickerRangeDialogStory';
 
 export default {
   title: 'Packages/DatePickers/[patterns]'
@@ -153,9 +152,4 @@ export const DatePickerRangeOutOfOrder: StoryObj<typeof DatePickerRangeOutOfOrde
     await expect(endInput).toHaveAttribute('aria-invalid', 'true');
     await expect(endInput).toHaveValue('1/1/2000');
   }
-};
-
-export const DatePickerRangeInDialog: StoryObj<typeof DatePickerRangeDialogStory> = {
-  render: () => <DatePickerRangeDialogStory />,
-  name: 'DatePickerRange: Composed inside a dialog'
 };

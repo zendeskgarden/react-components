@@ -28,7 +28,7 @@ const StyledScrollRegion = styled.section`
 const StyledGrid = styled.div<{ isCompact?: boolean }>`
   display: grid;
   grid-template-columns: repeat(2, ${p => (p.isCompact ? '224px' : '280px')});
-  grid-template-rows: ${p => (p.isCompact ? '32px' : '40px')} auto;
+  grid-template-rows: auto auto;
   gap: ${p => (p.isCompact ? '16px' : '20px')};
 `;
 
@@ -54,13 +54,13 @@ export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...
       >
         <StyledGrid isCompact={isCompact}>
           <Field>
-            <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
+            <Field.Label>Start date</Field.Label>
             <DatePickerRange.Start>
               <ClearableInput isCompact={isCompact} />
             </DatePickerRange.Start>
           </Field>
           <Field>
-            <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
+            <Field.Label>End date</Field.Label>
             <DatePickerRange.End>
               <ClearableInput isCompact={isCompact} />
             </DatePickerRange.End>
