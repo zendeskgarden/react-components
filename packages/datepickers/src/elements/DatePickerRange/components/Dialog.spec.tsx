@@ -517,7 +517,7 @@ describe('DatePickerRange.Dialog', () => {
       });
     });
 
-    it("clips at its own bounds via overflow: hidden, leaving StyledRangeCalendar's own overflow: auto as the actual scroll container", async () => {
+    it("does not clip its own overflow, so it never hides StyledMenu's box-shadow or fights the open animation's transform - StyledRangeCalendar's own overflow: auto is the actual scroll container", async () => {
       const { container, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
 
       const dialog = getByTestId('range-dialog');
@@ -526,7 +526,7 @@ describe('DatePickerRange.Dialog', () => {
 
       await waitFor(() => {
         expect(dialog.style.maxWidth).not.toBe('');
-        expect(dialog.style.overflow).toBe('hidden');
+        expect(dialog.style.overflow).not.toBe('hidden');
 
         const calendar = container.querySelector<HTMLElement>(
           "[data-garden-id='datepickers.range_calendar']"
