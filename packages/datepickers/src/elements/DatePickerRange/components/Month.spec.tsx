@@ -750,30 +750,6 @@ describe('Month', () => {
       });
     });
 
-    it('does not steal focus to the End field when completing the range without a Dialog composed', async () => {
-      const { getAllByTestId } = render(
-        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
-      );
-
-      const monthDisplays = getAllByTestId('calendar-wrapper');
-
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
-
-      expect(getAllByTestId('end')[0]).not.toHaveFocus();
-    });
-
-    it('does not steal focus to the Start field when completing the range (Start picked second) without a Dialog composed', async () => {
-      const { getAllByTestId } = render(
-        <Example endValue={DEFAULT_END_VALUE} onChange={onChangeSpy} />
-      );
-
-      const monthDisplays = getAllByTestId('calendar-wrapper');
-
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[9]);
-
-      expect(getAllByTestId('start')[0]).not.toHaveFocus();
-    });
-
     it('advances from start to end again after clearing both fields via ClearableInput', async () => {
       const ControlledExample = ({
         startValue: initialStartValue,
@@ -1040,6 +1016,61 @@ describe('Month', () => {
         startValue: new Date(2019, 1, 4),
         endValue: undefined
       });
+    });
+  });
+
+  describe('Focus after selection, without a Dialog composed', () => {
+    it('moves focus to the selected day cell, not the End field, when completing the range', async () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
+      );
+      const endInput = getByTestId('end');
+
+      await user.click(endInput);
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const dayCell = globalGetAllByTestId(monthDisplays[1], 'day')[6];
+
+      await user.click(dayCell);
+
+      expect(dayCell).toHaveFocus();
+      expect(endInput).not.toHaveFocus();
+    });
+
+    it('moves focus to the selected day cell, not the Start field, when completing the range (Start picked second)', async () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example endValue={DEFAULT_END_VALUE} onChange={onChangeSpy} />
+      );
+      const startInput = getByTestId('start');
+
+      await user.click(startInput);
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const dayCell = globalGetAllByTestId(monthDisplays[0], 'day')[9];
+
+      await user.click(dayCell);
+
+      expect(dayCell).toHaveFocus();
+      expect(startInput).not.toHaveFocus();
+    });
+
+    it('lets arrow-key navigation continue after selecting a day cell by mouse', async () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
+      );
+
+      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const dayCell = globalGetAllByTestId(monthDisplays[1], 'day')[6];
+
+      await user.click(dayCell);
+
+      expect(dayCell).toHaveFocus();
+
+      await user.keyboard('{ArrowRight}');
+
+      const days = globalGetAllByTestId(monthDisplays[1], 'day');
+
+      expect(days[7]).toHaveFocus();
     });
   });
 

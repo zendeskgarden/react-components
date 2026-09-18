@@ -105,6 +105,27 @@ export function useDatePickerRange({
       ?.focus();
   }, [state.focusedDate]);
 
+  // A day click needs to defer its own follow-up focus() to the next commit - calling it
+  // synchronously can blur a currently-focused field before this same click's CLICK_DATE
+  // dispatch has flushed, so the field's blur handler commits against stale input text and
+  // clobbers this click's onChange. A dedicated counter (rather than `state` itself) forces
+  // that next commit even on the one CLICK_DATE branch that intentionally returns the same
+  // state reference.
+  const pendingCellFocusRef = useRef<HTMLElement | null>(null);
+  const [cellFocusRequestId, setCellFocusRequestId] = useState(0);
+
+  useEffect(() => {
+    if (pendingCellFocusRef.current) {
+      pendingCellFocusRef.current.focus();
+      pendingCellFocusRef.current = null;
+    }
+  }, [cellFocusRequestId]);
+
+  const requestCellFocus = useCallback((target: HTMLElement | null | undefined) => {
+    pendingCellFocusRef.current = target ?? null;
+    setCellFocusRequestId(id => id + 1);
+  }, []);
+
   // A consumer may compose more than one `Trigger` at once (e.g. one per field), so refs are
   // collected into a `Set` rather than a single ref.
   const startWrapperRef = useRef<HTMLDivElement>(null);
@@ -712,7 +733,7 @@ export function useDatePickerRange({
 
       const isCurrentDate = isToday(date);
 
-      const handleClick = () => {
+      const handleClick = (target?: HTMLTableCellElement | null) => {
         if (isDisabled) {
           return;
         }
@@ -761,21 +782,20 @@ export function useDatePickerRange({
           ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
         });
 
-        if (
-          hasDialog &&
-          !isOutOfOrder &&
-          result.startValue !== undefined &&
-          result.endValue !== undefined
-        ) {
-          setIsOpen(false);
-          (field === 'start' ? startInputRef : endInputRef).current?.focus();
+        if (hasDialog) {
+          if (!isOutOfOrder && result.startValue !== undefined && result.endValue !== undefined) {
+            setIsOpen(false);
+            requestCellFocus((field === 'start' ? startInputRef : endInputRef).current);
+          }
+        } else {
+          requestCellFocus(target);
         }
       };
 
       const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
         if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
           e.preventDefault();
-          handleClick();
+          handleClick(e.currentTarget);
 
           return;
         }
@@ -820,7 +840,9 @@ export function useDatePickerRange({
         'aria-current': isCurrentDate ? ('date' as const) : undefined,
         'aria-disabled': isDisabled || undefined,
         'aria-selected': isSelected,
-        onClick: composeEventHandlers(onClick, handleClick),
+        onClick: composeEventHandlers(onClick, (e: React.MouseEvent<HTMLTableCellElement>) =>
+          handleClick(e.currentTarget)
+        ),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
         'data-test-id': 'day',
         'data-test-selected': isSelected,
@@ -846,7 +868,8 @@ export function useDatePickerRange({
       rtl,
       startInputRef,
       endInputRef,
-      hasDialog
+      hasDialog,
+      requestCellFocus
     ]
   );
 
