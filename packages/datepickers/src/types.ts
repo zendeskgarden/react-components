@@ -398,21 +398,6 @@ export interface IDatePickerRangeTriggerProps extends ButtonHTMLAttributes<HTMLB
   toggleCalendarLabel?: string;
 }
 
-/**
- * Requires `aria-label` or `aria-labelledby` (or both) - there's no sensible universal
- * default name for the region (what's being wrapped varies: the calendar, the whole
- * composed widget, etc.), and an unlabelled focusable region is itself a barrier.
- **/
-type IDatePickerRangeScrollRegionLabelProps =
-  | { 'aria-label': string; 'aria-labelledby'?: string }
-  | { 'aria-label'?: string; 'aria-labelledby': string };
-
-export type IDatePickerRangeScrollRegionProps = Omit<
-  HTMLAttributes<HTMLElement>,
-  'aria-label' | 'aria-labelledby'
-> &
-  IDatePickerRangeScrollRegionLabelProps;
-
 export interface IDatePickerRangeDialogProps extends HTMLAttributes<HTMLDivElement> {
   /** Appends the dialog to the element provided **/
   appendToNode?: Element | DocumentFragment;
