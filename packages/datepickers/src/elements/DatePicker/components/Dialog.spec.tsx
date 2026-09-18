@@ -31,6 +31,23 @@ const mockNarrowReferenceRect = (element: HTMLElement) => {
   );
 };
 
+/** Near the viewport's bottom edge, so `flip()` places the dialog above instead of below. */
+const mockNarrowBottomReferenceRect = (element: HTMLElement) => {
+  element.getBoundingClientRect = jest.fn(
+    () =>
+      ({
+        width: 10,
+        height: 10,
+        top: 700,
+        left: 250,
+        bottom: 710,
+        right: 260,
+        x: 250,
+        y: 700
+      }) as DOMRect
+  );
+};
+
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
   <>
     <label data-test-id="label" htmlFor="input">
@@ -254,6 +271,33 @@ describe('Dialog', () => {
       });
     });
 
+    it('gives the overflow:auto calendar grid a real pixel max-height matching the available space, so it actually scrolls instead of just rendering past the wrapper', async () => {
+      const { container, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        const calendarGrid = container.querySelector<HTMLElement>(
+          "[data-garden-id='datepickers.calendar_grid']"
+        );
+        const dialogMaxHeight = parseFloat(dialog.style.maxHeight);
+
+        expect(dialogMaxHeight).not.toBeNaN();
+        // A percentage (e.g. "100%", like StyledMenu gets below) would also parse
+        // to a number here, so also assert it's expressed in real pixels - a
+        // percentage can't resolve against an ancestor whose own height is
+        // `auto`, which is exactly why the grid never actually scrolled before.
+        expect(calendarGrid?.style.maxHeight.endsWith('px')).toBe(true);
+        expect(parseFloat(calendarGrid?.style.maxHeight || '')).toBe(dialogMaxHeight);
+      });
+    });
+
     it("caps StyledMenu (the wrapper's inline-block child) to its parent's now-constrained width", async () => {
       const { container, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
@@ -286,6 +330,42 @@ describe('Dialog', () => {
 
         expect(maxWidth).not.toBeNaN();
         expect(maxWidth).toBeLessThan(edgeToEdgeWidth);
+      });
+    });
+
+    it('leaves the same gap beneath the dialog and the viewport edge, not just to the sides', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        const maxHeight = parseFloat(dialog.style.maxHeight);
+        const edgeToEdgeHeight = 800 - 110;
+
+        expect(maxHeight).not.toBeNaN();
+        expect(maxHeight).toBeLessThan(edgeToEdgeHeight);
+      });
+    });
+
+    it('leaves the same gap above the dialog and the viewport edge when flip() opens it upward', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      mockNarrowBottomReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        const maxHeight = parseFloat(dialog.style.maxHeight);
+        const edgeToEdgeHeight = 700 - 0;
+
+        expect(maxHeight).not.toBeNaN();
+        expect(maxHeight).toBeLessThan(edgeToEdgeHeight);
       });
     });
 
