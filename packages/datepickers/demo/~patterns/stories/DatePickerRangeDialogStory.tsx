@@ -9,19 +9,13 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
-import { ClearableInput, Field, InputGroup } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 
 const StyledWrapper = styled.div`
   display: inline-block;
   position: relative;
 `;
 
-/**
- * DatePickerRange normally renders its calendar inline; composing
- * Trigger + Dialog opts into DatePicker's popover UX instead. Start/End
- * auto-wire to the Dialog once it's composed.
- */
 export const DatePickerRangeDialogStory: StoryFn = () => {
   const [startValue, setStartValue] = useState<Date | undefined>(undefined);
   const [endValue, setEndValue] = useState<Date | undefined>(undefined);
@@ -36,38 +30,32 @@ export const DatePickerRangeDialogStory: StoryFn = () => {
       }}
     >
       <StyledWrapper>
-        <Grid>
-          <Grid.Row alignItems="end">
-            <Grid.Col size="auto">
-              <Field>
-                <Field.Label>Start date</Field.Label>
-                <InputGroup isUnified>
-                  <DatePickerRange.Start>
-                    <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
-                  </DatePickerRange.Start>
-                  <DatePickerRange.Trigger
-                    toggleCalendarLabel="Choose start date"
-                    data-test-id="start-calendar-button"
-                  />
-                </InputGroup>
-              </Field>
-            </Grid.Col>
-            <Grid.Col size="auto">
-              <Field>
-                <Field.Label>End date</Field.Label>
-                <InputGroup isUnified>
-                  <DatePickerRange.End>
-                    <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
-                  </DatePickerRange.End>
-                  <DatePickerRange.Trigger
-                    toggleCalendarLabel="Choose end date"
-                    data-test-id="end-calendar-button"
-                  />
-                </InputGroup>
-              </Field>
-            </Grid.Col>
-          </Grid.Row>
-        </Grid>
+        <div>
+          <Field>
+            <Field.Label>Start date</Field.Label>
+            <DatePickerRange.StartGroup>
+              <DatePickerRange.Start>
+                <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
+              </DatePickerRange.Start>
+              <DatePickerRange.Trigger
+                toggleCalendarLabel="Choose start date"
+                data-test-id="start-calendar-button"
+              />
+            </DatePickerRange.StartGroup>
+          </Field>
+          <Field>
+            <Field.Label>End date</Field.Label>
+            <DatePickerRange.EndGroup>
+              <DatePickerRange.End>
+                <ClearableInput wrapperProps={{ role: null, 'aria-labelledby': null } as any} />
+              </DatePickerRange.End>
+              <DatePickerRange.Trigger
+                toggleCalendarLabel="Choose end date"
+                data-test-id="end-calendar-button"
+              />
+            </DatePickerRange.EndGroup>
+          </Field>
+        </div>
         <DatePickerRange.Dialog>
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>

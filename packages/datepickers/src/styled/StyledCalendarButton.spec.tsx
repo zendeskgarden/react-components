@@ -47,13 +47,13 @@ describe('StyledCalendarButton', () => {
     });
   });
 
-  it('shows a default, non-interactive cursor', () => {
+  it('shows a text cursor, matching the rest of the input group', () => {
     const { container } = render(
       <StyledCalendarButton>
         <svg />
       </StyledCalendarButton>
     );
 
-    expect(container.firstChild).toHaveStyleRule('cursor', 'default', { modifier: '&&' });
+    expect(container.firstChild).toHaveStyleRule('cursor', 'text', { modifier: '&&' });
   });
 });

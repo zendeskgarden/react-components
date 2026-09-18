@@ -30,6 +30,22 @@ const Example = (props: IDatePickerRangeProps) => (
   </DatePickerRange>
 );
 
+/**
+ * A composite child with no click-to-focus behavior of its own, so tests
+ * against it exercise only what `DatePickerRange.Start`/`.End` themselves
+ * forward through `wrapperRef`/`wrapperProps` - not a composed component's
+ * (e.g. `ClearableInput`'s) own internal wrapper-click handling.
+ */
+const BareWrapperInput = React.forwardRef<HTMLInputElement, Record<string, unknown>>(
+  ({ wrapperRef, wrapperProps, ...inputProps }: any, ref) => (
+    <div data-test-id="start-wrapper" {...wrapperProps} ref={wrapperRef}>
+      <input ref={ref} {...inputProps} />
+    </div>
+  )
+);
+
+BareWrapperInput.displayName = 'BareWrapperInput';
+
 describe('DatePickerRange', () => {
   const user = userEvent.setup();
 
@@ -660,6 +676,25 @@ describe('DatePickerRange', () => {
 
       expect(onValueSettledSpy).toHaveBeenCalled();
       expect(startInput).toHaveValue('invalid date');
+    });
+  });
+
+  describe('wrapper click', () => {
+    it("focuses the input when a composite child's own wrapper is clicked, not just the input itself", () => {
+      const { getByTestId } = render(
+        <DatePickerRange onChange={onChangeSpy}>
+          <DatePickerRange.Start>
+            <BareWrapperInput data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange>
+      );
+
+      fireEvent.click(getByTestId('start-wrapper'));
+
+      expect(getByTestId('start')).toHaveFocus();
     });
   });
 });

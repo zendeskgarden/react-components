@@ -153,15 +153,16 @@ export function useDatePicker({
 
   const getGroupProps = useCallback(
     (props: ElementProps<HTMLDivElement> = {}) => {
-      const { onBlur, ...other } = props;
+      const { onBlur, onClick, ...other } = props;
 
       return {
         ref: groupRef,
         onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
+        onClick: composeEventHandlers(onClick, () => inputRef.current?.focus()),
         ...other
       };
     },
-    [handleWidgetBlur]
+    [handleWidgetBlur, inputRef]
   );
 
   const getTriggerProps = useCallback(

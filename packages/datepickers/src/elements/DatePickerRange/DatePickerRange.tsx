@@ -13,7 +13,9 @@ import { IDatePickerRangeProps, WEEK_STARTS_ON } from '../../types';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
 import { useDatePickerRange } from './utils/useDatePickerRange';
 import { Start } from './components/Start';
+import { StartGroup } from './components/StartGroup';
 import { End } from './components/End';
+import { EndGroup } from './components/EndGroup';
 import { Calendar } from './components/Calendar';
 import { Trigger } from './components/Trigger';
 import { Dialog } from './components/Dialog';
@@ -131,13 +133,17 @@ DatePickerRangeComponent.propTypes = {
 export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRangeComponent & {
   Calendar: typeof Calendar;
   End: typeof End;
+  EndGroup: typeof EndGroup;
   Start: typeof Start;
+  StartGroup: typeof StartGroup;
   Trigger: typeof Trigger;
   Dialog: typeof Dialog;
 };
 
 DatePickerRange.Calendar = Calendar;
 DatePickerRange.End = End;
+DatePickerRange.EndGroup = EndGroup;
 DatePickerRange.Start = Start;
+DatePickerRange.StartGroup = StartGroup;
 DatePickerRange.Trigger = Trigger;
 DatePickerRange.Dialog = Dialog;

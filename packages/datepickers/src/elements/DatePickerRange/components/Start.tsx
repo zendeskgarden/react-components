@@ -39,9 +39,17 @@ export const Start = ({ children }: PropsWithChildren<IStartProps>) => {
   };
 
   if (isComponent) {
-    const { ref: wrapperRef, onBlur: wrapperOnBlur } = getStartWrapperProps();
+    const {
+      ref: wrapperRef,
+      onBlur: wrapperOnBlur,
+      onClick: wrapperOnClick
+    } = getStartWrapperProps();
 
-    inputProps = { ...inputProps, wrapperRef, wrapperProps: { onBlur: wrapperOnBlur } };
+    inputProps = {
+      ...inputProps,
+      wrapperRef,
+      wrapperProps: { onBlur: wrapperOnBlur, onClick: wrapperOnClick }
+    };
   }
 
   if (hasDialog) {
