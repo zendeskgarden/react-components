@@ -89,6 +89,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         placement={_placement}
         isAnimated={isAnimated}
         zIndex={zIndex}
+        isCompact={isCompact}
         {...menuProps}
       >
         <Calendar

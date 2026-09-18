@@ -548,5 +548,51 @@ describe('DatePickerRange.Dialog', () => {
         expect(menu?.style.maxHeight).toBe('100%');
       });
     });
+
+    it('leaves a gap between the dialog and the viewport edge, instead of touching it exactly', async () => {
+      const { getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+
+      const dialog = getByTestId('range-dialog');
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        const maxWidth = parseFloat(dialog.style.maxWidth);
+        const edgeToEdgeWidth = 300 - 250;
+
+        expect(maxWidth).not.toBeNaN();
+        expect(maxWidth).toBeLessThan(edgeToEdgeWidth);
+      });
+    });
+
+    it('uses a smaller gap when compact, leaving more available space than the default spacing', async () => {
+      const { getByTestId: getByDefaultTestId, unmount } = render(
+        <Example dialogProps={{ referenceElement }} />
+      );
+
+      await user.click(getByDefaultTestId('trigger'));
+
+      let defaultMaxWidth: number;
+
+      await waitFor(() => {
+        defaultMaxWidth = parseFloat(getByDefaultTestId('range-dialog').style.maxWidth);
+        expect(defaultMaxWidth).not.toBeNaN();
+      });
+
+      unmount();
+
+      const { getByTestId: getByCompactTestId } = render(
+        <Example isCompact dialogProps={{ referenceElement }} />
+      );
+
+      await user.click(getByCompactTestId('trigger'));
+
+      await waitFor(() => {
+        const compactMaxWidth = parseFloat(getByCompactTestId('range-dialog').style.maxWidth);
+
+        expect(compactMaxWidth).not.toBeNaN();
+        expect(compactMaxWidth).toBeGreaterThan(defaultMaxWidth);
+      });
+    });
   });
 });

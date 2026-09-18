@@ -262,5 +262,57 @@ describe('Dialog', () => {
         expect(menu?.style.maxHeight).toBe('100%');
       });
     });
+
+    it('leaves a gap between the dialog and the viewport edge, instead of touching it exactly', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        const maxWidth = parseFloat(dialog.style.maxWidth);
+        const edgeToEdgeWidth = 300 - 250;
+
+        expect(maxWidth).not.toBeNaN();
+        expect(maxWidth).toBeLessThan(edgeToEdgeWidth);
+      });
+    });
+
+    it('uses a smaller gap when compact, leaving more available space than the default spacing', async () => {
+      const { getByTestId: getByDefaultTestId, unmount } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      mockNarrowReferenceRect(getByDefaultTestId('input'));
+
+      await user.click(getByDefaultTestId('calendar-button'));
+
+      let defaultMaxWidth: number;
+
+      await waitFor(() => {
+        defaultMaxWidth = parseFloat(getByDefaultTestId('datepicker-menu').style.maxWidth);
+        expect(defaultMaxWidth).not.toBeNaN();
+      });
+
+      unmount();
+
+      const { getByTestId: getByCompactTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} isCompact />
+      );
+
+      mockNarrowReferenceRect(getByCompactTestId('input'));
+
+      await user.click(getByCompactTestId('calendar-button'));
+
+      await waitFor(() => {
+        const compactMaxWidth = parseFloat(getByCompactTestId('datepicker-menu').style.maxWidth);
+
+        expect(compactMaxWidth).not.toBeNaN();
+        expect(compactMaxWidth).toBeGreaterThan(defaultMaxWidth);
+      });
+    });
   });
 });
