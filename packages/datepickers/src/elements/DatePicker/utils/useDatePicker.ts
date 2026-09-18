@@ -66,6 +66,8 @@ export function useDatePicker({
   const shouldFocusDialogRef = useRef(false);
   const previousActiveElementRef = useRef<Element | null>(null);
   const pendingGridFocusRef = useRef(false);
+  /** Set right before refocusing the input after a selection auto-closes the dialog, so the next click on that already-focused input reopens it instead of being mistaken for a click inside text being edited. */
+  const justClosedViaSelectionRef = useRef(false);
 
   const [state, dispatch] = useReducer(
     datepickerReducer,
@@ -235,6 +237,7 @@ export function useDatePicker({
           settleValue(inputValue);
         }
 
+        justClosedViaSelectionRef.current = false;
         dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
       };
 
@@ -250,14 +253,17 @@ export function useDatePicker({
 
       const handleClick = () => {
         const previousActiveElement = previousActiveElementRef.current;
+        const justClosedViaSelection = justClosedViaSelectionRef.current;
 
         previousActiveElementRef.current = null;
+        justClosedViaSelectionRef.current = false;
 
         if (
           shouldOpenOnFieldClick({
             isOpen: state.isOpen,
             previousActiveElement,
-            widgetRefs: [groupRef, dialogRef]
+            widgetRefs: [groupRef, dialogRef],
+            justClosedViaSelection
           })
         ) {
           dispatch({ type: 'OPEN', value });
@@ -358,6 +364,7 @@ export function useDatePicker({
         }
 
         dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate });
+        justClosedViaSelectionRef.current = true;
         inputRef.current?.focus();
       };
 

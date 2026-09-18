@@ -238,6 +238,24 @@ describe('Month', () => {
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
+    it('reopens on a second click of the already-focused input after a date is selected', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      const input = getByTestId('input');
+
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(input).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+
+      await user.click(input);
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    });
+
     it('selects, closes, and returns focus to the input on Enter', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
