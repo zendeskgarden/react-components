@@ -31,23 +31,26 @@ export const isInsideWidget = (
 /**
  * Per the APG dialog pattern: settle and close when focus leaves the widget
  * entirely, just close (no settle) when it returns to a trigger field from
- * elsewhere in the widget, otherwise do nothing (e.g. moving between two
- * fields, or into a `ClearableInput`'s own clear button).
+ * the dialog itself (e.g. Escape, or selecting a day), otherwise do nothing
+ * (e.g. moving between two fields, or into a `ClearableInput`'s own clear
+ * button).
  */
 export const resolveWidgetBlur = ({
   target,
   relatedTarget,
   fieldRefs,
-  widgetRefs
+  widgetRefs,
+  dialogRef
 }: {
   target: Node;
   relatedTarget: Node | null;
   fieldRefs: RefObject<HTMLElement | null>[];
   widgetRefs: RefObject<HTMLElement | null>[];
+  dialogRef: RefObject<HTMLElement | null>;
 }): { shouldSettle: boolean; shouldClose: boolean } => {
-  const isBlurringFromField = fieldRefs.some(ref => ref.current === target);
+  const isBlurringFromDialog = !!dialogRef.current?.contains(target);
   const isReturningToField =
-    !isBlurringFromField && !!relatedTarget && fieldRefs.some(ref => ref.current === relatedTarget);
+    isBlurringFromDialog && !!relatedTarget && fieldRefs.some(ref => ref.current === relatedTarget);
 
   if (isReturningToField) {
     return { shouldSettle: false, shouldClose: true };
