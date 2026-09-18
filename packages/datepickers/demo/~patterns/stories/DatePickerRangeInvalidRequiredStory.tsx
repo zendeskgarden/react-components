@@ -16,7 +16,7 @@ import {
   DatePickerRangeInvalidReason,
   IDatePickerRangeValueSettledResult
 } from '@zendeskgarden/react-datepickers';
-import { ClearableInput, Field } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 import { customParseShortDate, formatShortDate } from './utils';
 
 const StyledScrollRegion = styled.section`
@@ -81,41 +81,44 @@ export const DatePickerRangeInvalidRequiredStory: StoryFn = () => {
         tabIndex={containerTabIndex}
         aria-label="Date range picker with required fields"
       >
-        <StyledGrid>
-          <Field>
-            <Field.Label>
-              Start date<span aria-hidden="true">*</span>
-            </Field.Label>
-            <Field.Hint>Must be M/D/YYYY format</Field.Hint>
-            <DatePickerRange.Start>
-              <ClearableInput
-                required
-                validation={startReason ? 'error' : undefined}
-                buttonProps={{ onClick: () => setStartReason(undefined) }}
-              />
-            </DatePickerRange.Start>
-            {startReason === 'required' && (
-              <Field.Message validation="error">Start date cannot be blank.</Field.Message>
-            )}
-          </Field>
-          <Field>
-            <Field.Label>
-              End date<span aria-hidden="true">*</span>
-            </Field.Label>
-            <Field.Hint>Must be M/D/YYYY format</Field.Hint>
-            <DatePickerRange.End>
-              <ClearableInput
-                required
-                validation={endReason ? 'error' : undefined}
-                buttonProps={{ onClick: () => setEndReason(undefined) }}
-              />
-            </DatePickerRange.End>
-            {endReason === 'required' && (
-              <Field.Message validation="error">End date cannot be blank.</Field.Message>
-            )}
-          </Field>
-          <StyledCalendar />
-        </StyledGrid>
+        <Fieldset>
+          <Fieldset.Legend hidden>Date range</Fieldset.Legend>
+          <StyledGrid>
+            <Field>
+              <Field.Label isRegular={false}>
+                Start date<span aria-hidden="true">*</span>
+              </Field.Label>
+              <Field.Hint>Must be M/D/YYYY format</Field.Hint>
+              <DatePickerRange.Start>
+                <ClearableInput
+                  required
+                  validation={startReason ? 'error' : undefined}
+                  buttonProps={{ onClick: () => setStartReason(undefined) }}
+                />
+              </DatePickerRange.Start>
+              {startReason === 'required' && (
+                <Field.Message validation="error">Start date cannot be blank.</Field.Message>
+              )}
+            </Field>
+            <Field>
+              <Field.Label isRegular={false}>
+                End date<span aria-hidden="true">*</span>
+              </Field.Label>
+              <Field.Hint>Must be M/D/YYYY format</Field.Hint>
+              <DatePickerRange.End>
+                <ClearableInput
+                  required
+                  validation={endReason ? 'error' : undefined}
+                  buttonProps={{ onClick: () => setEndReason(undefined) }}
+                />
+              </DatePickerRange.End>
+              {endReason === 'required' && (
+                <Field.Message validation="error">End date cannot be blank.</Field.Message>
+              )}
+            </Field>
+            <StyledCalendar />
+          </StyledGrid>
+        </Fieldset>
       </StyledScrollRegion>
     </DatePickerRange>
   );

@@ -9,7 +9,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
-import { ClearableInput, Field } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 
 const FIELD_WIDTH_PX = 302;
 const COMPACT_FIELD_WIDTH_PX = 235;
@@ -65,40 +65,43 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
   return (
     <DatePickerRange {...args} isCompact={isCompact}>
       <StyledWrapper>
-        <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
-          <StyledField>
-            <Field.Label>Start date</Field.Label>
-            <DatePickerRange.StartGroup>
-              <DatePickerRange.Start>
-                <ClearableInput
-                  ref={startInputRef}
-                  isCompact={isCompact}
-                  wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
+        <Fieldset isCompact={isCompact}>
+          <Fieldset.Legend hidden>Date range</Fieldset.Legend>
+          <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
+            <StyledField>
+              <Field.Label isRegular={false}>Start date</Field.Label>
+              <DatePickerRange.StartGroup>
+                <DatePickerRange.Start>
+                  <ClearableInput
+                    ref={startInputRef}
+                    isCompact={isCompact}
+                    wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
+                  />
+                </DatePickerRange.Start>
+                <DatePickerRange.Trigger
+                  toggleCalendarLabel="Choose start date"
+                  data-test-id="start-calendar-button"
                 />
-              </DatePickerRange.Start>
-              <DatePickerRange.Trigger
-                toggleCalendarLabel="Choose start date"
-                data-test-id="start-calendar-button"
-              />
-            </DatePickerRange.StartGroup>
-          </StyledField>
-          <StyledField>
-            <Field.Label>End date</Field.Label>
-            <DatePickerRange.EndGroup>
-              <DatePickerRange.End>
-                <ClearableInput
-                  ref={endInputRef}
-                  isCompact={isCompact}
-                  wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
+              </DatePickerRange.StartGroup>
+            </StyledField>
+            <StyledField>
+              <Field.Label isRegular={false}>End date</Field.Label>
+              <DatePickerRange.EndGroup>
+                <DatePickerRange.End>
+                  <ClearableInput
+                    ref={endInputRef}
+                    isCompact={isCompact}
+                    wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
+                  />
+                </DatePickerRange.End>
+                <DatePickerRange.Trigger
+                  toggleCalendarLabel="Choose end date"
+                  data-test-id="end-calendar-button"
                 />
-              </DatePickerRange.End>
-              <DatePickerRange.Trigger
-                toggleCalendarLabel="Choose end date"
-                data-test-id="end-calendar-button"
-              />
-            </DatePickerRange.EndGroup>
-          </StyledField>
-        </StyledFlexContainer>
+              </DatePickerRange.EndGroup>
+            </StyledField>
+          </StyledFlexContainer>
+        </Fieldset>
         <DatePickerRange.Dialog
           referenceElement={isSideBySide === false ? endInputRef.current : startInputRef.current}
         >
