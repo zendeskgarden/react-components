@@ -7,7 +7,7 @@
 
 import React, { ComponentProps } from 'react';
 import userEvent from '@testing-library/user-event';
-import { act, render, renderRtl } from 'garden-test-utils';
+import { act, render, renderRtl, waitFor } from 'garden-test-utils';
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
 import { Dialog } from './Dialog';
@@ -366,6 +366,72 @@ describe('DatePickerRange.Dialog', () => {
 
       expect(container.querySelector(selector)).toBeNull();
       expect(node.querySelector(selector)).not.toBeNull();
+    });
+  });
+
+  describe('referenceElement override', () => {
+    let customReferenceElement: HTMLButtonElement;
+
+    beforeEach(() => {
+      customReferenceElement = document.createElement('button');
+      document.body.appendChild(customReferenceElement);
+      customReferenceElement.getBoundingClientRect = jest.fn(
+        () =>
+          ({
+            width: 10,
+            height: 10,
+            top: 500,
+            left: 500,
+            bottom: 510,
+            right: 510,
+            x: 500,
+            y: 500
+          }) as DOMRect
+      );
+    });
+
+    afterEach(() => {
+      document.body.removeChild(customReferenceElement);
+    });
+
+    it('anchors to a consumer-provided referenceElement instead of the default Start/End/Trigger chain', async () => {
+      const { getByTestId: getByDefaultTestId, unmount } = render(<Example />);
+
+      await user.click(getByDefaultTestId('trigger'));
+
+      const defaultTransform = getByDefaultTestId('range-dialog').style.transform;
+
+      unmount();
+
+      const { getByTestId: getByOverrideTestId } = render(
+        <Example dialogProps={{ referenceElement: customReferenceElement }} />
+      );
+
+      await user.click(getByOverrideTestId('trigger'));
+
+      await waitFor(() => {
+        expect(getByOverrideTestId('range-dialog').style.transform).not.toBe(defaultTransform);
+      });
+    });
+
+    it('falls back to the default Start/End/Trigger chain when referenceElement is undefined', async () => {
+      const { getByTestId: getByDefaultTestId, unmount } = render(<Example />);
+
+      await user.click(getByDefaultTestId('trigger'));
+
+      const defaultTransform = getByDefaultTestId('range-dialog').style.transform;
+
+      unmount();
+
+      const { getByTestId: getByExplicitTestId } = render(
+        <Example dialogProps={{ referenceElement: undefined }} />
+      );
+
+      await user.click(getByExplicitTestId('trigger'));
+
+      await waitFor(() => {
+        expect(getByExplicitTestId('range-dialog').style.transform).toBe(defaultTransform);
+      });
     });
   });
 });
