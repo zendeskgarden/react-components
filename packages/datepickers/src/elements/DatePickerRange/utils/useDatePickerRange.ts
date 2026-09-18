@@ -152,7 +152,8 @@ export function useDatePickerRange({
         target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [startInputRef, endInputRef],
-        widgetRefs: getWidgetRefs()
+        widgetRefs: getWidgetRefs(),
+        dialogRef
       });
 
       if (shouldClose && isOpen) {

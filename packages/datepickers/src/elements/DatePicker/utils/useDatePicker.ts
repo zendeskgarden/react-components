@@ -137,7 +137,8 @@ export function useDatePicker({
         target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [inputRef],
-        widgetRefs: [groupRef, dialogRef]
+        widgetRefs: [groupRef, dialogRef],
+        dialogRef
       });
 
       if (shouldSettle) {

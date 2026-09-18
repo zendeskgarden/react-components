@@ -8,6 +8,7 @@
 import React, { ComponentProps } from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, render, renderRtl, waitFor } from 'garden-test-utils';
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
 import { Dialog } from './Dialog';
@@ -298,6 +299,41 @@ describe('DatePickerRange.Dialog', () => {
 
       await user.click(getByTestId('start'));
 
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+
+    it('stays open when focus moves from Start, through its own ClearableInput clear button, to End', async () => {
+      const { getByRole, getByTestId } = render(
+        <DatePickerRange onChange={jest.fn()}>
+          <div style={{ position: 'relative', display: 'inline-block' }}>
+            <DatePickerRange.Start>
+              <ClearableInput data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" />
+            </DatePickerRange.End>
+            <DatePickerRange.Dialog>
+              <DatePickerRange.Calendar />
+            </DatePickerRange.Dialog>
+          </div>
+        </DatePickerRange>
+      );
+
+      const startInput = getByTestId('start');
+
+      await user.click(startInput);
+      await user.type(startInput, '2/5/2019');
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.tab();
+
+      expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.tab();
+
+      expect(getByTestId('end')).toHaveFocus();
       expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
     });
   });
