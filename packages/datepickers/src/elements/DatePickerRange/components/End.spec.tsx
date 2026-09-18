@@ -555,6 +555,31 @@ describe('DatePickerRange', () => {
       });
     });
 
+    it('calls onChange with endValue undefined when a ClearableInput clear button is clicked, even without onValueSettled wired', async () => {
+      const { getByRole } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByRole('button', { name: 'Clear' }));
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: DEFAULT_START_VALUE,
+        endValue: undefined
+      });
+    });
+
     it('does not settle when focus moves to its own ClearableInput clear button', async () => {
       const { getByTestId } = render(
         <DatePickerRange
