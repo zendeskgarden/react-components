@@ -42,7 +42,7 @@ export const DatePickerStory: StoryFn<IArgs> = ({
               <ClearableInput
                 isCompact={isCompact}
                 validation={validation}
-                wrapperProps={{ role: null, 'aria-labelledby': null } as any}
+                wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
               />
             </DatePicker>
             {!!hasMessage && (
