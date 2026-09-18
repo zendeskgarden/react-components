@@ -41,6 +41,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     inRangeLabel,
     startOfRangeLabel,
     endOfRangeLabel,
+    selectableCellRoleDescription,
     children
   } = props;
 
@@ -81,7 +82,8 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       toolbarLabel,
       inRangeLabel,
       startOfRangeLabel,
-      endOfRangeLabel
+      endOfRangeLabel,
+      selectableCellRoleDescription
     }),
     [
       datePickerRange,
@@ -99,7 +101,8 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       toolbarLabel,
       inRangeLabel,
       startOfRangeLabel,
-      endOfRangeLabel
+      endOfRangeLabel,
+      selectableCellRoleDescription
     ]
   );
 
@@ -127,7 +130,8 @@ DatePickerRangeComponent.propTypes = {
   toolbarLabel: PropTypes.string,
   inRangeLabel: PropTypes.string,
   startOfRangeLabel: PropTypes.string,
-  endOfRangeLabel: PropTypes.string
+  endOfRangeLabel: PropTypes.string,
+  selectableCellRoleDescription: PropTypes.string
 };
 
 export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRangeComponent & {

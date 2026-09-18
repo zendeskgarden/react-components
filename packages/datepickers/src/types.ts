@@ -115,6 +115,8 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   nextYearLabel?: string;
   /** Provides a customized/translated accessible name for the header's month/year navigation toolbar **/
   toolbarLabel?: string;
+  /** Provides a customized/translated `aria-roledescription` announced on each selectable day cell **/
+  selectableCellRoleDescription?: string;
   /** @ignore ReactNode override **/
   children: ReactElement;
 }
@@ -132,6 +134,7 @@ export interface IDatePickerRangeProps extends Pick<
   | 'previousYearLabel'
   | 'nextYearLabel'
   | 'toolbarLabel'
+  | 'selectableCellRoleDescription'
 > {
   /** Sets the start date **/
   startValue?: Date;
@@ -350,6 +353,7 @@ export interface IDatePickerCalendarProps extends Omit<HTMLAttributes<HTMLDivEle
   previousYearLabel?: string;
   nextYearLabel?: string;
   toolbarLabel?: string;
+  selectableCellRoleDescription?: string;
 }
 
 export interface IDatePickerMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
@@ -359,6 +363,7 @@ export interface IDatePickerMonthProps extends Omit<HTMLAttributes<HTMLDivElemen
   isCompact?: boolean;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
+  selectableCellRoleDescription?: string;
 }
 
 export interface IDatePickerTriggerProps {

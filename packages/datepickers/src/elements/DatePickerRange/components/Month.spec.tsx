@@ -162,6 +162,22 @@ describe('Month', () => {
       });
     });
 
+    it('accepts a custom selectableCellRoleDescription', () => {
+      const { getAllByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          selectableCellRoleDescription="cellule sélectionnable"
+        />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      [...getDays(calendarWrappers[0]), ...getDays(calendarWrappers[1])].forEach(day => {
+        expect(day).toHaveAttribute('aria-roledescription', 'cellule sélectionnable');
+      });
+    });
+
     it('renders aria-selected on every real day cell, true only for the committed start/end values', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
