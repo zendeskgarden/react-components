@@ -27,6 +27,7 @@ const StyledWrapper = styled.div`
 
 const StyledFlexContainer = styled.div<{ $isCompact?: boolean }>`
   display: flex;
+  position: relative;
   flex-wrap: wrap;
   gap: ${p => (p.$isCompact ? `${COMPACT_GAP_PX}px` : `${GAP_PX}px`)};
 `;

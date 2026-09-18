@@ -36,6 +36,7 @@ export const StyledCalendarGrid = styled.div.attrs({
   display: grid;
   grid-template-rows: auto auto;
   align-items: center;
+  overflow: auto;
 
   ${sizeStyles}
   ${componentStyles};

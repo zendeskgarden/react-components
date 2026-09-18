@@ -7,13 +7,29 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { fireEvent, render, renderRtl } from 'garden-test-utils';
+import { fireEvent, render, renderRtl, waitFor } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { DatePicker } from '../DatePicker';
 import { IDatePickerProps } from '../../../types';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
+
+const mockNarrowReferenceRect = (element: HTMLElement) => {
+  element.getBoundingClientRect = jest.fn(
+    () =>
+      ({
+        width: 10,
+        height: 10,
+        top: 100,
+        left: 250,
+        bottom: 110,
+        right: 260,
+        x: 250,
+        y: 100
+      }) as DOMRect
+  );
+};
 
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
   <>
@@ -161,5 +177,90 @@ describe('Dialog', () => {
     await user.click(getByTestId('input'));
 
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+  });
+
+  describe('viewport overflow', () => {
+    beforeEach(() => {
+      Object.defineProperty(document.documentElement, 'clientWidth', {
+        configurable: true,
+        value: 300
+      });
+      Object.defineProperty(document.documentElement, 'clientHeight', {
+        configurable: true,
+        value: 800
+      });
+    });
+
+    afterEach(() => {
+      delete (document.documentElement as { clientWidth?: number }).clientWidth;
+      delete (document.documentElement as { clientHeight?: number }).clientHeight;
+    });
+
+    it('constrains its own max size to the available viewport space', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        const maxWidth = parseFloat(dialog.style.maxWidth);
+
+        expect(maxWidth).not.toBeNaN();
+        expect(maxWidth).toBeLessThanOrEqual(300);
+      });
+    });
+
+    it('does not move the dialog away from its reference element, unlike shift()', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
+        const x = match ? parseFloat(match.groups!.x) : NaN;
+
+        expect(x).not.toBeNaN();
+        expect(x).toBe(250);
+      });
+    });
+
+    it('clips at its own bounds via overflow: hidden', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      const dialog = getByTestId('datepicker-menu');
+
+      await waitFor(() => {
+        expect(dialog.style.maxWidth).not.toBe('');
+        expect(dialog.style.overflow).toBe('hidden');
+      });
+    });
+
+    it("caps StyledMenu (the wrapper's inline-block child) to its parent's now-constrained width", async () => {
+      const { container, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      mockNarrowReferenceRect(getByTestId('input'));
+
+      await user.click(getByTestId('calendar-button'));
+
+      await waitFor(() => {
+        const menu = container.querySelector<HTMLElement>("[data-garden-id='datepickers.menu']");
+
+        expect(menu?.style.maxWidth).toBe('100%');
+        expect(menu?.style.maxHeight).toBe('100%');
+      });
+    });
   });
 });
