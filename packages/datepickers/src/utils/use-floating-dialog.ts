@@ -12,6 +12,7 @@ import {
   autoUpdate,
   flip,
   platform,
+  size,
   useFloating,
   Placement
 } from '@floating-ui/react-dom';
@@ -66,7 +67,24 @@ export function useFloatingDialog({
       floating: dialogRef?.current as HTMLElement | null
     },
     placement: floatingPlacement,
-    middleware: [_placement === 'auto' ? autoPlacement() : flip()]
+    middleware: [
+      _placement === 'auto' ? autoPlacement() : flip(),
+      size({
+        apply({ availableWidth, availableHeight, elements }) {
+          Object.assign(elements.floating.style, {
+            maxWidth: `${Math.max(0, availableWidth)}px`,
+            maxHeight: `${Math.max(0, availableHeight)}px`,
+            overflow: 'hidden'
+          });
+
+          const menu = elements.floating.firstElementChild as HTMLElement | null;
+
+          if (menu) {
+            Object.assign(menu.style, { maxWidth: '100%', maxHeight: '100%' });
+          }
+        }
+      })
+    ]
   });
 
   useEffect(() => {
