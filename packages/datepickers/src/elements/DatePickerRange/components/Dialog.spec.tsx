@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { ComponentProps } from 'react';
+import React, { ComponentProps, useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { act, render, renderRtl, waitFor } from 'garden-test-utils';
+import mockDate from 'mockdate';
 import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
@@ -124,6 +125,92 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(getByTestId('outside-background'));
 
       expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+    });
+
+    it('closes the dialog and returns focus to the End field once both dates are selected', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <Example
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+          />
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const endInput = getByTestId('end');
+
+      await user.click(getByTestId('trigger'));
+
+      const days = getAllByTestId('day');
+
+      await user.click(days[10]);
+      await user.click(days[11]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(endInput).toHaveFocus();
+
+      mockDate.reset();
+    });
+
+    it('closes the dialog and returns focus to the Start field once an invalid Start value is fixed while End is already valid', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <Example
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+          />
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample endValue={new Date(2019, 2, 5)} />
+      );
+      const startInput = getByTestId('start');
+      const endInput = getByTestId('end');
+
+      await user.click(startInput);
+      await user.type(startInput, 'not a date');
+      await user.click(endInput);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      const days = getAllByTestId('day');
+
+      await user.click(days[10]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(startInput).toHaveFocus();
+
+      mockDate.reset();
     });
   });
 
