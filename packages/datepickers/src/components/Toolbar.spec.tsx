@@ -60,39 +60,21 @@ describe('Toolbar', () => {
     expect(getByRole('toolbar')).toHaveStyleRule('isolation', 'isolate');
   });
 
-  it('sets lang="en" on the default toolbar label', () => {
-    const { getByRole } = renderToolbar();
-
-    expect(getByRole('toolbar')).toHaveAttribute('lang', 'en');
-  });
-
-  it('reflects a consumer-provided toolbar label without setting lang', () => {
+  it('reflects a consumer-provided toolbar label', () => {
     const { getByRole } = renderToolbar({ toolbarLabel: 'Navigation du calendrier' });
 
-    const toolbar = getByRole('toolbar');
-
-    expect(toolbar).toHaveAccessibleName('Navigation du calendrier');
-    expect(toolbar).not.toHaveAttribute('lang');
+    expect(getByRole('toolbar')).toHaveAccessibleName('Navigation du calendrier');
   });
-
-  it.each(['Previous year', 'Previous month', 'Next month', 'Next year'])(
-    'sets lang="en" on the default "%s" paddle label',
-    defaultName => {
-      const { getByRole } = renderToolbar();
-
-      expect(getByRole('button', { name: defaultName })).toHaveAttribute('lang', 'en');
-    }
-  );
 
   it.each([
     ['previousYearLabel', 'Année précédente'],
     ['previousMonthLabel', 'Mois précédent'],
     ['nextMonthLabel', 'Mois suivant'],
     ['nextYearLabel', 'Année suivante']
-  ])('reflects a consumer-provided "%s" without setting lang', (labelProp, label) => {
+  ])('reflects a consumer-provided "%s"', (labelProp, label) => {
     const { getByRole } = renderToolbar({ [labelProp]: label });
 
-    expect(getByRole('button', { name: label })).not.toHaveAttribute('lang');
+    expect(getByRole('button', { name: label })).toBeInTheDocument();
   });
 
   it('gives exactly one paddle tabindex="0" initially, matching the first control', () => {
