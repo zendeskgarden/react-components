@@ -77,8 +77,7 @@ export function useFloatingDialog({
         apply({ availableWidth, availableHeight, elements }) {
           Object.assign(elements.floating.style, {
             maxWidth: `${Math.max(0, availableWidth)}px`,
-            maxHeight: `${Math.max(0, availableHeight)}px`,
-            overflow: 'hidden'
+            maxHeight: `${Math.max(0, availableHeight)}px`
           });
 
           const menu = elements.floating.firstElementChild as HTMLElement | null;

@@ -231,8 +231,10 @@ describe('Dialog', () => {
       });
     });
 
-    it('clips at its own bounds via overflow: hidden', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    it("does not clip its own overflow, so it never hides StyledMenu's box-shadow or fights the open animation's transform - StyledCalendarGrid's own overflow: auto is the actual scroll container", async () => {
+      const { container, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       mockNarrowReferenceRect(getByTestId('input'));
 
@@ -242,7 +244,13 @@ describe('Dialog', () => {
 
       await waitFor(() => {
         expect(dialog.style.maxWidth).not.toBe('');
-        expect(dialog.style.overflow).toBe('hidden');
+        expect(dialog.style.overflow).not.toBe('hidden');
+
+        const calendarGrid = container.querySelector<HTMLElement>(
+          "[data-garden-id='datepickers.calendar_grid']"
+        );
+
+        expect(calendarGrid && window.getComputedStyle(calendarGrid).overflow).toBe('auto');
       });
     });
 
