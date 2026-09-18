@@ -1,0 +1,36 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import { CalendarButton } from '../../../components/CalendarButton';
+import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import { IDatePickerRangeTriggerProps } from '../../../types';
+
+/**
+ * More than one `Trigger` may be composed at once (e.g. one per field) -
+ * `getTriggerProps` tracks each one's ref, so blur/focus detection treats
+ * all of them as part of the same open widget.
+ */
+export const Trigger = ({ toggleCalendarLabel, ...props }: IDatePickerRangeTriggerProps) => {
+  const { isCompact, getTriggerProps } = useDatePickerContext();
+
+  return (
+    <CalendarButton
+      isCompact={isCompact}
+      toggleCalendarLabel={toggleCalendarLabel}
+      getTriggerProps={getTriggerProps}
+      {...props}
+    />
+  );
+};
+
+Trigger.displayName = 'DatePickerRange.Trigger';
+
+Trigger.propTypes = {
+  toggleCalendarLabel: PropTypes.string
+};

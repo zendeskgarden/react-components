@@ -49,6 +49,8 @@ export interface IInputGroupProps
   isUnified?: boolean;
   /** Insets the container's own `isUnified` focus ring, e.g. when nested inside another group */
   focusInset?: boolean;
+  /** Strips the group's outer border, background, and focus ring, e.g. when nested inside another group that already provides them */
+  isBare?: boolean;
 }
 
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
@@ -103,7 +105,7 @@ export interface IClearableInputProps extends Omit<IInputProps, 'value' | 'defau
   /** Defines the clear button's `aria-label` */
   clearButtonLabel?: string;
   /** Applies props to the wrapping InputGroup element */
-  wrapperProps?: Omit<IInputGroupProps, 'children' | 'isUnified' | 'isCompact'>;
+  wrapperProps?: Omit<IInputGroupProps, 'children' | 'isUnified' | 'isCompact' | 'isBare'>;
   /** Applies a ref to the wrapping InputGroup element */
   wrapperRef?: Ref<HTMLDivElement>;
   /** Applies props to the clear IconButton element */

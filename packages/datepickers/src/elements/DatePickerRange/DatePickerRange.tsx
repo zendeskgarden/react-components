@@ -5,21 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, {
-  PropsWithChildren,
-  useReducer,
-  useCallback,
-  useEffect,
-  useRef,
-  useMemo
-} from 'react';
+import React, { PropsWithChildren, useContext, useMemo, useRef } from 'react';
 import PropTypes from 'prop-types';
-import { IDatePickerRangeProps } from '../../types';
-import { datepickerRangeReducer, retrieveInitialState } from './utils/date-picker-range-reducer';
+import { ThemeContext } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import { IDatePickerRangeProps, WEEK_STARTS_ON } from '../../types';
 import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
+import { useDatePickerRange } from './utils/useDatePickerRange';
 import { Start } from './components/Start';
+import { StartGroup } from './components/StartGroup';
 import { End } from './components/End';
+import { EndGroup } from './components/EndGroup';
 import { Calendar } from './components/Calendar';
+import { Trigger } from './components/Trigger';
+import { Dialog } from './components/Dialog';
 
 const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
   const {
@@ -29,65 +28,46 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     formatDate,
     endValue,
     onChange,
+    onValueSettled,
     customParseDate,
     isCompact = false,
     minValue,
     maxValue,
+    previousMonthLabel,
+    nextMonthLabel,
+    previousYearLabel,
+    nextYearLabel,
+    toolbarLabel,
+    inRangeLabel,
+    startOfRangeLabel,
+    endOfRangeLabel,
+    selectableCellRoleDescription,
     children
   } = props;
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const reducer = useCallback(
-    datepickerRangeReducer({
-      startValue,
-      locale,
-      formatDate,
-      endValue,
-      customParseDate
-    }),
-    [startValue, endValue, locale, formatDate, onChange, customParseDate]
-  );
+  const startInputRef = useRef<HTMLInputElement>(null);
+  const endInputRef = useRef<HTMLInputElement>(null);
+  const theme = useContext(ThemeContext) || DEFAULT_THEME;
 
-  const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
-  const previousStartValue = useRef(startValue);
-  const previousEndValue = useRef(endValue);
-  const startInputRef = useRef<HTMLInputElement>();
-  const endInputRef = useRef<HTMLInputElement>();
-
-  useEffect(() => {
-    dispatch({
-      type: 'CONTROLLED_START_VALUE_CHANGE',
-      value: startValue
-    });
-
-    if (
-      endInputRef.current &&
-      previousStartValue.current !== startValue &&
-      startValue !== undefined
-    ) {
-      endInputRef.current.focus();
-    }
-
-    previousStartValue.current = startValue;
-  }, [props, startValue]);
-
-  useEffect(() => {
-    dispatch({
-      type: 'CONTROLLED_END_VALUE_CHANGE',
-      value: endValue
-    });
-
-    if (startInputRef.current && previousEndValue.current !== endValue && endValue !== undefined) {
-      startInputRef.current.focus();
-    }
-
-    previousEndValue.current = endValue;
-  }, [props, endValue]);
+  const datePickerRange = useDatePickerRange({
+    startValue,
+    endValue,
+    minValue,
+    maxValue,
+    locale,
+    weekStartsOn,
+    rtl: theme.rtl,
+    formatDate,
+    customParseDate,
+    onChange,
+    onValueSettled,
+    startInputRef,
+    endInputRef
+  });
 
   const value = useMemo(
     () => ({
-      state,
-      dispatch,
+      ...datePickerRange,
       isCompact,
       locale,
       weekStartsOn,
@@ -95,14 +75,18 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       maxValue,
       startValue,
       endValue,
-      onChange,
-      startInputRef,
-      endInputRef,
-      customParseDate
+      previousMonthLabel,
+      nextMonthLabel,
+      previousYearLabel,
+      nextYearLabel,
+      toolbarLabel,
+      inRangeLabel,
+      startOfRangeLabel,
+      endOfRangeLabel,
+      selectableCellRoleDescription
     }),
     [
-      state,
-      dispatch,
+      datePickerRange,
       isCompact,
       locale,
       weekStartsOn,
@@ -110,10 +94,15 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
       maxValue,
       startValue,
       endValue,
-      onChange,
-      startInputRef,
-      endInputRef,
-      customParseDate
+      previousMonthLabel,
+      nextMonthLabel,
+      previousYearLabel,
+      nextYearLabel,
+      toolbarLabel,
+      inRangeLabel,
+      startOfRangeLabel,
+      endOfRangeLabel,
+      selectableCellRoleDescription
     ]
   );
 
@@ -124,23 +113,41 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
 
 DatePickerRangeComponent.propTypes = {
   locale: PropTypes.string,
-  weekStartsOn: PropTypes.number,
+  weekStartsOn: PropTypes.oneOf(WEEK_STARTS_ON),
   startValue: PropTypes.instanceOf(Date),
   endValue: PropTypes.instanceOf(Date),
   minValue: PropTypes.instanceOf(Date),
   maxValue: PropTypes.instanceOf(Date),
   onChange: PropTypes.func,
+  onValueSettled: PropTypes.func,
   formatDate: PropTypes.func,
   customParseDate: PropTypes.func,
-  isCompact: PropTypes.bool
+  isCompact: PropTypes.bool,
+  previousMonthLabel: PropTypes.string,
+  nextMonthLabel: PropTypes.string,
+  previousYearLabel: PropTypes.string,
+  nextYearLabel: PropTypes.string,
+  toolbarLabel: PropTypes.string,
+  inRangeLabel: PropTypes.string,
+  startOfRangeLabel: PropTypes.string,
+  endOfRangeLabel: PropTypes.string,
+  selectableCellRoleDescription: PropTypes.string
 };
 
 export const DatePickerRange = DatePickerRangeComponent as typeof DatePickerRangeComponent & {
   Calendar: typeof Calendar;
   End: typeof End;
+  EndGroup: typeof EndGroup;
   Start: typeof Start;
+  StartGroup: typeof StartGroup;
+  Trigger: typeof Trigger;
+  Dialog: typeof Dialog;
 };
 
 DatePickerRange.Calendar = Calendar;
 DatePickerRange.End = End;
+DatePickerRange.EndGroup = EndGroup;
 DatePickerRange.Start = Start;
+DatePickerRange.StartGroup = StartGroup;
+DatePickerRange.Trigger = Trigger;
+DatePickerRange.Dialog = Dialog;

@@ -30,8 +30,20 @@ interface IStyledInputGroupProps {
   $isCompact?: boolean;
   $isUnified?: boolean;
   $focusInset?: boolean;
+  $isBare?: boolean;
   $validation?: Validation;
 }
+
+/* strips the unified border/background/focus-ring, e.g. for a group nested inside another that already provides them */
+const bareStyles = () => css`
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+
+  &:focus-within {
+    box-shadow: none;
+  }
+`;
 
 /* Input publishes validation via InputGroupContext; $validation is a transient prop and never lands on the DOM */
 const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
@@ -351,6 +363,7 @@ export const StyledInputGroup = styled.div.attrs({
   ${props => positionStyles(props)};
   ${props => !props.$isUnified && segmentedItemStyles(props)};
   ${props => props.$isUnified && unifiedItemStyles(props)};
+  ${props => props.$isBare && bareStyles()};
 
   ${componentStyles};
 `;

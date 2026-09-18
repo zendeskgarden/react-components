@@ -8,4 +8,20 @@
 export { DatePicker } from './elements/DatePicker/DatePicker';
 export { DatePickerRange } from './elements/DatePickerRange/DatePickerRange';
 
-export type { IDatePickerProps, IDatePickerRangeProps } from './types';
+export { useDatePicker } from './elements/DatePicker/utils/useDatePicker';
+export { useDatePickerRange } from './elements/DatePickerRange/utils/useDatePickerRange';
+
+export type {
+  DatePickerInvalidReason,
+  DatePickerRangeInvalidReason,
+  IDatePickerProps,
+  IDatePickerRangeProps,
+  IDatePickerRangeValueSettledResult,
+  IDatePickerValueSettledResult,
+  IGetCellPropsOptions,
+  IGetRangeCellPropsOptions,
+  IUseDatePickerProps,
+  IUseDatePickerRangeProps,
+  IUseDatePickerRangeReturnValue,
+  IUseDatePickerReturnValue
+} from './types';
