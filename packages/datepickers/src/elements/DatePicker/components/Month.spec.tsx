@@ -97,6 +97,18 @@ describe('Month', () => {
       });
     });
 
+    it('accepts a custom selectableCellRoleDescription', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} selectableCellRoleDescription="cellule sélectionnable" />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      getAllByTestId('day').forEach(day => {
+        expect(day).toHaveAttribute('aria-roledescription', 'cellule sélectionnable');
+      });
+    });
+
     it('displays "Sun" as default first day of week', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
