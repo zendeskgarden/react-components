@@ -401,6 +401,8 @@ export interface IDatePickerRangeDialogProps extends HTMLAttributes<HTMLDivEleme
   isAnimated?: boolean;
   /** Sets the `z-index` of the dialog **/
   zIndex?: number;
+  /** Overrides the default Start/End/Trigger anchor chain, positioning the dialog relative to the provided element instead **/
+  referenceElement?: Element | null;
 }
 
 export interface ICalendarButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

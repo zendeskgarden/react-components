@@ -18,7 +18,8 @@ const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
  * Anchors its floating position to `Start`'s input, falling back to
- * `End`'s input then the first rendered `Trigger` button.
+ * `End`'s input then the first rendered `Trigger` button - unless a
+ * consumer overrides it via `referenceElement`.
  */
 export const Dialog = ({
   children,
@@ -26,6 +27,7 @@ export const Dialog = ({
   isAnimated = true,
   zIndex = 1000,
   appendToNode,
+  referenceElement,
   'aria-label': ariaLabelProp,
   ...menuProps
 }: PropsWithChildren<IDatePickerRangeDialogProps>) => {
@@ -38,7 +40,8 @@ export const Dialog = ({
   const { placement, transform, isVisible, rtl } = useFloatingDialog({
     isOpen,
     dialogRef,
-    getReferenceElement,
+    getReferenceElement: () =>
+      referenceElement === undefined ? getReferenceElement() : referenceElement,
     placement: _placement,
     isAnimated
   });
@@ -67,5 +70,6 @@ Dialog.propTypes = {
   appendToNode: PropTypes.any,
   placement: PropTypes.oneOf(PLACEMENT),
   isAnimated: PropTypes.bool,
-  zIndex: PropTypes.number
+  zIndex: PropTypes.number,
+  referenceElement: PropTypes.any
 };
