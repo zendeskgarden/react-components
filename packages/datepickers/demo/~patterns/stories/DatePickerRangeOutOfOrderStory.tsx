@@ -17,7 +17,7 @@ import {
   DatePickerRangeInvalidReason,
   IDatePickerRangeValueSettledResult
 } from '@zendeskgarden/react-datepickers';
-import { ClearableInput, Field } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 import { customParseShortDate, formatShortDate } from './utils';
 
 const StyledScrollRegion = styled.section`
@@ -85,39 +85,42 @@ export const DatePickerRangeOutOfOrderStory: StoryFn = () => {
         tabIndex={containerTabIndex}
         aria-label="Date range picker with out-of-order validation"
       >
-        <StyledGrid>
-          <Field>
-            <Field.Label>Start date</Field.Label>
-            <Field.Hint>Must be M/D/YYYY format, on or before the end date</Field.Hint>
-            <DatePickerRange.Start>
-              <ClearableInput
-                validation={startReason ? 'error' : undefined}
-                buttonProps={{ onClick: () => setStartReason(undefined) }}
-              />
-            </DatePickerRange.Start>
-            {startReason === 'out-of-order' && (
-              <Field.Message validation="error">
-                Start date must be on or before {endValue ? formatShortDate(endValue) : ''}.
-              </Field.Message>
-            )}
-          </Field>
-          <Field>
-            <Field.Label>End date</Field.Label>
-            <Field.Hint>Must be M/D/YYYY format, on or after the start date</Field.Hint>
-            <DatePickerRange.End>
-              <ClearableInput
-                validation={endReason ? 'error' : undefined}
-                buttonProps={{ onClick: () => setEndReason(undefined) }}
-              />
-            </DatePickerRange.End>
-            {endReason === 'out-of-order' && (
-              <Field.Message validation="error">
-                End date must be on or after {startValue ? formatShortDate(startValue) : ''}.
-              </Field.Message>
-            )}
-          </Field>
-          <StyledCalendar />
-        </StyledGrid>
+        <Fieldset>
+          <Fieldset.Legend hidden>Date range</Fieldset.Legend>
+          <StyledGrid>
+            <Field>
+              <Field.Label isRegular={false}>Start date</Field.Label>
+              <Field.Hint>Must be M/D/YYYY format, on or before the end date</Field.Hint>
+              <DatePickerRange.Start>
+                <ClearableInput
+                  validation={startReason ? 'error' : undefined}
+                  buttonProps={{ onClick: () => setStartReason(undefined) }}
+                />
+              </DatePickerRange.Start>
+              {startReason === 'out-of-order' && (
+                <Field.Message validation="error">
+                  Start date must be on or before {endValue ? formatShortDate(endValue) : ''}.
+                </Field.Message>
+              )}
+            </Field>
+            <Field>
+              <Field.Label isRegular={false}>End date</Field.Label>
+              <Field.Hint>Must be M/D/YYYY format, on or after the start date</Field.Hint>
+              <DatePickerRange.End>
+                <ClearableInput
+                  validation={endReason ? 'error' : undefined}
+                  buttonProps={{ onClick: () => setEndReason(undefined) }}
+                />
+              </DatePickerRange.End>
+              {endReason === 'out-of-order' && (
+                <Field.Message validation="error">
+                  End date must be on or after {startValue ? formatShortDate(startValue) : ''}.
+                </Field.Message>
+              )}
+            </Field>
+            <StyledCalendar />
+          </StyledGrid>
+        </Fieldset>
       </StyledScrollRegion>
     </DatePickerRange>
   );

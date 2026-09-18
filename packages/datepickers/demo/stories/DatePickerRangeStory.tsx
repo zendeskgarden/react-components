@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { focusStyles } from '@zendeskgarden/react-theming';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
-import { ClearableInput, Field } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -52,21 +52,24 @@ export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...
         tabIndex={containerTabIndex}
         aria-label="Date range picker"
       >
-        <StyledGrid isCompact={isCompact}>
-          <Field>
-            <Field.Label>Start date</Field.Label>
-            <DatePickerRange.Start>
-              <ClearableInput isCompact={isCompact} />
-            </DatePickerRange.Start>
-          </Field>
-          <Field>
-            <Field.Label>End date</Field.Label>
-            <DatePickerRange.End>
-              <ClearableInput isCompact={isCompact} />
-            </DatePickerRange.End>
-          </Field>
-          <StyledCalendar />
-        </StyledGrid>
+        <Fieldset isCompact={isCompact}>
+          <Fieldset.Legend hidden>Date range</Fieldset.Legend>
+          <StyledGrid isCompact={isCompact}>
+            <Field>
+              <Field.Label isRegular={false}>Start date</Field.Label>
+              <DatePickerRange.Start>
+                <ClearableInput isCompact={isCompact} />
+              </DatePickerRange.Start>
+            </Field>
+            <Field>
+              <Field.Label isRegular={false}>End date</Field.Label>
+              <DatePickerRange.End>
+                <ClearableInput isCompact={isCompact} />
+              </DatePickerRange.End>
+            </Field>
+            <StyledCalendar />
+          </StyledGrid>
+        </Fieldset>
       </StyledScrollRegion>
     </DatePickerRange>
   );
