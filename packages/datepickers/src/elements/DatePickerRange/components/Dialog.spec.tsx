@@ -167,6 +167,50 @@ describe('DatePickerRange.Dialog', () => {
       mockDate.reset();
     });
 
+    it('reopens on a second click of the already-focused End field after completing the range', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <Example
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+          />
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const endInput = getByTestId('end');
+
+      await user.click(getByTestId('trigger'));
+
+      const days = getAllByTestId('day');
+
+      await user.click(days[10]);
+      await user.click(days[11]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(endInput).toHaveFocus();
+
+      await user.click(endInput);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      mockDate.reset();
+    });
+
     it('closes the dialog and returns focus to the Start field once an invalid Start value is fixed while End is already valid', async () => {
       mockDate.set(new Date(2019, 1, 5));
 

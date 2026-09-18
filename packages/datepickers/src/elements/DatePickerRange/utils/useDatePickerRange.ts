@@ -150,6 +150,8 @@ export function useDatePickerRange({
   const shouldFocusDialogRef = useRef(false);
   const previousActiveElementRef = useRef<Element | null>(null);
   const lastActiveFieldRef = useRef<HTMLElement | null>(null);
+  /** Set right before refocusing a field after completing the range auto-closes the dialog, so the next click on that already-focused field reopens it instead of being mistaken for a click inside text being edited. */
+  const justClosedViaSelectionRef = useRef(false);
 
   const openOrFocusDialog = useCallback(() => {
     if (isOpen) {
@@ -259,11 +261,18 @@ export function useDatePickerRange({
 
       const handleClick = () => {
         const previousActiveElement = previousActiveElementRef.current;
+        const justClosedViaSelection = justClosedViaSelectionRef.current;
 
         previousActiveElementRef.current = null;
+        justClosedViaSelectionRef.current = false;
 
         if (
-          shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })
+          shouldOpenOnFieldClick({
+            isOpen,
+            previousActiveElement,
+            widgetRefs: getWidgetRefs(),
+            justClosedViaSelection
+          })
         ) {
           setIsOpen(true);
         }
@@ -428,6 +437,7 @@ export function useDatePickerRange({
       const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
 
+        justClosedViaSelectionRef.current = false;
         dispatch({ type: 'START_INPUT_ONCHANGE', value: inputValue });
 
         if (inputValue === '' && state.startInputValue !== '') {
@@ -616,6 +626,7 @@ export function useDatePickerRange({
       const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
 
+        justClosedViaSelectionRef.current = false;
         dispatch({ type: 'END_INPUT_ONCHANGE', value: inputValue });
 
         if (inputValue === '' && state.endInputValue !== '') {
@@ -785,6 +796,7 @@ export function useDatePickerRange({
         if (hasDialog) {
           if (!isOutOfOrder && result.startValue !== undefined && result.endValue !== undefined) {
             setIsOpen(false);
+            justClosedViaSelectionRef.current = true;
             requestCellFocus((field === 'start' ? startInputRef : endInputRef).current);
           }
         } else {

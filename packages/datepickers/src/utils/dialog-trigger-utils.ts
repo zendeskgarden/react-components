@@ -63,17 +63,28 @@ export const resolveWidgetBlur = ({
   return { shouldSettle: false, shouldClose: false };
 };
 
-/** True only for a pointer click arriving from outside the widget - never for Tab focus, which dispatches no `click`. */
+/**
+ * True for a pointer click arriving from outside the widget - never for Tab focus, which
+ * dispatches no `click`. Also true, regardless of where the click "arrived from", the first
+ * time a field is clicked right after a selection auto-closed the dialog and refocused it -
+ * otherwise that click looks identical to clicking inside text you're already editing (the
+ * field was already focused before the click), so it would never reopen.
+ */
 export const shouldOpenOnFieldClick = ({
   isOpen,
   previousActiveElement,
-  widgetRefs
+  widgetRefs,
+  justClosedViaSelection = false
 }: {
   isOpen: boolean;
   previousActiveElement: Element | null;
   widgetRefs: RefObject<HTMLElement | null>[];
+  justClosedViaSelection?: boolean;
 }): boolean =>
-  !isOpen && (!previousActiveElement || !isInsideWidget(previousActiveElement, widgetRefs));
+  !isOpen &&
+  (justClosedViaSelection ||
+    !previousActiveElement ||
+    !isInsideWidget(previousActiveElement, widgetRefs));
 
 /** Shared shape for every toolbar paddle getter across both `useDatePicker` and `useDatePickerRange`. */
 export const composeActionButtonProps = (
