@@ -31,7 +31,7 @@ export const Dialog = ({
   'aria-label': ariaLabelProp,
   ...menuProps
 }: PropsWithChildren<IDatePickerRangeDialogProps>) => {
-  const { isOpen, dialogRef, getDialogProps, getReferenceElement, registerDialog } =
+  const { isOpen, isCompact, dialogRef, getDialogProps, getReferenceElement, registerDialog } =
     useDatePickerContext();
   const ariaLabel = useText(Dialog, { 'aria-label': ariaLabelProp }, 'aria-label', 'Choose dates');
 
@@ -43,7 +43,8 @@ export const Dialog = ({
     getReferenceElement: () =>
       referenceElement === undefined ? getReferenceElement() : referenceElement,
     placement: _placement,
-    isAnimated
+    isAnimated,
+    isCompact
   });
 
   const Node = (
