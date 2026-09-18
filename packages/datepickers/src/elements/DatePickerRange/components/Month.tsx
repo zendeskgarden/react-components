@@ -56,13 +56,21 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
       getCellProps,
       inRangeLabel,
       startOfRangeLabel,
-      endOfRangeLabel
+      endOfRangeLabel,
+      selectableCellRoleDescription
     } = useDatePickerContext();
 
     // A rejected blur leaves startValue/endValue pointing at the stale, last-committed date -
     // suppress its calendar selection until a new value actually commits.
     const effectiveStartValue = isStartValueInvalid ? undefined : startValue;
     const effectiveEndValue = isEndValueInvalid ? undefined : endValue;
+
+    const selectableCellRoleDescriptionText = useText(
+      Month,
+      { selectableCellRoleDescription },
+      'selectableCellRoleDescription',
+      'selectable cell'
+    );
 
     const inRangeText = useText(Month, { inRangeLabel }, 'inRangeLabel', '(included in range)');
     const startOfRangeText = useText(
@@ -229,7 +237,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
             setHoverDate(isSelected ? undefined : date);
           }}
           {...getCellProps({ date })}
-          aria-roledescription="selectable cell"
+          aria-roledescription={selectableCellRoleDescriptionText}
           aria-selected={!isInvalidDateRange && isSelected}
           data-test-selected={!isInvalidDateRange && isSelected}
         >

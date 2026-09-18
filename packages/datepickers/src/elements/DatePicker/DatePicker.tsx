@@ -47,6 +47,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     previousYearLabel,
     nextYearLabel,
     toolbarLabel,
+    selectableCellRoleDescription,
     onValueSettled,
     ...menuProps
   } = props;
@@ -105,6 +106,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
           previousYearLabel={previousYearLabel}
           nextYearLabel={nextYearLabel}
           toolbarLabel={toolbarLabel}
+          selectableCellRoleDescription={selectableCellRoleDescription}
         />
       </Dialog>
     </DatePickerContext.Provider>
@@ -134,5 +136,6 @@ DatePicker.propTypes = {
   nextMonthLabel: PropTypes.string,
   previousYearLabel: PropTypes.string,
   nextYearLabel: PropTypes.string,
-  toolbarLabel: PropTypes.string
+  toolbarLabel: PropTypes.string,
+  selectableCellRoleDescription: PropTypes.string
 };

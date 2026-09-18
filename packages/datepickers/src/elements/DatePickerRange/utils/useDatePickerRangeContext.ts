@@ -24,6 +24,7 @@ export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue 
   inRangeLabel?: string;
   startOfRangeLabel?: string;
   endOfRangeLabel?: string;
+  selectableCellRoleDescription?: string;
 }
 
 export const DatePickerRangeContext = createContext<IDatePickerRangeContext | undefined>(undefined);

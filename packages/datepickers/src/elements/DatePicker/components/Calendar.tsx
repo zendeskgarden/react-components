@@ -25,7 +25,8 @@ export const Calendar = forwardRef<HTMLDivElement, IDatePickerCalendarProps>(
       nextMonthLabel,
       previousYearLabel,
       nextYearLabel,
-      toolbarLabel
+      toolbarLabel,
+      selectableCellRoleDescription
     },
     ref
   ) => {
@@ -63,6 +64,7 @@ export const Calendar = forwardRef<HTMLDivElement, IDatePickerCalendarProps>(
           isCompact={isCompact}
           locale={locale}
           weekStartsOn={weekStartsOn}
+          selectableCellRoleDescription={selectableCellRoleDescription}
         />
       </StyledCalendarGrid>
     );

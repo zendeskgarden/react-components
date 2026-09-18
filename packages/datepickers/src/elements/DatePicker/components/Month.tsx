@@ -6,6 +6,7 @@
  */
 
 import React, { forwardRef } from 'react';
+import { useText } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
@@ -29,8 +30,15 @@ import {
 import { IDatePickerMonthProps } from '../../../types';
 
 export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
-  ({ isCompact = false, locale, weekStartsOn }, ref) => {
+  ({ isCompact = false, locale, weekStartsOn, selectableCellRoleDescription }, ref) => {
     const { previewDate, getGridProps, getHeadingProps, getCellProps } = useDatePickerContext();
+
+    const selectableCellRoleDescriptionText = useText(
+      Month,
+      { selectableCellRoleDescription },
+      'selectableCellRoleDescription',
+      'selectable cell'
+    );
 
     const { startDate, endDate } = getMonthDateRange(previewDate, weekStartsOn, locale);
 
@@ -44,7 +52,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
           key={date.toISOString()}
           role="gridcell"
           data-test-previous={isPreviousMonth}
-          aria-roledescription="selectable cell"
+          aria-roledescription={selectableCellRoleDescriptionText}
           {...getCellProps({ date })}
         >
           <StyledDayNumber
