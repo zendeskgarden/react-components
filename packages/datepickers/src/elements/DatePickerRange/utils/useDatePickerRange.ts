@@ -264,6 +264,28 @@ export function useDatePickerRange({
     [isOpen, openOrFocusDialog, getWidgetRefs]
   );
 
+  const getOpenOnClickProps = useCallback(() => {
+    const handleMouseDown = () => {
+      previousActiveElementRef.current = document.activeElement;
+    };
+
+    const handleClick = () => {
+      if (!hasDialog) {
+        return;
+      }
+
+      const previousActiveElement = previousActiveElementRef.current;
+
+      previousActiveElementRef.current = null;
+
+      if (shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })) {
+        setIsOpen(true);
+      }
+    };
+
+    return { onMouseDown: handleMouseDown, onClick: handleClick };
+  }, [hasDialog, isOpen, getWidgetRefs]);
+
   const startIsBlurPendingRef = useRef(false);
   const startRequiredRef = useRef<boolean | undefined>(undefined);
 
@@ -328,27 +350,52 @@ export function useDatePickerRange({
     [commitStartBlur]
   );
 
-  const getStartWrapperProps = useCallback(() => {
-    const onStartWrapperBlur = (e: React.FocusEvent) => {
-      if (e.target === startInputRef.current || !startIsBlurPendingRef.current) {
-        return;
-      }
+  const getStartWrapperProps = useCallback(
+    (props: Omit<ElementProps<HTMLDivElement>, 'ref'> = {}) => {
+      const { onBlur, onClick, ...other } = props;
 
-      const relatedTarget = e.relatedTarget as Element | null;
-      const stillInsideOwnGroup =
-        !!relatedTarget && !!startWrapperRef.current?.contains(relatedTarget);
+      const onStartWrapperBlur = (e: React.FocusEvent) => {
+        if (e.target === startInputRef.current || !startIsBlurPendingRef.current) {
+          return;
+        }
 
-      if (!stillInsideOwnGroup) {
-        startIsBlurPendingRef.current = false;
-        commitStartBlur();
-      }
-    };
+        const relatedTarget = e.relatedTarget as Element | null;
+        const stillInsideOwnGroup =
+          !!relatedTarget && !!startWrapperRef.current?.contains(relatedTarget);
 
-    return {
-      ref: startWrapperRef,
-      onBlur: composeEventHandlers(onStartWrapperBlur, handleWidgetBlur)
-    };
-  }, [commitStartBlur, startInputRef, handleWidgetBlur]);
+        if (!stillInsideOwnGroup) {
+          startIsBlurPendingRef.current = false;
+          commitStartBlur();
+        }
+      };
+
+      return {
+        ref: startWrapperRef,
+        onBlur: composeEventHandlers(onBlur, onStartWrapperBlur, handleWidgetBlur),
+        onClick: composeEventHandlers(onClick, () => startInputRef.current?.focus()),
+        ...other
+      };
+    },
+    [commitStartBlur, startInputRef, handleWidgetBlur]
+  );
+
+  const getStartGroupProps = useCallback(
+    (props: ElementProps<HTMLDivElement> = {}) => {
+      const { onMouseDown, onClick, ...other } = props;
+      const openOnClickProps = getOpenOnClickProps();
+
+      return {
+        onMouseDown: composeEventHandlers(onMouseDown, openOnClickProps.onMouseDown),
+        onClick: composeEventHandlers(
+          onClick,
+          () => startInputRef.current?.focus(),
+          openOnClickProps.onClick
+        ),
+        ...other
+      };
+    },
+    [startInputRef, getOpenOnClickProps]
+  );
 
   const getStartInputProps = useCallback(
     (props: IFieldInputProps & { required?: boolean } = {}) => {
@@ -481,27 +528,52 @@ export function useDatePickerRange({
     [commitEndBlur]
   );
 
-  const getEndWrapperProps = useCallback(() => {
-    const onEndWrapperBlur = (e: React.FocusEvent) => {
-      if (e.target === endInputRef.current || !endIsBlurPendingRef.current) {
-        return;
-      }
+  const getEndWrapperProps = useCallback(
+    (props: Omit<ElementProps<HTMLDivElement>, 'ref'> = {}) => {
+      const { onBlur, onClick, ...other } = props;
 
-      const relatedTarget = e.relatedTarget as Element | null;
-      const stillInsideOwnGroup =
-        !!relatedTarget && !!endWrapperRef.current?.contains(relatedTarget);
+      const onEndWrapperBlur = (e: React.FocusEvent) => {
+        if (e.target === endInputRef.current || !endIsBlurPendingRef.current) {
+          return;
+        }
 
-      if (!stillInsideOwnGroup) {
-        endIsBlurPendingRef.current = false;
-        commitEndBlur();
-      }
-    };
+        const relatedTarget = e.relatedTarget as Element | null;
+        const stillInsideOwnGroup =
+          !!relatedTarget && !!endWrapperRef.current?.contains(relatedTarget);
 
-    return {
-      ref: endWrapperRef,
-      onBlur: composeEventHandlers(onEndWrapperBlur, handleWidgetBlur)
-    };
-  }, [commitEndBlur, endInputRef, handleWidgetBlur]);
+        if (!stillInsideOwnGroup) {
+          endIsBlurPendingRef.current = false;
+          commitEndBlur();
+        }
+      };
+
+      return {
+        ref: endWrapperRef,
+        onBlur: composeEventHandlers(onBlur, onEndWrapperBlur, handleWidgetBlur),
+        onClick: composeEventHandlers(onClick, () => endInputRef.current?.focus()),
+        ...other
+      };
+    },
+    [commitEndBlur, endInputRef, handleWidgetBlur]
+  );
+
+  const getEndGroupProps = useCallback(
+    (props: ElementProps<HTMLDivElement> = {}) => {
+      const { onMouseDown, onClick, ...other } = props;
+      const openOnClickProps = getOpenOnClickProps();
+
+      return {
+        onMouseDown: composeEventHandlers(onMouseDown, openOnClickProps.onMouseDown),
+        onClick: composeEventHandlers(
+          onClick,
+          () => endInputRef.current?.focus(),
+          openOnClickProps.onClick
+        ),
+        ...other
+      };
+    },
+    [endInputRef, getOpenOnClickProps]
+  );
 
   const getEndInputProps = useCallback(
     (props: IFieldInputProps & { required?: boolean } = {}) => {
@@ -798,6 +870,8 @@ export function useDatePickerRange({
       registerDialog,
       getStartWrapperProps,
       getEndWrapperProps,
+      getStartGroupProps,
+      getEndGroupProps,
       getStartInputProps,
       getEndInputProps,
       getFieldTriggerProps,
@@ -833,6 +907,8 @@ export function useDatePickerRange({
       registerDialog,
       getStartWrapperProps,
       getEndWrapperProps,
+      getStartGroupProps,
+      getEndGroupProps,
       getStartInputProps,
       getEndInputProps,
       getFieldTriggerProps,

@@ -409,6 +409,18 @@ describe('DatePicker', () => {
     });
   });
 
+  describe('wrapper click', () => {
+    it('focuses the input when the outer wrapper itself is clicked, not just the input', () => {
+      const { container, getByTestId } = render(<Example onChange={onChangeSpy} />);
+
+      const outerGroup = container.querySelector("[data-garden-id='forms.input_group']");
+
+      fireEvent.click(outerGroup!);
+
+      expect(getByTestId('input')).toHaveFocus();
+    });
+  });
+
   describe('validation', () => {
     const errorColor = getColor({ theme: DEFAULT_THEME, variable: 'border.dangerEmphasis' });
 

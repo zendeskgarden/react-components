@@ -10,6 +10,7 @@ import {
   FocusEventHandler,
   HTMLAttributes,
   HTMLProps,
+  MouseEventHandler,
   ReactElement,
   RefAttributes,
   Ref,
@@ -283,9 +284,21 @@ export interface IUseDatePickerRangeReturnValue {
   /** Called by `DatePickerRange.Dialog` on mount to flip `hasDialog` true; returns a cleanup that flips it back false on unmount. **/
   registerDialog: () => () => void;
   /** For a composite child (e.g. `ClearableInput`) that renders extra focusable elements alongside its own input - merged into that child's own `wrapperRef`/`wrapperProps`, so `Start` itself renders no wrapper of its own. **/
-  getStartWrapperProps: () => { ref: RefObject<HTMLDivElement | null>; onBlur: FocusEventHandler };
+  getStartWrapperProps: (props?: Omit<ElementProps<HTMLDivElement>, 'ref'>) => {
+    ref: RefObject<HTMLDivElement | null>;
+    onBlur: FocusEventHandler;
+    onClick: MouseEventHandler;
+  };
   /** See `getStartWrapperProps` - the `End` equivalent. **/
-  getEndWrapperProps: () => { ref: RefObject<HTMLDivElement | null>; onBlur: FocusEventHandler };
+  getEndWrapperProps: (props?: Omit<ElementProps<HTMLDivElement>, 'ref'>) => {
+    ref: RefObject<HTMLDivElement | null>;
+    onBlur: FocusEventHandler;
+    onClick: MouseEventHandler;
+  };
+  /** Spread onto a consumer-authored `InputGroup` (e.g. `DatePickerRange.StartGroup`) pairing `Start` with its own `Trigger`, so that group's own padding/border also focuses the start input when clicked. **/
+  getStartGroupProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
+  /** See `getStartGroupProps` - the `End` equivalent. **/
+  getEndGroupProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   getStartInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   getEndInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   /** Spread onto any field (in addition to getStartInputProps/getEndInputProps) that should open/focus the opt-in dialog. **/
