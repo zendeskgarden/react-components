@@ -24,10 +24,9 @@ describe('StyledCalendarGrid', () => {
     expect(container.firstChild).toHaveStyleRule('padding', '16px');
   });
 
-  it("does not scroll its own overflow, since that would hijack Toolbar's unhandled arrow keys", () => {
+  it('scrolls overflowing content instead of clipping it', () => {
     const { container } = render(<StyledCalendarGrid />);
 
-    expect(container.firstChild).not.toHaveStyleRule('overflow', 'auto');
-    expect(container.firstChild).not.toHaveStyleRule('overflow', 'scroll');
+    expect(container.firstChild).toHaveStyleRule('overflow', 'auto');
   });
 });

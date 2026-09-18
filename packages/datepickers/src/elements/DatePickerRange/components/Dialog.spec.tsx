@@ -434,4 +434,119 @@ describe('DatePickerRange.Dialog', () => {
       });
     });
   });
+
+  describe('viewport overflow', () => {
+    let referenceElement: HTMLButtonElement;
+
+    beforeEach(() => {
+      Object.defineProperty(document.documentElement, 'clientWidth', {
+        configurable: true,
+        value: 300
+      });
+      Object.defineProperty(document.documentElement, 'clientHeight', {
+        configurable: true,
+        value: 800
+      });
+
+      referenceElement = document.createElement('button');
+      document.body.appendChild(referenceElement);
+      referenceElement.getBoundingClientRect = jest.fn(
+        () =>
+          ({
+            width: 10,
+            height: 10,
+            top: 100,
+            left: 250,
+            bottom: 110,
+            right: 260,
+            x: 250,
+            y: 100
+          }) as DOMRect
+      );
+    });
+
+    afterEach(() => {
+      document.body.removeChild(referenceElement);
+      delete (document.documentElement as { clientWidth?: number }).clientWidth;
+      delete (document.documentElement as { clientHeight?: number }).clientHeight;
+    });
+
+    it('constrains its own max size to the available viewport space, in LTR', async () => {
+      const { getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+
+      const dialog = getByTestId('range-dialog');
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        const maxWidth = parseFloat(dialog.style.maxWidth);
+
+        expect(maxWidth).not.toBeNaN();
+        expect(maxWidth).toBeLessThanOrEqual(300);
+      });
+    });
+
+    it('constrains its own max size to the available viewport space, in RTL', async () => {
+      const { getByTestId } = renderRtl(<Example dialogProps={{ referenceElement }} />);
+
+      const dialog = getByTestId('range-dialog');
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        const maxWidth = parseFloat(dialog.style.maxWidth);
+
+        expect(maxWidth).not.toBeNaN();
+        expect(maxWidth).toBeLessThanOrEqual(300);
+      });
+    });
+
+    it('does not move the dialog away from its reference element, unlike shift()', async () => {
+      const { getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+
+      const dialog = getByTestId('range-dialog');
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
+        const x = match ? parseFloat(match.groups!.x) : NaN;
+
+        expect(x).not.toBeNaN();
+        expect(x).toBe(250);
+      });
+    });
+
+    it("clips at its own bounds via overflow: hidden, leaving StyledRangeCalendar's own overflow: auto as the actual scroll container", async () => {
+      const { container, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+
+      const dialog = getByTestId('range-dialog');
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        expect(dialog.style.maxWidth).not.toBe('');
+        expect(dialog.style.overflow).toBe('hidden');
+
+        const calendar = container.querySelector<HTMLElement>(
+          "[data-garden-id='datepickers.range_calendar']"
+        );
+
+        expect(calendar && window.getComputedStyle(calendar).overflow).toBe('auto');
+      });
+    });
+
+    it("also caps StyledMenu (the wrapper's inline-block child) to its parent's now-constrained width, so the constraint actually reaches the calendar instead of StyledMenu shrink-to-fitting past it", async () => {
+      const { container, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        const menu = container.querySelector<HTMLElement>("[data-garden-id='datepickers.menu']");
+
+        expect(menu?.style.maxWidth).toBe('100%');
+        expect(menu?.style.maxHeight).toBe('100%');
+      });
+    });
+  });
 });

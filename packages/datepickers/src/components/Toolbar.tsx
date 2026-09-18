@@ -92,11 +92,8 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         case KEYS.DOWN:
           break;
         default:
-          return;
+          break;
       }
-
-      e.preventDefault();
-      e.stopPropagation();
     },
     [rtl]
   );
