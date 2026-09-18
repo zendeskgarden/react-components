@@ -736,6 +736,11 @@ export function useDatePickerRange({
           valid: !isOutOfOrder,
           ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
         });
+
+        if (!isOutOfOrder && result.startValue !== undefined && result.endValue !== undefined) {
+          setIsOpen(false);
+          (field === 'start' ? startInputRef : endInputRef).current?.focus();
+        }
       };
 
       const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
@@ -809,7 +814,9 @@ export function useDatePickerRange({
       onChange,
       onValueSettled,
       preferredWeekStartsOn,
-      rtl
+      rtl,
+      startInputRef,
+      endInputRef
     ]
   );
 
