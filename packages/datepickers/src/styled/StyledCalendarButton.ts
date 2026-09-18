@@ -10,26 +10,25 @@ import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
 
 /*
- * Mirrors `ToggleIconButton`'s `aria-pressed` active styling, mapped to
- * `aria-expanded` so the button appears active while the calendar is open.
+ * Design specifies the trigger should look identical at rest, on hover, and
+ * while the calendar is open, so the underlying `IconButton`'s hover
+ * feedback is pinned back to its resting background/icon color, and its
+ * pointer cursor is pinned back to the default arrow.
  */
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const backgroundColor = getColor({
-    theme,
-    variable: 'background.primaryEmphasis',
-    transparency: theme.opacity[200]
-  });
-  const color = getColor({
-    theme,
-    variable: 'foreground.subtle',
-    dark: { offset: -200 },
-    light: { offset: 200 }
-  });
+const staticStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const iconColor = getColor({ theme, variable: 'foreground.subtle' });
 
   return css`
-    &&[aria-expanded='true'] {
-      background-color: ${backgroundColor};
-      color: ${color};
+    && {
+      cursor: default;
+    }
+
+    &&:hover {
+      background-color: transparent;
+    }
+
+    &&:hover svg {
+      color: ${iconColor};
     }
   `;
 };
@@ -37,7 +36,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 export const StyledCalendarButton = styled(IconButton)`
   flex: none;
 
-  ${colorStyles};
+  ${staticStyles};
 
   ${componentStyles};
 `;
