@@ -6,17 +6,19 @@
  */
 
 import React, { PropsWithChildren, HTMLAttributes } from 'react';
-import { IInputGroupProps, InputGroup } from '@zendeskgarden/react-forms';
+import { InputGroup } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
-type IEndGroupProps = HTMLAttributes<HTMLDivElement> &
-  Pick<IInputGroupProps, 'isFlushStart' | 'isFlushEnd'>;
+type IEndGroupProps = HTMLAttributes<HTMLDivElement> & {
+  /** Removes the rounded corners on the leading edge, since EndGroup always abuts the preceding StartGroup */
+  isFlush?: boolean;
+};
 
-export const EndGroup = ({ children, ...props }: PropsWithChildren<IEndGroupProps>) => {
+export const EndGroup = ({ children, isFlush, ...props }: PropsWithChildren<IEndGroupProps>) => {
   const { isCompact, getEndGroupProps } = useDatePickerContext();
 
   return (
-    <InputGroup {...getEndGroupProps(props)} isUnified isCompact={isCompact}>
+    <InputGroup {...getEndGroupProps(props)} isUnified isCompact={isCompact} isFlushStart={isFlush}>
       {children}
     </InputGroup>
   );
