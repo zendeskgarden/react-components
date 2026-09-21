@@ -94,7 +94,7 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
           <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
             <StyledField>
               <Field.Label hidden>Start date</Field.Label>
-              <DatePickerRange.StartGroup isFlushEnd={isSideBySide}>
+              <DatePickerRange.StartGroup isFlush={isSideBySide}>
                 <DatePickerRange.Start>
                   <ClearableInput
                     ref={startInputRef}
@@ -110,7 +110,7 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
             </StyledField>
             <StyledField>
               <Field.Label hidden>End date</Field.Label>
-              <DatePickerRange.EndGroup isFlushStart={isSideBySide}>
+              <DatePickerRange.EndGroup isFlush={isSideBySide}>
                 <DatePickerRange.End>
                   <ClearableInput
                     ref={endInputRef}

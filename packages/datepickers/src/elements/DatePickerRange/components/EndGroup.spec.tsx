@@ -59,4 +59,40 @@ describe('DatePickerRange.EndGroup', () => {
 
     expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
   });
+
+  it('zeroes the leading corner radius when isFlush is set, since it always abuts the preceding StartGroup', () => {
+    const { getByTestId } = render(
+      <DatePickerRange>
+        <DatePickerRange.Start>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.EndGroup isFlush data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange.EndGroup>
+      </DatePickerRange>
+    );
+
+    expect(getByTestId('end-group')).toHaveStyleRule('border-start-start-radius', '0');
+    expect(getByTestId('end-group')).toHaveStyleRule('border-end-start-radius', '0');
+  });
+
+  it('does not zero any corner radius when isFlush is not set', () => {
+    const { getByTestId } = render(
+      <DatePickerRange>
+        <DatePickerRange.Start>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.EndGroup data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange.EndGroup>
+      </DatePickerRange>
+    );
+
+    expect(getByTestId('end-group')).not.toHaveStyleRule('border-start-start-radius', '0');
+    expect(getByTestId('end-group')).not.toHaveStyleRule('border-end-start-radius', '0');
+  });
 });
