@@ -20,7 +20,10 @@ import { StyledInputGroup } from '../../styled/input-group/StyledInputGroup';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
-  ({ isCompact, isUnified, focusInset, isBare, children, ...other }, ref) => {
+  (
+    { isCompact, isUnified, focusInset, isBare, isFlushStart, isFlushEnd, children, ...other },
+    ref
+  ) => {
     const fieldContext = useFieldContext();
     const { validation, registerValidation } = useInputGroupValidationState();
 
@@ -50,6 +53,8 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
           $focusInset={focusInset}
           {...other}
           $isBare={isBare}
+          $isFlushStart={isFlushStart}
+          $isFlushEnd={isFlushEnd}
           $validation={validation}
         >
           {children}
@@ -65,5 +70,7 @@ InputGroup.propTypes = {
   isCompact: PropTypes.bool,
   isUnified: PropTypes.bool,
   focusInset: PropTypes.bool,
-  isBare: PropTypes.bool
+  isBare: PropTypes.bool,
+  isFlushStart: PropTypes.bool,
+  isFlushEnd: PropTypes.bool
 };

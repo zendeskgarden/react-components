@@ -339,6 +339,94 @@ describe('StyledInputGroup', () => {
       );
     });
 
+    it('zeroes the container leading corner radius when $isFlushStart is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+
+      expect(container.firstChild).toHaveStyleRule('border-start-start-radius', '0');
+      expect(container.firstChild).toHaveStyleRule('border-end-start-radius', '0');
+    });
+
+    it('zeroes the container trailing corner radius when $isFlushEnd is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+
+      expect(container.firstChild).toHaveStyleRule('border-start-end-radius', '0');
+      expect(container.firstChild).toHaveStyleRule('border-end-end-radius', '0');
+    });
+
+    it('zeroes the leading Input corner radius when $isFlushStart is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+
+      expect(container.firstChild).toHaveStyleRule('border-start-start-radius', '0', {
+        modifier: `&>${StyledTextInput}:first-child`
+      });
+      expect(container.firstChild).toHaveStyleRule('border-end-start-radius', '0', {
+        modifier: `&>${StyledTextInput}:first-child`
+      });
+    });
+
+    it('zeroes the trailing Input corner radius when $isFlushEnd is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+
+      expect(container.firstChild).toHaveStyleRule('border-start-end-radius', '0', {
+        modifier: `&>${StyledTextInput}:last-child`
+      });
+      expect(container.firstChild).toHaveStyleRule('border-end-end-radius', '0', {
+        modifier: `&>${StyledTextInput}:last-child`
+      });
+    });
+
+    it('zeroes the leading nested InputGroup corner radius when $isFlushStart is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+      const modifier = `&>[data-garden-id='forms.input_group']:first-child>${StyledTextInput}:first-child`;
+
+      expect(container.firstChild).toHaveStyleRule('border-start-start-radius', '0', { modifier });
+      expect(container.firstChild).toHaveStyleRule('border-end-start-radius', '0', { modifier });
+    });
+
+    it('zeroes the trailing nested InputGroup corner radius when $isFlushEnd is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+      const modifier = `&>[data-garden-id='forms.input_group']:last-child>${StyledTextInput}:last-child`;
+
+      expect(container.firstChild).toHaveStyleRule('border-start-end-radius', '0', { modifier });
+      expect(container.firstChild).toHaveStyleRule('border-end-end-radius', '0', { modifier });
+    });
+
+    it('overlaps the preceding flush-end sibling by one border-width when $isFlushStart is set, so the two share a single visible border', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'margin-inline-start',
+        `-${DEFAULT_THEME.borderWidths.sm}`
+      );
+    });
+
+    it('does not add overlap margin for $isFlushEnd, since only the following flush-start sibling overlaps', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+
+      expect(container.firstChild).not.toHaveStyleRule('margin-inline-start', expect.any(String));
+    });
+
+    it.each(['$isFlushStart', '$isFlushEnd'] as const)(
+      'raises z-index on hover and focus-within when %s is set, so its border can paint over the overlapping neighbor',
+      prop => {
+        const { container } = render(<StyledInputGroup $isUnified {...{ [prop]: true }} />);
+
+        expect(container.firstChild).toHaveStyleRule('z-index', '1', { modifier: '&:hover' });
+        expect(container.firstChild).toHaveStyleRule('z-index', '1', {
+          modifier: '&:focus-within'
+        });
+      }
+    );
+
+    it('does not raise z-index on hover or focus-within when neither flush prop is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified />);
+
+      expect(container.firstChild).not.toHaveStyleRule('z-index', '1', { modifier: '&:hover' });
+      expect(container.firstChild).not.toHaveStyleRule('z-index', '1', {
+        modifier: '&:focus-within'
+      });
+    });
+
     it("tucks a trailing/leading icon button's own visual inset into the container's edge padding, so the icon glyph lands at the same distance from the container edge in both regular and compact", () => {
       const { container: regular } = render(<StyledInputGroup $isUnified />);
       const { container: compact } = render(<StyledInputGroup $isUnified $isCompact />);

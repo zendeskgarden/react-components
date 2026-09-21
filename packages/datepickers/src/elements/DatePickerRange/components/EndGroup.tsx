@@ -6,10 +6,11 @@
  */
 
 import React, { PropsWithChildren, HTMLAttributes } from 'react';
-import { InputGroup } from '@zendeskgarden/react-forms';
+import { IInputGroupProps, InputGroup } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
-type IEndGroupProps = HTMLAttributes<HTMLDivElement>;
+type IEndGroupProps = HTMLAttributes<HTMLDivElement> &
+  Pick<IInputGroupProps, 'isFlushStart' | 'isFlushEnd'>;
 
 export const EndGroup = ({ children, ...props }: PropsWithChildren<IEndGroupProps>) => {
   const { isCompact, getEndGroupProps } = useDatePickerContext();
