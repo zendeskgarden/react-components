@@ -11,6 +11,7 @@ import { useArgs } from 'storybook/preview-api';
 import { DatePickerRange } from '@zendeskgarden/react-datepickers';
 import { DatePickerRangeStory } from './stories/DatePickerRangeStory';
 import { DatePickerRangeDialogStory } from './stories/DatePickerRangeDialogStory';
+import { DatePickerRangeDialogComboboxGroupStory } from './stories/DatePickerRangeDialogComboboxGroupStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';
 
 export default {
@@ -104,6 +105,46 @@ export const InDialog: StoryObj<typeof DatePickerRangeDialogStory> = {
     );
   },
   name: 'DatePickerRange + DatePickerRange.Dialog',
+  argTypes: {
+    startValue: { control: 'date' },
+    endValue: { control: 'date' },
+    minValue: { control: 'date' },
+    maxValue: { control: 'date' },
+    isCompact: { control: 'boolean' }
+  }
+};
+
+export const InDialogComboboxGroup: StoryObj<typeof DatePickerRangeDialogComboboxGroupStory> = {
+  render: args => {
+    const updateArgs = useArgs()[1];
+
+    const handleChange = ({ endValue, startValue }: any) =>
+      updateArgs({
+        endValue,
+        startValue
+      });
+
+    const handleValueSettled = (result: {
+      field: 'start' | 'end';
+      date?: Date;
+      valid: boolean;
+    }) => {
+      if (result.valid) {
+        updateArgs(
+          result.field === 'start' ? { startValue: result.date } : { endValue: result.date }
+        );
+      }
+    };
+
+    return (
+      <DatePickerRangeDialogComboboxGroupStory
+        {...args}
+        onChange={handleChange}
+        onValueSettled={handleValueSettled}
+      />
+    );
+  },
+  name: 'DatePickerRange + DatePickerRange.Dialog (combobox group)',
   argTypes: {
     startValue: { control: 'date' },
     endValue: { control: 'date' },
