@@ -97,6 +97,7 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
               <DatePickerRange.StartGroup isFlush={isSideBySide}>
                 <DatePickerRange.Start>
                   <ClearableInput
+                    aria-describedby={hintId}
                     ref={startInputRef}
                     isCompact={isCompact}
                     wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
@@ -113,6 +114,7 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
               <DatePickerRange.EndGroup isFlush={isSideBySide}>
                 <DatePickerRange.End>
                   <ClearableInput
+                    aria-describedby={hintId}
                     ref={endInputRef}
                     isCompact={isCompact}
                     wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
