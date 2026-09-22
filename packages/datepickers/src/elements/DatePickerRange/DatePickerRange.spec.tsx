@@ -505,6 +505,19 @@ describe('DatePickerRange', () => {
 
       expect(startInput).toHaveValue(FORMATTED_DATE);
     });
+
+    it('uses custom formatDate method when a date is selected from the calendar', async () => {
+      const FORMATTED_DATE = 'test';
+      const { getByTestId, getAllByTestId } = render(
+        <Example onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+
+      expect(getByTestId('start')).toHaveValue(FORMATTED_DATE);
+    });
   });
 
   describe('locale changes', () => {

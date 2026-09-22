@@ -749,7 +749,7 @@ export function useDatePickerRange({
           return;
         }
 
-        dispatch({ type: 'CLICK_DATE', value: date, startValue, endValue });
+        dispatch({ type: 'CLICK_DATE', value: date, startValue, endValue, locale, formatDate });
 
         let result: { startValue?: Date; endValue?: Date };
         let isOutOfOrder = false;
@@ -788,7 +788,7 @@ export function useDatePickerRange({
         onValueSettled?.({
           field,
           date: isOutOfOrder ? undefined : fieldValue,
-          inputValue: formatValue({ value: fieldValue }),
+          inputValue: formatValue({ value: fieldValue, locale, formatDate }),
           valid: !isOutOfOrder,
           ...(isOutOfOrder ? { reason: 'out-of-order' as const } : {})
         });
@@ -881,7 +881,9 @@ export function useDatePickerRange({
       startInputRef,
       endInputRef,
       hasDialog,
-      requestCellFocus
+      requestCellFocus,
+      locale,
+      formatDate
     ]
   );
 
