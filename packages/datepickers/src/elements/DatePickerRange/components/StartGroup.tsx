@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes } from 'react';
+import React, { PropsWithChildren, HTMLAttributes, forwardRef } from 'react';
 import { InputGroup } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
@@ -14,23 +14,22 @@ type IStartGroupProps = HTMLAttributes<HTMLDivElement> & {
   isEdgeToEdge?: boolean;
 };
 
-export const StartGroup = ({
-  children,
-  isEdgeToEdge,
-  ...props
-}: PropsWithChildren<IStartGroupProps>) => {
-  const { isCompact, getStartGroupProps } = useDatePickerContext();
+export const StartGroup = forwardRef<HTMLDivElement, PropsWithChildren<IStartGroupProps>>(
+  ({ children, isEdgeToEdge, ...props }, ref) => {
+    const { isCompact, getStartGroupProps } = useDatePickerContext();
 
-  return (
-    <InputGroup
-      {...getStartGroupProps(props)}
-      isUnified
-      isCompact={isCompact}
-      isEdgeToEdgeEnd={isEdgeToEdge}
-    >
-      {children}
-    </InputGroup>
-  );
-};
+    return (
+      <InputGroup
+        {...getStartGroupProps(props)}
+        ref={ref}
+        isUnified
+        isCompact={isCompact}
+        isEdgeToEdgeEnd={isEdgeToEdge}
+      >
+        {children}
+      </InputGroup>
+    );
+  }
+);
 
 StartGroup.displayName = 'DatePickerRange.StartGroup';
