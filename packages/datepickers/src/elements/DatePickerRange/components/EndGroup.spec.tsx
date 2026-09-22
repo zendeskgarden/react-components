@@ -78,6 +78,24 @@ describe('DatePickerRange.EndGroup', () => {
     expect(getByTestId('end-group')).toHaveStyleRule('border-end-start-radius', '0');
   });
 
+  it('forwards a ref to its own DOM node', () => {
+    const ref = React.createRef<HTMLDivElement>();
+    const { getByTestId } = render(
+      <DatePickerRange>
+        <DatePickerRange.Start>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.EndGroup ref={ref} data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange.EndGroup>
+      </DatePickerRange>
+    );
+
+    expect(ref.current).toBe(getByTestId('end-group'));
+  });
+
   it('does not zero any corner radius when isEdgeToEdge is not set', () => {
     const { getByTestId } = render(
       <DatePickerRange>

@@ -12,8 +12,8 @@ import { useId } from '@zendeskgarden/container-utilities';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 
-const FIELD_WIDTH_PX = 302;
-const COMPACT_FIELD_WIDTH_PX = 235;
+const FIELD_WIDTH_PX = 311;
+const COMPACT_FIELD_WIDTH_PX = 249;
 
 const SHORT_DATE_PATTERN = /^(?<month>\d{1,2})\/(?<day>\d{1,2})\/(?<year>\d{4})$/u;
 
@@ -61,6 +61,8 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
   const containerRef = useRef<HTMLDivElement>(null);
   const startInputRef = useRef<HTMLInputElement>(null);
   const endInputRef = useRef<HTMLInputElement>(null);
+  const startGroupRef = useRef<HTMLDivElement>(null);
+  const endGroupRef = useRef<HTMLDivElement>(null);
   const hintId = `${useId()}--hint`;
 
   useEffect(() => {
@@ -92,9 +94,9 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
           <Fieldset.Legend>Date range</Fieldset.Legend>
           <Field.Hint id={hintId}>Date format: mm/dd/yyyy</Field.Hint>
           <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
-            <StyledField>
+            <StyledField $isCompact={isCompact}>
               <Field.Label hidden>Start date</Field.Label>
-              <DatePickerRange.StartGroup isEdgeToEdge={isSideBySide}>
+              <DatePickerRange.StartGroup ref={startGroupRef} isEdgeToEdge={isSideBySide}>
                 <DatePickerRange.Start>
                   <ClearableInput
                     aria-describedby={hintId}
@@ -109,9 +111,9 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
                 />
               </DatePickerRange.StartGroup>
             </StyledField>
-            <StyledField>
+            <StyledField $isCompact={isCompact}>
               <Field.Label hidden>End date</Field.Label>
-              <DatePickerRange.EndGroup isEdgeToEdge={isSideBySide}>
+              <DatePickerRange.EndGroup ref={endGroupRef} isEdgeToEdge={isSideBySide}>
                 <DatePickerRange.End>
                   <ClearableInput
                     aria-describedby={hintId}
@@ -129,7 +131,11 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
           </StyledFlexContainer>
         </Fieldset>
         <DatePickerRange.Dialog
-          referenceElement={isSideBySide === false ? endInputRef.current : startInputRef.current}
+          referenceElement={
+            isSideBySide === false
+              ? endGroupRef.current || endInputRef.current
+              : startGroupRef.current || startInputRef.current
+          }
         >
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>

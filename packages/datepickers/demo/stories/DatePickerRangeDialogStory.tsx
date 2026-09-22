@@ -11,8 +11,8 @@ import { StoryFn } from '@storybook/react-vite';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 
-const FIELD_WIDTH_PX = 302;
-const COMPACT_FIELD_WIDTH_PX = 235;
+const FIELD_WIDTH_PX = 301;
+const COMPACT_FIELD_WIDTH_PX = 241;
 const GAP_PX = 20;
 const COMPACT_GAP_PX = 16;
 
@@ -44,6 +44,8 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const startInputRef = useRef<HTMLInputElement>(null);
   const endInputRef = useRef<HTMLInputElement>(null);
+  const startGroupRef = useRef<HTMLDivElement>(null);
+  const endGroupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -68,9 +70,9 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
         <Fieldset isCompact={isCompact}>
           <Fieldset.Legend hidden>Date range</Fieldset.Legend>
           <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
-            <StyledField>
+            <StyledField $isCompact={isCompact}>
               <Field.Label isRegular={false}>Start date</Field.Label>
-              <DatePickerRange.StartGroup>
+              <DatePickerRange.StartGroup ref={startGroupRef}>
                 <DatePickerRange.Start>
                   <ClearableInput
                     ref={startInputRef}
@@ -84,9 +86,9 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
                 />
               </DatePickerRange.StartGroup>
             </StyledField>
-            <StyledField>
+            <StyledField $isCompact={isCompact}>
               <Field.Label isRegular={false}>End date</Field.Label>
-              <DatePickerRange.EndGroup>
+              <DatePickerRange.EndGroup ref={endGroupRef}>
                 <DatePickerRange.End>
                   <ClearableInput
                     ref={endInputRef}
@@ -103,7 +105,11 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
           </StyledFlexContainer>
         </Fieldset>
         <DatePickerRange.Dialog
-          referenceElement={isSideBySide === false ? endInputRef.current : startInputRef.current}
+          referenceElement={
+            isSideBySide === false
+              ? endGroupRef.current || endInputRef.current
+              : startGroupRef.current || startInputRef.current
+          }
         >
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>
