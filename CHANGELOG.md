@@ -13,6 +13,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.16.0 (2026-09-22)
+
+#### :rocket: New Feature
+* `forms`
+  * [#2148](https://github.com/zendeskgarden/react-components/pull/2148) feat(forms): add isUnified InputGroup variant and ClearableInput component ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+
 ## v9.15.9 (2026-08-27)
 
 #### :bug: Bug Fix
