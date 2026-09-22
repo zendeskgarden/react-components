@@ -11,18 +11,23 @@ import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 type IStartGroupProps = HTMLAttributes<HTMLDivElement> & {
   /** Removes the rounded corners on the trailing edge, since StartGroup always abuts the following EndGroup */
-  isFlush?: boolean;
+  isEdgeToEdge?: boolean;
 };
 
 export const StartGroup = ({
   children,
-  isFlush,
+  isEdgeToEdge,
   ...props
 }: PropsWithChildren<IStartGroupProps>) => {
   const { isCompact, getStartGroupProps } = useDatePickerContext();
 
   return (
-    <InputGroup {...getStartGroupProps(props)} isUnified isCompact={isCompact} isFlushEnd={isFlush}>
+    <InputGroup
+      {...getStartGroupProps(props)}
+      isUnified
+      isCompact={isCompact}
+      isEdgeToEdgeEnd={isEdgeToEdge}
+    >
       {children}
     </InputGroup>
   );

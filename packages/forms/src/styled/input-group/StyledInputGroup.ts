@@ -31,8 +31,8 @@ interface IStyledInputGroupProps {
   $isUnified?: boolean;
   $focusInset?: boolean;
   $isBare?: boolean;
-  $isFlushStart?: boolean;
-  $isFlushEnd?: boolean;
+  $isEdgeToEdgeStart?: boolean;
+  $isEdgeToEdgeEnd?: boolean;
   $validation?: Validation;
 }
 
@@ -82,7 +82,8 @@ const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 };
 
 const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const { theme, $isCompact, $focusInset, $isFlushStart, $isFlushEnd, $validation } = props;
+  const { theme, $isCompact, $focusInset, $isEdgeToEdgeStart, $isEdgeToEdgeEnd, $validation } =
+    props;
   const fontSize = theme.fontSizes.md;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
@@ -124,21 +125,21 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
 
-    ${$isFlushStart &&
+    ${$isEdgeToEdgeStart &&
     css`
       border-start-start-radius: 0;
       border-end-start-radius: 0;
-      /* overlaps the preceding flush-end sibling by one border-width, so the two share a single visible border */
+      /* overlaps the preceding edge-to-edge-end sibling by one border-width, so the two share a single visible border */
       margin-inline-start: -${theme.borderWidths.sm};
     `}
 
-    ${$isFlushEnd &&
+    ${$isEdgeToEdgeEnd &&
     css`
       border-start-end-radius: 0;
       border-end-end-radius: 0;
     `}
 
-    ${($isFlushStart || $isFlushEnd) &&
+    ${($isEdgeToEdgeStart || $isEdgeToEdgeEnd) &&
     css`
       /* raises this element above its overlapping neighbor so its own border/background paints over the overlap */
       &:hover,
@@ -210,25 +211,25 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     }
 
     & > ${StyledTextInput}:first-child {
-      border-start-start-radius: ${$isFlushStart ? '0' : theme.borderRadii.md};
-      border-end-start-radius: ${$isFlushStart ? '0' : theme.borderRadii.md};
+      border-start-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
+      border-end-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
       padding-inline-start: ${theme.space.sm};
     }
 
     & > ${StyledTextInput}:last-child {
-      border-start-end-radius: ${$isFlushEnd ? '0' : theme.borderRadii.md};
-      border-end-end-radius: ${$isFlushEnd ? '0' : theme.borderRadii.md};
+      border-start-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
+      border-end-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
       padding-inline-end: ${theme.space.sm};
     }
 
     & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
-      border-start-start-radius: ${$isFlushStart ? '0' : theme.borderRadii.md};
-      border-end-start-radius: ${$isFlushStart ? '0' : theme.borderRadii.md};
+      border-start-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
+      border-end-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
     }
 
     & > [data-garden-id='${COMPONENT_ID}']:last-child > ${StyledTextInput}:last-child {
-      border-start-end-radius: ${$isFlushEnd ? '0' : theme.borderRadii.md};
-      border-end-end-radius: ${$isFlushEnd ? '0' : theme.borderRadii.md};
+      border-start-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
+      border-end-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
     }
 
     /* sizes any icon button (IconButton, ToggleIconButton, ...) to fit the container; its icon glyph stays iconSizes.md regardless, and pressed-state styling is geometry-independent */

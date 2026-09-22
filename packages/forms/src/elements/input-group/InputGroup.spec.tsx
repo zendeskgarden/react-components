@@ -206,9 +206,9 @@ describe('InputGroup', () => {
     );
   });
 
-  it('zeroes the container leading corner radius when isFlushStart is set', () => {
+  it('zeroes the container leading corner radius when isEdgeToEdgeStart is set', () => {
     const { getByTestId } = render(
-      <InputGroup isUnified isFlushStart data-test-id="input-group">
+      <InputGroup isUnified isEdgeToEdgeStart data-test-id="input-group">
         <Input />
       </InputGroup>
     );
@@ -217,9 +217,9 @@ describe('InputGroup', () => {
     expect(getByTestId('input-group')).toHaveStyleRule('border-end-start-radius', '0');
   });
 
-  it('zeroes the container trailing corner radius when isFlushEnd is set', () => {
+  it('zeroes the container trailing corner radius when isEdgeToEdgeEnd is set', () => {
     const { getByTestId } = render(
-      <InputGroup isUnified isFlushEnd data-test-id="input-group">
+      <InputGroup isUnified isEdgeToEdgeEnd data-test-id="input-group">
         <Input />
       </InputGroup>
     );
@@ -228,9 +228,9 @@ describe('InputGroup', () => {
     expect(getByTestId('input-group')).toHaveStyleRule('border-end-end-radius', '0');
   });
 
-  it('zeroes the leading corner radius on an Input when isFlushStart is set', () => {
+  it('zeroes the leading corner radius on an Input when isEdgeToEdgeStart is set', () => {
     const { getByTestId } = render(
-      <InputGroup isUnified isFlushStart data-test-id="input-group">
+      <InputGroup isUnified isEdgeToEdgeStart data-test-id="input-group">
         <Input />
       </InputGroup>
     );
@@ -240,9 +240,9 @@ describe('InputGroup', () => {
     });
   });
 
-  it('zeroes the trailing corner radius on an Input when isFlushEnd is set', () => {
+  it('zeroes the trailing corner radius on an Input when isEdgeToEdgeEnd is set', () => {
     const { getByTestId } = render(
-      <InputGroup isUnified isFlushEnd data-test-id="input-group">
+      <InputGroup isUnified isEdgeToEdgeEnd data-test-id="input-group">
         <Input />
       </InputGroup>
     );
