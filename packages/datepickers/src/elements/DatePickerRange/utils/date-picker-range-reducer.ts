@@ -149,7 +149,14 @@ export function resolveSettledValue({
 
 export type DatePickerRangeAction =
   | { type: 'HOVER_DATE'; value?: Date }
-  | { type: 'CLICK_DATE'; value: Date; startValue?: Date; endValue?: Date }
+  | {
+      type: 'CLICK_DATE';
+      value: Date;
+      startValue?: Date;
+      endValue?: Date;
+      locale?: string;
+      formatDate?: any;
+    }
   | { type: 'PREVIEW_NEXT_MONTH' }
   | { type: 'PREVIEW_PREVIOUS_MONTH' }
   | { type: 'PREVIEW_NEXT_YEAR' }
@@ -275,7 +282,7 @@ export const datepickerRangeReducer = (
       return { ...state, startInputValue, endInputValue };
     }
     case 'CLICK_DATE': {
-      const { startValue, endValue } = action;
+      const { startValue, endValue, locale, formatDate } = action;
 
       if (state.isStartFocused) {
         if (
@@ -286,7 +293,7 @@ export const datepickerRangeReducer = (
             ...state,
             isStartFocused: false,
             isEndFocused: false,
-            startInputValue: formatValue({ value: action.value })
+            startInputValue: formatValue({ value: action.value, locale, formatDate })
           };
         }
 
@@ -294,7 +301,7 @@ export const datepickerRangeReducer = (
           ...state,
           isStartFocused: false,
           isEndFocused: false,
-          startInputValue: formatValue({ value: action.value }),
+          startInputValue: formatValue({ value: action.value, locale, formatDate }),
           endInputValue: undefined
         };
       } else if (state.isEndFocused) {
@@ -307,7 +314,7 @@ export const datepickerRangeReducer = (
             ...state,
             isStartFocused: false,
             isEndFocused: false,
-            endInputValue: formatValue({ value: action.value })
+            endInputValue: formatValue({ value: action.value, locale, formatDate })
           };
         }
 
@@ -315,23 +322,26 @@ export const datepickerRangeReducer = (
           ...state,
           isStartFocused: false,
           isEndFocused: false,
-          startInputValue: formatValue({ value: action.value })
+          startInputValue: formatValue({ value: action.value, locale, formatDate })
         };
       } else if (startValue === undefined) {
         return {
           ...state,
-          startInputValue: formatValue({ value: action.value })
+          startInputValue: formatValue({ value: action.value, locale, formatDate })
         };
       } else if (endValue === undefined) {
         if (isBefore(action.value, startValue)) {
           return {
             ...state,
-            startInputValue: formatValue({ value: action.value }),
+            startInputValue: formatValue({ value: action.value, locale, formatDate }),
             endInputValue: undefined
           };
         }
 
-        return { ...state, endInputValue: formatValue({ value: action.value }) };
+        return {
+          ...state,
+          endInputValue: formatValue({ value: action.value, locale, formatDate })
+        };
       }
 
       return state;

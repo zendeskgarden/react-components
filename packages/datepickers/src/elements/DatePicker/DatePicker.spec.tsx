@@ -88,6 +88,18 @@ describe('DatePicker', () => {
       expect(input).toHaveValue('5 février 2019');
     });
 
+    it('uses custom formatDate method when a date is selected from the calendar', async () => {
+      const FORMATTED_DATE = 'test';
+      const { getByTestId, getAllByTestId } = render(
+        <Example onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+      fireEvent.click(getAllByTestId('day')[1]);
+
+      expect(getByTestId('input')).toHaveValue(FORMATTED_DATE);
+    });
+
     it('does not warn about updating a component while rendering another when controlled', async () => {
       const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn());
 
