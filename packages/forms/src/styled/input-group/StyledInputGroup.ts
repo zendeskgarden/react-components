@@ -129,7 +129,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     css`
       border-start-start-radius: 0;
       border-end-start-radius: 0;
-      /* overlaps the preceding edge-to-edge-end sibling by one border-width, so the two share a single visible border */
       margin-inline-start: -${theme.borderWidths.sm};
     `}
 
@@ -141,10 +140,12 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
 
     ${($isEdgeToEdgeStart || $isEdgeToEdgeEnd) &&
     css`
-      /* raises this element above its overlapping neighbor so its own border/background paints over the overlap */
-      &:hover,
-      &:focus-within {
+      &:hover {
         z-index: 1;
+      }
+
+      &:focus-within {
+        z-index: 2;
       }
     `}
 
