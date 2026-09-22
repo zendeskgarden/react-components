@@ -407,12 +407,20 @@ describe('StyledInputGroup', () => {
     });
 
     it.each(['$isEdgeToEdgeStart', '$isEdgeToEdgeEnd'] as const)(
-      'raises z-index on hover and focus-within when %s is set, so its border can paint over the overlapping neighbor',
+      'raises z-index on hover when %s is set, so its border can paint over the overlapping neighbor',
       prop => {
         const { container } = render(<StyledInputGroup $isUnified {...{ [prop]: true }} />);
 
         expect(container.firstChild).toHaveStyleRule('z-index', '1', { modifier: '&:hover' });
-        expect(container.firstChild).toHaveStyleRule('z-index', '1', {
+      }
+    );
+
+    it.each(['$isEdgeToEdgeStart', '$isEdgeToEdgeEnd'] as const)(
+      'raises z-index above a hovered neighbor on focus-within when %s is set, so a focused border is never re-covered by a merely-hovered one',
+      prop => {
+        const { container } = render(<StyledInputGroup $isUnified {...{ [prop]: true }} />);
+
+        expect(container.firstChild).toHaveStyleRule('z-index', '2', {
           modifier: '&:focus-within'
         });
       }
@@ -421,8 +429,10 @@ describe('StyledInputGroup', () => {
     it('does not raise z-index on hover or focus-within when neither edge-to-edge prop is set', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
-      expect(container.firstChild).not.toHaveStyleRule('z-index', '1', { modifier: '&:hover' });
-      expect(container.firstChild).not.toHaveStyleRule('z-index', '1', {
+      expect(container.firstChild).not.toHaveStyleRule('z-index', expect.any(String), {
+        modifier: '&:hover'
+      });
+      expect(container.firstChild).not.toHaveStyleRule('z-index', expect.any(String), {
         modifier: '&:focus-within'
       });
     });
