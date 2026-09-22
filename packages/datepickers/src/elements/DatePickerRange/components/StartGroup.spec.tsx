@@ -60,10 +60,10 @@ describe('DatePickerRange.StartGroup', () => {
     expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
   });
 
-  it('zeroes the trailing corner radius when isFlush is set, since it always abuts the following EndGroup', () => {
+  it('zeroes the trailing corner radius when isEdgeToEdge is set, since it always abuts the following EndGroup', () => {
     const { getByTestId } = render(
       <DatePickerRange>
-        <DatePickerRange.StartGroup isFlush data-test-id="start-group">
+        <DatePickerRange.StartGroup isEdgeToEdge data-test-id="start-group">
           <DatePickerRange.Start>
             <input data-test-id="start" />
           </DatePickerRange.Start>
@@ -78,7 +78,7 @@ describe('DatePickerRange.StartGroup', () => {
     expect(getByTestId('start-group')).toHaveStyleRule('border-end-end-radius', '0');
   });
 
-  it('does not zero any corner radius when isFlush is not set', () => {
+  it('does not zero any corner radius when isEdgeToEdge is not set', () => {
     const { getByTestId } = render(
       <DatePickerRange>
         <DatePickerRange.StartGroup data-test-id="start-group">

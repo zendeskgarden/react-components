@@ -339,22 +339,22 @@ describe('StyledInputGroup', () => {
       );
     });
 
-    it('zeroes the container leading corner radius when $isFlushStart is set', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+    it('zeroes the container leading corner radius when $isEdgeToEdgeStart is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeStart />);
 
       expect(container.firstChild).toHaveStyleRule('border-start-start-radius', '0');
       expect(container.firstChild).toHaveStyleRule('border-end-start-radius', '0');
     });
 
-    it('zeroes the container trailing corner radius when $isFlushEnd is set', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+    it('zeroes the container trailing corner radius when $isEdgeToEdgeEnd is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeEnd />);
 
       expect(container.firstChild).toHaveStyleRule('border-start-end-radius', '0');
       expect(container.firstChild).toHaveStyleRule('border-end-end-radius', '0');
     });
 
-    it('zeroes the leading Input corner radius when $isFlushStart is set', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+    it('zeroes the leading Input corner radius when $isEdgeToEdgeStart is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeStart />);
 
       expect(container.firstChild).toHaveStyleRule('border-start-start-radius', '0', {
         modifier: `&>${StyledTextInput}:first-child`
@@ -364,8 +364,8 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it('zeroes the trailing Input corner radius when $isFlushEnd is set', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+    it('zeroes the trailing Input corner radius when $isEdgeToEdgeEnd is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeEnd />);
 
       expect(container.firstChild).toHaveStyleRule('border-start-end-radius', '0', {
         modifier: `&>${StyledTextInput}:last-child`
@@ -375,24 +375,24 @@ describe('StyledInputGroup', () => {
       });
     });
 
-    it('zeroes the leading nested InputGroup corner radius when $isFlushStart is set', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+    it('zeroes the leading nested InputGroup corner radius when $isEdgeToEdgeStart is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeStart />);
       const modifier = `&>[data-garden-id='forms.input_group']:first-child>${StyledTextInput}:first-child`;
 
       expect(container.firstChild).toHaveStyleRule('border-start-start-radius', '0', { modifier });
       expect(container.firstChild).toHaveStyleRule('border-end-start-radius', '0', { modifier });
     });
 
-    it('zeroes the trailing nested InputGroup corner radius when $isFlushEnd is set', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+    it('zeroes the trailing nested InputGroup corner radius when $isEdgeToEdgeEnd is set', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeEnd />);
       const modifier = `&>[data-garden-id='forms.input_group']:last-child>${StyledTextInput}:last-child`;
 
       expect(container.firstChild).toHaveStyleRule('border-start-end-radius', '0', { modifier });
       expect(container.firstChild).toHaveStyleRule('border-end-end-radius', '0', { modifier });
     });
 
-    it('overlaps the preceding flush-end sibling by one border-width when $isFlushStart is set, so the two share a single visible border', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushStart />);
+    it('overlaps the preceding edge-to-edge-end sibling by one border-width when $isEdgeToEdgeStart is set, so the two share a single visible border', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeStart />);
 
       expect(container.firstChild).toHaveStyleRule(
         'margin-inline-start',
@@ -400,13 +400,13 @@ describe('StyledInputGroup', () => {
       );
     });
 
-    it('does not add overlap margin for $isFlushEnd, since only the following flush-start sibling overlaps', () => {
-      const { container } = render(<StyledInputGroup $isUnified $isFlushEnd />);
+    it('does not add overlap margin for $isEdgeToEdgeEnd, since only the following edge-to-edge-start sibling overlaps', () => {
+      const { container } = render(<StyledInputGroup $isUnified $isEdgeToEdgeEnd />);
 
       expect(container.firstChild).not.toHaveStyleRule('margin-inline-start', expect.any(String));
     });
 
-    it.each(['$isFlushStart', '$isFlushEnd'] as const)(
+    it.each(['$isEdgeToEdgeStart', '$isEdgeToEdgeEnd'] as const)(
       'raises z-index on hover and focus-within when %s is set, so its border can paint over the overlapping neighbor',
       prop => {
         const { container } = render(<StyledInputGroup $isUnified {...{ [prop]: true }} />);
@@ -418,7 +418,7 @@ describe('StyledInputGroup', () => {
       }
     );
 
-    it('does not raise z-index on hover or focus-within when neither flush prop is set', () => {
+    it('does not raise z-index on hover or focus-within when neither edge-to-edge prop is set', () => {
       const { container } = render(<StyledInputGroup $isUnified />);
 
       expect(container.firstChild).not.toHaveStyleRule('z-index', '1', { modifier: '&:hover' });
