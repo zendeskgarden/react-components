@@ -216,7 +216,7 @@ describe('Dialog', () => {
     it('constrains its own max size to the available viewport space', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -233,7 +233,7 @@ describe('Dialog', () => {
     it('does not move the dialog away from its reference element, unlike shift()', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -253,7 +253,7 @@ describe('Dialog', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -276,7 +276,7 @@ describe('Dialog', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -303,7 +303,7 @@ describe('Dialog', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -318,7 +318,7 @@ describe('Dialog', () => {
     it('leaves a gap between the dialog and the viewport edge, instead of touching it exactly', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -336,7 +336,7 @@ describe('Dialog', () => {
     it('leaves the same gap beneath the dialog and the viewport edge, not just to the sides', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      mockNarrowReferenceRect(getByTestId('input'));
+      mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -354,7 +354,7 @@ describe('Dialog', () => {
     it('leaves the same gap above the dialog and the viewport edge when flip() opens it upward', async () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      mockNarrowBottomReferenceRect(getByTestId('input'));
+      mockNarrowBottomReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
       await user.click(getByTestId('calendar-button'));
 
@@ -374,7 +374,7 @@ describe('Dialog', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      mockNarrowReferenceRect(getByDefaultTestId('input'));
+      mockNarrowReferenceRect(getByDefaultTestId('input').parentElement as HTMLElement);
 
       await user.click(getByDefaultTestId('calendar-button'));
 
@@ -391,7 +391,7 @@ describe('Dialog', () => {
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} isCompact />
       );
 
-      mockNarrowReferenceRect(getByCompactTestId('input'));
+      mockNarrowReferenceRect(getByCompactTestId('input').parentElement as HTMLElement);
 
       await user.click(getByCompactTestId('calendar-button'));
 
@@ -400,6 +400,39 @@ describe('Dialog', () => {
 
         expect(compactMaxWidth).not.toBeNaN();
         expect(compactMaxWidth).toBeGreaterThan(defaultMaxWidth);
+      });
+    });
+  });
+
+  describe('reference element', () => {
+    it('anchors to the input group, not just the input', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+      const group = input.parentElement as HTMLElement;
+
+      mockNarrowReferenceRect(group);
+      input.getBoundingClientRect = jest.fn(
+        () =>
+          ({
+            width: 10,
+            height: 10,
+            top: 300,
+            left: 300,
+            bottom: 310,
+            right: 310,
+            x: 300,
+            y: 300
+          }) as DOMRect
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      await waitFor(() => {
+        const dialog = getByTestId('datepicker-menu');
+        const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
+        const x = match ? parseFloat(match.groups!.x) : NaN;
+
+        expect(x).toBe(250);
       });
     });
   });

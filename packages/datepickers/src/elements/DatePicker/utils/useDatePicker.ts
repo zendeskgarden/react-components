@@ -309,7 +309,7 @@ export function useDatePicker({
     ]
   );
 
-  const getReferenceElement = useCallback(() => inputRef.current, [inputRef]);
+  const getReferenceElement = useCallback(() => groupRef.current, [groupRef]);
 
   const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
     const { onMouseDown, ...other } = props;
