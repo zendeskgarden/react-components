@@ -7,7 +7,7 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, act, renderRtl, getRenderFn } from 'garden-test-utils';
+import { render, act, fireEvent, renderRtl, getRenderFn } from 'garden-test-utils';
 import { PALETTE } from '@zendeskgarden/react-theming';
 import { Tooltip } from './Tooltip';
 import { ITooltipProps } from '../types';
@@ -228,6 +228,54 @@ describe('Tooltip', () => {
       const tooltip = getByTestId('tooltip');
 
       expect(tooltip).toHaveStyleRule('max-width', '140px');
+    });
+  });
+
+  describe('Toggletip', () => {
+    const openToggletip = (trigger: HTMLElement) => {
+      fireEvent.click(trigger);
+      act(() => {
+        jest.runOnlyPendingTimers();
+      });
+    };
+
+    it('renders the live region with role="status" instead of role="tooltip"', () => {
+      const { getByRole, queryByRole } = render(<BasicExample isToggletip />);
+
+      expect(getByRole('status', { hidden: true })).toBeInTheDocument();
+      expect(queryByRole('tooltip', { hidden: true })).not.toBeInTheDocument();
+    });
+
+    it('passes aria-expanded and aria-controls through to the trigger', () => {
+      const { getByTestId } = render(<BasicExample id="test" isToggletip />);
+      const trigger = getByTestId('trigger');
+
+      expect(trigger).toHaveAttribute('aria-expanded', 'false');
+      expect(trigger).toHaveAttribute('aria-controls', 'test');
+
+      openToggletip(trigger);
+
+      expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    });
+
+    it('does not render the styled bubble until the toggletip is open', () => {
+      const { getByTestId, queryByTestId, getByRole } = render(<BasicExample isToggletip />);
+
+      // live region stays mounted while the visible bubble is gated
+      expect(getByRole('status', { hidden: true })).toBeInTheDocument();
+      expect(queryByTestId('tooltip')).not.toBeInTheDocument();
+
+      openToggletip(getByTestId('trigger'));
+
+      expect(getByTestId('tooltip')).toBeInTheDocument();
+    });
+
+    it('applies type and size styling to the bubble in toggletip mode', () => {
+      const { getByTestId } = render(<BasicExample isToggletip size="large" />);
+
+      openToggletip(getByTestId('trigger'));
+
+      expect(getByTestId('tooltip')).toHaveStyleRule('max-width', '270px');
     });
   });
 
