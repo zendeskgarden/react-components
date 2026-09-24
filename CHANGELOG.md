@@ -13,6 +13,57 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.15.8 (2026-08-20)
+
+#### :bug: Bug Fix
+* `accordions`, `avatars`, `buttons`, `grid`, `tags`, `typography`
+  * [#2143](https://github.com/zendeskgarden/react-components/pull/2143) fix: keep components behavior stable for users on styled-components >= 6.3.12 ([@ze-flo](https://github.com/ze-flo))
+
+## v9.15.7 (2026-07-23)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2140](https://github.com/zendeskgarden/react-components/pull/2140) fix(dropdowns): stop auto-activating first option while editing autocomplete Combobox ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+## v9.15.6 (2026-06-26)
+
+#### :bug: Bug Fix
+* `accordions`
+  * [#2137](https://github.com/zendeskgarden/react-components/pull/2137) fix(accordions): prevent step content overflow when collapsed ([@ze-flo](https://github.com/ze-flo))
+
+## v9.15.5 (2026-05-28)
+
+#### :bug: Bug Fix
+* `modals`, `theming`
+  * [#2130](https://github.com/zendeskgarden/react-components/pull/2130) fix(modals): keep tooltip dialog within viewport bounds ([@bmson](https://github.com/bmson))
+
+## v9.15.4 (2026-04-27)
+
+#### :bug: Bug Fix
+* `modals`
+  * [#2127](https://github.com/zendeskgarden/react-components/pull/2127) fix(modals): upgrade `container-modal` to v2 to fix blur-close behavior ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`
+  * [#2126](https://github.com/zendeskgarden/react-components/pull/2126) fix(dropdowns): restore isMountedRef on remount to fix StrictMode regression ([@ze-flo](https://github.com/ze-flo))
+
+## v9.15.3 (2026-04-23)
+
+#### :bug: Bug Fix
+* [#2125](https://github.com/zendeskgarden/react-components/pull/2125) fix(publishing): ensure `latest` tag is applied to most recent release ([@ze-flo](https://github.com/ze-flo))
+
+## v9.15.2 (2026-04-23)
+
+#### :bug: Bug Fix
+* `accordions`, `dropdowns`
+  * [#2123](https://github.com/zendeskgarden/react-components/pull/2123) fix(accordions): prevent focus ring clipping in stepper content ([@ze-flo](https://github.com/ze-flo))
+* `dropdowns`
+  * [#2124](https://github.com/zendeskgarden/react-components/pull/2124) fix(dropdowns): guard Listbox and MenuList state setters against post-unmount updates ([@jamesbrauman](https://github.com/jamesbrauman))
+
+## v9.15.1 (2026-04-02)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2115](https://github.com/zendeskgarden/react-components/pull/2115) fix(dropdowns): avoid unwanted page scroll when Combobox mounts or re-renders ([@ze-flo](https://github.com/ze-flo))
+
 ## v10.0.0-next.2 (2026-03-20)
 
 #### :seedling: Internal

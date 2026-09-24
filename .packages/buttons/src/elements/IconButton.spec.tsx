@@ -22,6 +22,38 @@ describe('IconButton', () => {
     expect(container.querySelector('svg')).not.toBeNull();
   });
 
+  describe('`type` attribute', () => {
+    it('renders default type of "button"', () => {
+      const { container } = render(
+        <IconButton>
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveAttribute('type', 'button');
+    });
+
+    it('renders default type of "button" if explicitly undefined', () => {
+      const { container } = render(
+        <IconButton type={undefined}>
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveAttribute('type', 'button');
+    });
+
+    it('renders custom type if provided', () => {
+      const { container } = render(
+        <IconButton type="submit">
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveAttribute('type', 'submit');
+    });
+  });
+
   describe('Invalid', () => {
     const consoleError = console.error;
 

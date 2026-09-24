@@ -47,6 +47,7 @@ const positionStyles = (position: ArrowPosition, size: number, inset: number, sh
   const marginPx = `${margin}px`;
   const placementPx = `${placement}px`;
   const offsetPx = `${size + shift}px`;
+  const centeredOffset = shift === 0 ? '50%' : `calc(50% + ${shift}px)`;
 
   let positionCss;
   let transform;
@@ -56,13 +57,13 @@ const positionStyles = (position: ArrowPosition, size: number, inset: number, sh
     positionCss = css`
       top: ${placementPx};
       right: ${position === 'top-right' && offsetPx};
-      left: ${position === 'top' ? '50%' : position === 'top-left' && offsetPx};
+      left: ${position === 'top' ? centeredOffset : position === 'top-left' && offsetPx};
       margin-left: ${position === 'top' && marginPx};
     `;
   } else if (position.startsWith('right')) {
     transform = 'rotate(-45deg)';
     positionCss = css`
-      top: ${position === 'right' ? '50%' : position === 'right-top' && offsetPx};
+      top: ${position === 'right' ? centeredOffset : position === 'right-top' && offsetPx};
       right: ${placementPx};
       bottom: ${position === 'right-bottom' && offsetPx};
       margin-top: ${position === 'right' && marginPx};
@@ -72,13 +73,13 @@ const positionStyles = (position: ArrowPosition, size: number, inset: number, sh
     positionCss = css`
       right: ${position === 'bottom-right' && offsetPx};
       bottom: ${placementPx};
-      left: ${position === 'bottom' ? '50%' : position === 'bottom-left' && offsetPx};
+      left: ${position === 'bottom' ? centeredOffset : position === 'bottom-left' && offsetPx};
       margin-left: ${position === 'bottom' && marginPx};
     `;
   } else if (position.startsWith('left')) {
     transform = 'rotate(135deg)';
     positionCss = css`
-      top: ${position === 'left' ? '50%' : position === 'left-top' && offsetPx};
+      top: ${position === 'left' ? centeredOffset : position === 'left-top' && offsetPx};
       bottom: ${offsetPx};
       left: ${placementPx};
       margin-top: ${position === 'left' && marginPx};

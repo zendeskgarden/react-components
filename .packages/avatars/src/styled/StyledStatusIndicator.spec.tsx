@@ -82,6 +82,16 @@ describe('StyledStatusIndicator', () => {
       );
     });
 
+    it('renders medium when size is explicitly undefined', () => {
+      const { container } = render(<StyledStatusIndicator $size={undefined} />);
+
+      expect(container.firstChild).toHaveStyleRule('height', '12px');
+      expect(container.firstChild).toHaveStyleRule(
+        'border',
+        `2px ${DEFAULT_THEME.borderStyles.solid}`
+      );
+    });
+
     it('renders large', () => {
       const { container } = render(<StyledStatusIndicator $size="large" />);
 

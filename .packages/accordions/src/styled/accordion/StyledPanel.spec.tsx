@@ -57,4 +57,13 @@ describe('StyledPanel', () => {
 
     expect(container.firstChild).not.toHaveStyleRule('transition');
   });
+
+  it('renders transition styling when isAnimated is explicitly undefined', () => {
+    const { container } = render(<StyledPanel $isAnimated={undefined} />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      'padding 0.25s ease-in-out,grid-template-rows 0.25s ease-in-out'
+    );
+  });
 });

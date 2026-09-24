@@ -38,7 +38,10 @@ const fontStyles = ({
   $size,
   theme
 }: IStyledFontProps & ThemeProps<DefaultTheme>) => {
-  const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf($size!) !== -1;
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$size` may still be undefined here */
+  const size = $size ?? 'inherit';
+  const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf(size) !== -1;
   const fontFamily = monospace && theme.fonts.mono;
   const direction = theme.rtl ? 'rtl' : 'ltr';
   const color = $hue ? getHueColor({ theme, value: $hue }) : undefined;
@@ -47,17 +50,17 @@ const fontStyles = ({
   let lineHeight;
 
   if (monospace) {
-    if ($size === 'inherit') {
+    if (size === 'inherit') {
       fontSize = 'calc(1em - 1px)';
       lineHeight = 'normal';
     } else {
-      const themeSize = THEME_SIZES[$size!];
+      const themeSize = THEME_SIZES[size];
 
       fontSize = math(`${theme.fontSizes[themeSize]} - 1px`);
       lineHeight = math(`${theme.lineHeights[themeSize]} - 1px`);
     }
-  } else if ($size !== 'inherit') {
-    const themeSize = THEME_SIZES[$size!];
+  } else if (size !== 'inherit') {
+    const themeSize = THEME_SIZES[size];
 
     fontSize = theme.fontSizes[themeSize];
     lineHeight = theme.lineHeights[themeSize];
@@ -65,7 +68,7 @@ const fontStyles = ({
 
   if ($isBold === true) {
     fontWeight = theme.fontWeights.semibold;
-  } else if ($isBold === false || $size !== 'inherit') {
+  } else if ($isBold === false || size !== 'inherit') {
     fontWeight = theme.fontWeights.regular;
   }
 
@@ -87,10 +90,9 @@ export interface IStyledFontProps {
   $hue?: string;
 }
 
-export const StyledFont = styled.div.attrs<IStyledFontProps>(props => ({
+export const StyledFont = styled.div.attrs<IStyledFontProps>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $size: props.$size ?? 'inherit'
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledFontProps>`
   ${props => !props.hidden && fontStyles(props)};
 

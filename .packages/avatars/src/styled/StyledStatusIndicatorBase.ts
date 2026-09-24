@@ -29,8 +29,11 @@ const iconFadeIn = keyframes`
 `;
 
 const sizeStyles = (props: IStyledStatusIndicatorProps) => {
-  const offset = getStatusBorderOffset(props);
-  const size = getStatusSize(props, offset);
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$size` may still be undefined here */
+  const sizeProps = { ...props, $size: props.$size ?? 'medium' };
+  const offset = getStatusBorderOffset(sizeProps);
+  const size = getStatusSize(sizeProps, offset);
 
   /**
    * 1. because we are using the stroke icon instead of fill due to artifacts in visual appearance,

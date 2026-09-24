@@ -122,6 +122,19 @@ describe('StyledAvatar', () => {
       expect(container.firstChild).toHaveStyleRule('width', '40px!important');
     });
 
+    it('renders medium when size is explicitly undefined', () => {
+      const { container } = render(
+        <StyledAvatar $size={undefined}>
+          <StyledStatusIndicator />
+        </StyledAvatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('width', '40px!important');
+      expect(container.firstChild).toHaveStyleRule('bottom', '-2px', {
+        modifier: `&>${StyledStatusIndicator}`
+      });
+    });
+
     it('renders large', () => {
       const { container } = render(<StyledAvatar $size="large" />);
 

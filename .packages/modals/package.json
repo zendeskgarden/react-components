@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
-    "@zendeskgarden/container-modal": "^1.0.24",
+    "@zendeskgarden/container-modal": "^2.0.0",
     "@zendeskgarden/container-utilities": "^2.0.4",
     "@zendeskgarden/react-buttons": "^9.15.0",
     "dom-helpers": "^5.1.0",

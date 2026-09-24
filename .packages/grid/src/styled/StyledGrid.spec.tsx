@@ -54,5 +54,13 @@ describe('StyledGrid', () => {
       expect(container.firstChild).toHaveStyleRule('padding-right', '0');
       expect(container.firstChild).toHaveStyleRule('padding-left', '0');
     });
+
+    it('renders default gutters when gutters are explicitly undefined', () => {
+      const { container } = render(<StyledGrid $gutters={undefined} />);
+      const padding = math(`${DEFAULT_THEME.space.md} / 2`);
+
+      expect(container.firstChild).toHaveStyleRule('padding-right', padding);
+      expect(container.firstChild).toHaveStyleRule('padding-left', padding);
+    });
   });
 });
