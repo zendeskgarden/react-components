@@ -412,6 +412,107 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Roving tabindex invariant', () => {
+    it('keeps exactly one day cell tabindex="0", matching the actually-focused cell, when reopening via ArrowDown after both values are selected', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <Example
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+          />
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const startInput = getByTestId('start');
+
+      await user.click(getByTestId('trigger'));
+
+      const days = getAllByTestId('day');
+
+      await user.click(days[10]);
+      await user.click(days[11]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+
+      await user.click(startInput);
+      await user.keyboard('{ArrowDown}');
+
+      const focusableDays = getAllByTestId('day').filter(
+        day => day.getAttribute('tabindex') === '0'
+      );
+
+      expect(focusableDays).toHaveLength(1);
+      expect(focusableDays[0]).toHaveFocus();
+
+      mockDate.reset();
+    });
+
+    it('focuses the selected End date, not the Start date, when reopening via ArrowDown from the End field', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <Example
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+          />
+        );
+      };
+
+      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const endInput = getByTestId('end');
+
+      await user.click(getByTestId('trigger'));
+
+      const days = getAllByTestId('day');
+
+      await user.click(days[10]);
+      await user.click(days[11]);
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+
+      await user.click(endInput);
+      await user.keyboard('{ArrowDown}');
+
+      const focusableDays = getAllByTestId('day').filter(
+        day => day.getAttribute('tabindex') === '0'
+      );
+
+      expect(focusableDays).toHaveLength(1);
+      expect(focusableDays[0]).toHaveFocus();
+      expect(focusableDays[0]).toHaveAttribute('data-test-end', 'true');
+
+      mockDate.reset();
+    });
+  });
+
   describe('Consumer passthrough props', () => {
     it('applies a consumer className to StyledMenu, not the outer positioned wrapper', async () => {
       const { getByTestId } = render(<Example dialogProps={{ className: 'consumer-class' }} />);

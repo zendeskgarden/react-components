@@ -31,7 +31,6 @@ import {
 import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
 import {
   composeActionButtonProps,
-  focusIntoDialog,
   resolveWidgetBlur,
   shouldOpenOnFieldClick
 } from '../../../utils/dialog-trigger-utils';
@@ -161,17 +160,24 @@ export function useDatePickerRange({
   });
 
   const openOrFocusDialog = useCallback(() => {
+    const openDate =
+      (state.isEndFocused ? (endValue ?? startValue) : (startValue ?? endValue)) ?? new Date();
+
+    dispatch({ type: 'FOCUS_DATE', value: openDate });
+
     if (isOpen) {
-      focusIntoDialog(dialogRef.current);
+      pendingGridFocusRef.current = true;
     } else {
       setIsOpen(true);
       shouldFocusDialogRef.current = true;
     }
-  }, [isOpen]);
+  }, [isOpen, state.isEndFocused, startValue, endValue]);
 
   useEffect(() => {
     if (isOpen && shouldFocusDialogRef.current) {
-      focusIntoDialog(dialogRef.current);
+      calendarWrapperRef.current
+        ?.querySelector<HTMLTableCellElement>('[data-test-id="day"][tabindex="0"]')
+        ?.focus();
       shouldFocusDialogRef.current = false;
     }
   }, [isOpen]);
