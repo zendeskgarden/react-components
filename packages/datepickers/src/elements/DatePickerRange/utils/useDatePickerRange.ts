@@ -19,6 +19,7 @@ import { isSameDay } from 'date-fns/isSameDay';
 import { isBefore } from 'date-fns/isBefore';
 import { isAfter } from 'date-fns/isAfter';
 import { isValid } from 'date-fns/isValid';
+import { useFocusJail } from '@zendeskgarden/container-focusjail';
 import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import {
   ElementProps,
@@ -153,6 +154,12 @@ export function useDatePickerRange({
   /** Set right before refocusing a field after completing the range auto-closes the dialog, so the next click on that already-focused field reopens it instead of being mistaken for a click inside text being edited. */
   const justClosedViaSelectionRef = useRef(false);
 
+  const { getContainerProps: getFocusJailProps } = useFocusJail({
+    containerRef: dialogRef,
+    focusOnMount: false,
+    restoreFocus: false
+  });
+
   const openOrFocusDialog = useCallback(() => {
     if (isOpen) {
       focusIntoDialog(dialogRef.current);
@@ -224,17 +231,19 @@ export function useDatePickerRange({
         }
       };
 
+      const { onKeyDown: focusJailKeyDown } = getFocusJailProps();
+
       return {
         ref: dialogRef,
         id: dialogId,
         role: 'dialog' as const,
-        'aria-modal': 'false' as const,
+        'aria-modal': 'true' as const,
         onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
-        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
+        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown, focusJailKeyDown),
         ...other
       };
     },
-    [dialogId, handleWidgetBlur, startInputRef]
+    [dialogId, handleWidgetBlur, startInputRef, getFocusJailProps]
   );
 
   const getReferenceElement = useCallback(() => {
