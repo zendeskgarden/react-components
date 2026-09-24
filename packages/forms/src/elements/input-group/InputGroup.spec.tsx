@@ -10,6 +10,7 @@ import { render, fireEvent, renderRtl } from 'garden-test-utils';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Field, Input, InputGroup, Textarea } from '../..';
+import { StyledTextInput } from '../../styled/text/StyledTextInput';
 
 describe('InputGroup', () => {
   it('always renders role="group"', () => {
@@ -205,6 +206,52 @@ describe('InputGroup', () => {
     );
   });
 
+  it('zeroes the container leading corner radius when isEdgeToEdgeStart is set', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified isEdgeToEdgeStart data-test-id="input-group">
+        <Input />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input-group')).toHaveStyleRule('border-start-start-radius', '0');
+    expect(getByTestId('input-group')).toHaveStyleRule('border-end-start-radius', '0');
+  });
+
+  it('zeroes the container trailing corner radius when isEdgeToEdgeEnd is set', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified isEdgeToEdgeEnd data-test-id="input-group">
+        <Input />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input-group')).toHaveStyleRule('border-start-end-radius', '0');
+    expect(getByTestId('input-group')).toHaveStyleRule('border-end-end-radius', '0');
+  });
+
+  it('zeroes the leading corner radius on an Input when isEdgeToEdgeStart is set', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified isEdgeToEdgeStart data-test-id="input-group">
+        <Input />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input-group')).toHaveStyleRule('border-start-start-radius', '0', {
+      modifier: `&>${StyledTextInput}:first-child`
+    });
+  });
+
+  it('zeroes the trailing corner radius on an Input when isEdgeToEdgeEnd is set', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified isEdgeToEdgeEnd data-test-id="input-group">
+        <Input />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input-group')).toHaveStyleRule('border-start-end-radius', '0', {
+      modifier: `&>${StyledTextInput}:last-child`
+    });
+  });
+
   it('does not override an IconButton child size prop, since unified sizing is applied via CSS', () => {
     const { getByRole } = render(
       <InputGroup isUnified isCompact>
@@ -309,7 +356,7 @@ describe('InputGroup', () => {
       expect(getByTestId('input-group')).toHaveStyleRule('border-color', defaultBorderColor);
     });
 
-    it('applies nested Input validation only to the nearest unified group', () => {
+    it('does not apply nested Input validation to a classic (non-unified) ancestor group', () => {
       const { getByTestId } = render(
         <InputGroup data-test-id="outer">
           <InputGroup isUnified data-test-id="inner">
@@ -320,6 +367,19 @@ describe('InputGroup', () => {
 
       expect(getByTestId('inner')).toHaveStyleRule('border-color', errorColor);
       expect(getByTestId('outer')).not.toHaveStyleRule('border-color', errorColor);
+    });
+
+    it('bubbles nested Input validation through an ancestor unified group, for a composed control with its own internal InputGroup', () => {
+      const { getByTestId } = render(
+        <InputGroup isUnified data-test-id="outer">
+          <InputGroup isUnified data-test-id="inner">
+            <Input aria-label="Input" validation="error" />
+          </InputGroup>
+        </InputGroup>
+      );
+
+      expect(getByTestId('inner')).toHaveStyleRule('border-color', errorColor);
+      expect(getByTestId('outer')).toHaveStyleRule('border-color', errorColor);
     });
 
     /* mirrors the useText warning specs in react-theming: save/restore NODE_ENV + console.warn */

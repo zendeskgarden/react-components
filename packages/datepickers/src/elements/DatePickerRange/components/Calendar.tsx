@@ -6,9 +6,11 @@
  */
 
 import React, { forwardRef, HTMLAttributes } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 import { addMonths } from 'date-fns/addMonths';
 
 import { StyledRangeCalendar } from '../../../styled';
+import { Toolbar } from '../../../components/Toolbar';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { Month } from './Month';
 
@@ -16,18 +18,52 @@ import { Month } from './Month';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
-  const { state } = useDatePickerContext();
+  const {
+    previewDate,
+    locale,
+    isCompact,
+    previousMonthLabel,
+    nextMonthLabel,
+    previousYearLabel,
+    nextYearLabel,
+    toolbarLabel,
+    calendarId,
+    getCalendarProps,
+    focusPreviousMonth,
+    focusNextMonth,
+    focusPreviousYear,
+    focusNextYear
+  } = useDatePickerContext();
+
+  const { ref: calendarWrapperRef, ...calendarProps } = getCalendarProps();
 
   return (
     <StyledRangeCalendar
-      ref={ref}
+      ref={mergeRefs([ref, calendarWrapperRef])}
+      id={calendarId}
+      $isCompact={isCompact}
       data-garden-id="datepickers.range"
       data-garden-version={PACKAGE_VERSION}
       data-test-id="range-calendar"
+      {...calendarProps}
       {...props}
     >
-      <Month displayDate={state.previewDate} isNextHidden />
-      <Month displayDate={addMonths(state.previewDate, 1)} isPreviousHidden />
+      <Toolbar
+        previewDate={previewDate}
+        locale={locale}
+        isCompact={isCompact}
+        previousMonthLabel={previousMonthLabel}
+        nextMonthLabel={nextMonthLabel}
+        previousYearLabel={previousYearLabel}
+        nextYearLabel={nextYearLabel}
+        toolbarLabel={toolbarLabel}
+        onPreviousYear={focusPreviousYear}
+        onPreviousMonth={focusPreviousMonth}
+        onNextMonth={focusNextMonth}
+        onNextYear={focusNextYear}
+      />
+      <Month displayDate={previewDate} offset={0} gridColumn="1 / 8" />
+      <Month displayDate={addMonths(previewDate, 1)} offset={1} gridColumn="9 / 16" />
     </StyledRangeCalendar>
   );
 });

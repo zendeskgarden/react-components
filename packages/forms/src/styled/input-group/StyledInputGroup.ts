@@ -30,8 +30,22 @@ interface IStyledInputGroupProps {
   $isCompact?: boolean;
   $isUnified?: boolean;
   $focusInset?: boolean;
+  $isBare?: boolean;
+  $isEdgeToEdgeStart?: boolean;
+  $isEdgeToEdgeEnd?: boolean;
   $validation?: Validation;
 }
+
+/* strips the unified border/background/focus-ring, e.g. for a group nested inside another that already provides them */
+const bareStyles = () => css`
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+
+  &:focus-within {
+    box-shadow: none;
+  }
+`;
 
 /* Input publishes validation via InputGroupContext; $validation is a transient prop and never lands on the DOM */
 const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
@@ -68,7 +82,8 @@ const disabledStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps
 };
 
 const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupProps) => {
-  const { theme, $isCompact, $focusInset, $validation } = props;
+  const { theme, $isCompact, $focusInset, $isEdgeToEdgeStart, $isEdgeToEdgeEnd, $validation } =
+    props;
   const fontSize = theme.fontSizes.md;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
   const buttonSize = math(`${theme.space.base}px * ${$isCompact ? 6 : 7}`);
@@ -109,6 +124,31 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
     border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
+
+    ${$isEdgeToEdgeStart &&
+    css`
+      border-start-start-radius: 0;
+      border-end-start-radius: 0;
+      margin-inline-start: -${theme.borderWidths.sm};
+    `}
+
+    ${$isEdgeToEdgeEnd &&
+    css`
+      border-start-end-radius: 0;
+      border-end-end-radius: 0;
+    `}
+
+    ${($isEdgeToEdgeStart || $isEdgeToEdgeEnd) &&
+    css`
+      &:hover {
+        z-index: 1;
+      }
+
+      &:focus-within {
+        z-index: 2;
+      }
+    `}
+
     border-color: ${borderColor};
     background-color: ${backgroundColor};
     cursor: text;
@@ -172,25 +212,25 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     }
 
     & > ${StyledTextInput}:first-child {
-      border-start-start-radius: ${theme.borderRadii.md};
-      border-end-start-radius: ${theme.borderRadii.md};
+      border-start-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
+      border-end-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
       padding-inline-start: ${theme.space.sm};
     }
 
     & > ${StyledTextInput}:last-child {
-      border-start-end-radius: ${theme.borderRadii.md};
-      border-end-end-radius: ${theme.borderRadii.md};
+      border-start-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
+      border-end-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
       padding-inline-end: ${theme.space.sm};
     }
 
     & > [data-garden-id='${COMPONENT_ID}']:first-child > ${StyledTextInput}:first-child {
-      border-start-start-radius: ${theme.borderRadii.md};
-      border-end-start-radius: ${theme.borderRadii.md};
+      border-start-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
+      border-end-start-radius: ${$isEdgeToEdgeStart ? '0' : theme.borderRadii.md};
     }
 
     & > [data-garden-id='${COMPONENT_ID}']:last-child > ${StyledTextInput}:last-child {
-      border-start-end-radius: ${theme.borderRadii.md};
-      border-end-end-radius: ${theme.borderRadii.md};
+      border-start-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
+      border-end-end-radius: ${$isEdgeToEdgeEnd ? '0' : theme.borderRadii.md};
     }
 
     /* sizes any icon button (IconButton, ToggleIconButton, ...) to fit the container; its icon glyph stays iconSizes.md regardless, and pressed-state styling is geometry-independent */
@@ -351,6 +391,7 @@ export const StyledInputGroup = styled.div.attrs({
   ${props => positionStyles(props)};
   ${props => !props.$isUnified && segmentedItemStyles(props)};
   ${props => props.$isUnified && unifiedItemStyles(props)};
+  ${props => props.$isBare && bareStyles()};
 
   ${componentStyles};
 `;

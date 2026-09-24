@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useRef } from 'react';
+import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
-import { Field, Input } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
+import { focusStyles } from '@zendeskgarden/react-theming';
+import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
+import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -16,37 +18,59 @@ interface IArgs extends IDatePickerRangeProps {
   dateStyle: DATE_STYLE;
 }
 
+const StyledScrollRegion = styled.section`
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+  overflow: auto;
+  ${p => focusStyles({ theme: p.theme })}
+`;
+
+const StyledGrid = styled.div<{ isCompact?: boolean }>`
+  display: grid;
+  grid-template-columns: repeat(2, ${p => (p.isCompact ? '224px' : '280px')});
+  grid-template-rows: auto auto;
+  gap: ${p => (p.isCompact ? '16px' : '20px')};
+`;
+
+const StyledCalendar = styled(DatePickerRange.Calendar)`
+  grid-column: 1 / -1;
+  margin: -${p => p.theme.shadowWidths.md};
+  padding: ${p => p.theme.shadowWidths.md};
+`;
+
 export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...args }) => {
+  const containerRef = useRef<HTMLElement>(null);
+  const containerTabIndex = useScrollRegion({ containerRef, dependency: isCompact });
+
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 
   return (
     <DatePickerRange {...args} formatDate={formatDate} isCompact={isCompact}>
-      <Grid>
-        <Grid.Row>
-          <Grid.Col size="auto">
+      <StyledScrollRegion
+        ref={containerRef}
+        tabIndex={containerTabIndex}
+        aria-label="Date range picker"
+      >
+        <Fieldset isCompact={isCompact}>
+          <Fieldset.Legend hidden>Date range</Fieldset.Legend>
+          <StyledGrid isCompact={isCompact}>
             <Field>
-              <Field.Label hidden>{(DatePickerRange.Start as any).displayName}</Field.Label>
+              <Field.Label isRegular={false}>Start date</Field.Label>
               <DatePickerRange.Start>
-                <Input isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
+                <ClearableInput isCompact={isCompact} />
               </DatePickerRange.Start>
             </Field>
-          </Grid.Col>
-          <Grid.Col size="auto">
             <Field>
-              <Field.Label hidden>{(DatePickerRange.End as any).displayName}</Field.Label>
+              <Field.Label isRegular={false}>End date</Field.Label>
               <DatePickerRange.End>
-                <Input isCompact={isCompact} style={{ width: isCompact ? 224 : 280 }} />
+                <ClearableInput isCompact={isCompact} />
               </DatePickerRange.End>
             </Field>
-          </Grid.Col>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Col>
-            <DatePickerRange.Calendar />
-          </Grid.Col>
-        </Grid.Row>
-      </Grid>
+            <StyledCalendar />
+          </StyledGrid>
+        </Fieldset>
+      </StyledScrollRegion>
     </DatePickerRange>
   );
 };
