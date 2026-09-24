@@ -6,7 +6,7 @@
  */
 
 import { useContext, createContext } from 'react';
-import { DateFnsIndex, IUseDatePickerRangeReturnValue } from '../../../types';
+import { DateFnsIndex, IUseDatePickerRangeReturnValue, ToolbarDateLabel } from '../../../types';
 
 export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue {
   locale?: string;
@@ -16,10 +16,10 @@ export interface IDatePickerRangeContext extends IUseDatePickerRangeReturnValue 
   maxValue?: Date;
   startValue?: Date;
   endValue?: Date;
-  previousMonthLabel?: string;
-  nextMonthLabel?: string;
-  previousYearLabel?: string;
-  nextYearLabel?: string;
+  previousMonthLabel?: ToolbarDateLabel;
+  nextMonthLabel?: ToolbarDateLabel;
+  previousYearLabel?: ToolbarDateLabel;
+  nextYearLabel?: ToolbarDateLabel;
   toolbarLabel?: string;
   inRangeLabel?: string;
   startOfRangeLabel?: string;

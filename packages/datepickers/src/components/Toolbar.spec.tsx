@@ -12,12 +12,20 @@ import { KEYS } from '@zendeskgarden/container-utilities';
 import { Toolbar } from './Toolbar';
 import { IToolbarProps } from '../types';
 
+const DEFAULT_PREVIEW_DATE = new Date(2019, 1, 5);
+
+const PREVIOUS_YEAR = 'Previous year: February 2018';
+const PREVIOUS_MONTH = 'Previous month: January 2019';
+const NEXT_MONTH = 'Next month: March 2019';
+const NEXT_YEAR = 'Next year: February 2020';
+
 describe('Toolbar', () => {
   const user = userEvent.setup({ delay: null });
 
   const renderToolbar = (props: Partial<IToolbarProps> = {}) =>
     render(
       <Toolbar
+        previewDate={DEFAULT_PREVIEW_DATE}
         onPreviousYear={jest.fn()}
         onPreviousMonth={jest.fn()}
         onNextMonth={jest.fn()}
@@ -29,6 +37,7 @@ describe('Toolbar', () => {
   const renderToolbarRtl = (props: Partial<IToolbarProps> = {}) =>
     renderRtl(
       <Toolbar
+        previewDate={DEFAULT_PREVIEW_DATE}
         onPreviousYear={jest.fn()}
         onPreviousMonth={jest.fn()}
         onNextMonth={jest.fn()}
@@ -37,7 +46,7 @@ describe('Toolbar', () => {
       />
     );
 
-  it.each(['Previous year', 'Previous month', 'Next month', 'Next year'])(
+  it.each([PREVIOUS_YEAR, PREVIOUS_MONTH, NEXT_MONTH, NEXT_YEAR])(
     'hides the "%s" paddle icon from assistive technology',
     name => {
       const { getByRole } = renderToolbar();
@@ -71,19 +80,65 @@ describe('Toolbar', () => {
     ['previousMonthLabel', 'Mois précédent'],
     ['nextMonthLabel', 'Mois suivant'],
     ['nextYearLabel', 'Année suivante']
-  ])('reflects a consumer-provided "%s"', (labelProp, label) => {
-    const { getByRole } = renderToolbar({ [labelProp]: label });
+  ])(
+    'uses a consumer-provided string "%s" as-is, without appending the date',
+    (labelProp, label) => {
+      const { getByRole } = renderToolbar({ [labelProp]: label });
 
-    expect(getByRole('button', { name: label })).toBeInTheDocument();
+      expect(getByRole('button', { name: label })).toBeInTheDocument();
+    }
+  );
+
+  it('formats the default appended month/year using the provided locale', () => {
+    const { getByRole } = renderToolbar({ locale: 'fr-FR' });
+
+    expect(getByRole('button', { name: 'Previous year: février 2018' })).toBeInTheDocument();
+  });
+
+  it.each([
+    ['previousYearLabel', new Date(2018, 1, 5), 'February 2018'],
+    ['previousMonthLabel', new Date(2019, 0, 5), 'January 2019'],
+    ['nextMonthLabel', new Date(2019, 2, 5), 'March 2019'],
+    ['nextYearLabel', new Date(2020, 1, 5), 'February 2020']
+  ])(
+    'calls a consumer-provided function "%s" with the target date and its formatted month/year, using its return value as the label',
+    (labelProp, expectedDate, expectedFormatted) => {
+      const labelFn = jest.fn(
+        (date: Date, formattedMonthYear: string) => `Custom: ${formattedMonthYear}`
+      );
+
+      const { getByRole } = renderToolbar({ [labelProp]: labelFn });
+
+      expect(labelFn).toHaveBeenCalledWith(expectedDate, expectedFormatted);
+      expect(getByRole('button', { name: `Custom: ${expectedFormatted}` })).toBeInTheDocument();
+    }
+  );
+
+  it('recomputes the appended month/year as previewDate changes', () => {
+    const { getByRole, rerender } = renderToolbar();
+
+    expect(getByRole('button', { name: NEXT_MONTH })).toBeInTheDocument();
+
+    rerender(
+      <Toolbar
+        previewDate={new Date(2019, 2, 5)}
+        onPreviousYear={jest.fn()}
+        onPreviousMonth={jest.fn()}
+        onNextMonth={jest.fn()}
+        onNextYear={jest.fn()}
+      />
+    );
+
+    expect(getByRole('button', { name: 'Next month: April 2019' })).toBeInTheDocument();
   });
 
   it('gives exactly one paddle tabindex="0" initially, matching the first control', () => {
     const { getByRole } = renderToolbar();
 
-    const previousYear = getByRole('button', { name: 'Previous year' });
-    const previousMonth = getByRole('button', { name: 'Previous month' });
-    const nextMonth = getByRole('button', { name: 'Next month' });
-    const nextYear = getByRole('button', { name: 'Next year' });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
+    const nextMonth = getByRole('button', { name: NEXT_MONTH });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
 
     expect(previousYear).toHaveAttribute('tabindex', '0');
     [previousMonth, nextMonth, nextYear].forEach(button => {
@@ -94,8 +149,8 @@ describe('Toolbar', () => {
   it('moves focus to the next paddle when ArrowRight is pressed', () => {
     const { getByRole } = renderToolbar();
 
-    const previousYear = getByRole('button', { name: 'Previous year' });
-    const previousMonth = getByRole('button', { name: 'Previous month' });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
 
     act(() => {
       previousYear.focus();
@@ -110,8 +165,8 @@ describe('Toolbar', () => {
   it('moves focus to the previous paddle when ArrowLeft is pressed', () => {
     const { getByRole } = renderToolbar();
 
-    const previousMonth = getByRole('button', { name: 'Previous month' });
-    const previousYear = getByRole('button', { name: 'Previous year' });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
 
     act(() => {
       previousMonth.focus();
@@ -124,8 +179,8 @@ describe('Toolbar', () => {
   it('wraps focus from the last paddle to the first when ArrowRight is pressed', () => {
     const { getByRole } = renderToolbar();
 
-    const nextYear = getByRole('button', { name: 'Next year' });
-    const previousYear = getByRole('button', { name: 'Previous year' });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
 
     act(() => {
       nextYear.focus();
@@ -138,8 +193,8 @@ describe('Toolbar', () => {
   it('wraps focus from the first paddle to the last when ArrowLeft is pressed', () => {
     const { getByRole } = renderToolbar();
 
-    const previousYear = getByRole('button', { name: 'Previous year' });
-    const nextYear = getByRole('button', { name: 'Next year' });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
 
     act(() => {
       previousYear.focus();
@@ -152,8 +207,8 @@ describe('Toolbar', () => {
   it('moves focus to the previous paddle when ArrowRight is pressed, in RTL', () => {
     const { getByRole } = renderToolbarRtl();
 
-    const previousYear = getByRole('button', { name: 'Previous year' });
-    const previousMonth = getByRole('button', { name: 'Previous month' });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
 
     act(() => {
       previousMonth.focus();
@@ -166,8 +221,8 @@ describe('Toolbar', () => {
   it('moves focus to the next paddle when ArrowLeft is pressed, in RTL', () => {
     const { getByRole } = renderToolbarRtl();
 
-    const previousYear = getByRole('button', { name: 'Previous year' });
-    const previousMonth = getByRole('button', { name: 'Previous month' });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
 
     act(() => {
       previousYear.focus();
@@ -180,8 +235,8 @@ describe('Toolbar', () => {
   it('wraps focus from the first paddle to the last when ArrowRight is pressed, in RTL', () => {
     const { getByRole } = renderToolbarRtl();
 
-    const previousYear = getByRole('button', { name: 'Previous year' });
-    const nextYear = getByRole('button', { name: 'Next year' });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
 
     act(() => {
       previousYear.focus();
@@ -194,8 +249,8 @@ describe('Toolbar', () => {
   it('wraps focus from the last paddle to the first when ArrowLeft is pressed, in RTL', () => {
     const { getByRole } = renderToolbarRtl();
 
-    const nextYear = getByRole('button', { name: 'Next year' });
-    const previousYear = getByRole('button', { name: 'Previous year' });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
 
     act(() => {
       nextYear.focus();
@@ -208,8 +263,8 @@ describe('Toolbar', () => {
   it('moves focus to the first paddle when Home is pressed', () => {
     const { getByRole } = renderToolbar();
 
-    const nextMonth = getByRole('button', { name: 'Next month' });
-    const previousYear = getByRole('button', { name: 'Previous year' });
+    const nextMonth = getByRole('button', { name: NEXT_MONTH });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
 
     act(() => {
       nextMonth.focus();
@@ -222,8 +277,8 @@ describe('Toolbar', () => {
   it('moves focus to the last paddle when End is pressed', () => {
     const { getByRole } = renderToolbar();
 
-    const previousMonth = getByRole('button', { name: 'Previous month' });
-    const nextYear = getByRole('button', { name: 'Next year' });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
 
     act(() => {
       previousMonth.focus();
@@ -236,8 +291,8 @@ describe('Toolbar', () => {
   it('moves focus to the first paddle when Home is pressed, in RTL', () => {
     const { getByRole } = renderToolbarRtl();
 
-    const nextMonth = getByRole('button', { name: 'Next month' });
-    const previousYear = getByRole('button', { name: 'Previous year' });
+    const nextMonth = getByRole('button', { name: NEXT_MONTH });
+    const previousYear = getByRole('button', { name: PREVIOUS_YEAR });
 
     act(() => {
       nextMonth.focus();
@@ -250,8 +305,8 @@ describe('Toolbar', () => {
   it('moves focus to the last paddle when End is pressed, in RTL', () => {
     const { getByRole } = renderToolbarRtl();
 
-    const previousMonth = getByRole('button', { name: 'Previous month' });
-    const nextYear = getByRole('button', { name: 'Next year' });
+    const previousMonth = getByRole('button', { name: PREVIOUS_MONTH });
+    const nextYear = getByRole('button', { name: NEXT_YEAR });
 
     act(() => {
       previousMonth.focus();
@@ -262,10 +317,10 @@ describe('Toolbar', () => {
   });
 
   it.each([
-    ['Previous year', 'onPreviousYear'],
-    ['Previous month', 'onPreviousMonth'],
-    ['Next month', 'onNextMonth'],
-    ['Next year', 'onNextYear']
+    [PREVIOUS_YEAR, 'onPreviousYear'],
+    [PREVIOUS_MONTH, 'onPreviousMonth'],
+    [NEXT_MONTH, 'onNextMonth'],
+    [NEXT_YEAR, 'onNextYear']
   ] as const)(
     'calls the corresponding callback when Enter or Space is pressed on the "%s" paddle',
     async (name, callbackProp) => {
