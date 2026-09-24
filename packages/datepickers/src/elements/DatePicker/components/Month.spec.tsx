@@ -391,6 +391,19 @@ describe('Month', () => {
       expect(days[9]).toHaveAttribute('tabindex', '-1');
     });
 
+    it('calls preventDefault on the keyboard event when navigating with arrow keys', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      const days = getAllByTestId('day');
+      const wasNotCanceled = fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
+
+      expect(wasNotCanceled).toBe(false);
+    });
+
     it('moves focus to the previous day when ArrowLeft is pressed', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
