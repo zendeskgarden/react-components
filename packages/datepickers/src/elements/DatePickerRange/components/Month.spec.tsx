@@ -1126,6 +1126,17 @@ describe('Month', () => {
       expect(days[4]).toHaveAttribute('tabindex', '-1');
     });
 
+    it('calls preventDefault on the keyboard event when navigating with arrow keys', () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const wasNotCanceled = fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
+
+      expect(wasNotCanceled).toBe(false);
+    });
+
     it('moves focus to the previous day when ArrowLeft is pressed', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
