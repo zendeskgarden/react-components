@@ -257,9 +257,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
               lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
               data-test-id="in-range-description"
             >
-              {/* U+2063 (invisible separator, not classified as whitespace) keeps Safari's accessible-name
-                  computation from trimming this leading space and running it into the full-date sibling. */}
-              {`⁣ ${inRangeDescriptionText}`}
+              {`⁠ ${inRangeDescriptionText}`}
             </Span>
           ) : null}
         </StyledDayCell>
