@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render, renderRtl, waitFor } from 'garden-test-utils';
 import mockDate from 'mockdate';
@@ -194,6 +194,37 @@ describe('Dialog', () => {
     await user.click(getByTestId('input'));
 
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+  });
+
+  describe('Roving tabindex invariant', () => {
+    it('keeps exactly one day cell tabindex="0", matching the actually-focused cell, when reopening after a mouse-click selection', async () => {
+      const ControlledExample = ({
+        value: initialValue,
+        ...props
+      }: Omit<IDatePickerProps, 'children'>) => {
+        const [value, setValue] = useState(initialValue);
+
+        return <Example {...props} value={value} onChange={setValue} />;
+      };
+
+      const { getByTestId, getAllByTestId } = render(<ControlledExample value={DEFAULT_DATE} />);
+      const button = getByTestId('calendar-button');
+
+      await user.click(button);
+      await user.click(getAllByTestId('day')[1]);
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+
+      await user.click(button);
+
+      const focusableDays = getAllByTestId('day').filter(
+        day => day.getAttribute('tabindex') === '0'
+      );
+
+      expect(focusableDays).toHaveLength(1);
+      expect(focusableDays[0]).toHaveFocus();
+      expect(focusableDays[0]).toHaveAttribute('data-test-selected', 'true');
+    });
   });
 
   describe('Focus trapping', () => {
