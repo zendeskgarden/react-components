@@ -47,11 +47,11 @@ describe('Calendar', () => {
 
   describe('Month navigation buttons', () => {
     it('changes month on Enter and Space, matching click behavior', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByTestId('calendar-button'));
 
-      const nextButton = getByRole('button', { name: 'Next month' });
+      const nextButton = getByTestId('next-month');
 
       act(() => {
         nextButton.focus();
@@ -60,7 +60,7 @@ describe('Calendar', () => {
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
 
-      const previousButton = getByRole('button', { name: 'Previous month' });
+      const previousButton = getByTestId('previous-month');
 
       act(() => {
         previousButton.focus();
@@ -71,13 +71,13 @@ describe('Calendar', () => {
     });
 
     it('leaves focus on the paddle and marks the corresponding day in the new month as tabbable', async () => {
-      const { getByTestId, getAllByTestId, getByRole } = render(
+      const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      const nextButton = getByRole('button', { name: 'Next month' });
+      const nextButton = getByTestId('next-month');
 
       act(() => {
         nextButton.focus();
@@ -94,13 +94,13 @@ describe('Calendar', () => {
     });
 
     it('clamps to the last day of the month when paddle navigation lands on a day that does not exist', async () => {
-      const { getByTestId, getAllByTestId, getByRole } = render(
+      const { getByTestId, getAllByTestId } = render(
         <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      const nextButton = getByRole('button', { name: 'Next month' });
+      const nextButton = getByTestId('next-month');
 
       act(() => {
         nextButton.focus();
@@ -118,11 +118,11 @@ describe('Calendar', () => {
 
   describe('Year navigation buttons', () => {
     it('changes year on Enter and Space, matching click behavior', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByTestId('calendar-button'));
 
-      const nextButton = getByRole('button', { name: 'Next year' });
+      const nextButton = getByTestId('next-year');
 
       act(() => {
         nextButton.focus();
@@ -131,7 +131,7 @@ describe('Calendar', () => {
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2020');
 
-      const previousButton = getByRole('button', { name: 'Previous year' });
+      const previousButton = getByTestId('previous-year');
 
       act(() => {
         previousButton.focus();
@@ -142,13 +142,13 @@ describe('Calendar', () => {
     });
 
     it('leaves focus on the paddle and marks the corresponding day next year as tabbable, matching Shift+PageDown', async () => {
-      const { getByTestId, getAllByTestId, getByRole } = render(
+      const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      const nextButton = getByRole('button', { name: 'Next year' });
+      const nextButton = getByTestId('next-year');
 
       act(() => {
         nextButton.focus();
@@ -165,13 +165,13 @@ describe('Calendar', () => {
     });
 
     it('leaves focus on the paddle and marks the corresponding day previous year as tabbable, matching Shift+PageUp', async () => {
-      const { getByTestId, getAllByTestId, getByRole } = render(
+      const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      const previousButton = getByRole('button', { name: 'Previous year' });
+      const previousButton = getByTestId('previous-year');
 
       act(() => {
         previousButton.focus();
@@ -189,13 +189,13 @@ describe('Calendar', () => {
     it('clamps February 29 to February 28 when navigating into a non-leap year', async () => {
       mockDate.set(new Date(2020, 1, 29));
 
-      const { getByTestId, getAllByTestId, getByRole } = render(
+      const { getByTestId, getAllByTestId } = render(
         <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
-      fireEvent.click(getByRole('button', { name: 'Next year' }));
+      fireEvent.click(getByTestId('next-year'));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2021');
 

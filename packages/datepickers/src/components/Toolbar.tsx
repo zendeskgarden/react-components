@@ -9,8 +9,13 @@ import React, { useCallback, useContext, useRef, useState } from 'react';
 import { ThemeContext } from 'styled-components';
 import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
 import { KEYS } from '@zendeskgarden/container-utilities';
+import { subMonths } from 'date-fns/subMonths';
+import { addMonths } from 'date-fns/addMonths';
+import { subYears } from 'date-fns/subYears';
+import { addYears } from 'date-fns/addYears';
 import { StyledCalendarToolbar, StyledHeaderPaddle } from '../styled';
-import { IToolbarProps } from '../types';
+import { IToolbarProps, ToolbarDateLabel } from '../types';
+import { formatMonthHeading } from '../utils/calendar-utils';
 
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
@@ -19,8 +24,33 @@ import ChevronDoubleRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevro
 
 type Paddle = 'previousYear' | 'previousMonth' | 'nextMonth' | 'nextYear';
 
+/**
+ * A plain string override is used as-is (no date appended) - the consumer owns the whole string.
+ * A function override is called with the target date and its formatted "month year", and its
+ * return value is used as-is. `undefined` falls back to Garden's default text with the formatted
+ * date appended.
+ */
+function resolveDateAriaLabel(
+  label: ToolbarDateLabel | undefined,
+  defaultText: string,
+  date: Date,
+  formattedMonthYear: string
+): string {
+  if (typeof label === 'function') {
+    return label(date, formattedMonthYear);
+  }
+
+  if (label === undefined) {
+    return `${defaultText}: ${formattedMonthYear}`;
+  }
+
+  return label;
+}
+
 /** Shared month/year navigation toolbar rendered by both `DatePicker` and `DatePickerRange`; purely presentational. */
 export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
+  previewDate,
+  locale,
   isCompact,
   previousMonthLabel,
   nextMonthLabel,
@@ -32,21 +62,51 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   onNextMonth,
   onNextYear
 }) => {
-  const previousMonthAriaLabel = useText(
+  const previousMonthText = useText(
     Toolbar,
     { previousMonthLabel },
     'previousMonthLabel',
     'Previous month'
   );
-  const nextMonthAriaLabel = useText(Toolbar, { nextMonthLabel }, 'nextMonthLabel', 'Next month');
-  const previousYearAriaLabel = useText(
+  const nextMonthText = useText(Toolbar, { nextMonthLabel }, 'nextMonthLabel', 'Next month');
+  const previousYearText = useText(
     Toolbar,
     { previousYearLabel },
     'previousYearLabel',
     'Previous year'
   );
-  const nextYearAriaLabel = useText(Toolbar, { nextYearLabel }, 'nextYearLabel', 'Next year');
+  const nextYearText = useText(Toolbar, { nextYearLabel }, 'nextYearLabel', 'Next year');
   const toolbarAriaLabel = useText(Toolbar, { toolbarLabel }, 'toolbarLabel', 'Calendar view');
+
+  const previousMonthDate = subMonths(previewDate, 1);
+  const nextMonthDate = addMonths(previewDate, 1);
+  const previousYearDate = subYears(previewDate, 1);
+  const nextYearDate = addYears(previewDate, 1);
+
+  const previousMonthAriaLabel = resolveDateAriaLabel(
+    previousMonthLabel,
+    previousMonthText!,
+    previousMonthDate,
+    formatMonthHeading(previousMonthDate, locale)
+  );
+  const nextMonthAriaLabel = resolveDateAriaLabel(
+    nextMonthLabel,
+    nextMonthText!,
+    nextMonthDate,
+    formatMonthHeading(nextMonthDate, locale)
+  );
+  const previousYearAriaLabel = resolveDateAriaLabel(
+    previousYearLabel,
+    previousYearText!,
+    previousYearDate,
+    formatMonthHeading(previousYearDate, locale)
+  );
+  const nextYearAriaLabel = resolveDateAriaLabel(
+    nextYearLabel,
+    nextYearText!,
+    nextYearDate,
+    formatMonthHeading(nextYearDate, locale)
+  );
 
   const { rtl } = useContext(ThemeContext) || DEFAULT_THEME;
 

@@ -105,14 +105,14 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   zIndex?: number;
   /** Provides a customized/translated label for the calendar trigger button **/
   toggleCalendarLabel?: string;
-  /** Provides a customized/translated label for the previous month button **/
-  previousMonthLabel?: string;
-  /** Provides a customized/translated label for the next month button **/
-  nextMonthLabel?: string;
-  /** Provides a customized/translated label for the previous year button **/
-  previousYearLabel?: string;
-  /** Provides a customized/translated label for the next year button **/
-  nextYearLabel?: string;
+  /** Provides a customized/translated label for the previous month button, optionally as a function of the target date and its formatted "month year" **/
+  previousMonthLabel?: ToolbarDateLabel;
+  /** Provides a customized/translated label for the next month button, optionally as a function of the target date and its formatted "month year" **/
+  nextMonthLabel?: ToolbarDateLabel;
+  /** Provides a customized/translated label for the previous year button, optionally as a function of the target date and its formatted "month year" **/
+  previousYearLabel?: ToolbarDateLabel;
+  /** Provides a customized/translated label for the next year button, optionally as a function of the target date and its formatted "month year" **/
+  nextYearLabel?: ToolbarDateLabel;
   /** Provides a customized/translated accessible name for the header's month/year navigation toolbar **/
   toolbarLabel?: string;
   /** Provides a customized/translated `aria-roledescription` announced on each selectable day cell **/
@@ -348,10 +348,10 @@ export interface IDatePickerCalendarProps extends Omit<HTMLAttributes<HTMLDivEle
   isCompact?: boolean;
   locale?: string;
   weekStartsOn?: DateFnsIndex;
-  previousMonthLabel?: string;
-  nextMonthLabel?: string;
-  previousYearLabel?: string;
-  nextYearLabel?: string;
+  previousMonthLabel?: ToolbarDateLabel;
+  nextMonthLabel?: ToolbarDateLabel;
+  previousYearLabel?: ToolbarDateLabel;
+  nextYearLabel?: ToolbarDateLabel;
   toolbarLabel?: string;
   selectableCellRoleDescription?: string;
 }
@@ -417,12 +417,17 @@ export interface ICalendarButtonProps extends ButtonHTMLAttributes<HTMLButtonEle
   getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
 }
 
+/** Called with the paddle's target date and that date's formatted "month year" (e.g. "September 2025"), to build the full label. */
+export type ToolbarDateLabel = string | ((date: Date, formattedMonthYear: string) => string);
+
 export interface IToolbarProps {
+  previewDate: Date;
+  locale?: string;
   isCompact?: boolean;
-  previousMonthLabel?: string;
-  nextMonthLabel?: string;
-  previousYearLabel?: string;
-  nextYearLabel?: string;
+  previousMonthLabel?: ToolbarDateLabel;
+  nextMonthLabel?: ToolbarDateLabel;
+  previousYearLabel?: ToolbarDateLabel;
+  nextYearLabel?: ToolbarDateLabel;
   toolbarLabel?: string;
   onPreviousYear: () => void;
   onPreviousMonth: () => void;

@@ -31,6 +31,7 @@ export const Calendar = forwardRef<HTMLDivElement, IDatePickerCalendarProps>(
     ref
   ) => {
     const {
+      previewDate,
       getCalendarProps,
       focusPreviousMonth,
       focusNextMonth,
@@ -46,6 +47,8 @@ export const Calendar = forwardRef<HTMLDivElement, IDatePickerCalendarProps>(
         {...getCalendarProps()}
       >
         <Toolbar
+          previewDate={previewDate}
+          locale={locale}
           isCompact={isCompact}
           previousMonthLabel={previousMonthLabel}
           nextMonthLabel={nextMonthLabel}

@@ -20,6 +20,7 @@ import { Month } from './Month';
 export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const {
     previewDate,
+    locale,
     isCompact,
     previousMonthLabel,
     nextMonthLabel,
@@ -48,6 +49,8 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
       {...props}
     >
       <Toolbar
+        previewDate={previewDate}
+        locale={locale}
         isCompact={isCompact}
         previousMonthLabel={previousMonthLabel}
         nextMonthLabel={nextMonthLabel}
