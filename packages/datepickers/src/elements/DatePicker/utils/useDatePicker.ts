@@ -17,6 +17,7 @@ import { endOfWeek } from 'date-fns/endOfWeek';
 import { isToday } from 'date-fns/isToday';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isValid } from 'date-fns/isValid';
+import { useFocusJail } from '@zendeskgarden/container-focusjail';
 import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import {
   ElementProps,
@@ -68,6 +69,12 @@ export function useDatePicker({
   const pendingGridFocusRef = useRef(false);
   /** Set right before refocusing the input after a selection auto-closes the dialog, so the next click on that already-focused input reopens it instead of being mistaken for a click inside text being edited. */
   const justClosedViaSelectionRef = useRef(false);
+
+  const { getContainerProps: getFocusJailProps } = useFocusJail({
+    containerRef: dialogRef,
+    focusOnMount: false,
+    restoreFocus: false
+  });
 
   const [state, dispatch] = useReducer(
     datepickerReducer,
@@ -195,18 +202,20 @@ export function useDatePicker({
         }
       };
 
+      const { onKeyDown: focusJailKeyDown } = getFocusJailProps();
+
       return {
         ref: dialogRef,
         id: menuId,
         role: 'dialog' as const,
-        'aria-modal': 'false' as const,
+        'aria-modal': 'true' as const,
         'aria-labelledby': buttonId,
         onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
-        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
+        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown, focusJailKeyDown),
         ...other
       };
     },
-    [menuId, buttonId, handleWidgetBlur, settleValue, inputRef]
+    [menuId, buttonId, handleWidgetBlur, settleValue, inputRef, getFocusJailProps]
   );
 
   const getInputProps = useCallback(

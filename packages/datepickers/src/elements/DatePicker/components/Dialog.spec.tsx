@@ -85,7 +85,7 @@ describe('Dialog', () => {
     expect(queryByTestId('datepicker-menu')).toBeEmptyDOMElement();
   });
 
-  it('has dialog role, aria-modal="false", and an accessible name matching the calendar button', async () => {
+  it('has dialog role, aria-modal="true", and an accessible name matching the calendar button', async () => {
     const { getByTestId, getByRole } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
@@ -94,7 +94,7 @@ describe('Dialog', () => {
 
     const dialog = getByRole('dialog', { name: 'Choose date' });
 
-    expect(dialog).toHaveAttribute('aria-modal', 'false');
+    expect(dialog).toHaveAttribute('aria-modal', 'true');
   });
 
   it('applies LTR classes by default', async () => {
@@ -194,6 +194,58 @@ describe('Dialog', () => {
     await user.click(getByTestId('input'));
 
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+  });
+
+  describe('Focus trapping', () => {
+    // jsdom does no layout, so getClientRects() is always empty and `tabbable()`
+    // (used by the focus jail) treats every element as display:none, finding no
+    // tabbables. Give elements a rect so the jail's Tab wrap can be exercised.
+    // Precedent: ColorSwatchDialog's spec patches HTMLElement.prototype.matches
+    // for a similar jsdom gap (`:focus-visible`).
+    let getClientRectsSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      getClientRectsSpy = jest
+        .spyOn(HTMLElement.prototype, 'getClientRects')
+        .mockReturnValue([{ width: 1, height: 1 }] as unknown as DOMRectList);
+    });
+
+    afterEach(() => {
+      getClientRectsSpy.mockRestore();
+    });
+
+    it('wraps Tab from the focused day cell back to the first tabbable element, keeping the dialog open', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      // focusIntoDialog focuses the selected day cell, the dialog's last tabbable element.
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+
+      await user.tab();
+
+      expect(getByTestId('previous-year')).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByTestId('outside')).not.toHaveFocus();
+    });
+
+    it('wraps Shift+Tab from the first tabbable element back to the day cell, keeping the dialog open', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      await user.tab();
+      expect(getByTestId('previous-year')).toHaveFocus();
+
+      await user.tab({ shift: true });
+
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    });
   });
 
   describe('viewport overflow', () => {

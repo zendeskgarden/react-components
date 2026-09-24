@@ -59,14 +59,14 @@ describe('DatePickerRange.Dialog', () => {
   });
 
   describe('Dialog role', () => {
-    it('has dialog role and aria-modal="false"', async () => {
+    it('has dialog role and aria-modal="true"', async () => {
       const { getByTestId, getByRole } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
       const dialog = getByRole('dialog');
 
-      expect(dialog).toHaveAttribute('aria-modal', 'false');
+      expect(dialog).toHaveAttribute('aria-modal', 'true');
     });
   });
 
@@ -344,6 +344,71 @@ describe('DatePickerRange.Dialog', () => {
       await user.pointer([{ target: getByRole('toolbar'), keys: '[MouseLeft]' }]);
 
       expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+  });
+
+  describe('Focus trapping', () => {
+    // jsdom does no layout, so getClientRects() is always empty and `tabbable()`
+    // (used by the focus jail) treats every element as display:none, finding no
+    // tabbables. Give elements a rect so the jail's Tab wrap can be exercised.
+    // Precedent: ColorSwatchDialog's spec patches HTMLElement.prototype.matches
+    // for a similar jsdom gap (`:focus-visible`).
+    let getClientRectsSpy: jest.SpyInstance;
+
+    beforeEach(() => {
+      getClientRectsSpy = jest
+        .spyOn(HTMLElement.prototype, 'getClientRects')
+        .mockReturnValue([{ width: 1, height: 1 }] as unknown as DOMRectList);
+    });
+
+    afterEach(() => {
+      getClientRectsSpy.mockRestore();
+    });
+
+    it('wraps Tab from the focused day cell back to the first tabbable element, keeping the dialog open', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const { getByTestId, getAllByTestId } = render(<Example />);
+
+      await user.click(getByTestId('trigger'));
+
+      // focusIntoDialog focuses today's cell when no value is selected, the
+      // dialog's last tabbable element.
+      const today = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-today') === 'true'
+      );
+
+      expect(today).toHaveFocus();
+
+      await user.tab();
+
+      expect(getByTestId('previous-year')).toHaveFocus();
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByTestId('outside')).not.toHaveFocus();
+
+      mockDate.reset();
+    });
+
+    it('wraps Shift+Tab from the first tabbable element back to the day cell, keeping the dialog open', async () => {
+      mockDate.set(new Date(2019, 1, 5));
+
+      const { getByTestId, getAllByTestId } = render(<Example />);
+
+      await user.click(getByTestId('trigger'));
+
+      await user.tab();
+      expect(getByTestId('previous-year')).toHaveFocus();
+
+      await user.tab({ shift: true });
+
+      const today = getAllByTestId('day').find(
+        day => day.getAttribute('data-test-today') === 'true'
+      );
+
+      expect(today).toHaveFocus();
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      mockDate.reset();
     });
   });
 
