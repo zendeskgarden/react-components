@@ -286,11 +286,17 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const prevSelectionRef = useRef(selectionFingerprint);
 
     useEffect(() => {
-      if (prevSelectionRef.current !== selectionFingerprint) {
-        prevSelectionRef.current = selectionFingerprint;
-        inputRef.current?.scrollIntoView?.();
+      const selectionChanged = prevSelectionRef.current !== selectionFingerprint;
+
+      prevSelectionRef.current = selectionFingerprint;
+
+      // Only a growing tag list can push the input out of view. Single-select
+      // inputs never move on selection. Non-editable inputs are display: none;
+      // TagGroup scrolls the last tag in that case.
+      if (selectionChanged && isMultiselectable && isEditable) {
+        inputRef.current?.scrollIntoView?.({ block: 'nearest' });
       }
-    }, [selectionFingerprint]);
+    }, [isEditable, isMultiselectable, selectionFingerprint]);
 
     return (
       <ComboboxContext.Provider value={contextValue}>

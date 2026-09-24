@@ -30,7 +30,7 @@ export const TagGroup = ({
     if (isMountedRef.current) {
       if (!isEditable) {
         // Scroll the last tag into view.
-        lastTagRef.current?.scrollIntoView?.();
+        lastTagRef.current?.scrollIntoView?.({ block: 'nearest' });
       }
     } else {
       isMountedRef.current = true;

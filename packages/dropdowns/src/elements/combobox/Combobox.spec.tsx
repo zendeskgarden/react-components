@@ -764,6 +764,10 @@ describe('Combobox', () => {
   });
 
   describe('scrollIntoView', () => {
+    afterEach(() => {
+      delete (window.HTMLElement.prototype as Partial<HTMLElement>).scrollIntoView;
+    });
+
     it('does not scroll the input into view on mount', () => {
       const scrollIntoView = jest.fn();
 
@@ -792,23 +796,39 @@ describe('Combobox', () => {
       expect(scrollIntoView).not.toHaveBeenCalled();
     });
 
-    it('scrolls the input into view when selection changes after mount', async () => {
-      const scrollIntoView = jest.fn();
-
-      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
-
+    it('does not scroll the input into view on selection change for single-select', async () => {
       const { getByTestId } = render(
         <TestCombobox defaultExpanded>
           <Option data-test-id="option" value="value" />
         </TestCombobox>
       );
+      const input = getByTestId('input');
+      const scrollInput = jest.fn();
 
-      // Reset mock to ignore any scrollIntoView calls from Option active state on initial render
-      scrollIntoView.mockClear();
+      // Spy the input element directly; `Option` scrolls the active `<li>` with
+      // `{ block: 'nearest' }`, so a prototype-level mock cannot distinguish the two
+      input.scrollIntoView = scrollInput;
 
       await user.click(getByTestId('option'));
 
-      expect(scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
+      expect(scrollInput).not.toHaveBeenCalled();
+    });
+
+    it('scrolls the input into view on selection change for editable multiselectable', async () => {
+      const { getByTestId } = render(
+        <TestCombobox isMultiselectable defaultExpanded>
+          <Option isSelected data-test-id="option-1" value="value-1" />
+          <Option data-test-id="option-2" value="value-2" />
+        </TestCombobox>
+      );
+      const input = getByTestId('input');
+      const scrollInput = jest.fn();
+
+      input.scrollIntoView = scrollInput;
+
+      await user.click(getByTestId('option-2'));
+
+      expect(scrollInput).toHaveBeenCalledWith({ block: 'nearest' });
     });
 
     it('does not scroll the last tag into view on mount for non-editable multiselectable', () => {
@@ -824,6 +844,43 @@ describe('Combobox', () => {
       );
 
       expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('scrolls the last tag into view on selection change for non-editable multiselectable', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <TestCombobox isEditable={false} isMultiselectable defaultExpanded>
+          <Option
+            isSelected
+            data-test-id="option-1"
+            tagProps={{ 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>}
+            value="value-1"
+          />
+          <Option
+            isSelected
+            data-test-id="option-2"
+            tagProps={{ 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>}
+            value="value-2"
+          />
+        </TestCombobox>
+      );
+      const input = getByTestId('input');
+      const scrollInput = jest.fn();
+
+      input.scrollIntoView = scrollInput;
+
+      const tags = getAllByTestId('tag');
+      const lastTag = tags[tags.length - 1];
+      const scrollLastTag = jest.fn();
+
+      lastTag.scrollIntoView = scrollLastTag;
+
+      // Deselect the first option: the selection changes while the last tag's DOM
+      // element remains stable, so the scroll target can be spied directly (a newly
+      // added tag would render as a new element that cannot be spied before the scroll)
+      await user.click(getByTestId('option-1'));
+
+      expect(scrollLastTag).toHaveBeenCalledWith({ block: 'nearest' });
+      expect(scrollInput).not.toHaveBeenCalled();
     });
   });
 });
