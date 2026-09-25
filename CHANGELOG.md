@@ -13,6 +13,13 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.16.1 (2026-09-24)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2151](https://github.com/zendeskgarden/react-components/pull/2151) fix(dropdowns): stop Combobox scrolling the page on selection change ([@ze-flo](https://github.com/ze-flo))
+
+
 ## v9.16.0 (2026-09-22)
 
 #### :rocket: New Feature
