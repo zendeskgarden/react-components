@@ -836,7 +836,9 @@ export function useDatePickerRange({
           !isSameDay(date, endValue));
 
       const isDisabled =
-        !isDateWithinRange(date, minValue, maxValue) || wouldMoveDisabledOrReadOnlyValue;
+        !isDateWithinRange(date, minValue, maxValue) ||
+        isDisabledOrReadOnly() ||
+        wouldMoveDisabledOrReadOnlyValue;
 
       const isCurrentDate = isToday(date);
 
@@ -966,6 +968,7 @@ export function useDatePickerRange({
       endInputRef,
       hasDialog,
       disabledOrReadOnlyFields,
+      isDisabledOrReadOnly,
       getDisabledOrReadOnlyField,
       requestCellFocus,
       locale,

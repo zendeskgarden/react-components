@@ -1006,6 +1006,78 @@ describe('DatePickerRange', () => {
           expect(getDays(getAllByTestId, 1)[9]).toHaveAttribute('aria-selected', 'true');
         });
       });
+
+      describe(`when both fields are ${label}`, () => {
+        const BOTH: Field[] = ['start', 'end'];
+
+        const renderExample = () =>
+          render(
+            <InlineExample
+              startValue={DEFAULT_START_VALUE}
+              endValue={DEFAULT_END_VALUE}
+              disabledOrReadOnlyFields={BOTH}
+            />
+          );
+
+        const getVisibleDays = (getAllByTestId: (id: string) => HTMLElement[]) =>
+          getAllByTestId('day').filter(day => day.getAttribute('data-test-hidden') === 'false');
+
+        it('marks every day unavailable', () => {
+          const { getAllByTestId } = renderExample();
+          const days = getVisibleDays(getAllByTestId);
+
+          expect(days).toHaveLength(59); // February + March 2019
+          days.forEach(day => expect(day).toHaveAttribute('aria-disabled', 'true'));
+        });
+
+        it('still shows both values as selected', () => {
+          const { getAllByTestId } = renderExample();
+
+          expect(getDays(getAllByTestId, 0)[9]).toHaveAttribute('aria-selected', 'true'); // February 5, 2019
+          expect(getDays(getAllByTestId, 1)[9]).toHaveAttribute('aria-selected', 'true'); // March 5, 2019
+        });
+
+        it('does not change either value when a day is clicked', async () => {
+          const { getAllByTestId } = renderExample();
+
+          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+          expect(onChangeSpy).not.toHaveBeenCalled();
+        });
+
+        it.each([
+          ['Enter', '{Enter}'],
+          ['Space', ' ']
+        ])('does not change either value when %s is pressed on a day', async (_, key) => {
+          const { getAllByTestId } = renderExample();
+
+          getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
+          await user.keyboard(key);
+
+          expect(onChangeSpy).not.toHaveBeenCalled();
+        });
+
+        it('can still be browsed with the keyboard and the toolbar', async () => {
+          const { getByTestId, getAllByTestId } = renderExample();
+
+          getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
+          await user.keyboard('{ArrowRight}');
+
+          expect(getDays(getAllByTestId, 0)[10]).toHaveFocus(); // February 6, 2019
+
+          await user.click(getByTestId('next-month'));
+
+          expect(getAllByTestId('calendar-wrapper')[0]).toHaveTextContent('March 2019');
+        });
+
+        it(`makes days available again once the fields are no longer ${label}`, () => {
+          const { getAllByTestId, rerender } = renderExample();
+
+          rerender(<InlineExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />);
+
+          expect(getDays(getAllByTestId, 0)[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019
+        });
+      });
     });
   });
 
