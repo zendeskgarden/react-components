@@ -1021,17 +1021,6 @@ describe('DatePickerRange', () => {
             />
           );
 
-        const getVisibleDays = (getAllByTestId: (id: string) => HTMLElement[]) =>
-          getAllByTestId('day').filter(day => day.getAttribute('data-test-hidden') === 'false');
-
-        it('marks every day unavailable', () => {
-          const { getAllByTestId } = renderExample();
-          const days = getVisibleDays(getAllByTestId);
-
-          expect(days).toHaveLength(59); // February + March 2019
-          days.forEach(day => expect(day).toHaveAttribute('aria-disabled', 'true'));
-        });
-
         it('keeps the primary text color on days within the selected range', () => {
           const { getAllByTestId } = renderExample();
           const dayNumber = getDays(getAllByTestId, 0)[14].querySelector('[aria-hidden="true"]'); // February 10, 2019
@@ -1068,27 +1057,6 @@ describe('DatePickerRange', () => {
           await user.keyboard(key);
 
           expect(onChangeSpy).not.toHaveBeenCalled();
-        });
-
-        it('can still be browsed with the keyboard and the toolbar', async () => {
-          const { getByTestId, getAllByTestId } = renderExample();
-
-          getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
-          await user.keyboard('{ArrowRight}');
-
-          expect(getDays(getAllByTestId, 0)[10]).toHaveFocus(); // February 6, 2019
-
-          await user.click(getByTestId('next-month'));
-
-          expect(getAllByTestId('calendar-wrapper')[0]).toHaveTextContent('March 2019');
-        });
-
-        it(`makes days available again once the fields are no longer ${label}`, () => {
-          const { getAllByTestId, rerender } = renderExample();
-
-          rerender(<InlineExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />);
-
-          expect(getDays(getAllByTestId, 0)[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019
         });
       });
     });
@@ -1136,6 +1104,185 @@ describe('DatePickerRange', () => {
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 10),
         endValue: DEFAULT_END_VALUE
+      });
+    });
+  });
+
+  describe('inline calendar availability', () => {
+    interface IAvailabilityExampleProps extends IDatePickerRangeProps {
+      start?: { disabled?: boolean; readOnly?: boolean };
+      end?: { disabled?: boolean; readOnly?: boolean };
+    }
+
+    const AvailabilityExample = ({ start, end, ...props }: IAvailabilityExampleProps) => (
+      <DatePickerRange onChange={onChangeSpy} {...props}>
+        <DatePickerRange.Start>
+          <input data-test-id="start" {...start} />
+        </DatePickerRange.Start>
+        <DatePickerRange.End>
+          <input data-test-id="end" {...end} />
+        </DatePickerRange.End>
+        <DatePickerRange.Calendar />
+      </DatePickerRange>
+    );
+
+    const getGrids = (getAllByRole: (role: string) => HTMLElement[]) => getAllByRole('grid');
+
+    const getDays = (getAllByTestId: (id: string) => HTMLElement[], month: 0 | 1) =>
+      globalGetAllByTestId(getAllByTestId('calendar-wrapper')[month], 'day');
+
+    const getVisibleDays = (getAllByTestId: (id: string) => HTMLElement[]) =>
+      getAllByTestId('day').filter(day => day.getAttribute('data-test-hidden') === 'false');
+
+    const getPaddles = (getByTestId: (id: string) => HTMLElement) =>
+      ['previous-year', 'previous-month', 'next-month', 'next-year'].map(id => getByTestId(id));
+
+    describe.each([
+      { name: 'both fields are read-only', start: { readOnly: true }, end: { readOnly: true } },
+      {
+        name: 'Start is disabled and End is read-only',
+        start: { disabled: true },
+        end: { readOnly: true }
+      },
+      {
+        name: 'Start is read-only and End is disabled',
+        start: { readOnly: true },
+        end: { disabled: true }
+      }
+    ])('when $name', ({ start, end }) => {
+      const renderExample = (props: IDatePickerRangeProps = {}) =>
+        render(
+          <AvailabilityExample
+            startValue={DEFAULT_START_VALUE}
+            endValue={DEFAULT_END_VALUE}
+            start={start}
+            end={end}
+            {...props}
+          />
+        );
+
+      it('marks each month grid read-only, not disabled', () => {
+        const { getAllByRole } = renderExample();
+
+        getGrids(getAllByRole).forEach(grid => {
+          expect(grid).toHaveAttribute('aria-readonly', 'true');
+          expect(grid).not.toHaveAttribute('aria-disabled');
+        });
+      });
+
+      it('does not mark days unavailable, other than those outside minValue/maxValue', () => {
+        const { getAllByTestId } = renderExample({ minValue: new Date(2019, 1, 3) });
+        const firstMonthDays = getDays(getAllByTestId, 0);
+
+        expect(firstMonthDays[6]).toHaveAttribute('aria-disabled', 'true'); // February 2, 2019
+        expect(firstMonthDays[7]).not.toHaveAttribute('aria-disabled'); // February 3, 2019, before the range
+        expect(firstMonthDays[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019, within the range
+        expect(getDays(getAllByTestId, 1)[14]).not.toHaveAttribute('aria-disabled'); // March 10, 2019, after the range
+      });
+
+      it('keeps one day as a tab stop', () => {
+        const { getAllByTestId } = renderExample();
+
+        expect(
+          getVisibleDays(getAllByTestId).filter(day => day.getAttribute('tabindex') === '0')
+        ).toHaveLength(1);
+      });
+
+      it('can still be browsed with the keyboard and the toolbar', async () => {
+        const { getByTestId, getAllByTestId } = renderExample();
+
+        getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeEnabled());
+
+        getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
+        await user.keyboard('{ArrowRight}');
+
+        expect(getDays(getAllByTestId, 0)[10]).toHaveFocus(); // February 6, 2019
+
+        await user.click(getByTestId('next-month'));
+
+        expect(getAllByTestId('calendar-wrapper')[0]).toHaveTextContent('March 2019');
+      });
+
+      it('does not preview a range when a day is hovered', () => {
+        const { getAllByTestId } = renderExample({ endValue: undefined });
+
+        fireEvent.mouseEnter(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+        expect(getDays(getAllByTestId, 0)[12]).toHaveAttribute('data-test-highlighted', 'false'); // February 8, 2019
+      });
+    });
+
+    describe('when both fields are disabled', () => {
+      const renderExample = () =>
+        render(
+          <AvailabilityExample
+            startValue={DEFAULT_START_VALUE}
+            endValue={DEFAULT_END_VALUE}
+            start={{ disabled: true }}
+            end={{ disabled: true }}
+          />
+        );
+
+      it('marks each month grid disabled, not read-only', () => {
+        const { getAllByRole } = renderExample();
+
+        getGrids(getAllByRole).forEach(grid => {
+          expect(grid).toHaveAttribute('aria-disabled', 'true');
+          expect(grid).not.toHaveAttribute('aria-readonly');
+        });
+      });
+
+      it('marks every day unavailable', () => {
+        const { getAllByTestId } = renderExample();
+        const days = getVisibleDays(getAllByTestId);
+
+        expect(days).toHaveLength(59); // February + March 2019
+        days.forEach(day => expect(day).toHaveAttribute('aria-disabled', 'true'));
+      });
+
+      it('leaves no day as a tab stop', () => {
+        const { getAllByTestId } = renderExample();
+
+        getVisibleDays(getAllByTestId).forEach(day => expect(day).not.toHaveAttribute('tabindex'));
+      });
+
+      it('still renders the toolbar, with every paddle disabled', () => {
+        const { getByRole, getByTestId } = renderExample();
+
+        expect(getByRole('toolbar')).toBeInTheDocument();
+        getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeDisabled());
+      });
+
+      it('does not preview a range when a day is hovered', () => {
+        const { getAllByTestId } = render(
+          <AvailabilityExample
+            startValue={DEFAULT_START_VALUE}
+            start={{ disabled: true }}
+            end={{ disabled: true }}
+          />
+        );
+
+        fireEvent.mouseEnter(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+        expect(getDays(getAllByTestId, 0)[12]).toHaveAttribute('data-test-highlighted', 'false'); // February 8, 2019
+      });
+
+      it('restores the tab stop, paddles, and grid state once the fields are no longer disabled', () => {
+        const { getAllByRole, getAllByTestId, getByTestId, rerender } = renderExample();
+
+        rerender(
+          <AvailabilityExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+        );
+
+        getGrids(getAllByRole).forEach(grid => {
+          expect(grid).not.toHaveAttribute('aria-disabled');
+          expect(grid).not.toHaveAttribute('aria-readonly');
+        });
+        expect(getDays(getAllByTestId, 0)[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019
+        expect(
+          getVisibleDays(getAllByTestId).filter(day => day.getAttribute('tabindex') === '0')
+        ).toHaveLength(1);
+        getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeEnabled());
       });
     });
   });

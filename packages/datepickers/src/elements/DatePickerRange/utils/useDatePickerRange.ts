@@ -24,6 +24,7 @@ import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-util
 import {
   DatePickerRangeField,
   ElementProps,
+  IDatePickerRangeFieldState,
   IFieldInputProps,
   IGetRangeCellPropsOptions,
   IUseDatePickerRangeProps,
@@ -149,10 +150,23 @@ export function useDatePickerRange({
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasDialog, setHasDialog] = useState(false);
-  const [disabledOrReadOnlyFields, setDisabledOrReadOnlyFields] = useState({
-    start: false,
-    end: false
+  const [fieldStates, setFieldStates] = useState<
+    Record<DatePickerRangeField, IDatePickerRangeFieldState>
+  >({
+    start: {},
+    end: {}
   });
+  const disabledOrReadOnlyFields = useMemo(
+    () => ({
+      start: !!(fieldStates.start.disabled || fieldStates.start.readOnly),
+      end: !!(fieldStates.end.disabled || fieldStates.end.readOnly)
+    }),
+    [fieldStates]
+  );
+  /** Once neither field can change, the calendar only displays the range - disabled if both fields are, otherwise read-only, so a read-only value stays browsable. */
+  const isCalendarDisabled = !!(fieldStates.start.disabled && fieldStates.end.disabled);
+  const isCalendarReadOnly =
+    !isCalendarDisabled && disabledOrReadOnlyFields.start && disabledOrReadOnlyFields.end;
 
   /** With no `field` (e.g. a `Trigger` outside either group), only true once both fields are. */
   const isDisabledOrReadOnly = useCallback(
@@ -254,15 +268,15 @@ export function useDatePickerRange({
     return () => setHasDialog(false);
   }, []);
 
-  const registerDisabledOrReadOnly = useCallback(
-    (field: DatePickerRangeField, isFieldDisabledOrReadOnly: boolean) => {
-      setDisabledOrReadOnlyFields(fields =>
-        fields[field] === isFieldDisabledOrReadOnly
-          ? fields
-          : { ...fields, [field]: isFieldDisabledOrReadOnly }
+  const registerFieldState = useCallback(
+    (field: DatePickerRangeField, { disabled, readOnly }: IDatePickerRangeFieldState) => {
+      setFieldStates(states =>
+        !!states[field].disabled === !!disabled && !!states[field].readOnly === !!readOnly
+          ? states
+          : { ...states, [field]: { disabled, readOnly } }
       );
 
-      return () => setDisabledOrReadOnlyFields(fields => ({ ...fields, [field]: false }));
+      return () => setFieldStates(states => ({ ...states, [field]: {} }));
     },
     []
   );
@@ -801,12 +815,14 @@ export function useDatePickerRange({
       return {
         role: 'grid' as const,
         'aria-labelledby': offset === 0 ? headingId0 : headingId1,
+        'aria-disabled': isCalendarDisabled || undefined,
+        'aria-readonly': isCalendarReadOnly || undefined,
         'data-test-id': 'calendar-internal-wrapper',
         onMouseLeave: composeEventHandlers(onMouseLeave, handleMouseLeave),
         ...other
       };
     },
-    [headingId0, headingId1]
+    [headingId0, headingId1, isCalendarDisabled, isCalendarReadOnly]
   );
 
   const getHeadingProps = useCallback(
@@ -835,15 +851,22 @@ export function useDatePickerRange({
           isAfter(date, endValue) &&
           !isSameDay(date, endValue));
 
+      /** A read-only calendar can't select anything, so only genuinely unavailable days are marked - not those that would move a value. */
       const isDisabled =
         !isDateWithinRange(date, minValue, maxValue) ||
-        isDisabledOrReadOnly() ||
-        wouldMoveDisabledOrReadOnlyValue;
+        isCalendarDisabled ||
+        (!isCalendarReadOnly && wouldMoveDisabledOrReadOnlyValue);
 
       const isCurrentDate = isToday(date);
+      /** A disabled calendar has no tab stops, like the disabled fields it serves. */
+      let tabIndex: number | undefined;
+
+      if (!isCalendarDisabled) {
+        tabIndex = isSameDay(date, state.focusedDate) ? 0 : -1;
+      }
 
       const handleClick = (target?: HTMLTableCellElement | null) => {
-        if (isDisabled) {
+        if (isDisabled || isCalendarReadOnly) {
           return;
         }
 
@@ -934,7 +957,7 @@ export function useDatePickerRange({
       };
 
       return {
-        tabIndex: isSameDay(date, state.focusedDate) ? 0 : -1,
+        tabIndex,
         'aria-current': isCurrentDate ? ('date' as const) : undefined,
         'aria-disabled': isDisabled || undefined,
         'aria-selected': isSelected,
@@ -968,7 +991,8 @@ export function useDatePickerRange({
       endInputRef,
       hasDialog,
       disabledOrReadOnlyFields,
-      isDisabledOrReadOnly,
+      isCalendarDisabled,
+      isCalendarReadOnly,
       getDisabledOrReadOnlyField,
       requestCellFocus,
       locale,
@@ -976,9 +1000,15 @@ export function useDatePickerRange({
     ]
   );
 
-  const setHoverDate = useCallback((date: Date | undefined) => {
-    dispatch({ type: 'HOVER_DATE', value: date });
-  }, []);
+  /** Hovering only previews a selection, so there's nothing to preview once neither field can change. */
+  const setHoverDate = useCallback(
+    (date: Date | undefined) => {
+      if (!(isCalendarDisabled || isCalendarReadOnly)) {
+        dispatch({ type: 'HOVER_DATE', value: date });
+      }
+    },
+    [isCalendarDisabled, isCalendarReadOnly]
+  );
 
   const focusPreviousMonth = useCallback(() => {
     dispatch({ type: 'PREVIEW_PREVIOUS_MONTH' });
@@ -1030,7 +1060,9 @@ export function useDatePickerRange({
       isOpen,
       hasDialog,
       registerDialog,
-      registerDisabledOrReadOnly,
+      registerFieldState,
+      isCalendarDisabled,
+      isCalendarReadOnly,
       getStartWrapperProps,
       getEndWrapperProps,
       getStartGroupProps,
@@ -1068,7 +1100,9 @@ export function useDatePickerRange({
       isOpen,
       hasDialog,
       registerDialog,
-      registerDisabledOrReadOnly,
+      registerFieldState,
+      isCalendarDisabled,
+      isCalendarReadOnly,
       getStartWrapperProps,
       getEndWrapperProps,
       getStartGroupProps,

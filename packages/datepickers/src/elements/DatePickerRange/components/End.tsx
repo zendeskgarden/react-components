@@ -21,7 +21,7 @@ type IEndProps = HTMLAttributes<HTMLInputElement>;
 export const End = ({ children }: PropsWithChildren<IEndProps>) => {
   const {
     hasDialog,
-    registerDisabledOrReadOnly,
+    registerFieldState,
     getEndInputProps,
     getEndWrapperProps,
     getFieldTriggerProps
@@ -30,11 +30,11 @@ export const End = ({ children }: PropsWithChildren<IEndProps>) => {
   const childElement = React.Children.only(
     children as React.ReactElement & React.RefAttributes<HTMLInputElement>
   );
-  const isDisabledOrReadOnly = !!(childElement.props.disabled || childElement.props.readOnly);
+  const { disabled, readOnly } = childElement.props;
 
   useEffect(
-    () => registerDisabledOrReadOnly('end', isDisabledOrReadOnly),
-    [registerDisabledOrReadOnly, isDisabledOrReadOnly]
+    () => registerFieldState('end', { disabled: !!disabled, readOnly: !!readOnly }),
+    [registerFieldState, disabled, readOnly]
   );
   const isComponent = typeof childElement.type !== 'string';
 

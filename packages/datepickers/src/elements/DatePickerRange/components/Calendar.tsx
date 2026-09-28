@@ -28,6 +28,7 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
     nextYearLabel,
     toolbarLabel,
     calendarId,
+    isCalendarDisabled,
     getCalendarProps,
     focusPreviousMonth,
     focusNextMonth,
@@ -57,6 +58,7 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
         previousYearLabel={previousYearLabel}
         nextYearLabel={nextYearLabel}
         toolbarLabel={toolbarLabel}
+        isDisabled={isCalendarDisabled}
         onPreviousYear={focusPreviousYear}
         onPreviousMonth={focusPreviousMonth}
         onNextMonth={focusNextMonth}

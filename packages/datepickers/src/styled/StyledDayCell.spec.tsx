@@ -8,6 +8,7 @@
 import React from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import { StyledDayCell } from './StyledDayCell';
+import { StyledCalendarTable } from './StyledCalendarTable';
 
 const TINT = 'rgba(31,115,183,0.08)';
 
@@ -69,6 +70,14 @@ describe('StyledDayCell', () => {
 
     expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
       modifier: "&[aria-disabled='true']"
+    });
+  });
+
+  it('shows a default cursor within a read-only grid', () => {
+    const { container } = render(<StyledDayCell />);
+
+    expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
+      modifier: `${StyledCalendarTable}[aria-readonly='true'] &`
     });
   });
 

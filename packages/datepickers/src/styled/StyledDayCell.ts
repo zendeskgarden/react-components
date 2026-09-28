@@ -7,6 +7,7 @@
 
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import { StyledCalendarTable } from './StyledCalendarTable';
 
 interface IStyledDayCellProps {
   $isHighlighted?: boolean;
@@ -54,7 +55,8 @@ export const StyledDayCell = styled.td.attrs({
     outline: none;
   }
 
-  &[aria-disabled='true'] {
+  &[aria-disabled='true'],
+  ${StyledCalendarTable}[aria-readonly='true'] & {
     cursor: default;
   }
 

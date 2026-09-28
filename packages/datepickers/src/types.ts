@@ -41,6 +41,12 @@ export interface IDatePickerValueSettledResult {
 
 export type DatePickerRangeField = 'start' | 'end';
 
+/** Mirrors a `DatePickerRange` field input's native `disabled`/`readOnly`. */
+export interface IDatePickerRangeFieldState {
+  disabled?: boolean;
+  readOnly?: boolean;
+}
+
 export interface IDatePickerRangeValueSettledResult extends Omit<
   IDatePickerValueSettledResult,
   'reason'
@@ -293,10 +299,14 @@ export interface IUseDatePickerRangeReturnValue {
   /** Called by `DatePickerRange.Dialog` on mount to flip `hasDialog` true; returns a cleanup that flips it back false on unmount. **/
   registerDialog: () => () => void;
   /** Called by `Start`/`End` whenever their input's native `disabled`/`readOnly` changes; returns a cleanup that clears it on unmount. The calendar can't be opened from a disabled or read-only field. **/
-  registerDisabledOrReadOnly: (
+  registerFieldState: (
     field: DatePickerRangeField,
-    isDisabledOrReadOnly: boolean
+    state: IDatePickerRangeFieldState
   ) => () => void;
+  /** Both fields are disabled: the calendar displays the range, with no tab stops and a disabled toolbar. **/
+  isCalendarDisabled: boolean;
+  /** Neither field can change, but at least one is read-only: the calendar can still be browsed, but not selected from. **/
+  isCalendarReadOnly: boolean;
   /** For a composite child (e.g. `ClearableInput`) that renders extra focusable elements alongside its own input - merged into that child's own `wrapperRef`/`wrapperProps`, so `Start` itself renders no wrapper of its own. **/
   getStartWrapperProps: (props?: Omit<ElementProps<HTMLDivElement>, 'ref'>) => {
     ref: RefObject<HTMLDivElement | null>;
@@ -445,6 +455,8 @@ export interface IToolbarProps {
   previousYearLabel?: ToolbarDateLabel;
   nextYearLabel?: ToolbarDateLabel;
   toolbarLabel?: string;
+  /** Disables every paddle, e.g. for a calendar whose fields are all disabled. */
+  isDisabled?: boolean;
   onPreviousYear: () => void;
   onPreviousMonth: () => void;
   onNextMonth: () => void;

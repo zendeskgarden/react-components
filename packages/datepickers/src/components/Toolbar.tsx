@@ -57,6 +57,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
   previousYearLabel,
   nextYearLabel,
   toolbarLabel,
+  isDisabled,
   onPreviousYear,
   onPreviousMonth,
   onNextMonth,
@@ -171,6 +172,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         isBasic
         isNeutral
         focusInset={!isCompact}
+        disabled={isDisabled}
         aria-label={previousYearAriaLabel}
         tabIndex={focusedPaddle === 'previousYear' ? 0 : -1}
         onFocus={() => setFocusedPaddle('previousYear')}
@@ -187,6 +189,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         isBasic
         isNeutral
         focusInset={!isCompact}
+        disabled={isDisabled}
         aria-label={previousMonthAriaLabel}
         tabIndex={focusedPaddle === 'previousMonth' ? 0 : -1}
         onFocus={() => setFocusedPaddle('previousMonth')}
@@ -203,6 +206,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         isBasic
         isNeutral
         focusInset={!isCompact}
+        disabled={isDisabled}
         aria-label={nextMonthAriaLabel}
         tabIndex={focusedPaddle === 'nextMonth' ? 0 : -1}
         onFocus={() => setFocusedPaddle('nextMonth')}
@@ -219,6 +223,7 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         isBasic
         isNeutral
         focusInset={!isCompact}
+        disabled={isDisabled}
         aria-label={nextYearAriaLabel}
         tabIndex={focusedPaddle === 'nextYear' ? 0 : -1}
         onFocus={() => setFocusedPaddle('nextYear')}

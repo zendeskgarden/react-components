@@ -10,6 +10,7 @@ import { DEFAULT_THEME, PALETTE, getColor } from '@zendeskgarden/react-theming';
 import { getRenderFn, render } from 'garden-test-utils';
 import { StyledDayCell } from './StyledDayCell';
 import { StyledDayNumber } from './StyledDayNumber';
+import { StyledCalendarTable } from './StyledCalendarTable';
 
 const FOCUS_SELECTOR = `${StyledDayCell}:focus-visible &`;
 
@@ -88,13 +89,16 @@ describe('StyledDayNumber', () => {
     { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
     { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
   ])(
-    'shows an opaque tinted $mode mode background when the enclosing cell is hovered and not selected',
+    'shows an opaque tinted $mode mode background when the enclosing cell is hovered and not selected, outside a read-only grid',
     ({ mode, color }) => {
       const { container } = getRenderFn(mode)(
         <StyledDayNumber $isCompact={false}>5</StyledDayNumber>
       );
 
       expect(container.firstChild).toHaveStyleRule('background-color', color, {
+        modifier: `${StyledCalendarTable}:not([aria-readonly='true']) ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &`
+      });
+      expect(container.firstChild).not.toHaveStyleRule('background-color', color, {
         modifier: `${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &`
       });
     }
@@ -134,6 +138,14 @@ describe('StyledDayNumber', () => {
       });
     }
   );
+
+  it('shows a default cursor within a read-only grid', () => {
+    const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+
+    expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
+      modifier: `${StyledCalendarTable}[aria-readonly='true'] &`
+    });
+  });
 
   it('shows a pointer cursor by default', () => {
     const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);

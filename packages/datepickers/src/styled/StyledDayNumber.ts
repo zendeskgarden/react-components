@@ -8,6 +8,7 @@
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { StyledDayCell } from './StyledDayCell';
+import { StyledCalendarTable } from './StyledCalendarTable';
 
 interface IStyledDayNumberProps {
   $isPreviousMonth?: boolean;
@@ -58,8 +59,11 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const emphasis = getColor({ variable: 'background.primaryEmphasis', theme });
   const background = getColor({ variable: 'background.default', theme });
 
+  /* A read-only grid can't be selected from, so hovering its days doesn't suggest otherwise - keyboard focus still shows where you are. */
   return css`
-    ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &,
+    ${StyledCalendarTable}:not([aria-readonly='true'])
+      ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover
+      &,
     ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):focus-visible & {
       background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
     }
@@ -86,7 +90,8 @@ const disabledStyles = ({
 
   /* A selected or in-range day keeps its colors, so a disabled or read-only range still shows its value. `hoverStyles` already skips disabled days. */
   return css`
-    ${StyledDayCell}[aria-disabled='true'] & {
+    ${StyledDayCell}[aria-disabled='true'] &,
+    ${StyledCalendarTable}[aria-readonly='true'] & {
       cursor: default;
     }
 

@@ -22,7 +22,7 @@ type IStartProps = HTMLAttributes<HTMLInputElement>;
 export const Start = ({ children }: PropsWithChildren<IStartProps>) => {
   const {
     hasDialog,
-    registerDisabledOrReadOnly,
+    registerFieldState,
     getStartInputProps,
     getStartWrapperProps,
     getFieldTriggerProps
@@ -31,11 +31,11 @@ export const Start = ({ children }: PropsWithChildren<IStartProps>) => {
   const childElement = React.Children.only(
     children as React.ReactElement & React.RefAttributes<HTMLInputElement>
   );
-  const isDisabledOrReadOnly = !!(childElement.props.disabled || childElement.props.readOnly);
+  const { disabled, readOnly } = childElement.props;
 
   useEffect(
-    () => registerDisabledOrReadOnly('start', isDisabledOrReadOnly),
-    [registerDisabledOrReadOnly, isDisabledOrReadOnly]
+    () => registerFieldState('start', { disabled: !!disabled, readOnly: !!readOnly }),
+    [registerFieldState, disabled, readOnly]
   );
   const isComponent = typeof childElement.type !== 'string';
 
