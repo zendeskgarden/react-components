@@ -882,6 +882,39 @@ describe('DatePickerRange', () => {
           expect(getDays(getAllByTestId, 0)[9]).toHaveAttribute('aria-selected', 'true');
         });
 
+        it('reports End, not Start, as settled when the start day itself is clicked', async () => {
+          const onValueSettledSpy = jest.fn();
+          const { getAllByTestId } = renderExample({ onValueSettled: onValueSettledSpy });
+
+          await user.click(getDays(getAllByTestId, 0)[9]); // February 5, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: DEFAULT_START_VALUE,
+            endValue: new Date(2019, 1, 5)
+          });
+          expect(onValueSettledSpy).toHaveBeenCalledWith({
+            field: 'end',
+            date: new Date(2019, 1, 5),
+            inputValue: 'February 5, 2019',
+            valid: true
+          });
+        });
+
+        it('sets End, leaving Start empty, when Start has no value', async () => {
+          const { getByTestId, getAllByTestId } = renderExample({ startValue: undefined });
+
+          expect(getDays(getAllByTestId, 0)[8]).not.toHaveAttribute('aria-disabled'); // February 4, 2019
+
+          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: undefined,
+            endValue: new Date(2019, 1, 10)
+          });
+          expect(getByTestId('start')).toHaveValue('');
+          expect(getByTestId('end')).toHaveValue('February 10, 2019');
+        });
+
         it('sets End from a dialog opened from the End field', async () => {
           const { getByTestId, getAllByTestId } = render(
             <GroupedExample
@@ -950,6 +983,21 @@ describe('DatePickerRange', () => {
           await user.click(getDays(getAllByTestId, 1)[10]); // March 6, 2019
 
           expect(onChangeSpy).not.toHaveBeenCalled();
+        });
+
+        it('sets Start, leaving End empty, when End has no value', async () => {
+          const { getByTestId, getAllByTestId } = renderExample({ endValue: undefined });
+
+          expect(getDays(getAllByTestId, 1)[10]).not.toHaveAttribute('aria-disabled'); // March 6, 2019
+
+          await user.click(getDays(getAllByTestId, 1)[10]); // March 6, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: new Date(2019, 2, 6),
+            endValue: undefined
+          });
+          expect(getByTestId('start')).toHaveValue('March 6, 2019');
+          expect(getByTestId('end')).toHaveValue('');
         });
 
         it('still shows the end value as selected', () => {

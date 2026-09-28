@@ -159,7 +159,7 @@ export interface IRangeSelection {
   startValue?: Date;
   endValue?: Date;
   /** The field the clicked day was committed to. */
-  field: 'start' | 'end';
+  field: DatePickerRangeField;
   /** Only possible when no start value is set and the day falls after the end value. */
   isOutOfOrder: boolean;
 }
@@ -187,42 +187,47 @@ export function resolveRangeSelection({
   /** Its value can't change, so every click commits to the other field instead - regardless of which is active. */
   disabledOrReadOnlyField?: DatePickerRangeField;
 }): IRangeSelection {
-  let result: Pick<IRangeSelection, 'startValue' | 'endValue'>;
-  let isOutOfOrder = false;
   const isStartTarget =
     disabledOrReadOnlyField === 'end' || (disabledOrReadOnlyField !== 'start' && isStartActive);
   const isEndTarget =
     disabledOrReadOnlyField === 'start' || (disabledOrReadOnlyField !== 'end' && isEndActive);
+  const toStart = (keptEndValue?: Date): IRangeSelection => ({
+    startValue: date,
+    endValue: keptEndValue,
+    field: 'start',
+    isOutOfOrder: false
+  });
+  const toEnd = (): IRangeSelection => ({
+    startValue,
+    endValue: date,
+    field: 'end',
+    isOutOfOrder: false
+  });
 
   if (isStartTarget) {
-    result =
-      endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
-        ? { startValue: date, endValue }
-        : { startValue: date, endValue: undefined };
-  } else if (isEndTarget) {
-    if (startValue === undefined) {
-      result = { startValue: undefined, endValue: date };
-    } else {
-      result =
-        isAfter(date, startValue) || isSameDay(date, startValue)
-          ? { startValue, endValue: date }
-          : { startValue: date, endValue: undefined };
-    }
-  } else if (startValue === undefined) {
-    isOutOfOrder = endValue !== undefined && isAfter(date, endValue);
-    result = { startValue: date, endValue };
-  } else if (endValue === undefined) {
-    result = isBefore(date, startValue)
-      ? { startValue: date, endValue: undefined }
-      : { startValue, endValue: date };
-  } else {
-    result = { startValue: date, endValue: undefined };
+    return endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
+      ? toStart(endValue)
+      : toStart();
   }
 
-  const field =
-    result.startValue !== undefined && isSameDay(result.startValue, date) ? 'start' : 'end';
+  if (isEndTarget) {
+    return startValue === undefined || isAfter(date, startValue) || isSameDay(date, startValue)
+      ? toEnd()
+      : toStart();
+  }
 
-  return { ...result, field, isOutOfOrder };
+  if (startValue === undefined) {
+    return {
+      ...toStart(endValue),
+      isOutOfOrder: endValue !== undefined && isAfter(date, endValue)
+    };
+  }
+
+  if (endValue === undefined) {
+    return isBefore(date, startValue) ? toStart() : toEnd();
+  }
+
+  return toStart();
 }
 
 export type DatePickerRangeAction =

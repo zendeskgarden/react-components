@@ -96,7 +96,7 @@ describe('resolveRangeSelection', () => {
       ).toStrictEqual({ startValue: FEB_5, endValue: MAR_10, field: 'end', isOutOfOrder: false });
     });
 
-    it('sets the end value to the start day, reporting it as the start field', () => {
+    it('sets the end value to the start day, reporting it as the end field', () => {
       expect(
         resolveRangeSelection({
           date: new Date(2019, 1, 5),
@@ -108,7 +108,7 @@ describe('resolveRangeSelection', () => {
       ).toStrictEqual({
         startValue: FEB_5,
         endValue: new Date(2019, 1, 5),
-        field: 'start',
+        field: 'end',
         isOutOfOrder: false
       });
     });
@@ -150,6 +150,22 @@ describe('resolveRangeSelection', () => {
       expect(
         resolveRangeSelection({ date: MAR_10, startValue: FEB_5, endValue: undefined, ...inactive })
       ).toStrictEqual({ startValue: FEB_5, endValue: MAR_10, field: 'end', isOutOfOrder: false });
+    });
+
+    it('sets the end value to the start day, reporting it as the end field, when there is no end value', () => {
+      expect(
+        resolveRangeSelection({
+          date: new Date(2019, 1, 5),
+          startValue: FEB_5,
+          endValue: undefined,
+          ...inactive
+        })
+      ).toStrictEqual({
+        startValue: FEB_5,
+        endValue: new Date(2019, 1, 5),
+        field: 'end',
+        isOutOfOrder: false
+      });
     });
 
     it('moves the start value when there is no end value and the day is before the start value', () => {
@@ -202,6 +218,24 @@ describe('resolveRangeSelection with a disabled or read-only field', () => {
           disabledOrReadOnlyField: 'start'
         })
       ).toStrictEqual({ startValue: FEB_5, endValue: FEB_10, field: 'end', isOutOfOrder: false });
+    });
+
+    it('reports End as the settled field when the start day itself is clicked', () => {
+      expect(
+        resolveRangeSelection({
+          date: new Date(2019, 1, 5),
+          startValue: FEB_5,
+          endValue: undefined,
+          isStartActive: false,
+          isEndActive: false,
+          disabledOrReadOnlyField: 'start'
+        })
+      ).toStrictEqual({
+        startValue: FEB_5,
+        endValue: new Date(2019, 1, 5),
+        field: 'end',
+        isOutOfOrder: false
+      });
     });
 
     it('commits to End when Start is empty', () => {
