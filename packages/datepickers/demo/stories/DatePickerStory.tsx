@@ -18,6 +18,8 @@ interface IArgs extends IDatePickerProps {
   message?: string;
   validation?: 'success' | 'warning' | 'error';
   validationLabel?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
 }
 
 export const DatePickerStory: StoryFn<IArgs> = ({
@@ -27,6 +29,8 @@ export const DatePickerStory: StoryFn<IArgs> = ({
   message,
   validation,
   validationLabel,
+  disabled,
+  readOnly,
   ...args
 }) => {
   const formatDate = (date: Date) =>
@@ -42,6 +46,8 @@ export const DatePickerStory: StoryFn<IArgs> = ({
               <ClearableInput
                 isCompact={isCompact}
                 validation={validation}
+                disabled={disabled}
+                readOnly={readOnly}
                 wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
               />
             </DatePicker>

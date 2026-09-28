@@ -193,6 +193,10 @@ export interface IUseDatePickerProps {
   formatDate?: (date: Date) => string;
   customParseDate?: (inputValue: string) => Date;
   required?: boolean;
+  /** Mirrors the input's native `disabled` - the calendar can't be opened while set. **/
+  disabled?: boolean;
+  /** Mirrors the input's native `readOnly` - the calendar can't be opened while set. **/
+  readOnly?: boolean;
   onChange?: (date: Date) => void;
   onValueSettled?: (result: IDatePickerValueSettledResult) => void;
   /** The rendered text input, created by the caller since it's merged with a consumer-supplied ref. **/

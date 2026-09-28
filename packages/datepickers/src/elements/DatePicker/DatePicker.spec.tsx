@@ -12,6 +12,7 @@ import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
 import { ClearableInput, Input } from '@zendeskgarden/react-forms';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { DatePicker } from './DatePicker';
 import { IDatePickerProps } from '../../types';
@@ -477,6 +478,106 @@ describe('DatePicker', () => {
 
       process.env.NODE_ENV = environment;
       console.warn = consoleWarning;
+    });
+  });
+
+  describe.each(['disabled', 'readOnly'] as const)('when the input is %s', lockProp => {
+    const LockedExample = ({
+      isLocked = true,
+      ...props
+    }: Omit<IDatePickerProps, 'children'> & { isLocked?: boolean }) => (
+      <>
+        <label data-test-id="label" htmlFor="input">
+          Label
+        </label>
+        <DatePicker {...props}>
+          <input data-test-id="input" id="input" {...{ [lockProp]: isLocked }} />
+        </DatePicker>
+      </>
+    );
+
+    const CLOSED = { menu: 'false', input: 'false', button: 'false' };
+
+    const getOpenState = (getByTestId: (id: string) => HTMLElement) => ({
+      menu: getByTestId('datepicker-menu').getAttribute('data-test-open'),
+      input: getByTestId('input').getAttribute('aria-expanded'),
+      button: getByTestId('calendar-button').getAttribute('aria-expanded')
+    });
+
+    it('still renders the trigger button, with the native disabled attribute', () => {
+      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      expect(getByTestId('calendar-button')).toBeDisabled();
+    });
+
+    it('does not open the calendar when the trigger is clicked', () => {
+      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      fireEvent.click(getByTestId('calendar-button'));
+
+      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+    });
+
+    it('does not open the calendar when the input is clicked', () => {
+      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      fireEvent.mouseDown(getByTestId('input'));
+      fireEvent.click(getByTestId('input'));
+
+      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+    });
+
+    it('does not open the calendar when the associated label is clicked', () => {
+      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      fireEvent.click(getByTestId('label'));
+
+      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+    });
+
+    it('does not open the calendar when the surrounding input group is clicked', () => {
+      const { container, getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      fireEvent.click(container.querySelector("[data-garden-id='forms.input_group']")!);
+
+      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+    });
+
+    it.each([
+      ['Down Arrow', {}],
+      ['Alt+Down Arrow', { altKey: true }]
+    ])('does not open the calendar on %s from the input', (_, modifiers) => {
+      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN, ...modifiers });
+
+      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+    });
+
+    it('closes an already-open calendar once the input becomes locked', async () => {
+      const { getByTestId, rerender } = render(
+        <LockedExample value={DEFAULT_DATE} isLocked={false} />
+      );
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      rerender(<LockedExample value={DEFAULT_DATE} isLocked />);
+
+      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+    });
+
+    it('opens normally again once the input is no longer locked', async () => {
+      const { getByTestId, rerender } = render(<LockedExample value={DEFAULT_DATE} />);
+
+      rerender(<LockedExample value={DEFAULT_DATE} isLocked={false} />);
+
+      expect(getByTestId('calendar-button')).toBeEnabled();
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
   });
 });

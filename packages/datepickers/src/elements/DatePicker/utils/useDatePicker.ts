@@ -52,6 +52,8 @@ export function useDatePicker({
   formatDate,
   customParseDate,
   required,
+  disabled,
+  readOnly,
   onChange,
   onValueSettled,
   inputRef
@@ -82,6 +84,7 @@ export function useDatePicker({
   );
 
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
+  const isLocked = !!(disabled || readOnly);
 
   useEffect(() => {
     dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value, locale, formatDate, customParseDate });
@@ -110,13 +113,24 @@ export function useDatePicker({
   );
 
   const openOrFocusDialog = useCallback(() => {
+    if (isLocked) {
+      return;
+    }
+
     if (state.isOpen) {
       focusIntoDialog(dialogRef.current);
     } else {
       dispatch({ type: 'OPEN', value });
       shouldFocusDialogRef.current = true;
     }
-  }, [state.isOpen, value]);
+  }, [isLocked, state.isOpen, value]);
+
+  /** Closes a calendar that was already open when its input became disabled/read-only. */
+  useEffect(() => {
+    if (isLocked && state.isOpen) {
+      dispatch({ type: 'CLOSE' });
+    }
+  }, [isLocked, state.isOpen]);
 
   /** Waits for the dialog to render before moving focus into it. */
   useEffect(() => {
@@ -183,11 +197,12 @@ export function useDatePicker({
         'aria-haspopup': 'dialog' as const,
         'aria-expanded': state.isOpen,
         'aria-controls': menuId,
+        disabled: isLocked,
         onClick: composeEventHandlers(onClick, openOrFocusDialog),
         ...other
       };
     },
-    [state.isOpen, menuId, openOrFocusDialog]
+    [state.isOpen, menuId, isLocked, openOrFocusDialog]
   );
 
   const getDialogProps = useCallback(
@@ -268,6 +283,7 @@ export function useDatePicker({
         justClosedViaSelectionRef.current = false;
 
         if (
+          !isLocked &&
           shouldOpenOnFieldClick({
             isOpen: state.isOpen,
             previousActiveElement,
@@ -314,6 +330,7 @@ export function useDatePicker({
       value,
       customParseDate,
       settleValue,
+      isLocked,
       openOrFocusDialog
     ]
   );

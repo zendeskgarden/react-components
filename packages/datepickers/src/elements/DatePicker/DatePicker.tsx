@@ -68,6 +68,8 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     formatDate,
     customParseDate,
     required: Child.props.required,
+    disabled: Child.props.disabled,
+    readOnly: Child.props.readOnly,
     onChange,
     onValueSettled,
     inputRef

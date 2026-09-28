@@ -67,6 +67,14 @@ export const Example: StoryObj<typeof DatePickerStory> = {
       control: { type: 'radio' },
       table: { category: 'Input' }
     },
+    disabled: {
+      control: { type: 'boolean' },
+      table: { category: 'Input' }
+    },
+    readOnly: {
+      control: { type: 'boolean' },
+      table: { category: 'Input' }
+    },
     validationLabel: {
       control: { type: 'text' },
       table: { category: 'Message' }
