@@ -12,6 +12,8 @@ import { StyledDayCell } from './StyledDayCell';
 interface IStyledDayNumberProps {
   $isPreviousMonth?: boolean;
   $isCompact: boolean;
+  /** Within a `DatePickerRange`'s highlighted range, where it keeps the primary foreground even while disabled. */
+  $isInRange?: boolean;
 }
 
 const sizeStyles = ({ $isCompact, theme }: IStyledDayNumberProps & ThemeProps<DefaultTheme>) => {
@@ -76,18 +78,24 @@ const selectedStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const disabledStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const disabledStyles = ({
+  $isInRange,
+  theme
+}: IStyledDayNumberProps & ThemeProps<DefaultTheme>) => {
   const foreground = getColor({ variable: 'foreground.disabled', theme });
 
-  /* A selected day keeps its selected colors, so a disabled or read-only range still shows its value. `hoverStyles` already skips disabled days. */
+  /* A selected or in-range day keeps its colors, so a disabled or read-only range still shows its value. `hoverStyles` already skips disabled days. */
   return css`
     ${StyledDayCell}[aria-disabled='true'] & {
       cursor: default;
     }
 
-    ${StyledDayCell}[aria-disabled='true']:not([aria-selected='true']) & {
-      color: ${foreground};
-    }
+    ${!$isInRange &&
+    css`
+      ${StyledDayCell}[aria-disabled='true']:not([aria-selected='true']) & {
+        color: ${foreground};
+      }
+    `}
   `;
 };
 

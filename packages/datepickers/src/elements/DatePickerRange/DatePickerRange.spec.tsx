@@ -9,6 +9,8 @@ import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
 import { render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { StyledDayCell } from '../../styled';
 import mockDate from 'mockdate';
 import { DatePickerRange } from './DatePickerRange';
 import { IDatePickerRangeProps } from '../../types';
@@ -1028,6 +1030,17 @@ describe('DatePickerRange', () => {
 
           expect(days).toHaveLength(59); // February + March 2019
           days.forEach(day => expect(day).toHaveAttribute('aria-disabled', 'true'));
+        });
+
+        it('keeps the primary text color on days within the selected range', () => {
+          const { getAllByTestId } = renderExample();
+          const dayNumber = getDays(getAllByTestId, 0)[14].querySelector('[aria-hidden="true"]'); // February 10, 2019
+
+          expect(dayNumber).not.toHaveStyleRule(
+            'color',
+            getColor({ theme: DEFAULT_THEME, variable: 'foreground.disabled' }),
+            { modifier: `${StyledDayCell}[aria-disabled='true']:not([aria-selected='true']) &` }
+          );
         });
 
         it('still shows both values as selected', () => {

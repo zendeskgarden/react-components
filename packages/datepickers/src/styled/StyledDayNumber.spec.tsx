@@ -181,6 +181,18 @@ describe('StyledDayNumber', () => {
       });
     });
 
+    it('keeps the primary foreground color when it is within the selected range', () => {
+      const { container } = render(
+        <StyledDayNumber $isCompact={false} $isInRange>
+          5
+        </StyledDayNumber>
+      );
+
+      expect(container.firstChild).not.toHaveStyleRule('color', foreground, {
+        modifier: `${StyledDayCell}[aria-disabled='true']:not([aria-selected='true']) &`
+      });
+    });
+
     it('keeps the selected foreground color when it is selected', () => {
       const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
 

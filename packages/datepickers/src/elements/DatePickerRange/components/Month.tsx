@@ -244,6 +244,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
           <StyledDayNumber
             $isCompact={isCompact}
             $isPreviousMonth={isPreviousMonth}
+            $isInRange={!isInvalidDateRange && showHighlighted}
             aria-hidden="true"
           >
             {formattedDayLabel}
