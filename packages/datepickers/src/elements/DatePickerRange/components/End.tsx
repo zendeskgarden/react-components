@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement } from 'react';
+import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement, useEffect } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
@@ -19,11 +19,22 @@ type IEndProps = HTMLAttributes<HTMLInputElement>;
  * still spans its extra focusable elements (e.g. a clear button).
  */
 export const End = ({ children }: PropsWithChildren<IEndProps>) => {
-  const { hasDialog, getEndInputProps, getEndWrapperProps, getFieldTriggerProps } =
-    useDatePickerContext();
+  const {
+    hasDialog,
+    registerDisabledOrReadOnly,
+    getEndInputProps,
+    getEndWrapperProps,
+    getFieldTriggerProps
+  } = useDatePickerContext();
 
   const childElement = React.Children.only(
     children as React.ReactElement & React.RefAttributes<HTMLInputElement>
+  );
+  const isDisabledOrReadOnly = !!(childElement.props.disabled || childElement.props.readOnly);
+
+  useEffect(
+    () => registerDisabledOrReadOnly('end', isDisabledOrReadOnly),
+    [registerDisabledOrReadOnly, isDisabledOrReadOnly]
   );
   const isComponent = typeof childElement.type !== 'string';
 

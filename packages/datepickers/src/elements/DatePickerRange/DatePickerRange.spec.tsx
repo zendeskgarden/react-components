@@ -7,7 +7,8 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
+import { render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
+import { KEYS } from '@zendeskgarden/container-utilities';
 import mockDate from 'mockdate';
 import { DatePickerRange } from './DatePickerRange';
 import { IDatePickerRangeProps } from '../../types';
@@ -621,6 +622,190 @@ describe('DatePickerRange', () => {
 
       expect(startInput).toHaveValue('5 février 2019');
       expect(endInput).toHaveValue('5 mars 2019');
+    });
+  });
+
+  describe.each([
+    { prop: 'disabled', label: 'disabled' },
+    { prop: 'readOnly', label: 'read-only' }
+  ] as const)('when a field is $label', ({ prop, label }) => {
+    type Field = 'start' | 'end';
+
+    interface IExampleProps extends IDatePickerRangeProps {
+      disabledOrReadOnlyFields?: Field[];
+    }
+
+    const fieldProps = (fields: Field[], field: Field) => ({ [prop]: fields.includes(field) });
+
+    /** One `Trigger` per field, each inside its own group, as in the "Dialog" stories. */
+    const GroupedExample = ({ disabledOrReadOnlyFields = [], ...props }: IExampleProps) => (
+      <DatePickerRange {...props}>
+        <DatePickerRange.StartGroup data-test-id="start-group">
+          <DatePickerRange.Start>
+            <input data-test-id="start" {...fieldProps(disabledOrReadOnlyFields, 'start')} />
+          </DatePickerRange.Start>
+          <DatePickerRange.Trigger data-test-id="start-trigger" />
+        </DatePickerRange.StartGroup>
+        <DatePickerRange.EndGroup data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" {...fieldProps(disabledOrReadOnlyFields, 'end')} />
+          </DatePickerRange.End>
+          <DatePickerRange.Trigger data-test-id="end-trigger" />
+        </DatePickerRange.EndGroup>
+        <DatePickerRange.Dialog>
+          <DatePickerRange.Calendar />
+        </DatePickerRange.Dialog>
+      </DatePickerRange>
+    );
+
+    /** A single `Trigger` outside either group, so it isn't associated with a field. */
+    const UngroupedExample = ({ disabledOrReadOnlyFields = [], ...props }: IExampleProps) => (
+      <DatePickerRange {...props}>
+        <DatePickerRange.Start>
+          <input data-test-id="start" {...fieldProps(disabledOrReadOnlyFields, 'start')} />
+        </DatePickerRange.Start>
+        <DatePickerRange.End>
+          <input data-test-id="end" {...fieldProps(disabledOrReadOnlyFields, 'end')} />
+        </DatePickerRange.End>
+        <DatePickerRange.Trigger data-test-id="trigger" />
+        <DatePickerRange.Dialog>
+          <DatePickerRange.Calendar />
+        </DatePickerRange.Dialog>
+      </DatePickerRange>
+    );
+
+    const isOpen = (getByTestId: (id: string) => HTMLElement) =>
+      getByTestId('range-dialog').getAttribute('data-test-open') === 'true';
+
+    describe.each([
+      { field: 'start', other: 'end' },
+      { field: 'end', other: 'start' }
+    ] as const)(`when only $field is ${label}`, ({ field, other }) => {
+      const renderExample = () =>
+        render(
+          <GroupedExample
+            startValue={DEFAULT_START_VALUE}
+            endValue={DEFAULT_END_VALUE}
+            disabledOrReadOnlyFields={[field]}
+          />
+        );
+
+      it("disables that field's trigger, but not the other field's", () => {
+        const { getByTestId } = renderExample();
+
+        expect(getByTestId(`${field}-trigger`)).toBeDisabled();
+        expect(getByTestId(`${other}-trigger`)).toBeEnabled();
+      });
+
+      it("does not open when that field's trigger is clicked", () => {
+        const { getByTestId } = renderExample();
+
+        fireEvent.click(getByTestId(`${field}-trigger`));
+
+        expect(isOpen(getByTestId)).toBe(false);
+      });
+
+      it('does not open when that field is clicked', () => {
+        const { getByTestId } = renderExample();
+
+        fireEvent.mouseDown(getByTestId(field));
+        fireEvent.click(getByTestId(field));
+
+        expect(isOpen(getByTestId)).toBe(false);
+      });
+
+      it("does not open when that field's group is clicked", () => {
+        const { getByTestId } = renderExample();
+
+        fireEvent.mouseDown(getByTestId(`${field}-group`));
+        fireEvent.click(getByTestId(`${field}-group`));
+
+        expect(isOpen(getByTestId)).toBe(false);
+      });
+
+      it.each([
+        ['Down Arrow', {}],
+        ['Alt+Down Arrow', { altKey: true }]
+      ])('does not open on %s from that field', (_, modifiers) => {
+        const { getByTestId } = renderExample();
+
+        fireEvent.keyDown(getByTestId(field), { key: KEYS.DOWN, ...modifiers });
+
+        expect(isOpen(getByTestId)).toBe(false);
+      });
+
+      it("still opens from the other field's trigger", async () => {
+        const { getByTestId } = renderExample();
+
+        await user.click(getByTestId(`${other}-trigger`));
+
+        expect(isOpen(getByTestId)).toBe(true);
+      });
+
+      it('still opens on Down Arrow from the other field', () => {
+        const { getByTestId } = renderExample();
+
+        fireEvent.keyDown(getByTestId(other), { key: KEYS.DOWN });
+
+        expect(isOpen(getByTestId)).toBe(true);
+      });
+
+      it('leaves a trigger outside either group enabled', () => {
+        const { getByTestId } = render(<UngroupedExample disabledOrReadOnlyFields={[field]} />);
+
+        expect(getByTestId('trigger')).toBeEnabled();
+      });
+    });
+
+    describe(`when both fields are ${label}`, () => {
+      const BOTH: Field[] = ['start', 'end'];
+
+      it('disables every trigger, grouped or not', () => {
+        const { getByTestId, unmount } = render(<GroupedExample disabledOrReadOnlyFields={BOTH} />);
+
+        expect(getByTestId('start-trigger')).toBeDisabled();
+        expect(getByTestId('end-trigger')).toBeDisabled();
+
+        unmount();
+
+        expect(
+          render(<UngroupedExample disabledOrReadOnlyFields={BOTH} />).getByTestId('trigger')
+        ).toBeDisabled();
+      });
+
+      it.each(['start', 'end'] as const)('does not open on Down Arrow from %s', field => {
+        const { getByTestId } = render(<GroupedExample disabledOrReadOnlyFields={BOTH} />);
+
+        fireEvent.keyDown(getByTestId(field), { key: KEYS.DOWN });
+
+        expect(isOpen(getByTestId)).toBe(false);
+      });
+
+      it(`closes an already-open dialog once both fields become ${label}`, async () => {
+        const { getByTestId, rerender } = render(<GroupedExample />);
+
+        await user.click(getByTestId('start-trigger'));
+
+        expect(isOpen(getByTestId)).toBe(true);
+
+        rerender(<GroupedExample disabledOrReadOnlyFields={BOTH} />);
+
+        expect(isOpen(getByTestId)).toBe(false);
+      });
+
+      it(`opens normally again once the fields are no longer ${label}`, async () => {
+        const { getByTestId, rerender } = render(
+          <GroupedExample disabledOrReadOnlyFields={BOTH} />
+        );
+
+        rerender(<GroupedExample />);
+
+        expect(getByTestId('start-trigger')).toBeEnabled();
+
+        await user.click(getByTestId('start-trigger'));
+
+        expect(isOpen(getByTestId)).toBe(true);
+      });
     });
   });
 });

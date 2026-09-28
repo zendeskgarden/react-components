@@ -39,12 +39,14 @@ export interface IDatePickerValueSettledResult {
   reason?: DatePickerInvalidReason;
 }
 
+export type DatePickerRangeField = 'start' | 'end';
+
 export interface IDatePickerRangeValueSettledResult extends Omit<
   IDatePickerValueSettledResult,
   'reason'
 > {
   /** Which input settled **/
-  field: 'start' | 'end';
+  field: DatePickerRangeField;
   /** Why the value is invalid, present only when `valid` is `false`. `'out-of-order'` means the typed value conflicts with the other field's current value (e.g. a typed end date before the current start date) **/
   reason?: DatePickerRangeInvalidReason;
 }
@@ -290,6 +292,11 @@ export interface IUseDatePickerRangeReturnValue {
   hasDialog: boolean;
   /** Called by `DatePickerRange.Dialog` on mount to flip `hasDialog` true; returns a cleanup that flips it back false on unmount. **/
   registerDialog: () => () => void;
+  /** Called by `Start`/`End` whenever their input's native `disabled`/`readOnly` changes; returns a cleanup that clears it on unmount. The calendar can't be opened from a disabled or read-only field. **/
+  registerDisabledOrReadOnly: (
+    field: DatePickerRangeField,
+    isDisabledOrReadOnly: boolean
+  ) => () => void;
   /** For a composite child (e.g. `ClearableInput`) that renders extra focusable elements alongside its own input - merged into that child's own `wrapperRef`/`wrapperProps`, so `Start` itself renders no wrapper of its own. **/
   getStartWrapperProps: (props?: Omit<ElementProps<HTMLDivElement>, 'ref'>) => {
     ref: RefObject<HTMLDivElement | null>;
@@ -310,8 +317,13 @@ export interface IUseDatePickerRangeReturnValue {
   getEndInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
   /** Spread onto any field (in addition to getStartInputProps/getEndInputProps) that should open/focus the opt-in dialog. **/
   getFieldTriggerProps: (props?: IFieldInputProps) => IFieldInputProps;
-  /** Also tracks the button's ref as part of the open widget, so more than one `Trigger` may be composed at once (e.g. one per field) without breaking blur/focus detection. **/
-  getTriggerProps: (props?: ElementProps<HTMLButtonElement>) => ElementProps<HTMLButtonElement>;
+  /**
+   * Also tracks the button's ref as part of the open widget, so more than one `Trigger` may be composed at once (e.g. one per field) without breaking blur/focus detection.
+   * The button is disabled while its `field` is disabled or read-only - or, with no `field`, while both are.
+   **/
+  getTriggerProps: (
+    props?: ElementProps<HTMLButtonElement> & { field?: DatePickerRangeField }
+  ) => ElementProps<HTMLButtonElement>;
   getDialogProps: (
     props: { 'aria-label': string } & ElementProps<HTMLDivElement>
   ) => ElementProps<HTMLDivElement>;

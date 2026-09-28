@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { StoryFn } from '@storybook/react-vite';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
+import { IRangeFieldArgs } from './types';
 
 const FIELD_WIDTH_PX = 301;
 const COMPACT_FIELD_WIDTH_PX = 241;
@@ -36,8 +37,12 @@ const StyledField = styled(Field)<{ $isCompact?: boolean }>`
   width: min(100%, ${p => (p.$isCompact ? `${COMPACT_FIELD_WIDTH_PX}px` : `${FIELD_WIDTH_PX}px`)});
 `;
 
-export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
+export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeFieldArgs> = ({
   isCompact,
+  isStartDisabled,
+  isStartReadOnly,
+  isEndDisabled,
+  isEndReadOnly,
   ...args
 }) => {
   const [isSideBySide, setIsSideBySide] = useState<boolean | undefined>(undefined);
@@ -77,6 +82,8 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
                   <ClearableInput
                     ref={startInputRef}
                     isCompact={isCompact}
+                    disabled={isStartDisabled}
+                    readOnly={isStartReadOnly}
                     wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                   />
                 </DatePickerRange.Start>
@@ -93,6 +100,8 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps> = ({
                   <ClearableInput
                     ref={endInputRef}
                     isCompact={isCompact}
+                    disabled={isEndDisabled}
+                    readOnly={isEndReadOnly}
                     wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                   />
                 </DatePickerRange.End>

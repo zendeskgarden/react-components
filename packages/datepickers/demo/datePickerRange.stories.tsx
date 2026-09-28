@@ -14,6 +14,13 @@ import { DatePickerRangeDialogStory } from './stories/DatePickerRangeDialogStory
 import { DatePickerRangeDialogComboboxGroupStory } from './stories/DatePickerRangeDialogComboboxGroupStory';
 import { DATE_STYLE_OPTIONS } from './stories/data';
 
+const RANGE_FIELD_ARG_TYPES = {
+  isStartDisabled: { name: 'disabled', control: 'boolean', table: { category: 'Start' } },
+  isStartReadOnly: { name: 'readOnly', control: 'boolean', table: { category: 'Start' } },
+  isEndDisabled: { name: 'disabled', control: 'boolean', table: { category: 'End' } },
+  isEndReadOnly: { name: 'readOnly', control: 'boolean', table: { category: 'End' } }
+} as const;
+
 export default {
   title: 'Packages/Datepickers/DatePickerRange',
   component: DatePickerRange,
@@ -63,7 +70,8 @@ export const Example: StoryObj<typeof DatePickerRangeStory> = {
       control: 'radio',
       options: DATE_STYLE_OPTIONS,
       table: { category: 'Story' }
-    }
+    },
+    ...RANGE_FIELD_ARG_TYPES
   },
   parameters: {
     design: {
@@ -110,7 +118,8 @@ export const InDialog: StoryObj<typeof DatePickerRangeDialogStory> = {
     endValue: { control: 'date' },
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
-    isCompact: { control: 'boolean' }
+    isCompact: { control: 'boolean' },
+    ...RANGE_FIELD_ARG_TYPES
   }
 };
 
@@ -150,6 +159,7 @@ export const InDialogComboboxGroup: StoryObj<typeof DatePickerRangeDialogCombobo
     endValue: { control: 'date' },
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
-    isCompact: { control: 'boolean' }
+    isCompact: { control: 'boolean' },
+    ...RANGE_FIELD_ARG_TYPES
   }
 };

@@ -22,6 +22,7 @@ import { isValid } from 'date-fns/isValid';
 import { useFocusJail } from '@zendeskgarden/container-focusjail';
 import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import {
+  DatePickerRangeField,
   ElementProps,
   IFieldInputProps,
   IGetRangeCellPropsOptions,
@@ -148,6 +149,30 @@ export function useDatePickerRange({
 
   const [isOpen, setIsOpen] = useState(false);
   const [hasDialog, setHasDialog] = useState(false);
+  const [disabledOrReadOnlyFields, setDisabledOrReadOnlyFields] = useState({
+    start: false,
+    end: false
+  });
+
+  /** With no `field` (e.g. a `Trigger` outside either group), only true once both fields are. */
+  const isDisabledOrReadOnly = useCallback(
+    (field?: DatePickerRangeField) =>
+      field === undefined
+        ? disabledOrReadOnlyFields.start && disabledOrReadOnlyFields.end
+        : disabledOrReadOnlyFields[field],
+    [disabledOrReadOnlyFields]
+  );
+
+  const getInputField = useCallback(
+    (element: EventTarget): DatePickerRangeField | undefined => {
+      if (element === startInputRef.current) {
+        return 'start';
+      }
+
+      return element === endInputRef.current ? 'end' : undefined;
+    },
+    [startInputRef, endInputRef]
+  );
   const shouldFocusDialogRef = useRef(false);
   const previousActiveElementRef = useRef<Element | null>(null);
   const lastActiveFieldRef = useRef<HTMLElement | null>(null);
@@ -160,19 +185,33 @@ export function useDatePickerRange({
     restoreFocus: false
   });
 
-  const openOrFocusDialog = useCallback(() => {
-    const openDate =
-      (state.isEndFocused ? (endValue ?? startValue) : (startValue ?? endValue)) ?? new Date();
+  const openOrFocusDialog = useCallback(
+    (field?: DatePickerRangeField) => {
+      if (isDisabledOrReadOnly(field)) {
+        return;
+      }
 
-    dispatch({ type: 'FOCUS_DATE', value: openDate });
+      const openDate =
+        (state.isEndFocused ? (endValue ?? startValue) : (startValue ?? endValue)) ?? new Date();
 
-    if (isOpen) {
-      pendingGridFocusRef.current = true;
-    } else {
-      setIsOpen(true);
-      shouldFocusDialogRef.current = true;
+      dispatch({ type: 'FOCUS_DATE', value: openDate });
+
+      if (isOpen) {
+        pendingGridFocusRef.current = true;
+      } else {
+        setIsOpen(true);
+        shouldFocusDialogRef.current = true;
+      }
+    },
+    [isDisabledOrReadOnly, isOpen, state.isEndFocused, startValue, endValue]
+  );
+
+  /** Closes a dialog that was already open once neither field can change anymore. */
+  useEffect(() => {
+    if (isOpen && isDisabledOrReadOnly()) {
+      setIsOpen(false);
     }
-  }, [isOpen, state.isEndFocused, startValue, endValue]);
+  }, [isOpen, isDisabledOrReadOnly]);
 
   useEffect(() => {
     if (isOpen && shouldFocusDialogRef.current) {
@@ -206,9 +245,22 @@ export function useDatePickerRange({
     return () => setHasDialog(false);
   }, []);
 
+  const registerDisabledOrReadOnly = useCallback(
+    (field: DatePickerRangeField, isFieldDisabledOrReadOnly: boolean) => {
+      setDisabledOrReadOnlyFields(fields =>
+        fields[field] === isFieldDisabledOrReadOnly
+          ? fields
+          : { ...fields, [field]: isFieldDisabledOrReadOnly }
+      );
+
+      return () => setDisabledOrReadOnlyFields(fields => ({ ...fields, [field]: false }));
+    },
+    []
+  );
+
   const getTriggerProps = useCallback(
-    (props: ElementProps<HTMLButtonElement> = {}) => {
-      const { onClick, onBlur, ref, ...other } = props;
+    (props: ElementProps<HTMLButtonElement> & { field?: DatePickerRangeField } = {}) => {
+      const { onClick, onBlur, ref, field, ...other } = props;
 
       if (ref && typeof ref === 'object' && 'current' in ref) {
         triggerRefsRef.current.add(ref);
@@ -219,12 +271,13 @@ export function useDatePickerRange({
         'aria-haspopup': 'dialog' as const,
         'aria-expanded': isOpen,
         'aria-controls': dialogId,
-        onClick: composeEventHandlers(onClick, openOrFocusDialog),
+        disabled: isDisabledOrReadOnly(field),
+        onClick: composeEventHandlers(onClick, () => openOrFocusDialog(field)),
         onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
         ...other
       };
     },
-    [isOpen, dialogId, openOrFocusDialog, handleWidgetBlur]
+    [isOpen, dialogId, isDisabledOrReadOnly, openOrFocusDialog, handleWidgetBlur]
   );
 
   const getDialogProps = useCallback(
@@ -275,7 +328,7 @@ export function useDatePickerRange({
         }
       };
 
-      const handleClick = () => {
+      const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
         const previousActiveElement = previousActiveElementRef.current;
         const justClosedViaSelection = justClosedViaSelectionRef.current;
 
@@ -283,6 +336,7 @@ export function useDatePickerRange({
         justClosedViaSelectionRef.current = false;
 
         if (
+          !isDisabledOrReadOnly(getInputField(e.currentTarget)) &&
           shouldOpenOnFieldClick({
             isOpen,
             previousActiveElement,
@@ -296,7 +350,7 @@ export function useDatePickerRange({
 
       const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === KEYS.DOWN) {
-          openOrFocusDialog();
+          openOrFocusDialog(getInputField(e.currentTarget));
         }
       };
 
@@ -308,30 +362,35 @@ export function useDatePickerRange({
         ...other
       };
     },
-    [isOpen, openOrFocusDialog, getWidgetRefs]
+    [isOpen, isDisabledOrReadOnly, getInputField, openOrFocusDialog, getWidgetRefs]
   );
 
-  const getOpenOnClickProps = useCallback(() => {
-    const handleMouseDown = () => {
-      previousActiveElementRef.current = document.activeElement;
-    };
+  const getOpenOnClickProps = useCallback(
+    (field: DatePickerRangeField) => {
+      const handleMouseDown = () => {
+        previousActiveElementRef.current = document.activeElement;
+      };
 
-    const handleClick = () => {
-      if (!hasDialog) {
-        return;
-      }
+      const handleClick = () => {
+        if (!hasDialog || isDisabledOrReadOnly(field)) {
+          return;
+        }
 
-      const previousActiveElement = previousActiveElementRef.current;
+        const previousActiveElement = previousActiveElementRef.current;
 
-      previousActiveElementRef.current = null;
+        previousActiveElementRef.current = null;
 
-      if (shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })) {
-        setIsOpen(true);
-      }
-    };
+        if (
+          shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })
+        ) {
+          setIsOpen(true);
+        }
+      };
 
-    return { onMouseDown: handleMouseDown, onClick: handleClick };
-  }, [hasDialog, isOpen, getWidgetRefs]);
+      return { onMouseDown: handleMouseDown, onClick: handleClick };
+    },
+    [hasDialog, isOpen, isDisabledOrReadOnly, getWidgetRefs]
+  );
 
   const startIsBlurPendingRef = useRef(false);
   const startRequiredRef = useRef<boolean | undefined>(undefined);
@@ -429,7 +488,7 @@ export function useDatePickerRange({
   const getStartGroupProps = useCallback(
     (props: ElementProps<HTMLDivElement> = {}) => {
       const { onMouseDown, onClick, ...other } = props;
-      const openOnClickProps = getOpenOnClickProps();
+      const openOnClickProps = getOpenOnClickProps('start');
 
       return {
         onMouseDown: composeEventHandlers(onMouseDown, openOnClickProps.onMouseDown),
@@ -618,7 +677,7 @@ export function useDatePickerRange({
   const getEndGroupProps = useCallback(
     (props: ElementProps<HTMLDivElement> = {}) => {
       const { onMouseDown, onClick, ...other } = props;
-      const openOnClickProps = getOpenOnClickProps();
+      const openOnClickProps = getOpenOnClickProps('end');
 
       return {
         onMouseDown: composeEventHandlers(onMouseDown, openOnClickProps.onMouseDown),
@@ -944,6 +1003,7 @@ export function useDatePickerRange({
       isOpen,
       hasDialog,
       registerDialog,
+      registerDisabledOrReadOnly,
       getStartWrapperProps,
       getEndWrapperProps,
       getStartGroupProps,
@@ -981,6 +1041,7 @@ export function useDatePickerRange({
       isOpen,
       hasDialog,
       registerDialog,
+      registerDisabledOrReadOnly,
       getStartWrapperProps,
       getEndWrapperProps,
       getStartGroupProps,

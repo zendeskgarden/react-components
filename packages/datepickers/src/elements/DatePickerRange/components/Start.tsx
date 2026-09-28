@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement } from 'react';
+import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement, useEffect } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
@@ -20,11 +20,22 @@ type IStartProps = HTMLAttributes<HTMLInputElement>;
  * button).
  */
 export const Start = ({ children }: PropsWithChildren<IStartProps>) => {
-  const { hasDialog, getStartInputProps, getStartWrapperProps, getFieldTriggerProps } =
-    useDatePickerContext();
+  const {
+    hasDialog,
+    registerDisabledOrReadOnly,
+    getStartInputProps,
+    getStartWrapperProps,
+    getFieldTriggerProps
+  } = useDatePickerContext();
 
   const childElement = React.Children.only(
     children as React.ReactElement & React.RefAttributes<HTMLInputElement>
+  );
+  const isDisabledOrReadOnly = !!(childElement.props.disabled || childElement.props.readOnly);
+
+  useEffect(
+    () => registerDisabledOrReadOnly('start', isDisabledOrReadOnly),
+    [registerDisabledOrReadOnly, isDisabledOrReadOnly]
   );
   const isComponent = typeof childElement.type !== 'string';
 

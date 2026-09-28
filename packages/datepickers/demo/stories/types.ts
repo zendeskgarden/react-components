@@ -8,3 +8,11 @@
 import { DATE_STYLE_OPTIONS } from './data';
 
 export type DATE_STYLE = (typeof DATE_STYLE_OPTIONS)[number];
+
+/** Forwarded to each field's own input, to exercise per-field disabled/read-only behavior. */
+export interface IRangeFieldArgs {
+  isStartDisabled?: boolean;
+  isStartReadOnly?: boolean;
+  isEndDisabled?: boolean;
+  isEndReadOnly?: boolean;
+}

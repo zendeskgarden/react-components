@@ -11,6 +11,7 @@ import { StoryFn } from '@storybook/react-vite';
 import { useId } from '@zendeskgarden/container-utilities';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
 import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
+import { IRangeFieldArgs } from './types';
 
 const FIELD_WIDTH_PX = 311;
 const COMPACT_FIELD_WIDTH_PX = 249;
@@ -53,10 +54,9 @@ const StyledField = styled(Field)<{ $isCompact?: boolean }>`
   width: min(100%, ${p => (p.$isCompact ? `${COMPACT_FIELD_WIDTH_PX}px` : `${FIELD_WIDTH_PX}px`)});
 `;
 
-export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangeProps> = ({
-  isCompact,
-  ...args
-}) => {
+export const DatePickerRangeDialogComboboxGroupStory: StoryFn<
+  IDatePickerRangeProps & IRangeFieldArgs
+> = ({ isCompact, isStartDisabled, isStartReadOnly, isEndDisabled, isEndReadOnly, ...args }) => {
   const [isSideBySide, setIsSideBySide] = useState<boolean | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
   const startInputRef = useRef<HTMLInputElement>(null);
@@ -102,6 +102,8 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
                     aria-describedby={hintId}
                     ref={startInputRef}
                     isCompact={isCompact}
+                    disabled={isStartDisabled}
+                    readOnly={isStartReadOnly}
                     wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                   />
                 </DatePickerRange.Start>
@@ -119,6 +121,8 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<IDatePickerRangePr
                     aria-describedby={hintId}
                     ref={endInputRef}
                     isCompact={isCompact}
+                    disabled={isEndDisabled}
+                    readOnly={isEndReadOnly}
                     wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                   />
                 </DatePickerRange.End>

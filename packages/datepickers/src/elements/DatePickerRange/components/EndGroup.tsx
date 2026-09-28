@@ -8,6 +8,7 @@
 import React, { PropsWithChildren, HTMLAttributes, forwardRef } from 'react';
 import { InputGroup } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import { DatePickerRangeFieldContext } from '../utils/useDatePickerRangeFieldContext';
 
 type IEndGroupProps = HTMLAttributes<HTMLDivElement> & {
   /** Removes the rounded corners on the leading edge, since EndGroup always abuts the preceding StartGroup */
@@ -26,7 +27,9 @@ export const EndGroup = forwardRef<HTMLDivElement, PropsWithChildren<IEndGroupPr
         isCompact={isCompact}
         isEdgeToEdgeStart={isEdgeToEdge}
       >
-        {children}
+        <DatePickerRangeFieldContext.Provider value="end">
+          {children}
+        </DatePickerRangeFieldContext.Provider>
       </InputGroup>
     );
   }

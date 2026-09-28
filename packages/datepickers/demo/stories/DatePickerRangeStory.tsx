@@ -12,9 +12,9 @@ import { focusStyles } from '@zendeskgarden/react-theming';
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import { ClearableInput, Field, Fieldset } from '@zendeskgarden/react-forms';
 import { DatePickerRange, IDatePickerRangeProps } from '@zendeskgarden/react-datepickers';
-import { DATE_STYLE } from './types';
+import { DATE_STYLE, IRangeFieldArgs } from './types';
 
-interface IArgs extends IDatePickerRangeProps {
+interface IArgs extends IDatePickerRangeProps, IRangeFieldArgs {
   dateStyle: DATE_STYLE;
 }
 
@@ -38,7 +38,15 @@ const StyledCalendar = styled(DatePickerRange.Calendar)`
   padding: ${p => p.theme.shadowWidths.md};
 `;
 
-export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...args }) => {
+export const DatePickerRangeStory: StoryFn<IArgs> = ({
+  dateStyle,
+  isCompact,
+  isStartDisabled,
+  isStartReadOnly,
+  isEndDisabled,
+  isEndReadOnly,
+  ...args
+}) => {
   const containerRef = useRef<HTMLElement>(null);
   const containerTabIndex = useScrollRegion({ containerRef, dependency: isCompact });
 
@@ -58,13 +66,21 @@ export const DatePickerRangeStory: StoryFn<IArgs> = ({ dateStyle, isCompact, ...
             <Field>
               <Field.Label isRegular={false}>Start date</Field.Label>
               <DatePickerRange.Start>
-                <ClearableInput isCompact={isCompact} />
+                <ClearableInput
+                  isCompact={isCompact}
+                  disabled={isStartDisabled}
+                  readOnly={isStartReadOnly}
+                />
               </DatePickerRange.Start>
             </Field>
             <Field>
               <Field.Label isRegular={false}>End date</Field.Label>
               <DatePickerRange.End>
-                <ClearableInput isCompact={isCompact} />
+                <ClearableInput
+                  isCompact={isCompact}
+                  disabled={isEndDisabled}
+                  readOnly={isEndReadOnly}
+                />
               </DatePickerRange.End>
             </Field>
             <StyledCalendar />
