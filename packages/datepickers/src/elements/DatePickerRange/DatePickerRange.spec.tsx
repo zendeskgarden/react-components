@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
+import { act, render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledDayCell } from '../../styled';
@@ -1283,6 +1283,162 @@ describe('DatePickerRange', () => {
           getVisibleDays(getAllByTestId).filter(day => day.getAttribute('tabindex') === '0')
         ).toHaveLength(1);
         getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeEnabled());
+      });
+    });
+  });
+
+  describe('focus when the fields become disabled or read-only', () => {
+    interface IFocusExampleProps extends IDatePickerRangeProps {
+      start?: { disabled?: boolean; readOnly?: boolean };
+      end?: { disabled?: boolean; readOnly?: boolean };
+    }
+
+    const InlineFocusExample = ({ start, end, ...props }: IFocusExampleProps) => (
+      <DatePickerRange startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} {...props}>
+        <DatePickerRange.Start>
+          <input data-test-id="start" {...start} />
+        </DatePickerRange.Start>
+        <DatePickerRange.End>
+          <input data-test-id="end" {...end} />
+        </DatePickerRange.End>
+        <DatePickerRange.Calendar />
+      </DatePickerRange>
+    );
+
+    const DialogFocusExample = ({ start, end, ...props }: IFocusExampleProps) => (
+      <DatePickerRange startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} {...props}>
+        <DatePickerRange.StartGroup>
+          <DatePickerRange.Start>
+            <input data-test-id="start" {...start} />
+          </DatePickerRange.Start>
+          <DatePickerRange.Trigger data-test-id="start-trigger" />
+        </DatePickerRange.StartGroup>
+        <DatePickerRange.EndGroup>
+          <DatePickerRange.End>
+            <input data-test-id="end" {...end} />
+          </DatePickerRange.End>
+          <DatePickerRange.Trigger data-test-id="end-trigger" />
+        </DatePickerRange.EndGroup>
+        <DatePickerRange.Dialog>
+          <DatePickerRange.Calendar />
+        </DatePickerRange.Dialog>
+      </DatePickerRange>
+    );
+
+    const getDays = (getAllByTestId: (id: string) => HTMLElement[], month: 0 | 1) =>
+      globalGetAllByTestId(getAllByTestId('calendar-wrapper')[month], 'day');
+
+    describe('inline calendar', () => {
+      it('is not a tab stop while the fields are enabled', () => {
+        const { getAllByRole } = render(<InlineFocusExample />);
+
+        getAllByRole('grid').forEach(grid => expect(grid).not.toHaveAttribute('tabindex'));
+      });
+
+      it.each([
+        { month: 0 as const, name: 'first' },
+        { month: 1 as const, name: 'second' }
+      ])(
+        'moves focus to the $name month grid when both fields become disabled while one of its days has focus',
+        ({ month }) => {
+          const { getAllByRole, getAllByTestId, rerender } = render(<InlineFocusExample />);
+
+          act(() => getDays(getAllByTestId, month)[9].focus());
+
+          rerender(<InlineFocusExample start={{ disabled: true }} end={{ disabled: true }} />);
+
+          const grid = getAllByRole('grid')[month];
+
+          expect(grid).toHaveFocus();
+          expect(grid).toHaveAttribute('tabindex', '-1');
+        }
+      );
+
+      it('moves focus to the first month grid when both fields become disabled while a toolbar paddle has focus', () => {
+        const { getAllByRole, getByTestId, rerender } = render(<InlineFocusExample />);
+
+        act(() => getByTestId('next-month').focus());
+
+        rerender(<InlineFocusExample start={{ disabled: true }} end={{ disabled: true }} />);
+
+        expect(getAllByRole('grid')[0]).toHaveFocus();
+      });
+
+      it('does not move focus when both fields become disabled while focus is outside the calendar', () => {
+        const { getAllByRole, rerender } = render(
+          <>
+            <InlineFocusExample />
+            <button data-test-id="outside" type="button">
+              Outside
+            </button>
+          </>
+        );
+        const outside = document.querySelector<HTMLButtonElement>('[data-test-id="outside"]')!;
+
+        act(() => outside.focus());
+
+        rerender(
+          <>
+            <InlineFocusExample start={{ disabled: true }} end={{ disabled: true }} />
+            <button data-test-id="outside" type="button">
+              Outside
+            </button>
+          </>
+        );
+
+        expect(outside).toHaveFocus();
+        getAllByRole('grid').forEach(grid => expect(grid).not.toHaveFocus());
+      });
+
+      it('keeps focus on the day when both fields become read-only', () => {
+        const { getAllByTestId, rerender } = render(<InlineFocusExample />);
+        const day = getDays(getAllByTestId, 0)[9];
+
+        act(() => day.focus());
+
+        rerender(<InlineFocusExample start={{ readOnly: true }} end={{ readOnly: true }} />);
+
+        expect(day).toHaveFocus();
+      });
+
+      it('removes the grid from focus handling once the fields are enabled again', () => {
+        const { getAllByRole, rerender } = render(
+          <InlineFocusExample start={{ disabled: true }} end={{ disabled: true }} />
+        );
+
+        rerender(<InlineFocusExample />);
+
+        getAllByRole('grid').forEach(grid => expect(grid).not.toHaveAttribute('tabindex'));
+      });
+    });
+
+    describe('Dialog composition', () => {
+      it.each(['start', 'end'] as const)(
+        'returns focus to the %s field it was opened from when both fields become read-only',
+        async field => {
+          const { getByTestId, rerender } = render(<DialogFocusExample />);
+
+          await user.click(getByTestId(`${field}-trigger`));
+
+          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+          rerender(<DialogFocusExample start={{ readOnly: true }} end={{ readOnly: true }} />);
+
+          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+          expect(getByTestId(field)).toHaveFocus();
+        }
+      );
+
+      it('does not force focus anywhere when both fields become disabled', async () => {
+        const { getAllByRole, getByTestId, rerender } = render(<DialogFocusExample />);
+
+        await user.click(getByTestId('start-trigger'));
+
+        rerender(<DialogFocusExample start={{ disabled: true }} end={{ disabled: true }} />);
+
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByTestId('start')).not.toHaveFocus();
+        getAllByRole('grid', { hidden: true }).forEach(grid => expect(grid).not.toHaveFocus());
       });
     });
   });

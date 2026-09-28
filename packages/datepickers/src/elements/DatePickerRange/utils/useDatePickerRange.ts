@@ -5,7 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { RefObject, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import {
+  RefObject,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useReducer,
+  useRef,
+  useState
+} from 'react';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import { addMonths } from 'date-fns/addMonths';
@@ -229,12 +238,45 @@ export function useDatePickerRange({
     [isDisabledOrReadOnly, isOpen, state.isEndFocused, startValue, endValue]
   );
 
-  /** Closes a dialog that was already open once neither field can change anymore. */
-  useEffect(() => {
-    if (isOpen && isDisabledOrReadOnly()) {
-      setIsOpen(false);
+  /**
+   * Closes a dialog that was already open once neither field can change anymore, returning
+   * focus from inside it to the field it was opened from - when that field can still take focus
+   * (i.e. it's read-only). Otherwise nothing in the widget can, so focus is left to the browser.
+   * A layout effect, so focus is checked before the browser drops it from newly-disabled elements.
+   */
+  useLayoutEffect(() => {
+    if (!(isOpen && isDisabledOrReadOnly())) {
+      return;
     }
-  }, [isOpen, isDisabledOrReadOnly]);
+
+    const isFocusInside = !!dialogRef.current?.contains(document.activeElement);
+    const field = lastActiveFieldRef.current ?? startInputRef.current;
+
+    setIsOpen(false);
+
+    if (isFocusInside && field && !(field as HTMLInputElement).disabled) {
+      field.focus();
+    }
+  }, [isOpen, isDisabledOrReadOnly, startInputRef]);
+
+  /**
+   * An inline calendar that becomes disabled while one of its days or paddles has focus moves
+   * focus to the grid it was in (or the first grid, from the toolbar) instead of losing it, since
+   * none of them can keep it. A layout effect, for the same reason as above.
+   */
+  useLayoutEffect(() => {
+    const calendarWrapper = calendarWrapperRef.current;
+    const activeElement = document.activeElement;
+
+    if (!isCalendarDisabled || hasDialog || !calendarWrapper?.contains(activeElement)) {
+      return;
+    }
+
+    (
+      activeElement!.closest<HTMLElement>('[role="grid"]') ??
+      calendarWrapper.querySelector<HTMLElement>('[role="grid"]')
+    )?.focus();
+  }, [isCalendarDisabled, hasDialog]);
 
   useEffect(() => {
     if (isOpen && shouldFocusDialogRef.current) {
@@ -817,6 +859,8 @@ export function useDatePickerRange({
         'aria-labelledby': offset === 0 ? headingId0 : headingId1,
         'aria-disabled': isCalendarDisabled || undefined,
         'aria-readonly': isCalendarReadOnly || undefined,
+        /** Only so focus can land here when the calendar becomes disabled - never a tab stop. */
+        tabIndex: isCalendarDisabled ? -1 : undefined,
         'data-test-id': 'calendar-internal-wrapper',
         onMouseLeave: composeEventHandlers(onMouseLeave, handleMouseLeave),
         ...other
