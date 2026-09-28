@@ -163,6 +163,15 @@ export function useDatePickerRange({
     [disabledOrReadOnlyFields]
   );
 
+  /** The one field that's disabled or read-only, if only one is. */
+  const getDisabledOrReadOnlyField = useCallback((): DatePickerRangeField | undefined => {
+    if (disabledOrReadOnlyFields.start !== disabledOrReadOnlyFields.end) {
+      return disabledOrReadOnlyFields.start ? 'start' : 'end';
+    }
+
+    return undefined;
+  }, [disabledOrReadOnlyFields]);
+
   const getInputField = useCallback(
     (element: EventTarget): DatePickerRangeField | undefined => {
       if (element === startInputRef.current) {
@@ -815,7 +824,19 @@ export function useDatePickerRange({
         (startValue !== undefined && isSameDay(date, startValue)) ||
         (endValue !== undefined && isSameDay(date, endValue));
 
-      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
+      /** Picking a day before a disabled/read-only start value, or after a disabled/read-only end value, would have to move it. */
+      const wouldMoveDisabledOrReadOnlyValue =
+        (disabledOrReadOnlyFields.start &&
+          startValue !== undefined &&
+          isBefore(date, startValue) &&
+          !isSameDay(date, startValue)) ||
+        (disabledOrReadOnlyFields.end &&
+          endValue !== undefined &&
+          isAfter(date, endValue) &&
+          !isSameDay(date, endValue));
+
+      const isDisabled =
+        !isDateWithinRange(date, minValue, maxValue) || wouldMoveDisabledOrReadOnlyValue;
 
       const isCurrentDate = isToday(date);
 
@@ -829,7 +850,8 @@ export function useDatePickerRange({
           startValue,
           endValue,
           isStartActive: state.isStartFocused || state.isStartValueInvalid,
-          isEndActive: state.isEndFocused || state.isEndValueInvalid
+          isEndActive: state.isEndFocused || state.isEndValueInvalid,
+          disabledOrReadOnlyField: getDisabledOrReadOnlyField()
         });
         const { field, isOutOfOrder, ...result } = selection;
 
@@ -943,6 +965,8 @@ export function useDatePickerRange({
       startInputRef,
       endInputRef,
       hasDialog,
+      disabledOrReadOnlyFields,
+      getDisabledOrReadOnlyField,
       requestCellFocus,
       locale,
       formatDate

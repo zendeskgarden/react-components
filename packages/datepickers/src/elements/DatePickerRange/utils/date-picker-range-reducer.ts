@@ -18,7 +18,11 @@ import { parse } from 'date-fns/parse';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { compareAsc } from 'date-fns/compareAsc';
 import { isAfter } from 'date-fns/isAfter';
-import { IDatePickerRangeProps, IDatePickerRangeValueSettledResult } from '../../../types';
+import {
+  DatePickerRangeField,
+  IDatePickerRangeProps,
+  IDatePickerRangeValueSettledResult
+} from '../../../types';
 import { isDateWithinRange } from '../../../utils/calendar-utils';
 
 /**
@@ -170,7 +174,8 @@ export function resolveRangeSelection({
   startValue,
   endValue,
   isStartActive,
-  isEndActive
+  isEndActive,
+  disabledOrReadOnlyField
 }: {
   date: Date;
   startValue?: Date;
@@ -179,16 +184,22 @@ export function resolveRangeSelection({
   isStartActive: boolean;
   /** End is focused, or holds rejected text. */
   isEndActive: boolean;
+  /** Its value can't change, so every click commits to the other field instead - regardless of which is active. */
+  disabledOrReadOnlyField?: DatePickerRangeField;
 }): IRangeSelection {
   let result: Pick<IRangeSelection, 'startValue' | 'endValue'>;
   let isOutOfOrder = false;
+  const isStartTarget =
+    disabledOrReadOnlyField === 'end' || (disabledOrReadOnlyField !== 'start' && isStartActive);
+  const isEndTarget =
+    disabledOrReadOnlyField === 'start' || (disabledOrReadOnlyField !== 'end' && isEndActive);
 
-  if (isStartActive) {
+  if (isStartTarget) {
     result =
       endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
         ? { startValue: date, endValue }
         : { startValue: date, endValue: undefined };
-  } else if (isEndActive) {
+  } else if (isEndTarget) {
     if (startValue === undefined) {
       result = { startValue: undefined, endValue: date };
     } else {

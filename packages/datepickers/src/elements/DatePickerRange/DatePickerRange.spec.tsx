@@ -807,5 +807,203 @@ describe('DatePickerRange', () => {
         expect(isOpen(getByTestId)).toBe(true);
       });
     });
+
+    describe('calendar selection', () => {
+      /** The inline calendar, as in the default "DatePickerRange" story. */
+      const InlineExample = ({ disabledOrReadOnlyFields = [], ...props }: IExampleProps) => (
+        <DatePickerRange onChange={onChangeSpy} {...props}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" {...fieldProps(disabledOrReadOnlyFields, 'start')} />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" {...fieldProps(disabledOrReadOnlyFields, 'end')} />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      const getDays = (getAllByTestId: (id: string) => HTMLElement[], month: 0 | 1) =>
+        globalGetAllByTestId(getAllByTestId('calendar-wrapper')[month], 'day');
+
+      describe(`when only start is ${label}`, () => {
+        const renderExample = (props: IDatePickerRangeProps = {}) =>
+          render(
+            <InlineExample
+              startValue={DEFAULT_START_VALUE}
+              disabledOrReadOnlyFields={['start']}
+              {...props}
+            />
+          );
+
+        it('sets End, not Start, when a later day is clicked', async () => {
+          const { getByTestId, getAllByTestId } = renderExample();
+
+          await user.click(getDays(getAllByTestId, 1)[6]); // March 2, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: DEFAULT_START_VALUE,
+            endValue: new Date(2019, 2, 2)
+          });
+          expect(getByTestId('start')).toHaveValue('February 5, 2019');
+          expect(getByTestId('end')).toHaveValue('March 2, 2019');
+        });
+
+        it('moves End, rather than restarting the range, when both values are set', async () => {
+          const { getAllByTestId } = renderExample({ endValue: DEFAULT_END_VALUE });
+
+          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: DEFAULT_START_VALUE,
+            endValue: new Date(2019, 1, 10)
+          });
+        });
+
+        it('marks days before the start value unavailable, but not the start day or later', () => {
+          const { getAllByTestId } = renderExample();
+          const days = getDays(getAllByTestId, 0);
+
+          expect(days[8]).toHaveAttribute('aria-disabled', 'true'); // February 4, 2019
+          expect(days[9]).not.toHaveAttribute('aria-disabled'); // February 5, 2019
+          expect(days[10]).not.toHaveAttribute('aria-disabled'); // February 6, 2019
+        });
+
+        it('does not change either value when a day before the start value is clicked', async () => {
+          const { getAllByTestId } = renderExample();
+
+          await user.click(getDays(getAllByTestId, 0)[8]); // February 4, 2019
+
+          expect(onChangeSpy).not.toHaveBeenCalled();
+        });
+
+        it('still shows the start value as selected', () => {
+          const { getAllByTestId } = renderExample();
+
+          expect(getDays(getAllByTestId, 0)[9]).toHaveAttribute('aria-selected', 'true');
+        });
+
+        it('sets End from a dialog opened from the End field', async () => {
+          const { getByTestId, getAllByTestId } = render(
+            <GroupedExample
+              startValue={DEFAULT_START_VALUE}
+              disabledOrReadOnlyFields={['start']}
+              onChange={onChangeSpy}
+            />
+          );
+
+          await user.click(getByTestId('end-trigger'));
+          await user.click(getDays(getAllByTestId, 1)[6]); // March 2, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: DEFAULT_START_VALUE,
+            endValue: new Date(2019, 2, 2)
+          });
+        });
+      });
+
+      describe(`when only end is ${label}`, () => {
+        const renderExample = (props: IDatePickerRangeProps = {}) =>
+          render(
+            <InlineExample
+              endValue={DEFAULT_END_VALUE}
+              disabledOrReadOnlyFields={['end']}
+              {...props}
+            />
+          );
+
+        it('sets Start, not End, when an earlier day is clicked', async () => {
+          const { getByTestId, getAllByTestId } = renderExample();
+
+          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: new Date(2019, 1, 10),
+            endValue: DEFAULT_END_VALUE
+          });
+          expect(getByTestId('start')).toHaveValue('February 10, 2019');
+          expect(getByTestId('end')).toHaveValue('March 5, 2019');
+        });
+
+        it('moves Start, rather than restarting the range, when both values are set', async () => {
+          const { getAllByTestId } = renderExample({ startValue: DEFAULT_START_VALUE });
+
+          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+
+          expect(onChangeSpy).toHaveBeenCalledWith({
+            startValue: new Date(2019, 1, 10),
+            endValue: DEFAULT_END_VALUE
+          });
+        });
+
+        it('marks days after the end value unavailable, but not the end day or earlier', () => {
+          const { getAllByTestId } = renderExample();
+          const days = getDays(getAllByTestId, 1);
+
+          expect(days[8]).not.toHaveAttribute('aria-disabled'); // March 4, 2019
+          expect(days[9]).not.toHaveAttribute('aria-disabled'); // March 5, 2019
+          expect(days[10]).toHaveAttribute('aria-disabled', 'true'); // March 6, 2019
+        });
+
+        it('does not change either value when a day after the end value is clicked', async () => {
+          const { getAllByTestId } = renderExample();
+
+          await user.click(getDays(getAllByTestId, 1)[10]); // March 6, 2019
+
+          expect(onChangeSpy).not.toHaveBeenCalled();
+        });
+
+        it('still shows the end value as selected', () => {
+          const { getAllByTestId } = renderExample();
+
+          expect(getDays(getAllByTestId, 1)[9]).toHaveAttribute('aria-selected', 'true');
+        });
+      });
+    });
+  });
+
+  describe('calendar selection while a read-only field has focus', () => {
+    it('sets End, not Start, when Start is read-only and focused', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <DatePickerRange startValue={DEFAULT_START_VALUE} onChange={onChangeSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" readOnly />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByTestId('start'));
+      await user.click(globalGetAllByTestId(getAllByTestId('calendar-wrapper')[1], 'day')[6]); // March 2, 2019
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: DEFAULT_START_VALUE,
+        endValue: new Date(2019, 2, 2)
+      });
+    });
+
+    it('sets Start, not End, when End is read-only and focused', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <DatePickerRange endValue={DEFAULT_END_VALUE} onChange={onChangeSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" readOnly />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByTestId('end'));
+      await user.click(globalGetAllByTestId(getAllByTestId('calendar-wrapper')[0], 'day')[14]); // February 10, 2019
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 10),
+        endValue: DEFAULT_END_VALUE
+      });
+    });
   });
 });

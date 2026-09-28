@@ -176,6 +176,87 @@ describe('resolveRangeSelection', () => {
   });
 });
 
+describe('resolveRangeSelection with a disabled or read-only field', () => {
+  describe('when Start is disabled or read-only', () => {
+    it('commits to End, even while Start is active', () => {
+      expect(
+        resolveRangeSelection({
+          date: MAR_10,
+          startValue: FEB_5,
+          endValue: MAR_5,
+          isStartActive: true,
+          isEndActive: false,
+          disabledOrReadOnlyField: 'start'
+        })
+      ).toStrictEqual({ startValue: FEB_5, endValue: MAR_10, field: 'end', isOutOfOrder: false });
+    });
+
+    it('commits to End, rather than restarting the range, when neither field is active', () => {
+      expect(
+        resolveRangeSelection({
+          date: FEB_10,
+          startValue: FEB_5,
+          endValue: MAR_5,
+          isStartActive: false,
+          isEndActive: false,
+          disabledOrReadOnlyField: 'start'
+        })
+      ).toStrictEqual({ startValue: FEB_5, endValue: FEB_10, field: 'end', isOutOfOrder: false });
+    });
+
+    it('commits to End when Start is empty', () => {
+      expect(
+        resolveRangeSelection({
+          date: FEB_10,
+          startValue: undefined,
+          endValue: undefined,
+          isStartActive: false,
+          isEndActive: false,
+          disabledOrReadOnlyField: 'start'
+        })
+      ).toStrictEqual({
+        startValue: undefined,
+        endValue: FEB_10,
+        field: 'end',
+        isOutOfOrder: false
+      });
+    });
+  });
+
+  describe('when End is disabled or read-only', () => {
+    it('commits to Start, even while End is active', () => {
+      expect(
+        resolveRangeSelection({
+          date: FEB_1,
+          startValue: FEB_5,
+          endValue: MAR_5,
+          isStartActive: false,
+          isEndActive: true,
+          disabledOrReadOnlyField: 'end'
+        })
+      ).toStrictEqual({ startValue: FEB_1, endValue: MAR_5, field: 'start', isOutOfOrder: false });
+    });
+
+    it('commits to Start, rather than moving End, when neither field is active', () => {
+      expect(
+        resolveRangeSelection({
+          date: FEB_10,
+          startValue: FEB_5,
+          endValue: undefined,
+          isStartActive: false,
+          isEndActive: false,
+          disabledOrReadOnlyField: 'end'
+        })
+      ).toStrictEqual({
+        startValue: FEB_10,
+        endValue: undefined,
+        field: 'start',
+        isOutOfOrder: false
+      });
+    });
+  });
+});
+
 describe('datepickerRangeReducer CLICK_DATE', () => {
   const baseState: IDatePickerRangeState = {
     previewDate: FEB_5,
