@@ -84,7 +84,7 @@ export function useDatePicker({
   );
 
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
-  const isLocked = !!(disabled || readOnly);
+  const isDisabledOrReadOnly = !!(disabled || readOnly);
 
   useEffect(() => {
     dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value, locale, formatDate, customParseDate });
@@ -113,7 +113,7 @@ export function useDatePicker({
   );
 
   const openOrFocusDialog = useCallback(() => {
-    if (isLocked) {
+    if (isDisabledOrReadOnly) {
       return;
     }
 
@@ -123,14 +123,14 @@ export function useDatePicker({
       dispatch({ type: 'OPEN', value });
       shouldFocusDialogRef.current = true;
     }
-  }, [isLocked, state.isOpen, value]);
+  }, [isDisabledOrReadOnly, state.isOpen, value]);
 
   /** Closes a calendar that was already open when its input became disabled/read-only. */
   useEffect(() => {
-    if (isLocked && state.isOpen) {
+    if (isDisabledOrReadOnly && state.isOpen) {
       dispatch({ type: 'CLOSE' });
     }
-  }, [isLocked, state.isOpen]);
+  }, [isDisabledOrReadOnly, state.isOpen]);
 
   /** Waits for the dialog to render before moving focus into it. */
   useEffect(() => {
@@ -197,12 +197,12 @@ export function useDatePicker({
         'aria-haspopup': 'dialog' as const,
         'aria-expanded': state.isOpen,
         'aria-controls': menuId,
-        disabled: isLocked,
+        disabled: isDisabledOrReadOnly,
         onClick: composeEventHandlers(onClick, openOrFocusDialog),
         ...other
       };
     },
-    [state.isOpen, menuId, isLocked, openOrFocusDialog]
+    [state.isOpen, menuId, isDisabledOrReadOnly, openOrFocusDialog]
   );
 
   const getDialogProps = useCallback(
@@ -283,7 +283,7 @@ export function useDatePicker({
         justClosedViaSelectionRef.current = false;
 
         if (
-          !isLocked &&
+          !isDisabledOrReadOnly &&
           shouldOpenOnFieldClick({
             isOpen: state.isOpen,
             previousActiveElement,
@@ -330,7 +330,7 @@ export function useDatePicker({
       value,
       customParseDate,
       settleValue,
-      isLocked,
+      isDisabledOrReadOnly,
       openOrFocusDialog
     ]
   );

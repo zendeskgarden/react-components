@@ -481,17 +481,20 @@ describe('DatePicker', () => {
     });
   });
 
-  describe.each(['disabled', 'readOnly'] as const)('when the input is %s', lockProp => {
-    const LockedExample = ({
-      isLocked = true,
+  describe.each([
+    { prop: 'disabled', label: 'disabled' },
+    { prop: 'readOnly', label: 'read-only' }
+  ] as const)('when the input is $label', ({ prop, label }) => {
+    const DisabledOrReadOnlyExample = ({
+      isDisabledOrReadOnly = true,
       ...props
-    }: Omit<IDatePickerProps, 'children'> & { isLocked?: boolean }) => (
+    }: Omit<IDatePickerProps, 'children'> & { isDisabledOrReadOnly?: boolean }) => (
       <>
         <label data-test-id="label" htmlFor="input">
           Label
         </label>
         <DatePicker {...props}>
-          <input data-test-id="input" id="input" {...{ [lockProp]: isLocked }} />
+          <input data-test-id="input" id="input" {...{ [prop]: isDisabledOrReadOnly }} />
         </DatePicker>
       </>
     );
@@ -505,13 +508,13 @@ describe('DatePicker', () => {
     });
 
     it('still renders the trigger button, with the native disabled attribute', () => {
-      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       expect(getByTestId('calendar-button')).toBeDisabled();
     });
 
     it('does not open the calendar when the trigger is clicked', () => {
-      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.click(getByTestId('calendar-button'));
 
@@ -519,7 +522,7 @@ describe('DatePicker', () => {
     });
 
     it('does not open the calendar when the input is clicked', () => {
-      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
@@ -528,7 +531,7 @@ describe('DatePicker', () => {
     });
 
     it('does not open the calendar when the associated label is clicked', () => {
-      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.click(getByTestId('label'));
 
@@ -536,7 +539,7 @@ describe('DatePicker', () => {
     });
 
     it('does not open the calendar when the surrounding input group is clicked', () => {
-      const { container, getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+      const { container, getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.click(container.querySelector("[data-garden-id='forms.input_group']")!);
 
@@ -547,31 +550,31 @@ describe('DatePicker', () => {
       ['Down Arrow', {}],
       ['Alt+Down Arrow', { altKey: true }]
     ])('does not open the calendar on %s from the input', (_, modifiers) => {
-      const { getByTestId } = render(<LockedExample value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN, ...modifiers });
 
       expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
     });
 
-    it('closes an already-open calendar once the input becomes locked', async () => {
+    it(`closes an already-open calendar once the input becomes ${label}`, async () => {
       const { getByTestId, rerender } = render(
-        <LockedExample value={DEFAULT_DATE} isLocked={false} />
+        <DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly={false} />
       );
 
       await user.click(getByTestId('calendar-button'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
 
-      rerender(<LockedExample value={DEFAULT_DATE} isLocked />);
+      rerender(<DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly />);
 
       expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
     });
 
-    it('opens normally again once the input is no longer locked', async () => {
-      const { getByTestId, rerender } = render(<LockedExample value={DEFAULT_DATE} />);
+    it(`opens normally again once the input is no longer ${label}`, async () => {
+      const { getByTestId, rerender } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
-      rerender(<LockedExample value={DEFAULT_DATE} isLocked={false} />);
+      rerender(<DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly={false} />);
 
       expect(getByTestId('calendar-button')).toBeEnabled();
 
