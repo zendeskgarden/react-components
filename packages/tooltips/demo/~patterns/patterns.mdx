@@ -14,3 +14,35 @@ menu. The tooltip is designed to hide when the popup is expanded.
 <Canvas>
   <Story of={Stories.Example} />
 </Canvas>
+
+## Toggletip
+
+Setting the `isToggletip` prop switches the `Tooltip` into a toggletip: it opens
+and closes on click rather than hover/focus, dismisses on outside click or
+`Escape`, and announces its content through a live region. The trigger must be a
+`<button>` element. The following example renders rich content with
+`Tooltip.Title` and `Tooltip.Paragraph`.
+
+<Canvas>
+  <Story of={Stories.Toggletip} />
+</Canvas>
+
+## Toggletip with interactive content
+
+Because a toggletip is dismissed on click rather than blur, its content can
+include interactive elements such as an `Anchor`. Focus may move into the
+toggletip without closing it.
+
+<Canvas>
+  <Story of={Stories.ToggletipWithAnchor} />
+</Canvas>
+
+## Info toggletip
+
+An icon-only `IconButton` is a common toggletip trigger. Because the toggletip
+content is announced through a live region rather than naming the trigger, the
+`IconButton` must supply its own `aria-label`.
+
+<Canvas>
+  <Story of={Stories.InfoToggletip} />
+</Canvas>

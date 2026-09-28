@@ -9,6 +9,9 @@ import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { MenuStory } from './stories/MenuStory';
+import { ToggletipStory } from './stories/ToggletipStory';
+import { ToggletipAnchorStory } from './stories/ToggletipAnchorStory';
+import { InfoToggletipStory } from './stories/InfoToggletipStory';
 
 export default {
   title: 'Packages/Tooltips/[patterns]',
@@ -28,4 +31,49 @@ export const Example: StoryObj<typeof MenuStory> = {
     placement: 'bottom'
   },
   argTypes: { appendToNode: { control: 'boolean' } }
+};
+
+export const Toggletip: StoryObj<typeof ToggletipStory> = {
+  render: args => <ToggletipStory {...args} />,
+  parameters: {
+    controls: {
+      include: ['hasArrow', 'placement']
+    }
+  },
+  args: {
+    hasArrow: true,
+    placement: 'top',
+    type: 'light',
+    size: 'large'
+  }
+};
+
+export const ToggletipWithAnchor: StoryObj<typeof ToggletipAnchorStory> = {
+  render: args => <ToggletipAnchorStory {...args} />,
+  name: 'Toggletip with anchor',
+  parameters: {
+    controls: {
+      include: ['hasArrow', 'placement']
+    }
+  },
+  args: {
+    hasArrow: true,
+    placement: 'top',
+    type: 'light',
+    size: 'large'
+  }
+};
+
+export const InfoToggletip: StoryObj<typeof InfoToggletipStory> = {
+  render: args => <InfoToggletipStory {...args} />,
+  name: 'Info toggletip',
+  parameters: {
+    controls: {
+      include: ['hasArrow', 'placement']
+    }
+  },
+  args: {
+    hasArrow: true,
+    placement: 'top'
+  }
 };

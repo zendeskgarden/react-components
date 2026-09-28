@@ -27,10 +27,12 @@ export const Example: StoryObj<typeof TooltipStory> = {
   args: {
     content: CONTENT,
     delayMS: 500,
-    hasArrow: true
+    hasArrow: true,
+    isToggletip: false
   },
   argTypes: {
     isVisible: { control: 'boolean' },
+    isToggletip: { control: 'boolean' },
     appendToNode: { control: false },
     fallbackPlacements: {
       control: 'multi-select',
