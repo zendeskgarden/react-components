@@ -79,14 +79,14 @@ const selectedStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 const disabledStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   const foreground = getColor({ variable: 'foreground.disabled', theme });
 
+  /* A selected day keeps its selected colors, so a disabled or read-only range still shows its value. `hoverStyles` already skips disabled days. */
   return css`
     ${StyledDayCell}[aria-disabled='true'] & {
       cursor: default;
-      color: ${foreground};
     }
 
-    ${StyledDayCell}[aria-disabled='true']:hover & {
-      background-color: transparent;
+    ${StyledDayCell}[aria-disabled='true']:not([aria-selected='true']) & {
+      color: ${foreground};
     }
   `;
 };

@@ -162,23 +162,39 @@ describe('StyledDayNumber', () => {
     expect(container.firstChild).toHaveStyleRule('transition', 'none');
   });
 
-  it('dims the foreground color and shows a default cursor when the enclosing cell is aria-disabled', () => {
+  describe('when the enclosing cell is aria-disabled', () => {
     const foreground = getColor({ theme: DEFAULT_THEME, variable: 'foreground.disabled' });
-    const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
 
-    expect(container.firstChild).toHaveStyleRule('color', foreground, {
-      modifier: `${StyledDayCell}[aria-disabled='true'] &`
+    it('shows a default cursor, whether or not it is selected', () => {
+      const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+
+      expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
+        modifier: `${StyledDayCell}[aria-disabled='true'] &`
+      });
     });
-    expect(container.firstChild).toHaveStyleRule('cursor', 'default', {
-      modifier: `${StyledDayCell}[aria-disabled='true'] &`
+
+    it('dims the foreground color when it is not selected', () => {
+      const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+
+      expect(container.firstChild).toHaveStyleRule('color', foreground, {
+        modifier: `${StyledDayCell}[aria-disabled='true']:not([aria-selected='true']) &`
+      });
     });
-  });
 
-  it('does not tint the background on hover when the enclosing cell is aria-disabled', () => {
-    const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+    it('keeps the selected foreground color when it is selected', () => {
+      const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
 
-    expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
-      modifier: `${StyledDayCell}[aria-disabled='true']:hover &`
+      expect(container.firstChild).not.toHaveStyleRule('color', foreground, {
+        modifier: `${StyledDayCell}[aria-disabled='true'] &`
+      });
+    });
+
+    it('keeps the selected background on hover when it is selected', () => {
+      const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+
+      expect(container.firstChild).not.toHaveStyleRule('background-color', 'transparent', {
+        modifier: `${StyledDayCell}[aria-disabled='true']:hover &`
+      });
     });
   });
 });
