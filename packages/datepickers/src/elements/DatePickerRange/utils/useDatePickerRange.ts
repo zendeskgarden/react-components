@@ -38,6 +38,7 @@ import {
   datepickerRangeReducer,
   formatValue,
   parseInputValue,
+  resolveRangeSelection,
   resolveSettledValue,
   retrieveInitialState
 } from './date-picker-range-reducer';
@@ -764,40 +765,26 @@ export function useDatePickerRange({
           return;
         }
 
-        dispatch({ type: 'CLICK_DATE', value: date, startValue, endValue, locale, formatDate });
+        const selection = resolveRangeSelection({
+          date,
+          startValue,
+          endValue,
+          isStartActive: state.isStartFocused || state.isStartValueInvalid,
+          isEndActive: state.isEndFocused || state.isEndValueInvalid
+        });
+        const { field, isOutOfOrder, ...result } = selection;
 
-        let result: { startValue?: Date; endValue?: Date };
-        let isOutOfOrder = false;
-
-        if (state.isStartFocused || state.isStartValueInvalid) {
-          result =
-            endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
-              ? { startValue: date, endValue }
-              : { startValue: date, endValue: undefined };
-        } else if (state.isEndFocused || state.isEndValueInvalid) {
-          if (startValue === undefined) {
-            result = { startValue: undefined, endValue: date };
-          } else {
-            result =
-              isAfter(date, startValue) || isSameDay(date, startValue)
-                ? { startValue, endValue: date }
-                : { startValue: date, endValue: undefined };
-          }
-        } else if (startValue === undefined) {
-          isOutOfOrder = endValue !== undefined && isAfter(date, endValue);
-          result = { startValue: date, endValue };
-        } else if (endValue === undefined) {
-          result = isBefore(date, startValue)
-            ? { startValue: date, endValue: undefined }
-            : { startValue, endValue: date };
-        } else {
-          result = { startValue: date, endValue: undefined };
-        }
+        dispatch({
+          type: 'CLICK_DATE',
+          selection,
+          previousStartValue: startValue,
+          previousEndValue: endValue,
+          locale,
+          formatDate
+        });
 
         onChange?.(result);
 
-        const field =
-          result.startValue !== undefined && isSameDay(result.startValue, date) ? 'start' : 'end';
         const fieldValue = field === 'start' ? result.startValue : result.endValue;
 
         onValueSettled?.({

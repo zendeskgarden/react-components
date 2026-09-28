@@ -35,6 +35,10 @@ function isWithinVisibleMonths(date: Date, previewDate: Date): boolean {
   );
 }
 
+function isSameValue(a?: Date, b?: Date) {
+  return a === undefined || b === undefined ? a === b : isSameDay(a, b);
+}
+
 export interface IDatePickerRangeState {
   previewDate: Date;
   focusedDate: Date;
@@ -147,13 +151,76 @@ export function resolveSettledValue({
   return { date, inputValue, valid: true };
 }
 
+export interface IRangeSelection {
+  startValue?: Date;
+  endValue?: Date;
+  /** The field the clicked day was committed to. */
+  field: 'start' | 'end';
+  /** Only possible when no start value is set and the day falls after the end value. */
+  isOutOfOrder: boolean;
+}
+
+/**
+ * The single source of truth for what a day click selects - `getCellProps`
+ * emits it via `onChange`/`onValueSettled`, and `CLICK_DATE` only formats it
+ * into the inputs, so the two can't disagree.
+ */
+export function resolveRangeSelection({
+  date,
+  startValue,
+  endValue,
+  isStartActive,
+  isEndActive
+}: {
+  date: Date;
+  startValue?: Date;
+  endValue?: Date;
+  /** Start is focused, or holds rejected text. Takes precedence over `isEndActive`. */
+  isStartActive: boolean;
+  /** End is focused, or holds rejected text. */
+  isEndActive: boolean;
+}): IRangeSelection {
+  let result: Pick<IRangeSelection, 'startValue' | 'endValue'>;
+  let isOutOfOrder = false;
+
+  if (isStartActive) {
+    result =
+      endValue !== undefined && (isBefore(date, endValue) || isSameDay(date, endValue))
+        ? { startValue: date, endValue }
+        : { startValue: date, endValue: undefined };
+  } else if (isEndActive) {
+    if (startValue === undefined) {
+      result = { startValue: undefined, endValue: date };
+    } else {
+      result =
+        isAfter(date, startValue) || isSameDay(date, startValue)
+          ? { startValue, endValue: date }
+          : { startValue: date, endValue: undefined };
+    }
+  } else if (startValue === undefined) {
+    isOutOfOrder = endValue !== undefined && isAfter(date, endValue);
+    result = { startValue: date, endValue };
+  } else if (endValue === undefined) {
+    result = isBefore(date, startValue)
+      ? { startValue: date, endValue: undefined }
+      : { startValue, endValue: date };
+  } else {
+    result = { startValue: date, endValue: undefined };
+  }
+
+  const field =
+    result.startValue !== undefined && isSameDay(result.startValue, date) ? 'start' : 'end';
+
+  return { ...result, field, isOutOfOrder };
+}
+
 export type DatePickerRangeAction =
   | { type: 'HOVER_DATE'; value?: Date }
   | {
       type: 'CLICK_DATE';
-      value: Date;
-      startValue?: Date;
-      endValue?: Date;
+      selection: IRangeSelection;
+      previousStartValue?: Date;
+      previousEndValue?: Date;
       locale?: string;
       formatDate?: any;
     }
@@ -282,69 +349,25 @@ export const datepickerRangeReducer = (
       return { ...state, startInputValue, endInputValue };
     }
     case 'CLICK_DATE': {
-      const { startValue, endValue, locale, formatDate } = action;
+      const { selection, previousStartValue, previousEndValue, locale, formatDate } = action;
+      const isStartRewritten =
+        selection.field === 'start' || !isSameValue(selection.startValue, previousStartValue);
+      const isEndRewritten =
+        selection.field === 'end' || !isSameValue(selection.endValue, previousEndValue);
 
-      if (state.isStartFocused) {
-        if (
-          endValue !== undefined &&
-          (isBefore(action.value, endValue) || isSameDay(action.value, endValue))
-        ) {
-          return {
-            ...state,
-            isStartFocused: false,
-            isEndFocused: false,
-            startInputValue: formatValue({ value: action.value, locale, formatDate })
-          };
-        }
-
-        return {
-          ...state,
-          isStartFocused: false,
-          isEndFocused: false,
-          startInputValue: formatValue({ value: action.value, locale, formatDate }),
-          endInputValue: undefined
-        };
-      } else if (state.isEndFocused) {
-        if (
-          startValue === undefined ||
-          isAfter(action.value, startValue) ||
-          isSameDay(action.value, startValue)
-        ) {
-          return {
-            ...state,
-            isStartFocused: false,
-            isEndFocused: false,
-            endInputValue: formatValue({ value: action.value, locale, formatDate })
-          };
-        }
-
-        return {
-          ...state,
-          isStartFocused: false,
-          isEndFocused: false,
-          startInputValue: formatValue({ value: action.value, locale, formatDate })
-        };
-      } else if (startValue === undefined) {
-        return {
-          ...state,
-          startInputValue: formatValue({ value: action.value, locale, formatDate })
-        };
-      } else if (endValue === undefined) {
-        if (isBefore(action.value, startValue)) {
-          return {
-            ...state,
-            startInputValue: formatValue({ value: action.value, locale, formatDate }),
-            endInputValue: undefined
-          };
-        }
-
-        return {
-          ...state,
-          endInputValue: formatValue({ value: action.value, locale, formatDate })
-        };
-      }
-
-      return state;
+      return {
+        ...state,
+        isStartFocused: false,
+        isEndFocused: false,
+        ...(isStartRewritten && {
+          startInputValue: formatValue({ value: selection.startValue, locale, formatDate }),
+          isStartValueInvalid: false
+        }),
+        ...(isEndRewritten && {
+          endInputValue: formatValue({ value: selection.endValue, locale, formatDate }),
+          isEndValueInvalid: false
+        })
+      };
     }
     case 'START_INPUT_ONCHANGE': {
       return { ...state, startInputValue: action.value };

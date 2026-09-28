@@ -317,6 +317,80 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe('calendar selection after a rejected value', () => {
+    const ControlledExample = ({
+      startValue: initialStartValue,
+      endValue: initialEndValue,
+      ...props
+    }: IDatePickerRangeProps) => {
+      const [startValue, setStartValue] = useState(initialStartValue);
+      const [endValue, setEndValue] = useState(initialEndValue);
+
+      return (
+        <Example
+          {...props}
+          startValue={startValue}
+          endValue={endValue}
+          onChange={value => {
+            onChangeSpy(value);
+            setStartValue(value.startValue);
+            setEndValue(value.endValue);
+          }}
+        />
+      );
+    };
+
+    it('shows the emitted values in both inputs when a day is clicked while End is focused after a rejected Start', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const startInput = getByTestId('start');
+      const endInput = getByTestId('end');
+
+      await user.clear(startInput);
+      await user.type(startInput, 'garbage');
+      await user.click(endInput);
+
+      const firstMonthDays = globalGetAllByTestId(getAllByTestId('calendar-wrapper')[0], 'day');
+
+      await user.click(firstMonthDays[14]); // February 10, 2019
+
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 10),
+        endValue: DEFAULT_END_VALUE
+      });
+      expect(startInput).toHaveValue('February 10, 2019');
+      expect(endInput).toHaveValue('March 5, 2019');
+    });
+
+    it('replaces the rejected End text when the current end value is clicked with no field focused', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const startInput = getByTestId('start');
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, 'garbage');
+      await user.click(document.body);
+
+      expect(endInput).toHaveValue('garbage');
+
+      const secondMonthDays = globalGetAllByTestId(getAllByTestId('calendar-wrapper')[1], 'day');
+
+      await user.click(secondMonthDays[9]); // March 5, 2019
+
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: DEFAULT_START_VALUE,
+        endValue: DEFAULT_END_VALUE
+      });
+      expect(startInput).toHaveValue('February 5, 2019');
+      expect(endInput).toHaveValue('March 5, 2019');
+    });
+  });
+
   describe('calendar view stability', () => {
     const ControlledExample = ({
       startValue: initialStartValue,
