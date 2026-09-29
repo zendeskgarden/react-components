@@ -11,7 +11,7 @@ import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
 
-import { ClearableInput } from '@zendeskgarden/react-forms';
+import { ClearableInput, Input } from '@zendeskgarden/react-forms';
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
 
@@ -30,21 +30,18 @@ const Example = (props: IDatePickerRangeProps) => (
   </DatePickerRange>
 );
 
-/**
- * A composite child with no click-to-focus behavior of its own, so tests
- * against it exercise only what `DatePickerRange.Start`/`.End` themselves
- * forward through `wrapperRef`/`wrapperProps` - not a composed component's
- * (e.g. `ClearableInput`'s) own internal wrapper-click handling.
- */
-const BareWrapperInput = React.forwardRef<HTMLInputElement, Record<string, unknown>>(
-  ({ wrapperRef, wrapperProps, ...inputProps }: any, ref) => (
-    <div data-test-id="start-wrapper" {...wrapperProps} ref={wrapperRef}>
-      <input ref={ref} {...inputProps} />
-    </div>
-  )
+/** A custom composite child that records the props it receives, and renders only an input. */
+const receivedProps: Record<string, unknown>[] = [];
+
+const PropCapturingInput = React.forwardRef<HTMLInputElement, Record<string, unknown>>(
+  (props, ref) => {
+    receivedProps.push(props);
+
+    return <input ref={ref} {...(props as React.InputHTMLAttributes<HTMLInputElement>)} />;
+  }
 );
 
-BareWrapperInput.displayName = 'BareWrapperInput';
+PropCapturingInput.displayName = 'PropCapturingInput';
 
 describe('DatePickerRange', () => {
   const user = userEvent.setup();
@@ -704,20 +701,51 @@ describe('DatePickerRange', () => {
     });
   });
 
-  describe('wrapper click', () => {
-    it("focuses the input when a composite child's own wrapper is clicked, not just the input itself", () => {
-      const { getByTestId } = render(
+  describe('composite children', () => {
+    const renderWith = (child: React.ReactElement) =>
+      render(
         <DatePickerRange onChange={onChangeSpy}>
-          <DatePickerRange.Start>
-            <BareWrapperInput data-test-id="start" />
-          </DatePickerRange.Start>
+          <DatePickerRange.Start>{child}</DatePickerRange.Start>
           <DatePickerRange.End>
             <input data-test-id="end" />
           </DatePickerRange.End>
         </DatePickerRange>
       );
 
-      fireEvent.click(getByTestId('start-wrapper'));
+    it('does not leak wrapperRef/wrapperProps onto a Garden Input child', () => {
+      const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+      const { getByTestId } = renderWith(<Input data-test-id="start" />);
+      const input = getByTestId('start');
+
+      expect(input).not.toHaveAttribute('wrapperref');
+      expect(input).not.toHaveAttribute('wrapperprops');
+      expect(consoleError).not.toHaveBeenCalledWith(
+        expect.stringContaining('React does not recognize the `%s` prop on a DOM element'),
+        expect.stringMatching(/^wrapper(?:Ref|Props)$/u),
+        expect.anything(),
+        expect.anything()
+      );
+
+      consoleError.mockRestore();
+    });
+
+    it('does not pass wrapperRef/wrapperProps to a custom component child', () => {
+      receivedProps.length = 0;
+
+      renderWith(<PropCapturingInput data-test-id="start" />);
+
+      expect(receivedProps.length).toBeGreaterThan(0);
+      receivedProps.forEach(props => {
+        expect(props).not.toHaveProperty('wrapperRef');
+        expect(props).not.toHaveProperty('wrapperProps');
+      });
+    });
+
+    it('still passes them to a ClearableInput child, so clicking its wrapper focuses the input', () => {
+      const { container, getByTestId } = renderWith(<ClearableInput data-test-id="start" />);
+
+      fireEvent.click(container.querySelector("[data-garden-id='forms.input_group']")!);
 
       expect(getByTestId('start')).toHaveFocus();
     });

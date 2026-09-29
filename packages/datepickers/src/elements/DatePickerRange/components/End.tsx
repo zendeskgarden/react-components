@@ -7,16 +7,17 @@
 
 import React, { PropsWithChildren, HTMLAttributes, Ref, cloneElement, useEffect } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 
 type IEndProps = HTMLAttributes<HTMLInputElement>;
 
 /**
  * Renders no wrapper of its own, so the child composes as a true, direct
- * child of whatever the consumer wraps it in (e.g. `InputGroup`) - a
- * composite child (e.g. `ClearableInput`) instead receives its own
- * `wrapperRef`/`wrapperProps` (see `getEndWrapperProps`) so blur detection
- * still spans its extra focusable elements (e.g. a clear button).
+ * child of whatever the consumer wraps it in (e.g. `InputGroup`). Only a
+ * `ClearableInput` child also receives its own `wrapperRef`/`wrapperProps`
+ * (see `getEndWrapperProps`), so blur detection spans its clear button - any other
+ * child (e.g. `Input`, `MediaInput`) would pass them on to its DOM input.
  */
 export const End = ({ children }: PropsWithChildren<IEndProps>) => {
   const {
@@ -36,7 +37,7 @@ export const End = ({ children }: PropsWithChildren<IEndProps>) => {
     () => registerFieldState('end', { disabled: !!disabled, readOnly: !!readOnly }),
     [registerFieldState, disabled, readOnly]
   );
-  const isComponent = typeof childElement.type !== 'string';
+  const isClearableInput = childElement.type === ClearableInput;
 
   let inputProps: Record<string, unknown> = getEndInputProps({
     ...childElement.props,
@@ -48,7 +49,7 @@ export const End = ({ children }: PropsWithChildren<IEndProps>) => {
     ref: mergeRefs([inputProps.ref as Ref<HTMLInputElement>, childElement.ref ?? null])
   };
 
-  if (isComponent) {
+  if (isClearableInput) {
     const {
       ref: wrapperRef,
       onBlur: wrapperOnBlur,
