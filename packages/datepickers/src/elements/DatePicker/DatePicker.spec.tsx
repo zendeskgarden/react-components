@@ -11,7 +11,7 @@ import { render, fireEvent } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
-import { ClearableInput, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Input } from '@zendeskgarden/react-forms';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { DatePicker } from './DatePicker';
@@ -431,6 +431,45 @@ describe('DatePicker', () => {
       fireEvent.click(outerGroup!);
 
       expect(getByTestId('input')).toHaveFocus();
+    });
+  });
+
+  describe('group semantics within a labelled Field', () => {
+    const renderInField = (child: React.ReactElement) =>
+      render(
+        <Field>
+          <Field.Label>Date</Field.Label>
+          <DatePicker value={DEFAULT_DATE}>{child}</DatePicker>
+        </Field>
+      );
+
+    it("keeps a single labelled group around a ClearableInput child and the calendar button, dropping the ClearableInput's own", () => {
+      const { getAllByRole, getByTestId } = renderInField(<ClearableInput data-test-id="input" />);
+      const groups = getAllByRole('group');
+
+      expect(groups).toHaveLength(1);
+      expect(groups[0]).toContainElement(getByTestId('input'));
+      expect(groups[0]).toContainElement(getByTestId('calendar-button'));
+      expect(groups[0]).toHaveAccessibleName('Date');
+    });
+
+    it("keeps a consumer's own ClearableInput wrapperProps, including an explicit role", () => {
+      const { getByTestId } = renderInField(
+        <ClearableInput
+          data-test-id="input"
+          wrapperProps={{ role: 'group', 'aria-label': 'Custom', 'data-test-id': 'inner' } as any}
+        />
+      );
+      const inner = getByTestId('inner');
+
+      expect(inner).toHaveAttribute('role', 'group');
+      expect(inner).toHaveAttribute('aria-label', 'Custom');
+    });
+
+    it('keeps a single labelled group around a plain Input child', () => {
+      const { getAllByRole } = renderInField(<Input data-test-id="input" />);
+
+      expect(getAllByRole('group')).toHaveLength(1);
     });
   });
 

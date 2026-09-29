@@ -48,7 +48,6 @@ export const DatePickerStory: StoryFn<IArgs> = ({
                 validation={validation}
                 disabled={disabled}
                 readOnly={readOnly}
-                wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
               />
             </DatePicker>
             {!!hasMessage && (

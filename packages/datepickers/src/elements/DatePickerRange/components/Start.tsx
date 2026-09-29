@@ -16,6 +16,8 @@ import React, {
 import { mergeRefs } from 'react-merge-refs';
 import { ClearableInput } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import useDatePickerRangeFieldContext from '../utils/useDatePickerRangeFieldContext';
+import { NESTED_GROUP_PROPS } from '../../../utils/nested-group-utils';
 
 type IStartProps = HTMLAttributes<HTMLInputElement> & {
   /**
@@ -54,6 +56,7 @@ export const Start = ({ children, wrapperRef }: PropsWithChildren<IStartProps>) 
     [registerFieldState, disabled, readOnly]
   );
   const isClearableInput = childElement.type === ClearableInput;
+  const isInsideFieldGroup = useDatePickerRangeFieldContext() !== undefined;
 
   useEffect(
     () => (wrapperRef ? registerFieldWrapperRef('start', wrapperRef) : undefined),
@@ -70,18 +73,23 @@ export const Start = ({ children, wrapperRef }: PropsWithChildren<IStartProps>) 
     ref: mergeRefs([inputProps.ref as Ref<HTMLInputElement>, childElement.ref ?? null])
   };
 
-  if (isClearableInput && !wrapperRef) {
-    const {
-      ref: clearableWrapperRef,
-      onBlur: wrapperOnBlur,
-      onClick: wrapperOnClick
-    } = getStartWrapperProps();
+  if (isClearableInput) {
+    const consumerWrapperProps = childElement.props.wrapperProps ?? {};
+    const groupProps = isInsideFieldGroup ? NESTED_GROUP_PROPS : {};
 
-    inputProps = {
-      ...inputProps,
-      wrapperRef: clearableWrapperRef,
-      wrapperProps: { onBlur: wrapperOnBlur, onClick: wrapperOnClick }
-    };
+    if (wrapperRef) {
+      inputProps = { ...inputProps, wrapperProps: { ...groupProps, ...consumerWrapperProps } };
+    } else {
+      // Composes the consumer's own wrapper handlers with this field's blur handling.
+      const { ref: clearableWrapperRef, ...wrapperProps } =
+        getStartWrapperProps(consumerWrapperProps);
+
+      inputProps = {
+        ...inputProps,
+        wrapperRef: clearableWrapperRef,
+        wrapperProps: { ...groupProps, ...wrapperProps }
+      };
+    }
   }
 
   if (hasDialog) {

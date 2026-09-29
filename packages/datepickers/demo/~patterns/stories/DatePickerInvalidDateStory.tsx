@@ -29,7 +29,6 @@ export const DatePickerInvalidDateStory: StoryFn = () => {
         <ClearableInput
           validation={reason ? 'error' : undefined}
           buttonProps={{ onClick: () => setReason(undefined) }}
-          wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
         />
       </DatePicker>
       {reason === 'malformed' && (

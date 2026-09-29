@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { act, render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { ClearableInput } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledDayCell } from '../../styled';
 import mockDate from 'mockdate';
@@ -1712,6 +1712,99 @@ describe('DatePickerRange', () => {
 
         expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
       });
+    });
+  });
+
+  describe('group semantics within labelled Fields', () => {
+    it("keeps a single labelled group per field inside StartGroup/EndGroup, dropping each ClearableInput's own", () => {
+      const { getAllByRole, getByTestId } = render(
+        <DatePickerRange>
+          <Field>
+            <Field.Label>Start date</Field.Label>
+            <DatePickerRange.StartGroup>
+              <DatePickerRange.Start>
+                <ClearableInput data-test-id="start" />
+              </DatePickerRange.Start>
+              <DatePickerRange.Trigger data-test-id="start-trigger" />
+            </DatePickerRange.StartGroup>
+          </Field>
+          <Field>
+            <Field.Label>End date</Field.Label>
+            <DatePickerRange.EndGroup>
+              <DatePickerRange.End>
+                <ClearableInput data-test-id="end" />
+              </DatePickerRange.End>
+              <DatePickerRange.Trigger data-test-id="end-trigger" />
+            </DatePickerRange.EndGroup>
+          </Field>
+          <DatePickerRange.Dialog>
+            <DatePickerRange.Calendar />
+          </DatePickerRange.Dialog>
+        </DatePickerRange>
+      );
+      const groups = getAllByRole('group');
+
+      expect(groups).toHaveLength(2);
+      expect(groups[0]).toHaveAccessibleName('Start date');
+      expect(groups[0]).toContainElement(getByTestId('start'));
+      expect(groups[0]).toContainElement(getByTestId('start-trigger'));
+      expect(groups[1]).toHaveAccessibleName('End date');
+      expect(groups[1]).toContainElement(getByTestId('end'));
+      expect(groups[1]).toContainElement(getByTestId('end-trigger'));
+    });
+
+    it("keeps a consumer's own ClearableInput wrapperProps, alongside Start's blur handling", async () => {
+      const onWrapperBlur = jest.fn();
+      const onValueSettledSpy = jest.fn();
+      const { getByRole, getByTestId } = render(
+        <DatePickerRange onValueSettled={onValueSettledSpy}>
+          <DatePickerRange.Start>
+            <ClearableInput
+              data-test-id="start"
+              wrapperProps={{ 'data-test-id': 'inner', onBlur: onWrapperBlur } as any}
+            />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const input = getByTestId('start');
+
+      expect(getByTestId('inner')).toContainElement(input);
+
+      await user.type(input, 'invalid date');
+      await user.tab();
+
+      expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
+      expect(onValueSettledSpy).not.toHaveBeenCalled();
+      expect(onWrapperBlur).toHaveBeenCalled();
+    });
+
+    it("keeps each ClearableInput's own labelled group when there's no StartGroup/EndGroup around it", () => {
+      const { getAllByRole } = render(
+        <DatePickerRange>
+          <Field>
+            <Field.Label>Start date</Field.Label>
+            <DatePickerRange.Start>
+              <ClearableInput data-test-id="start" />
+            </DatePickerRange.Start>
+          </Field>
+          <Field>
+            <Field.Label>End date</Field.Label>
+            <DatePickerRange.End>
+              <ClearableInput data-test-id="end" />
+            </DatePickerRange.End>
+          </Field>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const groups = getAllByRole('group');
+
+      expect(groups).toHaveLength(2);
+      expect(groups[0]).toHaveAccessibleName('Start date');
+      expect(groups[1]).toHaveAccessibleName('End date');
     });
   });
 });

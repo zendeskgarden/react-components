@@ -37,7 +37,7 @@ export const CalendarStory: StoryFn<IArgs> = ({ appendToNode }) => {
         <Field>
           <Field.Label>Calendar portal pattern</Field.Label>
           <DatePicker appendToNode={appendToNode ? portalNode.current || undefined : undefined}>
-            <ClearableInput wrapperProps={{ role: undefined, 'aria-labelledby': undefined }} />
+            <ClearableInput />
           </DatePicker>
         </Field>
         <Paragraph style={{ marginTop: 20 }}>

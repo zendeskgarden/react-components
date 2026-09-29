@@ -84,7 +84,6 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
                     isCompact={isCompact}
                     disabled={isStartDisabled}
                     readOnly={isStartReadOnly}
-                    wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                   />
                 </DatePickerRange.Start>
                 <DatePickerRange.Trigger
@@ -102,7 +101,6 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
                     isCompact={isCompact}
                     disabled={isEndDisabled}
                     readOnly={isEndReadOnly}
-                    wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
                   />
                 </DatePickerRange.End>
                 <DatePickerRange.Trigger
