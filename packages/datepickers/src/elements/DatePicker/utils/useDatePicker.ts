@@ -52,6 +52,7 @@ export function useDatePicker({
   formatDate,
   customParseDate,
   required,
+  hasTrigger = true,
   disabled,
   readOnly,
   onChange,
@@ -160,7 +161,7 @@ export function useDatePicker({
         target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
         fieldRefs: [inputRef],
-        widgetRefs: [groupRef, dialogRef],
+        widgetRefs: [groupRef, inputRef, dialogRef],
         dialogRef
       });
 
@@ -224,13 +225,13 @@ export function useDatePicker({
         id: menuId,
         role: 'dialog' as const,
         'aria-modal': 'true' as const,
-        'aria-labelledby': buttonId,
+        'aria-labelledby': hasTrigger ? buttonId : undefined,
         onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown, focusJailKeyDown),
         ...other
       };
     },
-    [menuId, buttonId, handleWidgetBlur, settleValue, inputRef, getFocusJailProps]
+    [menuId, buttonId, hasTrigger, handleWidgetBlur, settleValue, inputRef, getFocusJailProps]
   );
 
   const getInputProps = useCallback(
@@ -240,6 +241,7 @@ export function useDatePicker({
         onKeyDown,
         onMouseDown,
         onFocus,
+        onBlur,
         onClick,
         autoComplete = 'off',
         ...other
@@ -287,7 +289,7 @@ export function useDatePicker({
           shouldOpenOnFieldClick({
             isOpen: state.isOpen,
             previousActiveElement,
-            widgetRefs: [groupRef, dialogRef],
+            widgetRefs: [groupRef, inputRef, dialogRef],
             justClosedViaSelection
           })
         ) {
@@ -315,6 +317,8 @@ export function useDatePicker({
         onChange: composeEventHandlers(onInputChange, handleChange),
         onMouseDown: composeEventHandlers(onMouseDown, handleMouseDown),
         onFocus: composeEventHandlers(onFocus, handleFocus),
+        // With a trigger, the group's own onBlur already covers the input.
+        onBlur: composeEventHandlers(onBlur, hasTrigger ? undefined : handleWidgetBlur),
         onClick: composeEventHandlers(onClick, handleClick),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
         ...other
@@ -330,12 +334,19 @@ export function useDatePicker({
       value,
       customParseDate,
       settleValue,
+      hasTrigger,
+      handleWidgetBlur,
+      inputRef,
       isDisabledOrReadOnly,
       openOrFocusDialog
     ]
   );
 
-  const getReferenceElement = useCallback(() => groupRef.current, [groupRef]);
+  /** Without a trigger, there's no group - the input itself is the widget. */
+  const getReferenceElement = useCallback(
+    () => groupRef.current ?? inputRef.current,
+    [groupRef, inputRef]
+  );
 
   const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
     const { onMouseDown, ...other } = props;

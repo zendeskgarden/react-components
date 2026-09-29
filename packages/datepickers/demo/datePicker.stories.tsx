@@ -40,11 +40,13 @@ export const Example: StoryObj<typeof DatePickerStory> = {
   args: {
     dateStyle: DATE_STYLE_OPTIONS[1],
     isAnimated: true,
+    hasTrigger: true,
     message: 'Message'
   },
   argTypes: {
     appendToNode: { control: false },
     value: { control: 'date' },
+    hasTrigger: { control: 'boolean' },
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
     dateStyle: {

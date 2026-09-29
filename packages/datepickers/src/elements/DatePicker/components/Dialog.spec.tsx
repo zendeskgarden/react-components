@@ -518,5 +518,24 @@ describe('Dialog', () => {
         expect(x).toBe(250);
       });
     });
+
+    it('anchors to the input itself when hasTrigger is false, since there is no group', async () => {
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} hasTrigger={false} />
+      );
+      const input = getByTestId('input');
+
+      mockNarrowReferenceRect(input);
+
+      await user.click(input);
+
+      await waitFor(() => {
+        const dialog = getByTestId('datepicker-menu');
+        const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
+        const x = match ? parseFloat(match.groups!.x) : NaN;
+
+        expect(x).toBe(250);
+      });
+    });
   });
 });

@@ -34,6 +34,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     refKey = 'ref',
     value,
     isCompact = false,
+    hasTrigger = true,
     onChange,
     formatDate,
     minValue,
@@ -68,6 +69,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     formatDate,
     customParseDate,
     required: Child.props.required,
+    hasTrigger,
     disabled: Child.props.disabled,
     readOnly: Child.props.readOnly,
     onChange,
@@ -77,17 +79,28 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
 
   const { getGroupProps } = datePicker;
 
+  const input = (
+    <Input
+      element={Child}
+      refKey={refKey!}
+      hasTrigger={hasTrigger}
+      ref={mergeRefs([inputRef, Child.ref ? Child.ref : null])}
+    />
+  );
+
   return (
     <DatePickerContext.Provider value={datePicker}>
-      <InputGroup {...getGroupProps()} isUnified isCompact={isCompact}>
-        <Input
-          element={Child}
-          refKey={refKey!}
-          ref={mergeRefs([inputRef, Child.ref ? Child.ref : null])}
-        />
-        <Trigger isCompact={isCompact} toggleCalendarLabel={toggleCalendarLabel} />
-      </InputGroup>
+      {hasTrigger ? (
+        <InputGroup {...getGroupProps()} isUnified isCompact={isCompact}>
+          {input}
+          <Trigger isCompact={isCompact} toggleCalendarLabel={toggleCalendarLabel} />
+        </InputGroup>
+      ) : (
+        input
+      )}
       <Dialog
+        hasTrigger={hasTrigger}
+        toggleCalendarLabel={toggleCalendarLabel}
         appendToNode={appendToNode}
         placement={_placement}
         isAnimated={isAnimated}
@@ -128,6 +141,7 @@ DatePicker.propTypes = {
   minValue: PropTypes.any,
   maxValue: PropTypes.any,
   isCompact: PropTypes.bool,
+  hasTrigger: PropTypes.bool,
   customParseDate: PropTypes.any,
   refKey: PropTypes.string,
   placement: PropTypes.oneOf(PLACEMENT),

@@ -12,7 +12,7 @@ import { NESTED_GROUP_PROPS } from '../../../utils/nested-group-utils';
 import { IDatePickerInputProps } from '../../../types';
 
 export const Input = forwardRef<HTMLInputElement, IDatePickerInputProps>(
-  ({ element, refKey }, ref) => {
+  ({ element, refKey, hasTrigger = true }, ref) => {
     const { getInputProps } = useDatePickerContext();
     const inputProps = getInputProps({
       [refKey]: ref,
@@ -20,14 +20,15 @@ export const Input = forwardRef<HTMLInputElement, IDatePickerInputProps>(
       onKeyDown: element.props.onKeyDown,
       onMouseDown: element.props.onMouseDown,
       onFocus: element.props.onFocus,
+      onBlur: element.props.onBlur,
       onClick: element.props.onClick,
       autoComplete: element.props.autoComplete
     });
 
-    // DatePicker always wraps its child in its own labelled group, so a ClearableInput's doesn't repeat it.
+    // Inside DatePicker's own labelled group, a ClearableInput's doesn't repeat it.
     return cloneElement(
       element,
-      element.type === ClearableInput
+      hasTrigger && element.type === ClearableInput
         ? { ...inputProps, wrapperProps: { ...NESTED_GROUP_PROPS, ...element.props.wrapperProps } }
         : inputProps
     );

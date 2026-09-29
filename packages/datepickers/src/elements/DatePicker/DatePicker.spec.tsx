@@ -11,7 +11,7 @@ import { render, fireEvent } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
-import { ClearableInput, Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field, Input, MediaInput } from '@zendeskgarden/react-forms';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { DatePicker } from './DatePicker';
@@ -620,6 +620,127 @@ describe('DatePicker', () => {
       await user.click(getByTestId('calendar-button'));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    });
+  });
+
+  describe('hasTrigger={false}', () => {
+    const NoTriggerExample = ({
+      child = <input data-test-id="input" id="input" />,
+      ...props
+    }: Omit<IDatePickerProps, 'children'> & { child?: React.ReactElement }) => (
+      <>
+        <label data-test-id="label" htmlFor="input">
+          Label
+        </label>
+        <DatePicker hasTrigger={false} value={DEFAULT_DATE} onChange={onChangeSpy} {...props}>
+          {child}
+        </DatePicker>
+        <button data-test-id="outside" type="button">
+          Outside
+        </button>
+      </>
+    );
+
+    const isOpen = (getByTestId: (id: string) => HTMLElement) =>
+      getByTestId('datepicker-menu').getAttribute('data-test-open') === 'true';
+
+    it('renders no calendar button', () => {
+      const { queryByTestId } = render(<NoTriggerExample />);
+
+      expect(queryByTestId('calendar-button')).not.toBeInTheDocument();
+    });
+
+    it.each([
+      ['a native input', <input key="input" data-test-id="input" id="input" />],
+      ['a MediaInput', <MediaInput key="media" data-test-id="input" id="input" end={<span />} />]
+    ])("renders %s child without DatePicker's own input group around it", (_, child) => {
+      const { container } = render(<NoTriggerExample child={child} />);
+
+      expect(container.querySelector("[data-garden-id='forms.input_group']")).toBeNull();
+    });
+
+    it('does not pass hasTrigger on to the DOM', () => {
+      const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+      const { getByTestId } = render(<NoTriggerExample />);
+
+      // The menu, where unrecognized DatePicker props land, only renders while open.
+      fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
+
+      expect(consoleError).not.toHaveBeenCalledWith(
+        expect.stringContaining('React does not recognize the `%s` prop on a DOM element'),
+        'hasTrigger',
+        expect.anything(),
+        expect.anything()
+      );
+
+      consoleError.mockRestore();
+    });
+
+    it('still opens the calendar when the input is clicked', async () => {
+      const { getByTestId } = render(<NoTriggerExample />);
+
+      await user.click(getByTestId('input'));
+
+      expect(isOpen(getByTestId)).toBe(true);
+    });
+
+    it('still opens on Down Arrow and moves focus onto the selected day', () => {
+      const { getByTestId, getAllByTestId } = render(<NoTriggerExample />);
+
+      fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
+
+      expect(isOpen(getByTestId)).toBe(true);
+      expect(getAllByTestId('day')[9]).toHaveFocus();
+    });
+
+    it.each([
+      ['a default', undefined, 'Choose date'],
+      ['a consumer-provided', 'Pick a day', 'Pick a day']
+    ])(
+      'gives the dialog %s accessible name, without a button to take it from',
+      (_, label, name) => {
+        const { getByTestId } = render(<NoTriggerExample toggleCalendarLabel={label} />);
+
+        // A closed dialog is aria-hidden, so it has no accessible name either way.
+        fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
+
+        expect(getByTestId('datepicker-menu')).toHaveAccessibleName(name);
+      }
+    );
+
+    it('settles typed text and closes the calendar when focus leaves the input', async () => {
+      const onValueSettledSpy = jest.fn();
+      const { getByTestId } = render(<NoTriggerExample onValueSettled={onValueSettledSpy} />);
+      const input = getByTestId('input');
+
+      await user.click(input);
+      await user.clear(input);
+      await user.type(input, 'garbage');
+
+      expect(isOpen(getByTestId)).toBe(true);
+
+      await user.click(getByTestId('outside'));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith(
+        expect.objectContaining({ valid: false, reason: 'malformed' })
+      );
+      expect(isOpen(getByTestId)).toBe(false);
+    });
+
+    it("keeps a ClearableInput child's own labelled group, since there's no outer group", () => {
+      const { getAllByRole } = render(
+        <Field>
+          <Field.Label>Date</Field.Label>
+          <DatePicker hasTrigger={false} value={DEFAULT_DATE}>
+            <ClearableInput data-test-id="input" />
+          </DatePicker>
+        </Field>
+      );
+      const groups = getAllByRole('group');
+
+      expect(groups).toHaveLength(1);
+      expect(groups[0]).toHaveAccessibleName('Date');
     });
   });
 });

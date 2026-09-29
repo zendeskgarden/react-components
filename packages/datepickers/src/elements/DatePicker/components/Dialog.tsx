@@ -6,6 +6,7 @@
  */
 
 import React, { PropsWithChildren } from 'react';
+import { useText } from '@zendeskgarden/react-theming';
 import { createPortal } from 'react-dom';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import { IDatePickerDialogProps } from '../../../types';
@@ -14,7 +15,10 @@ import { useFloatingDialog } from '../../../utils/use-floating-dialog';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
-/** Already labelled via `aria-labelledby` (see `getDialogProps`), unlike `DatePickerRange.Dialog`. */
+/**
+ * Labelled via `aria-labelledby` by its trigger button (see `getDialogProps`) - or, without
+ * one, by `toggleCalendarLabel` directly.
+ */
 export const Dialog = ({
   children,
   placement: _placement = PLACEMENT_DEFAULT,
@@ -22,9 +26,18 @@ export const Dialog = ({
   zIndex = 1000,
   appendToNode,
   isCompact,
+  hasTrigger = true,
+  toggleCalendarLabel,
   ...menuProps
 }: PropsWithChildren<IDatePickerDialogProps>) => {
   const { isOpen, dialogRef, getDialogProps, getReferenceElement } = useDatePickerContext();
+  const ariaLabel = useText(
+    Dialog,
+    { toggleCalendarLabel },
+    'toggleCalendarLabel',
+    'Choose date',
+    !hasTrigger
+  );
 
   const { placement, transform, isVisible, rtl } = useFloatingDialog({
     isOpen,
@@ -37,7 +50,7 @@ export const Dialog = ({
 
   const Node = (
     <StyledMenuWrapper
-      {...getDialogProps({ style: { transform } })}
+      {...getDialogProps({ 'aria-label': ariaLabel, style: { transform } })}
       $isAnimated={!!isAnimated && (isOpen || isVisible)}
       $placement={placement}
       $zIndex={zIndex}

@@ -111,7 +111,14 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   isAnimated?: boolean;
   /** Sets the `z-index` of the calendar **/
   zIndex?: number;
-  /** Provides a customized/translated label for the calendar trigger button **/
+  /**
+   * Renders the calendar trigger button, grouped with the input. Set to `false`
+   * to render the input exactly as provided, with neither the button nor the
+   * group around it - e.g. for a `MediaInput` that brings its own calendar icon.
+   * The calendar still opens from the input itself (click, or Down/Alt+Down).
+   **/
+  hasTrigger?: boolean;
+  /** Provides a customized/translated label for the calendar trigger button - or, with `hasTrigger={false}`, for the calendar dialog itself **/
   toggleCalendarLabel?: string;
   /** Provides a customized/translated label for the previous month button, optionally as a function of the target date and its formatted "month year" **/
   previousMonthLabel?: ToolbarDateLabel;
@@ -201,6 +208,8 @@ export interface IUseDatePickerProps {
   formatDate?: (date: Date) => string;
   customParseDate?: (inputValue: string) => Date;
   required?: boolean;
+  /** Whether a trigger button (and its group) is rendered alongside the input - otherwise the input is the whole widget. Defaults to `true`. **/
+  hasTrigger?: boolean;
   /** Mirrors the input's native `disabled` - the calendar can't be opened while set. **/
   disabled?: boolean;
   /** Mirrors the input's native `readOnly` - the calendar can't be opened while set. **/
@@ -408,11 +417,16 @@ export interface IDatePickerDialogProps extends HTMLAttributes<HTMLDivElement> {
   isAnimated?: boolean;
   zIndex?: number;
   isCompact?: boolean;
+  /** Without a trigger button to take its name from, the dialog is labelled by `toggleCalendarLabel` itself. */
+  hasTrigger?: boolean;
+  toggleCalendarLabel?: string;
 }
 
 export interface IDatePickerInputProps {
   element: ReactElement & RefAttributes<HTMLInputElement>;
   refKey: string;
+  /** Whether the input sits inside DatePicker's own group, alongside a trigger button. */
+  hasTrigger?: boolean;
 }
 
 export interface IDatePickerRangeMonthProps extends Omit<
