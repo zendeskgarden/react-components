@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
 import userEvent from '@testing-library/user-event';
 import { act, render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { StyledDayCell } from '../../styled';
 import mockDate from 'mockdate';
@@ -1439,6 +1441,276 @@ describe('DatePickerRange', () => {
         expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
         expect(getByTestId('start')).not.toHaveFocus();
         getAllByRole('grid', { hidden: true }).forEach(grid => expect(grid).not.toHaveFocus());
+      });
+    });
+  });
+
+  describe('clear button focus, across field compositions', () => {
+    type Field = 'start' | 'end';
+
+    const WrappedClearableInput = React.forwardRef<
+      HTMLInputElement,
+      React.ComponentProps<typeof ClearableInput>
+    >((props, ref) => <ClearableInput {...props} ref={ref} />);
+
+    WrappedClearableInput.displayName = 'WrappedClearableInput';
+
+    const StyledClearableInput = styled(ClearableInput)``;
+
+    /** Renders `field` via `renderField`, and the other field as a plain input. */
+    const CompositionExample = ({
+      field,
+      renderField,
+      onValueSettled
+    }: {
+      field: Field;
+      renderField: (testId: string) => React.ReactElement;
+      onValueSettled: IDatePickerRangeProps['onValueSettled'];
+    }) => (
+      <DatePickerRange
+        startValue={DEFAULT_START_VALUE}
+        endValue={DEFAULT_END_VALUE}
+        onChange={onChangeSpy}
+        onValueSettled={onValueSettled}
+      >
+        {field === 'start' ? (
+          renderField('start')
+        ) : (
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+        )}
+        {field === 'end' ? (
+          renderField('end')
+        ) : (
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        )}
+        <DatePickerRange.Dialog>
+          <DatePickerRange.Calendar />
+        </DatePickerRange.Dialog>
+      </DatePickerRange>
+    );
+
+    const FieldComponent = { start: DatePickerRange.Start, end: DatePickerRange.End };
+    const GroupComponent = { start: DatePickerRange.StartGroup, end: DatePickerRange.EndGroup };
+
+    const WrapperRefField = ({ field, testId }: { field: Field; testId: string }) => {
+      const wrapperRef = useRef<HTMLDivElement>(null);
+      const FieldTag = FieldComponent[field];
+
+      return (
+        <FieldTag wrapperRef={wrapperRef}>
+          <WrappedClearableInput data-test-id={testId} wrapperRef={wrapperRef} />
+        </FieldTag>
+      );
+    };
+
+    const COMPOSITIONS: {
+      name: string;
+      renderField: (field: Field) => (testId: string) => React.ReactElement;
+    }[] = [
+      {
+        name: 'a direct ClearableInput',
+        renderField: field => testId => {
+          const FieldTag = FieldComponent[field];
+
+          return (
+            <FieldTag>
+              <ClearableInput data-test-id={testId} />
+            </FieldTag>
+          );
+        }
+      },
+      {
+        name: 'a wrapped ClearableInput, with wrapperRef on the field',
+        renderField: field => testId => <WrapperRefField field={field} testId={testId} />
+      },
+      {
+        name: 'a styled ClearableInput inside its group',
+        renderField: field => testId => {
+          const FieldTag = FieldComponent[field];
+          const GroupTag = GroupComponent[field];
+
+          return (
+            <GroupTag>
+              <FieldTag>
+                <StyledClearableInput data-test-id={testId} />
+              </FieldTag>
+              <DatePickerRange.Trigger data-test-id={`${testId}-trigger`} />
+            </GroupTag>
+          );
+        }
+      },
+      {
+        name: 'a wrapped ClearableInput inside its group',
+        renderField: field => testId => {
+          const FieldTag = FieldComponent[field];
+          const GroupTag = GroupComponent[field];
+
+          return (
+            <GroupTag>
+              <FieldTag>
+                <WrappedClearableInput data-test-id={testId} />
+              </FieldTag>
+              <DatePickerRange.Trigger data-test-id={`${testId}-trigger`} />
+            </GroupTag>
+          );
+        }
+      }
+    ];
+
+    describe.each(['start', 'end'] as const)('for %s', field => {
+      describe.each(COMPOSITIONS)('with $name', ({ renderField }) => {
+        it('waits to settle, and keeps the dialog open, until focus leaves the field past its clear button', async () => {
+          const onValueSettledSpy = jest.fn();
+          const { getByRole, getByTestId } = render(
+            <CompositionExample
+              field={field}
+              renderField={renderField(field)}
+              onValueSettled={onValueSettledSpy}
+            />
+          );
+          const input = getByTestId(field);
+
+          await user.click(input);
+          await user.clear(input);
+          await user.type(input, 'invalid date');
+
+          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+          onValueSettledSpy.mockClear();
+          await user.tab();
+
+          expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
+          expect(onValueSettledSpy).not.toHaveBeenCalled();
+          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+          await user.tab();
+
+          expect(onValueSettledSpy).toHaveBeenCalledWith(
+            expect.objectContaining({ field, valid: false, reason: 'malformed' })
+          );
+        });
+      });
+
+      it("commits a typed date when its group's own Trigger is clicked, rather than treating the Trigger as part of the field", async () => {
+        const { getByTestId } = render(
+          <CompositionExample
+            field={field}
+            renderField={COMPOSITIONS[3].renderField(field)}
+            onValueSettled={jest.fn()}
+          />
+        );
+        const input = getByTestId(field);
+        const typed = field === 'start' ? '2/10/2019' : '3/10/2019';
+
+        await user.click(input);
+        await user.clear(input);
+        await user.type(input, typed);
+        await user.click(getByTestId(`${field}-trigger`));
+
+        expect(onChangeSpy).toHaveBeenCalledWith(
+          field === 'start'
+            ? { startValue: new Date(2019, 1, 10), endValue: DEFAULT_END_VALUE }
+            : { startValue: DEFAULT_START_VALUE, endValue: new Date(2019, 2, 10) }
+        );
+      });
+    });
+
+    describe('Start/End wrapperRef', () => {
+      /** Inline (no Dialog), with Start rendered as a wrapped ClearableInput bounded by `wrapperRef`. */
+      const InlineWrapperRefExample = ({
+        hasWrapperRef = true,
+        onValueSettled
+      }: {
+        hasWrapperRef?: boolean;
+        onValueSettled?: IDatePickerRangeProps['onValueSettled'];
+      }) => {
+        const wrapperRef = useRef<HTMLDivElement>(null);
+
+        return (
+          <DatePickerRange
+            startValue={DEFAULT_START_VALUE}
+            endValue={DEFAULT_END_VALUE}
+            onChange={onChangeSpy}
+            onValueSettled={onValueSettled}
+          >
+            <DatePickerRange.Start wrapperRef={hasWrapperRef ? wrapperRef : undefined}>
+              <WrappedClearableInput data-test-id="start" wrapperRef={wrapperRef} />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" />
+            </DatePickerRange.End>
+            <DatePickerRange.Calendar />
+          </DatePickerRange>
+        );
+      };
+
+      it('waits to settle until focus leaves the field past its clear button, without a Dialog', async () => {
+        const onValueSettledSpy = jest.fn();
+        const { getByRole, getByTestId } = render(
+          <InlineWrapperRefExample onValueSettled={onValueSettledSpy} />
+        );
+        const input = getByTestId('start');
+
+        await user.clear(input);
+        await user.type(input, 'invalid date');
+        onValueSettledSpy.mockClear();
+        await user.tab();
+
+        expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
+        expect(onValueSettledSpy).not.toHaveBeenCalled();
+
+        await user.tab();
+
+        expect(onValueSettledSpy).toHaveBeenCalledWith(
+          expect.objectContaining({ field: 'start', valid: false, reason: 'malformed' })
+        );
+      });
+
+      it("leaves a direct ClearableInput child's own wrapperRef attached, rather than replacing it", () => {
+        const wrapperRef = React.createRef<HTMLDivElement>();
+
+        render(
+          <DatePickerRange>
+            <DatePickerRange.Start wrapperRef={wrapperRef}>
+              <ClearableInput data-test-id="start" wrapperRef={wrapperRef} />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" />
+            </DatePickerRange.End>
+          </DatePickerRange>
+        );
+
+        expect(wrapperRef.current).toHaveAttribute('data-garden-id', 'forms.input_group');
+      });
+
+      it('stops treating the old element as the field boundary once wrapperRef is removed', async () => {
+        const onValueSettledSpy = jest.fn();
+        const { getByRole, getByTestId, rerender } = render(
+          <InlineWrapperRefExample onValueSettled={onValueSettledSpy} />
+        );
+
+        rerender(
+          <InlineWrapperRefExample hasWrapperRef={false} onValueSettled={onValueSettledSpy} />
+        );
+
+        const input = getByTestId('start');
+
+        await user.clear(input);
+        await user.type(input, 'invalid date');
+        onValueSettledSpy.mockClear();
+        await user.tab();
+
+        // Without a boundary, Tabbing onto the clear button counts as leaving the field.
+        expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
+        expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+
+        await user.tab();
+
+        expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
       });
     });
   });

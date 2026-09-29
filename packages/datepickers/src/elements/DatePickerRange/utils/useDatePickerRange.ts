@@ -144,11 +144,45 @@ export function useDatePickerRange({
   const endWrapperRef = useRef<HTMLDivElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRefsRef = useRef<Set<RefObject<HTMLButtonElement | null>>>(new Set());
+  const startGroupRef = useRef<HTMLDivElement>(null);
+  const endGroupRef = useRef<HTMLDivElement>(null);
+  /** Consumer-provided through `Start`/`End`'s own `wrapperRef` (see `registerFieldWrapperRef`). */
+  const fieldWrapperRefsRef = useRef<
+    Partial<Record<DatePickerRangeField, RefObject<HTMLElement | null>>>
+  >({});
+
+  /**
+   * The element bounding a field - its input plus any extra focusable elements, like a
+   * `ClearableInput`'s clear button - so focus moving between them isn't treated as leaving the
+   * field. Resolved in order: the consumer's `wrapperRef`, a direct `ClearableInput` child's own
+   * wrapper, then the field's `StartGroup`/`EndGroup`.
+   */
+  const getFieldBoundary = useCallback(
+    (field: DatePickerRangeField): HTMLElement | null =>
+      fieldWrapperRefsRef.current[field]?.current ??
+      (field === 'start' ? startWrapperRef : endWrapperRef).current ??
+      (field === 'start' ? startGroupRef : endGroupRef).current,
+    []
+  );
+
+  /** A group's own `Trigger` isn't part of its field, so moving focus to it still commits the field. */
+  const isInsideField = useCallback(
+    (field: DatePickerRangeField, node: Node | null) =>
+      !!node &&
+      !!getFieldBoundary(field)?.contains(node) &&
+      ![...triggerRefsRef.current].some(ref => ref.current?.contains(node)),
+    [getFieldBoundary]
+  );
 
   const getWidgetRefs = useCallback(
     () => [
       startWrapperRef,
       endWrapperRef,
+      startGroupRef,
+      endGroupRef,
+      ...Object.values(fieldWrapperRefsRef.current).filter(
+        (ref): ref is RefObject<HTMLElement | null> => ref !== undefined
+      ),
       startInputRef,
       endInputRef,
       dialogRef,
@@ -508,54 +542,60 @@ export function useDatePickerRange({
 
   const handleStartBlur = useCallback(
     (relatedTarget: Element | null = null) => {
-      const stillInsideOwnGroup =
-        !!relatedTarget && !!startWrapperRef.current?.contains(relatedTarget);
-
-      if (stillInsideOwnGroup) {
+      if (isInsideField('start', relatedTarget)) {
         startIsBlurPendingRef.current = true;
       } else {
         startIsBlurPendingRef.current = false;
         commitStartBlur();
       }
     },
-    [commitStartBlur]
+    [commitStartBlur, isInsideField]
+  );
+
+  /** Commits a pending blur once focus leaves the field's boundary from one of its extra focusable elements. */
+  const handleStartBoundaryBlur = useCallback(
+    (e: FocusEvent | React.FocusEvent) => {
+      // A direct `ClearableInput` inside a `StartGroup` reports through both - only the resolved boundary counts.
+      if (e.currentTarget !== getFieldBoundary('start')) {
+        return;
+      }
+
+      if (
+        e.target !== startInputRef.current &&
+        startIsBlurPendingRef.current &&
+        !isInsideField('start', e.relatedTarget as Node | null)
+      ) {
+        startIsBlurPendingRef.current = false;
+        commitStartBlur();
+      }
+
+      handleWidgetBlur(e as React.FocusEvent);
+    },
+    [getFieldBoundary, isInsideField, startInputRef, commitStartBlur, handleWidgetBlur]
   );
 
   const getStartWrapperProps = useCallback(
     (props: Omit<ElementProps<HTMLDivElement>, 'ref'> = {}) => {
       const { onBlur, onClick, ...other } = props;
 
-      const onStartWrapperBlur = (e: React.FocusEvent) => {
-        if (e.target === startInputRef.current || !startIsBlurPendingRef.current) {
-          return;
-        }
-
-        const relatedTarget = e.relatedTarget as Element | null;
-        const stillInsideOwnGroup =
-          !!relatedTarget && !!startWrapperRef.current?.contains(relatedTarget);
-
-        if (!stillInsideOwnGroup) {
-          startIsBlurPendingRef.current = false;
-          commitStartBlur();
-        }
-      };
-
       return {
         ref: startWrapperRef,
-        onBlur: composeEventHandlers(onBlur, onStartWrapperBlur, handleWidgetBlur),
+        onBlur: composeEventHandlers(onBlur, handleStartBoundaryBlur),
         onClick: composeEventHandlers(onClick, () => startInputRef.current?.focus()),
         ...other
       };
     },
-    [commitStartBlur, startInputRef, handleWidgetBlur]
+    [handleStartBoundaryBlur, startInputRef]
   );
 
   const getStartGroupProps = useCallback(
     (props: ElementProps<HTMLDivElement> = {}) => {
-      const { onMouseDown, onClick, ...other } = props;
+      const { onMouseDown, onClick, onBlur, ...other } = props;
       const openOnClickProps = getOpenOnClickProps('start');
 
       return {
+        ref: startGroupRef,
+        onBlur: composeEventHandlers(onBlur, handleStartBoundaryBlur),
         onMouseDown: composeEventHandlers(onMouseDown, openOnClickProps.onMouseDown),
         onClick: composeEventHandlers(
           onClick,
@@ -565,7 +605,7 @@ export function useDatePickerRange({
         ...other
       };
     },
-    [startInputRef, getOpenOnClickProps]
+    [startInputRef, getOpenOnClickProps, handleStartBoundaryBlur]
   );
 
   const getStartInputProps = useCallback(
@@ -697,54 +737,60 @@ export function useDatePickerRange({
 
   const handleEndBlur = useCallback(
     (relatedTarget: Element | null = null) => {
-      const stillInsideOwnGroup =
-        !!relatedTarget && !!endWrapperRef.current?.contains(relatedTarget);
-
-      if (stillInsideOwnGroup) {
+      if (isInsideField('end', relatedTarget)) {
         endIsBlurPendingRef.current = true;
       } else {
         endIsBlurPendingRef.current = false;
         commitEndBlur();
       }
     },
-    [commitEndBlur]
+    [commitEndBlur, isInsideField]
+  );
+
+  /** Commits a pending blur once focus leaves the field's boundary from one of its extra focusable elements. */
+  const handleEndBoundaryBlur = useCallback(
+    (e: FocusEvent | React.FocusEvent) => {
+      // A direct `ClearableInput` inside a `EndGroup` reports through both - only the resolved boundary counts.
+      if (e.currentTarget !== getFieldBoundary('end')) {
+        return;
+      }
+
+      if (
+        e.target !== endInputRef.current &&
+        endIsBlurPendingRef.current &&
+        !isInsideField('end', e.relatedTarget as Node | null)
+      ) {
+        endIsBlurPendingRef.current = false;
+        commitEndBlur();
+      }
+
+      handleWidgetBlur(e as React.FocusEvent);
+    },
+    [getFieldBoundary, isInsideField, endInputRef, commitEndBlur, handleWidgetBlur]
   );
 
   const getEndWrapperProps = useCallback(
     (props: Omit<ElementProps<HTMLDivElement>, 'ref'> = {}) => {
       const { onBlur, onClick, ...other } = props;
 
-      const onEndWrapperBlur = (e: React.FocusEvent) => {
-        if (e.target === endInputRef.current || !endIsBlurPendingRef.current) {
-          return;
-        }
-
-        const relatedTarget = e.relatedTarget as Element | null;
-        const stillInsideOwnGroup =
-          !!relatedTarget && !!endWrapperRef.current?.contains(relatedTarget);
-
-        if (!stillInsideOwnGroup) {
-          endIsBlurPendingRef.current = false;
-          commitEndBlur();
-        }
-      };
-
       return {
         ref: endWrapperRef,
-        onBlur: composeEventHandlers(onBlur, onEndWrapperBlur, handleWidgetBlur),
+        onBlur: composeEventHandlers(onBlur, handleEndBoundaryBlur),
         onClick: composeEventHandlers(onClick, () => endInputRef.current?.focus()),
         ...other
       };
     },
-    [commitEndBlur, endInputRef, handleWidgetBlur]
+    [handleEndBoundaryBlur, endInputRef]
   );
 
   const getEndGroupProps = useCallback(
     (props: ElementProps<HTMLDivElement> = {}) => {
-      const { onMouseDown, onClick, ...other } = props;
+      const { onMouseDown, onClick, onBlur, ...other } = props;
       const openOnClickProps = getOpenOnClickProps('end');
 
       return {
+        ref: endGroupRef,
+        onBlur: composeEventHandlers(onBlur, handleEndBoundaryBlur),
         onMouseDown: composeEventHandlers(onMouseDown, openOnClickProps.onMouseDown),
         onClick: composeEventHandlers(
           onClick,
@@ -754,7 +800,35 @@ export function useDatePickerRange({
         ...other
       };
     },
-    [endInputRef, getOpenOnClickProps]
+    [endInputRef, getOpenOnClickProps, handleEndBoundaryBlur]
+  );
+
+  /** Lets the native listener below always reach the latest handler, without re-registering. */
+  const boundaryBlurHandlersRef = useRef({
+    start: handleStartBoundaryBlur,
+    end: handleEndBoundaryBlur
+  });
+
+  boundaryBlurHandlersRef.current = { start: handleStartBoundaryBlur, end: handleEndBoundaryBlur };
+
+  /** Called by `Start`/`End` with their own `wrapperRef`, once mounted; returns a cleanup. */
+  const registerFieldWrapperRef = useCallback(
+    (field: DatePickerRangeField, wrapperRef: RefObject<HTMLElement | null>) => {
+      const element = wrapperRef.current;
+      const handleFocusOut = (e: FocusEvent) => boundaryBlurHandlersRef.current[field](e);
+
+      fieldWrapperRefsRef.current[field] = wrapperRef;
+      element?.addEventListener('focusout', handleFocusOut);
+
+      return () => {
+        element?.removeEventListener('focusout', handleFocusOut);
+
+        if (fieldWrapperRefsRef.current[field] === wrapperRef) {
+          fieldWrapperRefsRef.current = { ...fieldWrapperRefsRef.current, [field]: undefined };
+        }
+      };
+    },
+    []
   );
 
   const getEndInputProps = useCallback(
@@ -1105,6 +1179,7 @@ export function useDatePickerRange({
       hasDialog,
       registerDialog,
       registerFieldState,
+      registerFieldWrapperRef,
       isCalendarDisabled,
       isCalendarReadOnly,
       getStartWrapperProps,
@@ -1145,6 +1220,7 @@ export function useDatePickerRange({
       hasDialog,
       registerDialog,
       registerFieldState,
+      registerFieldWrapperRef,
       isCalendarDisabled,
       isCalendarReadOnly,
       getStartWrapperProps,

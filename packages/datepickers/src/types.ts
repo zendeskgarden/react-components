@@ -303,6 +303,11 @@ export interface IUseDatePickerRangeReturnValue {
     field: DatePickerRangeField,
     state: IDatePickerRangeFieldState
   ) => () => void;
+  /** Called by `Start`/`End` with their own `wrapperRef` - the element bounding that field - once mounted; returns a cleanup that unregisters it. **/
+  registerFieldWrapperRef: (
+    field: DatePickerRangeField,
+    wrapperRef: RefObject<HTMLElement | null>
+  ) => () => void;
   /** Both fields are disabled: the calendar displays the range, with no tab stops and a disabled toolbar. **/
   isCalendarDisabled: boolean;
   /** Neither field can change, but at least one is read-only: the calendar can still be browsed, but not selected from. **/

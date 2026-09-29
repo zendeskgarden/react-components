@@ -6,6 +6,7 @@
  */
 
 import React, { PropsWithChildren, HTMLAttributes, forwardRef } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 import { InputGroup } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { DatePickerRangeFieldContext } from '../utils/useDatePickerRangeFieldContext';
@@ -18,11 +19,12 @@ type IStartGroupProps = HTMLAttributes<HTMLDivElement> & {
 export const StartGroup = forwardRef<HTMLDivElement, PropsWithChildren<IStartGroupProps>>(
   ({ children, isEdgeToEdge, ...props }, ref) => {
     const { isCompact, getStartGroupProps } = useDatePickerContext();
+    const { ref: groupRef, ...groupProps } = getStartGroupProps(props);
 
     return (
       <InputGroup
-        {...getStartGroupProps(props)}
-        ref={ref}
+        {...groupProps}
+        ref={mergeRefs([groupRef as React.Ref<HTMLDivElement>, ref])}
         isUnified
         isCompact={isCompact}
         isEdgeToEdgeEnd={isEdgeToEdge}
