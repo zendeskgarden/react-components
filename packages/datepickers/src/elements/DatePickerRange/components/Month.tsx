@@ -31,6 +31,7 @@ import {
 import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
 import {
   formatFullDate,
+  getGridCalendar,
   formatMonthHeading,
   getMonthDateRange,
   getStartOfWeek,
@@ -86,7 +87,8 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
     const dayFormatter = useCallback<(date: Date) => string>(
       date => {
         const formatter = new Intl.DateTimeFormat(locale, {
-          day: 'numeric'
+          day: 'numeric',
+          calendar: getGridCalendar(locale)
         });
 
         return formatter.format(date);

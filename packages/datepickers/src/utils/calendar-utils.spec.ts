@@ -8,6 +8,7 @@
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import {
+  formatFullDate,
   formatFullWeekdayLabel,
   formatMonthHeading,
   formatWeekdayLabel,
@@ -138,6 +139,45 @@ describe('Calendar Utilities', () => {
   describe('formatMonthHeading()', () => {
     it('formats the month and year', () => {
       expect(formatMonthHeading(DATE, 'en-US')).toBe('February 2019');
+    });
+
+    it("names the grid's Gregorian month for a locale whose default calendar has different months", () => {
+      expect(formatMonthHeading(DATE, 'fa')).toContain('فوریه');
+      expect(formatMonthHeading(DATE, 'fa')).toContain('۲۰۱۹');
+    });
+
+    it("keeps the locale's own year for a calendar with the same months and days", () => {
+      expect(formatMonthHeading(DATE, 'th')).toBe('กุมภาพันธ์ 2562');
+    });
+  });
+
+  describe('formatFullDate()', () => {
+    it("uses the locale's own long date format", () => {
+      expect(formatFullDate(DATE, 'en-US')).toBe('February 5, 2019');
+      expect(formatFullDate(DATE, 'de-DE')).toBe('5. Februar 2019');
+    });
+
+    it.each([
+      ['ja', '2019年2月5日'],
+      ['zh-CN', '2019年2月5日'],
+      ['ko-KR', '2019년 2월 5일']
+    ])("keeps the %s date's month and day markers", (locale, expected) => {
+      expect(formatFullDate(DATE, locale)).toBe(expected);
+    });
+
+    it('uses the given numbering system, to match a visible day number', () => {
+      expect(formatFullDate(DATE, 'ar-EG', 'latn')).toContain('5');
+      expect(formatFullDate(DATE, 'ar-EG')).toContain('٥');
+    });
+
+    it("names the grid's Gregorian date for a locale whose default calendar has different months", () => {
+      expect(formatFullDate(DATE, 'fa')).toContain('۵');
+      expect(formatFullDate(DATE, 'fa')).toContain('فوریه');
+      expect(formatFullDate(DATE, 'fa')).toContain('۲۰۱۹');
+    });
+
+    it("keeps the locale's own year for a calendar with the same months and days", () => {
+      expect(formatFullDate(DATE, 'th')).toContain('2562');
     });
   });
 

@@ -65,7 +65,7 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
               {formattedDayLabel}
             </StyledDayNumber>
             <Span hidden data-test-id="full-date">
-              {formatFullDate(date, locale)}
+              {formatFullDate(date, locale, 'latn')}
             </Span>
           </StyledCalendarItem>
         </StyledDayCell>

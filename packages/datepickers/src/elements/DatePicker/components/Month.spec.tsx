@@ -84,8 +84,25 @@ describe('Month', () => {
 
       expect(days[9]).toHaveTextContent('5');
       expect(within(days[9]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
-      expect(within(days[9]).getByTestId('full-date')).toHaveTextContent('5 February 2019');
+      expect(within(days[9]).getByTestId('full-date')).toHaveTextContent('February 5, 2019');
     });
+
+    it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
+      "includes each day's visible number in its full date, for %s",
+      async locale => {
+        const { getByTestId, getAllByTestId } = render(
+          <Example value={DEFAULT_DATE} locale={locale} />
+        );
+
+        await user.click(getByTestId('calendar-button'));
+
+        getAllByTestId('day').forEach(day => {
+          const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
+
+          expect(within(day).getByTestId('full-date').textContent).toContain(visible);
+        });
+      }
+    );
 
     it('describes each real day cell as a selectable cell', async () => {
       const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);

@@ -175,9 +175,26 @@ export function getMonthDateRange(displayDate: Date, weekStartsOn?: DateFnsIndex
   };
 }
 
+/** Calendars whose months and days line up with the Gregorian grid, differing at most in their year numbering. */
+const GRID_ALIGNED_CALENDARS = ['gregory', 'iso8601', 'buddhist', 'japanese', 'roc'];
+
+/**
+ * The locale's own calendar where it lines up with the Gregorian grid (e.g. Thai's Buddhist year),
+ * otherwise Gregorian - so a Persian locale doesn't name a different month or day than the grid shows.
+ */
+export function getGridCalendar(locale?: string): string | undefined {
+  const { calendar } = new Intl.DateTimeFormat(locale).resolvedOptions();
+
+  return GRID_ALIGNED_CALENDARS.includes(calendar) ? undefined : 'gregory';
+}
+
 /** e.g. "January 2026" */
 export function formatMonthHeading(date: Date, locale?: string): string {
-  return new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(date);
+  return new Intl.DateTimeFormat(locale, {
+    month: 'long',
+    year: 'numeric',
+    calendar: getGridCalendar(locale)
+  }).format(date);
 }
 
 /** e.g. "Mon" */
@@ -191,20 +208,14 @@ export function formatFullWeekdayLabel(date: Date, locale?: string): string {
 }
 
 /**
- * e.g. "17 September 2026" - day-first (matching the visible day number, for speech-input users)
- * with a locale-correct month name; a day cell's visually-hidden description. Its weekday comes
- * separately from the grid's column header, so it isn't repeated here.
+ * e.g. "September 17, 2026" - the locale's own long date, a day cell's visually-hidden name. Pass
+ * the visible day number's `numberingSystem` so the name contains it. Its weekday comes separately
+ * from the grid's column header, so it isn't repeated here.
  */
-export function formatFullDate(date: Date, locale?: string): string {
-  const parts = new Intl.DateTimeFormat(locale, {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric'
-  }).formatToParts(date);
-
-  const day = parts.find(part => part.type === 'day')?.value ?? '';
-  const month = parts.find(part => part.type === 'month')?.value ?? '';
-  const year = parts.find(part => part.type === 'year')?.value ?? '';
-
-  return `${day} ${month} ${year}`;
+export function formatFullDate(date: Date, locale?: string, numberingSystem?: string): string {
+  return new Intl.DateTimeFormat(locale, {
+    dateStyle: 'long',
+    calendar: getGridCalendar(locale),
+    numberingSystem
+  }).format(date);
 }

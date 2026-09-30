@@ -132,7 +132,33 @@ describe('Month', () => {
       expect(firstMonthDays[4]).toHaveTextContent('5');
       expect(within(firstMonthDays[4]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
       expect(within(firstMonthDays[4]).getByTestId('full-date')).toHaveTextContent(
-        '5 February 2019'
+        'February 5, 2019'
+      );
+    });
+
+    it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
+      "includes each day's visible number in its full date, for %s",
+      locale => {
+        const { getAllByTestId } = render(
+          <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} locale={locale} />
+        );
+
+        getDays(getAllByTestId('calendar-wrapper')[0]).forEach(day => {
+          const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
+
+          expect(within(day).getByTestId('full-date').textContent).toContain(visible);
+        });
+      }
+    );
+
+    it("numbers the grid's Gregorian days for a locale whose default calendar has different months", () => {
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} locale="fa" />
+      );
+      const firstDay = getDays(getAllByTestId('calendar-wrapper')[0])[0];
+
+      expect(firstDay.querySelector('[data-garden-id="datepickers.day"]')).toHaveTextContent(
+        /^۱$/u
       );
     });
 
