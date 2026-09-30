@@ -11,9 +11,6 @@ import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { IRowProps } from '../types';
 import { StyledRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
-import { RowContext } from '../utils/useRowContext';
-
-const ROW_CONTEXT = { headerCellScope: 'row' } as const;
 
 /**
  * @deprecated use `Table.Row` instead
@@ -57,21 +54,19 @@ export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
     );
 
     return (
-      <RowContext.Provider value={ROW_CONTEXT}>
-        <StyledRow
-          onFocus={onFocusCallback}
-          onBlur={onBlurCallback}
-          ref={ref}
-          $size={size}
-          $isReadOnly={isReadOnly}
-          $isFocused={computedFocused}
-          $isHovered={isHovered}
-          $isStriped={isStriped}
-          $isSelected={isSelected}
-          {...otherProps}
-          tabIndex={isReadOnly ? undefined : -1}
-        />
-      </RowContext.Provider>
+      <StyledRow
+        onFocus={onFocusCallback}
+        onBlur={onBlurCallback}
+        ref={ref}
+        $size={size}
+        $isReadOnly={isReadOnly}
+        $isFocused={computedFocused}
+        $isHovered={isHovered}
+        $isStriped={isStriped}
+        $isSelected={isSelected}
+        {...otherProps}
+        tabIndex={isReadOnly ? undefined : -1}
+      />
     );
   }
 );

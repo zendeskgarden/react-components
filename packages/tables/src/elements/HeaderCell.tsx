@@ -9,7 +9,7 @@ import React, { forwardRef } from 'react';
 import { IHeaderCellProps } from '../types';
 import { StyledHeaderCell, StyledHiddenCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
-import { useRowContext } from '../utils/useRowContext';
+import { useHeaderRowContext } from '../utils/useHeaderRowContext';
 import { Cell } from './Cell';
 
 /**
@@ -20,12 +20,12 @@ import { Cell } from './Cell';
 export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
   ({ hidden, isMinimum, isTruncated, hasOverflow, scope, ...props }, ref) => {
     const { size } = useTableContext();
-    const { headerCellScope } = useRowContext();
+    const isInHeaderRow = useHeaderRowContext();
 
     return (
       <StyledHeaderCell
         ref={ref}
-        scope={scope ?? headerCellScope}
+        scope={scope ?? (isInHeaderRow ? 'col' : undefined)}
         $size={size}
         $isMinimum={isMinimum}
         $isTruncated={isTruncated}

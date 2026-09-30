@@ -106,21 +106,6 @@ describe('HeaderCell', () => {
       expect(getByTestId('headerCell')).toHaveAttribute('scope', 'col');
     });
 
-    it('defaults to row scope in a body row', () => {
-      const { getByTestId } = render(
-        <Table>
-          <Body>
-            <Row>
-              <HeaderCell data-test-id="headerCell">Name</HeaderCell>
-              <Cell>Value</Cell>
-            </Row>
-          </Body>
-        </Table>
-      );
-
-      expect(getByTestId('headerCell')).toHaveAttribute('scope', 'row');
-    });
-
     it('keeps an explicit scope', () => {
       const { getByTestId } = render(
         <Table>
@@ -131,18 +116,10 @@ describe('HeaderCell', () => {
               </HeaderCell>
             </HeaderRow>
           </Head>
-          <Body>
-            <Row>
-              <HeaderCell data-test-id="bodyHeaderCell" scope="col">
-                Name
-              </HeaderCell>
-            </Row>
-          </Body>
         </Table>
       );
 
       expect(getByTestId('headerCell')).toHaveAttribute('scope', 'colgroup');
-      expect(getByTestId('bodyHeaderCell')).toHaveAttribute('scope', 'col');
     });
 
     it('applies the default when the given scope is undefined', () => {
@@ -161,40 +138,29 @@ describe('HeaderCell', () => {
       expect(getByTestId('headerCell')).toHaveAttribute('scope', 'col');
     });
 
-    it('sets no scope outside a Garden row', () => {
+    it('sets no scope in a body row, where the browser infers it', () => {
       const { getByTestId } = render(
         <Table>
           <Body>
+            <Row>
+              <HeaderCell data-test-id="columnHeader">Name</HeaderCell>
+              <HeaderCell>Price</HeaderCell>
+            </Row>
+            <Row>
+              <HeaderCell data-test-id="rowHeader">Apple</HeaderCell>
+              <Cell>1</Cell>
+            </Row>
             <tr>
-              <HeaderCell data-test-id="headerCell">Name</HeaderCell>
+              <HeaderCell data-test-id="plainRowHeader">Pear</HeaderCell>
+              <Cell>2</Cell>
             </tr>
           </Body>
         </Table>
       );
 
-      expect(getByTestId('headerCell')).not.toHaveAttribute('scope');
-    });
-
-    it('does not leak row scope into a nested table', () => {
-      const { getByTestId } = render(
-        <Table>
-          <Body>
-            <Row>
-              <Cell>
-                <Table>
-                  <Body>
-                    <tr>
-                      <HeaderCell data-test-id="headerCell">Name</HeaderCell>
-                    </tr>
-                  </Body>
-                </Table>
-              </Cell>
-            </Row>
-          </Body>
-        </Table>
-      );
-
-      expect(getByTestId('headerCell')).not.toHaveAttribute('scope');
+      expect(getByTestId('columnHeader')).not.toHaveAttribute('scope');
+      expect(getByTestId('rowHeader')).not.toHaveAttribute('scope');
+      expect(getByTestId('plainRowHeader')).not.toHaveAttribute('scope');
     });
   });
 });

@@ -13,6 +13,8 @@ import { Table } from './Table';
 import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
 import { SortableCell } from './SortableCell';
+import { Body } from './Body';
+import { Row } from './Row';
 import { StyledSortableButton } from '../styled';
 
 describe('SortableCell', () => {
@@ -90,6 +92,20 @@ describe('SortableCell', () => {
       );
 
       expect(getByTestId('cell')).toHaveAttribute('scope', 'col');
+    });
+
+    it('sets no scope in a body row', () => {
+      const { getByTestId } = render(
+        <Table>
+          <Body>
+            <Row>
+              <SortableCell cellProps={{ 'data-test-id': 'cell' }}>Name</SortableCell>
+            </Row>
+          </Body>
+        </Table>
+      );
+
+      expect(getByTestId('cell')).not.toHaveAttribute('scope');
     });
 
     it('keeps an explicit scope from cell props', () => {
