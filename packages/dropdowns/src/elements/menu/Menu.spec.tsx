@@ -657,6 +657,34 @@ describe('Menu', () => {
       expect(getByTestId('Oak')).toHaveAttribute('aria-checked', 'true');
     });
 
+    it('keeps the group selection type for items in nested fragments', async () => {
+      const { getByTestId, getByRole } = render(
+        <TestMenu>
+          <ItemGroup type="radio" legend="Plants">
+            <>
+              <Item value="Flower" name="plants" data-test-id="flower" />
+              <>
+                <Item value="Cactus" name="plants" data-test-id="cactus" isSelected />
+                <Item value="Fern" name="plants" data-test-id="fern" />
+              </>
+            </>
+          </ItemGroup>
+        </TestMenu>
+      );
+
+      await floating();
+      const trigger = getByRole('button');
+
+      trigger.focus();
+      await user.keyboard('{ArrowDown}');
+      expect(getByTestId('flower')).toHaveFocus();
+      expect(getByTestId('cactus')).toHaveAttribute('aria-checked', 'true');
+      expect(getByTestId('flower')).toHaveAttribute('aria-checked', 'false');
+
+      await user.keyboard('{ArrowDown}{ArrowDown}');
+      expect(getByTestId('fern')).toHaveFocus();
+    });
+
     it('renders with `fallbackPlacements`', async () => {
       const { getByRole } = render(
         <TestMenu defaultExpanded fallbackPlacements={['top-start']}>
