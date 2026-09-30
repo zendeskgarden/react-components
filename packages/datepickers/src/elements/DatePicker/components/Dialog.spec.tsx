@@ -196,6 +196,36 @@ describe('Dialog', () => {
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
   });
 
+  it('closes the calendar on Tab from the input, moving focus past it rather than into it', async () => {
+    const { getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} isAnimated={false} />
+    );
+
+    await user.click(getByTestId('input'));
+    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+    await user.tab();
+
+    expect(getByTestId('outside')).toHaveFocus();
+    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+  });
+
+  it('is inert while closed, including during its exit animation, so nothing inside it can take focus', async () => {
+    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const dialog = getByTestId('datepicker-menu');
+
+    expect(dialog).toHaveAttribute('inert', '');
+
+    await user.click(getByTestId('input'));
+
+    expect(dialog).not.toHaveAttribute('inert');
+
+    await user.keyboard('{Escape}');
+
+    expect(getByTestId('calendar-wrapper')).toBeInTheDocument();
+    expect(dialog).toHaveAttribute('inert', '');
+  });
+
   describe('Roving tabindex invariant', () => {
     it('keeps exactly one day cell tabindex="0", matching the actually-focused cell, when reopening after a mouse-click selection', async () => {
       const ControlledExample = ({

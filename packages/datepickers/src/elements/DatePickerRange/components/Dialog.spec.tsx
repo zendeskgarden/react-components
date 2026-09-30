@@ -673,6 +673,22 @@ describe('DatePickerRange.Dialog', () => {
       expect(queryByTestId('range-calendar')).toBeInTheDocument();
     });
 
+    it('is inert while closed, including during its exit animation, so nothing inside it can take focus', async () => {
+      const { getByTestId, queryByTestId } = render(<Example />);
+      const dialog = getByTestId('range-dialog');
+
+      expect(dialog).toHaveAttribute('inert', '');
+
+      await user.click(getByTestId('trigger'));
+
+      expect(dialog).not.toHaveAttribute('inert');
+
+      await user.keyboard('{Escape}');
+
+      expect(queryByTestId('range-calendar')).toBeInTheDocument();
+      expect(dialog).toHaveAttribute('inert', '');
+    });
+
     it('keeps rendering its children briefly after closing to allow the exit animation, then removes them', async () => {
       const { getByTestId, queryByTestId } = render(<Example />);
 
@@ -712,6 +728,28 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(getByTestId('end'));
 
       expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+
+    it('stays open on Tab from Start, moving focus to End', async () => {
+      const { getByTestId } = render(<Example />);
+
+      await user.click(getByTestId('start'));
+      await user.tab();
+
+      expect(getByTestId('end')).toHaveFocus();
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    });
+
+    it('closes on Tab from End, moving focus past the dialog rather than into it', async () => {
+      const { getByTestId } = render(<Example dialogProps={{ isAnimated: false }} />);
+
+      await user.click(getByTestId('end'));
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.tab();
+
+      expect(getByTestId('outside')).toHaveFocus();
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
     });
 
     it('stays open when focus moves directly from End to Start', async () => {

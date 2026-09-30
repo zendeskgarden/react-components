@@ -55,6 +55,7 @@ export const Dialog = ({
       $placement={placement}
       $zIndex={zIndex}
       aria-hidden={!isOpen || undefined}
+      inert={isOpen ? undefined : ''}
       data-test-id="datepicker-menu"
       data-test-open={isOpen}
       data-test-rtl={rtl}

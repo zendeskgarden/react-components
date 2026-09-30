@@ -1591,7 +1591,7 @@ describe('DatePickerRange', () => {
 
     describe.each(['start', 'end'] as const)('for %s', field => {
       describe.each(COMPOSITIONS)('with $name', ({ renderField }) => {
-        it('waits to settle, and keeps the dialog open, until focus leaves the field past its clear button', async () => {
+        it('waits to settle until focus leaves the field past its clear button', async () => {
           const onValueSettledSpy = jest.fn();
           const { getByRole, getByTestId } = render(
             <CompositionExample
@@ -1613,7 +1613,6 @@ describe('DatePickerRange', () => {
 
           expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
           expect(onValueSettledSpy).not.toHaveBeenCalled();
-          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
 
           await user.tab();
 
@@ -1621,6 +1620,27 @@ describe('DatePickerRange', () => {
             expect.objectContaining({ field, valid: false, reason: 'malformed' })
           );
         });
+      });
+
+      it(`${
+        field === 'start' ? 'keeps the dialog open' : 'closes the dialog'
+      } on Tab from the input to its clear button`, async () => {
+        const { getByRole, getByTestId } = render(
+          <CompositionExample
+            field={field}
+            renderField={COMPOSITIONS[0].renderField(field)}
+            onValueSettled={jest.fn()}
+          />
+        );
+
+        await user.click(getByTestId(field));
+        await user.tab();
+
+        expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
+        expect(getByTestId('range-dialog')).toHaveAttribute(
+          'data-test-open',
+          field === 'start' ? 'true' : 'false'
+        );
       });
 
       it("commits a typed date when its group's own Trigger is clicked, rather than treating the Trigger as part of the field", async () => {

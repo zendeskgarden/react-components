@@ -899,7 +899,7 @@ export function useDatePickerRange({
           e.preventDefault();
           handleEndBlur();
           setIsOpen(false);
-        } else if (e.key === KEYS.ESCAPE && isOpen) {
+        } else if ((e.key === KEYS.ESCAPE || (e.key === KEYS.TAB && !e.shiftKey)) && isOpen) {
           setIsOpen(false);
         }
       };
