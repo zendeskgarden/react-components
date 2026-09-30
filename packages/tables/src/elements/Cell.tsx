@@ -22,23 +22,23 @@ export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
     const { size } = useTableContext();
 
     return (
-      <StyledCell
-        ref={ref}
-        $size={size}
-        $isMinimum={isMinimum}
-        $isTruncated={isTruncated}
-        $hasOverflow={hasOverflow}
-        {...props}
-      >
-        {/* content (for example, a nested table) is not in this header row */}
-        <HeaderRowContext.Provider value={false}>
+      // the cell's content (for example, a nested table) is not in a header row
+      <HeaderRowContext.Provider value={false}>
+        <StyledCell
+          ref={ref}
+          $size={size}
+          $isMinimum={isMinimum}
+          $isTruncated={isTruncated}
+          $hasOverflow={hasOverflow}
+          {...props}
+        >
           {hidden && props.children ? (
             <StyledHiddenCell>{props.children}</StyledHiddenCell>
           ) : (
             props.children
           )}
-        </HeaderRowContext.Provider>
-      </StyledCell>
+        </StyledCell>
+      </HeaderRowContext.Provider>
     );
   }
 );

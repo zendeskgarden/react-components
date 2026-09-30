@@ -23,24 +23,24 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
     const isInHeaderRow = useHeaderRowContext();
 
     return (
-      <StyledHeaderCell
-        ref={ref}
-        scope={scope ?? (isInHeaderRow ? 'col' : undefined)}
-        $size={size}
-        $isMinimum={isMinimum}
-        $isTruncated={isTruncated}
-        $hasOverflow={hasOverflow}
-        {...props}
-      >
-        {/* content (for example, a nested table) is not in this header row */}
-        <HeaderRowContext.Provider value={false}>
+      // the cell's content (for example, a nested table) is not in a header row
+      <HeaderRowContext.Provider value={false}>
+        <StyledHeaderCell
+          ref={ref}
+          scope={scope ?? (isInHeaderRow ? 'col' : undefined)}
+          $size={size}
+          $isMinimum={isMinimum}
+          $isTruncated={isTruncated}
+          $hasOverflow={hasOverflow}
+          {...props}
+        >
           {hidden && props.children ? (
             <StyledHiddenCell>{props.children}</StyledHiddenCell>
           ) : (
             props.children
           )}
-        </HeaderRowContext.Provider>
-      </StyledHeaderCell>
+        </StyledHeaderCell>
+      </HeaderRowContext.Provider>
     );
   }
 );

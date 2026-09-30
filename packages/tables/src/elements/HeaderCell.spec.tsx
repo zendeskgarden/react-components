@@ -91,6 +91,23 @@ describe('HeaderCell', () => {
     expect(getByTestId('headerCell').firstChild).toHaveStyle(hideVisually());
   });
 
+  it('renders dangerouslySetInnerHTML content', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <HeaderCell
+              data-test-id="headerCell"
+              dangerouslySetInnerHTML={{ __html: '<b>Name</b>' }}
+            />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('headerCell').innerHTML).toBe('<b>Name</b>');
+  });
+
   describe('scope', () => {
     it('defaults to column scope in a header row', () => {
       const { getByTestId } = render(

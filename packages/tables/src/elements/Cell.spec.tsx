@@ -13,6 +13,8 @@ import { Table } from './Table';
 import { Body } from './Body';
 import { Row } from './Row';
 import { Cell } from './Cell';
+import { Head } from './Head';
+import { HeaderRow } from './HeaderRow';
 
 describe('Cell', () => {
   it('passes ref to underlying DOM element', () => {
@@ -112,5 +114,19 @@ describe('Cell', () => {
     );
 
     expect(getByTestId('cell').firstChild).toHaveStyle(hideVisually());
+  });
+
+  it('renders dangerouslySetInnerHTML content', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <Cell data-test-id="cell" dangerouslySetInnerHTML={{ __html: '<b>Name</b>' }} />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('cell').innerHTML).toBe('<b>Name</b>');
   });
 });
