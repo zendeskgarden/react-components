@@ -151,10 +151,10 @@ DatePicker.propTypes = {
   isAnimated: PropTypes.bool,
   zIndex: PropTypes.number,
   toggleCalendarLabel: PropTypes.string,
-  previousMonthLabel: PropTypes.string,
-  nextMonthLabel: PropTypes.string,
-  previousYearLabel: PropTypes.string,
-  nextYearLabel: PropTypes.string,
+  previousMonthLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  nextMonthLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  previousYearLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  nextYearLabel: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
   toolbarLabel: PropTypes.string,
   selectableCellRoleDescription: PropTypes.string
 };
