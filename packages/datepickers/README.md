@@ -38,6 +38,26 @@ import { DatePicker } from '@zendeskgarden/react-datepickers';
 </ThemeProvider>;
 ```
 
+### Date format hint
+
+Users can type a date as well as pick one, so tell them which format to use
+with a `Field.Hint`. Inside a `Field`, the hint is linked to the input through
+`aria-describedby`, so screen readers announce it along with the label:
+
+```jsx
+<Field>
+  <Field.Label>Start date</Field.Label>
+  <Field.Hint>Use M/D/YYYY format</Field.Hint>
+  <DatePicker value={new Date()} onChange={selectedDate => console.log(selectedDate)}>
+    <Input />
+  </DatePicker>
+</Field>
+```
+
+For a `DatePickerRange`, give each field its own hint, or put a shared hint on
+the enclosing `Fieldset` and reference its `id` from each input's
+`aria-describedby`.
+
 ### Sizing
 
 By default, `<DatePicker>` groups its input with a calendar button, and that
