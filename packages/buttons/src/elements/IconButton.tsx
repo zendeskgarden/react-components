@@ -19,31 +19,31 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
     {
       children,
       focusInset,
-      isBasic = true,
+      isBasic,
       isDanger,
       isNeutral,
-      isPill = true,
+      isPill,
       isPrimary,
       isRotated,
-      size = 'medium',
+      size,
       type = 'button',
       ...other
     },
     ref
   ) => {
-    const splitButtonFocusInset = useSplitButtonContext();
+    const splitButton = useSplitButtonContext();
 
     return (
       <StyledIconButton
         {...other}
         type={type}
-        $isBasic={isBasic}
-        $isDanger={isDanger}
-        $isNeutral={isNeutral}
-        $isPill={isPill}
-        $isPrimary={isPrimary}
-        $size={size}
-        $focusInset={focusInset || splitButtonFocusInset}
+        $isBasic={isBasic ?? splitButton?.isBasic ?? true}
+        $isDanger={isDanger ?? splitButton?.isDanger}
+        $isNeutral={isNeutral ?? splitButton?.isNeutral}
+        $isPill={isPill ?? splitButton?.isPill ?? true}
+        $isPrimary={isPrimary ?? splitButton?.isPrimary}
+        $size={size ?? splitButton?.size ?? 'medium'}
+        $focusInset={focusInset || splitButton?.focusInset}
         ref={ref}
       >
         <StyledIcon $isRotated={isRotated}>{children}</StyledIcon>

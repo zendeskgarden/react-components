@@ -8,17 +8,27 @@
 import React, { forwardRef } from 'react';
 import { IconButton } from './IconButton';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { IIconButtonProps } from '../types';
+import { IChevronButtonProps } from '../types';
+import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const ChevronButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
-  ({ isBasic = false, isPill = false, size = 'medium', ...props }, ref) => (
-    <IconButton ref={ref} isBasic={isBasic} isPill={isPill} size={size} {...props}>
-      <ChevronDownIcon />
-    </IconButton>
-  )
+export const ChevronButton = forwardRef<HTMLButtonElement, IChevronButtonProps>(
+  ({ isBasic, isPill, ...props }, ref) => {
+    const splitButton = useSplitButtonContext();
+
+    return (
+      <IconButton
+        ref={ref}
+        isBasic={isBasic ?? splitButton?.isBasic ?? false}
+        isPill={isPill ?? splitButton?.isPill ?? false}
+        {...props}
+      >
+        <ChevronDownIcon />
+      </IconButton>
+    );
+  }
 );
 
 ChevronButton.displayName = 'ChevronButton';

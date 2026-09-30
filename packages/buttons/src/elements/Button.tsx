@@ -24,28 +24,28 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
       isPill,
       isPrimary,
       isStretched,
-      size = 'medium',
+      size,
       type = 'button',
       ...other
     },
     ref
   ) => {
-    const splitButtonFocusInset = useSplitButtonContext();
+    const splitButton = useSplitButtonContext();
 
     return (
       <StyledButton
         {...other}
         type={type}
-        $focusInset={focusInset || splitButtonFocusInset}
-        $isBasic={isBasic}
-        $isDanger={isDanger}
+        $focusInset={focusInset || splitButton?.focusInset}
+        $isBasic={isBasic ?? splitButton?.isBasic}
+        $isDanger={isDanger ?? splitButton?.isDanger}
         $isLink={isLink}
-        $isNeutral={isNeutral}
-        $isPill={isPill}
-        $isPrimary={isPrimary}
+        $isNeutral={isNeutral ?? splitButton?.isNeutral}
+        $isPill={isPill ?? splitButton?.isPill}
+        $isPrimary={isPrimary ?? splitButton?.isPrimary}
         $isStretched={isStretched}
         $isUnderlined={isLink}
-        $size={size}
+        $size={size ?? splitButton?.size ?? 'medium'}
         ref={ref}
       />
     );
