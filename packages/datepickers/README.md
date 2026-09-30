@@ -37,3 +37,32 @@ import { DatePicker } from '@zendeskgarden/react-datepickers';
   </Field>
 </ThemeProvider>;
 ```
+
+### Sizing
+
+By default, `<DatePicker>` groups its input with a calendar button, and that
+group fills the width of its container. Width styles on the input itself don't
+size the date picker, so size it through its layout container instead, e.g. a
+`Grid` column:
+
+```jsx
+import { Grid } from '@zendeskgarden/react-grid';
+
+<Grid>
+  <Grid.Row>
+    <Grid.Col sm={4}>
+      <Field>
+        <Field.Label>Example datepicker</Field.Label>
+        <DatePicker value={new Date()} onChange={selectedDate => console.log(selectedDate)}>
+          <Input />
+        </DatePicker>
+      </Field>
+    </Grid.Col>
+  </Grid.Row>
+</Grid>;
+```
+
+For an input that provides its own styling or calendar icon, such as a
+`MediaInput`, set `hasTrigger={false}`. The input then renders exactly as
+provided, without the button or its group, and still opens the calendar when
+clicked or on <kbd>Down Arrow</kbd>.
