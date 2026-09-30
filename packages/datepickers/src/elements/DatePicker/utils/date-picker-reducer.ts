@@ -141,7 +141,7 @@ export type DatePickerAction =
       formatDate?: (date: Date) => string;
     }
   | { type: 'FOCUS_DATE'; value: Date }
-  | { type: 'VALUE_SETTLED'; valid: boolean };
+  | { type: 'VALUE_SETTLED'; valid: boolean; revertedInputValue?: string };
 
 export const datepickerReducer = (
   state: IDatePickerState,
@@ -174,7 +174,9 @@ export const datepickerReducer = (
       return { ...state, previewDate, inputValue, isValueInvalid: false };
     }
     case 'VALUE_SETTLED':
-      return { ...state, isValueInvalid: !action.valid };
+      return action.revertedInputValue === undefined
+        ? { ...state, isValueInvalid: !action.valid }
+        : { ...state, inputValue: action.revertedInputValue, isValueInvalid: false };
     case 'CONTROLLED_LOCALE_CHANGE': {
       const inputValue = formatInputValue({
         date: action.value,

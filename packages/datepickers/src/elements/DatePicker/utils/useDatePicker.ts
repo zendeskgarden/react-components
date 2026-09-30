@@ -53,6 +53,7 @@ export function useDatePicker({
   customParseDate,
   required,
   hasTrigger = true,
+  keepInvalidInput = true,
   disabled,
   readOnly,
   onChange,
@@ -107,10 +108,28 @@ export function useDatePicker({
         customParseDate
       });
 
-      dispatch({ type: 'VALUE_SETTLED', valid: settled.valid });
       onValueSettled?.(settled);
+      dispatch({
+        type: 'VALUE_SETTLED',
+        valid: settled.valid,
+        revertedInputValue:
+          keepInvalidInput || settled.valid || inputValue === ''
+            ? undefined
+            : formatInputValue({ date: value, locale, formatDate })
+      });
     },
-    [state.inputValue, required, minValue, maxValue, customParseDate, onValueSettled]
+    [
+      state.inputValue,
+      required,
+      minValue,
+      maxValue,
+      customParseDate,
+      onValueSettled,
+      keepInvalidInput,
+      value,
+      locale,
+      formatDate
+    ]
   );
 
   const openOrFocusDialog = useCallback(() => {

@@ -743,4 +743,142 @@ describe('DatePicker', () => {
       expect(groups[0]).toHaveAccessibleName('Date');
     });
   });
+
+  describe('keepInvalidInput', () => {
+    const ControlledExample = ({
+      keepInvalidInput,
+      onValueSettled
+    }: Pick<IDatePickerProps, 'keepInvalidInput' | 'onValueSettled'>) => {
+      const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
+
+      return (
+        <>
+          <DatePicker
+            value={value}
+            onChange={setValue}
+            onValueSettled={onValueSettled}
+            keepInvalidInput={keepInvalidInput}
+            minValue={new Date(2019, 0, 1)}
+          >
+            <input data-test-id="input" />
+          </DatePicker>
+          <button data-test-id="outside" type="button">
+            Outside
+          </button>
+        </>
+      );
+    };
+
+    // First in this block: React only logs its unknown-prop warning once per prop name.
+    it('does not pass keepInvalidInput on to the DOM', () => {
+      const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+
+      fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
+
+      expect(consoleError).not.toHaveBeenCalledWith(
+        expect.stringContaining('React does not recognize the `%s` prop on a DOM element'),
+        'keepInvalidInput',
+        expect.anything(),
+        expect.anything()
+      );
+
+      consoleError.mockRestore();
+    });
+
+    const SETTLE_ACTIONS = [
+      [
+        'clicking outside',
+        async (getByTestId: (id: string) => HTMLElement) => {
+          await user.click(getByTestId('outside'));
+        }
+      ],
+      [
+        'pressing Enter',
+        async () => {
+          await user.keyboard('{Enter}');
+        }
+      ],
+      [
+        'pressing Escape',
+        async () => {
+          await user.keyboard('{Escape}');
+        }
+      ]
+    ] as const;
+
+    const typeInto = async (input: HTMLElement, text: string) => {
+      await user.click(input);
+      await user.clear(input);
+      await user.type(input, text);
+    };
+
+    describe.each(SETTLE_ACTIONS)('when settling by %s', (_, settle) => {
+      it('keeps unparseable typed text by default', async () => {
+        const { getByTestId } = render(<ControlledExample />);
+        const input = getByTestId('input');
+
+        await typeInto(input, 'garbage');
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('garbage');
+      });
+
+      it('reverts unparseable typed text to the current value when false', async () => {
+        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        const input = getByTestId('input');
+
+        await typeInto(input, 'garbage');
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('February 5, 2019');
+      });
+
+      it('reverts an out-of-range typed date to the current value when false', async () => {
+        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        const input = getByTestId('input');
+
+        await typeInto(input, '1/1/2018');
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('February 5, 2019');
+      });
+
+      it('keeps a valid typed date in the format it was typed in when false, since it is not invalid', async () => {
+        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        const input = getByTestId('input');
+
+        await typeInto(input, '2/10/2019');
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('2/10/2019');
+      });
+
+      it('still reports what was typed through onValueSettled, before reverting, when false', async () => {
+        const onValueSettledSpy = jest.fn();
+        const { getByTestId } = render(
+          <ControlledExample keepInvalidInput={false} onValueSettled={onValueSettledSpy} />
+        );
+
+        await typeInto(getByTestId('input'), 'garbage');
+        onValueSettledSpy.mockClear();
+        await settle(getByTestId);
+
+        expect(onValueSettledSpy).toHaveBeenCalledWith(
+          expect.objectContaining({ inputValue: 'garbage', valid: false, reason: 'malformed' })
+        );
+      });
+
+      it('does not revert an emptied field when false, so it can still be cleared', async () => {
+        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        const input = getByTestId('input');
+
+        await user.click(input);
+        await user.clear(input);
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('');
+      });
+    });
+  });
 });

@@ -118,6 +118,13 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    * The calendar still opens from the input itself (click, or Down/Alt+Down).
    **/
   hasTrigger?: boolean;
+  /**
+   * Keeps what the user typed when it isn't a valid date, rather than silently replacing it
+   * with the current value - pair it with `onValueSettled` to show why, e.g. in a
+   * `Field.Message`. Set to `false` to revert invalid text to the current value, as in
+   * earlier versions.
+   **/
+  keepInvalidInput?: boolean;
   /** Provides a customized/translated label for the calendar trigger button - or, with `hasTrigger={false}`, for the calendar dialog itself **/
   toggleCalendarLabel?: string;
   /** Provides a customized/translated label for the previous month button, optionally as a function of the target date and its formatted "month year" **/
@@ -210,6 +217,8 @@ export interface IUseDatePickerProps {
   required?: boolean;
   /** Whether a trigger button (and its group) is rendered alongside the input - otherwise the input is the whole widget. Defaults to `true`. **/
   hasTrigger?: boolean;
+  /** Whether invalid typed text stays in the input when it settles, rather than reverting to the current value. Defaults to `true`. **/
+  keepInvalidInput?: boolean;
   /** Mirrors the input's native `disabled` - the calendar can't be opened while set. **/
   disabled?: boolean;
   /** Mirrors the input's native `readOnly` - the calendar can't be opened while set. **/
