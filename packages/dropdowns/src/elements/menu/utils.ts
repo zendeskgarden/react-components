@@ -7,7 +7,7 @@
 
 import { IItemGroupProps, IItemProps } from '../../types';
 import { IMenuItemBase, IMenuItemSeparator, MenuItem } from '@zendeskgarden/container-menu';
-import { Children, ReactNode, isValidElement } from 'react';
+import { Children, Fragment, ReactNode, isValidElement } from 'react';
 
 /**
  * Convert `Item` props to a valid object for `useMenu`.
@@ -33,7 +33,8 @@ export const toItem = (
 
 /**
  * Convert an array of `Item` and `ItemGroup` children to a valid `items`
- * data structure for `useMenu`.
+ * data structure for `useMenu`. Children wrapped in a `Fragment` are
+ * flattened in place, as they render.
  *
  * @param children The `children` prop from `Combobox`.
  * @param type The group type, if any.
@@ -45,7 +46,9 @@ export const toItems = (children: ReactNode, type?: 'radio' | 'checkbox') =>
     const retVal = items;
 
     if (isValidElement(item)) {
-      if ('value' in item.props) {
+      if (item.type === Fragment) {
+        retVal.push(...toItems((item.props as { children?: ReactNode }).children, type));
+      } else if ('value' in item.props) {
         retVal.push(toItem({ ...item.props, selectionType: type }));
       } else {
         const props: IItemGroupProps = item.props;

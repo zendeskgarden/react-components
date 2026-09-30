@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import React, { Fragment, forwardRef } from 'react';
 import { render, renderRtl } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { act } from '@testing-library/react';
@@ -594,6 +594,67 @@ describe('Menu', () => {
 
       expect(item1).toHaveAttribute('aria-checked', 'false');
       expect(item2).toHaveAttribute('aria-checked', 'true');
+    });
+
+    it('navigates items wrapped in a fragment with the keyboard', async () => {
+      const { getByTestId, getByRole } = render(
+        <TestMenu>
+          <>
+            <Item value="Flower" data-test-id="flower" />
+            <Item value="Cactus" data-test-id="cactus" />
+          </>
+          <Separator />
+          <Item value="Fern" data-test-id="fern" />
+        </TestMenu>
+      );
+
+      await floating();
+      const trigger = getByRole('button');
+
+      trigger.focus();
+      await user.keyboard('{ArrowDown}');
+      expect(getByTestId('flower')).toHaveFocus();
+
+      await user.keyboard('{ArrowDown}');
+      expect(getByTestId('cactus')).toHaveFocus();
+
+      await user.keyboard('{ArrowDown}');
+      expect(getByTestId('fern')).toHaveFocus();
+    });
+
+    it('navigates and selects items in groups wrapped in fragments', async () => {
+      const groups = [
+        { legend: 'Plants', items: ['Flower', 'Cactus'] },
+        { legend: 'Trees', items: ['Oak'] }
+      ];
+      const { getByTestId, getByRole } = render(
+        <TestMenu>
+          {groups.map((group, index) => (
+            <Fragment key={group.legend}>
+              {index > 0 && <Separator />}
+              <ItemGroup type="radio" legend={group.legend}>
+                {group.items.map(value => (
+                  <Item key={value} value={value} name="plants" data-test-id={value} />
+                ))}
+              </ItemGroup>
+            </Fragment>
+          ))}
+        </TestMenu>
+      );
+
+      await floating();
+      const trigger = getByRole('button');
+
+      trigger.focus();
+      await user.keyboard('{ArrowDown}');
+      expect(getByTestId('Flower')).toHaveFocus();
+
+      await user.keyboard('{ArrowDown}{ArrowDown}');
+      expect(getByTestId('Oak')).toHaveFocus();
+
+      await user.keyboard('{Enter}');
+      await user.click(trigger);
+      expect(getByTestId('Oak')).toHaveAttribute('aria-checked', 'true');
     });
 
     it('renders with `fallbackPlacements`', async () => {
