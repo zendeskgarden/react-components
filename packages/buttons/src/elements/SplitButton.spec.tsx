@@ -187,6 +187,49 @@ describe('SplitButton', () => {
       expect(overridden).toStrictEqual(explicit);
     });
 
+    it.each(['isBasic', 'isDanger', 'isNeutral', 'isPill', 'isPrimary'] as const)(
+      'lets an explicit false %s win over an inherited true',
+      prop => {
+        const off = { [prop]: false };
+        const overridden = renderSegments(
+          <SplitButton {...{ [prop]: true }}>
+            <Button data-test-id="button" {...off}>
+              Test
+            </Button>
+            <IconButton data-test-id="icon" {...off}>
+              <TestIcon />
+            </IconButton>
+            <ChevronButton data-test-id="chevron" {...off} />
+            <ToggleButton data-test-id="toggle" {...off}>
+              Test
+            </ToggleButton>
+            <ToggleIconButton data-test-id="toggle-icon" {...off}>
+              <TestIcon />
+            </ToggleIconButton>
+          </SplitButton>
+        );
+        const explicit = renderSegments(
+          <SplitButton>
+            <Button data-test-id="button" {...off}>
+              Test
+            </Button>
+            <IconButton data-test-id="icon" {...off}>
+              <TestIcon />
+            </IconButton>
+            <ChevronButton data-test-id="chevron" {...off} />
+            <ToggleButton data-test-id="toggle" {...off}>
+              Test
+            </ToggleButton>
+            <ToggleIconButton data-test-id="toggle-icon" {...off}>
+              <TestIcon />
+            </ToggleIconButton>
+          </SplitButton>
+        );
+
+        expect(overridden).toStrictEqual(explicit);
+      }
+    );
+
     it('lets explicit segment props win', () => {
       const overridden = renderSegments(
         <SplitButton isPrimary size="small">
