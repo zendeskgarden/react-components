@@ -8,13 +8,13 @@
 import React, { forwardRef } from 'react';
 import { IconButton } from './IconButton';
 import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { IIconButtonProps } from '../types';
+import { IChevronButtonProps } from '../types';
 import { useSplitButtonContext } from '../utils/useSplitButtonContext';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
-export const ChevronButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
+export const ChevronButton = forwardRef<HTMLButtonElement, IChevronButtonProps>(
   ({ isBasic, isPill, ...props }, ref) => {
     const splitButton = useSplitButtonContext();
 

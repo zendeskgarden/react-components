@@ -12,7 +12,11 @@ export const SIZE = ['small', 'medium', 'large'] as const;
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
   isDanger?: boolean;
-  /** Specifies the button size */
+  /**
+   * Specifies the button size
+   *
+   * @default medium
+   */
   size?: (typeof SIZE)[number];
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
@@ -58,8 +62,35 @@ export interface IToggleButtonProps extends IButtonProps {
 }
 
 export interface IIconButtonProps extends Omit<IButtonProps, 'isStretched' | 'isLink'> {
+  /**
+   * Applies basic button styling
+   *
+   * @default true
+   */
+  isBasic?: boolean;
+  /**
+   * Applies pill button styling
+   *
+   * @default true
+   */
+  isPill?: boolean;
   /** Rotates icon 180 degrees */
   isRotated?: boolean;
+}
+
+export interface IChevronButtonProps extends IIconButtonProps {
+  /**
+   * Applies basic button styling
+   *
+   * @default false
+   */
+  isBasic?: boolean;
+  /**
+   * Applies pill button styling
+   *
+   * @default false
+   */
+  isPill?: boolean;
 }
 
 export interface IToggleIconButtonProps
