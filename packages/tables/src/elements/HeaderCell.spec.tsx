@@ -162,5 +162,47 @@ describe('HeaderCell', () => {
       expect(getByTestId('rowHeader')).not.toHaveAttribute('scope');
       expect(getByTestId('plainRowHeader')).not.toHaveAttribute('scope');
     });
+
+    it('does not apply the header row default inside cell content', () => {
+      const { getByTestId } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <HeaderCell>
+                <table>
+                  <tbody>
+                    <tr>
+                      <HeaderCell data-test-id="inHeaderCell">Name</HeaderCell>
+                    </tr>
+                  </tbody>
+                </table>
+              </HeaderCell>
+              <Cell>
+                <table>
+                  <tbody>
+                    <tr>
+                      <HeaderCell data-test-id="inCell">Name</HeaderCell>
+                    </tr>
+                  </tbody>
+                </table>
+              </Cell>
+              <td>
+                <Table>
+                  <Body>
+                    <tr>
+                      <HeaderCell data-test-id="inNestedTable">Name</HeaderCell>
+                    </tr>
+                  </Body>
+                </Table>
+              </td>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+      expect(getByTestId('inHeaderCell')).not.toHaveAttribute('scope');
+      expect(getByTestId('inCell')).not.toHaveAttribute('scope');
+      expect(getByTestId('inNestedTable')).not.toHaveAttribute('scope');
+    });
   });
 });

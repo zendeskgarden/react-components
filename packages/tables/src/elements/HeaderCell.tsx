@@ -9,7 +9,7 @@ import React, { forwardRef } from 'react';
 import { IHeaderCellProps } from '../types';
 import { StyledHeaderCell, StyledHiddenCell } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
-import { useHeaderRowContext } from '../utils/useHeaderRowContext';
+import { HeaderRowContext, useHeaderRowContext } from '../utils/useHeaderRowContext';
 import { Cell } from './Cell';
 
 /**
@@ -32,11 +32,14 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
         $hasOverflow={hasOverflow}
         {...props}
       >
-        {hidden && props.children ? (
-          <StyledHiddenCell>{props.children}</StyledHiddenCell>
-        ) : (
-          props.children
-        )}
+        {/* content (for example, a nested table) is not in this header row */}
+        <HeaderRowContext.Provider value={false}>
+          {hidden && props.children ? (
+            <StyledHiddenCell>{props.children}</StyledHiddenCell>
+          ) : (
+            props.children
+          )}
+        </HeaderRowContext.Provider>
       </StyledHeaderCell>
     );
   }
