@@ -69,8 +69,10 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    **/
   onChange?: (date: Date) => void;
   /**
-   * Called when the input value settles (on blur after typing, or when a date is
-   * selected from the calendar), reporting whether the current value is valid
+   * Called when the input value settles - when focus leaves the field, whether or not it
+   * was edited; on Enter or Escape while the calendar is open; as soon as the input is
+   * emptied; or when a date is selected from the calendar - reporting whether the current
+   * value is valid
    *
    * @param {Object} result The settled value
    * @param {Date} [result.date] The parsed or selected date, if valid
@@ -119,7 +121,7 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    **/
   hasTrigger?: boolean;
   /**
-   * Keeps what the user typed when a field settles (on blur, Enter, or Escape) - invalid text,
+   * Keeps what the user typed when a field settles (see `onValueSettled`) - invalid text,
    * an emptied field, or a valid date in the format it was typed in - rather than silently
    * replacing it. Pair it with `onValueSettled` to show why typed text is invalid, e.g. in a
    * `Field.Message`. Set to `false` to show the committed value after a field settles instead,
@@ -165,11 +167,11 @@ export interface IDatePickerRangeProps extends Pick<
   startValue?: Date;
   /** Sets the end date **/
   endValue?: Date;
-  /** Provides a customized/translated description, applied via `aria-describedby`, for interior day buttons within the selected range **/
+  /** Provides a customized/translated label, added to the accessible name of each day inside the selected range **/
   inRangeLabel?: string;
-  /** See `inRangeLabel` - describes the range's start-date day button **/
+  /** See `inRangeLabel` - labels the range's start day **/
   startOfRangeLabel?: string;
-  /** See `inRangeLabel` - describes the range's end-date day button **/
+  /** See `inRangeLabel` - labels the range's end day **/
   endOfRangeLabel?: string;
   /**
    * Handles start and end date changes
@@ -187,9 +189,9 @@ export interface IDatePickerRangeProps extends Pick<
    **/
   customParseDate?: (inputValue?: string) => Date;
   /**
-   * Called when either input's value settles (on blur after typing, or when a date is
-   * selected from the calendar), reporting which field settled and whether its
-   * current value is valid
+   * Called when either input's value settles - when focus leaves the field, whether or not
+   * it was edited; on Enter; as soon as the input is emptied; or when a date is selected
+   * from the calendar - reporting which field settled and whether its current value is valid
    *
    * @param {Object} result The settled value
    * @param {'start'|'end'} result.field Which input settled
