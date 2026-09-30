@@ -6,6 +6,8 @@
  */
 
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { render, renderRtl } from 'garden-test-utils';
 import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
 import { StyledHeaderPaddle } from './StyledHeaderPaddle';
@@ -53,5 +55,42 @@ describe('StyledHeaderPaddle', () => {
     expect(container.firstChild).toHaveStyleRule('width', '32px');
     expect(container.firstChild).toHaveStyleRule('min-width', '32px');
     expect(container.firstChild).toHaveStyleRule('height', '32px');
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    const renderWithOverrides = (components: Record<string, string>) =>
+      render(
+        <ThemeProvider theme={{ ...DEFAULT_THEME, components }}>
+          <StyledHeaderPaddle>
+            <ChevronLeftStrokeIcon />
+          </StyledHeaderPaddle>
+        </ThemeProvider>
+      );
+
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(
+        <StyledHeaderPaddle>
+          <ChevronLeftStrokeIcon />
+        </StyledHeaderPaddle>
+      );
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'datepickers.header_paddle');
+    });
+
+    it('applies a theme override for `datepickers.header_paddle`', () => {
+      const { container } = renderWithOverrides({
+        'datepickers.header_paddle': 'outline: 1px solid red;'
+      });
+
+      expect(container.firstChild).toHaveStyleRule('outline', '1px solid red');
+    });
+
+    it('is not themed by an app-wide `buttons.icon_button` override', () => {
+      const { container } = renderWithOverrides({
+        'buttons.icon_button': 'outline: 1px solid red;'
+      });
+
+      expect(container.firstChild).not.toHaveStyleRule('outline', '1px solid red');
+    });
   });
 });

@@ -24,7 +24,12 @@ const sizeStyles = ({ $isCompact, theme }: IStyledHeaderPaddleProps & ThemeProps
   `;
 };
 
-export const StyledHeaderPaddle = styled(IconButton)<IStyledHeaderPaddleProps>`
+const COMPONENT_ID = 'datepickers.header_paddle';
+
+export const StyledHeaderPaddle = styled(IconButton).attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledHeaderPaddleProps>`
   grid-column: ${props => props.$gridColumn};
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
 
