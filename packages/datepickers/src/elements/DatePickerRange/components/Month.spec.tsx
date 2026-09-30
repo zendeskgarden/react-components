@@ -41,7 +41,7 @@ const Example = (props: IDatePickerRangeProps) => (
 const getDays = (wrapper: HTMLElement) =>
   within(wrapper)
     .getAllByRole('gridcell')
-    .filter(cell => cell.getAttribute('data-test-id') === 'day');
+    .filter(cell => cell.getAttribute('data-test-hidden') === 'false');
 
 describe('Month', () => {
   const user = userEvent.setup();
@@ -87,20 +87,6 @@ describe('Month', () => {
           expect(secondMonthDays[x]).toHaveAttribute('data-test-hidden', 'false');
         }
       }
-    });
-
-    it('renders a visually-hidden date instead of a disabled button in empty previous-month cells', () => {
-      const { getAllByTestId } = render(
-        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
-      );
-
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
-      const emptyDay = firstMonthDays[0];
-
-      expect(emptyDay.tagName).not.toBe('BUTTON');
-      expect(emptyDay).toHaveTextContent('27 January 2019');
-      expect(emptyDay).toHaveAttribute('data-test-hidden', 'true');
     });
 
     it('displays dates with selected and today styling', () => {
@@ -1487,7 +1473,7 @@ describe('Month', () => {
     it('renders no highlight in blank adjacent-month cells', () => {
       const { getAllByRole } = renderRange();
       const blankCells = getAllByRole('gridcell').filter(
-        cell => cell.getAttribute('data-test-id') !== 'day'
+        cell => cell.getAttribute('data-test-hidden') === 'true'
       );
 
       expect(blankCells.length).toBeGreaterThan(0);

@@ -103,12 +103,8 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
 
       if (isPreviousMonth) {
         return (
-          <td key={date.toISOString()} role="gridcell">
-            <StyledCalendarItem>
-              <Span hidden data-test-id="day" data-test-hidden="true">
-                {formatFullDate(date, locale)}
-              </Span>
-            </StyledCalendarItem>
+          <td key={date.toISOString()} role="gridcell" data-test-id="day" data-test-hidden="true">
+            <StyledCalendarItem />
           </td>
         );
       }
