@@ -69,7 +69,7 @@ export function useDatePickerRange({
   rtl,
   formatDate,
   customParseDate,
-  keepInvalidInput = true,
+  keepTypedInput = true,
   onChange,
   onValueSettled,
   startInputRef,
@@ -537,10 +537,9 @@ export function useDatePickerRange({
     dispatch({
       type: 'START_BLUR',
       isRejected,
-      revertedInputValue:
-        isRejected && !keepInvalidInput
-          ? formatValue({ value: startValue, locale, formatDate })
-          : undefined
+      settledInputValue: keepTypedInput
+        ? undefined
+        : formatValue({ value: isParsedDateValid ? parsedDate : startValue, locale, formatDate })
     });
 
     if (isParsedDateValid && !isSameDay(parsedDate, startValue!)) {
@@ -557,7 +556,7 @@ export function useDatePickerRange({
     customParseDate,
     state.startInputValue,
     reportStartSettled,
-    keepInvalidInput,
+    keepTypedInput,
     locale,
     formatDate
   ]);
@@ -742,10 +741,9 @@ export function useDatePickerRange({
     dispatch({
       type: 'END_BLUR',
       isRejected,
-      revertedInputValue:
-        isRejected && !keepInvalidInput
-          ? formatValue({ value: endValue, locale, formatDate })
-          : undefined
+      settledInputValue: keepTypedInput
+        ? undefined
+        : formatValue({ value: isParsedDateValid ? parsedDate : endValue, locale, formatDate })
     });
 
     if (isParsedDateValid && !isSameDay(parsedDate, endValue!)) {
@@ -762,7 +760,7 @@ export function useDatePickerRange({
     customParseDate,
     state.endInputValue,
     reportEndSettled,
-    keepInvalidInput,
+    keepTypedInput,
     locale,
     formatDate
   ]);
@@ -1030,7 +1028,7 @@ export function useDatePickerRange({
           disabledOrReadOnlyField: getDisabledOrReadOnlyField()
         });
 
-        if (selection.isOutOfOrder && !keepInvalidInput) {
+        if (selection.isOutOfOrder && !keepTypedInput) {
           selection = {
             startValue: date,
             endValue: undefined,
@@ -1157,7 +1155,7 @@ export function useDatePickerRange({
       isCalendarDisabled,
       isCalendarReadOnly,
       getDisabledOrReadOnlyField,
-      keepInvalidInput,
+      keepTypedInput,
       requestCellFocus,
       locale,
       formatDate

@@ -744,11 +744,11 @@ describe('DatePicker', () => {
     });
   });
 
-  describe('keepInvalidInput', () => {
+  describe('keepTypedInput', () => {
     const ControlledExample = ({
-      keepInvalidInput,
+      keepTypedInput,
       onValueSettled
-    }: Pick<IDatePickerProps, 'keepInvalidInput' | 'onValueSettled'>) => {
+    }: Pick<IDatePickerProps, 'keepTypedInput' | 'onValueSettled'>) => {
       const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
 
       return (
@@ -757,7 +757,7 @@ describe('DatePicker', () => {
             value={value}
             onChange={setValue}
             onValueSettled={onValueSettled}
-            keepInvalidInput={keepInvalidInput}
+            keepTypedInput={keepTypedInput}
             minValue={new Date(2019, 0, 1)}
           >
             <input data-test-id="input" />
@@ -770,15 +770,15 @@ describe('DatePicker', () => {
     };
 
     // First in this block: React only logs its unknown-prop warning once per prop name.
-    it('does not pass keepInvalidInput on to the DOM', () => {
+    it('does not pass keepTypedInput on to the DOM', () => {
       const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
-      const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+      const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
 
       fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
 
       expect(consoleError).not.toHaveBeenCalledWith(
         expect.stringContaining('React does not recognize the `%s` prop on a DOM element'),
-        'keepInvalidInput',
+        'keepTypedInput',
         expect.anything(),
         expect.anything()
       );
@@ -825,7 +825,7 @@ describe('DatePicker', () => {
       });
 
       it('reverts unparseable typed text to the current value when false', async () => {
-        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
         const input = getByTestId('input');
 
         await typeInto(input, 'garbage');
@@ -835,7 +835,7 @@ describe('DatePicker', () => {
       });
 
       it('reverts an out-of-range typed date to the current value when false', async () => {
-        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
         const input = getByTestId('input');
 
         await typeInto(input, '1/1/2018');
@@ -844,8 +844,8 @@ describe('DatePicker', () => {
         expect(input).toHaveValue('February 5, 2019');
       });
 
-      it('keeps a valid typed date in the format it was typed in when false, since it is not invalid', async () => {
-        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+      it('keeps a valid typed date in the format it was typed in by default', async () => {
+        const { getByTestId } = render(<ControlledExample />);
         const input = getByTestId('input');
 
         await typeInto(input, '2/10/2019');
@@ -854,10 +854,20 @@ describe('DatePicker', () => {
         expect(input).toHaveValue('2/10/2019');
       });
 
+      it('reformats a valid typed date to the committed value when false, as in earlier versions', async () => {
+        const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
+        const input = getByTestId('input');
+
+        await typeInto(input, '2/10/2019');
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('February 10, 2019');
+      });
+
       it('still reports what was typed through onValueSettled, before reverting, when false', async () => {
         const onValueSettledSpy = jest.fn();
         const { getByTestId } = render(
-          <ControlledExample keepInvalidInput={false} onValueSettled={onValueSettledSpy} />
+          <ControlledExample keepTypedInput={false} onValueSettled={onValueSettledSpy} />
         );
 
         await typeInto(getByTestId('input'), 'garbage');
@@ -869,8 +879,8 @@ describe('DatePicker', () => {
         );
       });
 
-      it('does not revert an emptied field when false, so it can still be cleared', async () => {
-        const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+      it('keeps an emptied field empty by default', async () => {
+        const { getByTestId } = render(<ControlledExample />);
         const input = getByTestId('input');
 
         await user.click(input);
@@ -878,6 +888,17 @@ describe('DatePicker', () => {
         await settle(getByTestId);
 
         expect(input).toHaveValue('');
+      });
+
+      it('restores the committed value in an emptied field when false, as in earlier versions', async () => {
+        const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
+        const input = getByTestId('input');
+
+        await user.click(input);
+        await user.clear(input);
+        await settle(getByTestId);
+
+        expect(input).toHaveValue('February 5, 2019');
       });
     });
   });

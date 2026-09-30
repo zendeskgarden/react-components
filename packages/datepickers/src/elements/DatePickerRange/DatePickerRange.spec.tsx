@@ -159,13 +159,13 @@ describe('DatePickerRange', () => {
       expect(getByTestId('end')).toHaveValue('March 5, 2019');
     });
 
-    it('commits the new start and clears the end, as before, when the new start is after the existing end and keepInvalidInput is false', async () => {
+    it('commits the new start and clears the end, as before, when the new start is after the existing end and keepTypedInput is false', async () => {
       const { getAllByTestId, getByTestId } = render(
         <Example
           endValue={DEFAULT_END_VALUE}
           onChange={onChangeSpy}
           onValueSettled={onValueSettledSpy}
-          keepInvalidInput={false}
+          keepTypedInput={false}
         />
       );
 
@@ -1836,11 +1836,11 @@ describe('DatePickerRange', () => {
     });
   });
 
-  describe('keepInvalidInput', () => {
+  describe('keepTypedInput', () => {
     const ControlledExample = ({
-      keepInvalidInput,
+      keepTypedInput,
       onValueSettled
-    }: Pick<IDatePickerRangeProps, 'keepInvalidInput' | 'onValueSettled'>) => {
+    }: Pick<IDatePickerRangeProps, 'keepTypedInput' | 'onValueSettled'>) => {
       const [range, setRange] = useState<{ startValue?: Date; endValue?: Date }>({
         startValue: DEFAULT_START_VALUE,
         endValue: DEFAULT_END_VALUE
@@ -1852,7 +1852,7 @@ describe('DatePickerRange', () => {
           endValue={range.endValue}
           onChange={setRange}
           onValueSettled={onValueSettled}
-          keepInvalidInput={keepInvalidInput}
+          keepTypedInput={keepTypedInput}
           minValue={new Date(2019, 0, 1)}
         >
           <DatePickerRange.Start>
@@ -1875,14 +1875,18 @@ describe('DatePickerRange', () => {
       {
         field: 'start',
         committed: 'February 5, 2019',
-        outOfOrder: '4/1/2019'
+        outOfOrder: '4/1/2019',
+        typed: '2/10/2019',
+        reformatted: 'February 10, 2019'
       },
       {
         field: 'end',
         committed: 'March 5, 2019',
-        outOfOrder: '1/10/2019'
+        outOfOrder: '1/10/2019',
+        typed: '3/10/2019',
+        reformatted: 'March 10, 2019'
       }
-    ] as const)('for $field', ({ field, committed, outOfOrder }) => {
+    ] as const)('for $field', ({ field, committed, outOfOrder, typed, reformatted }) => {
       describe.each([
         [
           'blurring',
@@ -1912,7 +1916,7 @@ describe('DatePickerRange', () => {
           ['an out-of-range date', '1/1/2018'],
           ['an out-of-order date', outOfOrder]
         ])('reverts %s to the committed value when false', async (__, text) => {
-          const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+          const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
           const input = getByTestId(field);
 
           await typeInto(input, text);
@@ -1924,7 +1928,7 @@ describe('DatePickerRange', () => {
         it('still reports what was typed through onValueSettled, before reverting, when false', async () => {
           const onValueSettledSpy = jest.fn();
           const { getByTestId } = render(
-            <ControlledExample keepInvalidInput={false} onValueSettled={onValueSettledSpy} />
+            <ControlledExample keepTypedInput={false} onValueSettled={onValueSettledSpy} />
           );
 
           await typeInto(getByTestId(field), 'garbage');
@@ -1941,14 +1945,24 @@ describe('DatePickerRange', () => {
           );
         });
 
-        it('does not revert an emptied field when false, so it can still be cleared', async () => {
-          const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+        it('restores the committed value in an emptied field when false, as in earlier versions', async () => {
+          const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
           const input = getByTestId(field);
 
           await user.clear(input);
           await settle();
 
-          expect(input).toHaveValue('');
+          expect(input).toHaveValue(committed);
+        });
+
+        it('reformats a valid typed date to the committed value when false, as in earlier versions', async () => {
+          const { getByTestId } = render(<ControlledExample keepTypedInput={false} />);
+          const input = getByTestId(field);
+
+          await typeInto(input, typed);
+          await settle();
+
+          expect(input).toHaveValue(reformatted);
         });
       });
     });

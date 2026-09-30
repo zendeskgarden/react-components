@@ -53,7 +53,7 @@ export function useDatePicker({
   customParseDate,
   required,
   hasTrigger = true,
-  keepInvalidInput = true,
+  keepTypedInput = true,
   disabled,
   readOnly,
   onChange,
@@ -112,10 +112,9 @@ export function useDatePicker({
       dispatch({
         type: 'VALUE_SETTLED',
         valid: settled.valid,
-        revertedInputValue:
-          keepInvalidInput || settled.valid || inputValue === ''
-            ? undefined
-            : formatInputValue({ date: value, locale, formatDate })
+        settledInputValue: keepTypedInput
+          ? undefined
+          : formatInputValue({ date: settled.date ?? value, locale, formatDate })
       });
     },
     [
@@ -125,7 +124,7 @@ export function useDatePicker({
       maxValue,
       customParseDate,
       onValueSettled,
-      keepInvalidInput,
+      keepTypedInput,
       value,
       locale,
       formatDate

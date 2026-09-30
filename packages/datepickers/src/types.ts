@@ -119,12 +119,14 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
    **/
   hasTrigger?: boolean;
   /**
-   * Keeps what the user typed when it isn't a valid date, rather than silently replacing it
-   * with the current value - pair it with `onValueSettled` to show why, e.g. in a
-   * `Field.Message`. Set to `false` to revert invalid text to the current value, as in
-   * earlier versions.
+   * Keeps what the user typed when a field settles (on blur, Enter, or Escape) - invalid text,
+   * an emptied field, or a valid date in the format it was typed in - rather than silently
+   * replacing it. Pair it with `onValueSettled` to show why typed text is invalid, e.g. in a
+   * `Field.Message`. Set to `false` to show the committed value after a field settles instead,
+   * as in earlier versions: invalid text reverts, an emptied field is restored, and a valid date
+   * is reformatted.
    **/
-  keepInvalidInput?: boolean;
+  keepTypedInput?: boolean;
   /** Provides a customized/translated label for the calendar trigger button - or, with `hasTrigger={false}`, for the calendar dialog itself **/
   toggleCalendarLabel?: string;
   /** Provides a customized/translated label for the previous month button, optionally as a function of the target date and its formatted "month year" **/
@@ -151,7 +153,7 @@ export interface IDatePickerRangeProps extends Pick<
   | 'maxValue'
   | 'formatDate'
   | 'isCompact'
-  | 'keepInvalidInput'
+  | 'keepTypedInput'
   | 'previousMonthLabel'
   | 'nextMonthLabel'
   | 'previousYearLabel'
@@ -218,8 +220,8 @@ export interface IUseDatePickerProps {
   required?: boolean;
   /** Whether a trigger button (and its group) is rendered alongside the input - otherwise the input is the whole widget. Defaults to `true`. **/
   hasTrigger?: boolean;
-  /** Whether invalid typed text stays in the input when it settles, rather than reverting to the current value. Defaults to `true`. **/
-  keepInvalidInput?: boolean;
+  /** Whether the input keeps what was typed when it settles, rather than showing the committed value. Defaults to `true`. **/
+  keepTypedInput?: boolean;
   /** Mirrors the input's native `disabled` - the calendar can't be opened while set. **/
   disabled?: boolean;
   /** Mirrors the input's native `readOnly` - the calendar can't be opened while set. **/
@@ -284,8 +286,8 @@ export interface IUseDatePickerRangeProps {
   rtl?: boolean;
   formatDate?: (date: Date) => string;
   customParseDate?: (inputValue?: string) => Date;
-  /** Whether invalid typed text stays in a field when it settles, rather than reverting to that field's current value. Defaults to `true`. **/
-  keepInvalidInput?: boolean;
+  /** Whether a field keeps what was typed when it settles, rather than showing that field's committed value. Defaults to `true`. **/
+  keepTypedInput?: boolean;
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
   /** The rendered Start/End text inputs, created by the caller since they're merged with consumer-supplied refs. **/
