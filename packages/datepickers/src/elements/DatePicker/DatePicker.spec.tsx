@@ -420,6 +420,53 @@ describe('DatePicker', () => {
         reason: 'malformed'
       });
     });
+
+    describe('when the already-selected day is picked after an invalid entry', () => {
+      const pickSelectedDayAfterInvalidEntry = async (keepTypedInput?: boolean) => {
+        const result = render(
+          <Example
+            value={DEFAULT_DATE}
+            keepTypedInput={keepTypedInput}
+            onChange={onChangeSpy}
+            onValueSettled={onValueSettledSpy}
+          />
+        );
+        const input = result.getByTestId('input');
+
+        fireEvent.change(input, { target: { value: 'garbage' } });
+        fireEvent.blur(input);
+
+        await user.click(result.getByTestId('calendar-button'));
+        await user.click(result.container.querySelector('[data-test-today="true"]')!);
+
+        return result;
+      };
+
+      it.each([true, false])(
+        'reports the selection as valid without calling onChange, with keepTypedInput=%s',
+        async keepTypedInput => {
+          await pickSelectedDayAfterInvalidEntry(keepTypedInput);
+
+          expect(onValueSettledSpy).toHaveBeenLastCalledWith({
+            date: DEFAULT_DATE,
+            inputValue: 'February 5, 2019',
+            valid: true
+          });
+          expect(onChangeSpy).not.toHaveBeenCalled();
+        }
+      );
+
+      it('shows the day as selected when the calendar reopens', async () => {
+        const { container, getByTestId } = await pickSelectedDayAfterInvalidEntry();
+
+        await user.click(getByTestId('calendar-button'));
+
+        expect(container.querySelector('[data-test-today="true"]')).toHaveAttribute(
+          'aria-selected',
+          'true'
+        );
+      });
+    });
   });
 
   describe('wrapper click', () => {

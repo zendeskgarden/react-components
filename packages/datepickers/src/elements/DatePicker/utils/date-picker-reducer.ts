@@ -194,7 +194,12 @@ export const datepickerReducer = (
         formatDate: action.formatDate
       });
 
-      return { ...state, isOpen: !!action.keepOpen && state.isOpen, inputValue };
+      return {
+        ...state,
+        isOpen: !!action.keepOpen && state.isOpen,
+        inputValue,
+        isValueInvalid: false
+      };
     }
     case 'FOCUS_DATE': {
       const focusedDate = action.value;

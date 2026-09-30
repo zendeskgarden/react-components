@@ -432,12 +432,13 @@ export function useDatePicker({
 
         if (!(value && isSameDay(value, date))) {
           onChange?.(date);
-          onValueSettled?.({
-            date,
-            inputValue: formatInputValue({ date, locale, formatDate }),
-            valid: true
-          });
         }
+
+        onValueSettled?.({
+          date,
+          inputValue: formatInputValue({ date, locale, formatDate }),
+          valid: true
+        });
 
         dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate, keepOpen });
 
