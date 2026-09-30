@@ -1426,4 +1426,81 @@ describe('Month', () => {
       }
     });
   });
+
+  describe('theming structure', () => {
+    const TINT = 'rgba(31,115,183,0.08)';
+
+    const getItems = (cell: HTMLElement) =>
+      Array.from(cell.children).filter(
+        child => child.getAttribute('data-garden-id') === 'datepickers.calendar_item'
+      ) as HTMLElement[];
+
+    const getHighlight = (cell: HTMLElement) =>
+      cell.querySelector<HTMLElement>("[data-garden-id='datepickers.highlight']");
+
+    const renderRange = () =>
+      render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+    it("wraps every cell's content - days and blank adjacent-month cells - in a single calendar_item", () => {
+      const { getAllByRole } = renderRange();
+
+      getAllByRole('gridcell').forEach(cell => {
+        expect(cell.children).toHaveLength(1);
+        expect(getItems(cell)).toHaveLength(1);
+      });
+    });
+
+    it("wraps each weekday header's content in a single calendar_item", () => {
+      const { getAllByRole } = renderRange();
+
+      getAllByRole('columnheader').forEach(header => {
+        expect(header.children).toHaveLength(1);
+        expect(getItems(header)).toHaveLength(1);
+      });
+    });
+
+    it("renders an aria-hidden highlight inside each day, mirroring its cell's range state", () => {
+      const { getAllByTestId } = renderRange();
+
+      getAllByTestId('calendar-wrapper').forEach(wrapper => {
+        getDays(wrapper).forEach(cell => {
+          const highlight = getHighlight(cell);
+
+          expect(highlight).not.toBeNull();
+          expect(getItems(cell)[0]).toContainElement(highlight);
+          expect(highlight).toHaveAttribute('aria-hidden', 'true');
+          expect(highlight).toHaveAttribute('data-test-id', 'highlight');
+
+          ['data-test-highlighted', 'data-test-start', 'data-test-end'].forEach(attribute => {
+            expect(highlight).toHaveAttribute(attribute, cell.getAttribute(attribute));
+          });
+        });
+      });
+    });
+
+    it('renders no highlight in blank adjacent-month cells', () => {
+      const { getAllByRole } = renderRange();
+      const blankCells = getAllByRole('gridcell').filter(
+        cell => cell.getAttribute('data-test-id') !== 'day'
+      );
+
+      expect(blankCells.length).toBeGreaterThan(0);
+      blankCells.forEach(cell => expect(getHighlight(cell)).toBeNull());
+    });
+
+    it('paints the range band on the highlight, not on the cell', () => {
+      const { getAllByTestId } = renderRange();
+      const middleDay = getDays(getAllByTestId('calendar-wrapper')[0])[14]; // February 15, 2019
+
+      expect(middleDay).toHaveAttribute('data-test-highlighted', 'true');
+      expect(middleDay).not.toHaveStyleRule('background-color', TINT);
+      expect(getHighlight(middleDay)).toHaveStyleRule('background-color', TINT);
+    });
+  });
 });

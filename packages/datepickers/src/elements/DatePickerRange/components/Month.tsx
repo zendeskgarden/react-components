@@ -23,8 +23,10 @@ import {
   StyledCalendarHeading,
   StyledCalendarTable,
   StyledCalendarRow,
+  StyledCalendarItem,
   StyledDayNumber,
-  StyledDayCell
+  StyledDayCell,
+  StyledHighlight
 } from '../../../styled';
 import { WeekdayHeaderRow } from '../../../components/WeekdayHeaderRow';
 import {
@@ -102,9 +104,11 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
       if (isPreviousMonth) {
         return (
           <td key={date.toISOString()} role="gridcell">
-            <Span hidden data-test-id="day" data-test-hidden="true">
-              {formatFullDate(date, locale)}
-            </Span>
+            <StyledCalendarItem>
+              <Span hidden data-test-id="day" data-test-hidden="true">
+                {formatFullDate(date, locale)}
+              </Span>
+            </StyledCalendarItem>
           </td>
         );
       }
@@ -226,9 +230,6 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
         <StyledDayCell
           key={date.toISOString()}
           role="gridcell"
-          $isHighlighted={!isInvalidDateRange && showHighlighted}
-          $isHighlightStart={!isInvalidDateRange && showHighlightStartGradient}
-          $isHighlightEnd={!isInvalidDateRange && showHighlightEndGradient}
           data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
           data-test-start={!isInvalidDateRange && isHighlightStart}
           data-test-end={!isInvalidDateRange && isHighlightEnd}
@@ -241,26 +242,38 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
           aria-selected={!isInvalidDateRange && isSelected}
           data-test-selected={!isInvalidDateRange && isSelected}
         >
-          <StyledDayNumber
-            $isCompact={isCompact}
-            $isPreviousMonth={isPreviousMonth}
-            $isInRange={!isInvalidDateRange && showHighlighted}
-            aria-hidden="true"
-          >
-            {formattedDayLabel}
-          </StyledDayNumber>
-          <Span hidden data-test-id="full-date">
-            {formatFullDate(date, locale)}
-          </Span>
-          {isDescribedAsInRange ? (
-            <Span
-              hidden
-              lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
-              data-test-id="in-range-description"
+          <StyledCalendarItem>
+            <StyledHighlight
+              $isHighlighted={!isInvalidDateRange && showHighlighted}
+              $isHighlightStart={!isInvalidDateRange && showHighlightStartGradient}
+              $isHighlightEnd={!isInvalidDateRange && showHighlightEndGradient}
+              aria-hidden="true"
+              data-test-id="highlight"
+              data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
+              data-test-start={!isInvalidDateRange && isHighlightStart}
+              data-test-end={!isInvalidDateRange && isHighlightEnd}
+            />
+            <StyledDayNumber
+              $isCompact={isCompact}
+              $isPreviousMonth={isPreviousMonth}
+              $isInRange={!isInvalidDateRange && showHighlighted}
+              aria-hidden="true"
             >
-              {`⁠ ${inRangeDescriptionText}`}
+              {formattedDayLabel}
+            </StyledDayNumber>
+            <Span hidden data-test-id="full-date">
+              {formatFullDate(date, locale)}
             </Span>
-          ) : null}
+            {isDescribedAsInRange ? (
+              <Span
+                hidden
+                lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
+                data-test-id="in-range-description"
+              >
+                {`⁠ ${inRangeDescriptionText}`}
+              </Span>
+            ) : null}
+          </StyledCalendarItem>
         </StyledDayCell>
       );
     });

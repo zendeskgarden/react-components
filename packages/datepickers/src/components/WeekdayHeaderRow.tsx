@@ -9,7 +9,12 @@ import React from 'react';
 import { Span } from '@zendeskgarden/react-typography';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
 import { addDays } from 'date-fns/addDays';
-import { StyledCalendarRow, StyledDayLabel, StyledDayLabelHeader } from '../styled';
+import {
+  StyledCalendarItem,
+  StyledCalendarRow,
+  StyledDayLabel,
+  StyledDayLabelHeader
+} from '../styled';
 import { formatFullWeekdayLabel, formatWeekdayLabel } from '../utils/calendar-utils';
 import { IWeekdayHeaderRowProps } from '../types';
 
@@ -29,12 +34,14 @@ export const WeekdayHeaderRow = ({
           $isCompact={isCompact}
           scope="col"
         >
-          <StyledDayLabel $isCompact={isCompact} aria-hidden="true" data-test-id="day-label">
-            {formattedDayLabel}
-          </StyledDayLabel>
-          <Span hidden data-test-id="day-label-full">
-            {formatFullWeekdayLabel(date, locale)}
-          </Span>
+          <StyledCalendarItem>
+            <StyledDayLabel $isCompact={isCompact} aria-hidden="true" data-test-id="day-label">
+              {formattedDayLabel}
+            </StyledDayLabel>
+            <Span hidden data-test-id="day-label-full">
+              {formatFullWeekdayLabel(date, locale)}
+            </Span>
+          </StyledCalendarItem>
         </StyledDayLabelHeader>
       );
     }

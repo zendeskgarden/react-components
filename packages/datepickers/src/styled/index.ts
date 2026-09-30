@@ -24,3 +24,5 @@ export { StyledCalendarButton } from './StyledCalendarButton';
 export { StyledCalendarRow } from './StyledCalendarRow';
 export { StyledDayNumber } from './StyledDayNumber';
 export { StyledDayCell } from './StyledDayCell';
+export { StyledCalendarItem } from './StyledCalendarItem';
+export { StyledHighlight } from './StyledHighlight';

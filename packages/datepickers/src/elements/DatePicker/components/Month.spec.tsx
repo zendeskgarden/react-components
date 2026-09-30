@@ -785,4 +785,37 @@ describe('Month', () => {
       });
     });
   });
+
+  describe('theming structure', () => {
+    const getItem = (cell: HTMLElement) =>
+      Array.from(cell.children).filter(
+        child => child.getAttribute('data-garden-id') === 'datepickers.calendar_item'
+      );
+
+    it("wraps each day cell's content in a single calendar_item", async () => {
+      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      getAllByTestId('day').forEach(cell => {
+        expect(cell.children).toHaveLength(1);
+        expect(getItem(cell)).toHaveLength(1);
+        expect(getItem(cell)[0].querySelector("[data-garden-id='datepickers.day']")).not.toBeNull();
+      });
+    });
+
+    it("wraps each weekday header's content in a single calendar_item", async () => {
+      const { getByTestId, getAllByRole } = render(<Example value={DEFAULT_DATE} />);
+
+      await user.click(getByTestId('calendar-button'));
+
+      const headers = getAllByRole('columnheader');
+
+      expect(headers).toHaveLength(7);
+      headers.forEach(header => {
+        expect(header.children).toHaveLength(1);
+        expect(getItem(header)).toHaveLength(1);
+      });
+    });
+  });
 });

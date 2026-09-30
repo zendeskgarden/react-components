@@ -5,47 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled from 'styled-components';
+import { componentStyles } from '@zendeskgarden/react-theming';
 import { StyledCalendarTable } from './StyledCalendarTable';
-
-interface IStyledDayCellProps {
-  $isHighlighted?: boolean;
-  $isHighlightStart?: boolean;
-  $isHighlightEnd?: boolean;
-}
-
-const highlightStyles = ({
-  $isHighlightStart,
-  $isHighlightEnd,
-  theme
-}: IStyledDayCellProps & ThemeProps<DefaultTheme>) => {
-  const tint = getColor({
-    variable: 'background.primaryEmphasis',
-    transparency: theme.opacity[100],
-    theme
-  });
-
-  if (!$isHighlightStart && !$isHighlightEnd) {
-    return css`
-      background-color: ${tint};
-    `;
-  }
-
-  const isTintTrailing = ($isHighlightStart && !theme.rtl) || ($isHighlightEnd && theme.rtl);
-  const direction = isTintTrailing ? 'to right' : 'to left';
-
-  return css`
-    background-image: linear-gradient(${direction}, transparent 50%, ${tint} 50%);
-  `;
-};
 
 const COMPONENT_ID = 'datepickers.day_cell';
 
 export const StyledDayCell = styled.td.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
-})<IStyledDayCellProps>`
+})`
   margin: 0;
   cursor: pointer;
   padding: 0;
@@ -59,8 +28,6 @@ export const StyledDayCell = styled.td.attrs({
   ${StyledCalendarTable}[aria-readonly='true'] & {
     cursor: default;
   }
-
-  ${props => props.$isHighlighted && highlightStyles(props)}
 
   ${componentStyles};
 `;

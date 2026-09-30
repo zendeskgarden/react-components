@@ -17,6 +17,7 @@ import {
   StyledCalendarHeading,
   StyledCalendarTable,
   StyledCalendarRow,
+  StyledCalendarItem,
   StyledDayCell,
   StyledDayNumber
 } from '../../../styled';
@@ -55,16 +56,18 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerMonthProps>(
           aria-roledescription={selectableCellRoleDescriptionText}
           {...getCellProps({ date })}
         >
-          <StyledDayNumber
-            $isCompact={isCompact}
-            $isPreviousMonth={isPreviousMonth}
-            aria-hidden="true"
-          >
-            {formattedDayLabel}
-          </StyledDayNumber>
-          <Span hidden data-test-id="full-date">
-            {formatFullDate(date, locale)}
-          </Span>
+          <StyledCalendarItem>
+            <StyledDayNumber
+              $isCompact={isCompact}
+              $isPreviousMonth={isPreviousMonth}
+              aria-hidden="true"
+            >
+              {formattedDayLabel}
+            </StyledDayNumber>
+            <Span hidden data-test-id="full-date">
+              {formatFullDate(date, locale)}
+            </Span>
+          </StyledCalendarItem>
         </StyledDayCell>
       );
     });
