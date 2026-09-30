@@ -238,6 +238,7 @@ export function useDatePicker({
 
       const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === KEYS.ESCAPE) {
+          e.stopPropagation();
           settleValue();
           dispatch({ type: 'CLOSE' });
           inputRef.current?.focus();
@@ -334,6 +335,10 @@ export function useDatePicker({
           (e.key === KEYS.ESCAPE || e.key === KEYS.ENTER || (e.key === KEYS.TAB && !e.shiftKey)) &&
           state.isOpen
         ) {
+          if (e.key === KEYS.ESCAPE) {
+            e.stopPropagation();
+          }
+
           settleValue();
           dispatch({ type: 'CLOSE' });
         }

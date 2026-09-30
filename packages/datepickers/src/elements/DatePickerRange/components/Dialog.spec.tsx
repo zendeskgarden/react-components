@@ -385,6 +385,46 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('Escape propagation', () => {
+    const escapeCalls = (spy: jest.Mock) =>
+      spy.mock.calls.filter(([e]) => e.key === 'Escape').length;
+
+    it.each(['trigger', 'start', 'end'] as const)(
+      'keeps an Escape that closes the dialog, opened from %s, from reaching ancestors, e.g. a Modal',
+      async opener => {
+        const onAncestorKeyDown = jest.fn();
+        const { getByTestId } = render(
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+          <div onKeyDown={onAncestorKeyDown}>
+            <Example />
+          </div>
+        );
+
+        await user.click(getByTestId(opener));
+        await user.keyboard('{Escape}');
+
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(escapeCalls(onAncestorKeyDown)).toBe(0);
+      }
+    );
+
+    it('lets Escape reach ancestors while the dialog is closed', async () => {
+      const onAncestorKeyDown = jest.fn();
+      const { getByTestId } = render(
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div onKeyDown={onAncestorKeyDown}>
+          <Example />
+        </div>
+      );
+
+      await user.click(getByTestId('start'));
+      await user.keyboard('{Escape}');
+      await user.keyboard('{Escape}');
+
+      expect(escapeCalls(onAncestorKeyDown)).toBe(1);
+    });
+  });
+
   describe('Automatic combobox wiring', () => {
     it('opens the dialog when Start is clicked', async () => {
       const { getByTestId } = render(

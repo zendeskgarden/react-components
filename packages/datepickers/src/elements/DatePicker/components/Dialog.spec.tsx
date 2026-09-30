@@ -226,6 +226,49 @@ describe('Dialog', () => {
     expect(dialog).toHaveAttribute('inert', '');
   });
 
+  describe('Escape propagation', () => {
+    const escapeCalls = (spy: jest.Mock) =>
+      spy.mock.calls.filter(([e]) => e.key === KEYS.ESCAPE).length;
+
+    it.each([
+      ['the grid', true],
+      ['the input', false]
+    ])(
+      'keeps an Escape that closes the calendar from %s from reaching ancestors, e.g. a Modal',
+      async (_, fromGrid) => {
+        const onAncestorKeyDown = jest.fn();
+        const { getByTestId } = render(
+          // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+          <div onKeyDown={onAncestorKeyDown}>
+            <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+          </div>
+        );
+
+        await user.click(fromGrid ? getByTestId('calendar-button') : getByTestId('input'));
+        await user.keyboard('{Escape}');
+
+        expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+        expect(escapeCalls(onAncestorKeyDown)).toBe(0);
+      }
+    );
+
+    it('lets Escape reach ancestors while the calendar is closed', async () => {
+      const onAncestorKeyDown = jest.fn();
+      const { getByTestId } = render(
+        // eslint-disable-next-line jsx-a11y/no-static-element-interactions
+        <div onKeyDown={onAncestorKeyDown}>
+          <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+        </div>
+      );
+
+      await user.click(getByTestId('input'));
+      await user.keyboard('{Escape}');
+      await user.keyboard('{Escape}');
+
+      expect(escapeCalls(onAncestorKeyDown)).toBe(1);
+    });
+  });
+
   describe('Roving tabindex invariant', () => {
     it('keeps exactly one day cell tabindex="0", matching the actually-focused cell, when reopening after a mouse-click selection', async () => {
       const ControlledExample = ({

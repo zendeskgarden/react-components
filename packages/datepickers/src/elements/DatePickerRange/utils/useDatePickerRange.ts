@@ -404,6 +404,7 @@ export function useDatePickerRange({
 
       const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === KEYS.ESCAPE) {
+          e.stopPropagation();
           setIsOpen(false);
           (lastActiveFieldRef.current ?? startInputRef.current)?.focus();
         }
@@ -670,6 +671,7 @@ export function useDatePickerRange({
           handleStartBlur();
           setIsOpen(false);
         } else if (e.key === KEYS.ESCAPE && isOpen) {
+          e.stopPropagation();
           setIsOpen(false);
         }
       };
@@ -900,6 +902,10 @@ export function useDatePickerRange({
           handleEndBlur();
           setIsOpen(false);
         } else if ((e.key === KEYS.ESCAPE || (e.key === KEYS.TAB && !e.shiftKey)) && isOpen) {
+          if (e.key === KEYS.ESCAPE) {
+            e.stopPropagation();
+          }
+
           setIsOpen(false);
         }
       };
