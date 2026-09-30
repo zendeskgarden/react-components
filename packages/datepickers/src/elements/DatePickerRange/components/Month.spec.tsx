@@ -89,6 +89,20 @@ describe('Month', () => {
       }
     });
 
+    it('leaves blank adjacent-month cells empty, so they have no accessible name', () => {
+      const { container } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const blankCells = container.querySelectorAll('[data-test-hidden="true"]');
+
+      expect(blankCells.length).toBeGreaterThan(0);
+
+      blankCells.forEach(cell => {
+        expect(cell.textContent).toBe('');
+      });
+    });
+
     it('displays dates with selected and today styling', () => {
       const { getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
