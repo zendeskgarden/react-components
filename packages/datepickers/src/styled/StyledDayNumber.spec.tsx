@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { DEFAULT_THEME, PALETTE, getColor } from '@zendeskgarden/react-theming';
+import { ThemeProvider } from 'styled-components';
 import { getRenderFn, render } from 'garden-test-utils';
 import { StyledDayCell } from './StyledDayCell';
 import { StyledDayNumber } from './StyledDayNumber';
@@ -219,6 +220,26 @@ describe('StyledDayNumber', () => {
       expect(container.firstChild).not.toHaveStyleRule('background-color', 'transparent', {
         modifier: `${StyledDayCell}[aria-disabled='true']:hover &`
       });
+    });
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('has the correct `data-garden-id`', () => {
+      const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', 'datepickers.day');
+    });
+
+    it('applies a theme override for `datepickers.day`', () => {
+      const { container } = render(
+        <ThemeProvider
+          theme={{ ...DEFAULT_THEME, components: { 'datepickers.day': 'outline: 1px solid red;' } }}
+        >
+          <StyledDayNumber $isCompact={false}>5</StyledDayNumber>
+        </ThemeProvider>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('outline', '1px solid red');
     });
   });
 });

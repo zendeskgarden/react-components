@@ -110,7 +110,12 @@ const focusRingStyles = ({ theme }: ThemeProps<DefaultTheme>) =>
     selector: `${StyledDayCell}:focus-visible &`
   });
 
-export const StyledDayNumber = styled.div<IStyledDayNumberProps>`
+const COMPONENT_ID = 'datepickers.day';
+
+export const StyledDayNumber = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})<IStyledDayNumberProps>`
   transition: none;
   cursor: pointer;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
