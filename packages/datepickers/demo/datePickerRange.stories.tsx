@@ -71,6 +71,7 @@ export const Example: StoryObj<typeof DatePickerRangeStory> = {
       options: DATE_STYLE_OPTIONS,
       table: { category: 'Story' }
     },
+    keepInvalidInput: { control: 'boolean' },
     ...RANGE_FIELD_ARG_TYPES
   },
   parameters: {
@@ -119,6 +120,7 @@ export const InDialog: StoryObj<typeof DatePickerRangeDialogStory> = {
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
     isCompact: { control: 'boolean' },
+    keepInvalidInput: { control: 'boolean' },
     ...RANGE_FIELD_ARG_TYPES
   }
 };
@@ -160,6 +162,7 @@ export const InDialogComboboxGroup: StoryObj<typeof DatePickerRangeDialogCombobo
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
     isCompact: { control: 'boolean' },
+    keepInvalidInput: { control: 'boolean' },
     ...RANGE_FIELD_ARG_TYPES
   }
 };

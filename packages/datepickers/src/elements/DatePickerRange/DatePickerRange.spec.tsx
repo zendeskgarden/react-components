@@ -1807,4 +1807,122 @@ describe('DatePickerRange', () => {
       expect(groups[1]).toHaveAccessibleName('End date');
     });
   });
+
+  describe('keepInvalidInput', () => {
+    const ControlledExample = ({
+      keepInvalidInput,
+      onValueSettled
+    }: Pick<IDatePickerRangeProps, 'keepInvalidInput' | 'onValueSettled'>) => {
+      const [range, setRange] = useState<{ startValue?: Date; endValue?: Date }>({
+        startValue: DEFAULT_START_VALUE,
+        endValue: DEFAULT_END_VALUE
+      });
+
+      return (
+        <DatePickerRange
+          startValue={range.startValue}
+          endValue={range.endValue}
+          onChange={setRange}
+          onValueSettled={onValueSettled}
+          keepInvalidInput={keepInvalidInput}
+          minValue={new Date(2019, 0, 1)}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+    };
+
+    const typeInto = async (input: HTMLElement, text: string) => {
+      await user.clear(input);
+      await user.type(input, text);
+    };
+
+    describe.each([
+      {
+        field: 'start',
+        committed: 'February 5, 2019',
+        outOfOrder: '4/1/2019'
+      },
+      {
+        field: 'end',
+        committed: 'March 5, 2019',
+        outOfOrder: '1/10/2019'
+      }
+    ] as const)('for $field', ({ field, committed, outOfOrder }) => {
+      describe.each([
+        [
+          'blurring',
+          async () => {
+            await user.tab();
+          }
+        ],
+        [
+          'pressing Enter',
+          async () => {
+            await user.keyboard('{Enter}');
+          }
+        ]
+      ] as const)('when settling by %s', (_, settle) => {
+        it('keeps unparseable typed text by default', async () => {
+          const { getByTestId } = render(<ControlledExample />);
+          const input = getByTestId(field);
+
+          await typeInto(input, 'garbage');
+          await settle();
+
+          expect(input).toHaveValue('garbage');
+        });
+
+        it.each([
+          ['unparseable text', 'garbage'],
+          ['an out-of-range date', '1/1/2018'],
+          ['an out-of-order date', outOfOrder]
+        ])('reverts %s to the committed value when false', async (__, text) => {
+          const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+          const input = getByTestId(field);
+
+          await typeInto(input, text);
+          await settle();
+
+          expect(input).toHaveValue(committed);
+        });
+
+        it('still reports what was typed through onValueSettled, before reverting, when false', async () => {
+          const onValueSettledSpy = jest.fn();
+          const { getByTestId } = render(
+            <ControlledExample keepInvalidInput={false} onValueSettled={onValueSettledSpy} />
+          );
+
+          await typeInto(getByTestId(field), 'garbage');
+          onValueSettledSpy.mockClear();
+          await settle();
+
+          expect(onValueSettledSpy).toHaveBeenCalledWith(
+            expect.objectContaining({
+              field,
+              inputValue: 'garbage',
+              valid: false,
+              reason: 'malformed'
+            })
+          );
+        });
+
+        it('does not revert an emptied field when false, so it can still be cleared', async () => {
+          const { getByTestId } = render(<ControlledExample keepInvalidInput={false} />);
+          const input = getByTestId(field);
+
+          await user.clear(input);
+          await settle();
+
+          expect(input).toHaveValue('');
+        });
+      });
+    });
+  });
 });

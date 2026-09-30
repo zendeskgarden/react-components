@@ -246,8 +246,8 @@ export type DatePickerRangeAction =
   | { type: 'PREVIEW_PREVIOUS_YEAR' }
   | { type: 'START_INPUT_ONCHANGE'; value: string }
   | { type: 'END_INPUT_ONCHANGE'; value: string }
-  | { type: 'START_BLUR'; isRejected: boolean }
-  | { type: 'END_BLUR'; isRejected: boolean }
+  | { type: 'START_BLUR'; isRejected: boolean; revertedInputValue?: string }
+  | { type: 'END_BLUR'; isRejected: boolean; revertedInputValue?: string }
   | { type: 'START_FOCUS'; startValue?: Date }
   | { type: 'END_FOCUS'; endValue?: Date }
   | {
@@ -301,9 +301,23 @@ export const datepickerRangeReducer = (
       return { ...state, previewDate, isEndFocused: true, isStartFocused: false };
     }
     case 'START_BLUR':
-      return { ...state, isStartFocused: false, isStartValueInvalid: action.isRejected };
+      return action.revertedInputValue === undefined
+        ? { ...state, isStartFocused: false, isStartValueInvalid: action.isRejected }
+        : {
+            ...state,
+            isStartFocused: false,
+            isStartValueInvalid: false,
+            startInputValue: action.revertedInputValue
+          };
     case 'END_BLUR':
-      return { ...state, isEndFocused: false, isEndValueInvalid: action.isRejected };
+      return action.revertedInputValue === undefined
+        ? { ...state, isEndFocused: false, isEndValueInvalid: action.isRejected }
+        : {
+            ...state,
+            isEndFocused: false,
+            isEndValueInvalid: false,
+            endInputValue: action.revertedInputValue
+          };
     case 'CONTROLLED_START_VALUE_CHANGE': {
       const startInputValue = formatValue({
         value: action.value,

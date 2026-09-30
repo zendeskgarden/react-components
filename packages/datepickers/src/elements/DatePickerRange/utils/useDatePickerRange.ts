@@ -69,6 +69,7 @@ export function useDatePickerRange({
   rtl,
   formatDate,
   customParseDate,
+  keepInvalidInput = true,
   onChange,
   onValueSettled,
   startInputRef,
@@ -519,9 +520,15 @@ export function useDatePickerRange({
       isDateWithinRange(parsedDate, minValue, maxValue) &&
       !(endValue !== undefined && isAfter(parsedDate, endValue));
 
+    const isRejected = !isParsedDateValid && !!state.startInputValue;
+
     dispatch({
       type: 'START_BLUR',
-      isRejected: !isParsedDateValid && !!state.startInputValue
+      isRejected,
+      revertedInputValue:
+        isRejected && !keepInvalidInput
+          ? formatValue({ value: startValue, locale, formatDate })
+          : undefined
     });
 
     if (isParsedDateValid && !isSameDay(parsedDate, startValue!)) {
@@ -537,7 +544,10 @@ export function useDatePickerRange({
     maxValue,
     customParseDate,
     state.startInputValue,
-    reportStartSettled
+    reportStartSettled,
+    keepInvalidInput,
+    locale,
+    formatDate
   ]);
 
   const handleStartBlur = useCallback(
@@ -715,9 +725,15 @@ export function useDatePickerRange({
       isDateWithinRange(parsedDate, minValue, maxValue) &&
       !(startValue !== undefined && isBefore(parsedDate, startValue));
 
+    const isRejected = !isParsedDateValid && !!state.endInputValue;
+
     dispatch({
       type: 'END_BLUR',
-      isRejected: !isParsedDateValid && !!state.endInputValue
+      isRejected,
+      revertedInputValue:
+        isRejected && !keepInvalidInput
+          ? formatValue({ value: endValue, locale, formatDate })
+          : undefined
     });
 
     if (isParsedDateValid && !isSameDay(parsedDate, endValue!)) {
@@ -733,7 +749,10 @@ export function useDatePickerRange({
     maxValue,
     customParseDate,
     state.endInputValue,
-    reportEndSettled
+    reportEndSettled,
+    keepInvalidInput,
+    locale,
+    formatDate
   ]);
 
   const handleEndBlur = useCallback(

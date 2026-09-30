@@ -151,6 +151,7 @@ export interface IDatePickerRangeProps extends Pick<
   | 'maxValue'
   | 'formatDate'
   | 'isCompact'
+  | 'keepInvalidInput'
   | 'previousMonthLabel'
   | 'nextMonthLabel'
   | 'previousYearLabel'
@@ -283,6 +284,8 @@ export interface IUseDatePickerRangeProps {
   rtl?: boolean;
   formatDate?: (date: Date) => string;
   customParseDate?: (inputValue?: string) => Date;
+  /** Whether invalid typed text stays in a field when it settles, rather than reverting to that field's current value. Defaults to `true`. **/
+  keepInvalidInput?: boolean;
   onChange?: (values: { startValue?: Date; endValue?: Date }) => void;
   onValueSettled?: (result: IDatePickerRangeValueSettledResult) => void;
   /** The rendered Start/End text inputs, created by the caller since they're merged with consumer-supplied refs. **/
