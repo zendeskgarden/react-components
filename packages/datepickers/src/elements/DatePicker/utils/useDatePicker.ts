@@ -88,7 +88,11 @@ export function useDatePicker({
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
   const isDisabledOrReadOnly = !!(disabled || readOnly);
 
+  /** Set once an emptied input has been reported, so leaving it afterwards doesn't report the same clear again. */
+  const isEmptyReportedRef = useRef(false);
+
   useEffect(() => {
+    isEmptyReportedRef.current = false;
     dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value, locale, formatDate, customParseDate });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
@@ -108,7 +112,11 @@ export function useDatePicker({
         customParseDate
       });
 
-      onValueSettled?.(settled);
+      if (!(inputValue === '' && isEmptyReportedRef.current)) {
+        onValueSettled?.(settled);
+      }
+
+      isEmptyReportedRef.current = inputValue === '';
       dispatch({
         type: 'VALUE_SETTLED',
         valid: settled.valid,
@@ -279,6 +287,10 @@ export function useDatePicker({
           onChange(currentDate);
         } else if (inputValue === '' && state.inputValue !== '') {
           settleValue(inputValue);
+        }
+
+        if (inputValue !== '') {
+          isEmptyReportedRef.current = false;
         }
 
         justClosedViaSelectionRef.current = false;

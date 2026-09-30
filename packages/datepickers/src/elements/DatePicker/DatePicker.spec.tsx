@@ -902,4 +902,78 @@ describe('DatePicker', () => {
       });
     });
   });
+
+  describe('clearing', () => {
+    const ClearingExample = ({
+      child = <input data-test-id="input" />,
+      ...props
+    }: Omit<IDatePickerProps, 'children'> & { child?: React.ReactElement }) => (
+      <>
+        <DatePicker value={DEFAULT_DATE} onChange={onChangeSpy} {...props}>
+          {child}
+        </DatePicker>
+        <button data-test-id="outside" type="button">
+          Outside
+        </button>
+      </>
+    );
+
+    it.each([
+      ['by default', undefined],
+      ['when keepTypedInput is false', false]
+    ])(
+      'does not call onChange with undefined when the field is emptied, %s',
+      async (_, keepTypedInput) => {
+        const { getByTestId } = render(<ClearingExample keepTypedInput={keepTypedInput} />);
+
+        await user.clear(getByTestId('input'));
+        await user.click(getByTestId('outside'));
+
+        expect(onChangeSpy).not.toHaveBeenCalled();
+      }
+    );
+
+    it('reports a keyboard clear through onValueSettled only once, even after leaving the field', async () => {
+      const onValueSettledSpy = jest.fn();
+      const { getByTestId } = render(<ClearingExample onValueSettled={onValueSettledSpy} />);
+
+      await user.clear(getByTestId('input'));
+      await user.click(getByTestId('outside'));
+
+      expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('reports a clear button clear through onValueSettled only once, even after leaving the field', async () => {
+      const onValueSettledSpy = jest.fn();
+      const { getByRole, getByTestId } = render(
+        <ClearingExample
+          onValueSettled={onValueSettledSpy}
+          child={<ClearableInput data-test-id="input" />}
+        />
+      );
+
+      await user.click(getByRole('button', { name: 'Clear' }));
+      await user.click(getByTestId('outside'));
+
+      expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+    });
+
+    it('does not restore the committed value mid-edit when keepTypedInput is false, only once the field settles', async () => {
+      const { getByTestId } = render(<ClearingExample keepTypedInput={false} />);
+      const input = getByTestId('input');
+
+      await user.clear(input);
+
+      expect(input).toHaveValue('');
+
+      await user.type(input, 'Feb 1');
+
+      expect(input).toHaveValue('Feb 1');
+    });
+  });
 });

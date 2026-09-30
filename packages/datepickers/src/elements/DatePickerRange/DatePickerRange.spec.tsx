@@ -2061,4 +2061,97 @@ describe('DatePickerRange', () => {
       });
     });
   });
+
+  describe('clearing', () => {
+    const ClearingExample = ({
+      startRequired,
+      ...props
+    }: IDatePickerRangeProps & { startRequired?: boolean }) => (
+      <DatePickerRange
+        startValue={DEFAULT_START_VALUE}
+        endValue={DEFAULT_END_VALUE}
+        onChange={onChangeSpy}
+        {...props}
+      >
+        <DatePickerRange.Start>
+          <input data-test-id="start" required={startRequired} />
+        </DatePickerRange.Start>
+        <DatePickerRange.End>
+          <input data-test-id="end" />
+        </DatePickerRange.End>
+        <DatePickerRange.Calendar />
+      </DatePickerRange>
+    );
+
+    describe.each([
+      { field: 'start', expected: { startValue: undefined, endValue: DEFAULT_END_VALUE } },
+      { field: 'end', expected: { startValue: DEFAULT_START_VALUE, endValue: undefined } }
+    ] as const)('for $field', ({ field, expected }) => {
+      it.each([
+        [
+          'blurring',
+          async () => {
+            await user.tab();
+          }
+        ],
+        [
+          'pressing Enter',
+          async () => {
+            await user.keyboard('{Enter}');
+          }
+        ]
+      ])('commits undefined once a keyboard-emptied field settles by %s', async (_, settle) => {
+        const { getByTestId } = render(<ClearingExample />);
+
+        await user.clear(getByTestId(field));
+        await settle();
+
+        expect(onChangeSpy).toHaveBeenCalledTimes(1);
+        expect(onChangeSpy).toHaveBeenCalledWith(expected);
+      });
+
+      it('reports the clear through onValueSettled only once, even after leaving the field', async () => {
+        const onValueSettledSpy = jest.fn();
+        const { getByTestId } = render(<ClearingExample onValueSettled={onValueSettledSpy} />);
+
+        await user.clear(getByTestId(field));
+        await user.tab();
+
+        expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+        expect(onValueSettledSpy).toHaveBeenCalledWith({
+          field,
+          date: undefined,
+          inputValue: '',
+          valid: true
+        });
+      });
+
+      it('does not commit undefined when keepTypedInput is false, restoring the committed value instead', async () => {
+        const { getByTestId } = render(<ClearingExample keepTypedInput={false} />);
+
+        await user.clear(getByTestId(field));
+        await user.tab();
+
+        expect(onChangeSpy).not.toHaveBeenCalled();
+      });
+    });
+
+    it('commits undefined for a required field too, reporting it as required', async () => {
+      const onValueSettledSpy = jest.fn();
+      const { getByTestId } = render(
+        <ClearingExample startRequired onValueSettled={onValueSettledSpy} />
+      );
+
+      await user.clear(getByTestId('start'));
+      await user.tab();
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: undefined,
+        endValue: DEFAULT_END_VALUE
+      });
+      expect(onValueSettledSpy).toHaveBeenCalledWith(
+        expect.objectContaining({ field: 'start', valid: false, reason: 'required' })
+      );
+    });
+  });
 });

@@ -552,7 +552,7 @@ describe('DatePickerRange', () => {
       });
     });
 
-    it('calls onChange with endValue undefined when a ClearableInput clear button is clicked, even without onValueSettled wired', async () => {
+    it('calls onChange with endValue undefined once a field cleared by its ClearableInput clear button is left, not on the click itself', async () => {
       const { getByRole } = render(
         <DatePickerRange
           startValue={DEFAULT_START_VALUE}
@@ -571,6 +571,11 @@ describe('DatePickerRange', () => {
 
       await user.click(getByRole('button', { name: 'Clear' }));
 
+      expect(onChangeSpy).not.toHaveBeenCalled();
+
+      await user.tab();
+
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
         endValue: undefined

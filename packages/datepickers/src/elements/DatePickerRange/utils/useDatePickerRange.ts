@@ -88,7 +88,12 @@ export function useDatePickerRange({
     retrieveInitialState({ startValue, endValue, locale, formatDate } as any)
   );
 
+  /** Set once an emptied field has been reported, so leaving it afterwards doesn't report the same clear again. */
+  const isStartEmptyReportedRef = useRef(false);
+  const isEndEmptyReportedRef = useRef(false);
+
   useEffect(() => {
+    isStartEmptyReportedRef.current = false;
     dispatch({
       type: 'CONTROLLED_START_VALUE_CHANGE',
       value: startValue,
@@ -100,6 +105,7 @@ export function useDatePickerRange({
   }, [startValue]);
 
   useEffect(() => {
+    isEndEmptyReportedRef.current = false;
     dispatch({
       type: 'CONTROLLED_END_VALUE_CHANGE',
       value: endValue,
@@ -518,7 +524,11 @@ export function useDatePickerRange({
         customParseDate
       });
 
-      onValueSettled?.({ field: 'start', ...settled });
+      if (!(inputValue === '' && isStartEmptyReportedRef.current)) {
+        onValueSettled?.({ field: 'start', ...settled });
+      }
+
+      isStartEmptyReportedRef.current = inputValue === '';
     },
     [state.startInputValue, endValue, minValue, maxValue, customParseDate, onValueSettled]
   );
@@ -544,6 +554,8 @@ export function useDatePickerRange({
 
     if (isParsedDateValid && !isSameDay(parsedDate, startValue!)) {
       onChange?.({ startValue: parsedDate, endValue });
+    } else if (!state.startInputValue && keepTypedInput && startValue !== undefined) {
+      onChange?.({ startValue: undefined, endValue });
     }
 
     reportStartSettled();
@@ -641,16 +653,10 @@ export function useDatePickerRange({
         justClosedViaSelectionRef.current = false;
         dispatch({ type: 'START_INPUT_ONCHANGE', value: inputValue });
 
-        if (inputValue === '' && state.startInputValue !== '') {
+        if (inputValue !== '') {
+          isStartEmptyReportedRef.current = false;
+        } else if (state.startInputValue !== '') {
           reportStartSettled(inputValue);
-
-          // A `ClearableInput`'s clear button dispatches a plain `Event`, not a real
-          // `InputEvent` (which typing/backspacing always produces), so this is how we tell
-          // "user explicitly cleared the field" apart from incidental backspacing mid-edit -
-          // only the former should commit immediately, without waiting for blur.
-          if (!(e.nativeEvent instanceof InputEvent) && startValue !== undefined) {
-            onChange?.({ startValue: undefined, endValue });
-          }
         }
       };
 
@@ -702,9 +708,7 @@ export function useDatePickerRange({
       handleStartBlur,
       handleWidgetBlur,
       startInputRef,
-      startValue,
-      endValue,
-      onChange
+      startValue
     ]
   );
 
@@ -722,7 +726,11 @@ export function useDatePickerRange({
         customParseDate
       });
 
-      onValueSettled?.({ field: 'end', ...settled });
+      if (!(inputValue === '' && isEndEmptyReportedRef.current)) {
+        onValueSettled?.({ field: 'end', ...settled });
+      }
+
+      isEndEmptyReportedRef.current = inputValue === '';
     },
     [state.endInputValue, startValue, minValue, maxValue, customParseDate, onValueSettled]
   );
@@ -748,6 +756,8 @@ export function useDatePickerRange({
 
     if (isParsedDateValid && !isSameDay(parsedDate, endValue!)) {
       onChange?.({ startValue, endValue: parsedDate });
+    } else if (!state.endInputValue && keepTypedInput && endValue !== undefined) {
+      onChange?.({ startValue, endValue: undefined });
     }
 
     reportEndSettled();
@@ -873,15 +883,10 @@ export function useDatePickerRange({
         justClosedViaSelectionRef.current = false;
         dispatch({ type: 'END_INPUT_ONCHANGE', value: inputValue });
 
-        if (inputValue === '' && state.endInputValue !== '') {
+        if (inputValue !== '') {
+          isEndEmptyReportedRef.current = false;
+        } else if (state.endInputValue !== '') {
           reportEndSettled(inputValue);
-
-          // See the equivalent comment in getStartInputProps: a `ClearableInput`'s clear
-          // button dispatches a plain `Event`, not a real `InputEvent`, which is how we tell
-          // an explicit clear apart from incidental backspacing mid-edit.
-          if (!(e.nativeEvent instanceof InputEvent) && endValue !== undefined) {
-            onChange?.({ startValue, endValue: undefined });
-          }
         }
       };
 
@@ -933,9 +938,7 @@ export function useDatePickerRange({
       handleEndBlur,
       handleWidgetBlur,
       endInputRef,
-      endValue,
-      startValue,
-      onChange
+      endValue
     ]
   );
 
