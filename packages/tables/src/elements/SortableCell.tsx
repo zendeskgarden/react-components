@@ -16,6 +16,7 @@ import {
   StyledSortableStrokeIconWrapper,
   StyledSortableFillIconWrapper
 } from '../styled';
+import { useRowContext } from '../utils/useRowContext';
 
 /**
  * @deprecated use `Table.SortableCell` instead
@@ -24,7 +25,8 @@ import {
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
   ({ sort, cellProps = {}, width, children, ...sortableButtonProps }, ref) => {
-    const { isMinimum, isTruncated, hasOverflow, ...otherCellProps } = cellProps;
+    const { isMinimum, isTruncated, hasOverflow, scope, ...otherCellProps } = cellProps;
+    const { headerCellScope } = useRowContext();
     let ariaSortValue = 'none';
 
     if (sort === 'asc') {
@@ -38,6 +40,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
     return (
       <StyledHeaderCell
         aria-sort={ariaSortValue}
+        scope={scope ?? headerCellScope}
         width={width}
         $isMinimum={isMinimum}
         $isTruncated={isTruncated}

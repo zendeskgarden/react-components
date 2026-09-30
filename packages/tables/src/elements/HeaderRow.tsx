@@ -8,6 +8,9 @@
 import React, { HTMLAttributes } from 'react';
 import { StyledHeaderRow } from '../styled';
 import { useTableContext } from '../utils/useTableContext';
+import { RowContext } from '../utils/useRowContext';
+
+const HEADER_ROW_CONTEXT = { headerCellScope: 'col' } as const;
 
 /**
  * @deprecated use `Table.HeaderRow` instead
@@ -18,7 +21,11 @@ export const HeaderRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HT
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledHeaderRow ref={ref} $size={size} {...props} />;
+    return (
+      <RowContext.Provider value={HEADER_ROW_CONTEXT}>
+        <StyledHeaderRow ref={ref} $size={size} {...props} />
+      </RowContext.Provider>
+    );
   }
 );
 

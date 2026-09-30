@@ -76,4 +76,36 @@ describe('SortableCell', () => {
       ` as any
     });
   });
+
+  describe('scope', () => {
+    it('defaults to column scope in a header row', () => {
+      const { getByTestId } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell cellProps={{ 'data-test-id': 'cell' }}>Name</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+      expect(getByTestId('cell')).toHaveAttribute('scope', 'col');
+    });
+
+    it('keeps an explicit scope from cell props', () => {
+      const { getByTestId } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell cellProps={{ 'data-test-id': 'cell', scope: 'colgroup' }}>
+                Name
+              </SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+      expect(getByTestId('cell')).toHaveAttribute('scope', 'colgroup');
+    });
+  });
 });

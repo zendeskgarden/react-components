@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { ITableProps, SIZE } from '../types';
 import { StyledTable } from '../styled';
 import { TableContext } from '../utils/useTableContext';
+import { RowContext } from '../utils/useRowContext';
 import { Head } from './Head';
 import { Body } from './Body';
 import { Caption } from './Caption';
@@ -20,6 +21,8 @@ import { HeaderRow } from './HeaderRow';
 import { OverflowButton } from './OverflowButton';
 import { Row } from './Row';
 import { SortableCell } from './SortableCell';
+
+const NO_ROW_CONTEXT = {};
 
 /**
  * @extends TableHTMLAttributes<HTMLTableElement>
@@ -33,7 +36,10 @@ export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
 
     return (
       <TableContext.Provider value={tableContextValue}>
-        <StyledTable ref={ref} {...props} />
+        {/* reset row context so a nested table does not inherit an outer row's scope */}
+        <RowContext.Provider value={NO_ROW_CONTEXT}>
+          <StyledTable ref={ref} {...props} />
+        </RowContext.Provider>
       </TableContext.Provider>
     );
   }
