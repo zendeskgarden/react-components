@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, SVGAttributes } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, SVGAttributes } from 'react';
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
@@ -28,6 +28,25 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isPill?: boolean;
   /** Applies inset `box-shadow` styling on focus */
   focusInset?: boolean;
+}
+
+/*
+ * Each variant applies to the buttons inside the split button. A button's own
+ * prop takes precedence.
+ */
+export interface ISplitButtonProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies danger styling to the contained buttons */
+  isDanger?: boolean;
+  /** Specifies the size of the contained buttons */
+  size?: (typeof SIZE)[number];
+  /** Applies neutral styling to the contained buttons */
+  isNeutral?: boolean;
+  /** Applies primary styling to the contained buttons */
+  isPrimary?: boolean;
+  /** Applies basic styling to the contained buttons */
+  isBasic?: boolean;
+  /** Applies pill styling to the contained buttons */
+  isPill?: boolean;
 }
 
 export interface IToggleButtonProps extends IButtonProps {
