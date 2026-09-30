@@ -45,6 +45,41 @@ const Example = ({
 describe('DatePickerRange.Dialog', () => {
   const user = userEvent.setup({ delay: null });
 
+  describe('scroll region', () => {
+    it.each([
+      { label: 'overflow: auto', style: { overflow: 'auto' } },
+      {
+        label: 'overflow-y: auto alongside overflow-x: hidden',
+        style: { overflowX: 'hidden', overflowY: 'auto' }
+      },
+      { label: 'overflow: scroll', style: { overflowX: 'scroll', overflowY: 'scroll' } }
+    ] as const)(
+      "caps a consumer's own vertically scrolling region to the available height, with $label",
+      async ({ style }) => {
+        const { getByTestId } = render(
+          <DatePickerRange>
+            <DatePickerRange.Start>
+              <input data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" />
+            </DatePickerRange.End>
+            <DatePickerRange.Trigger data-test-id="trigger" />
+            <DatePickerRange.Dialog>
+              <div data-test-id="scroll-region" style={style}>
+                <DatePickerRange.Calendar />
+              </div>
+            </DatePickerRange.Dialog>
+          </DatePickerRange>
+        );
+
+        await user.click(getByTestId('trigger'));
+
+        await waitFor(() => expect(getByTestId('scroll-region').style.maxHeight).toMatch(/px$/u));
+      }
+    );
+  });
+
   describe('Styled menu', () => {
     it('applies StyledMenuWrapper and StyledMenu Garden component IDs', async () => {
       const { getByTestId } = render(<Example />);
