@@ -58,7 +58,9 @@ describe('SplitButton', () => {
       { isPill: true },
       { size: 'small' },
       { size: 'large' },
-      { isPrimary: true, isDanger: true, size: 'small' }
+      { isPrimary: true, isDanger: true, size: 'small' },
+      { isBasic: false, isPill: false },
+      { isBasic: true, isPill: true }
     ] as const;
 
     it.each(variants)('styles its segments as %o by default', variant => {
@@ -94,6 +96,95 @@ describe('SplitButton', () => {
       );
 
       expect(inherited).toStrictEqual(explicit);
+    });
+
+    it.each([{ isBasic: false }, { isPill: false }] as const)(
+      'turns off an icon button default with %o',
+      variant => {
+        const { getByTestId } = render(
+          <>
+            <SplitButton {...variant}>
+              <IconButton data-test-id="icon">
+                <TestIcon />
+              </IconButton>
+              <ToggleIconButton data-test-id="toggle-icon">
+                <TestIcon />
+              </ToggleIconButton>
+            </SplitButton>
+            <SplitButton>
+              <IconButton data-test-id="icon-default">
+                <TestIcon />
+              </IconButton>
+              <ToggleIconButton data-test-id="toggle-icon-default">
+                <TestIcon />
+              </ToggleIconButton>
+            </SplitButton>
+          </>
+        );
+
+        ['icon', 'toggle-icon'].forEach(testId => {
+          expect(getByTestId(testId).className).not.toBe(
+            getByTestId(`${testId}-default`).className
+          );
+        });
+      }
+    );
+
+    it.each([{ isBasic: true }, { isPill: true }] as const)(
+      'turns on a chevron button default with %o',
+      variant => {
+        const { getByTestId } = render(
+          <>
+            <SplitButton {...variant}>
+              <ChevronButton data-test-id="chevron" />
+            </SplitButton>
+            <SplitButton>
+              <ChevronButton data-test-id="chevron-default" />
+            </SplitButton>
+          </>
+        );
+
+        expect(getByTestId('chevron').className).not.toBe(getByTestId('chevron-default').className);
+      }
+    );
+
+    it('lets explicit boolean segment props win over inherited ones', () => {
+      const overridden = renderSegments(
+        <SplitButton isBasic={false} isPill={false}>
+          <Button data-test-id="button" isBasic isPill>
+            Test
+          </Button>
+          <IconButton data-test-id="icon" isBasic isPill>
+            <TestIcon />
+          </IconButton>
+          <ChevronButton data-test-id="chevron" isBasic isPill />
+          <ToggleButton data-test-id="toggle" isBasic isPill>
+            Test
+          </ToggleButton>
+          <ToggleIconButton data-test-id="toggle-icon" isBasic isPill>
+            <TestIcon />
+          </ToggleIconButton>
+        </SplitButton>
+      );
+      const explicit = renderSegments(
+        <SplitButton>
+          <Button data-test-id="button" isBasic isPill>
+            Test
+          </Button>
+          <IconButton data-test-id="icon" isBasic isPill>
+            <TestIcon />
+          </IconButton>
+          <ChevronButton data-test-id="chevron" isBasic isPill />
+          <ToggleButton data-test-id="toggle" isBasic isPill>
+            Test
+          </ToggleButton>
+          <ToggleIconButton data-test-id="toggle-icon" isBasic isPill>
+            <TestIcon />
+          </ToggleIconButton>
+        </SplitButton>
+      );
+
+      expect(overridden).toStrictEqual(explicit);
     });
 
     it('lets explicit segment props win', () => {
@@ -180,6 +271,44 @@ describe('SplitButton', () => {
 
       ['isprimary', 'isdanger', 'isneutral', 'isbasic', 'ispill', 'size'].forEach(attribute => {
         expect(element).not.toHaveAttribute(attribute);
+      });
+    });
+
+    it('keeps segment defaults outside a split button', () => {
+      const { getByTestId } = render(
+        <>
+          <Button data-test-id="button">Test</Button>
+          <Button data-test-id="button-default" size="medium">
+            Test
+          </Button>
+          <IconButton data-test-id="icon">
+            <TestIcon />
+          </IconButton>
+          <IconButton data-test-id="icon-default" isBasic isPill size="medium">
+            <TestIcon />
+          </IconButton>
+          <ChevronButton data-test-id="chevron" />
+          <ChevronButton
+            data-test-id="chevron-default"
+            isBasic={false}
+            isPill={false}
+            size="medium"
+          />
+          <ToggleButton data-test-id="toggle">Test</ToggleButton>
+          <ToggleButton data-test-id="toggle-default" size="medium">
+            Test
+          </ToggleButton>
+          <ToggleIconButton data-test-id="toggle-icon">
+            <TestIcon />
+          </ToggleIconButton>
+          <ToggleIconButton data-test-id="toggle-icon-default" isBasic isPill size="medium">
+            <TestIcon />
+          </ToggleIconButton>
+        </>
+      );
+
+      ['button', 'icon', 'chevron', 'toggle', 'toggle-icon'].forEach(testId => {
+        expect(getByTestId(testId).className).toBe(getByTestId(`${testId}-default`).className);
       });
     });
 
