@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { CalendarButton } from '../../../components/CalendarButton';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
@@ -14,16 +14,20 @@ import { IDatePickerRangeTriggerProps } from '../../../types';
 
 /**
  * More than one `Trigger` may be composed at once (e.g. one per field) -
- * `getTriggerProps` tracks each one's ref, so blur/focus detection treats
+ * each registers its ref, so blur/focus detection treats
  * all of them as part of the same open widget. Inside a `StartGroup`/
  * `EndGroup` it's disabled along with that group's field; outside either,
  * only once both fields are disabled or read-only.
  */
 export const Trigger = ({ toggleCalendarLabel, ...props }: IDatePickerRangeTriggerProps) => {
-  const { isCompact, getTriggerProps } = useDatePickerContext();
+  const { isCompact, getTriggerProps, registerTriggerRef } = useDatePickerContext();
   const field = useDatePickerRangeFieldContext();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => registerTriggerRef(triggerRef), [registerTriggerRef]);
+
   const getFieldTriggerProps = useCallback<typeof getTriggerProps>(
-    triggerProps => getTriggerProps({ ...triggerProps, field }),
+    triggerProps => getTriggerProps({ ...triggerProps, ref: triggerRef, field }),
     [getTriggerProps, field]
   );
 

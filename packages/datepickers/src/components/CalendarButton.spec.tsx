@@ -86,14 +86,6 @@ describe('CalendarButton', () => {
     expect(onClick).toHaveBeenCalledTimes(2);
   });
 
-  it('passes a ref for getTriggerProps to track, mirroring how a consumer may compose more than one calendar button at once', () => {
-    const { getByRole } = render(<CalendarButton getTriggerProps={getTriggerProps} />);
-
-    const { ref } = getTriggerProps.mock.calls[0][0];
-
-    expect(ref.current).toBe(getByRole('button', { name: 'Choose date' }));
-  });
-
   it('lets an extra prop (e.g. data-test-id) override the default, so more than one can be told apart', () => {
     const { getByTestId } = render(
       <CalendarButton getTriggerProps={getTriggerProps} data-test-id="start-calendar-button" />

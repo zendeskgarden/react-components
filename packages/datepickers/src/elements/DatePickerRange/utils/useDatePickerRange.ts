@@ -364,11 +364,13 @@ export function useDatePickerRange({
   }, []);
 
   const registerFieldState = useCallback(
-    (field: DatePickerRangeField, { disabled, readOnly }: IDatePickerRangeFieldState) => {
+    (field: DatePickerRangeField, { disabled, readOnly, required }: IDatePickerRangeFieldState) => {
       setFieldStates(states =>
-        !!states[field].disabled === !!disabled && !!states[field].readOnly === !!readOnly
+        !!states[field].disabled === !!disabled &&
+        !!states[field].readOnly === !!readOnly &&
+        !!states[field].required === !!required
           ? states
-          : { ...states, [field]: { disabled, readOnly } }
+          : { ...states, [field]: { disabled, readOnly, required } }
       );
 
       return () => setFieldStates(states => ({ ...states, [field]: {} }));
@@ -376,16 +378,19 @@ export function useDatePickerRange({
     []
   );
 
+  const registerTriggerRef = useCallback((ref: RefObject<HTMLButtonElement | null>) => {
+    triggerRefsRef.current.add(ref);
+
+    return () => {
+      triggerRefsRef.current.delete(ref);
+    };
+  }, []);
+
   const getTriggerProps = useCallback(
     (props: ElementProps<HTMLButtonElement> & { field?: DatePickerRangeField } = {}) => {
-      const { onClick, onBlur, ref, field, ...other } = props;
-
-      if (ref && typeof ref === 'object' && 'current' in ref) {
-        triggerRefsRef.current.add(ref);
-      }
+      const { onClick, onBlur, field, ...other } = props;
 
       return {
-        ref,
         'aria-haspopup': 'dialog' as const,
         'aria-expanded': isOpen,
         'aria-controls': dialogId,
@@ -512,13 +517,11 @@ export function useDatePickerRange({
   );
 
   const startIsBlurPendingRef = useRef(false);
-  const startRequiredRef = useRef<boolean | undefined>(undefined);
-
   const reportStartSettled = useCallback(
     (inputValue: string = state.startInputValue ?? '') => {
       const settled = resolveSettledValue({
         inputValue,
-        required: startRequiredRef.current,
+        required: fieldStates.start.required,
         minValue,
         maxValue,
         notAfter: endValue,
@@ -531,7 +534,15 @@ export function useDatePickerRange({
 
       isStartEmptyReportedRef.current = inputValue === '';
     },
-    [state.startInputValue, endValue, minValue, maxValue, customParseDate, onValueSettled]
+    [
+      state.startInputValue,
+      endValue,
+      minValue,
+      maxValue,
+      customParseDate,
+      onValueSettled,
+      fieldStates.start.required
+    ]
   );
 
   const commitStartBlur = useCallback(() => {
@@ -643,10 +654,8 @@ export function useDatePickerRange({
   );
 
   const getStartInputProps = useCallback(
-    (props: IFieldInputProps & { required?: boolean } = {}) => {
-      const { onChange: onInputChange, onFocus, onKeyDown, onBlur, required, ...other } = props;
-
-      startRequiredRef.current = required;
+    (props: IFieldInputProps = {}) => {
+      const { onChange: onInputChange, onFocus, onKeyDown, onBlur, ...other } = props;
 
       const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
@@ -715,13 +724,11 @@ export function useDatePickerRange({
   );
 
   const endIsBlurPendingRef = useRef(false);
-  const endRequiredRef = useRef<boolean | undefined>(undefined);
-
   const reportEndSettled = useCallback(
     (inputValue: string = state.endInputValue ?? '') => {
       const settled = resolveSettledValue({
         inputValue,
-        required: endRequiredRef.current,
+        required: fieldStates.end.required,
         minValue,
         maxValue,
         notBefore: startValue,
@@ -734,7 +741,15 @@ export function useDatePickerRange({
 
       isEndEmptyReportedRef.current = inputValue === '';
     },
-    [state.endInputValue, startValue, minValue, maxValue, customParseDate, onValueSettled]
+    [
+      state.endInputValue,
+      startValue,
+      minValue,
+      maxValue,
+      customParseDate,
+      onValueSettled,
+      fieldStates.end.required
+    ]
   );
 
   const commitEndBlur = useCallback(() => {
@@ -874,10 +889,8 @@ export function useDatePickerRange({
   );
 
   const getEndInputProps = useCallback(
-    (props: IFieldInputProps & { required?: boolean } = {}) => {
-      const { onChange: onInputChange, onFocus, onKeyDown, onBlur, required, ...other } = props;
-
-      endRequiredRef.current = required;
+    (props: IFieldInputProps = {}) => {
+      const { onChange: onInputChange, onFocus, onKeyDown, onBlur, ...other } = props;
 
       const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
@@ -1239,6 +1252,7 @@ export function useDatePickerRange({
       registerDialog,
       registerFieldState,
       registerFieldWrapperRef,
+      registerTriggerRef,
       isCalendarDisabled,
       isCalendarReadOnly,
       getStartWrapperProps,
@@ -1280,6 +1294,7 @@ export function useDatePickerRange({
       registerDialog,
       registerFieldState,
       registerFieldWrapperRef,
+      registerTriggerRef,
       isCalendarDisabled,
       isCalendarReadOnly,
       getStartWrapperProps,

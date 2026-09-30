@@ -49,11 +49,16 @@ export const Start = ({ children, wrapperRef }: PropsWithChildren<IStartProps>) 
   const childElement = React.Children.only(
     children as React.ReactElement & React.RefAttributes<HTMLInputElement>
   );
-  const { disabled, readOnly } = childElement.props;
+  const { disabled, readOnly, required } = childElement.props;
 
   useEffect(
-    () => registerFieldState('start', { disabled: !!disabled, readOnly: !!readOnly }),
-    [registerFieldState, disabled, readOnly]
+    () =>
+      registerFieldState('start', {
+        disabled: !!disabled,
+        readOnly: !!readOnly,
+        required: !!required
+      }),
+    [registerFieldState, disabled, readOnly, required]
   );
   const isClearableInput = childElement.type === ClearableInput;
   const isInsideFieldGroup = useDatePickerRangeFieldContext() !== undefined;
@@ -63,10 +68,7 @@ export const Start = ({ children, wrapperRef }: PropsWithChildren<IStartProps>) 
     [registerFieldWrapperRef, wrapperRef]
   );
 
-  let inputProps: Record<string, unknown> = getStartInputProps({
-    ...childElement.props,
-    required: childElement.props.required
-  });
+  let inputProps: Record<string, unknown> = getStartInputProps(childElement.props);
 
   inputProps = {
     ...inputProps,

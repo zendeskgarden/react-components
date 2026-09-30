@@ -45,6 +45,7 @@ export type DatePickerRangeField = 'start' | 'end';
 export interface IDatePickerRangeFieldState {
   disabled?: boolean;
   readOnly?: boolean;
+  required?: boolean;
 }
 
 export interface IDatePickerRangeValueSettledResult extends Omit<
@@ -323,7 +324,7 @@ export interface IUseDatePickerRangeReturnValue {
   hasDialog: boolean;
   /** Called by `DatePickerRange.Dialog` on mount to flip `hasDialog` true; returns a cleanup that flips it back false on unmount. **/
   registerDialog: () => () => void;
-  /** Called by `Start`/`End` whenever their input's native `disabled`/`readOnly` changes; returns a cleanup that clears it on unmount. The calendar can't be opened from a disabled or read-only field. **/
+  /** Called by `Start`/`End` whenever their input's native `disabled`/`readOnly`/`required` changes; returns a cleanup that clears it on unmount. The calendar can't be opened from a disabled or read-only field. **/
   registerFieldState: (
     field: DatePickerRangeField,
     state: IDatePickerRangeFieldState
@@ -353,14 +354,13 @@ export interface IUseDatePickerRangeReturnValue {
   getStartGroupProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
   /** See `getStartGroupProps` - the `End` equivalent. **/
   getEndGroupProps: (props?: ElementProps<HTMLDivElement>) => ElementProps<HTMLDivElement>;
-  getStartInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
-  getEndInputProps: (props?: IFieldInputProps & { required?: boolean }) => IFieldInputProps;
+  getStartInputProps: (props?: IFieldInputProps) => IFieldInputProps;
+  getEndInputProps: (props?: IFieldInputProps) => IFieldInputProps;
   /** Spread onto any field (in addition to getStartInputProps/getEndInputProps) that should open/focus the opt-in dialog. **/
   getFieldTriggerProps: (props?: IFieldInputProps) => IFieldInputProps;
-  /**
-   * Also tracks the button's ref as part of the open widget, so more than one `Trigger` may be composed at once (e.g. one per field) without breaking blur/focus detection.
-   * The button is disabled while its `field` is disabled or read-only - or, with no `field`, while both are.
-   **/
+  /** Called by `Trigger` with its button's ref once mounted, so more than one `Trigger` may be composed at once (e.g. one per field) without breaking blur/focus detection; returns a cleanup that unregisters it. **/
+  registerTriggerRef: (ref: RefObject<HTMLButtonElement | null>) => () => void;
+  /** The button is disabled while its `field` is disabled or read-only - or, with no `field`, while both are. **/
   getTriggerProps: (
     props?: ElementProps<HTMLButtonElement> & { field?: DatePickerRangeField }
   ) => ElementProps<HTMLButtonElement>;
