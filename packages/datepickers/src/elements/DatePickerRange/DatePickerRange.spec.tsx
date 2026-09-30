@@ -1925,4 +1925,98 @@ describe('DatePickerRange', () => {
       });
     });
   });
+
+  describe('typed format', () => {
+    const ControlledExample = ({
+      customParseDate
+    }: Pick<IDatePickerRangeProps, 'customParseDate'>) => {
+      const [range, setRange] = useState<{ startValue?: Date; endValue?: Date }>({
+        startValue: DEFAULT_START_VALUE,
+        endValue: DEFAULT_END_VALUE
+      });
+
+      return (
+        <>
+          <DatePickerRange
+            startValue={range.startValue}
+            endValue={range.endValue}
+            onChange={setRange}
+            customParseDate={customParseDate}
+          >
+            <DatePickerRange.Start>
+              <input data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" />
+            </DatePickerRange.End>
+            <DatePickerRange.Calendar />
+          </DatePickerRange>
+          <button
+            type="button"
+            data-test-id="set-externally"
+            onClick={() =>
+              setRange({ startValue: new Date(2019, 1, 12), endValue: new Date(2019, 2, 12) })
+            }
+          >
+            Set externally
+          </button>
+        </>
+      );
+    };
+
+    describe.each([
+      { field: 'start', typed: '2/10/2019' },
+      { field: 'end', typed: '3/10/2019' }
+    ] as const)('for $field', ({ field, typed }) => {
+      it.each([
+        [
+          'blurring',
+          async () => {
+            await user.tab();
+          }
+        ],
+        [
+          'pressing Enter',
+          async () => {
+            await user.keyboard('{Enter}');
+          }
+        ]
+      ])('keeps a valid typed date in the format it was typed in after %s', async (_, settle) => {
+        const { getByTestId } = render(<ControlledExample />);
+        const input = getByTestId(field);
+
+        await user.clear(input);
+        await user.type(input, typed);
+        await settle();
+
+        expect(input).toHaveValue(typed);
+      });
+
+      it('keeps text parsed by customParseDate as typed, too', async () => {
+        const month = field === 'start' ? 1 : 2;
+        const customParseDate = (inputValue?: string) =>
+          inputValue === 'the tenth' ? new Date(2019, month, 10) : new Date(NaN);
+        const { getByTestId } = render(<ControlledExample customParseDate={customParseDate} />);
+        const input = getByTestId(field);
+
+        await user.clear(input);
+        await user.type(input, 'the tenth');
+        await user.tab();
+
+        expect(input).toHaveValue('the tenth');
+      });
+
+      it('still reformats once the value changes to a different day', async () => {
+        const { getByTestId } = render(<ControlledExample />);
+        const input = getByTestId(field);
+
+        await user.clear(input);
+        await user.type(input, typed);
+        await user.tab();
+        await user.click(getByTestId('set-externally'));
+
+        expect(input).toHaveValue(field === 'start' ? 'February 12, 2019' : 'March 12, 2019');
+      });
+    });
+  });
 });

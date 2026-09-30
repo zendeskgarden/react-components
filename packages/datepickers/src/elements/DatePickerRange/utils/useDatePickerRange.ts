@@ -89,12 +89,24 @@ export function useDatePickerRange({
   );
 
   useEffect(() => {
-    dispatch({ type: 'CONTROLLED_START_VALUE_CHANGE', value: startValue, locale, formatDate });
+    dispatch({
+      type: 'CONTROLLED_START_VALUE_CHANGE',
+      value: startValue,
+      locale,
+      formatDate,
+      customParseDate
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [startValue]);
 
   useEffect(() => {
-    dispatch({ type: 'CONTROLLED_END_VALUE_CHANGE', value: endValue, locale, formatDate });
+    dispatch({
+      type: 'CONTROLLED_END_VALUE_CHANGE',
+      value: endValue,
+      locale,
+      formatDate,
+      customParseDate
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [endValue]);
 

@@ -110,6 +110,30 @@ export function parseInputValue({ inputValue }: { inputValue?: string }): Date {
   return new Date(NaN);
 }
 
+/**
+ * Keeps a field's text as typed when it already parses to the incoming controlled value's day,
+ * so a committed date keeps the format it was typed in - otherwise formats the new value.
+ */
+function resolveControlledInputValue({
+  inputValue,
+  value,
+  locale,
+  formatDate,
+  customParseDate
+}: {
+  inputValue?: string;
+  value?: Date;
+  locale?: string;
+  formatDate?: any;
+  customParseDate?: (inputValue?: string) => Date;
+}) {
+  const typedDate = customParseDate ? customParseDate(inputValue) : parseInputValue({ inputValue });
+
+  return value !== undefined && isValid(typedDate) && isSameDay(typedDate, value)
+    ? inputValue
+    : formatValue({ value, locale, formatDate });
+}
+
 export function resolveSettledValue({
   inputValue,
   required,
@@ -255,12 +279,14 @@ export type DatePickerRangeAction =
       value?: Date;
       locale?: string;
       formatDate?: any;
+      customParseDate?: (inputValue?: string) => Date;
     }
   | {
       type: 'CONTROLLED_END_VALUE_CHANGE';
       value?: Date;
       locale?: string;
       formatDate?: any;
+      customParseDate?: (inputValue?: string) => Date;
     }
   | {
       type: 'CONTROLLED_LOCALE_CHANGE';
@@ -319,10 +345,12 @@ export const datepickerRangeReducer = (
             endInputValue: action.revertedInputValue
           };
     case 'CONTROLLED_START_VALUE_CHANGE': {
-      const startInputValue = formatValue({
+      const startInputValue = resolveControlledInputValue({
+        inputValue: state.startInputValue,
         value: action.value,
         locale: action.locale,
-        formatDate: action.formatDate
+        formatDate: action.formatDate,
+        customParseDate: action.customParseDate
       });
 
       let previewDate = state.previewDate;
@@ -342,10 +370,12 @@ export const datepickerRangeReducer = (
       };
     }
     case 'CONTROLLED_END_VALUE_CHANGE': {
-      const endInputValue = formatValue({
+      const endInputValue = resolveControlledInputValue({
+        inputValue: state.endInputValue,
         value: action.value,
         locale: action.locale,
-        formatDate: action.formatDate
+        formatDate: action.formatDate,
+        customParseDate: action.customParseDate
       });
 
       let previewDate = state.previewDate;
