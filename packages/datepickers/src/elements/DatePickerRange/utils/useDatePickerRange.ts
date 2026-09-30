@@ -641,6 +641,7 @@ export function useDatePickerRange({
         if (e.key === KEYS.ENTER) {
           e.preventDefault();
           handleStartBlur();
+          setIsOpen(false);
         } else if (e.key === KEYS.ESCAPE && isOpen) {
           setIsOpen(false);
         }
@@ -863,6 +864,7 @@ export function useDatePickerRange({
         if (e.key === KEYS.ENTER) {
           e.preventDefault();
           handleEndBlur();
+          setIsOpen(false);
         } else if (e.key === KEYS.ESCAPE && isOpen) {
           setIsOpen(false);
         }

@@ -87,6 +87,36 @@ describe('DatePickerRange.Dialog', () => {
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
+    it.each([
+      { field: 'start', typed: '2/10/2019', expected: { startValue: new Date(2019, 1, 10) } },
+      { field: 'end', typed: '3/10/2019', expected: { endValue: new Date(2019, 2, 10) } }
+    ] as const)(
+      'commits a typed $field date and closes the dialog on Enter, keeping focus in the field',
+      async ({ field, typed, expected }) => {
+        const onChangeSpy = jest.fn();
+        const { getByTestId } = render(
+          <Example
+            startValue={new Date(2019, 1, 5)}
+            endValue={new Date(2019, 2, 5)}
+            onChange={onChangeSpy}
+          />
+        );
+        const input = getByTestId(field);
+
+        await user.click(input);
+        await user.clear(input);
+        await user.type(input, typed);
+
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+        await user.keyboard('{Enter}');
+
+        expect(onChangeSpy).toHaveBeenCalledWith(expect.objectContaining(expected));
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(input).toHaveFocus();
+      }
+    );
+
     it('closes the dialog on Escape when focus never left the End field', async () => {
       const onChangeSpy = jest.fn();
       const { getByTestId } = render(<Example onChange={onChangeSpy} />);

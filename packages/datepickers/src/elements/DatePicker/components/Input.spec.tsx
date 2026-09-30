@@ -367,6 +367,65 @@ describe('Input', () => {
     });
   });
 
+  describe('Enter in the input', () => {
+    it('closes an open calendar, keeping focus in the input', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      await user.click(input);
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      await user.keyboard('{Enter}');
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(input).toHaveFocus();
+    });
+
+    it('settles the typed text when it closes the calendar', async () => {
+      const onValueSettledSpy = jest.fn();
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      await user.click(input);
+      await user.clear(input);
+      await user.type(input, 'garbage');
+      onValueSettledSpy.mockClear();
+      await user.keyboard('{Enter}');
+
+      expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
+      expect(onValueSettledSpy).toHaveBeenCalledWith(
+        expect.objectContaining({ inputValue: 'garbage', valid: false, reason: 'malformed' })
+      );
+      expect(input).toHaveValue('garbage');
+    });
+
+    it('does not prevent the default action, so an enclosing form can still submit', async () => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      await user.click(input);
+
+      expect(fireEvent.keyDown(input, { key: KEYS.ENTER })).toBe(true);
+    });
+
+    it('does not settle while the calendar is closed', () => {
+      const onValueSettledSpy = jest.fn();
+      const { getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+      const input = getByTestId('input');
+
+      fireEvent.change(input, { target: { value: 'garbage' } });
+      onValueSettledSpy.mockClear();
+      fireEvent.keyDown(input, { key: KEYS.ENTER });
+
+      expect(onValueSettledSpy).not.toHaveBeenCalled();
+    });
+  });
+
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
