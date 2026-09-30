@@ -90,9 +90,9 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   locale?: string;
   /** Overrides the locale default start day of week **/
   weekStartsOn?: (typeof WEEK_STARTS_ON)[number];
-  /** Disables dates before this value on the calendar **/
+  /** Disables dates before this value on the calendar. A typed date before it doesn't call `onChange`, and `onValueSettled` reports it as `out-of-range` **/
   minValue?: Date;
-  /** Disables dates after this value on the calendar **/
+  /** Disables dates after this value on the calendar. A typed date after it doesn't call `onChange`, and `onValueSettled` reports it as `out-of-range` **/
   maxValue?: Date;
   /** Applies compact styling **/
   isCompact?: boolean;
