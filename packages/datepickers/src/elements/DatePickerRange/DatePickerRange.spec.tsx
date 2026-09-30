@@ -134,8 +134,8 @@ describe('DatePickerRange', () => {
       });
     });
 
-    it('preserves the end value and reports an invalid, out-of-order start date when the new start is after the existing end', async () => {
-      const { getAllByTestId } = render(
+    it('keeps the end value, shows the out-of-order start, and reports it without calling onChange, when the new start is after the existing end', async () => {
+      const { getAllByTestId, getByTestId } = render(
         <Example
           endValue={DEFAULT_END_VALUE}
           onChange={onChangeSpy}
@@ -145,12 +145,9 @@ describe('DatePickerRange', () => {
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[14]);
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[14]); // March 10, 2019
 
-      expect(onChangeSpy).toHaveBeenCalledWith({
-        startValue: new Date(2019, 2, 10),
-        endValue: DEFAULT_END_VALUE
-      });
+      expect(onChangeSpy).not.toHaveBeenCalled();
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         field: 'start',
         date: undefined,
@@ -158,6 +155,37 @@ describe('DatePickerRange', () => {
         valid: false,
         reason: 'out-of-order'
       });
+      expect(getByTestId('start')).toHaveValue('March 10, 2019');
+      expect(getByTestId('end')).toHaveValue('March 5, 2019');
+    });
+
+    it('commits the new start and clears the end, as before, when the new start is after the existing end and keepInvalidInput is false', async () => {
+      const { getAllByTestId, getByTestId } = render(
+        <Example
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+          keepInvalidInput={false}
+        />
+      );
+
+      const calendarWrappers = getAllByTestId('calendar-wrapper');
+
+      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[14]); // March 10, 2019
+
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 10),
+        endValue: undefined
+      });
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'start',
+        date: new Date(2019, 2, 10),
+        inputValue: 'March 10, 2019',
+        valid: true
+      });
+      expect(getByTestId('start')).toHaveValue('March 10, 2019');
+      expect(getByTestId('end')).toHaveValue('');
     });
   });
 

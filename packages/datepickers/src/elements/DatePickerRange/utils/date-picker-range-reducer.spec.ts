@@ -352,6 +352,20 @@ describe('datepickerRangeReducer CLICK_DATE', () => {
     expect(state).toMatchObject({ startInputValue: 'February 10, 2019', endInputValue: '' });
   });
 
+  it('flags the start field invalid for an out-of-order selection, since its value is not committed', () => {
+    const state = datepickerRangeReducer(
+      { ...baseState, startInputValue: '' },
+      {
+        type: 'CLICK_DATE',
+        previousStartValue: undefined,
+        previousEndValue: MAR_5,
+        selection: { startValue: MAR_10, endValue: MAR_5, field: 'start', isOutOfOrder: true }
+      }
+    );
+
+    expect(state).toMatchObject({ startInputValue: 'March 10, 2019', isStartValueInvalid: true });
+  });
+
   it('uses the provided locale and formatDate', () => {
     const state = datepickerRangeReducer(baseState, {
       type: 'CLICK_DATE',

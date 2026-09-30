@@ -1021,7 +1021,7 @@ export function useDatePickerRange({
           return;
         }
 
-        const selection = resolveRangeSelection({
+        let selection = resolveRangeSelection({
           date,
           startValue,
           endValue,
@@ -1029,6 +1029,16 @@ export function useDatePickerRange({
           isEndActive: state.isEndFocused || state.isEndValueInvalid,
           disabledOrReadOnlyField: getDisabledOrReadOnlyField()
         });
+
+        if (selection.isOutOfOrder && !keepInvalidInput) {
+          selection = {
+            startValue: date,
+            endValue: undefined,
+            field: 'start',
+            isOutOfOrder: false
+          };
+        }
+
         const { field, isOutOfOrder, ...result } = selection;
 
         dispatch({
@@ -1040,7 +1050,9 @@ export function useDatePickerRange({
           formatDate
         });
 
-        onChange?.(result);
+        if (!isOutOfOrder) {
+          onChange?.(result);
+        }
 
         const fieldValue = field === 'start' ? result.startValue : result.endValue;
 
@@ -1145,6 +1157,7 @@ export function useDatePickerRange({
       isCalendarDisabled,
       isCalendarReadOnly,
       getDisabledOrReadOnlyField,
+      keepInvalidInput,
       requestCellFocus,
       locale,
       formatDate

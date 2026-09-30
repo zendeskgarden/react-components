@@ -421,7 +421,7 @@ export const datepickerRangeReducer = (
         isEndFocused: false,
         ...(isStartRewritten && {
           startInputValue: formatValue({ value: selection.startValue, locale, formatDate }),
-          isStartValueInvalid: false
+          isStartValueInvalid: selection.isOutOfOrder
         }),
         ...(isEndRewritten && {
           endInputValue: formatValue({ value: selection.endValue, locale, formatDate }),
