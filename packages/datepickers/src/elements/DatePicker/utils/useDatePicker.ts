@@ -416,7 +416,8 @@ export function useDatePicker({
       const isSelected = value !== undefined && !state.isValueInvalid && isSameDay(date, value);
       const isCurrentDate = isToday(date);
 
-      const handleClick = () => {
+      /** Space selects without closing, per the APG date picker - Enter and clicks select and close. */
+      const handleClick = (keepOpen = false) => {
         if (isDisabled) {
           return;
         }
@@ -430,15 +431,18 @@ export function useDatePicker({
           });
         }
 
-        dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate });
-        justClosedViaSelectionRef.current = true;
-        inputRef.current?.focus();
+        dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate, keepOpen });
+
+        if (!keepOpen) {
+          justClosedViaSelectionRef.current = true;
+          inputRef.current?.focus();
+        }
       };
 
       const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
         if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
           e.preventDefault();
-          handleClick();
+          handleClick(e.key === KEYS.SPACE);
 
           return;
         }
@@ -484,7 +488,7 @@ export function useDatePicker({
         'aria-disabled': isDisabled || undefined,
         'aria-current': isCurrentDate ? ('date' as const) : undefined,
         'aria-selected': isSelected,
-        onClick: composeEventHandlers(onClick, handleClick),
+        onClick: composeEventHandlers(onClick, () => handleClick()),
         onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
         'data-test-id': 'day',
         'data-test-selected': isSelected,

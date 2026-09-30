@@ -288,7 +288,7 @@ describe('Month', () => {
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
     });
 
-    it('selects, closes, and returns focus to the input on Space', async () => {
+    it('selects on Space, keeping the calendar open and focus on the day', async () => {
       const { getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
@@ -304,8 +304,8 @@ describe('Month', () => {
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
       expect(input).toHaveValue('January 28, 2019');
-      expect(input).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(day).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
 
     it('does not select date if before minDate', async () => {

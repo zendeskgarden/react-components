@@ -1017,7 +1017,8 @@ export function useDatePickerRange({
         tabIndex = isSameDay(date, state.focusedDate) ? 0 : -1;
       }
 
-      const handleClick = (target?: HTMLTableCellElement | null) => {
+      /** Space selects without closing, per the APG date picker - Enter and clicks select and close. */
+      const handleClick = (target?: HTMLTableCellElement | null, keepOpen = false) => {
         if (isDisabled || isCalendarReadOnly) {
           return;
         }
@@ -1066,7 +1067,12 @@ export function useDatePickerRange({
         });
 
         if (hasDialog) {
-          if (!isOutOfOrder && result.startValue !== undefined && result.endValue !== undefined) {
+          if (
+            !keepOpen &&
+            !isOutOfOrder &&
+            result.startValue !== undefined &&
+            result.endValue !== undefined
+          ) {
             setIsOpen(false);
             justClosedViaSelectionRef.current = true;
             requestCellFocus((field === 'start' ? startInputRef : endInputRef).current);
@@ -1079,7 +1085,7 @@ export function useDatePickerRange({
       const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
         if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
           e.preventDefault();
-          handleClick(e.currentTarget);
+          handleClick(e.currentTarget, e.key === KEYS.SPACE);
 
           return;
         }

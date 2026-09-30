@@ -197,6 +197,53 @@ describe('DatePickerRange.Dialog', () => {
       mockDate.reset();
     });
 
+    describe('when the range is completed from the keyboard', () => {
+      let onChangeSpy: jest.Mock;
+
+      const renderCompletable = () =>
+        render(
+          <Example startValue={new Date(2019, 1, 5)} endValue={undefined} onChange={onChangeSpy} />
+        );
+
+      beforeEach(() => {
+        onChangeSpy = jest.fn();
+      });
+
+      it('selects, closes, and returns focus to the End field on Enter', async () => {
+        const { getByTestId, getAllByTestId } = renderCompletable();
+
+        await user.click(getByTestId('trigger'));
+
+        getAllByTestId('day')[14].focus(); // February 10, 2019
+        await user.keyboard('{Enter}');
+
+        expect(onChangeSpy).toHaveBeenCalledWith({
+          startValue: new Date(2019, 1, 5),
+          endValue: new Date(2019, 1, 10)
+        });
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByTestId('end')).toHaveFocus();
+      });
+
+      it('selects on Space, keeping the dialog open and focus on the day', async () => {
+        const { getByTestId, getAllByTestId } = renderCompletable();
+
+        await user.click(getByTestId('trigger'));
+
+        const day = getAllByTestId('day')[14]; // February 10, 2019
+
+        day.focus();
+        await user.keyboard(' ');
+
+        expect(onChangeSpy).toHaveBeenCalledWith({
+          startValue: new Date(2019, 1, 5),
+          endValue: new Date(2019, 1, 10)
+        });
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+        expect(day).toHaveFocus();
+      });
+    });
+
     it('reopens on a second click of the already-focused End field after completing the range', async () => {
       mockDate.set(new Date(2019, 1, 5));
 

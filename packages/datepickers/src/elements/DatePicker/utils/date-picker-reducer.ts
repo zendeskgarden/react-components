@@ -139,6 +139,7 @@ export type DatePickerAction =
       value: Date;
       locale: string;
       formatDate?: (date: Date) => string;
+      keepOpen?: boolean;
     }
   | { type: 'FOCUS_DATE'; value: Date }
   | { type: 'VALUE_SETTLED'; valid: boolean; settledInputValue?: string };
@@ -193,7 +194,7 @@ export const datepickerReducer = (
         formatDate: action.formatDate
       });
 
-      return { ...state, isOpen: false, inputValue };
+      return { ...state, isOpen: !!action.keepOpen && state.isOpen, inputValue };
     }
     case 'FOCUS_DATE': {
       const focusedDate = action.value;
