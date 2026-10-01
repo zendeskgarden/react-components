@@ -29,62 +29,36 @@ export const isInsideWidget = (
 ): boolean => widgetRefs.some(ref => !!ref.current?.contains(target));
 
 /**
- * Per the APG dialog pattern: settle and close when focus leaves the widget
- * entirely, just close (no settle) when it returns to a trigger field from
- * the dialog itself (e.g. Escape, or selecting a day), otherwise do nothing
- * (e.g. moving between two fields, or into a `ClearableInput`'s own clear
+ * Settle and close when focus leaves the widget entirely, otherwise do nothing (e.g. moving
+ * between two fields, from the dialog back to a field, or into a `ClearableInput`'s own clear
  * button).
  */
 export const resolveWidgetBlur = ({
-  target,
   relatedTarget,
-  fieldRefs,
-  widgetRefs,
-  dialogRef
+  widgetRefs
 }: {
-  target: Node;
   relatedTarget: Node | null;
-  fieldRefs: RefObject<HTMLElement | null>[];
   widgetRefs: RefObject<HTMLElement | null>[];
-  dialogRef: RefObject<HTMLElement | null>;
-}): { shouldSettle: boolean; shouldClose: boolean } => {
-  const isBlurringFromDialog = !!dialogRef.current?.contains(target);
-  const isReturningToField =
-    isBlurringFromDialog && !!relatedTarget && fieldRefs.some(ref => ref.current === relatedTarget);
-
-  if (isReturningToField) {
-    return { shouldSettle: false, shouldClose: true };
-  }
-
-  if (!relatedTarget || !isInsideWidget(relatedTarget, widgetRefs)) {
-    return { shouldSettle: true, shouldClose: true };
-  }
-
-  return { shouldSettle: false, shouldClose: false };
-};
+}): { shouldSettle: boolean; shouldClose: boolean } =>
+  !relatedTarget || !isInsideWidget(relatedTarget, widgetRefs)
+    ? { shouldSettle: true, shouldClose: true }
+    : { shouldSettle: false, shouldClose: false };
 
 /**
- * True for a pointer click arriving from outside the widget - never for Tab focus, which
- * dispatches no `click`. Also true, regardless of where the click "arrived from", the first
- * time a field is clicked right after a selection auto-closed the dialog and refocused it -
- * otherwise that click looks identical to clicking inside text you're already editing (the
- * field was already focused before the click), so it would never reopen.
+ * For a click on a field's group, not the field itself: true only when the click arrives from
+ * outside the widget, so a click on a button inside the group (e.g. a `ClearableInput`'s clear
+ * button) bubbling up to it doesn't open the dialog.
  */
-export const shouldOpenOnFieldClick = ({
+export const shouldOpenOnGroupClick = ({
   isOpen,
   previousActiveElement,
-  widgetRefs,
-  justClosedViaSelection = false
+  widgetRefs
 }: {
   isOpen: boolean;
   previousActiveElement: Element | null;
   widgetRefs: RefObject<HTMLElement | null>[];
-  justClosedViaSelection?: boolean;
 }): boolean =>
-  !isOpen &&
-  (justClosedViaSelection ||
-    !previousActiveElement ||
-    !isInsideWidget(previousActiveElement, widgetRefs));
+  !isOpen && (!previousActiveElement || !isInsideWidget(previousActiveElement, widgetRefs));
 
 /** Shared shape for every toolbar paddle getter across both `useDatePicker` and `useDatePickerRange`. */
 export const composeActionButtonProps = (

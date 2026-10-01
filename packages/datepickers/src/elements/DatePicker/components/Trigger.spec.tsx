@@ -101,7 +101,7 @@ describe('Trigger', () => {
     const input = getByTestId('input');
 
     await user.clear(input);
-    await user.type(input, '1/4/2019');
+    await user.type(input, '1/4/2019', { skipClick: true });
     await user.click(getByTestId('calendar-button'));
 
     const selectedDay = getAllByTestId('day').find(
@@ -111,4 +111,23 @@ describe('Trigger', () => {
     expect(selectedDay).toHaveTextContent('4');
     expect(selectedDay).toHaveFocus();
   });
+
+  it.each([
+    { label: 'the calendar', opener: 'calendar-button' },
+    { label: 'the input', opener: 'input' }
+  ])(
+    'closes the calendar when clicked while it is open with focus in $label, returning focus to the input',
+    async ({ opener }) => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+      await user.click(getByTestId(opener));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByTestId('input')).toHaveFocus();
+    }
+  );
 });

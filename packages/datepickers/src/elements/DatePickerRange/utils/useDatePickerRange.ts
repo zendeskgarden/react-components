@@ -43,7 +43,7 @@ import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils
 import {
   composeActionButtonProps,
   resolveWidgetBlur,
-  shouldOpenOnFieldClick
+  shouldOpenOnGroupClick
 } from '../../../utils/dialog-trigger-utils';
 import {
   datepickerRangeReducer,
@@ -261,8 +261,8 @@ export function useDatePickerRange({
   const shouldFocusDialogRef = useRef(false);
   const previousActiveElementRef = useRef<Element | null>(null);
   const lastActiveFieldRef = useRef<HTMLElement | null>(null);
-  /** Set right before refocusing a field after completing the range auto-closes the dialog, so the next click on that already-focused field reopens it instead of being mistaken for a click inside text being edited. */
-  const justClosedViaSelectionRef = useRef(false);
+  /** What had focus when a field was pressed, so clicking the other field while the dialog is open moves to it rather than closing the dialog. */
+  const fieldMouseDownActiveElementRef = useRef<Element | null>(null);
 
   const { getContainerProps: getFocusJailProps } = useFocusJail({
     containerRef: dialogRef,
@@ -343,18 +343,15 @@ export function useDatePickerRange({
   const handleWidgetBlur = useCallback(
     (e: React.FocusEvent) => {
       const { shouldClose } = resolveWidgetBlur({
-        target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
-        fieldRefs: [startInputRef, endInputRef],
-        widgetRefs: getWidgetRefs(),
-        dialogRef
+        widgetRefs: getWidgetRefs()
       });
 
       if (shouldClose && isOpen) {
         setIsOpen(false);
       }
     },
-    [isOpen, startInputRef, endInputRef, getWidgetRefs]
+    [isOpen, getWidgetRefs]
   );
 
   const registerDialog = useCallback(() => {
@@ -386,6 +383,27 @@ export function useDatePickerRange({
     };
   }, []);
 
+  const toggleDialog = useCallback(
+    (field?: DatePickerRangeField) => {
+      if (isOpen) {
+        setIsOpen(false);
+
+        let fieldInputRef: RefObject<HTMLInputElement | null> | undefined;
+
+        if (field === 'start') {
+          fieldInputRef = startInputRef;
+        } else if (field === 'end') {
+          fieldInputRef = endInputRef;
+        }
+
+        (fieldInputRef?.current ?? lastActiveFieldRef.current ?? startInputRef.current)?.focus();
+      } else {
+        openOrFocusDialog(field);
+      }
+    },
+    [isOpen, startInputRef, endInputRef, openOrFocusDialog]
+  );
+
   const getTriggerProps = useCallback(
     (props: ElementProps<HTMLButtonElement> & { field?: DatePickerRangeField } = {}) => {
       const { onClick, onBlur, field, ...other } = props;
@@ -395,12 +413,12 @@ export function useDatePickerRange({
         'aria-expanded': isOpen,
         'aria-controls': dialogId,
         disabled: isDisabledOrReadOnly(field),
-        onClick: composeEventHandlers(onClick, () => openOrFocusDialog(field)),
+        onClick: composeEventHandlers(onClick, () => toggleDialog(field)),
         onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
         ...other
       };
     },
-    [isOpen, dialogId, isDisabledOrReadOnly, openOrFocusDialog, handleWidgetBlur]
+    [isOpen, dialogId, isDisabledOrReadOnly, toggleDialog, handleWidgetBlur]
   );
 
   const getDialogProps = useCallback(
@@ -441,33 +459,31 @@ export function useDatePickerRange({
       const { onMouseDown, onFocus, onClick, onKeyDown, ...other } = props;
 
       const handleMouseDown = () => {
-        previousActiveElementRef.current = document.activeElement;
+        fieldMouseDownActiveElementRef.current = document.activeElement;
       };
 
       const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
         lastActiveFieldRef.current = e.currentTarget;
-
-        if (!previousActiveElementRef.current) {
-          previousActiveElementRef.current = (e.relatedTarget as Element) || document.body;
-        }
       };
 
       const handleClick = (e: React.MouseEvent<HTMLInputElement>) => {
-        const previousActiveElement = previousActiveElementRef.current;
-        const justClosedViaSelection = justClosedViaSelectionRef.current;
+        const field = getInputField(e.currentTarget);
+        const previousActiveElement = fieldMouseDownActiveElementRef.current;
 
-        previousActiveElementRef.current = null;
-        justClosedViaSelectionRef.current = false;
+        fieldMouseDownActiveElementRef.current = null;
 
-        if (
-          !isDisabledOrReadOnly(getInputField(e.currentTarget)) &&
-          shouldOpenOnFieldClick({
-            isOpen,
-            previousActiveElement,
-            widgetRefs: getWidgetRefs(),
-            justClosedViaSelection
-          })
-        ) {
+        if (isOpen) {
+          const otherField = field === 'start' ? 'end' : 'start';
+          const otherFieldBoundary =
+            getFieldBoundary(otherField) ??
+            (otherField === 'start' ? startInputRef : endInputRef).current;
+          const isMovingBetweenFields =
+            !!previousActiveElement && !!otherFieldBoundary?.contains(previousActiveElement);
+
+          if (!isMovingBetweenFields) {
+            setIsOpen(false);
+          }
+        } else if (!isDisabledOrReadOnly(field)) {
           setIsOpen(true);
         }
       };
@@ -486,7 +502,15 @@ export function useDatePickerRange({
         ...other
       };
     },
-    [isOpen, isDisabledOrReadOnly, getInputField, openOrFocusDialog, getWidgetRefs]
+    [
+      isOpen,
+      isDisabledOrReadOnly,
+      getInputField,
+      getFieldBoundary,
+      startInputRef,
+      endInputRef,
+      openOrFocusDialog
+    ]
   );
 
   const getOpenOnClickProps = useCallback(
@@ -505,7 +529,7 @@ export function useDatePickerRange({
         previousActiveElementRef.current = null;
 
         if (
-          shouldOpenOnFieldClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })
+          shouldOpenOnGroupClick({ isOpen, previousActiveElement, widgetRefs: getWidgetRefs() })
         ) {
           setIsOpen(true);
         }
@@ -660,7 +684,6 @@ export function useDatePickerRange({
       const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
 
-        justClosedViaSelectionRef.current = false;
         dispatch({ type: 'START_INPUT_ONCHANGE', value: inputValue });
 
         if (inputValue !== '') {
@@ -895,7 +918,6 @@ export function useDatePickerRange({
       const onChangeCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputValue = e.target.value;
 
-        justClosedViaSelectionRef.current = false;
         dispatch({ type: 'END_INPUT_ONCHANGE', value: inputValue });
 
         if (inputValue !== '') {
@@ -1093,7 +1115,6 @@ export function useDatePickerRange({
             result.endValue !== undefined
           ) {
             setIsOpen(false);
-            justClosedViaSelectionRef.current = true;
             requestCellFocus((field === 'start' ? startInputRef : endInputRef).current);
           }
         } else {

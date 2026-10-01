@@ -763,7 +763,7 @@ describe('DatePicker', () => {
 
       await user.click(input);
       await user.clear(input);
-      await user.type(input, 'garbage');
+      await user.type(input, 'garbage', { skipClick: true });
 
       expect(isOpen(getByTestId)).toBe(true);
 
@@ -857,7 +857,7 @@ describe('DatePicker', () => {
     const typeInto = async (input: HTMLElement, text: string) => {
       await user.click(input);
       await user.clear(input);
-      await user.type(input, text);
+      await user.type(input, text, { skipClick: true });
     };
 
     describe.each(SETTLE_ACTIONS)('when settling by %s', (_, settle) => {

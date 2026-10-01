@@ -140,7 +140,7 @@ describe('DatePickerRange.Dialog', () => {
 
         await user.click(input);
         await user.clear(input);
-        await user.type(input, typed);
+        await user.type(input, typed, { skipClick: true });
 
         expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
 
@@ -278,6 +278,67 @@ describe('DatePickerRange.Dialog', () => {
         expect(day).toHaveFocus();
       });
     });
+
+    describe.each([
+      { field: 'start', tabs: 1 },
+      { field: 'end', tabs: 2 }
+    ])(
+      'when the $field field is clicked while it already has focus and the dialog is closed',
+      ({ field, tabs }) => {
+        it.each([
+          {
+            label: 'after tabbing into it',
+            focus: async () => {
+              await user.keyboard('{Tab}'.repeat(tabs));
+            }
+          },
+          {
+            label: 'after closing the dialog with Escape',
+            focus: async (input: HTMLElement) => {
+              await user.click(input);
+              await user.keyboard('{Escape}');
+            }
+          },
+          {
+            label: 'after closing the dialog with Enter',
+            focus: async (input: HTMLElement) => {
+              await user.click(input);
+              await user.keyboard('{Enter}');
+            }
+          }
+        ])('opens the dialog $label', async ({ focus }) => {
+          const { getByTestId } = render(<Example />);
+          const input = getByTestId(field);
+
+          await focus(input);
+
+          expect(input).toHaveFocus();
+          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+
+          await user.click(input);
+
+          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+          expect(input).toHaveFocus();
+        });
+      }
+    );
+
+    it.each(['start', 'end'])(
+      'closes the dialog when the %s field is clicked while it is open, keeping focus in the field',
+      async field => {
+        const { getByTestId } = render(<Example />);
+        const input = getByTestId(field);
+
+        await user.click(input);
+
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+        await user.click(input);
+
+        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(input).toHaveFocus();
+      }
+    );
 
     it('reopens on a second click of the already-focused End field after completing the range', async () => {
       mockDate.set(new Date(2019, 1, 5));
@@ -859,7 +920,7 @@ describe('DatePickerRange.Dialog', () => {
       const startInput = getByTestId('start');
 
       await user.click(startInput);
-      await user.type(startInput, '2/5/2019');
+      await user.type(startInput, '2/5/2019', { skipClick: true });
 
       expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
 

@@ -29,8 +29,7 @@ import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils
 import {
   composeActionButtonProps,
   focusIntoDialog,
-  resolveWidgetBlur,
-  shouldOpenOnFieldClick
+  resolveWidgetBlur
 } from '../../../utils/dialog-trigger-utils';
 import {
   datepickerReducer,
@@ -69,10 +68,7 @@ export function useDatePicker({
   const dialogRef = useRef<HTMLDivElement>(null);
   const gridRef = useRef<HTMLTableElement>(null);
   const shouldFocusDialogRef = useRef(false);
-  const previousActiveElementRef = useRef<Element | null>(null);
   const pendingGridFocusRef = useRef(false);
-  /** Set right before refocusing the input after a selection auto-closes the dialog, so the next click on that already-focused input reopens it instead of being mistaken for a click inside text being edited. */
-  const justClosedViaSelectionRef = useRef(false);
 
   const { getContainerProps: getFocusJailProps } = useFocusJail({
     containerRef: dialogRef,
@@ -152,6 +148,15 @@ export function useDatePicker({
     }
   }, [isDisabledOrReadOnly, state.isOpen, value]);
 
+  const toggleDialog = useCallback(() => {
+    if (state.isOpen) {
+      dispatch({ type: 'CLOSE' });
+      inputRef.current?.focus();
+    } else {
+      openOrFocusDialog();
+    }
+  }, [state.isOpen, inputRef, openOrFocusDialog]);
+
   /** Closes a calendar that was already open when its input became disabled/read-only. */
   useEffect(() => {
     if (isDisabledOrReadOnly && state.isOpen) {
@@ -184,11 +189,8 @@ export function useDatePicker({
   const handleWidgetBlur = useCallback(
     (e: React.FocusEvent) => {
       const { shouldSettle, shouldClose } = resolveWidgetBlur({
-        target: e.target,
         relatedTarget: e.relatedTarget as Node | null,
-        fieldRefs: [inputRef],
-        widgetRefs: [groupRef, inputRef, dialogRef],
-        dialogRef
+        widgetRefs: [groupRef, inputRef, dialogRef]
       });
 
       if (shouldSettle) {
@@ -225,11 +227,11 @@ export function useDatePicker({
         'aria-expanded': state.isOpen,
         'aria-controls': menuId,
         disabled: isDisabledOrReadOnly,
-        onClick: composeEventHandlers(onClick, openOrFocusDialog),
+        onClick: composeEventHandlers(onClick, toggleDialog),
         ...other
       };
     },
-    [state.isOpen, menuId, isDisabledOrReadOnly, openOrFocusDialog]
+    [state.isOpen, menuId, isDisabledOrReadOnly, toggleDialog]
   );
 
   const getDialogProps = useCallback(
@@ -267,7 +269,6 @@ export function useDatePicker({
         onChange: onInputChange,
         onKeyDown,
         onMouseDown,
-        onFocus,
         onBlur,
         onClick,
         autoComplete = 'off',
@@ -294,36 +295,13 @@ export function useDatePicker({
           isEmptyReportedRef.current = false;
         }
 
-        justClosedViaSelectionRef.current = false;
         dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
       };
 
-      const handleMouseDown = () => {
-        previousActiveElementRef.current = document.activeElement;
-      };
-
-      const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-        if (!previousActiveElementRef.current) {
-          previousActiveElementRef.current = (e.relatedTarget as Element) || document.body;
-        }
-      };
-
       const handleClick = () => {
-        const previousActiveElement = previousActiveElementRef.current;
-        const justClosedViaSelection = justClosedViaSelectionRef.current;
-
-        previousActiveElementRef.current = null;
-        justClosedViaSelectionRef.current = false;
-
-        if (
-          !isDisabledOrReadOnly &&
-          shouldOpenOnFieldClick({
-            isOpen: state.isOpen,
-            previousActiveElement,
-            widgetRefs: [groupRef, inputRef, dialogRef],
-            justClosedViaSelection
-          })
-        ) {
+        if (state.isOpen) {
+          dispatch({ type: 'CLOSE' });
+        } else if (!isDisabledOrReadOnly) {
           dispatch({ type: 'OPEN', value });
         }
       };
@@ -353,8 +331,7 @@ export function useDatePicker({
         autoComplete,
         value: state.inputValue,
         onChange: composeEventHandlers(onInputChange, handleChange),
-        onMouseDown: composeEventHandlers(onMouseDown, handleMouseDown),
-        onFocus: composeEventHandlers(onFocus, handleFocus),
+        onMouseDown,
         // With a trigger, the group's own onBlur already covers the input.
         onBlur: composeEventHandlers(onBlur, hasTrigger ? undefined : handleWidgetBlur),
         onClick: composeEventHandlers(onClick, handleClick),
@@ -374,7 +351,6 @@ export function useDatePicker({
       settleValue,
       hasTrigger,
       handleWidgetBlur,
-      inputRef,
       isDisabledOrReadOnly,
       openOrFocusDialog
     ]
@@ -443,7 +419,6 @@ export function useDatePicker({
         dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate, keepOpen });
 
         if (!keepOpen) {
-          justClosedViaSelectionRef.current = true;
           inputRef.current?.focus();
         }
       };

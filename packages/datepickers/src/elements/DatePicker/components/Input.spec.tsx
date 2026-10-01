@@ -68,6 +68,65 @@ describe('Input', () => {
     expect(input).toHaveFocus();
   });
 
+  describe('when the input is clicked while it already has focus and the calendar is closed', () => {
+    it.each([
+      {
+        label: 'after tabbing into it',
+        focus: async () => {
+          await user.tab();
+        }
+      },
+      {
+        label: 'after tabbing into it and typing',
+        focus: async () => {
+          await user.tab();
+          await user.keyboard('2/10');
+        }
+      },
+      {
+        label: 'after closing the calendar with Escape',
+        focus: async (input: HTMLElement) => {
+          await user.click(input);
+          await user.keyboard('{Escape}');
+        }
+      },
+      {
+        label: 'after closing the calendar with Enter',
+        focus: async (input: HTMLElement) => {
+          await user.click(input);
+          await user.keyboard('{Enter}');
+        }
+      }
+    ])('opens the calendar $label', async ({ focus }) => {
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const input = getByTestId('input');
+
+      await focus(input);
+
+      expect(input).toHaveFocus();
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+
+      await user.click(input);
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(input).toHaveFocus();
+    });
+  });
+
+  it('closes the calendar when the input is clicked while it is open, keeping focus in the input', async () => {
+    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const input = getByTestId('input');
+
+    await user.click(input);
+
+    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+
+    await user.click(input);
+
+    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(input).toHaveFocus();
+  });
+
   it('does not open the calendar when the input receives keyboard focus', async () => {
     const { getByTestId, queryByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
@@ -391,7 +450,7 @@ describe('Input', () => {
 
       await user.click(input);
       await user.clear(input);
-      await user.type(input, 'garbage');
+      await user.type(input, 'garbage', { skipClick: true });
       onValueSettledSpy.mockClear();
       await user.keyboard('{Enter}');
 

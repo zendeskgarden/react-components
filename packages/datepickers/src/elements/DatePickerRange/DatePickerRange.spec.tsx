@@ -1604,7 +1604,7 @@ describe('DatePickerRange', () => {
 
           await user.click(input);
           await user.clear(input);
-          await user.type(input, 'invalid date');
+          await user.type(input, 'invalid date', { skipClick: true });
 
           expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
 

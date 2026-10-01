@@ -120,7 +120,7 @@ describe('Trigger', () => {
     const startInput = getByTestId('start');
 
     await user.clear(startInput);
-    await user.type(startInput, '1/4/2019');
+    await user.type(startInput, '1/4/2019', { skipClick: true });
     await user.click(getByTestId('calendar-button'));
 
     const selectedDay = getAllByTestId('day').find(
@@ -130,4 +130,25 @@ describe('Trigger', () => {
     expect(selectedDay).toHaveTextContent('4');
     expect(selectedDay).toHaveFocus();
   });
+
+  it.each([
+    { label: 'the calendar', opener: 'calendar-button' },
+    { label: 'the Start field', opener: 'start' }
+  ])(
+    'closes the dialog when clicked while it is open with focus in $label, returning focus to the Start field',
+    async ({ opener }) => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      await user.click(getByTestId(opener));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByTestId('calendar-button'));
+
+      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByTestId('start')).toHaveFocus();
+    }
+  );
 });
