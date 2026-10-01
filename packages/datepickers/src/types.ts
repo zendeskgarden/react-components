@@ -233,6 +233,8 @@ export interface IUseDatePickerProps {
   onValueSettled?: (result: IDatePickerValueSettledResult) => void;
   /** The rendered text input, created by the caller since it's merged with a consumer-supplied ref. **/
   inputRef: RefObject<HTMLInputElement | null>;
+  /** The element named by `DatePicker`'s `refKey`, when it isn't the input - positions the calendar instead of the input or group. **/
+  referenceRef?: RefObject<HTMLElement | null>;
 }
 
 export interface IGetCellPropsOptions extends ElementProps<HTMLTableCellElement> {
@@ -441,6 +443,8 @@ export interface IDatePickerDialogProps extends HTMLAttributes<HTMLDivElement> {
 export interface IDatePickerInputProps {
   element: ReactElement & RefAttributes<HTMLInputElement>;
   refKey: string;
+  /** Receives the element under `refKey`, when `refKey` isn't `'ref'`. **/
+  referenceRef: RefObject<HTMLElement | null>;
   /** Whether the input sits inside DatePicker's own group, alongside a trigger button. */
   hasTrigger?: boolean;
 }

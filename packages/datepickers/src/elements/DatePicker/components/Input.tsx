@@ -6,16 +6,20 @@
  */
 
 import { cloneElement, forwardRef } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 import { ClearableInput } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerContext';
 import { NESTED_GROUP_PROPS } from '../../../utils/nested-group-utils';
 import { IDatePickerInputProps } from '../../../types';
 
 export const Input = forwardRef<HTMLInputElement, IDatePickerInputProps>(
-  ({ element, refKey, hasTrigger = true }, ref) => {
+  ({ element, refKey, referenceRef, hasTrigger = true }, ref) => {
     const { getInputProps } = useDatePickerContext();
     const inputProps = getInputProps({
-      [refKey]: ref,
+      ref,
+      ...(refKey === 'ref'
+        ? {}
+        : { [refKey]: mergeRefs([referenceRef, element.props[refKey] ?? null]) }),
       onChange: element.props.onChange,
       onKeyDown: element.props.onKeyDown,
       onMouseDown: element.props.onMouseDown,

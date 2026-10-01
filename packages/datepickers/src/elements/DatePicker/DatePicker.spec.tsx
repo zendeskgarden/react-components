@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent } from 'garden-test-utils';
+import { render, fireEvent, waitFor } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
@@ -788,6 +788,89 @@ describe('DatePicker', () => {
 
       expect(groups).toHaveLength(1);
       expect(groups[0]).toHaveAccessibleName('Date');
+    });
+  });
+
+  describe('refKey', () => {
+    const RefKeyExample = ({ inputRef }: { inputRef?: React.Ref<HTMLInputElement> }) => (
+      <DatePicker
+        hasTrigger={false}
+        refKey="wrapperRef"
+        value={DEFAULT_DATE}
+        onChange={onChangeSpy}
+      >
+        <MediaInput
+          ref={inputRef}
+          data-test-id="input"
+          end={<span />}
+          wrapperProps={{ 'data-test-id': 'wrapper' } as React.HTMLAttributes<HTMLDivElement>}
+        />
+      </DatePicker>
+    );
+
+    const mockRect = (element: HTMLElement, left: number) => {
+      element.getBoundingClientRect = jest.fn(
+        () =>
+          ({
+            width: 100,
+            height: 10,
+            top: 100,
+            left,
+            bottom: 110,
+            right: left + 100,
+            x: left,
+            y: 100
+          }) as DOMRect
+      );
+    };
+
+    it('positions the calendar against the element refKey names', async () => {
+      const { getByTestId } = render(<RefKeyExample />);
+
+      mockRect(getByTestId('wrapper'), 120);
+      mockRect(getByTestId('input'), 160);
+
+      await user.click(getByTestId('input'));
+
+      await waitFor(() => {
+        const match = getByTestId('datepicker-menu').style.transform.match(
+          /translate\((?<x>[-\d.]+)px/u
+        );
+
+        expect(match ? parseFloat(match.groups!.x) : NaN).toBe(120);
+      });
+    });
+
+    it('returns focus to the input on Escape from the calendar', async () => {
+      const { getByTestId } = render(<RefKeyExample />);
+      const input = getByTestId('input');
+
+      await user.click(input);
+      await user.keyboard('{ArrowDown}');
+
+      expect(input).not.toHaveFocus();
+
+      await user.keyboard('{Escape}');
+
+      expect(input).toHaveFocus();
+    });
+
+    it('returns focus to the input after selecting a day with Enter', async () => {
+      const { getByTestId } = render(<RefKeyExample />);
+      const input = getByTestId('input');
+
+      await user.click(input);
+      await user.keyboard('{ArrowDown}{ArrowRight}{Enter}');
+
+      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(input).toHaveFocus();
+    });
+
+    it("still gives the child's own ref the input", () => {
+      const inputRef = React.createRef<HTMLInputElement>();
+      const { getByTestId } = render(<RefKeyExample inputRef={inputRef} />);
+
+      expect(inputRef.current).toBe(getByTestId('input'));
     });
   });
 

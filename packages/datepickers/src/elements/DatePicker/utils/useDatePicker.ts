@@ -57,7 +57,8 @@ export function useDatePicker({
   readOnly,
   onChange,
   onValueSettled,
-  inputRef
+  inputRef,
+  referenceRef
 }: IUseDatePickerProps): IUseDatePickerReturnValue {
   const prefix = useId(idPrefix);
   const menuId = `${prefix}--menu`;
@@ -357,10 +358,10 @@ export function useDatePicker({
     ]
   );
 
-  /** Without a trigger, there's no group - the input itself is the widget. */
+  /** Without a trigger, there's no group - the input itself is the widget, unless `refKey` names another element. */
   const getReferenceElement = useCallback(
-    () => groupRef.current ?? inputRef.current,
-    [groupRef, inputRef]
+    () => referenceRef?.current ?? groupRef.current ?? inputRef.current,
+    [referenceRef, groupRef, inputRef]
   );
 
   const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {

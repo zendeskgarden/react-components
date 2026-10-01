@@ -55,6 +55,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
   } = props;
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const inputRef = useRef<HTMLInputElement>(null);
+  const referenceRef = useRef<HTMLElement>(null);
 
   const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLInputElement>>(
     children
@@ -76,7 +77,8 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     readOnly: Child.props.readOnly,
     onChange,
     onValueSettled,
-    inputRef
+    inputRef,
+    referenceRef
   });
 
   const { getGroupProps } = datePicker;
@@ -85,6 +87,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     <Input
       element={Child}
       refKey={refKey!}
+      referenceRef={referenceRef}
       hasTrigger={hasTrigger}
       ref={mergeRefs([inputRef, Child.ref ? Child.ref : null])}
     />
