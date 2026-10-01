@@ -1003,6 +1003,56 @@ describe('DatePickerRange.Dialog', () => {
     });
   });
 
+  describe('default anchor', () => {
+    const mockRect = (element: HTMLElement, left: number) => {
+      element.getBoundingClientRect = jest.fn(
+        () =>
+          ({
+            width: 100,
+            height: 10,
+            top: 100,
+            left,
+            bottom: 110,
+            right: left + 100,
+            x: left,
+            y: 100
+          }) as DOMRect
+      );
+    };
+
+    it("anchors to Start's group, not the input inside it, when Start is in a StartGroup", async () => {
+      const { getByTestId } = render(
+        <DatePickerRange>
+          <DatePickerRange.StartGroup data-test-id="start-group">
+            <DatePickerRange.Start>
+              <input data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.Trigger data-test-id="trigger" />
+          </DatePickerRange.StartGroup>
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Dialog>
+            <DatePickerRange.Calendar />
+          </DatePickerRange.Dialog>
+        </DatePickerRange>
+      );
+
+      mockRect(getByTestId('start-group'), 120);
+      mockRect(getByTestId('start'), 160);
+
+      await user.click(getByTestId('trigger'));
+
+      await waitFor(() => {
+        const match = getByTestId('range-dialog').style.transform.match(
+          /translate\((?<x>[-\d.]+)px/u
+        );
+
+        expect(match ? parseFloat(match.groups!.x) : NaN).toBe(120);
+      });
+    });
+  });
+
   describe('referenceElement override', () => {
     let customReferenceElement: HTMLButtonElement;
 

@@ -17,9 +17,10 @@ import { useFloatingDialog } from '../../../utils/use-floating-dialog';
 const PLACEMENT_DEFAULT = 'bottom-start';
 
 /**
- * Anchors its floating position to `Start`'s input, falling back to
- * `End`'s input then the first rendered `Trigger` button - unless a
- * consumer overrides it via `referenceElement`.
+ * Anchors its floating position to `Start`'s field (its `StartGroup`, else
+ * its `ClearableInput` wrapper, else its input), falling back to `End`'s,
+ * then the first rendered `Trigger` button - unless a consumer overrides it
+ * via `referenceElement`.
  */
 export const Dialog = ({
   children,

@@ -452,7 +452,16 @@ export function useDatePickerRange({
   const getReferenceElement = useCallback(() => {
     const [firstTriggerRef] = triggerRefsRef.current;
 
-    return startInputRef.current ?? endInputRef.current ?? firstTriggerRef?.current ?? null;
+    return (
+      startGroupRef.current ??
+      startWrapperRef.current ??
+      startInputRef.current ??
+      endGroupRef.current ??
+      endWrapperRef.current ??
+      endInputRef.current ??
+      firstTriggerRef?.current ??
+      null
+    );
   }, [startInputRef, endInputRef]);
 
   const getFieldTriggerProps = useCallback(

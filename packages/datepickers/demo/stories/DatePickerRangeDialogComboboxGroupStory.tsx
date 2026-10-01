@@ -59,9 +59,6 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<
 > = ({ isCompact, isStartDisabled, isStartReadOnly, isEndDisabled, isEndReadOnly, ...args }) => {
   const [isSideBySide, setIsSideBySide] = useState<boolean | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
-  const startInputRef = useRef<HTMLInputElement>(null);
-  const endInputRef = useRef<HTMLInputElement>(null);
-  const startGroupRef = useRef<HTMLDivElement>(null);
   const endGroupRef = useRef<HTMLDivElement>(null);
   const hintId = `${useId()}--hint`;
 
@@ -96,11 +93,10 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<
           <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
             <StyledField $isCompact={isCompact}>
               <Field.Label hidden>Start date</Field.Label>
-              <DatePickerRange.StartGroup ref={startGroupRef} isEdgeToEdge={isSideBySide}>
+              <DatePickerRange.StartGroup isEdgeToEdge={isSideBySide}>
                 <DatePickerRange.Start>
                   <ClearableInput
                     aria-describedby={hintId}
-                    ref={startInputRef}
                     isCompact={isCompact}
                     disabled={isStartDisabled}
                     readOnly={isStartReadOnly}
@@ -118,7 +114,6 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<
                 <DatePickerRange.End>
                   <ClearableInput
                     aria-describedby={hintId}
-                    ref={endInputRef}
                     isCompact={isCompact}
                     disabled={isEndDisabled}
                     readOnly={isEndReadOnly}
@@ -133,11 +128,7 @@ export const DatePickerRangeDialogComboboxGroupStory: StoryFn<
           </StyledFlexContainer>
         </Fieldset>
         <DatePickerRange.Dialog
-          referenceElement={
-            isSideBySide === false
-              ? endGroupRef.current || endInputRef.current
-              : startGroupRef.current || startInputRef.current
-          }
+          referenceElement={isSideBySide === false ? endGroupRef.current : undefined}
         >
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>

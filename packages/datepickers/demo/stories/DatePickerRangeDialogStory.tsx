@@ -47,9 +47,6 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
 }) => {
   const [isSideBySide, setIsSideBySide] = useState<boolean | undefined>(undefined);
   const containerRef = useRef<HTMLDivElement>(null);
-  const startInputRef = useRef<HTMLInputElement>(null);
-  const endInputRef = useRef<HTMLInputElement>(null);
-  const startGroupRef = useRef<HTMLDivElement>(null);
   const endGroupRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,10 +74,9 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
           <StyledFlexContainer $isCompact={isCompact} ref={containerRef}>
             <StyledField $isCompact={isCompact}>
               <Field.Label isRegular={false}>Start date</Field.Label>
-              <DatePickerRange.StartGroup ref={startGroupRef}>
+              <DatePickerRange.StartGroup>
                 <DatePickerRange.Start>
                   <ClearableInput
-                    ref={startInputRef}
                     isCompact={isCompact}
                     disabled={isStartDisabled}
                     readOnly={isStartReadOnly}
@@ -97,7 +93,6 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
               <DatePickerRange.EndGroup ref={endGroupRef}>
                 <DatePickerRange.End>
                   <ClearableInput
-                    ref={endInputRef}
                     isCompact={isCompact}
                     disabled={isEndDisabled}
                     readOnly={isEndReadOnly}
@@ -112,11 +107,7 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
           </StyledFlexContainer>
         </Fieldset>
         <DatePickerRange.Dialog
-          referenceElement={
-            isSideBySide === false
-              ? endGroupRef.current || endInputRef.current
-              : startGroupRef.current || startInputRef.current
-          }
+          referenceElement={isSideBySide === false ? endGroupRef.current : undefined}
         >
           <DatePickerRange.Calendar />
         </DatePickerRange.Dialog>
