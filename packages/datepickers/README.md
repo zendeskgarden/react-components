@@ -82,7 +82,47 @@ import { Grid } from '@zendeskgarden/react-grid';
 </Grid>;
 ```
 
-For an input that provides its own styling or calendar icon, such as a
-`MediaInput`, set `hasTrigger={false}`. The input then renders exactly as
-provided, without the button or its group, and still opens the calendar when
-clicked or on <kbd>Down Arrow</kbd>.
+For an input that provides its own styling, set `hasTrigger={false}`. The input
+then renders exactly as provided, without the button or its group, and still
+opens the calendar when clicked or on <kbd>Down Arrow</kbd>.
+
+### Using a `MediaInput`
+
+Prefer the default calendar button to a `MediaInput` with its own calendar
+icon. If you do use one, `DatePicker` only sees the `<input>` inside it, so it
+needs some help:
+
+- `refKey="wrapperRef"` positions the calendar against the `MediaInput`'s
+  outer box rather than the `<input>` inside it.
+- `wrapperProps` handlers make a click on the icon (or the padding around the
+  `<input>`) behave like a click on the `<input>`, and keep pressing them from
+  moving focus out of the field.
+
+```jsx
+import { Field, MediaInput } from '@zendeskgarden/react-forms';
+import CalendarIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
+
+const inputRef = useRef();
+
+<Field>
+  <Field.Label>Date</Field.Label>
+  <DatePicker value={value} onChange={setValue} hasTrigger={false} refKey="wrapperRef">
+    <MediaInput
+      ref={inputRef}
+      end={<CalendarIcon />}
+      wrapperProps={{
+        onMouseDown: e => {
+          if (e.target !== inputRef.current) {
+            e.preventDefault();
+          }
+        },
+        onClick: e => {
+          if (e.target !== inputRef.current) {
+            inputRef.current?.click();
+          }
+        }
+      }}
+    />
+  </DatePicker>
+</Field>;
+```
