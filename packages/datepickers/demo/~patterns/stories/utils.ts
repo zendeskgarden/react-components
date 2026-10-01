@@ -19,6 +19,12 @@ export const customParseShortDate = (value = '') => {
   }
 
   const { month, day, year } = match.groups;
+  const date = new Date(Number(year), Number(month) - 1, Number(day));
 
-  return new Date(Number(year), Number(month) - 1, Number(day));
+  /* `Date` rolls an impossible date over (e.g. 2/31 to 3/3), so reject any that doesn't round-trip. */
+  return date.getFullYear() === Number(year) &&
+    date.getMonth() === Number(month) - 1 &&
+    date.getDate() === Number(day)
+    ? date
+    : new Date(NaN);
 };
