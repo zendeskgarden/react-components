@@ -11,6 +11,9 @@ import CalendarStrokeIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.
 import { StyledCalendarButton } from '../styled';
 import { ICalendarButtonProps } from '../types';
 
+/** Default `toggleCalendarLabel`, also used by `DatePicker.Dialog` when it has no trigger to take its name from. */
+export const DEFAULT_TOGGLE_CALENDAR_LABEL = 'Choose date';
+
 /** Shared by `DatePicker` and `DatePickerRange` - each supplies its own `getTriggerProps` from context. */
 export const CalendarButton = ({
   isCompact,
@@ -22,7 +25,7 @@ export const CalendarButton = ({
     CalendarButton,
     { toggleCalendarLabel },
     'toggleCalendarLabel',
-    'Choose date'
+    DEFAULT_TOGGLE_CALENDAR_LABEL
   );
   return (
     <StyledCalendarButton
@@ -33,7 +36,6 @@ export const CalendarButton = ({
       focusInset={!isCompact}
       tabIndex={-1}
       aria-label={ariaLabel}
-      data-test-id="calendar-button"
       {...getTriggerProps(props)}
     >
       <CalendarStrokeIcon aria-hidden="true" />

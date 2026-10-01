@@ -82,10 +82,7 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
                     readOnly={isStartReadOnly}
                   />
                 </DatePickerRange.Start>
-                <DatePickerRange.Trigger
-                  toggleCalendarLabel="Choose start date"
-                  data-test-id="start-calendar-button"
-                />
+                <DatePickerRange.Trigger toggleCalendarLabel="Choose start date" />
               </DatePickerRange.StartGroup>
             </StyledField>
             <StyledField $isCompact={isCompact}>
@@ -98,10 +95,7 @@ export const DatePickerRangeDialogStory: StoryFn<IDatePickerRangeProps & IRangeF
                     readOnly={isEndReadOnly}
                   />
                 </DatePickerRange.End>
-                <DatePickerRange.Trigger
-                  toggleCalendarLabel="Choose end date"
-                  data-test-id="end-calendar-button"
-                />
+                <DatePickerRange.Trigger toggleCalendarLabel="Choose end date" />
               </DatePickerRange.EndGroup>
             </StyledField>
           </StyledFlexContainer>

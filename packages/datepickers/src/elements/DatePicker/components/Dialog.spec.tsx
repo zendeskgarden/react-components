@@ -13,6 +13,7 @@ import { KEYS } from '@zendeskgarden/container-utilities';
 import { DatePicker } from '../DatePicker';
 import { IDatePickerProps } from '../../../types';
 
+const CHOOSE_DATE = 'Choose date';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
 const mockNarrowReferenceRect = (element: HTMLElement) => {
@@ -86,29 +87,27 @@ describe('Dialog', () => {
   });
 
   it('has dialog role, aria-modal="true", and an accessible name matching the calendar button', async () => {
-    const { getByTestId, getByRole } = render(
-      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-    );
+    const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-    const dialog = getByRole('dialog', { name: 'Choose date' });
+    const dialog = getByRole('dialog', { name: CHOOSE_DATE });
 
     expect(dialog).toHaveAttribute('aria-modal', 'true');
   });
 
   it('applies LTR classes by default', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+    const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
   });
 
   it('applies RTL classes if provided', async () => {
-    const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
+    const { getByRole, getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
 
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
   });
@@ -130,10 +129,10 @@ describe('Dialog', () => {
   });
 
   it('closes the calendar and returns focus to the input on Escape, without selecting a date', async () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByRole, getByTestId, getAllByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
-    const button = getByTestId('calendar-button');
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
     expect(getAllByTestId('day')[9]).toHaveFocus();
@@ -161,8 +160,10 @@ describe('Dialog', () => {
   });
 
   it('closes the calendar when clicking outside of the widget', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-    const button = getByTestId('calendar-button');
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
@@ -173,8 +174,10 @@ describe('Dialog', () => {
   });
 
   it('closes the calendar when clicking a non-interactive element outside the widget', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-    const button = getByTestId('calendar-button');
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
@@ -185,8 +188,10 @@ describe('Dialog', () => {
   });
 
   it('closes the calendar when the input receives focus', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-    const button = getByTestId('calendar-button');
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
@@ -237,14 +242,16 @@ describe('Dialog', () => {
       'keeps an Escape that closes the calendar from %s from reaching ancestors, e.g. a Modal',
       async (_, fromGrid) => {
         const onAncestorKeyDown = jest.fn();
-        const { getByTestId } = render(
+        const { getByRole, getByTestId } = render(
           // eslint-disable-next-line jsx-a11y/no-static-element-interactions
           <div onKeyDown={onAncestorKeyDown}>
             <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
           </div>
         );
 
-        await user.click(fromGrid ? getByTestId('calendar-button') : getByTestId('input'));
+        await user.click(
+          fromGrid ? getByRole('button', { name: CHOOSE_DATE }) : getByTestId('input')
+        );
         await user.keyboard('{Escape}');
 
         expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
@@ -280,8 +287,10 @@ describe('Dialog', () => {
         return <Example {...props} value={value} onChange={setValue} />;
       };
 
-      const { getByTestId, getAllByTestId } = render(<ControlledExample value={DEFAULT_DATE} />);
-      const button = getByTestId('calendar-button');
+      const { getByRole, getByTestId, getAllByTestId } = render(
+        <ControlledExample value={DEFAULT_DATE} />
+      );
+      const button = getByRole('button', { name: CHOOSE_DATE });
 
       await user.click(button);
       await user.click(getAllByTestId('day')[1]);
@@ -319,31 +328,31 @@ describe('Dialog', () => {
     });
 
     it('wraps Tab from the focused day cell back to the first tabbable element, keeping the dialog open', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       // focusIntoDialog focuses the selected day cell, the dialog's last tabbable element.
       expect(getAllByTestId('day')[9]).toHaveFocus();
 
       await user.tab();
 
-      expect(getByTestId('previous-year')).toHaveFocus();
+      expect(getByRole('button', { name: /^Previous year/u })).toHaveFocus();
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
       expect(getByTestId('outside')).not.toHaveFocus();
     });
 
     it('wraps Shift+Tab from the first tabbable element back to the day cell, keeping the dialog open', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       await user.tab();
-      expect(getByTestId('previous-year')).toHaveFocus();
+      expect(getByRole('button', { name: /^Previous year/u })).toHaveFocus();
 
       await user.tab({ shift: true });
 
@@ -370,11 +379,13 @@ describe('Dialog', () => {
     });
 
     it('constrains its own max size to the available viewport space', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -387,11 +398,13 @@ describe('Dialog', () => {
     });
 
     it('does not move the dialog away from its reference element, unlike shift()', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -405,13 +418,13 @@ describe('Dialog', () => {
     });
 
     it("does not clip its own overflow, so it never hides StyledMenu's box-shadow or fights the open animation's transform - StyledCalendarGrid's own overflow: auto is the actual scroll container", async () => {
-      const { container, getByTestId } = render(
+      const { getByRole, container, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -428,13 +441,13 @@ describe('Dialog', () => {
     });
 
     it('gives the overflow:auto calendar grid a real pixel max-height matching the available space, so it actually scrolls instead of just rendering past the wrapper', async () => {
-      const { container, getByTestId } = render(
+      const { getByRole, container, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -455,13 +468,13 @@ describe('Dialog', () => {
     });
 
     it("caps StyledMenu (the wrapper's inline-block child) to its parent's now-constrained width", async () => {
-      const { container, getByTestId } = render(
+      const { getByRole, container, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       await waitFor(() => {
         const menu = container.querySelector<HTMLElement>("[data-garden-id='datepickers.menu']");
@@ -472,11 +485,13 @@ describe('Dialog', () => {
     });
 
     it('leaves a gap between the dialog and the viewport edge, instead of touching it exactly', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -490,11 +505,13 @@ describe('Dialog', () => {
     });
 
     it('leaves the same gap beneath the dialog and the viewport edge, not just to the sides', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       mockNarrowReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -508,11 +525,13 @@ describe('Dialog', () => {
     });
 
     it('leaves the same gap above the dialog and the viewport edge when flip() opens it upward', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
 
       mockNarrowBottomReferenceRect(getByTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const dialog = getByTestId('datepicker-menu');
 
@@ -526,13 +545,15 @@ describe('Dialog', () => {
     });
 
     it('uses a smaller gap when compact, leaving more available space than the default spacing', async () => {
-      const { getByTestId: getByDefaultTestId, unmount } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
+      const {
+        getByTestId: getByDefaultTestId,
+        getByRole: getByDefaultRole,
+        unmount
+      } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
       mockNarrowReferenceRect(getByDefaultTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByDefaultTestId('calendar-button'));
+      await user.click(getByDefaultRole('button', { name: CHOOSE_DATE }));
 
       let defaultMaxWidth: number;
 
@@ -543,13 +564,13 @@ describe('Dialog', () => {
 
       unmount();
 
-      const { getByTestId: getByCompactTestId } = render(
+      const { getByTestId: getByCompactTestId, getByRole: getByCompactRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} isCompact />
       );
 
       mockNarrowReferenceRect(getByCompactTestId('input').parentElement as HTMLElement);
 
-      await user.click(getByCompactTestId('calendar-button'));
+      await user.click(getByCompactRole('button', { name: CHOOSE_DATE }));
 
       await waitFor(() => {
         const compactMaxWidth = parseFloat(getByCompactTestId('datepicker-menu').style.maxWidth);
@@ -562,7 +583,9 @@ describe('Dialog', () => {
 
   describe('reference element', () => {
     it('anchors to the input group, not just the input', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
       const group = input.parentElement as HTMLElement;
 
@@ -581,7 +604,7 @@ describe('Dialog', () => {
           }) as DOMRect
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       await waitFor(() => {
         const dialog = getByTestId('datepicker-menu');

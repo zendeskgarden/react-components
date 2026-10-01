@@ -7,11 +7,12 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
+import { RenderResult, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
 
+const CHOOSE_DATE = 'Choose date';
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
 
@@ -44,25 +45,25 @@ describe('Trigger', () => {
   });
 
   it('reflects the dialog open state via aria-expanded, and aria-controls references the dialog', () => {
-    const { getByTestId } = render(
+    const { getByRole } = render(
       <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
     );
-    const button = getByTestId('calendar-button');
-    const dialog = getByTestId('range-dialog');
+    const button = getByRole('button', { name: CHOOSE_DATE });
+    const dialog = getByRole('dialog', { hidden: true });
 
     expect(button).toHaveAttribute('aria-expanded', 'false');
     expect(button).toHaveAttribute('aria-controls', dialog.id);
   });
 
   it('opens the dialog and moves focus onto the selected day when clicked', async () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByRole, getAllByTestId } = render(
       <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
     );
-    const button = getByTestId('calendar-button');
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
 
-    expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     expect(button).toHaveAttribute('aria-expanded', 'true');
 
     const selectedDay = getAllByTestId('day').find(
@@ -73,15 +74,15 @@ describe('Trigger', () => {
   });
 
   it('opens the dialog when activated with the keyboard', async () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByRole, getAllByTestId } = render(
       <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
     );
-    const button = getByTestId('calendar-button');
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     button.focus();
     await user.keyboard('{Enter}');
 
-    expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
     const selectedDay = getAllByTestId('day').find(
       day => day.getAttribute('data-test-selected') === 'true'
@@ -91,9 +92,9 @@ describe('Trigger', () => {
   });
 
   it('moves focus onto todays date when no value is selected', async () => {
-    const { getByTestId, getAllByTestId } = render(<Example />);
+    const { getByRole, getAllByTestId } = render(<Example />);
 
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     const today = getAllByTestId('day').find(day => day.getAttribute('data-test-today') === 'true');
 
@@ -116,12 +117,12 @@ describe('Trigger', () => {
         />
       );
     };
-    const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+    const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
     const startInput = getByTestId('start');
 
     await user.clear(startInput);
     await user.type(startInput, '1/4/2019', { skipClick: true });
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     const selectedDay = getAllByTestId('day').find(
       day => day.getAttribute('data-test-selected') === 'true'
@@ -132,22 +133,26 @@ describe('Trigger', () => {
   });
 
   it.each([
-    { label: 'the calendar', opener: 'calendar-button' },
-    { label: 'the Start field', opener: 'start' }
+    {
+      label: 'the calendar',
+      getOpener: ({ getByRole }: RenderResult) => getByRole('button', { name: CHOOSE_DATE })
+    },
+    { label: 'the Start field', getOpener: ({ getByTestId }: RenderResult) => getByTestId('start') }
   ])(
     'closes the dialog when clicked while it is open with focus in $label, returning focus to the Start field',
-    async ({ opener }) => {
-      const { getByTestId } = render(
+    async ({ getOpener }) => {
+      const result = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
+      const { getByRole, getByTestId } = result;
 
-      await user.click(getByTestId(opener));
+      await user.click(getOpener(result));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(getByTestId('start')).toHaveFocus();
     }
   );

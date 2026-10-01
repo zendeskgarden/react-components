@@ -201,20 +201,20 @@ describe('Calendar', () => {
 
   describe('Header toolbar', () => {
     it('renders exactly one previous-year and next-year paddle', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      expect(getAllByTestId('previous-year')).toHaveLength(1);
-      expect(getAllByTestId('next-year')).toHaveLength(1);
+      expect(getAllByRole('button', { name: /^Previous year/u })).toHaveLength(1);
+      expect(getAllByRole('button', { name: /^Next year/u })).toHaveLength(1);
     });
 
     it('displays the same months one year earlier if the previous year paddle is clicked', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      await user.click(getByTestId('previous-year'));
+      await user.click(getByRole('button', { name: /^Previous year/u }));
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -223,11 +223,11 @@ describe('Calendar', () => {
     });
 
     it('displays the same months one year later if the next year paddle is clicked', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      await user.click(getByTestId('next-year'));
+      await user.click(getByRole('button', { name: /^Next year/u }));
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -236,11 +236,11 @@ describe('Calendar', () => {
     });
 
     it('keeps exactly one day tabbable, without moving focus off the paddle, when previous-year is clicked', () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const previousButton = getByTestId('previous-year');
+      const previousButton = getByRole('button', { name: /^Previous year/u });
 
       act(() => {
         previousButton.focus();
@@ -261,11 +261,11 @@ describe('Calendar', () => {
     });
 
     it('keeps exactly one day tabbable, without moving focus off the paddle, when next-year is clicked', () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const nextButton = getByTestId('next-year');
+      const nextButton = getByRole('button', { name: /^Next year/u });
 
       act(() => {
         nextButton.focus();

@@ -10,6 +10,8 @@ import userEvent from '@testing-library/user-event';
 import { render } from 'garden-test-utils';
 import { CalendarButton } from './CalendarButton';
 
+const CHOOSE_DATE = 'Choose date';
+
 describe('CalendarButton', () => {
   const user = userEvent.setup({ delay: null });
 
@@ -27,7 +29,7 @@ describe('CalendarButton', () => {
   it('hides its icon from assistive technology', () => {
     const { getByRole } = render(<CalendarButton getTriggerProps={getTriggerProps} />);
 
-    const icon = getByRole('button', { name: 'Choose date' }).querySelector('svg');
+    const icon = getByRole('button', { name: CHOOSE_DATE }).querySelector('svg');
 
     expect(icon).toHaveAttribute('aria-hidden', 'true');
   });
@@ -35,7 +37,7 @@ describe('CalendarButton', () => {
   it('has a default accessible name', () => {
     const { getByRole } = render(<CalendarButton getTriggerProps={getTriggerProps} />);
 
-    expect(getByRole('button', { name: 'Choose date' })).toBeInTheDocument();
+    expect(getByRole('button', { name: CHOOSE_DATE })).toBeInTheDocument();
   });
 
   it('reflects a consumer-provided toggleCalendarLabel', () => {
@@ -49,7 +51,7 @@ describe('CalendarButton', () => {
   it("reflects getTriggerProps' aria-haspopup/aria-expanded/aria-controls", () => {
     const { getByRole } = render(<CalendarButton getTriggerProps={getTriggerProps} />);
 
-    const button = getByRole('button', { name: 'Choose date' });
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     expect(button).toHaveAttribute('aria-haspopup', 'dialog');
     expect(button).toHaveAttribute('aria-expanded', 'false');
@@ -59,7 +61,7 @@ describe('CalendarButton', () => {
   it('is excluded from the Tab sequence by default, but can still receive programmatic focus', () => {
     const { getByRole } = render(<CalendarButton getTriggerProps={getTriggerProps} />);
 
-    const button = getByRole('button', { name: 'Choose date' });
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     expect(button).toHaveAttribute('tabindex', '-1');
 
@@ -74,7 +76,7 @@ describe('CalendarButton', () => {
       <CalendarButton getTriggerProps={getTriggerProps} onClick={onClick} />
     );
 
-    const button = getByRole('button', { name: 'Choose date' });
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     button.focus();
     await user.keyboard('{Enter}');
@@ -86,11 +88,11 @@ describe('CalendarButton', () => {
     expect(onClick).toHaveBeenCalledTimes(2);
   });
 
-  it('lets an extra prop (e.g. data-test-id) override the default, so more than one can be told apart', () => {
-    const { getByTestId } = render(
-      <CalendarButton getTriggerProps={getTriggerProps} data-test-id="start-calendar-button" />
+  it('passes extra props through to the button', () => {
+    const { getByRole } = render(
+      <CalendarButton getTriggerProps={getTriggerProps} aria-describedby="hint" />
     );
 
-    expect(getByTestId('start-calendar-button')).toBeInTheDocument();
+    expect(getByRole('button', { name: CHOOSE_DATE })).toHaveAttribute('aria-describedby', 'hint');
   });
 });

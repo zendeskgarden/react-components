@@ -7,7 +7,7 @@
 
 import React, { ComponentProps, useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { act, render, renderRtl, waitFor } from 'garden-test-utils';
+import { act, render, renderRtl, waitFor, within } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { ClearableInput } from '@zendeskgarden/react-forms';
 import { DatePickerRange } from '../DatePickerRange';
@@ -82,11 +82,11 @@ describe('DatePickerRange.Dialog', () => {
 
   describe('Styled menu', () => {
     it('applies StyledMenuWrapper and StyledMenu Garden component IDs', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       expect(dialog).toHaveAttribute('data-garden-id', 'datepickers.menu_wrapper');
       expect(dialog.firstChild).toHaveAttribute('data-garden-id', 'datepickers.menu');
@@ -108,16 +108,16 @@ describe('DatePickerRange.Dialog', () => {
   describe('Closing', () => {
     it('closes the dialog and returns focus to the field on Escape, without selecting a date', async () => {
       const onChangeSpy = jest.fn();
-      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(<Example onChange={onChangeSpy} />);
       const startInput = getByTestId('start');
 
       await user.click(startInput);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.keyboard('{Escape}');
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(startInput).toHaveFocus();
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -129,7 +129,7 @@ describe('DatePickerRange.Dialog', () => {
       'commits a typed $field date and closes the dialog on Enter, keeping focus in the field',
       async ({ field, typed, expected }) => {
         const onChangeSpy = jest.fn();
-        const { getByTestId } = render(
+        const { getByRole, getByTestId } = render(
           <Example
             startValue={new Date(2019, 1, 5)}
             endValue={new Date(2019, 2, 5)}
@@ -142,54 +142,54 @@ describe('DatePickerRange.Dialog', () => {
         await user.clear(input);
         await user.type(input, typed, { skipClick: true });
 
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
         await user.keyboard('{Enter}');
 
         expect(onChangeSpy).toHaveBeenCalledWith(expect.objectContaining(expected));
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
         expect(input).toHaveFocus();
       }
     );
 
     it('closes the dialog on Escape when focus never left the End field', async () => {
       const onChangeSpy = jest.fn();
-      const { getByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(<Example onChange={onChangeSpy} />);
       const endInput = getByTestId('end');
 
       await user.click(endInput);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
       expect(endInput).toHaveFocus();
 
       await user.keyboard('{Escape}');
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
 
     it('closes the dialog when clicking outside of the widget', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.click(getByTestId('outside'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     });
 
     it('closes the dialog when clicking a non-interactive element outside the widget', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.click(getByTestId('outside-background'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     });
 
     it('closes the dialog and returns focus to the End field once both dates are selected', async () => {
@@ -216,7 +216,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
       const endInput = getByTestId('end');
 
       await user.click(getByTestId('trigger'));
@@ -226,7 +226,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(days[10]);
       await user.click(days[11]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(endInput).toHaveFocus();
 
       mockDate.reset();
@@ -245,7 +245,7 @@ describe('DatePickerRange.Dialog', () => {
       });
 
       it('selects, closes, and returns focus to the End field on Enter', async () => {
-        const { getByTestId, getAllByTestId } = renderCompletable();
+        const { getByRole, getByTestId, getAllByTestId } = renderCompletable();
 
         await user.click(getByTestId('trigger'));
 
@@ -256,12 +256,12 @@ describe('DatePickerRange.Dialog', () => {
           startValue: new Date(2019, 1, 5),
           endValue: new Date(2019, 1, 10)
         });
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
         expect(getByTestId('end')).toHaveFocus();
       });
 
       it('selects on Space, keeping the dialog open and focus on the day', async () => {
-        const { getByTestId, getAllByTestId } = renderCompletable();
+        const { getByRole, getByTestId, getAllByTestId } = renderCompletable();
 
         await user.click(getByTestId('trigger'));
 
@@ -274,7 +274,7 @@ describe('DatePickerRange.Dialog', () => {
           startValue: new Date(2019, 1, 5),
           endValue: new Date(2019, 1, 10)
         });
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
         expect(day).toHaveFocus();
       });
     });
@@ -307,17 +307,17 @@ describe('DatePickerRange.Dialog', () => {
             }
           }
         ])('opens the dialog $label', async ({ focus }) => {
-          const { getByTestId } = render(<Example />);
+          const { getByRole, getByTestId } = render(<Example />);
           const input = getByTestId(field);
 
           await focus(input);
 
           expect(input).toHaveFocus();
-          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+          expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
 
           await user.click(input);
 
-          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+          expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
           expect(input).toHaveFocus();
         });
       }
@@ -326,16 +326,16 @@ describe('DatePickerRange.Dialog', () => {
     it.each(['start', 'end'])(
       'closes the dialog when the %s field is clicked while it is open, keeping focus in the field',
       async field => {
-        const { getByTestId } = render(<Example />);
+        const { getByRole, getByTestId } = render(<Example />);
         const input = getByTestId(field);
 
         await user.click(input);
 
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
         await user.click(input);
 
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
         expect(input).toHaveFocus();
       }
     );
@@ -364,7 +364,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
       const endInput = getByTestId('end');
 
       await user.click(getByTestId('trigger'));
@@ -374,12 +374,12 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(days[10]);
       await user.click(days[11]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(endInput).toHaveFocus();
 
       await user.click(endInput);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       mockDate.reset();
     });
@@ -408,7 +408,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <ControlledExample endValue={new Date(2019, 2, 5)} />
       );
       const startInput = getByTestId('start');
@@ -418,13 +418,13 @@ describe('DatePickerRange.Dialog', () => {
       await user.type(startInput, 'not a date');
       await user.click(endInput);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       const days = getAllByTestId('day');
 
       await user.click(days[10]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(startInput).toHaveFocus();
 
       mockDate.reset();
@@ -454,25 +454,25 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
       const startInput = getByTestId('start');
       const endInput = getByTestId('end');
 
       await user.click(endInput);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       const days = getAllByTestId('day');
 
       await user.click(days[11]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
       expect(endInput).toHaveValue('February 7, 2019');
       expect(startInput).toHaveValue('');
 
       await user.click(days[10]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(startInput).toHaveFocus();
       expect(startInput).toHaveValue('February 6, 2019');
       expect(endInput).toHaveValue('February 7, 2019');
@@ -489,7 +489,7 @@ describe('DatePickerRange.Dialog', () => {
       'keeps an Escape that closes the dialog, opened from %s, from reaching ancestors, e.g. a Modal',
       async opener => {
         const onAncestorKeyDown = jest.fn();
-        const { getByTestId } = render(
+        const { getByRole, getByTestId } = render(
           // eslint-disable-next-line jsx-a11y/no-static-element-interactions
           <div onKeyDown={onAncestorKeyDown}>
             <Example />
@@ -499,7 +499,7 @@ describe('DatePickerRange.Dialog', () => {
         await user.click(getByTestId(opener));
         await user.keyboard('{Escape}');
 
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
         expect(escapeCalls(onAncestorKeyDown)).toBe(0);
       }
     );
@@ -523,7 +523,7 @@ describe('DatePickerRange.Dialog', () => {
 
   describe('Automatic combobox wiring', () => {
     it('opens the dialog when Start is clicked', async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <DatePickerRange>
           <DatePickerRange.Start>
             <input data-test-id="start" />
@@ -542,7 +542,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(startInput);
 
       expect(startInput).toHaveAttribute('aria-expanded', 'true');
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -552,11 +552,11 @@ describe('DatePickerRange.Dialog', () => {
 
       await user.click(getByTestId('trigger'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.pointer([{ target: getByRole('toolbar'), keys: '[MouseLeft]' }]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -581,7 +581,7 @@ describe('DatePickerRange.Dialog', () => {
     it('wraps Tab from the focused day cell back to the first tabbable element, keeping the dialog open', async () => {
       mockDate.set(new Date(2019, 1, 5));
 
-      const { getByTestId, getAllByTestId } = render(<Example />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
@@ -595,8 +595,8 @@ describe('DatePickerRange.Dialog', () => {
 
       await user.tab();
 
-      expect(getByTestId('previous-year')).toHaveFocus();
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('button', { name: /^Previous year/u })).toHaveFocus();
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
       expect(getByTestId('outside')).not.toHaveFocus();
 
       mockDate.reset();
@@ -605,12 +605,12 @@ describe('DatePickerRange.Dialog', () => {
     it('wraps Shift+Tab from the first tabbable element back to the day cell, keeping the dialog open', async () => {
       mockDate.set(new Date(2019, 1, 5));
 
-      const { getByTestId, getAllByTestId } = render(<Example />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
       await user.tab();
-      expect(getByTestId('previous-year')).toHaveFocus();
+      expect(getByRole('button', { name: /^Previous year/u })).toHaveFocus();
 
       await user.tab({ shift: true });
 
@@ -619,7 +619,7 @@ describe('DatePickerRange.Dialog', () => {
       );
 
       expect(today).toHaveFocus();
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       mockDate.reset();
     });
@@ -650,7 +650,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
       const startInput = getByTestId('start');
 
       await user.click(getByTestId('trigger'));
@@ -660,7 +660,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(days[10]);
       await user.click(days[11]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
 
       await user.click(startInput);
       await user.keyboard('{ArrowDown}');
@@ -699,7 +699,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
       const endInput = getByTestId('end');
 
       await user.click(getByTestId('trigger'));
@@ -709,7 +709,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(days[10]);
       await user.click(days[11]);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
 
       await user.click(endInput);
       await user.keyboard('{ArrowDown}');
@@ -728,32 +728,36 @@ describe('DatePickerRange.Dialog', () => {
 
   describe('Consumer passthrough props', () => {
     it('applies a consumer className to StyledMenu, not the outer positioned wrapper', async () => {
-      const { getByTestId } = render(<Example dialogProps={{ className: 'consumer-class' }} />);
+      const { getByRole, getByTestId } = render(
+        <Example dialogProps={{ className: 'consumer-class' }} />
+      );
 
       await user.click(getByTestId('trigger'));
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       expect(dialog).not.toHaveClass('consumer-class');
       expect(dialog.firstChild).toHaveClass('consumer-class');
     });
 
     it('does not let a consumer-supplied style.transform override the floating-ui positioning transform', async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <Example dialogProps={{ style: { transform: 'translate(9999px, 9999px)' } }} />
       );
 
       await user.click(getByTestId('trigger'));
 
-      expect(getByTestId('range-dialog').style.transform).not.toBe('translate(9999px, 9999px)');
+      expect(getByRole('dialog', { hidden: true }).style.transform).not.toBe(
+        'translate(9999px, 9999px)'
+      );
     });
   });
 
   describe('Combobox semantics', () => {
     it('exposes combobox semantics on Start/End once a Dialog is composed, tracking isOpen', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
       const startInput = getByTestId('start');
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       expect(startInput).toHaveAttribute('role', 'combobox');
       expect(startInput).toHaveAttribute('aria-haspopup', 'dialog');
@@ -792,26 +796,26 @@ describe('DatePickerRange.Dialog', () => {
 
   describe('Mount/animation behavior', () => {
     it('stays mounted while closed, hidden via aria-hidden, without rendering its children', () => {
-      const { getByTestId, queryByTestId } = render(<Example />);
+      const { getByRole, queryByTestId } = render(<Example />);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
-      expect(getByTestId('range-dialog')).toHaveAttribute('aria-hidden', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('aria-hidden', 'true');
       expect(queryByTestId('range-calendar')).not.toBeInTheDocument();
     });
 
     it('renders its children and clears aria-hidden once open', async () => {
-      const { getByTestId, queryByTestId } = render(<Example />);
+      const { getByRole, getByTestId, queryByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
-      expect(getByTestId('range-dialog')).not.toHaveAttribute('aria-hidden');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).not.toHaveAttribute('aria-hidden');
       expect(queryByTestId('range-calendar')).toBeInTheDocument();
     });
 
     it('is inert while closed, including during its exit animation, so nothing inside it can take focus', async () => {
-      const { getByTestId, queryByTestId } = render(<Example />);
-      const dialog = getByTestId('range-dialog');
+      const { getByRole, getByTestId, queryByTestId } = render(<Example />);
+      const dialog = getByRole('dialog', { hidden: true });
 
       expect(dialog).toHaveAttribute('inert', '');
 
@@ -826,12 +830,12 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('keeps rendering its children briefly after closing to allow the exit animation, then removes them', async () => {
-      const { getByTestId, queryByTestId } = render(<Example />);
+      const { getByRole, getByTestId, queryByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
       await user.keyboard('{Escape}');
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(queryByTestId('range-calendar')).toBeInTheDocument();
 
       act(() => {
@@ -855,49 +859,49 @@ describe('DatePickerRange.Dialog', () => {
 
   describe('Cross-field focus', () => {
     it('stays open when focus moves directly from Start to End', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('start'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.click(getByTestId('end'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
 
     it('stays open on Tab from Start, moving focus to End', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('start'));
       await user.tab();
 
       expect(getByTestId('end')).toHaveFocus();
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
 
     it('closes on Tab from End, moving focus past the dialog rather than into it', async () => {
-      const { getByTestId } = render(<Example dialogProps={{ isAnimated: false }} />);
+      const { getByRole, getByTestId } = render(<Example dialogProps={{ isAnimated: false }} />);
 
       await user.click(getByTestId('end'));
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.tab();
 
       expect(getByTestId('outside')).toHaveFocus();
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     });
 
     it('stays open when focus moves directly from End to Start', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('end'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.click(getByTestId('start'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
 
     it('stays open when focus moves from Start, through its own ClearableInput clear button, to End', async () => {
@@ -922,17 +926,17 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(startInput);
       await user.type(startInput, '2/5/2019', { skipClick: true });
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.tab();
 
       expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.tab();
 
       expect(getByTestId('end')).toHaveFocus();
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -956,11 +960,11 @@ describe('DatePickerRange.Dialog', () => {
     );
 
     it('stays open when focus moves directly between two Trigger buttons', async () => {
-      const { getByTestId } = render(<TwoTriggerExample />);
+      const { getByRole, getByTestId } = render(<TwoTriggerExample />);
 
       await user.click(getByTestId('end-trigger'));
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       // Moves focus directly (no click), so Trigger's own unconditional
       // open-on-click can't mask a tracking bug in the blur handler itself.
@@ -968,38 +972,36 @@ describe('DatePickerRange.Dialog', () => {
         getByTestId('start-trigger').focus();
       });
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
   describe('RTL', () => {
     it('applies LTR classes by default', () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole } = render(<Example />);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-rtl', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-rtl', 'false');
     });
 
     it('applies RTL classes if provided', () => {
-      const { getByTestId } = renderRtl(<Example />);
+      const { getByRole } = renderRtl(<Example />);
 
-      expect(getByTestId('range-dialog')).toHaveAttribute('data-test-rtl', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-rtl', 'true');
     });
   });
 
   describe('appendToNode', () => {
     it('portals as expected', () => {
       const { container, rerender } = render(<Example />);
-      const selector = '[data-test-id="range-dialog"]';
-
-      expect(container.querySelector(selector)).not.toBeNull();
+      expect(within(container).queryByRole('dialog', { hidden: true })).not.toBeNull();
 
       const node = document.createElement('div');
 
       document.body.appendChild(node);
       rerender(<Example dialogProps={{ appendToNode: node }} />);
 
-      expect(container.querySelector(selector)).toBeNull();
-      expect(node.querySelector(selector)).not.toBeNull();
+      expect(within(container).queryByRole('dialog', { hidden: true })).toBeNull();
+      expect(within(node).queryByRole('dialog', { hidden: true })).not.toBeNull();
     });
   });
 
@@ -1021,7 +1023,7 @@ describe('DatePickerRange.Dialog', () => {
     };
 
     it("anchors to Start's group, not the input inside it, when Start is in a StartGroup", async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <DatePickerRange>
           <DatePickerRange.StartGroup data-test-id="start-group">
             <DatePickerRange.Start>
@@ -1044,7 +1046,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(getByTestId('trigger'));
 
       await waitFor(() => {
-        const match = getByTestId('range-dialog').style.transform.match(
+        const match = getByRole('dialog', { hidden: true }).style.transform.match(
           /translate\((?<x>[-\d.]+)px/u
         );
 
@@ -1079,42 +1081,54 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('anchors to a consumer-provided referenceElement instead of the default Start/End/Trigger chain', async () => {
-      const { getByTestId: getByDefaultTestId, unmount } = render(<Example />);
+      const {
+        getByTestId: getByDefaultTestId,
+        getByRole: getByDefaultRole,
+        unmount
+      } = render(<Example />);
 
       await user.click(getByDefaultTestId('trigger'));
 
-      const defaultTransform = getByDefaultTestId('range-dialog').style.transform;
+      const defaultTransform = getByDefaultRole('dialog', { hidden: true }).style.transform;
 
       unmount();
 
-      const { getByTestId: getByOverrideTestId } = render(
+      const { getByTestId: getByOverrideTestId, getByRole: getByOverrideRole } = render(
         <Example dialogProps={{ referenceElement: customReferenceElement }} />
       );
 
       await user.click(getByOverrideTestId('trigger'));
 
       await waitFor(() => {
-        expect(getByOverrideTestId('range-dialog').style.transform).not.toBe(defaultTransform);
+        expect(getByOverrideRole('dialog', { hidden: true }).style.transform).not.toBe(
+          defaultTransform
+        );
       });
     });
 
     it('falls back to the default Start/End/Trigger chain when referenceElement is undefined', async () => {
-      const { getByTestId: getByDefaultTestId, unmount } = render(<Example />);
+      const {
+        getByTestId: getByDefaultTestId,
+        getByRole: getByDefaultRole,
+        unmount
+      } = render(<Example />);
 
       await user.click(getByDefaultTestId('trigger'));
 
-      const defaultTransform = getByDefaultTestId('range-dialog').style.transform;
+      const defaultTransform = getByDefaultRole('dialog', { hidden: true }).style.transform;
 
       unmount();
 
-      const { getByTestId: getByExplicitTestId } = render(
+      const { getByTestId: getByExplicitTestId, getByRole: getByExplicitRole } = render(
         <Example dialogProps={{ referenceElement: undefined }} />
       );
 
       await user.click(getByExplicitTestId('trigger'));
 
       await waitFor(() => {
-        expect(getByExplicitTestId('range-dialog').style.transform).toBe(defaultTransform);
+        expect(getByExplicitRole('dialog', { hidden: true }).style.transform).toBe(
+          defaultTransform
+        );
       });
     });
   });
@@ -1156,9 +1170,9 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('constrains its own max size to the available viewport space, in LTR', async () => {
-      const { getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+      const { getByRole, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await user.click(getByTestId('trigger'));
 
@@ -1171,9 +1185,9 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('constrains its own max size to the available viewport space, in RTL', async () => {
-      const { getByTestId } = renderRtl(<Example dialogProps={{ referenceElement }} />);
+      const { getByRole, getByTestId } = renderRtl(<Example dialogProps={{ referenceElement }} />);
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await user.click(getByTestId('trigger'));
 
@@ -1186,9 +1200,9 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('does not move the dialog away from its reference element, unlike shift()', async () => {
-      const { getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+      const { getByRole, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await user.click(getByTestId('trigger'));
 
@@ -1202,9 +1216,11 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it("does not clip its own overflow, so it never hides StyledMenu's box-shadow or fights the open animation's transform - StyledRangeCalendar's own overflow: auto is the actual scroll container", async () => {
-      const { container, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+      const { getByRole, container, getByTestId } = render(
+        <Example dialogProps={{ referenceElement }} />
+      );
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await user.click(getByTestId('trigger'));
 
@@ -1234,9 +1250,9 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('leaves a gap between the dialog and the viewport edge, instead of touching it exactly', async () => {
-      const { getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
+      const { getByRole, getByTestId } = render(<Example dialogProps={{ referenceElement }} />);
 
-      const dialog = getByTestId('range-dialog');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await user.click(getByTestId('trigger'));
 
@@ -1250,29 +1266,33 @@ describe('DatePickerRange.Dialog', () => {
     });
 
     it('uses a smaller gap when compact, leaving more available space than the default spacing', async () => {
-      const { getByTestId: getByDefaultTestId, unmount } = render(
-        <Example dialogProps={{ referenceElement }} />
-      );
+      const {
+        getByTestId: getByDefaultTestId,
+        getByRole: getByDefaultRole,
+        unmount
+      } = render(<Example dialogProps={{ referenceElement }} />);
 
       await user.click(getByDefaultTestId('trigger'));
 
       let defaultMaxWidth: number;
 
       await waitFor(() => {
-        defaultMaxWidth = parseFloat(getByDefaultTestId('range-dialog').style.maxWidth);
+        defaultMaxWidth = parseFloat(getByDefaultRole('dialog', { hidden: true }).style.maxWidth);
         expect(defaultMaxWidth).not.toBeNaN();
       });
 
       unmount();
 
-      const { getByTestId: getByCompactTestId } = render(
+      const { getByTestId: getByCompactTestId, getByRole: getByCompactRole } = render(
         <Example isCompact dialogProps={{ referenceElement }} />
       );
 
       await user.click(getByCompactTestId('trigger'));
 
       await waitFor(() => {
-        const compactMaxWidth = parseFloat(getByCompactTestId('range-dialog').style.maxWidth);
+        const compactMaxWidth = parseFloat(
+          getByCompactRole('dialog', { hidden: true }).style.maxWidth
+        );
 
         expect(compactMaxWidth).not.toBeNaN();
         expect(compactMaxWidth).toBeGreaterThan(defaultMaxWidth);

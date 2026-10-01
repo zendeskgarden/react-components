@@ -38,7 +38,7 @@ describe('DatePickerRange.EndGroup', () => {
   });
 
   it('also opens the dialog when clicked, if one is composed', async () => {
-    const { getByTestId } = render(
+    const { getByRole, getByTestId } = render(
       <DatePickerRange>
         <DatePickerRange.Start>
           <input data-test-id="start" />
@@ -57,7 +57,7 @@ describe('DatePickerRange.EndGroup', () => {
 
     await user.click(getByTestId('end-group'));
 
-    expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
   });
 
   it('zeroes the leading corner radius when isEdgeToEdge is set, since it always abuts the preceding StartGroup', () => {

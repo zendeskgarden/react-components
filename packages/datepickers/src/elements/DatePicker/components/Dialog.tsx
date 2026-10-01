@@ -12,6 +12,7 @@ import useDatePickerContext from '../utils/useDatePickerContext';
 import { IDatePickerDialogProps } from '../../../types';
 import { StyledMenu, StyledMenuWrapper } from '../../../styled';
 import { useFloatingDialog } from '../../../utils/use-floating-dialog';
+import { DEFAULT_TOGGLE_CALENDAR_LABEL } from '../../../components/CalendarButton';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -35,7 +36,7 @@ export const Dialog = ({
     Dialog,
     { toggleCalendarLabel },
     'toggleCalendarLabel',
-    'Choose date',
+    DEFAULT_TOGGLE_CALENDAR_LABEL,
     !hasTrigger
   );
 

@@ -175,7 +175,6 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         onClick={onPreviousYear}
         $gridColumn="1"
         $isCompact={isCompact}
-        data-test-id="previous-year"
       >
         <ChevronDoubleLeftStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>
@@ -226,7 +225,6 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         onClick={onNextYear}
         $gridColumn="-2"
         $isCompact={isCompact}
-        data-test-id="next-year"
       >
         <ChevronDoubleRightStrokeIcon aria-hidden="true" />
       </StyledHeaderPaddle>

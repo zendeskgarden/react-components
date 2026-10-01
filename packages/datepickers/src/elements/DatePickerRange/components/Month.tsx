@@ -258,15 +258,9 @@ export const Month = forwardRef<HTMLDivElement, IDatePickerRangeMonthProps>(
             >
               {formattedDayLabel}
             </StyledDayNumber>
-            <Span hidden data-test-id="full-date">
-              {formatFullDate(date, locale)}
-            </Span>
+            <Span hidden>{formatFullDate(date, locale)}</Span>
             {isDescribedAsInRange ? (
-              <Span
-                hidden
-                lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}
-                data-test-id="in-range-description"
-              >
+              <Span hidden lang={inRangeDescriptionLabel === undefined ? 'en' : undefined}>
                 {`⁠ ${inRangeDescriptionText}`}
               </Span>
             ) : null}

@@ -8,7 +8,13 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import userEvent from '@testing-library/user-event';
-import { act, render, fireEvent, getAllByTestId as globalGetAllByTestId } from 'garden-test-utils';
+import {
+  RenderResult,
+  act,
+  render,
+  fireEvent,
+  getAllByTestId as globalGetAllByTestId
+} from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
@@ -787,8 +793,8 @@ describe('DatePickerRange', () => {
       </DatePickerRange>
     );
 
-    const isOpen = (getByTestId: (id: string) => HTMLElement) =>
-      getByTestId('range-dialog').getAttribute('data-test-open') === 'true';
+    const isOpen = (getByRole: RenderResult['getByRole']) =>
+      getByRole('dialog', { hidden: true }).getAttribute('data-test-open') === 'true';
 
     describe.each([
       { field: 'start', other: 'end' },
@@ -811,56 +817,56 @@ describe('DatePickerRange', () => {
       });
 
       it("does not open when that field's trigger is clicked", () => {
-        const { getByTestId } = renderExample();
+        const { getByRole, getByTestId } = renderExample();
 
         fireEvent.click(getByTestId(`${field}-trigger`));
 
-        expect(isOpen(getByTestId)).toBe(false);
+        expect(isOpen(getByRole)).toBe(false);
       });
 
       it('does not open when that field is clicked', () => {
-        const { getByTestId } = renderExample();
+        const { getByRole, getByTestId } = renderExample();
 
         fireEvent.mouseDown(getByTestId(field));
         fireEvent.click(getByTestId(field));
 
-        expect(isOpen(getByTestId)).toBe(false);
+        expect(isOpen(getByRole)).toBe(false);
       });
 
       it("does not open when that field's group is clicked", () => {
-        const { getByTestId } = renderExample();
+        const { getByRole, getByTestId } = renderExample();
 
         fireEvent.mouseDown(getByTestId(`${field}-group`));
         fireEvent.click(getByTestId(`${field}-group`));
 
-        expect(isOpen(getByTestId)).toBe(false);
+        expect(isOpen(getByRole)).toBe(false);
       });
 
       it.each([
         ['Down Arrow', {}],
         ['Alt+Down Arrow', { altKey: true }]
       ])('does not open on %s from that field', (_, modifiers) => {
-        const { getByTestId } = renderExample();
+        const { getByRole, getByTestId } = renderExample();
 
         fireEvent.keyDown(getByTestId(field), { key: KEYS.DOWN, ...modifiers });
 
-        expect(isOpen(getByTestId)).toBe(false);
+        expect(isOpen(getByRole)).toBe(false);
       });
 
       it("still opens from the other field's trigger", async () => {
-        const { getByTestId } = renderExample();
+        const { getByRole, getByTestId } = renderExample();
 
         await user.click(getByTestId(`${other}-trigger`));
 
-        expect(isOpen(getByTestId)).toBe(true);
+        expect(isOpen(getByRole)).toBe(true);
       });
 
       it('still opens on Down Arrow from the other field', () => {
-        const { getByTestId } = renderExample();
+        const { getByRole, getByTestId } = renderExample();
 
         fireEvent.keyDown(getByTestId(other), { key: KEYS.DOWN });
 
-        expect(isOpen(getByTestId)).toBe(true);
+        expect(isOpen(getByRole)).toBe(true);
       });
 
       it('leaves a trigger outside either group enabled', () => {
@@ -887,27 +893,29 @@ describe('DatePickerRange', () => {
       });
 
       it.each(['start', 'end'] as const)('does not open on Down Arrow from %s', field => {
-        const { getByTestId } = render(<GroupedExample disabledOrReadOnlyFields={BOTH} />);
+        const { getByRole, getByTestId } = render(
+          <GroupedExample disabledOrReadOnlyFields={BOTH} />
+        );
 
         fireEvent.keyDown(getByTestId(field), { key: KEYS.DOWN });
 
-        expect(isOpen(getByTestId)).toBe(false);
+        expect(isOpen(getByRole)).toBe(false);
       });
 
       it(`closes an already-open dialog once both fields become ${label}`, async () => {
-        const { getByTestId, rerender } = render(<GroupedExample />);
+        const { getByRole, getByTestId, rerender } = render(<GroupedExample />);
 
         await user.click(getByTestId('start-trigger'));
 
-        expect(isOpen(getByTestId)).toBe(true);
+        expect(isOpen(getByRole)).toBe(true);
 
         rerender(<GroupedExample disabledOrReadOnlyFields={BOTH} />);
 
-        expect(isOpen(getByTestId)).toBe(false);
+        expect(isOpen(getByRole)).toBe(false);
       });
 
       it(`opens normally again once the fields are no longer ${label}`, async () => {
-        const { getByTestId, rerender } = render(
+        const { getByRole, getByTestId, rerender } = render(
           <GroupedExample disabledOrReadOnlyFields={BOTH} />
         );
 
@@ -917,7 +925,7 @@ describe('DatePickerRange', () => {
 
         await user.click(getByTestId('start-trigger'));
 
-        expect(isOpen(getByTestId)).toBe(true);
+        expect(isOpen(getByRole)).toBe(true);
       });
     });
 
@@ -1245,8 +1253,10 @@ describe('DatePickerRange', () => {
     const getVisibleDays = (getAllByTestId: (id: string) => HTMLElement[]) =>
       getAllByTestId('day').filter(day => day.getAttribute('data-test-hidden') === 'false');
 
-    const getPaddles = (getByTestId: (id: string) => HTMLElement) =>
-      ['previous-year', 'previous-month', 'next-month', 'next-year'].map(id => getByTestId(id));
+    const getPaddles = (getByRole: RenderResult['getByRole']) =>
+      [/^Previous year/u, /^Previous month/u, /^Next month/u, /^Next year/u].map(name =>
+        getByRole('button', { name })
+      );
 
     describe.each([
       { name: 'both fields are read-only', start: { readOnly: true }, end: { readOnly: true } },
@@ -1300,9 +1310,9 @@ describe('DatePickerRange', () => {
       });
 
       it('can still be browsed with the keyboard and the toolbar', async () => {
-        const { getByTestId, getAllByTestId } = renderExample();
+        const { getByRole, getByTestId, getAllByTestId } = renderExample();
 
-        getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeEnabled());
+        getPaddles(getByRole).forEach(paddle => expect(paddle).toBeEnabled());
 
         getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
         await user.keyboard('{ArrowRight}');
@@ -1358,10 +1368,10 @@ describe('DatePickerRange', () => {
       });
 
       it('still renders the toolbar, with every paddle disabled', () => {
-        const { getByRole, getByTestId } = renderExample();
+        const { getByRole } = renderExample();
 
         expect(getByRole('toolbar')).toBeInTheDocument();
-        getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeDisabled());
+        getPaddles(getByRole).forEach(paddle => expect(paddle).toBeDisabled());
       });
 
       it('does not preview a range when a day is hovered', () => {
@@ -1379,7 +1389,7 @@ describe('DatePickerRange', () => {
       });
 
       it('restores the tab stop, paddles, and grid state once the fields are no longer disabled', () => {
-        const { getAllByRole, getAllByTestId, getByTestId, rerender } = renderExample();
+        const { getByRole, getAllByRole, getAllByTestId, rerender } = renderExample();
 
         rerender(
           <AvailabilityExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
@@ -1393,7 +1403,7 @@ describe('DatePickerRange', () => {
         expect(
           getVisibleDays(getAllByTestId).filter(day => day.getAttribute('tabindex') === '0')
         ).toHaveLength(1);
-        getPaddles(getByTestId).forEach(paddle => expect(paddle).toBeEnabled());
+        getPaddles(getByRole).forEach(paddle => expect(paddle).toBeEnabled());
       });
     });
   });
@@ -1527,27 +1537,27 @@ describe('DatePickerRange', () => {
       it.each(['start', 'end'] as const)(
         'returns focus to the %s field it was opened from when both fields become read-only',
         async field => {
-          const { getByTestId, rerender } = render(<DialogFocusExample />);
+          const { getByRole, getByTestId, rerender } = render(<DialogFocusExample />);
 
           await user.click(getByTestId(`${field}-trigger`));
 
-          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+          expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
           rerender(<DialogFocusExample start={{ readOnly: true }} end={{ readOnly: true }} />);
 
-          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+          expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
           expect(getByTestId(field)).toHaveFocus();
         }
       );
 
       it('does not force focus anywhere when both fields become disabled', async () => {
-        const { getAllByRole, getByTestId, rerender } = render(<DialogFocusExample />);
+        const { getByRole, getAllByRole, getByTestId, rerender } = render(<DialogFocusExample />);
 
         await user.click(getByTestId('start-trigger'));
 
         rerender(<DialogFocusExample start={{ disabled: true }} end={{ disabled: true }} />);
 
-        expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'false');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
         expect(getByTestId('start')).not.toHaveFocus();
         getAllByRole('grid', { hidden: true }).forEach(grid => expect(grid).not.toHaveFocus());
       });
@@ -1687,7 +1697,7 @@ describe('DatePickerRange', () => {
           await user.clear(input);
           await user.type(input, 'invalid date', { skipClick: true });
 
-          expect(getByTestId('range-dialog')).toHaveAttribute('data-test-open', 'true');
+          expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
           onValueSettledSpy.mockClear();
           await user.tab();
@@ -1718,7 +1728,7 @@ describe('DatePickerRange', () => {
         await user.tab();
 
         expect(getByRole('button', { name: 'Clear' })).toHaveFocus();
-        expect(getByTestId('range-dialog')).toHaveAttribute(
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute(
           'data-test-open',
           field === 'start' ? 'true' : 'false'
         );

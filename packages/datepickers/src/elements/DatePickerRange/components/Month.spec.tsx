@@ -24,6 +24,7 @@ import { IDatePickerRangeProps } from '../../../types';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
+const IN_RANGE_DESCRIPTION = /\((?:start of|end of|included in) range\)/u;
 
 const Example = (props: IDatePickerRangeProps) => (
   <DatePickerRange {...props}>
@@ -159,9 +160,7 @@ describe('Month', () => {
 
       expect(firstMonthDays[4]).toHaveTextContent('5');
       expect(within(firstMonthDays[4]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
-      expect(within(firstMonthDays[4]).getByTestId('full-date')).toHaveTextContent(
-        'February 5, 2019'
-      );
+      expect(within(firstMonthDays[4]).getByText('February 5, 2019')).toHaveAttribute('hidden');
     });
 
     it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
@@ -174,7 +173,9 @@ describe('Month', () => {
         getDays(getAllByTestId('calendar-wrapper')[0]).forEach(day => {
           const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
 
-          expect(within(day).getByTestId('full-date').textContent).toContain(visible);
+          expect(
+            within(day).getByText(content => content.includes(visible), { selector: '[hidden]' })
+          ).toBeInTheDocument();
         });
       }
     );
@@ -637,14 +638,9 @@ describe('Month', () => {
 
       const wrapper = getAllByTestId('calendar-wrapper')[0];
       const columnHeaders = within(wrapper).getAllByRole('columnheader');
-      const dayLabels = globalGetAllByTestId(wrapper, 'day-label');
-      const fullDayLabels = globalGetAllByTestId(wrapper, 'day-label-full');
-
       expect(columnHeaders[0]).not.toHaveAttribute('abbr');
-      expect(dayLabels[0]).toHaveTextContent('Sun');
-      expect(dayLabels[0]).toHaveAttribute('aria-hidden', 'true');
-      expect(fullDayLabels[0]).toHaveTextContent('Sunday');
-      expect(fullDayLabels[0]).toHaveAttribute('hidden');
+      expect(within(columnHeaders[0]).getByText('Sun')).toHaveAttribute('aria-hidden', 'true');
+      expect(within(columnHeaders[0]).getByText('Sunday')).toHaveAttribute('hidden');
     });
   });
 
@@ -658,11 +654,11 @@ describe('Month', () => {
       const firstMonthCells = getDays(calendarWrappers[0]);
       const secondMonthCells = getDays(calendarWrappers[1]);
 
-      expect(within(firstMonthCells[0]).queryByTestId('in-range-description')).toBeNull();
-      expect(within(secondMonthCells[5]).queryByTestId('in-range-description')).toBeNull();
+      expect(within(firstMonthCells[0]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
+      expect(within(secondMonthCells[5]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
 
       const startCell = firstMonthCells[4];
-      const startDescription = within(startCell).getByTestId('in-range-description');
+      const startDescription = within(startCell).getByText(IN_RANGE_DESCRIPTION);
 
       expect(startDescription).toHaveAttribute('hidden');
       expect(startCell).not.toHaveAttribute('aria-describedby');
@@ -670,7 +666,7 @@ describe('Month', () => {
 
       const endCell = secondMonthCells[4];
 
-      expect(within(endCell).getByTestId('in-range-description')).toHaveAttribute('hidden');
+      expect(within(endCell).getByText(IN_RANGE_DESCRIPTION)).toHaveAttribute('hidden');
       expect(endCell).not.toHaveAttribute('aria-describedby');
     });
 
@@ -683,9 +679,9 @@ describe('Month', () => {
       const firstMonthCells = getDays(calendarWrappers[0]);
       const secondMonthCells = getDays(calendarWrappers[1]);
 
-      const startDescription = within(firstMonthCells[4]).getByTestId('in-range-description');
-      const interiorDescription = within(firstMonthCells[5]).getByTestId('in-range-description');
-      const endDescription = within(secondMonthCells[4]).getByTestId('in-range-description');
+      const startDescription = within(firstMonthCells[4]).getByText(IN_RANGE_DESCRIPTION);
+      const interiorDescription = within(firstMonthCells[5]).getByText(IN_RANGE_DESCRIPTION);
+      const endDescription = within(secondMonthCells[4]).getByText(IN_RANGE_DESCRIPTION);
 
       expect(startDescription).toHaveTextContent('(start of range)');
       expect(interiorDescription).toHaveTextContent('(included in range)');
@@ -701,7 +697,7 @@ describe('Month', () => {
       await user.hover(hoverCell);
 
       expect(hoverCell).toHaveAttribute('data-test-end', 'false');
-      expect(within(hoverCell).queryByTestId('in-range-description')).toBeNull();
+      expect(within(hoverCell).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
     });
 
     it('does not describe days as part of a range while only one value is committed, even as focus previews a candidate range', () => {
@@ -717,7 +713,7 @@ describe('Month', () => {
       const firstMonthCells = getDays(calendarWrappers[0]);
 
       expect(firstMonthCells[5]).toHaveAttribute('data-test-highlighted', 'true');
-      expect(within(firstMonthCells[5]).queryByTestId('in-range-description')).toBeNull();
+      expect(within(firstMonthCells[5]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
     });
 
     it('describes the committed start value as "start of range" immediately, before an end value is set', () => {
@@ -727,8 +723,8 @@ describe('Month', () => {
       const firstMonthCells = getDays(calendarWrappers[0]);
       const startCell = firstMonthCells[4]; // Feb 5, 2019 - the start value
 
-      expect(within(startCell).getByTestId('in-range-description')).toHaveTextContent(
-        '(start of range)'
+      expect(within(startCell).getByText('(start of range)', { exact: false })).toHaveAttribute(
+        'hidden'
       );
     });
 
@@ -739,8 +735,8 @@ describe('Month', () => {
       const secondMonthCells = getDays(calendarWrappers[1]);
       const endCell = secondMonthCells[4]; // March 5, 2019 - the end value
 
-      expect(within(endCell).getByTestId('in-range-description')).toHaveTextContent(
-        '(end of range)'
+      expect(within(endCell).getByText('(end of range)', { exact: false })).toHaveAttribute(
+        'hidden'
       );
     });
 
@@ -759,15 +755,15 @@ describe('Month', () => {
       const firstMonthCells = getDays(calendarWrappers[0]);
       const secondMonthCells = getDays(calendarWrappers[1]);
 
-      expect(within(firstMonthCells[4]).getByTestId('in-range-description')).toHaveTextContent(
-        'début de la plage'
-      );
-      expect(within(firstMonthCells[5]).getByTestId('in-range-description')).toHaveTextContent(
-        'dans la plage'
-      );
-      expect(within(secondMonthCells[4]).getByTestId('in-range-description')).toHaveTextContent(
-        'fin de la plage'
-      );
+      expect(
+        within(firstMonthCells[4]).getByText('début de la plage', { exact: false })
+      ).toHaveAttribute('hidden');
+      expect(
+        within(firstMonthCells[5]).getByText('dans la plage', { exact: false })
+      ).toHaveAttribute('hidden');
+      expect(
+        within(secondMonthCells[4]).getByText('fin de la plage', { exact: false })
+      ).toHaveAttribute('hidden');
     });
   });
 

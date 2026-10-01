@@ -7,11 +7,12 @@
 
 import React from 'react';
 import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
+import { RenderResult, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { DatePicker } from '../DatePicker';
 import { IDatePickerProps } from '../../../types';
 
+const CHOOSE_DATE = 'Choose date';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
@@ -46,8 +47,10 @@ describe('Trigger', () => {
   });
 
   it('reflects the dialog open state via aria-expanded, and aria-controls references the menu', () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-    const button = getByTestId('calendar-button');
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
     const menu = getByTestId('datepicker-menu');
 
     expect(button).toHaveAttribute('aria-expanded', 'false');
@@ -55,10 +58,10 @@ describe('Trigger', () => {
   });
 
   it('opens the calendar and moves focus onto the selected day when clicked', async () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByRole, getByTestId, getAllByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
-    const button = getByTestId('calendar-button');
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
 
@@ -68,10 +71,10 @@ describe('Trigger', () => {
   });
 
   it('opens the calendar when activated with the keyboard', async () => {
-    const { getByTestId, getAllByTestId } = render(
+    const { getByRole, getByTestId, getAllByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
-    const button = getByTestId('calendar-button');
+    const button = getByRole('button', { name: CHOOSE_DATE });
 
     button.focus();
     await user.keyboard('{Enter}');
@@ -81,9 +84,9 @@ describe('Trigger', () => {
   });
 
   it('moves focus onto todays date when no value is selected', async () => {
-    const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+    const { getByRole, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
 
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     const days = getAllByTestId('day');
     const today = days.find(day => day.getAttribute('data-test-today') === 'true');
@@ -97,12 +100,12 @@ describe('Trigger', () => {
 
       return <Example value={value} onChange={setValue} />;
     };
-    const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+    const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
     const input = getByTestId('input');
 
     await user.clear(input);
     await user.type(input, '1/4/2019', { skipClick: true });
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     const selectedDay = getAllByTestId('day').find(
       day => day.getAttribute('data-test-selected') === 'true'
@@ -113,18 +116,22 @@ describe('Trigger', () => {
   });
 
   it.each([
-    { label: 'the calendar', opener: 'calendar-button' },
-    { label: 'the input', opener: 'input' }
+    {
+      label: 'the calendar',
+      getOpener: ({ getByRole }: RenderResult) => getByRole('button', { name: CHOOSE_DATE })
+    },
+    { label: 'the input', getOpener: ({ getByTestId }: RenderResult) => getByTestId('input') }
   ])(
     'closes the calendar when clicked while it is open with focus in $label, returning focus to the input',
-    async ({ opener }) => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    async ({ getOpener }) => {
+      const result = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = result;
 
-      await user.click(getByTestId(opener));
+      await user.click(getOpener(result));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
       expect(getByTestId('input')).toHaveFocus();

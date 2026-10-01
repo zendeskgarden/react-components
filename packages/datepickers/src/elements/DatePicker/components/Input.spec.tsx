@@ -13,6 +13,7 @@ import { KEYS } from '@zendeskgarden/container-utilities';
 import { DatePicker } from '../DatePicker';
 import { IDatePickerProps } from '../../../types';
 
+const CHOOSE_DATE = 'Choose date';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
@@ -189,9 +190,11 @@ describe('Input', () => {
   });
 
   it('leaves datepicker open if calendar is moused down', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
 
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
     fireEvent.click(getByTestId('calendar-wrapper'));
 
     expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
@@ -296,12 +299,12 @@ describe('Input', () => {
 
       return <Example value={value} onChange={setValue} />;
     };
-    const { getByTestId } = render(<ControlledExample />);
+    const { getByRole, getByTestId } = render(<ControlledExample />);
     const input = getByTestId('input');
 
     await user.clear(input);
     await user.type(input, '1/4/2019');
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
     fireEvent.keyDown(input, { key: KEYS.ESCAPE });
 
     expect(input).toHaveValue('1/4/2019');
@@ -313,12 +316,12 @@ describe('Input', () => {
 
       return <Example value={value} onChange={setValue} />;
     };
-    const { getByTestId } = render(<ControlledExample />);
+    const { getByRole, getByTestId } = render(<ControlledExample />);
     const input = getByTestId('input');
 
     await user.clear(input);
     await user.type(input, '1/4/2019');
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     await user.click(getByTestId('outside'));
 
@@ -326,11 +329,13 @@ describe('Input', () => {
   });
 
   it('does not discard unparseable typed text when closing the calendar by clicking outside', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
     const input = getByTestId('input');
 
     fireEvent.change(input, { target: { value: 'invalid date' } });
-    await user.click(getByTestId('calendar-button'));
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
     await user.click(getByTestId('outside'));
 
@@ -368,11 +373,9 @@ describe('Input', () => {
     });
 
     it('sets aria-expanded to true when the calendar opens', async () => {
-      const { getByRole, getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
+      const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getByRole('combobox', { expanded: true })).toBeInTheDocument();
     });

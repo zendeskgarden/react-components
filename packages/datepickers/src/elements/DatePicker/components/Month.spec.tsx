@@ -15,6 +15,7 @@ import { KEYS } from '@zendeskgarden/container-utilities';
 import { DatePicker } from '../DatePicker';
 import { IDatePickerProps } from '../../../types';
 
+const CHOOSE_DATE = 'Choose date';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
@@ -50,9 +51,9 @@ describe('Month', () => {
 
   describe('Calendar display', () => {
     it('displays dates with correct previous styling', async () => {
-      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const days = getAllByTestId('day');
 
       for (let x = 0; x < days.length; x++) {
@@ -67,9 +68,9 @@ describe('Month', () => {
     });
 
     it('displays dates with selected and today styling', async () => {
-      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const days = getAllByTestId('day');
 
       expect(days[9]).toHaveAttribute('data-test-selected', 'true');
@@ -77,37 +78,39 @@ describe('Month', () => {
     });
 
     it('renders the visible day number plus a visually-hidden full date', async () => {
-      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const days = getAllByTestId('day');
 
       expect(days[9]).toHaveTextContent('5');
       expect(within(days[9]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
-      expect(within(days[9]).getByTestId('full-date')).toHaveTextContent('February 5, 2019');
+      expect(within(days[9]).getByText('February 5, 2019')).toHaveAttribute('hidden');
     });
 
     it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
       "includes each day's visible number in its full date, for %s",
       async locale => {
-        const { getByTestId, getAllByTestId } = render(
+        const { getByRole, getAllByTestId } = render(
           <Example value={DEFAULT_DATE} locale={locale} />
         );
 
-        await user.click(getByTestId('calendar-button'));
+        await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
         getAllByTestId('day').forEach(day => {
           const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
 
-          expect(within(day).getByTestId('full-date').textContent).toContain(visible);
+          expect(
+            within(day).getByText(content => content.includes(visible), { selector: '[hidden]' })
+          ).toBeInTheDocument();
         });
       }
     );
 
     it('describes each real day cell as a selectable cell', async () => {
-      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       getAllByTestId('day').forEach(day => {
         expect(day).toHaveAttribute('aria-roledescription', 'selectable cell');
@@ -115,11 +118,11 @@ describe('Month', () => {
     });
 
     it('accepts a custom selectableCellRoleDescription', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} selectableCellRoleDescription="cellule sélectionnable" />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       getAllByTestId('day').forEach(day => {
         expect(day).toHaveAttribute('aria-roledescription', 'cellule sélectionnable');
@@ -127,38 +130,36 @@ describe('Month', () => {
     });
 
     it('displays "Sun" as default first day of week', async () => {
-      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const dayLabels = getAllByTestId('day-label');
 
       expect(dayLabels[0]).toHaveTextContent('Sun');
     });
 
     it('display locale based first day of week', async () => {
-      const { getByTestId, getAllByTestId } = render(
-        <Example value={DEFAULT_DATE} locale="en-GB" />
-      );
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} locale="en-GB" />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const dayLabels = getAllByTestId('day-label');
 
       expect(dayLabels[0]).toHaveTextContent('Mon');
     });
 
     it('display custom first day of week', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} locale="en-GB" weekStartsOn={3} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const dayLabels = getAllByTestId('day-label');
 
       expect(dayLabels[0]).toHaveTextContent('Wed');
     });
 
     it('displays disabled styling for minimum and maximum values', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example
           value={DEFAULT_DATE}
           minValue={subDays(DEFAULT_DATE, 2)}
@@ -166,7 +167,7 @@ describe('Month', () => {
         />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const days = getAllByTestId('day');
 
       for (let x = 0; x < days.length; x++) {
@@ -183,17 +184,17 @@ describe('Month', () => {
     });
 
     it('displays selected month in correct format', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
 
     it('renders the month/year heading as an aria-live h2 with an id', async () => {
-      const { getByTestId, getByRole } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const heading = getByRole('heading', { level: 2 });
 
@@ -202,27 +203,27 @@ describe('Month', () => {
     });
 
     it('displays previous month if previous paddle is clicked', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getByTestId('previous-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('January 2019');
     });
 
     it('displays next month if next paddle is clicked', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getByTestId('next-month'));
 
       expect(getByTestId('month-display')).toHaveTextContent('March 2019');
     });
 
     it('displays current month if no value is provided', async () => {
-      const { getByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getByTestId('month-display')).toHaveTextContent('February 2019');
     });
@@ -230,37 +231,37 @@ describe('Month', () => {
 
   describe('Calendar selection', () => {
     it('calls onChange when date is selected', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
     });
 
     it('updates input value when date is selected', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveValue('January 28, 2019');
     });
 
     it('returns focus to the input when a date is selected', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveFocus();
@@ -268,13 +269,13 @@ describe('Month', () => {
     });
 
     it('reopens on a second click of the already-focused input after a date is selected', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(input).toHaveFocus();
@@ -286,13 +287,13 @@ describe('Month', () => {
     });
 
     it('selects, closes, and returns focus to the input on Enter', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const day = getAllByTestId('day')[1];
 
@@ -306,13 +307,13 @@ describe('Month', () => {
     });
 
     it('selects on Space, keeping the calendar open and focus on the day', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const day = getAllByTestId('day')[1];
 
@@ -326,7 +327,7 @@ describe('Month', () => {
     });
 
     it('does not select date if before minDate', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example
           value={DEFAULT_DATE}
           onChange={onChangeSpy}
@@ -335,7 +336,7 @@ describe('Month', () => {
         />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const days = getAllByTestId('day');
 
       fireEvent.click(days[0]);
@@ -345,7 +346,7 @@ describe('Month', () => {
     });
 
     it('does not select a disabled date via keyboard, but keeps it focusable', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example
           value={DEFAULT_DATE}
           onChange={onChangeSpy}
@@ -354,7 +355,7 @@ describe('Month', () => {
         />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       const disabledDay = getAllByTestId('day')[0];
 
       expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
@@ -373,11 +374,11 @@ describe('Month', () => {
 
   describe('Day grid keyboard navigation', () => {
     it('gives exactly one day button tabindex="0", matching the focused day', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
       const focusedDay = days[9];
@@ -393,11 +394,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the next day when ArrowRight is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -409,11 +410,11 @@ describe('Month', () => {
     });
 
     it('calls preventDefault on the keyboard event when navigating with arrow keys', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
       const wasNotCanceled = fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
@@ -422,11 +423,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the previous day when ArrowLeft is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -438,11 +439,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the previous day when ArrowRight is pressed, in RTL', async () => {
-      const { getByTestId, getAllByTestId } = renderRtl(
+      const { getByRole, getAllByTestId } = renderRtl(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -454,11 +455,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the next day when ArrowLeft is pressed, in RTL', async () => {
-      const { getByTestId, getAllByTestId } = renderRtl(
+      const { getByRole, getAllByTestId } = renderRtl(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -470,11 +471,11 @@ describe('Month', () => {
     });
 
     it('moves focus one week forward when ArrowDown is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -484,11 +485,11 @@ describe('Month', () => {
     });
 
     it('moves focus one week back when ArrowUp is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -498,11 +499,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the start of the week when Home is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -512,11 +513,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the end of the week when End is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -526,11 +527,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the same day next month when PageDown is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -545,11 +546,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the same day previous month when PageUp is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -564,11 +565,11 @@ describe('Month', () => {
     });
 
     it('clamps to the last day of the month when PageDown lands on a day that does not exist', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const selectedDay = getAllByTestId('day').find(
         day => day.getAttribute('data-test-selected') === 'true'
@@ -585,11 +586,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the same day next year when Shift+PageDown is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -604,11 +605,11 @@ describe('Month', () => {
     });
 
     it('moves focus to the same day previous year when Shift+PageUp is pressed', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
 
@@ -625,11 +626,11 @@ describe('Month', () => {
     it('clamps February 29 to February 28 when Shift+PageDown crosses into a non-leap year', async () => {
       mockDate.set(new Date(2020, 1, 29));
 
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const selectedDay = getAllByTestId('day').find(
         day => day.getAttribute('data-test-selected') === 'true'
@@ -648,11 +649,11 @@ describe('Month', () => {
     });
 
     it('advances the month display and focuses day 1 of the new month when navigating past the end of the month', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example value={new Date(2019, 1, 28)} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const selectedDay = getAllByTestId('day').find(
         day => day.getAttribute('data-test-selected') === 'true'
@@ -673,11 +674,9 @@ describe('Month', () => {
 
   describe('Calendar grid roles', () => {
     it('has grid role and is labelled by the month/year heading', async () => {
-      const { getByTestId, getByRole } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
+      const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const heading = getByRole('heading', { level: 2 });
       const grid = getByRole('grid');
@@ -686,29 +685,24 @@ describe('Month', () => {
     });
 
     it('hides the abbreviated day-label from screen readers in favor of a visually-hidden full weekday name', async () => {
-      const { getByTestId, getAllByRole, getAllByTestId } = render(
+      const { getByRole, getAllByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const columnHeaders = getAllByRole('columnheader');
-      const dayLabels = getAllByTestId('day-label');
-      const fullDayLabels = getAllByTestId('day-label-full');
-
       expect(columnHeaders[0]).not.toHaveAttribute('abbr');
-      expect(dayLabels[0]).toHaveTextContent('Sun');
-      expect(dayLabels[0]).toHaveAttribute('aria-hidden', 'true');
-      expect(fullDayLabels[0]).toHaveTextContent('Sunday');
-      expect(fullDayLabels[0]).toHaveAttribute('hidden');
+      expect(within(columnHeaders[0]).getByText('Sun')).toHaveAttribute('aria-hidden', 'true');
+      expect(within(columnHeaders[0]).getByText('Sunday')).toHaveAttribute('hidden');
     });
 
     it('groups the day-label cells and each week of days into rows of 7', async () => {
-      const { getByTestId, getAllByTestId, getAllByRole } = render(
+      const { getByRole, getAllByTestId, getAllByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const rows = getAllByRole('row');
       const headerRow = rows.find(row => within(row).queryAllByRole('columnheader').length > 0);
@@ -724,11 +718,11 @@ describe('Month', () => {
     });
 
     it('makes each gridcell itself the focusable roving-tabindex element, with no nested button', async () => {
-      const { getByTestId, getAllByTestId, getAllByRole } = render(
+      const { getByRole, getAllByTestId, getAllByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
       const gridcells = getAllByRole('gridcell');
@@ -745,11 +739,11 @@ describe('Month', () => {
     });
 
     it('marks the committed value with aria-selected', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getAllByTestId('day')[9]).toHaveAttribute('aria-selected', 'true');
     });
@@ -767,10 +761,10 @@ describe('Month', () => {
           />
         );
       };
-      const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       fireEvent.change(input, { target: { value: '1/1/2020' } });
       fireEvent.blur(input);
@@ -779,9 +773,9 @@ describe('Month', () => {
     });
 
     it('marks today with aria-current when it is not the committed value', async () => {
-      const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getByRole, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const days = getAllByTestId('day');
       const today = days.find(day => day.getAttribute('data-test-today') === 'true');
@@ -791,11 +785,11 @@ describe('Month', () => {
     });
 
     it('renders aria-selected on every day cell, true only for the committed value', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       getAllByTestId('day').forEach((day, index) => {
         expect(day).toHaveAttribute('aria-selected', index === 9 ? 'true' : 'false');
@@ -810,9 +804,9 @@ describe('Month', () => {
       );
 
     it("wraps each day cell's content in a single calendar_item", async () => {
-      const { getByTestId, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       getAllByTestId('day').forEach(cell => {
         expect(cell.children).toHaveLength(1);
@@ -822,9 +816,9 @@ describe('Month', () => {
     });
 
     it("wraps each weekday header's content in a single calendar_item", async () => {
-      const { getByTestId, getAllByRole } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole, getAllByRole } = render(<Example value={DEFAULT_DATE} />);
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const headers = getAllByRole('columnheader');
 

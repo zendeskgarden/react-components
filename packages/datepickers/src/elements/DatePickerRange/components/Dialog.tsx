@@ -56,7 +56,6 @@ export const Dialog = ({
       $zIndex={zIndex}
       aria-hidden={!isOpen || undefined}
       inert={isOpen ? undefined : ''}
-      data-test-id="range-dialog"
       data-test-open={isOpen}
       data-test-rtl={rtl}
     >

@@ -38,9 +38,7 @@ export const WeekdayHeaderRow = ({
             <StyledDayLabel $isCompact={isCompact} aria-hidden="true" data-test-id="day-label">
               {formattedDayLabel}
             </StyledDayLabel>
-            <Span hidden data-test-id="day-label-full">
-              {formatFullWeekdayLabel(date, locale)}
-            </Span>
+            <Span hidden>{formatFullWeekdayLabel(date, locale)}</Span>
           </StyledCalendarItem>
         </StyledDayLabelHeader>
       );

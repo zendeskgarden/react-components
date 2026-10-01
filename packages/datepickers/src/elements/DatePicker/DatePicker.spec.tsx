@@ -7,7 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import { render, fireEvent, waitFor } from 'garden-test-utils';
+import { RenderResult, render, fireEvent, waitFor } from 'garden-test-utils';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
@@ -17,6 +17,7 @@ import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { DatePicker } from './DatePicker';
 import { IDatePickerProps } from '../../types';
 
+const CHOOSE_DATE = 'Choose date';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
@@ -91,11 +92,11 @@ describe('DatePicker', () => {
 
     it('uses custom formatDate method when a date is selected from the calendar', async () => {
       const FORMATTED_DATE = 'test';
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getByTestId, getAllByTestId } = render(
         <Example onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(getByTestId('input')).toHaveValue(FORMATTED_DATE);
@@ -114,12 +115,12 @@ describe('DatePicker', () => {
         );
       };
 
-      const { getByTestId, getAllByTestId } = render(<Controlled />);
+      const { getByRole, getByTestId, getAllByTestId } = render(<Controlled />);
       const input = getByTestId('input');
 
       await user.clear(input);
       await user.type(input, '1/4/2019');
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       const hasRenderPhaseUpdateWarning = consoleErrorSpy.mock.calls.some(
@@ -227,11 +228,11 @@ describe('DatePicker', () => {
     });
 
     it('reports a valid date when a day is selected from the calendar', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(onValueSettledSpy).toHaveBeenCalledWith({
@@ -242,11 +243,11 @@ describe('DatePicker', () => {
     });
 
     it('does not report a stale value when a day is selected from the calendar', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getByRole, getAllByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
       fireEvent.click(getAllByTestId('day')[1]);
 
       expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
@@ -288,10 +289,10 @@ describe('DatePicker', () => {
           />
         );
       };
-      const { getByTestId } = render(<ControlledExample />);
+      const { getByRole, getByTestId } = render(<ControlledExample />);
       const input = getByTestId('input');
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       fireEvent.change(input, { target: { value: '1/1/2020' } });
       fireEvent.blur(input);
@@ -300,13 +301,13 @@ describe('DatePicker', () => {
     });
 
     it('reports invalid when closing the calendar by clicking outside after typing unparseable text', async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
       const input = getByTestId('input');
 
       fireEvent.change(input, { target: { value: 'invalid date' } });
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       await user.click(getByTestId('outside'));
 
@@ -319,14 +320,14 @@ describe('DatePicker', () => {
     });
 
     it('reports a valid date when closing the calendar by clicking outside after typing a parseable date', async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
       const input = getByTestId('input');
 
       await user.clear(input);
       await user.type(input, '1/4/2019');
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       await user.click(getByTestId('outside'));
 
@@ -436,7 +437,7 @@ describe('DatePicker', () => {
         fireEvent.change(input, { target: { value: 'garbage' } });
         fireEvent.blur(input);
 
-        await user.click(result.getByTestId('calendar-button'));
+        await user.click(result.getByRole('button', { name: CHOOSE_DATE }));
         await user.click(result.container.querySelector('[data-test-today="true"]')!);
 
         return result;
@@ -457,9 +458,9 @@ describe('DatePicker', () => {
       );
 
       it('shows the day as selected when the calendar reopens', async () => {
-        const { container, getByTestId } = await pickSelectedDayAfterInvalidEntry();
+        const { getByRole, container } = await pickSelectedDayAfterInvalidEntry();
 
-        await user.click(getByTestId('calendar-button'));
+        await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
         expect(container.querySelector('[data-test-today="true"]')).toHaveAttribute(
           'aria-selected',
@@ -491,12 +492,14 @@ describe('DatePicker', () => {
       );
 
     it("keeps a single labelled group around a ClearableInput child and the calendar button, dropping the ClearableInput's own", () => {
-      const { getAllByRole, getByTestId } = renderInField(<ClearableInput data-test-id="input" />);
+      const { getByRole, getAllByRole, getByTestId } = renderInField(
+        <ClearableInput data-test-id="input" />
+      );
       const groups = getAllByRole('group');
 
       expect(groups).toHaveLength(1);
       expect(groups[0]).toContainElement(getByTestId('input'));
-      expect(groups[0]).toContainElement(getByTestId('calendar-button'));
+      expect(groups[0]).toContainElement(getByRole('button', { name: CHOOSE_DATE }));
       expect(groups[0]).toHaveAccessibleName('Date');
     });
 
@@ -587,84 +590,91 @@ describe('DatePicker', () => {
 
     const CLOSED = { menu: 'false', input: 'false', button: 'false' };
 
-    const getOpenState = (getByTestId: (id: string) => HTMLElement) => ({
+    const getOpenState = (
+      getByTestId: RenderResult['getByTestId'],
+      getByRole: RenderResult['getByRole']
+    ) => ({
       menu: getByTestId('datepicker-menu').getAttribute('data-test-open'),
       input: getByTestId('input').getAttribute('aria-expanded'),
-      button: getByTestId('calendar-button').getAttribute('aria-expanded')
+      button: getByRole('button', { name: CHOOSE_DATE }).getAttribute('aria-expanded')
     });
 
     it('still renders the trigger button, with the native disabled attribute', () => {
-      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
-      expect(getByTestId('calendar-button')).toBeDisabled();
+      expect(getByRole('button', { name: CHOOSE_DATE })).toBeDisabled();
     });
 
     it('does not open the calendar when the trigger is clicked', () => {
-      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
-      fireEvent.click(getByTestId('calendar-button'));
+      fireEvent.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+      expect(getOpenState(getByTestId, getByRole)).toStrictEqual(CLOSED);
     });
 
     it('does not open the calendar when the input is clicked', () => {
-      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.mouseDown(getByTestId('input'));
       fireEvent.click(getByTestId('input'));
 
-      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+      expect(getOpenState(getByTestId, getByRole)).toStrictEqual(CLOSED);
     });
 
     it('does not open the calendar when the associated label is clicked', () => {
-      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.click(getByTestId('label'));
 
-      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+      expect(getOpenState(getByTestId, getByRole)).toStrictEqual(CLOSED);
     });
 
     it('does not open the calendar when the surrounding input group is clicked', () => {
-      const { container, getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole, container, getByTestId } = render(
+        <DisabledOrReadOnlyExample value={DEFAULT_DATE} />
+      );
 
       fireEvent.click(container.querySelector("[data-garden-id='forms.input_group']")!);
 
-      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+      expect(getOpenState(getByTestId, getByRole)).toStrictEqual(CLOSED);
     });
 
     it.each([
       ['Down Arrow', {}],
       ['Alt+Down Arrow', { altKey: true }]
     ])('does not open the calendar on %s from the input', (_, modifiers) => {
-      const { getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN, ...modifiers });
 
-      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+      expect(getOpenState(getByTestId, getByRole)).toStrictEqual(CLOSED);
     });
 
     it(`closes an already-open calendar once the input becomes ${label}`, async () => {
-      const { getByTestId, rerender } = render(
+      const { getByRole, getByTestId, rerender } = render(
         <DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly={false} />
       );
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
 
       rerender(<DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly />);
 
-      expect(getOpenState(getByTestId)).toStrictEqual(CLOSED);
+      expect(getOpenState(getByTestId, getByRole)).toStrictEqual(CLOSED);
     });
 
     it(`opens normally again once the input is no longer ${label}`, async () => {
-      const { getByTestId, rerender } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
+      const { getByRole, getByTestId, rerender } = render(
+        <DisabledOrReadOnlyExample value={DEFAULT_DATE} />
+      );
 
       rerender(<DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly={false} />);
 
-      expect(getByTestId('calendar-button')).toBeEnabled();
+      expect(getByRole('button', { name: CHOOSE_DATE })).toBeEnabled();
 
-      await user.click(getByTestId('calendar-button'));
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
     });
@@ -692,9 +702,9 @@ describe('DatePicker', () => {
       getByTestId('datepicker-menu').getAttribute('data-test-open') === 'true';
 
     it('renders no calendar button', () => {
-      const { queryByTestId } = render(<NoTriggerExample />);
+      const { queryByRole } = render(<NoTriggerExample />);
 
-      expect(queryByTestId('calendar-button')).not.toBeInTheDocument();
+      expect(queryByRole('button', { name: CHOOSE_DATE })).not.toBeInTheDocument();
     });
 
     it.each([
@@ -742,7 +752,7 @@ describe('DatePicker', () => {
     });
 
     it.each([
-      ['a default', undefined, 'Choose date'],
+      ['a default', undefined, CHOOSE_DATE],
       ['a consumer-provided', 'Pick a day', 'Pick a day']
     ])(
       'gives the dialog %s accessible name, without a button to take it from',
