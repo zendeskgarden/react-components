@@ -627,6 +627,87 @@ describe('DatePickerRange', () => {
     });
   });
 
+  describe("when formatDate's output can't be read back by the default parser", () => {
+    const formatDayMonthYear = (date: Date) =>
+      `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+    const ControlledExample = ({
+      keepTypedInput,
+      isControlled = true
+    }: Pick<IDatePickerRangeProps, 'keepTypedInput'> & { isControlled?: boolean }) => {
+      const [range, setRange] = useState<{ startValue?: Date; endValue?: Date }>({});
+
+      return (
+        <>
+          <Example
+            {...(isControlled ? range : {})}
+            formatDate={formatDayMonthYear}
+            keepTypedInput={keepTypedInput}
+            onChange={values => {
+              onChangeSpy(values);
+              setRange(values);
+            }}
+          />
+          <button data-test-id="outside" type="button">
+            Outside
+          </button>
+        </>
+      );
+    };
+
+    const pickDay = async (getAllByTestId: (id: string) => HTMLElement[], name: string) => {
+      await user.click(
+        getAllByTestId('day').find(day => day.textContent?.includes(name)) as HTMLElement
+      );
+    };
+
+    it.each([true, false])(
+      'keeps calendar-picked dates as picked when focus leaves their fields, with keepTypedInput=%s',
+      async keepTypedInput => {
+        const { getByTestId, getAllByTestId } = render(
+          <ControlledExample keepTypedInput={keepTypedInput} />
+        );
+
+        await user.click(getByTestId('start'));
+        await pickDay(getAllByTestId, 'February 1, 2019');
+        await pickDay(getAllByTestId, 'March 20, 2019');
+        await user.click(getByTestId('outside'));
+
+        expect(onChangeSpy).toHaveBeenLastCalledWith({
+          startValue: new Date(2019, 1, 1),
+          endValue: new Date(2019, 2, 20)
+        });
+        expect(onChangeSpy).not.toHaveBeenCalledWith(
+          expect.objectContaining({ startValue: new Date(2019, 0, 2) })
+        );
+        expect(getByTestId('start')).toHaveValue('01/02/2019');
+        expect(getByTestId('end')).toHaveValue('20/03/2019');
+      }
+    );
+
+    it.each([true, false])(
+      "keeps a calendar-picked start date as picked when the parent doesn't pass it back as startValue, with keepTypedInput=%s",
+      async keepTypedInput => {
+        const { getByTestId, getAllByTestId } = render(
+          <ControlledExample keepTypedInput={keepTypedInput} isControlled={false} />
+        );
+
+        await user.click(getByTestId('start'));
+        await pickDay(getAllByTestId, 'February 1, 2019');
+        await user.click(getByTestId('outside'));
+
+        expect(onChangeSpy).toHaveBeenLastCalledWith({
+          startValue: new Date(2019, 1, 1),
+          endValue: undefined
+        });
+        expect(onChangeSpy).not.toHaveBeenCalledWith(
+          expect.objectContaining({ startValue: new Date(2019, 0, 2) })
+        );
+        expect(getByTestId('start')).toHaveValue('01/02/2019');
+      }
+    );
+  });
+
   describe('locale changes', () => {
     it('reformats Start/End when only the locale prop changes', () => {
       const { getByTestId, rerender } = render(

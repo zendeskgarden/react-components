@@ -11,13 +11,15 @@ import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
 import { IDatePickerProps, IDatePickerValueSettledResult } from '../../../types';
-import { getFormatter, isDateWithinRange } from '../../../utils/calendar-utils';
+import { getFormatter, isDateWithinRange, readFieldDate } from '../../../utils/calendar-utils';
 
 export interface IDatePickerState {
   isOpen: boolean;
   previewDate: Date;
   focusedDate: Date;
   inputValue: string;
+  /** The date the component last wrote as `inputValue`, until the user edits it - see `readFieldDate`. */
+  inputDate?: Date;
   isValueInvalid: boolean;
 }
 
@@ -90,13 +92,16 @@ export function resolveSettledValue({
   required,
   minValue,
   maxValue,
-  customParseDate
+  customParseDate,
+  inputDate
 }: {
   inputValue: string;
   required?: boolean;
   minValue?: Date;
   maxValue?: Date;
   customParseDate?: (value: string) => Date;
+  /** See `readFieldDate`. */
+  inputDate?: Date;
 }): IDatePickerValueSettledResult {
   if (inputValue === '') {
     const valid = !required;
@@ -104,7 +109,10 @@ export function resolveSettledValue({
     return { date: undefined, inputValue, valid, reason: valid ? undefined : 'required' };
   }
 
-  const date = parseInputValue({ inputValue, customParseDate });
+  const date = readFieldDate({
+    inputDate,
+    parse: () => parseInputValue({ inputValue, customParseDate })
+  });
 
   if (!isValid(date)) {
     return { date: undefined, inputValue, valid: false, reason: 'malformed' };
@@ -142,7 +150,7 @@ export type DatePickerAction =
       keepOpen?: boolean;
     }
   | { type: 'FOCUS_DATE'; value: Date }
-  | { type: 'VALUE_SETTLED'; valid: boolean; settledInputValue?: string };
+  | { type: 'VALUE_SETTLED'; valid: boolean; settledInputValue?: string; settledDate?: Date };
 
 export const datepickerReducer = (
   state: IDatePickerState,
@@ -159,7 +167,7 @@ export const datepickerReducer = (
     case 'MANUALLY_UPDATE_INPUT': {
       const inputValue = action.value;
 
-      return { ...state, inputValue };
+      return { ...state, inputValue, inputDate: undefined };
     }
     case 'CONTROLLED_VALUE_CHANGE': {
       const { value, locale, formatDate, customParseDate } = action;
@@ -172,12 +180,17 @@ export const datepickerReducer = (
         ? state.inputValue
         : formatInputValue({ date: value, locale, formatDate });
 
-      return { ...state, previewDate, inputValue, isValueInvalid: false };
+      return { ...state, previewDate, inputValue, inputDate: value, isValueInvalid: false };
     }
     case 'VALUE_SETTLED':
       return action.settledInputValue === undefined
         ? { ...state, isValueInvalid: !action.valid }
-        : { ...state, inputValue: action.settledInputValue, isValueInvalid: false };
+        : {
+            ...state,
+            inputValue: action.settledInputValue,
+            inputDate: action.settledDate,
+            isValueInvalid: false
+          };
     case 'CONTROLLED_LOCALE_CHANGE': {
       const inputValue = formatInputValue({
         date: action.value,
@@ -185,7 +198,7 @@ export const datepickerReducer = (
         formatDate: action.formatDate
       });
 
-      return { ...state, inputValue };
+      return { ...state, inputValue, inputDate: action.value };
     }
     case 'SELECT_DATE': {
       const inputValue = formatInputValue({
@@ -198,6 +211,7 @@ export const datepickerReducer = (
         ...state,
         isOpen: !!action.keepOpen && state.isOpen,
         inputValue,
+        inputDate: action.value,
         isValueInvalid: false
       };
     }
@@ -246,6 +260,7 @@ export function retrieveInitialState(
     previewDate,
     focusedDate: previewDate,
     inputValue,
+    inputDate: initialProps.value,
     isValueInvalid: false
   };
 }

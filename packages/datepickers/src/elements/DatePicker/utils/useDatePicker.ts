@@ -107,7 +107,8 @@ export function useDatePicker({
         required,
         minValue,
         maxValue,
-        customParseDate
+        customParseDate,
+        inputDate: inputValue === state.inputValue ? state.inputDate : undefined
       });
 
       if (!(inputValue === '' && isEmptyReportedRef.current)) {
@@ -120,11 +121,13 @@ export function useDatePicker({
         valid: settled.valid,
         settledInputValue: keepTypedInput
           ? undefined
-          : formatInputValue({ date: settled.date ?? value, locale, formatDate })
+          : formatInputValue({ date: settled.date ?? value, locale, formatDate }),
+        settledDate: settled.date ?? value
       });
     },
     [
       state.inputValue,
+      state.inputDate,
       required,
       minValue,
       maxValue,

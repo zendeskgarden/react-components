@@ -39,7 +39,7 @@ import {
   IUseDatePickerRangeProps,
   IUseDatePickerRangeReturnValue
 } from '../../../types';
-import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
+import { getStartOfWeek, isDateWithinRange, readFieldDate } from '../../../utils/calendar-utils';
 import {
   composeActionButtonProps,
   resolveWidgetBlur,
@@ -559,7 +559,8 @@ export function useDatePickerRange({
         minValue,
         maxValue,
         notAfter: endValue,
-        customParseDate
+        customParseDate,
+        inputDate: inputValue === state.startInputValue ? state.startInputDate : undefined
       });
 
       if (!(inputValue === '' && isStartEmptyReportedRef.current)) {
@@ -575,14 +576,19 @@ export function useDatePickerRange({
       maxValue,
       customParseDate,
       onValueSettled,
-      fieldStates.start.required
+      fieldStates.start.required,
+      state.startInputDate
     ]
   );
 
   const commitStartBlur = useCallback(() => {
-    const parsedDate = customParseDate
-      ? customParseDate(state.startInputValue)
-      : parseInputValue({ inputValue: state.startInputValue });
+    const parsedDate = readFieldDate({
+      inputDate: state.startInputDate,
+      parse: () =>
+        customParseDate
+          ? customParseDate(state.startInputValue)
+          : parseInputValue({ inputValue: state.startInputValue })
+    });
     const isParsedDateValid =
       isValid(parsedDate) &&
       isDateWithinRange(parsedDate, minValue, maxValue) &&
@@ -595,7 +601,8 @@ export function useDatePickerRange({
       isRejected,
       settledInputValue: keepTypedInput
         ? undefined
-        : formatValue({ value: isParsedDateValid ? parsedDate : startValue, locale, formatDate })
+        : formatValue({ value: isParsedDateValid ? parsedDate : startValue, locale, formatDate }),
+      settledDate: isParsedDateValid ? parsedDate : startValue
     });
 
     if (isParsedDateValid && !isSameDay(parsedDate, startValue!)) {
@@ -613,6 +620,7 @@ export function useDatePickerRange({
     maxValue,
     customParseDate,
     state.startInputValue,
+    state.startInputDate,
     reportStartSettled,
     keepTypedInput,
     locale,
@@ -765,7 +773,8 @@ export function useDatePickerRange({
         minValue,
         maxValue,
         notBefore: startValue,
-        customParseDate
+        customParseDate,
+        inputDate: inputValue === state.endInputValue ? state.endInputDate : undefined
       });
 
       if (!(inputValue === '' && isEndEmptyReportedRef.current)) {
@@ -781,14 +790,19 @@ export function useDatePickerRange({
       maxValue,
       customParseDate,
       onValueSettled,
-      fieldStates.end.required
+      fieldStates.end.required,
+      state.endInputDate
     ]
   );
 
   const commitEndBlur = useCallback(() => {
-    const parsedDate = customParseDate
-      ? customParseDate(state.endInputValue)
-      : parseInputValue({ inputValue: state.endInputValue });
+    const parsedDate = readFieldDate({
+      inputDate: state.endInputDate,
+      parse: () =>
+        customParseDate
+          ? customParseDate(state.endInputValue)
+          : parseInputValue({ inputValue: state.endInputValue })
+    });
     const isParsedDateValid =
       isValid(parsedDate) &&
       isDateWithinRange(parsedDate, minValue, maxValue) &&
@@ -801,7 +815,8 @@ export function useDatePickerRange({
       isRejected,
       settledInputValue: keepTypedInput
         ? undefined
-        : formatValue({ value: isParsedDateValid ? parsedDate : endValue, locale, formatDate })
+        : formatValue({ value: isParsedDateValid ? parsedDate : endValue, locale, formatDate }),
+      settledDate: isParsedDateValid ? parsedDate : endValue
     });
 
     if (isParsedDateValid && !isSameDay(parsedDate, endValue!)) {
@@ -819,6 +834,7 @@ export function useDatePickerRange({
     maxValue,
     customParseDate,
     state.endInputValue,
+    state.endInputDate,
     reportEndSettled,
     keepTypedInput,
     locale,

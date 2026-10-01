@@ -874,6 +874,43 @@ describe('DatePicker', () => {
     });
   });
 
+  describe("when formatDate's output can't be read back by the default parser", () => {
+    const formatDayMonthYear = (date: Date) =>
+      `${String(date.getDate()).padStart(2, '0')}/${String(date.getMonth() + 1).padStart(2, '0')}/${date.getFullYear()}`;
+
+    it.each([true, false])(
+      'keeps a calendar-picked date as picked when focus leaves the field, with keepTypedInput=%s',
+      async keepTypedInput => {
+        const onValueSettledSpy = jest.fn();
+        const ControlledExample = () => {
+          const [value, setValue] = useState<Date | undefined>();
+
+          return (
+            <Example
+              value={value}
+              formatDate={formatDayMonthYear}
+              keepTypedInput={keepTypedInput}
+              onChange={setValue}
+              onValueSettled={onValueSettledSpy}
+            />
+          );
+        };
+        const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+
+        await user.click(getByTestId('input'));
+        await user.click(
+          getAllByTestId('day').find(day => day.textContent?.includes('February 1, 2019'))!
+        );
+        await user.click(getByTestId('outside'));
+
+        expect(onValueSettledSpy).toHaveBeenLastCalledWith(
+          expect.objectContaining({ date: new Date(2019, 1, 1), valid: true })
+        );
+        expect(getByTestId('input')).toHaveValue('01/02/2019');
+      }
+    );
+  });
+
   describe('keepTypedInput', () => {
     const ControlledExample = ({
       keepTypedInput,

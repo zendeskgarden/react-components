@@ -194,6 +194,15 @@ export function getFormatter(
   return formatter;
 }
 
+/**
+ * A field's date: the one the component last wrote as its text, until the user edits it - since a
+ * consumer's `formatDate` output may not parse back to the same date (e.g. "dd/MM/yyyy" without a
+ * matching `customParseDate`). Otherwise the text, as parsed.
+ */
+export function readFieldDate({ inputDate, parse }: { inputDate?: Date; parse: () => Date }): Date {
+  return inputDate ?? parse();
+}
+
 const GRID_ALIGNED_CALENDARS = ['gregory', 'iso8601', 'buddhist', 'japanese', 'roc'];
 
 /**

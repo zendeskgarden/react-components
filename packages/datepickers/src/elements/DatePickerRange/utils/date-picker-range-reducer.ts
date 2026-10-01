@@ -23,7 +23,7 @@ import {
   IDatePickerRangeProps,
   IDatePickerRangeValueSettledResult
 } from '../../../types';
-import { getFormatter, isDateWithinRange } from '../../../utils/calendar-utils';
+import { getFormatter, isDateWithinRange, readFieldDate } from '../../../utils/calendar-utils';
 
 /**
  * Whether `date` falls within the two currently-visible months (`previewDate`'s month and the
@@ -53,6 +53,9 @@ export interface IDatePickerRangeState {
   isEndValueInvalid: boolean;
   startInputValue?: string;
   endInputValue?: string;
+  /** The dates the component last wrote as `startInputValue`/`endInputValue`, until the user edits them - see `readFieldDate`. */
+  startInputDate?: Date;
+  endInputDate?: Date;
 }
 
 /**
@@ -141,7 +144,8 @@ export function resolveSettledValue({
   maxValue,
   notBefore,
   notAfter,
-  customParseDate
+  customParseDate,
+  inputDate
 }: {
   inputValue?: string;
   required?: boolean;
@@ -150,6 +154,8 @@ export function resolveSettledValue({
   notBefore?: Date;
   notAfter?: Date;
   customParseDate?: (inputValue?: string) => Date;
+  /** See `readFieldDate`. */
+  inputDate?: Date;
 }): Omit<IDatePickerRangeValueSettledResult, 'field'> {
   if (!inputValue) {
     const valid = !required;
@@ -162,7 +168,10 @@ export function resolveSettledValue({
     };
   }
 
-  const date = customParseDate ? customParseDate(inputValue) : parseInputValue({ inputValue });
+  const date = readFieldDate({
+    inputDate,
+    parse: () => (customParseDate ? customParseDate(inputValue) : parseInputValue({ inputValue }))
+  });
 
   if (!isValid(date)) {
     return { date: undefined, inputValue, valid: false, reason: 'malformed' };
@@ -270,8 +279,8 @@ export type DatePickerRangeAction =
   | { type: 'PREVIEW_PREVIOUS_YEAR' }
   | { type: 'START_INPUT_ONCHANGE'; value: string }
   | { type: 'END_INPUT_ONCHANGE'; value: string }
-  | { type: 'START_BLUR'; isRejected: boolean; settledInputValue?: string }
-  | { type: 'END_BLUR'; isRejected: boolean; settledInputValue?: string }
+  | { type: 'START_BLUR'; isRejected: boolean; settledInputValue?: string; settledDate?: Date }
+  | { type: 'END_BLUR'; isRejected: boolean; settledInputValue?: string; settledDate?: Date }
   | { type: 'START_FOCUS'; startValue?: Date }
   | { type: 'END_FOCUS'; endValue?: Date }
   | {
@@ -333,7 +342,8 @@ export const datepickerRangeReducer = (
             ...state,
             isStartFocused: false,
             isStartValueInvalid: false,
-            startInputValue: action.settledInputValue
+            startInputValue: action.settledInputValue,
+            startInputDate: action.settledDate
           };
     case 'END_BLUR':
       return action.settledInputValue === undefined
@@ -342,7 +352,8 @@ export const datepickerRangeReducer = (
             ...state,
             isEndFocused: false,
             isEndValueInvalid: false,
-            endInputValue: action.settledInputValue
+            endInputValue: action.settledInputValue,
+            endInputDate: action.settledDate
           };
     case 'CONTROLLED_START_VALUE_CHANGE': {
       const startInputValue = resolveControlledInputValue({
@@ -364,6 +375,7 @@ export const datepickerRangeReducer = (
       return {
         ...state,
         startInputValue,
+        startInputDate: action.value,
         hoverDate: undefined,
         previewDate,
         isStartValueInvalid: false
@@ -389,6 +401,7 @@ export const datepickerRangeReducer = (
       return {
         ...state,
         endInputValue,
+        endInputDate: action.value,
         hoverDate: undefined,
         previewDate,
         isEndValueInvalid: false
@@ -406,7 +419,13 @@ export const datepickerRangeReducer = (
         formatDate: action.formatDate
       });
 
-      return { ...state, startInputValue, endInputValue };
+      return {
+        ...state,
+        startInputValue,
+        endInputValue,
+        startInputDate: action.startValue,
+        endInputDate: action.endValue
+      };
     }
     case 'CLICK_DATE': {
       const { selection, previousStartValue, previousEndValue, locale, formatDate } = action;
@@ -421,19 +440,21 @@ export const datepickerRangeReducer = (
         isEndFocused: false,
         ...(isStartRewritten && {
           startInputValue: formatValue({ value: selection.startValue, locale, formatDate }),
+          startInputDate: selection.startValue,
           isStartValueInvalid: selection.isOutOfOrder
         }),
         ...(isEndRewritten && {
           endInputValue: formatValue({ value: selection.endValue, locale, formatDate }),
+          endInputDate: selection.endValue,
           isEndValueInvalid: false
         })
       };
     }
     case 'START_INPUT_ONCHANGE': {
-      return { ...state, startInputValue: action.value };
+      return { ...state, startInputValue: action.value, startInputDate: undefined };
     }
     case 'END_INPUT_ONCHANGE': {
-      return { ...state, endInputValue: action.value };
+      return { ...state, endInputValue: action.value, endInputDate: undefined };
     }
     case 'HOVER_DATE':
       return { ...state, hoverDate: action.value };
@@ -513,6 +534,8 @@ export function retrieveInitialState(
     focusedDate: previewDate,
     startInputValue,
     endInputValue,
+    startInputDate: initialProps.startValue,
+    endInputDate: initialProps.endValue,
     isStartFocused: false,
     isEndFocused: false,
     isStartValueInvalid: false,
