@@ -18,6 +18,10 @@ import { IDatePickerProps } from '../../../types';
 const CHOOSE_DATE = 'Choose date';
 const DEFAULT_DATE = new Date(2019, 1, 5);
 
+/** The visible, abbreviated label in a weekday column header (the full name is visually hidden). */
+const getAbbreviatedDayLabel = (header: HTMLElement) =>
+  within(header).getByText(content => content.length > 0, { ignore: 'script, style, [hidden]' });
+
 const Example = (props: Omit<IDatePickerProps, 'children'>) => (
   <>
     <label data-test-id="label" htmlFor="input">
@@ -51,10 +55,10 @@ describe('Month', () => {
 
   describe('Calendar display', () => {
     it('displays dates with correct previous styling', async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       for (let x = 0; x < days.length; x++) {
         if (x <= 4) {
@@ -68,20 +72,20 @@ describe('Month', () => {
     });
 
     it('displays dates with selected and today styling', async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       expect(days[9]).toHaveAttribute('data-test-selected', 'true');
       expect(days[9]).toHaveAttribute('data-test-today', 'true');
     });
 
     it('renders the visible day number plus a visually-hidden full date', async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       expect(days[9]).toHaveTextContent('5');
       expect(within(days[9]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
@@ -91,13 +95,13 @@ describe('Month', () => {
     it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
       "includes each day's visible number in its full date, for %s",
       async locale => {
-        const { getByRole, getAllByTestId } = render(
+        const { getAllByRole, getByRole } = render(
           <Example value={DEFAULT_DATE} locale={locale} />
         );
 
         await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-        getAllByTestId('day').forEach(day => {
+        getAllByRole('gridcell').forEach(day => {
           const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
 
           expect(
@@ -108,58 +112,52 @@ describe('Month', () => {
     );
 
     it('describes each real day cell as a selectable cell', async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      getAllByTestId('day').forEach(day => {
+      getAllByRole('gridcell').forEach(day => {
         expect(day).toHaveAttribute('aria-roledescription', 'selectable cell');
       });
     });
 
     it('accepts a custom selectableCellRoleDescription', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} selectableCellRoleDescription="cellule sélectionnable" />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      getAllByTestId('day').forEach(day => {
+      getAllByRole('gridcell').forEach(day => {
         expect(day).toHaveAttribute('aria-roledescription', 'cellule sélectionnable');
       });
     });
 
     it('displays "Sun" as default first day of week', async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const dayLabels = getAllByTestId('day-label');
-
-      expect(dayLabels[0]).toHaveTextContent('Sun');
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Sun');
     });
 
     it('display locale based first day of week', async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} locale="en-GB" />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} locale="en-GB" />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const dayLabels = getAllByTestId('day-label');
-
-      expect(dayLabels[0]).toHaveTextContent('Mon');
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Mon');
     });
 
     it('display custom first day of week', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} locale="en-GB" weekStartsOn={3} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const dayLabels = getAllByTestId('day-label');
-
-      expect(dayLabels[0]).toHaveTextContent('Wed');
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Wed');
     });
 
     it('displays disabled styling for minimum and maximum values', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example
           value={DEFAULT_DATE}
           minValue={subDays(DEFAULT_DATE, 2)}
@@ -168,7 +166,7 @@ describe('Month', () => {
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       for (let x = 0; x < days.length; x++) {
         const element = days[x];
@@ -184,11 +182,11 @@ describe('Month', () => {
     });
 
     it('displays selected month in correct format', async () => {
-      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading')).toHaveTextContent('February 2019');
     });
 
     it('renders the month/year heading as an aria-live h2 with an id', async () => {
@@ -203,91 +201,91 @@ describe('Month', () => {
     });
 
     it('displays previous month if previous paddle is clicked', async () => {
-      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getByTestId('previous-month'));
+      fireEvent.click(getByRole('button', { name: /^Previous month/u }));
 
-      expect(getByTestId('month-display')).toHaveTextContent('January 2019');
+      expect(getByRole('heading')).toHaveTextContent('January 2019');
     });
 
     it('displays next month if next paddle is clicked', async () => {
-      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getByTestId('next-month'));
+      fireEvent.click(getByRole('button', { name: /^Next month/u }));
 
-      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+      expect(getByRole('heading')).toHaveTextContent('March 2019');
     });
 
     it('displays current month if no value is provided', async () => {
-      const { getByRole, getByTestId } = render(<Example />);
+      const { getByRole } = render(<Example />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading')).toHaveTextContent('February 2019');
     });
   });
 
   describe('Calendar selection', () => {
     it('calls onChange when date is selected', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
     });
 
     it('updates input value when date is selected', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(input).toHaveValue('January 28, 2019');
     });
 
     it('returns focus to the input when a date is selected', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(input).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     });
 
     it('reopens on a second click of the already-focused input after a date is selected', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       const input = getByTestId('input');
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(input).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
 
       await user.click(input);
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
 
     it('selects, closes, and returns focus to the input on Enter', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
@@ -295,7 +293,7 @@ describe('Month', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const day = getAllByTestId('day')[1];
+      const day = getAllByRole('gridcell')[1];
 
       day.focus();
       await user.keyboard('{Enter}');
@@ -303,11 +301,11 @@ describe('Month', () => {
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
       expect(input).toHaveValue('January 28, 2019');
       expect(input).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     });
 
     it('selects on Space, keeping the calendar open and focus on the day', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
@@ -315,7 +313,7 @@ describe('Month', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const day = getAllByTestId('day')[1];
+      const day = getAllByRole('gridcell')[1];
 
       day.focus();
       await user.keyboard(' ');
@@ -323,11 +321,11 @@ describe('Month', () => {
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
       expect(input).toHaveValue('January 28, 2019');
       expect(day).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
 
     it('does not select date if before minDate', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example
           value={DEFAULT_DATE}
           onChange={onChangeSpy}
@@ -337,7 +335,7 @@ describe('Month', () => {
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.click(days[0]);
       fireEvent.click(days[days.length - 1]);
@@ -346,7 +344,7 @@ describe('Month', () => {
     });
 
     it('does not select a disabled date via keyboard, but keeps it focusable', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example
           value={DEFAULT_DATE}
           onChange={onChangeSpy}
@@ -356,7 +354,7 @@ describe('Month', () => {
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      const disabledDay = getAllByTestId('day')[0];
+      const disabledDay = getAllByRole('gridcell')[0];
 
       expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
       expect(disabledDay).toHaveAttribute('aria-disabled', 'true');
@@ -374,13 +372,13 @@ describe('Month', () => {
 
   describe('Day grid keyboard navigation', () => {
     it('gives exactly one day button tabindex="0", matching the focused day', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
       const focusedDay = days[9];
 
       expect(focusedDay).toHaveFocus();
@@ -394,13 +392,13 @@ describe('Month', () => {
     });
 
     it('moves focus to the next day when ArrowRight is pressed', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
 
@@ -410,26 +408,26 @@ describe('Month', () => {
     });
 
     it('calls preventDefault on the keyboard event when navigating with arrow keys', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
       const wasNotCanceled = fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
 
       expect(wasNotCanceled).toBe(false);
     });
 
     it('moves focus to the previous day when ArrowLeft is pressed', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.LEFT });
 
@@ -439,13 +437,13 @@ describe('Month', () => {
     });
 
     it('moves focus to the previous day when ArrowRight is pressed, in RTL', async () => {
-      const { getByRole, getAllByTestId } = renderRtl(
+      const { getAllByRole, getByRole } = renderRtl(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.RIGHT });
 
@@ -455,13 +453,13 @@ describe('Month', () => {
     });
 
     it('moves focus to the next day when ArrowLeft is pressed, in RTL', async () => {
-      const { getByRole, getAllByTestId } = renderRtl(
+      const { getAllByRole, getByRole } = renderRtl(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.LEFT });
 
@@ -471,13 +469,13 @@ describe('Month', () => {
     });
 
     it('moves focus one week forward when ArrowDown is pressed', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.DOWN });
 
@@ -485,13 +483,13 @@ describe('Month', () => {
     });
 
     it('moves focus one week back when ArrowUp is pressed', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.UP });
 
@@ -499,13 +497,13 @@ describe('Month', () => {
     });
 
     it('moves focus to the start of the week when Home is pressed', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.HOME });
 
@@ -513,13 +511,13 @@ describe('Month', () => {
     });
 
     it('moves focus to the end of the week when End is pressed', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.END });
 
@@ -527,97 +525,105 @@ describe('Month', () => {
     });
 
     it('moves focus to the same day next month when PageDown is pressed', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.PAGE_DOWN });
 
-      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+      expect(getByRole('heading')).toHaveTextContent('March 2019');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('5');
     });
 
     it('moves focus to the same day previous month when PageUp is pressed', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.PAGE_UP });
 
-      expect(getByTestId('month-display')).toHaveTextContent('January 2019');
+      expect(getByRole('heading')).toHaveTextContent('January 2019');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('5');
     });
 
     it('clamps to the last day of the month when PageDown lands on a day that does not exist', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const selectedDay = getAllByTestId('day').find(
-        day => day.getAttribute('data-test-selected') === 'true'
-      )!;
+      const selectedDay = getByRole('gridcell', { selected: true });
 
       fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading')).toHaveTextContent('February 2019');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('28');
     });
 
     it('moves focus to the same day next year when Shift+PageDown is pressed', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.PAGE_DOWN, shiftKey: true });
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+      expect(getByRole('heading')).toHaveTextContent('February 2020');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('5');
     });
 
     it('moves focus to the same day previous year when Shift+PageUp is pressed', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       fireEvent.keyDown(days[9], { key: KEYS.PAGE_UP, shiftKey: true });
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2018');
+      expect(getByRole('heading')).toHaveTextContent('February 2018');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('5');
@@ -626,21 +632,21 @@ describe('Month', () => {
     it('clamps February 29 to February 28 when Shift+PageDown crosses into a non-leap year', async () => {
       mockDate.set(new Date(2020, 1, 29));
 
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const selectedDay = getAllByTestId('day').find(
-        day => day.getAttribute('data-test-selected') === 'true'
-      )!;
+      const selectedDay = getByRole('gridcell', { selected: true });
 
       fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN, shiftKey: true });
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2021');
+      expect(getByRole('heading')).toHaveTextContent('February 2021');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveFocus();
       expect(focusedDay).toHaveTextContent('28');
@@ -649,21 +655,19 @@ describe('Month', () => {
     });
 
     it('advances the month display and focuses day 1 of the new month when navigating past the end of the month', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={new Date(2019, 1, 28)} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const selectedDay = getAllByTestId('day').find(
-        day => day.getAttribute('data-test-selected') === 'true'
-      )!;
+      const selectedDay = getByRole('gridcell', { selected: true });
 
       fireEvent.keyDown(selectedDay, { key: KEYS.RIGHT });
 
-      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+      expect(getByRole('heading')).toHaveTextContent('March 2019');
 
-      const newDays = getAllByTestId('day');
+      const newDays = getAllByRole('gridcell');
       const focusedDay = newDays.find(day => day.getAttribute('tabindex') === '0')!;
 
       expect(focusedDay).toHaveFocus();
@@ -692,13 +696,15 @@ describe('Month', () => {
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       const columnHeaders = getAllByRole('columnheader');
+
       expect(columnHeaders[0]).not.toHaveAttribute('abbr');
-      expect(within(columnHeaders[0]).getByText('Sun')).toHaveAttribute('aria-hidden', 'true');
+      expect(getAbbreviatedDayLabel(columnHeaders[0])).toHaveTextContent('Sun');
+      expect(getAbbreviatedDayLabel(columnHeaders[0])).toHaveAttribute('aria-hidden', 'true');
       expect(within(columnHeaders[0]).getByText('Sunday')).toHaveAttribute('hidden');
     });
 
     it('groups the day-label cells and each week of days into rows of 7', async () => {
-      const { getByRole, getAllByTestId, getAllByRole } = render(
+      const { getByRole, getAllByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
@@ -707,7 +713,7 @@ describe('Month', () => {
       const rows = getAllByRole('row');
       const headerRow = rows.find(row => within(row).queryAllByRole('columnheader').length > 0);
       const weekRows = rows.filter(row => within(row).queryAllByRole('gridcell').length > 0);
-      const expectedWeekCount = getAllByTestId('day').length / 7;
+      const expectedWeekCount = getAllByRole('gridcell').length / 7;
 
       expect(headerRow).toBeDefined();
       expect(within(headerRow!).getAllByRole('columnheader')).toHaveLength(7);
@@ -718,13 +724,13 @@ describe('Month', () => {
     });
 
     it('makes each gridcell itself the focusable roving-tabindex element, with no nested button', async () => {
-      const { getByRole, getAllByTestId, getAllByRole } = render(
+      const { getByRole, getAllByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
       const gridcells = getAllByRole('gridcell');
 
       expect(gridcells).toHaveLength(days.length);
@@ -739,13 +745,13 @@ describe('Month', () => {
     });
 
     it('marks the committed value with aria-selected', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-selected', 'true');
+      expect(getAllByRole('gridcell')[9]).toHaveAttribute('aria-selected', 'true');
     });
 
     it('clears aria-selected on the stale value after a rejected out-of-range blur', async () => {
@@ -761,7 +767,7 @@ describe('Month', () => {
           />
         );
       };
-      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
       const input = getByTestId('input');
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
@@ -769,15 +775,18 @@ describe('Month', () => {
       fireEvent.change(input, { target: { value: '1/1/2020' } });
       fireEvent.blur(input);
 
-      expect(getAllByTestId('day')[9]).toHaveAttribute('aria-selected', 'false');
+      expect(getAllByRole('gridcell', { hidden: true })[9]).toHaveAttribute(
+        'aria-selected',
+        'false'
+      );
     });
 
     it('marks today with aria-current when it is not the committed value', async () => {
-      const { getByRole, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getAllByRole, getByRole } = render(<Example onChange={onChangeSpy} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
       const today = days.find(day => day.getAttribute('data-test-today') === 'true');
 
       expect(today).toHaveAttribute('aria-current', 'date');
@@ -785,13 +794,13 @@ describe('Month', () => {
     });
 
     it('renders aria-selected on every day cell, true only for the committed value', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      getAllByTestId('day').forEach((day, index) => {
+      getAllByRole('gridcell').forEach((day, index) => {
         expect(day).toHaveAttribute('aria-selected', index === 9 ? 'true' : 'false');
       });
     });
@@ -804,11 +813,11 @@ describe('Month', () => {
       );
 
     it("wraps each day cell's content in a single calendar_item", async () => {
-      const { getByRole, getAllByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getAllByRole, getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      getAllByTestId('day').forEach(cell => {
+      getAllByRole('gridcell').forEach(cell => {
         expect(cell.children).toHaveLength(1);
         expect(getItem(cell)).toHaveLength(1);
         expect(getItem(cell)[0].querySelector("[data-garden-id='datepickers.day']")).not.toBeNull();
