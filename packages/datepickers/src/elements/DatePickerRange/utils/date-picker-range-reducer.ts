@@ -64,7 +64,7 @@ export function formatValue({
   formatDate
 }: {
   value?: Date;
-  formatDate?: any;
+  formatDate?: IDatePickerRangeProps['formatDate'];
   locale?: string;
 }) {
   let stringValue = '';
@@ -124,7 +124,7 @@ function resolveControlledInputValue({
   inputValue?: string;
   value?: Date;
   locale?: string;
-  formatDate?: any;
+  formatDate?: IDatePickerRangeProps['formatDate'];
   customParseDate?: (inputValue?: string) => Date;
 }) {
   const typedDate = customParseDate ? customParseDate(inputValue) : parseInputValue({ inputValue });
@@ -262,7 +262,7 @@ export type DatePickerRangeAction =
       previousStartValue?: Date;
       previousEndValue?: Date;
       locale?: string;
-      formatDate?: any;
+      formatDate?: IDatePickerRangeProps['formatDate'];
     }
   | { type: 'PREVIEW_NEXT_MONTH' }
   | { type: 'PREVIEW_PREVIOUS_MONTH' }
@@ -278,14 +278,14 @@ export type DatePickerRangeAction =
       type: 'CONTROLLED_START_VALUE_CHANGE';
       value?: Date;
       locale?: string;
-      formatDate?: any;
+      formatDate?: IDatePickerRangeProps['formatDate'];
       customParseDate?: (inputValue?: string) => Date;
     }
   | {
       type: 'CONTROLLED_END_VALUE_CHANGE';
       value?: Date;
       locale?: string;
-      formatDate?: any;
+      formatDate?: IDatePickerRangeProps['formatDate'];
       customParseDate?: (inputValue?: string) => Date;
     }
   | {
@@ -293,7 +293,7 @@ export type DatePickerRangeAction =
       startValue?: Date;
       endValue?: Date;
       locale?: string;
-      formatDate?: any;
+      formatDate?: IDatePickerRangeProps['formatDate'];
     }
   | { type: 'FOCUS_DATE'; value: Date };
 
@@ -487,7 +487,9 @@ export const datepickerRangeReducer = (
 /**
  * Retrieve initial state for the DatePicker reducer
  */
-export function retrieveInitialState(initialProps: IDatePickerRangeProps): IDatePickerRangeState {
+export function retrieveInitialState(
+  initialProps: Pick<IDatePickerRangeProps, 'startValue' | 'endValue' | 'locale' | 'formatDate'>
+): IDatePickerRangeState {
   let previewDate = initialProps.startValue!;
 
   if (previewDate === undefined || !isValid(previewDate)) {

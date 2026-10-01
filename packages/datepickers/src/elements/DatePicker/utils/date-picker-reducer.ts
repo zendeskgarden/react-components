@@ -218,7 +218,9 @@ export const datepickerReducer = (
 /**
  * Retrieve initial state for the DatePicker reducer
  */
-export function retrieveInitialState(initialProps: IDatePickerProps): IDatePickerState {
+export function retrieveInitialState(
+  initialProps: Pick<IDatePickerProps, 'value' | 'locale' | 'formatDate'>
+): IDatePickerState {
   let previewDate = initialProps.value;
 
   if (previewDate === undefined || !isValid(previewDate)) {

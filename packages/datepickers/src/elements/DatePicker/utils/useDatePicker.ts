@@ -78,7 +78,8 @@ export function useDatePicker({
 
   const [state, dispatch] = useReducer(
     datepickerReducer,
-    retrieveInitialState({ value, formatDate, locale } as any)
+    { value, formatDate, locale },
+    retrieveInitialState
   );
 
   const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);

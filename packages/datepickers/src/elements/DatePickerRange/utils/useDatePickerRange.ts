@@ -85,7 +85,8 @@ export function useDatePickerRange({
 
   const [state, dispatch] = useReducer(
     datepickerRangeReducer,
-    retrieveInitialState({ startValue, endValue, locale, formatDate } as any)
+    { startValue, endValue, locale, formatDate },
+    retrieveInitialState
   );
 
   /** Set once an emptied field has been reported, so leaving it afterwards doesn't report the same clear again. */
