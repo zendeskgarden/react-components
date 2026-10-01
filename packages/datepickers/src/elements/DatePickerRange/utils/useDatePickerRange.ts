@@ -132,7 +132,7 @@ export function useDatePickerRange({
 
     pendingGridFocusRef.current = false;
     calendarWrapperRef.current
-      ?.querySelector<HTMLTableCellElement>('[data-test-id="day"][tabindex="0"]')
+      ?.querySelector<HTMLTableCellElement>('[role="gridcell"][tabindex="0"]')
       ?.focus();
   }, [state.focusedDate]);
 
@@ -334,7 +334,7 @@ export function useDatePickerRange({
   useEffect(() => {
     if (isOpen && shouldFocusDialogRef.current) {
       calendarWrapperRef.current
-        ?.querySelector<HTMLTableCellElement>('[data-test-id="day"][tabindex="0"]')
+        ?.querySelector<HTMLTableCellElement>('[role="gridcell"][tabindex="0"]')
         ?.focus();
       shouldFocusDialogRef.current = false;
     }

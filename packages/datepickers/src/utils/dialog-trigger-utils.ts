@@ -16,9 +16,9 @@ export const focusIntoDialog = (dialogEl: HTMLElement | null): void => {
   }
 
   const target =
-    dialogEl.querySelector<HTMLElement>('[data-test-selected="true"]') ||
-    dialogEl.querySelector<HTMLElement>('[data-test-today="true"]') ||
-    dialogEl.querySelector<HTMLElement>('[data-test-id="day"]');
+    dialogEl.querySelector<HTMLElement>('[role="gridcell"][aria-selected="true"]') ||
+    dialogEl.querySelector<HTMLElement>('[aria-current="date"]') ||
+    dialogEl.querySelector<HTMLElement>('[role="gridcell"][tabindex]');
 
   target?.focus();
 };
