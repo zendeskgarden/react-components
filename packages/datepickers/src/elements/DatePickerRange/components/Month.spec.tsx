@@ -7,13 +7,7 @@
 
 import React, { useState } from 'react';
 import userEvent from '@testing-library/user-event';
-import {
-  render,
-  fireEvent,
-  getAllByTestId as globalGetAllByTestId,
-  within,
-  renderRtl
-} from 'garden-test-utils';
+import { render, fireEvent, within, renderRtl } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
@@ -25,6 +19,10 @@ import { IDatePickerRangeProps } from '../../../types';
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
 const IN_RANGE_DESCRIPTION = /\((?:start of|end of|included in) range\)/u;
+
+/** The visible, abbreviated label in a weekday column header (the full name is visually hidden). */
+const getAbbreviatedDayLabel = (header: HTMLElement) =>
+  within(header).getByText(content => content.length > 0, { ignore: 'script, style, [hidden]' });
 
 const Example = (props: IDatePickerRangeProps) => (
   <DatePickerRange {...props}>
@@ -60,12 +58,12 @@ describe('Month', () => {
 
   describe('Calendar display', () => {
     it('displays dates with correct previous styling', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
 
       for (let x = 0; x < firstMonthDays.length; x++) {
         if (x <= 4) {
@@ -77,7 +75,7 @@ describe('Month', () => {
         }
       }
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
 
       for (let x = 0; x < secondMonthDays.length; x++) {
         if (x <= 4) {
@@ -91,8 +89,8 @@ describe('Month', () => {
     });
 
     it('reuses its date formatters while hovering across days, rather than constructing new ones', async () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const days = getDays(getAllByRole('grid')[0]);
       const DateTimeFormat = jest.spyOn(Intl, 'DateTimeFormat');
 
       await user.hover(days[10]);
@@ -119,44 +117,44 @@ describe('Month', () => {
     });
 
     it('displays dates with selected and today styling', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
 
       expect(firstMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
       expect(firstMonthDays[9]).toHaveAttribute('data-test-today', 'true');
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
 
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
     });
 
     it('marks the committed start and end values with aria-selected', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
 
       expect(firstMonthDays[4]).toHaveAttribute('aria-selected', 'true');
       expect(firstMonthDays[3]).toHaveAttribute('aria-selected', 'false');
 
-      const secondMonthDays = getDays(calendarWrappers[1]);
+      const secondMonthDays = getDays(grids[1]);
 
       expect(secondMonthDays[4]).toHaveAttribute('aria-selected', 'true');
     });
 
     it('renders the visible day number plus a visually-hidden full date', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
 
       expect(firstMonthDays[4]).toHaveTextContent('5');
       expect(within(firstMonthDays[4]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
@@ -166,11 +164,11 @@ describe('Month', () => {
     it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
       "includes each day's visible number in its full date, for %s",
       locale => {
-        const { getAllByTestId } = render(
+        const { getAllByRole } = render(
           <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} locale={locale} />
         );
 
-        getDays(getAllByTestId('calendar-wrapper')[0]).forEach(day => {
+        getDays(getAllByRole('grid')[0]).forEach(day => {
           const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
 
           expect(
@@ -181,10 +179,10 @@ describe('Month', () => {
     );
 
     it("numbers the grid's Gregorian days for a locale whose default calendar has different months", () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} locale="fa" />
       );
-      const firstDay = getDays(getAllByTestId('calendar-wrapper')[0])[0];
+      const firstDay = getDays(getAllByRole('grid')[0])[0];
 
       expect(firstDay.querySelector('[data-garden-id="datepickers.day"]')).toHaveTextContent(
         /^۱$/u
@@ -192,19 +190,19 @@ describe('Month', () => {
     });
 
     it('describes each real day cell as a selectable cell', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      [...getDays(calendarWrappers[0]), ...getDays(calendarWrappers[1])].forEach(day => {
+      [...getDays(grids[0]), ...getDays(grids[1])].forEach(day => {
         expect(day).toHaveAttribute('aria-roledescription', 'selectable cell');
       });
     });
 
     it('accepts a custom selectableCellRoleDescription', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -212,60 +210,54 @@ describe('Month', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      [...getDays(calendarWrappers[0]), ...getDays(calendarWrappers[1])].forEach(day => {
+      [...getDays(grids[0]), ...getDays(grids[1])].forEach(day => {
         expect(day).toHaveAttribute('aria-roledescription', 'cellule sélectionnable');
       });
     });
 
     it('renders aria-selected on every real day cell, true only for the committed start/end values', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      getDays(calendarWrappers[0]).forEach((day, index) => {
+      getDays(grids[0]).forEach((day, index) => {
         expect(day).toHaveAttribute('aria-selected', index === 4 ? 'true' : 'false');
       });
 
-      getDays(calendarWrappers[1]).forEach((day, index) => {
+      getDays(grids[1]).forEach((day, index) => {
         expect(day).toHaveAttribute('aria-selected', index === 4 ? 'true' : 'false');
       });
     });
 
     it('displays "Sun" as default first day of week', () => {
-      const { getAllByTestId } = render(<Example />);
+      const { getAllByRole } = render(<Example />);
 
-      const dayLabels = getAllByTestId('day-label');
-
-      expect(dayLabels[0]).toHaveTextContent('Sun');
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Sun');
     });
 
     it('display locale based first day of week', () => {
-      const { getAllByTestId } = render(<Example locale="en-GB" />);
+      const { getAllByRole } = render(<Example locale="en-GB" />);
 
-      const dayLabels = getAllByTestId('day-label');
-
-      expect(dayLabels[0]).toHaveTextContent('Mon');
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Mon');
     });
 
     it('display custom first day of week', () => {
-      const { getAllByTestId } = render(<Example locale="en-GB" weekStartsOn={3} />);
+      const { getAllByRole } = render(<Example locale="en-GB" weekStartsOn={3} />);
 
-      const dayLabels = getAllByTestId('day-label');
-
-      expect(dayLabels[0]).toHaveTextContent('Wed');
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Wed');
     });
 
     it('displays highlighted days correctly if both values are provided', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -281,7 +273,7 @@ describe('Month', () => {
         }
       }
 
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const secondMonthCells = getDays(grids[1]);
 
       for (let x = 0; x < secondMonthCells.length; x++) {
         const cell = secondMonthCells[x];
@@ -299,12 +291,12 @@ describe('Month', () => {
     });
 
     it('displays highlighted days correctly if both values are provided in RTL mode', () => {
-      const { getAllByTestId } = renderRtl(
+      const { getAllByRole } = renderRtl(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -320,7 +312,7 @@ describe('Month', () => {
         }
       }
 
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const secondMonthCells = getDays(grids[1]);
 
       for (let x = 0; x < secondMonthCells.length; x++) {
         const cell = secondMonthCells[x];
@@ -338,13 +330,13 @@ describe('Month', () => {
     });
 
     it('displays highlighted days correctly when moused', async () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
-      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
+      await user.hover(within(grids[1]).getAllByRole('gridcell')[9]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -376,13 +368,13 @@ describe('Month', () => {
     });
 
     it('highlights backward from a hovered day to the end value when only the end value is set', async () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
-      await user.hover(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
+      await user.hover(within(grids[0]).getAllByRole('gridcell')[6]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -414,13 +406,13 @@ describe('Month', () => {
     });
 
     it('shows no highlight when hovering a day after the end value, with no start value set', async () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
-      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[14]);
+      await user.hover(within(grids[1]).getAllByRole('gridcell')[14]);
 
       firstMonthCells.forEach(cell => {
         expect(cell).toHaveAttribute('data-test-highlighted', 'false');
@@ -432,10 +424,10 @@ describe('Month', () => {
     });
 
     it('shows no tint at all for a hovered end candidate on the first day of its row', async () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverCell = globalGetAllByTestId(calendarWrappers[0], 'day')[14]; // Feb 10, 2019 - a Sunday
+      const grids = getAllByRole('grid');
+      const hoverCell = within(grids[0]).getAllByRole('gridcell')[14]; // Feb 10, 2019 - a Sunday
 
       await user.hover(hoverCell);
 
@@ -445,10 +437,10 @@ describe('Month', () => {
     });
 
     it('shows no tint at all for a hovered start candidate on the last day of its row', async () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverCell = globalGetAllByTestId(calendarWrappers[0], 'day')[13]; // Feb 9, 2019 - a Saturday
+      const grids = getAllByRole('grid');
+      const hoverCell = within(grids[0]).getAllByRole('gridcell')[13]; // Feb 9, 2019 - a Saturday
 
       await user.hover(hoverCell);
 
@@ -458,14 +450,14 @@ describe('Month', () => {
     });
 
     it('removes highlighted days when moused away', async () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
-      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
-      await user.unhover(getAllByTestId('calendar-internal-wrapper')[1]);
+      await user.hover(within(grids[1]).getAllByRole('gridcell')[9]);
+      await user.unhover(getAllByRole('grid')[1]);
 
       firstMonthCells.forEach(cell => {
         expect(cell).toHaveAttribute('data-test-highlighted', 'false');
@@ -477,13 +469,13 @@ describe('Month', () => {
     });
 
     it('clears the highlight when moving from a hovered start candidate onto the committed end value', () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
-      const endCell = globalGetAllByTestId(calendarWrappers[1], 'day')[9]; // March 5, 2019
-      const candidateCell = globalGetAllByTestId(calendarWrappers[1], 'day')[6]; // March 2, 2019
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+      const endCell = within(grids[1]).getAllByRole('gridcell')[9]; // March 5, 2019
+      const candidateCell = within(grids[1]).getAllByRole('gridcell')[6]; // March 2, 2019
 
       expect(endCell).toHaveAttribute('aria-selected', 'true');
 
@@ -503,13 +495,13 @@ describe('Month', () => {
     });
 
     it('clears the highlight when moving from a hovered end candidate onto the committed start value', () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
-      const startCell = globalGetAllByTestId(calendarWrappers[0], 'day')[9]; // Feb 5, 2019
-      const candidateCell = globalGetAllByTestId(calendarWrappers[0], 'day')[12]; // Feb 8, 2019
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+      const startCell = within(grids[0]).getAllByRole('gridcell')[9]; // Feb 5, 2019
+      const candidateCell = within(grids[0]).getAllByRole('gridcell')[12]; // Feb 8, 2019
 
       expect(startCell).toHaveAttribute('aria-selected', 'true');
 
@@ -526,7 +518,7 @@ describe('Month', () => {
     });
 
     it('displays disabled styling for minimum and maximum values', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -535,8 +527,8 @@ describe('Month', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
 
       for (let x = 0; x < firstMonthDays.length; x++) {
         const element = firstMonthDays[x];
@@ -552,7 +544,7 @@ describe('Month', () => {
         }
       }
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
 
       for (let x = 0; x < secondMonthDays.length; x++) {
         const element = secondMonthDays[x];
@@ -572,34 +564,31 @@ describe('Month', () => {
 
   describe('Calendar grid structure', () => {
     it('renders each month as a table with th day-labels and td days', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-internal-wrapper');
+      const grids = getAllByRole('grid');
 
-      calendarWrappers.forEach(wrapper => {
+      grids.forEach(wrapper => {
         expect(wrapper.tagName).toBe('TABLE');
 
-        const dayLabels = globalGetAllByTestId(wrapper, 'day-label');
-        const days = globalGetAllByTestId(wrapper, 'day');
-
-        dayLabels.forEach(label => {
-          expect(label.closest('th')).not.toBeNull();
-        });
-        days.forEach(day => {
-          expect(day.closest('td')).not.toBeNull();
-        });
+        within(wrapper)
+          .getAllByRole('columnheader')
+          .forEach(header => expect(header.tagName).toBe('TH'));
+        within(wrapper)
+          .getAllByRole('gridcell')
+          .forEach(cell => expect(cell.tagName).toBe('TD'));
       });
     });
 
     it('groups day-label cells and each week of days into table rows', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const wrapper = getAllByTestId('calendar-internal-wrapper')[0];
-      const days = globalGetAllByTestId(wrapper, 'day');
+      const wrapper = getAllByRole('grid')[0];
+      const days = within(wrapper).getAllByRole('gridcell');
       const rows = within(wrapper).getAllByRole('row');
       const headerRow = rows.find(row => within(row).queryAllByRole('columnheader').length > 0);
       const weekRows = rows.filter(row => row !== headerRow);
@@ -615,28 +604,29 @@ describe('Month', () => {
 
   describe('Calendar grid roles', () => {
     it('gives each month table a grid role labelled by its own month/year heading', () => {
-      const { getAllByTestId, getAllByRole } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
       const grids = getAllByRole('grid');
+      const headings = getAllByRole('heading', { level: 2 });
 
       expect(grids).toHaveLength(2);
+      expect(headings).toHaveLength(2);
 
-      calendarWrappers.forEach((wrapper, index) => {
-        const heading = within(wrapper).getByRole('heading', { level: 2 });
-
-        expect(grids[index]).toHaveAttribute('aria-labelledby', heading.id);
+      grids.forEach((grid, index) => {
+        expect(grid).toHaveAttribute('aria-labelledby', headings[index].id);
       });
+      expect(grids[0]).toHaveAccessibleName('February 2019');
+      expect(grids[1]).toHaveAccessibleName('March 2019');
     });
 
     it('hides the abbreviated day-label from screen readers in favor of a visually-hidden full weekday name', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const wrapper = getAllByTestId('calendar-wrapper')[0];
+      const wrapper = getAllByRole('grid')[0];
       const columnHeaders = within(wrapper).getAllByRole('columnheader');
       expect(columnHeaders[0]).not.toHaveAttribute('abbr');
       expect(within(columnHeaders[0]).getByText('Sun')).toHaveAttribute('aria-hidden', 'true');
@@ -646,13 +636,13 @@ describe('Month', () => {
 
   describe('In-range description', () => {
     it('renders visually-hidden in-range description text as a sibling of the day number, only for described days', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
       expect(within(firstMonthCells[0]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
       expect(within(secondMonthCells[5]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
@@ -671,13 +661,13 @@ describe('Month', () => {
     });
 
     it('labels the range boundaries as "start of range"/"end of range", and interior days as "included in range"', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
       const startDescription = within(firstMonthCells[4]).getByText(IN_RANGE_DESCRIPTION);
       const interiorDescription = within(firstMonthCells[5]).getByText(IN_RANGE_DESCRIPTION);
@@ -689,10 +679,10 @@ describe('Month', () => {
     });
 
     it('does not describe a hovered day as part of a range when neither startValue nor endValue is set', async () => {
-      const { getAllByTestId } = render(<Example />);
+      const { getAllByRole } = render(<Example />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const hoverCell = globalGetAllByTestId(calendarWrappers[0], 'day')[10]; // Feb 6, 2019 - not a row edge
+      const grids = getAllByRole('grid');
+      const hoverCell = within(grids[0]).getAllByRole('gridcell')[10]; // Feb 6, 2019 - not a row edge
 
       await user.hover(hoverCell);
 
@@ -701,26 +691,26 @@ describe('Month', () => {
     });
 
     it('does not describe days as part of a range while only one value is committed, even as focus previews a candidate range', () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
 
       fireEvent.keyDown(firstMonthDays[9], { key: KEYS.RIGHT }); // Feb 5, 2019 - the start value
 
       // getDays only wraps real (current-month) days, unlike the unfiltered `day` list above,
       // so index 5 here is Feb 6, 2019 - one day after the start value.
-      const firstMonthCells = getDays(calendarWrappers[0]);
+      const firstMonthCells = getDays(grids[0]);
 
       expect(firstMonthCells[5]).toHaveAttribute('data-test-highlighted', 'true');
       expect(within(firstMonthCells[5]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
     });
 
     it('describes the committed start value as "start of range" immediately, before an end value is set', () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
       const startCell = firstMonthCells[4]; // Feb 5, 2019 - the start value
 
       expect(within(startCell).getByText('(start of range)', { exact: false })).toHaveAttribute(
@@ -729,10 +719,10 @@ describe('Month', () => {
     });
 
     it('describes the committed end value as "end of range" immediately, before a start value is set', () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const secondMonthCells = getDays(grids[1]);
       const endCell = secondMonthCells[4]; // March 5, 2019 - the end value
 
       expect(within(endCell).getByText('(end of range)', { exact: false })).toHaveAttribute(
@@ -741,7 +731,7 @@ describe('Month', () => {
     });
 
     it('accepts custom startOfRangeLabel, endOfRangeLabel and inRangeLabel', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -751,9 +741,9 @@ describe('Month', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
       expect(
         within(firstMonthCells[4]).getByText('début de la plage', { exact: false })
@@ -769,7 +759,7 @@ describe('Month', () => {
 
   describe('Calendar selection', () => {
     it('clears end value when date is selected', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -777,9 +767,9 @@ describe('Month', () => {
         />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[6]);
+      await user.click(within(grids[0]).getAllByRole('gridcell')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 2),
@@ -788,13 +778,13 @@ describe('Month', () => {
     });
 
     it('selects end value when additional date is selected', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
+      await user.click(within(grids[1]).getAllByRole('gridcell')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 5),
@@ -841,29 +831,29 @@ describe('Month', () => {
         );
       };
 
-      const { getAllByTestId, getByTestId, getAllByRole } = render(
+      const { getByTestId, getAllByRole } = render(
         <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
       const clearButtons = getAllByRole('button', { name: 'Clear' });
 
       await user.click(clearButtons[1]);
       await user.click(clearButtons[0]);
 
-      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(within(grids[0]).getAllByRole('gridcell')[6]);
+      await user.click(within(grids[1]).getAllByRole('gridcell')[6]);
 
       expect(getByTestId('start')).toHaveValue('February 2, 2019');
       expect(getByTestId('end')).toHaveValue('March 2, 2019');
     });
 
     it('selects start value if no values are selected', async () => {
-      const { getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getAllByRole } = render(<Example onChange={onChangeSpy} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(within(grids[1]).getAllByRole('gridcell')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 2, 2),
@@ -872,13 +862,13 @@ describe('Month', () => {
     });
 
     it('updates start value when clicked date is before end value', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[5]);
+      await user.click(within(grids[0]).getAllByRole('gridcell')[5]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 1),
@@ -927,7 +917,7 @@ describe('Month', () => {
     });
 
     it('does not select date if before minDate', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -937,9 +927,9 @@ describe('Month', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
 
       await user.click(firstMonthDays[4]);
       await user.click(secondMonthDays[33]);
@@ -948,7 +938,7 @@ describe('Month', () => {
     });
 
     it('does not select a disabled date via keyboard, but keeps it focusable', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -958,8 +948,8 @@ describe('Month', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
       const disabledDay = firstMonthDays[0];
 
       expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
@@ -976,10 +966,10 @@ describe('Month', () => {
     });
 
     it('selects start value via keyboard when no values are selected', async () => {
-      const { getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getAllByRole } = render(<Example onChange={onChangeSpy} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const day = globalGetAllByTestId(calendarWrappers[1], 'day')[6];
+      const grids = getAllByRole('grid');
+      const day = within(grids[1]).getAllByRole('gridcell')[6];
 
       day.focus();
       await user.keyboard('{Enter}');
@@ -991,7 +981,7 @@ describe('Month', () => {
     });
 
     it('updates valid start value when start input is focused', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -999,10 +989,10 @@ describe('Month', () => {
         />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
       await user.click(getByTestId('start'));
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[12]);
+      await user.click(within(grids[0]).getAllByRole('gridcell')[12]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 8),
@@ -1011,7 +1001,7 @@ describe('Month', () => {
     });
 
     it('updates invalid start value when start input is focused', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -1019,10 +1009,10 @@ describe('Month', () => {
         />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
       await user.click(getByTestId('start'));
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+      await user.click(within(grids[1]).getAllByRole('gridcell')[12]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 2, 8),
@@ -1031,7 +1021,7 @@ describe('Month', () => {
     });
 
     it('updates valid end value when end input is focused', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -1039,10 +1029,10 @@ describe('Month', () => {
         />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
       await user.click(getByTestId('end'));
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+      await user.click(within(grids[1]).getAllByRole('gridcell')[12]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 5),
@@ -1051,7 +1041,7 @@ describe('Month', () => {
     });
 
     it('updates invalid end value when end input is focused', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -1059,10 +1049,10 @@ describe('Month', () => {
         />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
       await user.click(getByTestId('end'));
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[8]);
+      await user.click(within(grids[0]).getAllByRole('gridcell')[8]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 4),
@@ -1073,15 +1063,15 @@ describe('Month', () => {
 
   describe('Focus after selection, without a Dialog composed', () => {
     it('moves focus to the selected day cell, not the End field, when completing the range', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
       );
       const endInput = getByTestId('end');
 
       await user.click(endInput);
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
-      const dayCell = globalGetAllByTestId(monthDisplays[1], 'day')[6];
+      const grids = getAllByRole('grid');
+      const dayCell = within(grids[1]).getAllByRole('gridcell')[6];
 
       await user.click(dayCell);
 
@@ -1090,15 +1080,15 @@ describe('Month', () => {
     });
 
     it('moves focus to the selected day cell, not the Start field, when completing the range (Start picked second)', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example endValue={DEFAULT_END_VALUE} onChange={onChangeSpy} />
       );
       const startInput = getByTestId('start');
 
       await user.click(startInput);
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
-      const dayCell = globalGetAllByTestId(monthDisplays[0], 'day')[9];
+      const grids = getAllByRole('grid');
+      const dayCell = within(grids[0]).getAllByRole('gridcell')[9];
 
       await user.click(dayCell);
 
@@ -1107,12 +1097,12 @@ describe('Month', () => {
     });
 
     it('lets arrow-key navigation continue after selecting a day cell by mouse', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
-      const dayCell = globalGetAllByTestId(monthDisplays[1], 'day')[6];
+      const grids = getAllByRole('grid');
+      const dayCell = within(grids[1]).getAllByRole('gridcell')[6];
 
       await user.click(dayCell);
 
@@ -1120,7 +1110,7 @@ describe('Month', () => {
 
       await user.keyboard('{ArrowRight}');
 
-      const days = globalGetAllByTestId(monthDisplays[1], 'day');
+      const days = within(grids[1]).getAllByRole('gridcell');
 
       expect(days[7]).toHaveFocus();
     });
@@ -1128,13 +1118,13 @@ describe('Month', () => {
 
   describe('Keyboard navigation', () => {
     it('gives exactly one day button tabindex="0" across both months, matching the start value', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
-      const secondMonthDays = getDays(calendarWrappers[1]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+      const secondMonthDays = getDays(grids[1]);
       const focusedDay = firstMonthDays[4];
 
       expect(focusedDay).toHaveAttribute('tabindex', '0');
@@ -1147,15 +1137,15 @@ describe('Month', () => {
     });
 
     it('moves focus to the next day when ArrowRight is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[5]).toHaveFocus();
       expect(days[5]).toHaveAttribute('tabindex', '0');
@@ -1163,26 +1153,26 @@ describe('Month', () => {
     });
 
     it('calls preventDefault on the keyboard event when navigating with arrow keys', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
       const wasNotCanceled = fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
 
       expect(wasNotCanceled).toBe(false);
     });
 
     it('moves focus to the previous day when ArrowLeft is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[3]).toHaveFocus();
       expect(days[3]).toHaveAttribute('tabindex', '0');
@@ -1190,15 +1180,15 @@ describe('Month', () => {
     });
 
     it('moves focus to the previous day when ArrowRight is pressed, in RTL', () => {
-      const { getAllByTestId } = renderRtl(
+      const { getAllByRole } = renderRtl(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[3]).toHaveFocus();
       expect(days[3]).toHaveAttribute('tabindex', '0');
@@ -1206,15 +1196,15 @@ describe('Month', () => {
     });
 
     it('moves focus to the next day when ArrowLeft is pressed, in RTL', () => {
-      const { getAllByTestId } = renderRtl(
+      const { getAllByRole } = renderRtl(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[5]).toHaveFocus();
       expect(days[5]).toHaveAttribute('tabindex', '0');
@@ -1222,150 +1212,156 @@ describe('Month', () => {
     });
 
     it('moves focus one week forward when ArrowDown is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.DOWN });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[11]).toHaveFocus();
     });
 
     it('moves focus one week back when ArrowUp is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[11], { key: KEYS.UP });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[4]).toHaveFocus();
     });
 
     it('moves focus into the second month grid when ArrowRight crosses the month boundary', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
       const lastDayOfFebruary = firstMonthDays[firstMonthDays.length - 1];
 
       fireEvent.keyDown(lastDayOfFebruary, { key: KEYS.RIGHT });
 
-      const secondMonthDays = getDays(getAllByTestId('calendar-wrapper')[1]);
+      const secondMonthDays = getDays(getAllByRole('grid')[1]);
 
       expect(secondMonthDays[0]).toHaveFocus();
       expect(secondMonthDays[0]).toHaveTextContent('1');
     });
 
     it('moves focus to the start of the week when Home is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.HOME });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[2]).toHaveFocus();
       expect(days[2]).toHaveTextContent('3');
     });
 
     it('moves focus to the end of the week when End is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.END });
 
-      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const days = getDays(getAllByRole('grid')[0]);
 
       expect(days[8]).toHaveFocus();
       expect(days[8]).toHaveTextContent('9');
     });
 
     it('moves focus to the same day next month, into the second grid, when PageDown is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
 
-      const secondMonthDays = getDays(getAllByTestId('calendar-wrapper')[1]);
+      const secondMonthDays = getDays(getAllByRole('grid')[1]);
 
       expect(secondMonthDays[4]).toHaveFocus();
       expect(secondMonthDays[4]).toHaveTextContent('5');
     });
 
     it('moves focus to the same day previous month, shifting the window, when PageUp is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP });
 
-      const wrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('January 2019');
-      expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('February 2019');
+      const headings = getAllByRole('heading');
 
-      const days = getDays(wrappers[0]);
+      expect(headings[0]).toHaveTextContent('January 2019');
+      expect(headings[1]).toHaveTextContent('February 2019');
+
+      const days = getDays(grids[0]);
 
       expect(days[4]).toHaveFocus();
       expect(days[4]).toHaveTextContent('5');
     });
 
     it('moves focus to the same day next year when Shift+PageDown is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN, shiftKey: true });
 
-      const wrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('January 2020');
-      expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('February 2020');
+      const headings = getAllByRole('heading');
 
-      const days = getDays(wrappers[1]);
+      expect(headings[0]).toHaveTextContent('January 2020');
+      expect(headings[1]).toHaveTextContent('February 2020');
+
+      const days = getDays(grids[1]);
 
       expect(days[4]).toHaveFocus();
       expect(days[4]).toHaveTextContent('5');
     });
 
     it('moves focus to the same day previous year when Shift+PageUp is pressed', () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP, shiftKey: true });
 
-      const wrappers = getAllByTestId('calendar-wrapper');
+      const grids = getAllByRole('grid');
 
-      expect(within(wrappers[0]).getByTestId('month-display')).toHaveTextContent('February 2018');
-      expect(within(wrappers[1]).getByTestId('month-display')).toHaveTextContent('March 2018');
+      const headings = getAllByRole('heading');
 
-      const days = getDays(wrappers[0]);
+      expect(headings[0]).toHaveTextContent('February 2018');
+      expect(headings[1]).toHaveTextContent('March 2018');
+
+      const days = getDays(grids[0]);
 
       expect(days[4]).toHaveFocus();
       expect(days[4]).toHaveTextContent('5');
@@ -1374,16 +1370,16 @@ describe('Month', () => {
     it('clamps to the last day of the month when PageDown lands on a day that does not exist', () => {
       mockDate.set(new Date(2019, 0, 31));
 
-      const { getAllByTestId } = render(<Example startValue={new Date(2019, 0, 31)} />);
+      const { getAllByRole } = render(<Example startValue={new Date(2019, 0, 31)} />);
 
-      const firstMonthDays = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
       const selectedDay = firstMonthDays.find(
         day => day.getAttribute('data-test-selected') === 'true'
       )!;
 
       fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
 
-      const secondMonthDays = getDays(getAllByTestId('calendar-wrapper')[1]);
+      const secondMonthDays = getDays(getAllByRole('grid')[1]);
       const focusedDay = secondMonthDays.find(day => day.getAttribute('tabindex') === '0')!;
 
       expect(focusedDay).toHaveFocus();
@@ -1391,15 +1387,15 @@ describe('Month', () => {
     });
 
     it('highlights the candidate range as focus moves via keyboard, matching mouse hover', () => {
-      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
 
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -1427,15 +1423,15 @@ describe('Month', () => {
     });
 
     it('highlights backward from the focused day to the end value when only the end value is set, matching mouse hover', () => {
-      const { getAllByTestId } = render(<Example endValue={DEFAULT_END_VALUE} />);
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = getDays(calendarWrappers[0]);
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
 
       fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
 
-      const firstMonthCells = getDays(calendarWrappers[0]);
-      const secondMonthCells = getDays(calendarWrappers[1]);
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
 
       for (let x = 0; x < firstMonthCells.length; x++) {
         const cell = firstMonthCells[x];
@@ -1502,9 +1498,9 @@ describe('Month', () => {
     });
 
     it("renders an aria-hidden highlight inside each day, mirroring its cell's range state", () => {
-      const { getAllByTestId } = renderRange();
+      const { getAllByRole } = renderRange();
 
-      getAllByTestId('calendar-wrapper').forEach(wrapper => {
+      getAllByRole('grid').forEach(wrapper => {
         getDays(wrapper).forEach(cell => {
           const highlight = getHighlight(cell);
 
@@ -1531,8 +1527,8 @@ describe('Month', () => {
     });
 
     it('paints the range band on the highlight, not on the cell', () => {
-      const { getAllByTestId } = renderRange();
-      const middleDay = getDays(getAllByTestId('calendar-wrapper')[0])[14]; // February 15, 2019
+      const { getAllByRole } = renderRange();
+      const middleDay = getDays(getAllByRole('grid')[0])[14]; // February 15, 2019
 
       expect(middleDay).toHaveAttribute('data-test-highlighted', 'true');
       expect(middleDay).not.toHaveStyleRule('background-color', TINT);
