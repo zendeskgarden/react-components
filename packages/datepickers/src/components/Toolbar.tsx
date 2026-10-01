@@ -126,35 +126,31 @@ export const Toolbar: React.FunctionComponent<IToolbarProps> = ({
         return;
       }
 
+      let nextIndex: number;
+
       switch (e.key) {
-        case KEYS.RIGHT: {
-          const nextIndex = rtl
+        case KEYS.RIGHT:
+          nextIndex = rtl
             ? (currentIndex - 1 + paddles.length) % paddles.length
             : (currentIndex + 1) % paddles.length;
-
-          paddles[nextIndex]?.focus();
           break;
-        }
-        case KEYS.LEFT: {
-          const nextIndex = rtl
+        case KEYS.LEFT:
+          nextIndex = rtl
             ? (currentIndex + 1) % paddles.length
             : (currentIndex - 1 + paddles.length) % paddles.length;
-
-          paddles[nextIndex]?.focus();
           break;
-        }
         case KEYS.HOME:
-          paddles[0]?.focus();
+          nextIndex = 0;
           break;
         case KEYS.END:
-          paddles[paddles.length - 1]?.focus();
-          break;
-        case KEYS.UP:
-        case KEYS.DOWN:
+          nextIndex = paddles.length - 1;
           break;
         default:
-          break;
+          return;
       }
+
+      e.preventDefault();
+      paddles[nextIndex]?.focus();
     },
     [rtl]
   );

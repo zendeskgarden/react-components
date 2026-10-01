@@ -260,6 +260,30 @@ describe('Toolbar', () => {
     expect(previousYear).toHaveFocus();
   });
 
+  it.each([KEYS.RIGHT, KEYS.LEFT, KEYS.HOME, KEYS.END])(
+    "cancels %s's default action, so it moves focus without also scrolling the calendar",
+    key => {
+      const { getByRole } = renderToolbar();
+      const paddle = getByRole('button', { name: PREVIOUS_MONTH });
+
+      act(() => paddle.focus());
+
+      expect(fireEvent.keyDown(paddle, { key })).toBe(false);
+    }
+  );
+
+  it.each([KEYS.UP, KEYS.DOWN])(
+    "leaves %s's default action, so it can still scroll the calendar",
+    key => {
+      const { getByRole } = renderToolbar();
+      const paddle = getByRole('button', { name: PREVIOUS_MONTH });
+
+      act(() => paddle.focus());
+
+      expect(fireEvent.keyDown(paddle, { key })).toBe(true);
+    }
+  );
+
   it('moves focus to the first paddle when Home is pressed', () => {
     const { getByRole } = renderToolbar();
 
