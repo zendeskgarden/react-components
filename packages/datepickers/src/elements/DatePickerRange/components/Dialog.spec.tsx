@@ -216,12 +216,12 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
       const endInput = getByTestId('end');
 
       await user.click(getByTestId('trigger'));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       await user.click(days[10]);
       await user.click(days[11]);
@@ -245,11 +245,11 @@ describe('DatePickerRange.Dialog', () => {
       });
 
       it('selects, closes, and returns focus to the End field on Enter', async () => {
-        const { getByRole, getByTestId, getAllByTestId } = renderCompletable();
+        const { getAllByRole, getByRole, getByTestId } = renderCompletable();
 
         await user.click(getByTestId('trigger'));
 
-        getAllByTestId('day')[14].focus(); // February 10, 2019
+        getAllByRole('gridcell')[14].focus(); // February 10, 2019
         await user.keyboard('{Enter}');
 
         expect(onChangeSpy).toHaveBeenCalledWith({
@@ -261,11 +261,11 @@ describe('DatePickerRange.Dialog', () => {
       });
 
       it('selects on Space, keeping the dialog open and focus on the day', async () => {
-        const { getByRole, getByTestId, getAllByTestId } = renderCompletable();
+        const { getAllByRole, getByRole, getByTestId } = renderCompletable();
 
         await user.click(getByTestId('trigger'));
 
-        const day = getAllByTestId('day')[14]; // February 10, 2019
+        const day = getAllByRole('gridcell')[14]; // February 10, 2019
 
         day.focus();
         await user.keyboard(' ');
@@ -364,12 +364,12 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
       const endInput = getByTestId('end');
 
       await user.click(getByTestId('trigger'));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       await user.click(days[10]);
       await user.click(days[11]);
@@ -408,7 +408,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <ControlledExample endValue={new Date(2019, 2, 5)} />
       );
       const startInput = getByTestId('start');
@@ -420,7 +420,7 @@ describe('DatePickerRange.Dialog', () => {
 
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       await user.click(days[10]);
 
@@ -454,7 +454,7 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
       const startInput = getByTestId('start');
       const endInput = getByTestId('end');
 
@@ -462,7 +462,7 @@ describe('DatePickerRange.Dialog', () => {
 
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       await user.click(days[11]);
 
@@ -581,15 +581,13 @@ describe('DatePickerRange.Dialog', () => {
     it('wraps Tab from the focused day cell back to the first tabbable element, keeping the dialog open', async () => {
       mockDate.set(new Date(2019, 1, 5));
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
       // focusIntoDialog focuses today's cell when no value is selected, the
       // dialog's last tabbable element.
-      const today = getAllByTestId('day').find(
-        day => day.getAttribute('data-test-today') === 'true'
-      );
+      const today = getByRole('gridcell', { current: 'date' });
 
       expect(today).toHaveFocus();
 
@@ -605,7 +603,7 @@ describe('DatePickerRange.Dialog', () => {
     it('wraps Shift+Tab from the first tabbable element back to the day cell, keeping the dialog open', async () => {
       mockDate.set(new Date(2019, 1, 5));
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<Example />);
+      const { getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
@@ -614,9 +612,7 @@ describe('DatePickerRange.Dialog', () => {
 
       await user.tab({ shift: true });
 
-      const today = getAllByTestId('day').find(
-        day => day.getAttribute('data-test-today') === 'true'
-      );
+      const today = getByRole('gridcell', { current: 'date' });
 
       expect(today).toHaveFocus();
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
@@ -650,12 +646,12 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
       const startInput = getByTestId('start');
 
       await user.click(getByTestId('trigger'));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       await user.click(days[10]);
       await user.click(days[11]);
@@ -665,7 +661,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(startInput);
       await user.keyboard('{ArrowDown}');
 
-      const focusableDays = getAllByTestId('day').filter(
+      const focusableDays = getAllByRole('gridcell').filter(
         day => day.getAttribute('tabindex') === '0'
       );
 
@@ -699,12 +695,12 @@ describe('DatePickerRange.Dialog', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+      const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
       const endInput = getByTestId('end');
 
       await user.click(getByTestId('trigger'));
 
-      const days = getAllByTestId('day');
+      const days = getAllByRole('gridcell');
 
       await user.click(days[10]);
       await user.click(days[11]);
@@ -714,7 +710,7 @@ describe('DatePickerRange.Dialog', () => {
       await user.click(endInput);
       await user.keyboard('{ArrowDown}');
 
-      const focusableDays = getAllByTestId('day').filter(
+      const focusableDays = getAllByRole('gridcell').filter(
         day => day.getAttribute('tabindex') === '0'
       );
 
@@ -796,25 +792,25 @@ describe('DatePickerRange.Dialog', () => {
 
   describe('Mount/animation behavior', () => {
     it('stays mounted while closed, hidden via aria-hidden, without rendering its children', () => {
-      const { getByRole, queryByTestId } = render(<Example />);
+      const { queryByRole, getByRole } = render(<Example />);
 
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('aria-hidden', 'true');
-      expect(queryByTestId('range-calendar')).not.toBeInTheDocument();
+      expect(queryByRole('toolbar', { hidden: true })).not.toBeInTheDocument();
     });
 
     it('renders its children and clears aria-hidden once open', async () => {
-      const { getByRole, getByTestId, queryByTestId } = render(<Example />);
+      const { queryByRole, getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
 
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
       expect(getByRole('dialog', { hidden: true })).not.toHaveAttribute('aria-hidden');
-      expect(queryByTestId('range-calendar')).toBeInTheDocument();
+      expect(queryByRole('toolbar', { hidden: true })).toBeInTheDocument();
     });
 
     it('is inert while closed, including during its exit animation, so nothing inside it can take focus', async () => {
-      const { getByRole, getByTestId, queryByTestId } = render(<Example />);
+      const { queryByRole, getByRole, getByTestId } = render(<Example />);
       const dialog = getByRole('dialog', { hidden: true });
 
       expect(dialog).toHaveAttribute('inert', '');
@@ -825,35 +821,33 @@ describe('DatePickerRange.Dialog', () => {
 
       await user.keyboard('{Escape}');
 
-      expect(queryByTestId('range-calendar')).toBeInTheDocument();
+      expect(queryByRole('toolbar', { hidden: true })).toBeInTheDocument();
       expect(dialog).toHaveAttribute('inert', '');
     });
 
     it('keeps rendering its children briefly after closing to allow the exit animation, then removes them', async () => {
-      const { getByRole, getByTestId, queryByTestId } = render(<Example />);
+      const { queryByRole, getByRole, getByTestId } = render(<Example />);
 
       await user.click(getByTestId('trigger'));
       await user.keyboard('{Escape}');
 
       expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
-      expect(queryByTestId('range-calendar')).toBeInTheDocument();
+      expect(queryByRole('toolbar', { hidden: true })).toBeInTheDocument();
 
       act(() => {
         jest.advanceTimersByTime(200);
       });
 
-      expect(queryByTestId('range-calendar')).not.toBeInTheDocument();
+      expect(queryByRole('toolbar', { hidden: true })).not.toBeInTheDocument();
     });
 
     it('removes its children immediately on close when isAnimated is false', async () => {
-      const { getByTestId, queryByTestId } = render(
-        <Example dialogProps={{ isAnimated: false }} />
-      );
+      const { queryByRole, getByTestId } = render(<Example dialogProps={{ isAnimated: false }} />);
 
       await user.click(getByTestId('trigger'));
       await user.keyboard('{Escape}');
 
-      expect(queryByTestId('range-calendar')).not.toBeInTheDocument();
+      expect(queryByRole('toolbar', { hidden: true })).not.toBeInTheDocument();
     });
   });
 

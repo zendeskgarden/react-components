@@ -48,70 +48,74 @@ describe('Calendar', () => {
 
   describe('Month navigation buttons', () => {
     it('changes month on Enter and Space, matching click behavior', async () => {
-      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const nextButton = getByTestId('next-month');
+      const nextButton = getByRole('button', { name: /^Next month/u });
 
       act(() => {
         nextButton.focus();
       });
       await user.keyboard('{Enter}');
 
-      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+      expect(getByRole('heading')).toHaveTextContent('March 2019');
 
-      const previousButton = getByTestId('previous-month');
+      const previousButton = getByRole('button', { name: /^Previous month/u });
 
       act(() => {
         previousButton.focus();
       });
       await user.keyboard(' ');
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading')).toHaveTextContent('February 2019');
     });
 
     it('leaves focus on the paddle and marks the corresponding day in the new month as tabbable', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const nextButton = getByTestId('next-month');
+      const nextButton = getByRole('button', { name: /^Next month/u });
 
       act(() => {
         nextButton.focus();
       });
       fireEvent.click(nextButton);
 
-      expect(getByTestId('month-display')).toHaveTextContent('March 2019');
+      expect(getByRole('heading')).toHaveTextContent('March 2019');
       expect(nextButton).toHaveFocus();
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveTextContent('5');
       expect(focusedDay).not.toHaveFocus();
     });
 
     it('clamps to the last day of the month when paddle navigation lands on a day that does not exist', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={new Date(2019, 0, 31)} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const nextButton = getByTestId('next-month');
+      const nextButton = getByRole('button', { name: /^Next month/u });
 
       act(() => {
         nextButton.focus();
       });
       fireEvent.click(nextButton);
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading')).toHaveTextContent('February 2019');
       expect(nextButton).toHaveFocus();
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveTextContent('28');
     });
@@ -119,7 +123,7 @@ describe('Calendar', () => {
 
   describe('Year navigation buttons', () => {
     it('changes year on Enter and Space, matching click behavior', async () => {
-      const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
+      const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
@@ -130,7 +134,7 @@ describe('Calendar', () => {
       });
       await user.keyboard('{Enter}');
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+      expect(getByRole('heading')).toHaveTextContent('February 2020');
 
       const previousButton = getByRole('button', { name: /^Previous year/u });
 
@@ -139,11 +143,11 @@ describe('Calendar', () => {
       });
       await user.keyboard(' ');
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading')).toHaveTextContent('February 2019');
     });
 
     it('leaves focus on the paddle and marks the corresponding day next year as tabbable, matching Shift+PageDown', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
@@ -156,17 +160,19 @@ describe('Calendar', () => {
       });
       fireEvent.click(nextButton);
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2020');
+      expect(getByRole('heading')).toHaveTextContent('February 2020');
       expect(nextButton).toHaveFocus();
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveTextContent('5');
       expect(focusedDay).not.toHaveFocus();
     });
 
     it('leaves focus on the paddle and marks the corresponding day previous year as tabbable, matching Shift+PageUp', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
@@ -179,10 +185,12 @@ describe('Calendar', () => {
       });
       fireEvent.click(previousButton);
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2018');
+      expect(getByRole('heading')).toHaveTextContent('February 2018');
       expect(previousButton).toHaveFocus();
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveTextContent('5');
     });
@@ -190,7 +198,7 @@ describe('Calendar', () => {
     it('clamps February 29 to February 28 when navigating into a non-leap year', async () => {
       mockDate.set(new Date(2020, 1, 29));
 
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={new Date(2020, 1, 29)} onChange={onChangeSpy} />
       );
 
@@ -198,9 +206,11 @@ describe('Calendar', () => {
 
       fireEvent.click(getByRole('button', { name: /^Next year/u }));
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2021');
+      expect(getByRole('heading')).toHaveTextContent('February 2021');
 
-      const focusedDay = getAllByTestId('day').find(day => day.getAttribute('tabindex') === '0')!;
+      const focusedDay = getAllByRole('gridcell').find(
+        day => day.getAttribute('tabindex') === '0'
+      )!;
 
       expect(focusedDay).toHaveTextContent('28');
 

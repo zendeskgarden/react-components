@@ -60,12 +60,14 @@ describe('Input', () => {
   });
 
   it('opens the calendar when the input is clicked, without moving focus into the grid', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
     const input = getByTestId('input');
 
     await user.click(input);
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     expect(input).toHaveFocus();
   });
 
@@ -99,59 +101,63 @@ describe('Input', () => {
         }
       }
     ])('opens the calendar $label', async ({ focus }) => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
 
       await focus(input);
 
       expect(input).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
 
       await user.click(input);
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
       expect(input).toHaveFocus();
     });
   });
 
   it('closes the calendar when the input is clicked while it is open, keeping focus in the input', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
     const input = getByTestId('input');
 
     await user.click(input);
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
     await user.click(input);
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     expect(input).toHaveFocus();
   });
 
   it('does not open the calendar when the input receives keyboard focus', async () => {
-    const { getByTestId, queryByTestId } = render(
+    const { queryByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
 
     await user.tab();
 
     expect(getByTestId('input')).toHaveFocus();
-    expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(queryByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('does not open the datepicker on Up Arrow', () => {
-    const { getByTestId, queryByTestId } = render(
+    const { queryByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
     const input = getByTestId('input');
 
     fireEvent.keyDown(input, { key: KEYS.UP });
 
-    expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(queryByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('typing into the input does not open the calendar if it is not already open', () => {
-    const { getByTestId, queryByTestId } = render(
+    const { queryByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
     const input = getByTestId('input');
@@ -159,11 +165,11 @@ describe('Input', () => {
     input.focus();
     fireEvent.change(input, { target: { value: '1/4/2019' } });
 
-    expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(queryByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('does not revert in-progress typed text on Enter/Escape while the calendar is closed', () => {
-    const { getByTestId, queryByTestId } = render(
+    const { queryByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
     const input = getByTestId('input');
@@ -171,7 +177,7 @@ describe('Input', () => {
     fireEvent.change(input, { target: { value: 'Jan' } });
     fireEvent.keyDown(input, { key: KEYS.ENTER });
 
-    expect(queryByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(queryByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     expect(input).toHaveValue('Jan');
 
     fireEvent.change(input, { target: { value: 'Jan 4' } });
@@ -181,23 +187,23 @@ describe('Input', () => {
   });
 
   it('opens the calendar when the associated label is clicked, without moving focus into the grid', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-
-    await user.click(getByTestId('label'));
-
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-    expect(getByTestId('input')).toHaveFocus();
-  });
-
-  it('leaves datepicker open if calendar is moused down', async () => {
     const { getByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
 
-    await user.click(getByRole('button', { name: CHOOSE_DATE }));
-    fireEvent.click(getByTestId('calendar-wrapper'));
+    await user.click(getByTestId('label'));
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+    expect(getByTestId('input')).toHaveFocus();
+  });
+
+  it('leaves datepicker open if calendar is moused down', async () => {
+    const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
+    fireEvent.click(getByRole('grid'));
+
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
   });
 
   it('calls onChange with provided date if manually added in short format', async () => {
@@ -344,11 +350,9 @@ describe('Input', () => {
 
   describe('Combobox attributes', () => {
     it('exposes the input as a combobox with haspopup, autocomplete, and controls attributes', () => {
-      const { getByRole, getByTestId } = render(
-        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
-      );
+      const { getByRole } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
       const input = getByRole('combobox', { expanded: false });
-      const menu = getByTestId('datepicker-menu');
+      const menu = getByRole('dialog', { hidden: true });
 
       expect(input).toHaveAttribute('aria-haspopup', 'dialog');
       expect(input).toHaveAttribute('aria-autocomplete', 'none');
@@ -383,64 +387,67 @@ describe('Input', () => {
 
   describe('Opening the calendar from the input', () => {
     it('opens on Down Arrow and moves focus onto the selected day', () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
       const input = getByTestId('input');
 
       fireEvent.keyDown(input, { key: KEYS.DOWN });
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByRole('gridcell')[9]).toHaveFocus();
     });
 
     it('opens on Alt+Down Arrow and moves focus onto the selected day', () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
       const input = getByTestId('input');
 
       fireEvent.keyDown(input, { key: KEYS.DOWN, altKey: true });
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
-      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByRole('gridcell')[9]).toHaveFocus();
     });
 
     it("moves focus onto today's date on Down Arrow when no value is selected", () => {
-      const { getByTestId, getAllByTestId } = render(<Example onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(<Example onChange={onChangeSpy} />);
       const input = getByTestId('input');
 
       fireEvent.keyDown(input, { key: KEYS.DOWN });
 
-      const days = getAllByTestId('day');
-      const today = days.find(day => day.getAttribute('data-test-today') === 'true');
+      const today = getByRole('gridcell', { current: 'date' });
 
       expect(today).toHaveFocus();
     });
 
     it('does not close or error on Down Arrow while already open', () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
 
       fireEvent.keyDown(input, { key: KEYS.DOWN });
       fireEvent.keyDown(input, { key: KEYS.DOWN });
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
   describe('Enter in the input', () => {
     it('closes an open calendar, keeping focus in the input', async () => {
-      const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+      const { getByRole, getByTestId } = render(
+        <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+      );
       const input = getByTestId('input');
 
       await user.click(input);
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       await user.keyboard('{Enter}');
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(input).toHaveFocus();
     });
 

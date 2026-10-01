@@ -81,9 +81,9 @@ describe('Dialog', () => {
   });
 
   it('doesnt render calendar elements when hidden', () => {
-    const { queryByTestId } = render(<Example value={DEFAULT_DATE} />);
+    const { queryByRole } = render(<Example value={DEFAULT_DATE} />);
 
-    expect(queryByTestId('datepicker-menu')).toBeEmptyDOMElement();
+    expect(queryByRole('dialog', { hidden: true })).toBeEmptyDOMElement();
   });
 
   it('has dialog role, aria-modal="true", and an accessible name matching the calendar button', async () => {
@@ -97,19 +97,19 @@ describe('Dialog', () => {
   });
 
   it('applies LTR classes by default', async () => {
-    const { getByRole, getByTestId } = render(<Example value={DEFAULT_DATE} />);
+    const { getByRole } = render(<Example value={DEFAULT_DATE} />);
 
     await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-rtl', 'false');
   });
 
   it('applies RTL classes if provided', async () => {
-    const { getByRole, getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
+    const { getByRole } = renderRtl(<Example value={DEFAULT_DATE} />);
 
     await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-rtl', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-rtl', 'true');
   });
 
   it('portals as expected', () => {
@@ -129,33 +129,35 @@ describe('Dialog', () => {
   });
 
   it('closes the calendar and returns focus to the input on Escape, without selecting a date', async () => {
-    const { getByRole, getByTestId, getAllByTestId } = render(
+    const { getAllByRole, getByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
     );
     const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
-    expect(getAllByTestId('day')[9]).toHaveFocus();
+    expect(getAllByRole('gridcell')[9]).toHaveFocus();
 
-    fireEvent.keyDown(getAllByTestId('day')[9], { key: KEYS.ESCAPE });
+    fireEvent.keyDown(getAllByRole('gridcell')[9], { key: KEYS.ESCAPE });
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     expect(getByTestId('input')).toHaveFocus();
     expect(onChangeSpy).not.toHaveBeenCalled();
   });
 
   it('closes the calendar on Escape when focus never left the input', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
     const input = getByTestId('input');
 
     await user.click(input);
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     expect(input).toHaveFocus();
 
     await user.keyboard('{Escape}');
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
     expect(onChangeSpy).not.toHaveBeenCalled();
   });
 
@@ -166,11 +168,11 @@ describe('Dialog', () => {
     const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
     await user.click(getByTestId('outside'));
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('closes the calendar when clicking a non-interactive element outside the widget', async () => {
@@ -180,11 +182,11 @@ describe('Dialog', () => {
     const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
     await user.click(getByTestId('outside-background'));
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('closes the calendar when the input receives focus', async () => {
@@ -194,30 +196,32 @@ describe('Dialog', () => {
     const button = getByRole('button', { name: CHOOSE_DATE });
 
     await user.click(button);
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
     await user.click(getByTestId('input'));
 
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('closes the calendar on Tab from the input, moving focus past it rather than into it', async () => {
-    const { getByTestId } = render(
+    const { getByRole, getByTestId } = render(
       <Example value={DEFAULT_DATE} onChange={onChangeSpy} isAnimated={false} />
     );
 
     await user.click(getByTestId('input'));
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
     await user.tab();
 
     expect(getByTestId('outside')).toHaveFocus();
-    expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
   });
 
   it('is inert while closed, including during its exit animation, so nothing inside it can take focus', async () => {
-    const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
-    const dialog = getByTestId('datepicker-menu');
+    const { getByRole, getByTestId } = render(
+      <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
+    );
+    const dialog = getByRole('dialog', { hidden: true });
 
     expect(dialog).toHaveAttribute('inert', '');
 
@@ -227,7 +231,7 @@ describe('Dialog', () => {
 
     await user.keyboard('{Escape}');
 
-    expect(getByTestId('calendar-wrapper')).toBeInTheDocument();
+    expect(getByRole('grid', { hidden: true })).toBeInTheDocument();
     expect(dialog).toHaveAttribute('inert', '');
   });
 
@@ -254,7 +258,7 @@ describe('Dialog', () => {
         );
         await user.keyboard('{Escape}');
 
-        expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+        expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
         expect(escapeCalls(onAncestorKeyDown)).toBe(0);
       }
     );
@@ -287,19 +291,17 @@ describe('Dialog', () => {
         return <Example {...props} value={value} onChange={setValue} />;
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(
-        <ControlledExample value={DEFAULT_DATE} />
-      );
+      const { getAllByRole, getByRole } = render(<ControlledExample value={DEFAULT_DATE} />);
       const button = getByRole('button', { name: CHOOSE_DATE });
 
       await user.click(button);
-      await user.click(getAllByTestId('day')[1]);
+      await user.click(getAllByRole('gridcell')[1]);
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
 
       await user.click(button);
 
-      const focusableDays = getAllByTestId('day').filter(
+      const focusableDays = getAllByRole('gridcell').filter(
         day => day.getAttribute('tabindex') === '0'
       );
 
@@ -328,24 +330,24 @@ describe('Dialog', () => {
     });
 
     it('wraps Tab from the focused day cell back to the first tabbable element, keeping the dialog open', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       // focusIntoDialog focuses the selected day cell, the dialog's last tabbable element.
-      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(getAllByRole('gridcell')[9]).toHaveFocus();
 
       await user.tab();
 
       expect(getByRole('button', { name: /^Previous year/u })).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
       expect(getByTestId('outside')).not.toHaveFocus();
     });
 
     it('wraps Shift+Tab from the first tabbable element back to the day cell, keeping the dialog open', async () => {
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} />
       );
 
@@ -356,8 +358,8 @@ describe('Dialog', () => {
 
       await user.tab({ shift: true });
 
-      expect(getAllByTestId('day')[9]).toHaveFocus();
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getAllByRole('gridcell')[9]).toHaveFocus();
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -387,7 +389,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         const maxWidth = parseFloat(dialog.style.maxWidth);
@@ -406,7 +408,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
@@ -426,7 +428,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         expect(dialog.style.maxWidth).not.toBe('');
@@ -449,7 +451,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         const calendarGrid = container.querySelector<HTMLElement>(
@@ -493,7 +495,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         const maxWidth = parseFloat(dialog.style.maxWidth);
@@ -513,7 +515,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         const maxHeight = parseFloat(dialog.style.maxHeight);
@@ -533,7 +535,7 @@ describe('Dialog', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      const dialog = getByTestId('datepicker-menu');
+      const dialog = getByRole('dialog', { hidden: true });
 
       await waitFor(() => {
         const maxHeight = parseFloat(dialog.style.maxHeight);
@@ -558,7 +560,7 @@ describe('Dialog', () => {
       let defaultMaxWidth: number;
 
       await waitFor(() => {
-        defaultMaxWidth = parseFloat(getByDefaultTestId('datepicker-menu').style.maxWidth);
+        defaultMaxWidth = parseFloat(getByDefaultRole('dialog', { hidden: true }).style.maxWidth);
         expect(defaultMaxWidth).not.toBeNaN();
       });
 
@@ -573,7 +575,9 @@ describe('Dialog', () => {
       await user.click(getByCompactRole('button', { name: CHOOSE_DATE }));
 
       await waitFor(() => {
-        const compactMaxWidth = parseFloat(getByCompactTestId('datepicker-menu').style.maxWidth);
+        const compactMaxWidth = parseFloat(
+          getByCompactRole('dialog', { hidden: true }).style.maxWidth
+        );
 
         expect(compactMaxWidth).not.toBeNaN();
         expect(compactMaxWidth).toBeGreaterThan(defaultMaxWidth);
@@ -607,7 +611,7 @@ describe('Dialog', () => {
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
       await waitFor(() => {
-        const dialog = getByTestId('datepicker-menu');
+        const dialog = getByRole('dialog', { hidden: true });
         const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
         const x = match ? parseFloat(match.groups!.x) : NaN;
 
@@ -616,7 +620,7 @@ describe('Dialog', () => {
     });
 
     it('anchors to the input itself when hasTrigger is false, since there is no group', async () => {
-      const { getByTestId } = render(
+      const { getByRole, getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} hasTrigger={false} />
       );
       const input = getByTestId('input');
@@ -626,7 +630,7 @@ describe('Dialog', () => {
       await user.click(input);
 
       await waitFor(() => {
-        const dialog = getByTestId('datepicker-menu');
+        const dialog = getByRole('dialog', { hidden: true });
         const match = dialog.style.transform.match(/translate\((?<x>[-\d.]+)px/u);
         const x = match ? parseFloat(match.groups!.x) : NaN;
 
