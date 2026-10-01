@@ -89,6 +89,20 @@ describe('Month', () => {
       }
     });
 
+    it('reuses its date formatters while hovering across days, rather than constructing new ones', async () => {
+      const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const days = getDays(getAllByTestId('calendar-wrapper')[0]);
+      const DateTimeFormat = jest.spyOn(Intl, 'DateTimeFormat');
+
+      await user.hover(days[10]);
+      await user.hover(days[11]);
+      await user.hover(days[12]);
+
+      expect(DateTimeFormat).not.toHaveBeenCalled();
+
+      DateTimeFormat.mockRestore();
+    });
+
     it('leaves blank adjacent-month cells empty, so they have no accessible name', () => {
       const { container } = render(
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />

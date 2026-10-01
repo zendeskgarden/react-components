@@ -176,6 +176,24 @@ export function getMonthDateRange(displayDate: Date, weekStartsOn?: DateFnsIndex
 }
 
 /** Calendars whose months and days line up with the Gregorian grid, differing at most in their year numbering. */
+const formatters = new Map<string, Intl.DateTimeFormat>();
+
+/** Constructing a formatter is costly, and a calendar re-renders every cell on hover, so each locale and option set is built once. */
+export function getFormatter(
+  locale?: string,
+  options?: Intl.DateTimeFormatOptions
+): Intl.DateTimeFormat {
+  const key = JSON.stringify([locale, options]);
+  let formatter = formatters.get(key);
+
+  if (!formatter) {
+    formatter = new Intl.DateTimeFormat(locale, options);
+    formatters.set(key, formatter);
+  }
+
+  return formatter;
+}
+
 const GRID_ALIGNED_CALENDARS = ['gregory', 'iso8601', 'buddhist', 'japanese', 'roc'];
 
 /**
@@ -183,14 +201,14 @@ const GRID_ALIGNED_CALENDARS = ['gregory', 'iso8601', 'buddhist', 'japanese', 'r
  * otherwise Gregorian - so a Persian locale doesn't name a different month or day than the grid shows.
  */
 export function getGridCalendar(locale?: string): string | undefined {
-  const { calendar } = new Intl.DateTimeFormat(locale).resolvedOptions();
+  const { calendar } = getFormatter(locale).resolvedOptions();
 
   return GRID_ALIGNED_CALENDARS.includes(calendar) ? undefined : 'gregory';
 }
 
 /** e.g. "January 2026" */
 export function formatMonthHeading(date: Date, locale?: string): string {
-  return new Intl.DateTimeFormat(locale, {
+  return getFormatter(locale, {
     month: 'long',
     year: 'numeric',
     calendar: getGridCalendar(locale)
@@ -199,12 +217,12 @@ export function formatMonthHeading(date: Date, locale?: string): string {
 
 /** e.g. "Mon" */
 export function formatWeekdayLabel(date: Date, locale?: string): string {
-  return new Intl.DateTimeFormat(locale, { weekday: 'short' }).format(date);
+  return getFormatter(locale, { weekday: 'short' }).format(date);
 }
 
 /** e.g. "Monday" - the visually-hidden full-name pair to `formatWeekdayLabel`'s abbreviation. */
 export function formatFullWeekdayLabel(date: Date, locale?: string): string {
-  return new Intl.DateTimeFormat(locale, { weekday: 'long' }).format(date);
+  return getFormatter(locale, { weekday: 'long' }).format(date);
 }
 
 /**
@@ -213,7 +231,7 @@ export function formatFullWeekdayLabel(date: Date, locale?: string): string {
  * from the grid's column header, so it isn't repeated here.
  */
 export function formatFullDate(date: Date, locale?: string, numberingSystem?: string): string {
-  return new Intl.DateTimeFormat(locale, {
+  return getFormatter(locale, {
     dateStyle: 'long',
     calendar: getGridCalendar(locale),
     numberingSystem

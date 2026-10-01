@@ -11,7 +11,7 @@ import { isBefore } from 'date-fns/isBefore';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isSameMonth } from 'date-fns/isSameMonth';
 import { IDatePickerProps, IDatePickerValueSettledResult } from '../../../types';
-import { isDateWithinRange } from '../../../utils/calendar-utils';
+import { getFormatter, isDateWithinRange } from '../../../utils/calendar-utils';
 
 export interface IDatePickerState {
   isOpen: boolean;
@@ -77,7 +77,7 @@ export function formatInputValue({
     return formatDate(date);
   }
 
-  return new Intl.DateTimeFormat(locale, {
+  return getFormatter(locale, {
     month: 'long',
     day: 'numeric',
     year: 'numeric'
@@ -233,7 +233,7 @@ export function retrieveInitialState(
     if (initialProps.formatDate) {
       inputValue = initialProps.formatDate(initialProps.value);
     } else {
-      inputValue = new Intl.DateTimeFormat(initialProps.locale, {
+      inputValue = getFormatter(initialProps.locale, {
         month: 'long',
         day: 'numeric',
         year: 'numeric'

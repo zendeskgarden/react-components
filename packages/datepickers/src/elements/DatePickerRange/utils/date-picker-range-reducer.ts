@@ -23,7 +23,7 @@ import {
   IDatePickerRangeProps,
   IDatePickerRangeValueSettledResult
 } from '../../../types';
-import { isDateWithinRange } from '../../../utils/calendar-utils';
+import { getFormatter, isDateWithinRange } from '../../../utils/calendar-utils';
 
 /**
  * Whether `date` falls within the two currently-visible months (`previewDate`'s month and the
@@ -73,7 +73,7 @@ export function formatValue({
     if (formatDate) {
       stringValue = formatDate(value);
     } else {
-      stringValue = new Intl.DateTimeFormat(locale, {
+      stringValue = getFormatter(locale, {
         month: 'long',
         day: 'numeric',
         year: 'numeric'
