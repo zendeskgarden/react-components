@@ -56,7 +56,7 @@ describe('Trigger', () => {
   });
 
   it('opens the dialog and moves focus onto the selected day when clicked', async () => {
-    const { getByRole, getAllByTestId } = render(
+    const { getAllByRole, getByRole } = render(
       <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
     );
     const button = getByRole('button', { name: CHOOSE_DATE });
@@ -66,15 +66,13 @@ describe('Trigger', () => {
     expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     expect(button).toHaveAttribute('aria-expanded', 'true');
 
-    const selectedDay = getAllByTestId('day').find(
-      day => day.getAttribute('data-test-selected') === 'true'
-    );
+    const selectedDay = getAllByRole('gridcell', { selected: true })[0];
 
     expect(selectedDay).toHaveFocus();
   });
 
   it('opens the dialog when activated with the keyboard', async () => {
-    const { getByRole, getAllByTestId } = render(
+    const { getAllByRole, getByRole } = render(
       <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
     );
     const button = getByRole('button', { name: CHOOSE_DATE });
@@ -84,19 +82,17 @@ describe('Trigger', () => {
 
     expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
-    const selectedDay = getAllByTestId('day').find(
-      day => day.getAttribute('data-test-selected') === 'true'
-    );
+    const selectedDay = getAllByRole('gridcell', { selected: true })[0];
 
     expect(selectedDay).toHaveFocus();
   });
 
   it('moves focus onto todays date when no value is selected', async () => {
-    const { getByRole, getAllByTestId } = render(<Example />);
+    const { getByRole } = render(<Example />);
 
     await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-    const today = getAllByTestId('day').find(day => day.getAttribute('data-test-today') === 'true');
+    const today = getByRole('gridcell', { current: 'date' });
 
     expect(today).toHaveFocus();
   });
@@ -117,16 +113,14 @@ describe('Trigger', () => {
         />
       );
     };
-    const { getByRole, getByTestId, getAllByTestId } = render(<ControlledExample />);
+    const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
     const startInput = getByTestId('start');
 
     await user.clear(startInput);
     await user.type(startInput, '1/4/2019', { skipClick: true });
     await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-    const selectedDay = getAllByTestId('day').find(
-      day => day.getAttribute('data-test-selected') === 'true'
-    );
+    const selectedDay = getAllByRole('gridcell', { selected: true })[0];
 
     expect(selectedDay).toHaveTextContent('4');
     expect(selectedDay).toHaveFocus();
