@@ -65,7 +65,7 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover
       &,
     ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):focus-visible & {
-      background-color: color-mix(in srgb, ${emphasis} 16%, ${background});
+      background-color: color-mix(in srgb, ${emphasis} ${theme.opacity[200] * 100}%, ${background});
     }
   `;
 };
