@@ -8,13 +8,7 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
 import userEvent from '@testing-library/user-event';
-import {
-  RenderResult,
-  act,
-  render,
-  fireEvent,
-  getAllByTestId as globalGetAllByTestId
-} from 'garden-test-utils';
+import { RenderResult, act, render, fireEvent, within } from 'garden-test-utils';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
@@ -66,13 +60,13 @@ describe('DatePickerRange', () => {
     });
 
     it('reports a valid start date when a day is selected from the calendar with no values set', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const calendarWrappers = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(within(calendarWrappers[1]).getAllByRole('gridcell')[6]);
 
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         field: 'start',
@@ -83,7 +77,7 @@ describe('DatePickerRange', () => {
     });
 
     it('reports a valid end date when an additional day is selected from the calendar', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
           onChange={onChangeSpy}
@@ -91,9 +85,9 @@ describe('DatePickerRange', () => {
         />
       );
 
-      const monthDisplays = getAllByTestId('calendar-wrapper');
+      const monthDisplays = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
+      await user.click(within(monthDisplays[1]).getAllByRole('gridcell')[6]);
 
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         field: 'end',
@@ -104,19 +98,19 @@ describe('DatePickerRange', () => {
     });
 
     it('does not report a stale value when a day is selected from the calendar', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const calendarWrappers = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(within(calendarWrappers[1]).getAllByRole('gridcell')[6]);
 
       expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
     });
 
     it('preserves the end value and reports a valid start date when the new start is before the existing end', async () => {
-      const { getAllByTestId } = render(
+      const { getAllByRole } = render(
         <Example
           endValue={DEFAULT_END_VALUE}
           onChange={onChangeSpy}
@@ -124,9 +118,9 @@ describe('DatePickerRange', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const calendarWrappers = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[6]);
+      await user.click(within(calendarWrappers[0]).getAllByRole('gridcell')[6]);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 2),
@@ -141,7 +135,7 @@ describe('DatePickerRange', () => {
     });
 
     it('keeps the end value, shows the out-of-order start, and reports it without calling onChange, when the new start is after the existing end', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example
           endValue={DEFAULT_END_VALUE}
           onChange={onChangeSpy}
@@ -149,9 +143,9 @@ describe('DatePickerRange', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const calendarWrappers = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[14]); // March 10, 2019
+      await user.click(within(calendarWrappers[1]).getAllByRole('gridcell')[14]); // March 10, 2019
 
       expect(onChangeSpy).not.toHaveBeenCalled();
       expect(onValueSettledSpy).toHaveBeenCalledWith({
@@ -166,7 +160,7 @@ describe('DatePickerRange', () => {
     });
 
     it('commits the new start and clears the end, as before, when the new start is after the existing end and keepTypedInput is false', async () => {
-      const { getAllByTestId, getByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example
           endValue={DEFAULT_END_VALUE}
           onChange={onChangeSpy}
@@ -175,9 +169,9 @@ describe('DatePickerRange', () => {
         />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const calendarWrappers = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[14]); // March 10, 2019
+      await user.click(within(calendarWrappers[1]).getAllByRole('gridcell')[14]); // March 10, 2019
 
       expect(onChangeSpy).toHaveBeenCalledTimes(1);
       expect(onChangeSpy).toHaveBeenCalledWith({
@@ -218,7 +212,7 @@ describe('DatePickerRange', () => {
     };
 
     it('does not move the calendar view when a typed start date is out of range', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -232,14 +226,14 @@ describe('DatePickerRange', () => {
       await user.type(startInput, '1/1/2020');
       await user.tab();
 
-      const monthDisplays = getAllByTestId('month-display');
+      const monthDisplays = getAllByRole('heading');
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
     it('does not move the calendar view when a typed end date is out of range', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -253,14 +247,14 @@ describe('DatePickerRange', () => {
       await user.type(endInput, '1/1/2020');
       await user.tab();
 
-      const monthDisplays = getAllByTestId('month-display');
+      const monthDisplays = getAllByRole('heading');
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
     it('clears the stale start value pressed state and range highlight after a rejected out-of-range blur', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -274,9 +268,9 @@ describe('DatePickerRange', () => {
       await user.type(startInput, '1/1/2020');
       await user.tab();
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const calendarWrappers = getAllByRole('grid');
+      const firstMonthDays = within(calendarWrappers[0]).getAllByRole('gridcell');
+      const secondMonthDays = within(calendarWrappers[1]).getAllByRole('gridcell');
       const firstMonthCells = firstMonthDays.filter(
         day => day.getAttribute('data-test-hidden') !== 'true'
       );
@@ -296,7 +290,7 @@ describe('DatePickerRange', () => {
     });
 
     it('clears the stale end value pressed state and range highlight after a rejected out-of-range blur', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -310,9 +304,9 @@ describe('DatePickerRange', () => {
       await user.type(endInput, '1/1/2020');
       await user.tab();
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const calendarWrappers = getAllByRole('grid');
+      const firstMonthDays = within(calendarWrappers[0]).getAllByRole('gridcell');
+      const secondMonthDays = within(calendarWrappers[1]).getAllByRole('gridcell');
       const firstMonthCells = firstMonthDays.filter(
         day => day.getAttribute('data-test-hidden') !== 'true'
       );
@@ -332,7 +326,7 @@ describe('DatePickerRange', () => {
     });
 
     it('preserves the still-valid end value when a new valid start date is chosen from the calendar after a rejected out-of-range start commit', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample
           startValue={DEFAULT_START_VALUE}
           endValue={DEFAULT_END_VALUE}
@@ -346,8 +340,8 @@ describe('DatePickerRange', () => {
       await user.type(startInput, '1/1/2020');
       await user.keyboard('{Enter}');
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const calendarWrappers = getAllByRole('grid');
+      const firstMonthDays = within(calendarWrappers[0]).getAllByRole('gridcell');
 
       await user.click(firstMonthDays[10]); // February 6, 2019
 
@@ -380,7 +374,7 @@ describe('DatePickerRange', () => {
     };
 
     it('shows the emitted values in both inputs when a day is clicked while End is focused after a rejected Start', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
       const startInput = getByTestId('start');
@@ -390,7 +384,7 @@ describe('DatePickerRange', () => {
       await user.type(startInput, 'garbage');
       await user.click(endInput);
 
-      const firstMonthDays = globalGetAllByTestId(getAllByTestId('calendar-wrapper')[0], 'day');
+      const firstMonthDays = within(getAllByRole('grid')[0]).getAllByRole('gridcell');
 
       await user.click(firstMonthDays[14]); // February 10, 2019
 
@@ -404,7 +398,7 @@ describe('DatePickerRange', () => {
     });
 
     it('replaces the rejected End text when the current end value is clicked with no field focused', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
       const startInput = getByTestId('start');
@@ -416,7 +410,7 @@ describe('DatePickerRange', () => {
 
       expect(endInput).toHaveValue('garbage');
 
-      const secondMonthDays = globalGetAllByTestId(getAllByTestId('calendar-wrapper')[1], 'day');
+      const secondMonthDays = within(getAllByRole('grid')[1]).getAllByRole('gridcell');
 
       await user.click(secondMonthDays[9]); // March 5, 2019
 
@@ -456,12 +450,12 @@ describe('DatePickerRange', () => {
       // February 2019 (28 days) is the first month, March 2019 (31 days) the second - the
       // mismatched month lengths are what previously threw off the "is this still within the
       // visible two months?" window check off by a day.
-      const { getAllByTestId } = render(<ControlledExample startValue={DEFAULT_START_VALUE} />);
+      const { getAllByRole } = render(<ControlledExample startValue={DEFAULT_START_VALUE} />);
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day').filter(
-        day => day.getAttribute('data-test-hidden') !== 'true'
-      );
+      const calendarWrappers = getAllByRole('grid');
+      const secondMonthDays = within(calendarWrappers[1])
+        .getAllByRole('gridcell')
+        .filter(day => day.getAttribute('data-test-hidden') !== 'true');
       const lastDayOfSecondMonth = secondMonthDays[secondMonthDays.length - 1]; // March 31, 2019
 
       expect(lastDayOfSecondMonth).toHaveTextContent('31');
@@ -469,7 +463,7 @@ describe('DatePickerRange', () => {
       lastDayOfSecondMonth.focus();
       await user.keyboard('{Enter}');
 
-      const monthDisplays = getAllByTestId('month-display');
+      const monthDisplays = getAllByRole('heading');
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
@@ -499,7 +493,7 @@ describe('DatePickerRange', () => {
     };
 
     it('does not move the calendar view when a typed end date is before the start date', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
       const endInput = getByTestId('end');
@@ -508,14 +502,14 @@ describe('DatePickerRange', () => {
       await user.type(endInput, '1/1/2000');
       await user.tab();
 
-      const monthDisplays = getAllByTestId('month-display');
+      const monthDisplays = getAllByRole('heading');
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
     });
 
     it('does not move the calendar view when a typed start date is after the end date', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
       const startInput = getByTestId('start');
@@ -524,7 +518,7 @@ describe('DatePickerRange', () => {
       await user.type(startInput, '1/1/2020');
       await user.tab();
 
-      const monthDisplays = getAllByTestId('month-display');
+      const monthDisplays = getAllByRole('heading');
 
       expect(monthDisplays[0]).toHaveTextContent('February 2019');
       expect(monthDisplays[1]).toHaveTextContent('March 2019');
@@ -621,13 +615,13 @@ describe('DatePickerRange', () => {
 
     it('uses custom formatDate method when a date is selected from the calendar', async () => {
       const FORMATTED_DATE = 'test';
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <Example onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
       );
 
-      const calendarWrappers = getAllByTestId('calendar-wrapper');
+      const calendarWrappers = getAllByRole('grid');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(within(calendarWrappers[1]).getAllByRole('gridcell')[6]);
 
       expect(getByTestId('start')).toHaveValue(FORMATTED_DATE);
     });
@@ -661,22 +655,22 @@ describe('DatePickerRange', () => {
       );
     };
 
-    const pickDay = async (getAllByTestId: (id: string) => HTMLElement[], name: string) => {
+    const pickDay = async (getAllByRole: RenderResult['getAllByRole'], name: string) => {
       await user.click(
-        getAllByTestId('day').find(day => day.textContent?.includes(name)) as HTMLElement
+        getAllByRole('gridcell').find(day => day.textContent?.includes(name)) as HTMLElement
       );
     };
 
     it.each([true, false])(
       'keeps calendar-picked dates as picked when focus leaves their fields, with keepTypedInput=%s',
       async keepTypedInput => {
-        const { getByTestId, getAllByTestId } = render(
+        const { getAllByRole, getByTestId } = render(
           <ControlledExample keepTypedInput={keepTypedInput} />
         );
 
         await user.click(getByTestId('start'));
-        await pickDay(getAllByTestId, 'February 1, 2019');
-        await pickDay(getAllByTestId, 'March 20, 2019');
+        await pickDay(getAllByRole, 'February 1, 2019');
+        await pickDay(getAllByRole, 'March 20, 2019');
         await user.click(getByTestId('outside'));
 
         expect(onChangeSpy).toHaveBeenLastCalledWith({
@@ -694,12 +688,12 @@ describe('DatePickerRange', () => {
     it.each([true, false])(
       "keeps a calendar-picked start date as picked when the parent doesn't pass it back as startValue, with keepTypedInput=%s",
       async keepTypedInput => {
-        const { getByTestId, getAllByTestId } = render(
+        const { getAllByRole, getByTestId } = render(
           <ControlledExample keepTypedInput={keepTypedInput} isControlled={false} />
         );
 
         await user.click(getByTestId('start'));
-        await pickDay(getAllByTestId, 'February 1, 2019');
+        await pickDay(getAllByRole, 'February 1, 2019');
         await user.click(getByTestId('outside'));
 
         expect(onChangeSpy).toHaveBeenLastCalledWith({
@@ -943,8 +937,8 @@ describe('DatePickerRange', () => {
         </DatePickerRange>
       );
 
-      const getDays = (getAllByTestId: (id: string) => HTMLElement[], month: 0 | 1) =>
-        globalGetAllByTestId(getAllByTestId('calendar-wrapper')[month], 'day');
+      const getDays = (getAllByRole: RenderResult['getAllByRole'], month: 0 | 1) =>
+        within(getAllByRole('grid')[month]).getAllByRole('gridcell');
 
       describe(`when only start is ${label}`, () => {
         const renderExample = (props: IDatePickerRangeProps = {}) =>
@@ -957,9 +951,9 @@ describe('DatePickerRange', () => {
           );
 
         it('sets End, not Start, when a later day is clicked', async () => {
-          const { getByTestId, getAllByTestId } = renderExample();
+          const { getAllByRole, getByTestId } = renderExample();
 
-          await user.click(getDays(getAllByTestId, 1)[6]); // March 2, 2019
+          await user.click(getDays(getAllByRole, 1)[6]); // March 2, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: DEFAULT_START_VALUE,
@@ -970,9 +964,9 @@ describe('DatePickerRange', () => {
         });
 
         it('moves End, rather than restarting the range, when both values are set', async () => {
-          const { getAllByTestId } = renderExample({ endValue: DEFAULT_END_VALUE });
+          const { getAllByRole } = renderExample({ endValue: DEFAULT_END_VALUE });
 
-          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+          await user.click(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: DEFAULT_START_VALUE,
@@ -981,8 +975,8 @@ describe('DatePickerRange', () => {
         });
 
         it('marks days before the start value unavailable, but not the start day or later', () => {
-          const { getAllByTestId } = renderExample();
-          const days = getDays(getAllByTestId, 0);
+          const { getAllByRole } = renderExample();
+          const days = getDays(getAllByRole, 0);
 
           expect(days[8]).toHaveAttribute('aria-disabled', 'true'); // February 4, 2019
           expect(days[9]).not.toHaveAttribute('aria-disabled'); // February 5, 2019
@@ -990,24 +984,24 @@ describe('DatePickerRange', () => {
         });
 
         it('does not change either value when a day before the start value is clicked', async () => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          await user.click(getDays(getAllByTestId, 0)[8]); // February 4, 2019
+          await user.click(getDays(getAllByRole, 0)[8]); // February 4, 2019
 
           expect(onChangeSpy).not.toHaveBeenCalled();
         });
 
         it('still shows the start value as selected', () => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          expect(getDays(getAllByTestId, 0)[9]).toHaveAttribute('aria-selected', 'true');
+          expect(getDays(getAllByRole, 0)[9]).toHaveAttribute('aria-selected', 'true');
         });
 
         it('reports End, not Start, as settled when the start day itself is clicked', async () => {
           const onValueSettledSpy = jest.fn();
-          const { getAllByTestId } = renderExample({ onValueSettled: onValueSettledSpy });
+          const { getAllByRole } = renderExample({ onValueSettled: onValueSettledSpy });
 
-          await user.click(getDays(getAllByTestId, 0)[9]); // February 5, 2019
+          await user.click(getDays(getAllByRole, 0)[9]); // February 5, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: DEFAULT_START_VALUE,
@@ -1022,11 +1016,11 @@ describe('DatePickerRange', () => {
         });
 
         it('sets End, leaving Start empty, when Start has no value', async () => {
-          const { getByTestId, getAllByTestId } = renderExample({ startValue: undefined });
+          const { getAllByRole, getByTestId } = renderExample({ startValue: undefined });
 
-          expect(getDays(getAllByTestId, 0)[8]).not.toHaveAttribute('aria-disabled'); // February 4, 2019
+          expect(getDays(getAllByRole, 0)[8]).not.toHaveAttribute('aria-disabled'); // February 4, 2019
 
-          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+          await user.click(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: undefined,
@@ -1037,7 +1031,7 @@ describe('DatePickerRange', () => {
         });
 
         it('sets End from a dialog opened from the End field', async () => {
-          const { getByTestId, getAllByTestId } = render(
+          const { getAllByRole, getByTestId } = render(
             <GroupedExample
               startValue={DEFAULT_START_VALUE}
               disabledOrReadOnlyFields={['start']}
@@ -1046,7 +1040,7 @@ describe('DatePickerRange', () => {
           );
 
           await user.click(getByTestId('end-trigger'));
-          await user.click(getDays(getAllByTestId, 1)[6]); // March 2, 2019
+          await user.click(getDays(getAllByRole, 1)[6]); // March 2, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: DEFAULT_START_VALUE,
@@ -1066,9 +1060,9 @@ describe('DatePickerRange', () => {
           );
 
         it('sets Start, not End, when an earlier day is clicked', async () => {
-          const { getByTestId, getAllByTestId } = renderExample();
+          const { getAllByRole, getByTestId } = renderExample();
 
-          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+          await user.click(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: new Date(2019, 1, 10),
@@ -1079,9 +1073,9 @@ describe('DatePickerRange', () => {
         });
 
         it('moves Start, rather than restarting the range, when both values are set', async () => {
-          const { getAllByTestId } = renderExample({ startValue: DEFAULT_START_VALUE });
+          const { getAllByRole } = renderExample({ startValue: DEFAULT_START_VALUE });
 
-          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+          await user.click(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: new Date(2019, 1, 10),
@@ -1090,8 +1084,8 @@ describe('DatePickerRange', () => {
         });
 
         it('marks days after the end value unavailable, but not the end day or earlier', () => {
-          const { getAllByTestId } = renderExample();
-          const days = getDays(getAllByTestId, 1);
+          const { getAllByRole } = renderExample();
+          const days = getDays(getAllByRole, 1);
 
           expect(days[8]).not.toHaveAttribute('aria-disabled'); // March 4, 2019
           expect(days[9]).not.toHaveAttribute('aria-disabled'); // March 5, 2019
@@ -1099,19 +1093,19 @@ describe('DatePickerRange', () => {
         });
 
         it('does not change either value when a day after the end value is clicked', async () => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          await user.click(getDays(getAllByTestId, 1)[10]); // March 6, 2019
+          await user.click(getDays(getAllByRole, 1)[10]); // March 6, 2019
 
           expect(onChangeSpy).not.toHaveBeenCalled();
         });
 
         it('sets Start, leaving End empty, when End has no value', async () => {
-          const { getByTestId, getAllByTestId } = renderExample({ endValue: undefined });
+          const { getAllByRole, getByTestId } = renderExample({ endValue: undefined });
 
-          expect(getDays(getAllByTestId, 1)[10]).not.toHaveAttribute('aria-disabled'); // March 6, 2019
+          expect(getDays(getAllByRole, 1)[10]).not.toHaveAttribute('aria-disabled'); // March 6, 2019
 
-          await user.click(getDays(getAllByTestId, 1)[10]); // March 6, 2019
+          await user.click(getDays(getAllByRole, 1)[10]); // March 6, 2019
 
           expect(onChangeSpy).toHaveBeenCalledWith({
             startValue: new Date(2019, 2, 6),
@@ -1122,9 +1116,9 @@ describe('DatePickerRange', () => {
         });
 
         it('still shows the end value as selected', () => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          expect(getDays(getAllByTestId, 1)[9]).toHaveAttribute('aria-selected', 'true');
+          expect(getDays(getAllByRole, 1)[9]).toHaveAttribute('aria-selected', 'true');
         });
       });
 
@@ -1141,8 +1135,8 @@ describe('DatePickerRange', () => {
           );
 
         it('keeps the primary text color on days within the selected range', () => {
-          const { getAllByTestId } = renderExample();
-          const dayNumber = getDays(getAllByTestId, 0)[14].querySelector('[aria-hidden="true"]'); // February 10, 2019
+          const { getAllByRole } = renderExample();
+          const dayNumber = getDays(getAllByRole, 0)[14].querySelector('[aria-hidden="true"]'); // February 10, 2019
 
           expect(dayNumber).not.toHaveStyleRule(
             'color',
@@ -1152,16 +1146,16 @@ describe('DatePickerRange', () => {
         });
 
         it('still shows both values as selected', () => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          expect(getDays(getAllByTestId, 0)[9]).toHaveAttribute('aria-selected', 'true'); // February 5, 2019
-          expect(getDays(getAllByTestId, 1)[9]).toHaveAttribute('aria-selected', 'true'); // March 5, 2019
+          expect(getDays(getAllByRole, 0)[9]).toHaveAttribute('aria-selected', 'true'); // February 5, 2019
+          expect(getDays(getAllByRole, 1)[9]).toHaveAttribute('aria-selected', 'true'); // March 5, 2019
         });
 
         it('does not change either value when a day is clicked', async () => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          await user.click(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+          await user.click(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
           expect(onChangeSpy).not.toHaveBeenCalled();
         });
@@ -1170,9 +1164,9 @@ describe('DatePickerRange', () => {
           ['Enter', '{Enter}'],
           ['Space', ' ']
         ])('does not change either value when %s is pressed on a day', async (_, key) => {
-          const { getAllByTestId } = renderExample();
+          const { getAllByRole } = renderExample();
 
-          getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
+          getDays(getAllByRole, 0)[9].focus(); // February 5, 2019
           await user.keyboard(key);
 
           expect(onChangeSpy).not.toHaveBeenCalled();
@@ -1183,7 +1177,7 @@ describe('DatePickerRange', () => {
 
   describe('calendar selection while a read-only field has focus', () => {
     it('sets End, not Start, when Start is read-only and focused', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <DatePickerRange startValue={DEFAULT_START_VALUE} onChange={onChangeSpy}>
           <DatePickerRange.Start>
             <input data-test-id="start" readOnly />
@@ -1196,7 +1190,7 @@ describe('DatePickerRange', () => {
       );
 
       await user.click(getByTestId('start'));
-      await user.click(globalGetAllByTestId(getAllByTestId('calendar-wrapper')[1], 'day')[6]); // March 2, 2019
+      await user.click(within(getAllByRole('grid')[1]).getAllByRole('gridcell')[6]); // March 2, 2019
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
@@ -1205,7 +1199,7 @@ describe('DatePickerRange', () => {
     });
 
     it('sets Start, not End, when End is read-only and focused', async () => {
-      const { getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByTestId } = render(
         <DatePickerRange endValue={DEFAULT_END_VALUE} onChange={onChangeSpy}>
           <DatePickerRange.Start>
             <input data-test-id="start" />
@@ -1218,7 +1212,7 @@ describe('DatePickerRange', () => {
       );
 
       await user.click(getByTestId('end'));
-      await user.click(globalGetAllByTestId(getAllByTestId('calendar-wrapper')[0], 'day')[14]); // February 10, 2019
+      await user.click(within(getAllByRole('grid')[0]).getAllByRole('gridcell')[14]); // February 10, 2019
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 10),
@@ -1247,11 +1241,11 @@ describe('DatePickerRange', () => {
 
     const getGrids = (getAllByRole: (role: string) => HTMLElement[]) => getAllByRole('grid');
 
-    const getDays = (getAllByTestId: (id: string) => HTMLElement[], month: 0 | 1) =>
-      globalGetAllByTestId(getAllByTestId('calendar-wrapper')[month], 'day');
+    const getDays = (getAllByRole: RenderResult['getAllByRole'], month: 0 | 1) =>
+      within(getAllByRole('grid')[month]).getAllByRole('gridcell');
 
-    const getVisibleDays = (getAllByTestId: (id: string) => HTMLElement[]) =>
-      getAllByTestId('day').filter(day => day.getAttribute('data-test-hidden') === 'false');
+    const getVisibleDays = (getAllByRole: RenderResult['getAllByRole']) =>
+      getAllByRole('gridcell').filter(day => day.getAttribute('data-test-hidden') === 'false');
 
     const getPaddles = (getByRole: RenderResult['getByRole']) =>
       [/^Previous year/u, /^Previous month/u, /^Next month/u, /^Next year/u].map(name =>
@@ -1292,44 +1286,44 @@ describe('DatePickerRange', () => {
       });
 
       it('does not mark days unavailable, other than those outside minValue/maxValue', () => {
-        const { getAllByTestId } = renderExample({ minValue: new Date(2019, 1, 3) });
-        const firstMonthDays = getDays(getAllByTestId, 0);
+        const { getAllByRole } = renderExample({ minValue: new Date(2019, 1, 3) });
+        const firstMonthDays = getDays(getAllByRole, 0);
 
         expect(firstMonthDays[6]).toHaveAttribute('aria-disabled', 'true'); // February 2, 2019
         expect(firstMonthDays[7]).not.toHaveAttribute('aria-disabled'); // February 3, 2019, before the range
         expect(firstMonthDays[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019, within the range
-        expect(getDays(getAllByTestId, 1)[14]).not.toHaveAttribute('aria-disabled'); // March 10, 2019, after the range
+        expect(getDays(getAllByRole, 1)[14]).not.toHaveAttribute('aria-disabled'); // March 10, 2019, after the range
       });
 
       it('keeps one day as a tab stop', () => {
-        const { getAllByTestId } = renderExample();
+        const { getAllByRole } = renderExample();
 
         expect(
-          getVisibleDays(getAllByTestId).filter(day => day.getAttribute('tabindex') === '0')
+          getVisibleDays(getAllByRole).filter(day => day.getAttribute('tabindex') === '0')
         ).toHaveLength(1);
       });
 
       it('can still be browsed with the keyboard and the toolbar', async () => {
-        const { getByRole, getByTestId, getAllByTestId } = renderExample();
+        const { getAllByRole, getByRole } = renderExample();
 
         getPaddles(getByRole).forEach(paddle => expect(paddle).toBeEnabled());
 
-        getDays(getAllByTestId, 0)[9].focus(); // February 5, 2019
+        getDays(getAllByRole, 0)[9].focus(); // February 5, 2019
         await user.keyboard('{ArrowRight}');
 
-        expect(getDays(getAllByTestId, 0)[10]).toHaveFocus(); // February 6, 2019
+        expect(getDays(getAllByRole, 0)[10]).toHaveFocus(); // February 6, 2019
 
-        await user.click(getByTestId('next-month'));
+        await user.click(getByRole('button', { name: /^Next month/u }));
 
-        expect(getAllByTestId('calendar-wrapper')[0]).toHaveTextContent('March 2019');
+        expect(getAllByRole('heading')[0]).toHaveTextContent('March 2019');
       });
 
       it('does not preview a range when a day is hovered', () => {
-        const { getAllByTestId } = renderExample({ endValue: undefined });
+        const { getAllByRole } = renderExample({ endValue: undefined });
 
-        fireEvent.mouseEnter(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+        fireEvent.mouseEnter(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
-        expect(getDays(getAllByTestId, 0)[12]).toHaveAttribute('data-test-highlighted', 'false'); // February 8, 2019
+        expect(getDays(getAllByRole, 0)[12]).toHaveAttribute('data-test-highlighted', 'false'); // February 8, 2019
       });
     });
 
@@ -1354,17 +1348,17 @@ describe('DatePickerRange', () => {
       });
 
       it('marks every day unavailable', () => {
-        const { getAllByTestId } = renderExample();
-        const days = getVisibleDays(getAllByTestId);
+        const { getAllByRole } = renderExample();
+        const days = getVisibleDays(getAllByRole);
 
         expect(days).toHaveLength(59); // February + March 2019
         days.forEach(day => expect(day).toHaveAttribute('aria-disabled', 'true'));
       });
 
       it('leaves no day as a tab stop', () => {
-        const { getAllByTestId } = renderExample();
+        const { getAllByRole } = renderExample();
 
-        getVisibleDays(getAllByTestId).forEach(day => expect(day).not.toHaveAttribute('tabindex'));
+        getVisibleDays(getAllByRole).forEach(day => expect(day).not.toHaveAttribute('tabindex'));
       });
 
       it('still renders the toolbar, with every paddle disabled', () => {
@@ -1375,7 +1369,7 @@ describe('DatePickerRange', () => {
       });
 
       it('does not preview a range when a day is hovered', () => {
-        const { getAllByTestId } = render(
+        const { getAllByRole } = render(
           <AvailabilityExample
             startValue={DEFAULT_START_VALUE}
             start={{ disabled: true }}
@@ -1383,13 +1377,13 @@ describe('DatePickerRange', () => {
           />
         );
 
-        fireEvent.mouseEnter(getDays(getAllByTestId, 0)[14]); // February 10, 2019
+        fireEvent.mouseEnter(getDays(getAllByRole, 0)[14]); // February 10, 2019
 
-        expect(getDays(getAllByTestId, 0)[12]).toHaveAttribute('data-test-highlighted', 'false'); // February 8, 2019
+        expect(getDays(getAllByRole, 0)[12]).toHaveAttribute('data-test-highlighted', 'false'); // February 8, 2019
       });
 
       it('restores the tab stop, paddles, and grid state once the fields are no longer disabled', () => {
-        const { getByRole, getAllByRole, getAllByTestId, rerender } = renderExample();
+        const { getByRole, getAllByRole, rerender } = renderExample();
 
         rerender(
           <AvailabilityExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
@@ -1399,9 +1393,9 @@ describe('DatePickerRange', () => {
           expect(grid).not.toHaveAttribute('aria-disabled');
           expect(grid).not.toHaveAttribute('aria-readonly');
         });
-        expect(getDays(getAllByTestId, 0)[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019
+        expect(getDays(getAllByRole, 0)[14]).not.toHaveAttribute('aria-disabled'); // February 10, 2019
         expect(
-          getVisibleDays(getAllByTestId).filter(day => day.getAttribute('tabindex') === '0')
+          getVisibleDays(getAllByRole).filter(day => day.getAttribute('tabindex') === '0')
         ).toHaveLength(1);
         getPaddles(getByRole).forEach(paddle => expect(paddle).toBeEnabled());
       });
@@ -1446,8 +1440,8 @@ describe('DatePickerRange', () => {
       </DatePickerRange>
     );
 
-    const getDays = (getAllByTestId: (id: string) => HTMLElement[], month: 0 | 1) =>
-      globalGetAllByTestId(getAllByTestId('calendar-wrapper')[month], 'day');
+    const getDays = (getAllByRole: RenderResult['getAllByRole'], month: 0 | 1) =>
+      within(getAllByRole('grid')[month]).getAllByRole('gridcell');
 
     describe('inline calendar', () => {
       it('is not a tab stop while the fields are enabled', () => {
@@ -1462,9 +1456,9 @@ describe('DatePickerRange', () => {
       ])(
         'moves focus to the $name month grid when both fields become disabled while one of its days has focus',
         ({ month }) => {
-          const { getAllByRole, getAllByTestId, rerender } = render(<InlineFocusExample />);
+          const { getAllByRole, rerender } = render(<InlineFocusExample />);
 
-          act(() => getDays(getAllByTestId, month)[9].focus());
+          act(() => getDays(getAllByRole, month)[9].focus());
 
           rerender(<InlineFocusExample start={{ disabled: true }} end={{ disabled: true }} />);
 
@@ -1476,9 +1470,9 @@ describe('DatePickerRange', () => {
       );
 
       it('moves focus to the first month grid when both fields become disabled while a toolbar paddle has focus', () => {
-        const { getAllByRole, getByTestId, rerender } = render(<InlineFocusExample />);
+        const { getByRole, getAllByRole, rerender } = render(<InlineFocusExample />);
 
-        act(() => getByTestId('next-month').focus());
+        act(() => getByRole('button', { name: /^Next month/u }).focus());
 
         rerender(<InlineFocusExample start={{ disabled: true }} end={{ disabled: true }} />);
 
@@ -1512,8 +1506,8 @@ describe('DatePickerRange', () => {
       });
 
       it('keeps focus on the day when both fields become read-only', () => {
-        const { getAllByTestId, rerender } = render(<InlineFocusExample />);
-        const day = getDays(getAllByTestId, 0)[9];
+        const { getAllByRole, rerender } = render(<InlineFocusExample />);
+        const day = getDays(getAllByRole, 0)[9];
 
         act(() => day.focus());
 

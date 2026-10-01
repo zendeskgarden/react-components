@@ -92,12 +92,12 @@ describe('DatePicker', () => {
 
     it('uses custom formatDate method when a date is selected from the calendar', async () => {
       const FORMATTED_DATE = 'test';
-      const { getByRole, getByTestId, getAllByTestId } = render(
+      const { getAllByRole, getByRole, getByTestId } = render(
         <Example onChange={onChangeSpy} formatDate={() => FORMATTED_DATE} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(getByTestId('input')).toHaveValue(FORMATTED_DATE);
     });
@@ -115,13 +115,12 @@ describe('DatePicker', () => {
         );
       };
 
-      const { getByRole, getByTestId, getAllByTestId } = render(<Controlled />);
+      const { getAllByRole, getByTestId } = render(<Controlled />);
       const input = getByTestId('input');
 
       await user.clear(input);
       await user.type(input, '1/4/2019');
-      await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       const hasRenderPhaseUpdateWarning = consoleErrorSpy.mock.calls.some(
         args => typeof args[0] === 'string' && args[0].includes('Cannot update a component')
@@ -228,12 +227,12 @@ describe('DatePicker', () => {
     });
 
     it('reports a valid date when a day is selected from the calendar', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(onValueSettledSpy).toHaveBeenCalledWith({
         date: new Date(2019, 0, 28),
@@ -243,12 +242,12 @@ describe('DatePicker', () => {
     });
 
     it('does not report a stale value when a day is selected from the calendar', async () => {
-      const { getByRole, getAllByTestId } = render(
+      const { getAllByRole, getByRole } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
       );
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByRole('gridcell')[1]);
 
       expect(onValueSettledSpy).toHaveBeenCalledTimes(1);
     });
@@ -297,7 +296,7 @@ describe('DatePicker', () => {
       fireEvent.change(input, { target: { value: '1/1/2020' } });
       fireEvent.blur(input);
 
-      expect(getByTestId('month-display')).toHaveTextContent('February 2019');
+      expect(getByRole('heading', { hidden: true })).toHaveTextContent('February 2019');
     });
 
     it('reports invalid when closing the calendar by clicking outside after typing unparseable text', async () => {
@@ -594,7 +593,7 @@ describe('DatePicker', () => {
       getByTestId: RenderResult['getByTestId'],
       getByRole: RenderResult['getByRole']
     ) => ({
-      menu: getByTestId('datepicker-menu').getAttribute('data-test-open'),
+      menu: getByRole('dialog', { hidden: true }).getAttribute('data-test-open'),
       input: getByTestId('input').getAttribute('aria-expanded'),
       button: getByRole('button', { name: CHOOSE_DATE }).getAttribute('aria-expanded')
     });
@@ -658,7 +657,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
 
       rerender(<DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly />);
 
@@ -666,9 +665,7 @@ describe('DatePicker', () => {
     });
 
     it(`opens normally again once the input is no longer ${label}`, async () => {
-      const { getByRole, getByTestId, rerender } = render(
-        <DisabledOrReadOnlyExample value={DEFAULT_DATE} />
-      );
+      const { getByRole, rerender } = render(<DisabledOrReadOnlyExample value={DEFAULT_DATE} />);
 
       rerender(<DisabledOrReadOnlyExample value={DEFAULT_DATE} isDisabledOrReadOnly={false} />);
 
@@ -676,7 +673,7 @@ describe('DatePicker', () => {
 
       await user.click(getByRole('button', { name: CHOOSE_DATE }));
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'true');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
     });
   });
 
@@ -698,8 +695,8 @@ describe('DatePicker', () => {
       </>
     );
 
-    const isOpen = (getByTestId: (id: string) => HTMLElement) =>
-      getByTestId('datepicker-menu').getAttribute('data-test-open') === 'true';
+    const isOpen = (getByRole: RenderResult['getByRole']) =>
+      getByRole('dialog', { hidden: true }).getAttribute('data-test-open') === 'true';
 
     it('renders no calendar button', () => {
       const { queryByRole } = render(<NoTriggerExample />);
@@ -735,20 +732,20 @@ describe('DatePicker', () => {
     });
 
     it('still opens the calendar when the input is clicked', async () => {
-      const { getByTestId } = render(<NoTriggerExample />);
+      const { getByRole, getByTestId } = render(<NoTriggerExample />);
 
       await user.click(getByTestId('input'));
 
-      expect(isOpen(getByTestId)).toBe(true);
+      expect(isOpen(getByRole)).toBe(true);
     });
 
     it('still opens on Down Arrow and moves focus onto the selected day', () => {
-      const { getByTestId, getAllByTestId } = render(<NoTriggerExample />);
+      const { getByRole, getAllByRole, getByTestId } = render(<NoTriggerExample />);
 
       fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
 
-      expect(isOpen(getByTestId)).toBe(true);
-      expect(getAllByTestId('day')[9]).toHaveFocus();
+      expect(isOpen(getByRole)).toBe(true);
+      expect(getAllByRole('gridcell')[9]).toHaveFocus();
     });
 
     it.each([
@@ -757,32 +754,34 @@ describe('DatePicker', () => {
     ])(
       'gives the dialog %s accessible name, without a button to take it from',
       (_, label, name) => {
-        const { getByTestId } = render(<NoTriggerExample toggleCalendarLabel={label} />);
+        const { getByRole, getByTestId } = render(<NoTriggerExample toggleCalendarLabel={label} />);
 
         // A closed dialog is aria-hidden, so it has no accessible name either way.
         fireEvent.keyDown(getByTestId('input'), { key: KEYS.DOWN });
 
-        expect(getByTestId('datepicker-menu')).toHaveAccessibleName(name);
+        expect(getByRole('dialog', { hidden: true })).toHaveAccessibleName(name);
       }
     );
 
     it('settles typed text and closes the calendar when focus leaves the input', async () => {
       const onValueSettledSpy = jest.fn();
-      const { getByTestId } = render(<NoTriggerExample onValueSettled={onValueSettledSpy} />);
+      const { getByRole, getByTestId } = render(
+        <NoTriggerExample onValueSettled={onValueSettledSpy} />
+      );
       const input = getByTestId('input');
 
       await user.click(input);
       await user.clear(input);
       await user.type(input, 'garbage', { skipClick: true });
 
-      expect(isOpen(getByTestId)).toBe(true);
+      expect(isOpen(getByRole)).toBe(true);
 
       await user.click(getByTestId('outside'));
 
       expect(onValueSettledSpy).toHaveBeenCalledWith(
         expect.objectContaining({ valid: false, reason: 'malformed' })
       );
-      expect(isOpen(getByTestId)).toBe(false);
+      expect(isOpen(getByRole)).toBe(false);
     });
 
     it("keeps a ClearableInput child's own labelled group, since there's no outer group", () => {
@@ -835,7 +834,7 @@ describe('DatePicker', () => {
     };
 
     it('positions the calendar against the element refKey names', async () => {
-      const { getByTestId } = render(<RefKeyExample />);
+      const { getByRole, getByTestId } = render(<RefKeyExample />);
 
       mockRect(getByTestId('wrapper'), 120);
       mockRect(getByTestId('input'), 160);
@@ -843,7 +842,7 @@ describe('DatePicker', () => {
       await user.click(getByTestId('input'));
 
       await waitFor(() => {
-        const match = getByTestId('datepicker-menu').style.transform.match(
+        const match = getByRole('dialog', { hidden: true }).style.transform.match(
           /translate\((?<x>[-\d.]+)px/u
         );
 
@@ -866,13 +865,13 @@ describe('DatePicker', () => {
     });
 
     it('returns focus to the input after selecting a day with Enter', async () => {
-      const { getByTestId } = render(<RefKeyExample />);
+      const { getByRole, getByTestId } = render(<RefKeyExample />);
       const input = getByTestId('input');
 
       await user.click(input);
       await user.keyboard('{ArrowDown}{ArrowRight}{Enter}');
 
-      expect(getByTestId('datepicker-menu')).toHaveAttribute('data-test-open', 'false');
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
       expect(input).toHaveFocus();
     });
 
@@ -905,11 +904,11 @@ describe('DatePicker', () => {
             />
           );
         };
-        const { getByTestId, getAllByTestId } = render(<ControlledExample />);
+        const { getAllByRole, getByTestId } = render(<ControlledExample />);
 
         await user.click(getByTestId('input'));
         await user.click(
-          getAllByTestId('day').find(day => day.textContent?.includes('February 1, 2019'))!
+          getAllByRole('gridcell').find(day => day.textContent?.includes('February 1, 2019'))!
         );
         await user.click(getByTestId('outside'));
 
