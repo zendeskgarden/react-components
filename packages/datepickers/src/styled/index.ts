@@ -26,3 +26,4 @@ export { StyledDayNumber } from './StyledDayNumber';
 export { StyledDayCell } from './StyledDayCell';
 export { StyledCalendarItem } from './StyledCalendarItem';
 export { StyledHighlight } from './StyledHighlight';
+export { StyledJoinedGroup } from './StyledJoinedGroup';

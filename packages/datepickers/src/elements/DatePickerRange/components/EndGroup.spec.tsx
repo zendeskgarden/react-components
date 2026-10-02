@@ -8,6 +8,7 @@
 import React from 'react';
 import userEvent from '@testing-library/user-event';
 import { fireEvent, render } from 'garden-test-utils';
+import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import { DatePickerRange } from '../DatePickerRange';
 
 jest.useFakeTimers();
@@ -74,8 +75,69 @@ describe('DatePickerRange.EndGroup', () => {
       </DatePickerRange>
     );
 
-    expect(getByTestId('end-group')).toHaveStyleRule('border-start-start-radius', '0');
-    expect(getByTestId('end-group')).toHaveStyleRule('border-end-start-radius', '0');
+    expect(getByTestId('end-group')).toHaveStyleRule('border-start-start-radius', '0', {
+      modifier: '&&'
+    });
+    expect(getByTestId('end-group')).toHaveStyleRule('border-end-start-radius', '0', {
+      modifier: '&&'
+    });
+  });
+
+  it('overlaps the preceding StartGroup by one border-width when isEdgeToEdge is set, so the two share a single visible border', () => {
+    const { getByTestId } = render(
+      <DatePickerRange>
+        <DatePickerRange.Start>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.EndGroup isEdgeToEdge data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange.EndGroup>
+      </DatePickerRange>
+    );
+
+    expect(getByTestId('end-group')).toHaveStyleRule(
+      'margin-inline-start',
+      `-${DEFAULT_THEME.borderWidths.sm}`,
+      { modifier: '&&' }
+    );
+  });
+
+  it('raises z-index on hover when isEdgeToEdge is set, so its border can paint over the abutting sibling', () => {
+    const { getByTestId } = render(
+      <DatePickerRange>
+        <DatePickerRange.Start>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.EndGroup isEdgeToEdge data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange.EndGroup>
+      </DatePickerRange>
+    );
+
+    expect(getByTestId('end-group')).toHaveStyleRule('z-index', '1', { modifier: '&&:hover' });
+  });
+
+  it('raises z-index above a hovered neighbor on focus-within when isEdgeToEdge is set, so a focused border is never re-covered by a merely-hovered one', () => {
+    const { getByTestId } = render(
+      <DatePickerRange>
+        <DatePickerRange.Start>
+          <input data-test-id="start" />
+        </DatePickerRange.Start>
+        <DatePickerRange.EndGroup isEdgeToEdge data-test-id="end-group">
+          <DatePickerRange.End>
+            <input data-test-id="end" />
+          </DatePickerRange.End>
+        </DatePickerRange.EndGroup>
+      </DatePickerRange>
+    );
+
+    expect(getByTestId('end-group')).toHaveStyleRule('z-index', '2', {
+      modifier: '&&:focus-within'
+    });
   });
 
   it('forwards a ref to its own DOM node', () => {
@@ -96,7 +158,7 @@ describe('DatePickerRange.EndGroup', () => {
     expect(ref.current).toBe(getByTestId('end-group'));
   });
 
-  it('does not zero any corner radius when isEdgeToEdge is not set', () => {
+  it('does not apply any join overrides when isEdgeToEdge is not set', () => {
     const { getByTestId } = render(
       <DatePickerRange>
         <DatePickerRange.Start>
@@ -112,5 +174,12 @@ describe('DatePickerRange.EndGroup', () => {
 
     expect(getByTestId('end-group')).not.toHaveStyleRule('border-start-start-radius', '0');
     expect(getByTestId('end-group')).not.toHaveStyleRule('border-end-start-radius', '0');
+    expect(getByTestId('end-group')).not.toHaveStyleRule('margin-inline-start', expect.any(String));
+    expect(getByTestId('end-group')).not.toHaveStyleRule('z-index', expect.any(String), {
+      modifier: '&&:hover'
+    });
+    expect(getByTestId('end-group')).not.toHaveStyleRule('z-index', expect.any(String), {
+      modifier: '&&:focus-within'
+    });
   });
 });

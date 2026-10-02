@@ -7,9 +7,9 @@
 
 import React, { PropsWithChildren, HTMLAttributes, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
-import { InputGroup } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
 import { DatePickerRangeFieldContext } from '../utils/useDatePickerRangeFieldContext';
+import { StyledJoinedGroup } from '../../../styled';
 
 type IEndGroupProps = HTMLAttributes<HTMLDivElement> & {
   /** Removes the rounded corners on the leading edge, since EndGroup always abuts the preceding StartGroup */
@@ -22,17 +22,18 @@ export const EndGroup = forwardRef<HTMLDivElement, PropsWithChildren<IEndGroupPr
     const { ref: groupRef, ...groupProps } = getEndGroupProps(props);
 
     return (
-      <InputGroup
+      <StyledJoinedGroup
         {...groupProps}
         ref={mergeRefs([groupRef as React.Ref<HTMLDivElement>, ref])}
         isUnified
         isCompact={isCompact}
-        isEdgeToEdgeStart={isEdgeToEdge}
+        $joinSide="end"
+        $isEdgeToEdge={isEdgeToEdge}
       >
         <DatePickerRangeFieldContext.Provider value="end">
           {children}
         </DatePickerRangeFieldContext.Provider>
-      </InputGroup>
+      </StyledJoinedGroup>
     );
   }
 );
