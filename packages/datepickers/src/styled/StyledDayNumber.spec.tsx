@@ -86,37 +86,62 @@ describe('StyledDayNumber', () => {
     }
   );
 
-  it.each<{ mode: 'light' | 'dark'; color: string }>([
-    { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
-    { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
+  it.each<{ mode: 'light' | 'dark'; background: string; color: string }>([
+    { mode: 'light', background: 'rgba(31,115,183,0.08)', color: '#13456d' },
+    { mode: 'dark', background: 'rgba(38,148,214,0.08)', color: '#66a0cd' }
   ])(
-    'shows an opaque tinted $mode mode background when the enclosing cell is hovered and not selected, outside a read-only grid',
-    ({ mode, color }) => {
+    'shows a tinted background and a darkened foreground when the enclosing cell is hovered and not selected, outside a read-only grid',
+    ({ mode, background, color }) => {
       const { container } = getRenderFn(mode)(
         <StyledDayNumber $isCompact={false}>5</StyledDayNumber>
       );
 
-      expect(container.firstChild).toHaveStyleRule('background-color', color, {
+      expect(container.firstChild).toHaveStyleRule('background-color', background, {
         modifier: `${StyledCalendarTable}:not([aria-readonly='true']) ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &`
       });
-      expect(container.firstChild).not.toHaveStyleRule('background-color', color, {
+      expect(container.firstChild).toHaveStyleRule('color', color, {
+        modifier: `${StyledCalendarTable}:not([aria-readonly='true']) ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &`
+      });
+      expect(container.firstChild).not.toHaveStyleRule('background-color', background, {
         modifier: `${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover &`
       });
     }
   );
 
-  it.each<{ mode: 'light' | 'dark'; color: string }>([
-    { mode: 'light', color: 'color-mix(in srgb, #1f73b7 16%, #fff)' },
-    { mode: 'dark', color: 'color-mix(in srgb, #2694d6 16%, #151a1e)' }
+  it.each<{ mode: 'light' | 'dark'; background: string; color: string }>([
+    { mode: 'light', background: 'rgba(31,115,183,0.08)', color: '#13456d' },
+    { mode: 'dark', background: 'rgba(38,148,214,0.08)', color: '#66a0cd' }
   ])(
-    'shows the same $mode mode tinted background when the enclosing cell is keyboard-focused and not selected',
-    ({ mode, color }) => {
+    'shows the same tinted background and darkened foreground when the enclosing cell is keyboard-focused and not selected',
+    ({ mode, background, color }) => {
       const { container } = getRenderFn(mode)(
         <StyledDayNumber $isCompact={false}>5</StyledDayNumber>
       );
 
-      expect(container.firstChild).toHaveStyleRule('background-color', color, {
+      expect(container.firstChild).toHaveStyleRule('background-color', background, {
         modifier: `${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):focus-visible &`
+      });
+      expect(container.firstChild).toHaveStyleRule('color', color, {
+        modifier: `${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):focus-visible &`
+      });
+    }
+  );
+
+  it.each<{ mode: 'light' | 'dark'; background: string; color: string }>([
+    { mode: 'light', background: 'rgba(31,115,183,0.16)', color: '#0f3655' },
+    { mode: 'dark', background: 'rgba(38,148,214,0.16)', color: '#93bcdc' }
+  ])(
+    'shows a stronger tinted background and an even darker foreground when the enclosing cell is pressed and not selected, outside a read-only grid',
+    ({ mode, background, color }) => {
+      const { container } = getRenderFn(mode)(
+        <StyledDayNumber $isCompact={false}>5</StyledDayNumber>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('background-color', background, {
+        modifier: `${StyledCalendarTable}:not([aria-readonly='true']) ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):active &`
+      });
+      expect(container.firstChild).toHaveStyleRule('color', color, {
+        modifier: `${StyledCalendarTable}:not([aria-readonly='true']) ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):active &`
       });
     }
   );

@@ -56,8 +56,17 @@ const colorStyles = ({
 };
 
 const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
-  const emphasis = getColor({ variable: 'background.primaryEmphasis', theme });
-  const background = getColor({ variable: 'background.default', theme });
+  const background = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[100]
+  });
+  const foreground = getColor({
+    variable: 'foreground.primary',
+    light: { offset: 100 },
+    dark: { offset: -100 },
+    theme
+  });
 
   /* A read-only grid can't be selected from, so hovering its days doesn't suggest otherwise - keyboard focus still shows where you are. */
   return css`
@@ -65,7 +74,8 @@ const hoverStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
       ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):hover
       &,
     ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):focus-visible & {
-      background-color: color-mix(in srgb, ${emphasis} ${theme.opacity[200] * 100}%, ${background});
+      background-color: ${background};
+      color: ${foreground};
     }
   `;
 };
@@ -110,6 +120,29 @@ const focusRingStyles = ({ theme }: ThemeProps<DefaultTheme>) =>
     selector: `${StyledDayCell}:focus-visible &`
   });
 
+const activeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+  const background = getColor({
+    variable: 'background.primaryEmphasis',
+    theme,
+    transparency: theme.opacity[200]
+  });
+  const foreground = getColor({
+    variable: 'foreground.primary',
+    light: { offset: 200 },
+    dark: { offset: -200 },
+    theme
+  });
+
+  return css`
+    ${StyledCalendarTable}:not([aria-readonly='true'])
+      ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):active
+      & {
+      background-color: ${background};
+      color: ${foreground};
+    }
+  `;
+};
+
 const COMPONENT_ID = 'datepickers.day';
 
 export const StyledDayNumber = styled.div.attrs({
@@ -127,6 +160,7 @@ export const StyledDayNumber = styled.div.attrs({
   ${sizeStyles}
   ${colorStyles}
   ${hoverStyles}
+  ${activeStyles}
   ${selectedStyles}
   ${disabledStyles}
   ${focusRingStyles}
