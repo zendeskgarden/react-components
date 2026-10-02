@@ -194,10 +194,37 @@ describe('StyledDayNumber', () => {
     );
   });
 
-  it('does not transition, so its background change stays in sync with the day cell', () => {
+  it('transitions its background-color and foreground color like the default Button, so state changes are not harsh', () => {
     const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
 
-    expect(container.firstChild).toHaveStyleRule('transition', 'none');
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      expect.stringContaining('background-color 0.25s ease-in-out')
+    );
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      expect.stringContaining('color 0.25s ease-in-out')
+    );
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      expect.stringContaining('box-shadow 0.1s ease-in-out')
+    );
+  });
+
+  it('shortens the transition while pressed, matching the default Button', () => {
+    const { container } = render(<StyledDayNumber $isCompact={false}>5</StyledDayNumber>);
+    const modifier = `${StyledCalendarTable}:not([aria-readonly='true']) ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):active &`;
+
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      expect.stringContaining('background-color 0.1s ease-in-out'),
+      { modifier }
+    );
+    expect(container.firstChild).toHaveStyleRule(
+      'transition',
+      expect.stringContaining('color 0.1s ease-in-out'),
+      { modifier }
+    );
   });
 
   describe('when the enclosing cell is aria-disabled', () => {

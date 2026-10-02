@@ -137,6 +137,12 @@ const activeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
     ${StyledCalendarTable}:not([aria-readonly='true'])
       ${StyledDayCell}[aria-selected='false']:not([aria-disabled='true']):active
       & {
+      /* prettier-ignore */
+      transition:
+        background-color 0.1s ease-in-out,
+        color 0.1s ease-in-out,
+        box-shadow 0.1s ease-in-out,
+        outline-color 0.1s ease-in-out;
       background-color: ${background};
       color: ${foreground};
     }
@@ -149,7 +155,12 @@ export const StyledDayNumber = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledDayNumberProps>`
-  transition: none;
+  /* prettier-ignore */
+  transition:
+    background-color 0.25s ease-in-out,
+    color 0.25s ease-in-out,
+    box-shadow 0.1s ease-in-out,
+    outline-color 0.1s ease-in-out;
   cursor: pointer;
   font-size: ${props => (props.$isCompact ? props.theme.fontSizes.sm : props.theme.fontSizes.md)};
 
