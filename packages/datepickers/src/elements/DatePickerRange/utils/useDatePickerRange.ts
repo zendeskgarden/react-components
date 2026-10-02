@@ -137,12 +137,10 @@ export function useDatePickerRange({
       ?.focus();
   }, [state.focusedDate]);
 
-  // A day click needs to defer its own follow-up focus() to the next commit - calling it
-  // synchronously can blur a currently-focused field before this same click's CLICK_DATE
-  // dispatch has flushed, so the field's blur handler commits against stale input text and
-  // clobbers this click's onChange. A dedicated counter (rather than `state` itself) forces
-  // that next commit even on the one CLICK_DATE branch that intentionally returns the same
-  // state reference.
+  // Deferring the click's own focus() to the next commit keeps a currently-focused field's
+  // blur - which would commit stale input text - from flushing after this click's CLICK_DATE
+  // and clobbering its onChange. The counter forces that deferred commit even on the one
+  // CLICK_DATE branch that intentionally returns the same state reference.
   const pendingCellFocusRef = useRef<HTMLElement | null>(null);
   const [cellFocusRequestId, setCellFocusRequestId] = useState(0);
 
@@ -240,7 +238,6 @@ export function useDatePickerRange({
     [disabledOrReadOnlyFields]
   );
 
-  /** The one field that's disabled or read-only, if only one is. */
   const getDisabledOrReadOnlyField = useCallback((): DatePickerRangeField | undefined => {
     if (disabledOrReadOnlyFields.start !== disabledOrReadOnlyFields.end) {
       return disabledOrReadOnlyFields.start ? 'start' : 'end';
@@ -292,12 +289,9 @@ export function useDatePickerRange({
     [isDisabledOrReadOnly, isOpen, state.isEndFocused, startValue, endValue]
   );
 
-  /**
-   * Closes a dialog that was already open once neither field can change anymore, returning
-   * focus from inside it to the field it was opened from - when that field can still take focus
-   * (i.e. it's read-only). Otherwise nothing in the widget can, so focus is left to the browser.
-   * A layout effect, so focus is checked before the browser drops it from newly-disabled elements.
-   */
+  // Closes a dialog that's already open once neither field can change anymore, returning focus
+  // to the field it opened from when that field can still take focus (i.e. it's read-only).
+  // A layout effect, so focus is checked before the browser drops it from newly-disabled elements.
   useLayoutEffect(() => {
     if (!(isOpen && isDisabledOrReadOnly())) {
       return;
@@ -313,11 +307,9 @@ export function useDatePickerRange({
     }
   }, [isOpen, isDisabledOrReadOnly, startInputRef]);
 
-  /**
-   * An inline calendar that becomes disabled while one of its days or paddles has focus moves
-   * focus to the grid it was in (or the first grid, from the toolbar) instead of losing it, since
-   * none of them can keep it. A layout effect, for the same reason as above.
-   */
+  // When an inline calendar becomes disabled, move focus to the grid it was in (or the first
+  // grid, from the toolbar) instead of dropping it - none of its parts can keep it. A layout
+  // effect, for the same reason as above.
   useLayoutEffect(() => {
     const calendarWrapper = calendarWrapperRef.current;
     const activeElement = document.activeElement;
@@ -639,7 +631,6 @@ export function useDatePickerRange({
     [commitStartBlur, isInsideField]
   );
 
-  /** Commits a pending blur once focus leaves the field's boundary from one of its extra focusable elements. */
   const handleStartBoundaryBlur = useCallback(
     (e: FocusEvent | React.FocusEvent) => {
       // A direct `ClearableInput` inside a `StartGroup` reports through both - only the resolved boundary counts.
@@ -853,10 +844,9 @@ export function useDatePickerRange({
     [commitEndBlur, isInsideField]
   );
 
-  /** Commits a pending blur once focus leaves the field's boundary from one of its extra focusable elements. */
   const handleEndBoundaryBlur = useCallback(
     (e: FocusEvent | React.FocusEvent) => {
-      // A direct `ClearableInput` inside a `EndGroup` reports through both - only the resolved boundary counts.
+      // A direct `ClearableInput` inside an `EndGroup` reports through both - only the resolved boundary counts.
       if (e.currentTarget !== getFieldBoundary('end')) {
         return;
       }

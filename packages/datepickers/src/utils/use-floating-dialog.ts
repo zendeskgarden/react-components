@@ -89,15 +89,11 @@ export function useFloatingDialog({
           }
 
           /**
-           * A percentage `max-height` (like `menu`'s above) only resolves against
-           * an ancestor with a *definite* `height` - `menu`'s own height is `auto`,
-           * so that percentage resolves to `none` and never actually constrains
-           * anything. Whichever descendant already scrolls vertically (e.g.
-           * `StyledCalendarGrid`, or a consumer's own scroll region composed into
-           * `DatePickerRange.Dialog`) is the author's declared scroll container -
-           * give it this same available height in real pixels, so that its
-           * `overflow-y` finally has something concrete to act on instead of
-           * letting content just render past the wrapper's cap.
+           * A percentage `max-height` (like `menu`'s above) only resolves against an ancestor
+           * with a *definite* height, which this wrapper doesn't have - so give whichever
+           * descendant already scrolls vertically (e.g. `StyledCalendarGrid`, or a consumer's
+           * own scroll region composed into `DatePickerRange.Dialog`) its available height in
+           * real pixels, for its `overflow-y` to act on.
            **/
           const scrollRegion = Array.from(
             elements.floating.querySelectorAll<HTMLElement>('*')

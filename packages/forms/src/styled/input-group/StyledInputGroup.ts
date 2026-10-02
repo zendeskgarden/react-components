@@ -142,7 +142,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
-    /* first-child Input/nested group owns all start spacing; last-child owns all end spacing */
     &:has(> ${StyledTextInput}:first-child),
     &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
       padding-inline-start: 0;
@@ -174,7 +173,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       align-self: stretch; /* override the container's own centered children */
     }
 
-    /* base 8px padding on both sides; first/last child overrides to 12px below */
     & > ${StyledTextInput} {
       padding-inline: ${theme.space.xs};
     }
@@ -249,7 +247,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       }
     }
 
-    /* shrinks a text button's height to fit the container, without touching its own padding */
     & ${BUTTON_SELECTOR} {
       height: ${buttonSize};
       min-height: ${buttonSize};
