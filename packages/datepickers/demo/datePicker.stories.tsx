@@ -26,17 +26,29 @@ export const Example: StoryObj<typeof DatePickerStory> = {
         value
       });
 
-    return <DatePickerStory {...args} onChange={handleChange} />;
+    const handleValueSettled = (result: { date?: Date; valid: boolean }) => {
+      if (result.valid) {
+        updateArgs({ value: result.date });
+      }
+    };
+
+    return (
+      <DatePickerStory {...args} onChange={handleChange} onValueSettled={handleValueSettled} />
+    );
   },
   name: 'DatePicker',
   args: {
     dateStyle: DATE_STYLE_OPTIONS[1],
     isAnimated: true,
+    hasTrigger: true,
+    keepTypedInput: true,
     message: 'Message'
   },
   argTypes: {
     appendToNode: { control: false },
     value: { control: 'date' },
+    hasTrigger: { control: 'boolean' },
+    keepTypedInput: { control: 'boolean' },
     minValue: { control: 'date' },
     maxValue: { control: 'date' },
     dateStyle: {
@@ -57,6 +69,14 @@ export const Example: StoryObj<typeof DatePickerStory> = {
     validation: {
       options: ['success', 'warning', 'error'],
       control: { type: 'radio' },
+      table: { category: 'Input' }
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      table: { category: 'Input' }
+    },
+    readOnly: {
+      control: { type: 'boolean' },
       table: { category: 'Input' }
     },
     validationLabel: {

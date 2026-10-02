@@ -1,0 +1,1538 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { useState } from 'react';
+import userEvent from '@testing-library/user-event';
+import { render, fireEvent, within, renderRtl } from 'garden-test-utils';
+import { KEYS } from '@zendeskgarden/container-utilities';
+import { addDays } from 'date-fns/addDays';
+import { subDays } from 'date-fns/subDays';
+import mockDate from 'mockdate';
+import { ClearableInput } from '@zendeskgarden/react-forms';
+import { DatePickerRange } from '../DatePickerRange';
+import { IDatePickerRangeProps } from '../../../types';
+
+const DEFAULT_START_VALUE = new Date(2019, 1, 5);
+const DEFAULT_END_VALUE = new Date(2019, 2, 5);
+const IN_RANGE_DESCRIPTION = /\((?:start of|end of|included in) range\)/u;
+
+/** The visible, abbreviated label in a weekday column header (the full name is visually hidden). */
+const getAbbreviatedDayLabel = (header: HTMLElement) =>
+  within(header).getByText(content => content.length > 0, { ignore: 'script, style, [hidden]' });
+
+const Example = (props: IDatePickerRangeProps) => (
+  <DatePickerRange {...props}>
+    <DatePickerRange.Start>
+      <input data-test-id="start" />
+    </DatePickerRange.Start>
+    <DatePickerRange.End>
+      <input data-test-id="end" />
+    </DatePickerRange.End>
+    <DatePickerRange.Calendar />
+  </DatePickerRange>
+);
+
+/** Real (current-month, interactive) day cells only - excludes the visually-hidden previous-month placeholders. */
+const getDays = (wrapper: HTMLElement) =>
+  within(wrapper)
+    .getAllByRole('gridcell')
+    .filter(cell => cell.getAttribute('data-test-hidden') === 'false');
+
+describe('Month', () => {
+  const user = userEvent.setup();
+
+  let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;
+
+  beforeEach(() => {
+    onChangeSpy = jest.fn();
+    mockDate.set(DEFAULT_START_VALUE);
+  });
+
+  afterEach(() => {
+    mockDate.reset();
+  });
+
+  describe('Calendar display', () => {
+    it('displays dates with correct previous styling', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
+
+      for (let x = 0; x < firstMonthDays.length; x++) {
+        if (x <= 4) {
+          expect(firstMonthDays[x]).toHaveAttribute('data-test-hidden', 'true');
+        } else if (x >= 33) {
+          expect(firstMonthDays[x]).toHaveAttribute('data-test-hidden', 'true');
+        } else {
+          expect(firstMonthDays[x]).toHaveAttribute('data-test-hidden', 'false');
+        }
+      }
+
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
+
+      for (let x = 0; x < secondMonthDays.length; x++) {
+        if (x <= 4) {
+          expect(secondMonthDays[x]).toHaveAttribute('data-test-hidden', 'true');
+        } else if (x >= 36) {
+          expect(secondMonthDays[x]).toHaveAttribute('data-test-hidden', 'true');
+        } else {
+          expect(secondMonthDays[x]).toHaveAttribute('data-test-hidden', 'false');
+        }
+      }
+    });
+
+    it('reuses its date formatters while hovering across days, rather than constructing new ones', async () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+      const days = getDays(getAllByRole('grid')[0]);
+      const DateTimeFormat = jest.spyOn(Intl, 'DateTimeFormat');
+
+      await user.hover(days[10]);
+      await user.hover(days[11]);
+      await user.hover(days[12]);
+
+      expect(DateTimeFormat).not.toHaveBeenCalled();
+
+      DateTimeFormat.mockRestore();
+    });
+
+    it('leaves blank adjacent-month cells empty, so they have no accessible name', () => {
+      const { container } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const blankCells = container.querySelectorAll('[data-test-hidden="true"]');
+
+      expect(blankCells.length).toBeGreaterThan(0);
+
+      blankCells.forEach(cell => {
+        expect(cell.textContent).toBe('');
+      });
+    });
+
+    it('displays dates with selected and today styling', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
+
+      expect(firstMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
+      expect(firstMonthDays[9]).toHaveAttribute('data-test-today', 'true');
+
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
+
+      expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
+    });
+
+    it('marks the committed start and end values with aria-selected', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+
+      expect(firstMonthDays[4]).toHaveAttribute('aria-selected', 'true');
+      expect(firstMonthDays[3]).toHaveAttribute('aria-selected', 'false');
+
+      const secondMonthDays = getDays(grids[1]);
+
+      expect(secondMonthDays[4]).toHaveAttribute('aria-selected', 'true');
+    });
+
+    it('renders the visible day number plus a visually-hidden full date', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+
+      expect(firstMonthDays[4]).toHaveTextContent('5');
+      expect(within(firstMonthDays[4]).getByText('5')).toHaveAttribute('aria-hidden', 'true');
+      expect(within(firstMonthDays[4]).getByText('February 5, 2019')).toHaveAttribute('hidden');
+    });
+
+    it.each(['en-US', 'ja', 'ar-EG', 'fa'])(
+      "includes each day's visible number in its full date, for %s",
+      locale => {
+        const { getAllByRole } = render(
+          <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} locale={locale} />
+        );
+
+        getDays(getAllByRole('grid')[0]).forEach(day => {
+          const visible = day.querySelector('[data-garden-id="datepickers.day"]')!.textContent!;
+
+          expect(
+            within(day).getByText(content => content.includes(visible), { selector: '[hidden]' })
+          ).toBeInTheDocument();
+        });
+      }
+    );
+
+    it("numbers the grid's Gregorian days for a locale whose default calendar has different months", () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} locale="fa" />
+      );
+      const firstDay = getDays(getAllByRole('grid')[0])[0];
+
+      expect(firstDay.querySelector('[data-garden-id="datepickers.day"]')).toHaveTextContent(
+        /^۱$/u
+      );
+    });
+
+    it('describes each real day cell as a selectable cell', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+
+      [...getDays(grids[0]), ...getDays(grids[1])].forEach(day => {
+        expect(day).toHaveAttribute('aria-roledescription', 'selectable cell');
+      });
+    });
+
+    it('accepts a custom selectableCellRoleDescription', () => {
+      const { getAllByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          selectableCellRoleDescription="cellule sélectionnable"
+        />
+      );
+
+      const grids = getAllByRole('grid');
+
+      [...getDays(grids[0]), ...getDays(grids[1])].forEach(day => {
+        expect(day).toHaveAttribute('aria-roledescription', 'cellule sélectionnable');
+      });
+    });
+
+    it('renders aria-selected on every real day cell, true only for the committed start/end values', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+
+      getDays(grids[0]).forEach((day, index) => {
+        expect(day).toHaveAttribute('aria-selected', index === 4 ? 'true' : 'false');
+      });
+
+      getDays(grids[1]).forEach((day, index) => {
+        expect(day).toHaveAttribute('aria-selected', index === 4 ? 'true' : 'false');
+      });
+    });
+
+    it('displays "Sun" as default first day of week', () => {
+      const { getAllByRole } = render(<Example />);
+
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Sun');
+    });
+
+    it('display locale based first day of week', () => {
+      const { getAllByRole } = render(<Example locale="en-GB" />);
+
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Mon');
+    });
+
+    it('display custom first day of week', () => {
+      const { getAllByRole } = render(<Example locale="en-GB" weekStartsOn={3} />);
+
+      expect(getAbbreviatedDayLabel(getAllByRole('columnheader')[0])).toHaveTextContent('Wed');
+    });
+
+    it('displays highlighted days correctly if both values are provided', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 4) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      const secondMonthCells = getDays(grids[1]);
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('displays highlighted days correctly if both values are provided in RTL mode', () => {
+      const { getAllByRole } = renderRtl(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 4) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      const secondMonthCells = getDays(grids[1]);
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('displays highlighted days correctly when moused', async () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      await user.hover(within(grids[1]).getAllByRole('gridcell')[9]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 4) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('highlights backward from a hovered day to the end value when only the end value is set', async () => {
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      await user.hover(within(grids[0]).getAllByRole('gridcell')[6]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 1) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 1) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-end', 'true');
+        }
+      }
+    });
+
+    it('shows no highlight when hovering a day after the end value, with no start value set', async () => {
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      await user.hover(within(grids[1]).getAllByRole('gridcell')[14]);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('shows no tint at all for a hovered end candidate on the first day of its row', async () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const hoverCell = within(grids[0]).getAllByRole('gridcell')[14]; // Feb 10, 2019 - a Sunday
+
+      await user.hover(hoverCell);
+
+      expect(hoverCell).toHaveAttribute('data-test-end', 'true');
+      expect(hoverCell).not.toHaveStyleRule('background-image');
+      expect(hoverCell).not.toHaveStyleRule('background-color', 'rgba(31,115,183,0.08)');
+    });
+
+    it('shows no tint at all for a hovered start candidate on the last day of its row', async () => {
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const hoverCell = within(grids[0]).getAllByRole('gridcell')[13]; // Feb 9, 2019 - a Saturday
+
+      await user.hover(hoverCell);
+
+      expect(hoverCell).toHaveAttribute('data-test-start', 'true');
+      expect(hoverCell).not.toHaveStyleRule('background-image');
+      expect(hoverCell).not.toHaveStyleRule('background-color', 'rgba(31,115,183,0.08)');
+    });
+
+    it('removes highlighted days when moused away', async () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      await user.hover(within(grids[1]).getAllByRole('gridcell')[9]);
+      await user.unhover(getAllByRole('grid')[1]);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('clears the highlight when moving from a hovered start candidate onto the committed end value', () => {
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+      const endCell = within(grids[1]).getAllByRole('gridcell')[9]; // March 5, 2019
+      const candidateCell = within(grids[1]).getAllByRole('gridcell')[6]; // March 2, 2019
+
+      expect(endCell).toHaveAttribute('aria-selected', 'true');
+
+      // fireEvent.mouseEnter is used instead of user.hover so no synthetic
+      // leave events are dispatched on ancestors along the way - matching
+      // moving the mouse directly from one cell to an adjacent one.
+      fireEvent.mouseEnter(candidateCell);
+      fireEvent.mouseEnter(endCell);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('clears the highlight when moving from a hovered end candidate onto the committed start value', () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+      const startCell = within(grids[0]).getAllByRole('gridcell')[9]; // Feb 5, 2019
+      const candidateCell = within(grids[0]).getAllByRole('gridcell')[12]; // Feb 8, 2019
+
+      expect(startCell).toHaveAttribute('aria-selected', 'true');
+
+      fireEvent.mouseEnter(candidateCell);
+      fireEvent.mouseEnter(startCell);
+
+      firstMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+
+      secondMonthCells.forEach(cell => {
+        expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+      });
+    });
+
+    it('displays disabled styling for minimum and maximum values', () => {
+      const { getAllByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          minValue={subDays(DEFAULT_START_VALUE, 2)}
+          maxValue={addDays(DEFAULT_END_VALUE, 1)}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
+
+      for (let x = 0; x < firstMonthDays.length; x++) {
+        const element = firstMonthDays[x];
+
+        if (x < 5) {
+          expect(element).not.toHaveAttribute('data-test-disabled');
+        } else if (x < 7) {
+          expect(element).toHaveAttribute('data-test-disabled', 'true');
+        } else if (x >= 7 && x <= 32) {
+          expect(element).toHaveAttribute('data-test-disabled', 'false');
+        } else {
+          expect(element).not.toHaveAttribute('data-test-disabled');
+        }
+      }
+
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
+
+      for (let x = 0; x < secondMonthDays.length; x++) {
+        const element = secondMonthDays[x];
+
+        if (x < 5) {
+          expect(element).not.toHaveAttribute('data-test-disabled');
+        } else if (x >= 5 && x < 11) {
+          expect(element).toHaveAttribute('data-test-disabled', 'false');
+        } else if (x >= 11 && x < 36) {
+          expect(element).toHaveAttribute('data-test-disabled', 'true');
+        } else {
+          expect(element).not.toHaveAttribute('data-test-disabled');
+        }
+      }
+    });
+  });
+
+  describe('Calendar grid structure', () => {
+    it('renders each month as a table with th day-labels and td days', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+
+      grids.forEach(wrapper => {
+        expect(wrapper.tagName).toBe('TABLE');
+
+        within(wrapper)
+          .getAllByRole('columnheader')
+          .forEach(header => expect(header.tagName).toBe('TH'));
+        within(wrapper)
+          .getAllByRole('gridcell')
+          .forEach(cell => expect(cell.tagName).toBe('TD'));
+      });
+    });
+
+    it('groups day-label cells and each week of days into table rows', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const wrapper = getAllByRole('grid')[0];
+      const days = within(wrapper).getAllByRole('gridcell');
+      const rows = within(wrapper).getAllByRole('row');
+      const headerRow = rows.find(row => within(row).queryAllByRole('columnheader').length > 0);
+      const weekRows = rows.filter(row => row !== headerRow);
+
+      expect(headerRow).toBeDefined();
+      expect(within(headerRow!).getAllByRole('columnheader')).toHaveLength(7);
+      expect(weekRows).toHaveLength(days.length / 7);
+      weekRows.forEach(row => {
+        expect(within(row).getAllByRole('gridcell')).toHaveLength(7);
+      });
+    });
+  });
+
+  describe('Calendar grid roles', () => {
+    it('gives each month table a grid role labelled by its own month/year heading', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const headings = getAllByRole('heading', { level: 2 });
+
+      expect(grids).toHaveLength(2);
+      expect(headings).toHaveLength(2);
+
+      grids.forEach((grid, index) => {
+        expect(grid).toHaveAttribute('aria-labelledby', headings[index].id);
+      });
+      expect(grids[0]).toHaveAccessibleName('February 2019');
+      expect(grids[1]).toHaveAccessibleName('March 2019');
+    });
+
+    it('hides the abbreviated day-label from screen readers in favor of a visually-hidden full weekday name', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const wrapper = getAllByRole('grid')[0];
+      const columnHeaders = within(wrapper).getAllByRole('columnheader');
+      expect(columnHeaders[0]).not.toHaveAttribute('abbr');
+      expect(within(columnHeaders[0]).getByText('Sun')).toHaveAttribute('aria-hidden', 'true');
+      expect(within(columnHeaders[0]).getByText('Sunday')).toHaveAttribute('hidden');
+    });
+  });
+
+  describe('In-range description', () => {
+    it('renders visually-hidden in-range description text as a sibling of the day number, only for described days', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      expect(within(firstMonthCells[0]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
+      expect(within(secondMonthCells[5]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
+
+      const startCell = firstMonthCells[4];
+      const startDescription = within(startCell).getByText(IN_RANGE_DESCRIPTION);
+
+      expect(startDescription).toHaveAttribute('hidden');
+      expect(startCell).not.toHaveAttribute('aria-describedby');
+      expect(startCell).toContainElement(startDescription);
+
+      const endCell = secondMonthCells[4];
+
+      expect(within(endCell).getByText(IN_RANGE_DESCRIPTION)).toHaveAttribute('hidden');
+      expect(endCell).not.toHaveAttribute('aria-describedby');
+    });
+
+    it('labels the range boundaries as "start of range"/"end of range", and interior days as "included in range"', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      const startDescription = within(firstMonthCells[4]).getByText(IN_RANGE_DESCRIPTION);
+      const interiorDescription = within(firstMonthCells[5]).getByText(IN_RANGE_DESCRIPTION);
+      const endDescription = within(secondMonthCells[4]).getByText(IN_RANGE_DESCRIPTION);
+
+      expect(startDescription).toHaveTextContent('(start of range)');
+      expect(interiorDescription).toHaveTextContent('(included in range)');
+      expect(endDescription).toHaveTextContent('(end of range)');
+    });
+
+    it('does not describe a hovered day as part of a range when neither startValue nor endValue is set', async () => {
+      const { getAllByRole } = render(<Example />);
+
+      const grids = getAllByRole('grid');
+      const hoverCell = within(grids[0]).getAllByRole('gridcell')[10]; // Feb 6, 2019 - not a row edge
+
+      await user.hover(hoverCell);
+
+      expect(hoverCell).toHaveAttribute('data-test-end', 'false');
+      expect(within(hoverCell).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
+    });
+
+    it('does not describe days as part of a range while only one value is committed, even as focus previews a candidate range', () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
+
+      fireEvent.keyDown(firstMonthDays[9], { key: KEYS.RIGHT }); // Feb 5, 2019 - the start value
+
+      // getDays only wraps real (current-month) days, unlike the unfiltered `day` list above,
+      // so index 5 here is Feb 6, 2019 - one day after the start value.
+      const firstMonthCells = getDays(grids[0]);
+
+      expect(firstMonthCells[5]).toHaveAttribute('data-test-highlighted', 'true');
+      expect(within(firstMonthCells[5]).queryByText(IN_RANGE_DESCRIPTION)).toBeNull();
+    });
+
+    it('describes the committed start value as "start of range" immediately, before an end value is set', () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const startCell = firstMonthCells[4]; // Feb 5, 2019 - the start value
+
+      expect(within(startCell).getByText('(start of range)', { exact: false })).toHaveAttribute(
+        'hidden'
+      );
+    });
+
+    it('describes the committed end value as "end of range" immediately, before a start value is set', () => {
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const secondMonthCells = getDays(grids[1]);
+      const endCell = secondMonthCells[4]; // March 5, 2019 - the end value
+
+      expect(within(endCell).getByText('(end of range)', { exact: false })).toHaveAttribute(
+        'hidden'
+      );
+    });
+
+    it('accepts custom startOfRangeLabel, endOfRangeLabel and inRangeLabel', () => {
+      const { getAllByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          startOfRangeLabel="début de la plage"
+          endOfRangeLabel="fin de la plage"
+          inRangeLabel="dans la plage"
+        />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      expect(
+        within(firstMonthCells[4]).getByText('début de la plage', { exact: false })
+      ).toHaveAttribute('hidden');
+      expect(
+        within(firstMonthCells[5]).getByText('dans la plage', { exact: false })
+      ).toHaveAttribute('hidden');
+      expect(
+        within(secondMonthCells[4]).getByText('fin de la plage', { exact: false })
+      ).toHaveAttribute('hidden');
+    });
+  });
+
+  describe('Calendar selection', () => {
+    it('clears end value when date is selected', async () => {
+      const { getAllByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(within(grids[0]).getAllByRole('gridcell')[6]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 2),
+        endValue: undefined
+      });
+    });
+
+    it('selects end value when additional date is selected', async () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(within(grids[1]).getAllByRole('gridcell')[6]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 5),
+        endValue: new Date(2019, 2, 2)
+      });
+    });
+
+    it('advances from start to end again after clearing both fields via ClearableInput', async () => {
+      const ControlledExample = ({
+        startValue: initialStartValue,
+        endValue: initialEndValue,
+        ...props
+      }: IDatePickerRangeProps) => {
+        const [startValue, setStartValue] = useState(initialStartValue);
+        const [endValue, setEndValue] = useState(initialEndValue);
+
+        return (
+          <DatePickerRange
+            {...props}
+            startValue={startValue}
+            endValue={endValue}
+            onChange={value => {
+              setStartValue(value.startValue);
+              setEndValue(value.endValue);
+            }}
+            onValueSettled={result => {
+              if (result.valid) {
+                if (result.field === 'start') {
+                  setStartValue(result.date);
+                } else {
+                  setEndValue(result.date);
+                }
+              }
+            }}
+          >
+            <DatePickerRange.Start>
+              <ClearableInput data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <ClearableInput data-test-id="end" />
+            </DatePickerRange.End>
+            <DatePickerRange.Calendar />
+          </DatePickerRange>
+        );
+      };
+
+      const { getByTestId, getAllByRole } = render(
+        <ControlledExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const clearButtons = getAllByRole('button', { name: 'Clear' });
+
+      await user.click(clearButtons[1]);
+      await user.click(clearButtons[0]);
+
+      await user.click(within(grids[0]).getAllByRole('gridcell')[6]);
+      await user.click(within(grids[1]).getAllByRole('gridcell')[6]);
+
+      expect(getByTestId('start')).toHaveValue('February 2, 2019');
+      expect(getByTestId('end')).toHaveValue('March 2, 2019');
+    });
+
+    it('selects start value if no values are selected', async () => {
+      const { getAllByRole } = render(<Example onChange={onChangeSpy} />);
+
+      const grids = getAllByRole('grid');
+
+      await user.click(within(grids[1]).getAllByRole('gridcell')[6]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 2),
+        endValue: undefined
+      });
+    });
+
+    it('updates start value when clicked date is before end value', async () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(within(grids[0]).getAllByRole('gridcell')[5]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 1),
+        endValue: undefined
+      });
+    });
+
+    it('updates start input value when date is changed', () => {
+      const { getByTestId, rerender } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      rerender(
+        <Example
+          startValue={new Date(2019, 1, 10)}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      expect(getByTestId('start')).toHaveValue('February 10, 2019');
+    });
+
+    it('updates end input value when date is changed', () => {
+      const { getByTestId, rerender } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      rerender(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={new Date(2019, 2, 15)}
+          onChange={onChangeSpy}
+        />
+      );
+
+      expect(getByTestId('end')).toHaveValue('March 15, 2019');
+    });
+
+    it('does not select date if before minDate', async () => {
+      const { getAllByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_START_VALUE, 2)}
+          maxValue={addDays(DEFAULT_END_VALUE, 2)}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = within(grids[0]).getAllByRole('gridcell');
+      const secondMonthDays = within(grids[1]).getAllByRole('gridcell');
+
+      await user.click(firstMonthDays[4]);
+      await user.click(secondMonthDays[33]);
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not select a disabled date via keyboard, but keeps it focusable', async () => {
+      const { getAllByRole } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          minValue={subDays(DEFAULT_START_VALUE, 2)}
+          maxValue={addDays(DEFAULT_END_VALUE, 2)}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+      const disabledDay = firstMonthDays[0];
+
+      expect(disabledDay).toHaveAttribute('data-test-disabled', 'true');
+      expect(disabledDay).toHaveAttribute('aria-disabled', 'true');
+      expect(disabledDay).not.toHaveAttribute('disabled');
+
+      disabledDay.focus();
+
+      expect(disabledDay).toHaveFocus();
+
+      await user.keyboard('{Enter}');
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it('selects start value via keyboard when no values are selected', async () => {
+      const { getAllByRole } = render(<Example onChange={onChangeSpy} />);
+
+      const grids = getAllByRole('grid');
+      const day = within(grids[1]).getAllByRole('gridcell')[6];
+
+      day.focus();
+      await user.keyboard('{Enter}');
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 2),
+        endValue: undefined
+      });
+    });
+
+    it('updates valid start value when start input is focused', async () => {
+      const { getAllByRole, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(getByTestId('start'));
+      await user.click(within(grids[0]).getAllByRole('gridcell')[12]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 8),
+        endValue: new Date(2019, 2, 5)
+      });
+    });
+
+    it('updates invalid start value when start input is focused', async () => {
+      const { getAllByRole, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(getByTestId('start'));
+      await user.click(within(grids[1]).getAllByRole('gridcell')[12]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 2, 8),
+        endValue: undefined
+      });
+    });
+
+    it('updates valid end value when end input is focused', async () => {
+      const { getAllByRole, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(getByTestId('end'));
+      await user.click(within(grids[1]).getAllByRole('gridcell')[12]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 5),
+        endValue: new Date(2019, 2, 8)
+      });
+    });
+
+    it('updates invalid end value when end input is focused', async () => {
+      const { getAllByRole, getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+      const grids = getAllByRole('grid');
+
+      await user.click(getByTestId('end'));
+      await user.click(within(grids[0]).getAllByRole('gridcell')[8]);
+
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: new Date(2019, 1, 4),
+        endValue: undefined
+      });
+    });
+  });
+
+  describe('Focus after selection, without a Dialog composed', () => {
+    it('moves focus to the selected day cell, not the End field, when completing the range', async () => {
+      const { getAllByRole, getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
+      );
+      const endInput = getByTestId('end');
+
+      await user.click(endInput);
+
+      const grids = getAllByRole('grid');
+      const dayCell = within(grids[1]).getAllByRole('gridcell')[6];
+
+      await user.click(dayCell);
+
+      expect(dayCell).toHaveFocus();
+      expect(endInput).not.toHaveFocus();
+    });
+
+    it('moves focus to the selected day cell, not the Start field, when completing the range (Start picked second)', async () => {
+      const { getAllByRole, getByTestId } = render(
+        <Example endValue={DEFAULT_END_VALUE} onChange={onChangeSpy} />
+      );
+      const startInput = getByTestId('start');
+
+      await user.click(startInput);
+
+      const grids = getAllByRole('grid');
+      const dayCell = within(grids[0]).getAllByRole('gridcell')[9];
+
+      await user.click(dayCell);
+
+      expect(dayCell).toHaveFocus();
+      expect(startInput).not.toHaveFocus();
+    });
+
+    it('lets arrow-key navigation continue after selecting a day cell by mouse', async () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} onChange={onChangeSpy} />
+      );
+
+      const grids = getAllByRole('grid');
+      const dayCell = within(grids[1]).getAllByRole('gridcell')[6];
+
+      await user.click(dayCell);
+
+      expect(dayCell).toHaveFocus();
+
+      await user.keyboard('{ArrowRight}');
+
+      const days = within(grids[1]).getAllByRole('gridcell');
+
+      expect(days[7]).toHaveFocus();
+    });
+  });
+
+  describe('Keyboard navigation', () => {
+    it('gives exactly one day button tabindex="0" across both months, matching the start value', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+      const secondMonthDays = getDays(grids[1]);
+      const focusedDay = firstMonthDays[4];
+
+      expect(focusedDay).toHaveAttribute('tabindex', '0');
+
+      [...firstMonthDays, ...secondMonthDays]
+        .filter(day => day !== focusedDay)
+        .forEach(day => {
+          expect(day).toHaveAttribute('tabindex', '-1');
+        });
+    });
+
+    it('moves focus to the next day when ArrowRight is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[5]).toHaveFocus();
+      expect(days[5]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('calls preventDefault on the keyboard event when navigating with arrow keys', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+      const wasNotCanceled = fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
+
+      expect(wasNotCanceled).toBe(false);
+    });
+
+    it('moves focus to the previous day when ArrowLeft is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[3]).toHaveFocus();
+      expect(days[3]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the previous day when ArrowRight is pressed, in RTL', () => {
+      const { getAllByRole } = renderRtl(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.RIGHT });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[3]).toHaveFocus();
+      expect(days[3]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus to the next day when ArrowLeft is pressed, in RTL', () => {
+      const { getAllByRole } = renderRtl(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[5]).toHaveFocus();
+      expect(days[5]).toHaveAttribute('tabindex', '0');
+      expect(days[4]).toHaveAttribute('tabindex', '-1');
+    });
+
+    it('moves focus one week forward when ArrowDown is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.DOWN });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[11]).toHaveFocus();
+    });
+
+    it('moves focus one week back when ArrowUp is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[11], { key: KEYS.UP });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[4]).toHaveFocus();
+    });
+
+    it('moves focus into the second month grid when ArrowRight crosses the month boundary', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+      const lastDayOfFebruary = firstMonthDays[firstMonthDays.length - 1];
+
+      fireEvent.keyDown(lastDayOfFebruary, { key: KEYS.RIGHT });
+
+      const secondMonthDays = getDays(getAllByRole('grid')[1]);
+
+      expect(secondMonthDays[0]).toHaveFocus();
+      expect(secondMonthDays[0]).toHaveTextContent('1');
+    });
+
+    it('moves focus to the start of the week when Home is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.HOME });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[2]).toHaveFocus();
+      expect(days[2]).toHaveTextContent('3');
+    });
+
+    it('moves focus to the end of the week when End is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.END });
+
+      const days = getDays(getAllByRole('grid')[0]);
+
+      expect(days[8]).toHaveFocus();
+      expect(days[8]).toHaveTextContent('9');
+    });
+
+    it('moves focus to the same day next month, into the second grid, when PageDown is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
+
+      const secondMonthDays = getDays(getAllByRole('grid')[1]);
+
+      expect(secondMonthDays[4]).toHaveFocus();
+      expect(secondMonthDays[4]).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous month, shifting the window, when PageUp is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP });
+
+      const grids = getAllByRole('grid');
+
+      const headings = getAllByRole('heading');
+
+      expect(headings[0]).toHaveTextContent('January 2019');
+      expect(headings[1]).toHaveTextContent('February 2019');
+
+      const days = getDays(grids[0]);
+
+      expect(days[4]).toHaveFocus();
+      expect(days[4]).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day next year when Shift+PageDown is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN, shiftKey: true });
+
+      const grids = getAllByRole('grid');
+
+      const headings = getAllByRole('heading');
+
+      expect(headings[0]).toHaveTextContent('January 2020');
+      expect(headings[1]).toHaveTextContent('February 2020');
+
+      const days = getDays(grids[1]);
+
+      expect(days[4]).toHaveFocus();
+      expect(days[4]).toHaveTextContent('5');
+    });
+
+    it('moves focus to the same day previous year when Shift+PageUp is pressed', () => {
+      const { getAllByRole } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_UP, shiftKey: true });
+
+      const grids = getAllByRole('grid');
+
+      const headings = getAllByRole('heading');
+
+      expect(headings[0]).toHaveTextContent('February 2018');
+      expect(headings[1]).toHaveTextContent('March 2018');
+
+      const days = getDays(grids[0]);
+
+      expect(days[4]).toHaveFocus();
+      expect(days[4]).toHaveTextContent('5');
+    });
+
+    it('clamps to the last day of the month when PageDown lands on a day that does not exist', () => {
+      mockDate.set(new Date(2019, 0, 31));
+
+      const { getAllByRole } = render(<Example startValue={new Date(2019, 0, 31)} />);
+
+      const firstMonthDays = getDays(getAllByRole('grid')[0]);
+      const selectedDay = firstMonthDays.find(
+        day => day.getAttribute('data-test-selected') === 'true'
+      )!;
+
+      fireEvent.keyDown(selectedDay, { key: KEYS.PAGE_DOWN });
+
+      const secondMonthDays = getDays(getAllByRole('grid')[1]);
+      const focusedDay = secondMonthDays.find(day => day.getAttribute('tabindex') === '0')!;
+
+      expect(focusedDay).toHaveFocus();
+      expect(focusedDay).toHaveTextContent('28');
+    });
+
+    it('highlights the candidate range as focus moves via keyboard, matching mouse hover', () => {
+      const { getAllByRole } = render(<Example startValue={DEFAULT_START_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.PAGE_DOWN });
+
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 4) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 4) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+      }
+    });
+
+    it('highlights backward from the focused day to the end value when only the end value is set, matching mouse hover', () => {
+      const { getAllByRole } = render(<Example endValue={DEFAULT_END_VALUE} />);
+
+      const grids = getAllByRole('grid');
+      const firstMonthDays = getDays(grids[0]);
+
+      fireEvent.keyDown(firstMonthDays[4], { key: KEYS.LEFT });
+
+      const firstMonthCells = getDays(grids[0]);
+      const secondMonthCells = getDays(grids[1]);
+
+      for (let x = 0; x < firstMonthCells.length; x++) {
+        const cell = firstMonthCells[x];
+
+        if (x < 3) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        }
+
+        if (x === 3) {
+          expect(cell).toHaveAttribute('data-test-start', 'true');
+        }
+      }
+
+      for (let x = 0; x < secondMonthCells.length; x++) {
+        const cell = secondMonthCells[x];
+
+        if (x < 5) {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'true');
+        } else {
+          expect(cell).toHaveAttribute('data-test-highlighted', 'false');
+        }
+      }
+    });
+  });
+
+  describe('theming structure', () => {
+    const TINT = 'rgba(31,115,183,0.08)';
+
+    const getItems = (cell: HTMLElement) =>
+      Array.from(cell.children).filter(
+        child => child.getAttribute('data-garden-id') === 'datepickers.calendar_item'
+      ) as HTMLElement[];
+
+    const getHighlight = (cell: HTMLElement) =>
+      cell.querySelector<HTMLElement>("[data-garden-id='datepickers.highlight']");
+
+    const renderRange = () =>
+      render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        />
+      );
+
+    it("wraps every cell's content - days and blank adjacent-month cells - in a single calendar_item", () => {
+      const { getAllByRole } = renderRange();
+
+      getAllByRole('gridcell').forEach(cell => {
+        expect(cell.children).toHaveLength(1);
+        expect(getItems(cell)).toHaveLength(1);
+      });
+    });
+
+    it("wraps each weekday header's content in a single calendar_item", () => {
+      const { getAllByRole } = renderRange();
+
+      getAllByRole('columnheader').forEach(header => {
+        expect(header.children).toHaveLength(1);
+        expect(getItems(header)).toHaveLength(1);
+      });
+    });
+
+    it("renders an aria-hidden highlight inside each day, mirroring its cell's range state", () => {
+      const { getAllByRole } = renderRange();
+
+      getAllByRole('grid').forEach(wrapper => {
+        getDays(wrapper).forEach(cell => {
+          const highlight = getHighlight(cell);
+
+          expect(highlight).not.toBeNull();
+          expect(getItems(cell)[0]).toContainElement(highlight);
+          expect(highlight).toHaveAttribute('aria-hidden', 'true');
+          expect(highlight).toHaveAttribute('data-test-id', 'highlight');
+
+          ['data-test-highlighted', 'data-test-start', 'data-test-end'].forEach(attribute => {
+            expect(highlight).toHaveAttribute(attribute, cell.getAttribute(attribute));
+          });
+        });
+      });
+    });
+
+    it('renders no highlight in blank adjacent-month cells', () => {
+      const { getAllByRole } = renderRange();
+      const blankCells = getAllByRole('gridcell').filter(
+        cell => cell.getAttribute('data-test-hidden') === 'true'
+      );
+
+      expect(blankCells.length).toBeGreaterThan(0);
+      blankCells.forEach(cell => expect(getHighlight(cell)).toBeNull());
+    });
+
+    it('paints the range band on the highlight, not on the cell', () => {
+      const { getAllByRole } = renderRange();
+      const middleDay = getDays(getAllByRole('grid')[0])[14]; // February 15, 2019
+
+      expect(middleDay).toHaveAttribute('data-test-highlighted', 'true');
+      expect(middleDay).not.toHaveStyleRule('background-color', TINT);
+      expect(getHighlight(middleDay)).toHaveStyleRule('background-color', TINT);
+    });
+  });
+});

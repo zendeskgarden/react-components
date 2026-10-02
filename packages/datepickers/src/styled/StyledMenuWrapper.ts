@@ -15,6 +15,7 @@ interface IStyledMenuWrapperProps {
   $isAnimated?: boolean;
   $zIndex?: number;
   'aria-hidden'?: boolean;
+  inert?: string;
   $placement: Placement;
 }
 

@@ -5,84 +5,100 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
-import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { isValid } from 'date-fns/isValid';
-import { isSameDay } from 'date-fns/isSameDay';
-import { parseInputValue } from '../utils/date-picker-range-reducer';
+import React, {
+  PropsWithChildren,
+  HTMLAttributes,
+  Ref,
+  RefObject,
+  cloneElement,
+  useEffect
+} from 'react';
+import { mergeRefs } from 'react-merge-refs';
+import { ClearableInput } from '@zendeskgarden/react-forms';
 import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import useDatePickerRangeFieldContext from '../utils/useDatePickerRangeFieldContext';
+import { NESTED_GROUP_PROPS } from '../../../utils/nested-group-utils';
 
-export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
-  const { state, dispatch, onChange, startValue, endValue, endInputRef, customParseDate } =
-    useDatePickerContext();
+type IEndProps = HTMLAttributes<HTMLInputElement> & {
+  /**
+   * The element bounding this field - its input plus any extra focusable elements, like a
+   * clear button - so focus moving between them isn't treated as leaving the field. Only
+   * needed when the child isn't a `ClearableInput` itself and the field isn't inside a
+   * `EndGroup`, e.g. for a custom component that wraps `ClearableInput`.
+   */
+  wrapperRef?: RefObject<HTMLElement | null>;
+};
 
-  const onChangeCallback = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch({ type: 'END_INPUT_ONCHANGE', value: e.target.value });
+/**
+ * Renders no wrapper of its own, so the child composes as a true, direct
+ * child of whatever the consumer wraps it in (e.g. `InputGroup`). Only a
+ * `ClearableInput` child also receives its own `wrapperRef`/`wrapperProps`
+ * (see `getEndWrapperProps`), so blur detection spans its clear button - any other
+ * child (e.g. `Input`, `MediaInput`) would pass them on to its DOM input.
+ */
+export const End = ({ children, wrapperRef }: PropsWithChildren<IEndProps>) => {
+  const {
+    hasDialog,
+    registerFieldState,
+    registerFieldWrapperRef,
+    getEndInputProps,
+    getEndWrapperProps,
+    getFieldTriggerProps
+  } = useDatePickerContext();
 
-      (props.children as any).props.onChange && (props.children as any).props.onChange(e);
-    },
-    [dispatch, props.children]
+  const childElement = React.Children.only(
+    children as React.ReactElement & React.RefAttributes<HTMLInputElement>
+  );
+  const { disabled, readOnly, required } = childElement.props;
+
+  useEffect(
+    () =>
+      registerFieldState('end', {
+        disabled: !!disabled,
+        readOnly: !!readOnly,
+        required: !!required
+      }),
+    [registerFieldState, disabled, readOnly, required]
+  );
+  const isClearableInput = childElement.type === ClearableInput;
+  const isInsideFieldGroup = useDatePickerRangeFieldContext() !== undefined;
+
+  useEffect(
+    () => (wrapperRef ? registerFieldWrapperRef('end', wrapperRef) : undefined),
+    [registerFieldWrapperRef, wrapperRef]
   );
 
-  const onFocusCallback = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      dispatch({ type: 'END_FOCUS' });
+  let inputProps: Record<string, unknown> = getEndInputProps(childElement.props);
 
-      (props.children as any).props.onFocus && (props.children as any).props.onFocus(e);
-    },
-    [dispatch, props.children]
-  );
+  inputProps = {
+    ...inputProps,
+    ref: mergeRefs([inputProps.ref as Ref<HTMLInputElement>, childElement.ref ?? null])
+  };
 
-  const handleBlur = useCallback(() => {
-    dispatch({ type: 'END_BLUR' });
-    let parsedDate;
+  if (isClearableInput) {
+    const consumerWrapperProps = childElement.props.wrapperProps ?? {};
+    const groupProps = isInsideFieldGroup ? NESTED_GROUP_PROPS : {};
 
-    if (customParseDate) {
-      parsedDate = customParseDate(state.endInputValue);
+    if (wrapperRef) {
+      inputProps = { ...inputProps, wrapperProps: { ...groupProps, ...consumerWrapperProps } };
     } else {
-      parsedDate = parseInputValue({
-        inputValue: state.endInputValue
-      });
+      // Composes the consumer's own wrapper handlers with this field's blur handling.
+      const { ref: clearableWrapperRef, ...wrapperProps } =
+        getEndWrapperProps(consumerWrapperProps);
+
+      inputProps = {
+        ...inputProps,
+        wrapperRef: clearableWrapperRef,
+        wrapperProps: { ...groupProps, ...wrapperProps }
+      };
     }
+  }
 
-    if (onChange && parsedDate && isValid(parsedDate) && !isSameDay(parsedDate, endValue!)) {
-      onChange && onChange({ startValue, endValue: parsedDate });
-    }
-  }, [dispatch, onChange, startValue, endValue, customParseDate, state.endInputValue]);
+  if (hasDialog) {
+    inputProps = getFieldTriggerProps(inputProps);
+  }
 
-  const onKeydownCallback = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
-      if (e.key === KEYS.ENTER) {
-        handleBlur();
-
-        e.preventDefault();
-      }
-
-      (props.children as any).props.onKeyDown && (props.children as any).props.onKeyDown(e);
-    },
-    [handleBlur, props.children]
-  );
-
-  const onBlurCallback = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
-      handleBlur();
-
-      (props.children as any).props.onBlur && (props.children as any).props.onBlur(e);
-    },
-    [handleBlur, props.children]
-  );
-
-  const childElement = React.Children.only(props.children as React.ReactElement);
-
-  return React.cloneElement(childElement, {
-    value: state.endInputValue || '',
-    ref: endInputRef,
-    onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
-    onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
-    onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeydownCallback),
-    onBlur: composeEventHandlers(childElement.props.onBlur, onBlurCallback)
-  });
+  return cloneElement(childElement, inputProps);
 };
 
 End.displayName = 'DatePickerRange.End';

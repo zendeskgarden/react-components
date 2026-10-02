@@ -8,4 +8,14 @@
 export { DatePicker } from './elements/DatePicker/DatePicker';
 export { DatePickerRange } from './elements/DatePickerRange/DatePickerRange';
 
-export type { IDatePickerProps, IDatePickerRangeProps } from './types';
+export type {
+  DatePickerInvalidReason,
+  DatePickerRangeInvalidReason,
+  IDatePickerProps,
+  IDatePickerRangeDialogProps,
+  IDatePickerRangeProps,
+  IDatePickerRangeTriggerProps,
+  IDatePickerRangeValueSettledResult,
+  IDatePickerValueSettledResult,
+  ToolbarDateLabel
+} from './types';

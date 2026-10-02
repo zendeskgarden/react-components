@@ -6,20 +6,20 @@
  */
 
 import { useContext, createContext } from 'react';
-import { IDatePickerState, DatePickerAction } from './date-picker-reducer';
+import { IUseDatePickerReturnValue } from '../../../types';
 
-export interface IDatePickerContext {
-  state: IDatePickerState;
-  dispatch: React.Dispatch<DatePickerAction>;
-}
+export type IDatePickerContext = IUseDatePickerReturnValue;
 
 export const DatePickerContext = createContext<IDatePickerContext | undefined>(undefined);
 
-/**
- * Retrieve Dropdown component context
- */
 const useDatePickerContext = () => {
-  return useContext<IDatePickerContext>(DatePickerContext as any);
+  const context = useContext(DatePickerContext);
+
+  if (!context) {
+    throw new Error('This component must be rendered within a <DatePicker>.');
+  }
+
+  return context;
 };
 
 export default useDatePickerContext;

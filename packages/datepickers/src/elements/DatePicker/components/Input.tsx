@@ -5,83 +5,37 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef, useRef } from 'react';
-import { isValid } from 'date-fns/isValid';
-import { isSameDay } from 'date-fns/isSameDay';
-import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
+import { cloneElement, forwardRef } from 'react';
+import { mergeRefs } from 'react-merge-refs';
+import { ClearableInput } from '@zendeskgarden/react-forms';
+import useDatePickerContext from '../utils/useDatePickerContext';
+import { NESTED_GROUP_PROPS } from '../../../utils/nested-group-utils';
+import { IDatePickerInputProps } from '../../../types';
 
-interface IInputProps {
-  dispatch: Dispatch<DatePickerAction>;
-  element: ReactElement & RefAttributes<HTMLInputElement>;
-  refKey: string;
-  state: IDatePickerState;
-  value?: Date;
-  onChange?: (date: Date) => void;
-  customParseDate?: (inputValue: string) => Date;
-}
-
-export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  ({ element, dispatch, state, refKey, value, onChange, customParseDate }, ref) => {
-    const isInputMouseDownRef = useRef(false);
-
-    const handleBlur = () => {
-      dispatch({ type: 'CLOSE' });
-    };
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const inputValue = e.target.value;
-      const currentDate = parseInputValue({ inputValue, customParseDate });
-
-      if (onChange && currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
-        onChange(currentDate);
-      }
-
-      dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
-    };
-
-    const handleClick = () => {
-      // Ensure click/focus events from associated labels are not triggered
-      if (isInputMouseDownRef.current && !state.isOpen) {
-        dispatch({ type: 'OPEN' });
-      }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-      switch (e.key) {
-        case KEYS.ESCAPE:
-        case KEYS.ENTER:
-          dispatch({ type: 'CLOSE' });
-          break;
-        case KEYS.UP:
-        case KEYS.DOWN:
-        case KEYS.SPACE:
-          dispatch({ type: 'OPEN' });
-          break;
-      }
-    };
-
-    const handleMouseDown = () => {
-      isInputMouseDownRef.current = true;
-    };
-
-    const handleMouseUp = () => {
-      setTimeout(() => {
-        isInputMouseDownRef.current = false;
-      }, 0);
-    };
-
-    return cloneElement(element, {
-      [refKey!]: ref,
-      onMouseDown: composeEventHandlers(element.props.onMouseDown, handleMouseDown),
-      onMouseUp: composeEventHandlers(element.props.onMouseUp, handleMouseUp),
-      onClick: composeEventHandlers(element.props.onClick, handleClick),
-      onBlur: composeEventHandlers(element.props.onBlur, handleBlur),
-      onChange: composeEventHandlers(element.props.onChange, handleChange),
-      onKeyDown: composeEventHandlers(element.props.onKeyDown, handleKeyDown),
-      autoComplete: 'off',
-      value: state.inputValue
+export const Input = forwardRef<HTMLInputElement, IDatePickerInputProps>(
+  ({ element, refKey, referenceRef, hasTrigger = true }, ref) => {
+    const { getInputProps } = useDatePickerContext();
+    const inputProps = getInputProps({
+      ref,
+      ...(refKey === 'ref'
+        ? {}
+        : { [refKey]: mergeRefs([referenceRef, element.props[refKey] ?? null]) }),
+      onChange: element.props.onChange,
+      onKeyDown: element.props.onKeyDown,
+      onMouseDown: element.props.onMouseDown,
+      onFocus: element.props.onFocus,
+      onBlur: element.props.onBlur,
+      onClick: element.props.onClick,
+      autoComplete: element.props.autoComplete
     });
+
+    // Inside DatePicker's own labelled group, a ClearableInput's doesn't repeat it.
+    return cloneElement(
+      element,
+      hasTrigger && element.type === ClearableInput
+        ? { ...inputProps, wrapperProps: { ...NESTED_GROUP_PROPS, ...element.props.wrapperProps } }
+        : inputProps
+    );
   }
 );
 

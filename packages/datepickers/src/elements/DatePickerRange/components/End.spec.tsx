@@ -10,6 +10,7 @@ import userEvent from '@testing-library/user-event';
 import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
 import { KEYS } from '@zendeskgarden/container-utilities';
+import { ClearableInput, Input } from '@zendeskgarden/react-forms';
 
 import { DatePickerRange } from '../DatePickerRange';
 import { IDatePickerRangeProps } from '../../../types';
@@ -28,6 +29,19 @@ const Example = (props: IDatePickerRangeProps) => (
     <DatePickerRange.Calendar />
   </DatePickerRange>
 );
+
+/** A custom composite child that records the props it receives, and renders only an input. */
+const receivedProps: Record<string, unknown>[] = [];
+
+const PropCapturingInput = React.forwardRef<HTMLInputElement, Record<string, unknown>>(
+  (props, ref) => {
+    receivedProps.push(props);
+
+    return <input ref={ref} {...(props as React.InputHTMLAttributes<HTMLInputElement>)} />;
+  }
+);
+
+PropCapturingInput.displayName = 'PropCapturingInput';
 
 describe('DatePickerRange', () => {
   const user = userEvent.setup();
@@ -133,12 +147,12 @@ describe('DatePickerRange', () => {
       const endInput = getByTestId('end');
 
       await user.clear(endInput);
-      await user.type(endInput, 'January 4th, 2019');
+      await user.type(endInput, 'April 4th, 2019');
       fireEvent.keyDown(endInput, { key: KEYS.ENTER });
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: DEFAULT_START_VALUE,
-        endValue: new Date(2019, 0, 4)
+        endValue: new Date(2019, 3, 4)
       });
     });
 
@@ -238,6 +252,505 @@ describe('DatePickerRange', () => {
       await user.type(getByTestId('end'), 'hello');
 
       expect(onKeyDownSpy).toHaveBeenCalled();
+    });
+
+    it('forwards a consumer-provided ref to the underlying input element', () => {
+      const ref = { current: null as HTMLInputElement | null };
+
+      const { getByTestId } = render(
+        <DatePickerRange>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" ref={ref} />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(ref.current).toBe(getByTestId('end'));
+    });
+  });
+
+  describe('Combobox semantics', () => {
+    it('exposes no combobox semantics when no Dialog is composed', () => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const endInput = getByTestId('end');
+
+      expect(endInput).not.toHaveAttribute('role');
+      expect(endInput).not.toHaveAttribute('aria-autocomplete');
+      expect(endInput).not.toHaveAttribute('aria-controls');
+      expect(endInput).not.toHaveAttribute('aria-haspopup');
+      expect(endInput).not.toHaveAttribute('aria-expanded');
+    });
+
+    it('sets a native `autocomplete="off"` attribute by default', () => {
+      const { getByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(getByTestId('end')).toHaveAttribute('autocomplete', 'off');
+    });
+
+    it('allows the native `autocomplete` attribute to be overridden', () => {
+      const { getByTestId } = render(
+        <DatePickerRange startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" autoComplete="bday" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(getByTestId('end')).toHaveAttribute('autocomplete', 'bday');
+    });
+
+    it('lets a consumer set aria-expanded even when no Dialog is composed', () => {
+      const { getByTestId } = render(
+        <DatePickerRange onChange={onChangeSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            {/* eslint-disable-next-line jsx-a11y/role-supports-aria-props -- static analysis can't see that DatePickerRange.End may clone this with combobox semantics at runtime, when composed with a Dialog */}
+            <input data-test-id="end" aria-expanded="false" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      expect(getByTestId('end')).toHaveAttribute('aria-expanded', 'false');
+    });
+  });
+
+  describe('onValueSettled', () => {
+    let onValueSettledSpy: (result: {
+      field: string;
+      date?: Date;
+      inputValue: string;
+      valid: boolean;
+      reason?: string;
+    }) => void;
+
+    beforeEach(() => {
+      onValueSettledSpy = jest.fn();
+    });
+
+    it('reports a valid date when blurring after typing a parseable date', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '3/4/2019');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: new Date(2019, 2, 4),
+        inputValue: '3/4/2019',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring after typing unparseable text', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, 'invalid date');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false,
+        reason: 'malformed'
+      });
+    });
+
+    it('reports valid when blurring an empty, non-required field', async () => {
+      const { getByTestId } = render(
+        <Example onChange={onChangeSpy} onValueSettled={onValueSettledSpy} />
+      );
+
+      await user.click(getByTestId('end'));
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('reports invalid when blurring an empty, required field', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange onChange={onChangeSpy} onValueSettled={onValueSettledSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" required />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByTestId('end'));
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '',
+        valid: false,
+        reason: 'required'
+      });
+    });
+
+    it('reports invalid when blurring after typing a date outside minValue/maxValue', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+          minValue={new Date(2019, 2, 1)}
+          maxValue={new Date(2019, 2, 10)}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '3/20/2019');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '3/20/2019',
+        valid: false,
+        reason: 'out-of-range'
+      });
+    });
+
+    it('reports invalid when the typed end date is before the current start date', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '1/1/2019');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '1/1/2019',
+        valid: false,
+        reason: 'out-of-order'
+      });
+    });
+
+    it('reports a valid date when ENTER key is used', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, '3/4/2019');
+      fireEvent.keyDown(endInput, { key: KEYS.ENTER });
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: new Date(2019, 2, 4),
+        inputValue: '3/4/2019',
+        valid: true
+      });
+    });
+
+    it('settles immediately when the input is manually cleared, without waiting for blur', async () => {
+      const { getByTestId } = render(
+        <Example
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        />
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('settles immediately when a ClearableInput clear button is clicked, without waiting for blur', async () => {
+      const { getByRole } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByRole('button', { name: 'Clear' }));
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: '',
+        valid: true
+      });
+    });
+
+    it('calls onChange with endValue undefined once a field cleared by its ClearableInput clear button is left, not on the click itself', async () => {
+      const { getByRole } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      await user.click(getByRole('button', { name: 'Clear' }));
+
+      expect(onChangeSpy).not.toHaveBeenCalled();
+
+      await user.tab();
+
+      expect(onChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onChangeSpy).toHaveBeenCalledWith({
+        startValue: DEFAULT_START_VALUE,
+        endValue: undefined
+      });
+    });
+
+    it('does not settle when focus moves to its own ClearableInput clear button', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const endInput = getByTestId('end');
+
+      fireEvent.change(endInput, { target: { value: 'invalid date' } });
+      await user.tab();
+
+      expect(onValueSettledSpy).not.toHaveBeenCalled();
+    });
+
+    it('does not revert the typed value while focus moves to its own ClearableInput clear button', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, 'invalid date');
+      await user.tab();
+
+      expect(endInput).toHaveValue('invalid date');
+    });
+
+    it('does not revert the typed value once settled, leaving it for the user to fix or clear themselves', async () => {
+      const { getByTestId } = render(
+        <DatePickerRange
+          startValue={DEFAULT_START_VALUE}
+          endValue={DEFAULT_END_VALUE}
+          onChange={onChangeSpy}
+          onValueSettled={onValueSettledSpy}
+        >
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <ClearableInput data-test-id="end" />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, 'invalid date');
+      await user.tab();
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalledWith({
+        field: 'end',
+        date: undefined,
+        inputValue: 'invalid date',
+        valid: false,
+        reason: 'malformed'
+      });
+      expect(endInput).toHaveValue('invalid date');
+    });
+
+    it('does not clobber the typed value when settling causes the parent to re-render', async () => {
+      const ReasonTrackingExample = () => {
+        const [reason, setReason] = React.useState<string | undefined>(undefined);
+
+        return (
+          <DatePickerRange
+            startValue={DEFAULT_START_VALUE}
+            endValue={DEFAULT_END_VALUE}
+            onChange={onChangeSpy}
+            onValueSettled={result => {
+              onValueSettledSpy(result);
+              setReason(result.reason);
+            }}
+          >
+            <DatePickerRange.Start>
+              <input data-test-id="start" />
+            </DatePickerRange.Start>
+            <DatePickerRange.End>
+              <input data-test-id="end" aria-invalid={!!reason} />
+            </DatePickerRange.End>
+            <DatePickerRange.Calendar />
+          </DatePickerRange>
+        );
+      };
+
+      const { getByTestId } = render(<ReasonTrackingExample />);
+      const endInput = getByTestId('end');
+
+      await user.clear(endInput);
+      await user.type(endInput, 'invalid date');
+      await user.tab();
+
+      expect(onValueSettledSpy).toHaveBeenCalled();
+      expect(endInput).toHaveValue('invalid date');
+    });
+  });
+
+  describe('composite children', () => {
+    const renderWith = (child: React.ReactElement) =>
+      render(
+        <DatePickerRange onChange={onChangeSpy}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>{child}</DatePickerRange.End>
+        </DatePickerRange>
+      );
+
+    it('does not leak wrapperRef/wrapperProps onto a Garden Input child', () => {
+      const consoleError = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+      const { getByTestId } = renderWith(<Input data-test-id="end" />);
+      const input = getByTestId('end');
+
+      expect(input).not.toHaveAttribute('wrapperref');
+      expect(input).not.toHaveAttribute('wrapperprops');
+      expect(consoleError).not.toHaveBeenCalledWith(
+        expect.stringContaining('React does not recognize the `%s` prop on a DOM element'),
+        expect.stringMatching(/^wrapper(?:Ref|Props)$/u),
+        expect.anything(),
+        expect.anything()
+      );
+
+      consoleError.mockRestore();
+    });
+
+    it('does not pass wrapperRef/wrapperProps to a custom component child', () => {
+      receivedProps.length = 0;
+
+      renderWith(<PropCapturingInput data-test-id="end" />);
+
+      expect(receivedProps.length).toBeGreaterThan(0);
+      receivedProps.forEach(props => {
+        expect(props).not.toHaveProperty('wrapperRef');
+        expect(props).not.toHaveProperty('wrapperProps');
+      });
+    });
+
+    it('still passes them to a ClearableInput child, so clicking its wrapper focuses the input', () => {
+      const { container, getByTestId } = renderWith(<ClearableInput data-test-id="end" />);
+
+      fireEvent.click(container.querySelector("[data-garden-id='forms.input_group']")!);
+
+      expect(getByTestId('end')).toHaveFocus();
     });
   });
 });

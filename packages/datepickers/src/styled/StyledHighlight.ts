@@ -5,72 +5,54 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 
 const COMPONENT_ID = 'datepickers.highlight';
 
-const sizeStyles = ({
-  theme,
-  $isEnd,
-  $isStart
-}: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
-  let borderRadius;
-
-  const startValue = '0 50% 50% 0;';
-  const endValue = '50% 0 0 50%;';
-
-  if (theme.rtl) {
-    if ($isStart) {
-      borderRadius = startValue;
-    } else if ($isEnd) {
-      borderRadius = endValue;
-    }
-  }
-
-  if ($isStart) {
-    borderRadius = endValue;
-  } else if ($isEnd) {
-    borderRadius = startValue;
-  }
-
-  return css`
-    border-radius: ${borderRadius};
-    width: 100%;
-    height: 100%;
-  `;
-};
-
-const colorStyles = ({
-  $isHighlighted,
-  theme
-}: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
-  return css`
-    background-color: ${$isHighlighted &&
-    getColor({
-      variable: 'background.primaryEmphasis',
-      transparency: theme.opacity[100],
-      theme
-    })};
-  `;
-};
-
 interface IStyledHighlightProps {
-  $isHighlighted: boolean;
-  $isStart: boolean;
-  $isEnd: boolean;
+  $isHighlighted?: boolean;
+  $isHighlightStart?: boolean;
+  $isHighlightEnd?: boolean;
 }
 
+const highlightStyles = ({
+  $isHighlightStart,
+  $isHighlightEnd,
+  theme
+}: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
+  const tint = getColor({
+    variable: 'background.primaryEmphasis',
+    transparency: theme.opacity[100],
+    theme
+  });
+
+  if (!$isHighlightStart && !$isHighlightEnd) {
+    return css`
+      background-color: ${tint};
+    `;
+  }
+
+  const isCapLeft = ($isHighlightStart && !theme.rtl) || ($isHighlightEnd && theme.rtl);
+  const side = isCapLeft ? 'left' : 'right';
+
+  return css`
+    border-top-${side}-radius: 50%;
+    border-bottom-${side}-radius: 50%;
+    background-color: ${tint};
+  `;
+};
+
+/** Paints a `DatePickerRange` day's range band, behind its day number within `StyledCalendarItem`. */
 export const StyledHighlight = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION
 })<IStyledHighlightProps>`
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
+  z-index: -1;
 
-  ${sizeStyles}
-  ${colorStyles}
+  ${props => props.$isHighlighted && highlightStyles(props)}
 
   ${componentStyles};
 `;
