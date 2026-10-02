@@ -51,10 +51,6 @@ export interface IInputGroupProps
   focusInset?: boolean;
   /** Strips the group's outer border, background, and focus ring, e.g. when nested inside another group that already provides them */
   isBare?: boolean;
-  /** Removes the rounded corner(s) on the group's start (leading) edge */
-  isEdgeToEdgeStart?: boolean;
-  /** Removes the rounded corner(s) on the group's end (trailing) edge */
-  isEdgeToEdgeEnd?: boolean;
 }
 
 export interface ILabelProps extends LabelHTMLAttributes<HTMLLabelElement> {

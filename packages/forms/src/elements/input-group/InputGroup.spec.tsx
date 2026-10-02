@@ -10,7 +10,6 @@ import { render, fireEvent, renderRtl } from 'garden-test-utils';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { Field, Input, InputGroup, Textarea } from '../..';
-import { StyledTextInput } from '../../styled/text/StyledTextInput';
 
 describe('InputGroup', () => {
   it('always renders role="group"', () => {
@@ -204,52 +203,6 @@ describe('InputGroup', () => {
       expect.stringContaining('inset'),
       { modifier: '&:focus-within:not(:has(button:focus-visible))' }
     );
-  });
-
-  it('zeroes the container leading corner radius when isEdgeToEdgeStart is set', () => {
-    const { getByTestId } = render(
-      <InputGroup isUnified isEdgeToEdgeStart data-test-id="input-group">
-        <Input />
-      </InputGroup>
-    );
-
-    expect(getByTestId('input-group')).toHaveStyleRule('border-start-start-radius', '0');
-    expect(getByTestId('input-group')).toHaveStyleRule('border-end-start-radius', '0');
-  });
-
-  it('zeroes the container trailing corner radius when isEdgeToEdgeEnd is set', () => {
-    const { getByTestId } = render(
-      <InputGroup isUnified isEdgeToEdgeEnd data-test-id="input-group">
-        <Input />
-      </InputGroup>
-    );
-
-    expect(getByTestId('input-group')).toHaveStyleRule('border-start-end-radius', '0');
-    expect(getByTestId('input-group')).toHaveStyleRule('border-end-end-radius', '0');
-  });
-
-  it('zeroes the leading corner radius on an Input when isEdgeToEdgeStart is set', () => {
-    const { getByTestId } = render(
-      <InputGroup isUnified isEdgeToEdgeStart data-test-id="input-group">
-        <Input />
-      </InputGroup>
-    );
-
-    expect(getByTestId('input-group')).toHaveStyleRule('border-start-start-radius', '0', {
-      modifier: `&>${StyledTextInput}:first-child`
-    });
-  });
-
-  it('zeroes the trailing corner radius on an Input when isEdgeToEdgeEnd is set', () => {
-    const { getByTestId } = render(
-      <InputGroup isUnified isEdgeToEdgeEnd data-test-id="input-group">
-        <Input />
-      </InputGroup>
-    );
-
-    expect(getByTestId('input-group')).toHaveStyleRule('border-start-end-radius', '0', {
-      modifier: `&>${StyledTextInput}:last-child`
-    });
   });
 
   it('does not override an IconButton child size prop, since unified sizing is applied via CSS', () => {
