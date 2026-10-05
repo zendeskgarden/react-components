@@ -18,6 +18,7 @@ export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HT
   (props, ref) => {
     const [hasHint, setHasHint] = useState(false);
     const [hasMessage, setHasMessage] = useState(false);
+    const [hasLabel, setHasLabel] = useState(false);
     const [isLabelActive, setIsLabelActive] = useState(false);
     const [isLabelHovered, setIsLabelHovered] = useState(false);
     const { getInputProps, getMessageProps, ...propGetters } = useField({
@@ -37,7 +38,9 @@ export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HT
         hasHint,
         setHasHint,
         hasMessage,
-        setHasMessage
+        setHasMessage,
+        hasLabel,
+        setHasLabel
       }),
       [
         propGetters,
@@ -46,7 +49,8 @@ export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HT
         isLabelActive,
         isLabelHovered,
         hasHint,
-        hasMessage
+        hasMessage,
+        hasLabel
       ]
     );
 

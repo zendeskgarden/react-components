@@ -25,15 +25,18 @@ const COMPONENT_ID = 'avatars.status_indicator';
 const [xxs, xs, s, m, l] = SIZE;
 
 const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
-  const isVisible = props.$size !== xxs;
-  const iconSize = props.$size === xs ? `${props.theme.space.base * 2}px` : undefined;
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$size` may still be undefined here */
+  const size = props.$size ?? 'medium';
+  const isVisible = size !== xxs;
+  const iconSize = size === xs ? `${props.theme.space.base * 2}px` : undefined;
   const borderWidth = getStatusBorderOffset(props);
 
   let padding = '0';
 
-  if (props.$size === s) {
+  if (size === s) {
     padding = math(`${props.theme.space.base + 1}px - (${borderWidth} * 2)`);
-  } else if (includes([m, l], props.$size)) {
+  } else if (includes([m, l], size)) {
     padding = math(`${props.theme.space.base + 3}px - (${borderWidth} * 2)`);
   }
 
@@ -94,10 +97,9 @@ const colorStyles = ({
 };
 
 export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs<IStatusIndicatorProps>(
-  props => ({
+  () => ({
     'data-garden-id': COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION,
-    $size: props.$size ?? 'medium'
+    'data-garden-version': PACKAGE_VERSION
   })
 )<IStatusIndicatorProps>`
   ${sizeStyles}

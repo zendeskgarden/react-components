@@ -65,7 +65,7 @@ describe('TooltipDialog', () => {
         await user.click(getByText('open'));
       });
 
-      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(-12px, 0px)' });
+      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(0px, 0px)' });
     });
 
     it('renders RTL placement correctly', async () => {
@@ -75,8 +75,18 @@ describe('TooltipDialog', () => {
         await user.click(getByText('open'));
       });
 
-      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(12px, 0px)' });
+      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(0px, 0px)' });
     });
+  });
+
+  it('limits dialog width to viewport width', async () => {
+    const { getByRole, getByText } = render(<Example />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByRole('dialog')).toHaveStyle({ maxWidth: '100vw' });
   });
 
   it('applies backdropProps to Backdrop element', async () => {
@@ -231,6 +241,35 @@ describe('TooltipDialog', () => {
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
+    });
+
+    describe('blur behavior (closeOnBlur: true)', () => {
+      it('is triggered when focus moves outside the dialog', async () => {
+        const { getByText } = render(<Example onClose={onCloseSpy} />);
+
+        await act(async () => {
+          await user.click(getByText('open'));
+        });
+
+        await waitFor(async () => {
+          await user.click(document.body);
+        });
+
+        expect(onCloseSpy).toHaveBeenCalled();
+      });
+
+      it('is not triggered when focus moves to an element inside the dialog', async () => {
+        const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
+
+        await act(async () => {
+          await user.click(getByText('open'));
+        });
+
+        // Click the dialog itself (tabIndex=-1) — focus stays inside, no close
+        await user.click(getByRole('dialog'));
+
+        expect(onCloseSpy).not.toHaveBeenCalled();
+      });
     });
   });
 

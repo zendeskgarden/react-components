@@ -17,6 +17,7 @@ interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   $arrowPosition: ArrowPosition;
   $arrowSize?: string;
   $arrowInset?: string;
+  $arrowShift?: string;
   $arrowAnimationModifier?: string;
 }
 
@@ -25,6 +26,7 @@ const StyledDiv = styled.div<IStyledDivProps>`
     arrowStyles(props.$arrowPosition, {
       size: props.$arrowSize,
       inset: props.$arrowInset,
+      shift: props.$arrowShift,
       animationModifier: props.$arrowAnimationModifier
     })}
 `;
@@ -95,6 +97,23 @@ describe('arrowStyles', () => {
         const value = getArrowInset(inset);
 
         expect(container.firstChild).toHaveStyleRule('top', value, { modifier: '::before' });
+      });
+    });
+  });
+
+  describe('shift', () => {
+    it('applies offset to centered arrow positions', () => {
+      const SHIFT = '4px';
+      const POSITION: ArrowPosition[] = ['top', 'right', 'bottom', 'left'];
+
+      POSITION.forEach(position => {
+        const { container } = render(<StyledDiv $arrowPosition={position} $arrowShift={SHIFT} />);
+
+        const property = position === 'top' || position === 'bottom' ? 'left' : 'top';
+
+        expect(container.firstChild).toHaveStyleRule(property, `calc(50% + ${SHIFT})`, {
+          modifier: '::before'
+        });
       });
     });
   });

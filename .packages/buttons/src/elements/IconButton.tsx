@@ -27,6 +27,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
       isPrimary,
       isRotated,
       size = 'medium',
+      type = 'button',
       ...other
     },
     ref
@@ -36,6 +37,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
     return (
       <StyledIconButton
         {...other}
+        type={type}
         $isBasic={isBasic}
         $isDanger={isDanger}
         $isNeutral={isNeutral}

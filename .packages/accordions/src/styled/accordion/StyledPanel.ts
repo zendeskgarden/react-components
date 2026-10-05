@@ -53,14 +53,16 @@ const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledPanel = styled.section.attrs<IStyledPanel>(props => ({
+export const StyledPanel = styled.section.attrs<IStyledPanel>(() => ({
   'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  $isAnimated: props.$isAnimated ?? true
+  'data-garden-version': PACKAGE_VERSION
 }))<IStyledPanel>`
   display: grid;
   transition: ${props =>
-    props.$isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
+    /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+     * explicitly passed undefined props, so `$isAnimated` may still be undefined here */
+    (props.$isAnimated ?? true) &&
+    'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
   overflow: hidden;
 
   ${sizeStyles}

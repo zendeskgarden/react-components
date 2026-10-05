@@ -25,6 +25,12 @@ describe('Row', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('wraps by default', () => {
+    const { container } = render(<Row />);
+
+    expect(container.firstChild).toHaveStyleRule('flex-wrap', 'wrap');
+  });
+
   it('renders gutters provided by the containing Grid', () => {
     const { getByTestId } = render(
       <Grid gutters={false}>

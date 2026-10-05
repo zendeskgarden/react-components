@@ -7,7 +7,7 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import {
   StyledLabel,
@@ -34,6 +34,13 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
     const fieldContext = useFieldContext();
     const fieldsetContext = useFieldsetContext();
     const type = useInputContext();
+    const { setHasLabel } = fieldContext || {};
+
+    useEffect(() => {
+      setHasLabel?.(true);
+
+      return () => setHasLabel?.(false);
+    }, [setHasLabel]);
 
     const $isRegular = fieldsetContext && isRegular === undefined ? true : isRegular;
     let combinedProps = other;

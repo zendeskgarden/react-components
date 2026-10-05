@@ -12,7 +12,10 @@ import React from 'react';
 import { StyledTextInput } from '../styled';
 import { IInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
-import { useInputGroupContext } from '../utils/useInputGroupContext';
+import {
+  useInputGroupContext,
+  usePublishInputGroupValidation
+} from '../utils/useInputGroupContext';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -21,6 +24,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
   ({ onSelect, isBare, isCompact, focusInset, validation, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const inputGroupContext = useInputGroupContext();
+    usePublishInputGroupValidation(validation);
     let combinedProps = other;
 
     if (fieldContext) {
@@ -38,7 +42,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
         ref={ref}
         onSelect={onSelectHandler}
         {...combinedProps}
-        $isBare={isBare}
+        $isBare={isBare === undefined && inputGroupContext?.isUnified ? true : isBare}
         $isCompact={inputGroupContext ? inputGroupContext.isCompact : isCompact}
         $focusInset={inputGroupContext && focusInset === undefined ? true : focusInset}
         $validation={validation}

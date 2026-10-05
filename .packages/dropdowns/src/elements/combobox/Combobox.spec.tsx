@@ -7,7 +7,7 @@
 
 import userEvent from '@testing-library/user-event';
 import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
+import { fireEvent, render, renderRtl, waitFor } from 'garden-test-utils';
 import { rgba } from 'polished';
 import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
 
@@ -639,7 +639,51 @@ describe('Combobox', () => {
 
       await user.keyboard('{Tab}');
 
-      expect(input).toHaveAttribute('hidden');
+      // Input hiding is deferred to the next task so transient blurs are ignored
+      await waitFor(() => expect(input).toHaveAttribute('hidden'));
+    });
+
+    it('does not hide input on transient blur when focus returns to the trigger', async () => {
+      const { getByTestId } = render(<TestCombobox />);
+      const combobox = getByTestId('combobox');
+      const input = getByTestId('input');
+
+      await user.click(combobox.firstChild as HTMLElement);
+
+      expect(input).not.toHaveAttribute('hidden');
+
+      // Simulate a transient blur (null `relatedTarget`) as fired when Floating
+      // UI repositions the listbox at high browser zoom, with focus returning
+      // within the same task
+      fireEvent.focusOut(input, { relatedTarget: null });
+      fireEvent.focusIn(input);
+
+      // Wait past the deferred blur response
+      await new Promise(resolve => {
+        setTimeout(resolve, 10);
+      });
+
+      expect(input).not.toHaveAttribute('hidden');
+    });
+
+    it('does not hide input on spurious blur when focus never left the combobox', async () => {
+      const { getByTestId } = render(<TestCombobox />);
+      const combobox = getByTestId('combobox');
+      const input = getByTestId('input');
+
+      await user.click(combobox.firstChild as HTMLElement);
+
+      expect(input).not.toHaveAttribute('hidden');
+
+      // `fireEvent.focusOut` dispatches without moving `document.activeElement`,
+      // simulating a spurious blur where focus never actually left the input
+      fireEvent.focusOut(input, { relatedTarget: null });
+
+      await new Promise(resolve => {
+        setTimeout(resolve, 10);
+      });
+
+      expect(input).not.toHaveAttribute('hidden');
     });
   });
 
@@ -717,6 +761,127 @@ describe('Combobox', () => {
       const selectionValue = handleChange.mock.calls[1][0].selectionValue;
 
       expect(selectionValue).toMatchObject(['value-2']);
+    });
+  });
+
+  describe('scrollIntoView', () => {
+    afterEach(() => {
+      delete (window.HTMLElement.prototype as Partial<HTMLElement>).scrollIntoView;
+    });
+
+    it('does not scroll the input into view on mount', () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      render(
+        <TestCombobox>
+          <Option isSelected value="value" />
+        </TestCombobox>
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('does not scroll the input into view on mount with initial selection', () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      render(
+        <TestCombobox selectionValue="value">
+          <Option value="value" />
+        </TestCombobox>
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('does not scroll the input into view on selection change for single-select', async () => {
+      const { getByTestId } = render(
+        <TestCombobox defaultExpanded>
+          <Option data-test-id="option" value="value" />
+        </TestCombobox>
+      );
+      const input = getByTestId('input');
+      const scrollInput = jest.fn();
+
+      // Spy the input element directly; `Option` scrolls the active `<li>` with
+      // `{ block: 'nearest' }`, so a prototype-level mock cannot distinguish the two
+      input.scrollIntoView = scrollInput;
+
+      await user.click(getByTestId('option'));
+
+      expect(scrollInput).not.toHaveBeenCalled();
+    });
+
+    it('scrolls the input into view on selection change for editable multiselectable', async () => {
+      const { getByTestId } = render(
+        <TestCombobox isMultiselectable defaultExpanded>
+          <Option isSelected data-test-id="option-1" value="value-1" />
+          <Option data-test-id="option-2" value="value-2" />
+        </TestCombobox>
+      );
+      const input = getByTestId('input');
+      const scrollInput = jest.fn();
+
+      input.scrollIntoView = scrollInput;
+
+      await user.click(getByTestId('option-2'));
+
+      expect(scrollInput).toHaveBeenCalledWith({ block: 'nearest' });
+    });
+
+    it('does not scroll the last tag into view on mount for non-editable multiselectable', () => {
+      const scrollIntoView = jest.fn();
+
+      window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
+
+      render(
+        <TestCombobox isEditable={false} isMultiselectable selectionValue={['value-1', 'value-2']}>
+          <Option value="value-1" />
+          <Option value="value-2" />
+        </TestCombobox>
+      );
+
+      expect(scrollIntoView).not.toHaveBeenCalled();
+    });
+
+    it('scrolls the last tag into view on selection change for non-editable multiselectable', async () => {
+      const { getByTestId, getAllByTestId } = render(
+        <TestCombobox isEditable={false} isMultiselectable defaultExpanded>
+          <Option
+            isSelected
+            data-test-id="option-1"
+            tagProps={{ 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>}
+            value="value-1"
+          />
+          <Option
+            isSelected
+            data-test-id="option-2"
+            tagProps={{ 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>}
+            value="value-2"
+          />
+        </TestCombobox>
+      );
+      const input = getByTestId('input');
+      const scrollInput = jest.fn();
+
+      input.scrollIntoView = scrollInput;
+
+      const tags = getAllByTestId('tag');
+      const lastTag = tags[tags.length - 1];
+      const scrollLastTag = jest.fn();
+
+      lastTag.scrollIntoView = scrollLastTag;
+
+      // Deselect the first option: the selection changes while the last tag's DOM
+      // element remains stable, so the scroll target can be spied directly (a newly
+      // added tag would render as a new element that cannot be spied before the scroll)
+      await user.click(getByTestId('option-1'));
+
+      expect(scrollLastTag).toHaveBeenCalledWith({ block: 'nearest' });
+      expect(scrollInput).not.toHaveBeenCalled();
     });
   });
 });

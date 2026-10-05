@@ -27,6 +27,9 @@ export { Tiles } from './elements/tiles/Tiles';
 /** Input Group */
 export { InputGroup } from './elements/input-group/InputGroup';
 
+/** Clearable Input */
+export { ClearableInput } from './elements/ClearableInput';
+
 /** File Upload */
 export { FileUpload } from './elements/FileUpload';
 
@@ -54,6 +57,7 @@ export {
   type IFileProps,
   type IRangeProps,
   type IInputGroupProps,
+  type IClearableInputProps,
   type ITilesProps,
   type ITilesTileProps,
   type IFauxInputProps,

@@ -8,20 +8,42 @@
 import PropTypes from 'prop-types';
 import React, { useMemo } from 'react';
 
-import { StyledInputGroup } from '../../styled';
+import { StyledInputGroup } from '../../styled/input-group/StyledInputGroup';
 import { IInputGroupProps } from '../../types';
-import { InputGroupContext } from '../../utils/useInputGroupContext';
+import useFieldContext from '../../utils/useFieldContext';
+import { InputGroupContext, useInputGroupValidationState } from '../../utils/useInputGroupContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
-  ({ isCompact, ...other }, ref) => {
-    const contextValue = useMemo(() => ({ isCompact }), [isCompact]);
+  ({ isCompact, isUnified, focusInset, children, ...other }, ref) => {
+    const fieldContext = useFieldContext();
+    const { validation, registerValidation } = useInputGroupValidationState();
+    const contextValue = useMemo(
+      () => ({ isCompact, isUnified, registerValidation }),
+      [isCompact, isUnified, registerValidation]
+    );
+    const labelId =
+      fieldContext?.hasLabel && !other['aria-label']
+        ? fieldContext.getLabelProps({}).id
+        : undefined;
 
     return (
       <InputGroupContext.Provider value={contextValue}>
-        <StyledInputGroup ref={ref} $isCompact={isCompact} {...other} />
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
+        <StyledInputGroup
+          role="group"
+          aria-labelledby={labelId}
+          ref={ref}
+          $isCompact={isCompact}
+          $isUnified={isUnified}
+          $focusInset={focusInset}
+          {...other}
+          $validation={validation}
+        >
+          {children}
+        </StyledInputGroup>
       </InputGroupContext.Provider>
     );
   }
@@ -30,5 +52,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
 InputGroup.displayName = 'InputGroup';
 
 InputGroup.propTypes = {
-  isCompact: PropTypes.bool
+  isCompact: PropTypes.bool,
+  isUnified: PropTypes.bool,
+  focusInset: PropTypes.bool
 };

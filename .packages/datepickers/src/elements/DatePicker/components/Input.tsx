@@ -6,19 +6,24 @@
  */
 
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
 import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef, useRef } from 'react';
 
-import { DatePickerAction, IDatePickerState } from '../utils/date-picker-reducer';
+import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
 
 interface IInputProps {
   dispatch: Dispatch<DatePickerAction>;
   element: ReactElement & RefAttributes<HTMLInputElement>;
   refKey: string;
   state: IDatePickerState;
+  value?: Date;
+  onChange?: (date: Date) => void;
+  customParseDate?: (inputValue: string) => Date;
 }
 
 export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  ({ element, dispatch, state, refKey }, ref) => {
+  ({ element, dispatch, state, refKey, value, onChange, customParseDate }, ref) => {
     const isInputMouseDownRef = useRef(false);
 
     const handleBlur = () => {
@@ -26,7 +31,14 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
     };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: e.target.value });
+      const inputValue = e.target.value;
+      const currentDate = parseInputValue({ inputValue, customParseDate });
+
+      if (onChange && currentDate && isValid(currentDate) && !isSameDay(value!, currentDate)) {
+        onChange(currentDate);
+      }
+
+      dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
     };
 
     const handleClick = () => {
