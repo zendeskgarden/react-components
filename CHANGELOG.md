@@ -13,6 +13,26 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v9.16.1 (2026-09-24)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2151](https://github.com/zendeskgarden/react-components/pull/2151) fix(dropdowns): stop Combobox scrolling the page on selection change ([@ze-flo](https://github.com/ze-flo))
+
+## v9.16.0 (2026-09-22)
+
+#### :rocket: New Feature
+* `forms`
+  * [#2148](https://github.com/zendeskgarden/react-components/pull/2148) feat(forms): add isUnified InputGroup variant and ClearableInput component ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
+## v9.15.9 (2026-08-27)
+
+#### :bug: Bug Fix
+* `dropdowns`
+  * [#2147](https://github.com/zendeskgarden/react-components/pull/2147) fix(dropdowns): prevent combobox flicker at high zoom ([@ze-flo](https://github.com/ze-flo))
+* `datepickers`
+  * [#2144](https://github.com/zendeskgarden/react-components/pull/2144) fix(datepickers): stop calling onChange from within DatePicker reducer ([@jgorfine-zendesk](https://github.com/jgorfine-zendesk))
+
 ## v9.15.8 (2026-08-20)
 
 #### :bug: Bug Fix
