@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { IIconButtonProps } from '@zendeskgarden/react-buttons';
 import {
   FieldsetHTMLAttributes,
   HTMLAttributes,
@@ -16,7 +17,6 @@ import {
   SVGAttributes,
   TextareaHTMLAttributes
 } from 'react';
-import { IIconButtonProps } from '@zendeskgarden/react-buttons';
 
 export const VALIDATION = ['success', 'warning', 'error'] as const;
 

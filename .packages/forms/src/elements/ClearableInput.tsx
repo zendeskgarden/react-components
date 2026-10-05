@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-import { mergeRefs } from 'react-merge-refs';
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
-import { useText } from '@zendeskgarden/react-theming';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import { useText } from '@zendeskgarden/react-theming';
 import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
+import PropTypes from 'prop-types';
+import React, { useRef, useState } from 'react';
+import { mergeRefs } from 'react-merge-refs';
+
+import { StyledClearableInput } from '../styled/input-group/StyledClearableInput';
 import { IClearableInputProps, VALIDATION } from '../types';
 import useFieldContext from '../utils/useFieldContext';
 import { Input } from './Input';
-import { StyledClearableInput } from '../styled/input-group/StyledClearableInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>

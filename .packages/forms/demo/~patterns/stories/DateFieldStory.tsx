@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
+import { IconButton } from '@zendeskgarden/react-buttons';
 import {
   ClearableInput,
   IClearableInputProps,
   IInputGroupProps,
   InputGroup
 } from '@zendeskgarden/react-forms';
-import { IconButton } from '@zendeskgarden/react-buttons';
 import CalendarIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
+import React from 'react';
+
 import { FieldStory, IFieldArgs } from '../../stories/FieldStory';
 
 interface IArgs

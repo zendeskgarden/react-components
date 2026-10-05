@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
 import type { StoryObj } from '@storybook/react-vite';
-import { useArgs } from 'storybook/preview-api';
 import { ClearableInput } from '@zendeskgarden/react-forms';
+import React from 'react';
+import { useArgs } from 'storybook/preview-api';
+
 import { ClearableInputStory } from './stories/ClearableInputStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 

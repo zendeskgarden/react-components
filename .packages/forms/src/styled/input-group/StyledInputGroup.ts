@@ -17,7 +17,7 @@ import { StyledTextInput } from '../text/StyledTextInput';
 
 const COMPONENT_ID = 'forms.input_group';
 
-/* targets react-buttons' public data-garden-id hooks, since its styled components are private; a consumer-overridden data-garden-id exempts that button from these styles 
+/* targets react-buttons' public data-garden-id hooks, since its styled components are private; a consumer-overridden data-garden-id exempts that button from these styles
 TODO: remove this once packages are unified
 
 */

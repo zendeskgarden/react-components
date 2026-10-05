@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState } from 'react';
-import { render, fireEvent } from 'garden-test-utils';
 import userEvent from '@testing-library/user-event';
 import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
+import { render, fireEvent } from 'garden-test-utils';
+import React, { useState } from 'react';
+
+import { StyledInputGroup } from '../styled/input-group/StyledInputGroup';
+import { IClearableInputProps } from '../types';
 import { ClearableInput } from './ClearableInput';
 import { Field } from './common/Field';
-import { IClearableInputProps } from '../types';
-import { StyledInputGroup } from '../styled/input-group/StyledInputGroup';
 
 const ControlledClearableInput = ({
   initialValue = 'hello',

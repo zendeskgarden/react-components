@@ -6,6 +6,7 @@
  */
 
 import styled, { css } from 'styled-components';
+
 import { InputGroup } from '../../elements/input-group/InputGroup';
 import { StyledInputGroup } from './StyledInputGroup';
 

@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { render } from 'garden-test-utils';
 import { em } from 'polished';
-import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
-import { StyledInputGroup } from './StyledInputGroup';
+import React from 'react';
+
 import { StyledTextInput } from '../text/StyledTextInput';
+import { StyledInputGroup } from './StyledInputGroup';
 
 const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
 const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
