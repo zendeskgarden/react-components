@@ -8,18 +8,96 @@ importers:
 
   .:
     dependencies:
+      '@floating-ui/react-dom':
+        specifier: ^2.0.0
+        version: 2.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@zendeskgarden/container-accordion':
         specifier: ^3.0.15
         version: 3.0.15(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-breadcrumb':
+        specifier: ^1.0.8
+        version: 1.0.10(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-combobox':
+        specifier: ^2.0.9
+        version: 2.0.9(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-field':
+        specifier: ^3.0.21
+        version: 3.0.22(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-grid':
+        specifier: ^3.0.20
+        version: 3.0.21(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-menu':
+        specifier: ^2.0.1
+        version: 2.0.1(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-modal':
+        specifier: ^2.0.0
+        version: 2.0.0(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-schedule':
+        specifier: ^2.0.9
+        version: 2.0.12(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-scrollregion':
+        specifier: ^1.0.9
+        version: 1.0.13(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-splitter':
+        specifier: ^2.0.22
+        version: 2.0.23(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-tabs':
+        specifier: ^2.0.16
+        version: 2.0.17(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-tooltip':
+        specifier: ^2.2.0
+        version: 2.2.2(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@zendeskgarden/container-utilities':
         specifier: ^2.0.5
         version: 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@zendeskgarden/react-theming':
         specifier: ^9.15.0
         version: 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
+      color2k:
+        specifier: ^2.0.3
+        version: 2.0.3
+      date-fns:
+        specifier: ^4.0.0
+        version: 4.4.0
+      dom-helpers:
+        specifier: ^5.2.1
+        version: 5.2.1
+      lodash.debounce:
+        specifier: ^4.0.8
+        version: 4.0.8
+      lodash.get:
+        specifier: ^4.4.2
+        version: 4.4.2
+      lodash.isequal:
+        specifier: ^4.5.0
+        version: 4.5.0
+      lodash.memoize:
+        specifier: ^4.1.2
+        version: 4.1.2
+      lodash.throttle:
+        specifier: ^4.1.1
+        version: 4.1.1
+      polished:
+        specifier: ^4.3.1
+        version: 4.3.1
+      prism-react-renderer:
+        specifier: ^1.3.5
+        version: 1.3.5(react@19.2.4)
       prop-types:
         specifier: ^15.8.1
         version: 15.8.1
+      react-merge-refs:
+        specifier: ^2.0.0
+        version: 2.1.1
+      react-transition-group:
+        specifier: ^4.4.2
+        version: 4.4.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      react-uid:
+        specifier: ^2.3.1
+        version: 2.4.0(@types/react@19.2.14)(react@19.2.4)
+      use-resize-observer:
+        specifier: ^9.1.0
+        version: 9.1.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
     devDependencies:
       '@storybook/addon-a11y':
         specifier: 10.3.0
@@ -94,8 +172,8 @@ importers:
         specifier: 23.0.0
         version: 23.0.0(stylelint@17.4.0(typescript@5.9.3))
       '@zendeskgarden/svg-icons':
-        specifier: 8.2.0
-        version: 8.2.0
+        specifier: 9.0.0-next.0
+        version: 9.0.0-next.0
       commander:
         specifier: 14.0.3
         version: 14.0.3
@@ -111,6 +189,9 @@ importers:
       inquirer:
         specifier: 13.3.2
         version: 13.3.2(@types/node@25.5.0)
+      jest-styled-components:
+        specifier: ^7.2.0
+        version: 7.4.0(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       jsdom:
         specifier: 29.0.0
         version: 29.0.0
@@ -147,6 +228,9 @@ importers:
       stylelint:
         specifier: 17.4.0
         version: 17.4.0(typescript@5.9.3)
+      svg-icons-legacy:
+        specifier: npm:@zendeskgarden/svg-icons@7.6.0
+        version: '@zendeskgarden/svg-icons@7.6.0'
       temp:
         specifier: 0.9.4
         version: 0.9.4
@@ -959,6 +1043,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
+
+  '@juggle/resize-observer@3.4.0':
+    resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
 
   '@keyv/bigmap@1.3.1':
     resolution: {integrity: sha512-WbzE9sdmQtKy8vrNPa9BRnwZh5UF4s1KTmSK0KUVLo3eff5BlQNNWDnFOouNpKfPKDnms9xynJjsMYjMaT/aFQ==}
@@ -2304,6 +2391,89 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
+  '@zendeskgarden/container-breadcrumb@1.0.10':
+    resolution: {integrity: sha512-zU1ebQX1AK8mLiqyjbWmznVy2HteYdhuSDpiaFCgFPlrjt12642KpRTzfTqZxJWyiI2Fyht7lxHzjfR8PVrB2w==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-combobox@2.0.9':
+    resolution: {integrity: sha512-Dr0NUcCSWJhCj94OiDMBZxJ4jEQbUu8J6rJHuVO2Boo+HZeLwvJpZfTKopg1qexEgI5Uqaj1yO6ddx3j8w15OQ==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-field@3.0.22':
+    resolution: {integrity: sha512-umlVwDHgpKxggB51LtWenRKgbJLLljBiwTW9LxVD2hsse4RKj7Q/EkkyFUA+pb9Jy9UX6x4YyujSMn9dcVB0TA==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-focusjail@2.0.22':
+    resolution: {integrity: sha512-Q64s3RNqrkHn2ff8uVLPkz6cic9Yymz/UGw5eCUl+MgD7dnsNQknLK19m0XeWtVYWifC3oPr6CfQ7mFkB9POCw==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-grid@3.0.21':
+    resolution: {integrity: sha512-qfhZ9aUysjNhIB65FAyTTowv4jamlYUyYkEUNtRBjYfDUBbLWczxxpbpms4LryMWCqsHXfC5yLeITl6xzsWb3w==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-menu@2.0.1':
+    resolution: {integrity: sha512-1ukufH6AXfGZoDjC/7kqj701Yi3mjBl+htxfod+Xmpq6yULWjl2Exfsg0m4nRvmyNWvk4p9ylQU2pbyXbZa/TA==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-modal@2.0.0':
+    resolution: {integrity: sha512-+uM44GUJLeBHXuJwhpNJ9ApLP91omdl+q6eCFeNUYufoBIkgmbDKl8YnKIb7IwtmUMOGsb6IPI+8HVerwDibFA==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-schedule@2.0.12':
+    resolution: {integrity: sha512-uz6mYGTQd9PQopBIQ3BY2fqFXBC1CCQacBiUOTemFWXZIDpzA7t3/iddLafevMvhknHF9G9X41llKT0jTiCwKA==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-scrollregion@1.0.13':
+    resolution: {integrity: sha512-BQMg/3vBkHt8eHjL+yUvO/W6wdDl7RGKG/OeKQGNi9FSJmdHKc/Y/XYb1MusURFIlkndX3GnQ2oUBq6Pnd9GfA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-selection@3.1.5':
+    resolution: {integrity: sha512-tuOpX14TMW/dfXbe6Ajw/VShk85kuaLOl//FuiYpX1lVWZrjoUCN595jIXBu+vgp1sd6O69yxSegAVPP+2lJ3w==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-splitter@2.0.23':
+    resolution: {integrity: sha512-4b5OWiYJNM4k7k8qnP/ocI+/3c4ywDKv3pB/eHro170GzmKyP07JEkjf1tyJ7O9912Y2okkQmWcu/uwDYrYP4g==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
+  '@zendeskgarden/container-tabs@2.0.17':
+    resolution: {integrity: sha512-r/WzsOsxICzCZ37Wdg7RsX+R7w+luHn8aAiwvXVdOHlCEQQfHJnrbZ93ZR7dhVJCd2wv1H0cAOc1ri2Zh3oIeQ==}
+    peerDependencies:
+      prop-types: ^15.6.1
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+
   '@zendeskgarden/container-tooltip@2.2.2':
     resolution: {integrity: sha512-JeVbMXC/Nd8V0t/mEGc8uMODmIH+Y8HOUVCKyJp3HXwmqHduyUaanOSpQNmFVq66emB6o9IZr6PDoPKb0bkvyw==}
     peerDependencies:
@@ -2355,8 +2525,12 @@ packages:
     peerDependencies:
       stylelint: ^16.25.0
 
-  '@zendeskgarden/svg-icons@8.2.0':
-    resolution: {integrity: sha512-h+rmn7A9YQdLOH/JIaqEFxueD/M1VgDjWm7l7LD9WE8X72KZNWmRV4pwkSVublXJXjLoCesHmjPZ+4AtsPpfAA==}
+  '@zendeskgarden/svg-icons@7.6.0':
+    resolution: {integrity: sha512-oqfkrTZFrtftaXK1OSJfce47ebVk6lkDU2x4EOBItpl40riL7NZV8/kMZmu/SMa4P9EqbVscE3VnrKZF48uvUQ==}
+
+  '@zendeskgarden/svg-icons@9.0.0-next.0':
+    resolution: {integrity: sha512-ECdMvtwgpADHLB2JP+Wn7gPkWJobyW4ylWd/BoKwTVNdAJPQf7L1oK/sZRCCdjexLyneB+dQPu/8t26kBKtAzg==}
+    engines: {node: '>=22'}
 
   '@zkochan/js-yaml@0.0.7':
     resolution: {integrity: sha512-nrUSn7hzt7J6JWgWGz78ZYI8wj+gdIJdk0Ynjpp8l+trkn58Uqsf6RYrYkEK+3X18EX+TNdtJI0WxAtc+L84SQ==}
@@ -2980,6 +3154,9 @@ packages:
   component-emitter@1.3.1:
     resolution: {integrity: sha512-T0+barUSQRTUQASh8bx02dl+DhF54GtIDY13Y3m9oWTklKbb3Wv974meRpeZ3lp1JpLVECWWNHC4vaG2XHXouQ==}
 
+  compute-scroll-into-view@3.1.1:
+    resolution: {integrity: sha512-VRhuHOLoKYOy4UbilLbUzbYg93XLjv2PncJC50EuTWPA3gaja1UjBsUP/D/9/juV3vQFr6XBEzn9KCAHdUvOHw==}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -3136,6 +3313,9 @@ packages:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
 
+  date-fns@4.4.0:
+    resolution: {integrity: sha512-+1UMbeh68lH1SegH83CGWwpb6OHHbpSgr3+s5Eww5M4CAgswBpoWS0AjTOfEJ33HiYKz1hdj/KTFprzXHmq/6w==}
+
   date.js@0.3.3:
     resolution: {integrity: sha512-HgigOS3h3k6HnW011nAb43c5xx5rBXk8P2v/WIT9Zv4koIaVXiH2BURguI78VVp+5Qc076T7OR378JViCnZtBw==}
 
@@ -3283,6 +3463,9 @@ packages:
   dom-accessibility-api@0.6.3:
     resolution: {integrity: sha512-7ZgogeTnjuHbo+ct10G9Ffp0mif17idi0IyWNVA/wcwcm7NPOD/WEHVP3n7n3MhXqxoIYm8d6MuZohYWIZ4T3w==}
 
+  dom-helpers@5.2.1:
+    resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
+
   dom-serializer@2.0.0:
     resolution: {integrity: sha512-wIkAryiqt/nV5EQKqQpo3SToSOV9J0DnbJqwK7Wv/Trc92zIAYZ4FlMu+JPFW1DfGFt81ZTCGgDEabffXeLyJg==}
 
@@ -3314,6 +3497,11 @@ packages:
   dotenv@17.2.3:
     resolution: {integrity: sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w==}
     engines: {node: '>=12'}
+
+  downshift@9.4.0:
+    resolution: {integrity: sha512-yIwyzRYzycKwMZhvOahsn4BmRr4Ffi0JymdWOtTDhR+LGDEXCZHTcwgUbNBC/oZLT6YrR46iwJe/BrQUS5ClQQ==}
+    peerDependencies:
+      react: '>=16.12.0'
 
   dts-resolver@2.1.3:
     resolution: {integrity: sha512-bihc7jPC90VrosXNzK0LTE2cuLP6jr0Ro8jk+kMugHReJVLIpHz/xadeq3MhuwyO4TD4OA3L1Q8pBBFRc08Tsw==}
@@ -4567,6 +4755,12 @@ packages:
     resolution: {integrity: sha512-dQHFo3Pt4/NLlG5z4PxZ/3yZTZ1C7s9hveiOj+GCN+uT109NC2QgsoVZsVOAvbJ3RgKkvyLGXZV9+piDpWbm6A==}
     engines: {node: ^18.14.0 || ^20.0.0 || ^22.0.0 || >=24.0.0}
 
+  jest-styled-components@7.4.0:
+    resolution: {integrity: sha512-VUkStCEG3ewwBTADMT9VyrZ5Pi5oPAzufcafyK6zREFeMv0fcU2LdYFpM5RZm78IrU+Fi6DhD+NVeiurVe3LKQ==}
+    engines: {node: '>= 12'}
+    peerDependencies:
+      styled-components: '>= 5'
+
   js-tokens@10.0.0:
     resolution: {integrity: sha512-lM/UBzQmfJRo9ABXbPWemivdCW8V2G8FHaHdypQaIy523snUjog0W71ayWXTjiR+ixeMyVHN2XcpnTd/liPg/Q==}
 
@@ -4815,9 +5009,16 @@ packages:
   lodash._reinterpolate@3.0.0:
     resolution: {integrity: sha512-xYHt68QRoYGjeeM/XOE1uJtvXQAgvszfBhjV4yvsQH0u2i9I6cI6c6/eG4Hh3UAOVn0y/xAXwmTzEay49Q//HA==}
 
+  lodash.debounce@4.0.8:
+    resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
+
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
     deprecated: This package is deprecated. Use the optional chaining (?.) operator instead.
+
+  lodash.isequal@4.5.0:
+    resolution: {integrity: sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ==}
+    deprecated: This package is deprecated. Use require('node:util').isDeepStrictEqual instead.
 
   lodash.ismatch@4.4.0:
     resolution: {integrity: sha512-fPMfXjGQEV9Xsq/8MTSgUf255gawYRbjwMyDbcvDhXgV7enSZA0hynz6vMPnpAb5iONEzBHBPsT+0zes5Z301g==}
@@ -4834,6 +5035,9 @@ packages:
 
   lodash.templatesettings@4.2.0:
     resolution: {integrity: sha512-stgLz+i3Aa9mZgnjr/O+v9ruKZsPsndy7qPZOchbqk2cnTU1ZaldKK+v7m54WoKIyxiuMZTKT2H81F8BeAc3ZQ==}
+
+  lodash.throttle@4.1.1:
+    resolution: {integrity: sha512-wIkUCfVKpVsWo3JSZlc+8MB5it+2AN5W8J7YVMST30UrvcQNZ1Okbj+rbVniijTWE6FGYy4XJq/rHkas8qJMLQ==}
 
   lodash.truncate@4.4.2:
     resolution: {integrity: sha512-jttmRe7bRse52OsWIMDLaXxWqRAmtIUccAQ3garviCqJjafXOfNMO0yMfNpdD6zbGaTU0P5Nz7e7gAT6cKmJRw==}
@@ -5643,6 +5847,11 @@ packages:
     resolution: {integrity: sha512-gjVS5hOP+M3wMm5nmNOucbIrqudzs9v/57bWRHQWLYklXqoXKrVfYW2W9+glfGsqtPgpiz5WwyEEB+ksXIx3gQ==}
     engines: {node: '>=18'}
 
+  prism-react-renderer@1.3.5:
+    resolution: {integrity: sha512-IJ+MSwBWKG+SM3b2SUfdrhC+gu01QkV2KmRQgREThBfSQRoufqRfxfHUxpG1WcaFjP+kojcFyO9Qqtpgt3qLCg==}
+    peerDependencies:
+      react: '>=0.14.9'
+
   proc-log@5.0.0:
     resolution: {integrity: sha512-Azwzvl90HaF0aCz1JrDdXQykFakSSNPaPoiZ9fm5qJIMHioDZEi7OAdRwSm6rSoPtY3Qutnm3L7ogmg3dc+wbQ==}
     engines: {node: ^18.17.0 || >=20.5.0}
@@ -5749,6 +5958,22 @@ packages:
 
   react-merge-refs@2.1.1:
     resolution: {integrity: sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==}
+
+  react-transition-group@4.4.5:
+    resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+
+  react-uid@2.4.0:
+    resolution: {integrity: sha512-+MVs/25NrcZuGrmlVRWPOSsbS8y72GJOBsR7d68j3/wqOrRBF52U29XAw4+XSelw0Vm6s5VmGH5mCbTCPGVCVg==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      '@types/react': ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   react@19.2.4:
     resolution: {integrity: sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ==}
@@ -6331,6 +6556,9 @@ packages:
   symbol-tree@3.2.4:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
 
+  tabbable@6.5.0:
+    resolution: {integrity: sha512-wieBHXygIm7OyQOu5hQlkk62/WyCFYGlWg7L6/ZCUZwx0o398Zkn4pVmMyfYhfMG8kGrj/Krt8eIk6UKC6VzwA==}
+
   table@6.9.0:
     resolution: {integrity: sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==}
     engines: {node: '>=10.0.0'}
@@ -6667,6 +6895,12 @@ packages:
   urix@0.1.0:
     resolution: {integrity: sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg==}
     deprecated: Please see https://github.com/lydell/urix#deprecated
+
+  use-resize-observer@9.1.0:
+    resolution: {integrity: sha512-R25VqO9Wb3asSD4eqtcxk8sJalvIOYBqS8MNZlpDSQ4l4xMQxC/J7Id9HoTqPq8FwULIn0PVW+OAqF2dyYbjow==}
+    peerDependencies:
+      react: 16.8.0 - 18
+      react-dom: 16.8.0 - 18
 
   use-sync-external-store@1.6.0:
     resolution: {integrity: sha512-Pp6GSwGP/NrPIrxVFAIkOQeyw8lFenOHijQWkUTrDvrF4ALqylP2C/KCkeS9dpUM3KvYRQhna5vt7IL95+ZQ9w==}
@@ -7688,6 +7922,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
+
+  '@juggle/resize-observer@3.4.0': {}
 
   '@keyv/bigmap@1.3.1(keyv@5.6.0)':
     dependencies:
@@ -9046,6 +9282,107 @@ snapshots:
       react: 19.2.4
       react-dom: 19.2.4(react@19.2.4)
 
+  '@zendeskgarden/container-breadcrumb@1.0.10(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-combobox@2.0.9(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-field': 3.0.22(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      downshift: 9.4.0(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-field@3.0.22(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-focusjail@2.0.22(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      dom-helpers: 5.2.1
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+      tabbable: 6.5.0
+
+  '@zendeskgarden/container-grid@3.0.21(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-menu@2.0.1(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-selection': 3.1.5(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-modal@2.0.0(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-focusjail': 2.0.22(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-schedule@2.0.12(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-scrollregion@1.0.13(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      lodash.debounce: 4.0.8
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-selection@3.1.5(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-splitter@2.0.23(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  '@zendeskgarden/container-tabs@2.0.17(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@babel/runtime': 7.28.6
+      '@zendeskgarden/container-selection': 3.1.5(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
   '@zendeskgarden/container-tooltip@2.2.2(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
       '@babel/runtime': 7.28.6
@@ -9152,7 +9489,9 @@ snapshots:
       stylelint: 17.4.0(typescript@5.9.3)
       stylelint-order: 7.0.0(stylelint@17.4.0(typescript@5.9.3))
 
-  '@zendeskgarden/svg-icons@8.2.0': {}
+  '@zendeskgarden/svg-icons@7.6.0': {}
+
+  '@zendeskgarden/svg-icons@9.0.0-next.0': {}
 
   '@zkochan/js-yaml@0.0.7':
     dependencies:
@@ -9827,6 +10166,8 @@ snapshots:
 
   component-emitter@1.3.1: {}
 
+  compute-scroll-into-view@3.1.1: {}
+
   concat-map@0.0.1: {}
 
   concat-stream@2.0.0:
@@ -10009,6 +10350,8 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
+  date-fns@4.4.0: {}
+
   date.js@0.3.3:
     dependencies:
       debug: 3.1.0
@@ -10121,6 +10464,11 @@ snapshots:
 
   dom-accessibility-api@0.6.3: {}
 
+  dom-helpers@5.2.1:
+    dependencies:
+      '@babel/runtime': 7.28.6
+      csstype: 3.2.3
+
   dom-serializer@2.0.0:
     dependencies:
       domelementtype: 2.3.0
@@ -10155,6 +10503,15 @@ snapshots:
   dotenv@16.4.7: {}
 
   dotenv@17.2.3: {}
+
+  downshift@9.4.0(react@19.2.4):
+    dependencies:
+      '@babel/runtime': 7.28.6
+      compute-scroll-into-view: 3.1.1
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-is: 18.3.1
+      tslib: 2.8.1
 
   dts-resolver@2.1.3: {}
 
@@ -11621,6 +11978,11 @@ snapshots:
       chalk: 4.1.2
       pretty-format: 30.2.0
 
+  jest-styled-components@7.4.0(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)):
+    dependencies:
+      '@adobe/css-tools': 4.4.4
+      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+
   js-tokens@10.0.0: {}
 
   js-tokens@4.0.0: {}
@@ -11935,7 +12297,11 @@ snapshots:
 
   lodash._reinterpolate@3.0.0: {}
 
+  lodash.debounce@4.0.8: {}
+
   lodash.get@4.4.2: {}
+
+  lodash.isequal@4.5.0: {}
 
   lodash.ismatch@4.4.0: {}
 
@@ -11951,6 +12317,8 @@ snapshots:
   lodash.templatesettings@4.2.0:
     dependencies:
       lodash._reinterpolate: 3.0.0
+
+  lodash.throttle@4.1.1: {}
 
   lodash.truncate@4.4.2: {}
 
@@ -12954,6 +13322,10 @@ snapshots:
     dependencies:
       parse-ms: 4.0.0
 
+  prism-react-renderer@1.3.5(react@19.2.4):
+    dependencies:
+      react: 19.2.4
+
   proc-log@5.0.0: {}
 
   proc-log@6.1.0: {}
@@ -13045,6 +13417,22 @@ snapshots:
   react-is@18.3.1: {}
 
   react-merge-refs@2.1.1: {}
+
+  react-transition-group@4.4.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+    dependencies:
+      '@babel/runtime': 7.28.6
+      dom-helpers: 5.2.1
+      loose-envify: 1.4.0
+      prop-types: 15.8.1
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
+  react-uid@2.4.0(@types/react@19.2.14)(react@19.2.4):
+    dependencies:
+      react: 19.2.4
+      tslib: 2.8.1
+    optionalDependencies:
+      '@types/react': 19.2.14
 
   react@19.2.4: {}
 
@@ -13777,6 +14165,8 @@ snapshots:
 
   symbol-tree@3.2.4: {}
 
+  tabbable@6.5.0: {}
+
   table@6.9.0:
     dependencies:
       ajv: 8.17.1
@@ -14110,6 +14500,12 @@ snapshots:
       punycode: 2.3.1
 
   urix@0.1.0: {}
+
+  use-resize-observer@9.1.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
+    dependencies:
+      '@juggle/resize-observer': 3.4.0
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
 
   use-sync-external-store@1.6.0(react@19.2.4):
     dependencies:

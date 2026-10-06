@@ -5,8 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { configure } from '@testing-library/react';
 import { vi } from 'vitest';
 import '@testing-library/jest-dom/vitest';
+import 'jest-styled-components/vitest';
+
+configure({ testIdAttribute: 'data-test-id' });
 
 vi.stubGlobal(
   'matchMedia',

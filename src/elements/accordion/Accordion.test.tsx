@@ -34,14 +34,14 @@ const TestAccordion = ({
   sectionProps,
   ...other
 }: ITestAccordionProps) => (
-  <Accordion data-testid={TEST_ID} level={level} {...other}>
-    <Accordion.Section data-testid={SECTION_TEST_ID} {...sectionProps}>
-      <Accordion.Header data-testid={HEADER_TEST_ID} {...headerProps}>
-        <Accordion.Label data-testid={LABEL_TEST_ID} {...labelProps}>
+  <Accordion data-test-id={TEST_ID} level={level} {...other}>
+    <Accordion.Section data-test-id={SECTION_TEST_ID} {...sectionProps}>
+      <Accordion.Header data-test-id={HEADER_TEST_ID} {...headerProps}>
+        <Accordion.Label data-test-id={LABEL_TEST_ID} {...labelProps}>
           {labelProps?.children || 'Label'}
         </Accordion.Label>
       </Accordion.Header>
-      <Accordion.Panel data-testid={PANEL_TEST_ID} {...panelProps}>
+      <Accordion.Panel data-test-id={PANEL_TEST_ID} {...panelProps}>
         {panelProps?.children || 'Panel'}
       </Accordion.Panel>
     </Accordion.Section>
@@ -84,7 +84,7 @@ describe('Accordion', () => {
       <TestAccordion defaultExpandedSections={[1]}>
         <Accordion.Section>
           <Accordion.Header>
-            <Accordion.Label data-testid={LABEL_2_TEST_ID} />
+            <Accordion.Label data-test-id={LABEL_2_TEST_ID} />
           </Accordion.Header>
         </Accordion.Section>
       </TestAccordion>
