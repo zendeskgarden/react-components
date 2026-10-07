@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 export const StyledAccordion = styled.div`
   ${componentStyles};

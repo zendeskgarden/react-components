@@ -6,7 +6,7 @@
  */
 
 import type { Preview } from '@storybook/react-vite';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
+import DEFAULT_THEME from "../../src/theming/elements/theme";
 import { create } from 'storybook/theming';
 
 import { DARK, LIGHT, withThemeProvider } from './withThemeProvider';

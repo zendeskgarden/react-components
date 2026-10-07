@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderDark } from 'garden-test-utils';
-import React from 'react';
 import styled from 'styled-components';
 
+import { DARK_THEME, render } from '../../test/render';
 import PALETTE from '../elements/palette';
 import DEFAULT_THEME from '../elements/theme';
 import { FocusStylesParameters } from '../types';
@@ -80,7 +79,9 @@ describe('focusStyles', () => {
   });
 
   it('renders with expected defaults for dark mode', () => {
-    const { container } = renderDark(<StyledDiv />);
+    const { container } = render(<StyledDiv />, {
+      theme: DARK_THEME
+    });
     const expected = `${DEFAULT_THEME.shadowWidths.md} ${PALETTE.blue[600]}`;
 
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.stringContaining(expected), {

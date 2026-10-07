@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vi } from 'vitest';
+
 import retrieveComponentStyles from './retrieveComponentStyles';
 
 describe('retrieveComponentStyles', () => {
@@ -18,7 +20,7 @@ describe('retrieveComponentStyles', () => {
   });
 
   it('calls style as method if provided as a function', () => {
-    const componentStyles = jest.fn().mockReturnValue(EXAMPLE_STYLE);
+    const componentStyles = vi.fn().mockReturnValue(EXAMPLE_STYLE);
 
     const componentStyle = retrieveComponentStyles(COMPONENT_ID, {
       theme: { components: { [COMPONENT_ID]: componentStyles } }

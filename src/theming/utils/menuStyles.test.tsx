@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
+import { RTL_THEME, render } from '../../test/render';
 import { MenuPosition, MENU_POSITION } from '../types';
 import menuStyles from './menuStyles';
 
@@ -51,7 +50,9 @@ const getMarginProperty = (position: MenuPosition) => {
 
 describe('menuStyles', () => {
   it('renders expected RTL styling', () => {
-    const { container } = renderRtl(<StyledMenu />);
+    const { container } = render(<StyledMenu />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl', { modifier: '&>*' });
   });

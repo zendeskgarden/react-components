@@ -55,7 +55,6 @@
     "@zendeskgarden/container-tabs": "^2.0.16",
     "@zendeskgarden/container-tooltip": "^2.2.0",
     "@zendeskgarden/container-utilities": "^2.0.5",
-    "@zendeskgarden/react-theming": "^9.15.0",
     "color2k": "^2.0.3",
     "date-fns": "^4.0.0",
     "dom-helpers": "^5.2.1",

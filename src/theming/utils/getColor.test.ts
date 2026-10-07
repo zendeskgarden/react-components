@@ -7,6 +7,7 @@
 
 import { parseToRgba } from 'color2k';
 import { darken, lighten, rgba } from 'polished';
+import { vi } from 'vitest';
 
 import PALETTE from '../elements/palette';
 import DEFAULT_THEME from '../elements/theme';
@@ -432,7 +433,7 @@ describe('getColor', () => {
     const consoleError = console.error;
 
     beforeEach(() => {
-      console.error = jest.fn();
+      console.error = vi.fn();
     });
 
     afterEach(() => {

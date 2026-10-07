@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { renderHook } from '@testing-library/react-hooks';
-import React from 'react';
+import { renderHook } from '@testing-library/react';
+import { vi } from 'vitest';
 
 import { useText } from './useText';
 
@@ -65,7 +65,7 @@ describe('useText()', () => {
 
     beforeEach(() => {
       process.env.NODE_ENV = 'development';
-      console.warn = jest.fn();
+      console.warn = vi.fn();
     });
 
     afterEach(() => {
@@ -74,7 +74,7 @@ describe('useText()', () => {
     });
 
     it('logs a warning if text prop is not defined', () => {
-      const spy = jest.spyOn(console, 'warn');
+      const spy = vi.spyOn(console, 'warn');
 
       renderHook(() => useText(Component, {}, 'test', 'value'));
 
@@ -83,7 +83,7 @@ describe('useText()', () => {
     });
 
     it('does not log a warning with a conditional bypass', () => {
-      const spy = jest.spyOn(console, 'warn');
+      const spy = vi.spyOn(console, 'warn');
 
       renderHook(() => useText(Component, {}, 'test', 'value', false /* condition */));
 
@@ -91,7 +91,7 @@ describe('useText()', () => {
     });
 
     it('does not log a warning in production', () => {
-      const spy = jest.spyOn(console, 'warn');
+      const spy = vi.spyOn(console, 'warn');
 
       process.env.NODE_ENV = 'production';
       renderHook(() => useText(Component, {}, 'test', 'value'));
@@ -104,7 +104,7 @@ describe('useText()', () => {
     const consoleError = console.error;
 
     beforeEach(() => {
-      console.error = jest.fn();
+      console.error = vi.fn();
     });
 
     afterEach(() => {

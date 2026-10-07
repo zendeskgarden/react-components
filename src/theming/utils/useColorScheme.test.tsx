@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
 import { ColorSchemeProvider } from '../elements/ColorSchemeProvider';
 import { useColorScheme } from './useColorScheme';
 
@@ -29,11 +30,11 @@ describe('useColorScheme', () => {
   beforeAll(() => {
     Object.defineProperty(window, 'matchMedia', {
       writable: true,
-      value: jest.fn().mockImplementation(query => ({
+      value: vi.fn().mockImplementation(query => ({
         matches: false,
         media: query,
-        addEventListener: jest.fn(),
-        removeEventListener: jest.fn()
+        addEventListener: vi.fn(),
+        removeEventListener: vi.fn()
       }))
     });
   });
@@ -73,7 +74,7 @@ describe('useColorScheme', () => {
 
     beforeEach(() => {
       originalError = console.error;
-      console.error = jest.fn();
+      console.error = vi.fn();
     });
 
     it('throws if called outside of `ColorSchemeProvider`', () => {

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PALETTE matches snapshot 1`] = `
+exports[`PALETTE > matches snapshot 1`] = `
 {
   "azure": {
     "100": "#eff7fe",

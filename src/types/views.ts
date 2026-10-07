@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { IGardenTheme } from '@zendeskgarden/react-theming';
 import type { DefaultTheme } from 'styled-components';
+
+import type { IGardenTheme } from '../theming/types';
 
 export interface IStyledBaseProps<T extends DefaultTheme = IGardenTheme> {
   theme: T;

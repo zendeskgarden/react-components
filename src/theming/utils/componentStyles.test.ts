@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vi } from 'vitest';
+
 import { componentStyles } from './componentStyles';
 
 describe('componentStyles', () => {
@@ -25,7 +27,7 @@ describe('componentStyles', () => {
   });
 
   it('handles component styles provided as a function', () => {
-    const fn = jest.fn().mockReturnValue(VALUE);
+    const fn = vi.fn().mockReturnValue(VALUE);
     const props = { 'data-garden-id': 'test', theme: { components: { test: fn } } } as any;
     const result = componentStyles(props);
 

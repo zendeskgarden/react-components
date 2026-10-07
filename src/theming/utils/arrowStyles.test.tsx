@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
 import { stripUnit } from 'polished';
-import React from 'react';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
+import { render } from '../../test/render';
 import { ArrowPosition } from '../types';
 import arrowStyles from './arrowStyles';
 

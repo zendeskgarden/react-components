@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`DEFAULT_THEME matches snapshot 1`] = `
+exports[`DEFAULT_THEME > matches snapshot 1`] = `
 {
   "borderRadii": {
     "lg": "8px",

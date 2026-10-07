@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vi } from 'vitest';
+
 import DEFAULT_THEME from '../elements/theme';
 import mediaQuery from './mediaQuery';
 
@@ -90,7 +92,7 @@ describe('mediaQuery', () => {
     it('throws when calling "between" with a single breakpoint', () => {
       const originalError = console.error;
 
-      console.error = jest.fn();
+      console.error = vi.fn();
 
       expect(() => mediaQuery('between', 'md')).toThrow();
 
@@ -100,7 +102,7 @@ describe('mediaQuery', () => {
     it('throws when calling non-"between" with a breakpoint array', () => {
       const originalError = console.error;
 
-      console.error = jest.fn();
+      console.error = vi.fn();
 
       ['up', 'down', 'only'].forEach(query =>
         expect(() => mediaQuery(query as TYPE_QUERY, ['sm', 'lg'])).toThrow()

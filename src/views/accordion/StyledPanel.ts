@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor, getLineHeight } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 import type { IStyledAccordion } from '../../types/views';
 import { StyledHeader } from './StyledHeader';
 import { StyledLabel } from './StyledLabel';

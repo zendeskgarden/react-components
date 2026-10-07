@@ -6,14 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import React, {
-  createContext,
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState
-} from 'react';
+import { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react';
 
 import {
   ColorScheme,

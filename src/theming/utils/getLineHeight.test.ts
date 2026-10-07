@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vi } from 'vitest';
+
 import getLineHeight from './getLineHeight';
 
 describe('getLineHeight', () => {
@@ -32,7 +34,7 @@ describe('getLineHeight', () => {
   it('throws if called with non-pixel values', () => {
     const originalError = console.error;
 
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     expect(() => getLineHeight('2em', 14)).toThrow();
 
@@ -42,7 +44,7 @@ describe('getLineHeight', () => {
   it('throws if called with non-matching value units', () => {
     const originalError = console.error;
 
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     expect(() => getLineHeight('2px', '1em')).toThrow();
 
