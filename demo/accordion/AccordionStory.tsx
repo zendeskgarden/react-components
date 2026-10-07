@@ -7,9 +7,9 @@
 
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
-import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
 import type { MouseEventHandler } from 'react';
+import Icon2 from 'svg-icons-legacy/src/16/folder-open-stroke.svg';
+import Icon1 from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
 import { Accordion, type IAccordionProps } from '../../src';
 import type { IAccordionSection } from './types';
