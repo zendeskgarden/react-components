@@ -107,9 +107,13 @@ export interface IGardenTheme {
     md: string;
   };
   borderRadii: {
+    xs: string;
     sm: string;
     md: string;
     lg: string;
+    xl: string;
+    xxl: string;
+    full: string;
   };
   borderStyles: {
     solid: string;

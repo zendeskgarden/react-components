@@ -9,11 +9,16 @@ import { PropsWithChildren } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { IGardenTheme, IThemeProviderProps } from '../types';
-import DEFAULT_THEME from './theme';
+import DEFAULT_THEME, { getTheme } from './theme';
 
 export const ThemeProvider = ({
-  theme = DEFAULT_THEME,
+  theme = getTheme,
   ...other
-}: PropsWithChildren<IThemeProviderProps>) => (
-  <StyledThemeProvider theme={theme as IGardenTheme} {...other} />
-);
+}: PropsWithChildren<IThemeProviderProps>) => {
+  const styledTheme =
+    typeof theme === 'function'
+      ? (outerTheme?: IGardenTheme) => theme(outerTheme ?? DEFAULT_THEME)
+      : theme;
+
+  return <StyledThemeProvider theme={styledTheme} {...other} />;
+};

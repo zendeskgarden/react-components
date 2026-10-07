@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useTheme } from 'styled-components';
+import { ThemeProvider as StyledThemeProvider, useTheme } from 'styled-components';
 
 import { render } from '../../test/render';
 import { IGardenTheme } from '../types';
+import DEFAULT_THEME from './theme';
 import { ThemeProvider } from './ThemeProvider';
 
 describe('ThemeProvider', () => {
@@ -66,5 +67,50 @@ describe('ThemeProvider', () => {
     ].join();
 
     expect(darkKeys).toStrictEqual(lightKeys);
+  });
+
+  it('layers the v10 theme onto an outer theme, keeping the outer color base', () => {
+    let theme: IGardenTheme | undefined;
+
+    const Test = () => {
+      theme = useTheme();
+
+      return <div />;
+    };
+    const outerTheme = {
+      ...DEFAULT_THEME,
+      colors: { ...DEFAULT_THEME.colors, base: 'dark' as const },
+      palette: { ...DEFAULT_THEME.palette, custom: '#fd5a1e' }
+    };
+
+    render(
+      <StyledThemeProvider theme={outerTheme}>
+        <ThemeProvider>
+          <Test />
+        </ThemeProvider>
+      </StyledThemeProvider>
+    );
+
+    expect(theme!.colors.base).toBe('dark');
+    expect(theme!.palette.custom).toBe('#fd5a1e');
+    expect(theme!.borderRadii.full).toBe('9999px');
+  });
+
+  it('passes the default theme to a theme function', () => {
+    let received: IGardenTheme | undefined;
+
+    render(
+      <ThemeProvider
+        theme={theme => {
+          received = theme;
+
+          return theme;
+        }}
+      >
+        <div />
+      </ThemeProvider>
+    );
+
+    expect(received).toEqual(DEFAULT_THEME);
   });
 });

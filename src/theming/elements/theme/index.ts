@@ -251,7 +251,17 @@ const space = {
   xxl: `${BASE * 12}px`
 };
 
-const DEFAULT_THEME: IGardenTheme = {
+/**
+ * A theme that the v10 design updates can layer onto: a full Garden theme, or
+ * a v9-shaped base theme without the extended `borderRadii` keys.
+ */
+type BaseTheme = Omit<IGardenTheme, 'borderRadii'> & {
+  borderRadii: Pick<IGardenTheme['borderRadii'], 'sm' | 'md' | 'lg'>;
+};
+
+/* The v9 base theme. Its palette and `borderRadii` values are fully
+ * overwritten by the layering below; every other key passes through. */
+const BASE_THEME: BaseTheme = {
   borders,
   borderRadii,
   borderStyles,
@@ -274,5 +284,82 @@ const DEFAULT_THEME: IGardenTheme = {
   shadows,
   space
 };
+
+/**
+ * Layers the v10 design updates — palette, `borderRadii` and colors — onto a
+ * parent theme. The parent's `colors.base` and `components` are kept. Defaults
+ * to the v9 base theme.
+ *
+ * Internal to the package; not part of the public API.
+ */
+export const getTheme = (parentTheme: BaseTheme = BASE_THEME): IGardenTheme => ({
+  ...parentTheme,
+
+  components: {
+    ...parentTheme.components
+  },
+  borders: {
+    ...parentTheme.borders
+  },
+  borderRadii: {
+    ...parentTheme.borderRadii,
+
+    /* v10 overwrites */
+    xs: '2px',
+    sm: '4px',
+    md: '8px',
+    lg: '12px',
+    xl: '16px',
+    xxl: '24px',
+    full: '9999px'
+  },
+  borderStyles: {
+    ...parentTheme.borderStyles
+  },
+  borderWidths: {
+    ...parentTheme.borderWidths
+  },
+  breakpoints: {
+    ...parentTheme.breakpoints
+  },
+  fonts: {
+    ...parentTheme.fonts
+  },
+  fontSizes: {
+    ...parentTheme.fontSizes
+  },
+  fontWeights: {
+    ...parentTheme.fontWeights
+  },
+  iconSizes: {
+    ...parentTheme.iconSizes
+  },
+  lineHeights: {
+    ...parentTheme.lineHeights
+  },
+  opacity: {
+    ...parentTheme.opacity
+  },
+  shadowWidths: {
+    ...parentTheme.shadowWidths
+  },
+  shadows: {
+    ...parentTheme.shadows
+  },
+  space: {
+    ...parentTheme.space
+  },
+  colors: {
+    ...parentTheme.colors,
+    ...colors,
+    base: parentTheme.colors?.base ?? ('light' as const)
+  },
+  palette: {
+    ...parentTheme.palette,
+    ...palette
+  }
+});
+
+const DEFAULT_THEME: IGardenTheme = getTheme();
 
 export default DEFAULT_THEME;
