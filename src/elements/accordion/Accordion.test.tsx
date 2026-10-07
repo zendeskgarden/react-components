@@ -96,6 +96,12 @@ describe('Accordion', () => {
     expect(expandedElement).toHaveAttribute('aria-expanded', 'true');
   });
 
+  it('renders a collapsed panel as inert', () => {
+    const { getByTestId } = render(<TestAccordion defaultExpandedSections={[]} />);
+
+    expect(getByTestId(PANEL_TEST_ID)).toHaveAttribute('inert');
+  });
+
   it('composes header event handlers', async () => {
     const handleClick = vi.fn();
     const handleMouseOver = vi.fn();

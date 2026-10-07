@@ -33,7 +33,8 @@ const IS_REACT_19 = version.startsWith('19');
 /**
  * Value for the `inert` attribute: React 19 renders it from a boolean, while
  * earlier versions require an empty string. The package supports both, so the
- * value is chosen at runtime from the consumer's React version.
+ * value is chosen at runtime from the consumer's React version. The cast keeps
+ * the return type assignable to JSX `inert`, typed `boolean | undefined`.
  */
 export const getInertValue = (applies: boolean): boolean | undefined =>
   applies ? ((IS_REACT_19 ? true : '') as unknown as boolean) : undefined;
