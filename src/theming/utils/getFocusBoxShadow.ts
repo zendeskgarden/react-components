@@ -8,7 +8,6 @@
 import DEFAULT_THEME from '../elements/theme';
 import { FocusBoxShadowParameters } from '../types';
 import { getColor } from './getColor';
-import { getColorV8 } from './getColorV8';
 
 /**
  * Get a CSS `box-shadow` property value for focus state styling.
@@ -31,22 +30,16 @@ export const getFocusBoxShadow = ({
   shadowWidth = 'md',
   spacerColor = { variable: 'background.default' },
   spacerWidth = 'xs',
-  theme = DEFAULT_THEME,
-  ...args // fallback catch for v8 parameters to be removed in v10
+  theme = DEFAULT_THEME
 }: FocusBoxShadowParameters) => {
-  const _args = args as any;
-  const _color = _args.hue
-    ? getColorV8(_args.hue, _args.shade, theme)!
-    : getColor({ ...color, theme });
+  const _color = getColor({ ...color, theme });
   const shadow = theme.shadows[shadowWidth](_color);
 
   if (spacerWidth === null) {
     return `${inset ? 'inset' : ''} ${shadow}`;
   }
 
-  const _spacerColor = _args.spacerHue
-    ? getColorV8(_args.spacerHue, _args.spacerShade, theme)!
-    : getColor({ ...spacerColor, theme });
+  const _spacerColor = getColor({ ...spacerColor, theme });
 
   const retVal = `
     ${inset ? 'inset' : ''} ${theme.shadows[spacerWidth](_spacerColor)},

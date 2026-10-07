@@ -38,7 +38,6 @@ export { SELECTOR_FOCUS_VISIBLE, focusStyles } from './theming/utils/focusStyles
 export { getArrowPosition } from './theming/utils/getArrowPosition';
 export { getCheckeredBackground } from './theming/utils/getCheckeredBackground';
 export { getColor } from './theming/utils/getColor';
-export { getColorV8 } from './theming/utils/getColorV8';
 export { getFloatingPlacements } from './theming/utils/getFloatingPlacements';
 export { getFocusBoxShadow } from './theming/utils/getFocusBoxShadow';
 export { getHueColor } from './theming/utils/getHueColor';
