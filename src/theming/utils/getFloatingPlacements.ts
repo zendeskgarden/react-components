@@ -30,7 +30,7 @@ export const RTL_PLACEMENT_MAP: Record<string, FloatingPlacement> = {
 };
 
 const toFloatingPlacement = (placement: Placement, theme: IGardenTheme): FloatingPlacement => {
-  let retVal = PLACEMENT_MAP[placement] || placement;
+  let retVal = PLACEMENT_MAP[placement] || (placement as FloatingPlacement);
 
   if (theme.rtl) {
     retVal = RTL_PLACEMENT_MAP[retVal] || retVal;
@@ -40,7 +40,7 @@ const toFloatingPlacement = (placement: Placement, theme: IGardenTheme): Floatin
 };
 
 /* Map Floating-UI side placement to fallbacks */
-const SIDE_FALLBACKS_MAP: Record<string, FloatingPlacement[]> = {
+const SIDE_FALLBACKS_MAP: Record<MenuPosition, FloatingPlacement[]> = {
   top: ['top-start', 'top', 'top-end'],
   right: ['right-start', 'right', 'right-end'],
   bottom: ['bottom-start', 'bottom', 'bottom-end'],
@@ -48,7 +48,7 @@ const SIDE_FALLBACKS_MAP: Record<string, FloatingPlacement[]> = {
 };
 
 /* Map Floating-UI side placement to opposite side */
-const SIDE_OPPOSITE_MAP: Record<string, MenuPosition> = {
+const SIDE_OPPOSITE_MAP: Record<MenuPosition, MenuPosition> = {
   top: 'bottom',
   right: 'left',
   bottom: 'top',
@@ -66,7 +66,7 @@ const toFallbackPlacements = (
     );
   }
 
-  const side = primaryPlacement.split('-')[0];
+  const side = primaryPlacement.split('-')[0] as MenuPosition;
   const sameSideFallbackPlacements = [...SIDE_FALLBACKS_MAP[side]];
   const oppositeSideFallbackPlacements = SIDE_FALLBACKS_MAP[SIDE_OPPOSITE_MAP[side]];
 

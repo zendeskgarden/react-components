@@ -67,7 +67,7 @@ const toHex = (
         return Math.abs(current - _shade) < Math.abs(previous - _shade) ? current : previous;
       });
 
-    retVal = adjust(hue[closestShade], _shade, closestShade);
+    retVal = adjust(hue[closestShade]!, _shade, closestShade);
   }
 
   return retVal;
@@ -103,20 +103,25 @@ function findNearestIndex(target: number, arr: number[], startIndex = 0) {
   let left = startIndex;
   let right = arr.length - 1;
 
-  if (target < arr[left]) return left;
-  if (target > arr[right]) return right;
+  if (target < arr[left]!) {
+    return left;
+  }
+
+  if (target > arr[right]!) {
+    return right;
+  }
 
   while (left <= right) {
     const mid = Math.floor((left + right) / 2);
     if (arr[mid] === target) {
       return mid;
-    } else if (arr[mid] < target) {
+    } else if (arr[mid]! < target) {
       left = mid + 1;
     } else {
       right = mid - 1;
     }
   }
-  return arr[left] - target < target - arr[right] ? left : right;
+  return arr[left]! - target < target - arr[right]! ? left : right;
 }
 
 const OFFSET_TO_TARGET_RATIO = {
@@ -161,13 +166,13 @@ const generateColorScale = memoize((color: string) => {
   let startIndex = 0;
 
   for (const offset in OFFSET_TO_TARGET_RATIO) {
-    if (Object.hasOwn(OFFSET_TO_TARGET_RATIO, offset)) {
+    if (Object.prototype.hasOwnProperty.call(OFFSET_TO_TARGET_RATIO, offset)) {
       const ratio = (OFFSET_TO_TARGET_RATIO as any)[offset];
 
       const nearestIndex = findNearestIndex(ratio, contrastRatios, startIndex);
       startIndex = nearestIndex + 1;
 
-      palette[offset] = colors[nearestIndex];
+      palette[offset] = colors[nearestIndex]!;
     }
   }
 
@@ -190,8 +195,8 @@ const toColor = (
     colors[hue as keyof typeof colors] /* ex. `hue` = 'primaryHue' */ ||
     hue; /* ex. `hue` = '#fd5a1e' */
 
-  if (Object.hasOwn(palette, _hue)) {
-    _hue = palette[_hue]; /* ex. `hue` = 'grey' */
+  if (Object.prototype.hasOwnProperty.call(palette, _hue)) {
+    _hue = palette[_hue]!; /* ex. `hue` = 'grey' */
   }
 
   if (typeof _hue === 'object') {
@@ -247,8 +252,8 @@ const fromRgba = (value: string) => {
     const _rgba = regex.exec(value);
 
     if (_rgba && _rgba.groups) {
-      const property = _rgba.groups.property;
-      const transparency = parseFloat(_rgba.groups.alpha);
+      const property = _rgba.groups.property!;
+      const transparency = parseFloat(_rgba.groups.alpha!);
 
       retVal = { property, transparency };
     } else {
@@ -278,7 +283,7 @@ const fromVariable = (
   const [key, value] = property.split(/\.(?<value>.*)/u);
 
   if (key === 'palette') {
-    retVal.hue = toProperty(palette, value); /* ex. `variable` = 'palette.white' */
+    retVal.hue = toProperty(palette, value!); /* ex. `variable` = 'palette.white' */
   } else {
     retVal.hue = key; /* ex. `variable` = '#fd5a1e' */
 
@@ -395,7 +400,7 @@ const toKey = ({
  * @param {number} [options.offset] A positive or negative value to adjust the shade
  * @param {number} [options.transparency] A `theme.opacity` key or an alpha-channel value between 0 and 1
  */
-export const getColor = memoize(
+export const getColor: (params: ColorParameters) => string = memoize(
   ({ dark, hue, light, offset, shade, theme, transparency, variable }: ColorParameters) => {
     let retVal;
 

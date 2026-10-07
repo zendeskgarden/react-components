@@ -15,7 +15,7 @@ describe('ThemeProvider', () => {
   it('only renders children', () => {
     const { container } = render(
       <ThemeProvider>
-        <button />
+        <button type="button" />
       </ThemeProvider>
     );
 

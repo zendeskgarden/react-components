@@ -79,7 +79,7 @@ describe('useText()', () => {
       renderHook(() => useText(Component, {}, 'test', 'value'));
 
       expect(spy).toHaveBeenCalled();
-      expect(spy.mock.calls[0][0]).toStrictEqual(expect.stringContaining('<Component>'));
+      expect(spy.mock.calls[0]![0]).toStrictEqual(expect.stringContaining('<Component>'));
     });
 
     it('does not log a warning with a conditional bypass', () => {

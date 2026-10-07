@@ -349,7 +349,7 @@ describe('getColor', () => {
 
     it('gets the specified color from the theme', () => {
       const color = getColor({ theme, hue: 'test', shade: 400 });
-      const expected = theme.palette.test[400];
+      const expected = theme.palette.test![400];
 
       expect(color).toBe(expected);
     });
@@ -473,7 +473,7 @@ describe('getColor', () => {
     });
 
     it('throws an error if transparency is invalid', () => {
-      const invalid = DEFAULT_THEME.opacity[100] + 1;
+      const invalid = DEFAULT_THEME.opacity[100]! + 1;
 
       expect(() => getColor({ theme: DEFAULT_THEME, hue: 'blue', transparency: invalid })).toThrow(
         Error

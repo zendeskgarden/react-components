@@ -13,7 +13,10 @@ import { PLACEMENT_MAP, RTL_PLACEMENT_MAP, getFloatingPlacements } from './getFl
 
 describe('getFloatingPlacements', () => {
   it.each<[Placement, FloatingPlacement]>(
-    PLACEMENT.map(placement => [placement, PLACEMENT_MAP[placement] || placement])
+    PLACEMENT.map(placement => [
+      placement,
+      PLACEMENT_MAP[placement] || (placement as FloatingPlacement)
+    ])
   )('converts Garden "%s" to Floating-UI "%s"', (placement, expected) => {
     const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(DEFAULT_THEME, placement);
 
@@ -26,7 +29,7 @@ describe('getFloatingPlacements', () => {
       placement,
       RTL_PLACEMENT_MAP[PLACEMENT_MAP[placement] || placement] ||
         PLACEMENT_MAP[placement] ||
-        placement
+        (placement as FloatingPlacement)
     ])
   )('converts RTL Garden "%s" to Floating-UI "%s"', (placement, expected) => {
     const theme = { ...DEFAULT_THEME, rtl: true };

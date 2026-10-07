@@ -98,7 +98,12 @@ const toKey = ({
  * @param {Object} theme Context `theme` object.
  * @param {Number} [transparency] An alpha-channel value between 0 and 1.
  */
-export const getColorV8 = memoize(
+export const getColorV8: (
+  hue: Hue,
+  shade?: number,
+  theme?: DefaultTheme,
+  transparency?: number
+) => string | undefined = memoize(
   (hue: Hue, shade: number = DEFAULT_SHADE, theme?: DefaultTheme, transparency?: number) => {
     let retVal;
 
@@ -127,7 +132,7 @@ export const getColorV8 = memoize(
 
     if (Object.prototype.hasOwnProperty.call(palette, _hue as string)) {
       // Convert string to a palette hue object.
-      _hue = palette[_hue as string];
+      _hue = palette[_hue as string]!;
     }
 
     if (typeof _hue === 'object') {
@@ -141,7 +146,7 @@ export const getColorV8 = memoize(
             return Math.abs(current - shade) < Math.abs(previous - shade) ? current : previous;
           });
 
-        retVal = adjust(_hue[_shade], shade, _shade);
+        retVal = adjust(_hue[_shade]!, shade, _shade);
       }
     } else {
       retVal = adjust(_hue, shade, DEFAULT_SHADE);
