@@ -30,7 +30,8 @@ export {
   type IGardenTheme,
   type IStyledBaseIconProps,
   type IThemeProviderProps,
-  type MenuPosition
+  type MenuPosition,
+  type Placement
 } from './theming/types';
 export { default as arrowStyles } from './theming/utils/arrowStyles';
 export { componentStyles } from './theming/utils/componentStyles';
