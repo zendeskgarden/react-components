@@ -10,8 +10,6 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 
-const COMPONENT_ID = 'loaders.loading_placeholder';
-
 interface IStyledLoadingPlaceholderProps {
   $fontSize: string | number;
   $width?: string;
@@ -39,12 +37,7 @@ const sizeStyles = ({
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledLoadingPlaceholder = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  role: 'progressbar'
-})<IStyledLoadingPlaceholderProps>`
+export const StyledLoadingPlaceholder = styled.div<IStyledLoadingPlaceholderProps>`
   display: inline-block;
 
   ${sizeStyles};

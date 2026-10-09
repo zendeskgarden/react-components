@@ -16,8 +16,6 @@ import {
 } from '../../views/loader/StyledProgress';
 import { COMPONENT_IDS } from '../utils';
 
-const COMPONENT_ID = 'loaders.progress';
-
 /**
  * 1. Garden progress bar is quite custom, and while using a native
  *    `progress` element would be ideal, its inclusion of a shadow
@@ -37,8 +35,6 @@ export const Progress = forwardRef<HTMLDivElement, IProgressProps>(
       /* [1] */
       // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledProgressBackground
-        data-garden-id={COMPONENT_ID}
-        data-garden-version={PACKAGE_VERSION}
         aria-valuemax={100}
         aria-valuemin={0}
         aria-valuenow={percentage}
@@ -48,6 +44,8 @@ export const Progress = forwardRef<HTMLDivElement, IProgressProps>(
         ref={ref}
         aria-label={ariaLabel}
         {...other}
+        data-garden-id={COMPONENT_IDS['loaders.progress_background']}
+        data-garden-version={PACKAGE_VERSION}
       >
         <StyledProgressIndicator
           $value={percentage}

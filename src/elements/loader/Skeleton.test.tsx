@@ -51,6 +51,12 @@ describe('Skeleton', () => {
     );
   });
 
+  it('renders a non-breaking space so the line height sizes the Skeleton', () => {
+    const { container } = render(<Skeleton />);
+
+    expect(container.firstChild?.textContent).toBe('\u00a0');
+  });
+
   it('applies custom width correctly', () => {
     const { container } = render(<Skeleton width="50px" />);
 

@@ -11,6 +11,7 @@ import { forwardRef } from 'react';
 import { useText } from '../../theming/utils/useText';
 import { IInlineProps } from '../../types/elements';
 import { StyledInline, StyledCircle } from '../../views/loader/StyledInline';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
@@ -29,15 +30,19 @@ export const Inline = forwardRef<SVGSVGElement, IInlineProps>(
       // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledInline
         ref={ref}
-        $size={size!}
         $color={color!}
         aria-label={ariaLabel}
         role="img"
         {...other}
+        data-garden-id={COMPONENT_IDS['loaders.inline']}
+        data-garden-version={PACKAGE_VERSION}
+        viewBox="0 0 16 4"
+        width={size}
+        height={size! * 0.25}
       >
-        <StyledCircle cx="14" />
-        <StyledCircle cx="8" />
-        <StyledCircle cx="2" />
+        <StyledCircle cx="14" cy={2} r={2} fill="currentColor" />
+        <StyledCircle cx="8" cy={2} r={2} fill="currentColor" />
+        <StyledCircle cx="2" cy={2} r={2} fill="currentColor" />
       </StyledInline>
     );
   }

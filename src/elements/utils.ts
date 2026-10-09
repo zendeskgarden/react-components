@@ -15,8 +15,13 @@ const componentIds = [
   'accordions.rotate_icon',
   'accordions.section',
   'accordions.step_inner_panel',
+  'loaders.dots',
+  'loaders.inline',
+  'loaders.loading_placeholder',
+  'loaders.progress_background',
   'loaders.progress_indicator',
-  'loaders.skeleton'
+  'loaders.skeleton',
+  'loaders.spinner'
 ] as const;
 
 type ComponentId = (typeof componentIds)[number];

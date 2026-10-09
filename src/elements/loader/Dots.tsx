@@ -15,8 +15,12 @@ import {
   StyledDotsCircleThree
 } from '../../views/loader/StyledDots';
 import { StyledSVG } from '../../views/loader/StyledSVG';
+import { COMPONENT_IDS } from '../utils';
 
-const COMPONENT_ID = 'loaders.dots';
+/**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
 
 /**
  * @extends SVGAttributes<SVGSVGElement>
@@ -24,20 +28,25 @@ const COMPONENT_ID = 'loaders.dots';
 export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
   ({ size = 'inherit', color = 'inherit', duration = 1250, delayMS = 750, ...other }, ref) => {
     return (
+      // [1]
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledSVG
-        data-garden-id={COMPONENT_ID}
+        data-garden-id={COMPONENT_IDS['loaders.dots']}
         ref={ref}
         $fontSize={size!}
         $color={color!}
-        $width="80"
-        $height="72"
         $delayShow={delayMS!}
         {...other}
+        data-garden-version={PACKAGE_VERSION}
+        xmlns="http://www.w3.org/2000/svg"
+        focusable="false"
+        viewBox="0 0 80 72"
+        role="img"
       >
         <g fill="currentColor">
-          <StyledDotsCircleOne $duration={duration!} $delay={delayMS!} />
-          <StyledDotsCircleTwo $duration={duration!} $delay={delayMS!} />
-          <StyledDotsCircleThree $duration={duration!} $delay={delayMS!} />
+          <StyledDotsCircleOne cx={9} cy={36} r={9} $duration={duration!} $delay={delayMS!} />
+          <StyledDotsCircleTwo cx={40} cy={36} r={9} $duration={duration!} $delay={delayMS!} />
+          <StyledDotsCircleThree cx={71} cy={36} r={9} $duration={duration!} $delay={delayMS!} />
         </g>
       </StyledSVG>
     );

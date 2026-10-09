@@ -10,16 +10,16 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 import { ISpinnerProps } from '../../types/elements';
-import { StyledLoadingPlaceholder } from '../../views/loader/StyledLoadingPlaceholder';
-import { StyledSpinnerCircle } from '../../views/loader/StyledSpinnerCircle';
-import { StyledSVG } from '../../views/loader/StyledSVG';
 import {
   STROKE_WIDTH_FRAMES,
   DASHARRAY_FRAMES,
   ROTATION_FRAMES
-} from '../utils/spinner-coordinates';
+} from '../../utils/loader/spinner-coordinates';
+import { StyledLoadingPlaceholder } from '../../views/loader/StyledLoadingPlaceholder';
+import { StyledSpinnerCircle } from '../../views/loader/StyledSpinnerCircle';
+import { StyledSVG } from '../../views/loader/StyledSVG';
+import { COMPONENT_IDS } from '../utils';
 
-const COMPONENT_ID = 'loaders.spinner';
 const TOTAL_FRAMES = 100;
 
 const computeFrames = (
@@ -28,7 +28,7 @@ const computeFrames = (
 ): Record<string, number> => {
   return Object.entries<number>(frames).reduce((acc: Record<string, number>, item, index, arr) => {
     const [frame, value] = item;
-    const [nextFrame, nextValue] = arr[index + 1] || [TOTAL_FRAMES, arr[0][1]];
+    const [nextFrame, nextValue] = arr[index + 1] || [String(TOTAL_FRAMES), arr[0]![1]];
     const diff = parseInt(nextFrame, 10) - parseInt(frame, 10);
     const frameHz = 1000 / 60;
 
@@ -47,6 +47,13 @@ const computeFrames = (
     return acc;
   }, {});
 };
+
+/**
+ * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ * 2. The `progressbar` role on the placeholder is unchanged from v9. Keeping
+ *    it preserves the rendered output.
+ */
 
 /**
  * @extends SVGAttributes<SVGSVGElement>
@@ -69,27 +76,47 @@ export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
 
     if (!delayComplete && delayMS !== 0) {
       return (
-        <StyledLoadingPlaceholder $width="1em" $height="1em" $fontSize={size!}>
+        // [2]
+        // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+        <StyledLoadingPlaceholder
+          $width="1em"
+          $height="1em"
+          $fontSize={size!}
+          data-garden-id={COMPONENT_IDS['loaders.loading_placeholder']}
+          data-garden-version={PACKAGE_VERSION}
+          role="progressbar"
+        >
           &nbsp;
         </StyledLoadingPlaceholder>
       );
     }
 
     return (
+      // [1]
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledSVG
         $color={color}
         $containerHeight="1em"
         $containerWidth="1em"
         $fontSize={size}
-        data-garden-id={COMPONENT_ID}
-        $height={HEIGHT}
+        data-garden-id={COMPONENT_IDS['loaders.spinner']}
         ref={ref}
-        $width={WIDTH}
         {...other}
+        data-garden-version={PACKAGE_VERSION}
+        xmlns="http://www.w3.org/2000/svg"
+        focusable="false"
+        viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
+        role="img"
       >
         <StyledSpinnerCircle
-          $dasharrayValue={dasharrayValue}
-          $strokeWidthValue={strokeWidthValue}
+          cx={40}
+          cy={40}
+          r={34}
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeWidth={strokeWidthValue}
+          strokeDasharray={`${dasharrayValue} 250`}
           transform={`rotate(${rotationValue}, ${WIDTH / 2}, ${HEIGHT / 2})`}
         />
       </StyledSVG>

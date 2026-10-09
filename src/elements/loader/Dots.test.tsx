@@ -5,9 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { act } from '@testing-library/react';
-import { vi } from 'vitest';
-
 import { render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
 import { Dots } from './Dots';
@@ -30,10 +27,6 @@ describe('Dots', () => {
   it('applies correct accessibility values', () => {
     const { getByTestId } = render(<Dots data-test-id="dots" />);
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     const dots = getByTestId('dots');
 
     expect(dots).toHaveAttribute('role', 'img');
@@ -42,10 +35,12 @@ describe('Dots', () => {
   it('renders color variable key as expected', () => {
     const { container } = render(<Dots color="foreground.primary" />);
 
-    act(() => {
-      vi.runOnlyPendingTimers();
-    });
-
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
+  });
+
+  it('renders a numeric size in pixels', () => {
+    const { container } = render(<Dots size={16} />);
+
+    expect(container.firstChild).toHaveStyleRule('font-size', '16px');
   });
 });

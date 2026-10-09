@@ -12,13 +12,12 @@ import { vi } from 'vitest';
 import { render } from '../../test/render';
 import { Spinner } from './Spinner';
 
-vi.useFakeTimers({ legacyFakeTimers: true });
+vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout', 'setInterval', 'clearInterval'] });
 
 const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Spinner', () => {
   beforeEach(() => {
-    vi.mocked(clearTimeout).mockClear();
     (global as any).cancelAnimationFrame = vi.fn();
     (global as any).requestAnimationFrame = vi.fn();
     mockDate.set(DEFAULT_DATE);
@@ -33,6 +32,12 @@ describe('Spinner', () => {
       const { queryByTestId } = render(<Spinner data-test-id="spinner" />);
 
       expect(queryByTestId('spinner')).toBeNull();
+    });
+
+    it('sizes the placeholder with the size that has a unit', () => {
+      const { container } = render(<Spinner size="2em" />);
+
+      expect(container.firstChild).toHaveStyleRule('font-size', '2em');
     });
 
     it('shows loader after initial delay', () => {
@@ -72,7 +77,7 @@ describe('Spinner', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        vi.mocked(requestAnimationFrame).mock.calls[0][0](0);
+        vi.mocked(requestAnimationFrame).mock.calls[0]![0](0);
       });
 
       expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`

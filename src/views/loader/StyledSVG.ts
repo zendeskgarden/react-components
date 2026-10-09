@@ -11,14 +11,12 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import type { IStyledBaseProps } from '../../types/views';
-import { delayedVisibilityKeyframes } from '../utils/animations';
+import { delayedVisibilityKeyframes } from '../../utils/loader/animations';
 
 interface IStyledSVGProps {
   'data-garden-id': string;
   $color?: string;
   $fontSize?: string | number;
-  $width: number | string;
-  $height: number | string;
   $containerWidth?: string;
   $containerHeight?: string;
   $delayShow?: number;
@@ -65,14 +63,7 @@ const delayedVisibilityStyles = ({ $delayShow }: IStyledSVGProps) => {
   return undefined;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
-  'data-garden-version': PACKAGE_VERSION,
-  xmlns: 'http://www.w3.org/2000/svg',
-  focusable: 'false',
-  viewBox: `0 0 ${props.$width} ${props.$height}`,
-  role: 'img'
-}))<IStyledSVGProps>`
+export const StyledSVG = styled.svg<IStyledSVGProps>`
   ${sizeStyles};
 
   ${colorStyles};

@@ -11,10 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import type { IStyledBaseProps } from '../../types/views';
 
-const COMPONENT_ID = 'loaders.inline';
-
 interface IStyledInlineProps {
-  $size: number;
   $color: string;
 }
 
@@ -36,23 +33,11 @@ const retrieveAnimation = ({ theme }: IStyledBaseProps) => keyframes`
   }
 `;
 
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledCircle = styled.circle.attrs({
-  fill: 'currentColor',
-  cy: 2,
-  r: 2
-})`
+export const StyledCircle = styled.circle`
   /* empty-source */
 `;
 
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  viewBox: '0 0 16 4',
-  width: props.$size,
-  height: props.$size * 0.25
-}))<IStyledInlineProps>`
+export const StyledInline = styled.svg<IStyledInlineProps>`
   ${colorStyles};
 
   ${StyledCircle} {

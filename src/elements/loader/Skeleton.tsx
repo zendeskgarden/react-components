@@ -26,7 +26,9 @@ export const Skeleton = forwardRef<HTMLDivElement, ISkeletonProps>(
         {...other}
         data-garden-id={COMPONENT_IDS['loaders.skeleton']}
         data-garden-version={PACKAGE_VERSION}
-      />
+      >
+        &nbsp;
+      </StyledSkeleton>
     );
   }
 );

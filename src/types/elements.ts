@@ -6,18 +6,10 @@
  */
 
 import type { IUseAccordionProps } from '@zendeskgarden/container-accordion';
-import type { ComponentPropsWithRef, HTMLAttributes } from 'react';
+import type { ComponentPropsWithRef, HTMLAttributes, SVGAttributes } from 'react';
 //#region loader
-/**
- * Copyright Zendesk, Inc.
- *
- * Use of this source code is governed under the Apache License, Version 2.0
- * found at http://www.apache.org/licenses/LICENSE-2.0.
- */
-import { HTMLAttributes, SVGAttributes } from 'react';
-
 export const LOADER_SIZE = ['small', 'medium', 'large'] as const;
-export type LoaderSize = (typeof SIZE)[number];
+export type LoaderSize = (typeof LOADER_SIZE)[number];
 export interface IDotsProps extends SVGAttributes<SVGSVGElement> {
   /** Sets the height and width in pixels. Inherits the parent's font size by default. */
   size?: string | number;
@@ -56,7 +48,7 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
    */
   color?: string;
   /** Adjusts the height */
-  size?: Size;
+  size?: LoaderSize;
 }
 export interface ISkeletonProps extends HTMLAttributes<HTMLDivElement> {
   /** Sets the width as a percentage of the the parent element's width */

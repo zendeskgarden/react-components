@@ -32,6 +32,15 @@ describe('Progress', () => {
     expect(progress).toHaveAttribute('aria-label', 'Progress');
   });
 
+  it('renders the progress background id', () => {
+    const { getByRole } = render(<Progress value={40} />);
+
+    expect(getByRole('progressbar')).toHaveAttribute(
+      'data-garden-id',
+      'loaders.progress_background'
+    );
+  });
+
   it('renders a progress indicator', () => {
     const { getByRole } = render(<Progress value={40} />);
 

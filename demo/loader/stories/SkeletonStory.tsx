@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { FC, PropsWithChildren } from 'react';
 
@@ -20,12 +19,7 @@ interface IArgs extends ISkeletonProps {
   typescale?: TYPE_SCALE;
 }
 
-export const SkeletonStory: StoryFn<IArgs> = ({
-  backgroundColor,
-  count = 1,
-  typescale,
-  ...args
-}) => {
+export const SkeletonStory = ({ backgroundColor, count = 1, typescale, ...args }: IArgs) => {
   let Typescale: FC<PropsWithChildren> | undefined;
 
   switch (typescale) {
