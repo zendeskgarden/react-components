@@ -10,7 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { Spinner } from '../../src/index';
 
 export default {
-  title: 'Components/Spinner',
+  title: 'Components/Loaders/Spinner',
   component: Spinner
 };
 

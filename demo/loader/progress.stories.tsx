@@ -10,7 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { Progress } from '../../src/index';
 
 export default {
-  title: 'Components/Progress',
+  title: 'Components/Loaders/Progress',
   component: Progress
 };
 

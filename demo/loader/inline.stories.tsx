@@ -10,7 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { Inline } from '../../src/index';
 
 export default {
-  title: 'Components/Inline',
+  title: 'Components/Loaders/Inline',
   component: Inline
 };
 

@@ -12,7 +12,7 @@ import { TYPE_SCALE_OPTIONS } from './stories/data';
 import { SkeletonStory } from './stories/SkeletonStory';
 
 export default {
-  title: 'Components/Skeleton',
+  title: 'Components/Loaders/Skeleton',
   component: Skeleton
 };
 

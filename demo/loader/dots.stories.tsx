@@ -10,7 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { Dots } from '../../src/index';
 
 export default {
-  title: 'Components/Dots',
+  title: 'Components/Loaders/Dots',
   component: Dots
 };
 
