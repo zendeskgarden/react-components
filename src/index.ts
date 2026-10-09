@@ -7,7 +7,13 @@
 
 /* accordion */
 export { Accordion } from './elements/accordion/Accordion';
-export type { IAccordionProps } from './types/elements';
+
+/* loader */
+export { Dots } from './elements/loader/Dots';
+export { Inline } from './elements/loader/Inline';
+export { Progress } from './elements/loader/Progress';
+export { Skeleton } from './elements/loader/Skeleton';
+export { Spinner } from './elements/loader/Spinner';
 
 /* theming */
 export { ColorSchemeProvider } from './theming/elements/ColorSchemeProvider';
@@ -52,3 +58,13 @@ export { useColorScheme } from './theming/utils/useColorScheme';
 export { useDocument } from './theming/utils/useDocument';
 export { useText } from './theming/utils/useText';
 export { useWindow } from './theming/utils/useWindow';
+
+/* types */
+export type {
+  IAccordionProps,
+  IDotsProps,
+  IInlineProps,
+  IProgressProps,
+  ISkeletonProps,
+  ISpinnerProps
+} from './types/elements';

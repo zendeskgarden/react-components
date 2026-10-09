@@ -1,0 +1,67 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import PropTypes from 'prop-types';
+import { forwardRef } from 'react';
+
+import { useText } from '../../theming/utils/useText';
+import { IProgressProps, LOADER_SIZE } from '../../types/elements';
+import {
+  StyledProgressBackground,
+  StyledProgressIndicator
+} from '../../views/loader/StyledProgress';
+import { COMPONENT_IDS } from '../utils';
+
+/**
+ * 1. Garden progress bar is quite custom, and while using a native
+ *    `progress` element would be ideal, its inclusion of a shadow
+ *    root in Safari prevents straightforward restyling/functional overrides.
+ */
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const Progress = forwardRef<HTMLDivElement, IProgressProps>(
+  ({ color, value = 0, size = 'medium', 'aria-label': label, ...other }, ref) => {
+    const percentage = Math.max(0, Math.min(100, value!));
+
+    const ariaLabel = useText(Progress, { 'aria-label': label }, 'aria-label', 'Progress');
+
+    return (
+      /* [1] */
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+      <StyledProgressBackground
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={percentage}
+        role="progressbar"
+        $size={size!}
+        $color={color}
+        ref={ref}
+        aria-label={ariaLabel}
+        {...other}
+        data-garden-id={COMPONENT_IDS['loaders.progress_background']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        <StyledProgressIndicator
+          $value={percentage}
+          $size={size!}
+          data-garden-id={COMPONENT_IDS['loaders.progress_indicator']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      </StyledProgressBackground>
+    );
+  }
+);
+
+Progress.displayName = 'Progress';
+
+Progress.propTypes = {
+  color: PropTypes.string,
+  value: PropTypes.number.isRequired,
+  size: PropTypes.oneOf(LOADER_SIZE)
+};
