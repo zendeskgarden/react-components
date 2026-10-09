@@ -93,7 +93,7 @@ export const StyledSkeleton = styled.div<IStyledSkeletonProps>`
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;
-  border-radius: ${props => props.theme.borderRadii.md};
+  border-radius: ${props => props.theme.borderRadii.sm};
   background-color: ${getBackgroundColor};
   width: ${props => props.$width};
   height: ${props => props.$height};
