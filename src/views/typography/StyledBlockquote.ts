@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { IBlockquoteProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IBlockquoteProps } from '../../types/elements';
 import { THEME_SIZES } from './StyledFont';
 
-const COMPONENT_ID = 'typography.blockquote';
-
-export const StyledBlockquote = styled.blockquote.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IBlockquoteProps>`
+export const StyledBlockquote = styled.blockquote<IBlockquoteProps>`
   margin: 0;
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     props.theme.shadowWidths.sm} solid;

@@ -14,7 +14,20 @@ const componentIds = [
   'accordions.panel',
   'accordions.rotate_icon',
   'accordions.section',
-  'accordions.step_inner_panel'
+  'accordions.step_inner_panel',
+  'avatars.avatar',
+  'avatars.status_indicator',
+  'avatars.text',
+  'typography.blockquote',
+  'typography.codeblock',
+  'typography.codeblock_container',
+  'typography.codeblock_token',
+  'typography.ellipsis',
+  'typography.font',
+  'typography.icon',
+  'typography.ordered_list',
+  'typography.paragraph',
+  'typography.unordered_list'
 ] as const;
 
 type ComponentId = (typeof componentIds)[number];

@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'avatars.text';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * Accepts all `<span>` attributes
  */
-export const StyledText = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledText = styled.span`
   overflow: hidden;
   text-align: center;
   white-space: nowrap;

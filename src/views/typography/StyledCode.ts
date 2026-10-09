@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ICodeProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { ICodeProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledFont, IStyledFontProps } from './StyledFont';
 
 const COMPONENT_ID = 'typography.code';
 
-const colorStyles = ({ $hue, theme }: IStyledCodeProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ $hue, theme }: IStyledCodeProps & IStyledBaseProps) => {
   const bgColorArgs: Parameters<typeof getColor>[0] = {
     theme,
     light: { offset: 100 },
@@ -59,6 +61,7 @@ interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
   $size?: ICodeProps['size'];
 }
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledCode = styled(StyledFont as 'code').attrs<IStyledCodeProps>(() => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

@@ -7,15 +7,16 @@
 
 import type { StoryObj } from '@storybook/react-vite';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import { Code } from '@zendeskgarden/react-typography';
-import React from 'react';
+import { ComponentProps } from 'react';
 
-type IArgs = React.ComponentProps<typeof Code> & {
+import { Code } from '../../src/index';
+
+type IArgs = ComponentProps<typeof Code> & {
   isAnchor?: boolean;
 };
 
 export default {
-  title: 'Packages/Typography/Code',
+  title: 'Components/Code',
   component: Code
 };
 

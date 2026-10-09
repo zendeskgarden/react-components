@@ -6,10 +6,10 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledCode } from '../styled';
-import { HUE, ICodeProps, INHERIT_SIZE } from '../types';
+import { HUE, ICodeProps, INHERIT_SIZE } from '../../types/elements';
+import { StyledCode } from '../../views/typography/StyledCode';
 
 /**
  * @extends HTMLAttributes<HTMLElement>

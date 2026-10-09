@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
+import styled, { css, DataAttributes } from 'styled-components';
 
-const COMPONENT_ID = 'typography.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledIconProps {
   $isStart?: boolean;
 }
 
-const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
   const margin = props.$isStart && `${props.theme.space.base * 2}px`;
   const size = props.theme.iconSizes.md;
 
@@ -25,10 +26,7 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledIconProps>`
+export const StyledIcon = styled(StyledBaseIcon)<DataAttributes>`
   position: relative;
   top: -1px;
   vertical-align: middle;

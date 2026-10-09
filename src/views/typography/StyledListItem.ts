@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Size } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { Size } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledFont } from './StyledFont';
 import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 
@@ -17,7 +19,7 @@ interface IStyledListItemProps {
   $space?: Size;
 }
 
-const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
+const listItemPaddingStyles = (props: IStyledListItemProps & IStyledBaseProps) => {
   const base = props.theme.space.base;
   const paddingTop = props.$space === 'large' ? `${base * 2}px` : `${base}px`;
 
@@ -42,7 +44,7 @@ const listItemPaddingStyles = (props: IStyledListItemProps & ThemeProps<DefaultT
   `;
 };
 
-const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) => {
+const listItemStyles = (props: IStyledListItemProps & IStyledBaseProps) => {
   return css`
     line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
 
@@ -52,6 +54,7 @@ const listItemStyles = (props: IStyledListItemProps & ThemeProps<DefaultTheme>) 
 
 const ORDERED_ID = 'typography.ordered_list_item';
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(() => ({
   'data-garden-id': ORDERED_ID,
   'data-garden-version': PACKAGE_VERSION,
@@ -69,6 +72,7 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledLis
 
 const UNORDERED_ID = 'typography.unordered_list_item';
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
   () => ({
     'data-garden-id': UNORDERED_ID,

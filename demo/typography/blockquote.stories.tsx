@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Blockquote } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { Blockquote } from '../../src/index';
 import { BlockquoteStory } from './stories/BlockquoteStory';
 import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';
 
 export default {
-  title: 'Packages/Typography/Blockquote',
+  title: 'Components/Blockquote',
   component: Blockquote
 };
 

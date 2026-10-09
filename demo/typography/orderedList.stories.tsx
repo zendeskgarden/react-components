@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { OrderedList } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { OrderedList } from '../../src/index';
 import { LIST_ITEMS as ITEMS } from './stories/data';
 import { OrderedListStory } from './stories/OrderedListStory';
 
 export default {
-  title: 'Packages/Typography/Lists/OrderedList',
+  title: 'Components/OrderedList',
   component: OrderedList,
   subcomponents: {
     'OrderedList.Item': OrderedList.Item

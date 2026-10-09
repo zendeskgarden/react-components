@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { math, stripUnit } from 'polished';
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 
-import { IKbdProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { IKbdProps } from '../../types/elements';
 import { StyledCode } from './StyledCode';
 
 const COMPONENT_ID = 'typography.kbd';
@@ -62,6 +62,7 @@ const sizeStyles = ({ theme, $size }: IStyledKbdProps) => {
  * 2. Prevent the monospace stack fallback, which doesn't render individual
  *    keyboard characters well
  */
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledKbd = styled(StyledCode as 'kbd').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

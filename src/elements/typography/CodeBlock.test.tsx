@@ -5,16 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { render, waitFor } from 'garden-test-utils';
+import { waitFor } from '@testing-library/react';
 import { rgba } from 'polished';
-import React from 'react';
+import { createRef } from 'react';
 
+import { render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { CodeBlock } from './CodeBlock';
 
 describe('CodeBlock', () => {
   it('passes ref to underlying DOM element', async () => {
-    const ref = React.createRef<HTMLPreElement>();
+    const ref = createRef<HTMLPreElement>();
     const { container } = render(<CodeBlock ref={ref} />);
 
     await waitFor(() => {

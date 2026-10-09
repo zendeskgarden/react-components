@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IAvatarProps, SIZE } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IAvatarProps, AVATAR_SIZE } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 import { getStatusBorderOffset, includes, IStyledStatusIndicatorProps } from './utility';
 
@@ -20,11 +22,9 @@ export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isS
   $size?: IAvatarProps['size'];
 }
 
-const COMPONENT_ID = 'avatars.status_indicator';
+const [xxs, xs, s, m, l] = AVATAR_SIZE;
 
-const [xxs, xs, s, m, l] = SIZE;
-
-const sizeStyles = (props: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStatusIndicatorProps & IStyledBaseProps) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$size` may still be undefined here */
   const size = props.$size ?? 'medium';
@@ -74,7 +74,7 @@ const colorStyles = ({
   $size,
   $borderColor,
   $surfaceColor
-}: IStatusIndicatorProps & ThemeProps<DefaultTheme>) => {
+}: IStatusIndicatorProps & IStyledBaseProps) => {
   const shadowSize = $size === xxs ? 'xs' : 'sm';
   let boxShadow;
 
@@ -96,12 +96,7 @@ const colorStyles = ({
   `;
 };
 
-export const StyledStatusIndicator = styled(StyledStatusIndicatorBase).attrs<IStatusIndicatorProps>(
-  () => ({
-    'data-garden-id': COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION
-  })
-)<IStatusIndicatorProps>`
+export const StyledStatusIndicator = styled(StyledStatusIndicatorBase)<IStatusIndicatorProps>`
   ${sizeStyles}
   ${colorStyles}
 

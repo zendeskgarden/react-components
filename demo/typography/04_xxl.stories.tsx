@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { XXL } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { XXL } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Packages/Typography/Typescale/XXL',
+  title: 'Components/XXL',
   component: XXL
 };
 

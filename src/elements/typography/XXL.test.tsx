@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { XXL } from './XXL';
 
-import { XL } from './XL';
-
-describe('XL', () => {
+describe('XXL', () => {
   it('applies bold styling if provided', () => {
-    const { container } = render(<XL isBold />);
+    const { container } = render(<XXL isBold />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-weight',
@@ -22,7 +20,9 @@ describe('XL', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<XL>Hello world</XL>);
+    const { container } = render(<XXL>Hello world</XXL>, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

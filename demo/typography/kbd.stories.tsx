@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Kbd } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { Kbd } from '../../src/index';
 import { KbdStory } from './stories/KbdStory';
 
 export default {
-  title: 'Packages/Typography/Kbd',
+  title: 'Components/Kbd',
   component: Kbd
 };
 

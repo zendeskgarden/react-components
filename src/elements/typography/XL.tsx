@@ -6,17 +6,26 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledFont } from '../styled';
-import { ITypescaleProps } from '../types';
+import { ITypescaleProps } from '../../types/elements';
+import { StyledFont } from '../../views/typography/StyledFont';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const XL = forwardRef<HTMLDivElement, ITypescaleProps>(
   ({ isBold, tag = 'div', ...other }, ref) => (
-    <StyledFont $size="extralarge" $isBold={isBold} ref={ref} as={tag} {...other} />
+    <StyledFont
+      $size="extralarge"
+      $isBold={isBold}
+      ref={ref}
+      as={tag}
+      {...other}
+      data-garden-id={COMPONENT_IDS['typography.font']}
+      data-garden-version={PACKAGE_VERSION}
+    />
   )
 );
 

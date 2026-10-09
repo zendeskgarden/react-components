@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
-
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { SM } from './SM';
 
 describe('SM', () => {
@@ -31,7 +29,9 @@ describe('SM', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<SM />);
+    const { container } = render(<SM />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

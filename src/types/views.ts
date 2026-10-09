@@ -9,6 +9,15 @@ import type { DefaultTheme } from 'styled-components';
 
 import type { IGardenTheme } from '../theming/types';
 
+//#region typography
+interface IStyledFontProps extends IStyledBaseProps {
+  $isBold?: boolean;
+  $isMonospace?: boolean;
+  $size?: (typeof FONT_SIZE)[number];
+  $hue?: string;
+}
+//#endregion
+
 export interface IStyledBaseProps<T extends DefaultTheme = IGardenTheme> {
   theme: T;
 }

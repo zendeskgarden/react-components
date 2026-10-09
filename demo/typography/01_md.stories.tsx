@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { MD } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { MD } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Packages/Typography/Typescale/MD',
+  title: 'Components/MD',
   component: MD
 };
 

@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled, { css, keyframes } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 import {
   TRANSITION_DURATION,
   getStatusColor,
@@ -15,8 +16,6 @@ import {
   getStatusSize,
   IStyledStatusIndicatorProps
 } from './utility';
-
-const COMPONENT_ID = 'avatars.status-indicator.base';
 
 const iconFadeIn = keyframes`
   0% {
@@ -91,10 +90,7 @@ const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
   `;
 };
 
-export const StyledStatusIndicatorBase = styled.div.attrs<IStyledStatusIndicatorProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledStatusIndicatorProps>`
+export const StyledStatusIndicatorBase = styled.div<IStyledStatusIndicatorProps>`
   transition: inherit;
 
   ${sizeStyles}

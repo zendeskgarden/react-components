@@ -6,8 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { StatusIndicator, IStatusIndicatorProps } from '@zendeskgarden/react-avatars';
-import React from 'react';
+
+import { StatusIndicator, IStatusIndicatorProps } from '../../../src/index';
 
 export const StatusIndicatorStory: StoryFn<IStatusIndicatorProps> = ({ ...args }) => {
   return <StatusIndicator {...args} />;

@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
-
+import { RTL_THEME, render } from '../../test/render';
 import { OrderedList } from './OrderedList';
 
 describe('OrderedList', () => {
@@ -18,7 +16,9 @@ describe('OrderedList', () => {
   });
 
   it('applies correct styling with RTL layout', () => {
-    const { container } = renderRtl(<OrderedList />);
+    const { container } = render(<OrderedList />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

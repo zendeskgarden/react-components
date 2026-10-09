@@ -6,21 +6,31 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo, forwardRef } from 'react';
 
-import { StyledOrderedList } from '../../styled';
-import { IOrderedListProps, SIZE, TYPE_ORDERED_LIST } from '../../types';
-import { OrderedListContext } from '../../utils/useOrderedListContext';
+import {
+  OrderedListProvider,
+  OrderedListProvider
+} from '../../context/typography/OrderedListContext';
+import { IOrderedListProps, SIZE, TYPE_ORDERED_LIST } from '../../types/elements';
+import { StyledOrderedList } from '../../views/typography/StyledList';
+import { COMPONENT_IDS } from '../utils';
 import { Item } from './OrderedListItem';
 
-const OrderedListComponent = React.forwardRef<HTMLOListElement, IOrderedListProps>(
+const OrderedListComponent = forwardRef<HTMLOListElement, IOrderedListProps>(
   ({ size = 'medium', type = 'decimal', ...other }, ref) => {
     const value = useMemo(() => ({ size: size! }), [size]);
 
     return (
-      <OrderedListContext.Provider value={value}>
-        <StyledOrderedList ref={ref} $listType={type} {...other} />
-      </OrderedListContext.Provider>
+      <OrderedListProvider value={value}>
+        <StyledOrderedList
+          ref={ref}
+          $listType={type}
+          {...other}
+          data-garden-id={COMPONENT_IDS['typography.ordered_list']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      </OrderedListProvider>
     );
   }
 );

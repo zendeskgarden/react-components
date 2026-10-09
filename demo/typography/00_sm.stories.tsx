@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { SM } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { SM } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Packages/Typography/Typescale/SM',
+  title: 'Components/SM',
   component: SM
 };
 

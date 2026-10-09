@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes } from 'react';
+import { forwardRef, LiHTMLAttributes } from 'react';
 
-import { StyledOrderedListItem } from '../../styled';
-import useOrderedListContext from '../../utils/useOrderedListContext';
+import { useOrderedListContext } from '../../hooks/typography/useOrderedListContext';
+import { StyledOrderedListItem } from '../../views/typography/StyledListItem';
 
 const OrderedListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { size } = useOrderedListContext();

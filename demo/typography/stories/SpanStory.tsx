@@ -6,10 +6,10 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { ISpanProps, Span } from '@zendeskgarden/react-typography';
-import Icon from '@zendeskgarden/svg-icons/src/16/asterisk-stroke.svg';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/circle-stroke.svg';
-import React from 'react';
+import Icon from 'svg-icons-legacy/src/16/asterisk-stroke.svg';
+import StartIcon from 'svg-icons-legacy/src/16/circle-stroke.svg';
+
+import { ISpanProps, Span } from '../../../src/index';
 
 interface IArgs extends ISpanProps {
   hasIcon: boolean;

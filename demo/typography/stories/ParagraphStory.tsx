@@ -6,9 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { Paragraph, IParagraphProps } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { Paragraph, IParagraphProps } from '../../../src/index';
 import { TypescaleStory } from './TypescaleStory';
 
 interface IArgs extends IParagraphProps {

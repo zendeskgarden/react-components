@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Paragraph } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { Paragraph } from '../../src/index';
 import { PARAGRAPH_CHILDREN as CHILDREN } from './stories/data';
 import { ParagraphStory } from './stories/ParagraphStory';
 
 export default {
-  title: 'Packages/Typography/Paragraph',
+  title: 'Components/Paragraph',
   component: Paragraph
 };
 

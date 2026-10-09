@@ -6,16 +6,25 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledParagraph } from '../styled';
-import { IParagraphProps, SIZE } from '../types';
+import { IParagraphProps, SIZE } from '../../types/elements';
+import { StyledParagraph } from '../../views/typography/StyledParagraph';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
 export const Paragraph = forwardRef<HTMLParagraphElement, IParagraphProps>(
-  ({ size = 'medium', ...props }, ref) => <StyledParagraph ref={ref} size={size} {...props} />
+  ({ size = 'medium', ...props }, ref) => (
+    <StyledParagraph
+      ref={ref}
+      size={size}
+      {...props}
+      data-garden-id={COMPONENT_IDS['typography.paragraph']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 Paragraph.displayName = 'Paragraph';

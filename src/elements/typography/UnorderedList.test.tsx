@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
-
+import { RTL_THEME, render } from '../../test/render';
 import { UnorderedList } from './UnorderedList';
 
 describe('UnorderedList', () => {
@@ -18,7 +16,9 @@ describe('UnorderedList', () => {
   });
 
   it('applies correct styling with RTL layout', () => {
-    const { container } = renderRtl(<UnorderedList />);
+    const { container } = render(<UnorderedList />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

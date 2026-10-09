@@ -5,17 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
-import ArrowLeftIcon12 from '@zendeskgarden/svg-icons/src/12/arrow-left-sm-stroke.svg';
-import ClockIcon12 from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
-import ArrowLeftIcon16 from '@zendeskgarden/svg-icons/src/16/arrow-left-sm-stroke.svg';
-import ClockIcon16 from '@zendeskgarden/svg-icons/src/16/clock-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { Children, forwardRef, useMemo } from 'react';
+import { Children, forwardRef, useMemo } from 'react';
+import ArrowLeftIcon12 from 'svg-icons-legacy/src/12/arrow-left-sm-stroke.svg';
+import ClockIcon12 from 'svg-icons-legacy/src/12/clock-stroke.svg';
+import ArrowLeftIcon16 from 'svg-icons-legacy/src/16/arrow-left-sm-stroke.svg';
+import ClockIcon16 from 'svg-icons-legacy/src/16/clock-stroke.svg';
 
-import { StyledAvatar, StyledStatusIndicator } from '../styled';
-import { IAvatarProps, SIZE, STATUS } from '../types';
+import { useText } from '../../theming/utils/useText';
+import { IAvatarProps, AVATAR_SIZE, STATUS } from '../../types/elements';
+import { StyledAvatar } from '../../views/avatar/StyledAvatar';
+import { StyledStatusIndicator } from '../../views/avatar/StyledStatusIndicator';
+import { COMPONENT_IDS } from '../utils';
 import { Text } from './components/Text';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
@@ -81,6 +83,8 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
         aria-hidden={ariaHidden}
         aria-live="polite"
         {...other}
+        data-garden-id={COMPONENT_IDS['avatars.avatar']}
+        data-garden-version={PACKAGE_VERSION}
       >
         {Children.only(children)}
         {!!computedStatus && (
@@ -89,6 +93,8 @@ const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
             $type={computedStatus}
             $surfaceColor={surfaceColor}
             as="figcaption"
+            data-garden-id={COMPONENT_IDS['avatars.status_indicator']}
+            data-garden-version={PACKAGE_VERSION}
           >
             {ariaHidden !== true && <Span hidden>{label}</Span>}
             {computedStatus === 'active' ? (
@@ -116,7 +122,7 @@ AvatarComponent.propTypes = {
   surfaceColor: PropTypes.string,
   isSystem: PropTypes.bool,
   badge: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  size: PropTypes.oneOf(SIZE),
+  size: PropTypes.oneOf(AVATAR_SIZE),
   status: PropTypes.oneOf(STATUS),
   statusLabel: PropTypes.string
 };

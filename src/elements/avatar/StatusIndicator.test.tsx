@@ -5,18 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { render, renderRtl, cleanup } from 'garden-test-utils';
-import React from 'react';
+import { cleanup } from '@testing-library/react';
+import { createRef } from 'react';
 
-import { STATUS } from '../types';
+import { RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import { STATUS } from '../../types/elements';
 import { StatusIndicator } from './StatusIndicator';
 
 describe('StatusIndicator', () => {
   afterEach(cleanup);
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLElement>();
+    const ref = createRef<HTMLElement>();
     const { container } = render(<StatusIndicator type="available" ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
@@ -49,7 +50,9 @@ describe('StatusIndicator', () => {
   });
 
   it('renders in RTL mode', () => {
-    const { getByRole } = renderRtl(<StatusIndicator type="transfers">Caption</StatusIndicator>);
+    const { getByRole } = render(<StatusIndicator type="transfers">Caption</StatusIndicator>, {
+      theme: RTL_THEME
+    });
 
     expect(getByRole('img')).toHaveStyleRule('transform', 'scale(-1, 1)', {
       modifier: "&>svg[data-icon-status='transfers']"

@@ -5,20 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-import { Size } from '../types';
-
-interface IUnorderedListContext {
-  size: Size;
-}
-
-export const UnorderedListContext = createContext<IUnorderedListContext | undefined>(undefined);
+import { UnorderedListContext } from '../../context/typography/UnorderedListContext';
 
 /**
  * Retrieve UnorderedList component context
  */
-const useUnorderedListContext = () => {
+export const useUnorderedListContext = () => {
   const listContext = useContext(UnorderedListContext);
 
   if (!listContext) {
@@ -27,5 +21,3 @@ const useUnorderedListContext = () => {
 
   return listContext;
 };
-
-export default useUnorderedListContext;

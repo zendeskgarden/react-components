@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
+import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Span } from './Span';
 
 describe('Span', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLSpanElement>();
+    const ref = createRef<HTMLSpanElement>();
     const { container } = render(<Span ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
@@ -74,7 +75,9 @@ describe('Span', () => {
     }, []);
 
     it.each(cases)('renders with a "%s" hue in "%s" mode', (hue, mode) => {
-      const { container } = getRenderFn(mode)(<Span hue={hue} />);
+      const { container } = render(<Span hue={hue} />, {
+        theme: mode === 'dark' ? DARK_THEME : undefined
+      });
 
       expect(container.firstChild).toHaveStyleRule(
         'color',
@@ -83,7 +86,9 @@ describe('Span', () => {
     });
 
     it.each([['light'], ['dark']])('inherits the parent color in "%s" mode', mode => {
-      const { container } = getRenderFn(mode)(<Span />);
+      const { container } = render(<Span />, {
+        theme: mode === 'dark' ? DARK_THEME : undefined
+      });
 
       expect(container.firstChild).toHaveStyleRule('color', undefined);
     });
@@ -92,7 +97,9 @@ describe('Span', () => {
       ['light', 'foreground.subtle'],
       ['dark', 'foreground.subtle']
     ])('handles variable hue in "%s" mode', (mode, variable) => {
-      const { container } = getRenderFn(mode)(<Span hue={variable} />);
+      const { container } = render(<Span hue={variable} />, {
+        theme: mode === 'dark' ? DARK_THEME : undefined
+      });
 
       expect(container.firstChild).toHaveStyleRule(
         'color',
@@ -102,7 +109,9 @@ describe('Span', () => {
   });
 
   it('applies expected styling with RTL locale', () => {
-    const { container } = renderRtl(<Span />);
+    const { container } = render(<Span />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
@@ -137,12 +146,15 @@ describe('Span', () => {
     });
 
     it('renders RTL start icon', () => {
-      const { getByTestId } = renderRtl(
+      const { getByTestId } = render(
         <Span>
           <Span.StartIcon>
             <TestIcon data-test-id="icon" />
           </Span.StartIcon>
-        </Span>
+        </Span>,
+        {
+          theme: RTL_THEME
+        }
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('margin-left', '8px');

@@ -5,18 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { IParagraphProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { IParagraphProps } from '../../types/elements';
 import { THEME_SIZES } from './StyledFont';
 
-const COMPONENT_ID = 'typography.paragraph';
-
-export const StyledParagraph = styled.p.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IParagraphProps>`
+export const StyledParagraph = styled.p<IParagraphProps>`
   margin: 0;
   padding: 0;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};

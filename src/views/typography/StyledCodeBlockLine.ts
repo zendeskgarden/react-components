@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { Language } from 'prism-react-renderer';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Diff, Size } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { Diff, Size } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 
 const COMPONENT_ID = 'typography.codeblock_code';
@@ -26,7 +28,7 @@ const colorStyles = ({
   theme,
   $diff,
   $isHighlighted
-}: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
+}: IStyledCodeBlockLineProps & IStyledBaseProps) => {
   let backgroundColor;
 
   if ($diff) {
@@ -62,7 +64,7 @@ const lineNumberStyles = ({
   theme,
   $language,
   $size
-}: IStyledCodeBlockLineProps & ThemeProps<DefaultTheme>) => {
+}: IStyledCodeBlockLineProps & IStyledBaseProps) => {
   const color = getColor({ theme, variable: 'foreground.subtle', light: { offset: -100 } });
   let padding;
 
@@ -93,6 +95,7 @@ const lineNumberStyles = ({
  * 1. Fix line display for mobile.
  * 2. Match parent padding for overflow scroll.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

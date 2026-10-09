@@ -6,12 +6,13 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
-import { getColor } from '@zendeskgarden/react-theming';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTheme } from 'styled-components';
+
+import { Avatar, IAvatarProps } from '../../../../src/index';
+import { getColor } from '../../../../src/theming/utils/getColor';
 
 const items: {
   value: string;

@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import { ThemeProps, DefaultTheme } from 'styled-components';
 
-import { SIZE, IAvatarProps } from '../types';
+import { getColor } from '../../theming/utils/getColor';
+import { AVATAR_SIZE, IAvatarProps } from '../../types/elements';
 
-const [xxs, xs, s, m, l] = SIZE;
+const [xxs, xs, s, m, l] = AVATAR_SIZE;
 
 export const TRANSITION_DURATION = 0.25;
 

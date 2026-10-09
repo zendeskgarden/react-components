@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, keyframes, DefaultTheme } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-import { IAvatarProps, SIZE } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import { IAvatarProps, AVATAR_SIZE } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledStatusIndicator } from './StyledStatusIndicator';
 import { StyledText } from './StyledText';
 import { getStatusColor, TRANSITION_DURATION } from './utility';
 
-const COMPONENT_ID = 'avatars.avatar';
-
-const badgeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
-  const [xxs, xs, s, m, l] = SIZE;
+const badgeStyles = (props: IStyledAvatarProps & IStyledBaseProps) => {
+  const [xxs, xs, s, m, l] = AVATAR_SIZE;
 
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$size` may still be undefined here */
@@ -64,7 +64,7 @@ const colorStyles = ({
   $surfaceColor = 'background.default',
   $backgroundColor = 'transparent',
   $status
-}: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+}: IStyledAvatarProps & IStyledBaseProps) => {
   const statusColor = getStatusColor(theme, $status);
   const backgroundColor = getHueColor({ theme, value: $backgroundColor });
   const foregroundColor = getHueColor({ theme, value: $foregroundColor });
@@ -86,7 +86,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledAvatarProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledAvatarProps & IStyledBaseProps) => {
   let boxShadow;
   let borderRadius;
   let size;
@@ -163,10 +163,7 @@ export interface IStyledAvatarProps {
 /**
  * Accepts all `<figure>` props
  */
-export const StyledAvatar = styled.figure.attrs<IStyledAvatarProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledAvatarProps>`
+export const StyledAvatar = styled.figure<IStyledAvatarProps>`
   display: inline-flex;
   position: relative;
   align-items: center;

@@ -6,8 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { IKbdProps, Kbd } from '@zendeskgarden/react-typography';
-import React from 'react';
+
+import { IKbdProps, Kbd } from '../../../src/index';
 
 interface IArgs extends IKbdProps {
   children: string;

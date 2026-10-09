@@ -5,12 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledText } from '../../styled';
+import { StyledText } from '../../views/avatar/StyledText';
+import { COMPONENT_IDS } from '../utils';
 
 const TextComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => (
-  <StyledText ref={ref} {...props} />
+  <StyledText
+    ref={ref}
+    {...props}
+    data-garden-id={COMPONENT_IDS['avatars.text']}
+    data-garden-version={PACKAGE_VERSION}
+  />
 ));
 
 TextComponent.displayName = 'Avatar.Text';

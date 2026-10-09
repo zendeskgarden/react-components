@@ -6,10 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledFont } from '../styled';
-import { ITypescaleMonospaceProps } from '../types';
+import { ITypescaleMonospaceProps } from '../../types/elements';
+import { StyledFont } from '../../views/typography/StyledFont';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -23,6 +24,8 @@ export const MD = forwardRef<HTMLDivElement, ITypescaleMonospaceProps>(
       as={tag}
       ref={ref}
       {...other}
+      data-garden-id={COMPONENT_IDS['typography.font']}
+      data-garden-version={PACKAGE_VERSION}
     />
   )
 );

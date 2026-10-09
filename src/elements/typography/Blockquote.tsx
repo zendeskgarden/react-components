@@ -6,16 +6,25 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledBlockquote } from '../styled';
-import { IBlockquoteProps, SIZE } from '../types';
+import { IBlockquoteProps, SIZE } from '../../types/elements';
+import { StyledBlockquote } from '../../views/typography/StyledBlockquote';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends BlockquoteHTMLAttributes<HTMLQuoteElement>
  */
 export const Blockquote = forwardRef<HTMLQuoteElement, IBlockquoteProps>(
-  ({ size = 'medium', ...props }, ref) => <StyledBlockquote ref={ref} size={size} {...props} />
+  ({ size = 'medium', ...props }, ref) => (
+    <StyledBlockquote
+      ref={ref}
+      size={size}
+      {...props}
+      data-garden-id={COMPONENT_IDS['typography.blockquote']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 Blockquote.displayName = 'Blockquote';

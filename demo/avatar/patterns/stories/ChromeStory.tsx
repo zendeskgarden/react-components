@@ -6,10 +6,10 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
 import { Chrome, Body, Header } from '@zendeskgarden/react-chrome';
-import Icon from '@zendeskgarden/svg-icons/src/16/grid-2x2-stroke.svg';
-import React from 'react';
+import Icon from 'svg-icons-legacy/src/16/grid-2x2-stroke.svg';
+
+import { Avatar, IAvatarProps } from '../../../../src/index';
 
 interface IArgs extends Omit<IAvatarProps, 'badge'> {
   badge?: boolean;

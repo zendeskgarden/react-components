@@ -6,9 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { IOrderedListProps, OrderedList } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { IOrderedListProps, OrderedList } from '../../../src/index';
 import { IListItem } from './types';
 
 interface IArgs extends IOrderedListProps {

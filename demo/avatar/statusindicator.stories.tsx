@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { StatusIndicator } from '@zendeskgarden/react-avatars';
-import React from 'react';
 
+import { StatusIndicator } from '../../src/index';
 import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
 
 export default {
-  title: 'Packages/Avatars/StatusIndicator',
+  title: 'Components/StatusIndicator',
   component: StatusIndicator
 };
 

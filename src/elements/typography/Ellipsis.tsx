@@ -6,10 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledEllipsis } from '../styled';
-import { IEllipsisProps } from '../types';
+import { IEllipsisProps } from '../../types/elements';
+import { StyledEllipsis } from '../../views/typography/StyledEllipsis';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -25,7 +26,14 @@ export const Ellipsis = forwardRef<HTMLDivElement, IEllipsisProps>(
     }
 
     return (
-      <StyledEllipsis as={tag} ref={ref} title={textContent} {...other}>
+      <StyledEllipsis
+        as={tag}
+        ref={ref}
+        title={textContent}
+        {...other}
+        data-garden-id={COMPONENT_IDS['typography.ellipsis']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {children}
       </StyledEllipsis>
     );

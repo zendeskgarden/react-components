@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { hideVisually, math } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
-import { SIZE } from '../types';
-
-const COMPONENT_ID = 'typography.font';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import { SIZE } from '../../types/elements';
+import type { IStyledFontProps } from '../../types/views';
 
 const TYPOGRAPHY_SIZE = [...SIZE, 'extralarge', '2xlarge', '3xlarge'] as const;
 
@@ -31,13 +31,7 @@ export const THEME_SIZES: Record<TypographySize, ThemeSize> = {
   '3xlarge': 'xxxl'
 };
 
-const fontStyles = ({
-  $hue,
-  $isBold,
-  $isMonospace,
-  $size,
-  theme
-}: IStyledFontProps & ThemeProps<DefaultTheme>) => {
+const fontStyles = ({ $hue, $isBold, $isMonospace, $size, theme }: IStyledFontProps) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$size` may still be undefined here */
   const size = $size ?? 'inherit';
@@ -83,17 +77,7 @@ const fontStyles = ({
   `;
 };
 
-export interface IStyledFontProps {
-  $isBold?: boolean;
-  $isMonospace?: boolean;
-  $size?: (typeof FONT_SIZE)[number];
-  $hue?: string;
-}
-
-export const StyledFont = styled.div.attrs<IStyledFontProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledFontProps>`
+export const StyledFont = styled.div<IStyledFontProps>`
   ${props => !props.hidden && fontStyles(props)};
 
   &[hidden] {

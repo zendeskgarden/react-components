@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { LG } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { LG } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Packages/Typography/Typescale/LG',
+  title: 'Components/LG',
   component: LG
 };
 

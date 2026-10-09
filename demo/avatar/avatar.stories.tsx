@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Avatar } from '@zendeskgarden/react-avatars';
-import React from 'react';
 
+import { Avatar } from '../../src/index';
 import { AvatarStory } from './stories/AvatarStory';
 import { AVATAR_TYPE as TYPE } from './stories/data';
 
 export default {
-  title: 'Packages/Avatars/Avatar',
+  title: 'Components/Avatar',
   component: Avatar,
   subcomponents: {
     'Avatar.Text': Avatar.Text

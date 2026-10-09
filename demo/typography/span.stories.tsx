@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Span } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { Span } from '../../src/index';
 import { SpanStory } from './stories/SpanStory';
 
 export default {
-  title: 'Packages/Typography/Span',
+  title: 'Components/Span',
   component: Span,
   subcomponents: {
     'Span.Icon': Span.Icon,

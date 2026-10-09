@@ -5,20 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-import { Size } from '../types';
-
-interface IOrderedListContext {
-  size: Size;
-}
-
-export const OrderedListContext = createContext<IOrderedListContext | undefined>(undefined);
+import { OrderedListContext } from '../../context/typography/OrderedListContext';
 
 /**
  * Retrieve OrderedList component context
  */
-const useOrderedListContext = () => {
+export const useOrderedListContext = () => {
   const listContext = useContext(OrderedListContext);
 
   if (!listContext) {
@@ -27,5 +21,3 @@ const useOrderedListContext = () => {
 
   return listContext;
 };
-
-export default useOrderedListContext;

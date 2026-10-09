@@ -5,10 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { render, cleanup } from 'garden-test-utils';
-import React from 'react';
+import { cleanup } from '@testing-library/react';
+import { createRef } from 'react';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Avatar } from './Avatar';
 
 const activeBoxShadow = DEFAULT_THEME.shadows.sm(PALETTE.crimson[700]);
@@ -17,7 +20,7 @@ describe('Avatar', () => {
   afterEach(cleanup);
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLElement>();
+    const ref = createRef<HTMLElement>();
     const { container } = render(
       <Avatar ref={ref}>
         <img alt="" />
@@ -159,7 +162,7 @@ describe('Avatar', () => {
     const consoleError = console.error;
 
     beforeEach(() => {
-      console.error = jest.fn();
+      console.error = vi.fn();
     });
 
     afterEach(() => {

@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledCodeBlock } from './StyledCodeBlock';
-
-const COMPONENT_ID = 'typography.codeblock_token';
 
 /*
  * 1. Isolate the tag name.
  * 2. Target opening/closing `<`, `/>`.
  * 3. Override string tokenization of `=` after an attribute name.
  */
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const colors = {
     boolean: getColor({
       theme,
@@ -165,10 +165,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledCodeBlockToken = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledCodeBlockToken = styled.span`
   display: inline-block;
 
   &.bold:not(.diff) {

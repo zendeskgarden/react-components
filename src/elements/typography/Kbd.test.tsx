@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
-
+import { RTL_THEME, render } from '../../test/render';
 import { Kbd } from './Kbd';
 
 describe('Kbd', () => {
@@ -24,7 +22,9 @@ describe('Kbd', () => {
   });
 
   it('forces left-to-right text direction', () => {
-    const { container } = renderRtl(<Kbd />);
+    const { container } = render(<Kbd />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'ltr');
   });

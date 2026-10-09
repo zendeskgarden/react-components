@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { ICodeProps } from 'packages/typography/src/types';
-import React from 'react';
 
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
 import { Code } from './Code';
 
 describe('Code', () => {
@@ -20,7 +19,9 @@ describe('Code', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<Code />);
+    const { container } = render(<Code />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
@@ -92,7 +93,9 @@ describe('Code', () => {
       ['red', 'dark', { color: PALETTE.red[300], bgColor: PALETTE.red[900] }],
       ['yellow', 'dark', { color: PALETTE.yellow[300], bgColor: PALETTE.yellow[900] }]
     ])('renders with a "%s" hue in "%s" mode', (hue, mode, { color, bgColor }) => {
-      const { container } = getRenderFn(mode)(<Code hue={hue} />);
+      const { container } = render(<Code hue={hue} />, {
+        theme: mode === 'dark' ? DARK_THEME : undefined
+      });
 
       expect(container.firstChild).toHaveStyleRule('color', color);
       expect(container.firstChild).toHaveStyleRule('background-color', bgColor);
@@ -115,7 +118,9 @@ describe('Code', () => {
     ])(
       'outputs the grey hue color combination for an unsupported "%s" hue in "%s" mode',
       (hue, mode, { color, bgColor }) => {
-        const { container } = getRenderFn(mode)(<Code hue={hue as any} />);
+        const { container } = render(<Code hue={hue as any} />, {
+          theme: mode === 'dark' ? DARK_THEME : undefined
+        });
 
         expect(container.firstChild).toHaveStyleRule('color', color);
         expect(container.firstChild).toHaveStyleRule('background-color', bgColor);

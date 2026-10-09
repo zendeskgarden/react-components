@@ -5,21 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Paragraph } from './Paragraph';
+import { RTL_THEME, render } from '../../test/render';
+import { Blockquote } from './Blockquote';
 
-describe('Paragraph', () => {
+describe('Blockquote', () => {
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<Paragraph />);
+    const { container } = render(<Blockquote />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLParagraphElement>();
-    const { container } = render(<Paragraph ref={ref} />);
+    const ref = createRef<HTMLQuoteElement>();
+    const { container } = render(<Blockquote ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

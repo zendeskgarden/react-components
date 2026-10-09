@@ -6,12 +6,13 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { Avatar, IStatusIndicatorProps, StatusIndicator } from '@zendeskgarden/react-avatars';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
+
+import { Avatar, IStatusIndicatorProps, StatusIndicator } from '../../../../src/index';
 
 const StyledIconButton = styled(IconButton)`
   overflow: visible;
@@ -42,7 +43,7 @@ export const StatusMenuStory: StoryFn<IArgs> = ({ isCompact, type }) => {
                     <img alt="Example User" src="images/avatars/chrome.png" />
                   </Avatar>
                 </StyledIconButton>
-              )
+            )
             }
             onChange={onChange}
             isCompact={isCompact}

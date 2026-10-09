@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'avatars.status-indicator.caption';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
-function sizeStyles(props: ThemeProps<DefaultTheme>) {
+function sizeStyles(props: IStyledBaseProps) {
   const marginRule = `margin-${props.theme.rtl ? 'right' : 'left'}: ${
     props.theme.space.base * 2
   }px;`;
@@ -22,10 +23,7 @@ function sizeStyles(props: ThemeProps<DefaultTheme>) {
   `;
 }
 
-export const StyledStandaloneStatusCaption = styled.figcaption.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<ThemeProps<DefaultTheme>>`
+export const StyledStandaloneStatusCaption = styled.figcaption<IStyledBaseProps>`
   ${sizeStyles}
 
   ${componentStyles};

@@ -6,15 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Avatar } from '@zendeskgarden/react-avatars';
-import React from 'react';
 
+import { Avatar } from '../../../src/index';
 import { ChromeStory } from './stories/ChromeStory';
 import { MenuStory } from './stories/MenuStory';
 import { StatusMenuStory } from './stories/StatusMenuStory';
 
 export default {
-  title: 'Packages/Avatars/[patterns]',
+  title: 'Components/Avatar',
   component: Avatar
 };
 

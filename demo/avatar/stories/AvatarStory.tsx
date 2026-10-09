@@ -6,11 +6,10 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { Avatar, IAvatarProps } from '@zendeskgarden/react-avatars';
-import IconUser from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
-import IconSystem from '@zendeskgarden/svg-icons/src/26/zendesk.svg';
-import React from 'react';
+import IconUser from 'svg-icons-legacy/src/16/user-solo-stroke.svg';
+import IconSystem from 'svg-icons-legacy/src/26/zendesk.svg';
 
+import { Avatar, IAvatarProps } from '../../../src/index';
 import { TYPE } from './types';
 
 interface IArgs extends IAvatarProps {

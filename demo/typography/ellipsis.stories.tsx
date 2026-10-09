@@ -6,11 +6,11 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Ellipsis } from '@zendeskgarden/react-typography';
-import React from 'react';
+
+import { Ellipsis } from '../../src/index';
 
 export default {
-  title: 'Packages/Typography/Ellipsis',
+  title: 'Components/Ellipsis',
   component: Ellipsis
 };
 

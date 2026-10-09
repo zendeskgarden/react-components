@@ -6,10 +6,10 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledKbd } from '../styled';
-import { IKbdProps, INHERIT_SIZE } from '../types';
+import { IKbdProps, INHERIT_SIZE } from '../../types/elements';
+import { StyledKbd } from '../../views/typography/StyledKbd';
 
 /**
  * @extends HTMLAttributes<HTMLElement>

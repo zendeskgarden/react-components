@@ -6,9 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { IUnorderedListProps, UnorderedList } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { IUnorderedListProps, UnorderedList } from '../../../src/index';
 import { IListItem } from './types';
 
 interface IArgs extends IUnorderedListProps {

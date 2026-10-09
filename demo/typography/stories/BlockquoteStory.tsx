@@ -6,9 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { Blockquote, IBlockquoteProps } from '@zendeskgarden/react-typography';
-import React from 'react';
 
+import { Blockquote, IBlockquoteProps } from '../../../src/index';
 import { TypescaleStory } from './TypescaleStory';
 
 interface IArgs extends IBlockquoteProps {

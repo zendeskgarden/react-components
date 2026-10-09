@@ -6,10 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledFont } from '../../styled';
-import { ISpanProps } from '../../types';
+import { ISpanProps } from '../../types/elements';
+import { StyledFont } from '../../views/typography/StyledFont';
+import { COMPONENT_IDS } from '../utils';
 import { Icon } from './Icon';
 import { StartIcon } from './StartIcon';
 
@@ -23,6 +24,8 @@ const SpanComponent = forwardRef<HTMLSpanElement, ISpanProps>(
       as={tag}
       ref={ref}
       {...other}
+      data-garden-id={COMPONENT_IDS['typography.font']}
+      data-garden-version={PACKAGE_VERSION}
     />
   )
 );

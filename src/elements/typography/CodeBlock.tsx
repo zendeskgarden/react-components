@@ -6,17 +6,16 @@
  */
 
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
-import React, { useMemo, useRef } from 'react';
+import { useMemo, useRef, forwardRef } from 'react';
 
-import {
-  StyledCodeBlock,
-  StyledCodeBlockContainer,
-  StyledCodeBlockLine,
-  StyledCodeBlockToken
-} from '../styled';
-import { Diff, ICodeBlockProps, LANGUAGES } from '../types';
+import { ThemeProvider } from '../../theming/elements/ThemeProvider';
+import { Diff, ICodeBlockProps, LANGUAGES } from '../../types/elements';
+import { StyledCodeBlock } from '../../views/typography/StyledCodeBlock';
+import { StyledCodeBlockContainer } from '../../views/typography/StyledCodeBlockContainer';
+import { StyledCodeBlockLine } from '../../views/typography/StyledCodeBlockLine';
+import { StyledCodeBlockToken } from '../../views/typography/StyledCodeBlockToken';
+import { COMPONENT_IDS } from '../utils';
 
 /* prism-react-renderer Token type replica */
 interface IToken {
@@ -28,7 +27,7 @@ interface IToken {
 /**
  * @extends HTMLAttributes<HTMLPreElement>
  */
-export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
+export const CodeBlock = forwardRef<HTMLPreElement, ICodeBlockProps>(
   (
     {
       children,
@@ -70,7 +69,13 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
     };
 
     return (
-      <StyledCodeBlockContainer {...containerProps} ref={containerRef} tabIndex={containerTabIndex}>
+      <StyledCodeBlockContainer
+        {...containerProps}
+        data-garden-id={COMPONENT_IDS['typography.codeblock_container']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={containerRef}
+        tabIndex={containerTabIndex}
+      >
         <Highlight
           Prism={Prism}
           code={code ? code.trim() : ''}
@@ -83,7 +88,13 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                 colors: { ...parentTheme.colors, base: isLight ? 'light' : 'dark' }
               })}
             >
-              <StyledCodeBlock className={className} ref={ref} {...other}>
+              <StyledCodeBlock
+                className={className}
+                ref={ref}
+                {...other}
+                data-garden-id={COMPONENT_IDS['typography.codeblock']}
+                data-garden-version={PACKAGE_VERSION}
+              >
                 {tokens.map((line, index) => (
                   /* eslint-disable react/no-array-index-key */
                   <StyledCodeBlockLine
@@ -99,6 +110,8 @@ export const CodeBlock = React.forwardRef<HTMLPreElement, ICodeBlockProps>(
                     {line.map((token, tokenKey) => (
                       <StyledCodeBlockToken
                         {...getTokenProps({ token })}
+                        data-garden-id={COMPONENT_IDS['typography.codeblock_token']}
+                        data-garden-version={PACKAGE_VERSION}
                         key={tokenKey}
                         style={undefined}
                       >

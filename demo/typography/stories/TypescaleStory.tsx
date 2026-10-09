@@ -6,8 +6,8 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { IMDProps, LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
-import React from 'react';
+
+import { IMDProps, LG, MD, SM, XL, XXL, XXXL } from '../../../src/index';
 
 interface IArgs extends IMDProps {
   size?: 'small' | 'medium' | 'large' | 'extra-large' | '2x-large' | '3x-large';

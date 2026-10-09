@@ -6,11 +6,15 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
-import { StyledUnorderedList } from '../../styled';
-import { IUnorderedListProps, SIZE, TYPE_UNORDERED_LIST } from '../../types';
-import { UnorderedListContext } from '../../utils/useUnorderedListContext';
+import {
+  UnorderedListProvider,
+  UnorderedListProvider
+} from '../../context/typography/UnorderedListContext';
+import { IUnorderedListProps, SIZE, TYPE_UNORDERED_LIST } from '../../types/elements';
+import { StyledUnorderedList } from '../../views/typography/StyledList';
+import { COMPONENT_IDS } from '../utils';
 import { Item } from './UnorderedListItem';
 
 const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>(
@@ -18,9 +22,15 @@ const UnorderedListComponent = forwardRef<HTMLUListElement, IUnorderedListProps>
     const value = useMemo(() => ({ size: size! }), [size]);
 
     return (
-      <UnorderedListContext.Provider value={value}>
-        <StyledUnorderedList ref={ref} $listType={type} {...other} />
-      </UnorderedListContext.Provider>
+      <UnorderedListProvider value={value}>
+        <StyledUnorderedList
+          ref={ref}
+          $listType={type}
+          {...other}
+          data-garden-id={COMPONENT_IDS['typography.unordered_list']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      </UnorderedListProvider>
     );
   }
 );

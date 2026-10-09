@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { MD } from './MD';
 
-import { LG } from './LG';
-
-describe('LG', () => {
+describe('MD', () => {
   it('applies bold styling if provided', () => {
-    const { container } = render(<LG isBold />);
+    const { container } = render(<MD isBold />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-weight',
@@ -22,7 +20,7 @@ describe('LG', () => {
   });
 
   it('applies monospace styling if provided', () => {
-    const { container } = render(<LG isMonospace />);
+    const { container } = render(<MD isMonospace />);
 
     expect(container.firstChild).toHaveStyleRule(
       'font-family',
@@ -31,7 +29,9 @@ describe('LG', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<LG />);
+    const { container } = render(<MD />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
