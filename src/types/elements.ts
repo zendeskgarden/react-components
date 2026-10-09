@@ -51,7 +51,7 @@ export interface IProgressProps extends HTMLAttributes<HTMLDivElement> {
   size?: LoaderSize;
 }
 export interface ISkeletonProps extends HTMLAttributes<HTMLDivElement> {
-  /** Sets the width as a percentage of the the parent element's width */
+  /** Sets the width as a percentage of the parent element's width */
   width?: string;
   /** Sets the height as a percentage of parent element's height if the height is not already inherited by `line-height` */
   height?: string;
