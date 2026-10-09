@@ -114,7 +114,7 @@
     "@zendeskgarden/svg-icons": "9.0.0-next.0",
     "commander": "14.0.3",
     "envalid": "8.1.1",
-    "eslint": "9.39.4",
+    "eslint": "10.12.0",
     "execa": "9.6.1",
     "inquirer": "13.3.2",
     "jest-styled-components": "^7.2.0",
