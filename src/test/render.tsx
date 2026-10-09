@@ -6,8 +6,11 @@
  */
 
 import { render as _render, type RenderOptions } from '@testing-library/react';
-import { DEFAULT_THEME, ThemeProvider, type IGardenTheme } from '@zendeskgarden/react-theming';
 import type { ReactElement } from 'react';
+
+import DEFAULT_THEME from '../theming/elements/theme';
+import { ThemeProvider } from '../theming/elements/ThemeProvider';
+import type { IGardenTheme } from '../theming/types';
 
 interface IOptions extends RenderOptions {
   theme?: IGardenTheme;

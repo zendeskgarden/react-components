@@ -50,9 +50,6 @@ importers:
       '@zendeskgarden/container-utilities':
         specifier: ^2.0.5
         version: 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-theming':
-        specifier: ^9.15.0
-        version: 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       color2k:
         specifier: ^2.0.3
         version: 2.0.3
@@ -129,6 +126,12 @@ importers:
       '@tsconfig/strictest':
         specifier: 2.0.8
         version: 2.0.8
+      '@types/lodash.get':
+        specifier: ^4.4.9
+        version: 4.4.9
+      '@types/lodash.memoize':
+        specifier: ^4.1.9
+        version: 4.1.9
       '@types/node':
         specifier: 25.5.0
         version: 25.5.0
@@ -2165,6 +2168,15 @@ packages:
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
+
+  '@types/lodash.get@4.4.9':
+    resolution: {integrity: sha512-J5dvW98sxmGnamqf+/aLP87PYXyrha9xIgc2ZlHl6OHMFR2Ejdxep50QfU0abO1+CH6+ugx+8wEUN1toImAinA==}
+
+  '@types/lodash.memoize@4.1.9':
+    resolution: {integrity: sha512-glY1nQuoqX4Ft8Uk+KfJudOD7DQbbEDF6k9XpGncaohW3RW4eSWBlx6AA0fZCrh40tZcQNH4jS/Oc59J6Eq+aw==}
+
+  '@types/lodash@4.17.25':
+    resolution: {integrity: sha512-+K1NIO8I+F9/wNulfVvu23QYd0Pe9/OCqRrim4NoYIf1VoEDL90Ve4ClzpyqBLc7NpGGWRvYNCKZ1BE/Jpf8dQ==}
 
   '@types/mdx@2.0.13':
     resolution: {integrity: sha512-+OWZQfAYyio6YkJb3HLxDrvnx6SWWDbC0zVPfBRzUk0/nqoDyf6dNxQi3eArPe8rJ473nobTMQ/8Zk+LxJ+Yuw==}
@@ -8911,6 +8923,16 @@ snapshots:
   '@types/jsesc@2.5.1': {}
 
   '@types/json-schema@7.0.15': {}
+
+  '@types/lodash.get@4.4.9':
+    dependencies:
+      '@types/lodash': 4.17.25
+
+  '@types/lodash.memoize@4.1.9':
+    dependencies:
+      '@types/lodash': 4.17.25
+
+  '@types/lodash@4.17.25': {}
 
   '@types/mdx@2.0.13': {}
 
