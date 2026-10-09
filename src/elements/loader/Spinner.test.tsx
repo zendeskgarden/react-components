@@ -108,4 +108,30 @@ describe('Spinner', () => {
 
     expect(spinner).toHaveAttribute('role', 'img');
   });
+
+  describe('garden attributes', () => {
+    it('are not overridden by props on the placeholder', () => {
+      const { getByRole } = render(<Spinner data-garden-id="custom" data-garden-version="0.0.0" />);
+
+      const placeholder = getByRole('progressbar');
+
+      expect(placeholder).toHaveAttribute('data-garden-id', 'loaders.loading_placeholder');
+      expect(placeholder).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    });
+
+    it('are not overridden by props on the spinner', () => {
+      const { getByTestId } = render(
+        <Spinner data-test-id="spinner" data-garden-id="custom" data-garden-version="0.0.0" />
+      );
+
+      act(() => {
+        vi.runOnlyPendingTimers();
+      });
+
+      const spinner = getByTestId('spinner');
+
+      expect(spinner).toHaveAttribute('data-garden-id', 'loaders.spinner');
+      expect(spinner).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    });
+  });
 });

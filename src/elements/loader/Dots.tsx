@@ -31,12 +31,12 @@ export const Dots = forwardRef<SVGSVGElement, IDotsProps>(
       // [1]
       // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       <StyledSVG
-        data-garden-id={COMPONENT_IDS['loaders.dots']}
         ref={ref}
         $fontSize={size!}
         $color={color!}
         $delayShow={delayMS!}
         {...other}
+        data-garden-id={COMPONENT_IDS['loaders.dots']}
         data-garden-version={PACKAGE_VERSION}
         xmlns="http://www.w3.org/2000/svg"
         focusable="false"

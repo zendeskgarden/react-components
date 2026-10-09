@@ -61,4 +61,13 @@ describe('Dots', () => {
       ['71', '36', '9']
     ]);
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Dots data-test-id="dots" data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByTestId('dots')).toHaveAttribute('data-garden-id', 'loaders.dots');
+    expect(getByTestId('dots')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

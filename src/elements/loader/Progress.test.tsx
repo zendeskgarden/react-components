@@ -41,6 +41,17 @@ describe('Progress', () => {
     );
   });
 
+  it('does not let props override the garden attributes', () => {
+    const { getByRole } = render(<Progress data-garden-id="custom" data-garden-version="0.0.0" />);
+
+    const background = getByRole('progressbar');
+
+    expect(background).toHaveAttribute('data-garden-id', 'loaders.progress_background');
+    expect(background).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(background.firstChild).toHaveAttribute('data-garden-id', 'loaders.progress_indicator');
+    expect(background.firstChild).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
   it('renders a progress indicator', () => {
     const { getByRole } = render(<Progress value={40} />);
 

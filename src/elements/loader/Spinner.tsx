@@ -99,9 +99,9 @@ export const Spinner = forwardRef<SVGSVGElement, ISpinnerProps>(
         $containerHeight="1em"
         $containerWidth="1em"
         $fontSize={size}
-        data-garden-id={COMPONENT_IDS['loaders.spinner']}
         ref={ref}
         {...other}
+        data-garden-id={COMPONENT_IDS['loaders.spinner']}
         data-garden-version={PACKAGE_VERSION}
         xmlns="http://www.w3.org/2000/svg"
         focusable="false"

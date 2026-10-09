@@ -42,4 +42,13 @@ describe('Inline', () => {
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Inline data-test-id="inline" data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByTestId('inline')).toHaveAttribute('data-garden-id', 'loaders.inline');
+    expect(getByTestId('inline')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

@@ -57,6 +57,15 @@ describe('Skeleton', () => {
     expect(container.firstChild?.textContent).toBe('\u00a0');
   });
 
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Skeleton data-test-id="skeleton" data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByTestId('skeleton')).toHaveAttribute('data-garden-id', 'loaders.skeleton');
+    expect(getByTestId('skeleton')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
   it('applies custom width correctly', () => {
     const { container } = render(<Skeleton width="50px" />);
 
