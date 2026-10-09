@@ -124,7 +124,7 @@ jobs:
       - run: pnpm build:demo
 
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: './.cache/demo'
       - id: deployment
