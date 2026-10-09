@@ -5,12 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledProgressBackground, StyledProgressIndicator } from '../styled';
-import { IProgressProps, SIZE } from '../types';
+import { useText } from '../../theming/utils/useText';
+import { IProgressProps, LOADER_SIZE } from '../../types/elements';
+import {
+  StyledProgressBackground,
+  StyledProgressIndicator
+} from '../../views/loader/StyledProgress';
+import { COMPONENT_IDS } from '../utils';
 
 const COMPONENT_ID = 'loaders.progress';
 
@@ -23,7 +27,7 @@ const COMPONENT_ID = 'loaders.progress';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
+export const Progress = forwardRef<HTMLDivElement, IProgressProps>(
   ({ color, value = 0, size = 'medium', 'aria-label': label, ...other }, ref) => {
     const percentage = Math.max(0, Math.min(100, value!));
 
@@ -45,7 +49,12 @@ export const Progress = React.forwardRef<HTMLDivElement, IProgressProps>(
         aria-label={ariaLabel}
         {...other}
       >
-        <StyledProgressIndicator $value={percentage} $size={size!} />
+        <StyledProgressIndicator
+          $value={percentage}
+          $size={size!}
+          data-garden-id={COMPONENT_IDS['loaders.progress_indicator']}
+          data-garden-version={PACKAGE_VERSION}
+        />
       </StyledProgressBackground>
     );
   }
@@ -56,5 +65,5 @@ Progress.displayName = 'Progress';
 Progress.propTypes = {
   color: PropTypes.string,
   value: PropTypes.number.isRequired,
-  size: PropTypes.oneOf(SIZE)
+  size: PropTypes.oneOf(LOADER_SIZE)
 };

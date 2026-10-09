@@ -6,11 +6,12 @@
  */
 
 import { StoryFn } from '@storybook/react-vite';
-import { ISkeletonProps, Skeleton } from '@zendeskgarden/react-loaders';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
 import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 
+import { ISkeletonProps, Skeleton } from '../../../src/index';
+import PALETTE from '../../../src/theming/elements/palette';
+import DEFAULT_THEME from '../../../src/theming/elements/theme';
 import { TYPE_SCALE } from './types';
 
 interface IArgs extends ISkeletonProps {

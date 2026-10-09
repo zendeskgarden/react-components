@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { render, act } from 'garden-test-utils';
-import React from 'react';
+import { act } from '@testing-library/react';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
 import { Dots } from './Dots';
 
 describe('Dots', () => {
@@ -30,7 +31,7 @@ describe('Dots', () => {
     const { getByTestId } = render(<Dots data-test-id="dots" />);
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     const dots = getByTestId('dots');
@@ -42,7 +43,7 @@ describe('Dots', () => {
     const { container } = render(<Dots color="foreground.primary" />);
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(container.firstChild).toHaveStyleRule('color', PALETTE.blue[700]);

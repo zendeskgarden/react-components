@@ -5,21 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, act } from 'garden-test-utils';
+import { act } from '@testing-library/react';
 import mockDate from 'mockdate';
-import React from 'react';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
 import { Spinner } from './Spinner';
 
-jest.useFakeTimers({ legacyFakeTimers: true });
+vi.useFakeTimers({ legacyFakeTimers: true });
 
 const DEFAULT_DATE = new Date(2019, 1, 5, 1, 1, 1);
 
 describe('Spinner', () => {
   beforeEach(() => {
-    jest.mocked(clearTimeout).mockClear();
-    (global as any).cancelAnimationFrame = jest.fn();
-    (global as any).requestAnimationFrame = jest.fn();
+    vi.mocked(clearTimeout).mockClear();
+    (global as any).cancelAnimationFrame = vi.fn();
+    (global as any).requestAnimationFrame = vi.fn();
     mockDate.set(DEFAULT_DATE);
   });
 
@@ -38,7 +39,7 @@ describe('Spinner', () => {
       const { queryByTestId } = render(<Spinner data-test-id="spinner" />);
 
       act(() => {
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(queryByTestId('spinner')).not.toBeNull();
@@ -50,7 +51,7 @@ describe('Spinner', () => {
       const { container } = render(<Spinner data-test-id="spinner" />);
 
       act(() => {
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`
@@ -71,7 +72,7 @@ describe('Spinner', () => {
       act(() => {
         // move time forward 1 second
         mockDate.set(DEFAULT_DATE.setSeconds(2));
-        jest.mocked(requestAnimationFrame).mock.calls[0][0](0);
+        vi.mocked(requestAnimationFrame).mock.calls[0][0](0);
       });
 
       expect(container.firstChild!.firstChild).toMatchInlineSnapshot(`
@@ -95,7 +96,7 @@ describe('Spinner', () => {
     const { getByTestId } = render(<Spinner data-test-id="spinner" />);
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     const spinner = getByTestId('spinner');

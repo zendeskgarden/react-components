@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
-import styled, { keyframes, css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
-const COMPONENT_ID = 'loaders.skeleton';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 const fadeInAnimation = keyframes`
   0%, 60% {
@@ -44,10 +46,7 @@ interface IStyledSkeletonProps {
   $isLight?: boolean;
 }
 
-const getBackgroundColor = ({
-  theme,
-  $isLight
-}: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
+const getBackgroundColor = ({ theme, $isLight }: IStyledSkeletonProps & IStyledBaseProps) => {
   let backgroundColor;
 
   if ($isLight) {
@@ -67,7 +66,7 @@ const getBackgroundColor = ({
   return backgroundColor;
 };
 
-const animationStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const animationStyles = ({ theme }: IStyledBaseProps) => {
   if (theme.rtl) {
     return css`
       animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
@@ -79,7 +78,7 @@ const animationStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const gradientStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) => {
+const gradientStyles = (props: IStyledSkeletonProps & IStyledBaseProps) => {
   return css`
     background-image: linear-gradient(
       ${props.theme.rtl ? '-45deg' : '45deg'},
@@ -90,10 +89,7 @@ const gradientStyles = (props: IStyledSkeletonProps & ThemeProps<DefaultTheme>) 
   `;
 };
 
-export const StyledSkeleton = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledSkeletonProps>`
+export const StyledSkeleton = styled.div<IStyledSkeletonProps>`
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;

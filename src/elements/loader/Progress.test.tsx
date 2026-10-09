@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { getRenderFn, render } from 'garden-test-utils';
 import { rgba } from 'polished';
-import React from 'react';
 
+import { DARK_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Progress } from './Progress';
 
 describe('Progress', () => {
@@ -83,7 +83,9 @@ describe('Progress', () => {
       ['light', rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200]), PALETTE.green[700]],
       ['dark', rgba(PALETTE.white, DEFAULT_THEME.opacity[200]), PALETTE.green[600]]
     ])('applies the default colors in "%s mode', (mode, bgColor, fgColor) => {
-      const { container } = getRenderFn(mode)(<Progress value={42} />);
+      const { container } = render(<Progress value={42} />, {
+        theme: mode === 'dark' ? DARK_THEME : undefined
+      });
 
       expect(container.firstChild).toHaveStyleRule('color', fgColor);
       expect(container.firstChild).toHaveStyleRule('background-color', bgColor);

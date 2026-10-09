@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
 import { getValueAndUnit } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import type { IStyledBaseProps } from '../../types/views';
 import { delayedVisibilityKeyframes } from '../utils/animations';
 
 interface IStyledSVGProps {
@@ -22,7 +24,7 @@ interface IStyledSVGProps {
   $delayShow?: number;
 }
 
-const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & IStyledBaseProps) => {
   const color = getHueColor({ theme, value: $color });
 
   return css`
@@ -63,6 +65,7 @@ const delayedVisibilityStyles = ({ $delayShow }: IStyledSVGProps) => {
   return undefined;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledSVG = styled.svg.attrs<IStyledSVGProps>(props => ({
   'data-garden-version': PACKAGE_VERSION,
   xmlns: 'http://www.w3.org/2000/svg',

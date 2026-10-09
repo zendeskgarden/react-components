@@ -5,12 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor, getHueColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { DefaultTheme, css } from 'styled-components';
 
-import { Size } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import { LoaderSize } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
-const sizeToHeight = ($size: Size, theme: DefaultTheme) => {
+const sizeToHeight = ($size: LoaderSize, theme: DefaultTheme) => {
   switch ($size) {
     case 'small':
       return theme.space.base / 2;
@@ -21,19 +24,18 @@ const sizeToHeight = ($size: Size, theme: DefaultTheme) => {
   }
 };
 
-const sizeToBorderRadius = ($size: Size, theme: DefaultTheme) => sizeToHeight($size, theme) / 2;
+const sizeToBorderRadius = ($size: LoaderSize, theme: DefaultTheme) =>
+  sizeToHeight($size, theme) / 2;
 
 interface IStyledProgressBackgroundProps {
-  $size: Size;
+  $size: LoaderSize;
   $color?: string;
 }
-
-const PROGRESS_BACKGROUND_COMPONENT_ID = 'loaders.progress_background';
 
 const colorStyles = ({
   theme,
   $color = 'border.successEmphasis'
-}: IStyledProgressBackgroundProps & ThemeProps<DefaultTheme>) => {
+}: IStyledProgressBackgroundProps & IStyledBaseProps) => {
   const backgroundColor = getColor({
     theme,
     transparency: theme.opacity[200],
@@ -48,10 +50,7 @@ const colorStyles = ({
   `;
 };
 
-export const StyledProgressBackground = styled.div.attrs<IStyledProgressBackgroundProps>({
-  'data-garden-id': PROGRESS_BACKGROUND_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledProgressBackgroundProps>`
+export const StyledProgressBackground = styled.div<IStyledProgressBackgroundProps>`
   margin: ${props => props.theme.space.base * 2}px 0;
   border-radius: ${props => sizeToBorderRadius(props.$size, props.theme)}px;
 
@@ -61,16 +60,11 @@ export const StyledProgressBackground = styled.div.attrs<IStyledProgressBackgrou
 `;
 
 interface IStyledProgressIndicatorProps {
-  $size: Size;
+  $size: LoaderSize;
   $value: number;
 }
 
-const PROGESS_INDICATOR_COMPONENT_ID = 'loaders.progress_indicator';
-
-export const StyledProgressIndicator = styled.div.attrs<IStyledProgressIndicatorProps>({
-  'data-garden-id': PROGESS_INDICATOR_COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledProgressIndicatorProps>`
+export const StyledProgressIndicator = styled.div<IStyledProgressIndicatorProps>`
   transition: width 0.1s ease-in-out;
   border-radius: ${props => sizeToBorderRadius(props.$size, props.theme)}px;
   background: currentcolor;

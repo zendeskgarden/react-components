@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { getValueAndUnit } from 'polished';
 import styled, { css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 const COMPONENT_ID = 'loaders.loading_placeholder';
 
@@ -38,6 +39,7 @@ const sizeStyles = ({
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledLoadingPlaceholder = styled.div.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

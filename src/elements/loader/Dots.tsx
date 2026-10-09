@@ -6,15 +6,15 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
+import { IDotsProps } from '../../types/elements';
 import {
   StyledDotsCircleOne,
   StyledDotsCircleTwo,
-  StyledDotsCircleThree,
-  StyledSVG
-} from '../styled';
-import { IDotsProps } from '../types';
+  StyledDotsCircleThree
+} from '../../views/loader/StyledDots';
+import { StyledSVG } from '../../views/loader/StyledSVG';
 
 const COMPONENT_ID = 'loaders.dots';
 

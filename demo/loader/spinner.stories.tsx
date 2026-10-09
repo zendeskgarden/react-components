@@ -6,11 +6,11 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Spinner } from '@zendeskgarden/react-loaders';
-import React from 'react';
+
+import { Spinner } from '../../src/index';
 
 export default {
-  title: 'Packages/Loaders/Spinner',
+  title: 'Components/Spinner',
   component: Spinner
 };
 

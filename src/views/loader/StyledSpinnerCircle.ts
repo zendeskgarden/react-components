@@ -13,6 +13,7 @@ interface IStyledSpinnerCircleProps {
   transform: string;
 }
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledSpinnerCircle = styled.circle.attrs<IStyledSpinnerCircleProps>(props => ({
   cx: 40,
   cy: 40,

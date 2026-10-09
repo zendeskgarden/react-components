@@ -5,8 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getHueColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css, keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import type { IStyledBaseProps } from '../../types/views';
 
 const COMPONENT_ID = 'loaders.inline';
 
@@ -15,7 +18,7 @@ interface IStyledInlineProps {
   $color: string;
 }
 
-const colorStyles = ({ theme, $color }: IStyledInlineProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $color }: IStyledInlineProps & IStyledBaseProps) => {
   const color = getHueColor({ theme, value: $color });
 
   return css`
@@ -23,7 +26,7 @@ const colorStyles = ({ theme, $color }: IStyledInlineProps & ThemeProps<DefaultT
   `;
 };
 
-const retrieveAnimation = ({ theme }: ThemeProps<DefaultTheme>) => keyframes`
+const retrieveAnimation = ({ theme }: IStyledBaseProps) => keyframes`
   0%, 100% {
     opacity: ${theme.opacity[200]};
   }
@@ -33,6 +36,7 @@ const retrieveAnimation = ({ theme }: ThemeProps<DefaultTheme>) => keyframes`
   }
 `;
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledCircle = styled.circle.attrs({
   fill: 'currentColor',
   cy: 2,
@@ -41,6 +45,7 @@ export const StyledCircle = styled.circle.attrs({
   /* empty-source */
 `;
 
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledInline = styled.svg.attrs<IStyledInlineProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

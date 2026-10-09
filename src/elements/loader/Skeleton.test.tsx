@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { getRenderFn, render, renderRtl } from 'garden-test-utils';
 import { rgba } from 'polished';
-import React from 'react';
 
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Skeleton } from './Skeleton';
 
 describe('Skeleton', () => {
@@ -19,7 +19,9 @@ describe('Skeleton', () => {
     ['light', rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[200])],
     ['dark', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])]
   ])('renders a Skeleton in "%s" mode', (mode, color) => {
-    const { container } = getRenderFn(mode)(<Skeleton />);
+    const { container } = render(<Skeleton />, {
+      theme: mode === 'dark' ? DARK_THEME : undefined
+    });
 
     expect(container.firstChild).toHaveStyleRule('background-color', color);
     expect(container.firstChild).toHaveStyleRule(
@@ -35,7 +37,9 @@ describe('Skeleton', () => {
     ['light', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])],
     ['dark', rgba(PALETTE.white, DEFAULT_THEME.opacity[200])]
   ])('renders a `isLight` Skeleton in "%s" mode', (mode, color) => {
-    const { container } = getRenderFn(mode)(<Skeleton isLight />);
+    const { container } = render(<Skeleton isLight />, {
+      theme: mode === 'dark' ? DARK_THEME : undefined
+    });
 
     expect(container.firstChild).toHaveStyleRule('background-color', color);
     expect(container.firstChild).toHaveStyleRule(
@@ -60,7 +64,9 @@ describe('Skeleton', () => {
   });
 
   it('applies RTL styling correctly', () => {
-    const { container } = renderRtl(<Skeleton />);
+    const { container } = render(<Skeleton />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule(
       'background-image',

@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledInline, StyledCircle } from '../styled';
-import { IInlineProps } from '../types';
+import { useText } from '../../theming/utils/useText';
+import { IInlineProps } from '../../types/elements';
+import { StyledInline, StyledCircle } from '../../views/loader/StyledInline';
 
 /**
  * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.

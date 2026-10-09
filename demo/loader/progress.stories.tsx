@@ -6,11 +6,11 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Progress } from '@zendeskgarden/react-loaders';
-import React from 'react';
+
+import { Progress } from '../../src/index';
 
 export default {
-  title: 'Packages/Loaders/Progress',
+  title: 'Components/Progress',
   component: Progress
 };
 

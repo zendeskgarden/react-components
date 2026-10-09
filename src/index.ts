@@ -9,6 +9,20 @@
 export { Accordion } from './elements/accordion/Accordion';
 export type { IAccordionProps } from './types/elements';
 
+/* loader */
+export { Dots } from './elements/loader/Dots';
+export { Inline } from './elements/loader/Inline';
+export { Progress } from './elements/loader/Progress';
+export { Skeleton } from './elements/loader/Skeleton';
+export { Spinner } from './elements/loader/Spinner';
+export type {
+  IDotsProps,
+  IInlineProps,
+  IProgressProps,
+  ISkeletonProps,
+  ISpinnerProps
+} from './types/elements';
+
 /* theming */
 export { ColorSchemeProvider } from './theming/elements/ColorSchemeProvider';
 export { default as PALETTE } from './theming/elements/palette';

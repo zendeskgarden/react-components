@@ -6,11 +6,11 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Dots } from '@zendeskgarden/react-loaders';
-import React from 'react';
+
+import { Dots } from '../../src/index';
 
 export default {
-  title: 'Packages/Loaders/Dots',
+  title: 'Components/Dots',
   component: Dots
 };
 

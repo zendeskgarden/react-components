@@ -7,10 +7,12 @@
 
 import { useSchedule } from '@zendeskgarden/container-schedule';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledSpinnerCircle, StyledSVG, StyledLoadingPlaceholder } from '../styled';
-import { ISpinnerProps } from '../types';
+import { ISpinnerProps } from '../../types/elements';
+import { StyledLoadingPlaceholder } from '../../views/loader/StyledLoadingPlaceholder';
+import { StyledSpinnerCircle } from '../../views/loader/StyledSpinnerCircle';
+import { StyledSVG } from '../../views/loader/StyledSVG';
 import {
   STROKE_WIDTH_FRAMES,
   DASHARRAY_FRAMES,

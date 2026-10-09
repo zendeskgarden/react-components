@@ -6,11 +6,11 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Inline } from '@zendeskgarden/react-loaders';
-import React from 'react';
+
+import { Inline } from '../../src/index';
 
 export default {
-  title: 'Packages/Loaders/Inline',
+  title: 'Components/Inline',
   component: Inline
 };
 

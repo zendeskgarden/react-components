@@ -14,7 +14,9 @@ const componentIds = [
   'accordions.panel',
   'accordions.rotate_icon',
   'accordions.section',
-  'accordions.step_inner_panel'
+  'accordions.step_inner_panel',
+  'loaders.progress_indicator',
+  'loaders.skeleton'
 ] as const;
 
 type ComponentId = (typeof componentIds)[number];
