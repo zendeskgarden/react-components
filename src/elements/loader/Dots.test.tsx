@@ -43,4 +43,22 @@ describe('Dots', () => {
 
     expect(container.firstChild).toHaveStyleRule('font-size', '16px');
   });
+
+  it('renders the circles at the expected coordinates', () => {
+    const { getByTestId } = render(<Dots data-test-id="dots" />);
+
+    const circles = Array.from(getByTestId('dots').querySelectorAll('circle'));
+
+    expect(
+      circles.map(circle => [
+        circle.getAttribute('cx'),
+        circle.getAttribute('cy'),
+        circle.getAttribute('r')
+      ])
+    ).toEqual([
+      ['9', '36', '9'],
+      ['40', '36', '9'],
+      ['71', '36', '9']
+    ]);
+  });
 });
