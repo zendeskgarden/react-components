@@ -1,0 +1,96 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import PropTypes from 'prop-types';
+import { forwardRef, useMemo } from 'react';
+import ArrowLeftIcon12 from 'svg-icons-legacy/src/12/arrow-left-sm-stroke.svg';
+import ClockIcon12 from 'svg-icons-legacy/src/12/clock-stroke.svg';
+import ArrowLeftIcon16 from 'svg-icons-legacy/src/16/arrow-left-sm-stroke.svg';
+import ClockIcon16 from 'svg-icons-legacy/src/16/clock-stroke.svg';
+
+import { useText } from '../../theming/utils/useText';
+import { IStatusIndicatorProps, STATUS } from '../../types/elements';
+import { StyledStandaloneStatus } from '../../views/avatar/StyledStandaloneStatus';
+import { StyledStandaloneStatusCaption } from '../../views/avatar/StyledStandaloneStatusCaption';
+import { StyledStandaloneStatusIndicator } from '../../views/avatar/StyledStandaloneStatusIndicator';
+import { COMPONENT_IDS } from '../utils';
+
+/**
+ * 1. role='status' on `div` is valid WAI-ARIA usage in this context.
+ *    https://www.w3.org/TR/wai-aria-1.1/#status
+ * 2. role='img' on `svg` is valid WAI-ARIA usage in this context.
+ *    https://dequeuniversity.com/rules/axe/4.2/svg-img-alt
+ */
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
+  ({ children, type = 'offline', isCompact, 'aria-label': label, ...props }, ref) => {
+    let ClockIcon = ClockIcon16;
+    let ArrowLeftIcon = ArrowLeftIcon16;
+
+    if (isCompact) {
+      ClockIcon = ClockIcon12;
+      ArrowLeftIcon = ArrowLeftIcon12;
+    }
+
+    const defaultLabel = useMemo(() => ['status'].concat(type || []).join(': '), [type]);
+    const ariaLabel = useText(
+      StatusIndicator,
+      { 'aria-label': label },
+      'aria-label',
+      defaultLabel,
+      label !== null
+    );
+
+    return (
+      // [1]
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
+      <StyledStandaloneStatus
+        role="status"
+        ref={ref}
+        {...props}
+        data-garden-id={COMPONENT_IDS['avatars.status-indicator.status']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        {/* [2] */}
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
+        <StyledStandaloneStatusIndicator
+          aria-hidden={label === null ? true : undefined}
+          aria-label={ariaLabel}
+          role="img"
+          $type={type}
+          $size={isCompact ? 'small' : 'medium'}
+          data-garden-id={COMPONENT_IDS['avatars.status-indicator.indicator']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          {type === 'away' ? <ClockIcon data-icon-status={type} aria-hidden="true" /> : null}
+          {type === 'transfers' ? (
+            <ArrowLeftIcon data-icon-status={type} aria-hidden="true" />
+          ) : null}
+        </StyledStandaloneStatusIndicator>
+        {!!children && (
+          <StyledStandaloneStatusCaption
+            data-garden-id={COMPONENT_IDS['avatars.status-indicator.caption']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            {children}
+          </StyledStandaloneStatusCaption>
+        )}
+      </StyledStandaloneStatus>
+    );
+  }
+);
+
+StatusIndicator.displayName = 'StatusIndicator';
+
+StatusIndicator.propTypes = {
+  'aria-label': PropTypes.string,
+  type: PropTypes.oneOf(STATUS),
+  isCompact: PropTypes.bool
+};

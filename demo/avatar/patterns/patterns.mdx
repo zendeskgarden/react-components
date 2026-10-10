@@ -1,0 +1,25 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as Stories from './patterns.stories';
+
+<Meta of={Stories} name="Patterns" />
+
+# Patterns
+
+## Menu
+
+The following example demonstrates intended avatar sizing within menus.
+Additionally, note the detail of dynamically modifying `surfaceColor` to blend
+with the menu item's highlight color on focus and hover. See the code for
+details.
+
+<Canvas>
+  <Story of={Stories.Menu} />
+</Canvas>
+
+## Status Menu
+
+The following example demonstrates StatusIndicator being used in a menu.
+
+<Canvas>
+  <Story of={Stories.StatusMenu} />
+</Canvas>

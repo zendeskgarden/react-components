@@ -1,0 +1,84 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { hideVisually, math } from 'polished';
+import styled, { css, DefaultTheme } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import type { Size } from '../../types/elements';
+import type { IStyledFontProps } from '../../types/views';
+
+type TypographySize = Size | 'extralarge' | '2xlarge' | '3xlarge';
+
+type ThemeSize = keyof DefaultTheme['lineHeights'];
+
+export const THEME_SIZES: Record<TypographySize, ThemeSize> = {
+  small: 'sm',
+  medium: 'md',
+  large: 'lg',
+  extralarge: 'xl',
+  '2xlarge': 'xxl',
+  '3xlarge': 'xxxl'
+};
+
+const fontStyles = ({ $hue, $isBold, $isMonospace, $size, theme }: IStyledFontProps) => {
+  /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+   * explicitly passed undefined props, so `$size` may still be undefined here */
+  const size = $size ?? 'inherit';
+  const monospace = $isMonospace && ['inherit', 'small', 'medium', 'large'].indexOf(size) !== -1;
+  const fontFamily = monospace && theme.fonts.mono;
+  const direction = theme.rtl ? 'rtl' : 'ltr';
+  const color = $hue ? getHueColor({ theme, value: $hue }) : undefined;
+  let fontSize;
+  let fontWeight;
+  let lineHeight;
+
+  if (monospace) {
+    if (size === 'inherit') {
+      fontSize = 'calc(1em - 1px)';
+      lineHeight = 'normal';
+    } else {
+      const themeSize = THEME_SIZES[size];
+
+      fontSize = math(`${theme.fontSizes[themeSize]} - 1px`);
+      lineHeight = math(`${theme.lineHeights[themeSize]} - 1px`);
+    }
+  } else if (size !== 'inherit') {
+    const themeSize = THEME_SIZES[size];
+
+    fontSize = theme.fontSizes[themeSize];
+    lineHeight = theme.lineHeights[themeSize];
+  }
+
+  if ($isBold === true) {
+    fontWeight = theme.fontWeights.semibold;
+  } else if ($isBold === false || size !== 'inherit') {
+    fontWeight = theme.fontWeights.regular;
+  }
+
+  return css`
+    transition: color 0.1s ease-in-out;
+    line-height: ${lineHeight};
+    color: ${color};
+    font-family: ${fontFamily};
+    font-size: ${fontSize};
+    font-weight: ${fontWeight};
+    direction: ${direction};
+  `;
+};
+
+export const StyledFont = styled.div<IStyledFontProps>`
+  ${props => !props.hidden && fontStyles(props)};
+
+  &[hidden] {
+    display: inline;
+    ${hideVisually()};
+  }
+
+  ${componentStyles};
+`;

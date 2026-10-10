@@ -8,6 +8,16 @@
 import type { DefaultTheme } from 'styled-components';
 
 import type { IGardenTheme } from '../theming/types';
+import type { Size } from './elements';
+
+//#region typography
+export interface IStyledFontProps extends IStyledBaseProps {
+  $isBold?: boolean;
+  $isMonospace?: boolean;
+  $size?: 'inherit' | Size | 'extralarge' | '2xlarge' | '3xlarge';
+  $hue?: string;
+}
+//#endregion
 
 export interface IStyledBaseProps<T extends DefaultTheme = IGardenTheme> {
   theme: T;
