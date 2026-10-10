@@ -16,18 +16,26 @@ const componentIds = [
   'accordions.section',
   'accordions.step_inner_panel',
   'avatars.avatar',
+  'avatars.status-indicator.caption',
+  'avatars.status-indicator.indicator',
+  'avatars.status-indicator.status',
   'avatars.status_indicator',
   'avatars.text',
   'typography.blockquote',
+  'typography.code',
   'typography.codeblock',
+  'typography.codeblock_code',
   'typography.codeblock_container',
   'typography.codeblock_token',
   'typography.ellipsis',
   'typography.font',
   'typography.icon',
+  'typography.kbd',
   'typography.ordered_list',
+  'typography.ordered_list_item',
   'typography.paragraph',
-  'typography.unordered_list'
+  'typography.unordered_list',
+  'typography.unordered_list_item'
 ] as const;
 
 type ComponentId = (typeof componentIds)[number];

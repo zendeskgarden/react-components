@@ -16,7 +16,7 @@ type IArgs = ComponentProps<typeof Code> & {
 };
 
 export default {
-  title: 'Components/Code',
+  title: 'Components/Typography/Code',
   component: Code
 };
 

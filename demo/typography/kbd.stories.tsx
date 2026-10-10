@@ -11,7 +11,7 @@ import { Kbd } from '../../src/index';
 import { KbdStory } from './stories/KbdStory';
 
 export default {
-  title: 'Components/Kbd',
+  title: 'Components/Typography/Kbd',
   component: Kbd
 };
 

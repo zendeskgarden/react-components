@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Span } from '@zendeskgarden/react-typography';
 import PropTypes from 'prop-types';
 import { Children, forwardRef, useMemo } from 'react';
 import ArrowLeftIcon12 from 'svg-icons-legacy/src/12/arrow-left-sm-stroke.svg';
@@ -17,8 +16,9 @@ import { useText } from '../../theming/utils/useText';
 import { IAvatarProps, AVATAR_SIZE, STATUS } from '../../types/elements';
 import { StyledAvatar } from '../../views/avatar/StyledAvatar';
 import { StyledStatusIndicator } from '../../views/avatar/StyledStatusIndicator';
+import { Span } from '../typography/Span';
 import { COMPONENT_IDS } from '../utils';
-import { Text } from './components/Text';
+import { Text } from './Text';
 
 const AvatarComponent = forwardRef<HTMLElement, IAvatarProps>(
   (

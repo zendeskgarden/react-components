@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import IconUser from 'svg-icons-legacy/src/16/user-solo-stroke.svg';
 import IconSystem from 'svg-icons-legacy/src/26/zendesk.svg';
 
@@ -16,13 +15,13 @@ interface IArgs extends IAvatarProps {
   type: TYPE;
 }
 
-export const AvatarStory: StoryFn<IArgs> = ({
+export const AvatarStory = ({
   children,
   type,
   backgroundColor,
   foregroundColor,
   ...args
-}) => (
+}: IArgs) => (
   <Avatar
     {...args}
     backgroundColor={backgroundColor || (type === 'image' ? undefined : 'background.emphasis')}

@@ -70,25 +70,19 @@ const sizeStyles = (props: IStatusIndicatorProps & IStyledBaseProps) => {
 
 const colorStyles = ({
   theme,
-  $type,
   $size,
   $borderColor,
   $surfaceColor
 }: IStatusIndicatorProps & IStyledBaseProps) => {
   const shadowSize = $size === xxs ? 'xs' : 'sm';
-  let boxShadow;
 
   const surfaceColor = $surfaceColor?.includes('.')
     ? getColor({ variable: $surfaceColor, theme })
     : $surfaceColor;
 
-  if ($type) {
-    boxShadow = theme.shadows[shadowSize](
-      surfaceColor || getColor({ theme, variable: 'background.default' })
-    );
-  } else {
-    boxShadow = theme.shadows[shadowSize](surfaceColor || (theme.palette.white as string));
-  }
+  const boxShadow = theme.shadows[shadowSize](
+    surfaceColor || getColor({ theme, variable: 'background.default' })
+  );
 
   return css`
     border-color: ${$borderColor};

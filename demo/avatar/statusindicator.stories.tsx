@@ -11,7 +11,7 @@ import { StatusIndicator } from '../../src/index';
 import { StatusIndicatorStory } from './stories/StatusIndicatorStory';
 
 export default {
-  title: 'Components/StatusIndicator',
+  title: 'Components/Avatars/StatusIndicator',
   component: StatusIndicator
 };
 

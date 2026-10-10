@@ -11,7 +11,7 @@ import { LG } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Components/LG',
+  title: 'Components/Typography/Typescale/LG',
   component: LG
 };
 

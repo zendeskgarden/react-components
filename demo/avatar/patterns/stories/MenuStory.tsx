@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Menu, Item } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
 import { useCallback, useState } from 'react';
@@ -49,7 +48,7 @@ interface IArgs {
   isCompact: boolean;
 }
 
-export const MenuStory: StoryFn<IArgs> = ({ isCompact }) => {
+export const MenuStory = ({ isCompact }: IArgs) => {
   const [highlightedValue, setHighlightedValue] = useState<string | null>();
 
   const onChange = useCallback(({ focusedValue }: { focusedValue?: string | null }) => {

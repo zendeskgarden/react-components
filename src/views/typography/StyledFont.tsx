@@ -10,15 +10,10 @@ import styled, { css, DefaultTheme } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
-import { SIZE } from '../../types/elements';
+import type { Size } from '../../types/elements';
 import type { IStyledFontProps } from '../../types/views';
 
-const TYPOGRAPHY_SIZE = [...SIZE, 'extralarge', '2xlarge', '3xlarge'] as const;
-
-/* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-const FONT_SIZE = ['inherit', ...TYPOGRAPHY_SIZE] as const;
-
-type TypographySize = (typeof TYPOGRAPHY_SIZE)[number];
+type TypographySize = Size | 'extralarge' | '2xlarge' | '3xlarge';
 
 type ThemeSize = keyof DefaultTheme['lineHeights'];
 

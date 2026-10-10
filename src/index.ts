@@ -7,12 +7,10 @@
 
 /* accordion */
 export { Accordion } from './elements/accordion/Accordion';
-export type { IAccordionProps } from './types/elements';
 
 /* avatar */
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
-export type { IAvatarProps, IStatusIndicatorProps } from './types/elements';
 
 /* theming */
 export { ColorSchemeProvider } from './theming/elements/ColorSchemeProvider';
@@ -74,7 +72,11 @@ export { UnorderedList } from './elements/typography/UnorderedList';
 export { XL } from './elements/typography/XL';
 export { XXL } from './elements/typography/XXL';
 export { XXXL } from './elements/typography/XXXL';
+
+/* types */
 export type {
+  IAccordionProps,
+  IAvatarProps,
   IBlockquoteProps,
   ICodeBlockProps,
   ICodeProps,
@@ -83,6 +85,7 @@ export type {
   IOrderedListProps,
   IParagraphProps,
   ISpanProps,
+  IStatusIndicatorProps,
   ITypescaleMonospaceProps as ILGProps,
   ITypescaleMonospaceProps as IMDProps,
   ITypescaleMonospaceProps as ISMProps,

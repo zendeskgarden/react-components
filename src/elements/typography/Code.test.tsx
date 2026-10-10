@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ICodeProps } from 'packages/typography/src/types';
-
 import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
+import type { ICodeProps } from '../../types/elements';
 import { Code } from './Code';
 
 describe('Code', () => {

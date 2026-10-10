@@ -11,7 +11,7 @@ import { XXXL } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Components/XXXL',
+  title: 'Components/Typography/Typescale/XXXL',
   component: XXXL
 };
 

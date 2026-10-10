@@ -11,7 +11,7 @@ import { MD } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Components/MD',
+  title: 'Components/Typography/Typescale/MD',
   component: MD
 };
 

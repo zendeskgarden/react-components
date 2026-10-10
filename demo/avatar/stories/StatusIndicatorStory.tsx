@@ -5,10 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-
 import { StatusIndicator, IStatusIndicatorProps } from '../../../src/index';
 
-export const StatusIndicatorStory: StoryFn<IStatusIndicatorProps> = ({ ...args }) => {
+export const StatusIndicatorStory = ({ ...args }: IStatusIndicatorProps) => {
   return <StatusIndicator {...args} />;
 };

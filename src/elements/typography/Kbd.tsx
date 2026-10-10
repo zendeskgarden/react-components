@@ -10,12 +10,21 @@ import { forwardRef } from 'react';
 
 import { IKbdProps, INHERIT_SIZE } from '../../types/elements';
 import { StyledKbd } from '../../views/typography/StyledKbd';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLElement>
  */
 export const Kbd = forwardRef<HTMLElement, IKbdProps>(({ size = 'inherit', ...other }, ref) => (
-  <StyledKbd $size={size} {...other} ref={ref} />
+  <StyledKbd
+    $size={size}
+    {...other}
+    as="kbd"
+    $isMonospace
+    data-garden-id={COMPONENT_IDS['typography.kbd']}
+    data-garden-version={PACKAGE_VERSION}
+    ref={ref}
+  />
 ));
 
 Kbd.displayName = 'Kbd';

@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-
 import { IUnorderedListProps, UnorderedList } from '../../../src/index';
 import { IListItem } from './types';
 
@@ -22,7 +20,7 @@ const getType = (level: number) => {
   return types[index];
 };
 
-export const UnorderedListStory: StoryFn<IArgs> = ({ items, level = 0, ...args }) => (
+export const UnorderedListStory = ({ items, level = 0, ...args }: IArgs) => (
   <UnorderedList {...args} type={level === 0 ? args.type : getType(level)}>
     {items.map((item, index) => (
       <UnorderedList.Item key={index}>

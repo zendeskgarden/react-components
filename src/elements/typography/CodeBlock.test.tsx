@@ -82,6 +82,38 @@ describe('CodeBlock', () => {
     });
   });
 
+  describe('line number padding', () => {
+    it.each([
+      ['small', '16px'],
+      ['medium', '24px'],
+      ['large', '28px']
+    ] as const)('renders %s size', async (size, padding) => {
+      const { container } = render(<CodeBlock isNumbered size={size} />);
+
+      await waitFor(() => {
+        expect(container.getElementsByTagName('code')[0]).toHaveStyleRule(
+          'padding-right',
+          padding,
+          { modifier: '&::before' }
+        );
+      });
+    });
+
+    it('renders no padding for a diff', async () => {
+      const { container } = render(
+        <CodeBlock isNumbered language="diff">
+          +added line
+        </CodeBlock>
+      );
+
+      await waitFor(() => {
+        expect(container.getElementsByTagName('code')[0]).toHaveStyleRule('padding-right', '0px', {
+          modifier: '&::before'
+        });
+      });
+    });
+  });
+
   it('renders diff lines as expected', async () => {
     const code = `@@ -1,3 +1,9 @@
 +added line

@@ -12,7 +12,7 @@ import { PARAGRAPH_CHILDREN as CHILDREN } from './stories/data';
 import { ParagraphStory } from './stories/ParagraphStory';
 
 export default {
-  title: 'Components/Paragraph',
+  title: 'Components/Typography/Paragraph',
   component: Paragraph
 };
 

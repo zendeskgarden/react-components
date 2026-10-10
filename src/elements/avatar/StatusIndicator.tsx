@@ -17,6 +17,7 @@ import { IStatusIndicatorProps, STATUS } from '../../types/elements';
 import { StyledStandaloneStatus } from '../../views/avatar/StyledStandaloneStatus';
 import { StyledStandaloneStatusCaption } from '../../views/avatar/StyledStandaloneStatusCaption';
 import { StyledStandaloneStatusIndicator } from '../../views/avatar/StyledStandaloneStatusIndicator';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * 1. role='status' on `div` is valid WAI-ARIA usage in this context.
@@ -50,7 +51,13 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
     return (
       // [1]
       // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
-      <StyledStandaloneStatus role="status" ref={ref} {...props}>
+      <StyledStandaloneStatus
+        role="status"
+        ref={ref}
+        {...props}
+        data-garden-id={COMPONENT_IDS['avatars.status-indicator.status']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {/* [2] */}
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <StyledStandaloneStatusIndicator
@@ -59,13 +66,22 @@ export const StatusIndicator = forwardRef<HTMLElement, IStatusIndicatorProps>(
           role="img"
           $type={type}
           $size={isCompact ? 'small' : 'medium'}
+          data-garden-id={COMPONENT_IDS['avatars.status-indicator.indicator']}
+          data-garden-version={PACKAGE_VERSION}
         >
           {type === 'away' ? <ClockIcon data-icon-status={type} aria-hidden="true" /> : null}
           {type === 'transfers' ? (
             <ArrowLeftIcon data-icon-status={type} aria-hidden="true" />
           ) : null}
         </StyledStandaloneStatusIndicator>
-        {!!children && <StyledStandaloneStatusCaption>{children}</StyledStandaloneStatusCaption>}
+        {!!children && (
+          <StyledStandaloneStatusCaption
+            data-garden-id={COMPONENT_IDS['avatars.status-indicator.caption']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            {children}
+          </StyledStandaloneStatusCaption>
+        )}
       </StyledStandaloneStatus>
     );
   }

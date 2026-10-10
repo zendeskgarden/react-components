@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DataAttributes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
@@ -26,7 +26,7 @@ const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon)<DataAttributes>`
+export const StyledIcon = styled(StyledBaseIcon)<IStyledIconProps>`
   position: relative;
   top: -1px;
   vertical-align: middle;

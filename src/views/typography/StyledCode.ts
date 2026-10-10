@@ -10,10 +10,8 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ICodeProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
-import { StyledFont, IStyledFontProps } from './StyledFont';
-
-const COMPONENT_ID = 'typography.code';
+import type { IStyledBaseProps, IStyledFontProps } from '../../types/views';
+import { StyledFont } from './StyledFont';
 
 const colorStyles = ({ $hue, theme }: IStyledCodeProps & IStyledBaseProps) => {
   const bgColorArgs: Parameters<typeof getColor>[0] = {
@@ -61,13 +59,7 @@ interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
   $size?: ICodeProps['size'];
 }
 
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledCode = styled(StyledFont as 'code').attrs<IStyledCodeProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'code',
-  $isMonospace: true
-}))<IStyledCodeProps>`
+export const StyledCode = styled(StyledFont as 'code')<IStyledCodeProps>`
   border-radius: ${props => props.theme.borderRadii.sm};
   padding: 1.5px;
 

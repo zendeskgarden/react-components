@@ -14,11 +14,10 @@ import { Diff, Size } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 
-const COMPONENT_ID = 'typography.codeblock_code';
-
 export interface IStyledCodeBlockLineProps {
   $language?: Language;
   $isHighlighted?: boolean;
+  $isMonospace?: boolean;
   $isNumbered?: boolean;
   $diff?: Diff;
   $size?: Size;
@@ -95,13 +94,7 @@ const lineNumberStyles = ({
  * 1. Fix line display for mobile.
  * 2. Match parent padding for overflow scroll.
  */
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledCodeBlockLine = styled(StyledFont as 'code').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'code',
-  $isMonospace: true
-})<IStyledCodeBlockLineProps>`
+export const StyledCodeBlockLine = styled(StyledFont as 'code')<IStyledCodeBlockLineProps>`
   display: table-row;
   height: ${props => props.theme.lineHeights[THEME_SIZES[props.$size!]]}; /* [1] */
   direction: ltr;

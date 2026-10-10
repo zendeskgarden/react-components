@@ -8,12 +8,13 @@
 import type { DefaultTheme } from 'styled-components';
 
 import type { IGardenTheme } from '../theming/types';
+import type { Size } from './elements';
 
 //#region typography
-interface IStyledFontProps extends IStyledBaseProps {
+export interface IStyledFontProps extends IStyledBaseProps {
   $isBold?: boolean;
   $isMonospace?: boolean;
-  $size?: (typeof FONT_SIZE)[number];
+  $size?: 'inherit' | Size | 'extralarge' | '2xlarge' | '3xlarge';
   $hue?: string;
 }
 //#endregion

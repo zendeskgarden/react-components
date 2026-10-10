@@ -7,7 +7,7 @@
 
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
 import Highlight, { Language, Prism } from 'prism-react-renderer';
-import { useMemo, useRef, forwardRef } from 'react';
+import { useMemo, useRef, forwardRef, type RefObject } from 'react';
 
 import { ThemeProvider } from '../../theming/elements/ThemeProvider';
 import { Diff, ICodeBlockProps, LANGUAGES } from '../../types/elements';
@@ -44,7 +44,10 @@ export const CodeBlock = forwardRef<HTMLPreElement, ICodeBlockProps>(
     const containerRef = useRef<HTMLDivElement>(null);
     const code = (Array.isArray(children) ? children[0] : children) as string;
     const dependency = useMemo(() => [size, children], [size, children]);
-    const containerTabIndex = useScrollRegion({ containerRef, dependency });
+    const containerTabIndex = useScrollRegion({
+      containerRef: containerRef as RefObject<HTMLElement>,
+      dependency
+    });
 
     const getDiff = (line: IToken[]) => {
       let retVal: Diff | undefined;
@@ -106,6 +109,10 @@ export const CodeBlock = forwardRef<HTMLPreElement, ICodeBlockProps>(
                     $diff={getDiff(line)}
                     $size={size}
                     style={undefined}
+                    as="code"
+                    $isMonospace
+                    data-garden-id={COMPONENT_IDS['typography.codeblock_code']}
+                    data-garden-version={PACKAGE_VERSION}
                   >
                     {line.map((token, tokenKey) => (
                       <StyledCodeBlockToken

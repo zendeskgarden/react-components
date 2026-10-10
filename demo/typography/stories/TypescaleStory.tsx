@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-
 import { IMDProps, LG, MD, SM, XL, XXL, XXXL } from '../../../src/index';
 
 interface IArgs extends IMDProps {
@@ -14,7 +12,7 @@ interface IArgs extends IMDProps {
   hasDisplayName?: boolean;
 }
 
-export const TypescaleStory: StoryFn<IArgs> = ({ children, size, hasDisplayName, ...args }) => {
+export const TypescaleStory = ({ children, size, hasDisplayName, ...args }: IArgs) => {
   let Typescale;
 
   switch (size) {

@@ -8,23 +8,12 @@
 import type { StoryObj } from '@storybook/react-vite';
 
 import { Avatar } from '../../../src/index';
-import { ChromeStory } from './stories/ChromeStory';
 import { MenuStory } from './stories/MenuStory';
 import { StatusMenuStory } from './stories/StatusMenuStory';
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Components/Avatars/Avatar',
   component: Avatar
-};
-
-export const Chrome: StoryObj<typeof ChromeStory> = {
-  render: args => <ChromeStory {...args} />,
-  parameters: {
-    controls: {
-      include: ['badge', 'status']
-    }
-  },
-  argTypes: { badge: { control: 'boolean' } }
 };
 
 export const Menu: StoryObj<typeof MenuStory> = {

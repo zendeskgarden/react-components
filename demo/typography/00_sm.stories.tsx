@@ -11,7 +11,7 @@ import { SM } from '../../src/index';
 import { TypescaleStory } from './stories/TypescaleStory';
 
 export default {
-  title: 'Components/SM',
+  title: 'Components/Typography/Typescale/SM',
   component: SM
 };
 

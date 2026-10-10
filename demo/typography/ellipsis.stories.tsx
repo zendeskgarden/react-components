@@ -10,7 +10,7 @@ import type { StoryObj } from '@storybook/react-vite';
 import { Ellipsis } from '../../src/index';
 
 export default {
-  title: 'Components/Ellipsis',
+  title: 'Components/Typography/Ellipsis',
   component: Ellipsis
 };
 

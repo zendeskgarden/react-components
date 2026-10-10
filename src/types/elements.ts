@@ -6,24 +6,13 @@
  */
 
 import type { IUseAccordionProps } from '@zendeskgarden/container-accordion';
-import type { ComponentPropsWithRef, HTMLAttributes } from 'react';
-//#region typography
-/**
- * Copyright Zendesk, Inc.
- *
- * Use of this source code is governed under the Apache License, Version 2.0
- * found at http://www.apache.org/licenses/LICENSE-2.0.
- */
-import { BlockquoteHTMLAttributes, HTMLAttributes, OlHTMLAttributes } from 'react';
+import type {
+  BlockquoteHTMLAttributes,
+  ComponentPropsWithRef,
+  HTMLAttributes,
+  OlHTMLAttributes
+} from 'react';
 //#region avatar
-/**
- * Copyright Zendesk, Inc.
- *
- * Use of this source code is governed under the Apache License, Version 2.0
- * found at http://www.apache.org/licenses/LICENSE-2.0.
- */
-import { HTMLAttributes } from 'react';
-
 export const AVATAR_SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'] as const;
 export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
 export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
@@ -50,7 +39,7 @@ export interface IAvatarProps extends HTMLAttributes<HTMLElement> {
   /** Applies system styling for representing objects, brands, or products */
   isSystem?: boolean;
   /** Specifies the avatar size */
-  size?: (typeof SIZE)[number];
+  size?: (typeof AVATAR_SIZE)[number];
   /** Applies status styling */
   status?: (typeof STATUS)[number];
   /** Specifies the status label */
@@ -68,6 +57,7 @@ export interface IStatusIndicatorProps extends Omit<HTMLAttributes<HTMLElement>,
 }
 //#endregion
 
+//#region typography
 export const HUE = ['grey', 'red', 'green', 'yellow'] as const;
 export const SIZE = ['small', 'medium', 'large'] as const;
 export const INHERIT_SIZE = ['inherit', ...SIZE] as const;

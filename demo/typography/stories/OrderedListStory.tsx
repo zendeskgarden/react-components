@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-
 import { IOrderedListProps, OrderedList } from '../../../src/index';
 import { IListItem } from './types';
 
@@ -22,7 +20,7 @@ const getType = (level: number) => {
   return types[index];
 };
 
-export const OrderedListStory: StoryFn<IArgs> = ({ items, level = 0, ...args }) => (
+export const OrderedListStory = ({ items, level = 0, ...args }: IArgs) => (
   <OrderedList {...args} type={level === 0 ? args.type : getType(level)}>
     {items.map((item, index) => (
       <OrderedList.Item key={index}>

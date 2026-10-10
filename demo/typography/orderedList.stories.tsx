@@ -12,7 +12,7 @@ import { LIST_ITEMS as ITEMS } from './stories/data';
 import { OrderedListStory } from './stories/OrderedListStory';
 
 export default {
-  title: 'Components/OrderedList',
+  title: 'Components/Typography/Lists/OrderedList',
   component: OrderedList,
   subcomponents: {
     'OrderedList.Item': OrderedList.Item

@@ -37,6 +37,25 @@ describe('StatusIndicator', () => {
     expect(getByText(text).nodeName).toBe('FIGCAPTION');
   });
 
+  it('renders the Garden ids and versions, which a prop cannot replace', () => {
+    const { container, getByRole, getByText } = render(
+      <StatusIndicator type="available" data-garden-id="custom" data-garden-version="0.0.0">
+        caption
+      </StatusIndicator>
+    );
+
+    const elements = [
+      [container.firstChild, 'avatars.status-indicator.status'],
+      [getByRole('img'), 'avatars.status-indicator.indicator'],
+      [getByText('caption'), 'avatars.status-indicator.caption']
+    ] as const;
+
+    elements.forEach(([element, id]) => {
+      expect(element).toHaveAttribute('data-garden-id', id);
+      expect(element).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    });
+  });
+
   it('renders offline type by default', () => {
     const { getByRole } = render(<StatusIndicator />);
 

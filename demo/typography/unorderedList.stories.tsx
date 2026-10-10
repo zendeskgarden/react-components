@@ -12,7 +12,7 @@ import { LIST_ITEMS as ITEMS } from './stories/data';
 import { UnorderedListStory } from './stories/UnorderedListStory';
 
 export default {
-  title: 'Components/UnorderedList',
+  title: 'Components/Typography/Lists/UnorderedList',
   component: UnorderedList,
   subcomponents: {
     'UnorderedList.Item': UnorderedList.Item

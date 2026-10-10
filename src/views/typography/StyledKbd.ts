@@ -12,9 +12,8 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { IKbdProps } from '../../types/elements';
 import { StyledCode } from './StyledCode';
 
-const COMPONENT_ID = 'typography.kbd';
-
 interface IStyledKbdProps extends ThemeProps<DefaultTheme> {
+  $isMonospace?: boolean;
   $size?: IKbdProps['size'];
 }
 
@@ -62,12 +61,7 @@ const sizeStyles = ({ theme, $size }: IStyledKbdProps) => {
  * 2. Prevent the monospace stack fallback, which doesn't render individual
  *    keyboard characters well
  */
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledKbd = styled(StyledCode as 'kbd').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'kbd'
-})<IStyledKbdProps>`
+export const StyledKbd = styled(StyledCode as 'kbd')<IStyledKbdProps>`
   display: inline-block; /* [1] */
   direction: ltr; /* [1] */
   text-align: center;

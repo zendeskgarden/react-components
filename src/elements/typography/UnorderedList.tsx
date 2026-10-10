@@ -8,10 +8,7 @@
 import PropTypes from 'prop-types';
 import { forwardRef, useMemo } from 'react';
 
-import {
-  UnorderedListProvider,
-  UnorderedListProvider
-} from '../../context/typography/UnorderedListContext';
+import { UnorderedListProvider } from '../../context/typography/UnorderedListContext';
 import { IUnorderedListProps, SIZE, TYPE_UNORDERED_LIST } from '../../types/elements';
 import { StyledUnorderedList } from '../../views/typography/StyledList';
 import { COMPONENT_IDS } from '../utils';

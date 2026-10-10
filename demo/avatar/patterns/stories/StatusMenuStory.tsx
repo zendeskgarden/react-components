@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
@@ -23,7 +22,7 @@ interface IArgs {
   type?: IStatusIndicatorProps['type'];
 }
 
-export const StatusMenuStory: StoryFn<IArgs> = ({ isCompact, type }) => {
+export const StatusMenuStory = ({ isCompact, type }: IArgs) => {
   const [selectedType, setSelectedType] = useState<IStatusIndicatorProps['type']>(type);
 
   const onChange = useCallback(({ value }: { value?: string }) => {
@@ -35,16 +34,14 @@ export const StatusMenuStory: StoryFn<IArgs> = ({ isCompact, type }) => {
       <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
         <Grid.Col textAlign="center" alignSelf="center">
           <Menu
-            button={
-              /* eslint-disable-next-line react/no-unstable-nested-components */
-              props => (
-                <StyledIconButton {...props} aria-label="Select status">
-                  <Avatar status={selectedType} size={isCompact ? 'small' : 'medium'}>
-                    <img alt="Example User" src="images/avatars/chrome.png" />
-                  </Avatar>
-                </StyledIconButton>
-            )
-            }
+            /* eslint-disable-next-line react/no-unstable-nested-components */
+            button={props => (
+              <StyledIconButton {...props} aria-label="Select status">
+                <Avatar status={selectedType} size={isCompact ? 'small' : 'medium'}>
+                  <img alt="Example User" src="images/avatars/chrome.png" />
+                </Avatar>
+              </StyledIconButton>
+            )}
             onChange={onChange}
             isCompact={isCompact}
           >

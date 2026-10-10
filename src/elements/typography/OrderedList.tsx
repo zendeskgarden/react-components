@@ -8,10 +8,7 @@
 import PropTypes from 'prop-types';
 import { useMemo, forwardRef } from 'react';
 
-import {
-  OrderedListProvider,
-  OrderedListProvider
-} from '../../context/typography/OrderedListContext';
+import { OrderedListProvider } from '../../context/typography/OrderedListContext';
 import { IOrderedListProps, SIZE, TYPE_ORDERED_LIST } from '../../types/elements';
 import { StyledOrderedList } from '../../views/typography/StyledList';
 import { COMPONENT_IDS } from '../utils';

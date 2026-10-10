@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-
 import { Blockquote, IBlockquoteProps } from '../../../src/index';
 import { TypescaleStory } from './TypescaleStory';
 
@@ -14,7 +12,7 @@ interface IArgs extends IBlockquoteProps {
   children: string[];
 }
 
-export const BlockquoteStory: StoryFn<IArgs> = ({ children, ...args }) => (
+export const BlockquoteStory = ({ children, ...args }: IArgs) => (
   <>
     {children.map((child, index) => (
       <Blockquote key={index} {...args}>

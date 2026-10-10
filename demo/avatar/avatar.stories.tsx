@@ -12,7 +12,7 @@ import { AvatarStory } from './stories/AvatarStory';
 import { AVATAR_TYPE as TYPE } from './stories/data';
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Components/Avatars/Avatar',
   component: Avatar,
   subcomponents: {
     'Avatar.Text': Avatar.Text

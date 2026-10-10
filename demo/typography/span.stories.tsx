@@ -11,7 +11,7 @@ import { Span } from '../../src/index';
 import { SpanStory } from './stories/SpanStory';
 
 export default {
-  title: 'Components/Span',
+  title: 'Components/Typography/Span',
   component: Span,
   subcomponents: {
     'Span.Icon': Span.Icon,

@@ -8,8 +8,7 @@
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { HTMLProps } from 'react';
 
-import type { Size } from './elements';
-import type { IAccordionProps } from './elements';
+import type { IAccordionProps, Size } from './elements';
 
 export interface IAccordionContext<SectionValue>
   extends

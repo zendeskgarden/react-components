@@ -9,12 +9,22 @@ import { forwardRef, LiHTMLAttributes } from 'react';
 
 import { useUnorderedListContext } from '../../hooks/typography/useUnorderedListContext';
 import { StyledUnorderedListItem } from '../../views/typography/StyledListItem';
+import { COMPONENT_IDS } from '../utils';
 
 const UnorderedListItem = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   (props, ref) => {
     const { size } = useUnorderedListContext();
 
-    return <StyledUnorderedListItem ref={ref} $space={size} {...props} />;
+    return (
+      <StyledUnorderedListItem
+        ref={ref}
+        $space={size}
+        {...props}
+        as="li"
+        data-garden-id={COMPONENT_IDS['typography.unordered_list_item']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

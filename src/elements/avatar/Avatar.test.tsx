@@ -9,9 +9,10 @@ import { cleanup } from '@testing-library/react';
 import { createRef } from 'react';
 import { vi } from 'vitest';
 
-import { render } from '../../test/render';
+import { RTL_THEME, render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
 import DEFAULT_THEME from '../../theming/elements/theme';
+import { StyledStatusIndicator } from '../../views/avatar/StyledStatusIndicator';
 import { Avatar } from './Avatar';
 
 const activeBoxShadow = DEFAULT_THEME.shadows.sm(PALETTE.crimson[700]);
@@ -38,6 +39,96 @@ describe('Avatar', () => {
     );
 
     expect(container.firstChild).toHaveStyleRule('width', '40px!important');
+  });
+
+  describe('size', () => {
+    it.each([
+      ['extraextrasmall', '16px'],
+      ['extrasmall', '24px'],
+      ['small', '32px'],
+      ['medium', '40px'],
+      ['large', '48px']
+    ] as const)('renders %s', (size, width) => {
+      const { container } = render(
+        <Avatar size={size}>
+          <img alt="" />
+        </Avatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('width', `${width}!important`);
+    });
+
+    const radius = parseInt(DEFAULT_THEME.borderRadii.md, 10);
+
+    it.each([
+      ['extraextrasmall', `${radius - 1}px`],
+      ['extrasmall', `${radius - 1}px`],
+      ['small', `${radius - 1}px`],
+      ['medium', DEFAULT_THEME.borderRadii.md],
+      ['large', `${radius + 1}px`]
+    ] as const)('renders system styling with %s size', (size, borderRadius) => {
+      const { container } = render(
+        <Avatar isSystem size={size}>
+          <img alt="" />
+        </Avatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('border-radius', borderRadius);
+    });
+
+    it('renders a round avatar by default', () => {
+      const { container } = render(
+        <Avatar>
+          <img alt="" />
+        </Avatar>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('border-radius', '50%');
+    });
+  });
+
+  describe('status indicator', () => {
+    const modifier = `&>${StyledStatusIndicator}`;
+
+    it.each([
+      ['extraextrasmall', '3px', '-1px'],
+      ['extrasmall', '4px', '-1px'],
+      ['small', '8px', '-2px'],
+      ['medium', '12px', '-2px'],
+      ['large', '12px', '-2px']
+    ] as const)('renders %s size and position', (size, height, offset) => {
+      const { container } = render(
+        <Avatar size={size} status="available">
+          <img alt="" />
+        </Avatar>
+      );
+
+      expect(container.querySelector('figcaption')).toHaveStyleRule('height', height);
+      expect(container.firstChild).toHaveStyleRule('position', 'absolute', { modifier });
+      expect(container.firstChild).toHaveStyleRule('bottom', offset, { modifier });
+      expect(container.firstChild).toHaveStyleRule('right', offset, { modifier });
+    });
+
+    it('renders an active indicator with a badge', () => {
+      const { container } = render(
+        <Avatar badge="2" size="small">
+          <img alt="" />
+        </Avatar>
+      );
+
+      expect(container.querySelector('figcaption')).toHaveStyleRule('height', '12px');
+    });
+
+    it('renders the position from RTL', () => {
+      const { container } = render(
+        <Avatar status="available">
+          <img alt="" />
+        </Avatar>,
+        { theme: RTL_THEME }
+      );
+
+      expect(container.firstChild).toHaveStyleRule('left', '-2px', { modifier });
+    });
   });
 
   it('renders a medium status indicator by default', () => {

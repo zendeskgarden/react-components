@@ -12,7 +12,7 @@ import { BlockquoteStory } from './stories/BlockquoteStory';
 import { BLOCKQUOTE_CHILDREN as CHILDREN } from './stories/data';
 
 export default {
-  title: 'Components/Blockquote',
+  title: 'Components/Typography/Blockquote',
   component: Blockquote
 };
 

@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-
 import { IKbdProps, Kbd } from '../../../src/index';
 
 interface IArgs extends IKbdProps {
   children: string;
 }
 
-export const KbdStory: StoryFn<IArgs> = ({ children, ...args }) => (
+export const KbdStory = ({ children, ...args }: IArgs) => (
   <>
     {children.split(' ').map((child, index) => (
       <>

@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import Icon from 'svg-icons-legacy/src/16/asterisk-stroke.svg';
 import StartIcon from 'svg-icons-legacy/src/16/circle-stroke.svg';
 
@@ -16,7 +15,7 @@ interface IArgs extends ISpanProps {
   hasStartIcon: boolean;
 }
 
-export const SpanStory: StoryFn<IArgs> = ({ hasIcon, hasStartIcon, ...args }) => (
+export const SpanStory = ({ hasIcon, hasStartIcon, ...args }: IArgs) => (
   <Span {...args}>
     {!!hasStartIcon && (
       <Span.StartIcon>

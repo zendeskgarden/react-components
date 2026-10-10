@@ -52,14 +52,7 @@ const listItemStyles = (props: IStyledListItemProps & IStyledBaseProps) => {
   `;
 };
 
-const ORDERED_ID = 'typography.ordered_list_item';
-
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(() => ({
-  'data-garden-id': ORDERED_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'li'
-}))<IStyledListItemProps>`
+export const StyledOrderedListItem = styled(StyledFont as 'li')<IStyledListItemProps>`
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
@@ -70,16 +63,7 @@ export const StyledOrderedListItem = styled(StyledFont as 'li').attrs<IStyledLis
   ${componentStyles};
 `;
 
-const UNORDERED_ID = 'typography.unordered_list_item';
-
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledUnorderedListItem = styled(StyledFont as 'li').attrs<IStyledListItemProps>(
-  () => ({
-    'data-garden-id': UNORDERED_ID,
-    'data-garden-version': PACKAGE_VERSION,
-    as: 'li'
-  })
-)<IStyledListItemProps>`
+export const StyledUnorderedListItem = styled(StyledFont as 'li')<IStyledListItemProps>`
   ${listItemStyles};
 
   ${componentStyles};

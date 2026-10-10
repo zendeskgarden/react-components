@@ -9,7 +9,7 @@ import { CodeBlock } from '../../src/index';
 import { CODE_BLOCK_CHILDREN as CODE } from './stories/data';
 
 export default {
-  title: 'Components/CodeBlock',
+  title: 'Components/Typography/CodeBlock',
   component: CodeBlock
 };
 
