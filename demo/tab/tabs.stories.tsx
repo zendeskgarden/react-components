@@ -7,6 +7,7 @@
 
 import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
+import { fn } from 'storybook/test';
 
 import { Tabs } from '../../src/index';
 import { TABS } from './stories/data';
@@ -34,6 +35,7 @@ export default {
 
 export const Uncontrolled: Story = {
   render: args => <TabsStory {...args} />,
+  args: { onChange: fn() },
   argTypes: {
     selectedItem: { control: false }
   }
