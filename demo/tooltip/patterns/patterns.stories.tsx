@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
-import React from 'react';
 
+import { Tooltip } from '../../../src/index';
 import { MenuStory } from './stories/MenuStory';
 
 export default {
-  title: 'Packages/Tooltips/[patterns]',
+  title: 'Components/Tooltip',
   component: Tooltip
 };
 

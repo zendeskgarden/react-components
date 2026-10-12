@@ -8,15 +8,27 @@
 import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
 import { useTooltip } from '@zendeskgarden/container-tooltip';
 import { composeEventHandlers, getControlledValue } from '@zendeskgarden/container-utilities';
-import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { cloneElement, useRef, useEffect, useContext, HTMLAttributes } from 'react';
+import {
+  cloneElement,
+  useRef,
+  useEffect,
+  useContext,
+  HTMLAttributes,
+  Children,
+  ReactElement,
+  RefAttributes
+} from 'react';
 import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
-import { StyledTooltipWrapper, StyledTooltip } from '../styled';
-import { ITooltipProps, PLACEMENT, SIZE, TYPE } from '../types';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { ITooltipProps, TOOLTIP_PLACEMENT, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../../types/elements';
+import { StyledTooltip } from '../../views/tooltip/StyledTooltip';
+import { StyledTooltipWrapper } from '../../views/tooltip/StyledTooltipWrapper';
+import { COMPONENT_IDS } from '../utils';
 import { Paragraph } from './Paragraph';
 import { Title } from './Title';
 import { toSize } from './utils';
@@ -90,9 +102,7 @@ export const TooltipComponent = ({
     return () => cleanup && cleanup();
   }, [controlledIsVisible, refs.reference, refs.floating, update]);
 
-  const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLButtonElement>>(
-    children
-  );
+  const Child = Children.only<ReactElement & RefAttributes<HTMLButtonElement>>(children);
 
   const Node = (
     <StyledTooltipWrapper
@@ -112,6 +122,8 @@ export const TooltipComponent = ({
           onFocus: composeEventHandlers(onFocus, openTooltip),
           ...props
         }) as HTMLAttributes<HTMLDivElement>)}
+        data-garden-id={COMPONENT_IDS['tooltip.tooltip']}
+        data-garden-version={PACKAGE_VERSION}
       >
         {content}
       </StyledTooltip>
@@ -140,12 +152,12 @@ TooltipComponent.propTypes = {
   delayMS: PropTypes.number,
   id: PropTypes.string,
   content: PropTypes.node.isRequired,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(TOOLTIP_PLACEMENT),
   fallbackPlacements: PropTypes.arrayOf(
-    PropTypes.oneOf(PLACEMENT.filter(placement => placement !== 'auto'))
+    PropTypes.oneOf(TOOLTIP_PLACEMENT.filter(placement => placement !== 'auto'))
   ),
-  size: PropTypes.oneOf(SIZE),
-  type: PropTypes.oneOf(TYPE),
+  size: PropTypes.oneOf(TOOLTIP_SIZE),
+  type: PropTypes.oneOf(TOOLTIP_TYPE),
   zIndex: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   isInitialVisible: PropTypes.bool,
   isLabel: PropTypes.bool,

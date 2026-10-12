@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { IButtonProps, IconButton } from '@zendeskgarden/react-buttons';
 import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
-import { useDocument } from '@zendeskgarden/react-theming';
-import { ITooltipProps, Tooltip } from '@zendeskgarden/react-tooltips';
-import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { useTheme } from 'styled-components';
+import Icon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
+
+import { ITooltipProps, Tooltip } from '../../../../src/index';
+import { useDocument } from '../../../../src/theming/utils/useDocument';
 
 interface IMenuButtonProps extends IButtonProps {
   appendToNode: boolean;
@@ -41,7 +41,7 @@ interface IArgs extends Omit<ITooltipProps, 'appendToNode'> {
   appendToNode: boolean;
 }
 
-export const MenuStory: StoryFn<IArgs> = ({ appendToNode, placement }) => (
+export const MenuStory = ({ appendToNode, placement }: IArgs) => (
   <Grid>
     <Grid.Row style={{ height: 'calc(100vh - 80px)' }}>
       <Grid.Col textAlign="center" alignSelf="center">

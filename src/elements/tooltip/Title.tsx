@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledTitle } from '../styled';
+import { StyledTitle } from '../../views/tooltip/StyledTitle';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Tooltip.Title` instead
@@ -15,7 +16,12 @@ import { StyledTitle } from '../styled';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Title = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
-  <StyledTitle ref={ref} {...props} />
+  <StyledTitle
+    ref={ref}
+    {...props}
+    data-garden-id={COMPONENT_IDS['tooltip.title']}
+    data-garden-version={PACKAGE_VERSION}
+  />
 ));
 
 Title.displayName = 'Tooltip.Title';

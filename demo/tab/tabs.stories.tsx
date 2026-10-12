@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Tabs } from '@zendeskgarden/react-tabs';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Tabs } from '../../src/index';
 import { TABS } from './stories/data';
 import { TabsStory } from './stories/TabsStory';
 type Story = StoryObj<typeof TabsStory>;
 
 export default {
-  title: 'Packages/Tabs/Tabs',
+  title: 'Components/Tabs',
   component: Tabs,
   subcomponents: {
     'Tabs.Tab': Tabs.Tab,

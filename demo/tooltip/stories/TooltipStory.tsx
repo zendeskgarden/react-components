@@ -5,20 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
-import { ITooltipProps, Tooltip } from '@zendeskgarden/react-tooltips';
-import Icon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
-import React from 'react';
+import Icon from 'svg-icons-legacy/src/16/info-stroke.svg';
 
+import { ITooltipProps, Tooltip } from '../../../src/index';
 import { ITooltipContent } from './types';
 
 interface IArgs extends Omit<ITooltipProps, 'content'> {
   content: ITooltipContent;
 }
 
-export const TooltipStory: StoryFn<IArgs> = ({ content, isLabel, ...args }: IArgs) => (
+export const TooltipStory = ({ content, isLabel, ...args }: IArgs) => (
   <Grid>
     <Grid.Row style={{ height: 'calc(100vh - 200px)' }}>
       <Grid.Col textAlign="center" alignSelf="center">

@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
+import { vi } from 'vitest';
 
-import { Tabs, ITabsProps, ITabProps } from '../';
+import { render } from '../../test/render';
+import { ITabsProps, ITabProps } from '../../types/elements';
+import { Tabs } from './Tabs';
 
 describe('Tabs', () => {
   const user = userEvent.setup();
@@ -49,7 +51,7 @@ describe('Tabs', () => {
   });
 
   it('calls onChange with correct item on selection', async () => {
-    const onChangeSpy = jest.fn();
+    const onChangeSpy = vi.fn();
 
     const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
@@ -58,7 +60,7 @@ describe('Tabs', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(
       <Tabs ref={ref}>
         <Tabs.TabList>

@@ -6,19 +6,20 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes, MutableRefObject } from 'react';
+import { HTMLAttributes, MutableRefObject, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { StyledTab } from '../styled';
-import { ITabProps } from '../types';
-import { useTabsContext } from '../utils/useTabsContext';
+import { useTabsContext } from '../../hooks/tab/useTabsContext';
+import { ITabProps } from '../../types/elements';
+import { StyledTab } from '../../views/tab/StyledTab';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Tabs.Tab` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
+export const Tab = forwardRef<HTMLDivElement, ITabProps>(
   ({ disabled, item, ...otherProps }, ref) => {
     const tabsPropGetters = useTabsContext();
 
@@ -30,6 +31,8 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
           ref={ref}
           $isVertical={tabsPropGetters?.isVertical}
           {...otherProps}
+          data-garden-id={COMPONENT_IDS['tabs.tab']}
+          data-garden-version={PACKAGE_VERSION}
         />
       );
     }
@@ -44,6 +47,8 @@ export const Tab = React.forwardRef<HTMLDivElement, ITabProps>(
         $isVertical={tabsPropGetters.isVertical}
         {...tabProps}
         {...otherProps}
+        data-garden-id={COMPONENT_IDS['tabs.tab']}
+        data-garden-version={PACKAGE_VERSION}
         ref={mergeRefs([tabRef, ref])}
       />
     );

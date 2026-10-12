@@ -6,20 +6,17 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
-import {
-  arrowStyles,
-  componentStyles,
-  getLineHeight,
-  getArrowPosition,
-  getColor
-} from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ITooltipProps } from '../types';
+import arrowStyles from '../../theming/utils/arrowStyles';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getArrowPosition } from '../../theming/utils/getArrowPosition';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { ITooltipProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
-
-const COMPONENT_ID = 'tooltip.tooltip';
 
 interface IStyledTooltipProps {
   $hasArrow: ITooltipProps['hasArrow'];
@@ -33,7 +30,7 @@ const sizeStyles = ({
   $hasArrow,
   $placement,
   $size
-}: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
+}: IStyledTooltipProps & IStyledBaseProps) => {
   let margin = `${theme.space.base * 1.5}px`;
   let borderRadius = theme.borderRadii.sm;
   let padding = '0 1em';
@@ -120,7 +117,7 @@ const sizeStyles = ({
   `;
 };
 
-const colorStyles = ({ theme, $type }: IStyledTooltipProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $type }: IStyledTooltipProps & IStyledBaseProps) => {
   let borderColor;
   let boxShadow;
   let backgroundColor;
@@ -168,10 +165,7 @@ const colorStyles = ({ theme, $type }: IStyledTooltipProps & ThemeProps<DefaultT
 /**
  * Accepts all `<div>` props
  */
-export const StyledTooltip = styled.div.attrs<IStyledTooltipProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTooltipProps>`
+export const StyledTooltip = styled.div<IStyledTooltipProps>`
   display: inline-block;
   border: ${props => props.theme.borders.sm};
   box-sizing: border-box;

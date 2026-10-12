@@ -7,15 +7,16 @@
 
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { useState, useContext, useMemo, forwardRef } from 'react';
+import { useState, useContext, useMemo, forwardRef } from 'react';
 import { ThemeContext } from 'styled-components';
 
-import { StyledTabs } from '../styled/StyledTabs';
-import { ITabsProps } from '../types';
-import { toTabs } from '../utils/toTabs';
-import { TabsContext } from '../utils/useTabsContext';
+import { TabsProvider } from '../../context/tab/TabsContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { ITabsProps } from '../../types/elements';
+import { toTabs } from '../../utils/tab/toTabs';
+import { StyledTabs } from '../../views/tab/StyledTabs';
+import { COMPONENT_IDS } from '../utils';
 import { Tab } from './Tab';
 import { TabList } from './TabList';
 import { TabPanel } from './TabPanel';
@@ -52,11 +53,17 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     );
 
     return (
-      <TabsContext.Provider value={contextValue}>
-        <StyledTabs $isVertical={isVertical} {...otherProps} ref={ref}>
+      <TabsProvider value={contextValue}>
+        <StyledTabs
+          $isVertical={isVertical}
+          {...otherProps}
+          data-garden-id={COMPONENT_IDS['tabs.tabs']}
+          data-garden-version={PACKAGE_VERSION}
+          ref={ref}
+        >
           {children}
         </StyledTabs>
-      </TabsContext.Provider>
+      </TabsProvider>
     );
   }
 );

@@ -5,16 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'tabs.tablist';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledTabListProps {
   $isVertical?: boolean;
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, variable: 'border.default' });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
@@ -29,7 +31,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 /*
  * 1. List element reset.
  */
-const sizeStyles = ({ theme, $isVertical }: IStyledTabListProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isVertical }: IStyledTabListProps & IStyledBaseProps) => {
   const marginBottom = $isVertical ? 0 : `${theme.space.base * 5}px`;
   const borderBottom = $isVertical ? undefined : theme.borderWidths.sm;
   const fontSize = theme.fontSizes.md;
@@ -45,10 +47,7 @@ const sizeStyles = ({ theme, $isVertical }: IStyledTabListProps & ThemeProps<Def
   `;
 };
 
-export const StyledTabList = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTabListProps>`
+export const StyledTabList = styled.div<IStyledTabListProps>`
   display: ${props => (props.$isVertical ? 'table-cell' : 'block')};
   border-bottom: ${props => (props.$isVertical ? 'none' : props.theme.borderStyles.solid)};
   vertical-align: ${props => (props.$isVertical ? 'top' : undefined)};

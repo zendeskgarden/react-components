@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { TabPanel } from '../';
+import { render } from '../../test/render';
+import { TabList } from './TabList';
 
-describe('TabPanel', () => {
+describe('TabList', () => {
   it('is able to render without parent Tabs component', () => {
-    expect(() => render(<TabPanel>Content</TabPanel>)).not.toThrow();
+    expect(() => render(<TabList>Content</TabList>)).not.toThrow();
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<TabPanel ref={ref} />);
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<TabList ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

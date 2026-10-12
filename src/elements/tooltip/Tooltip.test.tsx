@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { render, act, renderRtl, getRenderFn } from 'garden-test-utils';
-import React from 'react';
+import { act } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { vi } from 'vitest';
 
-import { ITooltipProps } from '../types';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import { ITooltipProps } from '../../types/elements';
 import { Tooltip } from './Tooltip';
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe('Tooltip', () => {
   const user = userEvent.setup({ delay: null });
@@ -65,13 +66,15 @@ describe('Tooltip', () => {
   });
 
   it('renders tooltip with RTL styling if provided', async () => {
-    const { getByTestId, getByText } = renderRtl(<BasicExample />);
+    const { getByTestId, getByText } = render(<BasicExample />, {
+      theme: RTL_THEME
+    });
 
     expect(getByText('Trigger')).not.toHaveFocus();
 
     await act(async () => {
       await user.tab();
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(getByText('Trigger')).toHaveFocus();
@@ -80,17 +83,20 @@ describe('Tooltip', () => {
 
   describe('Focusable Tooltip Content', () => {
     it('remains visible if tooltip content is focused', async () => {
-      const { getByTestId, getByText } = renderRtl(
+      const { getByTestId, getByText } = render(
         <Tooltip content={<button>Content CTA</button>} data-test-id="tooltip">
           <button>Trigger</button>
-        </Tooltip>
+        </Tooltip>,
+        {
+          theme: RTL_THEME
+        }
       );
 
       expect(getByText('Trigger')).not.toHaveFocus();
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(getByText('Trigger')).toHaveFocus();
@@ -98,7 +104,7 @@ describe('Tooltip', () => {
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(getByText('Trigger')).not.toHaveFocus();
@@ -107,18 +113,20 @@ describe('Tooltip', () => {
     });
 
     it('closes tooltip if content is blurred', async () => {
-      const { getByTestId } = renderRtl(<BasicExample />);
+      const { getByTestId } = render(<BasicExample />, {
+        theme: RTL_THEME
+      });
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'false');
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(getByTestId('tooltip')).toHaveAttribute('aria-hidden', 'true');
@@ -176,11 +184,13 @@ describe('Tooltip', () => {
     ])(
       'renders a "%s" tooltip in "%s" mode',
       async (type, mode, { color, bgColor, borderColor }) => {
-        const { getByTestId } = getRenderFn(mode)(<BasicExample type={type} />);
+        const { getByTestId } = render(<BasicExample type={type} />, {
+          theme: mode === 'dark' ? DARK_THEME : undefined
+        });
 
         await act(async () => {
           await user.tab();
-          jest.runOnlyPendingTimers();
+          vi.runOnlyPendingTimers();
         });
 
         const tooltip = getByTestId('tooltip');
@@ -197,7 +207,7 @@ describe('Tooltip', () => {
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       const tooltip = getByTestId('tooltip');
@@ -210,7 +220,7 @@ describe('Tooltip', () => {
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       const tooltip = getByTestId('tooltip');
@@ -223,7 +233,7 @@ describe('Tooltip', () => {
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       const tooltip = getByTestId('tooltip');
@@ -234,7 +244,7 @@ describe('Tooltip', () => {
 
   describe('React node content', () => {
     it('renders with Title and Paragraph', async () => {
-      const { getByTestId } = renderRtl(
+      const { getByTestId } = render(
         <BasicExample
           data-test-id="tooltip"
           content={
@@ -243,12 +253,15 @@ describe('Tooltip', () => {
               <Tooltip.Paragraph>Paragraph</Tooltip.Paragraph>
             </>
           }
-        />
+        />,
+        {
+          theme: RTL_THEME
+        }
       );
 
       await act(async () => {
         await user.tab();
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(getByTestId('tooltip')).toHaveTextContent('Title');

@@ -5,17 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { ITabsProps, Tabs } from '@zendeskgarden/react-tabs';
-import React from 'react';
-
+import { ITabsProps, Tabs } from '../../../src/index';
 import { ITab } from './types';
 
 interface IArgs extends ITabsProps {
   tabs: ITab[];
 }
 
-export const TabsStory: StoryFn<IArgs> = ({ tabs, ...args }) => (
+export const TabsStory = ({ tabs, ...args }: IArgs) => (
   <Tabs {...args}>
     <Tabs.TabList>
       {tabs.map(tab => (

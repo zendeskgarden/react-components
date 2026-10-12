@@ -6,15 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
-import React from 'react';
 
-import { PLACEMENT } from '../src/types';
+import { Tooltip } from '../../src/index';
+import { TOOLTIP_PLACEMENT } from '../../src/types/elements';
 import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
 import { TooltipStory } from './stories/TooltipStory';
 
 export default {
-  title: 'Packages/Tooltips/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   subcomponents: {
     'Tooltip.Paragraph': Tooltip.Paragraph,
@@ -35,7 +34,7 @@ export const Example: StoryObj<typeof TooltipStory> = {
     appendToNode: { control: false },
     fallbackPlacements: {
       control: 'multi-select',
-      options: PLACEMENT.filter(p => p !== 'auto')
+      options: TOOLTIP_PLACEMENT.filter(p => p !== 'auto')
     }
   },
   parameters: {

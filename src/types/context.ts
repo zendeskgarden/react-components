@@ -6,6 +6,7 @@
  */
 
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
 import type { HTMLProps } from 'react';
 
 import type { IAccordionProps, Size } from './elements';
@@ -19,6 +20,12 @@ export interface IAccordionContext<SectionValue>
     > {}
 
 export type AccordionHeaderContext = HTMLProps<Element>;
+
+//#region tab
+export interface ITabsContext extends IUseTabsReturnValue<any> {
+  isVertical?: boolean;
+}
+//#endregion
 
 //#region typography
 export interface IOrderedListContext {

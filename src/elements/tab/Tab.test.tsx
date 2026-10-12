@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Tab } from '../';
+import { render } from '../../test/render';
+import { Tab } from './Tab';
 
 describe('Tab', () => {
   it('is able to render without parent Tabs component', () => {
@@ -16,7 +16,7 @@ describe('Tab', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Tab ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'tooltip.title';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledTitle = styled.strong.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledTitle = styled.strong`
   display: none;
   margin: 0;
   font-weight: ${props => props.theme.fontWeights.semibold};

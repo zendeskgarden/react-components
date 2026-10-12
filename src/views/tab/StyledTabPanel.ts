@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'tabs.tabpanel';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledTabPanelProps {
   $isVertical?: boolean;
 }
 
-const sizeStyles = ({ theme, $isVertical }: IStyledTabPanelProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isVertical }: IStyledTabPanelProps & IStyledBaseProps) => {
   const margin = $isVertical ? `${theme.space.base * 8}px` : undefined;
 
   return css`
@@ -22,10 +22,7 @@ const sizeStyles = ({ theme, $isVertical }: IStyledTabPanelProps & ThemeProps<De
   `;
 };
 
-export const StyledTabPanel = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTabPanelProps>`
+export const StyledTabPanel = styled.div<IStyledTabPanelProps>`
   display: block;
   vertical-align: ${props => props.$isVertical && 'top'};
   color-scheme: only ${p => p.theme.colors.base};

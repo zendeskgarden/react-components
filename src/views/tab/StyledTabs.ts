@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'tabs.tabs';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 interface IStyledTabsProps {
   $isVertical?: boolean;
@@ -17,10 +16,7 @@ interface IStyledTabsProps {
 /**
  * Accepts all `<div>` props
  */
-export const StyledTabs = styled.div.attrs<IStyledTabsProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTabsProps>`
+export const StyledTabs = styled.div<IStyledTabsProps>`
   display: ${props => (props.$isVertical ? 'table' : 'block')};
   overflow: hidden;
   direction: ${props => props.theme.rtl && 'rtl'};

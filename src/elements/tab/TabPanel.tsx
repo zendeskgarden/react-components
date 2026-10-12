@@ -6,23 +6,31 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledTabPanel } from '../styled';
-import { ITabPanelProps } from '../types';
-import { useTabsContext } from '../utils/useTabsContext';
+import { useTabsContext } from '../../hooks/tab/useTabsContext';
+import { ITabPanelProps } from '../../types/elements';
+import { StyledTabPanel } from '../../views/tab/StyledTabPanel';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Tabs.TabPanel` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
+export const TabPanel = forwardRef<HTMLDivElement, ITabPanelProps>(
   ({ item, ...otherProps }, ref) => {
     const tabsPropGetters = useTabsContext();
 
     if (!tabsPropGetters) {
-      return <StyledTabPanel ref={ref} {...otherProps} />;
+      return (
+        <StyledTabPanel
+          ref={ref}
+          {...otherProps}
+          data-garden-id={COMPONENT_IDS['tabs.tabpanel']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      );
     }
 
     const tabPanelProps = tabsPropGetters.getTabPanelProps<HTMLDivElement>({
@@ -35,6 +43,8 @@ export const TabPanel = React.forwardRef<HTMLDivElement, ITabPanelProps>(
         $isVertical={tabsPropGetters.isVertical}
         {...tabPanelProps}
         {...otherProps}
+        data-garden-id={COMPONENT_IDS['tabs.tabpanel']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       />
     );

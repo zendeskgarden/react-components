@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-interface ITabsContext extends IUseTabsReturnValue<any> {
-  isVertical?: boolean;
-}
-
-export const TabsContext = createContext<ITabsContext | undefined>(undefined);
+import { TabsContext } from '../../context/tab/TabsContext';
 
 export const useTabsContext = () => {
   return useContext(TabsContext);

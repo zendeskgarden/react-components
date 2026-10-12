@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ITooltipProps } from '../types';
+import { ITooltipProps } from '../../types/elements';
 
 /**
  * Convert to the intended tooltip size for the given type.
