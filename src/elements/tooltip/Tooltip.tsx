@@ -17,7 +17,8 @@ import {
   HTMLAttributes,
   Children,
   ReactElement,
-  RefAttributes
+  RefAttributes,
+  RefObject
 } from 'react';
 import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
@@ -64,7 +65,7 @@ export const TooltipComponent = ({
     delayMilliseconds: delayMS,
     isVisible: isInitialVisible,
     isLabel,
-    triggerRef
+    triggerRef: triggerRef as RefObject<HTMLElement>
   });
 
   const controlledIsVisible = getControlledValue(externalIsVisible, isVisible);
@@ -135,7 +136,7 @@ export const TooltipComponent = ({
       {cloneElement(
         Child,
         getTriggerProps({
-          ...Child.props,
+          ...(Child.props as HTMLAttributes<HTMLElement>),
           [refKey!]: mergeRefs([triggerRef, Child.ref ? Child.ref : null])
         })
       )}

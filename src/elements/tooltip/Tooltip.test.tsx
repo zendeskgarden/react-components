@@ -14,7 +14,7 @@ import PALETTE from '../../theming/elements/palette';
 import { ITooltipProps } from '../../types/elements';
 import { Tooltip } from './Tooltip';
 
-vi.useFakeTimers();
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
 describe('Tooltip', () => {
   const user = userEvent.setup({ delay: null });
@@ -29,7 +29,9 @@ describe('Tooltip', () => {
       data-test-id="tooltip"
       {...other}
     >
-      <button data-test-id="trigger">Trigger</button>
+      <button type="button" data-test-id="trigger">
+        Trigger
+      </button>
     </Tooltip>
   );
 
@@ -84,8 +86,8 @@ describe('Tooltip', () => {
   describe('Focusable Tooltip Content', () => {
     it('remains visible if tooltip content is focused', async () => {
       const { getByTestId, getByText } = render(
-        <Tooltip content={<button>Content CTA</button>} data-test-id="tooltip">
-          <button>Trigger</button>
+        <Tooltip content={<button type="button">Content CTA</button>} data-test-id="tooltip">
+          <button type="button">Trigger</button>
         </Tooltip>,
         {
           theme: RTL_THEME

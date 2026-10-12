@@ -1,8 +1,8 @@
 import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
+import { Tooltip } from '../../../src';
 import * as Stories from './patterns.stories';
 
-<Meta of={Stories} />
+<Meta of={Stories} name="Patterns" />
 
 # Patterns
 
@@ -12,5 +12,5 @@ The following example demonstrates `Tooltip` behavior together with a popup
 menu. The tooltip is designed to hide when the popup is expanded.
 
 <Canvas>
-  <Story of={Stories.Example} />
+  <Story of={Stories.Menu} />
 </Canvas>

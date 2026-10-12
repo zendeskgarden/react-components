@@ -55,7 +55,7 @@ describe('Tabs', () => {
 
     const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
 
-    await user.click(getAllByTestId('tab')[1]);
+    await user.click(getAllByTestId('tab')[1]!);
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
@@ -76,7 +76,7 @@ describe('Tabs', () => {
   describe('Tab', () => {
     it('applies selected styling to currently selected tab', async () => {
       const { getAllByTestId } = render(<BasicExample />);
-      const tab = getAllByTestId('tab')[1];
+      const tab = getAllByTestId('tab')[1]!;
 
       await user.click(tab);
 

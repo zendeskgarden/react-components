@@ -99,6 +99,7 @@ const sizeStyles = ({
     padding: ${padding};
     max-width: ${maxWidth};
     line-height: ${lineHeight};
+    /* stylelint-disable-next-line property-no-deprecated */
     word-wrap: ${wordWrap};
     white-space: ${whiteSpace};
     font-size: ${fontSize};
