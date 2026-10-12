@@ -15,13 +15,16 @@ import {
   ChangeEvent,
   Children,
   FocusEvent,
+  InputHTMLAttributes,
   KeyboardEvent,
   ReactElement,
+  RefAttributes,
+  RefObject,
   cloneElement
 } from 'react';
 
+import { useDatePickerRangeContext as useDatePickerContext } from '../../hooks/datepicker/useDatePickerRangeContext';
 import { parseInputValue } from './date-picker-range-reducer';
-import { useDatePickerRangeContext as useDatePickerContext } from './useDatePickerRangeContext';
 
 export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
   const { state, dispatch, onChange, startValue, endValue, endInputRef, customParseDate } =
@@ -84,11 +87,15 @@ export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) 
     [handleBlur, props.children]
   );
 
-  const childElement = Children.only(props.children as ReactElement);
+  const childElement = Children.only(
+    props.children as ReactElement<
+      InputHTMLAttributes<HTMLInputElement> & RefAttributes<HTMLInputElement>
+    >
+  );
 
   return cloneElement(childElement, {
     value: state.endInputValue || '',
-    ref: endInputRef,
+    ref: endInputRef as RefObject<HTMLInputElement | null>,
     onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
     onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
     onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeydownCallback),

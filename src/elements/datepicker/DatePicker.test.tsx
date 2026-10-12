@@ -31,7 +31,7 @@ const Example = (props: Omit<IDatePickerProps, 'children'>) => (
   </>
 );
 
-vi.useFakeTimers();
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
 describe('DatePicker', () => {
   const user = userEvent.setup({ delay: null });
@@ -179,7 +179,7 @@ describe('DatePicker', () => {
       );
 
       await user.click(getByTestId('input'));
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith(new Date(2019, 0, 28));
     });
@@ -192,7 +192,7 @@ describe('DatePicker', () => {
       const input = getByTestId('input');
 
       await user.click(input);
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]!);
 
       expect(input).toHaveValue('January 28, 2019');
     });
@@ -224,8 +224,8 @@ describe('DatePicker', () => {
       await user.click(getByTestId('input'));
       const days = getAllByTestId('day');
 
-      fireEvent.click(days[0]);
-      fireEvent.click(days[days.length - 1]);
+      fireEvent.click(days[0]!);
+      fireEvent.click(days[days.length - 1]!);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -249,7 +249,7 @@ describe('DatePicker', () => {
       await user.clear(input);
       await user.type(input, '1/4/2019');
       await user.click(input);
-      fireEvent.click(getAllByTestId('day')[1]);
+      fireEvent.click(getAllByTestId('day')[1]!);
 
       const hasRenderPhaseUpdateWarning = consoleErrorSpy.mock.calls.some(
         args => typeof args[0] === 'string' && args[0].includes('Cannot update a component')

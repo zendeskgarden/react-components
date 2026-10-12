@@ -45,8 +45,8 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
   const [state, dispatch] = useReducer(reducer, retrieveInitialState(props));
   const previousStartValue = useRef(startValue);
   const previousEndValue = useRef(endValue);
-  const startInputRef = useRef<HTMLInputElement>();
-  const endInputRef = useRef<HTMLInputElement>();
+  const startInputRef = useRef<HTMLInputElement>(undefined);
+  const endInputRef = useRef<HTMLInputElement>(undefined);
 
   useEffect(() => {
     dispatch({

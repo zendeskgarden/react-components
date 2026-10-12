@@ -9,11 +9,11 @@ import { useCallback, FunctionComponent } from 'react';
 import ChevronLeftStrokeIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
+import { useDatePickerContext } from '../../hooks/datepicker/useDatePickerContext';
 import { StyledHeader } from '../../views/datepicker/StyledHeader';
 import { StyledHeaderLabel } from '../../views/datepicker/StyledHeaderLabel';
 import { StyledHeaderPaddle } from '../../views/datepicker/StyledHeaderPaddle';
 import { COMPONENT_IDS } from '../utils';
-import { useDatePickerContext } from './useDatePickerContext';
 
 interface IMonthSelectorProps {
   locale?: string;

@@ -33,6 +33,8 @@ const componentIds = [
   'datepickers.header_paddle',
   'datepickers.highlight',
   'datepickers.menu',
+  'datepickers.menu_wrapper',
+  'datepickers.range_calendar',
   'draggable',
   'draggable.content',
   'draggable.grip',

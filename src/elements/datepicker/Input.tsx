@@ -16,6 +16,7 @@ import {
   forwardRef,
   useRef,
   ChangeEvent,
+  InputHTMLAttributes,
   KeyboardEvent
 } from 'react';
 
@@ -23,7 +24,7 @@ import { DatePickerAction, IDatePickerState, parseInputValue } from './date-pick
 
 interface IInputProps {
   dispatch: Dispatch<DatePickerAction>;
-  element: ReactElement & RefAttributes<HTMLInputElement>;
+  element: ReactElement<InputHTMLAttributes<HTMLInputElement>> & RefAttributes<HTMLInputElement>;
   refKey: string;
   state: IDatePickerState;
   value?: Date;

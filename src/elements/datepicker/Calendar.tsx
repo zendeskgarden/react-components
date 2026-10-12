@@ -19,6 +19,7 @@ import { startOfMonth } from 'date-fns/startOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
 import { forwardRef, HTMLAttributes, useCallback } from 'react';
 
+import { useDatePickerContext } from '../../hooks/datepicker/useDatePickerContext';
 import { DateFnsIndex, getStartOfWeek } from '../../utils/datepicker/calendar-utils';
 import { StyledCalendar } from '../../views/datepicker/StyledCalendar';
 import { StyledCalendarItem } from '../../views/datepicker/StyledCalendarItem';
@@ -27,7 +28,6 @@ import { StyledDay } from '../../views/datepicker/StyledDay';
 import { StyledDayLabel } from '../../views/datepicker/StyledDayLabel';
 import { COMPONENT_IDS } from '../utils';
 import { MonthSelector } from './MonthSelector';
-import { useDatePickerContext } from './useDatePickerContext';
 
 interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: Date;

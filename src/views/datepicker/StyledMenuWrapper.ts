@@ -12,8 +12,6 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getMenuPosition } from '../../theming/utils/getMenuPosition';
 import menuStyles from '../../theming/utils/menuStyles';
 
-const COMPONENT_ID = 'datepickers.menu_wrapper';
-
 interface IStyledMenuWrapperProps {
   $isAnimated?: boolean;
   $zIndex?: number;
@@ -24,12 +22,7 @@ interface IStyledMenuWrapperProps {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: props.$isAnimated ? 'is-animated' : undefined
-}))<IStyledMenuWrapperProps>`
+export const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 

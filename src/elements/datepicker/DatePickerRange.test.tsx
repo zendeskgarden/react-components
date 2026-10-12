@@ -54,7 +54,7 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0]!, 'day');
 
       for (let x = 0; x < firstMonthDays.length; x++) {
         if (x <= 4) {
@@ -66,7 +66,7 @@ describe('DatePickerRange', () => {
         }
       }
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1]!, 'day');
 
       for (let x = 0; x < secondMonthDays.length; x++) {
         if (x <= 4) {
@@ -85,12 +85,12 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0]!, 'day');
 
       expect(firstMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
       expect(firstMonthDays[9]).toHaveAttribute('data-test-today', 'true');
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1]!, 'day');
 
       expect(secondMonthDays[9]).toHaveAttribute('data-test-selected', 'true');
     });
@@ -125,7 +125,7 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
+      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0]!, 'highlight');
 
       for (let x = 0; x < firstMonthHighlights.length; x++) {
         const highlight = firstMonthHighlights[x];
@@ -141,7 +141,7 @@ describe('DatePickerRange', () => {
         }
       }
 
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1]!, 'highlight');
 
       for (let x = 0; x < secondMonthHighlights.length; x++) {
         const highlight = secondMonthHighlights[x];
@@ -167,7 +167,7 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
+      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0]!, 'highlight');
 
       for (let x = 0; x < firstMonthHighlights.length; x++) {
         const highlight = firstMonthHighlights[x];
@@ -183,7 +183,7 @@ describe('DatePickerRange', () => {
         }
       }
 
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1]!, 'highlight');
 
       for (let x = 0; x < secondMonthHighlights.length; x++) {
         const highlight = secondMonthHighlights[x];
@@ -204,10 +204,10 @@ describe('DatePickerRange', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0]!, 'highlight');
+      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1]!, 'highlight');
 
-      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
+      await user.hover(globalGetAllByTestId(calendarWrappers[1]!, 'day')[9]!);
 
       for (let x = 0; x < firstMonthHighlights.length; x++) {
         const highlight = firstMonthHighlights[x];
@@ -242,11 +242,11 @@ describe('DatePickerRange', () => {
       const { getAllByTestId } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0], 'highlight');
-      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1], 'highlight');
+      const firstMonthHighlights = globalGetAllByTestId(calendarWrappers[0]!, 'highlight');
+      const secondMonthHighlights = globalGetAllByTestId(calendarWrappers[1]!, 'highlight');
 
-      await user.hover(globalGetAllByTestId(calendarWrappers[1], 'day')[9]);
-      await user.unhover(getAllByTestId('calendar-internal-wrapper')[1]);
+      await user.hover(globalGetAllByTestId(calendarWrappers[1]!, 'day')[9]!);
+      await user.unhover(getAllByTestId('calendar-internal-wrapper')[1]!);
 
       firstMonthHighlights.forEach(highlight => {
         expect(highlight).toHaveAttribute('data-test-highlighted', 'false');
@@ -268,7 +268,7 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0]!, 'day');
 
       for (let x = 0; x < firstMonthDays.length; x++) {
         const element = firstMonthDays[x];
@@ -284,7 +284,7 @@ describe('DatePickerRange', () => {
         }
       }
 
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1]!, 'day');
 
       for (let x = 0; x < secondMonthDays.length; x++) {
         const element = secondMonthDays[x];
@@ -317,7 +317,7 @@ describe('DatePickerRange', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      await user.click(getAllByTestId('previous-month')[0]);
+      await user.click(getAllByTestId('previous-month')[0]!);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -330,7 +330,7 @@ describe('DatePickerRange', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      await user.click(getAllByTestId('next-month')[1]);
+      await user.click(getAllByTestId('next-month')[1]!);
 
       const monthDisplays = getAllByTestId('month-display');
 
@@ -350,7 +350,7 @@ describe('DatePickerRange', () => {
     it('resets preview date if start value is updated while outside of visible range', async () => {
       const { getAllByTestId, rerender } = render(<Example startValue={DEFAULT_START_VALUE} />);
 
-      const previousPaddle = getAllByTestId('previous-month')[0];
+      const previousPaddle = getAllByTestId('previous-month')[0]!;
 
       await user.click(previousPaddle);
       await user.click(previousPaddle);
@@ -371,7 +371,7 @@ describe('DatePickerRange', () => {
     it('resets preview date if end value is updated while outside of visible range', async () => {
       const { getAllByTestId, rerender } = render(<Example endValue={DEFAULT_END_VALUE} />);
 
-      const nextPaddle = getAllByTestId('next-month')[1];
+      const nextPaddle = getAllByTestId('next-month')[1]!;
 
       await user.click(nextPaddle);
       await user.click(nextPaddle);
@@ -394,7 +394,7 @@ describe('DatePickerRange', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const previousPaddle = getAllByTestId('previous-month')[0];
+      const previousPaddle = getAllByTestId('previous-month')[0]!;
 
       await user.click(previousPaddle);
       await user.click(previousPaddle);
@@ -417,7 +417,7 @@ describe('DatePickerRange', () => {
         <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
       );
 
-      const nextPaddle = getAllByTestId('next-month')[1];
+      const nextPaddle = getAllByTestId('next-month')[1]!;
 
       await user.click(nextPaddle);
       await user.click(nextPaddle);
@@ -457,7 +457,7 @@ describe('DatePickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[6]);
+      await user.click(globalGetAllByTestId(monthDisplays[0]!, 'day')[6]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 2),
@@ -472,7 +472,7 @@ describe('DatePickerRange', () => {
 
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[6]);
+      await user.click(globalGetAllByTestId(monthDisplays[1]!, 'day')[6]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 5),
@@ -485,7 +485,7 @@ describe('DatePickerRange', () => {
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[1], 'day')[6]);
+      await user.click(globalGetAllByTestId(calendarWrappers[1]!, 'day')[6]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 2, 2),
@@ -500,7 +500,7 @@ describe('DatePickerRange', () => {
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
 
-      await user.click(globalGetAllByTestId(calendarWrappers[0], 'day')[5]);
+      await user.click(globalGetAllByTestId(calendarWrappers[0]!, 'day')[5]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 1),
@@ -560,11 +560,11 @@ describe('DatePickerRange', () => {
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
-      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0], 'day');
-      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1], 'day');
+      const firstMonthDays = globalGetAllByTestId(calendarWrappers[0]!, 'day');
+      const secondMonthDays = globalGetAllByTestId(calendarWrappers[1]!, 'day');
 
-      await user.click(firstMonthDays[4]);
-      await user.click(secondMonthDays[33]);
+      await user.click(firstMonthDays[4]!);
+      await user.click(secondMonthDays[33]!);
 
       expect(onChangeSpy).not.toHaveBeenCalled();
     });
@@ -581,7 +581,7 @@ describe('DatePickerRange', () => {
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
       await user.click(getByTestId('start'));
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[12]);
+      await user.click(globalGetAllByTestId(monthDisplays[0]!, 'day')[12]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 8),
@@ -601,7 +601,7 @@ describe('DatePickerRange', () => {
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
       await user.click(getByTestId('start'));
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+      await user.click(globalGetAllByTestId(monthDisplays[1]!, 'day')[12]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 2, 8),
@@ -621,7 +621,7 @@ describe('DatePickerRange', () => {
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
       await user.click(getByTestId('end'));
-      await user.click(globalGetAllByTestId(monthDisplays[1], 'day')[12]);
+      await user.click(globalGetAllByTestId(monthDisplays[1]!, 'day')[12]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 5),
@@ -641,7 +641,7 @@ describe('DatePickerRange', () => {
       const monthDisplays = getAllByTestId('calendar-wrapper');
 
       await user.click(getByTestId('end'));
-      await user.click(globalGetAllByTestId(monthDisplays[0], 'day')[8]);
+      await user.click(globalGetAllByTestId(monthDisplays[0]!, 'day')[8]!);
 
       expect(onChangeSpy).toHaveBeenCalledWith({
         startValue: new Date(2019, 1, 4),

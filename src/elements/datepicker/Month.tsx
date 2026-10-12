@@ -22,6 +22,7 @@ import { forwardRef, HTMLAttributes, useCallback } from 'react';
 import ChevronLeftStrokeIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
 import ChevronRightStrokeIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
+import { useDatePickerRangeContext as useDatePickerContext } from '../../hooks/datepicker/useDatePickerRangeContext';
 import { getStartOfWeek } from '../../utils/datepicker/calendar-utils';
 import { StyledCalendar } from '../../views/datepicker/StyledCalendar';
 import { StyledCalendarItem } from '../../views/datepicker/StyledCalendarItem';
@@ -33,7 +34,6 @@ import { StyledHeaderLabel } from '../../views/datepicker/StyledHeaderLabel';
 import { StyledHeaderPaddle } from '../../views/datepicker/StyledHeaderPaddle';
 import { StyledHighlight } from '../../views/datepicker/StyledHighlight';
 import { COMPONENT_IDS } from '../utils';
-import { useDatePickerRangeContext as useDatePickerContext } from './useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;

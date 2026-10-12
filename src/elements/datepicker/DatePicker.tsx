@@ -17,6 +17,7 @@ import {
   useMemo,
   forwardRef,
   Children,
+  InputHTMLAttributes,
   ReactElement,
   RefAttributes
 } from 'react';
@@ -91,7 +92,8 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     middleware: [_placement === 'auto' ? autoPlacement() : flip()]
   });
 
-  const Child = Children.only<ReactElement & RefAttributes<HTMLInputElement>>(children);
+  const Child = Children.only(children) as ReactElement<InputHTMLAttributes<HTMLInputElement>> &
+    RefAttributes<HTMLInputElement>;
 
   useEffect(() => {
     // Only allow positioning updates on visible tooltip.
@@ -132,17 +134,22 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     dispatch({ type: 'CONTROLLED_LOCALE_CHANGE' });
   }, [locale]);
 
+  const isMenuAnimated = !!isAnimated && (state.isOpen || isVisible);
+
   const Node = (
     <StyledMenuWrapper
       ref={floatingRef}
+      className={isMenuAnimated ? 'is-animated' : undefined}
       style={{ transform }}
-      $isAnimated={!!isAnimated && (state.isOpen || isVisible)}
+      $isAnimated={isMenuAnimated}
       $placement={placement}
       $zIndex={zIndex}
       aria-hidden={!state.isOpen || undefined}
       data-test-id="datepicker-menu"
       data-test-open={state.isOpen}
       data-test-rtl={theme.rtl}
+      data-garden-id={COMPONENT_IDS['datepickers.menu_wrapper']}
+      data-garden-version={PACKAGE_VERSION}
     >
       {!!(state.isOpen || isVisible) && (
         <StyledMenu
