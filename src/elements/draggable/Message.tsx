@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes, useEffect } from 'react';
+import { forwardRef, HTMLAttributes, useEffect } from 'react';
 
-import { StyledMessage } from '../../../styled';
-import { useDropzoneContext } from '../../../utils/useDropzoneContext';
+import { useDropzoneContext } from '../../hooks/draggable/useDropzoneContext';
+import { StyledMessage } from '../../views/draggable/StyledMessage';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
@@ -29,7 +30,14 @@ export const Message = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParag
       };
     }, [setHasMessage, hasMessage]);
 
-    return <StyledMessage {...props} ref={ref} />;
+    return (
+      <StyledMessage
+        {...props}
+        data-garden-id={COMPONENT_IDS['dropzone.message']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={ref}
+      />
+    );
   }
 );
 

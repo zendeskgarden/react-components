@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Draggable } from '@zendeskgarden/react-draggable';
-import React from 'react';
 
+import { Draggable } from '../../src/index';
 import { DraggableStory } from './stories/DraggableStory';
 
 export default {
-  title: 'Packages/Draggable/Draggable',
+  title: 'Components/Draggable/Draggable',
   component: Draggable,
   subcomponents: {
     'Draggable.Content': Draggable.Content,

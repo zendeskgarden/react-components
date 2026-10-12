@@ -5,22 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 
-import { StyledDraggableList } from '../../styled';
-import { IDraggableListProps } from '../../types';
-import { DraggableListContext } from '../../utils/useDraggableListContext';
-import { DropIndicator } from './components/DropIndicator';
-import { Item } from './components/Item';
+import { DraggableListProvider } from '../../context/draggable/DraggableListContext';
+import { IDraggableListProps } from '../../types/elements';
+import { StyledDraggableList } from '../../views/draggable/StyledDraggableList';
+import { DropIndicator } from './DropIndicator';
+import { Item } from './Item';
 
 const DraggableListComponent = forwardRef<HTMLUListElement, IDraggableListProps>(
   ({ isHorizontal, ...other }, ref) => {
     const value = useMemo(() => ({ isHorizontal }), [isHorizontal]);
 
     return (
-      <DraggableListContext.Provider value={value}>
+      <DraggableListProvider value={value}>
         <StyledDraggableList $isHorizontal={isHorizontal} ref={ref} {...other} />
-      </DraggableListContext.Provider>
+      </DraggableListProvider>
     );
   }
 );

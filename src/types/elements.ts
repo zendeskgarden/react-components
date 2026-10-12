@@ -17,7 +17,6 @@ import type {
 } from 'react';
 
 import { PLACEMENT as PLACEMENT_BASE } from '../theming/types';
-
 //#region avatar
 export const AVATAR_SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'] as const;
 export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
@@ -60,6 +59,43 @@ export interface IStatusIndicatorProps extends Omit<HTMLAttributes<HTMLElement>,
   type?: (typeof STATUS)[number];
   /** Applies compact styling */
   isCompact?: boolean;
+}
+//#endregion
+
+//#region draggable
+export interface IDraggableProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies inset `box-shadow` styling on focus */
+  focusInset?: boolean;
+  /** Removes borders */
+  isBare?: boolean;
+  /** Applies compact spacing */
+  isCompact?: boolean;
+  /** Disables the draggable */
+  isDisabled?: boolean;
+  /** Applies grab styling */
+  isGrabbed?: boolean;
+  /** Hides content and applies placeholder background styling */
+  isPlaceholder?: boolean;
+  /** Updates the element's HTML tag */
+  tag?: any;
+}
+export interface IDraggableListProps extends HTMLAttributes<HTMLUListElement> {
+  /** Flows list items inline */
+  isHorizontal?: boolean;
+}
+export interface IDropzoneProps extends HTMLAttributes<HTMLDivElement> {
+  /** Indicates a drop is possible during a drag */
+  isActive?: boolean;
+  /** Aligns dropzone message content vertically */
+  isVertical?: boolean;
+  /** Applies danger styling */
+  isDanger?: boolean;
+  /** Disables the dropzone */
+  isDisabled?: boolean;
+  /** Indicates a draggable is on a droppable area */
+  isHighlighted?: boolean;
+  /** Updates the element's HTML tag */
+  tag?: any;
 }
 //#endregion
 
@@ -244,6 +280,40 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   hue?: string;
   /** Hides the span visually without hiding it from screen readers */
   hidden?: HTMLAttributes<HTMLSpanElement>['hidden'];
+}
+//#endregion
+
+//#region pagination
+export const PAGE_TYPE = ['next', 'page', 'gap', 'previous'] as const;
+export type PageType = (typeof PAGE_TYPE)[number];
+export interface IPaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onChange'> {
+  /**
+   * Sets the current page. Pages start at 1
+   */
+  currentPage: number;
+  /**
+   * Defines the total number of pages
+   */
+  totalPages: number;
+  /**
+   * Sets the number of pages that appear between the current page and a gap indicator
+   */
+  pagePadding?: number;
+  /**
+   * Positions the leading and trailing gap indicator, based on
+   * the current and total pages
+   */
+  pageGap?: number;
+  /**
+   * Handles page change events
+   *
+   * @param {number} currentPage The current page
+   */
+  onChange?: (currentPage: number) => void;
+  /**
+   * Provides localized labels to pagination elements
+   */
+  labels?: Record<Exclude<PageType, 'page'>, string> & { renderPage: (p: number) => string };
 }
 //#endregion
 

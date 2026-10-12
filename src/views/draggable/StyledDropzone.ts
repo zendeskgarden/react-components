@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
-const COMPONENT_ID = 'dropzone';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 
 export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
   $isActive?: boolean;
@@ -85,10 +85,7 @@ const sizeStyles = (props: IStyledDropzoneProps) => {
 /**
  * 1. Reset margin, e.g. when alternative tag includes native margin
  */
-export const StyledDropzone = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledDropzoneProps>`
+export const StyledDropzone = styled.div<IStyledDropzoneProps>`
   display: ${p => (p.$hasMessage || p.$hasIcon) && 'flex'};
   flex-direction: ${p => p.$hasMessage && p.$isVertical && 'column'};
   align-items: ${p => (p.$hasMessage || p.$hasIcon) && 'center'};

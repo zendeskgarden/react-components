@@ -6,9 +6,9 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { IPaginationProps, OffsetPagination } from '@zendeskgarden/react-pagination';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
+
+import { IPaginationProps, OffsetPagination } from '../../src/index';
 
 type IArgs = IPaginationProps & {
   gap?: string;
@@ -18,7 +18,7 @@ type IArgs = IPaginationProps & {
 };
 
 export default {
-  title: 'Packages/Pagination/OffsetPagination',
+  title: 'Components/Pagination/OffsetPagination',
   component: OffsetPagination
 };
 

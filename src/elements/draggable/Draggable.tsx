@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledDraggable } from '../../styled';
-import { IDraggableProps } from '../../types';
-import { Content } from './components/Content';
-import { Grip } from './components/Grip';
+import { IDraggableProps } from '../../types/elements';
+import { StyledDraggable } from '../../views/draggable/StyledDraggable';
+import { Content } from './Content';
+import { Grip } from './Grip';
 
 const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(
   (

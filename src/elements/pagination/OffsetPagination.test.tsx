@@ -5,24 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
+import { vi, type Mock } from 'vitest';
 
-import { IPaginationProps } from '../../types';
+import { render } from '../../test/render';
+import { IPaginationProps } from '../../types/elements';
 import { OffsetPagination } from './OffsetPagination';
 
 describe('OffsetPagination', () => {
   const user = userEvent.setup();
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLUListElement>();
+    const ref = createRef<HTMLUListElement>();
     const { container } = render(<OffsetPagination totalPages={0} currentPage={0} ref={ref} />);
 
     expect(container.firstChild!.firstChild).toBe(ref.current);
   });
 
-  let onChange: jest.Mock;
+  let onChange: Mock;
 
   const BasicExample = ({
     currentPage = 1,
@@ -38,7 +39,7 @@ describe('OffsetPagination', () => {
   );
 
   beforeEach(() => {
-    onChange = jest.fn();
+    onChange = vi.fn();
   });
 
   afterEach(() => {

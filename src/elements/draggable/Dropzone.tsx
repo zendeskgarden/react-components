@@ -5,14 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import TrashIcon from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
-import React, { forwardRef, useMemo, useState } from 'react';
+import { forwardRef, useMemo, useState } from 'react';
+import TrashIcon from 'svg-icons-legacy/src/16/trash-stroke.svg';
 
-import { StyledDropzone, StyledIcon } from '../../styled';
-import { IDropzoneProps } from '../../types';
-import { DropzoneContext } from '../../utils/useDropzoneContext';
-import { Icon } from './components/Icon';
-import { Message } from './components/Message';
+import { DropzoneProvider } from '../../context/draggable/DropzoneContext';
+import { IDropzoneProps } from '../../types/elements';
+import { StyledDropzone } from '../../views/draggable/StyledDropzone';
+import { StyledIcon } from '../../views/draggable/StyledIcon';
+import { COMPONENT_IDS } from '../utils';
+import { Icon } from './Icon';
+import { Message } from './Message';
 
 const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
   ({ children, isActive, isDanger, isDisabled, isHighlighted, isVertical, tag, ...other }, ref) => {
@@ -27,7 +29,7 @@ const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
      * 1. `Icon` isn't used directly because rendering it will call `setHasIcon(true)`
      */
     return (
-      <DropzoneContext.Provider value={value}>
+      <DropzoneProvider value={value}>
         <StyledDropzone
           as={tag}
           aria-disabled={isDisabled}
@@ -43,13 +45,19 @@ const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
         >
           {/* [1] */}
           {!!(hasMessage && isDanger) && !hasIcon && (
-            <StyledIcon aria-hidden="true" $hasMessage={hasMessage} $isVertical={isVertical}>
+            <StyledIcon
+              aria-hidden="true"
+              $hasMessage={hasMessage}
+              $isVertical={isVertical}
+              data-garden-id={COMPONENT_IDS['dropzone.icon']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               <TrashIcon />
             </StyledIcon>
           )}
           {children}
         </StyledDropzone>
-      </DropzoneContext.Provider>
+      </DropzoneProvider>
     );
   }
 );

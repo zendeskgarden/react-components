@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'draggable.grip';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
-function sizeStyles({ theme }: ThemeProps<DefaultTheme>) {
+function sizeStyles({ theme }: IStyledBaseProps) {
   const property = theme.rtl ? 'margin-left' : 'margin-right';
 
   return css`
@@ -18,10 +19,7 @@ function sizeStyles({ theme }: ThemeProps<DefaultTheme>) {
   `;
 }
 
-export const StyledGrip = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledGrip = styled.div`
   display: flex;
   /* prettier-ignore */
   transition: color 0.1s ease-in-out;

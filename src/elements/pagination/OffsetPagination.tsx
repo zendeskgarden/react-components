@@ -6,16 +6,19 @@
  */
 
 import { getControlledValue } from '@zendeskgarden/container-utilities';
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { useState, forwardRef, useCallback } from 'react';
+import { useState, forwardRef, useCallback } from 'react';
 
-import { StyledListItem, StyledNav, StyledList } from '../../styled';
-import { IPaginationProps } from '../../types';
-import { Gap } from './components/Gap';
-import { Next } from './components/Next';
-import { Page } from './components/Page';
-import { Previous } from './components/Previous';
+import { useText } from '../../theming/utils/useText';
+import { IPaginationProps } from '../../types/elements';
+import { StyledList } from '../../views/pagination/StyledList';
+import { StyledListItem } from '../../views/pagination/StyledListItem';
+import { StyledNav } from '../../views/pagination/StyledNav';
+import { COMPONENT_IDS } from '../utils';
+import { Gap } from './Gap';
+import { Next } from './OffsetPaginationNext';
+import { Previous } from './OffsetPaginationPrevious';
+import { Page } from './Page';
 
 const PREVIOUS_KEY = 'previous';
 const NEXT_KEY = 'next';
@@ -86,7 +89,10 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
       const isFirstPageSelected = totalPages > 0 && currentPage === 1;
 
       return (
-        <StyledListItem>
+        <StyledListItem
+          data-garden-id={COMPONENT_IDS['pagination.list_item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <Previous
             hidden={isFirstPageSelected}
             onFocus={() => handleFocus('previous')}
@@ -101,7 +107,10 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
       const isLastPageSelected = currentPage === totalPages;
 
       return (
-        <StyledListItem>
+        <StyledListItem
+          data-garden-id={COMPONENT_IDS['pagination.list_item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <Next
             hidden={isLastPageSelected}
             onFocus={() => handleFocus('next')}
@@ -118,7 +127,11 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
 
     const createPage = (pageIndex: number) => {
       return (
-        <StyledListItem key={pageIndex}>
+        <StyledListItem
+          key={pageIndex}
+          data-garden-id={COMPONENT_IDS['pagination.list_item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <Page
             onFocus={() => handleFocus(pageIndex)}
             onClick={() => handleSelect(pageIndex)}
@@ -196,8 +209,17 @@ export const OffsetPagination = forwardRef<HTMLUListElement, IPaginationProps>(
     };
 
     return (
-      <StyledNav aria-label={navigationLabel}>
-        <StyledList {...otherProps} ref={ref}>
+      <StyledNav
+        aria-label={navigationLabel}
+        data-garden-id={COMPONENT_IDS['pagination.pagination_view']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        <StyledList
+          {...otherProps}
+          data-garden-id={COMPONENT_IDS['pagination.list']}
+          data-garden-version={PACKAGE_VERSION}
+          ref={ref}
+        >
           {renderPreviousPage()}
           {totalPages > 0 && renderPages()}
           {renderNextPage()}

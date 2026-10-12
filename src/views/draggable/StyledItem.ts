@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
-const COMPONENT_ID = 'draggable_list.item';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 export interface IStyledItemProps extends ThemeProps<DefaultTheme> {
   $isHorizontal?: boolean;
@@ -25,10 +24,7 @@ const sizeStyles = (props: IStyledItemProps) => {
   `;
 };
 
-export const StyledItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledItemProps>`
+export const StyledItem = styled.li<IStyledItemProps>`
   display: flex;
 
   ${sizeStyles}

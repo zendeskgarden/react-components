@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
-import React, { forwardRef, LiHTMLAttributes } from 'react';
+import { forwardRef, LiHTMLAttributes } from 'react';
 
-import { StyledGapListItem } from '../../../styled';
+import { useText } from '../../theming/utils/useText';
+import { StyledGapListItem } from '../../views/pagination/StyledGapListItem';
+import { COMPONENT_IDS } from '../utils';
 
 const GapComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const ariaLabel = useText(
@@ -19,7 +20,13 @@ const GapComponent = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>(
   );
 
   return (
-    <StyledGapListItem {...props} aria-label={ariaLabel} ref={ref}>
+    <StyledGapListItem
+      {...props}
+      data-garden-id={COMPONENT_IDS['pagination.gap']}
+      data-garden-version={PACKAGE_VERSION}
+      aria-label={ariaLabel}
+      ref={ref}
+    >
       …
     </StyledGapListItem>
   );

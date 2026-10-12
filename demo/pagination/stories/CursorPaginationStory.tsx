@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { CursorPagination, IPaginationProps } from '@zendeskgarden/react-pagination';
-import React from 'react';
+import { CursorPagination, IPaginationProps } from '../../../src/index';
 
 interface IArgs extends IPaginationProps {
   first: string;
@@ -16,7 +14,7 @@ interface IArgs extends IPaginationProps {
   last: string;
 }
 
-export const CursorPaginationStory: StoryFn<IArgs> = ({
+export const CursorPaginationStory = ({
   currentPage,
   totalPages,
   onChange,
@@ -25,7 +23,7 @@ export const CursorPaginationStory: StoryFn<IArgs> = ({
   next,
   last,
   ...args
-}) => (
+}: IArgs) => (
   <CursorPagination {...args}>
     <CursorPagination.First
       onClick={() => onChange!(0)}

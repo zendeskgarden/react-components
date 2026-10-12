@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledListItem } from './StyledListItem';
 
-const COMPONENT_ID = 'pagination.gap';
-
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const shift = 2;
   const fontSize = math(`${props.theme.fontSizes.md} + ${shift}`);
   const height = `${props.theme.space.base * 8}px`;
@@ -30,16 +31,13 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   return css`
     color: ${getColor({ variable: 'foreground.subtle', theme })};
   `;
 };
 
-export const StyledGapListItem = styled(StyledListItem).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledGapListItem = styled(StyledListItem)`
   display: inline-block;
   text-align: center;
 

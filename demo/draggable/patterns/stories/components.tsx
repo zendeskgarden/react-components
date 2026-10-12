@@ -13,10 +13,10 @@ import {
   verticalListSortingStrategy
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Draggable, DraggableList, Dropzone } from '@zendeskgarden/react-draggable';
 import { LG, MD } from '@zendeskgarden/react-typography';
-import React, { RefObject, forwardRef, useEffect } from 'react';
+import { RefObject, forwardRef, useEffect, CSSProperties } from 'react';
 
+import { Draggable, DraggableList, Dropzone } from '../../../../src/index';
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
 import { animateLayoutChanges } from './utils';
 
@@ -103,7 +103,7 @@ const SortableItem = ({
     );
   }
 
-  const style: React.CSSProperties = {
+  const style: CSSProperties = {
     transition,
     transform: transformValue,
     opacity: isActiveItem ? 0 : 1,
@@ -194,7 +194,7 @@ export const DraggableListItem = ({
     data: { type: 'draggable' }
   });
 
-  const listItemStyle: React.CSSProperties = {
+  const listItemStyle: CSSProperties = {
     maxWidth: isHorizontal ? 150 : undefined
   };
   const draggableItemStyle = {

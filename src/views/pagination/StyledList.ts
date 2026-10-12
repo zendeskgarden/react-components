@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'pagination.list';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   return css`
     color: ${getColor({ variable: 'foreground.subtle', theme })};
   `;
@@ -20,10 +21,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
  * 1. List reset.
  * 2. Text truncation.
  */
-export const StyledList = styled.ul.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledList = styled.ul`
   direction: ${p => p.theme.rtl && 'rtl'};
   display: flex;
   justify-content: center;

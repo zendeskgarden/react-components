@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Draggable, IDraggableProps } from '@zendeskgarden/react-draggable';
-import React from 'react';
+import { Draggable, IDraggableProps } from '../../../src/index';
 
 interface IArgs extends IDraggableProps {
   hasGrip?: boolean;
 }
 
-export const DraggableStory: StoryFn<IArgs> = ({ hasGrip, children, ...args }) => (
+export const DraggableStory = ({ hasGrip, children, ...args }: IArgs) => (
   <Draggable {...args}>
     {!!hasGrip && <Draggable.Grip />}
     {!!children && <Draggable.Content>{children}</Draggable.Content>}

@@ -5,16 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 
-import { StyledPage } from '../../../styled';
+import { useText } from '../../theming/utils/useText';
+import { StyledPage } from '../../views/pagination/StyledPage';
+import { COMPONENT_IDS } from '../utils';
 
 const PageComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const ariaLabel = useText(PageComponent, props, 'aria-label', `Page ${props.children}`);
 
-    return <StyledPage type="button" {...props} aria-label={ariaLabel} ref={ref} />;
+    return (
+      <StyledPage
+        type="button"
+        {...props}
+        data-garden-id={COMPONENT_IDS['pagination.page']}
+        data-garden-version={PACKAGE_VERSION}
+        aria-label={ariaLabel}
+        ref={ref}
+      />
+    );
   }
 );
 

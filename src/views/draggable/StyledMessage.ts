@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'dropzone.message';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import getLineHeight from '../../theming/utils/getLineHeight';
 
-export const StyledMessage = styled.p.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledMessage = styled.p`
   margin: 0;
   line-height: ${p => getLineHeight(p.theme.space.base * 5, p.theme.fontSizes.md)};
   color: inherit;

@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { CursorPagination } from '@zendeskgarden/react-pagination';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { CursorPagination } from '../../src/index';
 import { CursorPaginationStory } from './stories/CursorPaginationStory';
 
 export default {
-  title: 'Packages/Pagination/CursorPagination',
+  title: 'Components/Pagination/CursorPagination',
   component: CursorPagination,
   subcomponents: {
     'CursorPagination.First': CursorPagination.First,

@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import ChevronDoubleLeft from '@zendeskgarden/svg-icons/src/16/chevron-double-left-stroke.svg';
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import ChevronDoubleLeft from 'svg-icons-legacy/src/16/chevron-double-left-stroke.svg';
 
-import { StyledIcon, StyledCursor } from '../../../styled';
+import { StyledCursor } from '../../views/pagination/StyledCursor';
+import { StyledIcon } from '../../views/pagination/StyledIcon';
 
 const FirstComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   ({ children, ...other }, ref) => {

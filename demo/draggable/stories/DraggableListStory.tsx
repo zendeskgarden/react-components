@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Draggable, IDraggableListProps, DraggableList } from '@zendeskgarden/react-draggable';
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
+
+import { Draggable, IDraggableListProps, DraggableList } from '../../../src/index';
 
 interface IArgs extends IDraggableListProps {
   items: string[];
@@ -15,7 +15,7 @@ interface IArgs extends IDraggableListProps {
   ariaLabel?: string;
 }
 
-export const DraggableListStory: StoryFn<IArgs> = ({
+export const DraggableListStory = ({
   items,
   indicatorIndex,
   'aria-label': ariaLabel,

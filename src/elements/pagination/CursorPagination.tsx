@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledCursorPagination } from '../../styled';
-import { First } from './components/First';
-import { Last } from './components/Last';
-import { Next } from './components/Next';
-import { Previous } from './components/Previous';
+import { StyledCursorPagination } from '../../views/pagination/StyledCursorPagination';
+import { Next } from './CursorPaginationNext';
+import { Previous } from './CursorPaginationPrevious';
+import { First } from './First';
+import { Last } from './Last';
 
 const CursorPaginationComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   (props, ref) => <StyledCursorPagination ref={ref} {...props} />

@@ -5,17 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Dropzone, IDropzoneProps } from '@zendeskgarden/react-draggable';
-import ReplaceIcon from '@zendeskgarden/svg-icons/src/16/arrow-retweet-stroke.svg';
-import React from 'react';
+import ReplaceIcon from 'svg-icons-legacy/src/16/arrow-retweet-stroke.svg';
+
+import { Dropzone, IDropzoneProps } from '../../../src/index';
 
 interface IArgs extends IDropzoneProps {
   children: string;
   hasIcon?: boolean;
 }
 
-export const DropzoneStory: StoryFn<IArgs> = ({ children, hasIcon, ...args }) => (
+export const DropzoneStory = ({ children, hasIcon, ...args }: IArgs) => (
   <Dropzone {...args}>
     {!!hasIcon && (
       <Dropzone.Icon>

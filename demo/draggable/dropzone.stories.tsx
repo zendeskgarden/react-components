@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Dropzone } from '@zendeskgarden/react-draggable';
-import React from 'react';
 
+import { Dropzone } from '../../src/index';
 import { DropzoneStory } from './stories/DropzoneStory';
 
 export default {
-  title: 'Packages/Draggable/Dropzone',
+  title: 'Components/Draggable/Dropzone',
   component: Dropzone,
   subcomponents: {
     'Dropzone.Icon': Dropzone.Icon,

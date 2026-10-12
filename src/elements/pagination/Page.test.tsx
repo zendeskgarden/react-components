@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Previous } from './Previous';
+import { render } from '../../test/render';
+import { Page } from './Page';
 
-describe('Previous', () => {
+describe('Page', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
-    const { container } = render(<Previous ref={ref} />);
+    const ref = createRef<HTMLButtonElement>();
+    const { container } = render(<Page ref={ref} />);
 
     expect(container.firstElementChild).toBe(ref.current);
   });

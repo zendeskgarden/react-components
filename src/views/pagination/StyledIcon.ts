@@ -5,14 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StyledBaseIcon } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export interface IStyledIcon {
-  $type: 'first' | 'next' | 'previous' | 'last';
-}
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { IStyledIcon } from '../../types/views';
 
-const marginStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
+const marginStyles = (props: IStyledIcon) => {
   const { $type, theme } = props;
   const margin = theme.space.base;
 

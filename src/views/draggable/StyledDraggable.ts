@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getColor,
-  IGardenTheme,
-  getLineHeight,
-  focusStyles
-} from '@zendeskgarden/react-theming';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
+import type { IGardenTheme } from '../../theming/types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 import { StyledGrip } from './StyledGrip';
-
-const COMPONENT_ID = 'draggable';
 
 export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
   $focusInset?: boolean;
@@ -121,10 +117,7 @@ const getCursor = (props: IStyledDraggableProps) => {
   return cursor;
 };
 
-export const StyledDraggable = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledDraggableProps>`
+export const StyledDraggable = styled.div<IStyledDraggableProps>`
   display: flex;
   flex: 1;
   align-items: center;

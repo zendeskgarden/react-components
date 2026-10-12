@@ -5,15 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledContent } from '../../../styled';
+import { StyledContent } from '../../views/draggable/StyledContent';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Content = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
-  <StyledContent {...props} ref={ref} />
+  <StyledContent
+    {...props}
+    data-garden-id={COMPONENT_IDS['draggable.content']}
+    data-garden-version={PACKAGE_VERSION}
+    ref={ref}
+  />
 ));
 
 Content.displayName = 'Draggable.Content';

@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Dropzone } from './Dropzone';
 
 describe('Dropzone', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Dropzone ref={ref} />);
 
     expect(container.firstChild!).toBe(ref.current);
@@ -39,7 +39,7 @@ describe('Dropzone', () => {
 
   describe('Dropzone.Icon', () => {
     it('passes ref to underlying DOM element', () => {
-      const ref = React.createRef<HTMLDivElement>();
+      const ref = createRef<HTMLDivElement>();
       const { queryByTestId } = render(
         <Dropzone>
           <Dropzone.Icon data-test-id="icon" ref={ref} />
@@ -106,13 +106,16 @@ describe('Dropzone', () => {
     });
 
     it('renders correct icon margin in RTL', () => {
-      const { queryByTestId } = renderRtl(
+      const { queryByTestId } = render(
         <Dropzone>
           <Dropzone.Icon data-test-id="icon">
             <svg />
           </Dropzone.Icon>
           <Dropzone.Message>Message</Dropzone.Message>
-        </Dropzone>
+        </Dropzone>,
+        {
+          theme: RTL_THEME
+        }
       );
 
       expect(queryByTestId('icon')).toHaveStyle(`margin-left: ${DEFAULT_THEME.space.xs}`);
@@ -134,7 +137,7 @@ describe('Dropzone', () => {
 
   describe('Dropzone.Message', () => {
     it('passes ref to underlying DOM element', () => {
-      const ref = React.createRef<HTMLParagraphElement>();
+      const ref = createRef<HTMLParagraphElement>();
       const { queryByText } = render(
         <Dropzone>
           <Dropzone.Message ref={ref}>message</Dropzone.Message>

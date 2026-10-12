@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
-import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import ChevronRightIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import React, { ButtonHTMLAttributes, forwardRef, useContext } from 'react';
+import { ButtonHTMLAttributes, forwardRef, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
+import ChevronLeftIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
+import ChevronRightIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
-import { StyledNavigation } from '../../../styled';
+import { useText } from '../../theming/utils/useText';
+import { StyledNavigation } from '../../views/pagination/StyledNavigation';
+import { COMPONENT_IDS } from '../utils';
 
 const NextComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
@@ -19,7 +20,14 @@ const NextComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBut
     const theme = useContext(ThemeContext);
 
     return (
-      <StyledNavigation type="button" {...props} aria-label={ariaLabel} ref={ref}>
+      <StyledNavigation
+        type="button"
+        {...props}
+        data-garden-id={COMPONENT_IDS['pagination.navigation']}
+        data-garden-version={PACKAGE_VERSION}
+        aria-label={ariaLabel}
+        ref={ref}
+      >
         {theme.rtl ? <ChevronLeftIcon /> : <ChevronRightIcon />}
       </StyledNavigation>
     );

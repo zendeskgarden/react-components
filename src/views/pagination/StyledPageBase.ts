@@ -5,17 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'pagination.page';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const disabledColor = getColor({ variable: 'foreground.disabled', theme });
   const defaultColor = getColor({ variable: 'foreground.subtle', theme });
   const hoverForegroundColor = getColor({
@@ -97,7 +95,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const fontSize = props.theme.fontSizes.md;
   const height = `${props.theme.space.base * 8}px`;
   const lineHeight = getLineHeight(height, fontSize);
@@ -115,10 +113,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
  * 1. <button> override.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledPageBase = styled.button.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledPageBase = styled.button`
   box-sizing: border-box;
   display: inline-block;
   /* prettier-ignore */

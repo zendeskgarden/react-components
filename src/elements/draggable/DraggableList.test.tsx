@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { DraggableList } from './DraggableList';
 
 describe('DraggableList', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLUListElement>();
+    const ref = createRef<HTMLUListElement>();
     const { container } = render(<DraggableList ref={ref} />);
 
     expect(container.firstChild!).toBe(ref.current);
@@ -27,7 +27,7 @@ describe('DraggableList', () => {
 
   describe('DraggableList.Item', () => {
     it('passes ref to underlying DOM element', () => {
-      const ref = React.createRef<HTMLLIElement>();
+      const ref = createRef<HTMLLIElement>();
       const { queryByText } = render(
         <DraggableList>
           <DraggableList.Item ref={ref}>item</DraggableList.Item>
@@ -50,7 +50,7 @@ describe('DraggableList', () => {
 
   describe('DraggableList.DropIndicator', () => {
     it('passes ref to underlying DOM element', () => {
-      const ref = React.createRef<HTMLLIElement>();
+      const ref = createRef<HTMLLIElement>();
       const { queryByTestId } = render(
         <DraggableList>
           <DraggableList.DropIndicator data-test-id="indicator" ref={ref} />
@@ -72,12 +72,15 @@ describe('DraggableList', () => {
   });
 
   it(`renders expected vertical spacing between list items`, () => {
-    const { queryAllByText } = renderRtl(
+    const { queryAllByText } = render(
       <DraggableList isHorizontal>
         <DraggableList.Item>item</DraggableList.Item>
         <DraggableList.Item>item</DraggableList.Item>
         <DraggableList.Item>item</DraggableList.Item>
-      </DraggableList>
+      </DraggableList>,
+      {
+        theme: RTL_THEME
+      }
     );
 
     const items = queryAllByText('item').slice();

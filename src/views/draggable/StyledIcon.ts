@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
-const COMPONENT_ID = 'dropzone.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 interface IStyledIconProps extends ThemeProps<DefaultTheme> {
   $isVertical?: boolean;
@@ -35,10 +34,7 @@ function sizeStyles({ theme, $isVertical }: IStyledIconProps) {
 /**
  * 1. Corrects the vertical text alignment of the icon within a dropzone message.
  */
-export const StyledIcon = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledIconProps>`
+export const StyledIcon = styled.div<IStyledIconProps>`
   display: flex;
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};

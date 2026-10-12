@@ -5,17 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { CursorPagination } from '../CursorPagination';
+import { render } from '../../test/render';
+import { CursorPagination } from './CursorPagination';
 
-describe('Previous', () => {
+describe('Next', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLButtonElement>();
     const { getByRole } = render(
       <CursorPagination>
-        <CursorPagination.Previous ref={ref} />
+        <CursorPagination.Next ref={ref} />
       </CursorPagination>
     );
 

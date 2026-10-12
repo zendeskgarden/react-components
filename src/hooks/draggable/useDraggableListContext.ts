@@ -5,13 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface IDraggableListContext {
-  isHorizontal?: boolean;
-}
-
-export const DraggableListContext = createContext<IDraggableListContext | undefined>(undefined);
+import { DraggableListContext } from '../../context/draggable/DraggableListContext';
 
 export const useDraggableListContext = () => {
   const context = useContext(DraggableListContext);

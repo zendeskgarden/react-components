@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, LiHTMLAttributes } from 'react';
+import { forwardRef, LiHTMLAttributes } from 'react';
 
-import { StyledItem } from '../../../styled';
-import { useDraggableListContext } from '../../../utils/useDraggableListContext';
+import { useDraggableListContext } from '../../hooks/draggable/useDraggableListContext';
+import { StyledItem } from '../../views/draggable/StyledItem';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
@@ -16,7 +17,15 @@ import { useDraggableListContext } from '../../../utils/useDraggableListContext'
 export const Item = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElement>>((props, ref) => {
   const { isHorizontal } = useDraggableListContext();
 
-  return <StyledItem {...props} $isHorizontal={isHorizontal} ref={ref} />;
+  return (
+    <StyledItem
+      {...props}
+      data-garden-id={COMPONENT_IDS['draggable_list.item']}
+      data-garden-version={PACKAGE_VERSION}
+      $isHorizontal={isHorizontal}
+      ref={ref}
+    />
+  );
 });
 
 Item.displayName = 'DraggableList.Item';

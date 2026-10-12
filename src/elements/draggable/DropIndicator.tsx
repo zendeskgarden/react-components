@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
-import React, { forwardRef, LiHTMLAttributes } from 'react';
+import { forwardRef, LiHTMLAttributes } from 'react';
 
-import { StyledDropIndicator } from '../../../styled';
-import { useDraggableListContext } from '../../../utils/useDraggableListContext';
+import { useDraggableListContext } from '../../hooks/draggable/useDraggableListContext';
+import { useText } from '../../theming/utils/useText';
+import { StyledDropIndicator } from '../../views/draggable/StyledDropIndicator';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
@@ -22,6 +23,8 @@ export const DropIndicator = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIEl
     return (
       <StyledDropIndicator
         {...props}
+        data-garden-id={COMPONENT_IDS['draggable_list.drop_indicator']}
+        data-garden-version={PACKAGE_VERSION}
         aria-label={ariaLabel}
         $isHorizontal={isHorizontal}
         ref={ref}
