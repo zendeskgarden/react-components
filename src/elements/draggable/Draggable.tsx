@@ -9,6 +9,7 @@ import { forwardRef } from 'react';
 
 import { IDraggableProps } from '../../types/elements';
 import { StyledDraggable } from '../../views/draggable/StyledDraggable';
+import { COMPONENT_IDS } from '../utils';
 import { Content } from './Content';
 import { Grip } from './Grip';
 
@@ -40,6 +41,8 @@ const DraggableComponent = forwardRef<HTMLDivElement, IDraggableProps>(
         ref={ref}
         tabIndex={isDisabled ? undefined : 0}
         {...other}
+        data-garden-id={COMPONENT_IDS.draggable}
+        data-garden-version={PACKAGE_VERSION}
       />
     );
   }

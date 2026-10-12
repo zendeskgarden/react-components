@@ -41,13 +41,15 @@ export function findColumn(
   id: UniqueIdentifier | undefined,
   columns: IColumns
 ): UniqueIdentifier | undefined {
-  if (!id) return undefined;
+  if (!id) {
+    return undefined;
+  }
 
   if (id in columns) {
     return id;
   }
 
   return Object.keys(columns).find(cId => {
-    return columns[cId].findIndex(item => item?.id === id) > -1;
+    return columns[cId]!.findIndex(item => item?.id === id) > -1;
   });
 }

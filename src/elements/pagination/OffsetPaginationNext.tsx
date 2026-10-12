@@ -10,6 +10,7 @@ import { ThemeContext } from 'styled-components';
 import ChevronLeftIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
 import ChevronRightIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { useText } from '../../theming/utils/useText';
 import { StyledNavigation } from '../../views/pagination/StyledNavigation';
 import { COMPONENT_IDS } from '../utils';
@@ -17,7 +18,7 @@ import { COMPONENT_IDS } from '../utils';
 const NextComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const ariaLabel = useText(NextComponent, props, 'aria-label', 'Next page');
-    const theme = useContext(ThemeContext);
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
 
     return (
       <StyledNavigation

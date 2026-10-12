@@ -10,9 +10,8 @@ import type { StoryObj } from '@storybook/react-vite';
 import { COLUMNS as columns } from './stories/data';
 import { DragAndDropStory } from './stories/DragAndDropStory';
 
-// MIGRATE(demos): no component property and no title for '[patterns]' in config/story-titles.json; title derived from the last segment
 export default {
-  title: 'Components/[patterns]'
+  title: 'Components/Draggable/Patterns'
 };
 
 export const Example: StoryObj<typeof DragAndDropStory> = {

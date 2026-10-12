@@ -11,7 +11,6 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 
 export const StyledContent = styled.div`
   flex: 1;
-  word-wrap: break-word;
   overflow-wrap: anywhere;
 
   ${componentStyles};

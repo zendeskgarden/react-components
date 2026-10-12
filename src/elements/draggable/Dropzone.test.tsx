@@ -9,6 +9,7 @@ import { createRef } from 'react';
 
 import { RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { Dropzone } from './Dropzone';
 
 describe('Dropzone', () => {
@@ -155,6 +156,55 @@ describe('Dropzone', () => {
       );
 
       expect(queryByText('message')!.nodeName).toBe('P');
+    });
+  });
+
+  it('sets the Garden attributes after the props', () => {
+    const { container } = render(<Dropzone data-garden-id="custom" data-garden-version="0" />);
+
+    expect(container.firstChild).toHaveAttribute('data-garden-id', 'dropzone');
+    expect(container.firstChild).not.toHaveAttribute('data-garden-version', '0');
+  });
+
+  describe('colors', () => {
+    const color = (variable: string, options = {}) =>
+      getColor({ variable, theme: DEFAULT_THEME, ...options });
+
+    it('applies the disabled colors', () => {
+      const { container } = render(<Dropzone isDisabled />);
+
+      expect(container.firstChild).toHaveStyle(`
+        background-color: ${color('background.disabled')};
+        border-color: ${color('border.disabled')};
+        color: ${color('foreground.disabled')};
+      `);
+    });
+
+    it('applies the active colors', () => {
+      const { container } = render(<Dropzone isActive />);
+
+      expect(container.firstChild).toHaveStyle(`
+        border-color: ${color('border.primaryEmphasis')};
+        color: ${color('foreground.primary')};
+      `);
+    });
+
+    it('applies the highlighted colors', () => {
+      const { container } = render(<Dropzone isHighlighted />);
+
+      expect(container.firstChild).toHaveStyle(`
+        border-color: ${color('border.primaryEmphasis')};
+        color: ${color('foreground.primary', { light: { offset: 200 }, dark: { offset: -200 } })};
+      `);
+    });
+
+    it('applies the danger colors', () => {
+      const { container } = render(<Dropzone isDanger />);
+
+      expect(container.firstChild).toHaveStyle(`
+        border-color: ${color('border.dangerEmphasis')};
+        color: ${color('foreground.danger')};
+      `);
     });
   });
 });

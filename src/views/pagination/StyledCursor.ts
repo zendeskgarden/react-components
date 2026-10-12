@@ -10,17 +10,10 @@ import styled from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledPageBase } from './StyledPageBase';
 
-const COMPONENT_ID = 'cursor_pagination.cursor';
-
 /**
  * 1. Reset CSS from <button>.
  */
-// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
-export const StyledCursor = styled(StyledPageBase as 'button').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'button'
-})`
+export const StyledCursor = styled(StyledPageBase as 'button')`
   display: flex;
   align-items: center;
   border: none; /* [1] */

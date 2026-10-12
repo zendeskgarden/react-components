@@ -83,8 +83,8 @@ export const DragAndDropStory = ({
     item => item.id === activeId
   );
 
-  const draggablesColId = Object.keys(columns)[0];
-  const droppablesColId = Object.keys(columns)[1];
+  const draggablesColId = Object.keys(columns)[0]!;
+  const droppablesColId = Object.keys(columns)[1]!;
 
   const unsetKeyboard = useCallback(() => {
     setIsUsingKeyboard(false);
@@ -116,29 +116,35 @@ export const DragAndDropStory = ({
 
       if (['ArrowDown', 'ArrowUp', 'ArrowRight', 'ArrowLeft'].includes(event.key)) {
         const isDraggingWidowItem =
-          columns[droppablesColId].length === 1 && context.collisions?.length === 2;
+          columns[droppablesColId]!.length === 1 && context.collisions?.length === 2;
 
         if (isDraggableList) {
           const rects = [...droppableRects.values()];
-          const target = rects[rects.length - 1];
+          const target = rects[rects.length - 1]!;
           const deltaX = target.left;
           const deltaY = target.top;
 
           switch (event.key) {
             case 'ArrowRight':
-              if (isHorizontal || currentCoordinates.x > deltaX) return undefined; /* [1] */
+              if (isHorizontal || currentCoordinates.x > deltaX) {
+                return undefined;
+              } /* [1] */
 
               return { y: deltaY, x: deltaX };
             case 'ArrowLeft':
-              if (isHorizontal || currentCoordinates.x < deltaX) return undefined; /* [1] */
+              if (isHorizontal || currentCoordinates.x < deltaX) {
+                return undefined;
+              } /* [1] */
 
               return { y: deltaY, x: deltaX };
             case 'ArrowDown':
-              if (!isHorizontal) return undefined; /* [1] */
+              if (!isHorizontal) {
+                return undefined;
+              } /* [1] */
 
               return { y: deltaY, x: deltaX };
           }
-        } else if (columns[droppablesColId].length === 0 || isDraggingWidowItem) {
+        } else if (columns[droppablesColId]!.length === 0 || isDraggingWidowItem) {
           // Don't let the only draggable item in the list move
           return undefined;
         }
@@ -193,24 +199,30 @@ export const DragAndDropStory = ({
         return;
       }
 
-      if (!overId || active.id in columns) return;
+      if (!overId || active.id in columns) {
+        return;
+      }
 
       // Find column ids
       const overColId = findColumn(overId, columns);
       const activeColId = findColumn(active.id, columns);
 
-      if (!overColId || !activeColId) return;
+      if (!overColId || !activeColId) {
+        return;
+      }
 
       if (activeColumnId !== overColId) {
         setActiveColumnId(overColId);
       }
 
-      if (activeColId === overColId) return;
+      if (activeColId === overColId) {
+        return;
+      }
 
       setColumns(prevColumns => {
         const nextColumns = { ...prevColumns };
-        const activeItems = nextColumns[activeColId];
-        const overItems = nextColumns[overColId];
+        const activeItems = nextColumns[activeColId]!;
+        const overItems = nextColumns[overColId]!;
 
         // Find the indices for items
         const activeIndex = activeItems.findIndex(item => item.id === active.id);
@@ -234,13 +246,13 @@ export const DragAndDropStory = ({
         }
 
         // Remove moved item
-        nextColumns[activeColId] = nextColumns[activeColId].filter(item => item.id !== active.id);
+        nextColumns[activeColId] = nextColumns[activeColId]!.filter(item => item.id !== active.id);
 
         // Add moved item
         nextColumns[overColId] = [
-          ...nextColumns[overColId].slice(0, newIndex),
-          prevColumns[activeColId][activeIndex],
-          ...nextColumns[overColId].slice(newIndex, nextColumns[overColId].length)
+          ...nextColumns[overColId]!.slice(0, newIndex),
+          prevColumns[activeColId]![activeIndex]!,
+          ...nextColumns[overColId]!.slice(newIndex, nextColumns[overColId]!.length)
         ];
 
         return nextColumns;
@@ -263,10 +275,12 @@ export const DragAndDropStory = ({
 
       const overColId = findColumn(overId, columns);
 
-      if (!overColId) return;
+      if (!overColId) {
+        return;
+      }
 
-      const activeIndex = columns[activeColId].findIndex(item => item.id === active.id);
-      const overIndex = columns[overColId].findIndex(item => item.id === overId);
+      const activeIndex = columns[activeColId]!.findIndex(item => item.id === active.id);
+      const overIndex = columns[overColId]!.findIndex(item => item.id === overId);
 
       // If a droppable area isn't active, we can't drop/set the items
       // revert to snapshot
@@ -274,7 +288,7 @@ export const DragAndDropStory = ({
         setColumns(prevColumns => {
           const nextColumns = { ...prevColumns };
 
-          nextColumns[overColId] = arrayMove(prevColumns[overColId], activeIndex, overIndex);
+          nextColumns[overColId] = arrayMove(prevColumns[overColId]!, activeIndex, overIndex);
 
           return nextColumns;
         });
@@ -296,7 +310,9 @@ export const DragAndDropStory = ({
 
   // prefer ordinal (position) over index in announcements
   const getPosition = (id: UniqueIdentifier | undefined) => {
-    if (!id) return 1;
+    if (!id) {
+      return 1;
+    }
 
     const activeColId = findColumn(id, columns) as string;
     const itemIndex = columns[activeColId]?.findIndex(item => item.id === id) || 0;
@@ -330,7 +346,7 @@ export const DragAndDropStory = ({
 
           return (
             <ColumnComponent
-              items={columns[columnId]}
+              items={columns[columnId]!}
               id={columnId}
               key={columnId}
               activeId={activeId}

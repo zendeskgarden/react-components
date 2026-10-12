@@ -8,13 +8,21 @@
 import { HTMLAttributes, forwardRef } from 'react';
 
 import { StyledCursorPagination } from '../../views/pagination/StyledCursorPagination';
+import { COMPONENT_IDS } from '../utils';
 import { Next } from './CursorPaginationNext';
 import { Previous } from './CursorPaginationPrevious';
 import { First } from './First';
 import { Last } from './Last';
 
 const CursorPaginationComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
-  (props, ref) => <StyledCursorPagination ref={ref} {...props} />
+  (props, ref) => (
+    <StyledCursorPagination
+      {...props}
+      data-garden-id={COMPONENT_IDS.cursor_pagination}
+      data-garden-version={PACKAGE_VERSION}
+      ref={ref}
+    />
+  )
 );
 
 CursorPaginationComponent.displayName = 'CursorPagination';

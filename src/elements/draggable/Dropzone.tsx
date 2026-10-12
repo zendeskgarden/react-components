@@ -34,6 +34,8 @@ const DropzoneComponent = forwardRef<HTMLDivElement, IDropzoneProps>(
           as={tag}
           aria-disabled={isDisabled}
           {...other}
+          data-garden-id={COMPONENT_IDS.dropzone}
+          data-garden-version={PACKAGE_VERSION}
           $isActive={isActive}
           $isDisabled={isDisabled}
           $isDanger={isDanger}

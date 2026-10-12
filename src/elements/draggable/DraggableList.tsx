@@ -10,6 +10,7 @@ import { forwardRef, useMemo } from 'react';
 import { DraggableListProvider } from '../../context/draggable/DraggableListContext';
 import { IDraggableListProps } from '../../types/elements';
 import { StyledDraggableList } from '../../views/draggable/StyledDraggableList';
+import { COMPONENT_IDS } from '../utils';
 import { DropIndicator } from './DropIndicator';
 import { Item } from './Item';
 
@@ -19,7 +20,13 @@ const DraggableListComponent = forwardRef<HTMLUListElement, IDraggableListProps>
 
     return (
       <DraggableListProvider value={value}>
-        <StyledDraggableList $isHorizontal={isHorizontal} ref={ref} {...other} />
+        <StyledDraggableList
+          $isHorizontal={isHorizontal}
+          ref={ref}
+          {...other}
+          data-garden-id={COMPONENT_IDS.draggable_list}
+          data-garden-version={PACKAGE_VERSION}
+        />
       </DraggableListProvider>
     );
   }

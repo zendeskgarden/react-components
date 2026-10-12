@@ -105,4 +105,11 @@ describe('DraggableList', () => {
       expect(item).toHaveStyle(`padding: 0 ${DEFAULT_THEME.space.xxs}`);
     });
   });
+
+  it('sets the Garden attributes after the props', () => {
+    const { container } = render(<DraggableList data-garden-id="custom" data-garden-version="0" />);
+
+    expect(container.firstChild).toHaveAttribute('data-garden-id', 'draggable_list');
+    expect(container.firstChild).not.toHaveAttribute('data-garden-version', '0');
+  });
 });
