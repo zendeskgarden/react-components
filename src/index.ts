@@ -12,6 +12,13 @@ export { Accordion } from './elements/accordion/Accordion';
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
 
+/* loader */
+export { Dots } from './elements/loader/Dots';
+export { Inline } from './elements/loader/Inline';
+export { Progress } from './elements/loader/Progress';
+export { Skeleton } from './elements/loader/Skeleton';
+export { Spinner } from './elements/loader/Spinner';
+
 /* theming */
 export { ColorSchemeProvider } from './theming/elements/ColorSchemeProvider';
 export { default as PALETTE } from './theming/elements/palette';
@@ -80,11 +87,16 @@ export type {
   IBlockquoteProps,
   ICodeBlockProps,
   ICodeProps,
+  IDotsProps,
   IEllipsisProps,
+  IInlineProps,
   IKbdProps,
   IOrderedListProps,
   IParagraphProps,
+  IProgressProps,
+  ISkeletonProps,
   ISpanProps,
+  ISpinnerProps,
   IStatusIndicatorProps,
   ITypescaleMonospaceProps as ILGProps,
   ITypescaleMonospaceProps as IMDProps,
