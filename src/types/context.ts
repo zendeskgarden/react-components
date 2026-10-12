@@ -8,7 +8,7 @@
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { HTMLProps } from 'react';
 
-import type { IAccordionProps } from './elements';
+import type { IAccordionProps, Size } from './elements';
 
 export interface IAccordionContext<SectionValue>
   extends
@@ -19,3 +19,13 @@ export interface IAccordionContext<SectionValue>
     > {}
 
 export type AccordionHeaderContext = HTMLProps<Element>;
+
+//#region typography
+export interface IOrderedListContext {
+  size: Size;
+}
+
+export interface IUnorderedListContext {
+  size: Size;
+}
+//#endregion

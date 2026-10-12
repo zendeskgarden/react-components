@@ -8,6 +8,10 @@
 /* accordion */
 export { Accordion } from './elements/accordion/Accordion';
 
+/* avatar */
+export { Avatar } from './elements/avatar/Avatar';
+export { StatusIndicator } from './elements/avatar/StatusIndicator';
+
 /* loader */
 export { Dots } from './elements/loader/Dots';
 export { Inline } from './elements/loader/Inline';
@@ -59,12 +63,46 @@ export { useDocument } from './theming/utils/useDocument';
 export { useText } from './theming/utils/useText';
 export { useWindow } from './theming/utils/useWindow';
 
+/* typography */
+export { Blockquote } from './elements/typography/Blockquote';
+export { Code } from './elements/typography/Code';
+export { CodeBlock } from './elements/typography/CodeBlock';
+export { Ellipsis } from './elements/typography/Ellipsis';
+export { Kbd } from './elements/typography/Kbd';
+export { LG } from './elements/typography/LG';
+export { MD } from './elements/typography/MD';
+export { OrderedList } from './elements/typography/OrderedList';
+export { Paragraph } from './elements/typography/Paragraph';
+export { SM } from './elements/typography/SM';
+export { Span } from './elements/typography/Span';
+export { UnorderedList } from './elements/typography/UnorderedList';
+export { XL } from './elements/typography/XL';
+export { XXL } from './elements/typography/XXL';
+export { XXXL } from './elements/typography/XXXL';
+
 /* types */
 export type {
   IAccordionProps,
+  IAvatarProps,
+  IBlockquoteProps,
+  ICodeBlockProps,
+  ICodeProps,
   IDotsProps,
+  IEllipsisProps,
   IInlineProps,
+  IKbdProps,
+  IOrderedListProps,
+  IParagraphProps,
   IProgressProps,
   ISkeletonProps,
-  ISpinnerProps
+  ISpanProps,
+  ISpinnerProps,
+  IStatusIndicatorProps,
+  ITypescaleMonospaceProps as ILGProps,
+  ITypescaleMonospaceProps as IMDProps,
+  ITypescaleMonospaceProps as ISMProps,
+  ITypescaleProps as IXLProps,
+  ITypescaleProps as IXXLProps,
+  ITypescaleProps as IXXXLProps,
+  IUnorderedListProps
 } from './types/elements';

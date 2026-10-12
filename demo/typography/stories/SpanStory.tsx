@@ -1,0 +1,36 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import Icon from 'svg-icons-legacy/src/16/asterisk-stroke.svg';
+import StartIcon from 'svg-icons-legacy/src/16/circle-stroke.svg';
+
+import { ISpanProps, Span } from '../../../src/index';
+
+interface IArgs extends ISpanProps {
+  hasIcon: boolean;
+  hasStartIcon: boolean;
+}
+
+export const SpanStory = ({ hasIcon, hasStartIcon, ...args }: IArgs) => (
+  <Span {...args}>
+    {!!hasStartIcon && (
+      <Span.StartIcon>
+        <StartIcon />
+      </Span.StartIcon>
+    )}
+    {args.children}
+    {!!hasIcon && (
+      <>
+        {' '}
+        <Span.Icon>
+          <Icon />
+        </Span.Icon>{' '}
+        {args.children}
+      </>
+    )}
+  </Span>
+);
