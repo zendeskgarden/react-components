@@ -6,8 +6,11 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
-import { getMenuPosition, menuStyles, componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getMenuPosition } from '../../theming/utils/getMenuPosition';
+import menuStyles from '../../theming/utils/menuStyles';
 
 const COMPONENT_ID = 'datepickers.menu_wrapper';
 
@@ -21,6 +24,7 @@ interface IStyledMenuWrapperProps {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
+// MIGRATE(component-ids): .attrs with non-data props — move to the base tag, element JSX or default parameters
 export const StyledMenuWrapper = styled.div.attrs<IStyledMenuWrapperProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
+import { getAllByTestId as globalGetAllByTestId } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { addDays } from 'date-fns/addDays';
 import { addMonths } from 'date-fns/addMonths';
 import { subDays } from 'date-fns/subDays';
 import { subMonths } from 'date-fns/subMonths';
-import { render, getAllByTestId as globalGetAllByTestId, renderRtl } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import React from 'react';
+import { vi } from 'vitest';
 
-import { IDatePickerRangeProps } from '../../types';
+import { RTL_THEME, render } from '../../test/render';
+import { IDatePickerRangeProps } from '../../types/elements';
 import { DatePickerRange } from './DatePickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
@@ -38,7 +39,7 @@ describe('DatePickerRange', () => {
   let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;
 
   beforeEach(() => {
-    onChangeSpy = jest.fn();
+    onChangeSpy = vi.fn();
     mockDate.set(DEFAULT_START_VALUE);
   });
 
@@ -158,8 +159,11 @@ describe('DatePickerRange', () => {
     });
 
     it('displays highlighted days correctly if both values are provided in RTL mode', () => {
-      const { getAllByTestId } = renderRtl(
-        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      const { getAllByTestId } = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />,
+        {
+          theme: RTL_THEME
+        }
       );
 
       const calendarWrappers = getAllByTestId('calendar-wrapper');
@@ -649,7 +653,7 @@ describe('DatePickerRange', () => {
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
-      const customParseDateSpy: (input?: string) => Date = jest.fn().mockReturnValue(MOCK_DATE);
+      const customParseDateSpy: (input?: string) => Date = vi.fn().mockReturnValue(MOCK_DATE);
       const { getByTestId } = render(
         <Example
           startValue={DEFAULT_START_VALUE}
@@ -671,7 +675,7 @@ describe('DatePickerRange', () => {
     });
 
     it('does not call onChange if parsed date is the current value', async () => {
-      const customParseDateSpy: (input?: string) => Date = jest
+      const customParseDateSpy: (input?: string) => Date = vi
         .fn()
         .mockReturnValue(DEFAULT_END_VALUE);
       const { getByTestId } = render(

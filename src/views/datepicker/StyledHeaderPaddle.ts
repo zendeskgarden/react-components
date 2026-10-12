@@ -5,15 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledHeaderPaddleProps {
   $isCompact: boolean;
   'aria-hidden'?: boolean;
 }
 
-const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & IStyledBaseProps) => {
   const iconSize = theme.iconSizes.md;
   const size = theme.space.base * ($isCompact ? 8 : 10);
 
@@ -28,7 +31,7 @@ const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & ThemeProps
   `;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const foreground = getColor({ variable: 'foreground.subtle', theme });
   const foregroundHover = getColor({
     variable: 'foreground.subtle',
@@ -68,12 +71,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const COMPONENT_ID = 'datepickers.header_paddle';
-
-export const StyledHeaderPaddle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledHeaderPaddleProps>`
+export const StyledHeaderPaddle = styled.div<IStyledHeaderPaddleProps>`
   display: flex;
   align-items: center;
   justify-content: center;

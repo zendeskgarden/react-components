@@ -6,11 +6,11 @@
  */
 
 import { addMonths } from 'date-fns/addMonths';
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledRangeCalendar } from '../../../styled';
-import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import { StyledRangeCalendar } from '../../views/datepicker/StyledRangeCalendar';
 import { Month } from './Month';
+import { useDatePickerRangeContext as useDatePickerContext } from './useDatePickerRangeContext';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -21,10 +21,10 @@ export const Calendar = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   return (
     <StyledRangeCalendar
       ref={ref}
-      data-garden-id="datepickers.range"
-      data-garden-version={PACKAGE_VERSION}
       data-test-id="range-calendar"
       {...props}
+      data-garden-id="datepickers.range"
+      data-garden-version={PACKAGE_VERSION}
     >
       <Month displayDate={state.previewDate} isNextHidden />
       <Month displayDate={addMonths(state.previewDate, 1)} isPreviousHidden />

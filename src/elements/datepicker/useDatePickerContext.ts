@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext, createContext } from 'react';
+import { useContext, createContext, Dispatch } from 'react';
 
 import { IDatePickerState, DatePickerAction } from './date-picker-reducer';
 
 export interface IDatePickerContext {
   state: IDatePickerState;
-  dispatch: React.Dispatch<DatePickerAction>;
+  dispatch: Dispatch<DatePickerAction>;
 }
 
 export const DatePickerContext = createContext<IDatePickerContext | undefined>(undefined);

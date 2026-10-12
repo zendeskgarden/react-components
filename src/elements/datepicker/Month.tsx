@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
 import { addDays } from 'date-fns/addDays';
 import { compareAsc } from 'date-fns/compareAsc';
 import { eachDayOfInterval } from 'date-fns/eachDayOfInterval';
@@ -20,21 +18,22 @@ import { isToday } from 'date-fns/isToday';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
 import { subDays } from 'date-fns/subDays';
-import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
+import { forwardRef, HTMLAttributes, useCallback } from 'react';
+import ChevronLeftStrokeIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
+import ChevronRightStrokeIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
-import {
-  StyledDatePicker,
-  StyledCalendar,
-  StyledCalendarItem,
-  StyledDayLabel,
-  StyledDay,
-  StyledHeaderPaddle,
-  StyledHeader,
-  StyledHeaderLabel,
-  StyledHighlight
-} from '../../../styled';
-import { getStartOfWeek } from '../../../utils/calendar-utils';
-import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import { getStartOfWeek } from '../../utils/datepicker/calendar-utils';
+import { StyledCalendar } from '../../views/datepicker/StyledCalendar';
+import { StyledCalendarItem } from '../../views/datepicker/StyledCalendarItem';
+import { StyledDatePicker } from '../../views/datepicker/StyledDatePicker';
+import { StyledDay } from '../../views/datepicker/StyledDay';
+import { StyledDayLabel } from '../../views/datepicker/StyledDayLabel';
+import { StyledHeader } from '../../views/datepicker/StyledHeader';
+import { StyledHeaderLabel } from '../../views/datepicker/StyledHeaderLabel';
+import { StyledHeaderPaddle } from '../../views/datepicker/StyledHeaderPaddle';
+import { StyledHighlight } from '../../views/datepicker/StyledHighlight';
+import { COMPONENT_IDS } from '../utils';
+import { useDatePickerRangeContext as useDatePickerContext } from './useDatePickerRangeContext';
 
 interface IMonthProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   displayDate: Date;
@@ -106,8 +105,18 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} $isCompact={isCompact}>
-            <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
+          <StyledCalendarItem
+            key={`day-label-${formattedDayLabel}`}
+            $isCompact={isCompact}
+            data-garden-id={COMPONENT_IDS['datepickers.calendar_item']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledDayLabel
+              $isCompact={isCompact!}
+              data-test-id="day-label"
+              data-garden-id={COMPONENT_IDS['datepickers.day_label']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               {formattedDayLabel}
             </StyledDayLabel>
           </StyledCalendarItem>
@@ -122,13 +131,20 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       if (isPreviousMonth) {
         return (
-          <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
+          <StyledCalendarItem
+            key={date.toISOString()}
+            $isCompact={isCompact}
+            data-garden-id={COMPONENT_IDS['datepickers.calendar_item']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             <StyledDay
               $isCompact={isCompact!}
               $isPreviousMonth
               aria-disabled
               data-test-id="day"
               data-test-hidden="true"
+              data-garden-id={COMPONENT_IDS['datepickers.day']}
+              data-garden-version={PACKAGE_VERSION}
             >
               &nbsp;
             </StyledDay>
@@ -143,7 +159,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       if (endValue !== undefined) {
-        isSelected = isSelected || isSameDay(date, endValue);
+        isSelected ||= isSameDay(date, endValue);
       }
 
       let isDisabled = false;
@@ -153,7 +169,7 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
       }
 
       if (maxValue !== undefined) {
-        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
+        isDisabled ||= isAfter(date, maxValue) && !isSameDay(date, maxValue);
       }
 
       let isHighlighted = false;
@@ -182,28 +198,31 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
       if (minValue) {
         if (startValue) {
-          isInvalidDateRange =
-            isInvalidDateRange || compareAsc(startValue, subDays(minValue, 1)) === -1;
+          isInvalidDateRange ||= compareAsc(startValue, subDays(minValue, 1)) === -1;
         }
 
         if (endValue) {
-          isInvalidDateRange =
-            isInvalidDateRange || compareAsc(endValue, subDays(minValue, 1)) === -1;
+          isInvalidDateRange ||= compareAsc(endValue, subDays(minValue, 1)) === -1;
         }
       }
 
       if (maxValue) {
         if (startValue) {
-          isInvalidDateRange = isInvalidDateRange || compareAsc(startValue, maxValue) === 1;
+          isInvalidDateRange ||= compareAsc(startValue, maxValue) === 1;
         }
 
         if (endValue) {
-          isInvalidDateRange = isInvalidDateRange || compareAsc(endValue, maxValue) === 1;
+          isInvalidDateRange ||= compareAsc(endValue, maxValue) === 1;
         }
       }
 
       return (
-        <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
+        <StyledCalendarItem
+          key={date.toISOString()}
+          $isCompact={isCompact}
+          data-garden-id={COMPONENT_IDS['datepickers.calendar_item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledHighlight
             $isHighlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
             $isStart={!isInvalidDateRange && isHighlightStart}
@@ -212,6 +231,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             data-test-highlighted={!isInvalidDateRange && !!isHighlighted && !isDisabled}
             data-test-start={!isInvalidDateRange && isHighlightStart}
             data-test-end={!isInvalidDateRange && isHighlightEnd}
+            data-garden-id={COMPONENT_IDS['datepickers.highlight']}
+            data-garden-version={PACKAGE_VERSION}
           />
           <StyledDay
             $isToday={isCurrentDate}
@@ -266,6 +287,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             data-test-disabled={isDisabled}
             data-test-today={isCurrentDate}
             data-test-hidden="false"
+            data-garden-id={COMPONENT_IDS['datepickers.day']}
+            data-garden-version={PACKAGE_VERSION}
           >
             {formattedDayLabel}
           </StyledDay>
@@ -275,6 +298,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
 
     return (
       <StyledDatePicker
+        data-garden-id={COMPONENT_IDS['datepickers.datepicker']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
         $isCompact={isCompact!}
         data-test-id="calendar-wrapper"
@@ -284,7 +309,11 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           e.preventDefault();
         }}
       >
-        <StyledHeader $isCompact={isCompact!}>
+        <StyledHeader
+          $isCompact={isCompact!}
+          data-garden-id={COMPONENT_IDS['datepickers.header']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledHeaderPaddle
             $isCompact={isCompact!}
             onClick={() => {
@@ -294,10 +323,17 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
             }}
             aria-hidden={isPreviousHidden || undefined}
             data-test-id="previous-month"
+            data-garden-id={COMPONENT_IDS['datepickers.header_paddle']}
+            data-garden-version={PACKAGE_VERSION}
           >
             <ChevronLeftStrokeIcon />
           </StyledHeaderPaddle>
-          <StyledHeaderLabel $isCompact={isCompact!} data-test-id="month-display">
+          <StyledHeaderLabel
+            $isCompact={isCompact!}
+            data-test-id="month-display"
+            data-garden-id={COMPONENT_IDS['datepickers.header_label']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             {headerLabelFormatter(displayDate)}
           </StyledHeaderLabel>
           <StyledHeaderPaddle
@@ -309,6 +345,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
               });
             }}
             data-test-id="next-month"
+            data-garden-id={COMPONENT_IDS['datepickers.header_paddle']}
+            data-garden-version={PACKAGE_VERSION}
           >
             <ChevronRightStrokeIcon />
           </StyledHeaderPaddle>
@@ -319,6 +357,8 @@ export const Month = forwardRef<HTMLDivElement, IMonthProps>(
           onMouseLeave={() => {
             dispatch({ type: 'HOVER_DATE', value: undefined });
           }}
+          data-garden-id={COMPONENT_IDS['datepickers.calendar']}
+          data-garden-version={PACKAGE_VERSION}
         >
           {dayLabels}
           {items}

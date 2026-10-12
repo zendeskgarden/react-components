@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Input } from '@zendeskgarden/react-forms';
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+import { DatePicker } from '../../../../src/index';
 
 const DATE_PATTERN = /^(?<day>\d{2})\.(?<month>\d{2})\.(?<year>\d{4})$/u;
 
@@ -37,7 +37,7 @@ const customParseDate = (value: string) => {
   return new Date(Number(year), Number(month) - 1, Number(day));
 };
 
-export const CustomDateFormatStory: StoryFn = () => {
+export const CustomDateFormatStory = () => {
   const [value, setValue] = useState<Date | undefined>(new Date());
 
   return (

@@ -8,17 +8,27 @@
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isValid } from 'date-fns/isValid';
-import React, { PropsWithChildren, HTMLAttributes, useCallback } from 'react';
+import {
+  PropsWithChildren,
+  HTMLAttributes,
+  useCallback,
+  ChangeEvent,
+  Children,
+  FocusEvent,
+  KeyboardEvent,
+  ReactElement,
+  cloneElement
+} from 'react';
 
-import { parseInputValue } from '../utils/date-picker-range-reducer';
-import useDatePickerContext from '../utils/useDatePickerRangeContext';
+import { parseInputValue } from './date-picker-range-reducer';
+import { useDatePickerRangeContext as useDatePickerContext } from './useDatePickerRangeContext';
 
 export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
   const { state, dispatch, onChange, startValue, endValue, startInputRef, customParseDate } =
     useDatePickerContext();
 
   const onChangeCallback = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'START_INPUT_ONCHANGE', value: e.target.value });
 
       (props.children as any).props.onChange && (props.children as any).props.onChange(e);
@@ -27,7 +37,7 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
   );
 
   const onFocusCallback = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
+    (e: FocusEvent<HTMLInputElement>) => {
       dispatch({ type: 'START_FOCUS' });
 
       (props.children as any).props.onFocus && (props.children as any).props.onFocus(e);
@@ -54,7 +64,7 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
   }, [dispatch, onChange, startValue, endValue, customParseDate, state.startInputValue]);
 
   const onKeyDownCallback = useCallback(
-    (e: React.KeyboardEvent<HTMLInputElement>) => {
+    (e: KeyboardEvent<HTMLInputElement>) => {
       if (e.key === KEYS.ENTER) {
         e.preventDefault();
         handleBlur();
@@ -66,7 +76,7 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
   );
 
   const onBlurCallback = useCallback(
-    (e: React.FocusEvent<HTMLInputElement>) => {
+    (e: FocusEvent<HTMLInputElement>) => {
       handleBlur();
 
       (props.children as any).props.onBlur && (props.children as any).props.onBlur(e);
@@ -74,9 +84,9 @@ export const Start = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>
     [handleBlur, props.children]
   );
 
-  const childElement = React.Children.only(props.children as React.ReactElement);
+  const childElement = Children.only(props.children as ReactElement);
 
-  return React.cloneElement(childElement, {
+  return cloneElement(childElement, {
     value: state.startInputValue || '',
     ref: startInputRef,
     onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),

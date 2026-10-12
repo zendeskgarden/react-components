@@ -5,8 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 
 interface IStyledDayProps extends ThemeProps<DefaultTheme> {
   $isPreviousMonth?: boolean;
@@ -86,12 +88,7 @@ const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDay
   `;
 };
 
-const COMPONENT_ID = 'datepickers.day';
-
-export const StyledDay = styled.div.attrs<IStyledDayProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledDayProps>`
+export const StyledDay = styled.div<IStyledDayProps>`
   display: flex;
   position: absolute;
   align-items: center;

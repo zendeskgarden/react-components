@@ -8,9 +8,18 @@
 import { KEYS, composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { isSameDay } from 'date-fns/isSameDay';
 import { isValid } from 'date-fns/isValid';
-import { Dispatch, ReactElement, RefAttributes, cloneElement, forwardRef, useRef } from 'react';
+import {
+  Dispatch,
+  ReactElement,
+  RefAttributes,
+  cloneElement,
+  forwardRef,
+  useRef,
+  ChangeEvent,
+  KeyboardEvent
+} from 'react';
 
-import { DatePickerAction, IDatePickerState, parseInputValue } from '../utils/date-picker-reducer';
+import { DatePickerAction, IDatePickerState, parseInputValue } from './date-picker-reducer';
 
 interface IInputProps {
   dispatch: Dispatch<DatePickerAction>;
@@ -30,7 +39,7 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       dispatch({ type: 'CLOSE' });
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       const inputValue = e.target.value;
       const currentDate = parseInputValue({ inputValue, customParseDate });
 
@@ -48,7 +57,7 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
       }
     };
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
       switch (e.key) {
         case KEYS.ESCAPE:
         case KEYS.ENTER:

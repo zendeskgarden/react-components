@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
+import { fireEvent } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { fireEvent, render } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import React from 'react';
+import { vi } from 'vitest';
 
-import { IDatePickerRangeProps } from '../../../types';
-import { DatePickerRange } from '../DatePickerRange';
+import { render } from '../../test/render';
+import { IDatePickerRangeProps } from '../../types/elements';
+import { DatePickerRange } from './DatePickerRange';
 
 const DEFAULT_START_VALUE = new Date(2019, 1, 5);
 const DEFAULT_END_VALUE = new Date(2019, 2, 5);
@@ -35,7 +36,7 @@ describe('DatePickerRange', () => {
   let onChangeSpy: (values: { startValue?: Date; endValue?: Date }) => void;
 
   beforeEach(() => {
-    onChangeSpy = jest.fn();
+    onChangeSpy = vi.fn();
     mockDate.set(DEFAULT_START_VALUE);
   });
 
@@ -160,7 +161,7 @@ describe('DatePickerRange', () => {
     });
 
     it('calls onChange prop if provided', async () => {
-      const onInputChangeSpy = jest.fn();
+      const onInputChangeSpy = vi.fn();
 
       const { getByTestId } = render(
         <DatePickerRange>
@@ -182,7 +183,7 @@ describe('DatePickerRange', () => {
     });
 
     it('calls onBlur prop if provided', async () => {
-      const onBlurSpy = jest.fn();
+      const onBlurSpy = vi.fn();
 
       const { getByTestId } = render(
         <DatePickerRange>
@@ -203,7 +204,7 @@ describe('DatePickerRange', () => {
     });
 
     it('calls onFocus prop if provided', async () => {
-      const onFocusSpy = jest.fn();
+      const onFocusSpy = vi.fn();
 
       const { getByTestId } = render(
         <DatePickerRange>
@@ -223,7 +224,7 @@ describe('DatePickerRange', () => {
     });
 
     it('calls onKeyDown prop if provided', async () => {
-      const onKeyDownSpy = jest.fn();
+      const onKeyDownSpy = vi.fn();
 
       const { getByTestId } = render(
         <DatePickerRange>

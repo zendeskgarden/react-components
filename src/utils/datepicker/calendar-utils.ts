@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IDatePickerProps } from '../types';
+import { IDatePickerProps } from '../../types/elements';
 
 /**
  * The following mappings use the Date offests:

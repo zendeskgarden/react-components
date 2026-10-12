@@ -6,13 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import React from 'react';
 
 import { CalendarStory } from './stories/CalendarStory';
 import { CustomDateFormatStory } from './stories/CustomDateFormatStory';
 
+// MIGRATE(demos): no component property and no title for '[patterns]' in config/story-titles.json; title derived from the last segment
 export default {
-  title: 'Packages/DatePickers/[patterns]'
+  title: 'Components/[patterns]'
 };
 
 export const Example: StoryObj<typeof CalendarStory> = {

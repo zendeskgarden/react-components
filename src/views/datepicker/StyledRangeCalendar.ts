@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledDatePicker } from './StyledDatePicker';
 
-const COMPONENT_ID = 'datepickers.range_calendar';
-
-export const StyledRangeCalendar = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledRangeCalendar = styled.div`
   display: flex;
   overflow: auto;
 

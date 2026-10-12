@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
+import { fireEvent, act } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
-import { render, renderRtl, fireEvent, act } from 'garden-test-utils';
 import mockDate from 'mockdate';
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { vi } from 'vitest';
 
-import { IDatePickerProps } from '../../types';
+import { RTL_THEME, render } from '../../test/render';
+import { IDatePickerProps } from '../../types/elements';
 import { DatePicker } from './DatePicker';
 
 const DEFAULT_DATE = new Date(2019, 1, 5);
@@ -29,7 +31,7 @@ const Example = (props: Omit<IDatePickerProps, 'children'>) => (
   </>
 );
 
-jest.useFakeTimers();
+vi.useFakeTimers();
 
 describe('DatePicker', () => {
   const user = userEvent.setup({ delay: null });
@@ -37,7 +39,7 @@ describe('DatePicker', () => {
   let onChangeSpy: (date: Date) => void;
 
   beforeEach(() => {
-    onChangeSpy = jest.fn();
+    onChangeSpy = vi.fn();
     mockDate.set(DEFAULT_DATE);
   });
 
@@ -229,7 +231,7 @@ describe('DatePicker', () => {
     });
 
     it('does not warn about updating a component while rendering another when controlled', async () => {
-      const consoleErrorSpy = jest.spyOn(console, 'error').mockImplementation(jest.fn());
+      const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(vi.fn());
 
       const Controlled = () => {
         const [value, setValue] = useState<Date | undefined>(DEFAULT_DATE);
@@ -299,7 +301,7 @@ describe('DatePicker', () => {
 
       act(() => {
         fireEvent.mouseUp(getByTestId('input'));
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
         fireEvent.click(getByTestId('input'));
       });
 
@@ -431,7 +433,7 @@ describe('DatePicker', () => {
   describe('customParseDate()', () => {
     it('uses customParseDate to determine date validitiy if provided', async () => {
       const MOCK_DATE = new Date(2019, 0, 1);
-      const customParseDateSpy: (input: string) => Date = jest.fn().mockReturnValue(MOCK_DATE);
+      const customParseDateSpy: (input: string) => Date = vi.fn().mockReturnValue(MOCK_DATE);
       const { getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} customParseDate={customParseDateSpy} />
       );
@@ -445,7 +447,7 @@ describe('DatePicker', () => {
     });
 
     it('does not call onChange if parsed date is the current value', async () => {
-      const customParseDateSpy: (input: string) => Date = jest.fn().mockReturnValue(DEFAULT_DATE);
+      const customParseDateSpy: (input: string) => Date = vi.fn().mockReturnValue(DEFAULT_DATE);
       const { getByTestId } = render(
         <Example value={DEFAULT_DATE} onChange={onChangeSpy} customParseDate={customParseDateSpy} />
       );
@@ -481,7 +483,9 @@ describe('DatePicker', () => {
     });
 
     it('applies RTL classes if provided', async () => {
-      const { getByTestId } = renderRtl(<Example value={DEFAULT_DATE} />);
+      const { getByTestId } = render(<Example value={DEFAULT_DATE} />, {
+        theme: RTL_THEME
+      });
 
       await user.click(getByTestId('input'));
 

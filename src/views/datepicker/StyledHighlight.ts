@@ -5,16 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'datepickers.highlight';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
-const sizeStyles = ({
-  theme,
-  $isEnd,
-  $isStart
-}: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isEnd, $isStart }: IStyledHighlightProps & IStyledBaseProps) => {
   let borderRadius;
 
   const startValue = '0 50% 50% 0;';
@@ -41,10 +38,7 @@ const sizeStyles = ({
   `;
 };
 
-const colorStyles = ({
-  $isHighlighted,
-  theme
-}: IStyledHighlightProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ $isHighlighted, theme }: IStyledHighlightProps & IStyledBaseProps) => {
   return css`
     background-color: ${$isHighlighted &&
     getColor({
@@ -61,10 +55,7 @@ interface IStyledHighlightProps {
   $isEnd: boolean;
 }
 
-export const StyledHighlight = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledHighlightProps>`
+export const StyledHighlight = styled.div<IStyledHighlightProps>`
   position: absolute;
   top: 0;
   left: 0;

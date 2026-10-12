@@ -5,22 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import ChevronLeftStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import React, { useCallback } from 'react';
+import { useCallback, FunctionComponent } from 'react';
+import ChevronLeftStrokeIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
+import ChevronRightStrokeIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
-import { StyledHeader, StyledHeaderPaddle, StyledHeaderLabel } from '../../../styled';
-import useDatePickerContext from '../utils/useDatePickerContext';
+import { StyledHeader } from '../../views/datepicker/StyledHeader';
+import { StyledHeaderLabel } from '../../views/datepicker/StyledHeaderLabel';
+import { StyledHeaderPaddle } from '../../views/datepicker/StyledHeaderPaddle';
+import { COMPONENT_IDS } from '../utils';
+import { useDatePickerContext } from './useDatePickerContext';
 
 interface IMonthSelectorProps {
   locale?: string;
   isCompact: boolean;
 }
 
-export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
-  locale,
-  isCompact
-}) => {
+export const MonthSelector: FunctionComponent<IMonthSelectorProps> = ({ locale, isCompact }) => {
   const { state, dispatch } = useDatePickerContext();
 
   const headerLabelFormatter = useCallback<(date: Date) => string>(
@@ -36,7 +36,11 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
   );
 
   return (
-    <StyledHeader $isCompact={isCompact}>
+    <StyledHeader
+      $isCompact={isCompact}
+      data-garden-id={COMPONENT_IDS['datepickers.header']}
+      data-garden-version={PACKAGE_VERSION}
+    >
       <StyledHeaderPaddle
         $isCompact={isCompact}
         onClick={() => {
@@ -45,10 +49,17 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
           });
         }}
         data-test-id="previous-month"
+        data-garden-id={COMPONENT_IDS['datepickers.header_paddle']}
+        data-garden-version={PACKAGE_VERSION}
       >
         <ChevronLeftStrokeIcon />
       </StyledHeaderPaddle>
-      <StyledHeaderLabel $isCompact={isCompact} data-test-id="month-display">
+      <StyledHeaderLabel
+        $isCompact={isCompact}
+        data-test-id="month-display"
+        data-garden-id={COMPONENT_IDS['datepickers.header_label']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {headerLabelFormatter(state.previewDate)}
       </StyledHeaderLabel>
       <StyledHeaderPaddle
@@ -59,6 +70,8 @@ export const MonthSelector: React.FunctionComponent<IMonthSelectorProps> = ({
           });
         }}
         data-test-id="next-month"
+        data-garden-id={COMPONENT_IDS['datepickers.header_paddle']}
+        data-garden-version={PACKAGE_VERSION}
       >
         <ChevronRightStrokeIcon />
       </StyledHeaderPaddle>

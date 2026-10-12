@@ -17,18 +17,17 @@ import { isSameMonth } from 'date-fns/isSameMonth';
 import { isToday } from 'date-fns/isToday';
 import { startOfMonth } from 'date-fns/startOfMonth';
 import { startOfWeek } from 'date-fns/startOfWeek';
-import React, { forwardRef, HTMLAttributes, useCallback } from 'react';
+import { forwardRef, HTMLAttributes, useCallback } from 'react';
 
-import {
-  StyledDatePicker,
-  StyledCalendar,
-  StyledCalendarItem,
-  StyledDayLabel,
-  StyledDay
-} from '../../../styled';
-import { DateFnsIndex, getStartOfWeek } from '../../../utils/calendar-utils';
-import useDatePickerContext from '../utils/useDatePickerContext';
+import { DateFnsIndex, getStartOfWeek } from '../../utils/datepicker/calendar-utils';
+import { StyledCalendar } from '../../views/datepicker/StyledCalendar';
+import { StyledCalendarItem } from '../../views/datepicker/StyledCalendarItem';
+import { StyledDatePicker } from '../../views/datepicker/StyledDatePicker';
+import { StyledDay } from '../../views/datepicker/StyledDay';
+import { StyledDayLabel } from '../../views/datepicker/StyledDayLabel';
+import { COMPONENT_IDS } from '../utils';
 import { MonthSelector } from './MonthSelector';
+import { useDatePickerContext } from './useDatePickerContext';
 
 interface ICalendarProps extends Omit<HTMLAttributes<HTMLDivElement>, 'onChange'> {
   value?: Date;
@@ -70,8 +69,18 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         const formattedDayLabel = dayLabelFormatter(date);
 
         return (
-          <StyledCalendarItem key={`day-label-${formattedDayLabel}`} $isCompact={isCompact}>
-            <StyledDayLabel $isCompact={isCompact!} data-test-id="day-label">
+          <StyledCalendarItem
+            key={`day-label-${formattedDayLabel}`}
+            $isCompact={isCompact}
+            data-garden-id={COMPONENT_IDS['datepickers.calendar_item']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledDayLabel
+              $isCompact={isCompact!}
+              data-test-id="day-label"
+              data-garden-id={COMPONENT_IDS['datepickers.day_label']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               {formattedDayLabel}
             </StyledDayLabel>
           </StyledCalendarItem>
@@ -92,11 +101,16 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
       }
 
       if (maxValue !== undefined) {
-        isDisabled = isDisabled || (isAfter(date, maxValue) && !isSameDay(date, maxValue));
+        isDisabled ||= isAfter(date, maxValue) && !isSameDay(date, maxValue);
       }
 
       return (
-        <StyledCalendarItem key={date.toISOString()} $isCompact={isCompact}>
+        <StyledCalendarItem
+          key={date.toISOString()}
+          $isCompact={isCompact}
+          data-garden-id={COMPONENT_IDS['datepickers.calendar_item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledDay
             $isToday={isCurrentDate}
             $isPreviousMonth={isPreviousMonth}
@@ -117,6 +131,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
             data-test-selected={isSelected}
             data-test-disabled={isDisabled}
             data-test-today={isCurrentDate}
+            data-garden-id={COMPONENT_IDS['datepickers.day']}
+            data-garden-version={PACKAGE_VERSION}
           >
             {formattedDayLabel}
           </StyledDay>
@@ -126,6 +142,8 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
 
     return (
       <StyledDatePicker
+        data-garden-id={COMPONENT_IDS['datepickers.datepicker']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
         $isCompact={isCompact!}
         data-test-id="calendar-wrapper"
@@ -135,7 +153,11 @@ export const Calendar = forwardRef<HTMLDivElement, ICalendarProps>(
         }}
       >
         <MonthSelector locale={locale} isCompact={isCompact!} />
-        <StyledCalendar $isCompact={isCompact!}>
+        <StyledCalendar
+          $isCompact={isCompact!}
+          data-garden-id={COMPONENT_IDS['datepickers.calendar']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {dayLabels}
           {items}
         </StyledCalendar>

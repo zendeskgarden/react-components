@@ -6,21 +6,14 @@
  */
 
 import PropTypes from 'prop-types';
-import React, {
-  PropsWithChildren,
-  useReducer,
-  useCallback,
-  useEffect,
-  useRef,
-  useMemo
-} from 'react';
+import { PropsWithChildren, useReducer, useCallback, useEffect, useRef, useMemo } from 'react';
 
-import { IDatePickerRangeProps } from '../../types';
-import { Calendar } from './components/Calendar';
-import { End } from './components/End';
-import { Start } from './components/Start';
-import { datepickerRangeReducer, retrieveInitialState } from './utils/date-picker-range-reducer';
-import { DatePickerRangeContext } from './utils/useDatePickerRangeContext';
+import { DatePickerRangeProvider } from '../../context/datepicker/DatePickerRangeContext';
+import { IDatePickerRangeProps } from '../../types/elements';
+import { datepickerRangeReducer, retrieveInitialState } from './date-picker-range-reducer';
+import { Calendar } from './DatePickerRangeCalendar';
+import { End } from './End';
+import { Start } from './Start';
 
 const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
   const {
@@ -118,9 +111,7 @@ const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps
     ]
   );
 
-  return (
-    <DatePickerRangeContext.Provider value={value}>{children}</DatePickerRangeContext.Provider>
-  );
+  return <DatePickerRangeProvider value={value}>{children}</DatePickerRangeProvider>;
 };
 
 DatePickerRangeComponent.propTypes = {

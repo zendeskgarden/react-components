@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'datepickers.header';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledHeader = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<{ $isCompact: boolean }>`
+export const StyledHeader = styled.div<{ $isCompact: boolean }>`
   display: flex;
   width: ${props =>
     props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;

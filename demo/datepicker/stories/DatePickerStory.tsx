@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { DatePicker, IDatePickerProps } from '@zendeskgarden/react-datepickers';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
-import React from 'react';
 
+import { DatePicker, IDatePickerProps } from '../../../src/index';
 import { DATE_STYLE } from './types';
 
 interface IArgs extends IDatePickerProps {
@@ -21,7 +19,7 @@ interface IArgs extends IDatePickerProps {
   validationLabel?: string;
 }
 
-export const DatePickerStory: StoryFn<IArgs> = ({
+export const DatePickerStory = ({
   dateStyle,
   isCompact,
   hasMessage,
@@ -29,7 +27,7 @@ export const DatePickerStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => {
+}: IArgs) => {
   const formatDate = (date: Date) =>
     new Intl.DateTimeFormat(args.locale, { dateStyle }).format(date);
 

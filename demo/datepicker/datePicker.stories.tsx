@@ -6,15 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { DatePicker } from '@zendeskgarden/react-datepickers';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { DatePicker } from '../../src/index';
 import { DATE_STYLE_OPTIONS } from './stories/data';
 import { DatePickerStory } from './stories/DatePickerStory';
 
 export default {
-  title: 'Packages/Datepickers/DatePicker',
+  title: 'Components/Datepickers/DatePicker',
   component: DatePicker
 };
 

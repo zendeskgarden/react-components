@@ -11,7 +11,7 @@ import { isValid } from 'date-fns/isValid';
 import { parse } from 'date-fns/parse';
 import { subMonths } from 'date-fns/subMonths';
 
-import { IDatePickerProps } from '../../../types';
+import { IDatePickerProps } from '../../types/elements';
 
 export interface IDatePickerState {
   isOpen: boolean;

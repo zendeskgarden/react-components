@@ -5,19 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'datepickers.calendar';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 interface IStyledCalendarProps {
   $isCompact?: boolean;
 }
 
-export const StyledCalendar = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledCalendarProps>`
+export const StyledCalendar = styled.div<IStyledCalendarProps>`
   width: ${props =>
     props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
 

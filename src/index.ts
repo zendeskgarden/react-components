@@ -12,6 +12,10 @@ export { Accordion } from './elements/accordion/Accordion';
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
 
+/* datepicker */
+export { DatePicker } from './elements/datepicker/DatePicker';
+export { DatePickerRange } from './elements/datepicker/DatePickerRange';
+
 /* draggable */
 export { Draggable } from './elements/draggable/Draggable';
 export { DraggableList } from './elements/draggable/DraggableList';
@@ -102,6 +106,8 @@ export type {
   IBlockquoteProps,
   ICodeBlockProps,
   ICodeProps,
+  IDatePickerProps,
+  IDatePickerRangeProps,
   IDotsProps,
   IDraggableListProps,
   IDraggableProps,

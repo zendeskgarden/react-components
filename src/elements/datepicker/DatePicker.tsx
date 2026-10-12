@@ -6,9 +6,8 @@
  */
 
 import { autoPlacement, autoUpdate, flip, platform, useFloating } from '@floating-ui/react-dom';
-import { DEFAULT_THEME, getFloatingPlacements } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, {
+import {
   useRef,
   useEffect,
   useReducer,
@@ -16,18 +15,25 @@ import React, {
   useState,
   useContext,
   useMemo,
-  forwardRef
+  forwardRef,
+  Children,
+  ReactElement,
+  RefAttributes
 } from 'react';
 import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
-import { StyledMenu, StyledMenuWrapper } from '../../styled';
-import { IDatePickerProps, PLACEMENT, WEEK_STARTS_ON } from '../../types';
-import { Calendar } from './components/Calendar';
-import { Input } from './components/Input';
-import { datepickerReducer, retrieveInitialState } from './utils/date-picker-reducer';
-import { DatePickerContext } from './utils/useDatePickerContext';
+import { DatePickerProvider } from '../../context/datepicker/DatePickerContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { IDatePickerProps, DATEPICKER_PLACEMENT, WEEK_STARTS_ON } from '../../types/elements';
+import { StyledMenu } from '../../views/datepicker/StyledMenu';
+import { StyledMenuWrapper } from '../../views/datepicker/StyledMenuWrapper';
+import { COMPONENT_IDS } from '../utils';
+import { Calendar } from './Calendar';
+import { datepickerReducer, retrieveInitialState } from './date-picker-reducer';
+import { Input } from './Input';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -85,9 +91,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     middleware: [_placement === 'auto' ? autoPlacement() : flip()]
   });
 
-  const Child = React.Children.only<React.ReactElement & React.RefAttributes<HTMLInputElement>>(
-    children
-  );
+  const Child = Children.only<ReactElement & RefAttributes<HTMLInputElement>>(children);
 
   useEffect(() => {
     // Only allow positioning updates on visible tooltip.
@@ -141,7 +145,11 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
       data-test-rtl={theme.rtl}
     >
       {!!(state.isOpen || isVisible) && (
-        <StyledMenu {...menuProps}>
+        <StyledMenu
+          {...menuProps}
+          data-garden-id={COMPONENT_IDS['datepickers.menu']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <Calendar
             ref={calendarRef}
             isCompact={isCompact}
@@ -169,9 +177,9 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         customParseDate={customParseDate}
         ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
       />
-      <DatePickerContext.Provider value={contextValue}>
+      <DatePickerProvider value={contextValue}>
         {appendToNode ? createPortal(Node, appendToNode) : Node}
-      </DatePickerContext.Provider>
+      </DatePickerProvider>
     </>
   );
 });
@@ -190,7 +198,7 @@ DatePicker.propTypes = {
   isCompact: PropTypes.bool,
   customParseDate: PropTypes.any,
   refKey: PropTypes.string,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(DATEPICKER_PLACEMENT),
   isAnimated: PropTypes.bool,
   zIndex: PropTypes.number
 };

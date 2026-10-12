@@ -6,15 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { DatePickerRange } from '@zendeskgarden/react-datepickers';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { DatePickerRange } from '../../src/index';
 import { DATE_STYLE_OPTIONS } from './stories/data';
 import { DatePickerRangeStory } from './stories/DatePickerRangeStory';
 
 export default {
-  title: 'Packages/Datepickers/DatePickerRange',
+  title: 'Components/Datepickers/DatePickerRange',
   component: DatePickerRange,
   subcomponents: {
     'DatePickerRange.Calendar': DatePickerRange.Calendar,

@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { DatePicker } from '@zendeskgarden/react-datepickers';
 import { Field, Input } from '@zendeskgarden/react-forms';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
+
+import { DatePicker } from '../../../../src/index';
+import { getColor } from '../../../../src/theming/utils/getColor';
 
 interface IArgs {
   appendToNode: boolean;
@@ -27,7 +27,7 @@ export const StyledContainer = styled.div`
   overflow: clip;
 `;
 
-export const CalendarStory: StoryFn<IArgs> = ({ appendToNode }) => {
+export const CalendarStory = ({ appendToNode }: IArgs) => {
   const portalNode = useRef<HTMLDivElement>(null);
 
   return (
