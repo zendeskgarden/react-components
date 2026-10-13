@@ -12,7 +12,7 @@ import { FAUX_INPUT_TAGS as TAGS } from './stories/data';
 import { FauxInputStory } from './stories/FauxInputStory';
 
 export default {
-  title: 'Components/Tag',
+  title: 'Components/Tag/Patterns',
   component: Tag
 };
 
