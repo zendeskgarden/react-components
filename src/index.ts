@@ -12,6 +12,9 @@ export { Accordion } from './elements/accordion/Accordion';
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
 
+/* breadcrumb */
+export { Breadcrumb } from './elements/breadcrumb/Breadcrumb';
+
 /* datepicker */
 export { DatePicker } from './elements/datepicker/DatePicker';
 export { DatePickerRange } from './elements/datepicker/DatePickerRange';

@@ -10,6 +10,12 @@ import type { DefaultTheme } from 'styled-components';
 import type { IGardenTheme } from '../theming/types';
 import type { Size } from './elements';
 
+//#region breadcrumb
+export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
+  $isCurrent?: boolean;
+}
+//#endregion
+
 //#region pagination
 export interface IStyledIcon extends IStyledBaseProps {
   $type: 'first' | 'next' | 'previous' | 'last';

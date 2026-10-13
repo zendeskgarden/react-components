@@ -6,16 +6,15 @@
  */
 
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
-import { useText } from '@zendeskgarden/react-theming';
-import ChevronRightStrokeIcon from '@zendeskgarden/svg-icons/src/12/chevron-right-stroke.svg';
-import React, { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
+import { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
+import ChevronRightStrokeIcon from 'svg-icons-legacy/src/12/chevron-right-stroke.svg';
 
-import {
-  StyledBreadcrumb,
-  StyledBreadcrumbItem,
-  StyledCenteredBreadcrumbItem,
-  StyledChevronIcon
-} from '../styled';
+import { useText } from '../../theming/utils/useText';
+import { StyledBreadcrumb } from '../../views/breadcrumb/StyledBreadcrumb';
+import { StyledBreadcrumbItem } from '../../views/breadcrumb/StyledBreadcrumbItem';
+import { StyledCenteredBreadcrumbItem } from '../../views/breadcrumb/StyledCenteredBreadcrumbItem';
+import { StyledChevronIcon } from '../../views/breadcrumb/StyledChevronIcon';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLElement>
@@ -30,7 +29,11 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 
     if (isLastItem) {
       return (
-        <StyledBreadcrumbItem $isCurrent>
+        <StyledBreadcrumbItem
+          $isCurrent
+          data-garden-id={COMPONENT_IDS['breadcrumbs.item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {cloneElement(child as any, getCurrentPageProps())}
         </StyledBreadcrumbItem>
       );
@@ -38,7 +41,12 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 
     return (
       <>
-        <StyledBreadcrumbItem>{child}</StyledBreadcrumbItem>
+        <StyledBreadcrumbItem
+          data-garden-id={COMPONENT_IDS['breadcrumbs.item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          {child}
+        </StyledBreadcrumbItem>
         <StyledCenteredBreadcrumbItem>
           <StyledChevronIcon>
             <ChevronRightStrokeIcon />
@@ -52,7 +60,12 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
 
   return (
     <nav {...getContainerProps({ ...props, ref, role: null, 'aria-label': ariaLabel! })}>
-      <StyledBreadcrumb>{mappedChildren}</StyledBreadcrumb>
+      <StyledBreadcrumb
+        data-garden-id={COMPONENT_IDS['breadcrumbs.list']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        {mappedChildren}
+      </StyledBreadcrumb>
     </nav>
   );
 });

@@ -5,18 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
+import { Breadcrumb } from '../../../src/index';
 import { BREADCRUMB_CHILDREN } from './data';
 
 interface IArgs extends HTMLAttributes<HTMLElement> {
   children: typeof BREADCRUMB_CHILDREN;
 }
 
-export const BreadcrumbStory: StoryFn<IArgs> = ({ children, ...args }) => (
+export const BreadcrumbStory = ({ children, ...args }: IArgs) => (
   <Breadcrumb {...args}>
     {children.map((child, index) =>
       index < children.length - 1 ? (
