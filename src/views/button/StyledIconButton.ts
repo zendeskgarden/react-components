@@ -11,12 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IButtonProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
-import {
-  COMPONENT_ID as BTN_COMPONENT_ID,
-  IStyledButtonProps,
-  StyledButton,
-  getHeight
-} from './StyledButton';
+import { IStyledButtonProps, StyledButton, getHeight } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 export const COMPONENT_ID = 'buttons.icon_button';
@@ -77,15 +72,7 @@ const iconStyles = (props: IButtonProps & IStyledBaseProps) => {
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledIconButton = styled(StyledButton).attrs(props => {
-  const externalId: string = (props as any)['data-garden-id'];
-
-  return {
-    'data-garden-id': externalId && externalId !== BTN_COMPONENT_ID ? externalId : COMPONENT_ID,
-    'data-garden-version': PACKAGE_VERSION
-  };
-})`
+export const StyledIconButton = styled(StyledButton)`
   ${iconButtonStyles};
 
   & ${StyledIcon} {

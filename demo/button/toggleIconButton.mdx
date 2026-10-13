@@ -1,7 +1,6 @@
 import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
-import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
-import README from '../README.md';
+import IconStroke from 'svg-icons-legacy/src/16/star-stroke.svg';
+import IconFill from 'svg-icons-legacy/src/16/star-fill.svg';
 import * as Stories from './toggleIconButton.stories';
 
 <Meta of={Stories} />
@@ -15,5 +14,3 @@ import * as Stories from './toggleIconButton.stories';
 <Canvas>
   <Story of={Stories.Example} />
 </Canvas>
-
-<Markdown>{README}</Markdown>

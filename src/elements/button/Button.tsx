@@ -11,6 +11,7 @@ import { forwardRef } from 'react';
 import { useSplitButtonContext } from '../../hooks/button/useSplitButtonContext';
 import { IButtonProps, BUTTON_SIZE } from '../../types/elements';
 import { StyledButton } from '../../views/button/StyledButton';
+import { COMPONENT_IDS } from '../utils';
 import { EndIcon } from './EndIcon';
 import { StartIcon } from './StartIcon';
 
@@ -47,6 +48,8 @@ const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
         $isStretched={isStretched}
         $isUnderlined={isLink}
         $size={size}
+        data-garden-id={COMPONENT_IDS['buttons.button']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       />
     );

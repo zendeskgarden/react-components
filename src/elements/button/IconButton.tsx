@@ -47,6 +47,8 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
         $isPrimary={isPrimary}
         $size={size}
         $focusInset={focusInset || splitButtonFocusInset}
+        data-garden-id={COMPONENT_IDS['buttons.icon_button']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       >
         <StyledIcon

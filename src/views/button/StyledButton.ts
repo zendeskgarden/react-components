@@ -442,11 +442,7 @@ const sizeStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
  * attrs fallback would be discarded by styled-components >= 6.3.12 when a
  * caller explicitly passes `type={undefined}`
  */
-// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
-export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
-  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledButtonProps>`
+export const StyledButton = styled.button<IStyledButtonProps>`
   display: ${props => (props.$isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.$isLink && 'center'};
   justify-content: ${props => !props.$isLink && 'center'};

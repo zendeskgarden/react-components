@@ -6,6 +6,7 @@
  */
 
 import { render } from '../../test/render';
+import { COMPONENT_IDS } from '../utils';
 import { Anchor } from './Anchor';
 
 describe('Anchor', () => {
@@ -13,6 +14,20 @@ describe('Anchor', () => {
     const { container } = render(<Anchor />);
 
     expect(container.firstChild!.nodeName).toBe('A');
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('does not let props override the garden attributes', () => {
+      const { container } = render(
+        <Anchor data-garden-id="myCoolAnchor" data-garden-version="0.0.0" />
+      );
+
+      expect(container.firstChild).toHaveAttribute(
+        'data-garden-id',
+        COMPONENT_IDS['buttons.anchor']
+      );
+      expect(container.firstChild).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    });
   });
 
   describe('Styling', () => {

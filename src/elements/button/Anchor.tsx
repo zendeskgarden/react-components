@@ -7,6 +7,7 @@
 
 import PropTypes from 'prop-types';
 import { AnchorHTMLAttributes, forwardRef } from 'react';
+import { useTheme } from 'styled-components';
 
 import { useText } from '../../theming/utils/useText';
 import { IAnchorProps } from '../../types/elements';
@@ -42,13 +43,20 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       isExternal ? 'externalIconLabel' : 'noIconLabel',
       '(opens in a new tab)'
     );
+    const theme = useTheme();
 
     return (
       <StyledAnchor
-        ref={ref}
         $isDanger={isDanger}
         $isUnderlined={isUnderlined}
         {...(anchorProps as any)}
+        data-garden-id={COMPONENT_IDS['buttons.anchor']}
+        data-garden-version={PACKAGE_VERSION}
+        as={(anchorProps as any).as || 'a'}
+        dir={theme.rtl ? 'rtl' : undefined}
+        $isLink
+        type={undefined}
+        ref={ref}
       >
         {children}
         {!!isExternal && (

@@ -9,6 +9,7 @@ import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
+import { COMPONENT_ID } from '../../views/button/StyledIconButton';
 import { IconButton } from './IconButton';
 
 describe('IconButton', () => {
@@ -20,6 +21,19 @@ describe('IconButton', () => {
     );
 
     expect(container.querySelector('svg')).not.toBeNull();
+  });
+
+  describe('`data-garden-id` attribute', () => {
+    it('does not let props override the garden attributes', () => {
+      const { container } = render(
+        <IconButton data-garden-id="myCoolIconButton" data-garden-version="0.0.0">
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
+      expect(container.firstChild).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    });
   });
 
   describe('`type` attribute', () => {
