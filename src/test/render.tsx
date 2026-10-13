@@ -18,7 +18,9 @@ interface IOptions extends RenderOptions {
 
 /**
  * Custom React testing library `render` that accepts an optional Garden theme
- * and returns a `rerender` function that does the same
+ * and returns a `rerender` function that does the same. `rerender` without
+ * options updates the rendered tree in place; with options it renders again
+ * with the given theme.
  */
 export const render = (element: ReactElement, { theme, ...options }: IOptions = {}) => {
   const result = _render(element, {
@@ -28,8 +30,10 @@ export const render = (element: ReactElement, { theme, ...options }: IOptions = 
 
   return {
     ...result,
-    rerender: (_element: ReactElement, _options: IOptions) =>
-      render(_element, { container: result.container, ..._options })
+    rerender: (_element: ReactElement, _options?: IOptions) =>
+      _options
+        ? render(_element, { container: result.container, ..._options })
+        : result.rerender(_element)
   };
 };
 
