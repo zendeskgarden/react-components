@@ -21,6 +21,21 @@ export interface IAccordionContext<SectionValue>
 
 export type AccordionHeaderContext = HTMLProps<Element>;
 
+//#region draggable
+export interface IDraggableListContext {
+  isHorizontal?: boolean;
+}
+
+export interface IDropzoneContext {
+  isVertical?: boolean;
+  isDanger?: boolean;
+  hasIcon?: boolean;
+  setHasIcon?: (hasIcon: boolean) => void;
+  hasMessage?: boolean;
+  setHasMessage?: (hasMessage: boolean) => void;
+}
+//#endregion
+
 //#region tab
 export interface ITabsContext extends IUseTabsReturnValue<any> {
   isVertical?: boolean;

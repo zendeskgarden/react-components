@@ -12,12 +12,21 @@ export { Accordion } from './elements/accordion/Accordion';
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
 
+/* draggable */
+export { Draggable } from './elements/draggable/Draggable';
+export { DraggableList } from './elements/draggable/DraggableList';
+export { Dropzone } from './elements/draggable/Dropzone';
+
 /* loader */
 export { Dots } from './elements/loader/Dots';
 export { Inline } from './elements/loader/Inline';
 export { Progress } from './elements/loader/Progress';
 export { Skeleton } from './elements/loader/Skeleton';
 export { Spinner } from './elements/loader/Spinner';
+
+/* pagination */
+export { CursorPagination } from './elements/pagination/CursorPagination';
+export { OffsetPagination } from './elements/pagination/OffsetPagination';
 
 /* tab */
 export { Tabs } from './elements/tab/Tabs';
@@ -94,10 +103,14 @@ export type {
   ICodeBlockProps,
   ICodeProps,
   IDotsProps,
+  IDraggableListProps,
+  IDraggableProps,
+  IDropzoneProps,
   IEllipsisProps,
   IInlineProps,
   IKbdProps,
   IOrderedListProps,
+  IPaginationProps,
   IParagraphProps,
   IProgressProps,
   ISkeletonProps,
@@ -114,5 +127,6 @@ export type {
   ITypescaleProps as IXLProps,
   ITypescaleProps as IXXLProps,
   ITypescaleProps as IXXXLProps,
-  IUnorderedListProps
+  IUnorderedListProps,
+  PageType
 } from './types/elements';

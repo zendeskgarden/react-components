@@ -1,0 +1,45 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+
+interface IStyledIconProps extends ThemeProps<DefaultTheme> {
+  $isVertical?: boolean;
+  $hasMessage?: boolean;
+}
+
+function sizeStyles({ theme, $isVertical }: IStyledIconProps) {
+  let property;
+  let value;
+
+  if ($isVertical) {
+    property = 'margin-bottom';
+    value = theme.space.xs;
+  } else {
+    property = theme.rtl ? 'margin-left' : 'margin-right';
+    value = theme.space.xs;
+  }
+
+  return css`
+    ${property}: ${value};
+  `;
+}
+
+/**
+ * 1. Corrects the vertical text alignment of the icon within a dropzone message.
+ */
+export const StyledIcon = styled.div<IStyledIconProps>`
+  display: flex;
+  width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
+
+  ${p => p.$hasMessage && sizeStyles(p)}
+
+  ${componentStyles};
+`;
