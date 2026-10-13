@@ -24,6 +24,19 @@ const BasicExample = () => (
   </Breadcrumb>
 );
 
+const ConditionalExample = ({ showHidden = false }: { showHidden?: boolean }) => (
+  <Breadcrumb>
+    <a data-test-id="item" href="/#">
+      First
+    </a>
+    {null}
+    <a data-test-id="item" href="/#">
+      Last
+    </a>
+    {showHidden ? <span data-test-id="hidden-item">Hidden</span> : null}
+  </Breadcrumb>
+);
+
 describe('Breadcrumb', () => {
   describe('Breadcrumb', () => {
     it('receives useBreadcrumb() props', () => {
@@ -63,6 +76,18 @@ describe('Breadcrumb', () => {
 
       expect(items[0]).not.toHaveAttribute('aria-current');
       expect(items[1]).toHaveAttribute('aria-current', 'page');
+    });
+  });
+
+  describe('Conditional children', () => {
+    it('ignores non-element children when finding the current item', () => {
+      const { container, getAllByTestId } = render(<ConditionalExample />);
+      const items = getAllByTestId('item');
+
+      expect(items).toHaveLength(2);
+      expect(items[0]).not.toHaveAttribute('aria-current');
+      expect(items[1]).toHaveAttribute('aria-current', 'page');
+      expect(container.querySelectorAll('li[aria-hidden="true"]')).toHaveLength(1);
     });
   });
 

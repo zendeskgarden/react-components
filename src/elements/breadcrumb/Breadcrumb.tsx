@@ -7,7 +7,7 @@
 
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
 import ChevronRightIcon from '@zendeskgarden/svg-icons/src/chevron-right.svg';
-import { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
+import { Children, cloneElement, forwardRef, HTMLAttributes, isValidElement } from 'react';
 
 import { useText } from '../../theming/utils/useText';
 import { StyledBreadcrumb } from '../../views/breadcrumb/StyledBreadcrumb';
@@ -22,9 +22,11 @@ import { COMPONENT_IDS } from '../utils';
 export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { getContainerProps, getCurrentPageProps } = useBreadcrumb();
 
-  const totalChildren = Children.count(props.children);
+  const children = Children.toArray(props.children).filter(isValidElement);
 
-  const mappedChildren = Children.map(props.children, (child, index) => {
+  const totalChildren = children.length;
+
+  const mappedChildren = Children.map(children, (child, index) => {
     const isLastItem = index === totalChildren - 1;
 
     if (isLastItem) {
