@@ -21,6 +21,8 @@ const componentIds = [
   'avatars.status-indicator.status',
   'avatars.status_indicator',
   'avatars.text',
+  'breadcrumbs.item',
+  'breadcrumbs.list',
   'cursor_pagination',
   'cursor_pagination.cursor',
   'datepickers.calendar',

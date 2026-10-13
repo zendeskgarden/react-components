@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Breadcrumb } from '@zendeskgarden/react-breadcrumbs';
-import React from 'react';
 
+import { Breadcrumb } from '../../src/index';
 import { BreadcrumbStory } from './stories/BreadcrumbStory';
 import { BREADCRUMB_CHILDREN as CHILDREN } from './stories/data';
 
 export default {
-  title: 'Packages/Breadcrumbs/Breadcrumb',
+  title: 'Components/Breadcrumb',
   component: Breadcrumb
 };
 

@@ -9,9 +9,7 @@ import styled from 'styled-components';
 
 import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
-export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem).attrs({
-  'aria-hidden': true
-})`
+export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem)`
   display: flex;
   align-items: center;
 `;

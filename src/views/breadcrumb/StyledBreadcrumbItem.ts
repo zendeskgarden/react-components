@@ -5,16 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, getLineHeight, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'breadcrumbs.item';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps, IStyledBreadcrumbItemProps } from '../../types/views';
 
-export interface IStyledBreadcrumbItemProps {
-  $isCurrent?: boolean;
-}
-
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
+const sizeStyles = ({ theme }: IStyledBaseProps) => css`
   line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
   white-space: nowrap;
 
@@ -28,10 +26,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => css`
  * 1. These CSS pseudo-classes are used to match the equivalent of :any-link, which
  *     is not used here because it is not currently supported in Microsoft Edge.
  */
-const colorStyles = ({
-  $isCurrent,
-  theme
-}: IStyledBreadcrumbItemProps & ThemeProps<DefaultTheme>) => css`
+const colorStyles = ({ $isCurrent, theme }: IStyledBreadcrumbItemProps) => css`
   color: ${$isCurrent ? getColor({ variable: 'foreground.subtle', theme }) : 'inherit'};
 
   ${$isCurrent &&
@@ -47,10 +42,7 @@ const colorStyles = ({
     `}
 `;
 
-export const StyledBreadcrumbItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledBreadcrumbItemProps>`
+export const StyledBreadcrumbItem = styled.li<IStyledBreadcrumbItemProps>`
   font-size: inherit;
 
   ${sizeStyles}

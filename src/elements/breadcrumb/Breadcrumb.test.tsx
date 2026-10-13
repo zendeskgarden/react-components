@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
+import { render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Breadcrumb } from './Breadcrumb';
 
 const BasicExample = () => (
@@ -20,6 +21,19 @@ const BasicExample = () => (
       Two
     </a>
     <span data-test-id="item">Three</span>
+  </Breadcrumb>
+);
+
+const ConditionalExample = ({ showHidden = false }: { showHidden?: boolean }) => (
+  <Breadcrumb>
+    <a data-test-id="item" href="/#">
+      First
+    </a>
+    {null}
+    <a data-test-id="item" href="/#">
+      Last
+    </a>
+    {showHidden ? <span data-test-id="hidden-item">Hidden</span> : null}
   </Breadcrumb>
 );
 
@@ -38,7 +52,7 @@ describe('Breadcrumb', () => {
     });
 
     it('passes ref to underlying DOM element', () => {
-      const ref = React.createRef<HTMLDivElement>();
+      const ref = createRef<HTMLDivElement>();
       const { container } = render(<Breadcrumb ref={ref} />);
 
       expect(container.firstChild).toBe(ref.current);
@@ -62,6 +76,41 @@ describe('Breadcrumb', () => {
 
       expect(items[0]).not.toHaveAttribute('aria-current');
       expect(items[1]).toHaveAttribute('aria-current', 'page');
+    });
+  });
+
+  describe('Conditional children', () => {
+    it('ignores non-element children when finding the current item', () => {
+      const { container, getAllByTestId } = render(<ConditionalExample />);
+      const items = getAllByTestId('item');
+
+      expect(items).toHaveLength(2);
+      expect(items[0]).not.toHaveAttribute('aria-current');
+      expect(items[1]).toHaveAttribute('aria-current', 'page');
+      expect(container.querySelectorAll('li[aria-hidden="true"]')).toHaveLength(1);
+    });
+  });
+
+  describe('Separator', () => {
+    it('renders aria-hidden with the item garden id', () => {
+      const { container } = render(<BasicExample />);
+      const separators = container.querySelectorAll('li[aria-hidden="true"]');
+
+      expect(separators).toHaveLength(2);
+      separators.forEach(separator => {
+        expect(separator).toHaveAttribute('data-garden-id', 'breadcrumbs.item');
+      });
+    });
+
+    it('sizes the chevron to the compact icon size', () => {
+      const { container } = render(<BasicExample />);
+      const chevrons = container.querySelectorAll('li[aria-hidden="true"] svg');
+
+      expect(chevrons).toHaveLength(2);
+      chevrons.forEach(chevron => {
+        expect(chevron).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md);
+        expect(chevron).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md);
+      });
     });
   });
 
