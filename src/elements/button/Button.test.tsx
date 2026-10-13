@@ -90,6 +90,13 @@ describe('Button', () => {
   describe('Colors', () => {
     const color = (theme: typeof DEFAULT_THEME, variable: string, options = {}) =>
       getColor({ variable, theme, ...options });
+    const neutral = (theme: typeof DEFAULT_THEME, lightShade: number, darkShade: number) =>
+      getColor({
+        theme,
+        hue: 'neutralHue',
+        light: { shade: lightShade },
+        dark: { shade: darkShade }
+      });
 
     it.each([
       ['light', DEFAULT_THEME],
@@ -97,27 +104,14 @@ describe('Button', () => {
     ] as const)('renders primary styling in $0 mode', (_, theme) => {
       const { container } = render(<Button isPrimary />, { theme });
 
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.primaryEmphasis')
-      );
+      expect(container.firstChild).toHaveStyleRule('background-color', neutral(theme, 900, 300));
       expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.onEmphasis'));
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.primaryEmphasis', {
-          light: { offset: 100 },
-          dark: { offset: -100 }
-        }),
-        { modifier: '&:hover' }
-      );
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.primaryEmphasis', {
-          light: { offset: 200 },
-          dark: { offset: -200 }
-        }),
-        { modifier: '&:active' }
-      );
+      expect(container.firstChild).toHaveStyleRule('background-color', neutral(theme, 800, 200), {
+        modifier: '&:hover'
+      });
+      expect(container.firstChild).toHaveStyleRule('background-color', neutral(theme, 700, 100), {
+        modifier: '&:active'
+      });
     });
 
     it('renders primary danger styling if provided', () => {
@@ -134,7 +128,7 @@ describe('Button', () => {
 
       expect(container.firstChild).toHaveStyleRule(
         'background-color',
-        color(DEFAULT_THEME, 'background.emphasis')
+        neutral(DEFAULT_THEME, 900, 300)
       );
     });
 
@@ -167,7 +161,7 @@ describe('Button', () => {
     ] as const)('renders danger neutral styling in $0 mode', (_, theme) => {
       const { container } = render(<Button isDanger isNeutral />, { theme });
 
-      expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.default'));
+      expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.danger'));
       expect(container.firstChild).toHaveStyleRule(
         'border-color',
         color(theme, 'border.dangerEmphasis'),
@@ -181,21 +175,14 @@ describe('Button', () => {
     ] as const)('renders neutral styling in $0 mode', (_, theme) => {
       const { container } = render(<Button isNeutral />, { theme });
 
-      expect(container.firstChild).toHaveStyleRule(
-        'border-color',
-        color(theme, 'border.default', { light: { offset: 100 }, dark: { offset: -100 } })
-      );
+      expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 500, 600));
       expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.default'));
-      expect(container.firstChild).toHaveStyleRule(
-        'border-color',
-        color(theme, 'border.primaryEmphasis'),
-        { modifier: '&:hover' }
-      );
-      expect(container.firstChild).toHaveStyleRule(
-        'border-color',
-        color(theme, 'border.primaryEmphasis', { light: { offset: 100 }, dark: { offset: -100 } }),
-        { modifier: '&:active' }
-      );
+      expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 600, 500), {
+        modifier: '&:hover'
+      });
+      expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 700, 400), {
+        modifier: '&:active'
+      });
     });
   });
 

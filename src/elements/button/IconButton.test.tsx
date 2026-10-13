@@ -8,7 +8,10 @@
 import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 import { vi } from 'vitest';
 
-import { render } from '../../test/render';
+import { DARK_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { COMPONENT_ID } from '../../views/button/StyledIconButton';
 import { IconButton } from './IconButton';
 
@@ -33,6 +36,82 @@ describe('IconButton', () => {
 
       expect(container.firstChild).toHaveAttribute('data-garden-id', COMPONENT_ID);
       expect(container.firstChild).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    });
+  });
+
+  describe('Colors', () => {
+    const color = (theme: typeof DEFAULT_THEME, variable: string, options = {}) =>
+      getColor({ variable, theme, ...options });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders danger outline styling in $0 mode', (_, theme) => {
+      const { container } = render(
+        <IconButton isBasic={false} isDanger>
+          <TestIcon />
+        </IconButton>,
+        { theme }
+      );
+      const offset100 = { light: { offset: 100 }, dark: { offset: -100 } };
+      const offset200 = { light: { offset: 200 }, dark: { offset: -200 } };
+
+      expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.danger'));
+      expect(container.firstChild).toHaveStyleRule(
+        'border-color',
+        color(theme, 'border.dangerEmphasis')
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'border-color',
+        color(theme, 'border.dangerEmphasis', offset100),
+        { modifier: '&:hover' }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        color(theme, 'background.dangerEmphasis', { transparency: theme.opacity[100] }),
+        { modifier: '&:hover' }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'border-color',
+        color(theme, 'border.dangerEmphasis', offset200),
+        { modifier: '&:active' }
+      );
+    });
+
+    it('renders danger styling without a border if basic', () => {
+      const { container } = render(
+        <IconButton isDanger>
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        color(DEFAULT_THEME, 'foreground.danger')
+      );
+      expect(container.firstChild).toHaveStyleRule('border', 'none');
+    });
+
+    it('renders subtle icon colors if neutral', () => {
+      const { container } = render(
+        <IconButton isNeutral>
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        color(DEFAULT_THEME, 'foreground.subtle', {
+          light: { offset: 100 },
+          dark: { offset: -100 }
+        }),
+        { modifier: `&:hover ${StyledIcon}` }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        color(DEFAULT_THEME, 'foreground.subtle'),
+        { modifier: `&[aria-pressed='true'] ${StyledIcon}` }
+      );
     });
   });
 

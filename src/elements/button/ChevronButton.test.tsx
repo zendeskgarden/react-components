@@ -6,6 +6,7 @@
  */
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { ChevronButton } from './ChevronButton';
 
 describe('ChevronButton', () => {
@@ -19,5 +20,15 @@ describe('ChevronButton', () => {
     const { container } = render(<ChevronButton isRotated />);
 
     expect(container.querySelector('svg')).toHaveStyleRule('transform', 'rotate(+180deg)');
+  });
+
+  it('renders pill styling by default, unless `isPill` is false', () => {
+    const { container, rerender } = render(<ChevronButton />);
+
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.full);
+
+    rerender(<ChevronButton isPill={false} />);
+
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.md);
   });
 });
