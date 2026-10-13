@@ -10,8 +10,7 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBreadcrumbItemProps } from '../../types/views';
-import type { IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseProps, IStyledBreadcrumbItemProps } from '../../types/views';
 
 const sizeStyles = ({ theme }: IStyledBaseProps) => css`
   line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};

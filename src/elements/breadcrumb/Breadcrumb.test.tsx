@@ -65,6 +65,18 @@ describe('Breadcrumb', () => {
     });
   });
 
+  describe('Separator', () => {
+    it('renders aria-hidden with the item garden id', () => {
+      const { container } = render(<BasicExample />);
+      const separators = container.querySelectorAll('li[aria-hidden="true"]');
+
+      expect(separators).toHaveLength(2);
+      separators.forEach(separator => {
+        expect(separator).toHaveAttribute('data-garden-id', 'breadcrumbs.item');
+      });
+    });
+  });
+
   describe('Item', () => {
     it('receives current styling if last', () => {
       const { getAllByTestId } = render(<BasicExample />);

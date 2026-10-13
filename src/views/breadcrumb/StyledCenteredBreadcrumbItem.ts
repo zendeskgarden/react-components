@@ -9,10 +9,7 @@ import styled from 'styled-components';
 
 import { StyledBreadcrumbItem } from './StyledBreadcrumbItem';
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem).attrs({
-  'aria-hidden': true
-})`
+export const StyledCenteredBreadcrumbItem = styled(StyledBreadcrumbItem)`
   display: flex;
   align-items: center;
 `;

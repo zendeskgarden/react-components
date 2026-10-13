@@ -47,7 +47,11 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
         >
           {child}
         </StyledBreadcrumbItem>
-        <StyledCenteredBreadcrumbItem>
+        <StyledCenteredBreadcrumbItem
+          aria-hidden
+          data-garden-id={COMPONENT_IDS['breadcrumbs.item']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledChevronIcon>
             <ChevronRightStrokeIcon />
           </StyledChevronIcon>
