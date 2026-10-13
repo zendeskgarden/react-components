@@ -9,7 +9,9 @@ import { userEvent } from '@testing-library/user-event';
 import { createRef, useState } from 'react';
 import { vi, type Mock } from 'vitest';
 
-import { render } from '../../test/render';
+import { DARK_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { IPaginationProps } from '../../types/elements';
 import { OffsetPagination } from './OffsetPagination';
 
@@ -83,6 +85,72 @@ describe('OffsetPagination', () => {
       const { getByText } = render(<BasicExample currentPage={3} totalPages={5} />);
 
       expect(getByText('3')).toHaveAttribute('aria-current', 'page');
+    });
+  });
+
+  describe('Selected page styles', () => {
+    const color = (theme: typeof DEFAULT_THEME, variable: string, options = {}) =>
+      getColor({ variable, theme, ...options });
+
+    const pageStyles = (theme: typeof DEFAULT_THEME) => ({
+      current: {
+        backgroundColor: color(theme, 'background.primaryEmphasis', {
+          transparency: theme.opacity[100],
+          dark: { offset: -100 }
+        }),
+        color: color(theme, 'foreground.subtle', {
+          light: { offset: 200 },
+          dark: { offset: -200 }
+        })
+      },
+      hover: color(theme, 'background.primaryEmphasis', {
+        transparency: theme.opacity[100],
+        dark: { offset: -100 }
+      }),
+      active: color(theme, 'background.primaryEmphasis', {
+        transparency: theme.opacity[200],
+        dark: { offset: -100 }
+      }),
+      currentHover: color(theme, 'background.primaryEmphasis', {
+        transparency: theme.opacity[200],
+        dark: { offset: -100 }
+      }),
+      currentActive: color(theme, 'background.primaryEmphasis', {
+        transparency: theme.opacity[300],
+        dark: { offset: -100 }
+      })
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders the expected styles on the selected page in $0 mode', (_, theme) => {
+      const { getByText } = render(<BasicExample currentPage={3} totalPages={5} />, { theme });
+
+      const page = getByText('3');
+      const styles = pageStyles(theme);
+
+      expect(page).toHaveStyleRule('font-weight', `${theme.fontWeights.semibold}`, {
+        modifier: '&[aria-current="page"]'
+      });
+      expect(page).toHaveStyleRule('background-color', styles.current.backgroundColor, {
+        modifier: '&[aria-current="page"]'
+      });
+      expect(page).toHaveStyleRule('color', styles.current.color, {
+        modifier: '&[aria-current="page"]'
+      });
+      expect(page).toHaveStyleRule('background-color', styles.hover, {
+        modifier: '&:hover'
+      });
+      expect(page).toHaveStyleRule('background-color', styles.active, {
+        modifier: '&:active'
+      });
+      expect(page).toHaveStyleRule('background-color', styles.currentHover, {
+        modifier: '&[aria-current="page"]:hover'
+      });
+      expect(page).toHaveStyleRule('background-color', styles.currentActive, {
+        modifier: '&[aria-current="page"]:active'
+      });
     });
   });
 

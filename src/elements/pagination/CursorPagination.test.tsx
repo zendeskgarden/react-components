@@ -64,4 +64,32 @@ describe('CursorPagination', () => {
       expect(rtlContainer.querySelector('svg')).toHaveStyle(`margin-${rtl}: ${margin}px`);
     });
   });
+
+  describe('icon rotation', () => {
+    it.each(['First', 'Previous', 'Next', 'Last'] as const)(
+      'does not rotate the %s icon in LTR',
+      name => {
+        const Cursor = CursorPagination[name];
+        const { container } = render(
+          <CursorPagination>
+            <Cursor />
+          </CursorPagination>
+        );
+
+        expect(container.querySelector('svg')).not.toHaveStyle({ transform: 'rotate(180deg)' });
+      }
+    );
+
+    it.each(['First', 'Previous', 'Next', 'Last'] as const)('rotates the %s icon in RTL', name => {
+      const Cursor = CursorPagination[name];
+      const { container } = render(
+        <CursorPagination>
+          <Cursor />
+        </CursorPagination>,
+        { theme: RTL_THEME }
+      );
+
+      expect(container.querySelector('svg')).toHaveStyle({ transform: 'rotate(180deg)' });
+    });
+  });
 });
