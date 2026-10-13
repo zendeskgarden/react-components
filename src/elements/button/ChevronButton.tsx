@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import ChevronDownIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
+import ChevronDownIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import { IIconButtonProps } from '../types';
+import { IIconButtonProps } from '../../types/elements';
 import { IconButton } from './IconButton';
 
 /**

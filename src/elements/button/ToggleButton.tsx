@@ -6,9 +6,9 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { IToggleButtonProps } from '../types';
+import { IToggleButtonProps } from '../../types/elements';
 import { Button } from './Button';
 
 /**

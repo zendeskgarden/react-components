@@ -6,11 +6,11 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Anchor } from '@zendeskgarden/react-buttons';
-import React from 'react';
+
+import { Anchor } from '../../src/index';
 
 export default {
-  title: 'Packages/Buttons/Anchor',
+  title: 'Components/Anchor',
   component: Anchor
 };
 

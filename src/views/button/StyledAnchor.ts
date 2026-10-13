@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { IAnchorProps } from './../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { IAnchorProps } from '../../types/elements';
 import { StyledButton } from './StyledButton';
 
 const COMPONENT_ID = 'buttons.anchor';
@@ -16,6 +16,7 @@ const COMPONENT_ID = 'buttons.anchor';
 /**
  * Accepts all `<a>` props
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledAnchor = styled(StyledButton).attrs<IAnchorProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

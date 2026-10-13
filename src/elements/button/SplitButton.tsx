@@ -5,21 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledSplitButton } from '../styled';
-import { SplitButtonContext } from '../utils/useSplitButtonContext';
+import { SplitButtonProvider } from '../../context/button/SplitButtonContext';
+import { StyledSplitButton } from '../../views/button/StyledSplitButton';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const SplitButton = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, ...other }, ref) => (
-    <SplitButtonContext.Provider value>
-      <StyledSplitButton ref={ref} {...other}>
+    <SplitButtonProvider value>
+      <StyledSplitButton
+        ref={ref}
+        {...other}
+        data-garden-id={COMPONENT_IDS['buttons.button_group_view']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {children}
       </StyledSplitButton>
-    </SplitButtonContext.Provider>
+    </SplitButtonProvider>
   )
 );
 

@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'buttons.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledIconProps {
   $isRotated?: boolean;
   $position?: 'start' | 'end';
 }
 
-const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
   let marginProperty;
 
   if (props.$position === 'start') {
@@ -32,10 +33,7 @@ const sizeStyles = (props: IStyledIconProps & ThemeProps<DefaultTheme>) => {
   );
 };
 
-export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledIconProps>`
+export const StyledIcon = styled(StyledBaseIcon)<IStyledIconProps>`
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,

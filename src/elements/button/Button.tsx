@@ -6,13 +6,13 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledButton } from '../styled';
-import { IButtonProps, SIZE } from '../types';
-import { useSplitButtonContext } from '../utils/useSplitButtonContext';
-import { EndIcon } from './components/EndIcon';
-import { StartIcon } from './components/StartIcon';
+import { useSplitButtonContext } from '../../hooks/button/useSplitButtonContext';
+import { IButtonProps, BUTTON_SIZE } from '../../types/elements';
+import { StyledButton } from '../../views/button/StyledButton';
+import { EndIcon } from './EndIcon';
+import { StartIcon } from './StartIcon';
 
 const ButtonComponent = forwardRef<HTMLButtonElement, IButtonProps>(
   (
@@ -64,7 +64,7 @@ ButtonComponent.propTypes = {
   isPill: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isStretched: PropTypes.bool,
-  size: PropTypes.oneOf(SIZE)
+  size: PropTypes.oneOf(BUTTON_SIZE)
 };
 
 /**

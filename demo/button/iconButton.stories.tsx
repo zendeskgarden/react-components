@@ -6,12 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { IconButton } from '@zendeskgarden/react-buttons';
-import Icon from '@zendeskgarden/svg-icons/src/16/smiley-stroke.svg';
-import React from 'react';
+import Icon from 'svg-icons-legacy/src/16/smiley-stroke.svg';
+
+import { IconButton } from '../../src/index';
 
 export default {
-  title: 'Packages/Buttons/IconButton',
+  title: 'Components/Buttons/IconButton',
   component: IconButton
 };
 

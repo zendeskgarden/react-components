@@ -5,20 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Button, ChevronButton, IButtonProps, SplitButton } from '@zendeskgarden/react-buttons';
-import React from 'react';
+import { Button, ChevronButton, IButtonProps, SplitButton } from '../../../src/index';
 
 interface IArgs extends IButtonProps {
   isRotated?: boolean;
 }
 
-export const SplitButtonStory: StoryFn<IArgs> = ({
+export const SplitButtonStory = ({
   children,
   'aria-label': ariaLabel,
   isRotated,
   ...args
-}) => (
+}: IArgs) => (
   <SplitButton>
     <Button {...args}>{children}</Button>
     <ChevronButton aria-label={ariaLabel} isRotated={isRotated} {...args} />

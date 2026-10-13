@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export const SplitButtonContext = createContext<boolean | undefined>(undefined);
+import { SplitButtonContext } from '../../context/button/SplitButtonContext';
 
 export const useSplitButtonContext = () => {
   return useContext(SplitButtonContext);

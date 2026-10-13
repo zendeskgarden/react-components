@@ -6,12 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ChevronButton } from '@zendeskgarden/react-buttons';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { ChevronButton } from '../../src/index';
+
 export default {
-  title: 'Packages/Buttons/ChevronButton',
+  title: 'Components/Buttons/ChevronButton',
   component: ChevronButton
 };
 

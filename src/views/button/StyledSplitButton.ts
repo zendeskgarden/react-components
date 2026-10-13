@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'buttons.button_group_view';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledSplitButton = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledSplitButton = styled.div`
   display: inline-flex;
   position: relative;
   z-index: 0;

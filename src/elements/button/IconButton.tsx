@@ -6,11 +6,13 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledIconButton, StyledIcon } from '../styled';
-import { IIconButtonProps, SIZE } from '../types';
-import { useSplitButtonContext } from '../utils/useSplitButtonContext';
+import { useSplitButtonContext } from '../../hooks/button/useSplitButtonContext';
+import { IIconButtonProps, BUTTON_SIZE } from '../../types/elements';
+import { StyledIcon } from '../../views/button/StyledIcon';
+import { StyledIconButton } from '../../views/button/StyledIconButton';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
@@ -47,7 +49,13 @@ export const IconButton = forwardRef<HTMLButtonElement, IIconButtonProps>(
         $focusInset={focusInset || splitButtonFocusInset}
         ref={ref}
       >
-        <StyledIcon $isRotated={isRotated}>{children}</StyledIcon>
+        <StyledIcon
+          $isRotated={isRotated}
+          data-garden-id={COMPONENT_IDS['buttons.icon']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          {children}
+        </StyledIcon>
       </StyledIconButton>
     );
   }
@@ -63,5 +71,5 @@ IconButton.propTypes = {
   isPill: PropTypes.bool,
   isPrimary: PropTypes.bool,
   isRotated: PropTypes.bool,
-  size: PropTypes.oneOf(SIZE)
+  size: PropTypes.oneOf(BUTTON_SIZE)
 };

@@ -5,19 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import NewWindowIcon from '@zendeskgarden/svg-icons/src/12/new-window-stroke.svg';
 import styled from 'styled-components';
+import NewWindowIcon from 'svg-icons-legacy/src/12/new-window-stroke.svg';
 
-const COMPONENT_ID = 'buttons.external_icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * Accepts all `<svg>` props
  */
-export const StyledExternalIcon = styled(NewWindowIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledExternalIcon = styled(NewWindowIcon)`
   transform: ${props => props.theme.rtl && 'scaleX(-1)'};
   margin-bottom: -0.085em;
   padding-left: 0.25em;

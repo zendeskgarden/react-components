@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
+import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
-import { COMPONENT_ID } from '../styled/StyledButton';
+import { RTL_THEME, render } from '../../test/render';
+import { COMPONENT_ID } from '../../views/button/StyledButton';
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -20,7 +20,7 @@ describe('Button', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLButtonElement>();
     const { container } = render(<Button ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
@@ -96,12 +96,15 @@ describe('Button', () => {
     });
 
     it('renders RTL icon rotation', () => {
-      const { getByTestId } = renderRtl(
+      const { getByTestId } = render(
         <Button>
           <Button.EndIcon isRotated>
             <TestIcon data-test-id="icon" />
           </Button.EndIcon>
-        </Button>
+        </Button>,
+        {
+          theme: RTL_THEME
+        }
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('transform', 'rotate(-180deg)');

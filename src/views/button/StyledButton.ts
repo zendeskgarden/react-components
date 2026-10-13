@@ -5,18 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  SELECTOR_FOCUS_VISIBLE,
-  focusStyles,
-  getColor,
-  getFocusBoxShadow,
-  componentStyles
-} from '@zendeskgarden/react-theming';
 import { em, math } from 'polished';
 import { ButtonHTMLAttributes } from 'react';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IButtonProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { getFocusBoxShadow } from '../../theming/utils/getFocusBoxShadow';
+import { IButtonProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledIcon } from './StyledIcon';
 import { StyledSplitButton } from './StyledSplitButton';
 
@@ -35,7 +33,7 @@ export interface IStyledButtonProps extends ButtonHTMLAttributes<HTMLButtonEleme
   $focusInset?: boolean;
 }
 
-const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const getBorderRadius = (props: IStyledButtonProps & IStyledBaseProps) => {
   if (props.$isPill) {
     return '100px';
   }
@@ -43,7 +41,7 @@ const getBorderRadius = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) =
   return props.theme.borderRadii.md;
 };
 
-export const getHeight = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+export const getHeight = (props: IStyledButtonProps & IStyledBaseProps) => {
   if (props.$size === 'small') {
     return `${props.theme.space.base * 8}px`;
   } else if (props.$size === 'large') {
@@ -67,7 +65,7 @@ const colorStyles = ({
   $isNeutral,
   $isPrimary,
   $focusInset
-}: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+}: IStyledButtonProps & IStyledBaseProps) => {
   let retVal;
   const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
   const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
@@ -303,7 +301,7 @@ const groupStyles = ({
   $isBasic,
   $isPill,
   $focusInset
-}: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+}: IStyledButtonProps & IStyledBaseProps) => {
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
   const endPosition = rtl ? 'left' : 'right';
@@ -385,7 +383,7 @@ const groupStyles = ({
   `;
 };
 
-const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   const $size = props.$size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
 
   return css`
@@ -396,7 +394,7 @@ const iconStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   let retVal;
 
   if (props.$isLink) {
@@ -444,6 +442,7 @@ const sizeStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
  * attrs fallback would be discarded by styled-components >= 6.3.12 when a
  * caller explicitly passes `type={undefined}`
  */
+// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
 export const StyledButton = styled.button.attrs<IStyledButtonProps>(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION

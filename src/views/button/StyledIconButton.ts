@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IButtonProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IButtonProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import {
   COMPONENT_ID as BTN_COMPONENT_ID,
   IStyledButtonProps,
@@ -19,7 +21,7 @@ import { StyledIcon } from './StyledIcon';
 
 export const COMPONENT_ID = 'buttons.icon_button';
 
-const iconColorStyles = ({ theme }: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconColorStyles = ({ theme }: IStyledButtonProps & IStyledBaseProps) => {
   const options = { theme, variable: 'foreground.subtle' };
   const baseColor = getColor(options);
   const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
@@ -40,7 +42,7 @@ const iconColorStyles = ({ theme }: IStyledButtonProps & ThemeProps<DefaultTheme
   `;
 };
 
-const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) => {
+const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   const width = getHeight(props);
 
   return css`
@@ -62,7 +64,7 @@ const iconButtonStyles = (props: IStyledButtonProps & ThemeProps<DefaultTheme>) 
 /**
  * 1. Ease opacity transition between embedded icons (i.e. stroke-fill).
  */
-const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
+const iconStyles = (props: IButtonProps & IStyledBaseProps) => {
   const size = props.theme.iconSizes.md;
 
   return css`
@@ -75,6 +77,7 @@ const iconStyles = (props: IButtonProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledIconButton = styled(StyledButton).attrs(props => {
   const externalId: string = (props as any)['data-garden-id'];
 

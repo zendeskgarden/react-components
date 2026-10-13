@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Button } from '@zendeskgarden/react-buttons';
-import React from 'react';
 
+import { Button } from '../../src/index';
 import { ButtonStory } from './stories/ButtonStory';
 
 export default {
-  title: 'Packages/Buttons/Button',
+  title: 'Components/Buttons/Button',
   component: Button,
   subcomponents: {
     'Button.StartIcon': Button.StartIcon,

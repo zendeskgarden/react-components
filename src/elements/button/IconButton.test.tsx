@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
 import { IconButton } from './IconButton';
 
 describe('IconButton', () => {
@@ -58,7 +58,7 @@ describe('IconButton', () => {
     const consoleError = console.error;
 
     beforeEach(() => {
-      console.error = jest.fn();
+      console.error = vi.fn();
     });
 
     afterEach(() => {

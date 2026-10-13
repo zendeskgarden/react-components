@@ -5,13 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-
-import { StyledIcon } from '../../styled';
-import { IButtonIconProps } from '../../types';
+import { IButtonIconProps } from '../../types/elements';
+import { StyledIcon } from '../../views/button/StyledIcon';
+import { COMPONENT_IDS } from '../utils';
 
 const EndIconComponent = ({ isRotated, ...props }: IButtonIconProps) => (
-  <StyledIcon $position="end" $isRotated={isRotated} {...props} />
+  <StyledIcon
+    $position="end"
+    $isRotated={isRotated}
+    {...props}
+    data-garden-id={COMPONENT_IDS['buttons.icon']}
+    data-garden-version={PACKAGE_VERSION}
+  />
 );
 
 EndIconComponent.displayName = 'Button.EndIcon';

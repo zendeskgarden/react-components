@@ -6,12 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ToggleButton } from '@zendeskgarden/react-buttons';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { ToggleButton } from '../../src/index';
+
 export default {
-  title: 'Packages/Buttons/ToggleButton',
+  title: 'Components/Buttons/ToggleButton',
   component: ToggleButton
 };
 

@@ -6,14 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ToggleIconButton } from '@zendeskgarden/react-buttons';
-import IconFill from '@zendeskgarden/svg-icons/src/16/star-fill.svg';
-import IconStroke from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
+import IconFill from 'svg-icons-legacy/src/16/star-fill.svg';
+import IconStroke from 'svg-icons-legacy/src/16/star-stroke.svg';
+
+import { ToggleIconButton } from '../../src/index';
 
 export default {
-  title: 'Packages/Buttons/ToggleIconButton',
+  title: 'Components/Buttons/ToggleIconButton',
   component: ToggleIconButton
 };
 

@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import TestIcon from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
+import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
+import { render } from '../../test/render';
 import { ToggleIconButton } from './ToggleIconButton';
 
 describe('ToggleIconButton', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLButtonElement>();
     const { container } = render(
       <ToggleIconButton ref={ref}>
         <TestIcon />

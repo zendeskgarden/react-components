@@ -15,6 +15,15 @@ export { StatusIndicator } from './elements/avatar/StatusIndicator';
 /* breadcrumb */
 export { Breadcrumb } from './elements/breadcrumb/Breadcrumb';
 
+/* button */
+export { Anchor } from './elements/button/Anchor';
+export { Button } from './elements/button/Button';
+export { ChevronButton } from './elements/button/ChevronButton';
+export { IconButton } from './elements/button/IconButton';
+export { SplitButton } from './elements/button/SplitButton';
+export { ToggleButton } from './elements/button/ToggleButton';
+export { ToggleIconButton } from './elements/button/ToggleIconButton';
+
 /* datepicker */
 export { DatePicker } from './elements/datepicker/DatePicker';
 export { DatePickerRange } from './elements/datepicker/DatePickerRange';
@@ -108,8 +117,12 @@ export { XXXL } from './elements/typography/XXXL';
 /* types */
 export type {
   IAccordionProps,
+  IAnchorProps,
   IAvatarProps,
   IBlockquoteProps,
+  IButtonIconProps as IButtonEndIconProps,
+  IButtonIconProps as IButtonStartIconProps,
+  IButtonProps,
   ICodeBlockProps,
   ICodeProps,
   IDatePickerProps,
@@ -119,6 +132,8 @@ export type {
   IDraggableProps,
   IDropzoneProps,
   IEllipsisProps,
+  IIconButtonProps,
+  IIconButtonProps as IChevronButtonProps,
   IInlineProps,
   IKbdProps,
   IOrderedListProps,
@@ -133,6 +148,8 @@ export type {
   ITabProps,
   ITabsProps,
   ITagProps,
+  IToggleButtonProps,
+  IToggleIconButtonProps,
   ITooltipProps,
   ITypescaleMonospaceProps as ILGProps,
   ITypescaleMonospaceProps as IMDProps,

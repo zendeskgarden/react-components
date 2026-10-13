@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { AnchorHTMLAttributes, forwardRef } from 'react';
+import { AnchorHTMLAttributes, forwardRef } from 'react';
 
-import { StyledAnchor, StyledExternalIcon } from '../styled';
-import { IAnchorProps } from '../types';
+import { useText } from '../../theming/utils/useText';
+import { IAnchorProps } from '../../types/elements';
+import { StyledAnchor } from '../../views/button/StyledAnchor';
+import { StyledExternalIcon } from '../../views/button/StyledExternalIcon';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * 1. role='img' on `svg` is valid WAI-ARIA usage in this context.
@@ -52,7 +54,13 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
         {!!isExternal && (
           /* [1] */
           // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
-          <StyledExternalIcon role="img" aria-label={iconAriaLabel} aria-hidden={undefined} />
+          <StyledExternalIcon
+            role="img"
+            aria-label={iconAriaLabel}
+            aria-hidden={undefined}
+            data-garden-id={COMPONENT_IDS['buttons.external_icon']}
+            data-garden-version={PACKAGE_VERSION}
+          />
         )}
       </StyledAnchor>
     );

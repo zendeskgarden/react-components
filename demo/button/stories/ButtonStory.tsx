@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
-import EndIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import React from 'react';
+import EndIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
+import StartIcon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
+
+import { Button, IButtonProps } from '../../../src/index';
 
 interface IArgs extends IButtonProps {
   hasStartIcon: boolean;
@@ -18,13 +17,13 @@ interface IArgs extends IButtonProps {
   isEndIconRotated: boolean;
 }
 
-export const ButtonStory: StoryFn<IArgs> = ({
+export const ButtonStory = ({
   hasStartIcon,
   hasEndIcon,
   isStartIconRotated,
   isEndIconRotated,
   ...args
-}) => (
+}: IArgs) => (
   <Button {...args}>
     {!!hasStartIcon && (
       <Button.StartIcon isRotated={isStartIconRotated}>
