@@ -9,6 +9,7 @@ import { createRef } from 'react';
 
 import { render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Breadcrumb } from './Breadcrumb';
 
 const BasicExample = () => (
@@ -73,6 +74,17 @@ describe('Breadcrumb', () => {
       expect(separators).toHaveLength(2);
       separators.forEach(separator => {
         expect(separator).toHaveAttribute('data-garden-id', 'breadcrumbs.item');
+      });
+    });
+
+    it('sizes the chevron to the compact icon size', () => {
+      const { container } = render(<BasicExample />);
+      const chevrons = container.querySelectorAll('li[aria-hidden="true"] svg');
+
+      expect(chevrons).toHaveLength(2);
+      chevrons.forEach(chevron => {
+        expect(chevron).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md);
+        expect(chevron).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md);
       });
     });
   });

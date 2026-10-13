@@ -9,10 +9,13 @@ import { em } from 'polished';
 import styled from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 
 export const StyledChevronIcon = styled(StyledBaseIcon)`
   transform: ${p => p.theme.rtl && `rotate(180deg);`};
   margin: 0 ${p => em(p.theme.space.base, p.theme.fontSizes.md)};
+  width: ${p => getIconRenderSize(p.theme, true)};
+  height: ${p => getIconRenderSize(p.theme, true)};
   color: ${p => getColor({ variable: 'foreground.subtle', theme: p.theme })};
 `;

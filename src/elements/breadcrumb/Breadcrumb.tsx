@@ -6,8 +6,8 @@
  */
 
 import { useBreadcrumb } from '@zendeskgarden/container-breadcrumb';
+import ChevronRightIcon from '@zendeskgarden/svg-icons/src/chevron-right.svg';
 import { Children, cloneElement, forwardRef, HTMLAttributes } from 'react';
-import ChevronRightStrokeIcon from 'svg-icons-legacy/src/12/chevron-right-stroke.svg';
 
 import { useText } from '../../theming/utils/useText';
 import { StyledBreadcrumb } from '../../views/breadcrumb/StyledBreadcrumb';
@@ -53,7 +53,7 @@ export const Breadcrumb = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((
           data-garden-version={PACKAGE_VERSION}
         >
           <StyledChevronIcon>
-            <ChevronRightStrokeIcon />
+            <ChevronRightIcon />
           </StyledChevronIcon>
         </StyledCenteredBreadcrumbItem>
       </>
