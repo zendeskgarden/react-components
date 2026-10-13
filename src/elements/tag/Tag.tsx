@@ -15,9 +15,10 @@ import { Avatar } from './Avatar';
 import { Close } from './Close';
 
 const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
-  ({ isPill, isRound, isRegular, size = 'medium', hue, ...other }, ref) => (
+  ({ isEmphasis, isPill = true, isRound, isRegular, size = 'medium', hue, ...other }, ref) => (
     <StyledTag
       $hue={hue}
+      $isEmphasis={isEmphasis}
       $isPill={isPill}
       $isRegular={isRegular}
       $isRound={isRound}
@@ -35,6 +36,7 @@ TagComponent.displayName = 'Tag';
 TagComponent.propTypes = {
   size: PropTypes.oneOf(TAG_SIZE),
   hue: PropTypes.string,
+  isEmphasis: PropTypes.bool,
   isPill: PropTypes.bool,
   isRound: PropTypes.bool,
   isRegular: PropTypes.bool

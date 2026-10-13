@@ -10,6 +10,8 @@ import { createRef } from 'react';
 import { RTL_THEME, DARK_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
+import { StyledAvatar } from '../../views/tag/StyledAvatar';
+import { StyledClose } from '../../views/tag/StyledClose';
 import { Tag } from './Tag';
 
 describe('Tag', () => {
@@ -51,6 +53,16 @@ describe('Tag', () => {
   });
 
   describe('Pill', () => {
+    it('renders pill styling by default', () => {
+      const { container } = render(<Tag />);
+
+      expect(container.firstChild).toHaveStyleRule('border-radius', '100px');
+      expect(container.firstChild).toHaveStyleRule(
+        'min-width',
+        `${DEFAULT_THEME.space.base * 7.5}px`
+      );
+    });
+
     it('renders pill styling', () => {
       const { container } = render(<Tag isPill />);
 
@@ -58,6 +70,16 @@ describe('Tag', () => {
       expect(container.firstChild).toHaveStyleRule(
         'min-width',
         `${DEFAULT_THEME.space.base * 7.5}px`
+      );
+    });
+
+    it('renders square styling if pill is disabled', () => {
+      const { container } = render(<Tag isPill={false} />);
+
+      expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm);
+      expect(container.firstChild).toHaveStyleRule(
+        'min-width',
+        `calc(${DEFAULT_THEME.space.base * 4}px + 1ch)`
       );
     });
 
@@ -86,6 +108,12 @@ describe('Tag', () => {
     expect(container.firstChild).toHaveStyleRule('border-radius', '50%');
   });
 
+  it('renders round styling over pill styling', () => {
+    const { container } = render(<Tag isRound isPill />);
+
+    expect(container.firstChild).toHaveStyleRule('border-radius', '50%');
+  });
+
   it('renders regular weight styling if provided', () => {
     const { container } = render(<Tag isRegular />);
 
@@ -93,127 +121,160 @@ describe('Tag', () => {
   });
 
   describe('Hues', () => {
-    const color = (theme: typeof DEFAULT_THEME, variable: string, options = {}) =>
-      getColor({ variable, theme, ...options });
-    const onEmphasis = (theme: typeof DEFAULT_THEME) => color(theme, 'foreground.onEmphasis');
-
-    it.each([
+    const MODES = [
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
-    ] as const)('renders the default hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag />, { theme });
+    ] as const;
+    const onEmphasis = (theme: typeof DEFAULT_THEME) =>
+      getColor({ theme, variable: 'foreground.onEmphasis' });
 
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        getColor({ theme, hue: 'neutralHue', light: { shade: 200 }, dark: { shade: 800 } })
-      );
-      expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.default'));
+    describe.each(MODES)('%s mode', (_, theme) => {
+      describe.each([undefined, 'grey', 'neutralHue'])('neutral hue "%s"', hue => {
+        it('renders the subtle treatment by default', () => {
+          const { container } = render(<Tag hue={hue} />, { theme });
+          const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue: 'neutralHue', light: { shade: 200 }, dark: { shade: 900 } })
+          );
+          expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+          expect(container.firstChild).toHaveStyleRule('color', foregroundColor, {
+            modifier: ':hover'
+          });
+        });
+
+        it('renders the emphasis treatment', () => {
+          const { container } = render(<Tag hue={hue} isEmphasis />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue: 'neutralHue', light: { shade: 700 }, dark: { shade: 400 } })
+          );
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme), {
+            modifier: ':hover'
+          });
+        });
+      });
+
+      describe.each([
+        'primaryHue',
+        'successHue',
+        'dangerHue',
+        'warningHue',
+        'chromeHue',
+        'blue',
+        'yellow',
+        'azure',
+        'kale'
+      ])('named hue "%s"', hue => {
+        it('renders the subtle treatment by default', () => {
+          const { container } = render(<Tag hue={hue} />, { theme });
+          const foregroundColor = getColor({
+            theme,
+            hue,
+            light: { shade: 900 },
+            dark: { shade: 300 }
+          });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue, light: { shade: 200 }, dark: { shade: 900 } })
+          );
+          expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
+          expect(container.firstChild).toHaveStyleRule('color', foregroundColor, {
+            modifier: ':hover'
+          });
+        });
+
+        it('renders the emphasis treatment', () => {
+          const { container } = render(<Tag hue={hue} isEmphasis />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue, light: { shade: 700 }, dark: { shade: 600 } })
+          );
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme), {
+            modifier: ':hover'
+          });
+        });
+      });
+
+      describe('hex hue', () => {
+        it('renders the hex color for both treatments', () => {
+          const { container, rerender } = render(<Tag hue="#ff6600" />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue: '#ff6600' })
+          );
+
+          rerender(<Tag hue="#ff6600" isEmphasis />);
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue: '#ff6600' })
+          );
+        });
+
+        it('renders a dark foreground on a light hex color', () => {
+          const { container } = render(<Tag hue="#ffffff" />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(DARK_THEME));
+        });
+
+        it('renders a light foreground on a dark hex color', () => {
+          const { container } = render(<Tag hue="#000000" />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(DEFAULT_THEME));
+        });
+      });
     });
+  });
 
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders the "grey" hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="grey" />, { theme });
+  describe('Emphasis', () => {
+    it('does not pass the emphasis prop to the DOM element', () => {
+      const { container } = render(<Tag isEmphasis />);
 
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.emphasis', { dark: { offset: -300 } })
-      );
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
+      expect(container.firstChild).not.toHaveAttribute('isemphasis');
+      expect(container.firstChild).not.toHaveAttribute('$isemphasis');
     });
+  });
 
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders the "blue" hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="blue" />, { theme });
+  describe('Spacing', () => {
+    const space = `${DEFAULT_THEME.space.base}px`;
 
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.primaryEmphasis')
-      );
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
-    });
+    it.each(['small', 'medium', 'large'] as const)(
+      'renders the same avatar and close margins for %s size',
+      size => {
+        const { container } = render(<Tag size={size} />);
 
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders the "red" hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="red" />, { theme });
+        expect(container.firstChild).toHaveStyleRule('margin-left', `-${space}`, {
+          modifier: `& ${StyledAvatar}`
+        });
+        expect(container.firstChild).toHaveStyleRule('margin-right', space, {
+          modifier: `& ${StyledAvatar}`
+        });
+        expect(container.firstChild).toHaveStyleRule('margin-right', `-${space}`, {
+          modifier: `& ${StyledClose}`
+        });
+      }
+    );
 
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.dangerEmphasis')
-      );
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
-    });
+    it('renders the avatar and close margins with RTL locale', () => {
+      const { container } = render(<Tag />, { theme: RTL_THEME });
 
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders the "green" hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="green" />, { theme });
-
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        color(theme, 'background.successEmphasis')
-      );
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
-    });
-
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders the "yellow" hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="yellow" />, { theme });
-      const foregroundColor =
-        theme.colors.base === 'light'
-          ? color(theme, 'foreground.warningEmphasis')
-          : onEmphasis(theme);
-
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        getColor({ theme, hue: 'warningHue', shade: 400 })
-      );
-      expect(container.firstChild).toHaveStyleRule('color', foregroundColor);
-    });
-
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders the "kale" hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="kale" />, { theme });
-
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        getColor({ theme, hue: 'chromeHue', dark: { shade: 500 }, light: { shade: 800 } })
-      );
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(theme));
-    });
-
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('renders a custom hue in %s mode', (_, theme) => {
-      const { container } = render(<Tag hue="azure" />, { theme });
-
-      expect(container.firstChild).toHaveStyleRule(
-        'background-color',
-        getColor({ theme, hue: 'azure' })
-      );
-    });
-
-    it('renders a dark foreground on a light custom hue', () => {
-      const { container } = render(<Tag hue="white" />);
-
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(DARK_THEME));
-    });
-
-    it('renders a light foreground on a dark custom hue', () => {
-      const { container } = render(<Tag hue="black" />);
-
-      expect(container.firstChild).toHaveStyleRule('color', onEmphasis(DEFAULT_THEME));
+      expect(container.firstChild).toHaveStyleRule('margin-right', `-${space}`, {
+        modifier: `& ${StyledAvatar}`
+      });
+      expect(container.firstChild).toHaveStyleRule('margin-left', space, {
+        modifier: `& ${StyledAvatar}`
+      });
+      expect(container.firstChild).toHaveStyleRule('margin-left', `-${space}`, {
+        modifier: `& ${StyledClose}`
+      });
     });
   });
 });

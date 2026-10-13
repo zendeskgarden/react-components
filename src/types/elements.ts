@@ -281,16 +281,30 @@ export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
   /** Adjusts font size and padding */
   size?: (typeof TAG_SIZE)[number];
   /**
-   * Sets the color of the tag. Refer to theming
-   * [colors](/components/theme-object#colors) or
-   * [PALETTE](/components/palette#palette) for available colors. Use [primary
-   * hues](/design/color#primary-colors) – `blue`, `green`, `grey`, `kale`,
-   * `red`, `yellow` or `primaryHue`, `successHue`, `neutralHue`, `chromeHue`,
-   * `dangerHue`, `warningHue`  – to apply color based on light/dark mode.
-   * Accepts any hex value.
+   * Sets the color of the tag. Three kinds of values are supported:
+   *
+   * 1. **Palette hue** – any hue from the theme
+   * [PALETTE](/components/palette#palette): `grey`, `blue`, `red`, `yellow`,
+   * `green`, `purple`, `fuschia`, `pink`, `crimson`, `orange`, `lemon`, `lime`,
+   * `mint`, `teal`, `azure`, `royal` or `kale`.
+   * 2. **Tokenized hue** – `primaryHue`, `successHue`, `neutralHue`,
+   * `chromeHue`, `dangerHue` or `warningHue`. Resolves to a different color in
+   * light and dark mode. Refer to theming
+   * [colors](/components/theme-object#colors).
+   * 3. **Hex value** – any valid hex color string.
    */
   hue?: string;
-  /** Applies pill styling */
+  /**
+   * Applies the high-contrast emphasis treatment. When `false`, the tag uses
+   * the default subtle treatment. The `hue` prop selects the color for either
+   * treatment; omit it for the neutral grey default.
+   */
+  isEmphasis?: boolean;
+  /**
+   * Renders the tag as a pill by default. Pass `isPill={false}` for a square
+   * tag, for example for tokenized values in filters. `isRound` takes
+   * precedence when set.
+   */
   isPill?: boolean;
   /** Applies styles to round the tag */
   isRound?: boolean;
