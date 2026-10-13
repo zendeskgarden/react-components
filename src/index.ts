@@ -38,6 +38,9 @@ export { OffsetPagination } from './elements/pagination/OffsetPagination';
 /* tab */
 export { Tabs } from './elements/tab/Tabs';
 
+/* tag */
+export { Tag } from './elements/tag/Tag';
+
 /* theming */
 export { ColorSchemeProvider } from './theming/elements/ColorSchemeProvider';
 export { default as PALETTE } from './theming/elements/palette';
@@ -129,6 +132,7 @@ export type {
   ITabPanelProps,
   ITabProps,
   ITabsProps,
+  ITagProps,
   ITooltipProps,
   ITypescaleMonospaceProps as ILGProps,
   ITypescaleMonospaceProps as IMDProps,

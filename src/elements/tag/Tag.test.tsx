@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
 import { Tag } from './Tag';
 
 describe('Tag', () => {
@@ -18,13 +18,15 @@ describe('Tag', () => {
   });
 
   it('applies correct styling with RTL locale', () => {
-    const { container } = renderRtl(<Tag />);
+    const { container } = render(<Tag />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Tag ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

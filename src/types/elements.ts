@@ -275,6 +275,30 @@ export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
 }
 //#endregion
 
+//#region tag
+export const TAG_SIZE = ['small', 'medium', 'large'] as const;
+export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
+  /** Adjusts font size and padding */
+  size?: (typeof TAG_SIZE)[number];
+  /**
+   * Sets the color of the tag. Refer to theming
+   * [colors](/components/theme-object#colors) or
+   * [PALETTE](/components/palette#palette) for available colors. Use [primary
+   * hues](/design/color#primary-colors) – `blue`, `green`, `grey`, `kale`,
+   * `red`, `yellow` or `primaryHue`, `successHue`, `neutralHue`, `chromeHue`,
+   * `dangerHue`, `warningHue`  – to apply color based on light/dark mode.
+   * Accepts any hex value.
+   */
+  hue?: string;
+  /** Applies pill styling */
+  isPill?: boolean;
+  /** Applies styles to round the tag */
+  isRound?: boolean;
+  /** Applies regular (non-bold) font weight */
+  isRegular?: boolean;
+}
+//#endregion
+
 //#region typography
 export const HUE = ['grey', 'red', 'green', 'yellow'] as const;
 export const SIZE = ['small', 'medium', 'large'] as const;

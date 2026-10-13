@@ -5,11 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { SVGAttributes } from 'react';
+import { SVGAttributes } from 'react';
 
-import { StyledAvatar } from '../styled';
+import { StyledAvatar } from '../../views/tag/StyledAvatar';
+import { COMPONENT_IDS } from '../utils';
 
-const AvatarComponent = (props: SVGAttributes<SVGElement>) => <StyledAvatar {...props} />;
+const AvatarComponent = (props: SVGAttributes<SVGElement>) => (
+  <StyledAvatar
+    {...props}
+    data-garden-id={COMPONENT_IDS['tags.avatar']}
+    data-garden-version={PACKAGE_VERSION}
+  />
+);
 
 AvatarComponent.displayName = 'Tag.Avatar';
 

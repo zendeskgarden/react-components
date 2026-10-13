@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Tag } from '@zendeskgarden/react-tags';
-import React from 'react';
 
+import { Tag } from '../../../src/index';
 import { FAUX_INPUT_TAGS as TAGS } from './stories/data';
 import { FauxInputStory } from './stories/FauxInputStory';
 
 export default {
-  title: 'Packages/Tags/[patterns]',
+  title: 'Components/Tag',
   component: Tag
 };
 

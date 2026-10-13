@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { FauxInput } from '@zendeskgarden/react-forms';
-import React from 'react';
 
 import { IArgs as ITagStoryArgs, TagStory } from '../../stories/TagStory';
 
@@ -16,7 +14,7 @@ interface IArgs extends ITagStoryArgs {
   width: number;
 }
 
-export const FauxInputStory: StoryFn<IArgs> = ({ tags, width, ...args }) => (
+export const FauxInputStory = ({ tags, width, ...args }: IArgs) => (
   <FauxInput isCompact={args.size !== 'large'} style={{ width: `${width}%` }}>
     {tags.map((tag, index) => (
       <TagStory key={index} {...args} closeAriaLabel="Label" tabIndex={0} style={{ margin: 2 }}>

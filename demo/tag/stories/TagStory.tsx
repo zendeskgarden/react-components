@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { ITagProps, Tag } from '@zendeskgarden/react-tags';
-import React from 'react';
+import { ITagProps, Tag } from '../../../src/index';
 
 export interface IArgs extends ITagProps {
   hasAvatar: boolean;
@@ -15,13 +13,7 @@ export interface IArgs extends ITagProps {
   closeAriaLabel: string;
 }
 
-export const TagStory: StoryFn<IArgs> = ({
-  children,
-  hasAvatar,
-  hasClose,
-  closeAriaLabel,
-  ...args
-}) => {
+export const TagStory = ({ children, hasAvatar, hasClose, closeAriaLabel, ...args }: IArgs) => {
   const ariaLabel = closeAriaLabel ? { 'aria-label': closeAriaLabel } : {};
 
   return (

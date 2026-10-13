@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Tag } from '@zendeskgarden/react-tags';
-import React from 'react';
 
+import { Tag } from '../../src/index';
 import { TagStory } from './stories/TagStory';
 
 export default {
-  title: 'Packages/Tags/Tag',
+  title: 'Components/Tag',
   component: Tag,
   subcomponents: {
     'Tag.Avatar': Tag.Avatar,

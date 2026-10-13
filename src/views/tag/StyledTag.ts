@@ -5,22 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  SELECTOR_FOCUS_VISIBLE,
-  focusStyles,
-  getColor,
-  IGardenTheme
-} from '@zendeskgarden/react-theming';
 import { math, readableColor } from 'polished';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { ITagProps } from '../types';
+import type { IGardenTheme } from '../../theming/types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { ITagProps } from '../../types/elements';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
-
-const COMPONENT_ID = 'tags.tag_view';
 
 interface IStyledTagProps extends ThemeProps<DefaultTheme> {
   $hue?: ITagProps['hue'];
@@ -211,10 +206,7 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   `;
 };
 
-export const StyledTag = styled.div.attrs<IStyledTagProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledTagProps>`
+export const StyledTag = styled.div<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;

@@ -6,10 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledTag } from '../styled';
-import { ITagProps, SIZE } from '../types';
+import { ITagProps, TAG_SIZE } from '../../types/elements';
+import { StyledTag } from '../../views/tag/StyledTag';
+import { COMPONENT_IDS } from '../utils';
 import { Avatar } from './Avatar';
 import { Close } from './Close';
 
@@ -23,6 +24,8 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
       $size={size}
       ref={ref}
       {...other}
+      data-garden-id={COMPONENT_IDS['tags.tag_view']}
+      data-garden-version={PACKAGE_VERSION}
     />
   )
 );
@@ -30,7 +33,7 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
 TagComponent.displayName = 'Tag';
 
 TagComponent.propTypes = {
-  size: PropTypes.oneOf(SIZE),
+  size: PropTypes.oneOf(TAG_SIZE),
   hue: PropTypes.string,
   isPill: PropTypes.bool,
   isRound: PropTypes.bool,
