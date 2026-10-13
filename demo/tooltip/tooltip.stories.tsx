@@ -1,0 +1,47 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import type { StoryObj } from '@storybook/react-vite';
+
+import { Tooltip } from '../../src/index';
+import { TOOLTIP_PLACEMENT } from '../../src/types/elements';
+import { TOOLTIP_CONTENT as CONTENT } from './stories/data';
+import { TooltipStory } from './stories/TooltipStory';
+
+export default {
+  title: 'Components/Tooltip',
+  component: Tooltip,
+  subcomponents: {
+    'Tooltip.Paragraph': Tooltip.Paragraph,
+    'Tooltip.Title': Tooltip.Title
+  }
+};
+
+export const Example: StoryObj<typeof TooltipStory> = {
+  render: args => <TooltipStory {...args} />,
+  name: 'Tooltip',
+  args: {
+    content: CONTENT,
+    delayMS: 500,
+    hasArrow: true
+  },
+  argTypes: {
+    isVisible: { control: 'boolean' },
+    appendToNode: { control: false },
+    fallbackPlacements: {
+      control: 'multi-select',
+      options: TOOLTIP_PLACEMENT.filter(p => p !== 'auto')
+    }
+  },
+  parameters: {
+    design: {
+      allowFullscreen: true,
+      type: 'figma',
+      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A25293'
+    }
+  }
+};

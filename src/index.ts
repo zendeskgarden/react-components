@@ -19,6 +19,9 @@ export { Progress } from './elements/loader/Progress';
 export { Skeleton } from './elements/loader/Skeleton';
 export { Spinner } from './elements/loader/Spinner';
 
+/* tab */
+export { Tabs } from './elements/tab/Tabs';
+
 /* theming */
 export { ColorSchemeProvider } from './theming/elements/ColorSchemeProvider';
 export { default as PALETTE } from './theming/elements/palette';
@@ -63,6 +66,9 @@ export { useDocument } from './theming/utils/useDocument';
 export { useText } from './theming/utils/useText';
 export { useWindow } from './theming/utils/useWindow';
 
+/* tooltip */
+export { Tooltip } from './elements/tooltip/Tooltip';
+
 /* typography */
 export { Blockquote } from './elements/typography/Blockquote';
 export { Code } from './elements/typography/Code';
@@ -98,6 +104,10 @@ export type {
   ISpanProps,
   ISpinnerProps,
   IStatusIndicatorProps,
+  ITabPanelProps,
+  ITabProps,
+  ITabsProps,
+  ITooltipProps,
   ITypescaleMonospaceProps as ILGProps,
   ITypescaleMonospaceProps as IMDProps,
   ITypescaleMonospaceProps as ISMProps,

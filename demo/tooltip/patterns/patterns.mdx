@@ -1,0 +1,16 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import { Tooltip } from '../../../src';
+import * as Stories from './patterns.stories';
+
+<Meta of={Stories} name="Patterns" />
+
+# Patterns
+
+## Menu
+
+The following example demonstrates `Tooltip` behavior together with a popup
+menu. The tooltip is designed to hide when the popup is expanded.
+
+<Canvas>
+  <Story of={Stories.Menu} />
+</Canvas>

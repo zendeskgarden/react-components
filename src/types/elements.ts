@@ -11,8 +11,13 @@ import type {
   ComponentPropsWithRef,
   HTMLAttributes,
   OlHTMLAttributes,
+  ReactElement,
+  ReactNode,
   SVGAttributes
 } from 'react';
+
+import { PLACEMENT as PLACEMENT_BASE } from '../theming/types';
+
 //#region avatar
 export const AVATAR_SIZE = ['extraextrasmall', 'extrasmall', 'small', 'medium', 'large'] as const;
 export const STATUS = ['available', 'away', 'transfers', 'offline'] as const;
@@ -239,6 +244,77 @@ export interface ISpanProps extends HTMLAttributes<HTMLSpanElement> {
   hue?: string;
   /** Hides the span visually without hiding it from screen readers */
   hidden?: HTMLAttributes<HTMLSpanElement>['hidden'];
+}
+//#endregion
+
+//#region tab
+export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
+  /** Indicates that the element is not interactive */
+  disabled?: boolean;
+  /** Defines a unique value to identify the tab. Provided to the `onChange` event in the [Tabs](#tabs) component. */
+  item?: any;
+}
+export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Defines a value used to match a tab panel with its associated tab
+   */
+  item?: any;
+}
+export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Arranges the tabs vertically
+   */
+  isVertical?: boolean;
+  /**
+   * Specifies the currently selected tab
+   */
+  selectedItem?: any;
+  /**
+   * Handles tab selection
+   *
+   * @param {String} selectedItem The selected tab's `item` value
+   */
+  onChange?: (selectedItem: any) => void;
+}
+//#endregion
+
+//#region tooltip
+export const TOOLTIP_PLACEMENT = ['auto', ...PLACEMENT_BASE] as const;
+export const TOOLTIP_SIZE = ['small', 'medium', 'large', 'extra-large'] as const;
+export const TOOLTIP_TYPE = ['light', 'dark'] as const;
+export type TooltipGardenPlacement = (typeof TOOLTIP_PLACEMENT)[number];
+export interface ITooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, 'content'> {
+  /** Appends the tooltip to the element provided */
+  appendToNode?: Element;
+  /** Adds an arrow to the tooltip */
+  hasArrow?: boolean;
+  /** Adds milliseconds of delay to the opening and closing of the tooltip */
+  delayMS?: number;
+  /** Defines the content of the tooltip */
+  content: ReactNode;
+  /** Provides a list of acceptable fallback placements */
+  fallbackPlacements?: Exclude<TooltipGardenPlacement, 'auto'>[];
+  /** Adjusts the placement of the tooltip */
+  placement?: TooltipGardenPlacement;
+  /** Adjusts the padding and font size */
+  size?: (typeof TOOLTIP_SIZE)[number];
+  /** Specifies the tooltip type */
+  type?: (typeof TOOLTIP_TYPE)[number];
+  /** Sets the `z-index` of the tooltip */
+  zIndex?: number | string;
+  /**
+   * Indicates that the tooltip is used as the trigger's primary label rather
+   * than as a supplemental description
+   */
+  isLabel?: boolean;
+  /** Displays the tooltip on initial render */
+  isInitialVisible?: boolean;
+  /** Displays the tooltip */
+  isVisible?: boolean;
+  /** @ignore ReactNode override */
+  children: ReactElement;
+  /** Defines the ref key used to position the tooltip */
+  refKey?: string;
 }
 //#endregion
 
