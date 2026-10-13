@@ -231,6 +231,34 @@ describe('Tag', () => {
           expect(container.firstChild).toHaveStyleRule('color', onEmphasis(DEFAULT_THEME));
         });
       });
+
+      describe.each([
+        ['white', DARK_THEME],
+        ['black', DEFAULT_THEME]
+      ] as const)('hue "%s"', (hue, foregroundTheme) => {
+        it('renders as a custom color, not as a palette hue', () => {
+          const { container } = render(<Tag hue={hue} />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue })
+          );
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(foregroundTheme));
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(foregroundTheme), {
+            modifier: ':hover'
+          });
+        });
+
+        it('renders the same with emphasis', () => {
+          const { container } = render(<Tag hue={hue} isEmphasis />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule(
+            'background-color',
+            getColor({ theme, hue })
+          );
+          expect(container.firstChild).toHaveStyleRule('color', onEmphasis(foregroundTheme));
+        });
+      });
     });
   });
 

@@ -30,8 +30,15 @@ const HUE_KEYS = ['primaryHue', 'dangerHue', 'warningHue', 'successHue', 'neutra
 
 const isNeutralHue = (hue?: string) => !hue || hue === 'grey' || hue === 'neutralHue';
 
+/*
+ * A named hue is a theme color key or a palette hue with shades. The palette
+ * `white` and `black` are single colors without shades, so they are not named
+ * hues; they take the custom color path, as a hex value does.
+ */
 const isNamedHue = (theme: IGardenTheme, hue: string) =>
-  HUE_KEYS.includes(hue) || Object.prototype.hasOwnProperty.call(theme.palette, hue);
+  HUE_KEYS.includes(hue) ||
+  (Object.prototype.hasOwnProperty.call(theme.palette, hue) &&
+    typeof theme.palette[hue] === 'object');
 
 /*
  * 1. Anchor element reset
