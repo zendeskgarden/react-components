@@ -87,45 +87,20 @@ const colorStyles = ({ theme, $isBasic, $isDanger }: IStyledButtonProps & IStyle
 };
 
 /**
- * 1. Icon buttons color the icon with the button foreground. Neutral icon
- *    buttons use the subtle icon colors, and keep the resting one when pressed.
+ * 1. Icon buttons color the icon with the button foreground in every state,
+ *    whatever `isNeutral` says: the pressed icon follows the active foreground.
  */
-const iconColorStyles = ({ theme, $isNeutral }: IStyledButtonProps & IStyledBaseProps) => {
-  if (!$isNeutral) {
-    return css`
-      /* prettier-ignore */
-      & ${StyledIcon},
-      &:hover ${StyledIcon},
-      &:focus-visible ${StyledIcon},
-      &:active ${StyledIcon},
-      &[aria-pressed='true'] ${StyledIcon},
-      &[aria-pressed='mixed'] ${StyledIcon} {
-        color: inherit; /* [1] */
-      }
-    `;
+const iconColorStyles = () => css`
+  /* prettier-ignore */
+  & ${StyledIcon},
+  &:hover ${StyledIcon},
+  &:focus-visible ${StyledIcon},
+  &:active ${StyledIcon},
+  &[aria-pressed='true'] ${StyledIcon},
+  &[aria-pressed='mixed'] ${StyledIcon} {
+    color: inherit; /* [1] */
   }
-
-  const options = { theme, variable: 'foreground.subtle' };
-
-  return css`
-    /* [1] */
-    &[aria-pressed='true'] ${StyledIcon}, &[aria-pressed='mixed'] ${StyledIcon} {
-      color: ${getColor(options)};
-    }
-
-    &:hover ${StyledIcon}, &:focus-visible ${StyledIcon} {
-      color: ${getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } })};
-    }
-
-    &:active ${StyledIcon} {
-      color: ${getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } })};
-    }
-
-    &:disabled ${StyledIcon} {
-      color: ${getColor({ theme, variable: 'foreground.disabled' })};
-    }
-  `;
-};
+`;
 
 /**
  * 1. placed after the disabled background: disabled icon buttons keep the
@@ -147,7 +122,7 @@ const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
 
     /* [1] */
     ${!props.$isPrimary && colorStyles(props)};
-    ${!(props.$isPrimary || props.$isDanger) && iconColorStyles(props)};
+    ${!(props.$isPrimary || props.$isDanger) && iconColorStyles()};
   `;
 };
 

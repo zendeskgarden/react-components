@@ -12,6 +12,7 @@ import { RTL_THEME, DARK_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
 import { COMPONENT_ID } from '../../views/button/StyledButton';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -162,11 +163,6 @@ describe('Button', () => {
       const { container } = render(<Button isDanger isNeutral />, { theme });
 
       expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.danger'));
-      expect(container.firstChild).toHaveStyleRule(
-        'border-color',
-        color(theme, 'border.dangerEmphasis'),
-        { modifier: '&:focus-visible' }
-      );
     });
 
     it.each([
@@ -182,6 +178,117 @@ describe('Button', () => {
       });
       expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 700, 400), {
         modifier: '&:active'
+      });
+    });
+
+    describe('`isNeutral`', () => {
+      const offset100 = { light: { offset: 100 }, dark: { offset: -100 } };
+      const offset200 = { light: { offset: 200 }, dark: { offset: -200 } };
+
+      describe.each([
+        ['light', DEFAULT_THEME],
+        ['dark', DARK_THEME]
+      ] as const)('in $0 mode', (_, theme) => {
+        describe.each([
+          ['unset', undefined],
+          ['true', true]
+        ])('when %s', (__, isNeutral) => {
+          it('renders neutral text and a resting focus border', () => {
+            const { container } = render(<Button isNeutral={isNeutral} />, { theme });
+
+            expect(container.firstChild).toHaveStyleRule(
+              'color',
+              color(theme, 'foreground.default')
+            );
+            expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 500, 600), {
+              modifier: '&:focus-visible'
+            });
+          });
+
+          it('renders subtle icon colors, including when pressed', () => {
+            const { container } = render(<Button isNeutral={isNeutral} />, { theme });
+            const options = { variable: 'foreground.subtle' };
+
+            expect(container.firstChild).toHaveStyleRule('color', color(theme, options.variable), {
+              modifier: `& ${StyledIcon}`
+            });
+            expect(container.firstChild).toHaveStyleRule(
+              'color',
+              color(theme, options.variable, offset100),
+              { modifier: `&:hover ${StyledIcon}` }
+            );
+            expect(container.firstChild).toHaveStyleRule(
+              'color',
+              color(theme, options.variable, offset200),
+              { modifier: `&:active ${StyledIcon}` }
+            );
+            expect(container.firstChild).toHaveStyleRule(
+              'color',
+              color(theme, options.variable, offset200),
+              { modifier: `&[aria-pressed='true'] ${StyledIcon}` }
+            );
+          });
+        });
+
+        it('renders primary-colored text and no subtle icons if false', () => {
+          const { container } = render(<Button isNeutral={false} />, { theme });
+
+          expect(container.firstChild).toHaveStyleRule('color', color(theme, 'foreground.primary'));
+          expect(container.firstChild).toHaveStyleRule(
+            'color',
+            color(theme, 'foreground.primary', offset100),
+            { modifier: '&:hover' }
+          );
+          expect(container.firstChild).not.toHaveStyleRule('color', undefined, {
+            modifier: `& ${StyledIcon}`
+          });
+          expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 500, 600), {
+            modifier: '&:focus-visible'
+          });
+        });
+
+        it.each([undefined, true, false])(
+          'renders danger icons in the danger color if %s',
+          isNeutral => {
+            const { container } = render(<Button isDanger isNeutral={isNeutral} />, { theme });
+
+            expect(container.firstChild).not.toHaveStyleRule('color', undefined, {
+              modifier: `& ${StyledIcon}`
+            });
+            expect(container.firstChild).not.toHaveStyleRule('color', undefined, {
+              modifier: `&[aria-pressed='true'] ${StyledIcon}`
+            });
+            expect(container.firstChild).not.toHaveStyleRule('border-color', undefined, {
+              modifier: '&:focus-visible'
+            });
+          }
+        );
+
+        it.each([undefined, true, false])(
+          'renders a focus border on every primary inset button if %s',
+          isNeutral => {
+            const { container } = render(<Button isPrimary focusInset isNeutral={isNeutral} />, {
+              theme
+            });
+
+            expect(container.firstChild).toHaveStyleRule(
+              'border-color',
+              color(theme, 'border.primaryEmphasis'),
+              { modifier: '&:focus-visible' }
+            );
+          }
+        );
+
+        it.each([undefined, true, false])(
+          'renders no focus border on a primary button that is not inset if %s',
+          isNeutral => {
+            const { container } = render(<Button isPrimary isNeutral={isNeutral} />, { theme });
+
+            expect(container.firstChild).not.toHaveStyleRule('border-color', undefined, {
+              modifier: '&:focus-visible'
+            });
+          }
+        );
       });
     });
   });

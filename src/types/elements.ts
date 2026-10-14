@@ -74,7 +74,14 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: (typeof BUTTON_SIZE)[number];
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
-  /** Applies neutral button styling */
+  /**
+   * Applies neutral button styling, which is the default: unset and `true`
+   * render the same. Pass `false` for primary-colored text and icons on a
+   * basic or outline `Button`. Primary, danger and link buttons, and
+   * `IconButton`, render the same either way.
+   *
+   * @default true
+   */
   isNeutral?: boolean;
   /** Applies primary button styling */
   isPrimary?: boolean;

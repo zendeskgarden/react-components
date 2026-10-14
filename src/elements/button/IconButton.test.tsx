@@ -119,25 +119,55 @@ describe('IconButton', () => {
       expect(container.firstChild).toHaveStyleRule('border', 'none');
     });
 
-    it('renders subtle icon colors if neutral', () => {
-      const { container } = render(
-        <IconButton isNeutral>
-          <TestIcon />
-        </IconButton>
+    describe.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('`isNeutral` in $0 mode', (_, theme) => {
+      it.each([undefined, true, false])(
+        'colors the icon with the button foreground in every state if %s',
+        isNeutral => {
+          const { container } = render(
+            <IconButton isNeutral={isNeutral}>
+              <TestIcon />
+            </IconButton>,
+            { theme }
+          );
+
+          expect(container.firstChild).toHaveStyleRule(
+            'color',
+            color(theme, 'foreground.subtle', {
+              light: { offset: 200 },
+              dark: { offset: -200 }
+            }),
+            { modifier: "&[aria-pressed='true']" }
+          );
+
+          [
+            `& ${StyledIcon}`,
+            `&:hover ${StyledIcon}`,
+            `&:focus-visible ${StyledIcon}`,
+            `&:active ${StyledIcon}`,
+            `&[aria-pressed='true'] ${StyledIcon}`
+          ].forEach(modifier => {
+            expect(container.firstChild).toHaveStyleRule('color', 'inherit', { modifier });
+          });
+        }
       );
 
-      expect(container.firstChild).toHaveStyleRule(
-        'color',
-        color(DEFAULT_THEME, 'foreground.subtle', {
-          light: { offset: 100 },
-          dark: { offset: -100 }
-        }),
-        { modifier: `&:hover ${StyledIcon}` }
-      );
-      expect(container.firstChild).toHaveStyleRule(
-        'color',
-        color(DEFAULT_THEME, 'foreground.subtle'),
-        { modifier: `&[aria-pressed='true'] ${StyledIcon}` }
+      it.each([undefined, true, false])(
+        'renders a resting focus border on an outline icon button if %s',
+        isNeutral => {
+          const { container } = render(
+            <IconButton isBasic={false} isNeutral={isNeutral}>
+              <TestIcon />
+            </IconButton>,
+            { theme }
+          );
+
+          expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 500, 600), {
+            modifier: '&:focus-visible'
+          });
+        }
       );
     });
   });

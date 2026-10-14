@@ -70,8 +70,9 @@ export const getHeight = (props: IStyledButtonProps & IStyledBaseProps) => {
  *    (and the icon button's own resting border) apply over it
  * 7. disabled border placed before the hover and active rules: disabled danger
  *    buttons keep their hover and active border colors
- * 8. subtle icons for neutral buttons; danger buttons only when explicitly
- *    neutral, and these keep the resting icon color when pressed
+ * 8. subtle icons for neutral buttons; danger buttons keep the danger color on
+ *    their icons
+ * 9. an unset `$isNeutral` counts as neutral: only `false` opts out
  */
 const colorStyles = ({
   theme,
@@ -83,6 +84,7 @@ const colorStyles = ({
   $focusInset
 }: IStyledButtonProps & IStyledBaseProps) => {
   let retVal;
+  const isNeutral = $isNeutral !== false; /* [9] */
   const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
   const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
   const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
@@ -180,10 +182,9 @@ const colorStyles = ({
         inset: $focusInset,
         shadowWidth: $focusInset ? 'sm' : 'md',
         spacerWidth: $focusInset ? 'sm' : 'xs',
-        styles:
-          ($isDanger || $isNeutral) && $focusInset
-            ? { borderColor: getColor({ theme, variable: 'border.primaryEmphasis' }) }
-            : undefined
+        styles: $focusInset
+          ? { borderColor: getColor({ theme, variable: 'border.primaryEmphasis' }) }
+          : undefined
       })}
 
       &:active,
@@ -217,10 +218,6 @@ const colorStyles = ({
         borderColor = getColor(borderOptions);
         hoverBorderColor = getColor({ ...borderOptions, ...offset100 });
         activeBorderColor = getColor({ ...borderOptions, ...offset200 });
-
-        if ($isNeutral) {
-          focusBorderColor = getColor(borderOptions);
-        }
       }
 
       backgroundOptions = { theme, variable: 'background.dangerEmphasis' };
@@ -245,12 +242,10 @@ const colorStyles = ({
           light: { shade: 700 },
           dark: { shade: 400 }
         });
-        focusBorderColor = $isNeutral
-          ? getColor({ theme, variable: 'border.primaryEmphasis' })
-          : borderColor;
+        focusBorderColor = borderColor;
         disabledBorderColor = 'transparent';
 
-        if ($isNeutral !== false) {
+        if (isNeutral) {
           inputGroupBorderColor = getColor({ theme, variable: 'border.default', ...offset100 });
         }
       }
@@ -261,7 +256,7 @@ const colorStyles = ({
         light: { shade: 700 },
         dark: { hue: 'white' }
       };
-      foregroundVariable = $isNeutral === false ? 'foreground.primary' : 'foreground.default';
+      foregroundVariable = isNeutral ? 'foreground.default' : 'foreground.primary';
     }
 
     const hoverBackgroundColor = getColor({
@@ -281,22 +276,19 @@ const colorStyles = ({
     let activeIconForegroundColor;
     let pressedIconForegroundColor;
 
-    if ($isDanger || $isNeutral === false) {
+    if ($isDanger || !isNeutral) {
       hoverForegroundColor = getColor({ ...foregroundOptions, ...offset100 });
       activeForegroundColor = getColor({ ...foregroundOptions, ...offset200 });
     }
 
     /* [8] */
-    if ($isDanger ? $isNeutral : $isNeutral !== false) {
+    if (!$isDanger && isNeutral) {
       const iconOptions = { theme, variable: 'foreground.subtle' };
 
       iconForegroundColor = getColor(iconOptions);
       hoverIconForegroundColor = getColor({ ...iconOptions, ...offset100 });
       activeIconForegroundColor = getColor({ ...iconOptions, ...offset200 });
-
-      if (!$isDanger) {
-        pressedIconForegroundColor = activeIconForegroundColor;
-      }
+      pressedIconForegroundColor = activeIconForegroundColor;
     }
 
     retVal = css`
