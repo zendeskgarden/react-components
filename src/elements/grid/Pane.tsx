@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useState, useMemo, useRef, HTMLAttributes, forwardRef } from 'react';
+import { useState, useMemo, useRef, HTMLAttributes, RefObject, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import useResizeObserver from 'use-resize-observer';
 
 import { PaneProvider } from '../../context/grid/PaneContext';
 import { StyledPane } from '../../views/grid/StyledPane';
+import { COMPONENT_IDS } from '../utils';
 import { Content } from './Content';
 import { Splitter } from './Splitter';
 import { SplitterButton } from './SplitterButton';
@@ -20,7 +21,9 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
     const [paneId, setPaneId] = useState<string>();
 
     const observerRef = useRef<HTMLDivElement>(null);
-    const { width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({ ref: observerRef });
+    const { width = 0, height = 0 } = useResizeObserver<HTMLDivElement>({
+      ref: observerRef as RefObject<HTMLDivElement>
+    });
 
     const isVisible = useMemo(
       () => (observerRef.current ? width > 0 && height > 0 : true),
@@ -38,7 +41,13 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
 
     return (
       <PaneProvider value={paneContext}>
-        <StyledPane id={paneId} ref={mergeRefs([ref, observerRef])} {...props}>
+        <StyledPane
+          id={paneId}
+          {...props}
+          data-garden-id={COMPONENT_IDS.pane}
+          data-garden-version={PACKAGE_VERSION}
+          ref={mergeRefs([ref, observerRef])}
+        >
           {children}
         </StyledPane>
       </PaneProvider>

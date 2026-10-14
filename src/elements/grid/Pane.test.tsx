@@ -7,29 +7,17 @@
 
 import { act } from '@testing-library/react';
 import { createRef } from 'react';
-import { vi } from 'vitest';
 
 import { render } from '../../test/render';
+import { stubResizeObserver } from '../../test/resizeObserver';
 import { Content } from './Content';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Splitter } from './Splitter';
 
-type IMockResizeObserverPolyfillReturnValue = {
-  ResizeObserver: (cb: () => void) => any;
-};
-
-// '@juggle/resize-observer' is the polyfill used by 'use-resize-observer'
-// we tap into the polyfilled ResizeObserver to trigger the useResizeObserver hook
+// the stubbed ResizeObserver stores its callback, which triggers the useResizeObserver hook
 // this way we can test when the Pane is collapsed and ensure the Pane.Content is hidden
-vi.mock<IMockResizeObserverPolyfillReturnValue>('@juggle/resize-observer', () => ({
-  ResizeObserver: function ResizeObserver(cb: () => void) {
-    const o = vi.requireActual('@juggle/resize-observer');
-
-    // @ts-expect-error resize observer callback is an non-standard method added for testing
-    return new o.ResizeObserver((window.resizeObserverCallback = vi.fn(cb)));
-  }
-}));
+stubResizeObserver();
 
 const UncontrolledTestSplitter = () => {
   return (
@@ -64,13 +52,20 @@ describe('Pane', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
+  it('sets the Garden attributes after the props', () => {
+    const { container } = render(<Pane data-garden-id="custom" data-garden-version="0" />);
+
+    expect(container.firstChild).toHaveAttribute('data-garden-id', 'pane');
+    expect(container.firstChild).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
   it('should set consistent aria-controls id', () => {
     const { getAllByRole } = render(<UncontrolledTestSplitter />);
 
     const [firstSplitter, secondSplitter] = getAllByRole('separator');
 
-    expect(firstSplitter.getAttribute('aria-controls')).toBe(
-      secondSplitter.getAttribute('aria-controls')
+    expect(firstSplitter!.getAttribute('aria-controls')).toBe(
+      secondSplitter!.getAttribute('aria-controls')
     );
   });
 

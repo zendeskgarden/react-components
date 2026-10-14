@@ -1,6 +1,5 @@
 import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
-import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
-import README from '../README.md';
+import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '../../src';
 import * as Stories from './grid.stories';
 
 <Meta of={Stories} />
@@ -20,5 +19,3 @@ set any related `Grid.Col` prop along with `children` text for display.
 <Canvas>
   <Story of={Stories.Example} />
 </Canvas>
-
-<Markdown>{README}</Markdown>

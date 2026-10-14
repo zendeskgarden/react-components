@@ -7,13 +7,22 @@
 
 import { useSplitter } from '@zendeskgarden/container-splitter';
 import PropTypes from 'prop-types';
-import { useContext, useEffect, forwardRef, useMemo, useRef, HTMLAttributes } from 'react';
+import {
+  useContext,
+  useEffect,
+  forwardRef,
+  useMemo,
+  useRef,
+  HTMLAttributes,
+  RefObject
+} from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
 import { PaneSplitterProvider } from '../../context/grid/PaneSplitterContext';
 import { usePaneContext } from '../../hooks/grid/usePaneContext';
 import { usePaneProviderContextData } from '../../hooks/grid/usePaneProviderContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { ISplitterProps, ORIENTATION } from '../../types/elements';
@@ -54,7 +63,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
   ) => {
     const paneProviderContext = usePaneProviderContextData(providerId);
     const paneContext = usePaneContext();
-    const themeContext = useContext(ThemeContext);
+    const themeContext = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useDocument(themeContext);
     const isRow = orientationToDimension[orientation!] === 'rows';
     const separatorRef = useRef<HTMLDivElement>(null);
@@ -62,7 +71,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     const splitterOrientation = paneToSplitterOrientation[orientation || 'end'];
 
     const pixelsPerFr = paneProviderContext
-      ? paneProviderContext.pixelsPerFr[orientationToDimension[orientation!]]
+      ? paneProviderContext.pixelsPerFr[orientationToDimension[orientation!]!]
       : 0;
 
     const value = isRow
@@ -97,7 +106,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
         );
       },
       valueNow: value,
-      separatorRef
+      separatorRef: separatorRef as RefObject<HTMLElement>
     });
 
     useEffect(() => {

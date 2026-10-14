@@ -68,6 +68,7 @@ const componentIds = [
   'pagination.navigation',
   'pagination.page',
   'pagination.pagination_view',
+  'pane',
   'pane.content',
   'pane.splitter',
   'pane.splitter_button_container',

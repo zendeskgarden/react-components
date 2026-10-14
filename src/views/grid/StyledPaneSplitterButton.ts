@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ChevronButton } from '@zendeskgarden/react-buttons';
 import styled, { css, DefaultTheme } from 'styled-components';
 
+import { ChevronButton } from '../../elements/button/ChevronButton';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { Orientation } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
@@ -55,13 +55,7 @@ const transformStyles = ({
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplitterButtonProps>({
-  'data-garden-version': PACKAGE_VERSION,
-  isBasic: true,
-  isPill: true,
-  size: 'small'
-})<IStyledSplitterButtonProps>`
+export const StyledPaneSplitterButton = styled(ChevronButton)<IStyledSplitterButtonProps>`
   ${sizeStyles};
 
   ${transformStyles};

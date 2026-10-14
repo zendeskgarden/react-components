@@ -10,12 +10,15 @@ import { useCallback, useState, createElement } from 'react';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
+import { stubResizeObserver } from '../../test/resizeObserver';
 import { IPaneProviderProps } from '../../types/elements';
 import { Content } from './Content';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Splitter } from './Splitter';
 import { SplitterButton } from './SplitterButton';
+
+stubResizeObserver();
 
 interface IExtendedMouseEvent extends MouseEventInit {
   offsetX?: number;
@@ -26,21 +29,22 @@ interface IExtendedMouseEvent extends MouseEventInit {
   y?: number;
 }
 
-// JSDom doesn't support the newer MouseEvent properties such as pageX or pageY
-// Therefore we add ExtendedMouseEvent that extends the base MouseEvent
+// JSDom doesn't set the newer MouseEvent properties such as pageX or pageY (they are
+// read-only getters that return 0). Therefore we add ExtendedMouseEvent that extends the
+// base MouseEvent and defines them as own properties
 class ExtendedMouseEvent extends MouseEvent implements MouseEventInit {
   constructor(type: string, values: IExtendedMouseEvent) {
     const { pageX, pageY, offsetX, offsetY, x, y, ...mouseValues } = values;
 
     super(type, mouseValues);
 
-    Object.assign(this, {
-      offsetX: offsetX || 0,
-      offsetY: offsetY || 0,
-      pageX: pageX || 0,
-      pageY: pageY || 0,
-      x: x || 0,
-      y: y || 0
+    Object.defineProperties(this, {
+      offsetX: { value: offsetX || 0 },
+      offsetY: { value: offsetY || 0 },
+      pageX: { value: pageX || 0 },
+      pageY: { value: pageY || 0 },
+      x: { value: x || 0 },
+      y: { value: y || 0 }
     });
   }
 }
@@ -789,7 +793,7 @@ describe('PaneProvider', () => {
         });
 
         const onParentChange = useCallback(
-          (rows: Record<string, number>, cols: Record<string, number>) => {
+          (_rows: Record<string, number>, cols: Record<string, number>) => {
             setParentColumnValues(cols);
           },
           [setParentColumnValues]

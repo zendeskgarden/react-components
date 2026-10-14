@@ -40,4 +40,42 @@ describe('Row', () => {
 
     expect(getByTestId('test')).toHaveStyleRule('margin-left', '-0');
   });
+
+  it('renders debug styling when the containing Grid is in debug mode', () => {
+    const { getByTestId } = render(
+      <Grid debug>
+        <Row data-test-id="test" />
+      </Grid>
+    );
+
+    expect(getByTestId('test')).toHaveStyleRule('box-shadow', expect.any(String));
+  });
+
+  it('renders no debug styling by default', () => {
+    const { getByTestId } = render(<Row data-test-id="test" />);
+
+    expect(getByTestId('test')).not.toHaveStyleRule('box-shadow', expect.any(String));
+  });
+
+  it.each([
+    ['start', 'flex-start'],
+    ['end', 'flex-end'],
+    ['center', 'center']
+  ] as const)('renders align items %s as %s', (alignItems, expected) => {
+    const { getByTestId } = render(<Row data-test-id="test" alignItems={alignItems} />);
+
+    expect(getByTestId('test')).toHaveStyleRule('align-items', expected);
+  });
+
+  it.each([
+    ['start', 'flex-start'],
+    ['end', 'flex-end'],
+    ['between', 'space-between'],
+    ['around', 'space-around'],
+    ['center', 'center']
+  ] as const)('renders justify content %s as %s', (justifyContent, expected) => {
+    const { getByTestId } = render(<Row data-test-id="test" justifyContent={justifyContent} />);
+
+    expect(getByTestId('test')).toHaveStyleRule('justify-content', expected);
+  });
 });

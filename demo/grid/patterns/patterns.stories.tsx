@@ -10,9 +10,8 @@ import type { StoryObj } from '@storybook/react-vite';
 import { CardStory } from './stories/CardStory';
 import { COLUMNS } from './stories/data';
 
-// MIGRATE(demos): no component property and no title for '[patterns]' in config/story-titles.json; title derived from the last segment
 export default {
-  title: 'Components/[patterns]'
+  title: 'Components/Grid/Patterns'
 };
 
 export const Example: StoryObj<typeof CardStory> = {

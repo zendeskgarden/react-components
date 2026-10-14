@@ -132,12 +132,12 @@ export const PaneProvider = ({
       const addToTraversal = 0;
 
       setRowsTrack(state => {
-        const oldValue = rowsTrack[splitterId];
-        const stealFromIndex = rows[splitterId] + stealFromTraversal;
-        const addToIndex = rows[splitterId] + addToTraversal;
+        const oldValue = rowsTrack[splitterId]!;
+        const stealFromIndex = rows[splitterId]! + stealFromTraversal;
+        const addToIndex = rows[splitterId]! + addToTraversal;
 
-        const stealFromKey = rowArray[stealFromIndex];
-        const addToKey = rowArray[addToIndex];
+        const stealFromKey = rowArray[stealFromIndex]!;
+        const addToKey = rowArray[addToIndex]!;
 
         const difference = oldValue - value;
 
@@ -145,8 +145,8 @@ export const PaneProvider = ({
           ...state
         } as Record<string, number>;
 
-        nextState[addToKey] = rowsTrack[addToKey] - difference;
-        nextState[stealFromKey] = rowsTrack[stealFromKey] + difference;
+        nextState[addToKey] = rowsTrack[addToKey]! - difference;
+        nextState[stealFromKey] = rowsTrack[stealFromKey]! + difference;
 
         return nextState;
       });
@@ -161,12 +161,12 @@ export const PaneProvider = ({
       const addToTraversal = 0;
 
       setColumnsTrack(state => {
-        const stealFromIndex = columns[splitterId] + stealFromTraversal;
-        const addToIndex = columns[splitterId] + addToTraversal;
-        const oldValue = columnsTrack[splitterId];
+        const stealFromIndex = columns[splitterId]! + stealFromTraversal;
+        const addToIndex = columns[splitterId]! + addToTraversal;
+        const oldValue = columnsTrack[splitterId]!;
 
-        const stealFromKey = columnArray[stealFromIndex];
-        const addToKey = columnArray[addToIndex];
+        const stealFromKey = columnArray[stealFromIndex]!;
+        const addToKey = columnArray[addToIndex]!;
 
         const difference = oldValue - value;
 
@@ -174,8 +174,8 @@ export const PaneProvider = ({
           ...state
         } as Record<string, number>;
 
-        nextState[addToKey] = columnsTrack[addToKey] - difference;
-        nextState[stealFromKey] = columnsTrack[stealFromKey] + difference;
+        nextState[addToKey] = columnsTrack[addToKey]! - difference;
+        nextState[stealFromKey] = columnsTrack[stealFromKey]! + difference;
 
         return nextState;
       });
@@ -186,10 +186,10 @@ export const PaneProvider = ({
   const getColumnValue = useCallback(
     (splitterKey: string, isPixels?: boolean) => {
       if (isPixels) {
-        return layoutStateInPixels.columns[splitterKey];
+        return layoutStateInPixels.columns[splitterKey]!;
       }
 
-      return columnsTrack[splitterKey];
+      return columnsTrack[splitterKey]!;
     },
     [columnsTrack, layoutStateInPixels]
   );
@@ -197,10 +197,10 @@ export const PaneProvider = ({
   const getRowValue = useCallback(
     (splitterKey: string, isPixels?: boolean) => {
       if (isPixels) {
-        return layoutStateInPixels.rows[splitterKey];
+        return layoutStateInPixels.rows[splitterKey]!;
       }
 
-      return rowsTrack[splitterKey];
+      return rowsTrack[splitterKey]!;
     },
     [rowsTrack, layoutStateInPixels]
   );

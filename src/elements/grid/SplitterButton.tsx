@@ -6,7 +6,6 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { forwardRef, useCallback } from 'react';
 
 import { usePaneProviderContextData } from '../../hooks/grid/usePaneProviderContext';
@@ -14,6 +13,7 @@ import { usePaneSplitterContext } from '../../hooks/grid/usePaneSplitterContext'
 import { ISplitterButtonProps } from '../../types/elements';
 import { StyledPaneSplitterButton } from '../../views/grid/StyledPaneSplitterButton';
 import { StyledPaneSplitterButtonContainer } from '../../views/grid/StyledPaneSplitterButtonContainer';
+import { Tooltip } from '../tooltip/Tooltip';
 import { COMPONENT_IDS } from '../utils';
 
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
@@ -83,6 +83,9 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
             {...other}
             $orientation={orientation!}
             $isRotated={isMin}
+            isBasic
+            isPill
+            size="small"
             ref={ref}
             onClick={onClick}
             onKeyDown={onKeyDown}

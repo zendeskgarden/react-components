@@ -15,11 +15,14 @@ import {
   createRef
 } from 'react';
 
-import { render } from '../../test/render';
+import { RTL_THEME, render } from '../../test/render';
+import { stubResizeObserver } from '../../test/resizeObserver';
 import { ISplitterProps } from '../../types/elements';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
 import { Splitter } from './Splitter';
+
+stubResizeObserver();
 
 const UncontrolledTestSplitter = ({
   splitterRef,
@@ -30,7 +33,7 @@ const UncontrolledTestSplitter = ({
   splitterOrientation,
   isFixed
 }: {
-  splitterRef?: RefObject<HTMLDivElement>;
+  splitterRef?: RefObject<HTMLDivElement | null>;
   splitterOnMouseDown?: MouseEventHandler<HTMLDivElement>;
   splitterOnTouchStart?: TouchEventHandler<HTMLDivElement>;
   splitterOnKeyDown?: KeyboardEventHandler<HTMLDivElement>;
@@ -103,6 +106,31 @@ describe('Splitter', () => {
 
     expect(splitter).toHaveStyleRule('bottom', expect.any(String));
     expect(splitter).not.toHaveStyleRule('top');
+  });
+
+  it('positions a start splitter on the right in rtl', () => {
+    const { getByRole } = render(<UncontrolledTestSplitter splitterOrientation="start" />, {
+      theme: RTL_THEME
+    });
+    const splitter = getByRole('separator');
+
+    expect(splitter).toHaveStyleRule('right', expect.any(String));
+    expect(splitter).not.toHaveStyleRule('left', expect.any(String));
+  });
+
+  it('renders without a containing Pane', () => {
+    const { getByRole } = render(
+      <PaneProvider
+        totalPanesWidth={1}
+        totalPanesHeight={1}
+        defaultColumnValues={{ a: 1, b: 1 }}
+        defaultRowValues={{}}
+      >
+        {() => <Splitter layoutKey="a" min={0} max={1} />}
+      </PaneProvider>
+    );
+
+    expect(getByRole('separator')).toBeInTheDocument();
   });
 
   it('behaves as expected in fixed mode', async () => {

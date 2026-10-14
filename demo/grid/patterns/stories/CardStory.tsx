@@ -5,19 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { MD, LG } from '@zendeskgarden/react-typography';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { useTheme } from 'styled-components';
 import useResizeObserver from 'use-resize-observer';
 
-import { PaneProvider, Pane } from '../../../../src/index';
+import { PaneProvider, Pane, MD, LG } from '../../../../src/index';
 import { IColumns } from './types';
 
 const Row = ({ panes }: { panes: IColumns['panes'] }) => {
   const {
     rtl,
     space: { base }
-  } = useContext(ThemeContext);
+  } = useTheme();
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
   const gap = base * 3;
 
@@ -81,7 +79,7 @@ export const CardStory = ({ columns }: { columns: IColumns[] }) => {
   const {
     rtl,
     space: { base }
-  } = useContext(ThemeContext);
+  } = useTheme();
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
   const gap = base * 3;
 

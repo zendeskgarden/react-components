@@ -84,6 +84,7 @@ const mediaStyles = (
   wrap?: Wrap
 ) => {
   return css`
+    /* stylelint-disable-next-line media-query-no-invalid */
     @media (min-width: ${minWidth}) {
       ${flexStyles(alignItems, justifyContent, wrap)};
     }
