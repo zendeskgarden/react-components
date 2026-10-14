@@ -42,6 +42,33 @@ describe('IconButton', () => {
   describe('Colors', () => {
     const color = (theme: typeof DEFAULT_THEME, variable: string, options = {}) =>
       getColor({ variable, theme, ...options });
+    const neutral = (theme: typeof DEFAULT_THEME, lightShade: number, darkShade: number) =>
+      getColor({
+        theme,
+        hue: 'neutralHue',
+        light: { shade: lightShade },
+        dark: { shade: darkShade }
+      });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders neutral outline styling in $0 mode', (_, theme) => {
+      const { container } = render(
+        <IconButton isBasic={false}>
+          <TestIcon />
+        </IconButton>,
+        { theme }
+      );
+
+      expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 500, 600));
+      expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 600, 500), {
+        modifier: '&:hover'
+      });
+      expect(container.firstChild).toHaveStyleRule('border-color', neutral(theme, 700, 400), {
+        modifier: '&:active'
+      });
+    });
 
     it.each([
       ['light', DEFAULT_THEME],

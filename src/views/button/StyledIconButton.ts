@@ -48,7 +48,7 @@ const colorStyles = ({ theme, $isBasic, $isDanger }: IStyledButtonProps & IStyle
         theme,
         hue: 'neutralHue',
         light: { shade: 600 },
-        dark: { shade: 700 }
+        dark: { shade: 500 }
       });
       activeBorderColor = getColor({
         theme,
