@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { vanillaExtractPlugin } from '@vanilla-extract/rollup-plugin';
 import { defineConfig } from 'tsdown';
 import svgr from 'vite-plugin-svgr';
 
@@ -19,7 +18,7 @@ const neverBundle = [
   ...Object.keys(pkg.dependencies || {})
 ].map(value => new RegExp(`^${value}/?.*`, 'u'));
 
-const plugins = [svgr(svgrConfig as any), vanillaExtractPlugin()];
+const plugins = [svgr(svgrConfig as any)];
 
 export default defineConfig({
   deps: {

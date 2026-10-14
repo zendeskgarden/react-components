@@ -13,7 +13,6 @@ import getLineHeight from '../../theming/utils/getLineHeight';
 import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledPanel {
-  inert?: string;
   $isBare?: boolean;
   $isCompact?: boolean;
   $isExpanded?: boolean;

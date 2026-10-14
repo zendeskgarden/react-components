@@ -8,8 +8,9 @@
 import { useAccordion } from '@zendeskgarden/container-accordion';
 import { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
 
+import { AccordionProvider } from '../../context/accordion/AccordionContext';
+import { SectionProvider } from '../../context/accordion/SectionContext';
 import { IAccordionProps } from '../../types/elements';
-import { AccordionContext, SectionContext } from '../../utils/accordion/index';
 import { StyledAccordion } from '../../views/accordion/StyledAccordion';
 import { COMPONENT_IDS } from '../utils';
 import { Header } from './Header';

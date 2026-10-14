@@ -5,13 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IconButton } from '@zendeskgarden/react-buttons';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { MouseEventHandler } from 'react';
 import Icon2 from 'svg-icons-legacy/src/16/folder-open-stroke.svg';
 import Icon1 from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
-import { Accordion, IAccordionProps } from '../../../src/index';
+import { Accordion, IAccordionProps, IconButton, Tooltip } from '../../../src/index';
 import { IAccordionSection } from './types';
 
 interface IProps {

@@ -9,7 +9,9 @@ import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
 import ChevronDown from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import { useAccordionContext, useSectionContext, HeaderContext } from '../../utils/accordion/index';
+import { HeaderProvider } from '../../context/accordion/HeaderContext';
+import { useAccordionContext } from '../../hooks/accordion/useAccordionContext';
+import { useSectionContext } from '../../hooks/accordion/useSectionContext';
 import { StyledHeader } from '../../views/accordion/StyledHeader';
 import { StyledRotateIcon } from '../../views/accordion/StyledRotateIcon';
 import { COMPONENT_IDS } from '../utils';

@@ -7,8 +7,9 @@
 
 import { useMemo, forwardRef, Children, ReactElement } from 'react';
 
+import { TimelineItemProvider } from '../../context/accordion/TimelineItemContext';
+import { useTimelineContext } from '../../hooks/accordion/useTimelineContext';
 import { ITimelineItemProps } from '../../types/elements';
-import { TimelineItemContext, useTimelineContext } from '../../utils/accordion/index';
 import { StyledTimelineItem } from '../../views/accordion/StyledItem';
 import { COMPONENT_IDS } from '../utils';
 import { OppositeContent } from './OppositeContent';

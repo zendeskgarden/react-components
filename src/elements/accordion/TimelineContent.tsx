@@ -8,7 +8,7 @@
 import { forwardRef, HTMLAttributes } from 'react';
 import CircleIcon from 'svg-icons-legacy/src/12/circle-full-stroke.svg';
 
-import { useTimelineItemContext } from '../../utils/accordion/index';
+import { useTimelineItemContext } from '../../hooks/accordion/useTimelineItemContext';
 import { StyledItemIcon } from '../../views/accordion/StyledItemIcon';
 import { StyledSeparator } from '../../views/accordion/StyledSeparator';
 import { StyledTimelineContent } from '../../views/accordion/StyledTimelineContent';

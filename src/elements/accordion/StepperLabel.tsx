@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 import CheckCircleStrokeIcon from 'svg-icons-legacy/src/16/check-sm-stroke.svg';
 
+import { useStepContext } from '../../hooks/accordion/useStepContext';
 import { IStepperLabelProps } from '../../types/elements';
-import { useStepContext } from '../../utils/accordion/index';
 import { StyledIcon, StyledIconFlexContainer } from '../../views/accordion/StyledIcon';
 import { StyledLabelText } from '../../views/accordion/StyledLabelText';
 import { StyledLabel } from '../../views/accordion/StyledStepperLabel';

@@ -7,9 +7,10 @@
 
 import { useMemo, forwardRef } from 'react';
 
+import { TimelineProvider } from '../../context/accordion/TimelineContext';
 import { ITimelineProps } from '../../types/elements';
-import { TimelineContext } from '../../utils/accordion/index';
 import { StyledTimeline } from '../../views/accordion/StyledTimeline';
+import { COMPONENT_IDS } from '../utils';
 import { Item } from './Item';
 import { OppositeContent } from './OppositeContent';
 import { Content } from './TimelineContent';
@@ -20,7 +21,12 @@ const TimelineComponent = forwardRef<HTMLOListElement, ITimelineProps>(
 
     return (
       <TimelineProvider value={value}>
-        <StyledTimeline ref={ref} {...props} />
+        <StyledTimeline
+          ref={ref}
+          {...props}
+          data-garden-id={COMPONENT_IDS.timeline}
+          data-garden-version={PACKAGE_VERSION}
+        />
       </TimelineProvider>
     );
   }

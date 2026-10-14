@@ -37,7 +37,6 @@ const colorStyles = ({
 export const StyledItemIcon = styled(StyledBaseIcon)<IStyledItemIcon>`
   z-index: 1;
   box-sizing: content-box;
-
   padding: ${props => props.theme.space.base}px 0;
   width: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */
   height: ${props => math(`${props.theme.iconSizes.sm} + 1`)}; /* [1] */

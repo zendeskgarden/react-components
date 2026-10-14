@@ -17,4 +17,27 @@ describe('Stepper', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Stepper data-test-id="stepper" data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByTestId('stepper')).toHaveAttribute('data-garden-id', 'accordions.stepper');
+    expect(getByTestId('stepper')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  describe('Styling', () => {
+    it('renders default styling', () => {
+      const { container } = render(<Stepper />);
+
+      expect(container.firstChild).not.toHaveStyleRule('display');
+    });
+
+    it('renders horizontal styling', () => {
+      const { container } = render(<Stepper isHorizontal />);
+
+      expect(container.firstChild).toHaveStyleRule('display', 'flex');
+    });
+  });
 });

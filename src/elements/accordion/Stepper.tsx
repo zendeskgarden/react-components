@@ -7,8 +7,9 @@
 
 import { Children, forwardRef, isValidElement, useMemo } from 'react';
 
+import { StepProvider } from '../../context/accordion/StepContext';
+import { StepperProvider } from '../../context/accordion/StepperContext';
 import { IStepperProps } from '../../types/elements';
-import { StepContext, StepperContext } from '../../utils/accordion/index';
 import { StyledStepper } from '../../views/accordion/StyledStepper';
 import { COMPONENT_IDS } from '../utils';
 import { Step } from './Step';

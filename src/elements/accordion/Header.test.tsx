@@ -10,8 +10,25 @@ import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
 import { vi } from 'vitest';
 
-import { render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
+import type { IAccordionProps } from '../../types/elements';
 import { Accordion } from './Accordion';
+
+const ROTATE_ICON = '[data-garden-id="accordions.rotate_icon"]';
+
+const renderHeader = (props: Partial<IAccordionProps> = {}, theme?: typeof DEFAULT_THEME) =>
+  render(
+    <Accordion level={3} {...props}>
+      <Accordion.Section>
+        <Accordion.Header>
+          <Accordion.Label>Header Button</Accordion.Label>
+        </Accordion.Header>
+      </Accordion.Section>
+    </Accordion>,
+    { theme }
+  );
 
 describe('Header', () => {
   const user = userEvent.setup();
@@ -67,5 +84,104 @@ describe('Header', () => {
     expect(onBlur).toHaveBeenCalledTimes(1);
     expect(onMouseOver).toHaveBeenCalledTimes(1);
     expect(onMouseOut).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByRole } = render(
+      <Accordion level={3}>
+        <Accordion.Section>
+          <Accordion.Header data-garden-id="custom" data-garden-version="0.0.0">
+            <Accordion.Label>Header Button</Accordion.Label>
+          </Accordion.Header>
+        </Accordion.Section>
+      </Accordion>
+    );
+
+    expect(getByRole('heading')).toHaveAttribute('data-garden-id', 'accordions.header');
+    expect(getByRole('heading')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  describe('Styling', () => {
+    it('renders a pointer cursor on hover when the section can collapse', () => {
+      const { getByRole } = renderHeader();
+
+      expect(getByRole('heading')).toHaveStyleRule('cursor', 'pointer', { modifier: '&:hover' });
+    });
+
+    it('does not render a pointer cursor on an expanded section that cannot collapse', () => {
+      const { getByRole } = renderHeader({ isCollapsible: false, defaultExpandedSections: [0] });
+
+      expect(getByRole('heading')).not.toHaveStyleRule('cursor', 'pointer', {
+        modifier: '&:hover'
+      });
+    });
+  });
+
+  describe('Rotate icon', () => {
+    const { base } = DEFAULT_THEME.space;
+
+    it('renders default styling', () => {
+      const { container } = renderHeader({ defaultExpandedSections: [] });
+      const icon = container.querySelector(ROTATE_ICON);
+
+      expect(icon).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+      expect(icon).not.toHaveStyleRule('transform');
+      expect(icon).toHaveStyleRule('padding', `${base * 5}px`);
+      expect(icon).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' })
+      );
+    });
+
+    it('renders compact styling', () => {
+      const { container } = renderHeader({ isCompact: true });
+
+      expect(container.querySelector(ROTATE_ICON)).toHaveStyleRule(
+        'padding',
+        `${base * 1.5}px ${base * 3}px`
+      );
+    });
+
+    it('is rotated while the section is expanded', () => {
+      const { container } = renderHeader({ defaultExpandedSections: [0] });
+
+      expect(container.querySelector(ROTATE_ICON)).toHaveStyleRule('transform', 'rotate(+180deg)');
+    });
+
+    it('is rotated in the opposite direction in RTL', () => {
+      const { container } = renderHeader({ defaultExpandedSections: [0] }, RTL_THEME);
+
+      expect(container.querySelector(ROTATE_ICON)).toHaveStyleRule('transform', 'rotate(-180deg)');
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders hover styling in %s mode', (_, theme) => {
+      const { container } = renderHeader({ defaultExpandedSections: [] }, theme);
+      const icon = container.querySelector(ROTATE_ICON)!;
+      const primary = getColor({ theme, variable: 'foreground.primary' });
+
+      fireEvent.mouseOver(icon);
+
+      expect(icon).toHaveStyleRule('color', primary);
+      expect(icon).toHaveStyleRule('color', primary, { modifier: '&:hover' });
+
+      fireEvent.mouseOut(icon);
+
+      expect(icon).toHaveStyleRule('color', getColor({ theme, variable: 'foreground.subtle' }));
+    });
+
+    it('does not render hover styling on an expanded section that cannot collapse', () => {
+      const { container } = renderHeader({ isCollapsible: false, defaultExpandedSections: [0] });
+      const icon = container.querySelector(ROTATE_ICON)!;
+
+      fireEvent.mouseOver(icon);
+
+      expect(icon).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' })
+      );
+    });
   });
 });

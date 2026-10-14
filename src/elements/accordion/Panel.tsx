@@ -7,10 +7,11 @@
 
 import { forwardRef, HTMLAttributes } from 'react';
 
-import { useAccordionContext, useSectionContext } from '../../utils/accordion/index';
+import { useAccordionContext } from '../../hooks/accordion/useAccordionContext';
+import { useSectionContext } from '../../hooks/accordion/useSectionContext';
 import { StyledInnerPanel } from '../../views/accordion/StyledInnerPanel';
 import { StyledPanel } from '../../views/accordion/StyledPanel';
-import { COMPONENT_IDS } from '../utils';
+import { COMPONENT_IDS, getInertValue } from '../utils';
 
 const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   ({ role, children, ...props }, ref) => {
@@ -21,7 +22,7 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
 
     return (
       <StyledPanel
-        inert={isExpanded ? undefined : ''}
+        inert={getInertValue(!isExpanded)}
         $isAnimated={isAnimated}
         $isBare={isBare}
         $isCompact={isCompact}

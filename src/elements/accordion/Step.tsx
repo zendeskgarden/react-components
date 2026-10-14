@@ -7,7 +7,7 @@
 
 import { forwardRef, LiHTMLAttributes } from 'react';
 
-import { useStepperContext } from '../../utils/accordion/index';
+import { useStepperContext } from '../../hooks/accordion/useStepperContext';
 import { StyledLine } from '../../views/accordion/StyledLine';
 import { StyledStep } from '../../views/accordion/StyledStep';
 import { COMPONENT_IDS } from '../utils';

@@ -7,10 +7,10 @@
 
 import { forwardRef, HTMLAttributes } from 'react';
 
-import { useStepContext } from '../../utils/accordion/index';
+import { useStepContext } from '../../hooks/accordion/useStepContext';
 import { StyledInnerContent } from '../../views/accordion/StyledInnerContent';
 import { StyledContent } from '../../views/accordion/StyledStepperContent';
-import { COMPONENT_IDS } from '../utils';
+import { COMPONENT_IDS, getInertValue } from '../utils';
 
 const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
@@ -26,7 +26,7 @@ const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElemen
       >
         <StyledInnerContent
           aria-hidden={!isActive}
-          inert={isActive ? undefined : ''}
+          inert={getInertValue(!isActive)}
           data-garden-id={COMPONENT_IDS['accordions.step_inner_content']}
           data-garden-version={PACKAGE_VERSION}
         >

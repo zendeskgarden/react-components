@@ -87,6 +87,7 @@ const componentIds = [
   'tags.avatar',
   'tags.close',
   'tags.tag_view',
+  'timeline',
   'timeline.content',
   'timeline.content.separator',
   'timeline.icon',

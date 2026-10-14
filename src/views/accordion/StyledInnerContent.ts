@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 
-interface IStyledInnerContentProps extends ThemeProps<DefaultTheme> {
-  inert?: string;
-}
-
-export const StyledInnerContent = styled.div<IStyledInnerContentProps>`
+export const StyledInnerContent = styled.div`
   margin: -${props => props.theme.space.xxs};
   padding: ${props => props.theme.space.xxs};
   overflow: hidden;

@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Span } from '@zendeskgarden/react-typography';
 import { useTheme } from 'styled-components';
 import Icon from 'svg-icons-legacy/src/12/clock-stroke.svg';
 
-import { Timeline, ITimelineProps } from '../../../src/index';
+import { Span, Timeline, ITimelineProps } from '../../../src/index';
 import { getColor } from '../../../src/theming/utils/getColor';
 import { ITimelineItem } from './types';
 

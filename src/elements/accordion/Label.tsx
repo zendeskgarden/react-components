@@ -7,11 +7,9 @@
 
 import { forwardRef, ButtonHTMLAttributes } from 'react';
 
-import {
-  useAccordionContext,
-  useHeaderContext,
-  useSectionContext
-} from '../../utils/accordion/index';
+import { useAccordionContext } from '../../hooks/accordion/useAccordionContext';
+import { useHeaderContext } from '../../hooks/accordion/useHeaderContext';
+import { useSectionContext } from '../../hooks/accordion/useSectionContext';
 import { StyledButton } from '../../views/accordion/StyledButton';
 import { COMPONENT_IDS } from '../utils';
 
