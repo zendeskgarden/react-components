@@ -58,6 +58,11 @@ const transformStyles = ({
 export const StyledPaneSplitterButton = styled(ChevronButton)<IStyledSplitterButtonProps>`
   ${sizeStyles};
 
+  & > svg {
+    width: ${p => p.theme.iconSizes.md};
+    height: ${p => p.theme.iconSizes.md};
+  }
+
   ${transformStyles};
 
   ${componentStyles};

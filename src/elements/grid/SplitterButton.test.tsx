@@ -11,6 +11,7 @@ import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
 import { stubResizeObserver } from '../../test/resizeObserver';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import type { ISplitterButtonProps, ISplitterProps } from '../../types/elements';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
@@ -77,6 +78,14 @@ describe('SplitterButton', () => {
         'buttons.icon_button'
       );
     });
+  });
+
+  it('sizes the chevron to theme.iconSizes.md', () => {
+    const { getByRole } = render(<UncontrolledTestSplitter />);
+    const button = getByRole('button', { name: 'toggle a', hidden: true });
+
+    expect(button).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, { modifier: '& > svg' });
+    expect(button).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md, { modifier: '& > svg' });
   });
 
   describe('events', () => {
