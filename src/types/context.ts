@@ -18,7 +18,14 @@ import type {
   IDatePickerState
 } from '../elements/datepicker/date-picker-reducer';
 import type { DateFnsIndex } from '../utils/datepicker/calendar-utils';
-import type { IAccordionProps, Size } from './elements';
+import type {
+  GridNumber,
+  IAccordionProps,
+  ISplitterProps,
+  Orientation,
+  Size,
+  Space
+} from './elements';
 
 export interface IAccordionContext<SectionValue>
   extends
@@ -65,6 +72,48 @@ export interface IDropzoneContext {
   setHasIcon?: (hasIcon: boolean) => void;
   hasMessage?: boolean;
   setHasMessage?: (hasMessage: boolean) => void;
+}
+//#endregion
+
+//#region grid
+export interface IGridContext {
+  columns?: GridNumber;
+  gutters?: Space;
+  debug?: boolean;
+}
+
+export interface IPaneContext {
+  id?: string;
+  isVisible?: boolean;
+  setId: (id: string) => void;
+}
+
+export interface IPaneProviderContextData {
+  rowState: Record<string, number>;
+  columnState: Record<string, number>;
+  setRowValue: (isTop: boolean, id: string, value: number) => void;
+  setColumnValue: (isStart: boolean, id: string, value: number) => void;
+  getColumnValue: (splitterKey: string, isPixels?: boolean) => number;
+  getRowValue: (splitterKey: string, isPixels?: boolean) => number;
+  totalPanesHeight: number;
+  totalPanesWidth: number;
+  pixelsPerFr: { rows: number; columns: number };
+}
+
+export interface IPaneProviderContext {
+  providerId?: string;
+  contextData?: Record<string, IPaneProviderContextData>;
+}
+
+export interface IPaneSplitterContext {
+  orientation?: Orientation;
+  min: ISplitterProps['min'];
+  max: ISplitterProps['max'];
+  layoutKey: ISplitterProps['layoutKey'];
+  valueNow?: number;
+  size?: number;
+  isRow: boolean;
+  providerId?: ISplitterProps['providerId'];
 }
 //#endregion
 
