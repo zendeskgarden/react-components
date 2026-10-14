@@ -6,18 +6,19 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledRow } from '../styled';
-import { ALIGN_ITEMS, IRowProps, JUSTIFY_CONTENT, WRAP } from '../types';
-import useGridContext from '../utils/useGridContext';
+import { useGridContext } from '../../hooks/grid/useGridContext';
+import { ALIGN_ITEMS, IGridRowProps, JUSTIFY_CONTENT, WRAP } from '../../types/elements';
+import { StyledRow } from '../../views/grid/StyledRow';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Grid.Row` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Row = React.forwardRef<HTMLDivElement, IRowProps>(
+export const Row = forwardRef<HTMLDivElement, IGridRowProps>(
   (
     {
       alignItems,
@@ -68,6 +69,8 @@ export const Row = React.forwardRef<HTMLDivElement, IRowProps>(
         $wrapXl={wrapXl}
         ref={ref}
         {...props}
+        data-garden-id={COMPONENT_IDS['grid.row']}
+        data-garden-version={PACKAGE_VERSION}
       />
     );
   }

@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { act, render } from 'garden-test-utils';
-import React from 'react';
+import { act } from '@testing-library/react';
+import { createRef } from 'react';
+import { vi } from 'vitest';
 
-import { Content } from './components/Content';
-import { Splitter } from './components/Splitter';
+import { render } from '../../test/render';
+import { Content } from './Content';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
+import { Splitter } from './Splitter';
 
 type IMockResizeObserverPolyfillReturnValue = {
   ResizeObserver: (cb: () => void) => any;
@@ -20,12 +22,12 @@ type IMockResizeObserverPolyfillReturnValue = {
 // '@juggle/resize-observer' is the polyfill used by 'use-resize-observer'
 // we tap into the polyfilled ResizeObserver to trigger the useResizeObserver hook
 // this way we can test when the Pane is collapsed and ensure the Pane.Content is hidden
-jest.mock<IMockResizeObserverPolyfillReturnValue>('@juggle/resize-observer', () => ({
+vi.mock<IMockResizeObserverPolyfillReturnValue>('@juggle/resize-observer', () => ({
   ResizeObserver: function ResizeObserver(cb: () => void) {
-    const o = jest.requireActual('@juggle/resize-observer');
+    const o = vi.requireActual('@juggle/resize-observer');
 
     // @ts-expect-error resize observer callback is an non-standard method added for testing
-    return new o.ResizeObserver((window.resizeObserverCallback = jest.fn(cb)));
+    return new o.ResizeObserver((window.resizeObserverCallback = vi.fn(cb)));
   }
 }));
 
@@ -56,7 +58,7 @@ describe('Pane', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Pane ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

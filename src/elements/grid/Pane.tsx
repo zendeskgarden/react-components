@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, useMemo, useRef, HTMLAttributes, forwardRef } from 'react';
+import { useState, useMemo, useRef, HTMLAttributes, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import useResizeObserver from 'use-resize-observer';
 
-import { StyledPane } from '../../styled';
-import { PaneContext } from '../../utils/usePaneContext';
-import { Content } from './components/Content';
-import { Splitter } from './components/Splitter';
-import { SplitterButton } from './components/SplitterButton';
+import { PaneProvider } from '../../context/grid/PaneContext';
+import { StyledPane } from '../../views/grid/StyledPane';
+import { Content } from './Content';
+import { Splitter } from './Splitter';
+import { SplitterButton } from './SplitterButton';
 
 const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ children, ...props }, ref) => {
@@ -37,11 +37,11 @@ const PaneComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
     );
 
     return (
-      <PaneContext.Provider value={paneContext}>
+      <PaneProvider value={paneContext}>
         <StyledPane id={paneId} ref={mergeRefs([ref, observerRef])} {...props}>
           {children}
         </StyledPane>
-      </PaneContext.Provider>
+      </PaneProvider>
     );
   }
 );

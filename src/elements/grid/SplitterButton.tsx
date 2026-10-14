@@ -7,12 +7,14 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import React, { forwardRef, useCallback } from 'react';
+import { forwardRef, useCallback } from 'react';
 
-import { StyledPaneSplitterButton, StyledPaneSplitterButtonContainer } from '../../../styled';
-import { ISplitterButtonProps } from '../../../types';
-import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
-import usePaneSplitterContext from '../../../utils/usePaneSplitterContext';
+import { usePaneProviderContextData } from '../../hooks/grid/usePaneProviderContext';
+import { usePaneSplitterContext } from '../../hooks/grid/usePaneSplitterContext';
+import { ISplitterButtonProps } from '../../types/elements';
+import { StyledPaneSplitterButton } from '../../views/grid/StyledPaneSplitterButton';
+import { StyledPaneSplitterButtonContainer } from '../../views/grid/StyledPaneSplitterButtonContainer';
+import { COMPONENT_IDS } from '../utils';
 
 const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonProps>(
   ({ label, placement: defaultPlacement, ...other }, ref) => {
@@ -66,6 +68,8 @@ const SplitterButtonComponent = forwardRef<HTMLButtonElement, ISplitterButtonPro
         $orientation={orientation!}
         $placement={placement!}
         $splitterSize={size || 0}
+        data-garden-id={COMPONENT_IDS['pane.splitter_button_container']}
+        data-garden-version={PACKAGE_VERSION}
       >
         <Tooltip
           content={label}

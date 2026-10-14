@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IColProps } from '@zendeskgarden/react-grid';
-
+import { IColProps } from '../../../src/index';
 import { IGridRow, ISplitterPane } from './types';
 
 const ROW_COLUMNS_STANDARD: IColProps[] = Array.from({ length: 12 }, (_, index) => ({

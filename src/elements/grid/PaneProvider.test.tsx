@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, fireEvent } from 'garden-test-utils';
-import React, { useCallback, useState } from 'react';
+import { fireEvent } from '@testing-library/react';
+import { useCallback, useState, createElement } from 'react';
+import { vi } from 'vitest';
 
-import { IPaneProviderProps } from '../../types';
-import { Content } from './components/Content';
-import { Splitter } from './components/Splitter';
-import { SplitterButton } from './components/SplitterButton';
+import { render } from '../../test/render';
+import { IPaneProviderProps } from '../../types/elements';
+import { Content } from './Content';
 import { Pane } from './Pane';
 import { PaneProvider } from './PaneProvider';
+import { Splitter } from './Splitter';
+import { SplitterButton } from './SplitterButton';
 
 interface IExtendedMouseEvent extends MouseEventInit {
   offsetX?: number;
@@ -291,7 +293,7 @@ describe('PaneProvider', () => {
     });
   });
   it('returns render prop function', () => {
-    const renderProp = jest.fn();
+    const renderProp = vi.fn();
 
     render(
       <PaneProvider
@@ -653,7 +655,7 @@ describe('PaneProvider', () => {
       let _rowValues: any;
       let _columnValues: any;
 
-      const element = React.createElement(() => {
+      const element = createElement(() => {
         const [columnValues, setColumnValues] = useState<Record<string, number>>({ a: 1, b: 1 });
         const [rowValues, setRowValues] = useState<Record<string, number>>({ c: 1, d: 1 });
         const onChange = useCallback(
@@ -714,7 +716,7 @@ describe('PaneProvider', () => {
       let _rowValues: any;
       let _columnValues: any;
 
-      const element = React.createElement(() => {
+      const element = createElement(() => {
         const [columnValues, setColumnValues] = useState<Record<string, number>>({ a: 1, b: 1 });
         const [rowValues, setRowValues] = useState<Record<string, number>>({ c: 1, d: 1 });
         const onChange = useCallback(
@@ -776,7 +778,7 @@ describe('PaneProvider', () => {
       let _parentColumnValues: any;
       let _childRowValues: any;
 
-      const element = React.createElement(() => {
+      const element = createElement(() => {
         const [parentColumnValues, setParentColumnValues] = useState<Record<string, number>>({
           'nested-b': 1,
           a: 1

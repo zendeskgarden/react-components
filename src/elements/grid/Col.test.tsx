@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 import styled from 'styled-components';
 
+import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { COMPONENT_IDS } from '../utils';
 import { Col } from './Col';
 import { Grid } from './Grid';
 import { Row } from './Row';
@@ -37,7 +38,14 @@ describe('Col', () => {
 
   it('renders when wrapped with styled() without a containing Grid', () => {
     const StyledCol = styled(Col)``;
-    const { getByTestId } = render(<StyledCol data-test-id="test" md={4} />);
+    const { getByTestId } = render(
+      <StyledCol
+        data-test-id="test"
+        md={4}
+        data-garden-id={COMPONENT_IDS['grid.col']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
 
     expect(getByTestId('test')).toHaveStyleRule('max-width', `${(4 / 12) * 100}%`, {
       media: `(min-width:  ${DEFAULT_THEME.breakpoints.md})`
@@ -45,7 +53,7 @@ describe('Col', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Col ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

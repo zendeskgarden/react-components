@@ -5,23 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-import { GridNumber, Space } from '../types';
-
-interface IGridContext {
-  columns?: GridNumber;
-  gutters?: Space;
-  debug?: boolean;
-}
-
-export const GridContext = createContext<IGridContext>({ columns: 12, gutters: 'md' });
+import { GridContext } from '../../context/grid/GridContext';
 
 /**
  * Retrieve Grid component context
  */
-const useGridContext = () => {
+export const useGridContext = () => {
   return useContext(GridContext);
 };
-
-export default useGridContext;

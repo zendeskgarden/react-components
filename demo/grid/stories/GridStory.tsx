@@ -5,17 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Grid, IGridProps, IRowProps } from '@zendeskgarden/react-grid';
-import React from 'react';
-
+import { Grid, IGridProps, IGridRowProps } from '../../../src/index';
 import { IGridRow } from './types';
 
-interface IArgs extends IGridProps, IRowProps {
+interface IArgs extends IGridProps, IGridRowProps {
   rows: IGridRow[];
 }
 
-export const GridStory: StoryFn<IArgs> = ({
+export const GridStory = ({
   rows,
   alignItems,
   alignItemsXs,
@@ -36,7 +33,7 @@ export const GridStory: StoryFn<IArgs> = ({
   wrapLg,
   wrapXl,
   ...args
-}) => (
+}: IArgs) => (
   <Grid {...args}>
     {rows.map((row, rowIndex) => {
       const { cols, ...props } = row;

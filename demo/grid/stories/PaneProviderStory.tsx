@@ -5,11 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { PaneProvider, IPaneProviderProps, Pane } from '@zendeskgarden/react-grid';
-import React from 'react';
 import styled from 'styled-components';
 
+import { PaneProvider, IPaneProviderProps, Pane } from '../../../src/index';
 import { ISplitterPane } from './types';
 
 const StyledPanes = styled.div`
@@ -21,7 +19,7 @@ interface IArgs extends IPaneProviderProps {
   panes: ISplitterPane[];
 }
 
-export const PaneProviderStory: StoryFn<IArgs> = ({
+export const PaneProviderStory = ({
   totalPanesWidth,
   totalPanesHeight,
   columnValues,
@@ -30,7 +28,7 @@ export const PaneProviderStory: StoryFn<IArgs> = ({
   defaultRowValues,
   onChange,
   panes
-}) => (
+}: IArgs) => (
   <PaneProvider
     totalPanesWidth={totalPanesWidth}
     totalPanesHeight={totalPanesHeight}

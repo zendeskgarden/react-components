@@ -7,10 +7,11 @@
 
 import { useId } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 
-import { IPaneProviderProps } from '../../types';
-import usePaneProviderContext, { PaneProviderContext } from '../../utils/usePaneProviderContext';
+import { PaneProviderProvider } from '../../context/grid/PaneProviderContext';
+import { usePaneProviderContext } from '../../hooks/grid/usePaneProviderContext';
+import { IPaneProviderProps } from '../../types/elements';
 
 const getPixelsPerFr = (totalFrs: number, totalDimension: number) => {
   return totalDimension / totalFrs;
@@ -273,7 +274,7 @@ export const PaneProvider = ({
   );
 
   return (
-    <PaneProviderContext.Provider value={paneProviderContext}>
+    <PaneProviderProvider value={paneProviderContext}>
       {children?.({
         id: providerId!,
         getRowValue,
@@ -281,7 +282,7 @@ export const PaneProvider = ({
         getGridTemplateColumns,
         getGridTemplateRows
       })}
-    </PaneProviderContext.Provider>
+    </PaneProviderProvider>
   );
 };
 

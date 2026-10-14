@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { IGridProps } from '../types';
-
-const COMPONENT_ID = 'grid.grid';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IGridProps } from '../../types/elements';
 
 const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
   const borderColor =
@@ -52,10 +51,7 @@ interface IStyledGridProps extends ThemeProps<DefaultTheme> {
   $gutters?: IGridProps['gutters'];
 }
 
-export const StyledGrid = styled.div.attrs<IStyledGridProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledGridProps>`
+export const StyledGrid = styled.div<IStyledGridProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   margin-right: auto;
   margin-left: auto;

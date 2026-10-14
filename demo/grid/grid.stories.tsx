@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '@zendeskgarden/react-grid';
-import React from 'react';
 
+import { Grid, ALIGN_ITEMS, JUSTIFY_CONTENT, WRAP } from '../../src/index';
 import { GRID_ROWS as ROWS } from './stories/data';
 import { GridStory } from './stories/GridStory';
 
 export default {
-  title: 'Packages/Grid/Grid',
+  title: 'Components/Grid',
   component: Grid,
   subcomponents: {
     'Grid.Col': Grid.Col,

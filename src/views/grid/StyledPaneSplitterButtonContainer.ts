@@ -5,23 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { math, stripUnit } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
-import { Orientation, PLACEMENT } from '../../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { Orientation, GRID_PLACEMENT } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 import { getSize } from './StyledPaneSplitterButton';
 
-const COMPONENT_ID = 'pane.splitter_button_container';
-
 interface IStyledSplitterButtonContainerProps {
   $orientation: Orientation;
-  $placement: (typeof PLACEMENT)[number];
+  $placement: (typeof GRID_PLACEMENT)[number];
   $splitterSize: number;
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
@@ -40,7 +40,7 @@ const positionStyles = ({
   $orientation,
   $placement,
   $splitterSize
-}: IStyledSplitterButtonContainerProps & ThemeProps<DefaultTheme>) => {
+}: IStyledSplitterButtonContainerProps & IStyledBaseProps) => {
   let top;
   let left;
   let right;
@@ -140,7 +140,7 @@ const positionStyles = ({
   `;
 };
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const size = getSize(theme);
 
   return css`
@@ -156,10 +156,7 @@ const minimumSplitterSize = (theme: DefaultTheme) =>
 /**
  * 1. Match focused `Splitter` z-index
  */
-export const StyledPaneSplitterButtonContainer = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledSplitterButtonContainerProps>`
+export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButtonContainerProps>`
   display: ${props =>
     props.$splitterSize <= minimumSplitterSize(props.theme) ? 'none' : undefined};
   position: absolute;

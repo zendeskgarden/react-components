@@ -5,25 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  focusStyles,
-  getColor,
-  componentStyles,
-  SELECTOR_FOCUS_VISIBLE
-} from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Orientation } from '../../types';
-
-const COMPONENT_ID = 'pane.splitter';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { Orientation } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledPaneSplitterProps {
   $orientation?: Orientation;
   $isFixed?: boolean;
 }
 
-const colorStyles = ({ theme }: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledPaneSplitterProps & IStyledBaseProps) => {
   const color = getColor({ theme, variable: 'border.default' });
   const options = { theme, variable: 'border.primaryEmphasis' };
   const hoverColor = getColor(options);
@@ -54,7 +50,7 @@ const sizeStyles = ({
   theme,
   $orientation,
   $isFixed
-}: IStyledPaneSplitterProps & ThemeProps<DefaultTheme>) => {
+}: IStyledPaneSplitterProps & IStyledBaseProps) => {
   const size = math(`${theme.shadowWidths.md} * 2`);
   const separatorSize = math(`${theme.borderWidths.sm} * 2`);
   const offset = math(`-${size} / 2`);
@@ -160,10 +156,7 @@ const sizeStyles = ({
  * 2. Stack below splitter button.
  * 3. Stack above other splitters when focused
  */
-export const StyledPaneSplitter = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledPaneSplitterProps>`
+export const StyledPaneSplitter = styled.div<IStyledPaneSplitterProps>`
   display: flex;
   position: absolute;
   align-items: center;

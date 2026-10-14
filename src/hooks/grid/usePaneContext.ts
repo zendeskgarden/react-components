@@ -5,23 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-interface IPaneContext {
-  id?: string;
-  isVisible?: boolean;
-  setId: (id: string) => void;
-}
-
-export const PaneContext = createContext<IPaneContext>({
-  setId: () => undefined
-});
+import { PaneContext } from '../../context/grid/PaneContext';
 
 /**
  * Retrieve Splitter component context
  */
-const usePaneContext = () => {
+export const usePaneContext = () => {
   return useContext(PaneContext);
 };
-
-export default usePaneContext;

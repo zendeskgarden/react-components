@@ -5,13 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { AlignSelf, Breakpoint, GridNumber, IColProps, IGridProps, TextAlign } from '../types';
-
-const COMPONENT_ID = 'grid.col';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import {
+  AlignSelf,
+  Breakpoint,
+  GridNumber,
+  IColProps,
+  IGridProps,
+  TextAlign
+} from '../../types/elements';
 
 interface IStyledColProps extends ThemeProps<DefaultTheme> {
   $columns?: IGridProps['columns'];
@@ -154,10 +160,7 @@ const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
   `;
 };
 
-export const StyledCol = styled.div.attrs<IStyledColProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledColProps>`
+export const StyledCol = styled.div<IStyledColProps>`
   box-sizing: border-box;
   width: 100%;
 

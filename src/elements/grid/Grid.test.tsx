@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
 import { math } from 'polished';
-import React from 'react';
+import { createRef } from 'react';
 
+import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Grid } from './Grid';
 
 describe('Grid', () => {
@@ -28,7 +28,7 @@ describe('Grid', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<Grid ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

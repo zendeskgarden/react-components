@@ -6,10 +6,11 @@
  */
 
 import { ChevronButton } from '@zendeskgarden/react-buttons';
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from 'styled-components';
 
-import { Orientation } from '../../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { Orientation } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledSplitterButtonProps {
   $orientation: Orientation;
@@ -18,7 +19,7 @@ interface IStyledSplitterButtonProps {
 
 export const getSize = (theme: DefaultTheme) => theme.space.base * 6;
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const size = `${getSize(theme)}px`;
 
   return css`
@@ -32,7 +33,7 @@ const transformStyles = ({
   $isRotated,
   $orientation,
   theme
-}: IStyledSplitterButtonProps & ThemeProps<DefaultTheme>) => {
+}: IStyledSplitterButtonProps & IStyledBaseProps) => {
   let degrees = 0;
 
   if ($isRotated) {
@@ -54,6 +55,7 @@ const transformStyles = ({
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledPaneSplitterButton = styled(ChevronButton).attrs<IStyledSplitterButtonProps>({
   'data-garden-version': PACKAGE_VERSION,
   isBasic: true,

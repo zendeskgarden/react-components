@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { AlignItems, IGridProps, IRowProps, JustifyContent, Wrap } from '../types';
-
-const COMPONENT_ID = 'grid.row';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { AlignItems, IGridProps, IGridRowProps, JustifyContent, Wrap } from '../../types/elements';
 
 interface IStyledRowProps extends ThemeProps<DefaultTheme> {
   $gutters?: IGridProps['gutters'];
@@ -28,7 +27,7 @@ interface IStyledRowProps extends ThemeProps<DefaultTheme> {
   $justifyContentMd?: JustifyContent;
   $justifyContentLg?: JustifyContent;
   $justifyContentXl?: JustifyContent;
-  $wrapAll?: IRowProps['wrap'];
+  $wrapAll?: IGridRowProps['wrap'];
   $wrapXs?: Wrap;
   $wrapSm?: Wrap;
   $wrapMd?: Wrap;
@@ -100,10 +99,7 @@ const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
   `;
 };
 
-export const StyledRow = styled.div.attrs<IStyledRowProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledRowProps>`
+export const StyledRow = styled.div<IStyledRowProps>`
   display: flex;
   box-sizing: border-box;
 

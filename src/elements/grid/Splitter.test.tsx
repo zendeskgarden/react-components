@@ -5,18 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { fireEvent, render } from 'garden-test-utils';
-import { ISplitterProps } from 'packages/grid/src/types';
-import React, {
+import { fireEvent } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import {
   KeyboardEventHandler,
   MouseEventHandler,
   RefObject,
-  TouchEventHandler
+  TouchEventHandler,
+  createRef
 } from 'react';
 
-import { Pane } from '../Pane';
-import { PaneProvider } from '../PaneProvider';
+import { render } from '../../test/render';
+import { ISplitterProps } from '../../types/elements';
+import { Pane } from './Pane';
+import { PaneProvider } from './PaneProvider';
 import { Splitter } from './Splitter';
 
 const UncontrolledTestSplitter = ({
@@ -73,7 +75,7 @@ describe('Splitter', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
 
     render(<UncontrolledTestSplitter splitterRef={ref} />);
 

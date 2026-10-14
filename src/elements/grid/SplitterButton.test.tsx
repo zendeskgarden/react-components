@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React, { RefObject } from 'react';
+import { RefObject, createRef } from 'react';
 
-import { Pane } from '../Pane';
-import { PaneProvider } from '../PaneProvider';
+import { RTL_THEME, render } from '../../test/render';
+import { Pane } from './Pane';
+import { PaneProvider } from './PaneProvider';
 import { Splitter } from './Splitter';
 import { SplitterButton } from './SplitterButton';
 
@@ -42,7 +42,7 @@ describe('SplitterButton', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLButtonElement>();
 
     const { getByRole } = render(<UncontrolledTestSplitter buttonRef={ref} />);
 
@@ -50,7 +50,9 @@ describe('SplitterButton', () => {
   });
 
   it('is rendered as rtl', () => {
-    const { getByRole } = renderRtl(<UncontrolledTestSplitter />);
+    const { getByRole } = render(<UncontrolledTestSplitter />, {
+      theme: RTL_THEME
+    });
 
     const button = getByRole('button', { name: 'toggle a', hidden: true });
     expect(button.querySelector('svg')).toBeDefined();

@@ -6,22 +6,30 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo, forwardRef } from 'react';
 
-import { StyledGrid } from '../styled';
-import { IGridProps, SPACE } from '../types';
-import { GridContext } from '../utils/useGridContext';
+import { GridProvider } from '../../context/grid/GridContext';
+import { IGridProps, SPACE } from '../../types/elements';
+import { StyledGrid } from '../../views/grid/StyledGrid';
+import { COMPONENT_IDS } from '../utils';
 import { Col } from './Col';
 import { Row } from './Row';
 
-export const GridComponent = React.forwardRef<HTMLDivElement, IGridProps>(
+export const GridComponent = forwardRef<HTMLDivElement, IGridProps>(
   ({ columns = 12, gutters = 'md', debug, ...other }, ref) => {
     const value = useMemo(() => ({ columns, gutters: gutters!, debug }), [columns, gutters, debug]);
 
     return (
-      <GridContext.Provider value={value}>
-        <StyledGrid $debug={debug} $gutters={gutters} ref={ref} {...other} />
-      </GridContext.Provider>
+      <GridProvider value={value}>
+        <StyledGrid
+          $debug={debug}
+          $gutters={gutters}
+          ref={ref}
+          {...other}
+          data-garden-id={COMPONENT_IDS['grid.grid']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      </GridProvider>
     );
   }
 );

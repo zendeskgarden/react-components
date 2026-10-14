@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ISplitterButtonProps, ISplitterProps } from '@zendeskgarden/react-grid';
+import { ISplitterButtonProps, ISplitterProps } from '../../../../src/index';
 
 interface IPanes {
   name: string;

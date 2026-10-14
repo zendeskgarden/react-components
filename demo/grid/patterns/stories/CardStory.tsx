@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { PaneProvider, Pane } from '@zendeskgarden/react-grid';
 import { MD, LG } from '@zendeskgarden/react-typography';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import useResizeObserver from 'use-resize-observer';
 
+import { PaneProvider, Pane } from '../../../../src/index';
 import { IColumns } from './types';
 
 const Row = ({ panes }: { panes: IColumns['panes'] }) => {
@@ -78,7 +77,7 @@ const Row = ({ panes }: { panes: IColumns['panes'] }) => {
   );
 };
 
-export const CardStory: StoryFn<{ columns: IColumns[] }> = ({ columns }) => {
+export const CardStory = ({ columns }: { columns: IColumns[] }) => {
   const {
     rtl,
     space: { base }

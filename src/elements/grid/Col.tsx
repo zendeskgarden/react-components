@@ -6,18 +6,19 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledCol } from '../styled';
-import { ALIGN_SELF, IColProps, TEXT_ALIGN } from '../types';
-import useGridContext from '../utils/useGridContext';
+import { useGridContext } from '../../hooks/grid/useGridContext';
+import { ALIGN_SELF, IColProps, TEXT_ALIGN } from '../../types/elements';
+import { StyledCol } from '../../views/grid/StyledCol';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Grid.Col` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Col = React.forwardRef<HTMLDivElement, IColProps>(
+export const Col = forwardRef<HTMLDivElement, IColProps>(
   (
     {
       alignSelf,
@@ -93,6 +94,8 @@ export const Col = React.forwardRef<HTMLDivElement, IColProps>(
         $debug={debug}
         ref={ref}
         {...other}
+        data-garden-id={COMPONENT_IDS['grid.col']}
+        data-garden-version={PACKAGE_VERSION}
       />
     );
   }

@@ -6,17 +6,19 @@
  */
 
 import { useSplitter } from '@zendeskgarden/container-splitter';
-import { useDocument, useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { useContext, useEffect, forwardRef, useMemo, useRef, HTMLAttributes } from 'react';
+import { useContext, useEffect, forwardRef, useMemo, useRef, HTMLAttributes } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
-import { StyledPaneSplitter } from '../../../styled';
-import { ISplitterProps, ORIENTATION } from '../../../types';
-import usePaneContext from '../../../utils/usePaneContext';
-import { usePaneProviderContextData } from '../../../utils/usePaneProviderContext';
-import { PaneSplitterContext } from '../../../utils/usePaneSplitterContext';
+import { PaneSplitterProvider } from '../../context/grid/PaneSplitterContext';
+import { usePaneContext } from '../../hooks/grid/usePaneContext';
+import { usePaneProviderContextData } from '../../hooks/grid/usePaneProviderContext';
+import { useDocument } from '../../theming/utils/useDocument';
+import { useText } from '../../theming/utils/useText';
+import { ISplitterProps, ORIENTATION } from '../../types/elements';
+import { StyledPaneSplitter } from '../../views/grid/StyledPaneSplitter';
+import { COMPONENT_IDS } from '../utils';
 
 const paneToSplitterOrientation: Record<string, 'vertical' | 'horizontal'> = {
   start: 'vertical',
@@ -124,7 +126,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
     const size = isRow ? separatorRef.current?.clientWidth : separatorRef.current?.clientHeight;
 
     return (
-      <PaneSplitterContext.Provider
+      <PaneSplitterProvider
         value={useMemo(
           () => ({ orientation, layoutKey, min, max, valueNow: valueInFr, size, isRow }),
           [orientation, layoutKey, min, max, valueInFr, size, isRow]
@@ -135,10 +137,12 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
           $orientation={orientation}
           {...separatorProps}
           {...props}
+          data-garden-id={COMPONENT_IDS['pane.splitter']}
+          data-garden-version={PACKAGE_VERSION}
           ref={mergeRefs([separatorRef, ref])}
         />
         {children /* Splitter.Button is the only valid child */}
-      </PaneSplitterContext.Provider>
+      </PaneSplitterProvider>
     );
   }
 );
