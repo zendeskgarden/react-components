@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext, ReactNode } from 'react';
+import { useContext } from 'react';
 
-export interface ITimelineItemContext {
-  icon?: ReactNode;
-  surfaceColor?: string;
-}
-
-export const TimelineItemContext = createContext<ITimelineItemContext | undefined>(undefined);
+import { TimelineItemContext } from '../../context/accordion/TimelineItemContext';
 
 export const useTimelineItemContext = () => {
   const context = useContext(TimelineItemContext);

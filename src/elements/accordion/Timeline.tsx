@@ -5,23 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, forwardRef } from 'react';
+import { useMemo, forwardRef } from 'react';
 
-import { StyledTimeline } from '../../styled';
-import { ITimelineProps } from '../../types';
-import { TimelineContext } from '../../utils';
-import { Content } from '../timeline/components/Content';
-import { Item } from '../timeline/components/Item';
-import { OppositeContent } from '../timeline/components/OppositeContent';
+import { ITimelineProps } from '../../types/elements';
+import { TimelineContext } from '../../utils/accordion/index';
+import { StyledTimeline } from '../../views/accordion/StyledTimeline';
+import { Item } from './Item';
+import { OppositeContent } from './OppositeContent';
+import { Content } from './TimelineContent';
 
 const TimelineComponent = forwardRef<HTMLOListElement, ITimelineProps>(
   ({ isAlternate, ...props }, ref) => {
     const value = useMemo(() => ({ isAlternate }), [isAlternate]);
 
     return (
-      <TimelineContext.Provider value={value}>
+      <TimelineProvider value={value}>
         <StyledTimeline ref={ref} {...props} />
-      </TimelineContext.Provider>
+      </TimelineProvider>
     );
   }
 );

@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Stepper } from '@zendeskgarden/react-accordions';
-import React from 'react';
 
+import { Stepper } from '../../src/index';
 import { STEPPER_STEPS as STEPS } from './stories/data';
 import { StepperStory } from './stories/StepperStory';
 
 export default {
-  title: 'Packages/Accordions/Stepper',
+  title: 'Components/Stepper',
   component: Stepper,
   subcomponents: {
     'Stepper.Content': Stepper.Content,

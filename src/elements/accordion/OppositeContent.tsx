@@ -5,12 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledOppositeContent } from '../../../styled';
+import { StyledOppositeContent } from '../../views/accordion/StyledOppositeContent';
+import { COMPONENT_IDS } from '../utils';
 
 const OppositeContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => <StyledOppositeContent ref={ref} {...props} />
+  (props, ref) => (
+    <StyledOppositeContent
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['timeline.opposite.content']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 OppositeContentComponent.displayName = 'Timeline.OppositeContent';

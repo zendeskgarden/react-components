@@ -5,22 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, focusStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
 import { StyledButton } from './StyledButton';
-
-const COMPONENT_ID = 'accordions.header';
 
 interface IStyledHeader {
   $isExpanded?: boolean;
   $isCollapsible?: boolean;
 }
 
-export const StyledHeader = styled.div.attrs<IStyledHeader>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledHeader>`
+export const StyledHeader = styled.div<IStyledHeader>`
   display: flex;
   align-items: center;
   transition: box-shadow 0.1s ease-in-out;

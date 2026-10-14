@@ -5,8 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledPanel {
   inert?: string;
@@ -16,9 +20,7 @@ interface IStyledPanel {
   $isAnimated?: boolean;
 }
 
-const COMPONENT_ID = 'accordions.panel';
-
-const colorStyles = ({ theme, $isBare }: IStyledPanel & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isBare }: IStyledPanel & IStyledBaseProps) => {
   return css`
     border-bottom-color: ${$isBare
       ? 'transparent'
@@ -26,7 +28,7 @@ const colorStyles = ({ theme, $isBare }: IStyledPanel & ThemeProps<DefaultTheme>
   `;
 };
 
-const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledPanel & IStyledBaseProps) => {
   const { theme, $isCompact, $isExpanded } = props;
   const { base } = theme.space;
   let paddingTop = base * 2;
@@ -53,10 +55,7 @@ const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledPanel = styled.section.attrs<IStyledPanel>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledPanel>`
+export const StyledPanel = styled.section<IStyledPanel>`
   display: grid;
   transition: ${props =>
     /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves

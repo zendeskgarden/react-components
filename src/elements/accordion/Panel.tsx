@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { useAccordionContext, useSectionContext } from '../../../utils';
-import { StyledPanel, StyledInnerPanel } from '../../../styled';
+import { useAccordionContext, useSectionContext } from '../../utils/accordion/index';
+import { StyledInnerPanel } from '../../views/accordion/StyledInnerPanel';
+import { StyledPanel } from '../../views/accordion/StyledPanel';
+import { COMPONENT_IDS } from '../utils';
 
 const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   ({ role, children, ...props }, ref) => {
@@ -30,8 +32,16 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
           value: sectionValue,
           ...props
         }) as HTMLAttributes<HTMLElement>)}
+        data-garden-id={COMPONENT_IDS['accordions.panel']}
+        data-garden-version={PACKAGE_VERSION}
       >
-        <StyledInnerPanel $isAnimated={isAnimated}>{children}</StyledInnerPanel>
+        <StyledInnerPanel
+          $isAnimated={isAnimated}
+          data-garden-id={COMPONENT_IDS['accordions.step_inner_panel']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          {children}
+        </StyledInnerPanel>
       </StyledPanel>
     );
   }

@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Stepper, IStepperProps } from '@zendeskgarden/react-accordions';
-import Icon from '@zendeskgarden/svg-icons/src/12/clipboard-list-stroke.svg';
-import React, { SVGAttributes } from 'react';
+import { SVGAttributes } from 'react';
+import Icon from 'svg-icons-legacy/src/12/clipboard-list-stroke.svg';
 
+import { Stepper, IStepperProps } from '../../../src/index';
 import { IStepperStep } from './types';
 
 interface IArgs extends IStepperProps {
@@ -19,7 +18,7 @@ interface IArgs extends IStepperProps {
   iconProps: SVGAttributes<SVGElement>;
 }
 
-export const StepperStory: StoryFn<IArgs> = ({ steps, ...args }) => (
+export const StepperStory = ({ steps, ...args }: IArgs) => (
   <Stepper {...args}>
     {steps.map((step, index) => (
       <Stepper.Step key={index}>

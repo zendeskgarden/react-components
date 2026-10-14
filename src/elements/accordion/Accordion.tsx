@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
-import { IAccordionProps } from '../../types';
-import { StyledAccordion } from '../../styled';
-import { AccordionContext, SectionContext } from '../../utils';
-import { Section } from './components/Section';
-import { Header } from './components/Header';
-import { Label } from './components/Label';
-import { Panel } from './components/Panel';
+import { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
+
+import { IAccordionProps } from '../../types/elements';
+import { AccordionContext, SectionContext } from '../../utils/accordion/index';
+import { StyledAccordion } from '../../views/accordion/StyledAccordion';
+import { COMPONENT_IDS } from '../utils';
+import { Header } from './Header';
+import { Label } from './Label';
+import { Panel } from './Panel';
+import { Section } from './Section';
 
 const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
@@ -38,9 +40,9 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
           .filter(isValidElement)
           .map((child, index) => (
             /* eslint-disable-next-line react/no-array-index-key */
-            <SectionContext.Provider key={index} value={index}>
+            <SectionProvider key={index} value={index}>
               {child}
-            </SectionContext.Provider>
+            </SectionProvider>
           ))
           .reduce<{
             sectionChildren: ReactElement[];
@@ -92,11 +94,16 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
     );
 
     return (
-      <AccordionContext.Provider value={accordionContextValue}>
-        <StyledAccordion ref={ref} {...props}>
+      <AccordionProvider value={accordionContextValue}>
+        <StyledAccordion
+          ref={ref}
+          {...props}
+          data-garden-id={COMPONENT_IDS['accordions.accordion']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {sectionChildren}
         </StyledAccordion>
-      </AccordionContext.Provider>
+      </AccordionProvider>
     );
   }
 );

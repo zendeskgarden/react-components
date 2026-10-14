@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { StrictMode, createRef } from 'react';
 
-import { Stepper } from '../Stepper';
+import { render } from '../../test/render';
+import { Stepper } from './Stepper';
 
 describe('Step', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
+    const ref = createRef<HTMLLIElement>();
     const { getByTestId } = render(
       <Stepper>
         <Stepper.Step data-test-id="step" ref={ref} />
@@ -68,7 +68,7 @@ describe('Step', () => {
 
   it('does not change step number when running in strict mode', async () => {
     const { findAllByText } = render(
-      <React.StrictMode>
+      <StrictMode>
         <Stepper>
           <Stepper.Step>
             <Stepper.Label />
@@ -77,7 +77,7 @@ describe('Step', () => {
             <Stepper.Label />
           </Stepper.Step>
         </Stepper>
-      </React.StrictMode>
+      </StrictMode>
     );
 
     const elements = await findAllByText(/1|2/u);

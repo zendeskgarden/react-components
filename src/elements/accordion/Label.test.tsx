@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Accordion } from '../Accordion';
+import { render } from '../../test/render';
+import { Accordion } from './Accordion';
 
 describe('Label', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLButtonElement>();
 
     const { getByRole } = render(
       <Accordion level={3}>

@@ -5,16 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface IStepContext {
-  currentStepIndex: number;
-  isActive: boolean;
-  isCompleted: boolean;
-  isHorizontal: boolean;
-}
-
-export const StepContext = createContext<IStepContext | undefined>(undefined);
+import { StepContext } from '../../context/accordion/StepContext';
 
 export const useStepContext = () => {
   const context = useContext(StepContext);

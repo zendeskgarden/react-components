@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface IStepperContext {
-  activeIndex: number;
-  isHorizontal: boolean;
-}
-
-export const StepperContext = createContext<IStepperContext | undefined>(undefined);
+import { StepperContext } from '../../context/accordion/StepperContext';
 
 export const useStepperContext = () => {
   const context = useContext(StepperContext);

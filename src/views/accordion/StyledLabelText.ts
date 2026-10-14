@@ -7,17 +7,12 @@
 
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_label_text';
-
 interface IStyledLabelTextProps {
   $isHidden?: boolean;
   $isHorizontal?: boolean;
 }
 
-export const StyledLabelText = styled.div.attrs<IStyledLabelTextProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledLabelTextProps>`
+export const StyledLabelText = styled.div<IStyledLabelTextProps>`
   display: ${props => props.$isHidden && 'none'};
   padding: ${props => props.$isHorizontal && `0 ${props.theme.space.base * 3}px`};
   word-wrap: ${props => props.$isHorizontal && 'break-word'};

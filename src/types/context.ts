@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
-import type { Dispatch, MutableRefObject } from 'react';
+import type { Dispatch, MutableRefObject, ReactNode } from 'react';
 
 import type {
   DatePickerRangeAction,
@@ -17,7 +18,50 @@ import type {
   IDatePickerState
 } from '../elements/datepicker/date-picker-reducer';
 import type { DateFnsIndex } from '../utils/datepicker/calendar-utils';
-import type { GridNumber, ISplitterProps, Orientation, Size, Space } from './elements';
+import type {
+  GridNumber,
+  IAccordionProps,
+  ISplitterProps,
+  Orientation,
+  Size,
+  Space
+} from './elements';
+//#region accordion
+export interface IAccordionContext<Value>
+  extends
+    Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
+    Pick<
+      IAccordionProps<Value>,
+      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
+    > {}
+
+export interface IHeaderContext {
+  isHovered: boolean;
+  otherTriggerProps: any;
+}
+
+export interface IStepContext {
+  currentStepIndex: number;
+  isActive: boolean;
+  isCompleted: boolean;
+  isHorizontal: boolean;
+}
+
+export interface IStepperContext {
+  activeIndex: number;
+  isHorizontal: boolean;
+}
+
+export interface ITimelineContext {
+  isAlternate?: boolean;
+}
+
+export interface ITimelineItemContext {
+  icon?: ReactNode;
+  surfaceColor?: string;
+}
+//#endregion
+
 //#region datepicker
 export interface IDatePickerContext {
   state: IDatePickerState;

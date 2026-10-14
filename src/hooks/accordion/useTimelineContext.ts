@@ -5,13 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface ITimelineContext {
-  isAlternate?: boolean;
-}
-
-export const TimelineContext = createContext<ITimelineContext | undefined>(undefined);
+import { TimelineContext } from '../../context/accordion/TimelineContext';
 
 export const useTimelineContext = () => {
   const context = useContext(TimelineContext);

@@ -5,6 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/* accordion */
+export { Accordion } from './elements/accordion/Accordion';
+export { Stepper } from './elements/accordion/Stepper';
+export { Timeline } from './elements/accordion/Timeline';
+
 /* avatar */
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
@@ -125,6 +130,7 @@ export {
   SPACE,
   TEXT_ALIGN,
   WRAP,
+  type IAccordionProps,
   type IAnchorProps,
   type IAvatarProps,
   type IBlockquoteProps,
@@ -158,10 +164,14 @@ export {
   type ISplitterButtonProps,
   type ISplitterProps,
   type IStatusIndicatorProps,
+  type IStepperLabelProps,
+  type IStepperProps,
   type ITabPanelProps,
   type ITabProps,
   type ITabsProps,
   type ITagProps,
+  type ITimelineItemProps,
+  type ITimelineProps,
   type IToggleButtonProps,
   type IToggleIconButtonProps,
   type ITooltipProps,

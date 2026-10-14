@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_line';
+import { getColor } from '../../theming/utils/getColor';
 
-export const StyledLine = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledLine = styled.div`
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 3}px;

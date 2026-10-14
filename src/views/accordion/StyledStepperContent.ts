@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_content';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledContent {
   $isActive?: boolean;
 }
 
-const sizeStyles = (props: IStyledContent & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledContent & IStyledBaseProps) => {
   const { rtl, space } = props.theme;
   const paddingBottom = props.$isActive ? space.base * 8 : space.base * 6;
   const paddingRight = rtl ? space.base * 6 : space.base * 5;
@@ -31,10 +31,7 @@ const sizeStyles = (props: IStyledContent & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledContent = styled.div.attrs<IStyledContent>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledContent>`
+export const StyledContent = styled.div<IStyledContent>`
   display: grid;
   grid-template-rows: ${props => (props.$isActive ? 1 : 0)}fr;
   transition: grid-template-rows 0.25s ease-in-out;

@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Timeline } from '@zendeskgarden/react-accordions';
-import React from 'react';
 
+import { Timeline } from '../../src/index';
 import { TIMELINE_ITEMS as ITEMS } from './stories/data';
 import { TimelineStory } from './stories/TimelineStory';
 
 export default {
-  title: 'Packages/Accordions/Timeline',
+  title: 'Components/Timeline',
   component: Timeline,
   subcomponents: {
     'Timeline.Content': Timeline.Content,

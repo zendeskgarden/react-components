@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledIcon {
   $isActive?: boolean;
@@ -22,7 +24,7 @@ export const StyledIconFlexContainer = styled.div`
   width: 100%;
 `;
 
-const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledIcon & IStyledBaseProps) => {
   const size = `${props.theme.space.base * 6}px`;
   const fontSize = props.theme.fontSizes.sm;
 
@@ -40,7 +42,7 @@ const sizeStyles = (props: IStyledIcon & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = ({ $isActive, theme }: IStyledIcon & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ $isActive, theme }: IStyledIcon & IStyledBaseProps) => {
   const foregroundColor = getColor({
     theme,
     variable: $isActive ? 'foreground.onEmphasis' : 'foreground.default'
@@ -61,10 +63,7 @@ const colorStyles = ({ $isActive, theme }: IStyledIcon & ThemeProps<DefaultTheme
   `;
 };
 
-export const StyledIcon = styled.div.attrs<IStyledIcon>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledIcon>`
+export const StyledIcon = styled.div<IStyledIcon>`
   display: flex;
   align-items: center;
   justify-content: center;

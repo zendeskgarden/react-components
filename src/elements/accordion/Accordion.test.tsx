@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
-import { render, screen } from 'garden-test-utils';
+import { screen } from '@testing-library/react';
+import { createRef } from 'react';
+
+import { render } from '../../test/render';
 import { Accordion } from './Accordion';
 
 describe('Accordion', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { getByTestId } = render(<Accordion ref={ref} data-test-id="accordion" level={3} />);
 
     expect(getByTestId('accordion')).toBe(ref.current);

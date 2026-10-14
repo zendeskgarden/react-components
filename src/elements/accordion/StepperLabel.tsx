@@ -5,13 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import CheckCircleStrokeIcon from '@zendeskgarden/svg-icons/src/16/check-sm-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
+import CheckCircleStrokeIcon from 'svg-icons-legacy/src/16/check-sm-stroke.svg';
 
-import { StyledLabel, StyledLabelText, StyledIcon, StyledIconFlexContainer } from '../../../styled';
-import { IStepperLabelProps } from '../../../types';
-import { useStepContext } from '../../../utils';
+import { IStepperLabelProps } from '../../types/elements';
+import { useStepContext } from '../../utils/accordion/index';
+import { StyledIcon, StyledIconFlexContainer } from '../../views/accordion/StyledIcon';
+import { StyledLabelText } from '../../views/accordion/StyledLabelText';
+import { StyledLabel } from '../../views/accordion/StyledStepperLabel';
+import { COMPONENT_IDS } from '../utils';
 
 const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
   ({ icon, iconProps, isHidden, children, ...other }, ref) => {
@@ -20,19 +23,36 @@ const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
     const stepIcon = icon || numericStep;
 
     const styledIcon = (
-      <StyledIcon $isActive={isActive} $isHorizontal={isHorizontal}>
+      <StyledIcon
+        $isActive={isActive}
+        $isHorizontal={isHorizontal}
+        data-garden-id={COMPONENT_IDS['accordions.step_icon']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {isCompleted ? <CheckCircleStrokeIcon {...iconProps} /> : stepIcon}
       </StyledIcon>
     );
 
     return (
-      <StyledLabel ref={ref} $isActive={isActive} $isHorizontal={isHorizontal} {...other}>
+      <StyledLabel
+        ref={ref}
+        $isActive={isActive}
+        $isHorizontal={isHorizontal}
+        {...other}
+        data-garden-id={COMPONENT_IDS['accordions.step_label']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {isHorizontal ? (
           <StyledIconFlexContainer>{styledIcon}</StyledIconFlexContainer>
         ) : (
           styledIcon
         )}
-        <StyledLabelText $isHidden={isHidden} $isHorizontal={isHorizontal}>
+        <StyledLabelText
+          $isHidden={isHidden}
+          $isHorizontal={isHorizontal}
+          data-garden-id={COMPONENT_IDS['accordions.step_label_text']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {children}
         </StyledLabelText>
       </StyledLabel>

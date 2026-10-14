@@ -5,8 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 export const COMPONENT_ID = 'accordions.button';
 
@@ -22,7 +26,7 @@ const colorStyles = ({
   $isExpanded,
   $isHovered,
   theme
-}: ThemeProps<DefaultTheme> & IStyledButton) => {
+}: IStyledButton & IStyledBaseProps) => {
   const showColor = $isCollapsible || !$isExpanded;
   const color = getColor({
     theme,
@@ -43,10 +47,7 @@ const colorStyles = ({
  * 1. <button> override.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledButton = styled.button.attrs<IStyledButton>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledButton>`
+export const StyledButton = styled.button<IStyledButton>`
   transition: color 0.1s ease-in-out;
   outline: none;
   border: none;

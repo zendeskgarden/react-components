@@ -5,9 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, ButtonHTMLAttributes } from 'react';
-import { StyledButton } from '../../../styled';
-import { useAccordionContext, useHeaderContext, useSectionContext } from '../../../utils';
+import { forwardRef, ButtonHTMLAttributes } from 'react';
+
+import {
+  useAccordionContext,
+  useHeaderContext,
+  useSectionContext
+} from '../../utils/accordion/index';
+import { StyledButton } from '../../views/accordion/StyledButton';
+import { COMPONENT_IDS } from '../utils';
 
 const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
@@ -25,6 +31,8 @@ const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         $isCollapsible={isCollapsible}
         {...otherTriggerProps}
         {...props}
+        data-garden-id={COMPONENT_IDS['accordions.button']}
+        data-garden-version={PACKAGE_VERSION}
       />
     );
   }

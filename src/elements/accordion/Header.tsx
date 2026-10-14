@@ -5,11 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import ChevronDown from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
-import { useAccordionContext, useSectionContext, HeaderContext } from '../../../utils';
-import { StyledHeader, StyledRotateIcon } from '../../../styled';
+import { useState, forwardRef, HTMLAttributes, useMemo } from 'react';
+import ChevronDown from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
+
+import { useAccordionContext, useSectionContext, HeaderContext } from '../../utils/accordion/index';
+import { StyledHeader } from '../../views/accordion/StyledHeader';
+import { StyledRotateIcon } from '../../views/accordion/StyledRotateIcon';
+import { COMPONENT_IDS } from '../utils';
 
 const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { onClick, onMouseOver, onMouseOut, role, children, ...other } = props;
@@ -48,7 +51,7 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
   );
 
   return (
-    <HeaderContext.Provider value={value}>
+    <HeaderProvider value={value}>
       <StyledHeader
         $isCollapsible={isCollapsible}
         $isExpanded={isExpanded}
@@ -61,6 +64,8 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
           onMouseOut: composeEventHandlers(onMouseOut, () => setIsHovered(false)),
           ...other
         }) as HTMLAttributes<HTMLDivElement>)}
+        data-garden-id={COMPONENT_IDS['accordions.header']}
+        data-garden-version={PACKAGE_VERSION}
       >
         {children}
         <StyledRotateIcon
@@ -70,11 +75,13 @@ const HeaderComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement
           $isCollapsible={isCollapsible}
           onMouseOver={composeEventHandlers(onMouseOver, () => setIsHovered(true))}
           onMouseOut={composeEventHandlers(onMouseOut, () => setIsHovered(false))}
+          data-garden-id={COMPONENT_IDS['accordions.rotate_icon']}
+          data-garden-version={PACKAGE_VERSION}
         >
           <ChevronDown />
         </StyledRotateIcon>
       </StyledHeader>
-    </HeaderContext.Provider>
+    </HeaderProvider>
   );
 });
 

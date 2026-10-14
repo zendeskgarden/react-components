@@ -5,24 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled, { css } from 'styled-components';
 
-import { StyledTimelineContent } from './StyledContent';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 import { StyledOppositeContent } from './StyledOppositeContent';
 import { StyledSeparator } from './StyledSeparator';
-
-const COMPONENT_ID = 'timeline.item';
+import { StyledTimelineContent } from './StyledTimelineContent';
 
 interface IStyledTimelineItem {
   $isAlternate?: boolean;
   $hasOppositeContent?: boolean;
 }
 
-export const StyledTimelineItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTimelineItem>`
+export const StyledTimelineItem = styled.li<IStyledTimelineItem>`
   display: flex;
   position: relative;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};

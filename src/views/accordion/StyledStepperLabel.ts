@@ -5,20 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_label';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 
 interface IStyledLabelProps {
   $isActive?: boolean;
   $isHorizontal?: boolean;
 }
 
-export const StyledLabel = styled.div.attrs<IStyledLabelProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledLabelProps>`
+export const StyledLabel = styled.div<IStyledLabelProps>`
   display: ${props => !props.$isHorizontal && 'flex'};
   align-items: ${props => !props.$isHorizontal && 'center'};
   transition:

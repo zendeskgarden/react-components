@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'accordions.stepper';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 interface IStyledStepper {
   $isHorizontal?: boolean;
@@ -17,10 +16,7 @@ interface IStyledStepper {
 /**
  * 1. <ol> reset.
  */
-export const StyledStepper = styled.ol.attrs<IStyledStepper>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledStepper>`
+export const StyledStepper = styled.ol<IStyledStepper>`
   display: ${props => props.$isHorizontal && 'flex'};
   margin: 0; /* [1] */
   padding: 0; /* [1] */

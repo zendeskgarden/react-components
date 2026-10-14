@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { useMemo, forwardRef, Children, ReactElement } from 'react';
+import { useMemo, forwardRef, Children, ReactElement } from 'react';
 
-import { StyledTimelineItem } from '../../../styled';
-import { ITimelineItemProps } from '../../../types';
-import { TimelineItemContext, useTimelineContext } from '../../../utils';
+import { ITimelineItemProps } from '../../types/elements';
+import { TimelineItemContext, useTimelineContext } from '../../utils/accordion/index';
+import { StyledTimelineItem } from '../../views/accordion/StyledItem';
+import { COMPONENT_IDS } from '../utils';
 import { OppositeContent } from './OppositeContent';
 
 const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
@@ -27,14 +28,16 @@ const ItemComponent = forwardRef<HTMLLIElement, ITimelineItemProps>(
     });
 
     return (
-      <TimelineItemContext.Provider value={value}>
+      <TimelineItemProvider value={value}>
         <StyledTimelineItem
           ref={ref}
           $isAlternate={isAlternate}
           $hasOppositeContent={hasOppositeContent}
           {...props}
+          data-garden-id={COMPONENT_IDS['timeline.item']}
+          data-garden-version={PACKAGE_VERSION}
         />
-      </TimelineItemContext.Provider>
+      </TimelineItemProvider>
     );
   }
 );

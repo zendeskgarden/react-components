@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-export * from './useStepperContext';
-export * from './useStepContext';
-export * from './useAccordionContext';
-export * from './useSectionContext';
-export * from './useHeaderContext';
-export * from './useTimelineContext';
-export * from './useTimelineItemContext';
+export * from '../../hooks/accordion/useStepperContext';
+export * from '../../hooks/accordion/useStepContext';
+export * from '../../hooks/accordion/useAccordionContext';
+export * from '../../hooks/accordion/useSectionContext';
+export * from '../../hooks/accordion/useHeaderContext';
+export * from '../../hooks/accordion/useTimelineContext';
+export * from '../../hooks/accordion/useTimelineItemContext';

@@ -5,19 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
-const COMPONENT_ID = 'accordions.step_inner_content';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 
 interface IStyledInnerContentProps extends ThemeProps<DefaultTheme> {
   inert?: string;
 }
 
-export const StyledInnerContent = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledInnerContentProps>`
+export const StyledInnerContent = styled.div<IStyledInnerContentProps>`
   margin: -${props => props.theme.space.xxs};
   padding: ${props => props.theme.space.xxs};
   overflow: hidden;

@@ -5,14 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Timeline, ITimelineProps } from '@zendeskgarden/react-accordions';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Span } from '@zendeskgarden/react-typography';
-import Icon from '@zendeskgarden/svg-icons/src/12/clock-stroke.svg';
-import React from 'react';
 import { useTheme } from 'styled-components';
+import Icon from 'svg-icons-legacy/src/12/clock-stroke.svg';
 
+import { Timeline, ITimelineProps } from '../../../src/index';
+import { getColor } from '../../../src/theming/utils/getColor';
 import { ITimelineItem } from './types';
 
 interface IArgs extends ITimelineProps {
@@ -22,7 +20,7 @@ interface IArgs extends ITimelineProps {
   surfaceColor: string;
 }
 
-export const TimelineStory: StoryFn<IArgs> = ({ items, surfaceColor, ...args }) => {
+export const TimelineStory = ({ items, surfaceColor, ...args }: IArgs) => {
   const theme = useTheme();
   const backgroundColor = surfaceColor?.includes('.')
     ? getColor({ theme, variable: surfaceColor })

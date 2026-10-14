@@ -5,16 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  StyledBaseIcon,
-  getColor,
-  getHueColor
-} from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'timeline.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { getHueColor } from '../../theming/utils/getHueColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledItemIcon {
   $surfaceColor?: string;
@@ -23,7 +21,7 @@ interface IStyledItemIcon {
 const colorStyles = ({
   $surfaceColor = 'background.default',
   theme
-}: IStyledItemIcon & ThemeProps<DefaultTheme>) => {
+}: IStyledItemIcon & IStyledBaseProps) => {
   const foregroundColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundColor = getHueColor({ theme, value: $surfaceColor });
 
@@ -36,10 +34,7 @@ const colorStyles = ({
 /**
  * 1. Odd sizing allows the timeline line to center respective of the circle icon.
  */
-export const StyledItemIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledItemIcon>`
+export const StyledItemIcon = styled(StyledBaseIcon)<IStyledItemIcon>`
   z-index: 1;
   box-sizing: content-box;
 

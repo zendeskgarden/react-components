@@ -5,18 +5,31 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledContent, StyledInnerContent } from '../../../styled';
-import { useStepContext } from '../../../utils';
+import { useStepContext } from '../../utils/accordion/index';
+import { StyledInnerContent } from '../../views/accordion/StyledInnerContent';
+import { StyledContent } from '../../views/accordion/StyledStepperContent';
+import { COMPONENT_IDS } from '../utils';
 
 const ContentComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { isActive, isHorizontal } = useStepContext();
 
     return isHorizontal === false ? (
-      <StyledContent ref={ref} $isActive={isActive} {...props}>
-        <StyledInnerContent aria-hidden={!isActive} inert={isActive ? undefined : ''}>
+      <StyledContent
+        ref={ref}
+        $isActive={isActive}
+        {...props}
+        data-garden-id={COMPONENT_IDS['accordions.step_content']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        <StyledInnerContent
+          aria-hidden={!isActive}
+          inert={isActive ? undefined : ''}
+          data-garden-id={COMPONENT_IDS['accordions.step_inner_content']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {props.children}
         </StyledInnerContent>
       </StyledContent>

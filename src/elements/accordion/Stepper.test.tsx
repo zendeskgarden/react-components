@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
+import { render } from '../../test/render';
 import { Stepper } from './Stepper';
 
 describe('Stepper', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLOListElement>();
+    const ref = createRef<HTMLOListElement>();
     const { container } = render(<Stepper ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);

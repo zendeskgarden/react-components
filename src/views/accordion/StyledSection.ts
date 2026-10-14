@@ -5,17 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledPanel } from './StyledPanel';
 
-const COMPONENT_ID = 'accordions.section';
-
-export const StyledSection = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledSection = styled.div`
   &:last-child ${StyledPanel} {
     border: none;
   }

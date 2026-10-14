@@ -5,14 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface IHeaderContext {
-  isHovered: boolean;
-  otherTriggerProps: any;
-}
-
-export const HeaderContext = createContext<IHeaderContext | undefined>(undefined);
+import { HeaderContext } from '../../context/accordion/HeaderContext';
 
 export const useHeaderContext = () => {
   const context = useContext(HeaderContext);

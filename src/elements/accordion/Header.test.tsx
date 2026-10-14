@@ -5,17 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, fireEvent } from 'garden-test-utils';
-import React from 'react';
+import { fireEvent } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
+import { vi } from 'vitest';
 
-import { Accordion } from '../Accordion';
+import { render } from '../../test/render';
+import { Accordion } from './Accordion';
 
 describe('Header', () => {
   const user = userEvent.setup();
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
 
     const { getByRole } = render(
       <Accordion level={3}>
@@ -31,11 +33,11 @@ describe('Header', () => {
   });
 
   it('composes event handlers', async () => {
-    const onClick = jest.fn();
-    const onFocus = jest.fn();
-    const onBlur = jest.fn();
-    const onMouseOver = jest.fn();
-    const onMouseOut = jest.fn();
+    const onClick = vi.fn();
+    const onFocus = vi.fn();
+    const onBlur = vi.fn();
+    const onMouseOver = vi.fn();
+    const onMouseOut = vi.fn();
 
     const { getByRole } = render(
       <Accordion level={3}>

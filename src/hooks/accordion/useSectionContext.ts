@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
+
+import { SectionContext } from '../../context/accordion/SectionContext';
 
 export interface ISectionContext {
   sectionIndex: number;
 }
-
-export const SectionContext = createContext<number | undefined>(undefined);
 
 export const useSectionContext = () => {
   const context = useContext(SectionContext);
