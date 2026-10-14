@@ -39,6 +39,43 @@ describe('IconButton', () => {
     });
   });
 
+  describe('Sizes', () => {
+    it.each(['small', 'medium', 'large'] as const)(
+      'renders the icon in the same box at %s size, and every svg at that size',
+      size => {
+        const { container } = render(
+          <IconButton size={size}>
+            <TestIcon />
+          </IconButton>
+        );
+
+        ['width', 'height'].forEach(property => {
+          expect(container.firstChild).toHaveStyleRule(property, DEFAULT_THEME.space.md, {
+            modifier: `& ${StyledIcon}`
+          });
+          expect(container.firstChild).toHaveStyleRule(property, DEFAULT_THEME.space.md, {
+            modifier: '& svg'
+          });
+        });
+      }
+    );
+
+    it.each([
+      ['small', DEFAULT_THEME.space.base * 8],
+      ['medium', DEFAULT_THEME.space.base * 10],
+      ['large', DEFAULT_THEME.space.base * 12]
+    ] as const)('renders a square button at %s size', (size, length) => {
+      const { container } = render(
+        <IconButton size={size}>
+          <TestIcon />
+        </IconButton>
+      );
+
+      expect(container.firstChild).toHaveStyleRule('width', `${length}px`);
+      expect(container.firstChild).toHaveStyleRule('height', `${length}px`);
+    });
+  });
+
   describe('Colors', () => {
     const color = (theme: typeof DEFAULT_THEME, variable: string, options = {}) =>
       getColor({ variable, theme, ...options });

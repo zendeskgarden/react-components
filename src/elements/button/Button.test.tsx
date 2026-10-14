@@ -86,6 +86,27 @@ describe('Button', () => {
       expect(container.firstChild).toHaveStyleRule('height', `${DEFAULT_THEME.space.base * 12}px`);
       expect(container.firstChild).toHaveStyleRule('font-size', `${DEFAULT_THEME.fontSizes.md}`);
     });
+
+    it.each([
+      ['small', DEFAULT_THEME.iconSizes.md],
+      ['medium', DEFAULT_THEME.space.md],
+      ['large', DEFAULT_THEME.space.md]
+    ] as const)('renders %s icons in a %s box, and every svg at that size', (size, iconSize) => {
+      const { container } = render(
+        <Button size={size}>
+          <Button.StartIcon>
+            <TestIcon />
+          </Button.StartIcon>
+        </Button>
+      );
+
+      ['width', 'height'].forEach(property => {
+        expect(container.firstChild).toHaveStyleRule(property, iconSize, {
+          modifier: `& ${StyledIcon}`
+        });
+        expect(container.firstChild).toHaveStyleRule(property, iconSize, { modifier: '& svg' });
+      });
+    });
   });
 
   describe('Colors', () => {
