@@ -6,13 +6,13 @@
  */
 
 import { fireEvent } from '@testing-library/react';
-import { IconButton } from '@zendeskgarden/react-buttons';
 import { createRef } from 'react';
 import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
+import { IconButton } from '../button/IconButton';
 import { Field } from './Field';
 import { Input } from './Input';
 import { InputGroup } from './InputGroup';
@@ -355,7 +355,7 @@ describe('InputGroup', () => {
         );
 
         expect(spy).toHaveBeenCalledTimes(1);
-        expect(spy.mock.calls[0][0]).toStrictEqual(expect.stringContaining('<InputGroup>'));
+        expect(spy.mock.calls[0]![0]).toStrictEqual(expect.stringContaining('<InputGroup>'));
       });
 
       it('warns even when both Inputs share the same validation value', () => {
@@ -435,8 +435,8 @@ describe('InputGroup', () => {
         <Field>
           <Field.Label>Input</Field.Label>
           <InputGroup>
-            <button>A</button>
-            <button>B</button>
+            <button type="button">A</button>
+            <button type="button">B</button>
             <Input />
           </InputGroup>
         </Field>
@@ -468,8 +468,8 @@ describe('InputGroup', () => {
         <Field>
           <Field.Label>Input</Field.Label>
           <InputGroup>
-            <button>A</button>
-            <button>B</button>
+            <button type="button">A</button>
+            <button type="button">B</button>
             <Input />
           </InputGroup>
         </Field>,

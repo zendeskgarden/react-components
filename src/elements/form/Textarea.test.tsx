@@ -142,4 +142,35 @@ describe('Textarea', () => {
       expect(textarea.style.height).toBe('58px');
     });
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Textarea data-test-id="textarea" data-garden-id="custom" data-garden-version="0.0.0" />
+      </Field>
+    );
+
+    expect(getByTestId('textarea')).toHaveAttribute('data-garden-id', 'forms.textarea');
+    expect(getByTestId('textarea')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  it('sets aria-invalid from validation', () => {
+    const { getByTestId, rerender } = render(<Textarea data-test-id="textarea" />);
+
+    expect(getByTestId('textarea')).toHaveAttribute('aria-invalid', 'false');
+
+    rerender(<Textarea data-test-id="textarea" validation="error" />);
+    expect(getByTestId('textarea')).toHaveAttribute('aria-invalid', 'true');
+  });
+
+  it('renders the hidden auto-resize textarea with the same garden attributes', () => {
+    const { container } = render(<Textarea minRows={2} validation="error" />);
+    const [textarea, shadow] = Array.from(container.querySelectorAll('textarea'));
+
+    expect(textarea).toHaveAttribute('aria-invalid', 'true');
+    expect(shadow).toHaveAttribute('aria-hidden', 'true');
+    expect(shadow).toHaveAttribute('data-garden-id', 'forms.textarea');
+    expect(shadow).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(shadow).toHaveAttribute('aria-invalid', 'false');
+  });
 });

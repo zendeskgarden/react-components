@@ -6,30 +6,21 @@
  */
 
 import { KEYS } from '@zendeskgarden/container-utilities';
-import { FC, memo, useCallback, useEffect, useState, KeyboardEvent } from 'react';
+import { memo, useCallback, useEffect, useState, KeyboardEvent } from 'react';
 import { DropzoneProps, useDropzone } from 'react-dropzone';
 
-import {
-  File,
-  FileList,
-  FileUpload,
-  IFileProps,
-  IFileUploadProps,
-  Input
-} from '../../../../src/index';
+import { FileList, FileUpload, IFileProps, IFileUploadProps, Input } from '../../../../src/index';
 import { FieldStory } from '../../stories/FieldStory';
 import { FileStory } from '../../stories/FileStory';
 
 interface IFileItemProps extends IFileProps {
   disabled?: boolean;
   onRemove: () => void;
-  closeAriaLabel: string;
-  deleteAriaLabel: string;
 }
 
 const ARIA_LABEL = 'Press backspace to delete';
 
-const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children, onRemove }) => {
+const FileItem = memo(({ type, disabled, isCompact, children, onRemove }: IFileItemProps) => {
   const [uploadProgress, setUploadProgress] = useState(0);
 
   useEffect(() => {
@@ -117,6 +108,7 @@ export const FileUploadStory = ({
   const [files, setFiles] = useState<string[]>([]);
 
   const onDrop = useCallback(
+    // eslint-disable-next-line n/no-unsupported-features/node-builtins
     (acceptedFiles: File[]) => {
       if (acceptedFiles && acceptedFiles.length > 0) {
         const fileNames = acceptedFiles.map(file => file.name);
@@ -168,8 +160,6 @@ export const FileUploadStory = ({
                 disabled={disabled}
                 isCompact={args.isCompact}
                 type={type}
-                closeAriaLabel={ARIA_LABEL}
-                deleteAriaLabel={ARIA_LABEL}
               >
                 {file}
               </FileItem>

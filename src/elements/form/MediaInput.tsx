@@ -13,6 +13,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { IMediaInputProps, VALIDATION } from '../../types/elements';
 import { StyledTextMediaInput } from '../../views/form/StyledTextMediaInput';
+import { COMPONENT_IDS } from '../utils';
 import { FauxInput } from './FauxInput';
 
 /**
@@ -37,7 +38,7 @@ export const MediaInput = forwardRef<HTMLInputElement, IMediaInputProps>(
     ref
   ) => {
     const fieldContext = useFieldContext();
-    const inputRef = useRef<HTMLInputElement>();
+    const inputRef = useRef<HTMLInputElement>(undefined);
     const [isFocused, setIsFocused] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -114,7 +115,13 @@ export const MediaInput = forwardRef<HTMLInputElement, IMediaInputProps>(
             {start}
           </FauxInput.StartIcon>
         )}
-        <StyledTextMediaInput {...combinedProps} />
+        <StyledTextMediaInput
+          {...combinedProps}
+          $isBare
+          aria-invalid={false}
+          data-garden-id={COMPONENT_IDS['forms.media_input']}
+          data-garden-version={PACKAGE_VERSION}
+        />
         {!!end && (
           <FauxInput.EndIcon
             isDisabled={disabled}

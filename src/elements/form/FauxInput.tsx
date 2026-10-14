@@ -10,7 +10,9 @@ import PropTypes from 'prop-types';
 import { useState, forwardRef } from 'react';
 
 import { IFauxInputProps, VALIDATION } from '../../types/elements';
+import { isInvalid } from '../../utils/form/isInvalid';
 import { StyledTextFauxInput } from '../../views/form/StyledTextFauxInput';
+import { COMPONENT_IDS } from '../utils';
 import { EndIcon } from './EndIcon';
 import { StartIcon } from './StartIcon';
 
@@ -58,6 +60,12 @@ const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
         data-test-is-focused={controlledIsFocused === undefined ? isFocused : controlledIsFocused}
         tabIndex={disabled ? undefined : 0}
         {...other}
+        as="div"
+        aria-disabled={disabled}
+        aria-invalid={isInvalid(validation)}
+        aria-readonly={readOnly}
+        data-garden-id={COMPONENT_IDS['forms.faux_input']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       />
     );

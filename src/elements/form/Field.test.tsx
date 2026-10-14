@@ -57,7 +57,7 @@ describe('Field', () => {
   });
 
   it('renders correct aria attributes when Hint component is present', () => {
-    const ExampleField = ({ showHint = false }) => (
+    const ExampleField = ({ showHint = false }: { showHint?: boolean }) => (
       <Field>
         <Label>Label</Label>
         {showHint ? <Hint>Hint</Hint> : null}
@@ -77,7 +77,7 @@ describe('Field', () => {
   });
 
   it('renders correct aria attributes when Message component is present', () => {
-    const ExampleField = ({ showMessage = false }) => (
+    const ExampleField = ({ showMessage = false }: { showMessage?: boolean }) => (
       <Field>
         <Label>Label</Label>
         {showMessage ? <Message>Message</Message> : null}

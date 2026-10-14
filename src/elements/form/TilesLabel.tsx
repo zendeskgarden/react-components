@@ -15,7 +15,7 @@ import { COMPONENT_IDS } from '../utils';
 const LabelComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, forwardedRef) => {
     const [title, setTitle] = useState<string | undefined>('');
-    const ref = useRef<HTMLSpanElement>();
+    const ref = useRef<HTMLSpanElement>(undefined);
     const tilesContext = useTilesContext();
 
     useEffect(() => {

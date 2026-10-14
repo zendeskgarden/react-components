@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Progress } from '@zendeskgarden/react-loaders';
 import { ButtonHTMLAttributes } from 'react';
 
-import { File, IFileProps } from '../../../src/index';
+import { File, IFileProps, Progress } from '../../../src/index';
 
 interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasClose?: boolean;

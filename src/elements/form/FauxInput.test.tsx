@@ -10,6 +10,8 @@ import { createRef } from 'react';
 import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
 import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {
@@ -99,6 +101,43 @@ describe('FauxInput', () => {
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('margin', '1px 0 auto 8px');
+    });
+  });
+
+  it('does not let props override the garden attributes', () => {
+    const { container } = render(<FauxInput data-garden-id="custom" data-garden-version="0.0.0" />);
+
+    expect(container.firstElementChild).toHaveAttribute('data-garden-id', 'forms.faux_input');
+    expect(container.firstElementChild).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  it('renders the state attributes', () => {
+    const { container, rerender } = render(<FauxInput />);
+    const faux = container.firstElementChild!;
+
+    expect(faux).toHaveAttribute('aria-invalid', 'false');
+    expect(faux).not.toHaveAttribute('aria-disabled');
+    expect(faux).not.toHaveAttribute('aria-readonly');
+
+    rerender(<FauxInput disabled readOnly validation="error" />);
+    expect(faux).toHaveAttribute('aria-invalid', 'true');
+    expect(faux).toHaveAttribute('aria-disabled', 'true');
+    expect(faux).toHaveAttribute('aria-readonly', 'true');
+  });
+
+  describe('validation', () => {
+    it.each([
+      ['success', 'border.successEmphasis'],
+      ['warning', 'border.warningEmphasis'],
+      ['error', 'border.dangerEmphasis']
+    ] as const)('renders %s border colors', (validation, variable) => {
+      const { container } = render(<FauxInput validation={validation} />);
+      const color = getColor({ theme: DEFAULT_THEME, variable });
+
+      expect(container.firstChild).toHaveStyleRule('border-color', color);
+      expect(container.firstChild).toHaveStyleRule('border-color', color, {
+        modifier: '&:focus-within'
+      });
     });
   });
 });

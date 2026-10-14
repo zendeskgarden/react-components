@@ -118,4 +118,32 @@ describe('Message', () => {
       expect(getByText(text).firstChild).toHaveAttribute('role', 'img');
     });
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <>
+        <Field>
+          <Message data-test-id="input-message" data-garden-id="custom" data-garden-version="0.0.0">
+            Message
+          </Message>
+        </Field>
+        <Field>
+          <Toggle>
+            <Message
+              data-test-id="toggle-message"
+              data-garden-id="custom"
+              data-garden-version="0.0.0"
+            >
+              Message
+            </Message>
+          </Toggle>
+        </Field>
+      </>
+    );
+
+    expect(getByTestId('input-message')).toHaveAttribute('data-garden-id', 'forms.input_message');
+    expect(getByTestId('input-message')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(getByTestId('toggle-message')).toHaveAttribute('data-garden-id', 'forms.toggle_message');
+    expect(getByTestId('toggle-message')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

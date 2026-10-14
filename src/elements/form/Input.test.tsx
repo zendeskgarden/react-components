@@ -77,4 +77,25 @@ describe('Input', () => {
     expect(input.selectionStart).toBe(0);
     expect(input.selectionEnd).toBe(value.length);
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Input data-test-id="input" data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByTestId('input')).toHaveAttribute('data-garden-id', 'forms.input');
+    expect(getByTestId('input')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  it('sets aria-invalid from validation only', () => {
+    const { getByTestId, rerender } = render(<Input data-test-id="input" aria-invalid />);
+
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+
+    rerender(<Input data-test-id="input" validation="warning" />);
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'true');
+
+    rerender(<Input data-test-id="input" validation="success" />);
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+  });
 });

@@ -18,12 +18,6 @@ import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
 
-const COMPONENT_ID = 'forms.input';
-
-const isInvalid = (validation?: Validation) => {
-  return validation === 'warning' || validation === 'error';
-};
-
 const colorStyles = ({
   theme,
   $isBare,
@@ -227,12 +221,7 @@ export interface IStyledTextInputProps {
   $validation?: Validation;
 }
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props => ({
-  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'aria-invalid': isInvalid(props.$validation)
-}))<IStyledTextInputProps>`
+export const StyledTextInput = styled.input<IStyledTextInputProps>`
   appearance: none;
   /* prettier-ignore */
   transition:

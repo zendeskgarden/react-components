@@ -11,12 +11,9 @@ import styled, { css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledRadioInputProps } from '../../types/views';
-import type { IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseProps, IStyledRadioInputProps } from '../../types/views';
 import { StyledMessage } from './StyledMessage';
 import { StyledRadioLabel } from './StyledRadioLabel';
-
-const COMPONENT_ID = 'forms.radio';
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
@@ -134,12 +131,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps) => {
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledRadioInput = styled.input.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'radio'
-})<IStyledRadioInputProps>`
+export const StyledRadioInput = styled.input<IStyledRadioInputProps>`
   /* hide <input> but retain accessiblity */
   position: absolute;
   opacity: 0;

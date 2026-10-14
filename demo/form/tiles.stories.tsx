@@ -59,5 +59,5 @@ export const Controlled: Story = {
 
     return <TilesStory {...args} onChange={handleChange} />;
   },
-  args: { value: TILES[0].value }
+  args: { value: TILES[0]!.value }
 };

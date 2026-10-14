@@ -67,7 +67,14 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
 
     if (type === 'radio') {
       return (
-        <StyledRadioLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
+        <StyledRadioLabel
+          ref={ref}
+          {...combinedProps}
+          $isRadio
+          $isRegular={$isRegular}
+          data-garden-id={COMPONENT_IDS['forms.radio_label']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledRadioSvg
             data-garden-id={COMPONENT_IDS['forms.radio_svg']}
             data-garden-version={PACKAGE_VERSION}
@@ -87,7 +94,9 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
         if (fieldContext && isFirefox && e.target instanceof Element) {
           const inputId = e.target.getAttribute('for');
 
-          if (!inputId) return;
+          if (!inputId) {
+            return;
+          }
 
           const input = document.getElementById(inputId) as HTMLInputElement | null;
 
@@ -109,6 +118,7 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
           {...combinedProps}
           data-garden-id={COMPONENT_IDS['forms.checkbox_label']}
           data-garden-version={PACKAGE_VERSION}
+          $isRadio
           $isRegular={$isRegular}
         >
           <StyledCheckSvg
@@ -129,6 +139,7 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
           {...combinedProps}
           data-garden-id={COMPONENT_IDS['forms.toggle_label']}
           data-garden-version={PACKAGE_VERSION}
+          $isRadio
           $isRegular={$isRegular}
         >
           <StyledToggleSvg
@@ -141,7 +152,13 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
     }
 
     return (
-      <StyledLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
+      <StyledLabel
+        ref={ref}
+        {...combinedProps}
+        $isRegular={$isRegular}
+        data-garden-id={COMPONENT_IDS['forms.input_label']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {children}
       </StyledLabel>
     );

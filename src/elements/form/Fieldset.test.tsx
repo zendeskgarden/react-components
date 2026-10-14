@@ -21,4 +21,14 @@ describe('Fieldset', () => {
 
     expect(fieldset).toBe(ref.current);
   });
+
+  it('renders a fieldset and does not let props override the garden attributes', () => {
+    render(<Fieldset data-garden-id="custom" data-garden-version="0.0.0" />);
+
+    const fieldset = screen.getByRole('group');
+
+    expect(fieldset.nodeName).toBe('FIELDSET');
+    expect(fieldset).toHaveAttribute('data-garden-id', 'forms.fieldset');
+    expect(fieldset).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

@@ -6,12 +6,10 @@
  */
 
 import type { IUseAccordionProps } from '@zendeskgarden/container-accordion';
-import type { IIconButtonProps } from '@zendeskgarden/react-buttons';
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
   ButtonHTMLAttributes,
-  ComponentPropsWithRef,
   FieldsetHTMLAttributes,
   HTMLAttributes,
   InputHTMLAttributes,

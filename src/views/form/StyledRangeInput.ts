@@ -16,8 +16,6 @@ import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
 
-const COMPONENT_ID = 'forms.range';
-
 const thumbStyles = (styles: string, modifier = '') => {
   return `
     &${modifier}::-moz-range-thumb {
@@ -222,19 +220,10 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
 };
 
 interface IStyledRangeInputProps {
-  $backgroundSize?: number | string;
   $hasLowerTrack?: boolean;
 }
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'range',
-  style: {
-    backgroundSize: (props.$hasLowerTrack ?? true) ? (props.$backgroundSize ?? '0%') : undefined
-  }
-}))<IStyledRangeInputProps>`
+export const StyledRangeInput = styled.input<IStyledRangeInputProps>`
   appearance: none;
   direction: ${props => props.theme.rtl && 'rtl'};
   margin: 0; /* reset for WebKit & Firefox */

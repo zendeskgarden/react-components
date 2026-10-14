@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IconButton } from '@zendeskgarden/react-buttons';
 import CalendarIcon from 'svg-icons-legacy/src/16/calendar-stroke.svg';
 
 import {
   ClearableInput,
   IClearableInputProps,
   IInputGroupProps,
+  IconButton,
   InputGroup
 } from '../../../../src/index';
 import { FieldStory, IFieldArgs } from '../../stories/FieldStory';

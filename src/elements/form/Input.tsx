@@ -7,7 +7,7 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import { SyntheticEvent, forwardRef } from 'react';
+import { ForwardRefExoticComponent, RefAttributes, SyntheticEvent, forwardRef } from 'react';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import {
@@ -15,13 +15,17 @@ import {
   usePublishInputGroupValidation
 } from '../../hooks/form/useInputGroupContext';
 import { IInputProps, VALIDATION } from '../../types/elements';
+import { isInvalid } from '../../utils/form/isInvalid';
 import { StyledTextInput } from '../../views/form/StyledTextInput';
+import { COMPONENT_IDS } from '../utils';
 
-/**
- * @extends InputHTMLAttributes<HTMLInputElement>
- */
-export const Input = forwardRef<HTMLInputElement, IInputProps>(
-  ({ onSelect, isBare, isCompact, focusInset, validation, ...other }, ref) => {
+interface IInputComponentProps extends IInputProps {
+  /** Internal: the `data-garden-id` that the input renders. */
+  $componentId?: string;
+}
+
+export const InputComponent = forwardRef<HTMLInputElement, IInputComponentProps>(
+  ({ onSelect, isBare, isCompact, focusInset, validation, $componentId, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const inputGroupContext = useInputGroupContext();
     usePublishInputGroupValidation(validation);
@@ -46,16 +50,25 @@ export const Input = forwardRef<HTMLInputElement, IInputProps>(
         $isCompact={inputGroupContext ? inputGroupContext.isCompact : isCompact}
         $focusInset={inputGroupContext && focusInset === undefined ? true : focusInset}
         $validation={validation}
+        aria-invalid={isInvalid(validation)}
+        data-garden-id={$componentId ?? COMPONENT_IDS['forms.input']}
+        data-garden-version={PACKAGE_VERSION}
       />
     );
   }
 );
 
-Input.propTypes = {
+InputComponent.propTypes = {
   isCompact: PropTypes.bool,
   isBare: PropTypes.bool,
   focusInset: PropTypes.bool,
   validation: PropTypes.oneOf(VALIDATION)
 };
 
-Input.displayName = 'Input';
+InputComponent.displayName = 'Input';
+
+/**
+ * @extends InputHTMLAttributes<HTMLInputElement>
+ */
+export const Input: ForwardRefExoticComponent<IInputProps & RefAttributes<HTMLInputElement>> =
+  InputComponent;

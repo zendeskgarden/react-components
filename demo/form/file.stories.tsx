@@ -6,9 +6,8 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Progress } from '@zendeskgarden/react-loaders';
 
-import { File } from '../../src/index';
+import { File, Progress } from '../../src/index';
 import { FileStory } from './stories/FileStory';
 
 export default {

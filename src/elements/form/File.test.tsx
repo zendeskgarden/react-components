@@ -8,6 +8,8 @@
 import { createRef } from 'react';
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { File } from './File';
 
 describe('File', () => {
@@ -47,6 +49,47 @@ describe('File', () => {
 
       expect(container.firstChild!.firstChild!.nodeName).toBe('DIV');
       expect(container.firstChild!.firstChild).toHaveTextContent('test');
+    });
+  });
+
+  describe('validation', () => {
+    it('renders the default colors without validation', () => {
+      const { container } = render(<File />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'border.default' })
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' })
+      );
+    });
+
+    it('renders success colors', () => {
+      const { container } = render(<File validation="success" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'border.successEmphasis' })
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.success' })
+      );
+    });
+
+    it('renders error colors', () => {
+      const { container } = render(<File validation="error" />);
+
+      expect(container.firstChild).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'border.dangerEmphasis' })
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.danger' })
+      );
     });
   });
 });

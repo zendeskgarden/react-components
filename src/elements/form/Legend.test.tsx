@@ -25,4 +25,20 @@ describe('Fieldset.Legend', () => {
 
     expect(legend).toBe(ref.current);
   });
+
+  it('renders a legend and does not let props override the garden attributes', () => {
+    render(
+      <Fieldset>
+        <Fieldset.Legend data-garden-id="custom" data-garden-version="0.0.0">
+          Example Legend Text
+        </Fieldset.Legend>
+      </Fieldset>
+    );
+
+    const legend = screen.getByText('Example Legend Text');
+
+    expect(legend.nodeName).toBe('LEGEND');
+    expect(legend).toHaveAttribute('data-garden-id', 'forms.fieldset_legend');
+    expect(legend).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

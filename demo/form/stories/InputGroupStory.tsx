@@ -5,10 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button, IButtonProps, ToggleButton } from '@zendeskgarden/react-buttons';
 import { PropsWithChildren, useState } from 'react';
 
-import { IInputGroupProps, IInputProps, Input, InputGroup } from '../../../src/index';
+import {
+  Button,
+  IButtonProps,
+  IInputGroupProps,
+  IInputProps,
+  Input,
+  InputGroup,
+  ToggleButton
+} from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 import { IInputGroupItem } from './types';
 

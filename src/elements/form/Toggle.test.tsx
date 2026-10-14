@@ -44,4 +44,21 @@ describe('Toggle', () => {
 
     expect(getByTestId('toggle')).toBe(ref.current);
   });
+
+  it('does not let props override the garden attributes or the type', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Toggle
+          data-test-id="toggle"
+          data-garden-id="custom"
+          data-garden-version="0.0.0"
+          type="text"
+        />
+      </Field>
+    );
+
+    expect(getByTestId('toggle')).toHaveAttribute('data-garden-id', 'forms.toggle');
+    expect(getByTestId('toggle')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(getByTestId('toggle')).toHaveAttribute('type', 'checkbox');
+  });
 });

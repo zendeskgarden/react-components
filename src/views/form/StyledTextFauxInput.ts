@@ -14,8 +14,6 @@ import type { IStyledBaseProps } from '../../types/views';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
-const COMPONENT_ID = 'forms.faux_input';
-
 export interface IStyledTextFauxInputProps extends IStyledTextInputProps {
   $mediaLayout?: boolean;
   $isDisabled?: boolean;
@@ -62,16 +60,7 @@ const colorStyles = ({
 /*
  * [1] removes inner input styles when focused
  */
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledTextFauxInput = styled(
-  StyledTextInput as 'div'
-).attrs<IStyledTextFauxInputProps>(props => ({
-  as: 'div',
-  'aria-readonly': props.$isReadOnly,
-  'aria-disabled': props.$isDisabled,
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledTextFauxInputProps>`
+export const StyledTextFauxInput = styled(StyledTextInput as 'div')<IStyledTextFauxInputProps>`
   display: ${props => (props.$mediaLayout ? 'inline-flex' : 'inline-block')};
   align-items: ${props => props.$mediaLayout && 'baseline'};
   cursor: ${props => (props.$mediaLayout && !props.$isDisabled ? 'text' : 'default')};

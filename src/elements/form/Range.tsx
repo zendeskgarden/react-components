@@ -12,6 +12,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { IRangeProps } from '../../types/elements';
 import { StyledRangeInput } from '../../views/form/StyledRangeInput';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -19,7 +20,7 @@ import { StyledRangeInput } from '../../views/form/StyledRangeInput';
 export const Range = forwardRef<HTMLInputElement, IRangeProps>(
   ({ hasLowerTrack = true, min = 0, max = 100, step = 1, ...other }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
-    const rangeRef = useRef<HTMLInputElement>();
+    const rangeRef = useRef<HTMLInputElement>(undefined);
     const fieldContext = useFieldContext();
 
     const updateBackgroundWidthFromInput = useCallback(
@@ -52,7 +53,6 @@ export const Range = forwardRef<HTMLInputElement, IRangeProps>(
       : other.onChange;
 
     let combinedProps = {
-      $backgroundSize: backgroundSize,
       $hasLowerTrack: hasLowerTrack,
       max,
       min,
@@ -66,7 +66,18 @@ export const Range = forwardRef<HTMLInputElement, IRangeProps>(
       combinedProps = fieldContext.getInputProps(combinedProps);
     }
 
-    return <StyledRangeInput {...combinedProps} />;
+    return (
+      <StyledRangeInput
+        {...combinedProps}
+        data-garden-id={COMPONENT_IDS['forms.range']}
+        data-garden-version={PACKAGE_VERSION}
+        style={{
+          ...combinedProps.style,
+          backgroundSize: hasLowerTrack ? backgroundSize : undefined
+        }}
+        type="range"
+      />
+    );
   }
 );
 

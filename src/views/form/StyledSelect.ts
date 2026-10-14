@@ -13,8 +13,6 @@ import type { IStyledBaseProps } from '../../types/views';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
-const COMPONENT_ID = 'forms.select';
-
 const colorStyles = ({ theme }: IStyledTextInputProps & IStyledBaseProps) => {
   const color = getColor({
     theme,
@@ -56,12 +54,7 @@ const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & ISty
 /*
  * 1. Select reset.
  */
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledSelect = styled(StyledTextInput).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'select'
-})`
+export const StyledSelect = styled(StyledTextInput)`
   opacity: 1; /* [1] */
   cursor: pointer;
   text-overflow: ellipsis;

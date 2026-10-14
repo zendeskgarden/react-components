@@ -83,4 +83,28 @@ describe('Hint', () => {
 
     expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'forms.radio_hint');
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <>
+        <Field>
+          <Hint data-test-id="input-hint" data-garden-id="custom" data-garden-version="0.0.0">
+            Hint
+          </Hint>
+        </Field>
+        <Field>
+          <Radio>
+            <Hint data-test-id="radio-hint" data-garden-id="custom" data-garden-version="0.0.0">
+              Hint
+            </Hint>
+          </Radio>
+        </Field>
+      </>
+    );
+
+    expect(getByTestId('input-hint')).toHaveAttribute('data-garden-id', 'forms.input_hint');
+    expect(getByTestId('input-hint')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(getByTestId('radio-hint')).toHaveAttribute('data-garden-id', 'forms.radio_hint');
+    expect(getByTestId('radio-hint')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

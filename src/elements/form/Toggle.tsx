@@ -40,6 +40,7 @@ export const Toggle = forwardRef<HTMLInputElement, IToggleProps>(
           {...combinedProps}
           data-garden-id={COMPONENT_IDS['forms.toggle']}
           data-garden-version={PACKAGE_VERSION}
+          type="checkbox"
         />
         {children}
       </InputProvider>

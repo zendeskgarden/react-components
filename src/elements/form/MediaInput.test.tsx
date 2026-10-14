@@ -5,10 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { fireEvent } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { IMediaInputProps } from '../../types/elements';
 import { Field } from './Field';
 import { MediaInput } from './MediaInput';
@@ -92,5 +95,45 @@ describe('MediaInput', () => {
 
     expect(container.firstChild!.firstChild).toHaveAttribute('aria-disabled');
     expect(getByTestId('input')).toHaveAttribute('disabled');
+  });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" data-garden-id="custom" data-garden-version="0.0.0" />
+      </Field>
+    );
+
+    expect(getByTestId('input')).toHaveAttribute('data-garden-id', 'forms.media_input');
+    expect(getByTestId('input')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  it('renders the input bare, outside the invalid state', () => {
+    const { getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" />
+      </Field>
+    );
+
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+    expect(getByTestId('input')).toHaveStyleRule('border', 'none');
+  });
+
+  it('hovers the wrapper while the pointer is over it', () => {
+    const { getByTestId } = render(
+      <Field>
+        <MediaInput data-test-id="input" />
+      </Field>
+    );
+    const wrapper = getByTestId('input').parentElement!;
+    const hoverColor = getColor({ theme: DEFAULT_THEME, variable: 'border.primaryEmphasis' });
+
+    expect(wrapper).not.toHaveStyleRule('border-color', hoverColor);
+
+    fireEvent.mouseOver(wrapper);
+    expect(wrapper).toHaveStyleRule('border-color', hoverColor);
+
+    fireEvent.mouseOut(wrapper);
+    expect(wrapper).not.toHaveStyleRule('border-color', hoverColor);
   });
 });

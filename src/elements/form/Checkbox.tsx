@@ -13,6 +13,7 @@ import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
 import { ICheckboxProps } from '../../types/elements';
 import { StyledCheckInput } from '../../views/form/StyledCheckInput';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -50,7 +51,12 @@ export const Checkbox = forwardRef<HTMLInputElement, ICheckboxProps>(
 
     return (
       <InputProvider value="checkbox">
-        <StyledCheckInput {...combinedProps} />
+        <StyledCheckInput
+          {...combinedProps}
+          data-garden-id={COMPONENT_IDS['forms.checkbox']}
+          data-garden-version={PACKAGE_VERSION}
+          type="checkbox"
+        />
         {children}
       </InputProvider>
     );

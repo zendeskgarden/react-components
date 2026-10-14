@@ -34,4 +34,21 @@ describe('Radio', () => {
 
     expect(getByTestId('radio')).toBe(ref.current);
   });
+
+  it('does not let props override the garden attributes or the type', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Radio
+          data-test-id="radio"
+          data-garden-id="custom"
+          data-garden-version="0.0.0"
+          type="text"
+        />
+      </Field>
+    );
+
+    expect(getByTestId('radio')).toHaveAttribute('data-garden-id', 'forms.radio');
+    expect(getByTestId('radio')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(getByTestId('radio')).toHaveAttribute('type', 'radio');
+  });
 });

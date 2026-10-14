@@ -6,7 +6,6 @@
  */
 
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
-import { IconButton } from '@zendeskgarden/react-buttons';
 import PropTypes from 'prop-types';
 import { useRef, useState, ChangeEvent, MouseEvent, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
@@ -16,7 +15,9 @@ import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { useText } from '../../theming/utils/useText';
 import { IClearableInputProps, VALIDATION } from '../../types/elements';
 import { StyledClearableInput } from '../../views/form/StyledClearableInput';
-import { Input } from './Input';
+import { IconButton } from '../button/IconButton';
+import { COMPONENT_IDS } from '../utils';
+import { InputComponent } from './Input';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -91,7 +92,7 @@ export const ClearableInput = forwardRef<HTMLInputElement, IClearableInputProps>
         })}
         ref={wrapperRef}
       >
-        <Input
+        <InputComponent
           ref={mergeRefs([inputRef, ref])}
           {...props}
           disabled={disabled}
@@ -100,7 +101,7 @@ export const ClearableInput = forwardRef<HTMLInputElement, IClearableInputProps>
           defaultValue={defaultValue}
           onChange={composeEventHandlers(onChange, onInputChange)}
           id={inputId}
-          data-garden-id="forms.clearable_input"
+          $componentId={COMPONENT_IDS['forms.clearable_input']}
         />
         {hasValue && !disabled && !readOnly ? (
           <IconButton

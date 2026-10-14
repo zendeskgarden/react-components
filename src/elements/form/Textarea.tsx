@@ -21,7 +21,9 @@ import { mergeRefs } from 'react-merge-refs';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { ITextareaProps, VALIDATION } from '../../types/elements';
+import { isInvalid } from '../../utils/form/isInvalid';
 import { StyledTextarea } from '../../views/form/StyledTextarea';
+import { COMPONENT_IDS } from '../utils';
 
 const parseStyleValue = (value: string) => {
   return parseInt(value, 10) || 0;
@@ -48,7 +50,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
     ref
   ) => {
     const fieldContext = useFieldContext();
-    const textAreaRef = useRef<HTMLTextAreaElement>();
+    const textAreaRef = useRef<HTMLTextAreaElement>(undefined);
     const shadowTextAreaRef = useRef<HTMLTextAreaElement | null>(null);
     const [state, setState] = useState<{ overflow: boolean; height: number }>({
       overflow: false,
@@ -165,7 +167,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
 
     return (
       <>
-        <StyledTextarea {...combinedProps} />
+        <StyledTextarea
+          {...combinedProps}
+          as="textarea"
+          aria-invalid={isInvalid(validation)}
+          data-garden-id={COMPONENT_IDS['forms.textarea']}
+          data-garden-version={PACKAGE_VERSION}
+        />
         {!!isAutoResizable && (
           <StyledTextarea
             $isBare={isBare}
@@ -177,6 +185,10 @@ export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
             ref={shadowTextAreaRef}
             style={style}
             tabIndex={-1}
+            as="textarea"
+            aria-invalid={false}
+            data-garden-id={COMPONENT_IDS['forms.textarea']}
+            data-garden-version={PACKAGE_VERSION}
           />
         )}
       </>

@@ -13,8 +13,6 @@ import type { IStyledBaseProps } from '../../types/views';
 import { StyledCheckLabel } from './StyledCheckLabel';
 import { StyledRadioInput } from './StyledRadioInput';
 
-const COMPONENT_ID = 'forms.checkbox';
-
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
   const borderOptions = { theme, variable: 'border.primaryEmphasis' };
@@ -58,12 +56,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledCheckInput = styled(StyledRadioInput).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'checkbox' as string
-})`
+export const StyledCheckInput = styled(StyledRadioInput)`
   & ~ ${StyledCheckLabel}::before {
     border-radius: ${props => props.theme.borderRadii.md};
   }

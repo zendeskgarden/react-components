@@ -41,6 +41,15 @@ describe('ClearableInput', () => {
     expect(getByRole('textbox')).toHaveAttribute('data-garden-id', 'forms.clearable_input');
   });
 
+  it('does not let props override the garden attributes of the input', () => {
+    const { getByRole } = render(
+      <ClearableInput onChange={vi.fn()} data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByRole('textbox')).toHaveAttribute('data-garden-id', 'forms.clearable_input');
+    expect(getByRole('textbox')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
   it('forwards its ref to the underlying input DOM node', () => {
     const ref = createRef<HTMLInputElement>();
     const { getByRole } = render(<ClearableInput ref={ref} onChange={vi.fn()} />);

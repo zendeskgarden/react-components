@@ -16,7 +16,7 @@ import { DateFieldStory } from './stories/DateFieldStory';
 import { FileUploadStory } from './stories/FileUploadStory';
 
 export default {
-  title: 'Components/Forms/FileUpload',
+  title: 'Components/Forms/Patterns',
   component: FileUpload,
   subcomponents: {
     ClearableInput

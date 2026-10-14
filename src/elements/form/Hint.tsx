@@ -13,6 +13,7 @@ import { StyledCheckHint } from '../../views/form/StyledCheckHint';
 import { StyledHint } from '../../views/form/StyledHint';
 import { StyledRadioHint } from '../../views/form/StyledRadioHint';
 import { StyledToggleHint } from '../../views/form/StyledToggleHint';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Field.Hint` instead
@@ -36,15 +37,20 @@ export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
   }, [hasHint, setHasHint]);
 
   let HintComponent;
+  let id;
 
   if (type === 'checkbox') {
     HintComponent = StyledCheckHint;
+    id = COMPONENT_IDS['forms.checkbox_hint'];
   } else if (type === 'radio') {
     HintComponent = StyledRadioHint;
+    id = COMPONENT_IDS['forms.radio_hint'];
   } else if (type === 'toggle') {
     HintComponent = StyledToggleHint;
+    id = COMPONENT_IDS['forms.toggle_hint'];
   } else {
     HintComponent = StyledHint;
+    id = COMPONENT_IDS['forms.input_hint'];
   }
 
   let combinedProps = props;
@@ -53,7 +59,14 @@ export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
     combinedProps = getHintProps(combinedProps);
   }
 
-  return <HintComponent ref={ref} {...(combinedProps as any)} />;
+  return (
+    <HintComponent
+      ref={ref}
+      {...(combinedProps as any)}
+      data-garden-id={id}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  );
 });
 
 Hint.displayName = 'Field.Hint';

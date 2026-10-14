@@ -13,16 +13,10 @@ import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import type { IStyledLabelProps } from '../../types/views';
 
-const COMPONENT_ID = 'forms.input_label';
-
 /**
  * 1. CSS Bedrock override.
  */
-// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
-export const StyledLabel = styled.label.attrs(props => ({
-  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
-  'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION
-}))<IStyledLabelProps>`
+export const StyledLabel = styled.label<IStyledLabelProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};

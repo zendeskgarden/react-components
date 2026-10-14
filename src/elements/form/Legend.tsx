@@ -8,10 +8,19 @@
 import { forwardRef, HTMLAttributes } from 'react';
 
 import { StyledLegend } from '../../views/form/StyledLegend';
+import { COMPONENT_IDS } from '../utils';
 
 const LegendComponent = forwardRef<HTMLLegendElement, HTMLAttributes<HTMLLegendElement>>(
   (props, ref) => {
-    return <StyledLegend {...props} ref={ref} />;
+    return (
+      <StyledLegend
+        {...props}
+        as="legend"
+        data-garden-id={COMPONENT_IDS['forms.fieldset_legend']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={ref}
+      />
+    );
   }
 );
 

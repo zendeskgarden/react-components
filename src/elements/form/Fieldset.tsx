@@ -11,6 +11,7 @@ import { useMemo, forwardRef } from 'react';
 import { FieldsetProvider } from '../../context/form/FieldsetContext';
 import { IFieldsetProps } from '../../types/elements';
 import { StyledFieldset } from '../../views/form/StyledFieldset';
+import { COMPONENT_IDS } from '../utils';
 import { Legend } from './Legend';
 
 const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>(
@@ -19,7 +20,14 @@ const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>(
 
     return (
       <FieldsetProvider value={fieldsetContext}>
-        <StyledFieldset {...other} ref={ref} $isCompact={isCompact} />
+        <StyledFieldset
+          {...other}
+          $isCompact={isCompact}
+          as="fieldset"
+          data-garden-id={COMPONENT_IDS['forms.fieldset']}
+          data-garden-version={PACKAGE_VERSION}
+          ref={ref}
+        />
       </FieldsetProvider>
     );
   }

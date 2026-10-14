@@ -13,6 +13,7 @@ import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
 import { IRadioProps } from '../../types/elements';
 import { StyledRadioInput } from '../../views/form/StyledRadioInput';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
@@ -34,7 +35,12 @@ export const Radio = forwardRef<HTMLInputElement, IRadioProps>(
 
     return (
       <InputProvider value="radio">
-        <StyledRadioInput {...combinedProps} />
+        <StyledRadioInput
+          {...combinedProps}
+          data-garden-id={COMPONENT_IDS['forms.radio']}
+          data-garden-version={PACKAGE_VERSION}
+          type="radio"
+        />
         {children}
       </InputProvider>
     );

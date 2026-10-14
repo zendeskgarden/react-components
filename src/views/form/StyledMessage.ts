@@ -20,8 +20,6 @@ export interface IStyledMessageProps {
   $validation?: Validation;
 }
 
-const COMPONENT_ID = 'forms.input_message';
-
 const colorStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBaseProps) => {
   let variable;
 
@@ -61,11 +59,7 @@ const sizeStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBasePro
   `;
 };
 
-// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
-export const StyledMessage = styled.div.attrs(props => ({
-  'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
-  'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION
-}))<IStyledMessageProps>`
+export const StyledMessage = styled.div<IStyledMessageProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: inline-block;
   position: relative;

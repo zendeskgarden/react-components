@@ -100,6 +100,7 @@ export const StyledTile = styled.label`
     color .25s ease-in-out;
   border-radius: ${props => props.theme.borderRadii.md};
   direction: ${props => props.theme.rtl && 'rtl'};
+  /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
   word-break: break-word;
 
   ${sizeStyles};

@@ -44,4 +44,21 @@ describe('Checkbox', () => {
 
     expect((getByTestId('checkbox') as any).indeterminate).toBe(true);
   });
+
+  it('does not let props override the garden attributes or the type', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Checkbox
+          data-test-id="checkbox"
+          data-garden-id="custom"
+          data-garden-version="0.0.0"
+          type="text"
+        />
+      </Field>
+    );
+
+    expect(getByTestId('checkbox')).toHaveAttribute('data-garden-id', 'forms.checkbox');
+    expect(getByTestId('checkbox')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+    expect(getByTestId('checkbox')).toHaveAttribute('type', 'checkbox');
+  });
 });
