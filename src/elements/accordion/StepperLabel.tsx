@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import CheckSmIcon from '@zendeskgarden/svg-icons/src/check-sm.svg';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
-import CheckCircleStrokeIcon from 'svg-icons-legacy/src/16/check-sm-stroke.svg';
 
 import { useStepContext } from '../../hooks/accordion/useStepContext';
 import { IStepperLabelProps } from '../../types/elements';
@@ -29,7 +29,7 @@ const LabelComponent = forwardRef<HTMLDivElement, IStepperLabelProps>(
         data-garden-id={COMPONENT_IDS['accordions.step_icon']}
         data-garden-version={PACKAGE_VERSION}
       >
-        {isCompleted ? <CheckCircleStrokeIcon {...iconProps} /> : stepIcon}
+        {isCompleted ? <CheckSmIcon {...iconProps} /> : stepIcon}
       </StyledIcon>
     );
 

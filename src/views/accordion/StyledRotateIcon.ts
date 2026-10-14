@@ -9,6 +9,7 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import type { IStyledBaseProps } from '../../types/views';
 
@@ -43,11 +44,11 @@ export const StyledRotateIcon = styled(StyledBaseIcon)<IStyledRotateIcon>`
   box-sizing: content-box;
   padding: ${props =>
     props.$isCompact
-      ? `${props.theme.space.base * 1.5}px ${props.theme.space.base * 3}px`
-      : `${props.theme.space.base * 5}px`};
-  width: ${props => props.theme.iconSizes.md};
-  min-width: ${props => props.theme.iconSizes.md};
-  height: ${props => props.theme.iconSizes.md};
+      ? `${props.theme.space.xs} ${props.theme.space.base * 2.5}px`
+      : `${props.theme.space.md} ${props.theme.space.base * 4.5}px`};
+  width: ${props => getIconRenderSize(props.theme)};
+  min-width: ${props => getIconRenderSize(props.theme)};
+  height: ${props => getIconRenderSize(props.theme)};
   vertical-align: middle;
 
   ${colorStyles}

@@ -9,6 +9,7 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import type { IStyledBaseProps } from '../../types/views';
 
@@ -39,6 +40,12 @@ const sizeStyles = (props: IStyledIcon & IStyledBaseProps) => {
     min-height: ${size};
     line-height: ${getLineHeight(size, fontSize)};
     font-size: ${fontSize};
+    font-weight: ${props.theme.fontWeights.semibold};
+
+    & > svg {
+      width: ${getIconRenderSize(props.theme, true)};
+      height: ${getIconRenderSize(props.theme, true)};
+    }
   `;
 };
 

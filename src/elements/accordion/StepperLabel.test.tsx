@@ -97,6 +97,27 @@ describe('Label', () => {
       expect(container.querySelectorAll(STEP_ICON)[0]).not.toHaveTextContent('1');
     });
 
+    it('renders the 20px check glyph at theme.iconSizes.md for a completed step', () => {
+      const { container } = render(
+        <Stepper activeIndex={1}>
+          <Stepper.Step>
+            <Stepper.Label>First</Stepper.Label>
+          </Stepper.Step>
+          <Stepper.Step>
+            <Stepper.Label>Second</Stepper.Label>
+          </Stepper.Step>
+        </Stepper>
+      );
+      const icon = container.querySelector(STEP_ICON)!;
+      const { iconSizes, space } = DEFAULT_THEME;
+
+      expect(icon.querySelector('svg')).toHaveAttribute('viewBox', '0 0 20 20');
+      expect(icon).toHaveStyleRule('width', `${space.base * 6}px`);
+      expect(icon).toHaveStyleRule('height', `${space.base * 6}px`);
+      expect(icon).toHaveStyleRule('width', iconSizes.md, { modifier: '& > svg' });
+      expect(icon).toHaveStyleRule('height', iconSizes.md, { modifier: '& > svg' });
+    });
+
     it('wraps the icon in a flex container in a horizontal stepper', () => {
       const { container } = render(
         <Stepper isHorizontal>
@@ -149,6 +170,17 @@ describe('Label', () => {
         );
         expect(icon).toHaveStyleRule('margin-right', `${base * 3}px`);
         expect(icon).not.toHaveStyleRule('margin-bottom');
+      });
+
+      it.each([
+        ['inactive', 'light', DEFAULT_THEME, 1],
+        ['inactive', 'dark', DARK_THEME, 1],
+        ['active', 'light', DEFAULT_THEME, 0],
+        ['active', 'dark', DARK_THEME, 0]
+      ] as const)('renders a semibold number in an %s step in %s mode', (_, __, theme, index) => {
+        const icon = renderIcons(theme)[index];
+
+        expect(icon).toHaveStyleRule('font-weight', DEFAULT_THEME.fontWeights.semibold.toString());
       });
 
       it.each([

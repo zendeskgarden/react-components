@@ -118,7 +118,14 @@ describe('Header', () => {
   });
 
   describe('Rotate icon', () => {
-    const { base } = DEFAULT_THEME.space;
+    const { base, md, xs } = DEFAULT_THEME.space;
+
+    it('renders the 20px chevron glyph', () => {
+      const { container } = renderHeader();
+      const icon = container.querySelector(ROTATE_ICON);
+
+      expect(icon).toHaveAttribute('viewBox', '0 0 20 20');
+    });
 
     it('renders default styling', () => {
       const { container } = renderHeader({ defaultExpandedSections: [] });
@@ -126,7 +133,8 @@ describe('Header', () => {
 
       expect(icon).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
       expect(icon).not.toHaveStyleRule('transform');
-      expect(icon).toHaveStyleRule('padding', `${base * 5}px`);
+      expect(icon).toHaveStyleRule('box-sizing', 'content-box');
+      expect(icon).toHaveStyleRule('padding', `${md} ${base * 4.5}px`);
       expect(icon).toHaveStyleRule(
         'color',
         getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' })
@@ -138,8 +146,21 @@ describe('Header', () => {
 
       expect(container.querySelector(ROTATE_ICON)).toHaveStyleRule(
         'padding',
-        `${base * 1.5}px ${base * 3}px`
+        `${xs} ${base * 2.5}px`
       );
+    });
+
+    it.each([
+      ['default', false],
+      ['compact', true]
+    ])('renders the chevron at theme.space.md in %s density', (_, isCompact) => {
+      const { container } = renderHeader({ isCompact });
+      const icon = container.querySelector(ROTATE_ICON);
+
+      expect(md).not.toBe(DEFAULT_THEME.iconSizes.md);
+      expect(icon).toHaveStyleRule('width', md);
+      expect(icon).toHaveStyleRule('min-width', md);
+      expect(icon).toHaveStyleRule('height', md);
     });
 
     it('is rotated while the section is expanded', () => {
