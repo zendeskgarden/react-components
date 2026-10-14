@@ -8,13 +8,6 @@
 import { version } from 'react';
 
 const componentIds = [
-  'accordions.accordion',
-  'accordions.button',
-  'accordions.header',
-  'accordions.panel',
-  'accordions.rotate_icon',
-  'accordions.section',
-  'accordions.step_inner_panel',
   'avatars.avatar',
   'avatars.status-indicator.caption',
   'avatars.status-indicator.indicator',

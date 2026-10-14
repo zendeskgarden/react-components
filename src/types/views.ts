@@ -34,10 +34,3 @@ export interface IStyledFontProps extends IStyledBaseProps {
 export interface IStyledBaseProps<T extends DefaultTheme = IGardenTheme> {
   theme: T;
 }
-
-export interface IStyledAccordion extends IStyledBaseProps {
-  $isAnimated?: boolean;
-  $isBare?: boolean;
-  $isCollapsible?: boolean;
-  $isCompact?: boolean;
-}

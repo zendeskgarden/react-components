@@ -5,34 +5,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React, { type ReactElement, Children, forwardRef, isValidElement, useMemo } from 'react';
 import { useAccordion } from '@zendeskgarden/container-accordion';
-import PropTypes from 'prop-types';
-import { Children, forwardRef, isValidElement, useMemo, type ReactElement } from 'react';
-
-import { AccordionProvider } from '../../context/accordion/AccordionContext';
-import { SectionProvider } from '../../context/accordion/SectionContext';
-import type { IAccordionProps } from '../../types/elements';
-import { StyledAccordion } from '../../views/accordion/StyledAccordion';
-import { COMPONENT_IDS } from '../utils';
-import { Header } from './Header';
-import { Label } from './Label';
-import { Panel } from './Panel';
-import { Section } from './Section';
+import { IAccordionProps } from '../../types';
+import { StyledAccordion } from '../../styled';
+import { AccordionContext, SectionContext } from '../../utils';
+import { Section } from './components/Section';
+import { Header } from './components/Header';
+import { Label } from './components/Label';
+import { Panel } from './components/Panel';
 
 const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
   (
     {
       children,
-      defaultExpandedSections,
-      expandedSections: controlledExpandedSections,
-      isAnimated = true,
       isBare,
-      isCollapsible = true,
       isCompact,
+      isAnimated = true,
       isExpandable,
+      isCollapsible = true,
       level,
       onChange,
-      ...other
+      defaultExpandedSections,
+      expandedSections: controlledExpandedSections,
+      ...props
     },
     ref
   ) => {
@@ -42,24 +38,25 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
           .filter(isValidElement)
           .map((child, index) => (
             /* eslint-disable-next-line react/no-array-index-key */
-            <SectionProvider key={index} value={index}>
+            <SectionContext.Provider key={index} value={index}>
               {child}
-            </SectionProvider>
+            </SectionContext.Provider>
           ))
           .reduce<{
             sectionChildren: ReactElement[];
             sections: number[];
           }>(
-            (retVal, child, index) => {
-              retVal.sectionChildren.push(child);
-              retVal.sections.push(index);
+            (acc, child, index) => {
+              acc.sectionChildren.push(child);
+              acc.sections.push(index);
 
-              return retVal;
+              return acc;
             },
             { sectionChildren: [], sections: [] }
           ),
       [children]
     );
+
     const { expandedSections, getHeaderProps, getTriggerProps, getPanelProps } = useAccordion({
       sections,
       defaultExpandedSections,
@@ -69,44 +66,42 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       onChange
     });
 
+    const accordionContextValue = useMemo(
+      () => ({
+        level,
+        isBare,
+        isCompact,
+        isAnimated,
+        isCollapsible,
+        getPanelProps,
+        getHeaderProps,
+        getTriggerProps,
+        expandedSections
+      }),
+      [
+        level,
+        isBare,
+        isCompact,
+        isAnimated,
+        isCollapsible,
+        getPanelProps,
+        getHeaderProps,
+        getTriggerProps,
+        expandedSections
+      ]
+    );
+
     return (
-      <AccordionProvider
-        expandedSections={expandedSections}
-        getHeaderProps={getHeaderProps}
-        getPanelProps={getPanelProps}
-        getTriggerProps={getTriggerProps}
-        isBare={isBare}
-        isAnimated={isAnimated}
-        isCollapsible={isCollapsible}
-        isCompact={isCompact}
-        level={level}
-      >
-        <StyledAccordion
-          {...other}
-          data-garden-id={COMPONENT_IDS['accordions.accordion']}
-          data-garden-version={PACKAGE_VERSION}
-          ref={ref}
-        >
+      <AccordionContext.Provider value={accordionContextValue}>
+        <StyledAccordion ref={ref} {...props}>
           {sectionChildren}
         </StyledAccordion>
-      </AccordionProvider>
+      </AccordionContext.Provider>
     );
   }
 );
 
 AccordionComponent.displayName = 'Accordion';
-
-AccordionComponent.propTypes = {
-  level: PropTypes.number.isRequired,
-  expandedSections: PropTypes.array,
-  defaultExpandedSections: PropTypes.array,
-  isBare: PropTypes.bool,
-  isCollapsible: PropTypes.bool,
-  isCompact: PropTypes.bool,
-  isAnimated: PropTypes.bool,
-  isExpandable: PropTypes.bool,
-  onChange: PropTypes.func
-};
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>

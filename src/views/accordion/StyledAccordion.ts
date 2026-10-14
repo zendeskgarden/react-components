@@ -5,10 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { componentStyles } from '../../theming/utils/componentStyles';
+const COMPONENT_ID = 'accordions.accordion';
 
-export const StyledAccordion = styled.div`
+export const StyledAccordion = styled.div.attrs({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+})`
   ${componentStyles};
 `;

@@ -5,9 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-/* accordion */
-export { Accordion } from './elements/accordion/Accordion';
-
 /* avatar */
 export { Avatar } from './elements/avatar/Avatar';
 export { StatusIndicator } from './elements/avatar/StatusIndicator';
@@ -128,7 +125,6 @@ export {
   SPACE,
   TEXT_ALIGN,
   WRAP,
-  type IAccordionProps,
   type IAnchorProps,
   type IAvatarProps,
   type IBlockquoteProps,

@@ -5,16 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
-import { SectionContext } from '../../context/accordion/SectionContext';
+export interface ISectionContext {
+  sectionIndex: number;
+}
+
+export const SectionContext = createContext<number | undefined>(undefined);
 
 export const useSectionContext = () => {
-  const retVal = useContext(SectionContext);
+  const context = useContext(SectionContext);
 
-  if (retVal === undefined) {
-    throw new Error('this component must be rendered within an <Accordion.Section>.');
+  if (context === undefined) {
+    throw new Error('This component must be rendered within an Accordion component');
   }
 
-  return retVal;
+  return context;
 };

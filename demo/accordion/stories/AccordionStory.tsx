@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import React, { MouseEventHandler } from 'react';
+import { StoryFn } from '@storybook/react-vite';
+import Icon1 from '@zendeskgarden/svg-icons/src/16/gear-stroke.svg';
+import Icon2 from '@zendeskgarden/svg-icons/src/16/folder-open-stroke.svg';
+import { Accordion, IAccordionProps } from '@zendeskgarden/react-accordions';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import type { MouseEventHandler } from 'react';
-import Icon2 from 'svg-icons-legacy/src/16/folder-open-stroke.svg';
-import Icon1 from 'svg-icons-legacy/src/16/gear-stroke.svg';
-
-import { Accordion, type IAccordionProps } from '../../src';
-import type { IAccordionSection } from './types';
+import { IAccordionSection } from './types';
 
 interface IProps {
   isCompact: boolean;
@@ -22,7 +22,7 @@ const handleClick: MouseEventHandler<HTMLButtonElement> = event => event.prevent
 
 const IconButtons = ({ isCompact }: IProps) => (
   <>
-    <Tooltip content="Settings" isLabel>
+    <Tooltip content="Settings">
       <IconButton
         focusInset={isCompact}
         size={isCompact ? 'small' : 'medium'}
@@ -31,7 +31,7 @@ const IconButtons = ({ isCompact }: IProps) => (
         <Icon1 />
       </IconButton>
     </Tooltip>
-    <Tooltip content="Folders" isLabel>
+    <Tooltip content="Folders">
       <IconButton
         focusInset={isCompact}
         size={isCompact ? 'small' : 'medium'}
@@ -48,13 +48,13 @@ interface IArgs extends IAccordionProps {
   sections: IAccordionSection[];
 }
 
-export const AccordionStory = ({ hasIconButtons, sections, ...args }: IArgs) => (
+export const AccordionStory: StoryFn<IArgs> = ({ sections, ...args }: IArgs) => (
   <Accordion {...args}>
     {sections.map((section, index) => (
       <Accordion.Section key={index}>
         <Accordion.Header>
           <Accordion.Label>{section.headerLabel}</Accordion.Label>
-          {!!hasIconButtons && <IconButtons isCompact={args.isCompact || false} />}
+          {!!args.hasIconButtons && <IconButtons isCompact={args.isCompact || false} />}
         </Accordion.Header>
         <Accordion.Panel>{section.panel}</Accordion.Panel>
       </Accordion.Section>

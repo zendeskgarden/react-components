@@ -5,16 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
+import { createContext, useContext } from 'react';
 
-import { HeaderContext } from '../../context/accordion/HeaderContext';
+export interface IHeaderContext {
+  isHovered: boolean;
+  otherTriggerProps: any;
+}
+
+export const HeaderContext = createContext<IHeaderContext | undefined>(undefined);
 
 export const useHeaderContext = () => {
-  const retVal = useContext(HeaderContext);
+  const context = useContext(HeaderContext);
 
-  if (retVal === undefined) {
-    throw new Error('this component must be rendered within an <Accordion.Header>.');
+  if (context === undefined) {
+    throw new Error('This component must be rendered within a Accordion.Header component');
   }
 
-  return retVal;
+  return context;
 };

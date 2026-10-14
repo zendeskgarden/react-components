@@ -5,9 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
-import type { Dispatch, HTMLProps, MutableRefObject } from 'react';
+import type { Dispatch, MutableRefObject } from 'react';
 
 import type {
   DatePickerRangeAction,
@@ -18,25 +17,7 @@ import type {
   IDatePickerState
 } from '../elements/datepicker/date-picker-reducer';
 import type { DateFnsIndex } from '../utils/datepicker/calendar-utils';
-import type {
-  GridNumber,
-  IAccordionProps,
-  ISplitterProps,
-  Orientation,
-  Size,
-  Space
-} from './elements';
-
-export interface IAccordionContext<SectionValue>
-  extends
-    Omit<IUseAccordionReturnValue<SectionValue>, 'disabledSections'>,
-    Pick<
-      IAccordionProps<SectionValue>,
-      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
-    > {}
-
-export type AccordionHeaderContext = HTMLProps<Element>;
-
+import type { GridNumber, ISplitterProps, Orientation, Size, Space } from './elements';
 //#region datepicker
 export interface IDatePickerContext {
   state: IDatePickerState;

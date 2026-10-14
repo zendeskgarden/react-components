@@ -5,16 +5,27 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext } from 'react';
+import { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import { createContext, useContext } from 'react';
 
-import { AccordionContext } from '../../context/accordion/AccordionContext';
+import { IAccordionProps } from '../types';
+
+export interface IAccordionContext<Value>
+  extends
+    Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
+    Pick<
+      IAccordionProps<Value>,
+      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
+    > {}
+
+export const AccordionContext = createContext<IAccordionContext<any> | undefined>(undefined);
 
 export const useAccordionContext = () => {
-  const retVal = useContext(AccordionContext);
+  const context = useContext(AccordionContext);
 
-  if (retVal === undefined) {
-    throw new Error('this component must be rendered within an <Accordion>.');
+  if (context === undefined) {
+    throw new Error('This component must be rendered within a Accordion component');
   }
 
-  return retVal;
+  return context;
 };

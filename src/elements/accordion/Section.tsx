@@ -5,21 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { forwardRef, HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
+import { StyledSection } from '../../../styled';
 
-import { StyledSection } from '../../views/accordion/StyledSection';
-import { COMPONENT_IDS } from '../utils';
+const SectionComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  (props, ref) => <StyledSection ref={ref} {...props} />
+);
+
+SectionComponent.displayName = 'Accordion.Section';
 
 /**
- * @extends HTMLAttributes<HTMLDivElement>
+ * @extends HTMLAttributes<HTMLElement>
  */
-export const Section = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => (
-  <StyledSection
-    {...props}
-    data-garden-id={COMPONENT_IDS['accordions.section']}
-    data-garden-version={PACKAGE_VERSION}
-    ref={ref}
-  />
-));
-
-Section.displayName = 'Accordion.Section';
+export const Section = SectionComponent;

@@ -5,53 +5,64 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
+import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { componentStyles } from '../../theming/utils/componentStyles';
-import { getColor } from '../../theming/utils/getColor';
-import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledAccordion } from '../../types/views';
-import { StyledHeader } from './StyledHeader';
-import { StyledLabel } from './StyledLabel';
+interface IStyledPanel {
+  inert?: string;
+  $isBare?: boolean;
+  $isCompact?: boolean;
+  $isExpanded?: boolean;
+  $isAnimated?: boolean;
+}
 
-const colorStyles = ({ theme, $isBare }: IStyledAccordion) => {
-  const borderBottomColor = $isBare
-    ? 'transparent'
-    : getColor({ theme, variable: 'border.default' });
+const COMPONENT_ID = 'accordions.panel';
 
+const colorStyles = ({ theme, $isBare }: IStyledPanel & ThemeProps<DefaultTheme>) => {
   return css`
-    border-bottom-color: ${borderBottomColor};
+    border-bottom-color: ${$isBare
+      ? 'transparent'
+      : getColor({ theme, variable: 'border.default' })};
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledAccordion) => {
+const sizeStyles = (props: IStyledPanel & ThemeProps<DefaultTheme>) => {
+  const { theme, $isCompact, $isExpanded } = props;
   const { base } = theme.space;
-  const fontSize = theme.fontSizes.md;
-  const lineHeight = getLineHeight(base * 5, fontSize);
-  const paddingHorizontal = base * ($isCompact ? 3 : 5);
-  const paddingBottom = base * ($isCompact ? 4 : 8);
-  const paddingTop = base * 2;
-  const padding = `${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px`;
+  let paddingTop = base * 2;
+  let paddingHorizontal = base * 5;
+  let paddingBottom = base * 8;
+
+  if ($isCompact) {
+    paddingTop = base * 2;
+    paddingHorizontal = base * 3;
+    paddingBottom = base * 4;
+  }
+
+  if ($isExpanded === false) {
+    paddingTop = 0;
+    paddingBottom = 0;
+  }
 
   return css`
-    grid-template-rows: 1fr;
+    grid-template-rows: ${$isExpanded ? 1 : 0}fr;
     border-bottom: ${theme.borders.sm};
-    padding: ${padding};
-    line-height: ${lineHeight};
-    font-size: ${fontSize};
-
-    ${StyledHeader}:has(${StyledLabel}[aria-expanded='false']) ~ & {
-      grid-template-rows: 0fr;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
+    padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
+    line-height: ${getLineHeight(base * 5, theme.fontSizes.md)};
+    font-size: ${theme.fontSizes.md};
   `;
 };
 
-export const StyledPanel = styled.section<IStyledAccordion>`
+export const StyledPanel = styled.section.attrs<IStyledPanel>(() => ({
+  'data-garden-id': COMPONENT_ID,
+  'data-garden-version': PACKAGE_VERSION
+}))<IStyledPanel>`
   display: grid;
-  transition: ${({ $isAnimated }) =>
-    $isAnimated && 'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
+  transition: ${props =>
+    /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
+     * explicitly passed undefined props, so `$isAnimated` may still be undefined here */
+    (props.$isAnimated ?? true) &&
+    'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
   overflow: hidden;
 
   ${sizeStyles}
