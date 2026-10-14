@@ -275,6 +275,44 @@ export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
 }
 //#endregion
 
+//#region tag
+export const TAG_SIZE = ['small', 'medium', 'large'] as const;
+export interface ITagProps extends HTMLAttributes<HTMLDivElement> {
+  /** Adjusts font size and padding */
+  size?: (typeof TAG_SIZE)[number];
+  /**
+   * Sets the color of the tag. Three kinds of values are supported:
+   *
+   * 1. **Palette hue** – any hue from the theme
+   * [PALETTE](/components/palette#palette): `grey`, `blue`, `red`, `yellow`,
+   * `green`, `purple`, `fuschia`, `pink`, `crimson`, `orange`, `lemon`, `lime`,
+   * `mint`, `teal`, `azure`, `royal` or `kale`.
+   * 2. **Tokenized hue** – `primaryHue`, `successHue`, `neutralHue`,
+   * `chromeHue`, `dangerHue` or `warningHue`. Resolves to a different color in
+   * light and dark mode. Refer to theming
+   * [colors](/components/theme-object#colors).
+   * 3. **Hex value** – any valid hex color string.
+   */
+  hue?: string;
+  /**
+   * Applies the high-contrast emphasis treatment. When `false`, the tag uses
+   * the default subtle treatment. The `hue` prop selects the color for either
+   * treatment; omit it for the neutral grey default.
+   */
+  isEmphasis?: boolean;
+  /**
+   * Renders the tag as a pill by default. Pass `isPill={false}` for a square
+   * tag, for example for tokenized values in filters. `isRound` takes
+   * precedence when set.
+   */
+  isPill?: boolean;
+  /** Applies styles to round the tag */
+  isRound?: boolean;
+  /** Applies regular (non-bold) font weight */
+  isRegular?: boolean;
+}
+//#endregion
+
 //#region typography
 export const HUE = ['grey', 'red', 'green', 'yellow'] as const;
 export const SIZE = ['small', 'medium', 'large'] as const;

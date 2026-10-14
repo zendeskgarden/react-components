@@ -5,112 +5,87 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  SELECTOR_FOCUS_VISIBLE,
-  focusStyles,
-  getColor,
-  IGardenTheme
-} from '@zendeskgarden/react-theming';
 import { math, readableColor } from 'polished';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { ITagProps } from '../types';
+import type { IGardenTheme } from '../../theming/types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { ITagProps } from '../../types/elements';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
 
-const COMPONENT_ID = 'tags.tag_view';
-
 interface IStyledTagProps extends ThemeProps<DefaultTheme> {
   $hue?: ITagProps['hue'];
+  $isEmphasis?: ITagProps['isEmphasis'];
   $isPill?: ITagProps['isPill'];
   $isRegular?: ITagProps['isRegular'];
   $isRound?: ITagProps['isRound'];
   $size?: ITagProps['size'];
 }
 
+const HUE_KEYS = ['primaryHue', 'dangerHue', 'warningHue', 'successHue', 'neutralHue', 'chromeHue'];
+
+const isNeutralHue = (hue?: string) => !hue || hue === 'grey' || hue === 'neutralHue';
+
+/*
+ * A named hue is a theme color key or a palette hue with shades. The palette
+ * `white` and `black` are single colors without shades, so they are not named
+ * hues; they take the custom color path, as a hex value does.
+ */
+const isNamedHue = (theme: IGardenTheme, hue: string) =>
+  HUE_KEYS.includes(hue) ||
+  (Object.prototype.hasOwnProperty.call(theme.palette, hue) &&
+    typeof theme.palette[hue] === 'object');
+
 /*
  * 1. Anchor element reset
  * 2. Tags show focus state whether performed by mouse or keyboard
  */
-const colorStyles = ({ theme, $hue }: IStyledTagProps) => {
+const colorStyles = ({ theme, $hue, $isEmphasis }: IStyledTagProps) => {
   let backgroundColor;
   let foregroundColor;
 
-  if ($hue) {
-    foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
-
-    switch ($hue) {
-      case 'grey':
-      case 'neutralHue':
-        backgroundColor = getColor({
-          theme,
-          variable: 'background.emphasis',
-          dark: { offset: -300 }
-        });
-        break;
-
-      case 'blue':
-      case 'primaryHue':
-        backgroundColor = getColor({ theme, variable: 'background.primaryEmphasis' });
-        break;
-
-      case 'red':
-      case 'dangerHue':
-        backgroundColor = getColor({ theme, variable: 'background.dangerEmphasis' });
-        break;
-
-      case 'green':
-      case 'successHue':
-        backgroundColor = getColor({ theme, variable: 'background.successEmphasis' });
-        break;
-
-      case 'yellow':
-      case 'warningHue':
-        backgroundColor = getColor({ theme, hue: 'warningHue', shade: 400 });
-
-        if (theme.colors.base === 'light') {
-          foregroundColor = getColor({ theme, variable: 'foreground.warningEmphasis' });
-        }
-
-        break;
-
-      case 'kale':
-      case 'chromeHue':
-        backgroundColor = getColor({
-          theme,
-          hue: 'chromeHue',
-          dark: { shade: 500 },
-          light: { shade: 800 }
-        });
-
-        break;
-
-      default: {
-        const lightTheme = { ...theme, colors: { ...theme.colors, base: 'light' } } as IGardenTheme;
-        const darkTheme = { ...theme, colors: { ...theme.colors, base: 'dark' } } as IGardenTheme;
-        const variable = 'foreground.onEmphasis';
-
-        backgroundColor = getColor({ theme, hue: $hue });
-        foregroundColor = readableColor(
-          backgroundColor,
-          getColor({ theme: darkTheme, variable }),
-          getColor({ theme: lightTheme, variable }),
-          false /* disable strict mode to prevent black */
-        );
-
-        break;
-      }
+  if (isNeutralHue($hue)) {
+    if ($isEmphasis) {
+      backgroundColor = getColor({
+        theme,
+        hue: 'neutralHue',
+        light: { shade: 700 },
+        dark: { shade: 400 }
+      });
+      foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
+    } else {
+      backgroundColor = getColor({
+        theme,
+        hue: 'neutralHue',
+        light: { shade: 200 },
+        dark: { shade: 900 }
+      });
+      foregroundColor = getColor({ theme, variable: 'foreground.default' });
+    }
+  } else if (isNamedHue(theme, $hue!)) {
+    if ($isEmphasis) {
+      backgroundColor = getColor({ theme, hue: $hue, light: { shade: 700 }, dark: { shade: 600 } });
+      foregroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
+    } else {
+      backgroundColor = getColor({ theme, hue: $hue, light: { shade: 200 }, dark: { shade: 900 } });
+      foregroundColor = getColor({ theme, hue: $hue, light: { shade: 900 }, dark: { shade: 300 } });
     }
   } else {
-    backgroundColor = getColor({
-      theme,
-      hue: 'neutralHue',
-      dark: { shade: 800 },
-      light: { shade: 200 }
-    });
-    foregroundColor = getColor({ theme, variable: 'foreground.default' });
+    const lightTheme = { ...theme, colors: { ...theme.colors, base: 'light' } } as IGardenTheme;
+    const darkTheme = { ...theme, colors: { ...theme.colors, base: 'dark' } } as IGardenTheme;
+    const variable = 'foreground.onEmphasis';
+
+    backgroundColor = getColor({ theme, hue: $hue });
+    foregroundColor = readableColor(
+      backgroundColor,
+      getColor({ theme: darkTheme, variable }),
+      getColor({ theme: lightTheme, variable }),
+      false /* disable strict mode to prevent black */
+    );
   }
 
   return css`
@@ -158,8 +133,6 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   }
 
   let avatarBorderRadius = $size === 'large' ? math(`${borderRadius} - 1`) : borderRadius;
-  const avatarMargin = (height - avatarSize) / 2;
-  const avatarTextMargin = $isRound ? avatarMargin : avatarMargin * 2;
 
   if ($isRound) {
     borderRadius = '50%';
@@ -194,8 +167,8 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
     }
 
     & ${StyledAvatar} {
-      margin-${theme.rtl ? 'right' : 'left'}: -${padding - avatarMargin}px;
-      margin-${theme.rtl ? 'left' : 'right'}: ${avatarTextMargin}px;
+      margin-${theme.rtl ? 'right' : 'left'}: -${theme.space.base}px;
+      margin-${theme.rtl ? 'left' : 'right'}: ${theme.space.base}px;
       border-radius: ${avatarBorderRadius};
       width: ${avatarSize}px;
       min-width: ${avatarSize}px; /* prevent flex shrink */
@@ -203,7 +176,7 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
     }
 
     & ${StyledClose} {
-      margin-${theme.rtl ? 'left' : 'right'}: -${padding}px;
+      margin-${theme.rtl ? 'left' : 'right'}: -${theme.space.base}px;
       border-radius: ${borderRadius};
       width: ${height}px;
       height: ${height}px;
@@ -211,10 +184,7 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   `;
 };
 
-export const StyledTag = styled.div.attrs<IStyledTagProps>(() => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IStyledTagProps>`
+export const StyledTag = styled.div<IStyledTagProps>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
