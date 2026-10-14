@@ -7,20 +7,20 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { SyntheticEvent, forwardRef } from 'react';
 
-import { StyledTextInput } from '../styled';
-import { IInputProps, VALIDATION } from '../types';
-import useFieldContext from '../utils/useFieldContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
 import {
   useInputGroupContext,
   usePublishInputGroupValidation
-} from '../utils/useInputGroupContext';
+} from '../../hooks/form/useInputGroupContext';
+import { IInputProps, VALIDATION } from '../../types/elements';
+import { StyledTextInput } from '../../views/form/StyledTextInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
+export const Input = forwardRef<HTMLInputElement, IInputProps>(
   ({ onSelect, isBare, isCompact, focusInset, validation, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const inputGroupContext = useInputGroupContext();
@@ -32,7 +32,7 @@ export const Input = React.forwardRef<HTMLInputElement, IInputProps>(
     }
 
     const onSelectHandler = other.readOnly
-      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+      ? composeEventHandlers(onSelect, (event: SyntheticEvent<HTMLInputElement>) => {
           event.currentTarget.select();
         })
       : onSelect;

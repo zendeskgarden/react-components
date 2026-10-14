@@ -7,12 +7,12 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useState, forwardRef } from 'react';
+import { useState, forwardRef } from 'react';
 
-import { StyledTextFauxInput } from '../../styled';
-import { IFauxInputProps, VALIDATION } from '../../types';
-import { EndIcon } from './components/EndIcon';
-import { StartIcon } from './components/StartIcon';
+import { IFauxInputProps, VALIDATION } from '../../types/elements';
+import { StyledTextFauxInput } from '../../views/form/StyledTextFauxInput';
+import { EndIcon } from './EndIcon';
+import { StartIcon } from './StartIcon';
 
 const FauxInputComponent = forwardRef<HTMLDivElement, IFauxInputProps>(
   (

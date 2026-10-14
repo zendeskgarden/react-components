@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Button, IButtonProps, ToggleButton } from '@zendeskgarden/react-buttons';
-import { IInputGroupProps, IInputProps, Input, InputGroup } from '@zendeskgarden/react-forms';
-import React, { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 
+import { IInputGroupProps, IInputProps, Input, InputGroup } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 import { IInputGroupItem } from './types';
 
@@ -51,7 +50,7 @@ interface IArgs extends IInputGroupProps, IFieldArgs {
   inputValidation?: IInputProps['validation'];
 }
 
-export const InputGroupStory: StoryFn<IArgs> = ({
+export const InputGroupStory = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -69,7 +68,7 @@ export const InputGroupStory: StoryFn<IArgs> = ({
   readOnly,
   inputValidation,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory
     label={label}
     isLabelRegular={isLabelRegular}

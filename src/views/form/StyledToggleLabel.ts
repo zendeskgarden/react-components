@@ -5,14 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledCheckLabel } from '../checkbox/StyledCheckLabel';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledCheckLabel } from './StyledCheckLabel';
 
-const COMPONENT_ID = 'forms.toggle_label';
-
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const size = props.theme.space.base * 10; /* from StyledToggleInput */
   const padding = size + props.theme.space.base * 2;
 
@@ -25,10 +24,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledToggleLabel = styled(StyledCheckLabel).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledToggleLabel = styled(StyledCheckLabel)`
   ${props => sizeStyles(props)};
 
   ${componentStyles};

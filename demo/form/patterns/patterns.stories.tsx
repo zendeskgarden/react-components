@@ -6,17 +6,17 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ClearableInput, FileUpload } from '@zendeskgarden/react-forms';
-import React from 'react';
+import { ChangeEvent } from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { ClearableInput, FileUpload } from '../../../src/index';
 import { commonArgs, commonArgTypes } from '../stories/common';
 import { FILE_TYPES } from '../stories/data';
 import { DateFieldStory } from './stories/DateFieldStory';
 import { FileUploadStory } from './stories/FileUploadStory';
 
 export default {
-  title: 'Packages/Forms/[patterns]',
+  title: 'Components/Forms/FileUpload',
   component: FileUpload,
   subcomponents: {
     ClearableInput
@@ -58,7 +58,7 @@ export const DateField: StoryObj<typeof DateFieldStory> = {
   render: args => {
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) =>
       updateArgs({ value: event.target.value });
 
     return <DateFieldStory {...args} onChange={handleChange} />;

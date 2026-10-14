@@ -5,21 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-interface IFieldsetContext {
-  isCompact?: boolean;
-}
-
-export const FieldsetContext = createContext<IFieldsetContext | undefined>(undefined);
+import { FieldsetContext } from '../../context/form/FieldsetContext';
 
 /**
  * Retrieve Fieldset component context
  */
-const useFieldsetContext = () => {
+export const useFieldsetContext = () => {
   const fieldsetContext = useContext(FieldsetContext);
 
   return fieldsetContext;
 };
-
-export default useFieldsetContext;

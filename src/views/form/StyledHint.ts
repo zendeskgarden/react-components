@@ -5,11 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 
 const COMPONENT_ID = 'forms.input_hint';
 
+// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
 export const StyledHint = styled.div.attrs(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION

@@ -5,16 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { IToggleProps, Toggle } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { IToggleProps, Toggle } from '../../../src/index';
 import { renderHint, renderLabel, renderMessage } from './common';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IToggleProps, IFieldArgs {}
 
-export const ToggleStory: StoryFn<IArgs> = ({
+export const ToggleStory = ({
   hasHint,
   hasLabel = true,
   hasMessage,
@@ -26,7 +23,7 @@ export const ToggleStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
     <Toggle {...args}>
       {renderLabel({ hasLabel, label, isLabelHidden, isLabelRegular })}

@@ -6,17 +6,16 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Select } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Select } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { SELECT_OPTIONS as OPTIONS } from './stories/data';
 import { SelectStory } from './stories/SelectStory';
 type Story = StoryObj<typeof SelectStory>;
 
 export default {
-  title: 'Packages/Forms/Select',
+  title: 'Components/Forms/Select',
   component: Select,
   subcomponents: {
     ...fieldSubcomponents

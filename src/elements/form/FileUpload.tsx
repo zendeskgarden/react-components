@@ -6,10 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledFileUpload } from '../styled';
-import { IFileUploadProps } from '../types';
+import { IFileUploadProps } from '../../types/elements';
+import { StyledFileUpload } from '../../views/form/StyledFileUpload';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * [1] A generic div is used for best support with `react-dropzone`.
@@ -18,7 +19,7 @@ import { IFileUploadProps } from '../types';
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
+export const FileUpload = forwardRef<HTMLDivElement, IFileUploadProps>(
   ({ disabled, isCompact, isDragging, ...other }, ref) => {
     return (
       /* [1] */
@@ -29,6 +30,8 @@ export const FileUpload = React.forwardRef<HTMLDivElement, IFileUploadProps>(
         $isCompact={isCompact}
         $isDragging={isDragging}
         {...other}
+        data-garden-id={COMPONENT_IDS['forms.file_upload']}
+        data-garden-version={PACKAGE_VERSION}
         role="button"
       />
     );

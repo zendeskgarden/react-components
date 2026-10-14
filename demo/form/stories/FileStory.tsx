@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { File, IFileProps } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes } from 'react';
+
+import { File, IFileProps } from '../../../src/index';
 
 interface IArgs extends Omit<IFileProps, 'onClick'> {
   hasClose?: boolean;
@@ -20,7 +20,7 @@ interface IArgs extends Omit<IFileProps, 'onClick'> {
   deleteAriaLabel: string;
 }
 
-export const FileStory: StoryFn<IArgs> = ({
+export const FileStory = ({
   children,
   hasClose,
   hasDelete,
@@ -30,7 +30,7 @@ export const FileStory: StoryFn<IArgs> = ({
   closeAriaLabel,
   deleteAriaLabel,
   ...args
-}) => (
+}: IArgs) => (
   <File {...args}>
     {children}
     {!!hasClose && (

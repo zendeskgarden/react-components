@@ -5,10 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme, DataAttributes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'forms.media_figure';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledTextMediaFigureProps {
   $isRotated?: boolean;
@@ -23,7 +25,7 @@ const colorStyles = ({
   $isDisabled,
   $isHovered,
   $isFocused
-}: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme>) => {
+}: IStyledTextMediaFigureProps & IStyledBaseProps) => {
   let color;
 
   if ($isDisabled) {
@@ -43,7 +45,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledTextMediaFigureProps & IStyledBaseProps) => {
   const size = props.theme.iconSizes.md;
   const marginFirst = `1px ${props.theme.space.base * 2}px auto 0`;
   const marginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
@@ -62,10 +64,7 @@ const sizeStyles = (props: IStyledTextMediaFigureProps & ThemeProps<DefaultTheme
   `;
 };
 
-export const StyledTextMediaFigure = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTextMediaFigureProps>`
+export const StyledTextMediaFigure = styled(StyledBaseIcon)<IStyledTextMediaFigureProps>`
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   /* prettier-ignore */
   transition:

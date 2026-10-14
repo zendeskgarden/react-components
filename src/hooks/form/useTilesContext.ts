@@ -5,13 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useContext, createContext } from 'react';
+import { useContext } from 'react';
 
-import { ITilesProps } from '../types';
-
-export const TilesContext = createContext<
-  Pick<ITilesProps, 'value' | 'onChange' | 'name' | 'isCentered'> | undefined
->(undefined);
+import { TilesContext } from '../../context/form/TilesContext';
 
 export const useTilesContext = () => {
   return useContext(TilesContext);

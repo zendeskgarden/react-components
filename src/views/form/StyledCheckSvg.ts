@@ -5,19 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 import styled from 'styled-components';
+import CheckIcon from 'svg-icons-legacy/src/12/check-sm-fill.svg';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
-const COMPONENT_ID = 'forms.check_svg';
-
-export const StyledCheckSvg = styled(CheckIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledCheckSvg = styled(CheckIcon)`
   transition: opacity 0.25s ease-in-out;
   opacity: 0;
   pointer-events: none;

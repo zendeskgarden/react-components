@@ -5,18 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FileValidation } from '../../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { FileValidation } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledFileClose } from './StyledFileClose';
-
-const COMPONENT_ID = 'forms.file';
 
 interface IStyledFileProps {
   $isCompact?: boolean;
@@ -24,11 +21,7 @@ interface IStyledFileProps {
   $validation?: FileValidation;
 }
 
-const colorStyles = ({
-  theme,
-  $focusInset,
-  $validation
-}: IStyledFileProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $focusInset, $validation }: IStyledFileProps & IStyledBaseProps) => {
   let borderVariable;
   let focusBorderVariable;
   let foregroundVariable;
@@ -64,7 +57,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledFileProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledFileProps & IStyledBaseProps) => {
   const size = `${theme.space.base * ($isCompact ? 7 : 10)}px`;
   const spacing = `${theme.space.base * ($isCompact ? 2 : 3)}px`;
   const fontSize = theme.fontSizes.md;
@@ -91,10 +84,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledFileProps & ThemeProps<Default
   `;
 };
 
-export const StyledFile = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledFileProps>`
+export const StyledFile = styled.div<IStyledFileProps>`
   display: flex;
   position: relative;
   flex-wrap: nowrap;

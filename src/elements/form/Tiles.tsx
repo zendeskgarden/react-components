@@ -7,14 +7,14 @@
 
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { ChangeEventHandler, useCallback, useState, useMemo, forwardRef } from 'react';
+import { ChangeEventHandler, useCallback, useState, useMemo, forwardRef } from 'react';
 
-import { ITilesProps } from '../../types';
-import { TilesContext } from '../../utils/useTilesContext';
-import { Description } from './components/Description';
-import { Icon } from './components/Icon';
-import { Label } from './components/Label';
-import { Tile } from './components/Tile';
+import { TilesProvider } from '../../context/form/TilesContext';
+import { ITilesProps } from '../../types/elements';
+import { Description } from './Description';
+import { Icon } from './Icon';
+import { Tile } from './Tile';
+import { Label } from './TilesLabel';
 
 const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
   ({ onChange, value: controlledValue, name, isCentered = true, ...props }, ref) => {
@@ -38,9 +38,9 @@ const TilesComponent = forwardRef<HTMLDivElement, ITilesProps>(
     );
 
     return (
-      <TilesContext.Provider value={tileContext}>
+      <TilesProvider value={tileContext}>
         <div ref={ref} role="radiogroup" {...props} />
-      </TilesContext.Provider>
+      </TilesProvider>
     );
   }
 );

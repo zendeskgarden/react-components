@@ -5,8 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { KEYS } from '@zendeskgarden/container-utilities';
+import { FC, memo, useCallback, useEffect, useState, KeyboardEvent } from 'react';
+import { DropzoneProps, useDropzone } from 'react-dropzone';
+
 import {
   File,
   FileList,
@@ -14,10 +16,7 @@ import {
   IFileProps,
   IFileUploadProps,
   Input
-} from '@zendeskgarden/react-forms';
-import React, { FC, memo, useCallback, useEffect, useState } from 'react';
-import { DropzoneProps, useDropzone } from 'react-dropzone';
-
+} from '../../../../src/index';
 import { FieldStory } from '../../stories/FieldStory';
 import { FileStory } from '../../stories/FileStory';
 
@@ -31,7 +30,7 @@ interface IFileItemProps extends IFileProps {
 const ARIA_LABEL = 'Press backspace to delete';
 
 const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children, onRemove }) => {
-  const [uploadProgress, setUploadProgress] = React.useState(0);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
   useEffect(() => {
     /* simulate file upload progress */
@@ -55,7 +54,7 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
     };
   }, []);
 
-  const handleCloseKeydown = (e: React.KeyboardEvent<any>) => {
+  const handleCloseKeydown = (e: KeyboardEvent<any>) => {
     const _KEYS = [KEYS.SPACE, KEYS.ENTER];
 
     if (_KEYS.includes(e.key)) {
@@ -64,7 +63,7 @@ const FileItem: FC<IFileItemProps> = memo(({ type, disabled, isCompact, children
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<any>) => {
+  const handleKeyDown = (e: KeyboardEvent<any>) => {
     const _KEYS = [KEYS.DELETE, KEYS.BACKSPACE];
 
     if (_KEYS.includes(e.key)) {
@@ -105,7 +104,7 @@ interface IArgs extends IFileUploadProps {
   deleteAriaLabel: string;
 }
 
-export const FileUploadStory: StoryFn<IArgs> = ({
+export const FileUploadStory = ({
   disabled,
   accept,
   maxFiles,
@@ -114,7 +113,7 @@ export const FileUploadStory: StoryFn<IArgs> = ({
   multiple,
   type,
   ...args
-}) => {
+}: IArgs) => {
   const [files, setFiles] = useState<string[]>([]);
 
   const onDrop = useCallback(

@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Checkbox } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Checkbox } from '../../src/index';
 import { CheckboxStory } from './stories/CheckboxStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 type Story = StoryObj<typeof CheckboxStory>;
 
 export default {
-  title: 'Packages/Forms/Checkbox',
+  title: 'Components/Forms/Checkbox',
   component: Checkbox,
   subcomponents: {
     ...fieldSubcomponents

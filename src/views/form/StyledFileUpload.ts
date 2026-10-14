@@ -5,27 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledHint } from '../common/StyledHint';
-import { StyledLabel } from '../common/StyledLabel';
-import { StyledMessage } from '../common/StyledMessage';
-
-const COMPONENT_ID = 'forms.file_upload';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledHint } from './StyledHint';
+import { StyledLabel } from './StyledLabel';
+import { StyledMessage } from './StyledMessage';
 
 interface IStyledFileUploadProps {
   $isDragging?: boolean;
   $isCompact?: boolean;
 }
 
-const colorStyles = ({ theme, $isDragging }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+const colorStyles = ({ theme, $isDragging }: IStyledFileUploadProps & IStyledBaseProps) => {
   const borderOptions = { theme, variable: 'border.primaryEmphasis' };
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
   const foregroundOptions = { theme, variable: 'foreground.primary' };
@@ -73,7 +70,7 @@ const colorStyles = ({ theme, $isDragging }: ThemeProps<DefaultTheme> & IStyledF
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: ThemeProps<DefaultTheme> & IStyledFileUploadProps) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledFileUploadProps & IStyledBaseProps) => {
   const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
   const paddingHorizontal = `${$isCompact ? 2 : 4}em`;
   const paddingVertical = math(
@@ -98,10 +95,7 @@ const sizeStyles = ({ theme, $isCompact }: ThemeProps<DefaultTheme> & IStyledFil
   `;
 };
 
-export const StyledFileUpload = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledFileUploadProps>`
+export const StyledFileUpload = styled.div<IStyledFileUploadProps>`
   display: flex;
   align-items: center;
   justify-content: center;

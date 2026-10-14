@@ -5,16 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledMessage } from '../common/StyledMessage';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledRadioInputProps } from '../../types/views';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledMessage } from './StyledMessage';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
 const COMPONENT_ID = 'forms.radio';
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
@@ -94,7 +98,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps) => {
   const lineHeight = `${theme.space.base * 5}px`; /* from StyledLabel */
   const size = `${theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
@@ -130,10 +134,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps & ThemeProps<D
   `;
 };
 
-export interface IStyledRadioInputProps {
-  $isCompact?: boolean;
-}
-
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledRadioInput = styled.input.attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

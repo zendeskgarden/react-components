@@ -5,18 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled from 'styled-components';
 
-import { StyledHint } from '../common/StyledHint';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledHint } from './StyledHint';
 
-const COMPONENT_ID = 'forms.radio_hint';
-
-export const StyledRadioHint = styled(StyledHint).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledRadioHint = styled(StyledHint)`
   padding-${props => (props.theme.rtl ? 'right' : 'left')}:
     ${props => math(`${props.theme.space.base} * 6px`)};
 

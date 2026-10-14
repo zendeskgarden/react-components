@@ -5,19 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import { useEffect, forwardRef } from 'react';
 
-import {
-  StyledMessage,
-  StyledCheckMessage,
-  StyledRadioMessage,
-  StyledToggleMessage
-} from '../../styled';
-import { IMessageProps, VALIDATION } from '../../types';
-import useFieldContext from '../../utils/useFieldContext';
-import useInputContext from '../../utils/useInputContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useInputContext } from '../../hooks/form/useInputContext';
+import { useText } from '../../theming/utils/useText';
+import { IMessageProps, VALIDATION } from '../../types/elements';
+import { StyledCheckMessage } from '../../views/form/StyledCheckMessage';
+import { StyledMessage } from '../../views/form/StyledMessage';
+import { StyledRadioMessage } from '../../views/form/StyledRadioMessage';
+import { StyledToggleMessage } from '../../views/form/StyledToggleMessage';
 import { MessageIcon } from './MessageIcon';
 
 /**
@@ -25,7 +23,7 @@ import { MessageIcon } from './MessageIcon';
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Message = React.forwardRef<HTMLDivElement, IMessageProps>(
+export const Message = forwardRef<HTMLDivElement, IMessageProps>(
   ({ validation, validationLabel, children, ...other }, ref) => {
     const { hasMessage, setHasMessage, getMessageProps } = useFieldContext() || {};
     const type = useInputContext();

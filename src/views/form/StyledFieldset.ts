@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledField } from './StyledField';
 
 const COMPONENT_ID = 'forms.fieldset';
@@ -16,6 +16,7 @@ interface IStyledFieldsetProps {
   $isCompact?: boolean;
 }
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledFieldset = styled(StyledField as 'fieldset').attrs({
   as: 'fieldset',
   'data-garden-id': COMPONENT_ID,

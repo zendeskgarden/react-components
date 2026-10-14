@@ -5,17 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { ISelectProps, Select } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { ISelectProps, Select } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends ISelectProps, IFieldArgs {
   options: string[];
 }
 
-export const SelectStory: StoryFn<IArgs> = ({
+export const SelectStory = ({
   options,
   label,
   isLabelRegular,
@@ -26,7 +23,7 @@ export const SelectStory: StoryFn<IArgs> = ({
   message,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory
     label={label}
     isLabelRegular={isLabelRegular}

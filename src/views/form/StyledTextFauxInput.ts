@@ -5,14 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  SELECTOR_FOCUS_VISIBLE,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
@@ -30,7 +28,7 @@ const colorStyles = ({
   $focusInset,
   $isBare,
   $isFocused
-}: IStyledTextFauxInputProps & ThemeProps<DefaultTheme>) => {
+}: IStyledTextFauxInputProps & IStyledBaseProps) => {
   let borderVariable: string | undefined;
   let focusBorderColor: string | undefined;
 
@@ -64,6 +62,7 @@ const colorStyles = ({
 /*
  * [1] removes inner input styles when focused
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledTextFauxInput = styled(
   StyledTextInput as 'div'
 ).attrs<IStyledTextFauxInputProps>(props => ({

@@ -5,15 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledRadioInput } from '../radio/StyledRadioInput';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledCheckLabel } from './StyledCheckLabel';
+import { StyledRadioInput } from './StyledRadioInput';
 
 const COMPONENT_ID = 'forms.checkbox';
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
   const borderOptions = { theme, variable: 'border.primaryEmphasis' };
 
@@ -56,6 +58,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledCheckInput = styled(StyledRadioInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

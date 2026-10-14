@@ -7,12 +7,21 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useRef, useCallback, useLayoutEffect, useState } from 'react';
+import {
+  useRef,
+  useCallback,
+  useLayoutEffect,
+  useState,
+  CSSProperties,
+  ChangeEvent,
+  SyntheticEvent,
+  forwardRef
+} from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { StyledTextarea } from '../styled';
-import { ITextareaProps, VALIDATION } from '../types';
-import useFieldContext from '../utils/useFieldContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { ITextareaProps, VALIDATION } from '../../types/elements';
+import { StyledTextarea } from '../../views/form/StyledTextarea';
 
 const parseStyleValue = (value: string) => {
   return parseInt(value, 10) || 0;
@@ -21,7 +30,7 @@ const parseStyleValue = (value: string) => {
 /**
  * @extends TextareaHTMLAttributes<HTMLTextAreaElement>
  */
-export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, ITextareaProps>(
   (
     {
       isCompact,
@@ -104,7 +113,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     }, [maxRows, minRows, textAreaRef, isAutoResizable]);
 
     const onChangeHandler = useCallback(
-      (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      (e: ChangeEvent<HTMLTextAreaElement>) => {
         if (!isControlled) {
           calculateHeight();
         }
@@ -120,7 +129,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
       calculateHeight();
     });
 
-    const computedStyle: React.CSSProperties = {};
+    const computedStyle: CSSProperties = {};
 
     if (isAutoResizable) {
       computedStyle.height = state.height;
@@ -128,7 +137,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, ITextareaProps>(
     }
 
     const onSelectHandler = other.readOnly
-      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLTextAreaElement>) => {
+      ? composeEventHandlers(onSelect, (event: SyntheticEvent<HTMLTextAreaElement>) => {
           event.currentTarget.select();
         })
       : onSelect;

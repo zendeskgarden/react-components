@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { FauxInput } from '@zendeskgarden/react-forms';
-import React from 'react';
 
+import { FauxInput } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { FauxInputStory } from './stories/FauxInputStory';
 
 export default {
-  title: 'Packages/Forms/FauxInput',
+  title: 'Components/Forms/FauxInput',
   component: FauxInput,
   subcomponents: {
     'FauxInput.EndIcon': FauxInput.EndIcon,

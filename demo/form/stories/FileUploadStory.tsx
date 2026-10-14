@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { FileUpload, IFileUploadProps } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { FileUpload, IFileUploadProps } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IFileUploadProps, IFieldArgs {}
 
-export const FileUploadStory: StoryFn<IArgs> = ({
+export const FileUploadStory = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -24,7 +21,7 @@ export const FileUploadStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory
     label={label}
     isLabelRegular={isLabelRegular}

@@ -5,20 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'forms.tile_description';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledTileDescriptionProps {
   $isCentered?: boolean;
 }
 
-const sizeStyles = ({
-  theme,
-  $isCentered
-}: IStyledTileDescriptionProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCentered }: IStyledTileDescriptionProps & IStyledBaseProps) => {
   const marginTop = `${theme.space.base}px`;
   const marginHorizontal = $isCentered
     ? undefined
@@ -34,10 +32,7 @@ const sizeStyles = ({
   `;
 };
 
-export const StyledTileDescription = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTileDescriptionProps>`
+export const StyledTileDescription = styled.span<IStyledTileDescriptionProps>`
   display: block;
   text-align: ${props => props.$isCentered && 'center'};
 

@@ -7,18 +7,18 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useState, useRef } from 'react';
+import { useState, useRef, SyntheticEvent, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { StyledTextMediaInput } from '../styled';
-import { IMediaInputProps, VALIDATION } from '../types';
-import useFieldContext from '../utils/useFieldContext';
-import { FauxInput } from './faux-input/FauxInput';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { IMediaInputProps, VALIDATION } from '../../types/elements';
+import { StyledTextMediaInput } from '../../views/form/StyledTextMediaInput';
+import { FauxInput } from './FauxInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
+export const MediaInput = forwardRef<HTMLInputElement, IMediaInputProps>(
   (
     {
       start,
@@ -65,7 +65,7 @@ export const MediaInput = React.forwardRef<HTMLInputElement, IMediaInputProps>(
     });
 
     const onSelectHandler = readOnly
-      ? composeEventHandlers(onSelect, (event: React.SyntheticEvent<HTMLInputElement>) => {
+      ? composeEventHandlers(onSelect, (event: SyntheticEvent<HTMLInputElement>) => {
           event.currentTarget.select();
         })
       : onSelect;

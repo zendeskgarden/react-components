@@ -5,20 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { hideVisually } from 'polished';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'forms.input_label';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledLabelProps } from '../../types/views';
 
-export interface IStyledLabelProps {
-  $isRegular?: boolean;
-  $isRadio?: boolean;
-}
+const COMPONENT_ID = 'forms.input_label';
 
 /**
  * 1. CSS Bedrock override.
  */
+// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
 export const StyledLabel = styled.label.attrs(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION

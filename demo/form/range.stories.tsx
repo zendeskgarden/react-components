@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Range } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Range } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { RangeStory } from './stories/RangeStory';
 type Story = StoryObj<typeof RangeStory>;
 
 export default {
-  title: 'Packages/Forms/Range',
+  title: 'Components/Forms/Range',
   component: Range,
   subcomponents: {
     ...fieldSubcomponents

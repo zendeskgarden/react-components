@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledCheckInput } from '../checkbox/StyledCheckInput';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledCheckInput } from './StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
-const COMPONENT_ID = 'forms.toggle';
-
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundOptions = { theme, variable: 'background.emphasis' };
   const backgroundColor = getColor(backgroundOptions);
   const hoverBackgroundColor = getColor({
@@ -43,7 +43,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const height = `${theme.space.base * 5}px`;
   const width = `${theme.space.base * 10}px`;
   const iconSize = theme.iconSizes.md;
@@ -73,10 +73,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledToggleInput = styled(StyledCheckInput).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledToggleInput = styled(StyledCheckInput)`
   & ~ ${StyledToggleLabel}::before {
     top: 0;
     /* prettier-ignore */

@@ -5,20 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useCallback, useContext, useLayoutEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useLayoutEffect, useRef, useState } from 'react';
 
-import { Validation } from '../types';
-
-type InputGroupValidationId = object;
-
-interface IInputGroupContext {
-  isCompact?: boolean;
-  isUnified?: boolean;
-  /** Registers a child Input's validation with the nearest unified group. */
-  registerValidation: (id: InputGroupValidationId, validation?: Validation) => void;
-}
-
-export const InputGroupContext = createContext<IInputGroupContext | undefined>(undefined);
+import { InputGroupContext } from '../../context/form/InputGroupContext';
+import type { InputGroupValidationId } from '../../types/context';
+import { Validation } from '../../types/elements';
 
 /**
  * Retrieve InputGroup component context

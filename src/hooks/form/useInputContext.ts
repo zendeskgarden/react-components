@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-type INPUT_CONTEXT_VALUE = 'checkbox' | 'radio' | 'toggle' | undefined;
-
-export const InputContext = createContext<INPUT_CONTEXT_VALUE>(undefined);
+import { InputContext } from '../../context/form/InputContext';
 
 /**
  * Retrieve input component context
  */
-const useInputContext = () => {
+export const useInputContext = () => {
   return useContext(InputContext);
 };
-
-export default useInputContext;

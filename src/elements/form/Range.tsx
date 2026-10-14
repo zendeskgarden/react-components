@@ -6,17 +6,17 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import React, { useState, useEffect, useCallback, useRef, ChangeEvent } from 'react';
+import { useState, useEffect, useCallback, useRef, ChangeEvent, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { StyledRangeInput } from '../styled';
-import { IRangeProps } from '../types';
-import useFieldContext from '../utils/useFieldContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { IRangeProps } from '../../types/elements';
+import { StyledRangeInput } from '../../views/form/StyledRangeInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Range = React.forwardRef<HTMLInputElement, IRangeProps>(
+export const Range = forwardRef<HTMLInputElement, IRangeProps>(
   ({ hasLowerTrack = true, min = 0, max = 100, step = 1, ...other }, ref) => {
     const [backgroundSize, setBackgroundSize] = useState('0');
     const rangeRef = useRef<HTMLInputElement>();

@@ -6,18 +6,18 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledCheckInput } from '../styled';
-import { ICheckboxProps } from '../types';
-import useFieldContext from '../utils/useFieldContext';
-import useFieldsetContext from '../utils/useFieldsetContext';
-import { InputContext } from '../utils/useInputContext';
+import { InputProvider } from '../../context/form/InputContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
+import { ICheckboxProps } from '../../types/elements';
+import { StyledCheckInput } from '../../views/form/StyledCheckInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, ICheckboxProps>(
   ({ indeterminate, children, isCompact, ...other }, ref) => {
     const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
@@ -49,10 +49,10 @@ export const Checkbox = React.forwardRef<HTMLInputElement, ICheckboxProps>(
     }
 
     return (
-      <InputContext.Provider value="checkbox">
+      <InputProvider value="checkbox">
         <StyledCheckInput {...combinedProps} />
         {children}
-      </InputContext.Provider>
+      </InputProvider>
     );
   }
 );

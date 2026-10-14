@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Toggle } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Toggle } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { ToggleStory } from './stories/ToggleStory';
 type Story = StoryObj<typeof ToggleStory>;
 
 export default {
-  title: 'Packages/Forms/Toggle',
+  title: 'Components/Forms/Toggle',
   component: Toggle,
   subcomponents: {
     ...fieldSubcomponents

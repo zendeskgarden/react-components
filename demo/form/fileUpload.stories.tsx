@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { FileUpload } from '@zendeskgarden/react-forms';
-import React from 'react';
 
+import { FileUpload } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { FileUploadStory } from './stories/FileUploadStory';
 
 export default {
-  title: 'Packages/Forms/FileUpload',
+  title: 'Components/Forms/FileUpload',
   component: FileUpload,
   subcomponents: {
     ...fieldSubcomponents

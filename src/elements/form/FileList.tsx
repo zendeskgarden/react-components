@@ -5,13 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledFileList } from '../../styled';
-import { Item } from './components/Item';
+import { StyledFileList } from '../../views/form/StyledFileList';
+import { COMPONENT_IDS } from '../utils';
+import { Item } from './Item';
 
 const FileListComponent = forwardRef<HTMLUListElement, HTMLAttributes<HTMLUListElement>>(
-  ({ ...props }, ref) => <StyledFileList {...props} ref={ref} />
+  ({ ...props }, ref) => (
+    <StyledFileList
+      {...props}
+      data-garden-id={COMPONENT_IDS['forms.file_list']}
+      data-garden-version={PACKAGE_VERSION}
+      ref={ref}
+    />
+  )
 );
 
 FileListComponent.displayName = 'FileList';

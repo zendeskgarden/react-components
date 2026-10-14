@@ -5,11 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Validation } from '../../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { Validation } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessageIcon } from './StyledMessageIcon';
 
@@ -19,7 +22,7 @@ export interface IStyledMessageProps {
 
 const COMPONENT_ID = 'forms.input_message';
 
-const colorStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBaseProps) => {
   let variable;
 
   if ($validation === 'error') {
@@ -39,7 +42,7 @@ const colorStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<De
   `;
 };
 
-const sizeStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBaseProps) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
@@ -58,6 +61,7 @@ const sizeStyles = ({ theme, $validation }: IStyledMessageProps & ThemeProps<Def
   `;
 };
 
+// MIGRATE(component-ids): computed data-garden-id — the base element lets an incoming id win
 export const StyledMessage = styled.div.attrs(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': (props as any)['data-garden-version'] || PACKAGE_VERSION

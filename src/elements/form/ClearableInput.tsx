@@ -7,21 +7,21 @@
 
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { useText } from '@zendeskgarden/react-theming';
-import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { useRef, useState } from 'react';
+import { useRef, useState, ChangeEvent, MouseEvent, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+import ClearIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
-import { StyledClearableInput } from '../styled/input-group/StyledClearableInput';
-import { IClearableInputProps, VALIDATION } from '../types';
-import useFieldContext from '../utils/useFieldContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useText } from '../../theming/utils/useText';
+import { IClearableInputProps, VALIDATION } from '../../types/elements';
+import { StyledClearableInput } from '../../views/form/StyledClearableInput';
 import { Input } from './Input';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInputProps>(
+export const ClearableInput = forwardRef<HTMLInputElement, IClearableInputProps>(
   (
     {
       clearButtonLabel,
@@ -52,7 +52,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
 
     const { onClick, onMouseDown, ...buttonProps } = _buttonProps;
 
-    const onClearButtonMouseDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const onClearButtonMouseDown = (event: MouseEvent<HTMLButtonElement>) => {
       // Stops the button from taking focus on mousedown, so a mouse click doesn't blur the
       // input (with its pre-clear value) before the value actually clears.
       event.preventDefault();
@@ -73,7 +73,7 @@ export const ClearableInput = React.forwardRef<HTMLInputElement, IClearableInput
       }
     };
 
-    const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const onInputChange = (event: ChangeEvent<HTMLInputElement>) => {
       if (!isControlled) {
         setUncontrolledHasValue(!!event.target.value);
       }

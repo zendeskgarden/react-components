@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Radio } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Radio } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { RadioStory } from './stories/RadioStory';
 type Story = StoryObj<typeof RadioStory>;
 
 export default {
-  title: 'Packages/Forms/Radio',
+  title: 'Components/Forms/Radio',
   component: Radio,
   subcomponents: {
     ...fieldSubcomponents

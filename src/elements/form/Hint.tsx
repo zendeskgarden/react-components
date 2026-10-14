@@ -5,54 +5,55 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useEffect } from 'react';
+import { HTMLAttributes, useEffect, forwardRef } from 'react';
 
-import { StyledHint, StyledCheckHint, StyledRadioHint, StyledToggleHint } from '../../styled';
-import useFieldContext from '../../utils/useFieldContext';
-import useInputContext from '../../utils/useInputContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useInputContext } from '../../hooks/form/useInputContext';
+import { StyledCheckHint } from '../../views/form/StyledCheckHint';
+import { StyledHint } from '../../views/form/StyledHint';
+import { StyledRadioHint } from '../../views/form/StyledRadioHint';
+import { StyledToggleHint } from '../../views/form/StyledToggleHint';
 
 /**
  * @deprecated use `Field.Hint` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Hint = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { hasHint, setHasHint, getHintProps } = useFieldContext() || {};
-    const type = useInputContext();
+export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { hasHint, setHasHint, getHintProps } = useFieldContext() || {};
+  const type = useInputContext();
 
-    useEffect(() => {
-      if (!hasHint && setHasHint) {
-        setHasHint(true);
+  useEffect(() => {
+    if (!hasHint && setHasHint) {
+      setHasHint(true);
+    }
+
+    return () => {
+      if (hasHint && setHasHint) {
+        setHasHint(false);
       }
+    };
+  }, [hasHint, setHasHint]);
 
-      return () => {
-        if (hasHint && setHasHint) {
-          setHasHint(false);
-        }
-      };
-    }, [hasHint, setHasHint]);
+  let HintComponent;
 
-    let HintComponent;
-
-    if (type === 'checkbox') {
-      HintComponent = StyledCheckHint;
-    } else if (type === 'radio') {
-      HintComponent = StyledRadioHint;
-    } else if (type === 'toggle') {
-      HintComponent = StyledToggleHint;
-    } else {
-      HintComponent = StyledHint;
-    }
-
-    let combinedProps = props;
-
-    if (getHintProps) {
-      combinedProps = getHintProps(combinedProps);
-    }
-
-    return <HintComponent ref={ref} {...(combinedProps as any)} />;
+  if (type === 'checkbox') {
+    HintComponent = StyledCheckHint;
+  } else if (type === 'radio') {
+    HintComponent = StyledRadioHint;
+  } else if (type === 'toggle') {
+    HintComponent = StyledToggleHint;
+  } else {
+    HintComponent = StyledHint;
   }
-);
+
+  let combinedProps = props;
+
+  if (getHintProps) {
+    combinedProps = getHintProps(combinedProps);
+  }
+
+  return <HintComponent ref={ref} {...(combinedProps as any)} />;
+});
 
 Hint.displayName = 'Field.Hint';

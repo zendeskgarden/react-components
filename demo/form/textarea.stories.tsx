@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Textarea } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Textarea } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { TextareaStory } from './stories/TextareaStory';
 type Story = StoryObj<typeof TextareaStory>;
 
 export default {
-  title: 'Packages/Forms/Textarea',
+  title: 'Components/Forms/Textarea',
   component: Textarea,
   subcomponents: {
     ...fieldSubcomponents

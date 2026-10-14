@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 import { StyledFileClose } from './StyledFileClose';
 
-const COMPONENT_ID = 'forms.file.delete';
-
-export const StyledFileDelete = styled(StyledFileClose).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledFileDelete = styled(StyledFileClose)`
   color: ${props => getColor({ theme: props.theme, variable: 'foreground.danger' })};
 
   ${componentStyles};

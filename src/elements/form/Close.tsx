@@ -6,15 +6,16 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { useText } from '@zendeskgarden/react-theming';
-import XIconCompact from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
-import XIconDefault from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import XIconCompact from 'svg-icons-legacy/src/12/x-stroke.svg';
+import XIconDefault from 'svg-icons-legacy/src/16/x-stroke.svg';
 
-import { StyledFileClose } from '../../../styled';
-import useFileContext from '../../../utils/useFileContext';
+import { useFileContext } from '../../hooks/form/useFileContext';
+import { useText } from '../../theming/utils/useText';
+import { StyledFileClose } from '../../views/form/StyledFileClose';
+import { COMPONENT_IDS } from '../utils';
 
-const CloseComponent = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const fileContext = useFileContext();
     const onMouseDown = composeEventHandlers(
@@ -28,6 +29,8 @@ const CloseComponent = React.forwardRef<HTMLButtonElement, ButtonHTMLAttributes<
         ref={ref}
         aria-label={ariaLabel}
         {...props}
+        data-garden-id={COMPONENT_IDS['forms.file.close']}
+        data-garden-version={PACKAGE_VERSION}
         type="button"
         tabIndex={-1}
         onMouseDown={onMouseDown}

@@ -5,19 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StyledBaseIcon, getColor, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { FileValidation } from '../../types';
-
-const COMPONENT_ID = 'forms.file.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import { FileValidation } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 export interface IStyledFileIconProps {
   $isCompact?: boolean;
   $validation?: FileValidation;
 }
 
-const colorStyles = ({ theme, $validation }: IStyledFileIconProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $validation }: IStyledFileIconProps & IStyledBaseProps) => {
   const color = $validation ? undefined : getColor({ theme, variable: 'foreground.subtle' });
 
   return css`
@@ -25,7 +26,7 @@ const colorStyles = ({ theme, $validation }: IStyledFileIconProps & ThemeProps<D
   `;
 };
 
-const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & IStyledBaseProps) => {
   const width = $isCompact ? theme.iconSizes.sm : theme.iconSizes.md;
   const margin = `${theme.space.base * 2}px`;
 
@@ -35,10 +36,7 @@ const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & ThemeProps<Def
   `;
 };
 
-export const StyledFileIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledFileIconProps>`
+export const StyledFileIcon = styled(StyledBaseIcon)<IStyledFileIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

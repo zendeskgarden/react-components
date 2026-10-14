@@ -6,17 +6,17 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ClearableInput } from '@zendeskgarden/react-forms';
-import React from 'react';
+import { ChangeEvent } from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { ClearableInput } from '../../src/index';
 import { ClearableInputStory } from './stories/ClearableInputStory';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 
 type Story = StoryObj<typeof ClearableInputStory>;
 
 export default {
-  title: 'Packages/Forms/ClearableInput',
+  title: 'Components/Forms/ClearableInput',
   component: ClearableInput,
   subcomponents: {
     ...fieldSubcomponents
@@ -50,7 +50,7 @@ export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) =>
       updateArgs({ value: event.target.value });
 
     return <ClearableInputStory {...args} onChange={handleChange} />;

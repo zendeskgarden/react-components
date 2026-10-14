@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { ClearableInput, IClearableInputProps } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { ClearableInput, IClearableInputProps } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IClearableInputProps, IFieldArgs {}
 
-export const ClearableInputStory: StoryFn<IArgs> = ({
+export const ClearableInputStory = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -23,7 +20,7 @@ export const ClearableInputStory: StoryFn<IArgs> = ({
   message,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory
     label={label}
     isLabelRegular={isLabelRegular}

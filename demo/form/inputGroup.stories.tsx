@@ -6,15 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { InputGroup, Input, VALIDATION } from '@zendeskgarden/react-forms';
-import React from 'react';
 
+import { InputGroup, Input, VALIDATION } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { INPUT_GROUP_ITEMS as ITEMS } from './stories/data';
 import { InputGroupStory } from './stories/InputGroupStory';
 
 export default {
-  title: 'Packages/Forms/InputGroup',
+  title: 'Components/Forms/InputGroup',
   component: InputGroup,
   subcomponents: {
     Input,

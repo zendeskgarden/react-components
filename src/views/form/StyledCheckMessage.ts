@@ -5,16 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { StyledRadioMessage } from '../radio/StyledRadioMessage';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledRadioMessage } from './StyledRadioMessage';
 
-const COMPONENT_ID = 'forms.checkbox_message';
-
-export const StyledCheckMessage = styled(StyledRadioMessage).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledCheckMessage = styled(StyledRadioMessage)`
   ${componentStyles};
 `;

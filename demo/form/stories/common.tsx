@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IMessageProps, Field } from '@zendeskgarden/react-forms';
-import React from 'react';
+import { IMessageProps, Field } from '../../../src/index';
 
 export const fieldSubcomponents = {
   Field,

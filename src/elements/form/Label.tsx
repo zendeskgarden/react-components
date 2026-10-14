@@ -7,29 +7,28 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useEffect } from 'react';
+import { useEffect, KeyboardEvent, forwardRef } from 'react';
 
-import {
-  StyledLabel,
-  StyledCheckLabel,
-  StyledCheckSvg,
-  StyledDashSvg,
-  StyledRadioLabel,
-  StyledRadioSvg,
-  StyledToggleLabel,
-  StyledToggleSvg
-} from '../../styled';
-import { ILabelProps } from '../../types';
-import useFieldContext from '../../utils/useFieldContext';
-import useFieldsetContext from '../../utils/useFieldsetContext';
-import useInputContext from '../../utils/useInputContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
+import { useInputContext } from '../../hooks/form/useInputContext';
+import { ILabelProps } from '../../types/elements';
+import { StyledCheckLabel } from '../../views/form/StyledCheckLabel';
+import { StyledCheckSvg } from '../../views/form/StyledCheckSvg';
+import { StyledDashSvg } from '../../views/form/StyledDashSvg';
+import { StyledLabel } from '../../views/form/StyledLabel';
+import { StyledRadioLabel } from '../../views/form/StyledRadioLabel';
+import { StyledRadioSvg } from '../../views/form/StyledRadioSvg';
+import { StyledToggleLabel } from '../../views/form/StyledToggleLabel';
+import { StyledToggleSvg } from '../../views/form/StyledToggleSvg';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Field.Label` instead
  *
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
-export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
+export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
   ({ children, isRegular, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const fieldsetContext = useFieldsetContext();
@@ -69,7 +68,10 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
     if (type === 'radio') {
       return (
         <StyledRadioLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
-          <StyledRadioSvg />
+          <StyledRadioSvg
+            data-garden-id={COMPONENT_IDS['forms.radio_svg']}
+            data-garden-version={PACKAGE_VERSION}
+          />
           {children}
         </StyledRadioLabel>
       );
@@ -78,7 +80,7 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
        * `onLabelSelect` is a workaround for checkbox label `shift + click` bug in Firefox
        * See: https://bugzilla.mozilla.org/show_bug.cgi?id=559506
        */
-      const onLabelSelect = (e: React.KeyboardEvent<HTMLInputElement>) => {
+      const onLabelSelect = (e: KeyboardEvent<HTMLInputElement>) => {
         // eslint-disable-next-line n/no-unsupported-features/node-builtins
         const isFirefox = navigator?.userAgent.toLowerCase().indexOf('firefox') > -1;
 
@@ -102,16 +104,37 @@ export const Label = React.forwardRef<HTMLLabelElement, ILabelProps>(
       combinedProps.onClick = composeEventHandlers(combinedProps.onClick, onLabelSelect);
 
       return (
-        <StyledCheckLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
-          <StyledCheckSvg />
-          <StyledDashSvg />
+        <StyledCheckLabel
+          ref={ref}
+          {...combinedProps}
+          data-garden-id={COMPONENT_IDS['forms.checkbox_label']}
+          data-garden-version={PACKAGE_VERSION}
+          $isRegular={$isRegular}
+        >
+          <StyledCheckSvg
+            data-garden-id={COMPONENT_IDS['forms.check_svg']}
+            data-garden-version={PACKAGE_VERSION}
+          />
+          <StyledDashSvg
+            data-garden-id={COMPONENT_IDS['forms.dash_svg']}
+            data-garden-version={PACKAGE_VERSION}
+          />
           {children}
         </StyledCheckLabel>
       );
     } else if (type === 'toggle') {
       return (
-        <StyledToggleLabel ref={ref} {...combinedProps} $isRegular={$isRegular}>
-          <StyledToggleSvg />
+        <StyledToggleLabel
+          ref={ref}
+          {...combinedProps}
+          data-garden-id={COMPONENT_IDS['forms.toggle_label']}
+          data-garden-version={PACKAGE_VERSION}
+          $isRegular={$isRegular}
+        >
+          <StyledToggleSvg
+            data-garden-id={COMPONENT_IDS['forms.toggle_svg']}
+            data-garden-version={PACKAGE_VERSION}
+          />
           {children}
         </StyledToggleLabel>
       );

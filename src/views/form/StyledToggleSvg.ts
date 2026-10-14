@@ -5,16 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import CircleIcon from '@zendeskgarden/svg-icons/src/16/circle-sm-fill.svg';
 import styled from 'styled-components';
+import CircleIcon from 'svg-icons-legacy/src/16/circle-sm-fill.svg';
 
-const COMPONENT_ID = 'forms.toggle_svg';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledToggleSvg = styled(CircleIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledToggleSvg = styled(CircleIcon)`
   transition: all 0.15s ease-in-out;
 
   ${componentStyles};

@@ -5,16 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-interface IFileContext {
-  isCompact?: boolean;
-}
+import { FileContext } from '../../context/form/FileContext';
 
-export const FileContext = createContext<IFileContext | undefined>(undefined);
-
-const useFileContext = () => {
+export const useFileContext = () => {
   return useContext(FileContext);
 };
-
-export default useFileContext;

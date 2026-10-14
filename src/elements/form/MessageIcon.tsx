@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
-import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { FC, PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
+import ErrorIcon from 'svg-icons-legacy/src/16/alert-error-stroke.svg';
+import WarningIcon from 'svg-icons-legacy/src/16/alert-warning-stroke.svg';
+import SuccessIcon from 'svg-icons-legacy/src/16/check-circle-stroke.svg';
 
-import { StyledMessageIcon } from '../../styled';
-import { IMessageIconProps, VALIDATION } from '../../types';
+import { IMessageIconProps, VALIDATION } from '../../types/elements';
+import { StyledMessageIcon } from '../../views/form/StyledMessageIcon';
+import { COMPONENT_IDS } from '../utils';
 
 export const MessageIcon: FC<PropsWithChildren<IMessageIconProps>> = ({
   validation,
@@ -20,7 +21,13 @@ export const MessageIcon: FC<PropsWithChildren<IMessageIconProps>> = ({
   ...props
 }) => (
   /* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */
-  <StyledMessageIcon aria-hidden={false} role="img" {...props}>
+  <StyledMessageIcon
+    aria-hidden={false}
+    role="img"
+    {...props}
+    data-garden-id={COMPONENT_IDS['forms.input_message_icon']}
+    data-garden-version={PACKAGE_VERSION}
+  >
     {validation
       ? {
           error: <ErrorIcon />,

@@ -5,19 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
+import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import { StyledSelect, StyledSelectWrapper } from '../styled';
-import { ISelectProps, VALIDATION } from '../types';
-import useFieldContext from '../utils/useFieldContext';
-import { FauxInput } from './faux-input/FauxInput';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { ISelectProps, VALIDATION } from '../../types/elements';
+import { StyledSelect } from '../../views/form/StyledSelect';
+import { StyledSelectWrapper } from '../../views/form/StyledSelectWrapper';
+import { COMPONENT_IDS } from '../utils';
+import { FauxInput } from './FauxInput';
 
 /**
  * @extends SelectHTMLAttributes<HTMLSelectElement>
  */
-export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
+export const Select = forwardRef<HTMLSelectElement, ISelectProps>(
   ({ disabled, isCompact, validation, focusInset, isBare, ...props }, ref) => {
     const fieldContext = useFieldContext();
 
@@ -42,6 +44,8 @@ export const Select = React.forwardRef<HTMLSelectElement, ISelectProps>(
         $isDisabled={disabled}
         $validation={validation}
         $focusInset={focusInset}
+        data-garden-id={COMPONENT_IDS['forms.select_wrapper']}
+        data-garden-version={PACKAGE_VERSION}
       >
         <StyledSelect {...combinedProps} />
         {!isBare && (

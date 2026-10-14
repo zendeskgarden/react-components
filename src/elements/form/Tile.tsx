@@ -6,13 +6,15 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useRef } from 'react';
+import { useRef, forwardRef } from 'react';
 
-import { StyledTile, StyledTileInput } from '../../../styled';
-import { ITilesTileProps } from '../../../types';
-import { useTilesContext } from '../../../utils/useTilesContext';
+import { useTilesContext } from '../../hooks/form/useTilesContext';
+import { ITilesTileProps } from '../../types/elements';
+import { StyledTile } from '../../views/form/StyledTile';
+import { StyledTileInput } from '../../views/form/StyledTileInput';
+import { COMPONENT_IDS } from '../utils';
 
-const TileComponent = React.forwardRef<HTMLLabelElement, ITilesTileProps>(
+const TileComponent = forwardRef<HTMLLabelElement, ITilesTileProps>(
   ({ children, value, disabled, ...props }, ref) => {
     const tilesContext = useTilesContext();
     const inputRef = useRef<HTMLInputElement>(null);
@@ -28,7 +30,13 @@ const TileComponent = React.forwardRef<HTMLLabelElement, ITilesTileProps>(
     }
 
     return (
-      <StyledTile ref={ref} aria-disabled={disabled} {...props}>
+      <StyledTile
+        ref={ref}
+        aria-disabled={disabled}
+        {...props}
+        data-garden-id={COMPONENT_IDS['forms.tile']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {children}
         <StyledTileInput
           {...inputProps}

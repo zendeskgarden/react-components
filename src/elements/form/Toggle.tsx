@@ -6,18 +6,19 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledToggleInput } from '../styled';
-import { IToggleProps } from '../types';
-import useFieldContext from '../utils/useFieldContext';
-import useFieldsetContext from '../utils/useFieldsetContext';
-import { InputContext } from '../utils/useInputContext';
+import { InputProvider } from '../../context/form/InputContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
+import { IToggleProps } from '../../types/elements';
+import { StyledToggleInput } from '../../views/form/StyledToggleInput';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Toggle = React.forwardRef<HTMLInputElement, IToggleProps>(
+export const Toggle = forwardRef<HTMLInputElement, IToggleProps>(
   ({ children, isCompact, ...other }, ref) => {
     const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
@@ -34,10 +35,14 @@ export const Toggle = React.forwardRef<HTMLInputElement, IToggleProps>(
     }
 
     return (
-      <InputContext.Provider value="toggle">
-        <StyledToggleInput {...combinedProps} />
+      <InputProvider value="toggle">
+        <StyledToggleInput
+          {...combinedProps}
+          data-garden-id={COMPONENT_IDS['forms.toggle']}
+          data-garden-version={PACKAGE_VERSION}
+        />
         {children}
-      </InputContext.Provider>
+      </InputProvider>
     );
   }
 );

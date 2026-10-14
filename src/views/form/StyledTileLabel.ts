@@ -5,17 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'forms.tile_label';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledTileLabelProps {
   $isCentered?: boolean;
 }
 
-const sizeStyles = ({ theme, $isCentered }: IStyledTileLabelProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCentered }: IStyledTileLabelProps & IStyledBaseProps) => {
   const marginTop = $isCentered ? `${theme.space.base * 2}px` : 0;
   const marginHorizontal = $isCentered
     ? undefined
@@ -31,10 +32,7 @@ const sizeStyles = ({ theme, $isCentered }: IStyledTileLabelProps & ThemeProps<D
   `;
 };
 
-export const StyledTileLabel = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTileLabelProps>`
+export const StyledTileLabel = styled.span<IStyledTileLabelProps>`
   display: block;
   text-align: ${props => props.$isCentered && 'center'};
   font-weight: ${props => props.theme.fontWeights.semibold};

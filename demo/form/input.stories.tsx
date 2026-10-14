@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Input } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Input } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { InputStory } from './stories/InputStory';
 type Story = StoryObj<typeof InputStory>;
 
 export default {
-  title: 'Packages/Forms/Input',
+  title: 'Components/Forms/Input',
   component: Input,
   subcomponents: {
     ...fieldSubcomponents

@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledLabel } from './StyledLabel';
 
 const COMPONENT_ID = 'forms.fieldset_legend';
@@ -15,6 +15,7 @@ const COMPONENT_ID = 'forms.fieldset_legend';
 /**
  * 1. Reset for <legend>.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledLegend = styled(StyledLabel as 'legend').attrs({
   as: 'legend',
   'data-garden-id': COMPONENT_ID,

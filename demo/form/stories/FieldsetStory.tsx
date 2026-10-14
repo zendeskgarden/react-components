@@ -5,17 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import {
-  Checkbox,
-  Fieldset,
-  Field,
-  IFieldsetProps,
-  Radio,
-  Toggle
-} from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { Checkbox, Fieldset, Field, IFieldsetProps, Radio, Toggle } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IFieldsetProps, IFieldArgs {
@@ -25,7 +15,7 @@ interface IArgs extends IFieldsetProps, IFieldArgs {
   type: 'radio' | 'checkbox' | 'toggle';
 }
 
-export const FieldsetStory: StoryFn<IArgs> = ({
+export const FieldsetStory = ({
   legend,
   isLegendHidden,
   hasHint,
@@ -37,7 +27,7 @@ export const FieldsetStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <Fieldset {...args}>
     <Fieldset.Legend hidden={isLegendHidden}>{legend}</Fieldset.Legend>
     {!!hasHint && <Field.Hint>{hint}</Field.Hint>}

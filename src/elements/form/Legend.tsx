@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledLegend } from '../../styled';
+import { StyledLegend } from '../../views/form/StyledLegend';
 
 const LegendComponent = forwardRef<HTMLLegendElement, HTMLAttributes<HTMLLegendElement>>(
   (props, ref) => {

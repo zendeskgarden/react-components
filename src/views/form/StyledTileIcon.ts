@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledTile } from './StyledTile';
-
-const COMPONENT_ID = 'forms.tile_icon';
 
 interface IStyledTileIconProps {
   $isCentered?: boolean;
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const options = { theme, variable: 'foreground.subtle' };
   const color = getColor(options);
   const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
@@ -46,7 +46,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & IStyledBaseProps) => {
   const iconSize = math(`${theme.iconSizes.md} * 2`);
   let position;
   let top;
@@ -71,10 +71,7 @@ const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & ThemeProps<De
   `;
 };
 
-export const StyledTileIcon = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTileIconProps>`
+export const StyledTileIcon = styled.span<IStyledTileIconProps>`
   display: block;
   transition: color 0.25s ease-in-out;
   text-align: center;

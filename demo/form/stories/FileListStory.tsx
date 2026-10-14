@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { FileList } from '@zendeskgarden/react-forms';
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes } from 'react';
 
+import { FileList } from '../../../src/index';
 import { FileStory } from './FileStory';
 import { IFileListItem } from './types';
 
@@ -17,7 +16,7 @@ interface IArgs extends HTMLAttributes<HTMLUListElement> {
   isCompact: boolean;
 }
 
-export const FileListStory: StoryFn<IArgs> = ({ items, isCompact, ...args }) => (
+export const FileListStory = ({ items, isCompact, ...args }: IArgs) => (
   <FileList {...args}>
     {items.map((item, index) => (
       <FileList.Item key={index}>

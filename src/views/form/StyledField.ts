@@ -5,20 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'forms.field';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * 1. Set positioning context for absolute contents (Checkbox, Radio, Toggle).
  * 2. Resets for <fieldset>.
  * 3. Normalize block / line-height treatment for consistent height
  */
-export const StyledField = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledField = styled.div`
   position: relative; /* [1] */
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   margin: 0; /* [2] */

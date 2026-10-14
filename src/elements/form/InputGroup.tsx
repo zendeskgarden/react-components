@@ -6,17 +6,19 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo, forwardRef } from 'react';
 
-import { StyledInputGroup } from '../../styled/input-group/StyledInputGroup';
-import { IInputGroupProps } from '../../types';
-import useFieldContext from '../../utils/useFieldContext';
-import { InputGroupContext, useInputGroupValidationState } from '../../utils/useInputGroupContext';
+import { InputGroupProvider } from '../../context/form/InputGroupContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useInputGroupValidationState } from '../../hooks/form/useInputGroupContext';
+import { IInputGroupProps } from '../../types/elements';
+import { StyledInputGroup } from '../../views/form/StyledInputGroup';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
+export const InputGroup = forwardRef<HTMLDivElement, IInputGroupProps>(
   ({ isCompact, isUnified, focusInset, children, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const { validation, registerValidation } = useInputGroupValidationState();
@@ -30,7 +32,7 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
         : undefined;
 
     return (
-      <InputGroupContext.Provider value={contextValue}>
+      <InputGroupProvider value={contextValue}>
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
         <StyledInputGroup
           role="group"
@@ -40,11 +42,13 @@ export const InputGroup = React.forwardRef<HTMLDivElement, IInputGroupProps>(
           $isUnified={isUnified}
           $focusInset={focusInset}
           {...other}
+          data-garden-id={COMPONENT_IDS['forms.input_group']}
+          data-garden-version={PACKAGE_VERSION}
           $validation={validation}
         >
           {children}
         </StyledInputGroup>
-      </InputGroupContext.Provider>
+      </InputGroupProvider>
     );
   }
 );

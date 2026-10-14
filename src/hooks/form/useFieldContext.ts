@@ -5,32 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseFieldReturnValue } from '@zendeskgarden/container-field';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-interface IFieldContext extends IUseFieldReturnValue {
-  getMessageProps: (messageProps: any) => any;
-  isLabelActive: boolean;
-  isLabelHovered: boolean;
-  setIsLabelHovered: (isLabelHovered: boolean) => void;
-  setIsLabelActive: (isLabelActive: boolean) => void;
-  setHasHint: (hintPresent: boolean) => void;
-  hasHint: boolean;
-  setHasMessage: (messagePresent: boolean) => void;
-  hasMessage: boolean;
-  setHasLabel: (labelPresent: boolean) => void;
-  hasLabel: boolean;
-}
-
-export const FieldContext = createContext<IFieldContext | undefined>(undefined);
+import { FieldContext } from '../../context/form/FieldContext';
 
 /**
  * Retrieve Field component context
  */
-const useFieldContext = () => {
+export const useFieldContext = () => {
   const fieldContext = useContext(FieldContext);
 
   return fieldContext;
 };
-
-export default useFieldContext;

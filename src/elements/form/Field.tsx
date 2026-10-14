@@ -6,15 +6,16 @@
  */
 
 import { useField } from '@zendeskgarden/container-field';
-import React, { useState, HTMLAttributes, useMemo } from 'react';
+import { useState, HTMLAttributes, useMemo, forwardRef } from 'react';
 
-import { StyledField } from '../../styled';
-import { FieldContext } from '../../utils/useFieldContext';
+import { FieldProvider } from '../../context/form/FieldContext';
+import { StyledField } from '../../views/form/StyledField';
+import { COMPONENT_IDS } from '../utils';
 import { Hint } from './Hint';
 import { Label } from './Label';
 import { Message } from './Message';
 
-export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+export const FieldComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const [hasHint, setHasHint] = useState(false);
     const [hasMessage, setHasMessage] = useState(false);
@@ -55,9 +56,14 @@ export const FieldComponent = React.forwardRef<HTMLDivElement, HTMLAttributes<HT
     );
 
     return (
-      <FieldContext.Provider value={fieldProps}>
-        <StyledField {...props} ref={ref} />
-      </FieldContext.Provider>
+      <FieldProvider value={fieldProps}>
+        <StyledField
+          {...props}
+          data-garden-id={COMPONENT_IDS['forms.field']}
+          data-garden-version={PACKAGE_VERSION}
+          ref={ref}
+        />
+      </FieldProvider>
     );
   }
 );

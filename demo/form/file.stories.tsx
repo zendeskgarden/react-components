@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { File } from '@zendeskgarden/react-forms';
 import { Progress } from '@zendeskgarden/react-loaders';
-import React from 'react';
 
+import { File } from '../../src/index';
 import { FileStory } from './stories/FileStory';
 
 export default {
-  title: 'Packages/Forms/File',
+  title: 'Components/Forms/File',
   component: File,
   subcomponents: {
     'File.Close': File.Close,

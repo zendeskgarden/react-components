@@ -5,13 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getFocusBoxShadow, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledHint } from '../common/StyledHint';
-import { StyledLabel } from '../common/StyledLabel';
-import { StyledMessage } from '../common/StyledMessage';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { getFocusBoxShadow } from '../../theming/utils/getFocusBoxShadow';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledHint } from './StyledHint';
+import { StyledLabel } from './StyledLabel';
+import { StyledMessage } from './StyledMessage';
 
 const COMPONENT_ID = 'forms.range';
 
@@ -65,7 +68,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
 const colorStyles = ({
   theme,
   $hasLowerTrack = true
-}: ThemeProps<DefaultTheme> & IStyledRangeInputProps) => {
+}: IStyledRangeInputProps & IStyledBaseProps) => {
   const options = { theme, variable: 'background.primaryEmphasis' };
   const thumbBackgroundColor = getColor(options);
   const thumbBorderColor = thumbBackgroundColor;
@@ -182,7 +185,7 @@ const colorStyles = ({
 /*
  * 1. Reset for IE.
  */
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const thumbSize = `${theme.space.base * 5}px`;
   const trackHeight = `${theme.space.base * 1.5}px`;
   const trackBorderRadius = trackHeight;
@@ -223,6 +226,7 @@ interface IStyledRangeInputProps {
   $hasLowerTrack?: boolean;
 }
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledRangeInput = styled.input.attrs<IStyledRangeInputProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

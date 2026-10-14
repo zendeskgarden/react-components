@@ -5,15 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledTileIcon } from '../../../styled';
-import { useTilesContext } from '../../../utils/useTilesContext';
+import { useTilesContext } from '../../hooks/form/useTilesContext';
+import { StyledTileIcon } from '../../views/form/StyledTileIcon';
+import { COMPONENT_IDS } from '../utils';
 
 const IconComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>((props, ref) => {
   const tileContext = useTilesContext();
 
-  return <StyledTileIcon ref={ref} $isCentered={tileContext?.isCentered} {...props} />;
+  return (
+    <StyledTileIcon
+      ref={ref}
+      $isCentered={tileContext?.isCentered}
+      {...props}
+      data-garden-id={COMPONENT_IDS['forms.tile_icon']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  );
 });
 
 IconComponent.displayName = 'Tiles.Icon';

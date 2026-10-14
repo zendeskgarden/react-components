@@ -5,19 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import DashIcon from '@zendeskgarden/svg-icons/src/12/dash-fill.svg';
 import styled from 'styled-components';
+import DashIcon from 'svg-icons-legacy/src/12/dash-fill.svg';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
-const COMPONENT_ID = 'forms.dash_svg';
-
-export const StyledDashSvg = styled(DashIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledDashSvg = styled(DashIcon)`
   transition: opacity 0.25s ease-in-out;
   opacity: 0;
   pointer-events: none;

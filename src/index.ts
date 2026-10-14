@@ -35,6 +35,25 @@ export { Draggable } from './elements/draggable/Draggable';
 export { DraggableList } from './elements/draggable/DraggableList';
 export { Dropzone } from './elements/draggable/Dropzone';
 
+/* form */
+export { Checkbox } from './elements/form/Checkbox';
+export { ClearableInput } from './elements/form/ClearableInput';
+export { FauxInput } from './elements/form/FauxInput';
+export { Field } from './elements/form/Field';
+export { Fieldset } from './elements/form/Fieldset';
+export { File } from './elements/form/File';
+export { FileList } from './elements/form/FileList';
+export { FileUpload } from './elements/form/FileUpload';
+export { Input } from './elements/form/Input';
+export { InputGroup } from './elements/form/InputGroup';
+export { MediaInput } from './elements/form/MediaInput';
+export { Radio } from './elements/form/Radio';
+export { Range } from './elements/form/Range';
+export { Select } from './elements/form/Select';
+export { Textarea } from './elements/form/Textarea';
+export { Tiles } from './elements/form/Tiles';
+export { Toggle } from './elements/form/Toggle';
+
 /* grid */
 export { Grid } from './elements/grid/Grid';
 export { Pane } from './elements/grid/Pane';
@@ -144,6 +163,7 @@ export {
   MODAL_PLACEMENT,
   SPACE,
   TEXT_ALIGN,
+  VALIDATION,
   WRAP,
   type IAccordionProps,
   type IAnchorProps,
@@ -153,6 +173,8 @@ export {
   type IButtonIconProps as IButtonStartIconProps,
   type IButtonProps,
   type ICellProps,
+  type ICheckboxProps,
+  type IClearableInputProps,
   type ICodeBlockProps,
   type ICodeProps,
   type IColProps,
@@ -164,6 +186,12 @@ export {
   type IDrawerProps,
   type IDropzoneProps,
   type IEllipsisProps,
+  type IFauxInputIconProps as IFauxInputEndIconProps,
+  type IFauxInputIconProps as IFauxInputStartIconProps,
+  type IFauxInputProps,
+  type IFieldsetProps,
+  type IFileProps,
+  type IFileUploadProps,
   type IGridProps,
   type IGridRowProps,
   type IHeadProps,
@@ -171,13 +199,21 @@ export {
   type IIconButtonProps,
   type IIconButtonProps as IChevronButtonProps,
   type IInlineProps,
+  type IInputGroupProps,
+  type IInputProps,
   type IKbdProps,
+  type ILabelProps,
+  type IMediaInputProps,
+  type IMessageProps,
   type IModalProps,
   type IOrderedListProps,
   type IPaginationProps,
   type IPaneProviderProps,
   type IParagraphProps,
   type IProgressProps,
+  type IRadioProps,
+  type IRangeProps,
+  type ISelectProps,
   type ISheetFooterProps,
   type ISheetProps,
   type ISkeletonProps,
@@ -196,10 +232,14 @@ export {
   type ITableRowProps,
   type ITabsProps,
   type ITagProps,
+  type ITextareaProps,
+  type ITilesProps,
+  type ITilesTileProps,
   type ITimelineItemProps,
   type ITimelineProps,
   type IToggleButtonProps,
   type IToggleIconButtonProps,
+  type IToggleProps,
   type ITooltipDialogProps,
   type ITooltipProps,
   type ITypescaleMonospaceProps as ILGProps,

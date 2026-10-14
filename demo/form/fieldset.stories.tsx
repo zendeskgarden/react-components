@@ -6,9 +6,8 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Fieldset } from '@zendeskgarden/react-forms';
-import React from 'react';
 
+import { Fieldset } from '../../src/index';
 import {
   hintArgs,
   hintArgTypes,
@@ -21,7 +20,7 @@ import { FieldsetStory } from './stories/FieldsetStory';
 type Story = StoryObj<typeof FieldsetStory>;
 
 export default {
-  title: 'Packages/Forms/Fieldset',
+  title: 'Components/Forms/Fieldset',
   component: Fieldset,
   subcomponents: {
     'Fieldset.Legend': Fieldset.Legend,

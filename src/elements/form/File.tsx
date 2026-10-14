@@ -6,14 +6,16 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef, Children, useMemo } from 'react';
+import { forwardRef, Children, useMemo } from 'react';
 
-import { StyledFile, StyledFileIcon } from '../../../styled';
-import { FILE_TYPE, FILE_VALIDATION, IFileProps } from '../../../types';
-import { FileContext } from '../../../utils/useFileContext';
-import { fileIconsDefault, fileIconsCompact } from '../utils';
+import { FileProvider } from '../../context/form/FileContext';
+import { FILE_TYPE, FILE_VALIDATION, IFileProps } from '../../types/elements';
+import { StyledFile } from '../../views/form/StyledFile';
+import { StyledFileIcon } from '../../views/form/StyledFileIcon';
+import { COMPONENT_IDS } from '../utils';
 import { Close } from './Close';
 import { Delete } from './Delete';
+import { fileIconsDefault, fileIconsCompact } from './utils';
 
 const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
   ({ children, type, isCompact, focusInset, validation, ...props }, ref) => {
@@ -21,16 +23,23 @@ const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
     const validationType = validation || type;
 
     return (
-      <FileContext.Provider value={fileContextValue}>
+      <FileProvider value={fileContextValue}>
         <StyledFile
           {...props}
+          data-garden-id={COMPONENT_IDS['forms.file']}
+          data-garden-version={PACKAGE_VERSION}
           $isCompact={isCompact}
           $focusInset={focusInset}
           $validation={validation}
           ref={ref}
         >
           {!!validationType && (
-            <StyledFileIcon $isCompact={isCompact} $validation={validation}>
+            <StyledFileIcon
+              $isCompact={isCompact}
+              $validation={validation}
+              data-garden-id={COMPONENT_IDS['forms.file.icon']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               {isCompact ? fileIconsCompact[validationType] : fileIconsDefault[validationType]}
             </StyledFileIcon>
           )}
@@ -38,7 +47,7 @@ const FileComponent = forwardRef<HTMLDivElement, IFileProps>(
             typeof child === 'string' ? <span>{child}</span> : child
           )}
         </StyledFile>
-      </FileContext.Provider>
+      </FileProvider>
     );
   }
 );

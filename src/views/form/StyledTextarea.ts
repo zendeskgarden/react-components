@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledTextInput } from './StyledTextInput';
 
 const COMPONENT_ID = 'forms.textarea';
@@ -27,6 +27,7 @@ const hiddenStyles = `
   transform: translateZ(0);
 `;
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledTextarea = styled(StyledTextInput).attrs({
   as: 'textarea',
   'data-garden-id': COMPONENT_ID,

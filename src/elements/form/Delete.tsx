@@ -6,38 +6,40 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { useText } from '@zendeskgarden/react-theming';
-import TrashIconCompact from '@zendeskgarden/svg-icons/src/12/trash-stroke.svg';
-import TrashIconDefault from '@zendeskgarden/svg-icons/src/16/trash-stroke.svg';
-import React, { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import TrashIconCompact from 'svg-icons-legacy/src/12/trash-stroke.svg';
+import TrashIconDefault from 'svg-icons-legacy/src/16/trash-stroke.svg';
 
-import { StyledFileDelete } from '../../../styled';
-import useFileContext from '../../../utils/useFileContext';
+import { useFileContext } from '../../hooks/form/useFileContext';
+import { useText } from '../../theming/utils/useText';
+import { StyledFileDelete } from '../../views/form/StyledFileDelete';
+import { COMPONENT_IDS } from '../utils';
 
-const DeleteComponent = React.forwardRef<
-  HTMLButtonElement,
-  ButtonHTMLAttributes<HTMLButtonElement>
->((props, ref) => {
-  const fileContext = useFileContext();
-  const onMouseDown = composeEventHandlers(
-    props.onMouseDown,
-    (event: MouseEvent) => event.preventDefault() // prevent parent File focus
-  );
-  const ariaLabel = useText(DeleteComponent, props, 'aria-label', 'Delete');
+const DeleteComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+  (props, ref) => {
+    const fileContext = useFileContext();
+    const onMouseDown = composeEventHandlers(
+      props.onMouseDown,
+      (event: MouseEvent) => event.preventDefault() // prevent parent File focus
+    );
+    const ariaLabel = useText(DeleteComponent, props, 'aria-label', 'Delete');
 
-  return (
-    <StyledFileDelete
-      ref={ref}
-      aria-label={ariaLabel}
-      {...props}
-      type="button"
-      tabIndex={-1}
-      onMouseDown={onMouseDown}
-    >
-      {fileContext && fileContext.isCompact ? <TrashIconCompact /> : <TrashIconDefault />}
-    </StyledFileDelete>
-  );
-});
+    return (
+      <StyledFileDelete
+        ref={ref}
+        aria-label={ariaLabel}
+        {...props}
+        data-garden-id={COMPONENT_IDS['forms.file.delete']}
+        data-garden-version={PACKAGE_VERSION}
+        type="button"
+        tabIndex={-1}
+        onMouseDown={onMouseDown}
+      >
+        {fileContext && fileContext.isCompact ? <TrashIconCompact /> : <TrashIconDefault />}
+      </StyledFileDelete>
+    );
+  }
+);
 
 DeleteComponent.displayName = 'File.Delete';
 

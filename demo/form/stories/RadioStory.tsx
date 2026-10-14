@@ -5,16 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { IRadioProps, Radio } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { IRadioProps, Radio } from '../../../src/index';
 import { renderHint, renderLabel, renderMessage } from './common';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IRadioProps, IFieldArgs {}
 
-export const RadioStory: StoryFn<IArgs> = ({
+export const RadioStory = ({
   hasHint,
   hasLabel = true,
   hasMessage,
@@ -26,7 +23,7 @@ export const RadioStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => {
+}: IArgs) => {
   return (
     <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
       <Radio {...args}>

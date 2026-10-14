@@ -5,19 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
 import { em, math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Validation } from '../../types';
-import { StyledHint } from '../common/StyledHint';
-import { StyledLabel } from '../common/StyledLabel';
-import { StyledMessage } from '../common/StyledMessage';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { Validation } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledHint } from './StyledHint';
+import { StyledLabel } from './StyledLabel';
+import { StyledMessage } from './StyledMessage';
 
 const COMPONENT_ID = 'forms.input';
 
@@ -31,7 +30,7 @@ const colorStyles = ({
   $isHovered,
   $focusInset,
   $validation
-}: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+}: IStyledTextInputProps & IStyledBaseProps) => {
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
   const backgroundColor = $isBare
     ? 'transparent'
@@ -130,11 +129,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = ({
-  theme,
-  $isBare,
-  $isCompact
-}: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & IStyledBaseProps) => {
   const fontSize = theme.fontSizes.md;
   const paddingHorizontal = `${theme.space.base * 3}px`;
   let height;
@@ -232,6 +227,7 @@ export interface IStyledTextInputProps {
   $validation?: Validation;
 }
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledTextInput = styled.input.attrs<IStyledTextInputProps>(props => ({
   'data-garden-id': (props as any)['data-garden-id'] || COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

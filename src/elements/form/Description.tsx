@@ -5,16 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledTileDescription } from '../../../styled';
-import { useTilesContext } from '../../../utils/useTilesContext';
+import { useTilesContext } from '../../hooks/form/useTilesContext';
+import { StyledTileDescription } from '../../views/form/StyledTileDescription';
+import { COMPONENT_IDS } from '../utils';
 
 const DescriptionComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, ref) => {
     const tilesContext = useTilesContext();
 
-    return <StyledTileDescription ref={ref} $isCentered={tilesContext?.isCentered} {...props} />;
+    return (
+      <StyledTileDescription
+        ref={ref}
+        $isCentered={tilesContext?.isCentered}
+        {...props}
+        data-garden-id={COMPONENT_IDS['forms.tile_description']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

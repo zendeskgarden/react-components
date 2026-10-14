@@ -6,18 +6,18 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledRadioInput } from '../styled';
-import { IRadioProps } from '../types';
-import useFieldContext from '../utils/useFieldContext';
-import useFieldsetContext from '../utils/useFieldsetContext';
-import { InputContext } from '../utils/useInputContext';
+import { InputProvider } from '../../context/form/InputContext';
+import { useFieldContext } from '../../hooks/form/useFieldContext';
+import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
+import { IRadioProps } from '../../types/elements';
+import { StyledRadioInput } from '../../views/form/StyledRadioInput';
 
 /**
  * @extends InputHTMLAttributes<HTMLInputElement>
  */
-export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
+export const Radio = forwardRef<HTMLInputElement, IRadioProps>(
   ({ children, isCompact, ...other }, ref) => {
     const fieldsetContext = useFieldsetContext();
     const fieldContext = useFieldContext();
@@ -33,10 +33,10 @@ export const Radio = React.forwardRef<HTMLInputElement, IRadioProps>(
     }
 
     return (
-      <InputContext.Provider value="radio">
+      <InputProvider value="radio">
         <StyledRadioInput {...combinedProps} />
         {children}
-      </InputContext.Provider>
+      </InputProvider>
     );
   }
 );

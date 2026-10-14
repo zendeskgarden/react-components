@@ -5,17 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { IconButton } from '@zendeskgarden/react-buttons';
+import CalendarIcon from 'svg-icons-legacy/src/16/calendar-stroke.svg';
+
 import {
   ClearableInput,
   IClearableInputProps,
   IInputGroupProps,
   InputGroup
-} from '@zendeskgarden/react-forms';
-import CalendarIcon from '@zendeskgarden/svg-icons/src/16/calendar-stroke.svg';
-import React from 'react';
-
+} from '../../../../src/index';
 import { FieldStory, IFieldArgs } from '../../stories/FieldStory';
 
 interface IArgs
@@ -27,7 +25,7 @@ interface IArgs
       'disabled' | 'readOnly' | 'clearButtonLabel' | 'placeholder' | 'value' | 'onChange'
     > {}
 
-export const DateFieldStory: StoryFn<IArgs> = ({
+export const DateFieldStory = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -44,7 +42,7 @@ export const DateFieldStory: StoryFn<IArgs> = ({
   value = '',
   onChange,
   ...args
-}) => {
+}: IArgs) => {
   return (
     <FieldStory
       label={label}

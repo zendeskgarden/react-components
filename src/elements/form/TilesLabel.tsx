@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, useState, useEffect, useRef, forwardRef } from 'react';
+import { HTMLAttributes, useState, useEffect, useRef, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { StyledTileLabel } from '../../../styled';
-import { useTilesContext } from '../../../utils/useTilesContext';
+import { useTilesContext } from '../../hooks/form/useTilesContext';
+import { StyledTileLabel } from '../../views/form/StyledTileLabel';
+import { COMPONENT_IDS } from '../utils';
 
 const LabelComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
   (props, forwardedRef) => {
@@ -29,6 +30,8 @@ const LabelComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElemen
         title={title}
         $isCentered={tilesContext?.isCentered}
         {...props}
+        data-garden-id={COMPONENT_IDS['forms.tile_label']}
+        data-garden-version={PACKAGE_VERSION}
       />
     );
   }

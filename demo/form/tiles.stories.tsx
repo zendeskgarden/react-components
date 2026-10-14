@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Tiles } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Tiles } from '../../src/index';
 import { TILES } from './stories/data';
 import { TilesStory } from './stories/TilesStory';
 type Story = StoryObj<typeof TilesStory>;
 
 export default {
-  title: 'Packages/Forms/Tiles',
+  title: 'Components/Forms/Tiles',
   component: Tiles,
   subcomponents: {
     'Tiles.Description': Tiles.Description,

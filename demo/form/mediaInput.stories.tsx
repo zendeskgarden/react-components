@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { MediaInput } from '@zendeskgarden/react-forms';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { MediaInput } from '../../src/index';
 import { commonArgs, commonArgTypes, fieldSubcomponents } from './stories/common';
 import { MediaInputStory } from './stories/MediaInputStory';
 type Story = StoryObj<typeof MediaInputStory>;
 
 export default {
-  title: 'Packages/Forms/MediaInput',
+  title: 'Components/Forms/MediaInput',
   component: MediaInput,
   subcomponents: {
     ...fieldSubcomponents

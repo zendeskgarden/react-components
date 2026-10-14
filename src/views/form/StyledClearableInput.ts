@@ -7,12 +7,9 @@
 
 import styled, { css } from 'styled-components';
 
-import { InputGroup } from '../../elements/input-group/InputGroup';
+import { InputGroup } from '../../elements/form/InputGroup';
+import type { IStyledClearableInputProps } from '../../types/views';
 import { StyledInputGroup } from './StyledInputGroup';
-
-export interface IStyledClearableInputProps {
-  $isBare?: boolean;
-}
 
 /*
  * `&&` boosts specificity so this reliably overrides StyledInputGroup's own unified

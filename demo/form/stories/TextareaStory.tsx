@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { ITextareaProps, Textarea } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { ITextareaProps, Textarea } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends ITextareaProps, IFieldArgs {}
 
-export const TextareaStory: StoryFn<IArgs> = ({
+export const TextareaStory = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -23,7 +20,7 @@ export const TextareaStory: StoryFn<IArgs> = ({
   message,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory
     label={label}
     isLabelRegular={isLabelRegular}

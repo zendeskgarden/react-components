@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledTextInput, IStyledTextInputProps } from '../text/StyledTextInput';
-import { StyledTextMediaFigure } from '../text/StyledTextMediaFigure';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
+import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
 const COMPONENT_ID = 'forms.select';
 
-const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledTextInputProps & IStyledBaseProps) => {
   const color = getColor({
     theme,
     variable: 'foreground.subtle',
@@ -37,11 +38,7 @@ const colorStyles = ({ theme }: IStyledTextInputProps & ThemeProps<DefaultTheme>
   `;
 };
 
-const sizeStyles = ({
-  theme,
-  $isBare,
-  $isCompact
-}: IStyledTextInputProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & IStyledBaseProps) => {
   const padding = $isBare ? undefined : math(`${theme.iconSizes.md} + ${theme.space.base * 5}`);
   const iconVerticalPosition = `${theme.space.base * ($isCompact ? 1.5 : 2.5) + 1}px`;
   const iconHorizontalPosition = `${theme.space.base * 3}px`;
@@ -59,6 +56,7 @@ const sizeStyles = ({
 /*
  * 1. Select reset.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledSelect = styled(StyledTextInput).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

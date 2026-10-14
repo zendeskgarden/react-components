@@ -5,18 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { StyledFileUpload } from '../file-upload/StyledFileUpload';
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledFileList } from './StyledFileList';
+import { StyledFileUpload } from './StyledFileUpload';
 
-const COMPONENT_ID = 'forms.file_list.item';
-
-export const StyledFileListItem = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledFileListItem = styled.li`
   &:not(:first-child),
   ${StyledFileUpload} ~ ${StyledFileList} > &:first-child {
     margin-top: ${props => props.theme.space.base * 2}px;

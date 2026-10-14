@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { FauxInput, IFauxInputProps } from '@zendeskgarden/react-forms';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import EndIcon from '@zendeskgarden/svg-icons/src/16/star-stroke.svg';
-import React from 'react';
+import StartIcon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
+import EndIcon from 'svg-icons-legacy/src/16/star-stroke.svg';
 
+import { FauxInput, IFauxInputProps } from '../../../src/index';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends IFauxInputProps, IFieldArgs {
@@ -20,7 +18,7 @@ interface IArgs extends IFauxInputProps, IFieldArgs {
   isEndIconRotated: boolean;
 }
 
-export const FauxInputStory: StoryFn<IArgs> = ({
+export const FauxInputStory = ({
   hasStartIcon,
   hasEndIcon,
   isStartIconRotated,
@@ -34,7 +32,7 @@ export const FauxInputStory: StoryFn<IArgs> = ({
   message,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory
     label={label}
     isLabelRegular={isLabelRegular}

@@ -6,11 +6,11 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useMemo, forwardRef } from 'react';
+import { useMemo, forwardRef } from 'react';
 
-import { StyledFieldset } from '../../styled';
-import { IFieldsetProps } from '../../types';
-import { FieldsetContext } from '../../utils/useFieldsetContext';
+import { FieldsetProvider } from '../../context/form/FieldsetContext';
+import { IFieldsetProps } from '../../types/elements';
+import { StyledFieldset } from '../../views/form/StyledFieldset';
 import { Legend } from './Legend';
 
 const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>(
@@ -18,9 +18,9 @@ const FieldsetComponent = forwardRef<HTMLFieldSetElement, IFieldsetProps>(
     const fieldsetContext = useMemo(() => ({ isCompact }), [isCompact]);
 
     return (
-      <FieldsetContext.Provider value={fieldsetContext}>
+      <FieldsetProvider value={fieldsetContext}>
         <StyledFieldset {...other} ref={ref} $isCompact={isCompact} />
-      </FieldsetContext.Provider>
+      </FieldsetProvider>
     );
   }
 );

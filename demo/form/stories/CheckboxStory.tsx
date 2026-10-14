@@ -5,16 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Checkbox, ICheckboxProps } from '@zendeskgarden/react-forms';
-import React from 'react';
-
+import { Checkbox, ICheckboxProps } from '../../../src/index';
 import { renderHint, renderLabel, renderMessage } from './common';
 import { FieldStory, IFieldArgs } from './FieldStory';
 
 interface IArgs extends ICheckboxProps, IFieldArgs {}
 
-export const CheckboxStory: StoryFn<IArgs> = ({
+export const CheckboxStory = ({
   hasHint,
   hasLabel = true,
   hasMessage,
@@ -26,7 +23,7 @@ export const CheckboxStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => (
+}: IArgs) => (
   <FieldStory hasLabel={false} hasHint={false} hasMessage={false}>
     <Checkbox {...args}>
       {renderLabel({ hasLabel, label, isLabelHidden, isLabelRegular })}

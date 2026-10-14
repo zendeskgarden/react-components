@@ -5,19 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import CircleIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
 import styled from 'styled-components';
+import CircleIcon from 'svg-icons-legacy/src/12/circle-sm-fill.svg';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
-const COMPONENT_ID = 'forms.radio_svg';
-
-export const StyledRadioSvg = styled(CircleIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledRadioSvg = styled(CircleIcon)`
   transition: opacity 0.25s ease-in-out;
   opacity: 0;
 

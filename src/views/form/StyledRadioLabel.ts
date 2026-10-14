@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { StyledLabel } from '../common/StyledLabel';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledLabel } from './StyledLabel';
 
 const COMPONENT_ID = 'forms.radio_label';
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const size = props.theme.space.base * 4; /* from StyledRadioInput */
   const padding = size + props.theme.space.base * 2;
   const lineHeight = props.theme.space.base * 5;
@@ -31,6 +32,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
 /**
  * 1. Vertical alignment.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledRadioLabel = styled(StyledLabel).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,
