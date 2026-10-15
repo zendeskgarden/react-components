@@ -6,6 +6,7 @@
  */
 
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import type { IUseModalReturnValue } from '@zendeskgarden/container-modal';
 import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
 import type { Dispatch, MutableRefObject, ReactNode } from 'react';
 
@@ -139,6 +140,27 @@ export interface IPaneSplitterContext {
   size?: number;
   isRow: boolean;
   providerId?: ISplitterProps['providerId'];
+}
+//#endregion
+
+//#region modal
+export interface IModalContext {
+  isLarge?: boolean;
+  isCloseButtonPresent?: boolean;
+  hasHeader: boolean;
+  setHasHeader: (hasHeader: boolean) => void;
+  getTitleProps: IUseModalReturnValue['getTitleProps'];
+  getContentProps: IUseModalReturnValue['getContentProps'];
+  getCloseProps: IUseModalReturnValue['getCloseProps'];
+  setIsCloseButtonPresent: (isPresent: boolean) => void;
+}
+
+export interface ITooltipDialogContext {
+  hasTitle: boolean;
+  setHasTitle: (isPresent: boolean) => void;
+  getTitleProps: IUseModalReturnValue['getTitleProps'];
+  getContentProps: IUseModalReturnValue['getContentProps'];
+  getCloseProps: IUseModalReturnValue['getCloseProps'];
 }
 //#endregion
 

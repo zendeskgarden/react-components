@@ -47,6 +47,11 @@ export { Progress } from './elements/loader/Progress';
 export { Skeleton } from './elements/loader/Skeleton';
 export { Spinner } from './elements/loader/Spinner';
 
+/* modal */
+export { Drawer } from './elements/modal/Drawer';
+export { Modal } from './elements/modal/Modal';
+export { TooltipDialog } from './elements/modal/TooltipDialog';
+
 /* pagination */
 export { CursorPagination } from './elements/pagination/CursorPagination';
 export { OffsetPagination } from './elements/pagination/OffsetPagination';
@@ -127,6 +132,7 @@ export {
   ALIGN_SELF,
   DIRECTION,
   JUSTIFY_CONTENT,
+  MODAL_PLACEMENT,
   SPACE,
   TEXT_ALIGN,
   WRAP,
@@ -145,6 +151,7 @@ export {
   type IDotsProps,
   type IDraggableListProps,
   type IDraggableProps,
+  type IDrawerProps,
   type IDropzoneProps,
   type IEllipsisProps,
   type IGridProps,
@@ -153,6 +160,7 @@ export {
   type IIconButtonProps as IChevronButtonProps,
   type IInlineProps,
   type IKbdProps,
+  type IModalProps,
   type IOrderedListProps,
   type IPaginationProps,
   type IPaneProviderProps,
@@ -174,6 +182,7 @@ export {
   type ITimelineProps,
   type IToggleButtonProps,
   type IToggleIconButtonProps,
+  type ITooltipDialogProps,
   type ITooltipProps,
   type ITypescaleMonospaceProps as ILGProps,
   type ITypescaleMonospaceProps as IMDProps,

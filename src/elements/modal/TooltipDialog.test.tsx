@@ -1,0 +1,424 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { act, waitFor } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { useState, forwardRef, useRef } from 'react';
+import { vi, type Mock } from 'vitest';
+
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { ITooltipDialogProps } from '../../types/elements';
+import { TooltipDialog } from './TooltipDialog';
+
+describe('TooltipDialog', () => {
+  const user = userEvent.setup();
+
+  type FixtureProps = {
+    noTitle?: boolean;
+  };
+
+  const TOOLTIP_DIALOG_ID = 'TEST_ID';
+  let onCloseSpy: Mock;
+
+  beforeEach(() => {
+    onCloseSpy = vi.fn();
+  });
+
+  const Example = forwardRef<HTMLDivElement, ITooltipDialogProps & FixtureProps>(
+    ({ onClose, noTitle, ...props }, ref) => {
+      const [isOpen, setIsOpen] = useState(false);
+      const buttonRef = useRef<HTMLButtonElement>(null);
+
+      return (
+        <>
+          <button type="button" ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
+            open
+          </button>
+          <TooltipDialog
+            ref={ref}
+            onClose={e => {
+              setIsOpen(false);
+              onClose && onClose(e);
+            }}
+            referenceElement={isOpen && buttonRef.current ? buttonRef.current : undefined}
+            {...props}
+          >
+            {!noTitle && <TooltipDialog.Title>title</TooltipDialog.Title>}
+            <TooltipDialog.Body>body</TooltipDialog.Body>
+            <TooltipDialog.Footer>footer</TooltipDialog.Footer>
+            <TooltipDialog.Close aria-label="Close" />
+          </TooltipDialog>
+        </>
+      );
+    }
+  );
+
+  Example.displayName = 'Example';
+
+  describe('Placement', () => {
+    it('renders LTR placement correctly', async () => {
+      const { getByRole, getByText } = render(<Example placement="start" />);
+
+      await act(async () => {
+        await user.click(getByText('open'));
+      });
+
+      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(0px, 0px)' });
+    });
+
+    it('renders RTL placement correctly', async () => {
+      const { getByRole, getByText } = render(<Example placement="start" />, {
+        theme: RTL_THEME
+      });
+
+      await act(async () => {
+        await user.click(getByText('open'));
+      });
+
+      expect(getByRole('dialog').parentElement).toHaveStyle({ transform: 'translate(0px, 0px)' });
+    });
+  });
+
+  it('limits dialog width to viewport width', async () => {
+    const { getByRole, getByText } = render(<Example />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByRole('dialog')).toHaveStyle({ maxWidth: '100vw' });
+  });
+
+  it('applies backdropProps to Backdrop element', async () => {
+    const { getByTestId, getByText } = render(
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />,
+      {
+        theme: RTL_THEME
+      }
+    );
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByTestId('backdrop')).not.toBeNull();
+  });
+
+  it('applies aria-labelledby to dialog when Title is present', async () => {
+    const { getByText, getByRole } = render(<Example />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    const labelId = getByRole('dialog').getAttribute('aria-labelledby');
+    const titleId = getByText('title').getAttribute('id');
+
+    expect(labelId).toStrictEqual(titleId);
+  });
+
+  it("doesn't show aria-labelledby to dialog when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noTitle />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByRole('dialog').hasAttribute('aria-labelledby')).toBe(false);
+  });
+
+  it("applies default aria-label to dialog when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noTitle />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    const ariaLabel = getByRole('dialog').getAttribute('aria-label');
+
+    expect(ariaLabel).toBe('Modal dialog');
+  });
+
+  it("applies aria-label to dialog prop when Title isn't present", async () => {
+    const { getByRole, getByText } = render(<Example noTitle aria-label="Fun dialog" />);
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByRole('dialog').getAttribute('aria-label')).toBe('Fun dialog');
+  });
+
+  it('applies title a11y attributes to Title element', async () => {
+    const { getByText } = render(<Example id={TOOLTIP_DIALOG_ID} />, {
+      theme: RTL_THEME
+    });
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByText('title')).toHaveAttribute('id', `${TOOLTIP_DIALOG_ID}__title`);
+  });
+
+  it('applies content a11y attributes to Body element', async () => {
+    const { getByText } = render(<Example id={TOOLTIP_DIALOG_ID} />, {
+      theme: RTL_THEME
+    });
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getByText('body')).toHaveAttribute('id', `${TOOLTIP_DIALOG_ID}__content`);
+  });
+
+  it('applies close a11y attributes to Close element', async () => {
+    const { getAllByRole, getByText } = render(<Example id={TOOLTIP_DIALOG_ID} />, {
+      theme: RTL_THEME
+    });
+
+    await act(async () => {
+      await user.click(getByText('open'));
+    });
+
+    expect(getAllByRole('button')[1]!).toHaveAttribute('aria-label', 'Close');
+  });
+
+  it('portals the modal as expected', async () => {
+    const { container, getByText, rerender } = render(<Example />);
+    const trigger = getByText('open');
+
+    // Open modal
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    expect(container.querySelector('[aria-modal]')).not.toBeNull();
+
+    // Close modal
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    const node = document.createElement('DIV');
+
+    document.body.appendChild(node);
+
+    rerender(<Example appendToNode={node} />);
+
+    // Open modal
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    expect(container.querySelector('[aria-modal]')).toBeNull();
+    expect(node.querySelector('[aria-modal]')).not.toBeNull();
+  });
+
+  describe('onClose()', () => {
+    it('is triggered by backdrop click', async () => {
+      const { getByTestId, getByText } = render(
+        <Example onClose={onCloseSpy} backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      await waitFor(async () => {
+        await user.click(getByText('open'));
+        await user.click(getByTestId('backdrop'));
+      });
+
+      expect(onCloseSpy).toHaveBeenCalled();
+    });
+
+    it('is triggered by Close element click', async () => {
+      const { getAllByRole, getByText } = render(<Example onClose={onCloseSpy} />);
+
+      await waitFor(async () => {
+        await user.click(getByText('open'));
+        await user.click(getAllByRole('button')[1]!);
+      });
+
+      expect(onCloseSpy).toHaveBeenCalled();
+    });
+
+    it('is triggered by ESC key', async () => {
+      const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
+
+      await waitFor(async () => {
+        await user.click(getByText('open'));
+        await user.type(getByRole('dialog'), '{escape}');
+      });
+
+      expect(onCloseSpy).toHaveBeenCalled();
+    });
+
+    describe('blur behavior (closeOnBlur: true)', () => {
+      it('is triggered when focus moves outside the dialog', async () => {
+        const { getByText } = render(<Example onClose={onCloseSpy} />);
+
+        await act(async () => {
+          await user.click(getByText('open'));
+        });
+
+        await waitFor(async () => {
+          await user.click(document.body);
+        });
+
+        expect(onCloseSpy).toHaveBeenCalled();
+      });
+
+      it('is not triggered when focus moves to an element inside the dialog', async () => {
+        const { getByRole, getByText } = render(<Example onClose={onCloseSpy} />);
+
+        await act(async () => {
+          await user.click(getByText('open'));
+        });
+
+        // Click the dialog itself (tabIndex=-1) — focus stays inside, no close
+        await user.click(getByRole('dialog'));
+
+        expect(onCloseSpy).not.toHaveBeenCalled();
+      });
+    });
+  });
+
+  describe('keepMounted', () => {
+    it('keeps dialog mounted in the DOM while visually hidden', () => {
+      const { queryByRole, getByTestId } = render(
+        <Example keepMounted backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      // Closed (hidden) state: still mounted but visually hidden and aria-hidden on backdrop
+      const hiddenDialog = queryByRole('dialog', { hidden: true });
+
+      expect(hiddenDialog).not.toBeNull();
+      expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+      // Backdrop should have hideVisually styles applied (position: absolute, clip, etc.)
+      const backdropStyles = window.getComputedStyle(getByTestId('backdrop'));
+      expect(backdropStyles.position).toBe('absolute');
+      expect(backdropStyles.width).toBe('1px');
+      expect(backdropStyles.height).toBe('1px');
+    });
+
+    it('toggles visibility and manages focus correctly when reopened', async () => {
+      const { getByText, getByRole, queryByRole, getByTestId } = render(
+        <Example keepMounted backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+      );
+
+      const trigger = getByText('open');
+
+      // Initially hidden but mounted
+      const initiallyHiddenDialog = queryByRole('dialog', { hidden: true });
+      expect(initiallyHiddenDialog).not.toBeNull();
+      expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+
+      // Open
+      await act(async () => {
+        await user.click(trigger);
+      });
+
+      const openDialog = getByRole('dialog');
+      expect(openDialog).toBeInTheDocument();
+      expect(getByTestId('backdrop')).not.toHaveAttribute('aria-hidden');
+      expect(openDialog).toHaveFocus();
+      // Backdrop should NOT have hideVisually styles when visible
+      const visibleBackdropStyles = window.getComputedStyle(getByTestId('backdrop'));
+      expect(visibleBackdropStyles.position).toBe('fixed');
+
+      // Close (toggle button again)
+      await act(async () => {
+        await user.click(trigger);
+      });
+
+      // Dialog remains mounted but visually hidden again
+      const hiddenAgainDialog = queryByRole('dialog', { hidden: true });
+      expect(hiddenAgainDialog).not.toBeNull();
+      await waitFor(() => {
+        expect(getByTestId('backdrop')).toHaveAttribute('aria-hidden', 'true');
+        // Backdrop should have hideVisually styles applied again
+        const hiddenBackdropStyles = window.getComputedStyle(getByTestId('backdrop'));
+        expect(hiddenBackdropStyles.position).toBe('absolute');
+        expect(hiddenBackdropStyles.width).toBe('1px');
+        expect(hiddenBackdropStyles.height).toBe('1px');
+      });
+      // Focus should return to trigger
+      expect(trigger).toHaveFocus();
+    });
+  });
+
+  describe('attributes', () => {
+    const renderDialog = async (props: ITooltipDialogProps) => {
+      const { container, getByRole, rerender } = render(<div />);
+
+      await act(async () => {
+        await rerender(
+          <TooltipDialog referenceElement={container as HTMLElement} {...props}>
+            content
+          </TooltipDialog>
+        );
+      });
+
+      return getByRole('dialog');
+    };
+
+    it('renders the dialog id, which a prop cannot replace', async () => {
+      const dialog = await renderDialog({ 'data-garden-id': 'custom' } as ITooltipDialogProps);
+
+      expect(dialog).toHaveAttribute('data-garden-id', 'modals.tooltip_dialog');
+    });
+
+    it('keeps its padding and radius over the wrapper menu styles', async () => {
+      const dialog = await renderDialog({});
+      const { borderRadius, padding } = getComputedStyle(dialog);
+
+      expect(padding).toBe(`${DEFAULT_THEME.space.base * 5}px`);
+      expect(borderRadius).toBe(DEFAULT_THEME.borderRadii.xl);
+    });
+
+    it('keeps the consumer class name', async () => {
+      const dialog = await renderDialog({ className: 'custom' });
+
+      expect(dialog).toHaveClass('custom');
+      expect(dialog).not.toHaveClass('is-animated');
+    });
+
+    it('adds the animation class next to the consumer class name', async () => {
+      const dialog = await renderDialog({ className: 'custom', isAnimated: true });
+
+      expect(dialog).toHaveClass('custom', 'is-animated');
+    });
+
+    it('applies the animation class to the wrapper', async () => {
+      const dialog = await renderDialog({ isAnimated: true });
+
+      expect(dialog.parentElement).toHaveClass('is-animated');
+    });
+
+    it('renders the animated arrow styling only when entered', async () => {
+      const dialog = await renderDialog({ isAnimated: true });
+
+      await waitFor(() =>
+        expect(dialog).toHaveStyleRule('content', "''", { modifier: '::before' })
+      );
+    });
+  });
+
+  describe('keepMounted', () => {
+    it('makes the hidden dialog inert', async () => {
+      const { getByRole } = render(<Example keepMounted />);
+
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('inert');
+
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'open' }));
+      });
+
+      expect(getByRole('dialog')).not.toHaveAttribute('inert');
+    });
+  });
+});
