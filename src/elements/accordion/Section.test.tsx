@@ -22,4 +22,19 @@ describe('Section', () => {
 
     expect(getByTestId('section')).toBe(ref.current);
   });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Accordion level={3}>
+        <Accordion.Section
+          data-test-id="section"
+          data-garden-id="custom"
+          data-garden-version="0.0.0"
+        />
+      </Accordion>
+    );
+
+    expect(getByTestId('section')).toHaveAttribute('data-garden-id', 'accordions.section');
+    expect(getByTestId('section')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
 });

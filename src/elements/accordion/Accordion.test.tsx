@@ -19,6 +19,20 @@ describe('Accordion', () => {
     expect(getByTestId('accordion')).toBe(ref.current);
   });
 
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Accordion
+        level={3}
+        data-test-id="accordion"
+        data-garden-id="custom"
+        data-garden-version="0.0.0"
+      />
+    );
+
+    expect(getByTestId('accordion')).toHaveAttribute('data-garden-id', 'accordions.accordion');
+    expect(getByTestId('accordion')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
   it('has default expanded panels in an uncontrolled accordion', () => {
     render(
       <Accordion level={3} defaultExpandedSections={[1]}>
