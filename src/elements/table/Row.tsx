@@ -7,11 +7,12 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useState, useMemo, forwardRef } from 'react';
+import { useState, useMemo, forwardRef } from 'react';
 
-import { StyledRow } from '../styled';
-import { IRowProps } from '../types';
-import { useTableContext } from '../utils/useTableContext';
+import { useTableContext } from '../../hooks/table/useTableContext';
+import { ITableRowProps } from '../../types/elements';
+import { StyledRow } from '../../views/table/StyledRow';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.Row` instead
@@ -19,7 +20,7 @@ import { useTableContext } from '../utils/useTableContext';
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
 
-export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
+export const Row = forwardRef<HTMLTableRowElement, ITableRowProps>(
   (
     { onFocus, onBlur, isSelected, isStriped, isHovered, isFocused: focused, ...otherProps },
     ref
@@ -66,6 +67,8 @@ export const Row = forwardRef<HTMLTableRowElement, IRowProps>(
         $isStriped={isStriped}
         $isSelected={isSelected}
         {...otherProps}
+        data-garden-id={COMPONENT_IDS['tables.row']}
+        data-garden-version={PACKAGE_VERSION}
         tabIndex={isReadOnly ? undefined : -1}
       />
     );

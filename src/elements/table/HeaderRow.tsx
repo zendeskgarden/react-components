@@ -5,21 +5,30 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledHeaderRow } from '../styled';
-import { useTableContext } from '../utils/useTableContext';
+import { useTableContext } from '../../hooks/table/useTableContext';
+import { StyledHeaderRow } from '../../views/table/StyledHeaderRow';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.HeaderRow` instead
  *
  * @extends HTMLAttributes<HTMLTableRowElement>
  */
-export const HeaderRow = React.forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
+export const HeaderRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElement>>(
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledHeaderRow ref={ref} $size={size} {...props} />;
+    return (
+      <StyledHeaderRow
+        ref={ref}
+        $size={size}
+        {...props}
+        data-garden-id={COMPONENT_IDS['tables.header_row']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

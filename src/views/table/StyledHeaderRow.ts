@@ -5,21 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ITableProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { ITableProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
-
-const COMPONENT_ID = 'tables.header_row';
 
 interface IStyledHeaderRowProps {
   $size?: ITableProps['size'];
 }
 
-const getHeaderRowHeight = (props: IStyledHeaderRowProps & ThemeProps<DefaultTheme>) => {
+const getHeaderRowHeight = (props: IStyledHeaderRowProps & IStyledBaseProps) => {
   if (props.$size === 'large') {
     return `${props.theme.space.base * 18}px`;
   } else if (props.$size === 'small') {
@@ -29,13 +29,13 @@ const getHeaderRowHeight = (props: IStyledHeaderRowProps & ThemeProps<DefaultThe
   return `${props.theme.space.base * 12}px`;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   return css`
     border-bottom-color: ${getColor({ variable: 'border.default', theme })};
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const rowHeight = getHeaderRowHeight(props);
 
   return css`
@@ -49,10 +49,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledHeaderRow = styled(StyledBaseRow).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledHeaderRowProps>`
+export const StyledHeaderRow = styled(StyledBaseRow)<IStyledHeaderRowProps>`
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${sizeStyles}

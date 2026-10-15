@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ISheetProps } from '../../types';
-
-const COMPONENT_ID = 'chrome.sheet';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { ISheetProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledSheetProps {
   inert?: string;
@@ -20,7 +21,7 @@ interface IStyledSheetProps {
   $size?: string;
 }
 
-const colorStyles = ({ theme, $isOpen }: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isOpen }: IStyledSheetProps & IStyledBaseProps) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = $isOpen ? getColor({ theme, variable: 'border.default' }) : 'transparent';
 
@@ -35,7 +36,7 @@ const sizeStyles = ({
   $isOpen,
   $placement,
   $size
-}: IStyledSheetProps & ThemeProps<DefaultTheme>) => {
+}: IStyledSheetProps & IStyledBaseProps) => {
   const width = $isOpen ? $size : 0;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
@@ -58,10 +59,7 @@ const sizeStyles = ({
   `;
 };
 
-export const StyledSheet = styled.aside.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledSheetProps>`
+export const StyledSheet = styled.aside<IStyledSheetProps>`
   display: flex;
   order: 1;
   transition: ${props => props.$isAnimated && 'width 250ms ease-in-out'};

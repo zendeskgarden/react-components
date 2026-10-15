@@ -5,17 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Checkbox, Field } from '@zendeskgarden/react-forms';
+import { useState } from 'react';
+
 import {
   Table,
   ITableProps,
   IHeadProps,
   ISortableCellProps,
-  IRowProps
-} from '@zendeskgarden/react-tables';
-import React, { useState } from 'react';
-
+  ITableRowProps
+} from '../../../src/index';
 import { CELL_WIDTH, TABLE_ROW } from './types';
 
 interface IArgs extends ITableProps {
@@ -26,14 +25,14 @@ interface IArgs extends ITableProps {
   hasSelection: boolean;
   isBold: boolean;
   isSortable: boolean;
-  isSelected?: IRowProps['isSelected'];
-  isStriped?: IRowProps['isStriped'];
+  isSelected?: ITableRowProps['isSelected'];
+  isStriped?: ITableRowProps['isStriped'];
   isSticky?: IHeadProps['isSticky'];
   isTruncated?: boolean;
   isHidden?: boolean;
 }
 
-export const TableStory: StoryFn<IArgs> = ({
+export const TableStory = ({
   caption,
   data,
   widths = [],
@@ -47,7 +46,7 @@ export const TableStory: StoryFn<IArgs> = ({
   isTruncated,
   isHidden,
   ...args
-}) => {
+}: IArgs) => {
   const headerCells = data.reduce((previous, current) => {
     let retVal = previous;
 

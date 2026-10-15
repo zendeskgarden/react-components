@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, screen } from 'garden-test-utils';
-import React, { useState, forwardRef } from 'react';
+import { screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { useState, forwardRef, createRef } from 'react';
 
-import { ISheetProps } from '../../types';
+import { render } from '../../test/render';
+import { ISheetProps } from '../../types/elements';
 import { Sheet } from './Sheet';
 
 describe('Sheet', () => {
@@ -44,7 +45,7 @@ describe('Sheet', () => {
   Example.displayName = 'Example';
 
   it('passes ref to underlying DOM element', async () => {
-    const ref = React.createRef<HTMLElement>();
+    const ref = createRef<HTMLElement>();
     const { getByRole, getByText } = render(<Example ref={ref} />);
 
     await user.click(getByText('Toggle Sheet'));

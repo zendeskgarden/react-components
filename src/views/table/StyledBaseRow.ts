@@ -5,14 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export interface IStyledBaseRowProps {
-  $isStriped?: boolean;
-}
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseRowProps } from '../../types/views';
+import type { IStyledBaseProps } from '../../types/views';
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   return css`
     border-bottom: ${theme.borders.sm};
     vertical-align: top;
@@ -20,7 +19,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = ({ theme, $isStriped }: IStyledBaseRowProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isStriped }: IStyledBaseRowProps) => {
   const borderColor = getColor({ variable: 'border.subtle', theme });
   const backgroundColor = getColor({
     variable: 'background.subtle',

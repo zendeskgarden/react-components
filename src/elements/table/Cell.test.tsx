@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
 import { hideVisually } from 'polished';
-import React from 'react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
 import { Body } from './Body';
 import { Cell } from './Cell';
 import { Row } from './Row';
@@ -16,7 +16,7 @@ import { Table } from './Table';
 
 describe('Cell', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLTableCellElement>();
+    const ref = createRef<HTMLTableCellElement>();
     const { getByTestId } = render(
       <Table>
         <Body>
@@ -83,14 +83,17 @@ describe('Cell', () => {
   });
 
   it('applies RTL styling', () => {
-    const { getByTestId } = renderRtl(
+    const { getByTestId } = render(
       <Table>
         <Body>
           <Row>
             <Cell hasOverflow data-test-id="cell" />
           </Row>
         </Body>
-      </Table>
+      </Table>,
+      {
+        theme: RTL_THEME
+      }
     );
 
     expect(getByTestId('cell')).toHaveStyle(`

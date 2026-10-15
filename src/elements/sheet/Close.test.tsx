@@ -5,20 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, screen } from 'garden-test-utils';
-import React from 'react';
+import { screen } from '@testing-library/react';
+import { createRef } from 'react';
+import { vi, type Mock } from 'vitest';
 
-import { useSheetContext } from '../../../utils/useSheetContext';
+import { useSheetContext } from '../../hooks/sheet/useSheetContext';
+import { render } from '../../test/render';
 import { Close } from './Close';
 
 type IMockUseSheetContextReturnValue = {
   useSheetContext: () => {
-    setIsCloseButtonPresent: jest.Mock;
+    setIsCloseButtonPresent: Mock;
   };
 };
 
-jest.mock<IMockUseSheetContextReturnValue>('../../../utils/useSheetContext', () => {
-  const setIsCloseButtonPresent = jest.fn();
+vi.mock<IMockUseSheetContextReturnValue>('../../../utils/useSheetContext', () => {
+  const setIsCloseButtonPresent = vi.fn();
 
   return {
     useSheetContext: () => ({
@@ -29,11 +31,11 @@ jest.mock<IMockUseSheetContextReturnValue>('../../../utils/useSheetContext', () 
 
 describe('Sheet.Close', () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLButtonElement>();
 
     render(<Close ref={ref} />);
 

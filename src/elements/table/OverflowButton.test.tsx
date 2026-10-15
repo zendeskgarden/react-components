@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { FooterItem } from './FooterItem';
+import { render } from '../../test/render';
+import { OverflowButton } from './OverflowButton';
 
-describe('Sheet.FooterItem', () => {
+describe('OverflowButton', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<FooterItem ref={ref} />);
+    const ref = createRef<HTMLButtonElement>();
+    const { container } = render(<OverflowButton ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

@@ -5,16 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { hideVisually } from 'polished';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'tables.hidden_cell';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledHiddenCell = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledHiddenCell = styled.div`
   ${hideVisually()}
 
   ${componentStyles};

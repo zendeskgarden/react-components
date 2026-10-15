@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ICellProps } from '@zendeskgarden/react-tables';
+import { ICellProps } from '../../../src/index';
 
 export type CELL_WIDTH = ICellProps['width'];
 

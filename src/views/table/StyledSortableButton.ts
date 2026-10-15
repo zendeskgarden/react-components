@@ -5,16 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  focusStyles,
-  SELECTOR_FOCUS_VISIBLE,
-  getColor
-} from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ISortableCellProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { ISortableCellProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 const COMPONENT_ID = 'tables.sortable';
 
@@ -45,7 +43,7 @@ interface IStyledSortableButtonProps {
   width?: ISortableCellProps['width'];
 }
 
-const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseProps) => {
   const fgInactive = getColor({
     variable: 'foreground.subtle',
     transparency: theme.opacity[200],
@@ -126,6 +124,7 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & ThemeProps<D
  * 1. Reset for <button> element
  * 2. Reset for <a>nchor element
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonProps>({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

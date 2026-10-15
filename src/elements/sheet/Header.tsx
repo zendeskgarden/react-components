@@ -5,15 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledSheetHeader } from '../../../styled';
-import { useSheetContext } from '../../../utils/useSheetContext';
+import { useSheetContext } from '../../hooks/sheet/useSheetContext';
+import { StyledSheetHeader } from '../../views/sheet/StyledSheetHeader';
+import { COMPONENT_IDS } from '../utils';
 
 const SheetHeader = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>((props, ref) => {
   const { isCloseButtonPresent } = useSheetContext();
 
-  return <StyledSheetHeader ref={ref} $isCloseButtonPresent={isCloseButtonPresent} {...props} />;
+  return (
+    <StyledSheetHeader
+      ref={ref}
+      $isCloseButtonPresent={isCloseButtonPresent}
+      {...props}
+      data-garden-id={COMPONENT_IDS['chrome.sheet_header']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  );
 });
 
 SheetHeader.displayName = 'Sheet.Header';

@@ -6,18 +6,20 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledCell, StyledHiddenCell } from '../styled';
-import { ICellProps } from '../types';
-import { useTableContext } from '../utils/useTableContext';
+import { useTableContext } from '../../hooks/table/useTableContext';
+import { ICellProps } from '../../types/elements';
+import { StyledCell } from '../../views/table/StyledCell';
+import { StyledHiddenCell } from '../../views/table/StyledHiddenCell';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.Cell` instead
  *
  * @extends TdHTMLAttributes<HTMLTableCellElement>
  */
-export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
+export const Cell = forwardRef<HTMLTableCellElement, ICellProps>(
   ({ hidden, isMinimum, isTruncated, hasOverflow, ...props }, ref) => {
     const { size } = useTableContext();
 
@@ -29,9 +31,16 @@ export const Cell = React.forwardRef<HTMLTableCellElement, ICellProps>(
         $isTruncated={isTruncated}
         $hasOverflow={hasOverflow}
         {...props}
+        data-garden-id={COMPONENT_IDS['tables.cell']}
+        data-garden-version={PACKAGE_VERSION}
       >
         {hidden && props.children ? (
-          <StyledHiddenCell>{props.children}</StyledHiddenCell>
+          <StyledHiddenCell
+            data-garden-id={COMPONENT_IDS['tables.hidden_cell']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            {props.children}
+          </StyledHiddenCell>
         ) : (
           props.children
         )}

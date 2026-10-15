@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
 import { getRowHeight } from './style-utils';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
@@ -24,7 +25,7 @@ const truncatedStyling = css`
   }
 `;
 
-const sizeStyles = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledCellProps & IStyledBaseProps) => {
   let paddingVertical = undefined;
 
   if (!props.$hasOverflow) {
@@ -37,6 +38,7 @@ const sizeStyles = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledHeaderCell = styled(StyledCell).attrs({
   as: 'th',
   'data-garden-id': COMPONENT_ID,

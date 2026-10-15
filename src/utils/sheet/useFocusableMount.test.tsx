@@ -5,18 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, screen, act } from 'garden-test-utils';
-import React from 'react';
+import { screen, act } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { useRef, useState } from 'react';
 
+import { render } from '../../test/render';
 import { useFocusableMount } from './useFocusableMount';
 
 describe('useFocusableMount', () => {
   const user = userEvent.setup();
 
   const TestFocusOnMount = ({ isMounted = true, focusOnMount = true, restoreFocus = true }) => {
-    const [mounted, setMounted] = React.useState(() => isMounted);
-    const targetRef = React.useRef(null);
+    const [mounted, setMounted] = useState(() => isMounted);
+    const targetRef = useRef(null);
 
     useFocusableMount({ isMounted: mounted, focusOnMount, restoreFocus, targetRef });
 

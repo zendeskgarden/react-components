@@ -5,15 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'chrome.sheet_title';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 
-export const StyledSheetTitle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledSheetTitle = styled.div`
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

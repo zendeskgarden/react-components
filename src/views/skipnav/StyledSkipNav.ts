@@ -5,19 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  focusStyles,
-  SELECTOR_FOCUS_VISIBLE,
-  getColor
-} from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, keyframes, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 import { getHeaderHeight } from './utils';
-
-const COMPONENT_ID = 'chrome.skipnav';
 
 const animationStyles = () => {
   const animationName = keyframes`
@@ -42,7 +38,7 @@ const animationStyles = () => {
   `;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
   const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
@@ -72,7 +68,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const top = math(`${getHeaderHeight(theme)} / 2`);
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
@@ -97,10 +93,7 @@ interface IStyledSkipNavProps {
 /*
  * 1. breaking LVHFA order for `<a>` to underline when focused and hovered
  */
-export const StyledSkipNav = styled.a.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledSkipNavProps>`
+export const StyledSkipNav = styled.a<IStyledSkipNavProps>`
   ${animationStyles()};
 
   display: inline-flex;

@@ -6,12 +6,12 @@
  */
 
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'chrome.sheet_close';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
 
-const positionStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const positionStyles = ({ theme }: IStyledBaseProps) => {
   const top = `${theme.space.base * 2.5}px`;
   const position = `${theme.space.base * 2}px`;
 
@@ -21,10 +21,7 @@ const positionStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledSheetClose = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledSheetClose = styled(IconButton)`
   position: absolute;
 
   ${positionStyles};

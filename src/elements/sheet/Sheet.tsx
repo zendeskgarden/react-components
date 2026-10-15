@@ -7,22 +7,24 @@
 
 import { useId } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { useRef, useMemo, useState } from 'react';
+import { useRef, useMemo, useState, forwardRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 
-import { StyledSheet, StyledSheetWrapper } from '../../styled';
-import { ISheetProps, PLACEMENT } from '../../types';
-import { useFocusableMount } from '../../utils/useFocusableMount';
-import { SheetContext } from '../../utils/useSheetContext';
-import { Body } from './components/Body';
-import { Close } from './components/Close';
-import { Description } from './components/Description';
-import { Footer } from './components/Footer';
-import { FooterItem } from './components/FooterItem';
-import { Header } from './components/Header';
-import { Title } from './components/Title';
+import { SheetProvider } from '../../context/sheet/SheetContext';
+import { ISheetProps, SHEET_PLACEMENT } from '../../types/elements';
+import { useFocusableMount } from '../../utils/sheet/useFocusableMount';
+import { StyledSheet } from '../../views/sheet/StyledSheet';
+import { StyledSheetWrapper } from '../../views/sheet/StyledSheetWrapper';
+import { COMPONENT_IDS } from '../utils';
+import { Body } from './Body';
+import { Close } from './Close';
+import { Description } from './Description';
+import { Footer } from './Footer';
+import { FooterItem } from './FooterItem';
+import { Header } from './Header';
+import { Title } from './Title';
 
-const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
+const SheetComponent = forwardRef<HTMLElement, ISheetProps>(
   (
     {
       id,
@@ -56,7 +58,7 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
     useFocusableMount({ targetRef: sheetRef, isMounted: isOpen, focusOnMount, restoreFocus });
 
     return (
-      <SheetContext.Provider value={sheetContext}>
+      <SheetProvider value={sheetContext}>
         <StyledSheet
           inert={isOpen ? undefined : ''}
           $isOpen={isOpen}
@@ -69,17 +71,21 @@ const SheetComponent = React.forwardRef<HTMLElement, ISheetProps>(
           aria-describedby={descriptionId}
           ref={mergeRefs([sheetRef, ref])}
           {...props}
+          data-garden-id={COMPONENT_IDS['chrome.sheet']}
+          data-garden-version={PACKAGE_VERSION}
         >
           <StyledSheetWrapper
             $isOpen={isOpen}
             $isAnimated={isAnimated}
             $placement={placement}
             $size={size}
+            data-garden-id={COMPONENT_IDS['chrome.sheet_wrapper']}
+            data-garden-version={PACKAGE_VERSION}
           >
             {children}
           </StyledSheetWrapper>
         </StyledSheet>
-      </SheetContext.Provider>
+      </SheetProvider>
     );
   }
 );
@@ -92,7 +98,7 @@ SheetComponent.propTypes = {
   isAnimated: PropTypes.bool,
   focusOnMount: PropTypes.bool,
   restoreFocus: PropTypes.bool,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(SHEET_PLACEMENT),
   size: PropTypes.string
 };
 

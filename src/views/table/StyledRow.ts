@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ITableProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { ITableProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { getRowHeight } from './style-utils';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledCell } from './StyledCell';
 import { StyledOverflowButton } from './StyledOverflowButton';
-
-const COMPONENT_ID = 'tables.row';
 
 export interface IStyledRowProps {
   $isStriped?: boolean;
@@ -31,7 +31,7 @@ const colorStyles = ({
   $isSelected,
   $isHovered,
   $isReadOnly
-}: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+}: IStyledRowProps & IStyledBaseProps) => {
   const hoveredBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],
@@ -114,16 +114,13 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledRowProps & IStyledBaseProps) => {
   return css`
     height: ${getRowHeight(props)};
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledRowProps>`
+export const StyledRow = styled(StyledBaseRow)<IStyledRowProps>`
   ${sizeStyles}
 
   ${colorStyles}

@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledCaption } from '../styled';
+import { StyledCaption } from '../../views/table/StyledCaption';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.Caption` instead
@@ -15,7 +16,14 @@ import { StyledCaption } from '../styled';
  * @extends HTMLAttributes<HTMLTableCaptionElement>
  */
 export const Caption = forwardRef<HTMLTableCaptionElement, HTMLAttributes<HTMLTableCaptionElement>>(
-  (props, ref) => <StyledCaption ref={ref} {...props} />
+  (props, ref) => (
+    <StyledCaption
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['tables.caption']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 Caption.displayName = 'Table.Caption';

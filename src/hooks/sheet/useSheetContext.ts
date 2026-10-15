@@ -5,19 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface ISheetContext {
-  titleId?: string;
-  descriptionId?: string;
-  isCloseButtonPresent?: boolean;
-  setIsCloseButtonPresent: (isPresent: boolean) => void;
-}
-
-export const SheetContext = createContext<ISheetContext>({
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  setIsCloseButtonPresent() {}
-});
+import { SheetContext } from '../../context/sheet/SheetContext';
 
 export const useSheetContext = () => {
   return useContext(SheetContext);

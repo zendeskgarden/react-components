@@ -5,16 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledSheetTitle } from '../../../styled';
-import { useSheetContext } from '../../../utils/useSheetContext';
+import { useSheetContext } from '../../hooks/sheet/useSheetContext';
+import { StyledSheetTitle } from '../../views/sheet/StyledSheetTitle';
+import { COMPONENT_IDS } from '../utils';
 
 const SheetTitle = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   ({ id, ...props }, ref) => {
     const { titleId } = useSheetContext();
 
-    return <StyledSheetTitle id={id || titleId} ref={ref} {...props} />;
+    return (
+      <StyledSheetTitle
+        id={id || titleId}
+        ref={ref}
+        {...props}
+        data-garden-id={COMPONENT_IDS['chrome.sheet_title']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

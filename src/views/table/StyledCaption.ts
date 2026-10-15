@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'tables.caption';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledCaption = styled.caption.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledCaption = styled.caption`
   display: table-caption;
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
 

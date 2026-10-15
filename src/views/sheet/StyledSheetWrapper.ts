@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ISheetProps } from '../../types';
-
-const COMPONENT_ID = 'chrome.sheet_wrapper';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { ISheetProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledSheetWrapperProps {
   $isOpen?: boolean;
@@ -24,7 +23,7 @@ const transformStyles = ({
   $isAnimated,
   $isOpen,
   $placement
-}: IStyledSheetWrapperProps & ThemeProps<DefaultTheme>) => {
+}: IStyledSheetWrapperProps & IStyledBaseProps) => {
   const transition = $isAnimated ? 'transform 250ms ease-in-out' : undefined;
   let transform;
 
@@ -42,10 +41,7 @@ const transformStyles = ({
   `;
 };
 
-export const StyledSheetWrapper = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledSheetWrapperProps>`
+export const StyledSheetWrapper = styled.div<IStyledSheetWrapperProps>`
   display: flex;
   position: relative;
   flex-direction: column;

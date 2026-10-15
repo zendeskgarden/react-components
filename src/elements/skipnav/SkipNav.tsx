@@ -6,18 +6,30 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledSkipNav, StyledSkipNavIcon } from '../styled';
-import { ISkipNavProps } from '../types';
+import { ISkipNavProps } from '../../types/elements';
+import { StyledSkipNav } from '../../views/skipnav/StyledSkipNav';
+import { StyledSkipNavIcon } from '../../views/skipnav/StyledSkipNavIcon';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends AnchorHTMLAttributes<HTMLAnchorElement>
  */
-export const SkipNav = React.forwardRef<HTMLAnchorElement, ISkipNavProps>(
+export const SkipNav = forwardRef<HTMLAnchorElement, ISkipNavProps>(
   ({ targetId, zIndex = 1, children, ...props }, ref) => (
-    <StyledSkipNav href={`#${targetId}`} $zIndex={zIndex} ref={ref} {...props}>
-      <StyledSkipNavIcon />
+    <StyledSkipNav
+      href={`#${targetId}`}
+      $zIndex={zIndex}
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['chrome.skipnav']}
+      data-garden-version={PACKAGE_VERSION}
+    >
+      <StyledSkipNavIcon
+        data-garden-id={COMPONENT_IDS['chrome.skipnav_icon']}
+        data-garden-version={PACKAGE_VERSION}
+      />
       {children}
     </StyledSkipNav>
   )

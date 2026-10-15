@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
-import LinkIcon from '@zendeskgarden/svg-icons/src/16/link-stroke.svg';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
+import LinkIcon from 'svg-icons-legacy/src/16/link-stroke.svg';
 
-const COMPONENT_ID = 'chrome.skipnav_icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const margin = `${theme.space.base * 2}px`;
   const size = theme.iconSizes.md;
 
@@ -22,10 +23,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledSkipNavIcon = styled(LinkIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledSkipNavIcon = styled(LinkIcon)`
   transform: ${p => p.theme.rtl && 'scaleX(-1)'};
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 

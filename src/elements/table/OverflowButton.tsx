@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import OverflowStrokeIcon from '@zendeskgarden/svg-icons/src/16/overflow-vertical-stroke.svg';
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import OverflowStrokeIcon from 'svg-icons-legacy/src/16/overflow-vertical-stroke.svg';
 
-import { StyledOverflowButton } from '../styled';
-import { useTableContext } from '../utils/useTableContext';
+import { useTableContext } from '../../hooks/table/useTableContext';
+import { StyledOverflowButton } from '../../views/table/StyledOverflowButton';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.OverflowButton` instead
@@ -23,7 +24,15 @@ export const OverflowButton = forwardRef<
   const { size } = useTableContext();
 
   return (
-    <StyledOverflowButton type="button" $size={size} ref={ref} {...props} focusInset>
+    <StyledOverflowButton
+      type="button"
+      $size={size}
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['tables.overflow_button']}
+      data-garden-version={PACKAGE_VERSION}
+      focusInset
+    >
       <OverflowStrokeIcon />
     </StyledOverflowButton>
   );

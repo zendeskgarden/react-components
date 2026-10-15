@@ -6,10 +6,9 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Sheet } from '@zendeskgarden/react-chrome';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Sheet } from '../../src/index';
 import {
   SHEET_BODY as BODY,
   SHEET_DESCRIPTION as DESCRIPTION,
@@ -19,7 +18,7 @@ import {
 import { SheetStory } from './stories/SheetStory';
 
 export default {
-  title: 'Packages/Chrome/Sheet',
+  title: 'Components/Sheet',
   component: Sheet,
   subcomponents: {
     'Sheet.Body': Sheet.Body,

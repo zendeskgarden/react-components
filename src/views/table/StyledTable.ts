@@ -5,22 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 
-const COMPONENT_ID = 'tables.table';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
-export const getLineHeight = (props: ThemeProps<DefaultTheme>) => {
+export const getLineHeight = (props: IStyledBaseProps) => {
   return `${props.theme.space.base * 5}px`;
 };
 
 /**
  * 1. <table> reset
  */
-export const StyledTable = styled.table.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledTable = styled.table`
   display: table;
   border: none; /* [1] */
   width: 100%; /* [1] */

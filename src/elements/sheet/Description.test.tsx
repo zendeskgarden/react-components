@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, screen } from 'garden-test-utils';
-import React from 'react';
+import { screen } from '@testing-library/react';
+import { createRef } from 'react';
 
+import { render } from '../../test/render';
 import { Description } from './Description';
 
 describe('Sheet.Description', () => {
   const descriptionText = 'Sheet.Description';
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
 
     render(<Description ref={ref}>{descriptionText}</Description>);
 

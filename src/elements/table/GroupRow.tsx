@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledGroupRow } from '../styled';
-import { useTableContext } from '../utils/useTableContext';
+import { useTableContext } from '../../hooks/table/useTableContext';
+import { StyledGroupRow } from '../../views/table/StyledGroupRow';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.GroupRow` instead
@@ -19,7 +20,15 @@ export const GroupRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTable
   (props, ref) => {
     const { size } = useTableContext();
 
-    return <StyledGroupRow ref={ref} $size={size} {...props} />;
+    return (
+      <StyledGroupRow
+        ref={ref}
+        $size={size}
+        {...props}
+        data-garden-id={COMPONENT_IDS['tables.group_row']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

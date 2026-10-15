@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProps, DefaultTheme } from 'styled-components';
+import 'styled-components';
+import { ITableProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
-import { ITableProps } from '../types';
-
-export const getRowHeight = (props: { $size?: ITableProps['size'] } & ThemeProps<DefaultTheme>) => {
+export const getRowHeight = (props: { $size?: ITableProps['size'] } & IStyledBaseProps) => {
   if (props.$size === 'large') {
     return `${props.theme.space.base * 16}px`;
   } else if (props.$size === 'small') {

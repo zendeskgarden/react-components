@@ -6,14 +6,12 @@
  */
 
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled from 'styled-components';
 
-import { ITableProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { ITableProps } from '../../types/elements';
 import { getRowHeight } from './style-utils';
-
-const COMPONENT_ID = 'tables.overflow_button';
 
 interface IStyledOverflowButtonProps {
   $size?: ITableProps['size'];
@@ -24,10 +22,7 @@ const OVERFLOW_BUTTON_SIZE = '2em';
 /**
  * 1. Overrides IconButton sizing
  */
-export const StyledOverflowButton = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledOverflowButtonProps>`
+export const StyledOverflowButton = styled(IconButton)<IStyledOverflowButtonProps>`
   margin-top: calc(${props => math(`${getRowHeight(props)} / 2`)} - 1em);
   width: 100%; /* [1] */
   min-width: unset; /* [1] */

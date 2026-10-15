@@ -5,23 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ITableProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { ITableProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledCell } from './StyledCell';
 import { IStyledRowProps } from './StyledRow';
 import { getLineHeight } from './StyledTable';
 
-const COMPONENT_ID = 'tables.group_row';
-
 interface IStyledGroupRowProps {
   $size?: ITableProps['size'];
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   return css`
     background-color: ${getColor({
       variable: 'background.subtle',
@@ -33,7 +33,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledRowProps & IStyledBaseProps) => {
   const height = `${props.theme.space.base * 8}px`;
   const lineHeight = getLineHeight(props);
 
@@ -48,10 +48,7 @@ const sizeStyles = (props: IStyledRowProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledGroupRow = styled(StyledBaseRow).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGroupRowProps>`
+export const StyledGroupRow = styled(StyledBaseRow)<IStyledGroupRowProps>`
   ${sizeStyles}
 
   ${colorStyles}

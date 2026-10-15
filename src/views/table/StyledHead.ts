@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 import { StyledHeaderCell } from './StyledHeaderCell';
 import { StyledHeaderRow } from './StyledHeaderRow';
-
-const COMPONENT_ID = 'tables.head';
 
 interface IStyledHeadProps {
   $isSticky?: boolean;
@@ -20,7 +20,7 @@ interface IStyledHeadProps {
 /*
  * 1. Replace header row border with a box-shadow that maintains position
  */
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ variable: 'border.default', theme });
   const backgroundColor = getColor({ variable: 'background.default', theme });
 
@@ -48,10 +48,7 @@ const stickyStyles = () => {
   `;
 };
 
-export const StyledHead = styled.thead.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledHeadProps>`
+export const StyledHead = styled.thead<IStyledHeadProps>`
   ${props => props.$isSticky && stickyStyles()}
 
   ${colorStyles}

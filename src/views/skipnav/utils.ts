@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PALETTE } from '@zendeskgarden/react-theming';
 import { DefaultTheme } from 'styled-components';
 
-import { Product } from '../types';
+import PALETTE from '../../theming/elements/palette';
+import { Product } from '../../types/elements';
 
 export const getFooterHeight = (theme: DefaultTheme) => `${theme.space.base * 20}px`;
 

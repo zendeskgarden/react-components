@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
+import { userEvent } from '@testing-library/user-event';
 import { rgba } from 'polished';
-import React from 'react';
+import { createRef } from 'react';
 import { css } from 'styled-components';
 
-import { StyledCell } from '../styled';
+import { render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { StyledCell } from '../../views/table/StyledCell';
 import { Body } from './Body';
 import { Row } from './Row';
 import { Table } from './Table';
@@ -21,7 +22,7 @@ describe('Row', () => {
   const user = userEvent.setup();
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLTableRowElement>();
+    const ref = createRef<HTMLTableRowElement>();
     const { getByTestId } = render(
       <Table>
         <Body>

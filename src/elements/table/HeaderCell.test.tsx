@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
 import { hideVisually } from 'polished';
-import React from 'react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
 import { Head } from './Head';
 import { HeaderCell } from './HeaderCell';
 import { HeaderRow } from './HeaderRow';
@@ -16,7 +16,7 @@ import { Table } from './Table';
 
 describe('HeaderCell', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLTableHeaderCellElement>();
+    const ref = createRef<HTMLTableHeaderCellElement>();
     const { getByTestId } = render(
       <Table>
         <Head>
@@ -31,14 +31,17 @@ describe('HeaderCell', () => {
   });
 
   it('renders RTL styling', () => {
-    const { getByTestId } = renderRtl(
+    const { getByTestId } = render(
       <Table>
         <Head>
           <HeaderRow>
             <HeaderCell data-test-id="headerCell" />
           </HeaderRow>
         </Head>
-      </Table>
+      </Table>,
+      {
+        theme: RTL_THEME
+      }
     );
 
     expect(getByTestId('headerCell')).toHaveStyleRule('text-align', 'right');

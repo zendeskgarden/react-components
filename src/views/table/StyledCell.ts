@@ -5,15 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { ICellProps, ITableProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { ICellProps, ITableProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { getRowHeight } from './style-utils';
 import { getLineHeight } from './StyledTable';
-
-const COMPONENT_ID = 'tables.cell';
 
 export interface IStyledCellProps extends Pick<ICellProps, 'width'> {
   $size?: ITableProps['size'];
@@ -28,7 +27,7 @@ const truncatedStyling = css`
   white-space: nowrap;
 `;
 
-const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
+const sizeStyling = (props: IStyledCellProps & IStyledBaseProps) => {
   let boxSizing = 'border-box';
   let padding;
   let width = props.width;
@@ -61,10 +60,7 @@ const sizeStyling = (props: IStyledCellProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledCell = styled.td.attrs<IStyledCellProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledCellProps>`
+export const StyledCell = styled.td<IStyledCellProps>`
   display: table-cell;
   transition:
     border-color 0.25s ease-in-out,

@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledBody } from '../styled';
+import { StyledBody } from '../../views/table/StyledBody';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.Body` instead
@@ -15,7 +16,14 @@ import { StyledBody } from '../styled';
  * @extends HTMLAttributes<HTMLTableSectionElement>
  */
 export const Body = forwardRef<HTMLTableSectionElement, HTMLAttributes<HTMLTableSectionElement>>(
-  (props, ref) => <StyledBody ref={ref} {...props} />
+  (props, ref) => (
+    <StyledBody
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['tables.body']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 Body.displayName = 'Table.Body';

@@ -6,11 +6,12 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useMemo } from 'react';
+import { useMemo, forwardRef } from 'react';
 
-import { StyledTable } from '../styled';
-import { ITableProps, SIZE } from '../types';
-import { TableContext } from '../utils/useTableContext';
+import { TableProvider } from '../../context/table/TableContext';
+import { ITableProps, TABLE_SIZE } from '../../types/elements';
+import { StyledTable } from '../../views/table/StyledTable';
+import { COMPONENT_IDS } from '../utils';
 import { Body } from './Body';
 import { Caption } from './Caption';
 import { Cell } from './Cell';
@@ -25,7 +26,7 @@ import { SortableCell } from './SortableCell';
 /**
  * @extends TableHTMLAttributes<HTMLTableElement>
  */
-export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
+export const TableComponent = forwardRef<HTMLTableElement, ITableProps>(
   ({ isReadOnly, size = 'medium', ...props }, ref) => {
     const tableContextValue = useMemo(
       () => ({ size: size!, isReadOnly: isReadOnly! }),
@@ -33,9 +34,14 @@ export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
     );
 
     return (
-      <TableContext.Provider value={tableContextValue}>
-        <StyledTable ref={ref} {...props} />
-      </TableContext.Provider>
+      <TableProvider value={tableContextValue}>
+        <StyledTable
+          ref={ref}
+          {...props}
+          data-garden-id={COMPONENT_IDS['tables.table']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      </TableProvider>
     );
   }
 );
@@ -43,7 +49,7 @@ export const TableComponent = React.forwardRef<HTMLTableElement, ITableProps>(
 TableComponent.displayName = 'Table';
 
 TableComponent.propTypes = {
-  size: PropTypes.oneOf(SIZE),
+  size: PropTypes.oneOf(TABLE_SIZE),
   isReadOnly: PropTypes.bool
 };
 

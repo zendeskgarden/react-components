@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
 import { SkipNav } from './SkipNav';
 
 describe('SkipNav', () => {
@@ -19,14 +19,16 @@ describe('SkipNav', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLAnchorElement>();
+    const ref = createRef<HTMLAnchorElement>();
     const { container } = render(<SkipNav ref={ref} targetId="test" />);
 
     expect(container.firstChild).toBe(ref.current);
   });
 
   it('renders RTL styling if provided', () => {
-    const { container } = renderRtl(<SkipNav targetId="test" />);
+    const { container } = render(<SkipNav targetId="test" />, {
+      theme: RTL_THEME
+    });
 
     expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
   });

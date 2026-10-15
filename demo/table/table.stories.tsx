@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Table } from '@zendeskgarden/react-tables';
-import React from 'react';
 
+import { Table } from '../../src/index';
 import { TABLE_DATA as DATA } from './stories/data';
 import { TableStory } from './stories/TableStory';
 
 export default {
-  title: 'Packages/Tables/Table',
+  title: 'Components/Tables/Table',
   component: Table,
   subcomponents: {
     'Table.Body': Table.Body,
