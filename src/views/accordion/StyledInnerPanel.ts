@@ -8,16 +8,19 @@
 import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledAccordion } from '../../types/views';
 import { StyledPanel } from './StyledPanel';
 
-export const StyledInnerPanel = styled.div<IStyledAccordion>`
+interface IStyledInnerPanel {
+  $isAnimated?: boolean;
+}
+
+export const StyledInnerPanel = styled.div<IStyledInnerPanel>`
   overflow: hidden;
   line-height: inherit;
   font-size: inherit;
 
   ${StyledPanel}[aria-hidden='true'] > & {
-    transition: ${({ $isAnimated }) => $isAnimated && 'visibility 0s 0.25s'};
+    transition: ${props => props.$isAnimated && 'visibility 0s 0.25s'};
     visibility: hidden;
   }
 

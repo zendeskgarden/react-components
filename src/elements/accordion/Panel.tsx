@@ -13,30 +13,26 @@ import { StyledInnerPanel } from '../../views/accordion/StyledInnerPanel';
 import { StyledPanel } from '../../views/accordion/StyledPanel';
 import { COMPONENT_IDS, getInertValue } from '../utils';
 
-/**
- * @extends HTMLAttributes<HTMLElement>
- */
-export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
-  ({ children, role, ...other }, ref) => {
+const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
+  ({ role, children, ...props }, ref) => {
     const { isAnimated, isBare, isCompact, expandedSections, getPanelProps } =
       useAccordionContext();
     const sectionValue = useSectionContext();
     const isExpanded = expandedSections.includes(sectionValue);
-    const props = getPanelProps({
-      ref,
-      role: role === undefined ? null : 'region',
-      value: sectionValue,
-      ...other
-    }) as any; // HACK to workaround https://github.com/styled-components/styled-components/issues/5652
 
     return (
       <StyledPanel
-        {...props}
         inert={getInertValue(!isExpanded)}
         $isAnimated={isAnimated}
         $isBare={isBare}
         $isCompact={isCompact}
         $isExpanded={isExpanded}
+        {...(getPanelProps({
+          role: role === undefined ? null : 'region',
+          ref,
+          value: sectionValue,
+          ...props
+        }) as HTMLAttributes<HTMLElement>)}
         data-garden-id={COMPONENT_IDS['accordions.panel']}
         data-garden-version={PACKAGE_VERSION}
       >
@@ -52,4 +48,9 @@ export const Panel = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   }
 );
 
-Panel.displayName = 'Accordion.Panel';
+PanelComponent.displayName = 'Accordion.Panel';
+
+/**
+ * @extends HTMLAttributes<HTMLElement>
+ */
+export const Panel = PanelComponent;

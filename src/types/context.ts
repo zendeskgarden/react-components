@@ -7,7 +7,7 @@
 
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
-import type { Dispatch, HTMLProps, MutableRefObject } from 'react';
+import type { Dispatch, MutableRefObject, ReactNode } from 'react';
 
 import type {
   DatePickerRangeAction,
@@ -26,16 +26,41 @@ import type {
   Size,
   Space
 } from './elements';
-
-export interface IAccordionContext<SectionValue>
+//#region accordion
+export interface IAccordionContext<Value>
   extends
-    Omit<IUseAccordionReturnValue<SectionValue>, 'disabledSections'>,
+    Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
     Pick<
-      IAccordionProps<SectionValue>,
+      IAccordionProps<Value>,
       'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
     > {}
 
-export type AccordionHeaderContext = HTMLProps<Element>;
+export interface IHeaderContext {
+  isHovered: boolean;
+  otherTriggerProps: any;
+}
+
+export interface IStepContext {
+  currentStepIndex: number;
+  isActive: boolean;
+  isCompleted: boolean;
+  isHorizontal: boolean;
+}
+
+export interface IStepperContext {
+  activeIndex: number;
+  isHorizontal: boolean;
+}
+
+export interface ITimelineContext {
+  isAlternate?: boolean;
+}
+
+export interface ITimelineItemContext {
+  icon?: ReactNode;
+  surfaceColor?: string;
+}
+//#endregion
 
 //#region datepicker
 export interface IDatePickerContext {

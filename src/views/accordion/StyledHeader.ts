@@ -9,28 +9,28 @@ import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
-import type { IStyledAccordion } from '../../types/views';
-import { StyledLabel } from './StyledLabel';
+import { StyledButton } from './StyledButton';
 
-export const StyledHeader = styled.div<IStyledAccordion>`
+interface IStyledHeader {
+  $isExpanded?: boolean;
+  $isCollapsible?: boolean;
+}
+
+export const StyledHeader = styled.div<IStyledHeader>`
   display: flex;
   align-items: center;
   transition: box-shadow 0.1s ease-in-out;
-  font-size: ${({ theme }) => theme.fontSizes.md};
+  font-size: ${props => props.theme.fontSizes.md};
 
   &:hover {
-    cursor: ${props => (props.$isCollapsible ? 'pointer' : undefined)};
-
-    &:has(${StyledLabel}[aria-expanded='false']) {
-      cursor: pointer;
-    }
+    cursor: ${props => (props.$isCollapsible || !props.$isExpanded) && 'pointer'};
   }
 
   ${props =>
     focusStyles({
       theme: props.theme,
       inset: true,
-      selector: `&:has(${StyledLabel}:focus-visible)`
+      selector: `&:has(${StyledButton}:focus-visible)`
     })}
 
   ${componentStyles};

@@ -5,17 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useMemo, type PropsWithChildren } from 'react';
+import { createContext } from 'react';
 
-import type { AccordionHeaderContext } from '../../types/context';
+import type { IHeaderContext } from '../../types/context';
 
-export const HeaderContext = createContext<AccordionHeaderContext | undefined>(undefined);
+export const HeaderContext = createContext<IHeaderContext | undefined>(undefined);
 
-export const HeaderProvider = ({
-  children,
-  ...other
-}: PropsWithChildren<AccordionHeaderContext>) => {
-  const value = useMemo(() => other, [other]);
-
-  return <HeaderContext.Provider value={value}>{children}</HeaderContext.Provider>;
-};
+export const HeaderProvider = HeaderContext.Provider;

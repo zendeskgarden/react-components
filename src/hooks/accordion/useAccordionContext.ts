@@ -10,11 +10,11 @@ import { useContext } from 'react';
 import { AccordionContext } from '../../context/accordion/AccordionContext';
 
 export const useAccordionContext = () => {
-  const retVal = useContext(AccordionContext);
+  const context = useContext(AccordionContext);
 
-  if (retVal === undefined) {
-    throw new Error('this component must be rendered within an <Accordion>.');
+  if (context === undefined) {
+    throw new Error('This component must be rendered within a Accordion component');
   }
 
-  return retVal;
+  return context;
 };

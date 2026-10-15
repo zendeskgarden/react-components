@@ -9,55 +9,49 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledAccordion } from '../../types/views';
-import { StyledHeader } from './StyledHeader';
-import { StyledLabel } from './StyledLabel';
+import type { IStyledBaseProps } from '../../types/views';
 
-const colorStyles = ({ $isCollapsible, theme }: IStyledAccordion) => {
-  const color = getColor({ theme, variable: 'foreground.subtle' });
-  const hoverColor = getColor({ theme, variable: 'foreground.primary' });
+interface IStyledRotateIcon {
+  $isCompact?: boolean;
+  $isRotated?: boolean;
+  $isHovered?: boolean;
+  $isCollapsible?: boolean;
+}
+
+const colorStyles = ({ $isCollapsible, $isHovered, $isRotated, theme }: any & IStyledBaseProps) => {
+  const showColor = $isCollapsible || !$isRotated;
+  const color = getColor({
+    theme,
+    variable: showColor && $isHovered ? 'foreground.primary' : 'foreground.subtle'
+  });
 
   return css`
     color: ${color};
 
-    ${StyledHeader}:hover > & {
-      color: ${hoverColor};
-    }
-
-    ${StyledHeader}:hover:has(${StyledLabel}[aria-expanded='true']) > & {
-      color: ${$isCollapsible ? undefined : color};
+    &:hover {
+      color: ${showColor && color};
     }
   `;
 };
 
-const sizeStyles = ({ $isCompact, theme }: IStyledAccordion) => {
-  const padding = $isCompact
-    ? `${theme.space.base * 1.5}px ${theme.space.base * 3}px`
-    : `${theme.space.base * 5}px`;
-  const size = theme.iconSizes.md;
-
-  return css`
-    box-sizing: content-box;
-    padding: ${padding};
-    width: ${size};
-    min-width: ${size};
-    height: ${size};
-  `;
-};
-
-export const StyledRotateIcon = styled(StyledBaseIcon)<IStyledAccordion>`
+export const StyledRotateIcon = styled(StyledBaseIcon)<IStyledRotateIcon>`
+  transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,
     color 0.1s ease-in-out;
+  box-sizing: content-box;
+  padding: ${props =>
+    props.$isCompact
+      ? `${props.theme.space.xs} ${props.theme.space.base * 2.5}px`
+      : `${props.theme.space.md} ${props.theme.space.base * 4.5}px`};
+  width: ${props => getIconRenderSize(props.theme)};
+  min-width: ${props => getIconRenderSize(props.theme)};
+  height: ${props => getIconRenderSize(props.theme)};
   vertical-align: middle;
 
-  ${StyledLabel}[aria-expanded='true'] ~ & {
-    transform: rotate(${({ theme }) => (theme.rtl ? '-' : '+')}180deg);
-  }
-
-  ${sizeStyles};
-  ${colorStyles};
+  ${colorStyles}
 
   ${componentStyles};
 `;

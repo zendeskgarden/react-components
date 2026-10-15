@@ -5,35 +5,40 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ButtonHTMLAttributes, forwardRef } from 'react';
+import { forwardRef, ButtonHTMLAttributes } from 'react';
 
 import { useAccordionContext } from '../../hooks/accordion/useAccordionContext';
 import { useHeaderContext } from '../../hooks/accordion/useHeaderContext';
-import { StyledLabel } from '../../views/accordion/StyledLabel';
+import { useSectionContext } from '../../hooks/accordion/useSectionContext';
+import { StyledButton } from '../../views/accordion/StyledButton';
 import { COMPONENT_IDS } from '../utils';
 
-/**
- * @extends ButtonHTMLAttributes<HTMLButtonElement>
- */
-export const Label = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
+const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
-    const { isCompact, isCollapsible } = useAccordionContext();
-    const buttonProps = useHeaderContext();
+    const sectionValue = useSectionContext();
+    const { isCompact, isCollapsible, expandedSections } = useAccordionContext();
+    const isExpanded = expandedSections.includes(sectionValue);
+    const { isHovered, otherTriggerProps } = useHeaderContext();
 
     return (
-      <StyledLabel
+      <StyledButton
+        ref={ref}
         $isCompact={isCompact}
+        $isHovered={isHovered}
+        $isExpanded={isExpanded}
         $isCollapsible={isCollapsible}
-        {
-          ...(buttonProps as any) /* HACK to workaround https://github.com/styled-components/styled-components/issues/5652 */
-        }
+        {...otherTriggerProps}
         {...props}
         data-garden-id={COMPONENT_IDS['accordions.button']}
         data-garden-version={PACKAGE_VERSION}
-        ref={ref}
       />
     );
   }
 );
 
-Label.displayName = 'Accordion.Label';
+LabelComponent.displayName = 'Accordion.Label';
+
+/**
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
+export const Label = LabelComponent;

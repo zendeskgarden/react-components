@@ -9,12 +9,16 @@ import { useContext } from 'react';
 
 import { SectionContext } from '../../context/accordion/SectionContext';
 
-export const useSectionContext = () => {
-  const retVal = useContext(SectionContext);
+export interface ISectionContext {
+  sectionIndex: number;
+}
 
-  if (retVal === undefined) {
-    throw new Error('this component must be rendered within an <Accordion.Section>.');
+export const useSectionContext = () => {
+  const context = useContext(SectionContext);
+
+  if (context === undefined) {
+    throw new Error('This component must be rendered within an Accordion component');
   }
 
-  return retVal;
+  return context;
 };

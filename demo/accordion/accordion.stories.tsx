@@ -8,10 +8,9 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import { Accordion } from '../../src';
-import { AccordionStory } from './AccordionStory';
-import { SECTIONS } from './data';
-
+import { Accordion } from '../../src/index';
+import { AccordionStory } from './stories/AccordionStory';
+import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 type Story = StoryObj<typeof AccordionStory>;
 
 export default {
