@@ -253,6 +253,7 @@ describe('Modal', () => {
         media: `(min-width: ${DEFAULT_THEME.breakpoints.sm})`
       });
       expect(modal).toHaveStyleRule('margin', `${DEFAULT_THEME.space.base * 12}px`);
+      expect(modal).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.xl);
       expect(modal).not.toHaveStyleRule('direction');
       expect(modal).not.toHaveStyleRule('animation');
       expect(modal).toHaveStyleRule(

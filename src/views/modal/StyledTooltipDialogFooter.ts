@@ -14,7 +14,7 @@ export const StyledTooltipDialogFooter = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: flex-end;
-  padding-top: ${p => p.theme.space.base * 5}px;
+  padding-top: ${p => p.theme.space.sm};
 
   ${componentStyles};
 `;

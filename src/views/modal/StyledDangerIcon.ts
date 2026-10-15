@@ -5,11 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import ExclamationCircleFillIcon from '@zendeskgarden/svg-icons/src/exclamation-circle-fill.svg';
 import styled from 'styled-components';
-import AlertErrorStrokeIcon from 'svg-icons-legacy/src/16/alert-error-stroke.svg';
 
-export const StyledDangerIcon = styled(AlertErrorStrokeIcon)`
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
+
+export const StyledDangerIcon = styled(ExclamationCircleFillIcon)`
   position: absolute;
-  top: ${props => props.theme.space.base * 5.5}px;
-  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => `${props.theme.space.base * 4}px`};
+  top: ${props => props.theme.space.md};
+  ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.sm};
+  width: ${props => getIconRenderSize(props.theme)};
+  height: ${props => getIconRenderSize(props.theme)};
 `;

@@ -59,7 +59,21 @@ describe('TooltipDialog.Close', () => {
       );
     });
 
-    expect(getByRole('button')).toHaveStyleRule('top', `${DEFAULT_THEME.space.base * 3.5}px`);
+    expect(getByRole('button')).toHaveStyleRule('top', `${DEFAULT_THEME.space.base * 2.5}px`);
     expect(getByRole('button')).toHaveStyleRule(side, `${DEFAULT_THEME.space.base * 3}px`);
+  });
+
+  it('is a medium icon button', async () => {
+    const { container, getByRole, rerender } = render(<div />);
+
+    await act(async () => {
+      await rerender(
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Close aria-label="Close" />
+        </TooltipDialog>
+      );
+    });
+
+    expect(getByRole('button')).toHaveStyleRule('width', `${DEFAULT_THEME.space.base * 10}px`);
   });
 });

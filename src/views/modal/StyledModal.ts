@@ -73,7 +73,7 @@ export const StyledModal = styled.div<IStyledModalProps>`
   animation-delay: 0.01s;
   margin: ${props => (props.$isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border: ${props => props.theme.borders.sm};
-  border-radius: ${props => props.theme.borderRadii.md};
+  border-radius: ${props => props.theme.borderRadii.xl};
   min-height: 60px;
   max-height: calc(100vh - ${props => props.theme.space.base * 24}px);
   overflow: auto;

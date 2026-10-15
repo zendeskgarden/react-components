@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import XIcon from '@zendeskgarden/svg-icons/src/x.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useTooltipDialogContext } from '../../hooks/modal/useTooltipDialogContext';
 import { useText } from '../../theming/utils/useText';
@@ -35,7 +35,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
         $isBasic
         $isPill
-        $size="small"
+        $size="medium"
         data-garden-id={COMPONENT_IDS['modals.tooltip_dialog.close']}
         data-garden-version={PACKAGE_VERSION}
         ref={ref}
@@ -44,7 +44,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
           data-garden-id={COMPONENT_IDS['buttons.icon']}
           data-garden-version={PACKAGE_VERSION}
         >
-          <XStrokeIcon />
+          <XIcon />
         </StyledIcon>
       </StyledTooltipDialogClose>
     );

@@ -14,6 +14,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getArrowPosition } from '../../theming/utils/getArrowPosition';
 import type { IStyledBaseProps } from '../../types/views';
 import { StyledTooltipDialogClose } from './StyledTooltipDialogClose';
+import { StyledTooltipWrapper } from './StyledTooltipWrapper';
 
 export interface IStyledTooltipDialogProps {
   $hasArrow?: boolean;
@@ -23,11 +24,22 @@ export interface IStyledTooltipDialogProps {
   $transitionState?: TransitionStatus;
 }
 
+/**
+ * 1. The wrapper's `menuStyles` rule (`.wrapper > *`) clears the padding and sets the default
+ *    radius on the dialog. It has the same specificity as the dialog's own rules, so the
+ *    dialog wins only when its view is defined after the wrapper's. Naming the wrapper makes
+ *    the import, and so the definition order, explicit. `:where()` keeps the rule at resting
+ *    specificity, so `componentStyles` and a consumer's own rules still apply over it.
+ */
 const sizeStyles = (props: IStyledBaseProps) => `
-  padding: ${props.theme.space.base * 5}px;
+  :where(${StyledTooltipWrapper}) > & { /* [1] */
+    border-radius: ${props.theme.borderRadii.xl};
+    padding: ${props.theme.space.base * 5}px;
+  }
+
   width: 400px;
   max-width: 100vw;
-  
+
   &:has(${StyledTooltipDialogClose}) > :first-child {
     padding-${props.theme.rtl ? 'left' : 'right'}: ${props.theme.space.base * 8}px;
   }

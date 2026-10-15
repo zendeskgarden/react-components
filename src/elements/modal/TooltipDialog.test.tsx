@@ -11,6 +11,7 @@ import { useState, forwardRef, useRef } from 'react';
 import { vi, type Mock } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { ITooltipDialogProps } from '../../types/elements';
 import { TooltipDialog } from './TooltipDialog';
 
@@ -369,6 +370,14 @@ describe('TooltipDialog', () => {
       const dialog = await renderDialog({ 'data-garden-id': 'custom' } as ITooltipDialogProps);
 
       expect(dialog).toHaveAttribute('data-garden-id', 'modals.tooltip_dialog');
+    });
+
+    it('keeps its padding and radius over the wrapper menu styles', async () => {
+      const dialog = await renderDialog({});
+      const { borderRadius, padding } = getComputedStyle(dialog);
+
+      expect(padding).toBe(`${DEFAULT_THEME.space.base * 5}px`);
+      expect(borderRadius).toBe(DEFAULT_THEME.borderRadii.xl);
     });
 
     it('keeps the consumer class name', async () => {

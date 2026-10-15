@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 
 export const StyledFooterItem = styled.span`
   display: flex;
-  margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 5}px;
+  margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.sm};
   min-width: 0;
 
   &:first-child {

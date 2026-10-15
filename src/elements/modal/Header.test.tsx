@@ -136,8 +136,21 @@ describe('Header', () => {
       );
       const icon = getByText('Header').querySelector('svg');
 
-      expect(icon).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 4}px`);
+      expect(icon).toHaveStyleRule('left', DEFAULT_THEME.space.sm);
       expect(icon).not.toHaveStyleRule('right');
+    });
+
+    it('is a 20px icon below the top edge', () => {
+      const { getByText } = render(
+        <Modal>
+          <Header isDanger>Header</Header>
+        </Modal>
+      );
+      const icon = getByText('Header').querySelector('svg');
+
+      expect(icon).toHaveStyleRule('top', DEFAULT_THEME.space.md);
+      expect(icon).toHaveStyleRule('width', DEFAULT_THEME.space.md);
+      expect(icon).toHaveStyleRule('height', DEFAULT_THEME.space.md);
     });
 
     it('is positioned at the start edge in rtl mode', () => {
@@ -149,7 +162,7 @@ describe('Header', () => {
       );
       const icon = getByText('Header').querySelector('svg');
 
-      expect(icon).toHaveStyleRule('right', `${DEFAULT_THEME.space.base * 4}px`);
+      expect(icon).toHaveStyleRule('right', DEFAULT_THEME.space.sm);
       expect(icon).not.toHaveStyleRule('left');
     });
   });

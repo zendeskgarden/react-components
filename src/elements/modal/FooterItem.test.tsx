@@ -34,10 +34,7 @@ describe('FooterItem', () => {
       </Modal>
     );
 
-    expect(getByTestId('footer-item')).toHaveStyleRule(
-      'margin-left',
-      `${DEFAULT_THEME.space.base * 5}px`
-    );
+    expect(getByTestId('footer-item')).toHaveStyleRule('margin-left', DEFAULT_THEME.space.sm);
     expect(getByTestId('footer-item')).not.toHaveStyleRule('margin-right');
   });
 
@@ -49,10 +46,7 @@ describe('FooterItem', () => {
       { theme: RTL_THEME }
     );
 
-    expect(getByTestId('footer-item')).toHaveStyleRule(
-      'margin-right',
-      `${DEFAULT_THEME.space.base * 5}px`
-    );
+    expect(getByTestId('footer-item')).toHaveStyleRule('margin-right', DEFAULT_THEME.space.sm);
     expect(getByTestId('footer-item')).not.toHaveStyleRule('margin-left');
   });
 });

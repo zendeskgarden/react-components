@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import XIcon from '@zendeskgarden/svg-icons/src/x.svg';
 import { ButtonHTMLAttributes, useEffect, forwardRef } from 'react';
-import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useModalContext } from '../../hooks/modal/useModalContext';
 import { useText } from '../../theming/utils/useText';
@@ -50,7 +50,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
           data-garden-id={COMPONENT_IDS['buttons.icon']}
           data-garden-version={PACKAGE_VERSION}
         >
-          <XStrokeIcon />
+          <XIcon />
         </StyledIcon>
       </StyledDrawerClose>
     );

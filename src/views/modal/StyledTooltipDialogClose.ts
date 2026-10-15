@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledClose } from './StyledClose';
 
 export const StyledTooltipDialogClose = styled(StyledClose)`
-  top: ${props => props.theme.space.base * 3.5}px;
+  top: ${props => props.theme.space.base * 2.5}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props => `${props.theme.space.base * 3}px`};
   ${componentStyles};
 `;
