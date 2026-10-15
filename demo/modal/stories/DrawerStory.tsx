@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button } from '@zendeskgarden/react-buttons';
 import { MouseEventHandler } from 'react';
 import { useTheme } from 'styled-components';
 import Icon from 'svg-icons-legacy/src/16/arrow-left-stroke.svg';
 
-import { Drawer, IDrawerProps } from '../../../src/index';
+import { Button, Drawer, IDrawerProps } from '../../../src/index';
 import { IFooterItem } from './types';
 
 interface IArgs extends IDrawerProps {

@@ -9,9 +9,13 @@ import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
 import { vi, type Mock } from 'vitest';
 
-import { render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { IModalProps } from '../../types/elements';
 import { Modal } from './Modal';
+
+vi.mock('dom-helpers/scrollbarSize', () => ({ default: () => 15 }));
 
 describe('Modal', () => {
   const user = userEvent.setup();
@@ -34,7 +38,9 @@ describe('Modal', () => {
       {!noHeader && <Modal.Header data-test-id="header">Example Header</Modal.Header>}
       <Modal.Body data-test-id="body">Body content</Modal.Body>
       <Modal.Footer data-test-id="footer">
-        <button onClick={() => onClose}>Confirm</button>
+        <button type="button" onClick={() => onClose}>
+          Confirm
+        </button>
       </Modal.Footer>
       <Modal.Close data-test-id="close" />
     </Modal>
@@ -185,6 +191,140 @@ describe('Modal', () => {
       );
 
       expect(portalInstance.firstChild).toHaveAttribute('data-test-id', 'backdrop');
+    });
+  });
+
+  describe('backdrop styling', () => {
+    it('renders default styling', () => {
+      const { getByTestId } = render(<BasicExample isCentered={false} isAnimated={false} />);
+      const backdrop = getByTestId('backdrop');
+
+      expect(backdrop).not.toHaveStyleRule('direction');
+      expect(backdrop).not.toHaveStyleRule('align-items');
+      expect(backdrop).not.toHaveStyleRule('justify-content');
+      expect(backdrop).not.toHaveStyleRule('animation');
+    });
+
+    it('renders RTL styling', () => {
+      const { getByTestId } = render(<BasicExample />, { theme: RTL_THEME });
+
+      expect(getByTestId('backdrop')).toHaveStyleRule('direction', 'rtl');
+    });
+
+    it('renders centered styling', () => {
+      const { getByTestId } = render(<BasicExample isCentered />);
+
+      expect(getByTestId('backdrop')).toHaveStyleRule('align-items', 'center');
+      expect(getByTestId('backdrop')).toHaveStyleRule('justify-content', 'center');
+    });
+
+    it('renders animated styling', () => {
+      const { getByTestId } = render(<BasicExample isAnimated />);
+
+      expect(getByTestId('backdrop')).toHaveStyleRule('animation', /0\.15s ease-in/u);
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders the %s mode color', (_mode, theme) => {
+      const { getByTestId } = render(<BasicExample />, { theme });
+
+      expect(getByTestId('backdrop')).toHaveStyleRule(
+        'background-color',
+        getColor({
+          theme,
+          hue: 'neutralHue',
+          transparency: theme.opacity[1000],
+          light: { shade: 900 },
+          dark: { shade: 1200 }
+        })
+      );
+    });
+  });
+
+  describe('modal styling', () => {
+    it('renders default styling', () => {
+      const { getByTestId } = render(<BasicExample isAnimated={false} isCentered={false} />);
+      const modal = getByTestId('modal');
+
+      expect(modal).not.toHaveStyleRule('width');
+      expect(modal).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.sm, {
+        media: `(min-width: ${DEFAULT_THEME.breakpoints.sm})`
+      });
+      expect(modal).toHaveStyleRule('margin', `${DEFAULT_THEME.space.base * 12}px`);
+      expect(modal).not.toHaveStyleRule('direction');
+      expect(modal).not.toHaveStyleRule('animation');
+      expect(modal).toHaveStyleRule(
+        'max-height',
+        `calc(100vh - ${DEFAULT_THEME.space.base * 24}px)`
+      );
+      expect(modal).toHaveStyleRule(
+        'max-height',
+        `calc(100vh - ${DEFAULT_THEME.space.base * 12}px)`,
+        {
+          media: '(max-height: 399px)'
+        }
+      );
+    });
+
+    it('renders RTL styling', () => {
+      const { getByTestId } = render(<BasicExample />, { theme: RTL_THEME });
+
+      expect(getByTestId('modal')).toHaveStyleRule('direction', 'rtl');
+    });
+
+    it('renders large styling', () => {
+      const { getByTestId } = render(<BasicExample isLarge />);
+
+      expect(getByTestId('modal')).toHaveStyleRule('width', DEFAULT_THEME.breakpoints.md, {
+        media: `(min-width: ${DEFAULT_THEME.breakpoints.md})`
+      });
+    });
+
+    it('renders centered styling', () => {
+      const { getByTestId } = render(<BasicExample isCentered />);
+
+      expect(getByTestId('modal')).toHaveStyleRule('margin', '0');
+    });
+
+    it('renders animated styling', () => {
+      const { getByTestId } = render(<BasicExample isAnimated />);
+
+      expect(getByTestId('modal')).toHaveStyleRule('animation', /0\.3s ease-in/u);
+    });
+  });
+
+  describe('scroll lock', () => {
+    it('pads the body by the scrollbar size while the modal is open', () => {
+      const { body } = document;
+      const { marginLeft, marginRight, paddingRight } = body.style;
+
+      body.style.marginLeft = '0px';
+      body.style.marginRight = '0px';
+      body.style.paddingRight = '3px';
+
+      const { unmount } = render(<BasicExample />);
+
+      expect(body.style.paddingRight).toBe('18px');
+      unmount();
+      expect(body.style.paddingRight).toBe('3px');
+
+      body.style.marginLeft = marginLeft;
+      body.style.marginRight = marginRight;
+      body.style.paddingRight = paddingRight;
+    });
+
+    it('does not lock scrolling when the document has no body', () => {
+      const doc = document.implementation.createHTMLDocument();
+
+      doc.body.remove();
+
+      const { queryByRole } = render(<BasicExample />, {
+        theme: { ...DEFAULT_THEME, document: doc }
+      });
+
+      expect(queryByRole('dialog')).toBeNull();
     });
   });
 });

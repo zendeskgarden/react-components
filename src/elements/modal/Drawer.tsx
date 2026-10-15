@@ -10,6 +10,7 @@ import activeElement from 'dom-helpers/activeElement';
 import PropTypes from 'prop-types';
 import {
   HTMLAttributes,
+  RefObject,
   useEffect,
   useRef,
   useMemo,
@@ -22,7 +23,7 @@ import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
-import { ModalsContext } from '../../hooks/modal/useModalContext';
+import { ModalProvider } from '../../context/modal/ModalContext';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { IDrawerProps } from '../../types/elements';
@@ -71,7 +72,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
     const { getTitleProps, getCloseProps, getContentProps, getBackdropProps, getModalProps } =
       useModal({
         idPrefix: id,
-        modalRef,
+        modalRef: modalRef as RefObject<HTMLElement>,
         focusOnMount: false /* [1:b] */,
         restoreFocus: false /* [1:b] */,
         environment,
@@ -174,7 +175,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
     }
 
     return ReactDOM.createPortal(
-      <ModalsContext.Provider value={value}>
+      <ModalProvider value={value}>
         <CSSTransition
           in={isOpen}
           timeout={250}
@@ -198,7 +199,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
             />
           </StyledBackdrop>
         </CSSTransition>
-      </ModalsContext.Provider>,
+      </ModalProvider>,
       rootNode
     );
   }

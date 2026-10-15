@@ -16,7 +16,15 @@ import {
 } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import PropTypes from 'prop-types';
-import { HTMLAttributes, useState, useContext, useEffect, useRef, forwardRef } from 'react';
+import {
+  HTMLAttributes,
+  RefObject,
+  useState,
+  useContext,
+  useEffect,
+  useRef,
+  forwardRef
+} from 'react';
 import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
@@ -31,7 +39,7 @@ import { ITooltipDialogProps, MODAL_PLACEMENT } from '../../types/elements';
 import { StyledTooltipDialog } from '../../views/modal/StyledTooltipDialog';
 import { StyledTooltipDialogBackdrop } from '../../views/modal/StyledTooltipDialogBackdrop';
 import { StyledTooltipWrapper } from '../../views/modal/StyledTooltipWrapper';
-import { COMPONENT_IDS } from '../utils';
+import { COMPONENT_IDS, getInertValue } from '../utils';
 import { Title } from './Title';
 import { Body } from './TooltipDialogBody';
 import { Close } from './TooltipDialogClose';
@@ -63,7 +71,7 @@ const TooltipDialogComponent = forwardRef<HTMLDivElement, ITooltipDialogProps>(
   ) => {
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useDocument(theme);
-    const previousReferenceElementRef = useRef<HTMLElement | null>();
+    const previousReferenceElementRef = useRef<HTMLElement | null | undefined>(undefined);
     const modalRef = useRef<HTMLDivElement>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
     const [floatingElement, setFloatingElement] = useState<HTMLDivElement | null>();
@@ -76,7 +84,7 @@ const TooltipDialogComponent = forwardRef<HTMLDivElement, ITooltipDialogProps>(
         closeOnBlur: true,
         idPrefix: id,
         onClose: handleClose,
-        modalRef,
+        modalRef: modalRef as RefObject<HTMLElement>,
         focusOnMount,
         /** Handle `restoreFocus` locally to return focus to `referenceElement` */
         restoreFocus: false,
@@ -199,6 +207,7 @@ const TooltipDialogComponent = forwardRef<HTMLDivElement, ITooltipDialogProps>(
               >
                 <StyledTooltipWrapper
                   ref={setFloatingElement}
+                  className={isAnimated ? 'is-animated' : undefined}
                   style={{ transform }}
                   $placement={placement}
                   $zIndex={zIndex}
@@ -210,10 +219,17 @@ const TooltipDialogComponent = forwardRef<HTMLDivElement, ITooltipDialogProps>(
                     $arrowShift={arrowShift}
                     $hasArrow={hasArrow}
                     $isAnimated={isAnimated}
-                    inert={isHidden ? '' : undefined}
+                    inert={getInertValue(!!isHidden)}
                     {...modalProps}
                     {...ariaProps}
                     {...props}
+                    className={
+                      isAnimated
+                        ? [props.className, 'is-animated'].filter(Boolean).join(' ')
+                        : props.className
+                    }
+                    data-garden-id={COMPONENT_IDS['modals.tooltip_dialog']}
+                    data-garden-version={PACKAGE_VERSION}
                     ref={mergeRefs([modalRef, ref])}
                   />
                 </StyledTooltipWrapper>
@@ -234,7 +250,6 @@ TooltipDialogComponent.propTypes = {
   appendToNode: PropTypes.any,
   referenceElement: PropTypes.any,
   placement: PropTypes.any,
-  // @ts-expect-error Validation error due to incorrect type inference when component is wrapped in forwardRef
   fallbackPlacements: PropTypes.arrayOf(
     PropTypes.oneOf(MODAL_PLACEMENT.filter(placement => placement !== 'auto'))
   ),

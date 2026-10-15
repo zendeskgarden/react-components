@@ -9,7 +9,9 @@ import { screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { useRef, useState, createRef, forwardRef } from 'react';
 
-import { render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { IDrawerProps } from '../../types/elements';
 import { Drawer } from './Drawer';
 
@@ -28,7 +30,7 @@ describe('Drawer', () => {
 
     return (
       <>
-        <button ref={buttonRef} onClick={() => setIsOpen(true)}>
+        <button type="button" ref={buttonRef} onClick={() => setIsOpen(true)}>
           Open Drawer
         </button>
         <Drawer ref={ref} isOpen={isOpen} onClose={() => setIsOpen(false)} {...props}>
@@ -37,7 +39,7 @@ describe('Drawer', () => {
           <Drawer.Body>body</Drawer.Body>
           <Drawer.Footer>
             <Drawer.FooterItem>
-              <button>Click</button>
+              <button type="button">Click</button>
             </Drawer.FooterItem>
           </Drawer.Footer>
         </Drawer>
@@ -212,6 +214,62 @@ describe('Drawer', () => {
       await waitFor(() => expect(queryByRole('dialog')).not.toBeInTheDocument());
 
       expect(getByText('Open Drawer')).toBe(document.activeElement);
+    });
+  });
+
+  describe('styling', () => {
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders in %s mode', (_mode, theme) => {
+      const { getByRole } = render(<Drawer isOpen />, { theme });
+      const drawer = getByRole('dialog');
+
+      expect(drawer).toHaveStyleRule(
+        'background-color',
+        getColor({ theme, variable: 'background.raised' })
+      );
+      expect(drawer).toHaveStyleRule(
+        'border-color',
+        getColor({ theme, variable: 'border.default' })
+      );
+    });
+
+    it('renders default styling', () => {
+      const { getByRole } = render(<Drawer isOpen />);
+      const drawer = getByRole('dialog');
+
+      expect(drawer).not.toHaveStyleRule('direction');
+      expect(drawer).toHaveStyleRule('border-left', DEFAULT_THEME.borders.sm);
+      expect(drawer).toHaveStyleRule('right', '0');
+    });
+
+    it('renders RTL styling', () => {
+      const { getByRole } = render(<Drawer isOpen />, { theme: RTL_THEME });
+      const drawer = getByRole('dialog');
+
+      expect(drawer).toHaveStyleRule('direction', 'rtl');
+      expect(drawer).toHaveStyleRule('border-right', DEFAULT_THEME.borders.sm);
+      expect(drawer).toHaveStyleRule('left', '0');
+    });
+  });
+
+  describe('appendToNode', () => {
+    it('appends the backdrop to the supplied element', () => {
+      const { getByTestId, rerender } = render(<div data-test-id="portal" />);
+
+      rerender(
+        <>
+          <div data-test-id="portal" />
+          <Drawer
+            isOpen
+            appendToNode={getByTestId('portal')}
+            backdropProps={{ 'data-test-id': 'backdrop' } as any}
+          />
+        </>
+      );
+
+      expect(getByTestId('portal')).toContainElement(getByTestId('backdrop'));
     });
   });
 });

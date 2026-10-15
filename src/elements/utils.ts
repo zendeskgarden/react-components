@@ -83,6 +83,7 @@ const componentIds = [
   'modals.footer_item',
   'modals.header',
   'modals.modal',
+  'modals.tooltip_dialog',
   'modals.tooltip_dialog.backdrop',
   'modals.tooltip_dialog.body',
   'modals.tooltip_dialog.close',

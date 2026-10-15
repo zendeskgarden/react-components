@@ -5,24 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseModalReturnValue } from '@zendeskgarden/container-modal';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface IModalContext {
-  isLarge?: boolean;
-  isCloseButtonPresent?: boolean;
-  hasHeader: boolean;
-  setHasHeader: (hasHeader: boolean) => void;
-  getTitleProps: IUseModalReturnValue['getTitleProps'];
-  getContentProps: IUseModalReturnValue['getContentProps'];
-  getCloseProps: IUseModalReturnValue['getCloseProps'];
-  setIsCloseButtonPresent: (isPresent: boolean) => void;
-}
-
-export const ModalsContext = createContext<IModalContext | undefined>(undefined);
+import { ModalContext } from '../../context/modal/ModalContext';
 
 export const useModalContext = () => {
-  const context = useContext(ModalsContext);
+  const context = useContext(ModalContext);
 
   if (context === undefined) {
     throw new Error('useModalContext must be used within a ModalsContext.Provider');

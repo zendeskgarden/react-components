@@ -8,7 +8,8 @@
 import { act } from '@testing-library/react';
 import { createRef } from 'react';
 
-import { render } from '../../test/render';
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { TooltipDialog } from './TooltipDialog';
 
 describe('TooltipDialog.Close', () => {
@@ -25,5 +26,40 @@ describe('TooltipDialog.Close', () => {
     });
 
     expect(getByRole('button')).toBe(ref.current);
+  });
+
+  it('renders the close and icon ids, which a prop cannot replace', async () => {
+    const { container, getByRole, rerender } = render(<div />);
+
+    await act(async () => {
+      await rerender(
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Close aria-label="Close" data-garden-id="custom" />
+        </TooltipDialog>
+      );
+    });
+
+    const close = getByRole('button');
+
+    expect(close).toHaveAttribute('data-garden-id', 'modals.tooltip_dialog.close');
+    expect(close.querySelector('[data-garden-id="buttons.icon"]')).not.toBeNull();
+  });
+
+  it.each([
+    ['default', undefined, 'right'],
+    ['RTL', RTL_THEME, 'left']
+  ] as const)('renders %s styling', async (_name, theme, side) => {
+    const { container, getByRole, rerender } = render(<div />, { theme });
+
+    await act(async () => {
+      await rerender(
+        <TooltipDialog referenceElement={container as HTMLElement}>
+          <TooltipDialog.Close aria-label="Close" />
+        </TooltipDialog>
+      );
+    });
+
+    expect(getByRole('button')).toHaveStyleRule('top', `${DEFAULT_THEME.space.base * 3.5}px`);
+    expect(getByRole('button')).toHaveStyleRule(side, `${DEFAULT_THEME.space.base * 3}px`);
   });
 });

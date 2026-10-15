@@ -8,8 +8,9 @@
 import { screen } from '@testing-library/react';
 import { createRef } from 'react';
 
-import { RTL_THEME, render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { Close } from './Close';
 import { Header } from './Header';
 import { Modal } from './Modal';
@@ -90,5 +91,66 @@ describe('Header', () => {
     );
 
     expect(getByTestId('header').tagName).not.toBe('DIV');
+  });
+
+  describe('colors', () => {
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders the %s mode default and danger colors', (_mode, theme) => {
+      const { getByText } = render(
+        <Modal>
+          <Header>default</Header>
+          <Header isDanger>danger</Header>
+        </Modal>,
+        { theme }
+      );
+
+      expect(getByText('default')).toHaveStyleRule(
+        'color',
+        getColor({ theme, variable: 'foreground.default' })
+      );
+      expect(getByText('danger')).toHaveStyleRule(
+        'color',
+        getColor({ theme, variable: 'foreground.danger' })
+      );
+    });
+  });
+
+  describe('danger icon', () => {
+    it('is absent by default', () => {
+      const { getByText } = render(
+        <Modal>
+          <Header>Header</Header>
+        </Modal>
+      );
+
+      expect(getByText('Header').querySelector('svg')).toBeNull();
+    });
+
+    it('is positioned at the start edge', () => {
+      const { getByText } = render(
+        <Modal>
+          <Header isDanger>Header</Header>
+        </Modal>
+      );
+      const icon = getByText('Header').querySelector('svg');
+
+      expect(icon).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 4}px`);
+      expect(icon).not.toHaveStyleRule('right');
+    });
+
+    it('is positioned at the start edge in rtl mode', () => {
+      const { getByText } = render(
+        <Modal>
+          <Header isDanger>Header</Header>
+        </Modal>,
+        { theme: RTL_THEME }
+      );
+      const icon = getByText('Header').querySelector('svg');
+
+      expect(icon).toHaveStyleRule('right', `${DEFAULT_THEME.space.base * 4}px`);
+      expect(icon).not.toHaveStyleRule('left');
+    });
   });
 });

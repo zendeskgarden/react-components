@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ModalPlacement } from '@floating-ui/react-dom';
+import { Placement } from '@floating-ui/react-dom';
 import { TransitionStatus } from 'react-transition-group';
 import styled from 'styled-components';
 
@@ -15,15 +15,12 @@ import { getArrowPosition } from '../../theming/utils/getArrowPosition';
 import type { IStyledBaseProps } from '../../types/views';
 import { StyledTooltipDialogClose } from './StyledTooltipDialogClose';
 
-const COMPONENT_ID = 'modals.tooltip_dialog';
-
 export interface IStyledTooltipDialogProps {
   $hasArrow?: boolean;
   $arrowShift?: number;
   $isAnimated?: boolean;
-  $placement: ModalPlacement;
+  $placement: Placement;
   $transitionState?: TransitionStatus;
-  inert?: string;
 }
 
 const sizeStyles = (props: IStyledBaseProps) => `
@@ -36,12 +33,7 @@ const sizeStyles = (props: IStyledBaseProps) => `
   }
 `;
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  className: props.$isAnimated ? 'is-animated' : undefined
-}))<IStyledTooltipDialogProps>`
+export const StyledTooltipDialog = styled.div<IStyledTooltipDialogProps>`
   ${props => {
     const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.$placement), {
       size: `${props.theme.space.base * 2}px`,

@@ -7,8 +7,8 @@
 
 import { createContext } from 'react';
 
-import type { IModalContext } from '../../types/context';
+import type { ITooltipDialogContext } from '../../types/context';
 
-export const TooltipDialogContext = createContext<IModalContext | undefined>(undefined);
+export const TooltipDialogContext = createContext<ITooltipDialogContext | undefined>(undefined);
 
 export const TooltipDialogProvider = TooltipDialogContext.Provider;

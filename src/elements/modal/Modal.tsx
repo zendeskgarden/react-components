@@ -14,6 +14,7 @@ import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import PropTypes from 'prop-types';
 import {
   HTMLAttributes,
+  RefObject,
   useEffect,
   useMemo,
   useContext,
@@ -25,7 +26,7 @@ import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
-import { ModalsContext } from '../../hooks/modal/useModalContext';
+import { ModalProvider } from '../../context/modal/ModalContext';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { IModalProps } from '../../types/elements';
@@ -83,7 +84,7 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
       useModal({
         idPrefix: id,
         onClose,
-        modalRef,
+        modalRef: modalRef as RefObject<HTMLElement>,
         focusOnMount,
         restoreFocus,
         environment
@@ -179,7 +180,7 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
     }
 
     return createPortal(
-      <ModalsContext.Provider value={value}>
+      <ModalProvider value={value}>
         <StyledBackdrop
           $isCentered={isCentered}
           $isAnimated={isAnimated}
@@ -201,7 +202,7 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
             {children}
           </StyledModal>
         </StyledBackdrop>
-      </ModalsContext.Provider>,
+      </ModalProvider>,
       rootNode
     );
   }

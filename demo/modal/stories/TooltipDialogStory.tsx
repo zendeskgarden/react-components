@@ -5,13 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Avatar } from '@zendeskgarden/react-avatars';
-import { Button, IconButton } from '@zendeskgarden/react-buttons';
-import { Grid } from '@zendeskgarden/react-grid';
 import { useRef } from 'react';
 import { useTheme } from 'styled-components';
 
-import { ITooltipDialogProps, TooltipDialog } from '../../../src/index';
+import {
+  Avatar,
+  Button,
+  Grid,
+  IconButton,
+  ITooltipDialogProps,
+  TooltipDialog
+} from '../../../src/index';
 import { getColor } from '../../../src/theming/utils/getColor';
 
 const MODAL_PLACEMENT = [
@@ -54,6 +58,7 @@ export const TooltipDialogStory = ({
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
   const current = refs.current.indexOf(args.referenceElement);
   const theme = useTheme();
+  const isLast = current === refs.current.length - 1;
 
   // Using `aria-label={undefined}` when `hasTitle` is `true` appears to
   // void the fallback value in Storybook, resulting in no rendered attribute
@@ -82,12 +87,9 @@ export const TooltipDialogStory = ({
                 <Button
                   isPrimary
                   size="small"
-                  onClick={() =>
-                    handleClick(
-                      current === refs.current.length - 1 ? null : refs.current[current + 1]
-                  )}
+                  onClick={() => handleClick(isLast ? null : refs.current[current + 1])}
                 >
-                  {current === refs.current.length - 1 ? 'Finish' : 'Next'}
+                  {isLast ? 'Finish' : 'Next'}
                 </Button>
               </TooltipDialog.FooterItem>
             )}

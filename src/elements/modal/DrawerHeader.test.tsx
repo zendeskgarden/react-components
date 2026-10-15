@@ -8,8 +8,9 @@
 import { screen } from '@testing-library/react';
 import { createRef } from 'react';
 
-import { RTL_THEME, render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { Drawer } from './Drawer';
 
 describe('Drawer.Header', () => {
@@ -83,5 +84,22 @@ describe('Drawer.Header', () => {
     );
 
     expect(screen.getByText('Header').tagName).not.toBe('DIV');
+  });
+
+  it.each([
+    ['light', DEFAULT_THEME],
+    ['dark', DARK_THEME]
+  ] as const)('renders the %s mode color', (_mode, theme) => {
+    render(
+      <Drawer isOpen>
+        <Drawer.Header>Header</Drawer.Header>
+      </Drawer>,
+      { theme }
+    );
+
+    expect(screen.getByText('Header')).toHaveStyleRule(
+      'color',
+      getColor({ theme, variable: 'foreground.default' })
+    );
   });
 });

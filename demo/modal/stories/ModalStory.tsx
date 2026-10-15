@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button } from '@zendeskgarden/react-buttons';
 import { MouseEventHandler } from 'react';
 import Icon from 'svg-icons-legacy/src/16/lightning-bolt-stroke.svg';
 
-import { IModalProps, Modal } from '../../../src/index';
+import { Button, IModalProps, Modal } from '../../../src/index';
 import { IFooterItem } from './types';
 
 interface IArgs extends IModalProps {

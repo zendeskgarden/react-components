@@ -11,8 +11,7 @@ import styled, { css, keyframes } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import mediaQuery from '../../theming/utils/mediaQuery';
-import type { IStyledModalProps } from '../../types/views';
-import type { IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseProps, IStyledModalProps } from '../../types/views';
 
 const animationName = keyframes`
   0% {
@@ -70,6 +69,7 @@ export const StyledModal = styled.div<IStyledModalProps>`
   display: flex;
   position: fixed;
   flex-direction: column;
+  /* stylelint-disable-next-line time-min-milliseconds */
   animation-delay: 0.01s;
   margin: ${props => (props.$isCentered ? '0' : `${props.theme.space.base * 12}px`)};
   border: ${props => props.theme.borders.sm};

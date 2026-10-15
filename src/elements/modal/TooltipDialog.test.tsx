@@ -35,7 +35,7 @@ describe('TooltipDialog', () => {
 
       return (
         <>
-          <button ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
+          <button type="button" ref={buttonRef} onClick={() => setIsOpen(!isOpen)}>
             open
           </button>
           <TooltipDialog
@@ -186,7 +186,7 @@ describe('TooltipDialog', () => {
       await user.click(getByText('open'));
     });
 
-    expect(getAllByRole('button')[1]).toHaveAttribute('aria-label', 'Close');
+    expect(getAllByRole('button')[1]!).toHaveAttribute('aria-label', 'Close');
   });
 
   it('portals the modal as expected', async () => {
@@ -239,7 +239,7 @@ describe('TooltipDialog', () => {
 
       await waitFor(async () => {
         await user.click(getByText('open'));
-        await user.click(getAllByRole('button')[1]);
+        await user.click(getAllByRole('button')[1]!);
       });
 
       expect(onCloseSpy).toHaveBeenCalled();
@@ -347,6 +347,69 @@ describe('TooltipDialog', () => {
       });
       // Focus should return to trigger
       expect(trigger).toHaveFocus();
+    });
+  });
+
+  describe('attributes', () => {
+    const renderDialog = async (props: ITooltipDialogProps) => {
+      const { container, getByRole, rerender } = render(<div />);
+
+      await act(async () => {
+        await rerender(
+          <TooltipDialog referenceElement={container as HTMLElement} {...props}>
+            content
+          </TooltipDialog>
+        );
+      });
+
+      return getByRole('dialog');
+    };
+
+    it('renders the dialog id, which a prop cannot replace', async () => {
+      const dialog = await renderDialog({ 'data-garden-id': 'custom' } as ITooltipDialogProps);
+
+      expect(dialog).toHaveAttribute('data-garden-id', 'modals.tooltip_dialog');
+    });
+
+    it('keeps the consumer class name', async () => {
+      const dialog = await renderDialog({ className: 'custom' });
+
+      expect(dialog).toHaveClass('custom');
+      expect(dialog).not.toHaveClass('is-animated');
+    });
+
+    it('adds the animation class next to the consumer class name', async () => {
+      const dialog = await renderDialog({ className: 'custom', isAnimated: true });
+
+      expect(dialog).toHaveClass('custom', 'is-animated');
+    });
+
+    it('applies the animation class to the wrapper', async () => {
+      const dialog = await renderDialog({ isAnimated: true });
+
+      expect(dialog.parentElement).toHaveClass('is-animated');
+    });
+
+    it('renders the animated arrow styling only when entered', async () => {
+      const dialog = await renderDialog({ isAnimated: true });
+
+      await waitFor(() =>
+        expect(dialog).toHaveStyleRule('content', "''", { modifier: '::before' })
+      );
+    });
+  });
+
+  describe('keepMounted', () => {
+    it('makes the hidden dialog inert', async () => {
+      const { getByRole } = render(<Example keepMounted />);
+
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('inert');
+
+      await act(async () => {
+        await user.click(getByRole('button', { name: 'open' }));
+      });
+
+      expect(getByRole('dialog')).not.toHaveAttribute('inert');
     });
   });
 });

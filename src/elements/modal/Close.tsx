@@ -10,6 +10,7 @@ import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useModalContext } from '../../hooks/modal/useModalContext';
 import { useText } from '../../theming/utils/useText';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledClose } from '../../views/modal/StyledClose';
 import { COMPONENT_IDS } from '../utils';
 
@@ -38,15 +39,24 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
 
     return (
       <StyledClose
+        type="button"
         {...(getCloseProps({
           ...props,
           'aria-label': ariaLabel!
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+        $isBasic
+        $isPill
+        $size="medium"
         data-garden-id={COMPONENT_IDS['modals.close']}
         data-garden-version={PACKAGE_VERSION}
         ref={ref}
       >
-        <XStrokeIcon />
+        <StyledIcon
+          data-garden-id={COMPONENT_IDS['buttons.icon']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          <XStrokeIcon />
+        </StyledIcon>
       </StyledClose>
     );
   }

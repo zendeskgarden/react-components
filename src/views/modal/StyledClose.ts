@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IconButton } from '@zendeskgarden/react-buttons';
 import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledIconButton } from '../button/StyledIconButton';
 
 export const BASE_MULTIPLIERS = {
   top: 2.5,
@@ -16,7 +16,7 @@ export const BASE_MULTIPLIERS = {
   size: 10
 };
 
-export const StyledClose = styled(IconButton)`
+export const StyledClose = styled(StyledIconButton)`
   position: absolute;
   top: ${props => props.theme.space.base * BASE_MULTIPLIERS.top}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
