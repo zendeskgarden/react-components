@@ -114,6 +114,14 @@ describe('Cell', () => {
       </Table>
     );
 
-    expect(getByTestId('cell').firstChild).toHaveStyle(hideVisually());
+    const hidden = getByTestId('cell').firstChild;
+
+    // jsdom drops the `border` and `clip` values, so compare the stylesheet rules
+    for (const [property, value] of Object.entries(hideVisually())) {
+      expect(hidden).toHaveStyleRule(
+        property.replace(/[A-Z]/gu, letter => `-${letter.toLowerCase()}`),
+        String(value)
+      );
+    }
   });
 });

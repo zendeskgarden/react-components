@@ -54,7 +54,7 @@ export const TableStory = ({
       const keys = Object.keys(current);
 
       if (keys.length > previous.length) {
-        retVal = keys.map(value => `${value[0].toUpperCase()}${value.slice(1)}`);
+        retVal = keys.map(value => `${value.charAt(0).toUpperCase()}${value.slice(1)}`);
       }
     }
 

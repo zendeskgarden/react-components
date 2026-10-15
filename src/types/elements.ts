@@ -743,8 +743,6 @@ export interface ISheetFooterProps extends HTMLAttributes<HTMLElement> {
 //#endregion
 
 //#region skipnav
-export const PRODUCTS = ['chat', 'explore', 'guide', 'support', 'talk'] as const;
-export type Product = (typeof PRODUCTS)[number];
 export interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Sets the ID of the element to navigate to */
   targetId: string;

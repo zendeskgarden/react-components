@@ -7,20 +7,4 @@
 
 import { DefaultTheme } from 'styled-components';
 
-import PALETTE from '../../theming/elements/palette';
-import { Product } from '../../types/elements';
-
-export const getFooterHeight = (theme: DefaultTheme) => `${theme.space.base * 20}px`;
-
 export const getHeaderHeight = (theme: DefaultTheme) => `${theme.space.base * 13}px`;
-
-export const getHeaderItemSize = (theme: DefaultTheme) => `${theme.space.base * 7.5}px`;
-
-export const getNavItemHeight = (theme: DefaultTheme) => getHeaderHeight(theme);
-
-export const getNavWidth = (theme: DefaultTheme) => `${theme.space.base * 15}px`;
-
-export const getNavWidthExpanded = () => `200px`;
-
-export const getProductColor = (product?: Product, fallback = 'inherit') =>
-  product ? PALETTE.product[product] || fallback : fallback;

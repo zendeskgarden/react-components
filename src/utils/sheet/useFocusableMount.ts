@@ -21,7 +21,7 @@ export function useFocusableMount({
   restoreFocus,
   targetRef
 }: IUseFocusableMountProp) {
-  const triggerRef = useRef<HTMLElement | Element | null>();
+  const triggerRef = useRef<HTMLElement | Element | null>(null);
 
   useEffect(() => {
     if (isMounted && focusOnMount && targetRef.current) {

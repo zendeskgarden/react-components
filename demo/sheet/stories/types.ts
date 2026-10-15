@@ -9,17 +9,3 @@ export interface IFooterItem {
   text: string;
   type?: 'basic' | 'primary';
 }
-
-export interface IHeaderItem {
-  text: string;
-  hasIcon: boolean;
-  isRound?: boolean;
-  isClipped?: boolean;
-  maxX?: boolean;
-  maxY?: boolean;
-  isWrapper?: boolean;
-}
-
-export interface INavItem {
-  text: string;
-}

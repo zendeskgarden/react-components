@@ -9,6 +9,7 @@ import { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
 import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useSheetContext } from '../../hooks/sheet/useSheetContext';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledSheetClose } from '../../views/sheet/StyledSheetClose';
 import { COMPONENT_IDS } from '../utils';
 
@@ -24,13 +25,22 @@ const SheetClose = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButton
 
     return (
       <StyledSheetClose
+        type="button"
         aria-label="Close Sheet"
+        $isBasic
+        $isPill
+        $size="medium"
         ref={ref}
         {...props}
         data-garden-id={COMPONENT_IDS['chrome.sheet_close']}
         data-garden-version={PACKAGE_VERSION}
       >
-        <XStrokeIcon />
+        <StyledIcon
+          data-garden-id={COMPONENT_IDS['buttons.icon']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          <XStrokeIcon />
+        </StyledIcon>
       </StyledSheetClose>
     );
   }

@@ -14,8 +14,6 @@ import { getColor } from '../../theming/utils/getColor';
 import { ISortableCellProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
 
-const COMPONENT_ID = 'tables.sortable';
-
 const StyledBaseIconWrapper = styled.div`
   display: flex;
   position: absolute;
@@ -124,12 +122,7 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
  * 1. Reset for <button> element
  * 2. Reset for <a>nchor element
  */
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledSortableButton = styled.button.attrs<IStyledSortableButtonProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  type: 'button'
-})<IStyledSortableButtonProps>`
+export const StyledSortableButton = styled.button<IStyledSortableButtonProps>`
   position: relative;
   transition: box-shadow 0.1s ease-in-out;
   border: none; /* [1] */

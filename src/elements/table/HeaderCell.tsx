@@ -31,6 +31,9 @@ export const HeaderCell = forwardRef<HTMLTableCellElement, IHeaderCellProps>(
         $isTruncated={isTruncated}
         $hasOverflow={hasOverflow}
         {...props}
+        as="th"
+        data-garden-id={COMPONENT_IDS['tables.header_cell']}
+        data-garden-version={PACKAGE_VERSION}
       >
         {hidden && props.children ? (
           <StyledHiddenCell

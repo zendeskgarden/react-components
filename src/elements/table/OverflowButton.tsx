@@ -9,6 +9,7 @@ import { ButtonHTMLAttributes, forwardRef } from 'react';
 import OverflowStrokeIcon from 'svg-icons-legacy/src/16/overflow-vertical-stroke.svg';
 
 import { useTableContext } from '../../hooks/table/useTableContext';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledOverflowButton } from '../../views/table/StyledOverflowButton';
 import { COMPONENT_IDS } from '../utils';
 
@@ -26,14 +27,22 @@ export const OverflowButton = forwardRef<
   return (
     <StyledOverflowButton
       type="button"
-      $size={size}
+      $isBasic
+      $isPill
+      $size="medium"
+      $tableSize={size}
       ref={ref}
       {...props}
       data-garden-id={COMPONENT_IDS['tables.overflow_button']}
       data-garden-version={PACKAGE_VERSION}
-      focusInset
+      $focusInset
     >
-      <OverflowStrokeIcon />
+      <StyledIcon
+        data-garden-id={COMPONENT_IDS['buttons.icon']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        <OverflowStrokeIcon />
+      </StyledIcon>
     </StyledOverflowButton>
   );
 });

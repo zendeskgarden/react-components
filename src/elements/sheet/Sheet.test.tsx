@@ -9,7 +9,7 @@ import { screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { useState, forwardRef, createRef } from 'react';
 
-import { render } from '../../test/render';
+import { RTL_THEME, render } from '../../test/render';
 import { ISheetProps } from '../../types/elements';
 import { Sheet } from './Sheet';
 
@@ -21,7 +21,9 @@ describe('Sheet', () => {
 
     return (
       <>
-        <button onClick={() => setIsOpen(!isOpen)}>Toggle Sheet</button>
+        <button type="button" onClick={() => setIsOpen(!isOpen)}>
+          Toggle Sheet
+        </button>
         <Sheet ref={ref} isOpen={isOpen} {...props}>
           <Sheet.Header>
             <Sheet.Title>title</Sheet.Title>
@@ -30,10 +32,10 @@ describe('Sheet', () => {
           <Sheet.Body>body</Sheet.Body>
           <Sheet.Footer>
             <Sheet.FooterItem>
-              <button>button1</button>
+              <button type="button">button1</button>
             </Sheet.FooterItem>
             <Sheet.FooterItem>
-              <button>button2</button>
+              <button type="button">button2</button>
             </Sheet.FooterItem>
           </Sheet.Footer>
           <Sheet.Close />
@@ -67,5 +69,69 @@ describe('Sheet', () => {
     expect(screen.getByLabelText('title')).toBe(sheet);
     expect(sheet).toHaveAccessibleDescription('description');
     expect(sheet).not.toHaveAttribute('inert');
+  });
+
+  describe('styling', () => {
+    const getWrapper = (sheet: HTMLElement) => sheet.firstChild as HTMLElement;
+
+    it('renders the closed end placement', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" />);
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).toHaveStyleRule('width', '0');
+      expect(sheet).toHaveStyleRule('border-left', 'none');
+      expect(getWrapper(sheet)).toHaveStyleRule('transform', 'translateX(100%)');
+    });
+
+    it('renders the closed end placement in RTL', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" />, { theme: RTL_THEME });
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).toHaveStyleRule('border-right', 'none');
+      expect(getWrapper(sheet)).toHaveStyleRule('transform', 'translateX(-100%)');
+    });
+
+    it('renders the closed start placement', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" placement="start" />);
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).toHaveStyleRule('border-right', 'none');
+      expect(getWrapper(sheet)).toHaveStyleRule('transform', 'translateX(-100%)');
+    });
+
+    it('renders the closed start placement in RTL', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" placement="start" />, {
+        theme: RTL_THEME
+      });
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).toHaveStyleRule('border-left', 'none');
+      expect(getWrapper(sheet)).toHaveStyleRule('transform', 'translateX(100%)');
+    });
+
+    it('renders the size when open', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" isOpen size="200px" />);
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).toHaveStyleRule('width', '200px');
+      expect(getWrapper(sheet)).toHaveStyleRule('min-width', '200px');
+      expect(getWrapper(sheet)).toHaveStyleRule('transform', 'translateX(0)');
+    });
+
+    it('animates by default', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" />);
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).toHaveStyleRule('transition', 'width 250ms ease-in-out');
+      expect(getWrapper(sheet)).toHaveStyleRule('transition', 'transform 250ms ease-in-out');
+    });
+
+    it('does not animate when isAnimated is false', () => {
+      const { getByTestId } = render(<Sheet data-test-id="sheet" isAnimated={false} />);
+      const sheet = getByTestId('sheet');
+
+      expect(sheet).not.toHaveStyleRule('transition', 'width 250ms ease-in-out');
+      expect(getWrapper(sheet)).not.toHaveStyleRule('transition', 'transform 250ms ease-in-out');
+    });
   });
 });

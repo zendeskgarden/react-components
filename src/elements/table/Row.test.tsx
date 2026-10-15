@@ -66,6 +66,27 @@ describe('Row', () => {
     });
   });
 
+  it('applies focus styling from the isFocused prop', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" isFocused />
+        </Body>
+      </Table>
+    );
+
+    expect(getByTestId('row')).toHaveStyleRule(
+      'box-shadow',
+      `inset 3px 0 0 0 ${PALETTE.blue[700]}`,
+      {
+        /* prettier-ignore */
+        /* stylelint-disable */
+        modifier: css`${StyledCell}:first-of-type` as any
+        /* stylelint-enable */
+      }
+    );
+  });
+
   it('does not apply focus styling when table is readonly', async () => {
     const { getByTestId } = render(
       <Table isReadOnly>

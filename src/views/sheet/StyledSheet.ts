@@ -14,7 +14,6 @@ import { ISheetProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledSheetProps {
-  inert?: string;
   $placement?: ISheetProps['placement'];
   $isOpen?: boolean;
   $isAnimated?: boolean;

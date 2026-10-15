@@ -15,7 +15,7 @@ import { ISheetProps, SHEET_PLACEMENT } from '../../types/elements';
 import { useFocusableMount } from '../../utils/sheet/useFocusableMount';
 import { StyledSheet } from '../../views/sheet/StyledSheet';
 import { StyledSheetWrapper } from '../../views/sheet/StyledSheetWrapper';
-import { COMPONENT_IDS } from '../utils';
+import { COMPONENT_IDS, getInertValue } from '../utils';
 import { Body } from './Body';
 import { Close } from './Close';
 import { Description } from './Description';
@@ -60,7 +60,7 @@ const SheetComponent = forwardRef<HTMLElement, ISheetProps>(
     return (
       <SheetProvider value={sheetContext}>
         <StyledSheet
-          inert={isOpen ? undefined : ''}
+          inert={getInertValue(!isOpen)}
           $isOpen={isOpen}
           $isAnimated={isAnimated}
           $placement={placement}

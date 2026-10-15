@@ -8,8 +8,7 @@
 import styled, { css } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseRowProps } from '../../types/views';
-import type { IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseRowProps, IStyledBaseProps } from '../../types/views';
 
 const sizeStyles = ({ theme }: IStyledBaseProps) => {
   return css`

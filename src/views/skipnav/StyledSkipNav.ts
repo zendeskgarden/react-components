@@ -27,12 +27,14 @@ const animationStyles = () => {
       opacity 0.2s ease-out,
       clip 0s linear 0.2s;
     opacity: 0;
+    /* stylelint-disable-next-line property-no-deprecated */
     clip: rect(0, 0, 0, 0);
 
     &:focus {
       transition: opacity 0.2s ease-in-out;
       animation: 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2) ${animationName};
       opacity: 1;
+      /* stylelint-disable-next-line property-no-deprecated */
       clip: rect(0, 150vw, 100vh, -50vw);
     }
   `;

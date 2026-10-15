@@ -17,6 +17,7 @@ import {
   StyledSortableStrokeIconWrapper,
   StyledSortableFillIconWrapper
 } from '../../views/table/StyledSortableButton';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Table.SortableCell` instead
@@ -44,8 +45,18 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
         $isTruncated={isTruncated}
         $hasOverflow={hasOverflow}
         {...otherCellProps}
+        as="th"
+        data-garden-id={COMPONENT_IDS['tables.header_cell']}
+        data-garden-version={PACKAGE_VERSION}
       >
-        <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
+        <StyledSortableButton
+          $sort={sort}
+          ref={ref}
+          {...sortableButtonProps}
+          type="button"
+          data-garden-id={COMPONENT_IDS['tables.sortable']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {children}
           <StyledSortableStrokeIconWrapper>
             <SortIcon />

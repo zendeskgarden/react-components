@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IFooterItem, IHeaderItem, INavItem } from './types';
+import { IFooterItem } from './types';
 
 export const CHROME_FOOTER_ITEMS: IFooterItem[] = [
   {
@@ -17,76 +17,6 @@ export const CHROME_FOOTER_ITEMS: IFooterItem[] = [
     type: 'primary'
   }
 ];
-
-export const CHROME_HEADER_ITEMS: IHeaderItem[] = [
-  {
-    text: 'Example maxX content',
-    hasIcon: false,
-    maxX: true,
-    isWrapper: true
-  },
-  {
-    text: 'Example maxY content',
-    hasIcon: true,
-    maxY: true
-  },
-  {
-    text: 'Help center',
-    hasIcon: true
-  },
-  {
-    text: 'Products',
-    hasIcon: true,
-    isClipped: true
-  },
-  {
-    text: 'User',
-    hasIcon: true,
-    isRound: true,
-    isClipped: true
-  }
-];
-
-export const CHROME_MAIN = `Main content. Pea horseradish azuki bean lettuce
-avocado asparagus okra. Kohlrabi radish okra azuki bean corn fava bean mustard
-tigernut green bean celtuce collard greens avocado quandong fennel gumbo
-black-eyed pea. Grape silver beet watercress potato tigernut corn groundnut.
-Chickweed okra pea winter purslane coriander yarrow sweet pepper radish garlic
-brussels sprout groundnut summer purslane earthnut pea tomato spring onion azuki
-bean gourd. Gumbo kakadu plum komatsuna black-eyed pea green bean zucchini gourd
-winter purslane silver beet rock melon radish asparagus spinach.  Soko radicchio
-bunya nuts gram dulse silver beet parsnip napa cabbage lotus root sea lettuce
-brussels sprout cabbage. Catsear cauliflower garbanzo yarrow salsify chicory
-garlic bell pepper napa cabbage lettuce tomato kale arugula melon sierra leone
-bologi rutabaga tigernut. Sea lettuce gumbo grape kale kombu cauliflower salsify
-kohlrabi okra sea lettuce broccoli celery lotus root carrot winter purslane
-turnip greens garlic. Garlic courgette coriander radicchio plantain scallion
-cauliflower fava bean desert raisin spring onion chicory bunya nuts.  Sea
-lettuce water spinach gram fava bean leek dandelion silver beet eggplant bush
-tomato.`;
-
-export const CHROME_NAV_ITEMS: INavItem[] = [
-  {
-    text: 'Home'
-  },
-  {
-    text: 'Email'
-  },
-  {
-    text: 'User access control lists'
-  },
-  {
-    text: 'Chat'
-  },
-  {
-    text: 'Dashboard'
-  },
-  {
-    text: 'Settings'
-  }
-];
-
-export const CHROME_SKIP_NAV = 'Skip to main content';
 
 export const SHEET_BODY = `Onion cherry bomb pepper summertime raspberry fizz
 spiced peppermint blast kale caesar salad hearts of palm a delicious meal

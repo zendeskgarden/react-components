@@ -30,6 +30,21 @@ describe('HeaderCell', () => {
     expect(getByTestId('headerCell')).toBe(ref.current);
   });
 
+  it('renders a th with the header cell id, which a prop cannot replace', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <HeaderCell data-test-id="headerCell" data-garden-id="custom" />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+
+    expect(getByTestId('headerCell').nodeName).toBe('TH');
+    expect(getByTestId('headerCell')).toHaveAttribute('data-garden-id', 'tables.header_cell');
+  });
+
   it('renders RTL styling', () => {
     const { getByTestId } = render(
       <Table>
@@ -88,6 +103,14 @@ describe('HeaderCell', () => {
       </Table>
     );
 
-    expect(getByTestId('headerCell').firstChild).toHaveStyle(hideVisually());
+    const hidden = getByTestId('headerCell').firstChild;
+
+    // jsdom drops the `border` and `clip` values, so compare the stylesheet rules
+    for (const [property, value] of Object.entries(hideVisually())) {
+      expect(hidden).toHaveStyleRule(
+        property.replace(/[A-Z]/gu, letter => `-${letter.toLowerCase()}`),
+        String(value)
+      );
+    }
   });
 });

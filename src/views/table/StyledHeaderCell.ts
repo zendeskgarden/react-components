@@ -15,8 +15,6 @@ import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
 import { getLineHeight } from './StyledTable';
 
-const COMPONENT_ID = 'tables.header_cell';
-
 const truncatedStyling = css`
   ${StyledSortableButton} {
     max-width: 100%;
@@ -38,12 +36,7 @@ const sizeStyles = (props: IStyledCellProps & IStyledBaseProps) => {
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledHeaderCell = styled(StyledCell).attrs({
-  as: 'th',
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledHeaderCell = styled(StyledCell)`
   text-align: ${props => {
     if (!props.$hasOverflow) {
       if (props.theme.rtl) {
