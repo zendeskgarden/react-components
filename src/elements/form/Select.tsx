@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import Chevron from '@zendeskgarden/svg-icons/src/chevron-down.svg';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
-import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { ISelectProps, VALIDATION } from '../../types/elements';

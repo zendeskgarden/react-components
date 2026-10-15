@@ -8,6 +8,9 @@
 import { createRef } from 'react';
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledToggleLabel } from '../../views/form/StyledToggleLabel';
 import { Field } from './Field';
 import { Toggle } from './Toggle';
 
@@ -60,5 +63,45 @@ describe('Toggle', () => {
     expect(getByTestId('toggle')).toHaveAttribute('data-garden-id', 'forms.toggle');
     expect(getByTestId('toggle')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
     expect(getByTestId('toggle')).toHaveAttribute('type', 'checkbox');
+  });
+
+  it('renders the track and thumb colors', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Toggle data-test-id="toggle">
+          <Field.Label>label</Field.Label>
+        </Toggle>
+      </Field>
+    );
+    const toggle = getByTestId('toggle');
+
+    expect(toggle).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.full, {
+      modifier: `& ~ ${StyledToggleLabel}::before`
+    });
+    expect(toggle).toHaveStyleRule(
+      'border-color',
+      getColor({ theme: DEFAULT_THEME, variable: 'border.emphasis' }),
+      { modifier: `& ~ ${StyledToggleLabel}::before` }
+    );
+    expect(toggle).toHaveStyleRule(
+      'background-color',
+      getColor({
+        theme: DEFAULT_THEME,
+        hue: 'primaryHue',
+        light: { shade: 700 },
+        transparency: DEFAULT_THEME.opacity[100]
+      }),
+      { modifier: `&:enabled ~ ${StyledToggleLabel}:hover::before` }
+    );
+    expect(toggle).toHaveStyleRule(
+      'color',
+      getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' }),
+      { modifier: `&:not(:checked) ~ ${StyledToggleLabel} > svg` }
+    );
+    expect(toggle).toHaveStyleRule(
+      'color',
+      getColor({ theme: DEFAULT_THEME, variable: 'background.disabled' }),
+      { modifier: `&:disabled:not(:checked) ~ ${StyledToggleLabel} > svg` }
+    );
   });
 });

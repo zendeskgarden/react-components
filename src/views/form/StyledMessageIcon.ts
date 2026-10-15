@@ -8,11 +8,12 @@
 import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 
 export const StyledMessageIcon = styled(StyledBaseIcon)`
-  width: ${props => props.theme.iconSizes.md};
-  height: ${props => props.theme.iconSizes.md};
+  width: ${props => getIconRenderSize(props.theme)};
+  height: ${props => getIconRenderSize(props.theme)};
 
   ${componentStyles};
 `;

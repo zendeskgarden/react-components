@@ -17,7 +17,7 @@ interface IStyledTileDescriptionProps {
 }
 
 const sizeStyles = ({ theme, $isCentered }: IStyledTileDescriptionProps & IStyledBaseProps) => {
-  const marginTop = `${theme.space.base}px`;
+  const marginTop = `${theme.space.base * ($isCentered ? 2 : 1)}px`;
   const marginHorizontal = $isCentered
     ? undefined
     : math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);

@@ -10,16 +10,10 @@ import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledMessage } from './StyledMessage';
-import { StyledMessageIcon } from './StyledMessageIcon';
 
 export const StyledToggleMessage = styled(StyledMessage)`
   padding-${props => (props.theme.rtl ? 'right' : 'left')}:
     ${props => math(`${props.theme.space.base} * 12px`)};
-
-  & ${StyledMessageIcon} {
-    ${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-      math(`${props.theme.space.base} * 10px - ${props.theme.iconSizes.md}`)};
-  }
 
   ${componentStyles};
 `;

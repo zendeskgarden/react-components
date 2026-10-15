@@ -5,48 +5,39 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import FileSuccess from '@zendeskgarden/svg-icons/src/check-circle-stroke.svg';
+import FileDocument from '@zendeskgarden/svg-icons/src/file-document-stroke.svg';
+import FileError from '@zendeskgarden/svg-icons/src/file-error-stroke.svg';
+import FileGeneric from '@zendeskgarden/svg-icons/src/file-generic-stroke.svg';
+import FileImage from '@zendeskgarden/svg-icons/src/file-image-stroke.svg';
+import FilePdf from '@zendeskgarden/svg-icons/src/file-pdf-stroke.svg';
+import FilePresentation from '@zendeskgarden/svg-icons/src/file-presentation-stroke.svg';
+import FileSpreadsheet from '@zendeskgarden/svg-icons/src/file-spreadsheet-stroke.svg';
+import FileZip from '@zendeskgarden/svg-icons/src/file-zip-stroke.svg';
 import { ReactNode } from 'react';
-import FileSuccessCompact from 'svg-icons-legacy/src/12/check-circle-stroke.svg';
-import FileDocumentCompact from 'svg-icons-legacy/src/12/file-document-stroke.svg';
-import FileErrorCompact from 'svg-icons-legacy/src/12/file-error-stroke.svg';
-import FileGenericCompact from 'svg-icons-legacy/src/12/file-generic-stroke.svg';
-import FileImageCompact from 'svg-icons-legacy/src/12/file-image-stroke.svg';
-import FilePdfCompact from 'svg-icons-legacy/src/12/file-pdf-stroke.svg';
-import FilePresentationCompact from 'svg-icons-legacy/src/12/file-presentation-stroke.svg';
-import FileSpreadsheetCompact from 'svg-icons-legacy/src/12/file-spreadsheet-stroke.svg';
-import FileZipCompact from 'svg-icons-legacy/src/12/file-zip-stroke.svg';
-import FileSuccessDefault from 'svg-icons-legacy/src/16/check-circle-stroke.svg';
-import FileDocumentDefault from 'svg-icons-legacy/src/16/file-document-stroke.svg';
-import FileErrorDefault from 'svg-icons-legacy/src/16/file-error-stroke.svg';
-import FileGenericDefault from 'svg-icons-legacy/src/16/file-generic-stroke.svg';
-import FileImageDefault from 'svg-icons-legacy/src/16/file-image-stroke.svg';
-import FilePdfDefault from 'svg-icons-legacy/src/16/file-pdf-stroke.svg';
-import FilePresentationDefault from 'svg-icons-legacy/src/16/file-presentation-stroke.svg';
-import FileSpreadsheetDefault from 'svg-icons-legacy/src/16/file-spreadsheet-stroke.svg';
-import FileZipDefault from 'svg-icons-legacy/src/16/file-zip-stroke.svg';
 
 import { FileType, FileValidation } from '../../types/elements';
 
 export const fileIconsDefault: Record<FileType | FileValidation, ReactNode> = {
-  pdf: <FilePdfDefault />,
-  zip: <FileZipDefault />,
-  image: <FileImageDefault />,
-  document: <FileDocumentDefault />,
-  spreadsheet: <FileSpreadsheetDefault />,
-  presentation: <FilePresentationDefault />,
-  generic: <FileGenericDefault />,
-  success: <FileSuccessDefault />,
-  error: <FileErrorDefault />
+  pdf: <FilePdf />,
+  zip: <FileZip />,
+  image: <FileImage />,
+  document: <FileDocument />,
+  spreadsheet: <FileSpreadsheet />,
+  presentation: <FilePresentation />,
+  generic: <FileGeneric />,
+  success: <FileSuccess />,
+  error: <FileError />
 };
 
 export const fileIconsCompact: Record<FileType | FileValidation, ReactNode> = {
-  pdf: <FilePdfCompact />,
-  zip: <FileZipCompact />,
-  image: <FileImageCompact />,
-  document: <FileDocumentCompact />,
-  spreadsheet: <FileSpreadsheetCompact />,
-  presentation: <FilePresentationCompact />,
-  generic: <FileGenericCompact />,
-  success: <FileSuccessCompact />,
-  error: <FileErrorCompact />
+  pdf: <FilePdf />,
+  zip: <FileZip />,
+  image: <FileImage />,
+  document: <FileDocument />,
+  spreadsheet: <FileSpreadsheet />,
+  presentation: <FilePresentation />,
+  generic: <FileGeneric />,
+  success: <FileSuccess />,
+  error: <FileError />
 };

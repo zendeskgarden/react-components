@@ -10,10 +10,108 @@ import { createRef } from 'react';
 import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { Tiles } from './Tiles';
 
 describe('Tiles', () => {
   const user = userEvent.setup();
+
+  it('renders the disabled fill, border and text, also when checked', () => {
+    const { getByText } = render(
+      <Tiles name="example" value="item-1">
+        <Tiles.Tile value="item-1" disabled>
+          <Tiles.Label>Item 1</Tiles.Label>
+        </Tiles.Tile>
+      </Tiles>
+    );
+    const tile = getByText('Item 1').closest('label')!;
+    const modifier = "&[aria-disabled='true']";
+
+    expect(tile).toHaveStyleRule(
+      'background-color',
+      getColor({ theme: DEFAULT_THEME, variable: 'background.disabled' }),
+      { modifier }
+    );
+    expect(tile).toHaveStyleRule(
+      'border-color',
+      getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' }),
+      { modifier }
+    );
+    expect(tile).toHaveStyleRule(
+      'color',
+      getColor({ theme: DEFAULT_THEME, variable: 'foreground.disabled' }),
+      { modifier }
+    );
+  });
+
+  it('does not apply the checked hover and active fills when disabled', () => {
+    const { getByText } = render(
+      <Tiles name="example" value="item-1">
+        <Tiles.Tile value="item-1" disabled>
+          <Tiles.Label>Item 1</Tiles.Label>
+        </Tiles.Tile>
+      </Tiles>
+    );
+    const tile = getByText('Item 1').closest('label')!;
+    const checkedHoverBackgroundColor = getColor({
+      theme: DEFAULT_THEME,
+      hue: 'neutralHue',
+      light: { shade: 800 }
+    });
+    const checkedActiveBackgroundColor = getColor({
+      theme: DEFAULT_THEME,
+      hue: 'neutralHue',
+      light: { shade: 700 }
+    });
+    const disabledBackgroundColor = getColor({
+      theme: DEFAULT_THEME,
+      variable: 'background.disabled'
+    });
+
+    expect(tile).not.toHaveStyleRule('background-color', checkedHoverBackgroundColor, {
+      modifier: '&:hover:has(:checked)'
+    });
+    expect(tile).not.toHaveStyleRule('background-color', checkedActiveBackgroundColor, {
+      modifier: '&:active:has(:checked)'
+    });
+    expect(tile).not.toHaveStyleRule('background-color', disabledBackgroundColor, {
+      modifier: "&[aria-disabled='true']:not(:has(:checked))"
+    });
+  });
+
+  it('renders the checked fill, hover and active colors when enabled', () => {
+    const { getByText } = render(
+      <Tiles name="example" value="item-1">
+        <Tiles.Tile value="item-1">
+          <Tiles.Label>Item 1</Tiles.Label>
+        </Tiles.Tile>
+      </Tiles>
+    );
+    const tile = getByText('Item 1').closest('label')!;
+
+    expect(tile).toHaveStyleRule(
+      'background-color',
+      getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' }),
+      { modifier: '&:has(:checked)' }
+    );
+    expect(tile).toHaveStyleRule('border-color', 'transparent', { modifier: '&:has(:checked)' });
+    expect(tile).toHaveStyleRule(
+      'color',
+      getColor({ theme: DEFAULT_THEME, variable: 'foreground.onEmphasis' }),
+      { modifier: '&:has(:checked)' }
+    );
+    expect(tile).toHaveStyleRule(
+      'background-color',
+      getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 800 } }),
+      { modifier: "&:hover:has(:checked):not([aria-disabled='true'])" }
+    );
+    expect(tile).toHaveStyleRule(
+      'background-color',
+      getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 700 } }),
+      { modifier: "&:active:has(:checked):not([aria-disabled='true'])" }
+    );
+  });
 
   it('applies ref to the wrapping element', () => {
     const ref = createRef<HTMLDivElement>();
@@ -241,6 +339,19 @@ describe('Tiles', () => {
       );
 
       expect(getByText('description')).toHaveStyleRule('margin-left', '52px');
+      expect(getByText('description')).toHaveStyleRule('margin-top', '4px');
+    });
+
+    it('spaces a centered description 8px from the label', () => {
+      const { getByText } = render(
+        <Tiles name="example" isCentered>
+          <Tiles.Tile>
+            <Tiles.Description>description</Tiles.Description>
+          </Tiles.Tile>
+        </Tiles>
+      );
+
+      expect(getByText('description')).toHaveStyleRule('margin-top', '8px');
     });
 
     it('applies RTL styling', () => {

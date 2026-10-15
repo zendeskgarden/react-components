@@ -15,30 +15,60 @@ import { StyledCheckInput } from './StyledCheckInput';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
-  const backgroundOptions = { theme, variable: 'background.emphasis' };
-  const backgroundColor = getColor(backgroundOptions);
-  const hoverBackgroundColor = getColor({
-    ...backgroundOptions,
-    dark: { offset: -100 },
-    light: { offset: 100 }
-  });
+  const borderColor = getColor({ theme, variable: 'border.emphasis' });
+  const backgroundOptions = {
+    theme,
+    hue: 'primaryHue',
+    light: { shade: 700 },
+    dark: { shade: 500 }
+  };
+  const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
   const activeBackgroundColor = getColor({
     ...backgroundOptions,
-    dark: { offset: -200 },
-    light: { offset: 200 }
+    transparency: theme.opacity[200]
   });
+  const iconColor = getColor({ theme, variable: 'foreground.default' });
+  const hoverIconColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { shade: 800 },
+    dark: { shade: 200 }
+  });
+  const activeIconColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { shade: 700 },
+    dark: { shade: 100 }
+  });
+  const disabledIconColor = getColor({ theme, variable: 'background.disabled' });
 
   return css`
     & ~ ${StyledToggleLabel}::before {
-      background-color: ${backgroundColor};
+      border-color: ${borderColor};
+    }
+
+    &:not(:checked) ~ ${StyledToggleLabel} > svg {
+      color: ${iconColor};
     }
 
     &:enabled ~ ${StyledToggleLabel}:hover::before {
       background-color: ${hoverBackgroundColor};
     }
 
+    &:enabled:not(:checked) ~ ${StyledToggleLabel}:hover > svg {
+      color: ${hoverIconColor};
+    }
+
     &:enabled ~ ${StyledToggleLabel}:active::before {
       background-color: ${activeBackgroundColor};
+    }
+
+    &:enabled:not(:checked) ~ ${StyledToggleLabel}:active > svg {
+      color: ${activeIconColor};
+    }
+
+    &:disabled:not(:checked) ~ ${StyledToggleLabel} > svg {
+      color: ${disabledIconColor};
     }
   `;
 };
@@ -81,8 +111,7 @@ export const StyledToggleInput = styled(StyledCheckInput)`
       box-shadow .1s ease-in-out,
       background-color .15s ease-in-out,
       color .25s ease-in-out;
-    border: none;
-    border-radius: 100px;
+    border-radius: ${props => props.theme.borderRadii.full};
   }
 
   ${sizeStyles};

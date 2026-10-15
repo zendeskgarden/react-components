@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import SuccessIcon from '@zendeskgarden/svg-icons/src/check-circle-stroke.svg';
+import ErrorIcon from '@zendeskgarden/svg-icons/src/exclamation-circle-stroke.svg';
+import WarningIcon from '@zendeskgarden/svg-icons/src/exclamation-triangle-stroke.svg';
 import PropTypes from 'prop-types';
 import { FC, PropsWithChildren } from 'react';
-import ErrorIcon from 'svg-icons-legacy/src/16/alert-error-stroke.svg';
-import WarningIcon from 'svg-icons-legacy/src/16/alert-warning-stroke.svg';
-import SuccessIcon from 'svg-icons-legacy/src/16/check-circle-stroke.svg';
 
 import { IMessageIconProps, VALIDATION } from '../../types/elements';
 import { StyledMessageIcon } from '../../views/form/StyledMessageIcon';

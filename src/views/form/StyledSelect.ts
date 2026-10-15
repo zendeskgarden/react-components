@@ -9,6 +9,7 @@ import { math } from 'polished';
 import styled, { css } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import type { IStyledBaseProps } from '../../types/views';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
@@ -37,8 +38,13 @@ const colorStyles = ({ theme }: IStyledTextInputProps & IStyledBaseProps) => {
 };
 
 const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & IStyledBaseProps) => {
-  const padding = $isBare ? undefined : math(`${theme.iconSizes.md} + ${theme.space.base * 5}`);
-  const iconVerticalPosition = `${theme.space.base * ($isCompact ? 1.5 : 2.5) + 1}px`;
+  const iconSize = getIconRenderSize(theme);
+  /* keeps the larger chevron centered on the 16px icon position */
+  const iconOffset = math(`(${iconSize} - ${theme.iconSizes.md}) / 2`);
+  const padding = $isBare ? undefined : math(`${iconSize} + ${theme.space.base * 5}`);
+  const iconVerticalPosition = math(
+    `${theme.space.base * ($isCompact ? 1.5 : 2.5) + 1}px - ${iconOffset}`
+  );
   const iconHorizontalPosition = `${theme.space.base * 3}px`;
 
   return css`

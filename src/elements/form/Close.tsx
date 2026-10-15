@@ -6,9 +6,9 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import XSmallIcon from '@zendeskgarden/svg-icons/src/x-small.svg';
+import XIcon from '@zendeskgarden/svg-icons/src/x.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import XIconCompact from 'svg-icons-legacy/src/12/x-stroke.svg';
-import XIconDefault from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useFileContext } from '../../hooks/form/useFileContext';
 import { useText } from '../../theming/utils/useText';
@@ -31,11 +31,12 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         {...props}
         data-garden-id={COMPONENT_IDS['forms.file.close']}
         data-garden-version={PACKAGE_VERSION}
+        $isCompact={fileContext?.isCompact}
         type="button"
         tabIndex={-1}
         onMouseDown={onMouseDown}
       >
-        {fileContext && fileContext.isCompact ? <XIconCompact /> : <XIconDefault />}
+        {fileContext?.isCompact ? <XSmallIcon /> : <XIcon />}
       </StyledFileClose>
     );
   }

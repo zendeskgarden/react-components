@@ -9,6 +9,7 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { FileValidation } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
@@ -27,11 +28,12 @@ const colorStyles = ({ theme, $validation }: IStyledFileIconProps & IStyledBaseP
 };
 
 const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & IStyledBaseProps) => {
-  const width = $isCompact ? theme.iconSizes.sm : theme.iconSizes.md;
+  const size = getIconRenderSize(theme, $isCompact);
   const margin = `${theme.space.base * 2}px`;
 
   return css`
-    width: ${width};
+    width: ${size};
+    height: ${size};
     margin-${theme.rtl ? 'left' : 'right'}: ${margin};
   `;
 };

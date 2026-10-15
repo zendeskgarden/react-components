@@ -9,6 +9,7 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import type { IStyledBaseProps } from '../../types/views';
 
@@ -46,7 +47,7 @@ const colorStyles = ({
 };
 
 const sizeStyles = (props: IStyledTextMediaFigureProps & IStyledBaseProps) => {
-  const size = props.theme.iconSizes.md;
+  const size = getIconRenderSize(props.theme);
   const marginFirst = `1px ${props.theme.space.base * 2}px auto 0`;
   const marginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
   let margin;

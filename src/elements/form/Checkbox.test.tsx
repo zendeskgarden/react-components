@@ -8,6 +8,11 @@
 import { createRef } from 'react';
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledCheckLabel } from '../../views/form/StyledCheckLabel';
+import { StyledHint } from '../../views/form/StyledHint';
+import { StyledRadioLabel } from '../../views/form/StyledRadioLabel';
 import { Checkbox } from './Checkbox';
 import { Field } from './Field';
 
@@ -60,5 +65,68 @@ describe('Checkbox', () => {
     expect(getByTestId('checkbox')).toHaveAttribute('data-garden-id', 'forms.checkbox');
     expect(getByTestId('checkbox')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
     expect(getByTestId('checkbox')).toHaveAttribute('type', 'checkbox');
+  });
+
+  describe('styling', () => {
+    const renderCheckbox = (isCompact?: boolean) =>
+      render(
+        <Field>
+          <Checkbox data-test-id="checkbox" isCompact={isCompact}>
+            <Field.Label>label</Field.Label>
+            <Field.Hint>hint</Field.Hint>
+          </Checkbox>
+        </Field>
+      ).getByTestId('checkbox');
+    const label = `${StyledRadioLabel}::before`;
+
+    it('renders the box shape and resting colors', () => {
+      const checkbox = renderCheckbox();
+
+      expect(checkbox).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm, {
+        modifier: `& ~ ${StyledCheckLabel}::before`
+      });
+      expect(checkbox).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 500 } }),
+        { modifier: `& ~ ${label}` }
+      );
+      expect(checkbox).toHaveStyleRule('background-color', 'transparent', {
+        modifier: `& ~ ${label}`
+      });
+      expect(checkbox).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' }),
+        { modifier: `&:disabled ~ ${label}` }
+      );
+    });
+
+    it('renders the checked and indeterminate fills', () => {
+      const checkbox = renderCheckbox();
+      const fill = getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' });
+
+      expect(checkbox).toHaveStyleRule('background-color', fill, {
+        modifier: `&:checked ~ ${label}`
+      });
+      expect(checkbox).toHaveStyleRule('border-color', 'transparent', {
+        modifier: `&:checked ~ ${label}`
+      });
+      expect(checkbox).toHaveStyleRule('background-color', fill, {
+        modifier: `&:indeterminate ~ ${StyledCheckLabel}::before`
+      });
+      expect(checkbox).toHaveStyleRule(
+        'background-color',
+        getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 800 } }),
+        { modifier: `&:enabled:checked ~ ${StyledRadioLabel}:hover::before` }
+      );
+    });
+
+    it.each([
+      [false, '8px'],
+      [true, '4px']
+    ])('spaces a hint after the label with isCompact %s', (isCompact, margin) => {
+      expect(renderCheckbox(isCompact)).toHaveStyleRule('margin-top', margin, {
+        modifier: `& ~ ${StyledRadioLabel} + ${StyledHint}`
+      });
+    });
   });
 });

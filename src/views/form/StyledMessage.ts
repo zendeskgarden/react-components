@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math } from 'polished';
 import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -40,16 +39,12 @@ const colorStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBasePr
   `;
 };
 
-const sizeStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
-  const paddingHorizontal = $validation
-    ? math(`${theme.space.base * 2} + ${theme.iconSizes.md}`)
-    : undefined;
 
   return css`
-    padding-${theme.rtl ? 'right' : 'left'}: ${paddingHorizontal};
     line-height: ${lineHeight};
     font-size: ${fontSize};
 
@@ -61,8 +56,9 @@ const sizeStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBasePro
 
 export const StyledMessage = styled.div<IStyledMessageProps>`
   direction: ${props => props.theme.rtl && 'rtl'};
-  display: inline-block;
+  display: ${props => (props.$validation ? 'flex' : 'inline-block')};
   position: relative;
+  align-items: ${props => props.$validation && 'flex-start'};
   vertical-align: middle; /* support message inline with input layout */
 
   ${sizeStyles};
@@ -70,13 +66,14 @@ export const StyledMessage = styled.div<IStyledMessageProps>`
   ${colorStyles};
 
   & ${StyledMessageIcon} {
-    position: absolute;
-    top: -1px;
-    ${props => (props.theme.rtl ? 'right' : 'left')}: 0;
+    flex-shrink: 0;
+    margin-top: -1px;
+    margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
+      props.theme.space.base * 2}px;
   }
 
   ${StyledLabel}:not([hidden]) + & {
-    display: block;
+    display: ${props => (props.$validation ? 'flex' : 'block')};
   }
 
   ${componentStyles};

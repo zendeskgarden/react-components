@@ -12,6 +12,9 @@ import TestIcon from 'svg-icons-legacy/src/16/gear-stroke.svg';
 import { RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
+import type { IFauxInputProps } from '../../types/elements';
+import { StyledSelect } from '../../views/form/StyledSelect';
+import { StyledTextMediaFigure } from '../../views/form/StyledTextMediaFigure';
 import { FauxInput } from './FauxInput';
 
 describe('FauxInput', () => {
@@ -101,6 +104,118 @@ describe('FauxInput', () => {
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('margin', '1px 0 auto 8px');
+    });
+
+    describe('figure row', () => {
+      const mediaModifier = `& > ${StyledTextMediaFigure}`;
+      const inlineModifier = `& > ${StyledTextMediaFigure}:not(${StyledSelect} + *)`;
+      const Example = (props: IFauxInputProps) => (
+        <FauxInput {...props}>
+          <FauxInput.StartIcon>
+            <TestIcon />
+          </FauxInput.StartIcon>
+          <FauxInput.EndIcon>
+            <TestIcon />
+          </FauxInput.EndIcon>
+        </FauxInput>
+      );
+      const expectMediaRow = (wrapper: Element | null, margin = '-1px') => {
+        expect(wrapper).toHaveStyleRule('align-self', 'center', { modifier: mediaModifier });
+        expect(wrapper).toHaveStyleRule('margin-top', margin, { modifier: mediaModifier });
+        expect(wrapper).toHaveStyleRule('margin-bottom', margin, { modifier: mediaModifier });
+        expect(wrapper).not.toHaveStyleRule('vertical-align', expect.anything(), {
+          modifier: mediaModifier
+        });
+        expect(wrapper).not.toHaveStyleRule('vertical-align', expect.anything(), {
+          modifier: inlineModifier
+        });
+        expect(wrapper).not.toHaveStyleRule('margin-top', expect.anything(), {
+          modifier: inlineModifier
+        });
+      };
+      const expectInlineRow = (wrapper: Element | null, margin = '-1px') => {
+        expect(wrapper).toHaveStyleRule('vertical-align', 'top', { modifier: inlineModifier });
+        expect(wrapper).toHaveStyleRule('margin-top', margin, { modifier: inlineModifier });
+        expect(wrapper).toHaveStyleRule('margin-bottom', margin, { modifier: inlineModifier });
+        expect(wrapper).not.toHaveStyleRule('align-self', expect.anything(), {
+          modifier: mediaModifier
+        });
+        expect(wrapper).not.toHaveStyleRule('margin-top', expect.anything(), {
+          modifier: mediaModifier
+        });
+        expect(wrapper).not.toHaveStyleRule('margin-bottom', expect.anything(), {
+          modifier: mediaModifier
+        });
+      };
+
+      it.each([
+        ['default', {}],
+        ['compact', { isCompact: true }],
+        ['bare', { isBare: true }]
+      ])('sizes the figures to the 18px content row in both layouts (%s)', (_name, props) => {
+        const { container: media } = render(<Example mediaLayout {...props} />);
+        const { container: inline } = render(<Example {...props} />);
+
+        expectMediaRow(media.firstElementChild);
+        expectInlineRow(inline.firstElementChild);
+      });
+
+      it('is not affected by the layout direction', () => {
+        const { container: media } = render(<Example mediaLayout />, { theme: RTL_THEME });
+        const { container: inline } = render(<Example />, { theme: RTL_THEME });
+
+        expectMediaRow(media.firstElementChild);
+        expectInlineRow(inline.firstElementChild);
+      });
+
+      it('derives the margins from the icon render size', () => {
+        const theme = { ...DEFAULT_THEME, space: { ...DEFAULT_THEME.space, md: '24px' } };
+        const { container: media } = render(<Example mediaLayout />, { theme });
+        const { container: inline } = render(<Example />, { theme });
+
+        expectMediaRow(media.firstElementChild, '-3px');
+        expectInlineRow(inline.firstElementChild, '-3px');
+      });
+
+      it('applies the row margins to the rendered icons', () => {
+        const { container: media } = render(<Example mediaLayout />);
+        const { container: inline } = render(<Example />);
+        const mediaIcons = [...media.querySelectorAll('svg')];
+        const inlineIcons = [...inline.querySelectorAll('svg')];
+
+        expect(mediaIcons).toHaveLength(2);
+        expect(inlineIcons).toHaveLength(2);
+
+        mediaIcons.forEach(icon => {
+          const { marginTop, marginBottom, alignSelf } = getComputedStyle(icon);
+
+          expect([marginTop, marginBottom, alignSelf]).toEqual(['-1px', '-1px', 'center']);
+        });
+
+        inlineIcons.forEach(icon => {
+          const { marginTop, marginBottom, verticalAlign } = getComputedStyle(icon);
+
+          expect([marginTop, marginBottom, verticalAlign]).toEqual(['-1px', '-1px', 'top']);
+        });
+      });
+    });
+
+    it('renders start and end icons at the 20px render size', () => {
+      const { getByTestId } = render(
+        <FauxInput>
+          <FauxInput.StartIcon>
+            <TestIcon data-test-id="start" />
+          </FauxInput.StartIcon>
+          <FauxInput.EndIcon>
+            <TestIcon data-test-id="end" />
+          </FauxInput.EndIcon>
+        </FauxInput>
+      );
+
+      ['start', 'end'].forEach(id => {
+        expect(getByTestId(id)).toHaveStyleRule('width', DEFAULT_THEME.space.md);
+        expect(getByTestId(id)).toHaveStyleRule('height', DEFAULT_THEME.space.md);
+      });
     });
   });
 

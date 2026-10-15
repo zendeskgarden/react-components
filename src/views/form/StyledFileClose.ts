@@ -9,8 +9,13 @@ import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 
-export const StyledFileClose = styled.button`
+interface IStyledFileCloseProps {
+  $isCompact?: boolean;
+}
+
+export const StyledFileClose = styled.button<IStyledFileCloseProps>`
   display: flex;
   flex-shrink: 0;
   align-items: center;
@@ -29,6 +34,11 @@ export const StyledFileClose = styled.button`
 
   &:focus {
     outline: none;
+  }
+
+  & > svg {
+    width: ${props => getIconRenderSize(props.theme, props.$isCompact)};
+    height: ${props => getIconRenderSize(props.theme, props.$isCompact)};
   }
 
   ${componentStyles};

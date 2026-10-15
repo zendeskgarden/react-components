@@ -7,8 +7,11 @@
 
 import { createRef } from 'react';
 
-import { render } from '../../test/render';
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { VALIDATION } from '../../types/elements';
+import { StyledLabel } from '../../views/form/StyledLabel';
+import { StyledMessageIcon } from '../../views/form/StyledMessageIcon';
 import { Checkbox } from './Checkbox';
 import { Field } from './Field';
 import { Message } from './Message';
@@ -116,6 +119,62 @@ describe('Message', () => {
       expect(getByText(text).firstChild!.nodeName).toBe('svg');
       expect(getByText(text).firstChild).toHaveAttribute('aria-label', validationLabel);
       expect(getByText(text).firstChild).toHaveAttribute('role', 'img');
+    });
+
+    it('lays out the icon in the text flow', () => {
+      const { getByTestId } = render(
+        <Field>
+          <Message data-test-id="message" validation="error">
+            text
+          </Message>
+        </Field>
+      );
+      const message = getByTestId('message');
+      const iconModifier = `& ${StyledMessageIcon}`;
+
+      expect(message).toHaveStyleRule('display', 'flex');
+      expect(message).toHaveStyleRule('align-items', 'flex-start');
+      expect(message).toHaveStyleRule('display', 'flex', {
+        modifier: `${StyledLabel}:not([hidden]) + &`
+      });
+      expect(message).toHaveStyleRule('flex-shrink', '0', { modifier: iconModifier });
+      expect(message).toHaveStyleRule('margin-top', '-1px', { modifier: iconModifier });
+      expect(message).toHaveStyleRule('margin-right', `${DEFAULT_THEME.space.base * 2}px`, {
+        modifier: iconModifier
+      });
+      expect(message).not.toHaveStyleRule('position', 'absolute', { modifier: iconModifier });
+    });
+
+    it('spaces the icon from the text in RTL', () => {
+      const { getByTestId } = render(
+        <Field>
+          <Message data-test-id="message" validation="error">
+            text
+          </Message>
+        </Field>,
+        { theme: RTL_THEME }
+      );
+
+      expect(getByTestId('message')).toHaveStyleRule(
+        'margin-left',
+        `${DEFAULT_THEME.space.base * 2}px`,
+        { modifier: `& ${StyledMessageIcon}` }
+      );
+    });
+
+    it('keeps the inline layout without validation', () => {
+      const { getByTestId } = render(
+        <Field>
+          <Message data-test-id="message">text</Message>
+        </Field>
+      );
+      const message = getByTestId('message');
+
+      expect(message).toHaveStyleRule('display', 'inline-block');
+      expect(message).not.toHaveStyleRule('align-items', 'flex-start');
+      expect(message).toHaveStyleRule('display', 'block', {
+        modifier: `${StyledLabel}:not([hidden]) + &`
+      });
     });
   });
 

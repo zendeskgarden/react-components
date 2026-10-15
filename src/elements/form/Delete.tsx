@@ -6,9 +6,8 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import TrashIcon from '@zendeskgarden/svg-icons/src/trash-stroke.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import TrashIconCompact from 'svg-icons-legacy/src/12/trash-stroke.svg';
-import TrashIconDefault from 'svg-icons-legacy/src/16/trash-stroke.svg';
 
 import { useFileContext } from '../../hooks/form/useFileContext';
 import { useText } from '../../theming/utils/useText';
@@ -31,11 +30,12 @@ const DeleteComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLB
         {...props}
         data-garden-id={COMPONENT_IDS['forms.file.delete']}
         data-garden-version={PACKAGE_VERSION}
+        $isCompact={fileContext?.isCompact}
         type="button"
         tabIndex={-1}
         onMouseDown={onMouseDown}
       >
-        {fileContext && fileContext.isCompact ? <TrashIconCompact /> : <TrashIconDefault />}
+        <TrashIcon />
       </StyledFileDelete>
     );
   }

@@ -12,12 +12,18 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import type { IStyledBaseProps, IStyledRadioInputProps } from '../../types/views';
+import { StyledHint } from './StyledHint';
 import { StyledMessage } from './StyledMessage';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
-  const borderColor = getColor({ theme, variable: 'border.emphasis' });
-  const backgroundColor = getColor({ theme, variable: 'background.default' });
+  const borderColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { shade: 500 },
+    dark: { shade: 600 }
+  });
+  const backgroundColor = 'transparent';
   const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
@@ -25,22 +31,32 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
   const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
   const hoverBorderColor = getColor(borderOptions);
-  const focusBorderColor = hoverBorderColor;
   const activeBackgroundColor = getColor({
     ...backgroundOptions,
     transparency: theme.opacity[200]
   });
-  const activeBorderColor = focusBorderColor;
-  const checkedBackgroundColor = getColor(backgroundOptions);
-  const checkedBorderColor = focusBorderColor;
+  const activeBorderColor = hoverBorderColor;
+  const checkedBackgroundColor = getColor({ theme, variable: 'foreground.default' });
+  const checkedBorderColor = 'transparent';
 
   const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
   const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
 
-  const checkedHoverBackgroundColor = getColor({ ...backgroundOptions, ...offset100 });
+  const checkedHoverBackgroundColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { shade: 800 },
+    dark: { shade: 200 }
+  });
   const checkedHoverBorderColor = getColor({ ...borderOptions, ...offset100 });
-  const checkedActiveBackgroundColor = getColor({ ...backgroundOptions, ...offset200 });
+  const checkedActiveBackgroundColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { shade: 700 },
+    dark: { shade: 100 }
+  });
   const checkedActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
+  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
   const disabledBackgroundColor = getColor({
     theme,
     variable: 'background.disabled',
@@ -64,7 +80,6 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
     ${focusStyles({
       theme,
-      styles: { borderColor: focusBorderColor },
       selector: `&:focus-visible ~ ${StyledRadioLabel}::before`
     })}
 
@@ -89,6 +104,11 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
     }
 
     &:disabled ~ ${StyledRadioLabel}::before {
+      border-color: ${disabledBorderColor};
+      background-color: ${backgroundColor};
+    }
+
+    &:disabled:checked ~ ${StyledRadioLabel}::before {
       border-color: transparent;
       background-color: ${disabledBackgroundColor};
     }
@@ -123,6 +143,10 @@ const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps) => {
       ${theme.rtl ? 'right' : 'left'}: ${iconPosition};
       width: ${iconSize};
       height: ${iconSize};
+    }
+
+    & ~ ${StyledRadioLabel} + ${StyledHint} {
+      margin-top: ${marginTop};
     }
 
     && ~ ${StyledRadioLabel} ~ ${StyledMessage} {

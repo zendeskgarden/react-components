@@ -90,6 +90,8 @@ export const StyledFile = styled.div<IStyledFileProps>`
   flex-wrap: nowrap;
   align-items: center;
   transition: box-shadow 0.1s ease-in-out;
+  /* clips the progress bar to the rounded corners; box-shadow focus is not clipped */
+  overflow: hidden;
 
   ${sizeStyles};
 
