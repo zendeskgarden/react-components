@@ -154,6 +154,37 @@ describe('MediaInput', () => {
     expect(getByTestId('input')).toHaveStyleRule('border', 'none');
   });
 
+  it('sets aria-invalid from validation only', () => {
+    const { getByTestId, rerender } = render(
+      <Field>
+        <MediaInput data-test-id="input" aria-invalid />
+      </Field>
+    );
+
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+
+    rerender(
+      <Field>
+        <MediaInput data-test-id="input" validation="warning" />
+      </Field>
+    );
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'true');
+
+    rerender(
+      <Field>
+        <MediaInput data-test-id="input" validation="error" />
+      </Field>
+    );
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'true');
+
+    rerender(
+      <Field>
+        <MediaInput data-test-id="input" validation="success" />
+      </Field>
+    );
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+  });
+
   it('hovers the wrapper while the pointer is over it', () => {
     const { getByTestId } = render(
       <Field>

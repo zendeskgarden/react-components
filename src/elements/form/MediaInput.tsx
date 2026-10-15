@@ -12,6 +12,7 @@ import { mergeRefs } from 'react-merge-refs';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { IMediaInputProps, VALIDATION } from '../../types/elements';
+import { isInvalid } from '../../utils/form/isInvalid';
 import { StyledTextMediaInput } from '../../views/form/StyledTextMediaInput';
 import { COMPONENT_IDS } from '../utils';
 import { FauxInput } from './FauxInput';
@@ -118,7 +119,7 @@ export const MediaInput = forwardRef<HTMLInputElement, IMediaInputProps>(
         <StyledTextMediaInput
           {...combinedProps}
           $isBare
-          aria-invalid={false}
+          aria-invalid={isInvalid(validation)}
           data-garden-id={COMPONENT_IDS['forms.media_input']}
           data-garden-version={PACKAGE_VERSION}
         />
