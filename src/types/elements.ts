@@ -55,7 +55,7 @@ export interface IStepperProps extends OlHTMLAttributes<HTMLOListElement> {
   isHorizontal?: boolean;
 }
 export interface IStepperLabelProps extends HTMLAttributes<HTMLDivElement> {
-  /** Replaces the label number with an icon */
+  /** Replaces the label number with an icon. The svg is drawn at 16px; width/height on iconProps do not apply. */
   icon?: ReactElement;
   /** Passes props to the default check icon */
   iconProps?: SVGAttributes<SVGElement>;
