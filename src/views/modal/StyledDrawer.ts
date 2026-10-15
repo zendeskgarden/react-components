@@ -5,14 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-const COMPONENT_ID = 'modals.drawer_modal';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
 const DRAWER_WIDTH = 380;
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = getColor({ variable: 'shadow.large', theme });
@@ -31,10 +32,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledDrawer = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledDrawer = styled.div`
   display: flex;
   position: fixed;
   top: 0;

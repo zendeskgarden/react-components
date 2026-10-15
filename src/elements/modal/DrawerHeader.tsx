@@ -6,11 +6,12 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useEffect, HTMLAttributes, forwardRef } from 'react';
+import { useEffect, HTMLAttributes, forwardRef } from 'react';
 
-import { StyledDrawerHeader } from '../../styled';
-import { IDrawerHeaderProps } from '../../types';
-import { useModalContext } from '../../utils/useModalContext';
+import { useModalContext } from '../../hooks/modal/useModalContext';
+import { IDrawerHeaderProps } from '../../types/elements';
+import { StyledDrawerHeader } from '../../views/modal/StyledDrawerHeader';
+import { COMPONENT_IDS } from '../utils';
 
 const HeaderComponent = forwardRef<HTMLDivElement, IDrawerHeaderProps>(
   ({ tag = 'div', ...other }, ref) => {
@@ -31,6 +32,8 @@ const HeaderComponent = forwardRef<HTMLDivElement, IDrawerHeaderProps>(
     return (
       <StyledDrawerHeader
         {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
+        data-garden-id={COMPONENT_IDS['modals.drawer_modal.header']}
+        data-garden-version={PACKAGE_VERSION}
         as={tag}
         $isCloseButtonPresent={isCloseButtonPresent}
         ref={ref}

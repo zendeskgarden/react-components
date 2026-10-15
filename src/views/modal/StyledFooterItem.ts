@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'modals.footer_item';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledFooterItem = styled.span.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledFooterItem = styled.span`
   display: flex;
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 5}px;
   min-width: 0;

@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'modals.body';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 
-export const StyledBody = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledBody = styled.div`
   display: block;
   margin: 0;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};

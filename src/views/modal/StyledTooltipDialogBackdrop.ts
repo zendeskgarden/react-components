@@ -5,19 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { hideVisually } from 'polished';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'modals.tooltip_dialog.backdrop';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledTooltipDialogBackdrop = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledTooltipDialogBackdrop = styled.div`
   position: fixed;
   inset: 0;
   z-index: 400;

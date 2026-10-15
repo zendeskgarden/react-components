@@ -5,16 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledDrawerBody } from '../../styled';
-import { useModalContext } from '../../utils/useModalContext';
+import { useModalContext } from '../../hooks/modal/useModalContext';
+import { StyledDrawerBody } from '../../views/modal/StyledDrawerBody';
+import { COMPONENT_IDS } from '../utils';
 
 const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { getContentProps } = useModalContext();
 
   return (
-    <StyledDrawerBody {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)} ref={ref}>
+    <StyledDrawerBody
+      {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)}
+      data-garden-id={COMPONENT_IDS['modals.drawer_modal.body']}
+      data-garden-version={PACKAGE_VERSION}
+      ref={ref}
+    >
       {props.children}
     </StyledDrawerBody>
   );

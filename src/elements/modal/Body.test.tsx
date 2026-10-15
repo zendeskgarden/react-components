@@ -5,24 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Close } from './Close';
+import { render } from '../../test/render';
+import { Body } from './Body';
 import { Modal } from './Modal';
 
-describe('Close', () => {
+describe('Body', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLButtonElement>();
+    const ref = createRef<HTMLDivElement>();
 
     const { getByTestId } = render(
       <Modal>
-        <Close ref={ref} data-test-id="close">
-          Close content
-        </Close>
+        <Body ref={ref} data-test-id="body">
+          Body content
+        </Body>
       </Modal>
     );
 
-    expect(getByTestId('close')).toBe(ref.current);
+    expect(getByTestId('body')).toBe(ref.current);
   });
 });

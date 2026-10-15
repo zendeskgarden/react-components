@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Drawer } from '@zendeskgarden/react-modals';
-import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 
+import { Drawer } from '../../src/index';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
 import { DrawerStory } from './stories/DrawerStory';
 
 export default {
-  title: 'Packages/Modals/Drawer',
+  title: 'Components/Modals/Drawer',
   component: Drawer,
   subcomponents: {
     'Drawer.Body': Drawer.Body,

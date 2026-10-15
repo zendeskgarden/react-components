@@ -15,35 +15,32 @@ import {
   useFloating
 } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
-import {
-  DEFAULT_THEME,
-  getFloatingPlacements,
-  useText,
-  useDocument
-} from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes, useState, useContext, useEffect, useRef } from 'react';
+import { HTMLAttributes, useState, useContext, useEffect, useRef, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
-import {
-  StyledTooltipWrapper,
-  StyledTooltipDialog,
-  StyledTooltipDialogBackdrop
-} from '../../styled';
-import { ITooltipDialogProps, PLACEMENT } from '../../types';
-import { TooltipDialogContext } from '../../utils/useTooltipDialogContext';
-import { Body } from './Body';
-import { Close } from './Close';
-import { Footer } from './Footer';
-import { FooterItem } from './FooterItem';
+import { TooltipDialogProvider } from '../../context/modal/TooltipDialogContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { useDocument } from '../../theming/utils/useDocument';
+import { useText } from '../../theming/utils/useText';
+import { ITooltipDialogProps, MODAL_PLACEMENT } from '../../types/elements';
+import { StyledTooltipDialog } from '../../views/modal/StyledTooltipDialog';
+import { StyledTooltipDialogBackdrop } from '../../views/modal/StyledTooltipDialogBackdrop';
+import { StyledTooltipWrapper } from '../../views/modal/StyledTooltipWrapper';
+import { COMPONENT_IDS } from '../utils';
 import { Title } from './Title';
+import { Body } from './TooltipDialogBody';
+import { Close } from './TooltipDialogClose';
+import { Footer } from './TooltipDialogFooter';
+import { FooterItem } from './TooltipDialogFooterItem';
 
 const PLACEMENT_DEFAULT = 'top';
 
-const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogProps>(
+const TooltipDialogComponent = forwardRef<HTMLDivElement, ITooltipDialogProps>(
   (
     {
       appendToNode,
@@ -191,10 +188,12 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
           const isHidden = keepMounted && transitionState === 'exited'; // [2]
 
           return (
-            <TooltipDialogContext.Provider value={value}>
+            <TooltipDialogProvider value={value}>
               <StyledTooltipDialogBackdrop
                 {...(getBackdropProps() as HTMLAttributes<HTMLDivElement>)}
                 {...backdropProps}
+                data-garden-id={COMPONENT_IDS['modals.tooltip_dialog.backdrop']}
+                data-garden-version={PACKAGE_VERSION}
                 ref={transitionRef}
                 aria-hidden={isHidden ? true : undefined}
               >
@@ -219,7 +218,7 @@ const TooltipDialogComponent = React.forwardRef<HTMLDivElement, ITooltipDialogPr
                   />
                 </StyledTooltipWrapper>
               </StyledTooltipDialogBackdrop>
-            </TooltipDialogContext.Provider>
+            </TooltipDialogProvider>
           );
         }}
       </CSSTransition>
@@ -237,7 +236,7 @@ TooltipDialogComponent.propTypes = {
   placement: PropTypes.any,
   // @ts-expect-error Validation error due to incorrect type inference when component is wrapped in forwardRef
   fallbackPlacements: PropTypes.arrayOf(
-    PropTypes.oneOf(PLACEMENT.filter(placement => placement !== 'auto'))
+    PropTypes.oneOf(MODAL_PLACEMENT.filter(placement => placement !== 'auto'))
   ),
   isAnimated: PropTypes.bool,
   hasArrow: PropTypes.bool,

@@ -5,12 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Placement } from '@floating-ui/react-dom';
-import { arrowStyles, componentStyles, getArrowPosition } from '@zendeskgarden/react-theming';
+import { ModalPlacement } from '@floating-ui/react-dom';
 import { TransitionStatus } from 'react-transition-group';
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 
-import { StyledTooltipDialogClose } from '../styled/StyledTooltipDialogClose';
+import arrowStyles from '../../theming/utils/arrowStyles';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getArrowPosition } from '../../theming/utils/getArrowPosition';
+import type { IStyledBaseProps } from '../../types/views';
+import { StyledTooltipDialogClose } from './StyledTooltipDialogClose';
 
 const COMPONENT_ID = 'modals.tooltip_dialog';
 
@@ -18,12 +21,12 @@ export interface IStyledTooltipDialogProps {
   $hasArrow?: boolean;
   $arrowShift?: number;
   $isAnimated?: boolean;
-  $placement: Placement;
+  $placement: ModalPlacement;
   $transitionState?: TransitionStatus;
   inert?: string;
 }
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
+const sizeStyles = (props: IStyledBaseProps) => `
   padding: ${props.theme.space.base * 5}px;
   width: 400px;
   max-width: 100vw;
@@ -33,6 +36,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
   }
 `;
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledTooltipDialog = styled.div.attrs<IStyledTooltipDialogProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

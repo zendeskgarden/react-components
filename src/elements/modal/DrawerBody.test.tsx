@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 import styled from 'styled-components';
 
+import { render } from '../../test/render';
+import { COMPONENT_IDS } from '../utils';
 import { Drawer } from './Drawer';
 
 describe('Drawer.Body', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { getByText } = render(
       <Drawer isOpen>
         <Drawer.Body ref={ref}>content</Drawer.Body>
@@ -29,7 +30,12 @@ describe('Drawer.Body', () => {
     `;
     const { getByText } = render(
       <Drawer isOpen>
-        <StyledBody>content</StyledBody>
+        <StyledBody
+          data-garden-id={COMPONENT_IDS['modals.body']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          content
+        </StyledBody>
       </Drawer>
     );
 

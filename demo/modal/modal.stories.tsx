@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Modal } from '@zendeskgarden/react-modals';
-import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 
+import { Modal } from '../../src/index';
 import { MODAL_BODY as BODY, MODAL_FOOTER_ITEMS as FOOTER_ITEMS } from './stories/data';
 import { ModalStory } from './stories/ModalStory';
 
 export default {
-  title: 'Packages/Modals/Modal',
+  title: 'Components/Modals/Modal',
   component: Modal,
   subcomponents: {
     'Modal.Body': Modal.Body,

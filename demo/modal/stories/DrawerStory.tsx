@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Button } from '@zendeskgarden/react-buttons';
-import { Drawer, IDrawerProps } from '@zendeskgarden/react-modals';
-import Icon from '@zendeskgarden/svg-icons/src/16/arrow-left-stroke.svg';
-import React, { MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
 import { useTheme } from 'styled-components';
+import Icon from 'svg-icons-legacy/src/16/arrow-left-stroke.svg';
 
+import { Drawer, IDrawerProps } from '../../../src/index';
 import { IFooterItem } from './types';
 
 interface IArgs extends IDrawerProps {
@@ -28,7 +27,7 @@ interface IArgs extends IDrawerProps {
   closeAriaLabel: string;
 }
 
-export const DrawerStory: StoryFn<IArgs> = ({
+export const DrawerStory = ({
   onClick,
   onClose,
   hasBody,
@@ -42,7 +41,7 @@ export const DrawerStory: StoryFn<IArgs> = ({
   dialogAriaLabel,
   closeAriaLabel,
   ...args
-}) => {
+}: IArgs) => {
   const theme = useTheme();
 
   // Using `aria-label={undefined}` when `hasHeader` is `true` appears to

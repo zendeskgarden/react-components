@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, renderRtl, act, waitFor } from 'garden-test-utils';
-import React, { useState } from 'react';
+import { act, waitFor } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { useState, forwardRef, useRef } from 'react';
+import { vi, type Mock } from 'vitest';
 
-import { ITooltipDialogProps } from '../../types';
+import { RTL_THEME, render } from '../../test/render';
+import { ITooltipDialogProps } from '../../types/elements';
 import { TooltipDialog } from './TooltipDialog';
 
 describe('TooltipDialog', () => {
@@ -20,16 +22,16 @@ describe('TooltipDialog', () => {
   };
 
   const TOOLTIP_DIALOG_ID = 'TEST_ID';
-  let onCloseSpy: jest.Mock;
+  let onCloseSpy: Mock;
 
   beforeEach(() => {
-    onCloseSpy = jest.fn();
+    onCloseSpy = vi.fn();
   });
 
-  const Example = React.forwardRef<HTMLDivElement, ITooltipDialogProps & FixtureProps>(
+  const Example = forwardRef<HTMLDivElement, ITooltipDialogProps & FixtureProps>(
     ({ onClose, noTitle, ...props }, ref) => {
       const [isOpen, setIsOpen] = useState(false);
-      const buttonRef = React.useRef<HTMLButtonElement>(null);
+      const buttonRef = useRef<HTMLButtonElement>(null);
 
       return (
         <>
@@ -69,7 +71,9 @@ describe('TooltipDialog', () => {
     });
 
     it('renders RTL placement correctly', async () => {
-      const { getByRole, getByText } = renderRtl(<Example placement="start" />);
+      const { getByRole, getByText } = render(<Example placement="start" />, {
+        theme: RTL_THEME
+      });
 
       await act(async () => {
         await user.click(getByText('open'));
@@ -90,8 +94,11 @@ describe('TooltipDialog', () => {
   });
 
   it('applies backdropProps to Backdrop element', async () => {
-    const { getByTestId, getByText } = renderRtl(
-      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />
+    const { getByTestId, getByText } = render(
+      <Example backdropProps={{ 'data-test-id': 'backdrop' } as any} />,
+      {
+        theme: RTL_THEME
+      }
     );
 
     await act(async () => {
@@ -147,7 +154,9 @@ describe('TooltipDialog', () => {
   });
 
   it('applies title a11y attributes to Title element', async () => {
-    const { getByText } = renderRtl(<Example id={TOOLTIP_DIALOG_ID} />);
+    const { getByText } = render(<Example id={TOOLTIP_DIALOG_ID} />, {
+      theme: RTL_THEME
+    });
 
     await act(async () => {
       await user.click(getByText('open'));
@@ -157,7 +166,9 @@ describe('TooltipDialog', () => {
   });
 
   it('applies content a11y attributes to Body element', async () => {
-    const { getByText } = renderRtl(<Example id={TOOLTIP_DIALOG_ID} />);
+    const { getByText } = render(<Example id={TOOLTIP_DIALOG_ID} />, {
+      theme: RTL_THEME
+    });
 
     await act(async () => {
       await user.click(getByText('open'));
@@ -167,7 +178,9 @@ describe('TooltipDialog', () => {
   });
 
   it('applies close a11y attributes to Close element', async () => {
-    const { getAllByRole, getByText } = renderRtl(<Example id={TOOLTIP_DIALOG_ID} />);
+    const { getAllByRole, getByText } = render(<Example id={TOOLTIP_DIALOG_ID} />, {
+      theme: RTL_THEME
+    });
 
     await act(async () => {
       await user.click(getByText('open'));

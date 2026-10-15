@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Button } from '@zendeskgarden/react-buttons';
-import { IModalProps, Modal } from '@zendeskgarden/react-modals';
-import Icon from '@zendeskgarden/svg-icons/src/16/lightning-bolt-stroke.svg';
-import React, { MouseEventHandler } from 'react';
+import { MouseEventHandler } from 'react';
+import Icon from 'svg-icons-legacy/src/16/lightning-bolt-stroke.svg';
 
+import { IModalProps, Modal } from '../../../src/index';
 import { IFooterItem } from './types';
 
 interface IArgs extends IModalProps {
@@ -29,7 +28,7 @@ interface IArgs extends IModalProps {
   dialogAriaLabel: string;
 }
 
-export const ModalStory: StoryFn<IArgs> = ({
+export const ModalStory = ({
   onClick,
   onClose,
   isVisible,
@@ -45,7 +44,7 @@ export const ModalStory: StoryFn<IArgs> = ({
   closeAriaLabel,
   dialogAriaLabel,
   ...args
-}) => {
+}: IArgs) => {
   // Using `aria-label={undefined}` when `hasHeader` is `true` appears to
   // void the fallback value in Storybook, resulting in no rendered attribute.
   const ariaProp: Record<string, any> = hasHeader

@@ -5,17 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { mediaQuery, componentStyles, getColor } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import styled, { css, keyframes, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
-const COMPONENT_ID = 'modals.modal';
-
-export interface IStyledModalProps {
-  $isLarge?: boolean;
-  $isCentered?: boolean;
-  $isAnimated?: boolean;
-}
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import mediaQuery from '../../theming/utils/mediaQuery';
+import type { IStyledModalProps } from '../../types/views';
+import type { IStyledBaseProps } from '../../types/views';
 
 const animationName = keyframes`
   0% {
@@ -42,7 +39,7 @@ const animationStyles = (props: IStyledModalProps) => {
   return '';
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = getColor({ variable: 'shadow.large', theme });
@@ -58,7 +55,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledModalProps) => {
   return css`
     ${mediaQuery('up', props.$isLarge ? 'md' : 'sm', props.theme)} {
       width: ${props.$isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
@@ -69,10 +66,7 @@ const sizeStyles = (props: IStyledModalProps & ThemeProps<DefaultTheme>) => {
 /**
  * 1. IE11 centering hack.
  */
-export const StyledModal = styled.div.attrs<IStyledModalProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledModalProps>`
+export const StyledModal = styled.div<IStyledModalProps>`
   display: flex;
   position: fixed;
   flex-direction: column;

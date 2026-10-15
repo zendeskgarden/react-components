@@ -5,12 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledDrawerFooterItem } from '../../styled';
+import { StyledDrawerFooterItem } from '../../views/modal/StyledDrawerFooterItem';
+import { COMPONENT_IDS } from '../utils';
 
 const FooterItemComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
-  (props, ref) => <StyledDrawerFooterItem ref={ref} {...props} />
+  (props, ref) => (
+    <StyledDrawerFooterItem
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['modals.drawer_modal.footer_item']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 FooterItemComponent.displayName = 'Drawer.FooterItem';

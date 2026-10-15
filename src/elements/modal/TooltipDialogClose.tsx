@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
-import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
-import { StyledTooltipDialogClose } from '../../styled';
-import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import { useTooltipDialogContext } from '../../hooks/modal/useTooltipDialogContext';
+import { useText } from '../../theming/utils/useText';
+import { StyledTooltipDialogClose } from '../../views/modal/StyledTooltipDialogClose';
+import { COMPONENT_IDS } from '../utils';
 
 const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
@@ -30,6 +31,8 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
           ...props,
           'aria-label': ariaLabel!
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+        data-garden-id={COMPONENT_IDS['modals.tooltip_dialog.close']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
         size="small"
       >

@@ -5,22 +5,29 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledFooter } from '../styled';
-import { useModalContext } from '../utils/useModalContext';
+import { useModalContext } from '../../hooks/modal/useModalContext';
+import { StyledFooter } from '../../views/modal/StyledFooter';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Modal.Footer` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Footer = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  (props, ref) => {
-    const { isLarge } = useModalContext();
+export const Footer = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+  const { isLarge } = useModalContext();
 
-    return <StyledFooter ref={ref} $isLarge={isLarge} {...props} />;
-  }
-);
+  return (
+    <StyledFooter
+      ref={ref}
+      $isLarge={isLarge}
+      {...props}
+      data-garden-id={COMPONENT_IDS['modals.footer']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  );
+});
 
 Footer.displayName = 'Modal.Footer';

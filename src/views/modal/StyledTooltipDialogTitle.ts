@@ -5,21 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 
-const COMPONENT_ID = 'modals.tooltip_dialog.title';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import type { IStyledBaseProps } from '../../types/views';
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => `
+const sizeStyles = (props: IStyledBaseProps) => `
   /* stylelint-disable-next-line property-no-unknown */
   line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
   font-size: ${props.theme.fontSizes.md};
 `;
 
-export const StyledTooltipDialogTitle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledTooltipDialogTitle = styled.div`
   margin: 0;
   color: ${({ theme }) => getColor({ variable: 'foreground.default', theme })};
   font-weight: ${props => props.theme.fontWeights.semibold};

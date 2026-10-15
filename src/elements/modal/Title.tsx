@@ -6,11 +6,12 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes, forwardRef, useEffect } from 'react';
+import { HTMLAttributes, forwardRef, useEffect } from 'react';
 
-import { StyledTooltipDialogTitle } from '../../styled';
-import { ITooltipDialogTitleProps } from '../../types';
-import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import { useTooltipDialogContext } from '../../hooks/modal/useTooltipDialogContext';
+import { ITooltipDialogTitleProps } from '../../types/elements';
+import { StyledTooltipDialogTitle } from '../../views/modal/StyledTooltipDialogTitle';
+import { COMPONENT_IDS } from '../utils';
 
 const TitleComponent = forwardRef<HTMLDivElement, ITooltipDialogTitleProps>(
   ({ children, tag = 'div', ...other }, ref) => {
@@ -31,6 +32,8 @@ const TitleComponent = forwardRef<HTMLDivElement, ITooltipDialogTitleProps>(
     return (
       <StyledTooltipDialogTitle
         {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
+        data-garden-id={COMPONENT_IDS['modals.tooltip_dialog.title']}
+        data-garden-version={PACKAGE_VERSION}
         as={tag}
         ref={ref}
       >

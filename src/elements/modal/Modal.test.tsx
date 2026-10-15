@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
+import { vi, type Mock } from 'vitest';
 
-import { IModalProps } from '../types';
+import { render } from '../../test/render';
+import { IModalProps } from '../../types/elements';
 import { Modal } from './Modal';
 
 describe('Modal', () => {
@@ -20,7 +21,7 @@ describe('Modal', () => {
   } & IModalProps;
 
   const MODAL_ID = 'TEST_ID';
-  let onCloseSpy: jest.Mock;
+  let onCloseSpy: Mock;
 
   const BasicExample = ({ onClose, noHeader, ...other }: FixtureProps) => (
     <Modal
@@ -40,7 +41,7 @@ describe('Modal', () => {
   );
 
   beforeEach(() => {
-    onCloseSpy = jest.fn();
+    onCloseSpy = vi.fn();
   });
 
   describe('componentDidMount()', () => {
@@ -69,7 +70,7 @@ describe('Modal', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
 
     const { getByTestId } = render(<Modal ref={ref} data-test-id="modal" />);
 

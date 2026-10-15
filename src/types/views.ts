@@ -16,6 +16,22 @@ export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
 }
 //#endregion
 
+//#region modal
+export interface IStyledBackdropProps extends IStyledBaseProps {
+  $isCentered?: boolean;
+  $isAnimated?: boolean;
+}
+export interface IStyledHeaderProps extends IStyledBaseProps {
+  $isDanger?: boolean;
+  $isCloseButtonPresent?: boolean;
+}
+export interface IStyledModalProps extends IStyledBaseProps {
+  $isLarge?: boolean;
+  $isCentered?: boolean;
+  $isAnimated?: boolean;
+}
+//#endregion
+
 //#region pagination
 export interface IStyledIcon extends IStyledBaseProps {
   $type: 'first' | 'next' | 'previous' | 'last';

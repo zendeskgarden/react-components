@@ -6,10 +6,9 @@
  */
 
 import { useModal } from '@zendeskgarden/container-modal';
-import { useDocument, useText } from '@zendeskgarden/react-theming';
 import activeElement from 'dom-helpers/activeElement';
 import PropTypes from 'prop-types';
-import React, {
+import {
   HTMLAttributes,
   useEffect,
   useRef,
@@ -23,14 +22,18 @@ import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
-import { StyledBackdrop, StyledDrawer } from '../../styled';
-import { IDrawerProps } from '../../types';
-import { ModalsContext } from '../../utils/useModalContext';
-import { Body } from './Body';
-import { Close } from './Close';
-import { Footer } from './Footer';
-import { FooterItem } from './FooterItem';
-import { Header } from './Header';
+import { ModalsContext } from '../../hooks/modal/useModalContext';
+import { useDocument } from '../../theming/utils/useDocument';
+import { useText } from '../../theming/utils/useText';
+import { IDrawerProps } from '../../types/elements';
+import { StyledBackdrop } from '../../views/modal/StyledBackdrop';
+import { StyledDrawer } from '../../views/modal/StyledDrawer';
+import { COMPONENT_IDS } from '../utils';
+import { Body } from './DrawerBody';
+import { Close } from './DrawerClose';
+import { Footer } from './DrawerFooter';
+import { FooterItem } from './DrawerFooterItem';
+import { Header } from './DrawerHeader';
 
 /**
  * [1] implementation of focus management for Drawer usage to support focus edge cases
@@ -182,11 +185,15 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
           <StyledBackdrop
             $isAnimated
             {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
+            data-garden-id={COMPONENT_IDS['modals.backdrop']}
+            data-garden-version={PACKAGE_VERSION}
           >
             <StyledDrawer
               {...modalProps}
               {...ariaProps}
               {...props}
+              data-garden-id={COMPONENT_IDS['modals.drawer_modal']}
+              data-garden-version={PACKAGE_VERSION}
               ref={mergeRefs([ref, modalRef, transitionRef])}
             />
           </StyledBackdrop>

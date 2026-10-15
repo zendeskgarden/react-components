@@ -5,19 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'modals.footer';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 
 interface IStyledFooter {
   $isLarge?: boolean;
 }
 
-export const StyledFooter = styled.div.attrs<IStyledFooter>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledFooter>`
+export const StyledFooter = styled.div<IStyledFooter>`
   display: flex;
   flex-shrink: 0;
   align-items: center;

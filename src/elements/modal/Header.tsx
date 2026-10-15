@@ -6,11 +6,13 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useEffect, HTMLAttributes, forwardRef } from 'react';
+import { useEffect, HTMLAttributes, forwardRef } from 'react';
 
-import { StyledDangerIcon, StyledHeader } from '../styled';
-import { IHeaderProps } from '../types';
-import { useModalContext } from '../utils/useModalContext';
+import { useModalContext } from '../../hooks/modal/useModalContext';
+import { IHeaderProps } from '../../types/elements';
+import { StyledDangerIcon } from '../../views/modal/StyledDangerIcon';
+import { StyledHeader } from '../../views/modal/StyledHeader';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Modal.Header` instead
@@ -36,6 +38,8 @@ export const Header = forwardRef<HTMLDivElement, IHeaderProps>(
     return (
       <StyledHeader
         {...(getTitleProps(other) as HTMLAttributes<HTMLDivElement>)}
+        data-garden-id={COMPONENT_IDS['modals.header']}
+        data-garden-version={PACKAGE_VERSION}
         as={tag}
         $isCloseButtonPresent={isCloseButtonPresent}
         $isDanger={isDanger}

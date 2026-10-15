@@ -5,12 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledTooltipDialogFooterItem } from '../../styled';
+import { StyledTooltipDialogFooterItem } from '../../views/modal/StyledTooltipDialogFooterItem';
+import { COMPONENT_IDS } from '../utils';
 
 const FooterItemComponent = forwardRef<HTMLSpanElement, HTMLAttributes<HTMLSpanElement>>(
-  (props, ref) => <StyledTooltipDialogFooterItem ref={ref} {...props} />
+  (props, ref) => (
+    <StyledTooltipDialogFooterItem
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['modals.tooltip_dialog.footer_item']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 FooterItemComponent.displayName = 'TooltipDialog.FooterItem';

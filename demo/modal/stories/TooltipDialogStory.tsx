@@ -5,16 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Avatar } from '@zendeskgarden/react-avatars';
 import { Button, IconButton } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
-import { ITooltipDialogProps, TooltipDialog } from '@zendeskgarden/react-modals';
-import { getColor } from '@zendeskgarden/react-theming';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { useTheme } from 'styled-components';
 
-const PLACEMENT = ['top-start', 'top', 'top-end', 'bottom-start', 'bottom', 'bottom-end'] as const;
+import { ITooltipDialogProps, TooltipDialog } from '../../../src/index';
+import { getColor } from '../../../src/theming/utils/getColor';
+
+const MODAL_PLACEMENT = [
+  'top-start',
+  'top',
+  'top-end',
+  'bottom-start',
+  'bottom',
+  'bottom-end'
+] as const;
 
 interface IArgs extends ITooltipDialogProps {
   count: number;
@@ -30,7 +37,7 @@ interface IArgs extends ITooltipDialogProps {
   dialogAriaLabel: string;
 }
 
-export const TooltipDialogStory: StoryFn<IArgs> = ({
+export const TooltipDialogStory = ({
   count,
   handleClick,
   hasBody,
@@ -43,7 +50,7 @@ export const TooltipDialogStory: StoryFn<IArgs> = ({
   closeAriaLabel,
   dialogAriaLabel,
   ...args
-}) => {
+}: IArgs) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
   const current = refs.current.indexOf(args.referenceElement);
   const theme = useTheme();
@@ -58,7 +65,7 @@ export const TooltipDialogStory: StoryFn<IArgs> = ({
 
   return (
     <>
-      <TooltipDialog {...args} placement={args.placement || PLACEMENT[current]} {...ariaProp}>
+      <TooltipDialog {...args} placement={args.placement || MODAL_PLACEMENT[current]} {...ariaProp}>
         {!!hasTitle && <TooltipDialog.Title tag={tag}>{title}</TooltipDialog.Title>}
         {!!hasBody && <TooltipDialog.Body>{body}</TooltipDialog.Body>}
         {!!hasFooter && (
@@ -78,8 +85,7 @@ export const TooltipDialogStory: StoryFn<IArgs> = ({
                   onClick={() =>
                     handleClick(
                       current === refs.current.length - 1 ? null : refs.current[current + 1]
-                    )
-                  }
+                  )}
                 >
                   {current === refs.current.length - 1 ? 'Finish' : 'Next'}
                 </Button>

@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledTooltipDialogBody } from '../../styled';
-import { useTooltipDialogContext } from '../../utils/useTooltipDialogContext';
+import { useTooltipDialogContext } from '../../hooks/modal/useTooltipDialogContext';
+import { StyledTooltipDialogBody } from '../../views/modal/StyledTooltipDialogBody';
+import { COMPONENT_IDS } from '../utils';
 
 const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { getContentProps } = useTooltipDialogContext();
@@ -16,6 +17,8 @@ const BodyComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>
   return (
     <StyledTooltipDialogBody
       {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)}
+      data-garden-id={COMPONENT_IDS['modals.tooltip_dialog.body']}
+      data-garden-version={PACKAGE_VERSION}
       ref={ref}
     />
   );

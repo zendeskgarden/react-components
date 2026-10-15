@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Placement } from '@floating-ui/react-dom';
-import { getMenuPosition, menuStyles } from '@zendeskgarden/react-theming';
+import { ModalPlacement } from '@floating-ui/react-dom';
 import styled from 'styled-components';
 
+import { getMenuPosition } from '../../theming/utils/getMenuPosition';
+import menuStyles from '../../theming/utils/menuStyles';
+
 interface IStyledTooltipWrapperProps {
-  $placement: Placement;
+  $placement: ModalPlacement;
   $isAnimated?: boolean;
   $zIndex?: number;
 }
@@ -18,6 +20,7 @@ interface IStyledTooltipWrapperProps {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledTooltipWrapper = styled.div.attrs<IStyledTooltipWrapperProps>(props => ({
   className: props.$isAnimated ? 'is-animated' : undefined
 }))<IStyledTooltipWrapperProps>`

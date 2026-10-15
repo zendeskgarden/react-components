@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledClose, BASE_MULTIPLIERS as styledCloseBaseMultipliers } from './StyledClose';
-
-const COMPONENT_ID = 'modals.drawer_modal.close';
 
 export const BASE_MULTIPLIERS = {
   top: styledCloseBaseMultipliers.top,
@@ -18,10 +16,7 @@ export const BASE_MULTIPLIERS = {
   size: styledCloseBaseMultipliers.size
 };
 
-export const StyledDrawerClose = styled(StyledClose).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledDrawerClose = styled(StyledClose)`
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
 

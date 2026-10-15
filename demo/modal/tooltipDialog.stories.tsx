@@ -6,17 +6,16 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { TooltipDialog } from '@zendeskgarden/react-modals';
-import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 
-import { PLACEMENT } from '../src/types';
+import { TooltipDialog } from '../../src/index';
+import { MODAL_PLACEMENT } from '../../src/types/elements';
 import { TOOLTIP_DIALOG_BODY as BODY } from './stories/data';
 import { TooltipDialogStory } from './stories/TooltipDialogStory';
 
 export default {
-  title: 'Packages/Modals/TooltipDialog',
+  title: 'Components/Modals/TooltipDialog',
   component: TooltipDialog,
   subcomponents: {
     'TooltipDialog.Body': TooltipDialog.Body,
@@ -67,7 +66,7 @@ export const Example: StoryObj<typeof TooltipDialogStory> = {
     referenceElement: { control: false },
     fallbackPlacements: {
       control: 'multi-select',
-      options: PLACEMENT.filter(p => p !== 'auto')
+      options: MODAL_PLACEMENT.filter(p => p !== 'auto')
     },
     hasBody: {
       name: 'TooltipDialog.Body',

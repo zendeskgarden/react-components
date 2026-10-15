@@ -11,7 +11,9 @@ import type {
   BlockquoteHTMLAttributes,
   ButtonHTMLAttributes,
   HTMLAttributes,
+  KeyboardEvent,
   LiHTMLAttributes,
+  MouseEvent,
   OlHTMLAttributes,
   ReactElement,
   ReactNode,
@@ -613,6 +615,103 @@ export interface ISpinnerProps extends SVGAttributes<SVGSVGElement> {
    * Delays displaying the loader to prevent a render flash during normal loading times
    **/
   delayMS?: number;
+}
+//#endregion
+
+//#region modal
+export const MODAL_PLACEMENT = ['auto', ...PLACEMENT_BASE] as const;
+export type ModalPlacement = (typeof MODAL_PLACEMENT)[number];
+export interface IModalProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Passes HTML attributes to the backdrop element
+   */
+  backdropProps?: HTMLAttributes<HTMLDivElement>;
+  /**
+   * Handles close actions. Can be triggered from the backdrop and from the close icon.
+   *
+   * @param {Object} event The DOM event that triggered the close action
+   */
+  onClose?: (event: KeyboardEvent | MouseEvent) => void;
+  /**
+   * Centers the modal on the backdrop
+   */
+  isCentered?: boolean;
+  /**
+   * Animates the modal
+   */
+  isAnimated?: boolean;
+  /**
+   * Defines the DOM element that the modal will attatch to
+   */
+  appendToNode?: Element;
+  /**
+   * Applies large styling
+   */
+  isLarge?: boolean;
+  /**
+   * Directs keyboard focus to the modal on mount
+   */
+  focusOnMount?: boolean;
+  /**
+   * Returns keyboard focus to the element that triggered the modal
+   */
+  restoreFocus?: boolean;
+}
+export interface IHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies danger styling
+   */
+  isDanger?: boolean;
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
+}
+export interface IDrawerProps extends Omit<IModalProps, 'isAnimated' | 'isCentered' | 'isLarge'> {
+  /**
+   * Opens the modal
+   */
+  isOpen?: boolean;
+}
+export interface IDrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
+}
+export interface ITooltipDialogProps extends Omit<IModalProps, 'isCentered' | 'isLarge'> {
+  /**
+   * Provides a list of acceptable fallback placements
+   */
+  fallbackPlacements?: Exclude<ModalPlacement, 'auto'>[];
+  /**
+   * Adds an arrow to the tooltop
+   */
+  hasArrow?: boolean;
+  /**
+   * Keeps the tooltip content mounted in the DOM when closed, rather than unmounting it
+   */
+  keepMounted?: boolean;
+  /** @ignore Modifies the placement offset from the reference element (internal only) */
+  offset?: number;
+  /**
+   * Adjusts the placement of the tooltip
+   **/
+  placement?: ModalPlacement;
+  /**
+   * Positions the modal relative to the provided `HTMLElement`
+   */
+  referenceElement?: HTMLElement | null;
+  /**
+   * Sets the `z-index` of the tooltip
+   */
+  zIndex?: number;
+}
+export interface ITooltipDialogTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Updates the element's HTML tag
+   */
+  tag?: any;
 }
 //#endregion
 

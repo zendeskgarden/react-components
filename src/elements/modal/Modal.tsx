@@ -6,14 +6,13 @@
  */
 
 import { useModal } from '@zendeskgarden/container-modal';
-import { useDocument, useText } from '@zendeskgarden/react-theming';
 import css from 'dom-helpers/css';
 import isWindow from 'dom-helpers/isWindow';
 import ownerDocument from 'dom-helpers/ownerDocument';
 import ownerWindow from 'dom-helpers/ownerWindow';
 import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import PropTypes from 'prop-types';
-import React, {
+import {
   HTMLAttributes,
   useEffect,
   useMemo,
@@ -26,9 +25,13 @@ import { createPortal } from 'react-dom';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
-import { StyledModal, StyledBackdrop } from '../styled';
-import { IModalProps } from '../types';
-import { ModalsContext } from '../utils/useModalContext';
+import { ModalsContext } from '../../hooks/modal/useModalContext';
+import { useDocument } from '../../theming/utils/useDocument';
+import { useText } from '../../theming/utils/useText';
+import { IModalProps } from '../../types/elements';
+import { StyledBackdrop } from '../../views/modal/StyledBackdrop';
+import { StyledModal } from '../../views/modal/StyledModal';
+import { COMPONENT_IDS } from '../utils';
 import { Body } from './Body';
 import { Close } from './Close';
 import { Footer } from './Footer';
@@ -181,6 +184,8 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
           $isCentered={isCentered}
           $isAnimated={isAnimated}
           {...(getBackdropProps(backdropProps) as HTMLAttributes<HTMLDivElement>)}
+          data-garden-id={COMPONENT_IDS['modals.backdrop']}
+          data-garden-version={PACKAGE_VERSION}
         >
           <StyledModal
             $isCentered={isCentered}
@@ -189,6 +194,8 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
             {...modalContainerProps}
             {...ariaProps}
             {...modalProps}
+            data-garden-id={COMPONENT_IDS['modals.modal']}
+            data-garden-version={PACKAGE_VERSION}
             ref={mergeRefs([ref, modalRef])}
           >
             {children}

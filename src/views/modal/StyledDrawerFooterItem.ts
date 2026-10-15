@@ -5,16 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledFooterItem } from './StyledFooterItem';
 
-const COMPONENT_ID = 'modals.drawer_modal.footer_item';
-
-export const StyledDrawerFooterItem = styled(StyledFooterItem as 'span').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledDrawerFooterItem = styled(StyledFooterItem as 'span')`
   ${componentStyles};
 `;

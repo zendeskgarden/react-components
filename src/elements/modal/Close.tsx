@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
-import XStrokeIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import React, { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
+import { ButtonHTMLAttributes, forwardRef, useEffect } from 'react';
+import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
-import { StyledClose } from '../styled';
-import { useModalContext } from '../utils/useModalContext';
+import { useModalContext } from '../../hooks/modal/useModalContext';
+import { useText } from '../../theming/utils/useText';
+import { StyledClose } from '../../views/modal/StyledClose';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Modal.Close` instead
@@ -41,6 +42,8 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
           ...props,
           'aria-label': ariaLabel!
         }) as ButtonHTMLAttributes<HTMLButtonElement>)}
+        data-garden-id={COMPONENT_IDS['modals.close']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       >
         <XStrokeIcon />

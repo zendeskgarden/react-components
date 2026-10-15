@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import { render, renderRtl, screen } from 'garden-test-utils';
-import React from 'react';
+import { screen } from '@testing-library/react';
+import { createRef } from 'react';
 
+import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Drawer } from './Drawer';
 
 describe('Drawer.Header', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { getByText } = render(
       <Drawer isOpen>
         <Drawer.Header ref={ref}>title</Drawer.Header>
@@ -38,11 +39,14 @@ describe('Drawer.Header', () => {
   });
 
   it('renders horizontal padding in rtl mode when Drawer.Close is present', () => {
-    renderRtl(
+    render(
       <Drawer isOpen>
         <Drawer.Header>Header</Drawer.Header>
         <Drawer.Close />
-      </Drawer>
+      </Drawer>,
+      {
+        theme: RTL_THEME
+      }
     );
 
     expect(screen.getByText('Header')).toHaveStyleRule(

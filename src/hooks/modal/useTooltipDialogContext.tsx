@@ -5,18 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseModalReturnValue } from '@zendeskgarden/container-modal';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export interface IModalContext {
-  hasTitle: boolean;
-  setHasTitle: (isPresent: boolean) => void;
-  getTitleProps: IUseModalReturnValue['getTitleProps'];
-  getContentProps: IUseModalReturnValue['getContentProps'];
-  getCloseProps: IUseModalReturnValue['getCloseProps'];
-}
-
-export const TooltipDialogContext = createContext<IModalContext | undefined>(undefined);
+import { TooltipDialogContext } from '../../context/modal/TooltipDialogContext';
 
 export const useTooltipDialogContext = () => {
   const context = useContext(TooltipDialogContext);

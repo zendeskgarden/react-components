@@ -5,16 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
 import styled, { css, keyframes } from 'styled-components';
 
-const COMPONENT_ID = 'modals.backdrop';
-
-export interface IStyledBackdropProps {
-  $isCentered?: boolean;
-  $isAnimated?: boolean;
-}
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBackdropProps } from '../../types/views';
 
 const animationName = keyframes`
   0% {
@@ -39,10 +35,7 @@ const animationStyles = (props: IStyledBackdropProps) => {
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledBackdrop = styled.div.attrs<IStyledBackdropProps>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledBackdropProps>`
+export const StyledBackdrop = styled.div<IStyledBackdropProps>`
   display: flex;
   position: fixed;
   inset: 0;

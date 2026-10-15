@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledBody } from '../styled';
-import { useModalContext } from '../utils/useModalContext';
+import { useModalContext } from '../../hooks/modal/useModalContext';
+import { StyledBody } from '../../views/modal/StyledBody';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Modal.Body` instead
@@ -18,7 +19,14 @@ import { useModalContext } from '../utils/useModalContext';
 export const Body = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const { getContentProps } = useModalContext();
 
-  return <StyledBody {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)} ref={ref} />;
+  return (
+    <StyledBody
+      {...(getContentProps(props) as HTMLAttributes<HTMLDivElement>)}
+      data-garden-id={COMPONENT_IDS['modals.body']}
+      data-garden-version={PACKAGE_VERSION}
+      ref={ref}
+    />
+  );
 });
 
 Body.displayName = 'Modal.Body';
