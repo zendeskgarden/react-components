@@ -10,6 +10,7 @@ import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useGlobalAlertContext } from '../../hooks/notification/useGlobalAlertContext';
 import { useText } from '../../theming/utils/useText';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledGlobalAlertClose } from '../../views/notification/StyledGlobalAlertClose';
 import { COMPONENT_IDS } from '../utils';
 
@@ -31,15 +32,23 @@ export const GlobalAlertClose = forwardRef<
   return (
     <StyledGlobalAlertClose
       ref={ref}
+      type="button"
       $alertType={type}
       {...props}
+      $isBasic
+      $isPill
+      $size="small"
       data-garden-id={COMPONENT_IDS['notifications.global_alert.close']}
       data-garden-version={PACKAGE_VERSION}
-      size="small"
     >
-      {/* [1] */}
-      {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
-      <XStrokeIcon role="img" aria-label={label} />
+      <StyledIcon
+        data-garden-id={COMPONENT_IDS['buttons.icon']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        {/* [1] */}
+        {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
+        <XStrokeIcon role="img" aria-label={label} />
+      </StyledIcon>
     </StyledGlobalAlertClose>
   );
 });

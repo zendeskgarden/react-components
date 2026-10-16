@@ -251,6 +251,8 @@ export {
   type ITimelineItemProps,
   type ITimelineProps,
   type ITitleProps,
+  type IToast,
+  type IToastOptions,
   type IToastProviderProps,
   type IToggleButtonProps,
   type IToggleIconButtonProps,

@@ -10,10 +10,9 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
 import { useDocument } from '../../theming/utils/useDocument';
-import { NotificationPlacement } from '../../types/elements';
+import { IToast, NotificationPlacement } from '../../types/elements';
 import { StyledFadeInTransition, StyledTransitionContainer, TRANSITION_CLASS } from './styled';
 import { Toast } from './Toast';
-import { IToast } from './useToast';
 
 interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
   toasts: IToast[];

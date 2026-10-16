@@ -8,6 +8,8 @@
 import { createRef } from 'react';
 
 import { RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Type } from '../../types/elements';
 import { GlobalAlert } from './GlobalAlert';
 
@@ -57,5 +59,54 @@ describe('GlobalAlert', () => {
       expect(getByText('title')).toHaveStyleRule('margin-left', '8px');
       expect(getByText('button')).toHaveStyleRule('margin', '-6px 8px -6px 0');
     });
+  });
+
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[700] },
+    { type: 'error', color: PALETTE.red[700] },
+    { type: 'warning', color: PALETTE.yellow[300] },
+    { type: 'info', color: PALETTE.blue[300] }
+  ])('renders $type background color', ({ type, color }) => {
+    const { container } = render(<GlobalAlert type={type} />);
+
+    expect(container.firstChild).toHaveStyleRule('background-color', color);
+  });
+
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[100] },
+    { type: 'error', color: PALETTE.red[100] },
+    { type: 'warning', color: PALETTE.yellow[800] },
+    { type: 'info', color: PALETTE.blue[800] }
+  ])('renders $type foreground color', ({ type, color }) => {
+    const { container } = render(<GlobalAlert type={type} />);
+
+    expect(container.firstChild).toHaveStyleRule('color', color);
+  });
+
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[800] },
+    { type: 'error', color: PALETTE.red[800] },
+    { type: 'warning', color: PALETTE.yellow[400] },
+    { type: 'info', color: PALETTE.blue[400] }
+  ])('renders $type border color', ({ type, color }) => {
+    const { container } = render(<GlobalAlert type={type} />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      `inset 0 -${DEFAULT_THEME.borderWidths.sm} 0 ${color}`
+    );
+  });
+
+  it.each<{ type: Type; color: string }>([
+    { type: 'success', color: PALETTE.green[300] },
+    { type: 'error', color: PALETTE.red[300] },
+    { type: 'warning', color: PALETTE.yellow[700] },
+    { type: 'info', color: PALETTE.blue[700] }
+  ])('renders $type icon color', ({ type, color }) => {
+    const { container } = render(<GlobalAlert type={type} />);
+
+    expect(
+      container.querySelector('[data-garden-id="notifications.global_alert.icon"]')
+    ).toHaveStyleRule('color', color);
   });
 });

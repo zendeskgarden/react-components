@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Content, IToast, IToastOptions } from './useToast';
+import type { Content, IToast, IToastOptions } from '../../types/elements';
 
 export interface IToasterState {
   toasts: IToast[];

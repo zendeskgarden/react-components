@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button } from '@zendeskgarden/react-buttons';
 import styled, { css } from 'styled-components';
 
 import type { ColorParameters } from '../../theming/types';
@@ -14,21 +13,20 @@ import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IGlobalAlertProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
+import { StyledButton } from '../button/StyledButton';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 
 interface IStyledGlobalAlertButtonProps {
   $alertType: IGlobalAlertProps['type'];
-  isBasic?: boolean;
+  $isBasic?: boolean;
 }
 
 type OffsetOptions = Record<string, ColorParameters['offset']>;
 
-function colorStyles(
-  props: IStyledGlobalAlertButtonProps & IStyledBaseProps & IStyledGlobalAlertButtonProps
-) {
-  const { $alertType, isBasic, theme } = props;
+function colorStyles(props: IStyledGlobalAlertButtonProps & IStyledBaseProps) {
+  const { $alertType, $isBasic, theme } = props;
 
-  if (isBasic) {
+  if ($isBasic) {
     return basicColorStyles(props);
   }
 
@@ -112,7 +110,7 @@ function sizeStyles(props: IStyledBaseProps) {
   `;
 }
 
-export const StyledGlobalAlertButton = styled(Button)<IStyledGlobalAlertButtonProps>`
+export const StyledGlobalAlertButton = styled(StyledButton)<IStyledGlobalAlertButtonProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

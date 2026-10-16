@@ -23,13 +23,14 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
     return (
       <StyledGlobalAlertButton
         ref={ref}
+        type="button"
         $alertType={type}
         {...props}
+        $isBasic={isBasic}
+        $isPrimary={!isBasic}
+        $size="small"
         data-garden-id={COMPONENT_IDS['notifications.global_alert.button']}
         data-garden-version={PACKAGE_VERSION}
-        size="small"
-        isPrimary={!isBasic}
-        isBasic={isBasic}
       />
     );
   }

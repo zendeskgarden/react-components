@@ -10,6 +10,7 @@ import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useNotificationsContext } from '../../hooks/notification/useNotificationsContext';
 import { useText } from '../../theming/utils/useText';
+import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledClose } from '../../views/notification/StyledClose';
 import { COMPONENT_IDS } from '../utils';
 
@@ -26,15 +27,23 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
     return (
       <StyledClose
         ref={ref}
+        type="button"
         $type={type}
         aria-label={ariaLabel}
         {...props}
+        $focusInset
+        $isBasic
+        $isPill
+        $size="small"
         data-garden-id={COMPONENT_IDS['notifications.close']}
         data-garden-version={PACKAGE_VERSION}
-        focusInset
-        size="small"
       >
-        <XStrokeIcon />
+        <StyledIcon
+          data-garden-id={COMPONENT_IDS['buttons.icon']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          <XStrokeIcon />
+        </StyledIcon>
       </StyledClose>
     );
   }

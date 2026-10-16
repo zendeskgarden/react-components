@@ -5,15 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
-import { Grid } from '@zendeskgarden/react-grid';
 import { useCallback } from 'react';
 import IconRemove from 'svg-icons-legacy/src/12/x-stroke.svg';
 import IconAdd from 'svg-icons-legacy/src/16/notification-stroke.svg';
 import IconRemoveAll from 'svg-icons-legacy/src/16/x-circle-stroke.svg';
 
-import { Close, IToastOptions, Notification, Title, IToast, useToast } from '../../../src/index';
+import { Button, Grid, IToast, IToastOptions, Notification, useToast } from '../../../src/index';
 
 interface IArgs extends IToastOptions {
   children: string;
@@ -32,9 +30,9 @@ export const ToastStory = ({ children, ...args }: IArgs) => {
     const getToast = (id?: string) => {
       const retVal: IToast['content'] = ({ close }) => (
         <Notification>
-          {!!id && <Title>{id}</Title>}
+          {!!id && <Notification.Title>{id}</Notification.Title>}
           {children}
-          <Close aria-label="Close" onClick={close} />
+          <Notification.Close aria-label="Close" onClick={close} />
         </Notification>
       );
 

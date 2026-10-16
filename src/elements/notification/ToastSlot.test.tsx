@@ -12,6 +12,7 @@ import { vi } from 'vitest';
 
 import { render } from '../../test/render';
 import { ToastProvider } from './ToastProvider';
+import { ToastSlot } from './ToastSlot';
 import { useToast } from './useToast';
 
 config.disabled = true;
@@ -21,8 +22,12 @@ vi.useFakeTimers({ shouldAdvanceTime: true });
 const NotificationExample = () => {
   const { addToast } = useToast();
 
-  /* eslint-disable-next-line react/no-unstable-nested-components */
-  return <button onClick={() => addToast(() => <div>notification</div>)}>Add</button>;
+  return (
+    // eslint-disable-next-line react/no-unstable-nested-components
+    <button type="button" onClick={() => addToast(() => <div>notification</div>)}>
+      Add
+    </button>
+  );
 };
 
 const ToastExample = () => (
@@ -45,7 +50,7 @@ describe('ToastSlot', () => {
 
     expect(getAllByText('notification')).toHaveLength(5);
 
-    await user.hover(getAllByText('notification')[0]);
+    await user.hover(getAllByText('notification')[0]!);
 
     act(() => {
       vi.runOnlyPendingTimers();
@@ -65,7 +70,7 @@ describe('ToastSlot', () => {
 
     expect(getAllByText('notification')).toHaveLength(5);
 
-    await user.hover(getAllByText('notification')[0]);
+    await user.hover(getAllByText('notification')[0]!);
 
     act(() => {
       vi.runAllTimers();
@@ -73,7 +78,7 @@ describe('ToastSlot', () => {
 
     expect(getAllByText('notification')).toHaveLength(5);
 
-    await user.unhover(getAllByText('notification')[0]);
+    await user.unhover(getAllByText('notification')[0]!);
 
     act(() => {
       vi.runAllTimers();
@@ -82,5 +87,14 @@ describe('ToastSlot', () => {
     waitFor(() => {
       expect(queryByText('notification')).not.toBeInTheDocument();
     });
+  });
+  it('renders no position styles given an unknown placement', () => {
+    const { container } = render(
+      <ToastSlot toasts={[]} placement={'unknown' as 'top'} limit={4} zIndex={100} />
+    );
+
+    expect(container.firstChild).toHaveStyleRule('position', 'fixed');
+    expect(container.firstChild).not.toHaveStyleRule('top');
+    expect(container.firstChild).not.toHaveStyleRule('bottom');
   });
 });

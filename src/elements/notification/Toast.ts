@@ -7,7 +7,8 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { IToast, useToast } from './useToast';
+import type { IToast } from '../../types/elements';
+import { useToast } from './useToast';
 
 interface IToastProps {
   toast: IToast;

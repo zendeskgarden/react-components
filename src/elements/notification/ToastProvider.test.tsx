@@ -19,8 +19,11 @@ const NotificationExample = () => {
   const { addToast } = useToast();
 
   return (
-    /* eslint-disable-next-line react/no-unstable-nested-components */
-    <button onClick={() => addToast(() => <div>notification</div>, { placement: 'bottom-start' })}>
+    <button
+      type="button"
+      // eslint-disable-next-line react/no-unstable-nested-components
+      onClick={() => addToast(() => <div>notification</div>, { placement: 'bottom-start' })}
+    >
       Add
     </button>
   );
@@ -83,11 +86,11 @@ describe('ToastProvider', () => {
     const notificationElements = getAllByText('notification');
 
     for (let x = 0; x < 6; x++) {
-      expect(notificationElements[x].parentElement).toHaveStyleRule('opacity', '0!important');
+      expect(notificationElements[x]!.parentElement).toHaveStyleRule('opacity', '0!important');
     }
 
     for (let x = 6; x < 10; x++) {
-      expect(notificationElements[x].parentElement).toHaveStyleRule('opacity', '1');
+      expect(notificationElements[x]!.parentElement).toHaveStyleRule('opacity', '1');
     }
   });
 

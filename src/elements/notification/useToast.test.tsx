@@ -22,7 +22,9 @@ const Notification: FC<PropsWithChildren<{ close: () => void }>> = ({ close, chi
   return (
     <div role="alert">
       {children}
-      <button onClick={close}>Close</button>
+      <button type="button" onClick={close}>
+        Close
+      </button>
     </div>
   );
 };
@@ -35,6 +37,7 @@ const NotificationExample = () => {
   return (
     <>
       <button
+        type="button"
         onClick={() => {
           setRecentToast(
             addToast(({ close }) => <Notification close={close}>added toast</Notification>)
@@ -44,6 +47,7 @@ const NotificationExample = () => {
         Add toast
       </button>
       <button
+        type="button"
         onClick={() => {
           setRecentToast(
             addToast(({ close }) => <Notification close={close}>persistent toast</Notification>, {
@@ -55,6 +59,7 @@ const NotificationExample = () => {
         Add persistent toast
       </button>
       <button
+        type="button"
         onClick={() => {
           updateToast(recentToast, {
             content: ({ close }) => <Notification close={close}>updated content</Notification>
@@ -64,6 +69,7 @@ const NotificationExample = () => {
         Update toast
       </button>
       <button
+        type="button"
         onClick={() => {
           removeToast(recentToast);
           setRecentToast('');
@@ -72,6 +78,7 @@ const NotificationExample = () => {
         Remove toast
       </button>
       <button
+        type="button"
         onClick={() => {
           removeAllToasts();
         }}

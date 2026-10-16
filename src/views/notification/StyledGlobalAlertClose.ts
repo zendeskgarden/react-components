@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IconButton } from '@zendeskgarden/react-buttons';
 import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -13,6 +12,7 @@ import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IGlobalAlertProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
+import { StyledIconButton } from '../button/StyledIconButton';
 
 interface IStyledGlobalAlertCloseProps {
   $alertType: IGlobalAlertProps['type'];
@@ -118,7 +118,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledGlobalAlertClose = styled(IconButton)<IStyledGlobalAlertCloseProps>`
+export const StyledGlobalAlertClose = styled(StyledIconButton)<IStyledGlobalAlertCloseProps>`
   ${sizeStyles};
 
   ${colorStyles};

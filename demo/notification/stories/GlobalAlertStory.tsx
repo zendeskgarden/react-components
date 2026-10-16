@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Anchor } from '@zendeskgarden/react-buttons';
-
-import { GlobalAlert, IGlobalAlertProps } from '../../../src/index';
+import { Anchor, GlobalAlert, IGlobalAlertProps } from '../../../src/index';
 
 interface IArgs extends IGlobalAlertProps {
   anchor?: string;

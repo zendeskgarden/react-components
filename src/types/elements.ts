@@ -6,7 +6,6 @@
  */
 
 import type { IUseAccordionProps } from '@zendeskgarden/container-accordion';
-import type { IButtonProps } from '@zendeskgarden/react-buttons';
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
@@ -942,6 +941,20 @@ export interface IGlobalAlertTitleProps extends HTMLAttributes<HTMLDivElement> {
    * Applies regular (non-bold) font weight
    */
   isRegular?: boolean;
+}
+export interface IToastOptions {
+  /** Sets the toast ID, otherwise the ID is generated */
+  id?: string;
+  /** Determines whether to automatically dismiss the toast. Can be expressed in milliseconds. */
+  autoDismiss: boolean | number;
+  /** Adjusts the placement of the toast content */
+  placement: NotificationPlacement;
+}
+export type Content = ({ close }: { close: () => void }) => ReactElement;
+export interface IToast {
+  id: string;
+  content: Content;
+  options: IToastOptions;
 }
 //#endregion
 

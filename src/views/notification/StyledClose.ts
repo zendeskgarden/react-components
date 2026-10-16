@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IconButton } from '@zendeskgarden/react-buttons';
 import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -13,6 +12,7 @@ import { getColor } from '../../theming/utils/getColor';
 import { Type } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
 import { validationTypes } from '../../utils/notification/icons';
+import { StyledIconButton } from '../button/StyledIconButton';
 
 interface IStyledCloseProps {
   $type?: Type;
@@ -64,7 +64,7 @@ const colorStyles = ({ theme, $type }: IStyledCloseProps & IStyledBaseProps) => 
  * 1. Reset for <button> element.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled(IconButton)<IStyledCloseProps>`
+export const StyledClose = styled(StyledIconButton)<IStyledCloseProps>`
   position: absolute;
   top: ${props => props.theme.space.base}px;
   right: ${p => !p.theme.rtl && `${p.theme.space.base}px`};
