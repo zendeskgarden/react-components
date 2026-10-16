@@ -56,8 +56,17 @@ export { TooltipDialog } from './elements/modal/TooltipDialog';
 export { CursorPagination } from './elements/pagination/CursorPagination';
 export { OffsetPagination } from './elements/pagination/OffsetPagination';
 
+/* sheet */
+export { Sheet } from './elements/sheet/Sheet';
+
+/* skipnav */
+export { SkipNav } from './elements/skipnav/SkipNav';
+
 /* tab */
 export { Tabs } from './elements/tab/Tabs';
+
+/* table */
+export { Table } from './elements/table/Table';
 
 /* tag */
 export { Tag } from './elements/tag/Tag';
@@ -143,6 +152,7 @@ export {
   type IButtonIconProps as IButtonEndIconProps,
   type IButtonIconProps as IButtonStartIconProps,
   type IButtonProps,
+  type ICellProps,
   type ICodeBlockProps,
   type ICodeProps,
   type IColProps,
@@ -156,6 +166,8 @@ export {
   type IEllipsisProps,
   type IGridProps,
   type IGridRowProps,
+  type IHeadProps,
+  type IHeaderCellProps,
   type IIconButtonProps,
   type IIconButtonProps as IChevronButtonProps,
   type IInlineProps,
@@ -166,7 +178,11 @@ export {
   type IPaneProviderProps,
   type IParagraphProps,
   type IProgressProps,
+  type ISheetFooterProps,
+  type ISheetProps,
   type ISkeletonProps,
+  type ISkipNavProps,
+  type ISortableCellProps,
   type ISpanProps,
   type ISpinnerProps,
   type ISplitterButtonProps,
@@ -176,6 +192,8 @@ export {
   type IStepperProps,
   type ITabPanelProps,
   type ITabProps,
+  type ITableProps,
+  type ITableRowProps,
   type ITabsProps,
   type ITagProps,
   type ITimelineItemProps,

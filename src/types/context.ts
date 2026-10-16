@@ -23,6 +23,7 @@ import type {
   GridNumber,
   IAccordionProps,
   ISplitterProps,
+  ITableProps,
   Orientation,
   Size,
   Space
@@ -164,9 +165,25 @@ export interface ITooltipDialogContext {
 }
 //#endregion
 
+//#region sheet
+export interface ISheetContext {
+  titleId?: string;
+  descriptionId?: string;
+  isCloseButtonPresent?: boolean;
+  setIsCloseButtonPresent: (isPresent: boolean) => void;
+}
+//#endregion
+
 //#region tab
 export interface ITabsContext extends IUseTabsReturnValue<any> {
   isVertical?: boolean;
+}
+//#endregion
+
+//#region table
+export interface ITableContext {
+  size: NonNullable<ITableProps['size']>;
+  isReadOnly: NonNullable<ITableProps['isReadOnly']>;
 }
 //#endregion
 

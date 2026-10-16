@@ -17,7 +17,10 @@ import type {
   OlHTMLAttributes,
   ReactElement,
   ReactNode,
-  SVGAttributes
+  SVGAttributes,
+  TableHTMLAttributes,
+  TdHTMLAttributes,
+  ThHTMLAttributes
 } from 'react';
 
 import { PLACEMENT as PLACEMENT_BASE, PLACEMENT as BASE_PLACEMENT } from '../theming/types';
@@ -712,6 +715,89 @@ export interface ITooltipDialogTitleProps extends HTMLAttributes<HTMLDivElement>
    * Updates the element's HTML tag
    */
   tag?: any;
+}
+//#endregion
+
+//#region sheet
+export const SHEET_PLACEMENT = ['end', 'start'] as const;
+export interface ISheetProps extends HTMLAttributes<HTMLElement> {
+  /** Identifies the sheet */
+  id?: string;
+  /** Opens the sheet */
+  isOpen?: boolean;
+  /** Determines whether animation for opening and closing the sheet is used */
+  isAnimated?: boolean;
+  /** Directs keyboard focus to the sheet on mount */
+  focusOnMount?: boolean;
+  /** Returns keyboard focus to the element that triggered the sheet */
+  restoreFocus?: boolean;
+  /** Adjusts the placement of the sheet */
+  placement?: (typeof SHEET_PLACEMENT)[number];
+  /** Sets the size of the open sheet */
+  size?: string;
+}
+export interface ISheetFooterProps extends HTMLAttributes<HTMLElement> {
+  /** Applies compact styling and centers the elements */
+  isCompact?: boolean;
+}
+//#endregion
+
+//#region skipnav
+export interface ISkipNavProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  /** Sets the ID of the element to navigate to */
+  targetId: string;
+  /** Sets the `z-index` of the element */
+  zIndex?: number;
+}
+//#endregion
+
+//#region table
+export const TABLE_SIZE = ['small', 'medium', 'large'] as const;
+export const SORT = ['asc', 'desc'];
+export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
+  /** Sets the table size */
+  size?: (typeof TABLE_SIZE)[number];
+  /** Removes interactive styling from table rows */
+  isReadOnly?: boolean;
+}
+export interface IHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
+  /** Applies sticky header styling */
+  isSticky?: boolean;
+}
+export interface ITableRowProps extends HTMLAttributes<HTMLTableRowElement> {
+  /** Applies striped styling */
+  isStriped?: boolean;
+  /** Applies selected styling */
+  isSelected?: boolean;
+  /** @ignore Applies focus styling */
+  isFocused?: boolean;
+  /** @ignore Applies hover styling */
+  isHovered?: boolean;
+}
+export interface ICellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+  /**
+   * Applies minimum fixed width styling (e.g. for cells that contain
+   * checkboxes or icons)
+   */
+  isMinimum?: boolean;
+  /** Truncates long text with an ellipsis */
+  isTruncated?: boolean;
+  /** Applies styling for a cell that contains an overflow menu */
+  hasOverflow?: boolean;
+  /** Adjusts the [width](https://developer.mozilla.org/en-US/docs/Web/CSS/width) of the cell */
+  width?: TdHTMLAttributes<HTMLTableCellElement>['width'];
+}
+export interface IHeaderCellProps
+  extends
+    Pick<ICellProps, 'isMinimum' | 'isTruncated' | 'hasOverflow' | 'width'>,
+    ThHTMLAttributes<HTMLTableCellElement> {}
+export interface ISortableCellProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Sets the sort order */
+  sort?: (typeof SORT)[number];
+  /** Sets the width of the cell */
+  width?: ICellProps['width'];
+  /** Passes props to the cell */
+  cellProps?: any;
 }
 //#endregion
 

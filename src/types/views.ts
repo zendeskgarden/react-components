@@ -38,6 +38,22 @@ export interface IStyledIcon extends IStyledBaseProps {
 }
 //#endregion
 
+//#region sheet
+export interface IStyledSheetFooterProps extends IStyledBaseProps {
+  /** Sets the SheetFooter padding to half the standard and centers the elements  */
+  $isCompact?: boolean;
+}
+export interface IStyledSheetHeaderProps extends IStyledBaseProps {
+  $isCloseButtonPresent?: boolean;
+}
+//#endregion
+
+//#region table
+export interface IStyledBaseRowProps extends IStyledBaseProps {
+  $isStriped?: boolean;
+}
+//#endregion
+
 //#region typography
 export interface IStyledFontProps extends IStyledBaseProps {
   $isBold?: boolean;

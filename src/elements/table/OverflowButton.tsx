@@ -1,0 +1,50 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
+
+import { useTableContext } from '../../hooks/table/useTableContext';
+import { StyledIcon } from '../../views/button/StyledIcon';
+import { StyledOverflowButton } from '../../views/table/StyledOverflowButton';
+import { COMPONENT_IDS } from '../utils';
+
+/**
+ * @deprecated use `Table.OverflowButton` instead
+ *
+ * @extends ButtonHTMLAttributes<HTMLButtonElement>
+ */
+export const OverflowButton = forwardRef<
+  HTMLButtonElement,
+  ButtonHTMLAttributes<HTMLButtonElement>
+>((props, ref) => {
+  const { size } = useTableContext();
+
+  return (
+    <StyledOverflowButton
+      type="button"
+      $isBasic
+      $isPill
+      $size="medium"
+      $tableSize={size}
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['tables.overflow_button']}
+      data-garden-version={PACKAGE_VERSION}
+      $focusInset
+    >
+      <StyledIcon
+        data-garden-id={COMPONENT_IDS['buttons.icon']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        <DotsVerticalIcon />
+      </StyledIcon>
+    </StyledOverflowButton>
+  );
+});
+
+OverflowButton.displayName = 'Table.OverflowButton';
