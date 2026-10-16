@@ -7,6 +7,7 @@
 
 import { userEvent } from '@testing-library/user-event';
 import { createRef, useState } from 'react';
+import { vi } from 'vitest';
 
 import { render } from '../../test/render';
 import { Field } from './Field';
@@ -118,5 +119,58 @@ describe('Range', () => {
 
     expect(range.style.margin).toBe('4px');
     expect(range.style.backgroundSize).toBe('');
+  });
+
+  it('keeps the lower-track size over a consumer backgroundSize', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Range
+          min={0}
+          max={100}
+          value={25}
+          data-test-id="range"
+          style={{ backgroundSize: '80%' }}
+        />
+      </Field>
+    );
+
+    expect(getByTestId('range').style.backgroundSize).toBe('25%');
+  });
+
+  it('keeps a consumer backgroundSize without hasLowerTrack', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Range
+          min={0}
+          max={100}
+          value={25}
+          hasLowerTrack={false}
+          data-test-id="range"
+          style={{ backgroundSize: 'auto' }}
+        />
+      </Field>
+    );
+
+    expect(getByTestId('range').style.backgroundSize).toBe('auto');
+  });
+
+  it('does not warn when a background shorthand updates next to the consumer backgroundSize', () => {
+    const error = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    const ShorthandExample = ({ color }: { color: string }) => (
+      <Field>
+        <Range
+          hasLowerTrack={false}
+          data-test-id="range"
+          style={{ backgroundSize: 'auto', background: `${color} 0 0 / 100% 4px no-repeat` }}
+        />
+      </Field>
+    );
+    const { getByTestId, rerender } = render(<ShorthandExample color="red" />);
+
+    rerender(<ShorthandExample color="blue" />);
+
+    expect(getByTestId('range').style.backgroundSize).toBe('100% 4px');
+    expect(error).not.toHaveBeenCalled();
+    error.mockRestore();
   });
 });

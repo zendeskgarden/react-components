@@ -73,7 +73,7 @@ export const Range = forwardRef<HTMLInputElement, IRangeProps>(
         data-garden-version={PACKAGE_VERSION}
         style={{
           ...combinedProps.style,
-          backgroundSize: hasLowerTrack ? backgroundSize : undefined
+          backgroundSize: hasLowerTrack ? backgroundSize : combinedProps.style?.backgroundSize
         }}
         type="range"
       />
