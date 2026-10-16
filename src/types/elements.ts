@@ -884,6 +884,80 @@ export interface ITooltipDialogTitleProps extends HTMLAttributes<HTMLDivElement>
 }
 //#endregion
 
+//#region notification
+export const NOTIFICATION_PLACEMENT = [
+  'top-start',
+  'top',
+  'top-end',
+  'bottom-start',
+  'bottom',
+  'bottom-end'
+] as const;
+export const NOTIFICATION_TYPE = ['success', 'warning', 'error', 'info'] as const;
+export type NotificationPlacement = (typeof NOTIFICATION_PLACEMENT)[number];
+export type Type = (typeof NOTIFICATION_TYPE)[number];
+export interface IAlertProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies alert type styles */
+  type: Type;
+}
+export interface INotificationProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies notification type styles */
+  type?: Type;
+}
+export interface IWellProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies a background color */
+  isRecessed?: boolean;
+  /** Applies a drop shadow */
+  isFloating?: boolean;
+}
+export interface ITitleProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies regular (non-bold) font weight */
+  isRegular?: boolean;
+}
+export interface IToastProviderProps {
+  /**
+   * Limits the number of visible toasts
+   */
+  limit?: number;
+  /**
+   * Passes placement-based customization props to the toast's parent element
+   */
+  placementProps?: Partial<Record<NotificationPlacement, HTMLAttributes<HTMLDivElement>>>;
+  /**
+   * Sets the `z-index` of the toast
+   */
+  zIndex?: number;
+}
+export interface IGlobalAlertProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies global alert type styles
+   */
+  type: Type;
+}
+export interface IGlobalAlertButtonProps
+  extends ButtonHTMLAttributes<HTMLButtonElement>, Pick<IButtonProps, 'isBasic'> {}
+export interface IGlobalAlertTitleProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Applies regular (non-bold) font weight
+   */
+  isRegular?: boolean;
+}
+export interface IToastOptions {
+  /** Sets the toast ID, otherwise the ID is generated */
+  id?: string;
+  /** Determines whether to automatically dismiss the toast. Can be expressed in milliseconds. */
+  autoDismiss: boolean | number;
+  /** Adjusts the placement of the toast content */
+  placement: NotificationPlacement;
+}
+export type Content = ({ close }: { close: () => void }) => ReactElement;
+export interface IToast {
+  id: string;
+  content: Content;
+  options: IToastOptions;
+}
+//#endregion
+
 //#region sheet
 export const SHEET_PLACEMENT = ['end', 'start'] as const;
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
