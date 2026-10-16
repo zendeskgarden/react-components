@@ -5,27 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import CheckedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
+import { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+import CheckedIcon from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
+import PreviousIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
+import NextIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
+import AddIcon from 'svg-icons-legacy/src/16/plus-stroke.svg';
 
-import { ItemContext } from '../../context/useItemContext';
-import useItemGroupContext from '../../context/useItemGroupContext';
-import useMenuContext from '../../context/useMenuContext';
-import { IItemProps, OPTION_TYPE, OptionType } from '../../types';
-import {
-  StyledItem,
-  StyledItemAnchor,
-  StyledItemContent,
-  StyledItemIcon,
-  StyledItemTypeIcon
-} from '../../views';
+import { ItemProvider } from '../../context/dropdown/ItemContext';
+import { useItemGroupContext } from '../../hooks/dropdown/useItemGroupContext';
+import { useMenuContext } from '../../hooks/dropdown/useMenuContext';
+import { IItemProps, OPTION_TYPE, OptionType } from '../../types/elements';
+import { StyledItem } from '../../views/dropdown/StyledItem';
+import { StyledItemAnchor } from '../../views/dropdown/StyledItemAnchor';
+import { StyledItemContent } from '../../views/dropdown/StyledItemContent';
+import { StyledItemIcon } from '../../views/dropdown/StyledItemIcon';
+import { StyledItemTypeIcon } from '../../views/dropdown/StyledItemTypeIcon';
+import { COMPONENT_IDS } from '../utils';
 import { ItemMeta } from './ItemMeta';
-import { toItem } from './utils';
+import { toItem } from './menuUtils';
 
 const renderActionIcon = (itemType?: OptionType) => {
   switch (itemType) {
@@ -98,15 +97,30 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
 
     const itemChildren = (
       <>
-        <StyledItemTypeIcon $isCompact={isCompact} $type={type}>
+        <StyledItemTypeIcon
+          $isCompact={isCompact}
+          $type={type}
+          data-garden-id={COMPONENT_IDS['dropdowns.menu.item.type_icon']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {renderActionIcon(type)}
         </StyledItemTypeIcon>
         {!!icon && (
-          <StyledItemIcon $isDisabled={isDisabled} $type={type}>
+          <StyledItemIcon
+            $isDisabled={isDisabled}
+            $type={type}
+            data-garden-id={COMPONENT_IDS['dropdowns.menu.item.icon']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             {icon}
           </StyledItemIcon>
         )}
-        <StyledItemContent>{children || label}</StyledItemContent>
+        <StyledItemContent
+          data-garden-id={COMPONENT_IDS['dropdowns.menu.item.content']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          {children || label}
+        </StyledItemContent>
       </>
     );
 
@@ -117,7 +131,7 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
     };
 
     return (
-      <ItemContext.Provider value={contextValue}>
+      <ItemProvider value={contextValue}>
         {anchorProps ? (
           <li {...menuItemProps}>
             <StyledItemAnchor
@@ -134,11 +148,13 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
             $isActive={value === focusedValue}
             $type={type}
             {...menuItemProps}
+            data-garden-id={COMPONENT_IDS['dropdowns.menu.item']}
+            data-garden-version={PACKAGE_VERSION}
           >
             {itemChildren}
           </StyledItem>
         )}
-      </ItemContext.Provider>
+      </ItemProvider>
     );
   }
 );

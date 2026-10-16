@@ -5,19 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { IStyledBaseProps } from '../../types/views';
 import { getMinHeight as getOptionMinHeight } from './StyledOption';
-
-const COMPONENT_ID = 'dropdowns.combobox.option.selection_icon';
 
 export interface IStyledOptionSelectionIconProps extends ThemeProps<DefaultTheme> {
   $isCompact?: boolean;
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const color = getColor({ theme, variable: 'foreground.primary' });
 
   return css`
@@ -39,10 +40,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledOptionSelectionIconProps) => {
   `;
 };
 
-export const StyledOptionSelectionIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledOptionSelectionIconProps>`
+export const StyledOptionSelectionIcon = styled(StyledBaseIcon)<IStyledOptionSelectionIconProps>`
   position: absolute;
 
   ${sizeStyles};

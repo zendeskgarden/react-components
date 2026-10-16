@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef, useEffect } from 'react';
+import { HTMLAttributes, forwardRef, useEffect } from 'react';
 
-import useFieldContext from '../../context/useFieldContext';
-import { StyledHint } from '../../views';
+import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
+import { StyledHint } from '../../views/dropdown/StyledHint';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Field.Hint` instead
@@ -24,7 +25,15 @@ export const Hint = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((
     return () => setHasHint(false);
   }, [setHasHint]);
 
-  return <StyledHint {...hintProps} {...props} ref={ref} />;
+  return (
+    <StyledHint
+      {...hintProps}
+      {...props}
+      data-garden-id={COMPONENT_IDS['dropdowns.combobox.hint']}
+      data-garden-version={PACKAGE_VERSION}
+      ref={ref}
+    />
+  );
 });
 
 Hint.displayName = 'Field.Hint';

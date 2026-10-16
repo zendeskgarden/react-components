@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IItemProps, IOptGroupProps, IOptionProps } from '@zendeskgarden/react-dropdowns';
+import { IItemProps, IOptGroupProps, IOptionProps } from '../../../../src/index';
 
 export interface IItem extends IItemProps {
   isSeparator?: boolean;

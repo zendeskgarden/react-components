@@ -5,22 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseComboboxReturnValue } from '@zendeskgarden/container-combobox';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export const ComboboxContext = createContext<
-  | {
-      activeValue: IUseComboboxReturnValue['activeValue'];
-      getOptionProps: IUseComboboxReturnValue['getOptionProps'];
-      getOptGroupProps: IUseComboboxReturnValue['getOptGroupProps'];
-      getTagProps: IUseComboboxReturnValue['getTagProps'];
-      isCompact?: boolean;
-      removeSelection: IUseComboboxReturnValue['removeSelection'];
-    }
-  | undefined
->(undefined);
+import { ComboboxContext } from '../../context/dropdown/ComboboxContext';
 
-const useComboboxContext = () => {
+export const useComboboxContext = () => {
   const context = useContext(ComboboxContext);
 
   if (!context) {
@@ -29,5 +18,3 @@ const useComboboxContext = () => {
 
   return context;
 };
-
-export default useComboboxContext;

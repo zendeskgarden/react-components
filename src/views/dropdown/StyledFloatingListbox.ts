@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, MenuPosition, menuStyles } from '@zendeskgarden/react-theming';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
-import { IListboxProps } from '../../types';
-
-const COMPONENT_ID = 'dropdowns.combobox.floating';
+import type { MenuPosition } from '../../theming/types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import menuStyles from '../../theming/utils/menuStyles';
+import { IListboxProps } from '../../types/elements';
 
 export interface IStyledFloatingListboxProps extends ThemeProps<DefaultTheme> {
   $isHidden?: boolean;
@@ -21,10 +21,7 @@ export interface IStyledFloatingListboxProps extends ThemeProps<DefaultTheme> {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
-export const StyledFloatingListbox = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledFloatingListboxProps>`
+export const StyledFloatingListbox = styled.div<IStyledFloatingListboxProps>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 

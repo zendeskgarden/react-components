@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 import { StyledValue } from './StyledValue';
 
 const COMPONENT_ID = 'dropdowns.combobox.tags_button';
@@ -32,6 +33,7 @@ const colorStyles = ({ theme }: IStyledTagsButtonProps) => {
  * 1. StyledValue override.
  * 2. Button reset.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledTagsButton = styled(StyledValue as 'button').attrs({
   as: 'button',
   'data-garden-id': COMPONENT_ID,

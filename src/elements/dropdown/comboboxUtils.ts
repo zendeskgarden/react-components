@@ -8,7 +8,7 @@
 import { IOption, IUseComboboxProps } from '@zendeskgarden/container-combobox';
 import { Children, ReactNode, isValidElement } from 'react';
 
-import { IOptGroupProps, IOptionProps } from '../../types';
+import { IOptGroupProps, IOptionProps } from '../../types/elements';
 
 /**
  * Convert `Option` props to a valid object for `useCombobox`.

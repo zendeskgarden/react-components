@@ -5,13 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ISelectedItem } from '@zendeskgarden/container-menu';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export const ItemGroupContext = createContext<{ type?: ISelectedItem['type'] }>({});
+import { ItemGroupContext } from '../../context/dropdown/ItemGroupContext';
 
-const useItemGroupContext = () => {
+export const useItemGroupContext = () => {
   return useContext(ItemGroupContext);
 };
-
-export default useItemGroupContext;

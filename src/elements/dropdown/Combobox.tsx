@@ -7,10 +7,8 @@
 
 import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
 import { VALIDATION } from '@zendeskgarden/react-forms';
-import { DEFAULT_THEME, useText, useWindow } from '@zendeskgarden/react-theming';
-import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
-import React, {
+import {
   HTMLAttributes,
   InputHTMLAttributes,
   LabelHTMLAttributes,
@@ -22,23 +20,26 @@ import React, {
   useState
 } from 'react';
 import { ThemeContext } from 'styled-components';
+import ChevronIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import { ComboboxContext } from '../../context/useComboboxContext';
-import useFieldContext from '../../context/useFieldContext';
-import { IComboboxProps, IOptionProps } from '../../types';
-import {
-  StyledCombobox,
-  StyledContainer,
-  StyledInputIcon,
-  StyledInput,
-  StyledInputGroup,
-  StyledTagsButton,
-  StyledTrigger,
-  StyledValue
-} from '../../views';
+import { ComboboxProvider } from '../../context/dropdown/ComboboxContext';
+import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { useText } from '../../theming/utils/useText';
+import { useWindow } from '../../theming/utils/useWindow';
+import { IComboboxProps, IOptionProps } from '../../types/elements';
+import { StyledCombobox } from '../../views/dropdown/StyledCombobox';
+import { StyledContainer } from '../../views/dropdown/StyledContainer';
+import { StyledInput } from '../../views/dropdown/StyledInput';
+import { StyledInputGroup } from '../../views/dropdown/StyledInputGroup';
+import { StyledInputIcon } from '../../views/dropdown/StyledInputIcon';
+import { StyledTagsButton } from '../../views/dropdown/StyledTagsButton';
+import { StyledTrigger } from '../../views/dropdown/StyledTrigger';
+import { StyledValue } from '../../views/dropdown/StyledValue';
+import { COMPONENT_IDS } from '../utils';
+import { toOptions } from './comboboxUtils';
 import { Listbox } from './Listbox';
 import { TagGroup } from './TagGroup';
-import { toOptions } from './utils';
 
 const MAX_TAGS = 4;
 
@@ -300,11 +301,13 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     }, [isEditable, isMultiselectable, selectionFingerprint]);
 
     return (
-      <ComboboxContext.Provider value={contextValue}>
+      <ComboboxProvider value={contextValue}>
         <StyledCombobox
           $isCompact={isCompact}
           tabIndex={-1} // HACK: otherwise screenreaders can't read the label
           {...props}
+          data-garden-id={COMPONENT_IDS['dropdowns.combobox']}
+          data-garden-version={PACKAGE_VERSION}
           ref={ref}
         >
           <StyledTrigger
@@ -318,14 +321,27 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
             $focusInset={focusInset}
             $validation={validation}
             {...triggerProps}
+            data-garden-id={COMPONENT_IDS['dropdowns.combobox.trigger']}
+            data-garden-version={PACKAGE_VERSION}
           >
-            <StyledContainer>
+            <StyledContainer
+              data-garden-id={COMPONENT_IDS['dropdowns.combobox.container']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               {!!startIcon && (
-                <StyledInputIcon $isLabelHovered={isLabelHovered} $isCompact={isCompact}>
+                <StyledInputIcon
+                  $isLabelHovered={isLabelHovered}
+                  $isCompact={isCompact}
+                  data-garden-id={COMPONENT_IDS['dropdowns.combobox.input_icon']}
+                  data-garden-version={PACKAGE_VERSION}
+                >
                   {startIcon}
                 </StyledInputIcon>
               )}
-              <StyledInputGroup>
+              <StyledInputGroup
+                data-garden-id={COMPONENT_IDS['dropdowns.combobox.input_group']}
+                data-garden-version={PACKAGE_VERSION}
+              >
                 {!!isMultiselectable && Array.isArray(selection) && (
                   <TagGroup
                     isDisabled={isDisabled}
@@ -366,6 +382,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   $isEditable={isEditable}
                   $isMultiselectable={isMultiselectable}
                   $isPlaceholder={!(inputValue || renderValue)}
+                  data-garden-id={COMPONENT_IDS['dropdowns.combobox.value']}
+                  data-garden-version={PACKAGE_VERSION}
                 >
                   {renderValue ? renderValue({ selection, inputValue }) : inputValue || placeholder}
                 </StyledValue>
@@ -375,6 +393,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   $isEditable={isEditable}
                   $isMultiselectable={isMultiselectable}
                   {...inputProps}
+                  data-garden-id={COMPONENT_IDS['dropdowns.combobox.input']}
+                  data-garden-version={PACKAGE_VERSION}
                 />
               </StyledInputGroup>
               {!!(hasChevron || endIcon) && (
@@ -383,6 +403,8 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                   $isEnd
                   $isLabelHovered={isLabelHovered}
                   $isRotated={!!(hasChevron && isExpanded)}
+                  data-garden-id={COMPONENT_IDS['dropdowns.combobox.input_icon']}
+                  data-garden-version={PACKAGE_VERSION}
                 >
                   {hasChevron ? <ChevronIcon /> : endIcon}
                 </StyledInputIcon>
@@ -402,7 +424,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
             {children}
           </Listbox>
         </StyledCombobox>
-      </ComboboxContext.Provider>
+      </ComboboxProvider>
     );
   }
 );

@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { render } from 'garden-test-utils';
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef, createRef } from 'react';
+import { vi } from 'vitest';
 
-import { IOptionProps } from '../../types';
-import { StyledOption } from '../../views';
+import { render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import { IOptionProps } from '../../types/elements';
+import { StyledOption } from '../../views/dropdown/StyledOption';
 import { Combobox } from './Combobox';
 import { Field } from './Field';
 import { Option } from './Option';
@@ -43,7 +44,7 @@ describe('Option', () => {
   it('throws if rendered outside of a Combobox component', () => {
     const originalError = console.error;
 
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     expect(() => {
       render(<Option value="value" />);
@@ -53,7 +54,7 @@ describe('Option', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
+    const ref = createRef<HTMLLIElement>();
     const { getByTestId } = render(<TestOption ref={ref} />);
     const option = getByTestId('option');
 
@@ -173,7 +174,7 @@ describe('Option', () => {
     it('throws if rendered outside of an Option component', () => {
       const originalError = console.error;
 
-      console.error = jest.fn();
+      console.error = vi.fn();
 
       expect(() => {
         render(<Option.Meta />);

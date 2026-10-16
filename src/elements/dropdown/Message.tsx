@@ -7,18 +7,19 @@
 
 import { VALIDATION } from '@zendeskgarden/react-forms';
 import PropTypes from 'prop-types';
-import React, { forwardRef, useEffect } from 'react';
+import { forwardRef, useEffect } from 'react';
 
-import useFieldContext from '../../context/useFieldContext';
-import { IMessageProps } from '../../types';
-import { StyledMessage } from '../../views';
+import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
+import { IComboboxMessageProps } from '../../types/elements';
+import { StyledMessage } from '../../views/dropdown/StyledMessage';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Field.Message` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Message = forwardRef<HTMLDivElement, IMessageProps>((props, ref) => {
+export const Message = forwardRef<HTMLDivElement, IComboboxMessageProps>((props, ref) => {
   const { messageProps, setHasMessage } = useFieldContext();
 
   useEffect(() => {
@@ -27,7 +28,15 @@ export const Message = forwardRef<HTMLDivElement, IMessageProps>((props, ref) =>
     return () => setHasMessage(false);
   }, [setHasMessage]);
 
-  return <StyledMessage {...messageProps} {...props} ref={ref} />;
+  return (
+    <StyledMessage
+      {...messageProps}
+      {...props}
+      data-garden-id={COMPONENT_IDS['dropdowns.combobox.message']}
+      data-garden-version={PACKAGE_VERSION}
+      ref={ref}
+    />
+  );
 });
 
 Message.displayName = 'Field.Message';

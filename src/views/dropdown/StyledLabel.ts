@@ -6,15 +6,11 @@
  */
 
 import { Field } from '@zendeskgarden/react-forms';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'dropdowns.combobox.label';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledLabel = styled(Field.Label).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledLabel = styled(Field.Label)`
   vertical-align: revert;
 
   ${componentStyles};

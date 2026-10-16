@@ -7,17 +7,19 @@
 
 import { useMenu } from '@zendeskgarden/container-menu';
 import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
-import { DEFAULT_THEME, useDocument, useWindow } from '@zendeskgarden/react-theming';
-import ChevronIcon from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
+import { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
+import ChevronIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import { MenuContext } from '../../context/useMenuContext';
-import { IMenuProps, PLACEMENT } from '../../types';
+import { MenuProvider } from '../../context/dropdown/MenuContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { useDocument } from '../../theming/utils/useDocument';
+import { useWindow } from '../../theming/utils/useWindow';
+import { IMenuProps, DROPDOWN_PLACEMENT } from '../../types/elements';
 import { MenuList } from './MenuList';
-import { toItems } from './utils';
+import { toItems } from './menuUtils';
 
 /**
  * @extends HTMLAttributes<HTMLUListElement>
@@ -122,7 +124,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
     );
 
     return (
-      <MenuContext.Provider value={contextValue}>
+      <MenuProvider value={contextValue}>
         {trigger}
         <MenuList
           {...props}
@@ -137,7 +139,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
         >
           {children}
         </MenuList>
-      </MenuContext.Provider>
+      </MenuProvider>
     );
   }
 );
@@ -158,7 +160,7 @@ Menu.propTypes = {
   maxHeight: PropTypes.string,
   minHeight: PropTypes.string,
   onChange: PropTypes.func,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(DROPDOWN_PLACEMENT),
   restoreFocus: PropTypes.bool,
   selectedItems: PropTypes.arrayOf(PropTypes.any),
   zIndex: PropTypes.number

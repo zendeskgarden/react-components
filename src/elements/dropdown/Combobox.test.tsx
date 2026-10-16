@@ -5,13 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import { fireEvent, render, renderRtl, waitFor } from 'garden-test-utils';
+import { fireEvent, waitFor } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { rgba } from 'polished';
-import React, { HTMLAttributes, InputHTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, InputHTMLAttributes, forwardRef, createRef } from 'react';
+import { vi } from 'vitest';
 
-import { IComboboxProps, ISelectedOption } from '../../types';
+import { RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { IComboboxProps, ISelectedOption } from '../../types/elements';
 import { Combobox } from './Combobox';
 import { Field } from './Field';
 import { OptGroup } from './OptGroup';
@@ -77,7 +80,7 @@ describe('Combobox', () => {
   it('throws if rendered outside of a Field component', () => {
     const originalError = console.error;
 
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     expect(() => {
       render(<Combobox />);
@@ -87,7 +90,7 @@ describe('Combobox', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { getByTestId } = render(<TestCombobox ref={ref} />);
     const combobox = getByTestId('combobox');
 
@@ -150,10 +153,13 @@ describe('Combobox', () => {
   });
 
   it('handles active index RTL as expected', () => {
-    const { getByTestId } = renderRtl(
+    const { getByTestId } = render(
       <TestCombobox defaultExpanded defaultActiveIndex={0}>
         <Option data-test-id="option" value="active" />
-      </TestCombobox>
+      </TestCombobox>,
+      {
+        theme: RTL_THEME
+      }
     );
     const option = getByTestId('option');
 
@@ -688,7 +694,7 @@ describe('Combobox', () => {
   });
 
   describe('controlled', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
 
     beforeEach(() => {
       handleChange.mockReset();
@@ -770,7 +776,7 @@ describe('Combobox', () => {
     });
 
     it('does not scroll the input into view on mount', () => {
-      const scrollIntoView = jest.fn();
+      const scrollIntoView = vi.fn();
 
       window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
 
@@ -784,7 +790,7 @@ describe('Combobox', () => {
     });
 
     it('does not scroll the input into view on mount with initial selection', () => {
-      const scrollIntoView = jest.fn();
+      const scrollIntoView = vi.fn();
 
       window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
 
@@ -804,7 +810,7 @@ describe('Combobox', () => {
         </TestCombobox>
       );
       const input = getByTestId('input');
-      const scrollInput = jest.fn();
+      const scrollInput = vi.fn();
 
       // Spy the input element directly; `Option` scrolls the active `<li>` with
       // `{ block: 'nearest' }`, so a prototype-level mock cannot distinguish the two
@@ -823,7 +829,7 @@ describe('Combobox', () => {
         </TestCombobox>
       );
       const input = getByTestId('input');
-      const scrollInput = jest.fn();
+      const scrollInput = vi.fn();
 
       input.scrollIntoView = scrollInput;
 
@@ -833,7 +839,7 @@ describe('Combobox', () => {
     });
 
     it('does not scroll the last tag into view on mount for non-editable multiselectable', () => {
-      const scrollIntoView = jest.fn();
+      const scrollIntoView = vi.fn();
 
       window.HTMLElement.prototype.scrollIntoView = scrollIntoView;
 
@@ -865,13 +871,13 @@ describe('Combobox', () => {
         </TestCombobox>
       );
       const input = getByTestId('input');
-      const scrollInput = jest.fn();
+      const scrollInput = vi.fn();
 
       input.scrollIntoView = scrollInput;
 
       const tags = getAllByTestId('tag');
       const lastTag = tags[tags.length - 1];
-      const scrollLastTag = jest.fn();
+      const scrollLastTag = vi.fn();
 
       lastTag.scrollIntoView = scrollLastTag;
 

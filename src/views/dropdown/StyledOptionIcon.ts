@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
-import { OptionType } from '../../types';
-
-const COMPONENT_ID = 'dropdowns.combobox.option.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import { OptionType } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 export interface IStyledOptionIconProps extends ThemeProps<DefaultTheme> {
   $isDisabled?: boolean;
@@ -38,7 +39,7 @@ const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const size = props.theme.iconSizes.md;
   const marginTop = math(`(${props.theme.lineHeights.md} - ${size}) / 2`);
   const marginHorizontal = `${props.theme.space.base * 2}px`;
@@ -51,10 +52,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledOptionIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledOptionIconProps>`
+export const StyledOptionIcon = styled(StyledBaseIcon)<IStyledOptionIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

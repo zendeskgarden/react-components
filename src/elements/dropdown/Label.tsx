@@ -7,18 +7,19 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import useFieldContext from '../../context/useFieldContext';
-import { ILabelProps } from '../../types';
-import { StyledLabel } from '../../views';
+import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
+import { IComboboxLabelProps } from '../../types/elements';
+import { StyledLabel } from '../../views/dropdown/StyledLabel';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @deprecated use `Field.Label` instead
  *
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
-export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
+export const Label = forwardRef<HTMLLabelElement, IComboboxLabelProps>(
   ({ onClick, onMouseEnter, onMouseLeave, ...props }, ref) => {
     const { labelProps } = useFieldContext();
 
@@ -29,6 +30,8 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
         onMouseEnter={composeEventHandlers(onMouseEnter, labelProps?.onMouseEnter)}
         onMouseLeave={composeEventHandlers(onMouseLeave, labelProps?.onMouseLeave)}
         {...props}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.label']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       />
     );

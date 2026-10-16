@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, LabelHTMLAttributes, forwardRef, useMemo, useState } from 'react';
+import { HTMLAttributes, LabelHTMLAttributes, forwardRef, useMemo, useState } from 'react';
 
-import { FieldContext } from '../../context/useFieldContext';
-import { StyledField } from '../../views';
+import { FieldProvider } from '../../context/dropdown/FieldContext';
+import { StyledField } from '../../views/dropdown/StyledField';
+import { COMPONENT_IDS } from '../utils';
 import { Hint } from './Hint';
 import { Label } from './Label';
 import { Message } from './Message';
@@ -51,9 +52,14 @@ const FieldComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   );
 
   return (
-    <FieldContext.Provider value={contextValue}>
-      <StyledField {...props} ref={ref} />
-    </FieldContext.Provider>
+    <FieldProvider value={contextValue}>
+      <StyledField
+        {...props}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.field']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={ref}
+      />
+    </FieldProvider>
   );
 });
 

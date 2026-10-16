@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { act, render } from 'garden-test-utils';
-import React, { useRef } from 'react';
+import { act } from '@testing-library/react';
+import { useRef, StrictMode } from 'react';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
 import { MenuList } from './MenuList';
 
 interface ITestMenuListProps {
@@ -50,24 +52,24 @@ describe('MenuList', () => {
       // guarded `setState` (including `setIsVisible(true)`) is suppressed
       // and children never become visible.
       const { queryByTestId, rerender } = render(
-        <React.StrictMode>
+        <StrictMode>
           <TestMenuList isExpanded={false} />
-        </React.StrictMode>
+        </StrictMode>
       );
 
       expect(queryByTestId('item')).toBeNull();
 
       rerender(
-        <React.StrictMode>
+        <StrictMode>
           <TestMenuList isExpanded />
-        </React.StrictMode>
+        </StrictMode>
       );
 
       expect(queryByTestId('item')).not.toBeNull();
     });
 
     it('hides children after collapse animation completes', () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       try {
         const { queryByTestId, rerender } = render(<TestMenuList isExpanded />);
@@ -79,45 +81,45 @@ describe('MenuList', () => {
         expect(queryByTestId('item')).not.toBeNull();
 
         act(() => {
-          jest.advanceTimersByTime(200);
+          vi.advanceTimersByTime(200);
         });
 
         expect(queryByTestId('item')).toBeNull();
       } finally {
-        jest.useRealTimers();
+        vi.useRealTimers();
       }
     });
 
     it('hides children after collapse animation completes inside React.StrictMode', () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       try {
         const { queryByTestId, rerender } = render(
-          <React.StrictMode>
+          <StrictMode>
             <TestMenuList isExpanded />
-          </React.StrictMode>
+          </StrictMode>
         );
 
         expect(queryByTestId('item')).not.toBeNull();
 
         rerender(
-          <React.StrictMode>
+          <StrictMode>
             <TestMenuList isExpanded={false} />
-          </React.StrictMode>
+          </StrictMode>
         );
 
         act(() => {
-          jest.advanceTimersByTime(200);
+          vi.advanceTimersByTime(200);
         });
 
         expect(queryByTestId('item')).toBeNull();
       } finally {
-        jest.useRealTimers();
+        vi.useRealTimers();
       }
     });
 
     it('does not warn about state updates after unmount', () => {
-      const error = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const error = vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
       try {
         const { unmount } = render(<TestMenuList isExpanded />);

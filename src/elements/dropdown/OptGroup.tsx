@@ -6,19 +6,18 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes, MouseEventHandler, forwardRef } from 'react';
+import { HTMLAttributes, MouseEventHandler, forwardRef } from 'react';
 
-import useComboboxContext from '../../context/useComboboxContext';
-import { IOptGroupProps } from '../../types';
-import {
-  StyledListboxSeparator,
-  StyledOptGroup,
-  StyledOption,
-  StyledOptionContent,
-  StyledOptionTypeIcon
-} from '../../views';
+import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
+import { useText } from '../../theming/utils/useText';
+import { IOptGroupProps } from '../../types/elements';
+import { StyledListboxSeparator } from '../../views/dropdown/StyledListboxSeparator';
+import { StyledOptGroup } from '../../views/dropdown/StyledOptGroup';
+import { StyledOption } from '../../views/dropdown/StyledOption';
+import { StyledOptionContent } from '../../views/dropdown/StyledOptionContent';
+import { StyledOptionTypeIcon } from '../../views/dropdown/StyledOptionTypeIcon';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
@@ -48,21 +47,46 @@ export const OptGroup = forwardRef<HTMLLIElement, IOptGroupProps>(
         onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
         role="none"
         {...props}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.option']}
+        data-garden-version={PACKAGE_VERSION}
         ref={ref}
       >
-        <StyledOptionContent>
+        <StyledOptionContent
+          data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.content']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           {!!(content || legend) && (
-            <StyledOption as="div" $isCompact={isCompact} $type="header">
+            <StyledOption
+              as="div"
+              $isCompact={isCompact}
+              $type="header"
+              data-garden-id={COMPONENT_IDS['dropdowns.combobox.option']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               {!!icon && (
-                <StyledOptionTypeIcon $isCompact={isCompact} $type="header">
+                <StyledOptionTypeIcon
+                  $isCompact={isCompact}
+                  $type="header"
+                  data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.type_icon']}
+                  data-garden-version={PACKAGE_VERSION}
+                >
                   {icon}
                 </StyledOptionTypeIcon>
               )}
               {content || legend}
             </StyledOption>
           )}
-          <StyledOptGroup $isCompact={isCompact} {...optGroupProps}>
-            <StyledListboxSeparator role="none" />
+          <StyledOptGroup
+            $isCompact={isCompact}
+            {...optGroupProps}
+            data-garden-id={COMPONENT_IDS['dropdowns.combobox.optgroup']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledListboxSeparator
+              role="none"
+              data-garden-id={COMPONENT_IDS['dropdowns.combobox.separator']}
+              data-garden-version={PACKAGE_VERSION}
+            />
             {children}
           </StyledOptGroup>
         </StyledOptionContent>

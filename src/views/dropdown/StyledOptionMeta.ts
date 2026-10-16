@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.meta';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 
 export interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
   $isDisabled?: boolean;
@@ -33,10 +33,7 @@ const sizeStyles = (props: IStyledOptionMetaProps) => {
   `;
 };
 
-export const StyledOptionMeta = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledOptionMetaProps>`
+export const StyledOptionMeta = styled.div<IStyledOptionMetaProps>`
   transition: color 0.25s ease-in-out;
   font-weight: ${props => props.theme.fontWeights.regular};
 

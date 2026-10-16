@@ -5,16 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import useItemContext from '../../context/useItemContext';
-import { StyledItemMeta } from '../../views';
+import { useItemContext } from '../../hooks/dropdown/useItemContext';
+import { StyledItemMeta } from '../../views/dropdown/StyledItemMeta';
+import { COMPONENT_IDS } from '../utils';
 
 const ItemMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { isDisabled } = useItemContext();
 
-    return <StyledItemMeta $isDisabled={isDisabled} {...props} ref={ref} />;
+    return (
+      <StyledItemMeta
+        $isDisabled={isDisabled}
+        {...props}
+        data-garden-id={COMPONENT_IDS['dropdowns.menu.item.meta']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={ref}
+      />
+    );
   }
 );
 

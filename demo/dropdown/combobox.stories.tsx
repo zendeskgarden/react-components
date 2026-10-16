@@ -6,16 +6,15 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Combobox, Field, Option, OptGroup, Tag } from '@zendeskgarden/react-dropdowns';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Combobox, Field, Option, OptGroup, Tag } from '../../src/index';
 import { ComboboxStory } from './stories/ComboboxStory';
 import { OPTIONS } from './stories/data';
 type Story = StoryObj<typeof ComboboxStory>;
 
 export default {
-  title: 'Packages/Dropdowns/Combobox',
+  title: 'Components/Dropdowns/Combobox',
   component: Combobox,
   subcomponents: {
     Field,

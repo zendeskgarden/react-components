@@ -5,8 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import { Grid } from '@zendeskgarden/react-grid';
+import { useCallback, useState } from 'react';
+import Icon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
+import StartIcon from 'svg-icons-legacy/src/16/search-stroke.svg';
+import Avatar from 'svg-icons-legacy/src/16/user-solo-stroke.svg';
+
 import {
   Combobox,
   Field,
@@ -15,13 +20,7 @@ import {
   OptGroup,
   Option,
   Tag
-} from '@zendeskgarden/react-dropdowns';
-import { Grid } from '@zendeskgarden/react-grid';
-import Icon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import StartIcon from '@zendeskgarden/svg-icons/src/16/search-stroke.svg';
-import Avatar from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
-import React, { useCallback, useState } from 'react';
-
+} from '../../../src/index';
 import { IOption, Options } from './types';
 
 const toLabel = (option: IOption) => option.label || option.value;
@@ -54,7 +53,7 @@ interface IArgs extends Omit<IComboboxProps, 'startIcon' | 'endIcon' | 'renderVa
   validationLabel: string;
 }
 
-export const ComboboxStory: StoryFn<IArgs> = ({
+export const ComboboxStory = ({
   label,
   isLabelRegular,
   isLabelHidden,
@@ -68,7 +67,7 @@ export const ComboboxStory: StoryFn<IArgs> = ({
   validation,
   validationLabel,
   ...args
-}) => {
+}: IArgs) => {
   const [options, setOptions] = useState(_options);
 
   const getOptions = useCallback(() => {

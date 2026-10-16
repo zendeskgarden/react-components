@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, StyledBaseIcon, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css, DataAttributes } from 'styled-components';
+import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { getHeight as getInputHeight } from './StyledInput';
 import { StyledTrigger } from './StyledTrigger';
-
-const COMPONENT_ID = 'dropdowns.combobox.input_icon';
 
 interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
   $isCompact?: boolean;
@@ -63,10 +63,7 @@ const sizeStyles = (props: IStyledInputIconProps) => {
   `;
 };
 
-export const StyledInputIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledInputIconProps>`
+export const StyledInputIcon = styled(StyledBaseIcon)<IStyledInputIconProps>`
   position: sticky;
   flex-shrink: 0;
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};

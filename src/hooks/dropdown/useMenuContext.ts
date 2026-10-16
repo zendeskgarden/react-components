@@ -5,22 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseMenuReturnValue } from '@zendeskgarden/container-menu';
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export const MenuContext = createContext<
-  | {
-      isCompact?: boolean;
-      focusedValue?: string | null;
-      getAnchorProps: IUseMenuReturnValue['getAnchorProps'];
-      getItemGroupProps: IUseMenuReturnValue['getItemGroupProps'];
-      getItemProps: IUseMenuReturnValue['getItemProps'];
-      getSeparatorProps: IUseMenuReturnValue['getSeparatorProps'];
-    }
-  | undefined
->(undefined);
+import { MenuContext } from '../../context/dropdown/MenuContext';
 
-const useMenuContext = () => {
+export const useMenuContext = () => {
   const context = useContext(MenuContext);
 
   if (!context) {
@@ -29,5 +18,3 @@ const useMenuContext = () => {
 
   return context;
 };
-
-export default useMenuContext;

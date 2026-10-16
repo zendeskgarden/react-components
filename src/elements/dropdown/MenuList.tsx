@@ -14,19 +14,19 @@ import {
   size,
   useFloating
 } from '@floating-ui/react-dom';
-import {
-  DEFAULT_THEME,
-  getArrowPosition,
-  getFloatingPlacements,
-  getMenuPosition
-} from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { forwardRef, useContext, useEffect, useRef, useState } from 'react';
+import { forwardRef, useContext, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 
-import { IMenuListProps, PLACEMENT } from '../../types';
-import { StyledFloatingMenu, StyledMenu } from '../../views';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getArrowPosition } from '../../theming/utils/getArrowPosition';
+import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { getMenuPosition } from '../../theming/utils/getMenuPosition';
+import { IMenuListProps, DROPDOWN_PLACEMENT } from '../../types/elements';
+import { StyledFloatingMenu } from '../../views/dropdown/StyledFloatingMenu';
+import { StyledMenu } from '../../views/dropdown/StyledMenu';
+import { COMPONENT_IDS } from '../utils';
 
 const PLACEMENT_DEFAULT = 'bottom-start';
 
@@ -160,6 +160,8 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
         $position={getMenuPosition(placement)}
         $zIndex={zIndex}
         style={{ transform }}
+        data-garden-id={COMPONENT_IDS['dropdowns.menu.floating']}
+        data-garden-version={PACKAGE_VERSION}
         ref={floatingRef}
       >
         <StyledMenu
@@ -170,6 +172,8 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
           $maxHeight={maxHeight}
           style={{ height }}
           {...props}
+          data-garden-id={COMPONENT_IDS['dropdowns.menu']}
+          data-garden-version={PACKAGE_VERSION}
           ref={ref}
         >
           {!!isVisible && children}
@@ -190,7 +194,7 @@ MenuList.propTypes = {
   isExpanded: PropTypes.bool,
   maxHeight: PropTypes.string,
   minHeight: PropTypes.string,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(DROPDOWN_PLACEMENT),
   triggerRef: PropTypes.any,
   zIndex: PropTypes.number
 };

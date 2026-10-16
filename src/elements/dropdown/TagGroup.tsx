@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { PropsWithChildren, useEffect, useRef } from 'react';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 
-import { ITagGroupProps } from '../../types';
+import { ITagGroupProps } from '../../types/elements';
 import { Tag } from './Tag';
 
 export const TagGroup = ({

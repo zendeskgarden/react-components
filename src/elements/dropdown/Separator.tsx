@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { LiHTMLAttributes, forwardRef } from 'react';
+import { LiHTMLAttributes, forwardRef } from 'react';
 
-import useMenuContext from '../../context/useMenuContext';
-import { StyledSeparator } from '../../views';
+import { useMenuContext } from '../../hooks/dropdown/useMenuContext';
+import { StyledSeparator } from '../../views/dropdown/StyledSeparator';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
@@ -20,7 +21,15 @@ export const Separator = forwardRef<HTMLLIElement, LiHTMLAttributes<HTMLLIElemen
 
     const separatorProps = getSeparatorProps() as LiHTMLAttributes<HTMLLIElement>;
 
-    return <StyledSeparator {...props} {...separatorProps} ref={ref} />;
+    return (
+      <StyledSeparator
+        {...props}
+        {...separatorProps}
+        data-garden-id={COMPONENT_IDS['dropdowns.menu.separator']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={ref}
+      />
+    );
   }
 );
 

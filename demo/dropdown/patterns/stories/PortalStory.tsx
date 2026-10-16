@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Combobox, Field, Item, Menu, Option } from '@zendeskgarden/react-dropdowns';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Paragraph } from '@zendeskgarden/react-typography';
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
+
+import { Combobox, Field, Item, Menu, Option } from '../../../../src/index';
+import { getColor } from '../../../../src/theming/utils/getColor';
 
 interface IArgs {
   listboxAppendToNode: boolean;
@@ -27,7 +27,7 @@ export const StyledContainer = styled.div`
   overflow: clip;
 `;
 
-export const PortalStory: StoryFn<IArgs> = ({ listboxAppendToNode, menuAppendToNode }) => {
+export const PortalStory = ({ listboxAppendToNode, menuAppendToNode }: IArgs) => {
   const portalNode = useRef<HTMLDivElement>(null);
 
   return (

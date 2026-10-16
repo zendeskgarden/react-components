@@ -5,20 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useText } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes, forwardRef, useMemo } from 'react';
+import { HTMLAttributes, forwardRef, useMemo } from 'react';
 
-import { ItemGroupContext } from '../../context/useItemGroupContext';
-import useMenuContext from '../../context/useMenuContext';
-import { IItemGroupProps } from '../../types';
-import {
-  StyledItem,
-  StyledItemContent,
-  StyledItemGroup,
-  StyledItemTypeIcon,
-  StyledSeparator
-} from '../../views';
+import { ItemGroupProvider } from '../../context/dropdown/ItemGroupContext';
+import { useMenuContext } from '../../hooks/dropdown/useMenuContext';
+import { useText } from '../../theming/utils/useText';
+import { IItemGroupProps } from '../../types/elements';
+import { StyledItem } from '../../views/dropdown/StyledItem';
+import { StyledItemContent } from '../../views/dropdown/StyledItemContent';
+import { StyledItemGroup } from '../../views/dropdown/StyledItemGroup';
+import { StyledItemTypeIcon } from '../../views/dropdown/StyledItemTypeIcon';
+import { StyledSeparator } from '../../views/dropdown/StyledSeparator';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends LiHTMLAttributes<HTMLLIElement>
@@ -44,26 +43,57 @@ export const ItemGroup = forwardRef<HTMLLIElement, IItemGroupProps>(
     const contextValue = useMemo(() => ({ type }), [type]);
 
     return (
-      <ItemGroupContext.Provider value={contextValue}>
-        <StyledItem $isCompact={isCompact} $type="group" {...props} role="none" ref={ref}>
-          <StyledItemContent>
+      <ItemGroupProvider value={contextValue}>
+        <StyledItem
+          $isCompact={isCompact}
+          $type="group"
+          {...props}
+          data-garden-id={COMPONENT_IDS['dropdowns.menu.item']}
+          data-garden-version={PACKAGE_VERSION}
+          role="none"
+          ref={ref}
+        >
+          <StyledItemContent
+            data-garden-id={COMPONENT_IDS['dropdowns.menu.item.content']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             {!!(content || legend) && (
-              <StyledItem as="div" $isCompact={isCompact} $type="header">
+              <StyledItem
+                as="div"
+                $isCompact={isCompact}
+                $type="header"
+                data-garden-id={COMPONENT_IDS['dropdowns.menu.item']}
+                data-garden-version={PACKAGE_VERSION}
+              >
                 {!!icon && (
-                  <StyledItemTypeIcon $isCompact={isCompact} $type="header">
+                  <StyledItemTypeIcon
+                    $isCompact={isCompact}
+                    $type="header"
+                    data-garden-id={COMPONENT_IDS['dropdowns.menu.item.type_icon']}
+                    data-garden-version={PACKAGE_VERSION}
+                  >
                     {icon}
                   </StyledItemTypeIcon>
                 )}
                 {content || legend}
               </StyledItem>
             )}
-            <StyledItemGroup $isCompact={isCompact} {...groupProps}>
-              <StyledSeparator role="none" />
+            <StyledItemGroup
+              $isCompact={isCompact}
+              {...groupProps}
+              data-garden-id={COMPONENT_IDS['dropdowns.menu.item_group']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              <StyledSeparator
+                role="none"
+                data-garden-id={COMPONENT_IDS['dropdowns.menu.separator']}
+                data-garden-version={PACKAGE_VERSION}
+              />
               {children}
             </StyledItemGroup>
           </StyledItemContent>
         </StyledItem>
-      </ItemGroupContext.Provider>
+      </ItemGroupProvider>
     );
   }
 );

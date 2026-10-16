@@ -7,9 +7,8 @@
 
 import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import React, {
+import {
   CSSProperties,
   MouseEventHandler,
   forwardRef,
@@ -21,8 +20,11 @@ import React, {
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
 
-import { IListboxProps } from '../../types';
-import { StyledFloatingListbox, StyledListbox } from '../../views';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { IListboxProps } from '../../types/elements';
+import { StyledFloatingListbox } from '../../views/dropdown/StyledFloatingListbox';
+import { StyledListbox } from '../../views/dropdown/StyledListbox';
+import { COMPONENT_IDS } from '../utils';
 
 export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
   (
@@ -145,6 +147,8 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
         $position={placement === 'bottom-start' ? 'bottom' : 'top'}
         style={{ transform, width }}
         $zIndex={zIndex}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.floating']}
+        data-garden-version={PACKAGE_VERSION}
         ref={floatingRef}
       >
         <StyledListbox
@@ -158,6 +162,8 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
           onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
           style={listboxStyle}
           {...props}
+          data-garden-id={COMPONENT_IDS['dropdowns.combobox.listbox']}
+          data-garden-version={PACKAGE_VERSION}
           ref={ref}
         >
           {!!isVisible && children}

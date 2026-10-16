@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'dropdowns.combobox.option.content';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledOptionContent = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledOptionContent = styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;

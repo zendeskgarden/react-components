@@ -6,14 +6,16 @@
  */
 
 import { useFloating } from '@floating-ui/react-dom';
-import { act, render } from 'garden-test-utils';
-import React, { useRef } from 'react';
+import { act } from '@testing-library/react';
+import { useRef, StrictMode } from 'react';
+import { vi } from 'vitest';
 
+import { render } from '../../test/render';
 import { Listbox } from './Listbox';
 
-jest.mock<typeof import('@floating-ui/react-dom')>('@floating-ui/react-dom', () => ({
-  ...jest.requireActual('@floating-ui/react-dom'),
-  useFloating: jest.fn()
+vi.mock<typeof import('@floating-ui/react-dom')>('@floating-ui/react-dom', () => ({
+  ...vi.requireActual('@floating-ui/react-dom'),
+  useFloating: vi.fn()
 }));
 
 interface ITestListboxProps {
@@ -45,7 +47,7 @@ const TestListbox = ({ isExpanded, maxHeight, minHeight }: ITestListboxProps) =>
 };
 
 describe('Listbox', () => {
-  const mockUseFloating = jest.mocked(useFloating);
+  const mockUseFloating = vi.mocked(useFloating);
   let floatingOptions: Record<string, any>;
 
   beforeEach(() => {
@@ -55,7 +57,7 @@ describe('Listbox', () => {
       return {
         refs: { reference: { current: null }, floating: { current: null } },
         placement: 'bottom-start',
-        update: jest.fn(),
+        update: vi.fn(),
         floatingStyles: { transform: undefined }
       } as unknown as ReturnType<typeof useFloating>;
     });
@@ -79,24 +81,24 @@ describe('Listbox', () => {
       // guarded `setState` (including `setIsVisible(true)`) is suppressed
       // and children never become visible.
       const { queryByTestId, rerender } = render(
-        <React.StrictMode>
+        <StrictMode>
           <TestListbox isExpanded={false} />
-        </React.StrictMode>
+        </StrictMode>
       );
 
       expect(queryByTestId('option')).toBeNull();
 
       rerender(
-        <React.StrictMode>
+        <StrictMode>
           <TestListbox isExpanded />
-        </React.StrictMode>
+        </StrictMode>
       );
 
       expect(queryByTestId('option')).not.toBeNull();
     });
 
     it('hides children after collapse animation completes', () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       try {
         const { queryByTestId, rerender } = render(<TestListbox isExpanded />);
@@ -108,45 +110,45 @@ describe('Listbox', () => {
         expect(queryByTestId('option')).not.toBeNull();
 
         act(() => {
-          jest.advanceTimersByTime(200);
+          vi.advanceTimersByTime(200);
         });
 
         expect(queryByTestId('option')).toBeNull();
       } finally {
-        jest.useRealTimers();
+        vi.useRealTimers();
       }
     });
 
     it('hides children after collapse animation completes inside React.StrictMode', () => {
-      jest.useFakeTimers();
+      vi.useFakeTimers();
 
       try {
         const { queryByTestId, rerender } = render(
-          <React.StrictMode>
+          <StrictMode>
             <TestListbox isExpanded />
-          </React.StrictMode>
+          </StrictMode>
         );
 
         expect(queryByTestId('option')).not.toBeNull();
 
         rerender(
-          <React.StrictMode>
+          <StrictMode>
             <TestListbox isExpanded={false} />
-          </React.StrictMode>
+          </StrictMode>
         );
 
         act(() => {
-          jest.advanceTimersByTime(200);
+          vi.advanceTimersByTime(200);
         });
 
         expect(queryByTestId('option')).toBeNull();
       } finally {
-        jest.useRealTimers();
+        vi.useRealTimers();
       }
     });
 
     it('does not warn about state updates after unmount', () => {
-      const error = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+      const error = vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
       try {
         const { unmount } = render(<TestListbox isExpanded />);

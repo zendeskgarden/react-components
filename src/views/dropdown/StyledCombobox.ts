@@ -5,14 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
-
-const COMPONENT_ID = 'dropdowns.combobox';
 
 interface IStyledComboboxProps extends ThemeProps<DefaultTheme> {
   $isCompact?: boolean;
@@ -35,10 +33,7 @@ const sizeStyles = (props: IStyledComboboxProps) => {
   `;
 };
 
-export const StyledCombobox = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledComboboxProps>`
+export const StyledCombobox = styled.div<IStyledComboboxProps>`
   ${sizeStyles};
 
   ${componentStyles};

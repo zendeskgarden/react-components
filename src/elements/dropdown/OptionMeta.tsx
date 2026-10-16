@@ -5,16 +5,25 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import useOptionContext from '../../context/useOptionContext';
-import { StyledOptionMeta } from '../../views';
+import { useOptionContext } from '../../hooks/dropdown/useOptionContext';
+import { StyledOptionMeta } from '../../views/dropdown/StyledOptionMeta';
+import { COMPONENT_IDS } from '../utils';
 
 const OptionMetaComponent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
     const { isDisabled } = useOptionContext();
 
-    return <StyledOptionMeta $isDisabled={isDisabled} {...props} ref={ref} />;
+    return (
+      <StyledOptionMeta
+        $isDisabled={isDisabled}
+        {...props}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.meta']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={ref}
+      />
+    );
   }
 );
 

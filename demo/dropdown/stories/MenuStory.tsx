@@ -5,14 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { IMenuProps, Item, ItemGroup, Separator, Menu } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
-import LeafIcon from '@zendeskgarden/svg-icons/src/16/leaf-stroke.svg';
-import CartIcon from '@zendeskgarden/svg-icons/src/16/shopping-cart-stroke.svg';
-import React from 'react';
+import LeafIcon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
+import CartIcon from 'svg-icons-legacy/src/16/shopping-cart-stroke.svg';
 
+import { IMenuProps, Item, ItemGroup, Separator, Menu } from '../../../src/index';
 import { ButtonType, IItem, Items } from './types';
 
 const MenuItem = ({ icon, meta, ...item }: IItem) => {
@@ -30,7 +28,7 @@ interface IArgs extends IMenuProps {
   label: string;
 }
 
-export const MenuStory: StoryFn<IArgs> = ({ button, items, label, ...args }) => (
+export const MenuStory = ({ button, items, label, ...args }: IArgs) => (
   <Grid>
     <Grid.Row justifyContent="center" style={{ height: 800 }}>
       <Grid.Col alignSelf="center" textAlign="center">
@@ -45,7 +43,7 @@ export const MenuStory: StoryFn<IArgs> = ({ button, items, label, ...args }) => 
                     <IconButton {...props} aria-label={label}>
                       <LeafIcon />
                     </IconButton>
-                  )
+            )
             }
           >
             {items.map(item => {

@@ -5,27 +5,26 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import SelectionIcon from '@zendeskgarden/svg-icons/src/12/circle-sm-fill.svg';
-import SelectedIcon from '@zendeskgarden/svg-icons/src/16/check-lg-stroke.svg';
-import PreviousIcon from '@zendeskgarden/svg-icons/src/16/chevron-left-stroke.svg';
-import NextIcon from '@zendeskgarden/svg-icons/src/16/chevron-right-stroke.svg';
-import AddIcon from '@zendeskgarden/svg-icons/src/16/plus-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
+import { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+import SelectionIcon from 'svg-icons-legacy/src/12/circle-sm-fill.svg';
+import SelectedIcon from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
+import PreviousIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
+import NextIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
+import AddIcon from 'svg-icons-legacy/src/16/plus-stroke.svg';
 
-import useComboboxContext from '../../context/useComboboxContext';
-import { OptionContext } from '../../context/useOptionContext';
-import { IOptionProps, OPTION_TYPE, OptionType } from '../../types';
-import {
-  StyledOption,
-  StyledOptionContent,
-  StyledOptionIcon,
-  StyledOptionSelectionIcon,
-  StyledOptionTypeIcon
-} from '../../views';
+import { OptionProvider } from '../../context/dropdown/OptionContext';
+import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
+import { IOptionProps, OPTION_TYPE, OptionType } from '../../types/elements';
+import { StyledOption } from '../../views/dropdown/StyledOption';
+import { StyledOptionContent } from '../../views/dropdown/StyledOptionContent';
+import { StyledOptionIcon } from '../../views/dropdown/StyledOptionIcon';
+import { StyledOptionSelectionIcon } from '../../views/dropdown/StyledOptionSelectionIcon';
+import { StyledOptionTypeIcon } from '../../views/dropdown/StyledOptionTypeIcon';
+import { COMPONENT_IDS } from '../utils';
+import { toOption } from './comboboxUtils';
 import { OptionMeta } from './OptionMeta';
-import { toOption } from './utils';
 
 const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
   (
@@ -84,30 +83,51 @@ const OptionComponent = forwardRef<HTMLLIElement, IOptionProps>(
     }) as LiHTMLAttributes<HTMLLIElement>;
 
     return (
-      <OptionContext.Provider value={contextValue}>
+      <OptionProvider value={contextValue}>
         <StyledOption
           $isActive={isActive}
           $isCompact={isCompact}
           $type={type}
           {...props}
           {...optionProps}
+          data-garden-id={COMPONENT_IDS['dropdowns.combobox.option']}
+          data-garden-version={PACKAGE_VERSION}
         >
           {!!hasSelection && type === 'next' && (
-            <StyledOptionSelectionIcon $isCompact={isCompact}>
+            <StyledOptionSelectionIcon
+              $isCompact={isCompact}
+              data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.selection_icon']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               <SelectionIcon />
             </StyledOptionSelectionIcon>
           )}
-          <StyledOptionTypeIcon $isCompact={isCompact} $type={type}>
+          <StyledOptionTypeIcon
+            $isCompact={isCompact}
+            $type={type}
+            data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.type_icon']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             {renderActionIcon(type)}
           </StyledOptionTypeIcon>
           {!!icon && (
-            <StyledOptionIcon $isDisabled={isDisabled} $type={type}>
+            <StyledOptionIcon
+              $isDisabled={isDisabled}
+              $type={type}
+              data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.icon']}
+              data-garden-version={PACKAGE_VERSION}
+            >
               {icon}
             </StyledOptionIcon>
           )}
-          <StyledOptionContent>{children || label || value}</StyledOptionContent>
+          <StyledOptionContent
+            data-garden-id={COMPONENT_IDS['dropdowns.combobox.option.content']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            {children || label || value}
+          </StyledOptionContent>
         </StyledOption>
-      </OptionContext.Provider>
+      </OptionProvider>
     );
   }
 );

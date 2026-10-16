@@ -5,13 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  IItemProps,
-  IItemGroupProps,
-  IOptGroupProps,
-  IOptionProps
-} from '@zendeskgarden/react-dropdowns';
-
+import { IItemProps, IItemGroupProps, IOptGroupProps, IOptionProps } from '../../../src/index';
 import { BUTTON_TYPE } from './data';
 
 export interface IOption extends Omit<IOptionProps, 'icon'> {

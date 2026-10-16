@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export const OptionContext = createContext<{ isDisabled?: boolean } | undefined>(undefined);
+import { OptionContext } from '../../context/dropdown/OptionContext';
 
-const useOptionContext = () => {
+export const useOptionContext = () => {
   const context = useContext(OptionContext);
 
   if (!context) {
@@ -18,5 +18,3 @@ const useOptionContext = () => {
 
   return context;
 };
-
-export default useOptionContext;

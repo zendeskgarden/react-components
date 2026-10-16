@@ -6,16 +6,13 @@
  */
 
 import { Tag } from '@zendeskgarden/react-tags';
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { hideVisually } from 'polished';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'dropdowns.combobox.tag';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 
-export const StyledTag = styled(Tag).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledTag = styled(Tag)`
   &[aria-disabled='true'] {
     color: ${props =>
       props.hue ? undefined : getColor({ theme: props.theme, variable: 'foreground.disabled' })};

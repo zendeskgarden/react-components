@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, focusStyles, getColor } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
-import { Validation } from '../../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { ComboboxValidation } from '../../types/elements';
 import { getHeight as getInputHeight } from './StyledInput';
-
-const COMPONENT_ID = 'dropdowns.combobox.trigger';
 
 interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
   $isAutocomplete?: boolean;
@@ -23,7 +23,7 @@ interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
   $isMultiselectable?: boolean;
   $maxHeight?: string;
   $focusInset?: boolean;
-  $validation?: Validation;
+  $validation?: ComboboxValidation;
 }
 
 const colorStyles = ({
@@ -134,10 +134,7 @@ const sizeStyles = (props: IStyledTriggerProps) => {
   `;
 };
 
-export const StyledTrigger = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTriggerProps>`
+export const StyledTrigger = styled.div<IStyledTriggerProps>`
   overflow-y: ${props => (props.$isBare && !props.$isMultiselectable ? 'visible' : 'auto')};
   /* prettier-ignore */
   transition:

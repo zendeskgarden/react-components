@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, arrowStyles, ArrowPosition } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { IStyledListboxProps, StyledListbox } from '../combobox/StyledListbox';
-
-const COMPONENT_ID = 'dropdowns.menu';
+import type { ArrowPosition } from '../../theming/types';
+import arrowStyles from '../../theming/utils/arrowStyles';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { IStyledListboxProps, StyledListbox } from './StyledListbox';
 
 interface IStyledMenuProps extends IStyledListboxProps {
   $arrowPosition?: ArrowPosition;
@@ -19,10 +19,7 @@ interface IStyledMenuProps extends IStyledListboxProps {
 /*
  * 1. Override arrow parent positioning to ensure arrow is visible beyond block overflow boundaries.
  */
-export const StyledMenu = styled(StyledListbox).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledMenuProps>`
+export const StyledMenu = styled(StyledListbox)<IStyledMenuProps>`
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
 

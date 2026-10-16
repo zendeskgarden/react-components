@@ -5,7 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
+import { Grid } from '@zendeskgarden/react-grid';
+import { Span } from '@zendeskgarden/react-typography';
+import { useEffect, useState } from 'react';
+
 import {
   Combobox,
   Field,
@@ -16,14 +19,10 @@ import {
   OptGroup,
   Option,
   Separator
-} from '@zendeskgarden/react-dropdowns';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Span } from '@zendeskgarden/react-typography';
-import React, { useEffect, useState } from 'react';
-
+} from '../../../../src/index';
 import { ITEMS, OPTIONS, SUB_ITEMS, SUB_OPTION_VALUES, SUB_OPTIONS } from './data';
 
-export const NestedStory: StoryFn<IMenuProps> = args => {
+export const NestedStory = (args: IMenuProps) => {
   const [items, setItems] = useState(ITEMS);
   const [options, setOptions] = useState(OPTIONS);
   const [state, setState] = useState<{

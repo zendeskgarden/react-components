@@ -5,18 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DEFAULT_THEME, useDocument, useText } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import PropTypes from 'prop-types';
-import React, { HTMLAttributes, forwardRef, useContext } from 'react';
+import { HTMLAttributes, forwardRef, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
-import useComboboxContext from '../../context/useComboboxContext';
-import { ITagProps } from '../../types';
-import { StyledTag } from '../../views';
+import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { useDocument } from '../../theming/utils/useDocument';
+import { useText } from '../../theming/utils/useText';
+import { IComboboxTagProps } from '../../types/elements';
+import { StyledTag } from '../../views/dropdown/StyledTag';
+import { COMPONENT_IDS } from '../utils';
 import { TagAvatar } from './TagAvatar';
 
-const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
+const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
   ({ children, option, removeLabel, tooltipZIndex, ...props }, ref) => {
     const { getTagProps, isCompact, removeSelection } = useComboboxContext();
     const text = option.label || option.value;
@@ -42,6 +45,8 @@ const TagComponent = forwardRef<HTMLDivElement, ITagProps>(
         tabIndex={option.disabled ? undefined : 0}
         {...tagProps}
         {...props}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.tag']}
+        data-garden-version={PACKAGE_VERSION}
         size={isCompact ? 'medium' : 'large'}
         ref={ref}
       >

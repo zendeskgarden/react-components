@@ -6,12 +6,13 @@
  */
 
 import { act } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import { render, renderRtl } from 'garden-test-utils';
-import React, { forwardRef } from 'react';
+import { userEvent } from '@testing-library/user-event';
+import { forwardRef, createRef } from 'react';
+import { vi } from 'vitest';
 
-import { IMenuProps } from '../../types';
+import { RTL_THEME, render } from '../../test/render';
+import PALETTE from '../../theming/elements/palette';
+import { IMenuProps } from '../../types/elements';
 import { Item } from './Item';
 import { ItemGroup } from './ItemGroup';
 import { Menu } from './Menu';
@@ -45,7 +46,7 @@ describe('Menu', () => {
   const user = userEvent.setup();
 
   it('passes ref to underlying DOM element', async () => {
-    const ref = React.createRef<HTMLUListElement>();
+    const ref = createRef<HTMLUListElement>();
     const { getByTestId } = render(<TestMenu ref={ref} />);
 
     await floating();
@@ -55,10 +56,13 @@ describe('Menu', () => {
   });
 
   it('renders in rtl', async () => {
-    const { getByTestId } = renderRtl(
+    const { getByTestId } = render(
       <TestMenu>
         <Item value="item" />
-      </TestMenu>
+      </TestMenu>,
+      {
+        theme: RTL_THEME
+      }
     );
 
     await floating();
@@ -103,8 +107,8 @@ describe('Menu', () => {
   });
 
   it('passes handlers from buttonProps to container props', async () => {
-    const onClick = jest.fn();
-    const onKeyDown = jest.fn();
+    const onClick = vi.fn();
+    const onKeyDown = vi.fn();
     const { getByRole } = render(
       <TestMenu button="click me" buttonProps={{ onClick, onKeyDown }} />
     );
@@ -169,7 +173,7 @@ describe('Menu', () => {
   });
 
   it('applies `isCompact` styling', async () => {
-    const renderButton = jest.fn();
+    const renderButton = vi.fn();
 
     const { getByTestId } = render(
       <TestMenu isCompact isExpanded button={renderButton}>
@@ -611,7 +615,7 @@ describe('Menu', () => {
   });
 
   describe('controlled', () => {
-    const handleChange = jest.fn();
+    const handleChange = vi.fn();
 
     beforeEach(() => {
       handleChange.mockReset();
@@ -761,7 +765,7 @@ describe('Menu', () => {
     });
 
     it('throws error when href is used with a selection type', () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
 
       expect(() => {
         render(
@@ -777,7 +781,7 @@ describe('Menu', () => {
     });
 
     it('throws error when href is used with option type', () => {
-      const consoleSpy = jest.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
 
       expect(() => {
         render(

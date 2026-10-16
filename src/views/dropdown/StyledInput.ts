@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getLineHeight, getColor } from '@zendeskgarden/react-theming';
 import { hideVisually, math } from 'polished';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
-const COMPONENT_ID = 'dropdowns.combobox.input';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 
 interface IStyledInputProps extends ThemeProps<DefaultTheme> {
   $isBare?: boolean;
@@ -60,10 +61,7 @@ export const sizeStyles = (props: IStyledInputProps) => {
   `;
 };
 
-export const StyledInput = styled.input.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledInputProps>`
+export const StyledInput = styled.input<IStyledInputProps>`
   flex-basis: 0;
   flex-grow: 1;
   border: none;

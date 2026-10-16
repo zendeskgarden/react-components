@@ -6,17 +6,16 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Menu, Item, ItemGroup, Separator } from '@zendeskgarden/react-dropdowns';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { Menu, Item, ItemGroup, Separator } from '../../src/index';
 import { BUTTON_TYPE, ITEMS } from './stories/data';
 import { MenuStory } from './stories/MenuStory';
 
 type Story = StoryObj<typeof MenuStory>;
 
 export default {
-  title: 'Packages/Dropdowns/Menu',
+  title: 'Components/Dropdowns/Menu',
   component: Menu,
   subcomponents: {
     Item,

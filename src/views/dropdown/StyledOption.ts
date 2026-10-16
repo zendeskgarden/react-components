@@ -5,13 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { hideVisually, math } from 'polished';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
-import { OptionType } from '../../types';
-
-const COMPONENT_ID = 'dropdowns.combobox.option';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { OptionType } from '../../types/elements';
 
 export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
   $isActive?: boolean;
@@ -77,10 +76,7 @@ const sizeStyles = (props: IStyledOptionProps) => {
   `;
 };
 
-export const StyledOption = styled.li.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledOptionProps>`
+export const StyledOption = styled.li<IStyledOptionProps>`
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;

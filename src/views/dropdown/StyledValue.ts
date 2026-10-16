@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 import { sizeStyles } from './StyledInput';
-
-const COMPONENT_ID = 'dropdowns.combobox.value';
 
 interface IStyledValueProps extends ThemeProps<DefaultTheme> {
   $isAutocomplete?: boolean;
@@ -30,10 +29,7 @@ const colorStyles = ({ theme, $isPlaceholder }: IStyledValueProps) => {
   `;
 };
 
-export const StyledValue = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledValueProps>`
+export const StyledValue = styled.div<IStyledValueProps>`
   flex-basis: 0;
   flex-grow: 1;
   cursor: ${props => {

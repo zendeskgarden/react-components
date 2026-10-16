@@ -5,16 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { StyledOptionIcon } from '../combobox/StyledOptionIcon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledOptionIcon } from './StyledOptionIcon';
 
-const COMPONENT_ID = 'dropdowns.menu.item.icon';
-
-export const StyledItemIcon = styled(StyledOptionIcon).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledItemIcon = styled(StyledOptionIcon)`
   ${componentStyles};
 `;

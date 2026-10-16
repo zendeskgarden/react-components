@@ -5,25 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, LabelHTMLAttributes, createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-export const FieldContext = createContext<
-  | {
-      labelProps?: LabelHTMLAttributes<HTMLLabelElement>;
-      setLabelProps: (labelProps?: LabelHTMLAttributes<HTMLLabelElement>) => void;
-      hasHint: boolean;
-      setHasHint: (hasHint: boolean) => void;
-      hintProps?: HTMLAttributes<HTMLDivElement>;
-      setHintProps: (hintProps?: HTMLAttributes<HTMLDivElement>) => void;
-      hasMessage: boolean;
-      setHasMessage: (hasMessage: boolean) => void;
-      messageProps?: HTMLAttributes<HTMLDivElement>;
-      setMessageProps: (messageProps?: HTMLAttributes<HTMLDivElement>) => void;
-    }
-  | undefined
->(undefined);
+import { FieldContext } from '../../context/dropdown/FieldContext';
 
-const useFieldContext = () => {
+export const useFieldContext = () => {
   const context = useContext(FieldContext);
 
   if (!context) {
@@ -32,5 +18,3 @@ const useFieldContext = () => {
 
   return context;
 };
-
-export default useFieldContext;

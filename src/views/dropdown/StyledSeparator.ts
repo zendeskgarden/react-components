@@ -5,16 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-import { StyledListboxSeparator } from '../combobox/StyledListboxSeparator';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledListboxSeparator } from './StyledListboxSeparator';
 
-const COMPONENT_ID = 'dropdowns.menu.separator';
-
-export const StyledSeparator = styled(StyledListboxSeparator).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledSeparator = styled(StyledListboxSeparator)`
   ${componentStyles};
 `;

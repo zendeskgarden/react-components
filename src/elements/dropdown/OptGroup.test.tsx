@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React, { forwardRef } from 'react';
+import { forwardRef, createRef } from 'react';
+import { vi } from 'vitest';
 
-import { IOptGroupProps } from '../../types';
+import { render } from '../../test/render';
+import { IOptGroupProps } from '../../types/elements';
 import { Combobox } from './Combobox';
 import { Field } from './Field';
 import { OptGroup } from './OptGroup';
@@ -36,7 +37,7 @@ describe('OptGroup', () => {
   it('throws if rendered outside of a Combobox component', () => {
     const originalError = console.error;
 
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     expect(() => {
       render(<OptGroup />);
@@ -46,7 +47,7 @@ describe('OptGroup', () => {
   });
 
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLLIElement>();
+    const ref = createRef<HTMLLIElement>();
     const { getByTestId } = render(<TestOptGroup ref={ref} />);
     const optgroup = getByTestId('optgroup');
 

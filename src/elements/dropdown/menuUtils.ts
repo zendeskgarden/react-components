@@ -8,7 +8,7 @@
 import { IMenuItemBase, IMenuItemSeparator, MenuItem } from '@zendeskgarden/container-menu';
 import { Children, ReactNode, isValidElement } from 'react';
 
-import { IItemGroupProps, IItemProps } from '../../types';
+import { IItemGroupProps, IItemProps } from '../../types/elements';
 
 /**
  * Convert `Item` props to a valid object for `useMenu`.
