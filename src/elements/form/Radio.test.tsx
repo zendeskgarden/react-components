@@ -87,6 +87,22 @@ describe('Radio', () => {
     });
 
     it.each([
+      ['light', DEFAULT_THEME, 700],
+      ['dark', DARK_THEME, 500]
+    ])('renders the hover and active tints in %s mode', (_, theme, shade) => {
+      const radio = renderRadio(theme);
+      const tint = (transparency?: number) =>
+        getColor({ theme, hue: 'primaryHue', shade, transparency });
+
+      expect(radio).toHaveStyleRule('background-color', tint(theme.opacity[100]), {
+        modifier: `& ~ ${StyledRadioLabel}:hover::before`
+      });
+      expect(radio).toHaveStyleRule('background-color', tint(theme.opacity[200]), {
+        modifier: `& ~ ${StyledRadioLabel}:active::before`
+      });
+    });
+
+    it.each([
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
     ])('renders the disabled fill with no border in %s mode', (_, theme) => {

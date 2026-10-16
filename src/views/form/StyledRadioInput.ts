@@ -21,7 +21,12 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
-  const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
+  const backgroundOptions = {
+    theme,
+    hue: 'primaryHue',
+    light: { shade: 700 },
+    dark: { shade: 500 }
+  };
   const borderOptions = { theme, variable: 'border.primaryEmphasis' };
 
   const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
