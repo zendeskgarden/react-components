@@ -23,33 +23,54 @@ describe('GlobalAlertButton', () => {
     expect(container.firstChild).toBe(ref.current);
   });
 
-  it('uses the basic close styles when basic', () => {
+  it.each<{ type: Type }>([
+    { type: 'success' },
+    { type: 'error' },
+    { type: 'warning' },
+    { type: 'info' }
+  ])('uses the basic button styles when basic, given type $type', ({ type }) => {
     const { getByRole } = render(
-      <GlobalAlert type="success">
+      <GlobalAlert type={type}>
         <GlobalAlertButton isBasic>button</GlobalAlertButton>
       </GlobalAlert>
     );
 
+    expect(getByRole('button')).toHaveStyleRule('color', PALETTE.grey[900]);
     expect(getByRole('button')).toHaveStyleRule(
       'background-color',
-      rgba(PALETTE.green[100], DEFAULT_THEME.opacity[100]),
+      rgba(PALETTE.grey[700], DEFAULT_THEME.opacity[100]),
       { modifier: '&:hover' }
     );
   });
 
-  it.each<{ type: Type; color: string }>([
-    { type: 'success', color: PALETTE.green[900] },
-    { type: 'error', color: PALETTE.red[900] },
-    { type: 'warning', color: PALETTE.yellow[700] },
-    { type: 'info', color: PALETTE.blue[700] }
-  ])('renders $type background color', ({ type, color }) => {
+  it.each<{ type: Type }>([
+    { type: 'success' },
+    { type: 'error' },
+    { type: 'warning' },
+    { type: 'info' }
+  ])('renders the primary background color given type $type', ({ type }) => {
     const { getByRole } = render(
       <GlobalAlert type={type}>
         <GlobalAlertButton>button</GlobalAlertButton>
       </GlobalAlert>
     );
 
-    expect(getByRole('button')).toHaveStyleRule('background-color', color);
+    expect(getByRole('button')).toHaveStyleRule('background-color', PALETTE.grey[900]);
+  });
+
+  it('renders a 16px svg, as in any small button', () => {
+    const { getByRole } = render(
+      <GlobalAlert type="info">
+        <GlobalAlertButton>button</GlobalAlertButton>
+      </GlobalAlert>
+    );
+
+    expect(getByRole('button')).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
+      modifier: '& svg'
+    });
+    expect(getByRole('button')).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md, {
+      modifier: '& svg'
+    });
   });
 
   it('renders the button id, which a prop cannot replace', () => {

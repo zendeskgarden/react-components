@@ -9,36 +9,14 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import { Type } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
-import { validationTypes } from '../../utils/notification/icons';
 import { StyledIconButton } from '../button/StyledIconButton';
-
-interface IStyledCloseProps {
-  $type?: Type;
-}
 
 /**
  * 1. IconButton reset
  */
-const colorStyles = ({ theme, $type }: IStyledCloseProps & IStyledBaseProps) => {
-  let variable;
-
-  switch ($type) {
-    case validationTypes.warning:
-      variable = 'foreground.warning';
-      break;
-    case validationTypes.error:
-      variable = 'foreground.danger';
-      break;
-    case validationTypes.success:
-      variable = 'foreground.success';
-      break;
-    default:
-      variable = 'foreground.subtle';
-      break;
-  }
-
+const colorStyles = ({ theme }: IStyledBaseProps) => {
+  const variable = 'foreground.subtle';
   const color = getColor({ variable, theme });
   const hoverColor = getColor({ variable, light: { offset: 100 }, dark: { offset: -100 }, theme });
   const activeColor = getColor({ variable, light: { offset: 200 }, dark: { offset: -200 }, theme });
@@ -64,11 +42,11 @@ const colorStyles = ({ theme, $type }: IStyledCloseProps & IStyledBaseProps) => 
  * 1. Reset for <button> element.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled(StyledIconButton)<IStyledCloseProps>`
+export const StyledClose = styled(StyledIconButton)`
   position: absolute;
-  top: ${props => props.theme.space.base}px;
-  right: ${p => !p.theme.rtl && `${p.theme.space.base}px`};
-  left: ${p => p.theme.rtl && `${p.theme.space.base}px`};
+  top: ${props => props.theme.space.base * 2}px;
+  right: ${p => !p.theme.rtl && `${p.theme.space.base * 2}px`};
+  left: ${p => p.theme.rtl && `${p.theme.space.base * 2}px`};
 
   ${colorStyles}
 

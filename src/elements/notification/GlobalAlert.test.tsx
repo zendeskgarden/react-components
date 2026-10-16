@@ -109,4 +109,32 @@ describe('GlobalAlert', () => {
       container.querySelector('[data-garden-id="notifications.global_alert.icon"]')
     ).toHaveStyleRule('color', color);
   });
+
+  it('renders the icon in a 20px slot', () => {
+    const { container } = render(<GlobalAlert type="info" />);
+    const icon = container.querySelector('[data-garden-id="notifications.global_alert.icon"]');
+
+    expect(icon).toHaveStyleRule('width', DEFAULT_THEME.space.md);
+    expect(icon).toHaveStyleRule('height', DEFAULT_THEME.space.md);
+  });
+
+  it('renders the anchor focus indicator in the anchor shape', () => {
+    const { container } = render(<GlobalAlert type="info" />);
+
+    expect(container.firstChild).toHaveStyleRule('text-decoration', 'underline', {
+      modifier: '&& a'
+    });
+    expect(container.firstChild).not.toHaveStyleRule('border-radius', undefined, {
+      modifier: '&& a'
+    });
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm, {
+      modifier: '& a:focus-visible'
+    });
+    expect(container.firstChild).toHaveStyleRule('outline-color', PALETTE.grey[900], {
+      modifier: '& a:focus-visible'
+    });
+    expect(container.firstChild).toHaveStyleRule('outline-offset', DEFAULT_THEME.shadowWidths.sm, {
+      modifier: '& a:focus-visible'
+    });
+  });
 });

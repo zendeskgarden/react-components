@@ -5,18 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import AlertErrorStrokeIcon from 'svg-icons-legacy/src/16/alert-error-stroke.svg';
-import AlertWarningStrokeIcon from 'svg-icons-legacy/src/16/alert-warning-stroke.svg';
-import CheckCircleStrokeIcon from 'svg-icons-legacy/src/16/check-circle-stroke.svg';
-import InfoStrokeIcon from 'svg-icons-legacy/src/16/info-stroke.svg';
+import CheckCircleFillIcon from '@zendeskgarden/svg-icons/src/check-circle-fill.svg';
+import ExclamationCircleFillIcon from '@zendeskgarden/svg-icons/src/exclamation-circle-fill.svg';
+import ExclamationTriangleFillIcon from '@zendeskgarden/svg-icons/src/exclamation-triangle-fill.svg';
+import InfoCircleFillIcon from '@zendeskgarden/svg-icons/src/info-circle-fill.svg';
 
 import { Type } from '../../types/elements';
 
 export const validationIcons: Record<Type, Record<string, unknown>> = {
-  success: CheckCircleStrokeIcon,
-  error: AlertErrorStrokeIcon,
-  warning: AlertWarningStrokeIcon,
-  info: InfoStrokeIcon
+  success: CheckCircleFillIcon,
+  error: ExclamationCircleFillIcon,
+  warning: ExclamationTriangleFillIcon,
+  info: InfoCircleFillIcon
 };
 
 export const validationTypes: Record<Type, Type> = {

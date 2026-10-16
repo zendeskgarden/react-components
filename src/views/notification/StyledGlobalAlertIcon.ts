@@ -10,6 +10,7 @@ import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { Type } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
@@ -27,8 +28,8 @@ const sizeStyles = (props: IStyledBaseProps) => {
   return css`
     margin-top: ${marginTop};
     margin-${props.theme.rtl ? 'left' : 'right'}: ${marginHorizontal};
-    width: ${size};
-    height: ${size};
+    width: ${getIconRenderSize(props.theme)};
+    height: ${getIconRenderSize(props.theme)};
   `;
 };
 

@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import XSmallIcon from '@zendeskgarden/svg-icons/src/x-small.svg';
 import { forwardRef, ButtonHTMLAttributes } from 'react';
-import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useGlobalAlertContext } from '../../hooks/notification/useGlobalAlertContext';
 import { useText } from '../../theming/utils/useText';
@@ -47,7 +47,7 @@ export const GlobalAlertClose = forwardRef<
       >
         {/* [1] */}
         {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
-        <XStrokeIcon role="img" aria-label={label} />
+        <XSmallIcon role="img" aria-label={label} />
       </StyledIcon>
     </StyledGlobalAlertClose>
   );

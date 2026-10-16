@@ -20,6 +20,8 @@ interface IStyledGlobalAlertProps {
 
 /**
  * 1. Shifting :focus-visible from LVHFA order to preserve `color` on hover
+ * 2. The anchor focus indicator matches the Anchor: an outline that contains
+ *    line breaks, offset so it clears the corners, which round only while focused
  */
 const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBaseProps) => {
   let borderColor;
@@ -27,7 +29,6 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
   let foregroundColor;
   let anchorHoverColor;
   let anchorActiveColor;
-  let focusVariable;
 
   switch ($alertType) {
     case 'success': {
@@ -36,7 +37,6 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
       foregroundColor = getColor({ variable: 'foreground.success', offset: -600, theme });
       anchorHoverColor = theme.palette.white;
       anchorActiveColor = theme.palette.white;
-      focusVariable = 'foreground.successEmphasis';
       break;
     }
     case 'error': {
@@ -45,7 +45,6 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
       foregroundColor = getColor({ variable: 'foreground.danger', offset: -600, theme });
       anchorActiveColor = theme.palette.white;
       anchorHoverColor = theme.palette.white;
-      focusVariable = 'foreground.dangerEmphasis';
       break;
     }
     case 'warning': {
@@ -55,7 +54,6 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
       foregroundColor = getColor({ variable: fgVariable, offset: 100, theme });
       anchorHoverColor = getColor({ variable: fgVariable, offset: 200, theme });
       anchorActiveColor = getColor({ variable: fgVariable, offset: 300, theme });
-      focusVariable = fgVariable;
       break;
     }
     case 'info': {
@@ -65,13 +63,13 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
       foregroundColor = getColor({ variable: fgVariable, offset: 100, theme });
       anchorHoverColor = getColor({ variable: fgVariable, offset: 200, theme });
       anchorActiveColor = getColor({ variable: fgVariable, offset: 300, theme });
-      focusVariable = fgVariable;
       break;
     }
   }
 
   // Apply a border without affecting the element's size
   const boxShadow = `inset 0 -${theme.borderWidths.sm} 0 ${borderColor}`;
+  const anchorFocusOutlineColor = getColor({ hue: 'neutralHue', shade: 900, theme });
 
   /* stylelint-disable selector-no-qualifying-type */
   return css`
@@ -85,8 +83,13 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
       /* [1] */
       ${focusStyles({
         theme,
-        color: { variable: focusVariable },
-        styles: { color: 'inherit' }
+        condition: false,
+        styles: {
+          borderRadius: theme.borderRadii.sm /* [2] */,
+          color: 'inherit' /* [1] */,
+          outlineColor: anchorFocusOutlineColor /* [2] */,
+          outlineOffset: theme.shadowWidths.sm /* [2] */
+        }
       })}
 
       /* [1] */
@@ -127,7 +130,6 @@ export const StyledGlobalAlert = styled.div<IStyledGlobalAlertProps>`
   ${colorStyles}
 
   && a {
-    border-radius: ${props => props.theme.borderRadii.sm};
     text-decoration: underline;
   }
 

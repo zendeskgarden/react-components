@@ -50,27 +50,27 @@ describe('Close', () => {
   it('renders with the correct styling for RTL writing systems', () => {
     const { container } = render(<Close />, { theme: RTL_THEME });
 
-    expect(container.firstChild).toHaveStyleRule('left', '4px');
+    expect(container.firstChild).toHaveStyleRule('left', '8px');
     expect(container.firstChild).not.toHaveStyleRule('right');
   });
 
   it('renders with the correct styling for LTR writing systems', () => {
     const { container } = render(<Close />);
 
-    expect(container.firstChild).toHaveStyleRule('right', '4px');
+    expect(container.firstChild).toHaveStyleRule('right', '8px');
     expect(container.firstChild).not.toHaveStyleRule('left');
   });
 
   it.each<{ type: Type; mode: 'light' | 'dark'; color: string }>([
-    { type: 'success', mode: 'light', color: PALETTE.green[700] },
-    { type: 'success', mode: 'dark', color: PALETTE.green[400] },
-    { type: 'error', mode: 'light', color: PALETTE.red[700] },
-    { type: 'error', mode: 'dark', color: PALETTE.red[400] },
-    { type: 'warning', mode: 'light', color: PALETTE.yellow[700] },
-    { type: 'warning', mode: 'dark', color: PALETTE.yellow[400] },
+    { type: 'success', mode: 'light', color: PALETTE.grey[700] },
+    { type: 'success', mode: 'dark', color: PALETTE.grey[500] },
+    { type: 'error', mode: 'light', color: PALETTE.grey[700] },
+    { type: 'error', mode: 'dark', color: PALETTE.grey[500] },
+    { type: 'warning', mode: 'light', color: PALETTE.grey[700] },
+    { type: 'warning', mode: 'dark', color: PALETTE.grey[500] },
     { type: 'info', mode: 'light', color: PALETTE.grey[700] },
     { type: 'info', mode: 'dark', color: PALETTE.grey[500] }
-  ])('renders the $mode mode color given type "$type"', ({ type, mode, color }) => {
+  ])('renders the neutral $mode mode color given type "$type"', ({ type, mode, color }) => {
     const { getByRole } = render(
       <Alert type={type}>
         <Close />

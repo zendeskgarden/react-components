@@ -8,7 +8,6 @@
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
-import { useGlobalAlertContext } from '../../hooks/notification/useGlobalAlertContext';
 import { IGlobalAlertButtonProps } from '../../types/elements';
 import { StyledGlobalAlertButton } from '../../views/notification/StyledGlobalAlertButton';
 import { COMPONENT_IDS } from '../utils';
@@ -17,23 +16,18 @@ import { COMPONENT_IDS } from '../utils';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButtonProps>(
-  ({ isBasic, ...props }, ref) => {
-    const { type } = useGlobalAlertContext();
-
-    return (
-      <StyledGlobalAlertButton
-        ref={ref}
-        type="button"
-        $alertType={type}
-        {...props}
-        $isBasic={isBasic}
-        $isPrimary={!isBasic}
-        $size="small"
-        data-garden-id={COMPONENT_IDS['notifications.global_alert.button']}
-        data-garden-version={PACKAGE_VERSION}
-      />
-    );
-  }
+  ({ isBasic, ...props }, ref) => (
+    <StyledGlobalAlertButton
+      ref={ref}
+      type="button"
+      {...props}
+      $isBasic={isBasic}
+      $isPrimary={!isBasic}
+      $size="small"
+      data-garden-id={COMPONENT_IDS['notifications.global_alert.button']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
 );
 
 GlobalAlertButton.displayName = 'GlobalAlert.Button';

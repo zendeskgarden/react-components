@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import XSmallIcon from '@zendeskgarden/svg-icons/src/x-small.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import XStrokeIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
-import { useNotificationsContext } from '../../hooks/notification/useNotificationsContext';
 import { useText } from '../../theming/utils/useText';
 import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledClose } from '../../views/notification/StyledClose';
@@ -22,13 +21,11 @@ import { COMPONENT_IDS } from '../utils';
 export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const ariaLabel = useText(Close, props, 'aria-label', 'Close');
-    const type = useNotificationsContext();
 
     return (
       <StyledClose
         ref={ref}
         type="button"
-        $type={type}
         aria-label={ariaLabel}
         {...props}
         $focusInset
@@ -42,7 +39,7 @@ export const Close = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButt
           data-garden-id={COMPONENT_IDS['buttons.icon']}
           data-garden-version={PACKAGE_VERSION}
         >
-          <XStrokeIcon />
+          <XSmallIcon />
         </StyledIcon>
       </StyledClose>
     );

@@ -7,14 +7,11 @@
 
 import PropTypes from 'prop-types';
 import { forwardRef, useMemo } from 'react';
-import ErrorIcon from 'svg-icons-legacy/src/16/alert-error-stroke.svg';
-import WarningIcon from 'svg-icons-legacy/src/16/alert-warning-stroke.svg';
-import SuccessIcon from 'svg-icons-legacy/src/16/check-circle-stroke.svg';
-import InfoIcon from 'svg-icons-legacy/src/16/info-stroke.svg';
 
 import { GlobalAlertProvider } from '../../context/notification/GlobalAlertContext';
 import { ThemeProvider } from '../../theming/elements/ThemeProvider';
 import { NOTIFICATION_TYPE, IGlobalAlertProps } from '../../types/elements';
+import { validationIcons } from '../../utils/notification/icons';
 import { StyledGlobalAlert } from '../../views/notification/StyledGlobalAlert';
 import { StyledGlobalAlertIcon } from '../../views/notification/StyledGlobalAlertIcon';
 import { COMPONENT_IDS } from '../utils';
@@ -31,12 +28,7 @@ import { GlobalAlertTitle } from './GlobalAlertTitle';
 
 const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
   ({ type, ...props }, ref) => {
-    const icon = {
-      success: <SuccessIcon />,
-      error: <ErrorIcon />,
-      warning: <WarningIcon />,
-      info: <InfoIcon />
-    }[type];
+    const Icon = validationIcons[type] as any;
 
     return (
       /* [1] */
@@ -57,7 +49,7 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
               data-garden-id={COMPONENT_IDS['notifications.global_alert.icon']}
               data-garden-version={PACKAGE_VERSION}
             >
-              {icon}
+              <Icon />
             </StyledGlobalAlertIcon>
             {props.children}
           </StyledGlobalAlert>

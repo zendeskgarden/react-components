@@ -54,14 +54,14 @@ describe('Close', () => {
   it('renders with the correct styling for RTL writing systems', () => {
     const { container } = render(<Close />, { theme: RTL_THEME });
 
-    expect(container.firstChild).toHaveStyleRule('left', '4px');
+    expect(container.firstChild).toHaveStyleRule('left', '8px');
     expect(container.firstChild).not.toHaveStyleRule('right');
   });
 
   it('renders with the correct styling for LTR writing systems', () => {
     const { container } = render(<Close />);
 
-    expect(container.firstChild).toHaveStyleRule('right', '4px');
+    expect(container.firstChild).toHaveStyleRule('right', '8px');
     expect(container.firstChild).not.toHaveStyleRule('left');
   });
 

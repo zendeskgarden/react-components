@@ -88,6 +88,49 @@ describe('ToastSlot', () => {
       expect(queryByText('notification')).not.toBeInTheDocument();
     });
   });
+
+  describe('document visibility', () => {
+    const setVisibility = (state: DocumentVisibilityState) => {
+      Object.defineProperty(document, 'visibilityState', { configurable: true, get: () => state });
+      act(() => {
+        document.dispatchEvent(new Event('visibilitychange'));
+      });
+    };
+
+    afterEach(() => {
+      Reflect.deleteProperty(document, 'visibilityState');
+    });
+
+    it('pauses toast timers when the document is hidden', async () => {
+      const { getByRole, getAllByText } = render(<ToastExample />);
+
+      await user.click(getByRole('button'));
+      setVisibility('hidden');
+
+      act(() => {
+        vi.runAllTimers();
+      });
+
+      expect(getAllByText('notification')).toHaveLength(1);
+    });
+
+    it('resumes toast timers when the document is visible again', async () => {
+      const { getByRole, queryByText } = render(<ToastExample />);
+
+      await user.click(getByRole('button'));
+      setVisibility('hidden');
+      setVisibility('visible');
+
+      act(() => {
+        vi.runAllTimers();
+      });
+
+      await waitFor(() => {
+        expect(queryByText('notification')).not.toBeInTheDocument();
+      });
+    });
+  });
+
   it('renders no position styles given an unknown placement', () => {
     const { container } = render(
       <ToastSlot toasts={[]} placement={'unknown' as 'top'} limit={4} zIndex={100} />

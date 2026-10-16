@@ -52,6 +52,8 @@ const colorStyles = (props: IStyledAlertProps & IStyledBaseProps) => {
  * Supports all `<div>` props
  */
 export const StyledAlert = styled(StyledBase)<IStyledAlertProps>`
+  padding: ${props => props.theme.space.base * 4}px ${props => props.theme.space.base * 10}px;
+
   ${colorStyles}
 
   ${componentStyles};

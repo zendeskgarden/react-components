@@ -21,42 +21,41 @@ export interface IStyledNotificationBaseProps extends ThemeProps<DefaultTheme> {
 
 const colorStyles = ({ theme, $type, $isFloating }: IStyledNotificationBaseProps) => {
   const { space, shadows } = theme;
-  let bgVariable;
-  let borderVariable;
-  let fgVariable;
+  let backgroundColor;
+  let borderColor;
+  let foregroundColor;
 
   if (!$isFloating && $type && !!(validationTypes as any)[$type]) {
+    let hue;
+    let fgVariable;
+
     switch ($type) {
       case validationTypes.success:
-        bgVariable = 'background.success';
-        borderVariable = 'border.success';
-        fgVariable = 'foreground.success';
+        hue = 'successHue';
+        fgVariable = 'foreground.successEmphasis';
         break;
       case validationTypes.error:
-        bgVariable = 'background.danger';
-        borderVariable = 'border.danger';
-        fgVariable = 'foreground.danger';
+        hue = 'dangerHue';
+        fgVariable = 'foreground.dangerEmphasis';
         break;
       case validationTypes.warning:
-        bgVariable = 'background.warning';
-        borderVariable = 'border.warning';
-        fgVariable = 'foreground.warning';
+        hue = 'warningHue';
+        fgVariable = 'foreground.warningEmphasis';
         break;
       case validationTypes.info:
-        bgVariable = 'background.subtle';
-        borderVariable = 'border.default';
-        fgVariable = 'foreground.subtle';
+        hue = 'neutralHue';
+        fgVariable = 'foreground.default';
         break;
     }
-  } else {
-    bgVariable = 'background.raised';
-    borderVariable = 'border.default';
-    fgVariable = 'foreground.default';
-  }
 
-  const backgroundColor = getColor({ variable: bgVariable, theme });
-  const borderColor = getColor({ variable: borderVariable, theme });
-  const foregroundColor = getColor({ variable: fgVariable, theme });
+    backgroundColor = getColor({ theme, hue, light: { shade: 200 }, dark: { shade: 900 } });
+    borderColor = 'transparent';
+    foregroundColor = getColor({ variable: fgVariable, theme });
+  } else {
+    backgroundColor = getColor({ variable: 'background.raised', theme });
+    borderColor = getColor({ variable: 'border.default', theme });
+    foregroundColor = getColor({ variable: 'foreground.default', theme });
+  }
 
   const offsetY = `${space.base * 5}px`;
   const blurRadius = `${space.base * 7}px`;
@@ -83,7 +82,7 @@ const padding = (props: IStyledBaseProps) => {
 export const StyledBase = styled.div<IStyledNotificationBaseProps>`
   position: relative;
   border: ${props => props.theme.borders.sm};
-  border-radius: ${props => props.theme.borderRadii.md};
+  border-radius: ${props => props.theme.borderRadii.xl};
   padding: ${padding};
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};
   font-size: ${props => props.theme.fontSizes.md};

@@ -18,89 +18,61 @@ interface IStyledGlobalAlertCloseProps {
   $alertType: IGlobalAlertProps['type'];
 }
 
-export const colorStyles = (props: IStyledGlobalAlertCloseProps & IStyledBaseProps) => {
+const colorStyles = (props: IStyledGlobalAlertCloseProps & IStyledBaseProps) => {
   const { $alertType, theme } = props;
 
+  let foregroundColor;
   let hoverBackgroundColor;
-  let hoverForegroundColor;
   let activeBackgroundColor;
-  let activeForegroundColor;
-  let focusVariable;
 
   switch ($alertType) {
     case 'success':
-      hoverBackgroundColor = getColor({
-        variable: 'background.success',
-        theme,
-        transparency: theme.opacity[100]
-      });
-      hoverForegroundColor = theme.palette.white;
-      activeBackgroundColor = getColor({
-        variable: 'background.success',
-        theme,
-        transparency: theme.opacity[200]
-      });
-      activeForegroundColor = theme.palette.white;
-      focusVariable = 'foreground.successEmphasis';
-      break;
     case 'error':
+      foregroundColor = getColor({ hue: 'white', theme });
       hoverBackgroundColor = getColor({
-        variable: 'background.danger',
+        hue: 'white',
         theme,
         transparency: theme.opacity[100]
       });
-      hoverForegroundColor = theme.palette.white;
       activeBackgroundColor = getColor({
-        variable: 'background.danger',
+        hue: 'white',
         theme,
         transparency: theme.opacity[200]
       });
-      activeForegroundColor = theme.palette.white;
-      focusVariable = 'foreground.dangerEmphasis';
-      break;
-    case 'warning':
-      hoverBackgroundColor = getColor({
-        variable: 'background.warningEmphasis',
-        transparency: theme.opacity[100],
-        theme
-      });
-      hoverForegroundColor = getColor({
-        variable: 'foreground.warningEmphasis',
-        offset: 200,
-        theme
-      });
-      activeBackgroundColor = getColor({
-        variable: 'background.warningEmphasis',
-        transparency: theme.opacity[200],
-        theme
-      });
-      activeForegroundColor = getColor({
-        variable: 'foreground.warningEmphasis',
-        offset: 300,
-        theme
-      });
-      focusVariable = 'foreground.warning';
       break;
     default:
-      focusVariable = 'foreground.primary';
+      foregroundColor = getColor({ hue: 'neutralHue', shade: 900, theme });
+      hoverBackgroundColor = getColor({
+        hue: 'neutralHue',
+        shade: 900,
+        theme,
+        transparency: theme.opacity[100]
+      });
+      activeBackgroundColor = getColor({
+        hue: 'neutralHue',
+        shade: 900,
+        theme,
+        transparency: theme.opacity[200]
+      });
   }
 
   return css`
-    color: inherit;
+    color: ${foregroundColor};
 
     &:hover {
       background-color: ${hoverBackgroundColor};
-      color: ${hoverForegroundColor};
+      color: ${foregroundColor};
     }
 
     ${focusStyles({
       theme,
-      color: { variable: focusVariable }
+      color: { hue: 'neutralHue', shade: 900 },
+      styles: { color: foregroundColor }
     })}
 
     &:active {
       background-color: ${activeBackgroundColor};
-      color: ${activeForegroundColor};
+      color: ${foregroundColor};
     }
   `;
 };

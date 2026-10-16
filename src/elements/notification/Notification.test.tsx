@@ -9,6 +9,7 @@ import { createRef } from 'react';
 
 import { render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Notification } from './Notification';
 
 describe('Notification', () => {
@@ -49,7 +50,30 @@ describe('Notification', () => {
   it('renders floating styling', () => {
     const { container } = render(<Notification />);
 
-    expect(container.firstChild).toHaveStyleRule('box-shadow', expect.any(String));
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(
+        `0 ${DEFAULT_THEME.space.base * 4}px ${DEFAULT_THEME.space.base * 6}px`
+      )
+    );
+  });
+
+  it('renders the notification padding and radius', () => {
+    const { container } = render(<Notification />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'padding',
+      `${DEFAULT_THEME.space.base * 4}px ${DEFAULT_THEME.space.base * 10}px`
+    );
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.xl);
+  });
+
+  it('renders the icon in a 20px slot given a type', () => {
+    const { container } = render(<Notification type="success" />);
+    const icon = container.querySelector('[data-garden-id="notifications.icon"]');
+
+    expect(icon).toHaveStyleRule('width', DEFAULT_THEME.space.md);
+    expect(icon).toHaveStyleRule('height', DEFAULT_THEME.space.md);
   });
 
   it('renders no icon given no type', () => {

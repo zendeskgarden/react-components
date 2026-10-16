@@ -7,7 +7,6 @@
 
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
-import InfoStrokeIcon from 'svg-icons-legacy/src/16/info-stroke.svg';
 
 import { INotificationProps, NOTIFICATION_TYPE } from '../../types/elements';
 import { validationIcons } from '../../utils/notification/icons';
@@ -20,7 +19,7 @@ import { Title } from './Title';
 
 export const NotificationComponent = forwardRef<HTMLDivElement, INotificationProps>(
   ({ children, type, ...props }, ref) => {
-    const Icon = type ? validationIcons[type] : InfoStrokeIcon;
+    const Icon = type ? (validationIcons[type] as any) : null;
 
     return (
       <StyledNotification

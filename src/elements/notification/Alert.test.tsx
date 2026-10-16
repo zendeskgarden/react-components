@@ -41,14 +41,14 @@ describe('Alert', () => {
   });
 
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
-    { mode: 'light', type: 'success', color: PALETTE.green[100] },
-    { mode: 'dark', type: 'success', color: PALETTE.green[1000] },
-    { mode: 'light', type: 'error', color: PALETTE.red[100] },
-    { mode: 'dark', type: 'error', color: PALETTE.red[1000] },
-    { mode: 'light', type: 'warning', color: PALETTE.yellow[100] },
-    { mode: 'dark', type: 'warning', color: PALETTE.yellow[1000] },
-    { mode: 'light', type: 'info', color: PALETTE.grey[100] },
-    { mode: 'dark', type: 'info', color: PALETTE.grey[1000] }
+    { mode: 'light', type: 'success', color: PALETTE.green[200] },
+    { mode: 'dark', type: 'success', color: PALETTE.green[900] },
+    { mode: 'light', type: 'error', color: PALETTE.red[200] },
+    { mode: 'dark', type: 'error', color: PALETTE.red[900] },
+    { mode: 'light', type: 'warning', color: PALETTE.yellow[200] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'light', type: 'info', color: PALETTE.grey[200] },
+    { mode: 'dark', type: 'info', color: PALETTE.grey[900] }
   ])('renders $mode mode $type background color', ({ mode, type, color }) => {
     const { container } = render(<Alert type={type} />, {
       theme: mode === 'dark' ? DARK_THEME : undefined
@@ -58,14 +58,14 @@ describe('Alert', () => {
   });
 
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
-    { mode: 'light', type: 'success', color: PALETTE.green[300] },
-    { mode: 'dark', type: 'success', color: PALETTE.green[900] },
-    { mode: 'light', type: 'error', color: PALETTE.red[300] },
-    { mode: 'dark', type: 'error', color: PALETTE.red[900] },
-    { mode: 'light', type: 'warning', color: PALETTE.yellow[300] },
-    { mode: 'dark', type: 'warning', color: PALETTE.yellow[900] },
-    { mode: 'light', type: 'info', color: PALETTE.grey[300] },
-    { mode: 'dark', type: 'info', color: PALETTE.grey[800] }
+    { mode: 'light', type: 'success', color: 'transparent' },
+    { mode: 'dark', type: 'success', color: 'transparent' },
+    { mode: 'light', type: 'error', color: 'transparent' },
+    { mode: 'dark', type: 'error', color: 'transparent' },
+    { mode: 'light', type: 'warning', color: 'transparent' },
+    { mode: 'dark', type: 'warning', color: 'transparent' },
+    { mode: 'light', type: 'info', color: 'transparent' },
+    { mode: 'dark', type: 'info', color: 'transparent' }
   ])('renders $mode mode $type border color', ({ mode, type, color }) => {
     const { container } = render(<Alert type={type} />, {
       theme: mode === 'dark' ? DARK_THEME : undefined
@@ -75,14 +75,14 @@ describe('Alert', () => {
   });
 
   it.each<{ mode: 'light' | 'dark'; type: Type; color: string }>([
-    { mode: 'light', type: 'success', color: PALETTE.green[700] },
-    { mode: 'dark', type: 'success', color: PALETTE.green[400] },
-    { mode: 'light', type: 'error', color: PALETTE.red[700] },
-    { mode: 'dark', type: 'error', color: PALETTE.red[400] },
-    { mode: 'light', type: 'warning', color: PALETTE.yellow[700] },
-    { mode: 'dark', type: 'warning', color: PALETTE.yellow[400] },
-    { mode: 'light', type: 'info', color: PALETTE.grey[700] },
-    { mode: 'dark', type: 'info', color: PALETTE.grey[500] }
+    { mode: 'light', type: 'success', color: PALETTE.green[900] },
+    { mode: 'dark', type: 'success', color: PALETTE.green[300] },
+    { mode: 'light', type: 'error', color: PALETTE.red[900] },
+    { mode: 'dark', type: 'error', color: PALETTE.red[300] },
+    { mode: 'light', type: 'warning', color: PALETTE.yellow[900] },
+    { mode: 'dark', type: 'warning', color: PALETTE.yellow[300] },
+    { mode: 'light', type: 'info', color: PALETTE.grey[900] },
+    { mode: 'dark', type: 'info', color: PALETTE.grey[300] }
   ])('renders $mode mode $type foreground color', ({ mode, type, color }) => {
     const { container } = render(<Alert type={type} />, {
       theme: mode === 'dark' ? DARK_THEME : undefined
@@ -115,7 +115,7 @@ describe('Alert', () => {
     const { container } = render(<Alert type="info" />);
     const icon = container.querySelector('[data-garden-id="notifications.icon"]');
 
-    expect(icon).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 4}px`);
+    expect(icon).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 3}px`);
     expect(icon).not.toHaveStyleRule('right');
   });
 
@@ -123,7 +123,27 @@ describe('Alert', () => {
     const { container } = render(<Alert type="info" />, { theme: RTL_THEME });
     const icon = container.querySelector('[data-garden-id="notifications.icon"]');
 
-    expect(icon).toHaveStyleRule('right', `${DEFAULT_THEME.space.base * 4}px`);
+    expect(icon).toHaveStyleRule('right', `${DEFAULT_THEME.space.base * 3}px`);
     expect(icon).not.toHaveStyleRule('left');
+  });
+
+  it('renders the icon in a 20px slot at the top', () => {
+    const { container } = render(<Alert type="info" />);
+    const icon = container.querySelector('[data-garden-id="notifications.icon"]');
+
+    expect(icon).toHaveStyleRule('top', `${DEFAULT_THEME.space.base * 4}px`);
+    expect(icon).toHaveStyleRule('margin-top', '0');
+    expect(icon).toHaveStyleRule('width', DEFAULT_THEME.space.md);
+    expect(icon).toHaveStyleRule('height', DEFAULT_THEME.space.md);
+  });
+
+  it('renders the alert padding and radius', () => {
+    const { container } = render(<Alert type="info" />);
+
+    expect(container.firstChild).toHaveStyleRule(
+      'padding',
+      `${DEFAULT_THEME.space.base * 4}px ${DEFAULT_THEME.space.base * 10}px`
+    );
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.xl);
   });
 });

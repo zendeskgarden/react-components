@@ -7,95 +7,14 @@
 
 import styled, { css } from 'styled-components';
 
-import type { ColorParameters } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
-import { getColor } from '../../theming/utils/getColor';
-import { IGlobalAlertProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
 import { StyledButton } from '../button/StyledButton';
-import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
 
-interface IStyledGlobalAlertButtonProps {
-  $alertType: IGlobalAlertProps['type'];
-  $isBasic?: boolean;
-}
-
-type OffsetOptions = Record<string, ColorParameters['offset']>;
-
-function colorStyles(props: IStyledGlobalAlertButtonProps & IStyledBaseProps) {
-  const { $alertType, $isBasic, theme } = props;
-
-  if ($isBasic) {
-    return basicColorStyles(props);
-  }
-
-  let bgVariable;
-  let offsetOptions: OffsetOptions;
-  let offsetHoverOptions: OffsetOptions;
-  let offsetActiveOptions: OffsetOptions;
-  let focusVariable;
-
-  switch ($alertType) {
-    case 'success':
-      bgVariable = 'background.successEmphasis';
-      offsetOptions = { offset: 200 };
-      offsetHoverOptions = { offset: 300 };
-      offsetActiveOptions = { offset: 400 };
-      focusVariable = 'foreground.successEmphasis';
-      break;
-    case 'error':
-      bgVariable = 'background.dangerEmphasis';
-      offsetOptions = { offset: 200 };
-      offsetHoverOptions = { offset: 300 };
-      offsetActiveOptions = { offset: 400 };
-      focusVariable = 'foreground.dangerEmphasis';
-      break;
-    case 'warning':
-      bgVariable = 'background.warningEmphasis';
-      offsetOptions = {};
-      offsetHoverOptions = { offset: 100 };
-      offsetActiveOptions = { offset: 200 };
-      focusVariable = 'foreground.warning';
-      break;
-    case 'info':
-      bgVariable = 'background.primaryEmphasis';
-      offsetOptions = {};
-      offsetHoverOptions = { offset: 100 };
-      offsetActiveOptions = { offset: 200 };
-      focusVariable = 'foreground.primary';
-      break;
-  }
-
-  const backgroundColor = getColor({
-    variable: bgVariable,
-    ...offsetOptions,
-    theme
-  });
-  const hoverBackgroundColor = getColor({
-    variable: bgVariable,
-    ...offsetHoverOptions,
-    theme
-  });
-  const activeBackgroundColor = getColor({
-    variable: bgVariable,
-    ...offsetActiveOptions,
-    theme
-  });
-
+function colorStyles({ theme }: IStyledBaseProps) {
   return css`
-    background-color: ${backgroundColor};
-    color: ${getColor({ hue: 'white', theme })};
-
-    &:hover {
-      background-color: ${hoverBackgroundColor};
-    }
-
-    ${focusStyles({ theme, color: { variable: focusVariable } })}
-
-    &:active {
-      background-color: ${activeBackgroundColor};
-    }
+    ${focusStyles({ theme, color: { hue: 'neutralHue', shade: 900 } })}
   `;
 }
 
@@ -110,7 +29,7 @@ function sizeStyles(props: IStyledBaseProps) {
   `;
 }
 
-export const StyledGlobalAlertButton = styled(StyledButton)<IStyledGlobalAlertButtonProps>`
+export const StyledGlobalAlertButton = styled(StyledButton)`
   flex-shrink: 0;
 
   ${sizeStyles};

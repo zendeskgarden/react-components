@@ -42,7 +42,17 @@ const colorStyles = (props: IStyledNotificationProps & IStyledBaseProps) => {
 
   const color = variable ? getColor({ variable, theme }) : 'inherit';
 
+  const offsetY = `${theme.space.base * 4}px`;
+  const blurRadius = `${theme.space.base * 6}px`;
+  const boxShadow = theme.shadows.lg(
+    offsetY,
+    blurRadius,
+    getColor({ variable: 'shadow.medium', theme })
+  );
+
   return css`
+    box-shadow: ${boxShadow};
+
     ${StyledTitle} {
       color: ${color};
     }
@@ -53,6 +63,8 @@ const colorStyles = (props: IStyledNotificationProps & IStyledBaseProps) => {
  * Supports all `<div>` props
  */
 export const StyledNotification = styled(StyledBase)<IStyledNotificationProps>`
+  padding: ${props => props.theme.space.base * 4}px ${props => props.theme.space.base * 10}px;
+
   ${colorStyles}
 
   ${componentStyles};

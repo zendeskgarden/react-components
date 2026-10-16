@@ -9,6 +9,7 @@ import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { Type } from '../../types/elements';
 import { validationTypes } from '../../utils/notification/icons';
@@ -17,11 +18,17 @@ interface IStyledIconProps extends ThemeProps<DefaultTheme> {
   $type?: Type;
 }
 
-const sizeStyles = ({ theme: { rtl, space } }: IStyledIconProps) => {
+const sizeStyles = ({ theme }: IStyledIconProps) => {
+  const { rtl, space } = theme;
+  const size = getIconRenderSize(theme);
+
   return css`
-    right: ${rtl && `${space.base * 4}px`};
-    left: ${!rtl && `${space.base * 4}px`};
-    margin-top: ${space.base / 2}px;
+    top: ${space.base * 4}px;
+    right: ${rtl && `${space.base * 3}px`};
+    left: ${!rtl && `${space.base * 3}px`};
+    margin-top: 0;
+    width: ${size};
+    height: ${size};
   `;
 };
 

@@ -69,4 +69,20 @@ describe('Well', () => {
     );
     expect(container.firstChild).toHaveStyleRule('box-shadow', expect.any(String));
   });
+
+  it('renders the well radius and keeps the well padding and floating shadow', () => {
+    const { container } = render(<Well isFloating />);
+
+    expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.xl);
+    expect(container.firstChild).toHaveStyleRule(
+      'padding',
+      `${DEFAULT_THEME.space.base * 5}px ${DEFAULT_THEME.space.base * 10}px`
+    );
+    expect(container.firstChild).toHaveStyleRule(
+      'box-shadow',
+      expect.stringContaining(
+        `0 ${DEFAULT_THEME.space.base * 5}px ${DEFAULT_THEME.space.base * 7}px`
+      )
+    );
+  });
 });
