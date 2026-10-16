@@ -6,17 +6,11 @@
  */
 
 import { hideVisually, math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import { OptionType } from '../../types/elements';
-
-export interface IStyledOptionProps extends ThemeProps<DefaultTheme> {
-  $isActive?: boolean;
-  $isCompact?: boolean;
-  $type?: OptionType | 'header' | 'group';
-}
+import type { IStyledOptionProps } from '../../types/views';
 
 const colorStyles = ({ theme, $isActive, $type }: IStyledOptionProps) => {
   let backgroundColor;

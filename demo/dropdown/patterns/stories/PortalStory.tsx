@@ -5,11 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Paragraph } from '@zendeskgarden/react-typography';
 import { useRef } from 'react';
 import styled from 'styled-components';
 
-import { Combobox, Field, Item, Menu, Option } from '../../../../src/index';
+import {
+  Combobox,
+  ComboboxField as Field,
+  Item,
+  Menu,
+  Option,
+  Paragraph
+} from '../../../../src/index';
 import { getColor } from '../../../../src/theming/utils/getColor';
 
 interface IArgs {

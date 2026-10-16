@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { userEvent } from '@testing-library/user-event';
 import { HTMLAttributes, forwardRef, createRef } from 'react';
 import { vi } from 'vitest';
 
@@ -66,6 +67,40 @@ describe('Option', () => {
     const icon = getByTestId('icon');
 
     expect(icon).not.toBeNull();
+  });
+
+  it('renders disabled icon styling', () => {
+    const { getByTestId } = render(<TestOption isDisabled icon={<svg data-test-id="icon" />} />);
+    const icon = getByTestId('icon');
+
+    expect(icon).toHaveStyleRule('color', PALETTE.grey[600]);
+  });
+
+  it('renders danger icon styling', () => {
+    const { getByTestId } = render(<TestOption type="danger" icon={<svg data-test-id="icon" />} />);
+    const icon = getByTestId('icon');
+
+    expect(icon).toHaveStyleRule('color', PALETTE.red[700]);
+  });
+
+  it('renders add icon styling', () => {
+    const { getByTestId } = render(<TestOption type="add" icon={<svg data-test-id="icon" />} />);
+    const icon = getByTestId('icon');
+
+    expect(icon).toHaveStyleRule('color', PALETTE.blue[700]);
+  });
+
+  it('scrolls into view on activation', async () => {
+    const user = userEvent.setup();
+    const { getByTestId } = render(<TestOption />);
+    const option = getByTestId('option');
+    const scrollIntoView = vi.fn();
+
+    option.scrollIntoView = scrollIntoView;
+
+    await user.hover(option);
+
+    expect(scrollIntoView).toHaveBeenCalledWith({ block: 'nearest' });
   });
 
   it('renders selected as expected', () => {

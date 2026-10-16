@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Tag } from '@zendeskgarden/react-tags';
+import { Avatar } from '../../elements/tag/Avatar';
 
-const TagAvatarComponent = Tag.Avatar;
+const TagAvatarComponent = Avatar;
 
 TagAvatarComponent.displayName = 'Tag.Avatar';
 

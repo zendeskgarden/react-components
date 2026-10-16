@@ -6,18 +6,13 @@
  */
 
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import { OptionType } from '../../types/elements';
+import type { IStyledOptionTypeIconProps } from '../../types/views';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
-
-export interface IStyledOptionTypeIconProps extends ThemeProps<DefaultTheme> {
-  $isCompact?: boolean;
-  $type?: OptionType | 'header';
-}
 
 const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
   const opacity = $type && $type !== 'danger' ? 1 : 0;

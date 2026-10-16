@@ -5,13 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-
-export interface IStyledOptGroupProps extends ThemeProps<DefaultTheme> {
-  $isCompact?: boolean;
-}
+import type { IStyledOptGroupProps } from '../../types/views';
 
 export const StyledOptGroup = styled.ul<IStyledOptGroupProps>`
   margin: 0;

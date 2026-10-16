@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
 
 import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
+import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
 import { IComboboxLabelProps } from '../../types/elements';
 import { StyledLabel } from '../../views/dropdown/StyledLabel';
 import { COMPONENT_IDS } from '../utils';
@@ -20,8 +21,10 @@ import { COMPONENT_IDS } from '../utils';
  * @extends LabelHTMLAttributes<HTMLLabelElement>
  */
 export const Label = forwardRef<HTMLLabelElement, IComboboxLabelProps>(
-  ({ onClick, onMouseEnter, onMouseLeave, ...props }, ref) => {
+  ({ isRegular, onClick, onMouseEnter, onMouseLeave, ...props }, ref) => {
     const { labelProps } = useFieldContext();
+    const fieldsetContext = useFieldsetContext();
+    const $isRegular = fieldsetContext && isRegular === undefined ? true : isRegular;
 
     return (
       <StyledLabel
@@ -30,6 +33,7 @@ export const Label = forwardRef<HTMLLabelElement, IComboboxLabelProps>(
         onMouseEnter={composeEventHandlers(onMouseEnter, labelProps?.onMouseEnter)}
         onMouseLeave={composeEventHandlers(onMouseLeave, labelProps?.onMouseLeave)}
         {...props}
+        $isRegular={$isRegular}
         data-garden-id={COMPONENT_IDS['dropdowns.combobox.label']}
         data-garden-version={PACKAGE_VERSION}
         ref={ref}

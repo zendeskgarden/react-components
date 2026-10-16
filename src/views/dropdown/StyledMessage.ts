@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledMessage as StyledFormMessage } from '../form/StyledMessage';
 
-export const StyledMessage = styled(Field.Message)`
+export const StyledMessage = styled(StyledFormMessage)`
   ${componentStyles};
 `;

@@ -10,7 +10,8 @@ import styled from 'styled-components';
 import type { ArrowPosition } from '../../theming/types';
 import arrowStyles from '../../theming/utils/arrowStyles';
 import { componentStyles } from '../../theming/utils/componentStyles';
-import { IStyledListboxProps, StyledListbox } from './StyledListbox';
+import type { IStyledListboxProps } from '../../types/views';
+import { StyledListbox } from './StyledListbox';
 
 interface IStyledMenuProps extends IStyledListboxProps {
   $arrowPosition?: ArrowPosition;

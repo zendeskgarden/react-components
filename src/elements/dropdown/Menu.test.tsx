@@ -765,7 +765,7 @@ describe('Menu', () => {
     });
 
     it('throws error when href is used with a selection type', () => {
-      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
       expect(() => {
         render(
@@ -781,7 +781,7 @@ describe('Menu', () => {
     });
 
     it('throws error when href is used with option type', () => {
-      const consoleSpy = vi.spyOn(console, 'error').mockImplementation();
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => undefined);
 
       expect(() => {
         render(

@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Tag } from '@zendeskgarden/react-tags';
 import { hideVisually } from 'polished';
 import styled from 'styled-components';
 
+import { Tag } from '../../elements/tag/Tag';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 

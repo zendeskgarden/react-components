@@ -8,7 +8,13 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import { Combobox, Field, Option, OptGroup, Tag } from '../../src/index';
+import {
+  Combobox,
+  ComboboxField as Field,
+  ComboboxTag as Tag,
+  Option,
+  OptGroup
+} from '../../src/index';
 import { ComboboxStory } from './stories/ComboboxStory';
 import { OPTIONS } from './stories/data';
 type Story = StoryObj<typeof ComboboxStory>;

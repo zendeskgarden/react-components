@@ -5,20 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
-import { Span } from '@zendeskgarden/react-typography';
 import { useEffect, useState } from 'react';
 
 import {
   Combobox,
-  Field,
+  ComboboxField as Field,
+  Grid,
   IComboboxProps,
   IMenuProps,
   Item,
   Menu,
   OptGroup,
   Option,
-  Separator
+  Separator,
+  Span
 } from '../../../../src/index';
 import { ITEMS, OPTIONS, SUB_ITEMS, SUB_OPTION_VALUES, SUB_OPTIONS } from './data';
 

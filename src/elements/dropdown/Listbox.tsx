@@ -115,7 +115,9 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
 
       /* istanbul ignore else */
       if (isExpanded) {
-        if (isMountedRef.current) setIsVisible(true);
+        if (isMountedRef.current) {
+          setIsVisible(true);
+        }
       } else {
         timeout = setTimeout(() => {
           if (isMountedRef.current) {

@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import PropTypes from 'prop-types';
 import { HTMLAttributes, forwardRef, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
+import { Tooltip } from '../../elements/tooltip/Tooltip';
 import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';

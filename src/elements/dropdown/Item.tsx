@@ -138,6 +138,9 @@ const ItemComponent = forwardRef<HTMLLIElement, IItemProps>(
               $isCompact={isCompact}
               $isActive={value === focusedValue}
               {...anchorProps}
+              as="a"
+              data-garden-id={COMPONENT_IDS['dropdowns.menu.item_anchor']}
+              data-garden-version={PACKAGE_VERSION}
             >
               {itemChildren}
             </StyledItemAnchor>

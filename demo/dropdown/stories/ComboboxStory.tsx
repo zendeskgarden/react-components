@@ -6,7 +6,6 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Grid } from '@zendeskgarden/react-grid';
 import { useCallback, useState } from 'react';
 import Icon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
 import StartIcon from 'svg-icons-legacy/src/16/search-stroke.svg';
@@ -14,12 +13,13 @@ import Avatar from 'svg-icons-legacy/src/16/user-solo-stroke.svg';
 
 import {
   Combobox,
-  Field,
+  ComboboxField as Field,
+  ComboboxTag as Tag,
+  Grid,
   IComboboxProps,
   IOptionProps,
   OptGroup,
-  Option,
-  Tag
+  Option
 } from '../../../src/index';
 import { IOption, Options } from './types';
 

@@ -5,14 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-
-export interface IStyledOptionMetaProps extends ThemeProps<DefaultTheme> {
-  $isDisabled?: boolean;
-}
+import type { IStyledOptionMetaProps } from '../../types/views';
 
 const colorStyles = ({ theme, $isDisabled }: IStyledOptionMetaProps) => {
   const variable = $isDisabled ? 'foreground.disabled' : 'foreground.subtle';

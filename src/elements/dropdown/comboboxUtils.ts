@@ -43,7 +43,7 @@ export const toOptions = (
   Children.toArray(children).reduce((options: IUseComboboxProps['options'], option) => {
     const retVal = options;
 
-    if (isValidElement(option)) {
+    if (isValidElement<IOptionProps | Omit<IOptGroupProps, 'value'>>(option)) {
       if ('value' in option.props) {
         retVal.push(toOption(option.props));
         optionTagProps[option.props.value] = option.props.tagProps;

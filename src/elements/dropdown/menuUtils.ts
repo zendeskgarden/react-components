@@ -45,7 +45,7 @@ export const toItems = (children: ReactNode, type?: 'radio' | 'checkbox') =>
   Children.toArray(children).reduce((items: MenuItem[], item) => {
     const retVal = items;
 
-    if (isValidElement(item)) {
+    if (isValidElement<IItemProps | Omit<IItemGroupProps, 'value'>>(item)) {
       if ('value' in item.props) {
         retVal.push(toItem({ ...item.props, selectionType: type }));
       } else {

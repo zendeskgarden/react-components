@@ -121,7 +121,9 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
 
       /* istanbul ignore else */
       if (isExpanded) {
-        if (isMountedRef.current) setIsVisible(true);
+        if (isMountedRef.current) {
+          setIsVisible(true);
+        }
       } else {
         timeout = setTimeout(() => {
           if (isMountedRef.current) {
@@ -139,7 +141,9 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
         /* istanbul ignore if */
         if (height) {
           // Reset height on options change.
-          if (isMountedRef.current) setHeight(undefined);
+          if (isMountedRef.current) {
+            setHeight(undefined);
+          }
           update();
         }
       },

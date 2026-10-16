@@ -6,12 +6,12 @@
  */
 
 import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
-import { VALIDATION } from '@zendeskgarden/react-forms';
 import PropTypes from 'prop-types';
 import {
   HTMLAttributes,
   InputHTMLAttributes,
   LabelHTMLAttributes,
+  RefObject,
   forwardRef,
   useContext,
   useEffect,
@@ -27,7 +27,7 @@ import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useText } from '../../theming/utils/useText';
 import { useWindow } from '../../theming/utils/useWindow';
-import { IComboboxProps, IOptionProps } from '../../types/elements';
+import { IComboboxProps, IOptionProps, VALIDATION } from '../../types/elements';
 import { StyledCombobox } from '../../views/dropdown/StyledCombobox';
 import { StyledContainer } from '../../views/dropdown/StyledContainer';
 import { StyledInput } from '../../views/dropdown/StyledInput';
@@ -111,7 +111,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const triggerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
     const listboxRef = useRef<HTMLUListElement>(null);
-    const blurTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+    const blurTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useWindow(theme);
@@ -132,9 +132,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
       selection
     } = useCombobox({
       idPrefix: props.id,
-      triggerRef,
-      inputRef,
-      listboxRef,
+      triggerRef: triggerRef as RefObject<HTMLElement>,
+      inputRef: inputRef as RefObject<HTMLInputElement>,
+      listboxRef: listboxRef as RefObject<HTMLElement>,
       options,
       environment,
       hasHint,
@@ -361,6 +361,9 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
                         }}
                         tabIndex={-1}
                         type="button"
+                        as="button"
+                        data-garden-id={COMPONENT_IDS['dropdowns.combobox.tags_button']}
+                        data-garden-version={PACKAGE_VERSION}
                       >
                         {(() => {
                           const value = selection.length - maxTags;
@@ -417,7 +420,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
             isExpanded={isExpanded}
             maxHeight={listboxMaxHeight}
             minHeight={listboxMinHeight}
-            triggerRef={triggerRef}
+            triggerRef={triggerRef as RefObject<HTMLElement>}
             zIndex={listboxZIndex}
             {...listboxProps}
           >

@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext } from 'react';
-import type { HTMLAttributes, LabelHTMLAttributes } from 'react';
+import { HTMLAttributes, LabelHTMLAttributes, createContext } from 'react';
 
 export const FieldContext = createContext<
   | {

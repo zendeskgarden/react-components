@@ -7,14 +7,14 @@
 
 import { useFloating } from '@floating-ui/react-dom';
 import { act } from '@testing-library/react';
-import { useRef, StrictMode } from 'react';
+import { RefObject, useRef, StrictMode } from 'react';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
 import { Listbox } from './Listbox';
 
-vi.mock<typeof import('@floating-ui/react-dom')>('@floating-ui/react-dom', () => ({
-  ...vi.requireActual('@floating-ui/react-dom'),
+vi.mock('@floating-ui/react-dom', async importOriginal => ({
+  ...(await importOriginal<typeof import('@floating-ui/react-dom')>()),
   useFloating: vi.fn()
 }));
 
@@ -36,7 +36,7 @@ const TestListbox = ({ isExpanded, maxHeight, minHeight }: ITestListboxProps) =>
         isExpanded={isExpanded}
         maxHeight={maxHeight}
         minHeight={minHeight}
-        triggerRef={triggerRef}
+        triggerRef={triggerRef as RefObject<HTMLElement>}
       >
         <option data-test-id="option" aria-selected={false}>
           option
@@ -203,7 +203,8 @@ describe('Listbox', () => {
         apply({ rects: { reference: { width: 100 } }, availableHeight: 500 });
       });
 
-      expect(listbox.style.maxHeight).toBe('min(400px, 500px)');
+      // jsdom serializes `min(400px, 500px)` to its computed value
+      expect(listbox.style.maxHeight).toBe('calc(400px)');
     });
 
     it('skips height constraint when `minHeight` is `fit-content`', () => {

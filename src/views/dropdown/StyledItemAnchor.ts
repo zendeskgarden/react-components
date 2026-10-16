@@ -11,17 +11,10 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledItemTypeIcon } from './StyledItemTypeIcon';
 import { StyledOption } from './StyledOption';
 
-const COMPONENT_ID = 'dropdowns.menu.item_anchor';
-
 /*
  * 1. Ensure hover styling doesn't leak through
  */
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledItemAnchor = styled(StyledOption).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  as: 'a'
-})`
+export const StyledItemAnchor = styled(StyledOption)`
   text-decoration: none;
   color: unset;
 

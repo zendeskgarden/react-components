@@ -15,6 +15,7 @@ import { RTL_THEME, render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { IComboboxProps, ISelectedOption } from '../../types/elements';
+import { Fieldset } from '../form/Fieldset';
 import { Combobox } from './Combobox';
 import { Field } from './Field';
 import { OptGroup } from './OptGroup';
@@ -107,6 +108,8 @@ describe('Combobox', () => {
     expect(combobox.firstChild).toHaveStyleRule('border-color', PALETTE.blue[700], {
       modifier: ':hover'
     });
+
+    await user.unhover(label);
   });
 
   it('focuses input on label click', async () => {
@@ -171,6 +174,70 @@ describe('Combobox', () => {
     const combobox = getByTestId('combobox');
 
     expect(combobox).toHaveAttribute('id', 'test');
+  });
+
+  it('renders the combobox ids on the label, hint and message', () => {
+    const { getByTestId } = render(<TestCombobox />);
+
+    expect(getByTestId('label')).toHaveAttribute('data-garden-id', 'dropdowns.combobox.label');
+    expect(getByTestId('hint')).toHaveAttribute('data-garden-id', 'dropdowns.combobox.hint');
+    expect(getByTestId('message')).toHaveAttribute('data-garden-id', 'dropdowns.combobox.message');
+  });
+
+  it('does not let props override the label, hint and message attributes', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Field.Label data-test-id="label" data-garden-id="custom" data-garden-version="custom">
+          Label
+        </Field.Label>
+        <Field.Hint data-test-id="hint" data-garden-id="custom" data-garden-version="custom">
+          Hint
+        </Field.Hint>
+        <Combobox />
+        <Field.Message data-test-id="message" data-garden-id="custom" data-garden-version="custom">
+          Message
+        </Field.Message>
+      </Field>
+    );
+
+    ['label', 'hint', 'message'].forEach(name => {
+      expect(getByTestId(name)).toHaveAttribute('data-garden-id', `dropdowns.combobox.${name}`);
+      expect(getByTestId(name)).not.toHaveAttribute('data-garden-version', 'custom');
+    });
+  });
+
+  it('renders a regular label within a Fieldset', () => {
+    const { getByTestId } = render(
+      <Fieldset>
+        <TestCombobox />
+      </Fieldset>
+    );
+
+    expect(getByTestId('label')).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.regular.toString()
+    );
+  });
+
+  it('renders a bold label by default and a regular label with `isRegular`', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Field.Label data-test-id="bold">Bold</Field.Label>
+        <Field.Label data-test-id="regular" isRegular>
+          Regular
+        </Field.Label>
+        <Combobox />
+      </Field>
+    );
+
+    expect(getByTestId('bold')).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.semibold.toString()
+    );
+    expect(getByTestId('regular')).toHaveStyleRule(
+      'font-weight',
+      DEFAULT_THEME.fontWeights.regular.toString()
+    );
   });
 
   it('applies `inputProps` as expected', () => {
@@ -491,6 +558,22 @@ describe('Combobox', () => {
       expect(message).toHaveStyleRule('color', PALETTE.red[700]);
       expect(message.firstChild).not.toBeNull();
     });
+
+    it('labels the message icon by default and with `validationLabel`', () => {
+      const { getByTestId, rerender } = render(<TestCombobox validation="error" />);
+
+      expect(getByTestId('message').firstChild).toHaveAttribute('aria-label', 'error');
+
+      rerender(<TestCombobox validation="error" validationLabel="Invalid" />);
+
+      expect(getByTestId('message').firstChild).toHaveAttribute('aria-label', 'Invalid');
+    });
+
+    it('renders no message icon without validation', () => {
+      const { getByTestId } = render(<TestCombobox />);
+
+      expect(getByTestId('message').querySelector('svg')).toBeNull();
+    });
   });
 
   describe('interaction', () => {
@@ -764,7 +847,7 @@ describe('Combobox', () => {
 
       expect(handleChange).toHaveBeenCalledTimes(2); /* option:mouseMove & option:click */
 
-      const selectionValue = handleChange.mock.calls[1][0].selectionValue;
+      const selectionValue = handleChange.mock.calls[1]![0].selectionValue;
 
       expect(selectionValue).toMatchObject(['value-2']);
     });
@@ -876,7 +959,7 @@ describe('Combobox', () => {
       input.scrollIntoView = scrollInput;
 
       const tags = getAllByTestId('tag');
-      const lastTag = tags[tags.length - 1];
+      const lastTag = tags[tags.length - 1]!;
       const scrollLastTag = vi.fn();
 
       lastTag.scrollIntoView = scrollLastTag;

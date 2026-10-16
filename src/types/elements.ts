@@ -15,9 +15,6 @@ import type {
   ISelectedItem as IUseMenuSelectedItem,
   IUseMenuProps
 } from '@zendeskgarden/container-menu';
-import type { IButtonProps } from '@zendeskgarden/react-buttons';
-import type { VALIDATION } from '@zendeskgarden/react-forms';
-import type { ITagProps as IBaseTagProps } from '@zendeskgarden/react-tags';
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
@@ -644,7 +641,7 @@ export interface IOptGroupProps extends Omit<LiHTMLAttributes<HTMLLIElement>, 'c
   /** Sets the text label of the option group */
   legend?: string;
 }
-export interface IComboboxTagProps extends Omit<IBaseTagProps, 'isRound' | 'size'> {
+export interface IComboboxTagProps extends Omit<ITagProps, 'isRound' | 'size'> {
   /** @ignore Associates this tag with the given option (internal only) */
   option: IOption;
   /** Sets the `aria-label` and tooltip for the remove icon */

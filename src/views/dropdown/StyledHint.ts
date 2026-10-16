@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledHint as StyledFormHint } from '../form/StyledHint';
 
-export const StyledHint = styled(Field.Hint)`
+export const StyledHint = styled(StyledFormHint)`
   ${componentStyles};
 `;

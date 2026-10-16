@@ -5,19 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IListboxProps } from '../../types/elements';
+import type { IStyledListboxProps } from '../../types/views';
 import { StyledListboxSeparator } from './StyledListboxSeparator';
 import { StyledOptGroup } from './StyledOptGroup';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { StyledOptionContent } from './StyledOptionContent';
-
-export interface IStyledListboxProps extends ThemeProps<DefaultTheme> {
-  $isCompact?: boolean;
-  $maxHeight?: IListboxProps['maxHeight'];
-  $minHeight?: IListboxProps['minHeight'];
-}
 
 const sizeStyles = (props: IStyledListboxProps) => {
   const padding = props.theme.space.base;

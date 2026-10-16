@@ -6,7 +6,6 @@
  */
 
 import { useMenu } from '@zendeskgarden/container-menu';
-import { Button, IButtonProps } from '@zendeskgarden/react-buttons';
 import PropTypes from 'prop-types';
 import { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import { mergeRefs } from 'react-merge-refs';
@@ -14,10 +13,11 @@ import { ThemeContext } from 'styled-components';
 import ChevronIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
 import { MenuProvider } from '../../context/dropdown/MenuContext';
+import { Button } from '../../elements/button/Button';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useWindow } from '../../theming/utils/useWindow';
-import { IMenuProps, DROPDOWN_PLACEMENT } from '../../types/elements';
+import { DROPDOWN_PLACEMENT, IButtonProps, IMenuProps } from '../../types/elements';
 import { MenuList } from './MenuList';
 import { toItems } from './menuUtils';
 
@@ -46,8 +46,8 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
     },
     ref
   ) => {
-    const triggerRef = useRef(null);
-    const menuRef = useRef(null);
+    const triggerRef = useRef<HTMLElement>(null);
+    const menuRef = useRef<HTMLElement>(null);
     const items = toItems(children);
     /* istanbul ignore next */
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
@@ -74,8 +74,8 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
       restoreFocus,
       selectedItems,
       items,
-      menuRef,
-      triggerRef,
+      menuRef: menuRef as RefObject<HTMLElement>,
+      triggerRef: triggerRef as RefObject<HTMLElement>,
       onChange
     });
 
@@ -132,7 +132,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
           ref={mergeRefs([menuRef, ref])}
           isCompact={isCompact}
           isExpanded={isExpanded}
-          triggerRef={triggerRef}
+          triggerRef={triggerRef as RefObject<HTMLElement>}
           maxHeight={maxHeight}
           placement={placement}
           zIndex={zIndex}

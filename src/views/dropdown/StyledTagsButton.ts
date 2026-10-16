@@ -11,8 +11,6 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledValue } from './StyledValue';
 
-const COMPONENT_ID = 'dropdowns.combobox.tags_button';
-
 interface IStyledTagsButtonProps extends ThemeProps<DefaultTheme> {
   $isCompact?: boolean;
 }
@@ -33,12 +31,7 @@ const colorStyles = ({ theme }: IStyledTagsButtonProps) => {
  * 1. StyledValue override.
  * 2. Button reset.
  */
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledTagsButton = styled(StyledValue as 'button').attrs({
-  as: 'button',
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTagsButtonProps>`
+export const StyledTagsButton = styled(StyledValue as 'button')<IStyledTagsButtonProps>`
   display: inline-flex;
   flex: 0 1 auto; /* [1] */
   align-items: center;

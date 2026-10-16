@@ -6,18 +6,12 @@
  */
 
 import { math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import { OptionType } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
-
-export interface IStyledOptionIconProps extends ThemeProps<DefaultTheme> {
-  $isDisabled?: boolean;
-  $type?: OptionType;
-}
+import type { IStyledBaseProps, IStyledOptionIconProps } from '../../types/views';
 
 const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
   let variable;

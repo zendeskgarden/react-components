@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field } from '@zendeskgarden/react-forms';
 import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledLabel as StyledFormLabel } from '../form/StyledLabel';
 
-export const StyledLabel = styled(Field.Label)`
+export const StyledLabel = styled(StyledFormLabel)`
   vertical-align: revert;
 
   ${componentStyles};

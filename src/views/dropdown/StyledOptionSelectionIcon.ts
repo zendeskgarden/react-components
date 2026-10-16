@@ -6,17 +6,13 @@
  */
 
 import { math } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseProps, IStyledOptionSelectionIconProps } from '../../types/views';
 import { getMinHeight as getOptionMinHeight } from './StyledOption';
-
-export interface IStyledOptionSelectionIconProps extends ThemeProps<DefaultTheme> {
-  $isCompact?: boolean;
-}
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const color = getColor({ theme, variable: 'foreground.primary' });
