@@ -10,6 +10,7 @@ import { forwardRef } from 'react';
 import SortFillIcon from 'svg-icons-legacy/src/12/sort-fill.svg';
 import SortStrokeIcon from 'svg-icons-legacy/src/12/sort-stroke.svg';
 
+import { useTableContext } from '../../hooks/table/useTableContext';
 import { ISortableCellProps, SORT } from '../../types/elements';
 import { StyledHeaderCell } from '../../views/table/StyledHeaderCell';
 import {
@@ -26,6 +27,7 @@ import { COMPONENT_IDS } from '../utils';
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
   ({ sort, cellProps = {}, width, children, ...sortableButtonProps }, ref) => {
+    const { size } = useTableContext();
     const { isMinimum, isTruncated, hasOverflow, ...otherCellProps } = cellProps;
     let ariaSortValue = 'none';
 
@@ -41,6 +43,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
       <StyledHeaderCell
         aria-sort={ariaSortValue}
         width={width}
+        $size={size}
         $isMinimum={isMinimum}
         $isTruncated={isTruncated}
         $hasOverflow={hasOverflow}

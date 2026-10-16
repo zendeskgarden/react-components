@@ -11,6 +11,7 @@ import { css } from 'styled-components';
 import { render } from '../../test/render';
 import { StyledSortableButton } from '../../views/table/StyledSortableButton';
 import { Head } from './Head';
+import { HeaderCell } from './HeaderCell';
 import { HeaderRow } from './HeaderRow';
 import { SortableCell } from './SortableCell';
 import { Table } from './Table';
@@ -48,6 +49,29 @@ describe('SortableCell', () => {
     expect(cell).toHaveAttribute('data-garden-id', 'tables.header_cell');
     expect(button).toHaveAttribute('data-garden-id', 'tables.sortable');
     expect(button).toHaveAttribute('type', 'button');
+  });
+
+  it.each([
+    ['small', '6px'],
+    ['medium', '10px'],
+    ['large', '22px']
+  ] as const)('applies the %s table size to the vertical padding', (size, padding) => {
+    const { getByTestId } = render(
+      <Table size={size}>
+        <Head>
+          <HeaderRow>
+            <SortableCell data-test-id="sortable" />
+            <HeaderCell data-test-id="header" />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+    const sortableCell = getByTestId('sortable').parentElement;
+
+    expect(sortableCell).toHaveStyleRule('padding-top', padding);
+    expect(sortableCell).toHaveStyleRule('padding-bottom', padding);
+    expect(getByTestId('header')).toHaveStyleRule('padding-top', padding);
+    expect(getByTestId('header')).toHaveStyleRule('padding-bottom', padding);
   });
 
   it('applies correct accessibility value when asc', () => {
