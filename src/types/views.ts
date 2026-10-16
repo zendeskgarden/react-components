@@ -16,6 +16,19 @@ export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
 }
 //#endregion
 
+//#region form
+export interface IStyledClearableInputProps extends IStyledBaseProps {
+  $isBare?: boolean;
+}
+export interface IStyledLabelProps extends IStyledBaseProps {
+  $isRegular?: boolean;
+  $isRadio?: boolean;
+}
+export interface IStyledRadioInputProps extends IStyledBaseProps {
+  $isCompact?: boolean;
+}
+//#endregion
+
 //#region modal
 export interface IStyledBackdropProps extends IStyledBaseProps {
   $isCentered?: boolean;

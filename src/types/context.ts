@@ -6,6 +6,7 @@
  */
 
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
+import type { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 import type { IUseModalReturnValue } from '@zendeskgarden/container-modal';
 import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
 import type { Dispatch, MutableRefObject, ReactNode } from 'react';
@@ -26,7 +27,8 @@ import type {
   ITableProps,
   Orientation,
   Size,
-  Space
+  Space,
+  Validation
 } from './elements';
 //#region accordion
 export interface IAccordionContext<Value>
@@ -99,6 +101,41 @@ export interface IDropzoneContext {
   setHasIcon?: (hasIcon: boolean) => void;
   hasMessage?: boolean;
   setHasMessage?: (hasMessage: boolean) => void;
+}
+//#endregion
+
+//#region form
+export interface IFieldContext extends IUseFieldReturnValue {
+  getMessageProps: (messageProps: any) => any;
+  isLabelActive: boolean;
+  isLabelHovered: boolean;
+  setIsLabelHovered: (isLabelHovered: boolean) => void;
+  setIsLabelActive: (isLabelActive: boolean) => void;
+  setHasHint: (hintPresent: boolean) => void;
+  hasHint: boolean;
+  setHasMessage: (messagePresent: boolean) => void;
+  hasMessage: boolean;
+  setHasLabel: (labelPresent: boolean) => void;
+  hasLabel: boolean;
+}
+
+export interface IFieldsetContext {
+  isCompact?: boolean;
+}
+
+export interface IFileContext {
+  isCompact?: boolean;
+}
+
+export type INPUT_CONTEXT_VALUE = 'checkbox' | 'radio' | 'toggle' | undefined;
+
+export type InputGroupValidationId = object;
+
+export interface IInputGroupContext {
+  isCompact?: boolean;
+  isUnified?: boolean;
+  /** Registers a child Input's validation with the nearest unified group. */
+  registerValidation: (id: InputGroupValidationId, validation?: Validation) => void;
 }
 //#endregion
 

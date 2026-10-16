@@ -1,0 +1,101 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
+
+import { render } from '../../test/render';
+import { Field } from './Field';
+import { Input } from './Input';
+import { InputGroup } from './InputGroup';
+
+describe('Input', () => {
+  const user = userEvent.setup();
+
+  it('is bare by default inside a unified InputGroup', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified>
+        <Input data-test-id="input" />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input')).toHaveStyleRule('border', 'none');
+  });
+
+  it('respects an explicit isBare override inside a unified InputGroup', () => {
+    const { getByTestId } = render(
+      <InputGroup isUnified>
+        <Input data-test-id="input" isBare={false} />
+      </InputGroup>
+    );
+
+    expect(getByTestId('input')).not.toHaveStyleRule('border', 'none');
+  });
+
+  it('sets aria-invalid when validation is error', () => {
+    const { getByRole } = render(<Input aria-label="Input" validation="error" />);
+
+    expect(getByRole('textbox')).toHaveAttribute('aria-invalid', 'true');
+  });
+
+  it('is rendered as an input', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Input data-test-id="input" />
+      </Field>
+    );
+
+    expect(getByTestId('input').nodeName).toBe('INPUT');
+  });
+
+  it('passes ref to underlying DOM element', () => {
+    const ref = createRef<HTMLInputElement>();
+    const { getByTestId } = render(
+      <Field>
+        <Input data-test-id="input" ref={ref} />
+      </Field>
+    );
+
+    expect(getByTestId('input')).toBe(ref.current);
+  });
+
+  it('selects readonly text', async () => {
+    const value = 'testing';
+    const { getByTestId } = render(
+      <Field>
+        <Input data-test-id="input" readOnly value={value} />
+      </Field>
+    );
+    const input = getByTestId('input') as HTMLInputElement;
+
+    await user.click(input);
+
+    expect(input.selectionStart).toBe(0);
+    expect(input.selectionEnd).toBe(value.length);
+  });
+
+  it('does not let props override the garden attributes', () => {
+    const { getByTestId } = render(
+      <Input data-test-id="input" data-garden-id="custom" data-garden-version="0.0.0" />
+    );
+
+    expect(getByTestId('input')).toHaveAttribute('data-garden-id', 'forms.input');
+    expect(getByTestId('input')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
+  });
+
+  it('sets aria-invalid from validation only', () => {
+    const { getByTestId, rerender } = render(<Input data-test-id="input" aria-invalid />);
+
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+
+    rerender(<Input data-test-id="input" validation="warning" />);
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'true');
+
+    rerender(<Input data-test-id="input" validation="success" />);
+    expect(getByTestId('input')).toHaveAttribute('aria-invalid', 'false');
+  });
+});
