@@ -153,6 +153,8 @@ describe('Combobox', () => {
 
     expect(input).toHaveAttribute('aria-activedescendant', option.id);
     expect(option).toHaveStyleRule('box-shadow', expect.stringContaining('inset 3px'));
+    expect(option).not.toHaveStyleRule('border-radius');
+    expect(option).not.toHaveStyleRule('position', 'absolute', { modifier: '&::before' });
   });
 
   it('handles active index RTL as expected', () => {

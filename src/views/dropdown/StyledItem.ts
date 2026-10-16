@@ -9,7 +9,10 @@ import styled from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledOption } from './StyledOption';
+import { itemStyles } from './utils';
 
 export const StyledItem = styled(StyledOption)`
+  ${itemStyles};
+
   ${componentStyles};
 `;

@@ -10,6 +10,7 @@ import styled from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledItemTypeIcon } from './StyledItemTypeIcon';
 import { StyledOption } from './StyledOption';
+import { itemStyles } from './utils';
 
 /*
  * 1. Ensure hover styling doesn't leak through
@@ -26,6 +27,8 @@ export const StyledItemAnchor = styled(StyledOption)`
   &[aria-current='page'] > ${StyledItemTypeIcon} {
     opacity: 1;
   }
+
+  ${itemStyles};
 
   ${componentStyles};
 `;

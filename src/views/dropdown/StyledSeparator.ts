@@ -11,5 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledListboxSeparator } from './StyledListboxSeparator';
 
 export const StyledSeparator = styled(StyledListboxSeparator)`
+  margin: ${props => props.theme.space.xxs} ${props => props.theme.space.xs};
+
   ${componentStyles};
 `;

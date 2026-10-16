@@ -12,6 +12,8 @@ import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { IMenuProps } from '../../types/elements';
 import { Item } from './Item';
 import { ItemGroup } from './ItemGroup';
@@ -254,6 +256,49 @@ describe('Menu', () => {
     expect(floatingElement).toHaveStyleRule('z-index', '50');
   });
 
+  it('keeps its padding over the wrapper menu styles', async () => {
+    const { getByRole } = render(
+      <TestMenu defaultExpanded>
+        <Item value="item-01" />
+      </TestMenu>
+    );
+
+    await floating();
+    const { paddingTop, paddingRight, paddingBottom, paddingLeft } = getComputedStyle(
+      getByRole('menu')
+    );
+
+    [paddingTop, paddingRight, paddingBottom, paddingLeft].forEach(padding =>
+      expect(padding).toBe(DEFAULT_THEME.space.xxs)
+    );
+  });
+
+  it('separates rows with a gap, except at the start and around separators', async () => {
+    const { getByTestId } = render(
+      <TestMenu defaultExpanded>
+        <Item value="item-01" data-test-id="first" />
+        <Item value="item-02" data-test-id="second" />
+        <Separator data-test-id="separator" />
+        <Item value="item-03" data-test-id="after-separator" />
+        <Item value="item-04" href="#" data-test-id="link" />
+        <ItemGroup legend="Plants" data-test-id="group">
+          <Item value="Flower" />
+        </ItemGroup>
+      </TestMenu>
+    );
+
+    await floating();
+    const gap = (testId: string) =>
+      getComputedStyle(getByTestId(testId)).getPropertyValue('margin-block-start');
+
+    expect(gap('first')).toBe('');
+    expect(gap('second')).toBe('2px');
+    expect(gap('separator')).toBe('');
+    expect(gap('after-separator')).toBe('');
+    expect(gap('link')).toBe('2px');
+    expect(gap('group')).toBe('2px');
+  });
+
   describe('Item', () => {
     it('renders with icon', async () => {
       const { getByTestId } = render(
@@ -349,6 +394,86 @@ describe('Menu', () => {
       expect(icon).toBeVisible();
     });
 
+    it('has rounded corners', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded>
+          <Item value="item-01" data-test-id="item">
+            Apple
+          </Item>
+        </TestMenu>
+      );
+
+      await floating();
+      const item = getByTestId('item');
+
+      expect(item).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm);
+      expect(item).not.toHaveStyleRule('overflow', 'hidden');
+      expect(item).not.toHaveStyleRule('position', 'absolute', { modifier: '&::before' });
+    });
+
+    it('renders a stripe on the active item', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded focusedValue="item-01">
+          <Item value="item-01" data-test-id="item">
+            Apple
+          </Item>
+        </TestMenu>
+      );
+
+      await floating();
+      const item = getByTestId('item');
+      const modifier = '&::before';
+
+      expect(item).toHaveStyleRule('box-shadow', 'none');
+      expect(item).toHaveStyleRule('overflow', 'hidden');
+      expect(item).toHaveStyleRule('position', 'absolute', { modifier });
+      expect(item).toHaveStyleRule('inset-inline-start', '0', { modifier });
+      expect(item).toHaveStyleRule('width', `${DEFAULT_THEME.space.base}px`, { modifier });
+      expect(item).toHaveStyleRule(
+        'background-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'border.primaryEmphasis' }),
+        { modifier }
+      );
+      expect(item).toHaveStyleRule(
+        'border-inline-end',
+        `${DEFAULT_THEME.borderWidths.sm} solid ${getColor({ theme: DEFAULT_THEME, variable: 'background.default' })}`,
+        { modifier }
+      );
+    });
+
+    it('renders the stripe on the active item in rtl', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded focusedValue="item-01">
+          <Item value="item-01" data-test-id="item">
+            Apple
+          </Item>
+        </TestMenu>,
+        { theme: RTL_THEME }
+      );
+
+      await floating();
+
+      expect(getByTestId('item')).toHaveStyleRule('inset-inline-start', '0', {
+        modifier: '&::before'
+      });
+    });
+
+    it('does not render a stripe on a disabled item', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded focusedValue="item-01">
+          <Item value="item-01" isDisabled data-test-id="item">
+            Apple
+          </Item>
+        </TestMenu>
+      );
+
+      await floating();
+
+      expect(getByTestId('item')).toHaveStyleRule('display', 'none', {
+        modifier: "&[aria-disabled='true']::before"
+      });
+    });
+
     it('applies `items` with default selection', async () => {
       const { getByTestId } = render(
         <TestMenu defaultExpanded defaultFocusedValue="Cactus">
@@ -400,6 +525,46 @@ describe('Menu', () => {
 
       expect(separator).toBeVisible();
       expect(separator).toBeEmptyDOMElement();
+    });
+
+    it('rounds the legend and not the group', async () => {
+      const { getByTestId, getByText } = render(
+        <TestMenu defaultExpanded>
+          <ItemGroup data-test-id="group" legend="Plants">
+            <Item value="Flower" />
+          </ItemGroup>
+        </TestMenu>
+      );
+
+      await floating();
+
+      expect(getByTestId('group')).not.toHaveStyleRule('border-radius');
+      expect(getByText('Plants').closest('[data-garden-id="dropdowns.menu.item"]')).toHaveStyleRule(
+        'border-radius',
+        DEFAULT_THEME.borderRadii.sm
+      );
+    });
+
+    it('separates the rows of a group with a gap, except around separators', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded>
+          <ItemGroup legend="Plants">
+            <Item value="Flower" data-test-id="first" />
+            <Item value="Cactus" data-test-id="second" />
+            <Separator data-test-id="separator" />
+            <Item value="Fern" data-test-id="after-separator" />
+          </ItemGroup>
+        </TestMenu>
+      );
+
+      await floating();
+      const gap = (testId: string) =>
+        getComputedStyle(getByTestId(testId)).getPropertyValue('margin-block-start');
+
+      expect(gap('first')).toBe('');
+      expect(gap('second')).toBe('2px');
+      expect(gap('separator')).toBe('');
+      expect(gap('after-separator')).toBe('');
     });
 
     it('renders with aria-label', async () => {
@@ -488,6 +653,30 @@ describe('Menu', () => {
    * hooked up correctly and in the correct places, rather
    * than exhaustive functional tests
    */
+  describe('Separator', () => {
+    it('has horizontal margin', async () => {
+      const { getByTestId } = render(
+        <TestMenu defaultExpanded>
+          <Item value="item-01" />
+          <Separator data-test-id="separator" />
+          <Item value="item-02" />
+        </TestMenu>
+      );
+
+      await floating();
+      const { marginTop, marginRight, marginBottom, marginLeft } = getComputedStyle(
+        getByTestId('separator')
+      );
+
+      expect([marginTop, marginRight, marginBottom, marginLeft]).toEqual([
+        DEFAULT_THEME.space.xxs,
+        DEFAULT_THEME.space.xs,
+        DEFAULT_THEME.space.xxs,
+        DEFAULT_THEME.space.xs
+      ]);
+    });
+  });
+
   describe('interaction', () => {
     it('opens menu on button click', async () => {
       const { queryByTestId, getByRole } = render(
@@ -710,6 +899,38 @@ describe('Menu', () => {
       expect(link).toHaveAttribute('href', 'https://example.com');
       expect(link).toHaveAttribute('target', '_blank');
       expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    });
+
+    it('has rounded corners and an active stripe', async () => {
+      const { getByTestId, rerender } = render(
+        <TestMenu defaultExpanded>
+          <Item value="item-01" href="https://example.com" data-test-id="item">
+            Example Link
+          </Item>
+        </TestMenu>
+      );
+
+      await floating();
+      const link = getByTestId('item').firstElementChild!;
+
+      expect(link).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm);
+      expect(link).not.toHaveStyleRule('overflow', 'hidden');
+
+      rerender(
+        <TestMenu defaultExpanded focusedValue="item-01">
+          <Item value="item-01" href="https://example.com" data-test-id="item">
+            Example Link
+          </Item>
+        </TestMenu>
+      );
+      await floating();
+      const activeLink = getByTestId('item').firstElementChild!;
+
+      expect(activeLink).toHaveStyleRule('overflow', 'hidden');
+      expect(activeLink).toHaveStyleRule('position', 'absolute', { modifier: '&::before' });
+      expect(activeLink).toHaveStyleRule('display', 'none', {
+        modifier: "&[aria-disabled='true']::before"
+      });
     });
 
     it('renders with isExternal=false correctly', async () => {
