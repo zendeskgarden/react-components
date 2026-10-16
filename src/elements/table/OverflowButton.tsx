@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import OverflowStrokeIcon from 'svg-icons-legacy/src/16/overflow-vertical-stroke.svg';
 
 import { useTableContext } from '../../hooks/table/useTableContext';
 import { StyledIcon } from '../../views/button/StyledIcon';
@@ -41,7 +41,7 @@ export const OverflowButton = forwardRef<
         data-garden-id={COMPONENT_IDS['buttons.icon']}
         data-garden-version={PACKAGE_VERSION}
       >
-        <OverflowStrokeIcon />
+        <DotsVerticalIcon />
       </StyledIcon>
     </StyledOverflowButton>
   );
