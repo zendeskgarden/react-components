@@ -51,7 +51,6 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
     dark: { shade: 100 }
   });
   const checkedActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
-  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
   const disabledBackgroundColor = getColor({
     theme,
     variable: 'background.disabled',
@@ -99,11 +98,6 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
     }
 
     &:disabled ~ ${StyledRadioLabel}::before {
-      border-color: ${disabledBorderColor};
-      background-color: transparent;
-    }
-
-    &:disabled:checked ~ ${StyledRadioLabel}::before {
       border-color: transparent;
       background-color: ${disabledBackgroundColor};
     }

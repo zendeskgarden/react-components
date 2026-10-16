@@ -95,9 +95,16 @@ describe('Checkbox', () => {
         getColor({ theme: DEFAULT_THEME, variable: 'background.default' }),
         { modifier: `& ~ ${label}` }
       );
+      expect(checkbox).toHaveStyleRule('border-color', 'transparent', {
+        modifier: `&:disabled ~ ${label}`
+      });
       expect(checkbox).toHaveStyleRule(
-        'border-color',
-        getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' }),
+        'background-color',
+        getColor({
+          theme: DEFAULT_THEME,
+          variable: 'background.disabled',
+          transparency: DEFAULT_THEME.opacity[300]
+        }),
         { modifier: `&:disabled ~ ${label}` }
       );
     });

@@ -107,4 +107,23 @@ describe('Toggle', () => {
       { modifier: `&:disabled:not(:checked) ~ ${StyledToggleLabel} > svg` }
     );
   });
+
+  it('keeps the bordered track when disabled and unchecked', () => {
+    const { getByTestId } = render(
+      <Field>
+        <Toggle data-test-id="toggle" disabled>
+          <Field.Label>label</Field.Label>
+        </Toggle>
+      </Field>
+    );
+    const toggle = getByTestId('toggle');
+    const modifier = `&:disabled:not(:checked) ~ ${StyledToggleLabel}::before`;
+
+    expect(toggle).toHaveStyleRule(
+      'border-color',
+      getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' }),
+      { modifier }
+    );
+    expect(toggle).toHaveStyleRule('background-color', 'transparent', { modifier });
+  });
 });

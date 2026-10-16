@@ -85,5 +85,25 @@ describe('Radio', () => {
         { modifier: `& ~ ${label}` }
       );
     });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ])('renders the disabled fill with no border in %s mode', (_, theme) => {
+      const radio = renderRadio(theme);
+
+      expect(radio).toHaveStyleRule('border-color', 'transparent', {
+        modifier: `&:disabled ~ ${label}`
+      });
+      expect(radio).toHaveStyleRule(
+        'background-color',
+        getColor({
+          theme,
+          variable: 'background.disabled',
+          transparency: theme.opacity[300]
+        }),
+        { modifier: `&:disabled ~ ${label}` }
+      );
+    });
   });
 });

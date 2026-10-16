@@ -40,6 +40,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
     light: { shade: 700 },
     dark: { shade: 100 }
   });
+  const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
   const disabledIconColor = getColor({ theme, variable: 'background.disabled' });
 
   return css`
@@ -66,6 +67,11 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
     &:enabled:not(:checked) ~ ${StyledToggleLabel}:active > svg {
       color: ${activeIconColor};
+    }
+
+    &:disabled:not(:checked) ~ ${StyledToggleLabel}::before {
+      border-color: ${disabledBorderColor};
+      background-color: transparent;
     }
 
     &:disabled:not(:checked) ~ ${StyledToggleLabel} > svg {
