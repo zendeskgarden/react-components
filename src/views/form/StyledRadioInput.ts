@@ -17,12 +17,7 @@ import { StyledMessage } from './StyledMessage';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
-  const borderColor = getColor({
-    theme,
-    hue: 'neutralHue',
-    light: { shade: 500 },
-    dark: { shade: 600 }
-  });
+  const borderColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundColor = 'transparent';
   const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 

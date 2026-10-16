@@ -7,7 +7,11 @@
 
 import { createRef } from 'react';
 
-import { render } from '../../test/render';
+import { DARK_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import type { IGardenTheme } from '../../theming/types';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledRadioLabel } from '../../views/form/StyledRadioLabel';
 import { Field } from './Field';
 import { Radio } from './Radio';
 
@@ -50,5 +54,29 @@ describe('Radio', () => {
     expect(getByTestId('radio')).toHaveAttribute('data-garden-id', 'forms.radio');
     expect(getByTestId('radio')).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
     expect(getByTestId('radio')).toHaveAttribute('type', 'radio');
+  });
+
+  describe('styling', () => {
+    const renderRadio = (theme?: IGardenTheme) =>
+      render(
+        <Field>
+          <Radio data-test-id="radio">
+            <Field.Label>label</Field.Label>
+          </Radio>
+        </Field>,
+        { theme }
+      ).getByTestId('radio');
+    const label = `${StyledRadioLabel}::before`;
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ])('renders the resting border in %s mode', (_, theme) => {
+      expect(renderRadio(theme)).toHaveStyleRule(
+        'border-color',
+        getColor({ theme, variable: 'border.emphasis' }),
+        { modifier: `& ~ ${label}` }
+      );
+    });
   });
 });

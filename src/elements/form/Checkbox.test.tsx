@@ -87,7 +87,7 @@ describe('Checkbox', () => {
       });
       expect(checkbox).toHaveStyleRule(
         'border-color',
-        getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 500 } }),
+        getColor({ theme: DEFAULT_THEME, variable: 'border.emphasis' }),
         { modifier: `& ~ ${label}` }
       );
       expect(checkbox).toHaveStyleRule('background-color', 'transparent', {
