@@ -6,8 +6,6 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Button } from '@zendeskgarden/react-buttons';
-import { PLACEMENT } from '@zendeskgarden/react-modals';
 import PropTypes from 'prop-types';
 import {
   useRef,
@@ -16,16 +14,19 @@ import {
   Children,
   cloneElement,
   forwardRef,
-  ReactElement
+  ButtonHTMLAttributes,
+  ReactElement,
+  RefAttributes
 } from 'react';
 import { useTheme } from 'styled-components';
 import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
+import { Button } from '../../elements/button/Button';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useText } from '../../theming/utils/useText';
-import { IColorSwatchDialogProps } from '../../types/elements';
+import { IColorSwatchDialogProps, MODAL_PLACEMENT } from '../../types/elements';
 import { StyledButton } from '../../views/colorpicker/StyledButton';
-import { StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
+import { getBackground, StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
 import { StyledTooltipBody } from '../../views/colorpicker/StyledTooltipBody';
 import { StyledTooltipDialog } from '../../views/colorpicker/StyledTooltipDialog';
 import { COMPONENT_IDS } from '../utils';
@@ -72,10 +73,10 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 
     if (isControlled) {
       if (selectedRowIndex !== null && selectedColIndex !== null) {
-        backgroundColor = colors[selectedRowIndex][selectedColIndex].value;
+        backgroundColor = colors[selectedRowIndex!]![selectedColIndex!]!.value;
       }
     } else if (rowIndex !== undefined && colIndex !== undefined) {
-      backgroundColor = colors[rowIndex][colIndex].value;
+      backgroundColor = colors[rowIndex]![colIndex]!.value;
     }
 
     const ariaLabelText = useText(
@@ -140,10 +141,17 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     return (
       <>
         {children ? (
-          cloneElement(Children.only(children as ReactElement), {
-            onClick,
-            ref: buttonRef
-          })
+          cloneElement(
+            Children.only(
+              children as ReactElement<
+                ButtonHTMLAttributes<HTMLButtonElement> & RefAttributes<HTMLButtonElement>
+              >
+            ),
+            {
+              onClick,
+              ref: buttonRef
+            }
+          )
         ) : (
           <StyledButton
             disabled={disabled}
@@ -151,8 +159,16 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
             ref={buttonRef}
             onClick={onClick}
             {...buttonProps}
+            isNeutral
+            data-garden-version={PACKAGE_VERSION}
           >
-            <StyledButtonPreview $backgroundColor={backgroundColor} />
+            <StyledButtonPreview
+              $backgroundColor={backgroundColor}
+              style={{ background: getBackground({ theme, $backgroundColor: backgroundColor }) }}
+              data-garden-id={COMPONENT_IDS['colorpickers.colordialog_preview']}
+              data-garden-version={PACKAGE_VERSION}
+              data-test-id="dialog-preview"
+            />
             <Button.EndIcon isRotated={referenceElement !== null}>
               <Chevron />
             </Button.EndIcon>
@@ -197,7 +213,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
 
 ColorSwatchDialog.propTypes = {
   ...ColorSwatch.propTypes,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(MODAL_PLACEMENT),
   onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,
   buttonProps: PropTypes.object,

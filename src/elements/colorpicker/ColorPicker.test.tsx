@@ -25,6 +25,17 @@ describe('ColorPicker', () => {
     expect(getByTestId('colorpicker')).toBe(ref.current);
   });
 
+  it('renders the colorpicker ids on the field labels and inputs', () => {
+    const { container } = render(<ColorPicker color="#17494D" />);
+
+    expect(
+      container.querySelectorAll('[data-garden-id="colorpickers.colorpicker_label"]')
+    ).toHaveLength(5);
+    expect(
+      container.querySelectorAll('[data-garden-id="colorpickers.colorpicker_input"]')
+    ).toHaveLength(5);
+  });
+
   it('focuses on the hex input when autofocus is on', () => {
     render(<ColorPicker color="#17494D" autofocus />);
 
@@ -675,10 +686,16 @@ describe('ColorPicker', () => {
         return (
           <>
             <ColorPicker color={color} onChange={setColor} />
-            <button onClick={() => setColor('#b4da55')}>Change #b4da55</button>
-            <button onClick={() => setColor('#b!da5!')}>Change #b!da5!</button>
-            <button onClick={() => setColor('rgb(85, 211, 218)')}>Change rgb(85, 211, 218)</button>
-            <button onClick={() => setColor('rgba(0, 0, 0, .50)')}>
+            <button type="button" onClick={() => setColor('#b4da55')}>
+              Change #b4da55
+            </button>
+            <button type="button" onClick={() => setColor('#b!da5!')}>
+              Change #b!da5!
+            </button>
+            <button type="button" onClick={() => setColor('rgb(85, 211, 218)')}>
+              Change rgb(85, 211, 218)
+            </button>
+            <button type="button" onClick={() => setColor('rgba(0, 0, 0, .50)')}>
               Change rgba(0, 0, 0, .50)
             </button>
           </>

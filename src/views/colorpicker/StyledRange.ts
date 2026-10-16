@@ -5,16 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Range } from '@zendeskgarden/react-forms';
 import { stripUnit } from 'polished';
 import styled from 'styled-components';
 
+import { Range } from '../../elements/form/Range';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledRangeProps } from '../../types/views';
-import type { IStyledBaseProps } from '../../types/views';
-
-const COMPONENT_ID = 'colorpickers.colorpicker_range';
+import type { IStyledBaseProps, IStyledRangeProps } from '../../types/views';
 
 const thumbStyles = (styles: string, modifier = '') => {
   return `
@@ -166,12 +163,7 @@ const sizeStyles = (props: IStyledRangeProps) => {
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledRange = styled(Range as unknown as 'input').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  hasLowerTrack: false
-})<IStyledRangeProps>`
+export const StyledRange = styled(Range as unknown as 'input')<IStyledRangeProps>`
   ${sizeStyles};
 
   ${trackStyles(`

@@ -7,6 +7,7 @@
 
 import { screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { parseToRgb } from 'polished';
 import { createRef, useState } from 'react';
 
 import { render } from '../../test/render';
@@ -50,6 +51,25 @@ describe('ColorSwatch', () => {
     render(<ColorSwatch colors={colors} name="test" ref={ref} />);
 
     expect(ref.current).toBe(screen.getByRole('grid'));
+  });
+
+  it('paints each swatch with its color over the checkered pattern', () => {
+    const { container } = render(<ColorSwatch colors={colors} name="test" />);
+    const labels = container.querySelectorAll<HTMLElement>(
+      '[data-garden-id="colorpickers.color_swatch_label"]'
+    );
+    const overlays = colors.flat().map(({ value }) => {
+      const { red, green, blue } = parseToRgb(value);
+
+      return `linear-gradient(rgb(${red}, ${green}, ${blue}), rgb(${red}, ${green}, ${blue}))`;
+    });
+
+    expect(labels).toHaveLength(overlays.length);
+
+    labels.forEach((label, index) => {
+      expect(label.style.background).toContain(overlays[index]);
+      expect(label.style.background).toContain('linear-gradient(45deg');
+    });
   });
 
   describe('Uncontrolled', () => {

@@ -1,5 +1,4 @@
-import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
-import README from '../README.md';
+import { Meta, ArgTypes, Canvas, Story } from '@storybook/addon-docs/blocks';
 import * as Stories from './colorPicker.stories';
 
 <Meta of={Stories} />
@@ -21,5 +20,3 @@ import * as Stories from './colorPicker.stories';
 <Canvas>
   <Story of={Stories.Controlled} />
 </Canvas>
-
-<Markdown>{README}</Markdown>

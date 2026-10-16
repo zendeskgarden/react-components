@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { TooltipDialog } from '@zendeskgarden/react-modals';
 import styled from 'styled-components';
 
+import { TooltipDialog } from '../../elements/modal/TooltipDialog';
 import { componentStyles } from '../../theming/utils/componentStyles';
 
 export const StyledTooltipBody = styled(TooltipDialog.Body as unknown as 'div')`

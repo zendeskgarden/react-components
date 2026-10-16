@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field } from '@zendeskgarden/react-forms';
 import styled, { DefaultTheme } from 'styled-components';
 
+import { Field } from '../../elements/form/Field';
 import { componentStyles } from '../../theming/utils/componentStyles';
 
 const sizeStyles = (theme: DefaultTheme) => {

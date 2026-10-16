@@ -8,13 +8,11 @@
 import styled from 'styled-components';
 
 import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
-import type { IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseProps, IStyledRangeProps } from '../../types/views';
 import { getTrackHeight, getTrackMargin, StyledRange } from './StyledRange';
 import { IRGBColorProps } from './types';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_alpha';
-
-const background = (props: IRGBColorProps & IStyledBaseProps) => {
+export const background = (props: IRGBColorProps & IStyledBaseProps) => {
   const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
   const fromColor = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, 0)`;
   const toColor = `rgb(${props.$red}, ${props.$green}, ${props.$blue})`;
@@ -31,14 +29,6 @@ const background = (props: IRGBColorProps & IStyledBaseProps) => {
   });
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledAlphaRange = styled(StyledRange as 'input').attrs<IRGBColorProps>(props => ({
-  style: {
-    backgroundSize: 'auto',
-    background: background(props)
-  },
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-}))<IRGBColorProps>`
+export const StyledAlphaRange = styled(StyledRange as 'input')<IRGBColorProps & IStyledRangeProps>`
   /* empty-source */
 `;

@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
-
-import { ColorPickerDialog, IColorPickerDialogProps } from '../../../src/index';
+import { ColorPickerDialog, Grid, IColorPickerDialogProps } from '../../../src/index';
 
 export const ColorPickerDialogStory = (args: IColorPickerDialogProps) => (
   <Grid>

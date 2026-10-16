@@ -6,7 +6,6 @@
  */
 
 import type { IUseAccordionProps } from '@zendeskgarden/container-accordion';
-import type { ITooltipDialogProps } from '@zendeskgarden/react-modals';
 import type {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,

@@ -11,13 +11,11 @@ import styled from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import type { IStyledBaseProps } from '../../types/views';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
-
 interface IStyledColorWellProps {
   $hue: number;
 }
 
-const background = (props: IStyledColorWellProps & IStyledBaseProps) => {
+export const background = (props: IStyledColorWellProps & IStyledBaseProps) => {
   const blackAlpha = rgba(props.theme.palette.black as string, 0.9);
   const black = `linear-gradient(0deg, ${props.theme.palette.black}, ${blackAlpha} 1%, transparent 99%)`;
   const whiteAngle = `${props.theme.rtl ? -90 : 90}deg`;
@@ -28,15 +26,7 @@ const background = (props: IStyledColorWellProps & IStyledBaseProps) => {
   return `${black}, ${white}, ${color}`;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'colorwell',
-  style: {
-    background: background(props)
-  }
-}))<IStyledColorWellProps>`
+export const StyledColorWell = styled.div<IStyledColorWellProps>`
   position: relative;
   margin-bottom: ${props => props.theme.space.base * 2}px;
   cursor: pointer;

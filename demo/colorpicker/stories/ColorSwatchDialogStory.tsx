@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
-
-import { ColorSwatchDialog, IColorSwatchDialogProps } from '../../../src/index';
+import { ColorSwatchDialog, Grid, IColorSwatchDialogProps } from '../../../src/index';
 
 export const ColorSwatchDialogStory = (args: IColorSwatchDialogProps) => (
   <Grid>

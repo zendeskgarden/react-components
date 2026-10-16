@@ -12,8 +12,6 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
 import { IColorPickerDialogProps } from '../../types/elements';
 
-const COMPONENT_ID = 'colorpickers.colordialog_preview';
-
 export interface IStyleButtonPreviewProps extends ThemeProps<DefaultTheme> {
   $backgroundColor?: IColorPickerDialogProps['color'];
 }
@@ -34,23 +32,19 @@ const background = ({ $backgroundColor, theme }: IStyleButtonPreviewProps) => {
   return retVal;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(props => ({
-  style: {
-    background: getCheckeredBackground({
-      theme: props.theme,
-      size: 8,
-      overlay: background(props)
-    })
-  },
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'dialog-preview'
-}))<IStyleButtonPreviewProps>`
+export const getBackground = (props: IStyleButtonPreviewProps) =>
+  getCheckeredBackground({
+    theme: props.theme,
+    size: 8,
+    overlay: background(props)
+  });
+
+export const StyledButtonPreview = styled.span<IStyleButtonPreviewProps>`
   display: inline-block;
   bottom: ${props => props.theme.space.base}px;
   border-radius: ${props => props.theme.borderRadii.sm};
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}
+    /* stylelint-disable-next-line color-function-alias-notation */
     ${props => rgba(props.theme.palette.black as string, 0.19)};
   width: ${props => props.theme.space.base * 5}px;
   height: ${props => props.theme.space.base * 5}px;

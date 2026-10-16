@@ -5,18 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button } from '@zendeskgarden/react-buttons';
 import styled from 'styled-components';
+
+import { Button } from '../../elements/button/Button';
 
 /**
  * 1. IE11 group width override.
  * 2. Input group border overrides.
  */
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledButton = styled(Button as any).attrs({
-  isNeutral: true,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledButton = styled(Button as any)`
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
   max-width: ${props => props.theme.space.base * 17}px; /* [1] */

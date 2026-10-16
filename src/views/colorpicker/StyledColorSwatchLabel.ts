@@ -14,8 +14,6 @@ import { getColor } from '../../theming/utils/getColor';
 import { IRGBColor } from '../../types/elements';
 import { StyledButtonPreview } from './StyledButtonPreview';
 
-const COMPONENT_ID = 'colorpickers.color_swatch_label';
-
 interface IStyledColorSwatchLabelProps extends ThemeProps<DefaultTheme> {
   $backgroundColor: string;
 }
@@ -43,12 +41,7 @@ const colorStyles = ({ $backgroundColor, theme }: IStyledColorSwatchLabelProps) 
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
-  as: 'label',
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledColorSwatchLabelProps>`
+export const StyledColorSwatchLabel = styled(StyledButtonPreview)<IStyledColorSwatchLabelProps>`
   position: relative;
   top: 0;
   border-radius: ${props => props.theme.borderRadii.md};

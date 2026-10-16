@@ -6,8 +6,6 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
-import { Button } from '@zendeskgarden/react-buttons';
-import { PLACEMENT } from '@zendeskgarden/react-modals';
 import PropTypes from 'prop-types';
 import {
   useState,
@@ -16,16 +14,19 @@ import {
   Children,
   cloneElement,
   forwardRef,
-  ReactElement
+  ButtonHTMLAttributes,
+  ReactElement,
+  RefAttributes
 } from 'react';
 import { useTheme } from 'styled-components';
 import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
+import { Button } from '../../elements/button/Button';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useText } from '../../theming/utils/useText';
-import { IColor, IColorPickerDialogProps } from '../../types/elements';
+import { IColor, IColorPickerDialogProps, MODAL_PLACEMENT } from '../../types/elements';
 import { StyledButton } from '../../views/colorpicker/StyledButton';
-import { StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
+import { getBackground, StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
 import { StyledTooltipBody } from '../../views/colorpicker/StyledTooltipBody';
 import { StyledTooltipDialog } from '../../views/colorpicker/StyledTooltipDialog';
 import { COMPONENT_IDS } from '../utils';
@@ -107,10 +108,17 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
     return (
       <>
         {children ? (
-          cloneElement(Children.only(children as ReactElement), {
-            onClick,
-            ref: buttonRef
-          })
+          cloneElement(
+            Children.only(
+              children as ReactElement<
+                ButtonHTMLAttributes<HTMLButtonElement> & RefAttributes<HTMLButtonElement>
+              >
+            ),
+            {
+              onClick,
+              ref: buttonRef
+            }
+          )
         ) : (
           <StyledButton
             disabled={disabled}
@@ -118,8 +126,21 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
             ref={buttonRef}
             onClick={onClick}
             {...buttonProps}
+            isNeutral
+            data-garden-version={PACKAGE_VERSION}
           >
-            <StyledButtonPreview $backgroundColor={isControlled ? color : uncontrolledColor} />
+            <StyledButtonPreview
+              $backgroundColor={isControlled ? color : uncontrolledColor}
+              style={{
+                background: getBackground({
+                  theme,
+                  $backgroundColor: isControlled ? color : uncontrolledColor
+                })
+              }}
+              data-garden-id={COMPONENT_IDS['colorpickers.colordialog_preview']}
+              data-garden-version={PACKAGE_VERSION}
+              data-test-id="dialog-preview"
+            />
             {/* eslint-disable-next-line no-eq-null, eqeqeq */}
             <Button.EndIcon isRotated={referenceElement != null}>
               <Chevron />
@@ -166,7 +187,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
 
 ColorPickerDialog.propTypes = {
   ...ColorPicker.propTypes,
-  placement: PropTypes.oneOf(PLACEMENT),
+  placement: PropTypes.oneOf(MODAL_PLACEMENT),
   onClose: PropTypes.func,
   onDialogChange: PropTypes.func,
   disabled: PropTypes.bool,

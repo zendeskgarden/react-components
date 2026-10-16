@@ -29,7 +29,7 @@ export function hsvToHsl(h: number, s: number, v: number) {
   let sl = saturation * value;
 
   sl /= l <= 1 ? l : 2 - l;
-  sl = sl || 0;
+  sl ||= 0;
   l /= 2;
 
   return { h, s: sl * 100, l: l * 100 };

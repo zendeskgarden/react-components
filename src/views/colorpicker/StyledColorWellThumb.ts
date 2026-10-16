@@ -12,13 +12,6 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import type { IStyledBaseProps } from '../../types/views';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_thumb';
-
-interface IStyledSaturationPointerProps {
-  $top: number;
-  $left: number;
-}
-
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, hue: 'white' });
   const boxShadow = `${theme.shadows.xs(getColor({ theme, hue: 'black' }))}`;
@@ -43,16 +36,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
-export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerProps>(props => ({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION,
-  'data-test-id': 'colorwell-thumb',
-  style: {
-    top: `${props.$top}%`,
-    left: `${props.$left}%`
-  }
-}))<IStyledSaturationPointerProps>`
+export const StyledColorWellThumb = styled.div`
   position: absolute;
   border: ${props => props.theme.borders.sm};
   border-radius: 50%;

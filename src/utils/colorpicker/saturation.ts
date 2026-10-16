@@ -49,7 +49,7 @@ const getSaturationLightness = (element: HTMLDivElement, x: number, y: number, r
 };
 
 export function getNextHsv(
-  e: MouseEvent,
+  e: Pick<MouseEvent, 'pageX' | 'pageY'>,
   hue: number,
   container: HTMLDivElement,
   rtl: boolean
@@ -67,7 +67,7 @@ export const getThumbPosition = (
   x: number,
   y: number,
   rtl: boolean,
-  container: React.RefObject<HTMLDivElement>
+  container: React.RefObject<HTMLDivElement | null>
 ): { topFromMouse: number; leftFromMouse: number } => {
   if (container.current) {
     const { saturation, bright } = getSaturationLightness(container.current, x, y, rtl);

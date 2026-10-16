@@ -19,6 +19,7 @@ export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
 //#region colorpicker
 export interface IStyledRangeProps extends IStyledBaseProps {
   $isOpaque?: boolean;
+  hasLowerTrack?: boolean;
 }
 //#endregion
 

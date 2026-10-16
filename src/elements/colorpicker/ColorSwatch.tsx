@@ -7,7 +7,6 @@
 
 import { useGrid } from '@zendeskgarden/container-grid';
 import { useId } from '@zendeskgarden/container-utilities';
-import { Tooltip } from '@zendeskgarden/react-tooltips';
 import PropTypes from 'prop-types';
 import {
   ChangeEventHandler,
@@ -22,9 +21,11 @@ import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import CheckIcon from 'svg-icons-legacy/src/12/check-sm-fill.svg';
 
+import { Tooltip } from '../../elements/tooltip/Tooltip';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { IColorSwatchProps, ILabeledColor } from '../../types/elements';
+import { getBackground } from '../../views/colorpicker/StyledButtonPreview';
 import { StyledCell } from '../../views/colorpicker/StyledCell';
 import { StyledColorSwatch } from '../../views/colorpicker/StyledColorSwatch';
 import { StyledColorSwatchInput } from '../../views/colorpicker/StyledColorSwatchInput';
@@ -52,7 +53,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
   ) => {
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const environment = useDocument(theme);
-    const gridRef = useRef<HTMLTableElement>();
+    const gridRef = useRef<HTMLTableElement>(null);
     const [rowIndex, setRowIndex] = useState(
       selectedRowIndex === null ? undefined : selectedRowIndex
     );
@@ -86,7 +87,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
       >
         <tbody>
           {colors.map((row: ILabeledColor[], _rowIndex: number) => (
-            <tr key={row[0].value}>
+            <tr key={row[0]!.value}>
               {row.map((color: ILabeledColor, _colIndex: number) => {
                 const { label, value } = color;
                 const { role, ...gridCellProps } = getGridCellProps({
@@ -148,7 +149,13 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                     data-garden-id={COMPONENT_IDS['colorpickers.swatch_cell']}
                     data-garden-version={PACKAGE_VERSION}
                   >
-                    <StyledColorSwatchLabel $backgroundColor={value}>
+                    <StyledColorSwatchLabel
+                      $backgroundColor={value}
+                      as="label"
+                      style={{ background: getBackground({ theme, $backgroundColor: value }) }}
+                      data-garden-id={COMPONENT_IDS['colorpickers.color_swatch_label']}
+                      data-garden-version={PACKAGE_VERSION}
+                    >
                       <Tooltip content={label} zIndex={1}>
                         <StyledColorSwatchInput
                           aria-label={label}

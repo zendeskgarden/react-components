@@ -6,6 +6,7 @@
  */
 
 import throttle from 'lodash.throttle';
+import PropTypes from 'prop-types';
 import {
   useRef,
   useState,
@@ -14,26 +15,29 @@ import {
   useEffect,
   useMemo,
   FC,
-  MouseEvent,
+  MouseEvent as ReactMouseEvent,
   memo
 } from 'react';
 import { ThemeContext } from 'styled-components';
 
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { IHSVColor } from '../../types/elements';
 import { hslToHsv } from '../../utils/colorpicker/conversion';
 import { getNextHsv, getThumbPosition } from '../../utils/colorpicker/saturation';
-import { StyledColorWell } from '../../views/colorpicker/StyledColorWell';
+import { background, StyledColorWell } from '../../views/colorpicker/StyledColorWell';
 import { StyledColorWellThumb } from '../../views/colorpicker/StyledColorWellThumb';
+import { COMPONENT_IDS } from '../utils';
 
 interface IColorWellProps {
   hue: number;
   saturation: number;
   lightness: number;
-  onChange?: (hsv: IHSVColor, event: MouseEvent) => void;
+  onChange?: (hsv: IHSVColor, event: ReactMouseEvent | MouseEvent) => void;
 }
 
 export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness, onChange }) => {
-  const { rtl } = useContext(ThemeContext);
+  const theme = useContext(ThemeContext) || DEFAULT_THEME;
+  const { rtl } = theme;
   const containerRef = useRef<HTMLDivElement>(null);
   const hsv = hslToHsv(hue, saturation, lightness);
   const mouseActiveRef = useRef(false);
@@ -53,7 +57,7 @@ export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness
   }, [hsv.s, hsv.v, rtl]);
 
   const throttledChange = useMemo(() => {
-    return throttle((e: MouseEvent) => {
+    return throttle((e: ReactMouseEvent | MouseEvent) => {
       if (containerRef.current) {
         const nextHsv = getNextHsv(e, hue, containerRef.current, rtl);
 
@@ -63,7 +67,7 @@ export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness
   }, [hue, rtl, onChange]);
 
   const handleMouseMove = useCallback(
-    (e: MouseEvent) => {
+    (e: ReactMouseEvent | MouseEvent) => {
       mouseActiveRef.current = true;
       setX(e.pageX);
       setY(e.pageY);
@@ -83,11 +87,11 @@ export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness
   }, [throttledChange, handleMouseMove]);
 
   const handleMouseDown = useCallback(
-    (e: MouseEvent<HTMLDivElement, MouseEvent>) => {
+    (e: ReactMouseEvent<HTMLDivElement>) => {
       mouseActiveRef.current = true;
       e.persist();
-      handleMouseMove(e as any);
-      throttledChange(e as any);
+      handleMouseMove(e);
+      throttledChange(e);
       window.addEventListener('mousemove', handleMouseMove);
       window.addEventListener('mouseup', handleMouseUp);
     },
@@ -100,6 +104,9 @@ export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness
     };
   }, [throttledChange]);
 
+  const thumbTop = mouseActiveRef.current ? topFromMouse : topPosition;
+  const thumbLeft = mouseActiveRef.current ? leftFromMouse : leftPosition;
+
   return (
     // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
     <StyledColorWell
@@ -107,13 +114,26 @@ export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness
       ref={containerRef}
       role="presentation"
       onMouseDown={handleMouseDown}
+      style={{ background: background({ theme, $hue: hue }) }}
+      data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_colorwell']}
+      data-garden-version={PACKAGE_VERSION}
+      data-test-id="colorwell"
     >
       <StyledColorWellThumb
-        $top={mouseActiveRef.current ? topFromMouse : topPosition}
-        $left={mouseActiveRef.current ? leftFromMouse : leftPosition}
+        style={{ top: `${thumbTop}%`, left: `${thumbLeft}%` }}
+        data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_colorwell_thumb']}
+        data-garden-version={PACKAGE_VERSION}
+        data-test-id="colorwell-thumb"
       />
     </StyledColorWell>
   );
 });
 
 ColorWell.displayName = 'ColorWell';
+
+ColorWell.propTypes = {
+  hue: PropTypes.number.isRequired,
+  saturation: PropTypes.number.isRequired,
+  lightness: PropTypes.number.isRequired,
+  onChange: PropTypes.func
+};

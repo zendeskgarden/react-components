@@ -7,7 +7,13 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import { useEffect, KeyboardEvent, forwardRef } from 'react';
+import {
+  useEffect,
+  KeyboardEvent,
+  forwardRef,
+  ForwardRefExoticComponent,
+  RefAttributes
+} from 'react';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { useFieldsetContext } from '../../hooks/form/useFieldsetContext';
@@ -23,13 +29,13 @@ import { StyledToggleLabel } from '../../views/form/StyledToggleLabel';
 import { StyledToggleSvg } from '../../views/form/StyledToggleSvg';
 import { COMPONENT_IDS } from '../utils';
 
-/**
- * @deprecated use `Field.Label` instead
- *
- * @extends LabelHTMLAttributes<HTMLLabelElement>
- */
-export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
-  ({ children, isRegular, ...other }, ref) => {
+interface ILabelComponentProps extends ILabelProps {
+  /** Internal: the `data-garden-id` that the label renders. */
+  $componentId?: string;
+}
+
+export const LabelComponent = forwardRef<HTMLLabelElement, ILabelComponentProps>(
+  ({ children, isRegular, $componentId, ...other }, ref) => {
     const fieldContext = useFieldContext();
     const fieldsetContext = useFieldsetContext();
     const type = useInputContext();
@@ -156,7 +162,7 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
         ref={ref}
         {...combinedProps}
         $isRegular={$isRegular}
-        data-garden-id={COMPONENT_IDS['forms.input_label']}
+        data-garden-id={$componentId ?? COMPONENT_IDS['forms.input_label']}
         data-garden-version={PACKAGE_VERSION}
       >
         {children}
@@ -165,8 +171,16 @@ export const Label = forwardRef<HTMLLabelElement, ILabelProps>(
   }
 );
 
-Label.displayName = 'Field.Label';
+LabelComponent.displayName = 'Field.Label';
 
-Label.propTypes = {
+LabelComponent.propTypes = {
   isRegular: PropTypes.bool
 };
+
+/**
+ * @deprecated use `Field.Label` instead
+ *
+ * @extends LabelHTMLAttributes<HTMLLabelElement>
+ */
+export const Label: ForwardRefExoticComponent<ILabelProps & RefAttributes<HTMLLabelElement>> =
+  LabelComponent;

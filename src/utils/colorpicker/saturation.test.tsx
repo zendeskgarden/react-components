@@ -44,6 +44,19 @@ describe('saturation utility functions', () => {
 
       expect(nextHsv).toStrictEqual({ h: 184, s: 0.9951923076923077, v: 1 });
     });
+
+    it('clamps coordinates to the container bounds', () => {
+      const div = document.createElement('div');
+
+      expect(getNextHsv({ pageX: 0, pageY: 0 } as MouseEvent, 184, div, false)).toStrictEqual({
+        h: 184,
+        s: 0,
+        v: 1
+      });
+      expect(getNextHsv({ pageX: 1000, pageY: 1000 } as MouseEvent, 184, div, false)).toStrictEqual(
+        { h: 184, s: 1, v: 0 }
+      );
+    });
   });
 
   describe('limit', () => {
