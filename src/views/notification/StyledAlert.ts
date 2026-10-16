@@ -5,21 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Type } from '../types';
-import { validationTypes } from '../utils/icons';
-import { StyledTitle } from './content/StyledTitle';
-import { IStyledBaseProps, StyledBase } from './StyledBase';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { Type } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
+import { validationTypes } from '../../utils/notification/icons';
+import { IStyledNotificationBaseProps, StyledBase } from './StyledBase';
+import { StyledTitle } from './StyledTitle';
 
-const COMPONENT_ID = 'notifications.alert';
-
-export interface IStyledAlertProps extends IStyledBaseProps {
+export interface IStyledAlertProps extends IStyledNotificationBaseProps {
   $type?: Type;
 }
 
-const colorStyles = (props: IStyledAlertProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: IStyledAlertProps & IStyledBaseProps) => {
   const { $type, theme } = props;
 
   let variable;
@@ -51,10 +51,7 @@ const colorStyles = (props: IStyledAlertProps & ThemeProps<DefaultTheme>) => {
 /**
  * Supports all `<div>` props
  */
-export const StyledAlert = styled(StyledBase).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledAlertProps>`
+export const StyledAlert = styled(StyledBase)<IStyledAlertProps>`
   ${colorStyles}
 
   ${componentStyles};

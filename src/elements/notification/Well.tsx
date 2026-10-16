@@ -6,16 +6,24 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledWell } from '../../styled';
-import { IWellProps } from '../../types';
-import { Paragraph } from '../Paragraph';
-import { Title } from '../Title';
+import { IWellProps } from '../../types/elements';
+import { StyledWell } from '../../views/notification/StyledWell';
+import { COMPONENT_IDS } from '../utils';
+import { Paragraph } from './Paragraph';
+import { Title } from './Title';
 
-export const WellComponent = React.forwardRef<HTMLDivElement, IWellProps>(
+export const WellComponent = forwardRef<HTMLDivElement, IWellProps>(
   ({ isFloating, isRecessed, ...props }, ref) => (
-    <StyledWell ref={ref} $isFloating={isFloating} $isRecessed={isRecessed} {...props} />
+    <StyledWell
+      ref={ref}
+      $isFloating={isFloating}
+      $isRecessed={isRecessed}
+      {...props}
+      data-garden-id={COMPONENT_IDS['notifications.well']}
+      data-garden-version={PACKAGE_VERSION}
+    />
   )
 );
 

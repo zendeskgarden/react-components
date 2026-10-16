@@ -5,17 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ThemeProvider } from '@zendeskgarden/react-theming';
-import ErrorIcon from '@zendeskgarden/svg-icons/src/16/alert-error-stroke.svg';
-import WarningIcon from '@zendeskgarden/svg-icons/src/16/alert-warning-stroke.svg';
-import SuccessIcon from '@zendeskgarden/svg-icons/src/16/check-circle-stroke.svg';
-import InfoIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { forwardRef, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
+import ErrorIcon from 'svg-icons-legacy/src/16/alert-error-stroke.svg';
+import WarningIcon from 'svg-icons-legacy/src/16/alert-warning-stroke.svg';
+import SuccessIcon from 'svg-icons-legacy/src/16/check-circle-stroke.svg';
+import InfoIcon from 'svg-icons-legacy/src/16/info-stroke.svg';
 
-import { StyledGlobalAlert, StyledGlobalAlertIcon } from '../../styled';
-import { TYPE, IGlobalAlertProps } from '../../types';
-import { GlobalAlertContext } from '../../utils/useGlobalAlertContext';
+import { GlobalAlertProvider } from '../../context/notification/GlobalAlertContext';
+import { ThemeProvider } from '../../theming/elements/ThemeProvider';
+import { NOTIFICATION_TYPE, IGlobalAlertProps } from '../../types/elements';
+import { StyledGlobalAlert } from '../../views/notification/StyledGlobalAlert';
+import { StyledGlobalAlertIcon } from '../../views/notification/StyledGlobalAlertIcon';
+import { COMPONENT_IDS } from '../utils';
 import { GlobalAlertButton } from './GlobalAlertButton';
 import { GlobalAlertClose } from './GlobalAlertClose';
 import { GlobalAlertContent } from './GlobalAlertContent';
@@ -39,14 +41,27 @@ const GlobalAlertComponent = forwardRef<HTMLDivElement, IGlobalAlertProps>(
     return (
       /* [1] */
       <ThemeProvider theme={theme => ({ ...theme, colors: { ...theme.colors, base: 'light' } })}>
-        <GlobalAlertContext.Provider value={useMemo(() => ({ type }), [type])}>
+        <GlobalAlertProvider value={useMemo(() => ({ type }), [type])}>
           {/* [2] */}
           {/* eslint-disable-next-line jsx-a11y/prefer-tag-over-role */}
-          <StyledGlobalAlert ref={ref} role="status" $alertType={type} {...props}>
-            <StyledGlobalAlertIcon $alertType={type}>{icon}</StyledGlobalAlertIcon>
+          <StyledGlobalAlert
+            ref={ref}
+            role="status"
+            $alertType={type}
+            {...props}
+            data-garden-id={COMPONENT_IDS['notifications.global_alert']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledGlobalAlertIcon
+              $alertType={type}
+              data-garden-id={COMPONENT_IDS['notifications.global_alert.icon']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              {icon}
+            </StyledGlobalAlertIcon>
             {props.children}
           </StyledGlobalAlert>
-        </GlobalAlertContext.Provider>
+        </GlobalAlertProvider>
       </ThemeProvider>
     );
   }
@@ -70,5 +85,5 @@ GlobalAlert.Content = GlobalAlertContent;
 GlobalAlert.Title = GlobalAlertTitle;
 
 GlobalAlert.propTypes = {
-  type: PropTypes.oneOf(TYPE).isRequired
+  type: PropTypes.oneOf(NOTIFICATION_TYPE).isRequired
 };

@@ -23,6 +23,7 @@ import type { DateFnsIndex } from '../utils/datepicker/calendar-utils';
 import type {
   GridNumber,
   IAccordionProps,
+  IGlobalAlertProps,
   ISplitterProps,
   ITableProps,
   Orientation,
@@ -200,6 +201,10 @@ export interface ITooltipDialogContext {
   getContentProps: IUseModalReturnValue['getContentProps'];
   getCloseProps: IUseModalReturnValue['getCloseProps'];
 }
+//#endregion
+
+//#region notification
+export type GlobalAlertContextProps = Pick<IGlobalAlertProps, 'type'>;
 //#endregion
 
 //#region sheet

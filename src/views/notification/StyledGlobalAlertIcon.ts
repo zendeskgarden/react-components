@@ -5,19 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
 import { math } from 'polished';
-import styled, { css, DataAttributes, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Type } from '../../types';
-
-const COMPONENT_ID = 'notifications.global_alert.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import { Type } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledGlobalAlertIconProps {
   $alertType: Type;
 }
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const size = props.theme.iconSizes.md;
   // Vertically center icon on line height
   const marginTop = math(`(${props.theme.space.base * 5} - ${size}) / 2`);
@@ -31,10 +32,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const colorStyles = ({
-  theme,
-  $alertType
-}: ThemeProps<DefaultTheme> & IStyledGlobalAlertIconProps) => {
+const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertIconProps & IStyledBaseProps) => {
   let color;
 
   switch ($alertType) {
@@ -59,10 +57,7 @@ const colorStyles = ({
   `;
 };
 
-export const StyledGlobalAlertIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGlobalAlertIconProps>`
+export const StyledGlobalAlertIcon = styled(StyledBaseIcon)<IStyledGlobalAlertIconProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

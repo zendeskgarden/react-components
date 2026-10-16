@@ -8,13 +8,16 @@
 import { hideVisually } from 'polished';
 import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
 
-import { Placement } from '../../types';
+import { NotificationPlacement } from '../../types/elements';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
 const DEFAULT_DURATION = '400ms';
 
-export const StyledFadeInTransition = styled.div<{ $isHidden: boolean; $placement: Placement }>`
+export const StyledFadeInTransition = styled.div<{
+  $isHidden: boolean;
+  $placement: NotificationPlacement;
+}>`
   transition: opacity ${DEFAULT_DURATION} ease-in 300ms;
   opacity: ${p => (p.$isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
@@ -66,7 +69,7 @@ export const StyledFadeInTransition = styled.div<{ $isHidden: boolean; $placemen
 `;
 
 interface IStyledTransitionContainerProps {
-  $toastPlacement: Placement;
+  $toastPlacement: NotificationPlacement;
   $toastZIndex?: number;
 }
 

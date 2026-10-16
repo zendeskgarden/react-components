@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Paragraph } from './Paragraph';
+import { render } from '../../test/render';
+import { GlobalAlertButton } from './GlobalAlertButton';
 
-describe('Paragraph', () => {
+describe('GlobalAlertButton', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Paragraph ref={ref} />);
+    const ref = createRef<HTMLButtonElement>();
+    const { container } = render(<GlobalAlertButton ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

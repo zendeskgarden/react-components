@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Well, IWellProps } from '@zendeskgarden/react-notifications';
-import React from 'react';
+import { Well, IWellProps } from '../../../src/index';
 
 interface IArgs extends IWellProps {
   title?: string;
@@ -15,13 +13,7 @@ interface IArgs extends IWellProps {
   hasParagraph: boolean;
 }
 
-export const WellStory: StoryFn<IArgs> = ({
-  children,
-  title,
-  hasParagraph,
-  isRegular,
-  ...args
-}) => (
+export const WellStory = ({ children, title, hasParagraph, isRegular, ...args }: IArgs) => (
   <Well {...args}>
     {!!title && <Well.Title isRegular={isRegular}>{title}</Well.Title>}
     {hasParagraph ? <Well.Paragraph>{children}</Well.Paragraph> : children}

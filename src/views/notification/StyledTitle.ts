@@ -5,22 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'notifications.title';
-
-export interface IStyledTitleProps {
-  $isRegular?: boolean;
-}
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledTitleProps } from '../../types/views';
 
 /**
  * 1. Reset for <h1>, etc.
  */
-export const StyledTitle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledTitleProps>`
+export const StyledTitle = styled.div<IStyledTitleProps>`
   margin: 0; /* [1] */
   color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
   font-weight: ${props =>

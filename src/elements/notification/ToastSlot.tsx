@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useDocument } from '@zendeskgarden/react-theming';
-import React, { HTMLAttributes, useCallback, useContext, useEffect, useState } from 'react';
+import { HTMLAttributes, useCallback, useContext, useEffect, useState, createRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
-import { Placement } from '../../types';
+import { useDocument } from '../../theming/utils/useDocument';
+import { NotificationPlacement } from '../../types/elements';
 import { StyledFadeInTransition, StyledTransitionContainer, TRANSITION_CLASS } from './styled';
 import { Toast } from './Toast';
 import { IToast } from './useToast';
 
 interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
   toasts: IToast[];
-  placement: Placement;
+  placement: NotificationPlacement;
   limit: number;
   zIndex?: number;
 }
@@ -77,7 +77,7 @@ export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToast
     >
       <TransitionGroup>
         {toasts.map((toast, index) => {
-          const transitionRef = React.createRef<HTMLDivElement>();
+          const transitionRef = createRef<HTMLDivElement>();
 
           return (
             <CSSTransition

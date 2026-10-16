@@ -5,14 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import {
-  ToastProvider,
-  IToastProviderProps,
-  IToastOptions
-} from '@zendeskgarden/react-notifications';
-import React from 'react';
-
+import { ToastProvider, IToastProviderProps, IToastOptions } from '../../../src/index';
 import { ToastStory } from './ToastStory';
 
 interface IArgs extends IToastProviderProps {
@@ -22,13 +15,13 @@ interface IArgs extends IToastProviderProps {
   placement?: IToastOptions['placement'];
 }
 
-export const ToastProviderStory: StoryFn<IArgs> = ({
+export const ToastProviderStory = ({
   children,
   autoDismiss,
   milliseconds,
   placement = 'top-end',
   ...args
-}) => (
+}: IArgs) => (
   <ToastProvider {...args}>
     <ToastStory placement={placement} autoDismiss={autoDismiss ? milliseconds : false}>
       {children}

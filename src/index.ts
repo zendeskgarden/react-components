@@ -71,6 +71,14 @@ export { Drawer } from './elements/modal/Drawer';
 export { Modal } from './elements/modal/Modal';
 export { TooltipDialog } from './elements/modal/TooltipDialog';
 
+/* notification */
+export { Alert } from './elements/notification/Alert';
+export { GlobalAlert } from './elements/notification/GlobalAlert';
+export { Notification } from './elements/notification/Notification';
+export { ToastProvider } from './elements/notification/ToastProvider';
+export { Well } from './elements/notification/Well';
+export { useToast } from './elements/notification/useToast';
+
 /* pagination */
 export { CursorPagination } from './elements/pagination/CursorPagination';
 export { OffsetPagination } from './elements/pagination/OffsetPagination';
@@ -166,6 +174,7 @@ export {
   VALIDATION,
   WRAP,
   type IAccordionProps,
+  type IAlertProps,
   type IAnchorProps,
   type IAvatarProps,
   type IBlockquoteProps,
@@ -192,6 +201,9 @@ export {
   type IFieldsetProps,
   type IFileProps,
   type IFileUploadProps,
+  type IGlobalAlertButtonProps,
+  type IGlobalAlertProps,
+  type IGlobalAlertTitleProps,
   type IGridProps,
   type IGridRowProps,
   type IHeadProps,
@@ -206,6 +218,7 @@ export {
   type IMediaInputProps,
   type IMessageProps,
   type IModalProps,
+  type INotificationProps,
   type IOrderedListProps,
   type IPaginationProps,
   type IPaneProviderProps,
@@ -237,6 +250,8 @@ export {
   type ITilesTileProps,
   type ITimelineItemProps,
   type ITimelineProps,
+  type ITitleProps,
+  type IToastProviderProps,
   type IToggleButtonProps,
   type IToggleIconButtonProps,
   type IToggleProps,
@@ -249,5 +264,6 @@ export {
   type ITypescaleProps as IXXLProps,
   type ITypescaleProps as IXXXLProps,
   type IUnorderedListProps,
+  type IWellProps,
   type PageType
 } from './types/elements';

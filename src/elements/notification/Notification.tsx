@@ -5,13 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import InfoStrokeIcon from '@zendeskgarden/svg-icons/src/16/info-stroke.svg';
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
+import InfoStrokeIcon from 'svg-icons-legacy/src/16/info-stroke.svg';
 
-import { StyledNotification, StyledIcon } from '../styled';
-import { INotificationProps, TYPE } from '../types';
-import { validationIcons } from '../utils/icons';
+import { INotificationProps, NOTIFICATION_TYPE } from '../../types/elements';
+import { validationIcons } from '../../utils/notification/icons';
+import { StyledIcon } from '../../views/notification/StyledIcon';
+import { StyledNotification } from '../../views/notification/StyledNotification';
+import { COMPONENT_IDS } from '../utils';
 import { Close } from './Close';
 import { Paragraph } from './Paragraph';
 import { Title } from './Title';
@@ -21,9 +23,21 @@ export const NotificationComponent = forwardRef<HTMLDivElement, INotificationPro
     const Icon = type ? validationIcons[type] : InfoStrokeIcon;
 
     return (
-      <StyledNotification ref={ref} $type={type} $isFloating role="alert" {...props}>
+      <StyledNotification
+        ref={ref}
+        $type={type}
+        $isFloating
+        role="alert"
+        {...props}
+        data-garden-id={COMPONENT_IDS['notifications.notification']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         {!!type && (
-          <StyledIcon $type={type}>
+          <StyledIcon
+            $type={type}
+            data-garden-id={COMPONENT_IDS['notifications.icon']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             <Icon />
           </StyledIcon>
         )}
@@ -36,7 +50,7 @@ export const NotificationComponent = forwardRef<HTMLDivElement, INotificationPro
 NotificationComponent.displayName = 'Notification';
 
 NotificationComponent.propTypes = {
-  type: PropTypes.oneOf(TYPE)
+  type: PropTypes.oneOf(NOTIFICATION_TYPE)
 };
 
 /**

@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, StyledBaseIcon, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { DataAttributes, DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
 
-import { Type } from '../types';
-import { validationTypes } from '../utils/icons';
-
-const COMPONENT_ID = 'notifications.icon';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import { Type } from '../../types/elements';
+import { validationTypes } from '../../utils/notification/icons';
 
 interface IStyledIconProps extends ThemeProps<DefaultTheme> {
   $type?: Type;
@@ -53,10 +53,7 @@ const colorStyles = ({ theme, $type }: IStyledIconProps) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledIconProps>`
+export const StyledIcon = styled(StyledBaseIcon)<IStyledIconProps>`
   position: absolute;
 
   ${sizeStyles}

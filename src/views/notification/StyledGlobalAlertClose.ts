@@ -6,18 +6,19 @@
  */
 
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { focusStyles, componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IGlobalAlertProps } from '../../types';
-
-const COMPONENT_ID = 'notifications.global_alert.close';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IGlobalAlertProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledGlobalAlertCloseProps {
   $alertType: IGlobalAlertProps['type'];
 }
 
-export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlertCloseProps) => {
+export const colorStyles = (props: IStyledGlobalAlertCloseProps & IStyledBaseProps) => {
   const { $alertType, theme } = props;
 
   let hoverBackgroundColor;
@@ -104,7 +105,7 @@ export const colorStyles = (props: ThemeProps<DefaultTheme> & IStyledGlobalAlert
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   // Vertically center 32px icon button while retaining line height
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
@@ -117,10 +118,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledGlobalAlertClose = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGlobalAlertCloseProps>`
+export const StyledGlobalAlertClose = styled(IconButton)<IStyledGlobalAlertCloseProps>`
   ${sizeStyles};
 
   ${colorStyles};

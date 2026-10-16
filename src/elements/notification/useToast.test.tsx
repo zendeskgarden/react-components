@@ -5,17 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, act } from 'garden-test-utils';
-import React, { PropsWithChildren, useState } from 'react';
+import { act } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { PropsWithChildren, useState, FC } from 'react';
 import { config } from 'react-transition-group';
+import { vi } from 'vitest';
 
-import { useToast, ToastProvider } from '../../';
+import { render } from '../../test/render';
+import { ToastProvider } from './ToastProvider';
+import { useToast } from './useToast';
 config.disabled = true;
 
-jest.useFakeTimers();
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
-const Notification: React.FC<PropsWithChildren<{ close: () => void }>> = ({ close, children }) => {
+const Notification: FC<PropsWithChildren<{ close: () => void }>> = ({ close, children }) => {
   return (
     <div role="alert">
       {children}
@@ -91,7 +94,7 @@ describe('useToast()', () => {
   it('throws if not rendered within a ToastProvider', () => {
     const originalError = console.error;
 
-    console.error = jest.fn();
+    console.error = vi.fn();
 
     expect(() => {
       render(<NotificationExample />);
@@ -135,7 +138,7 @@ describe('useToast()', () => {
       expect(queryByRole('alert')).toBeInTheDocument();
 
       act(() => {
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(queryByRole('alert')).not.toBeInTheDocument();
@@ -151,7 +154,7 @@ describe('useToast()', () => {
       expect(queryByRole('alert')).toBeInTheDocument();
 
       act(() => {
-        jest.runOnlyPendingTimers();
+        vi.runOnlyPendingTimers();
       });
 
       expect(queryByRole('alert')).toBeInTheDocument();

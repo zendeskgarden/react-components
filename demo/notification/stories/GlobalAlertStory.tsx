@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Anchor } from '@zendeskgarden/react-buttons';
-import { GlobalAlert, IGlobalAlertProps } from '@zendeskgarden/react-notifications';
-import React from 'react';
+
+import { GlobalAlert, IGlobalAlertProps } from '../../../src/index';
 
 interface IArgs extends IGlobalAlertProps {
   anchor?: string;
@@ -22,7 +21,7 @@ interface IArgs extends IGlobalAlertProps {
   isBasic?: boolean;
 }
 
-export const GlobalAlertStory: StoryFn<IArgs> = ({
+export const GlobalAlertStory = ({
   type,
   anchor,
   isExternal,
@@ -33,7 +32,7 @@ export const GlobalAlertStory: StoryFn<IArgs> = ({
   button,
   isBasic,
   hasClose
-}) => (
+}: IArgs) => (
   <GlobalAlert type={type}>
     <GlobalAlert.Content>
       {!!title && <GlobalAlert.Title isRegular={isRegular}>{title}</GlobalAlert.Title>}

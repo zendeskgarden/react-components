@@ -5,12 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { createContext, useContext } from 'react';
+import { useContext } from 'react';
 
-import { IGlobalAlertProps } from '../types';
-
-export type GlobalAlertContextProps = Pick<IGlobalAlertProps, 'type'>;
-
-export const GlobalAlertContext = createContext<GlobalAlertContextProps>({ type: 'info' });
+import { GlobalAlertContext } from '../../context/notification/GlobalAlertContext';
 
 export const useGlobalAlertContext = () => useContext(GlobalAlertContext);

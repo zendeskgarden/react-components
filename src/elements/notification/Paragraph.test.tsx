@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Well } from './Well';
+import { render } from '../../test/render';
+import { Paragraph } from './Paragraph';
 
-describe('Well', () => {
+describe('Paragraph', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
-    const { container } = render(<Well ref={ref} />);
+    const ref = createRef<HTMLDivElement>();
+    const { container } = render(<Paragraph ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
   });

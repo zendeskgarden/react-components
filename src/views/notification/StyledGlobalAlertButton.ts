@@ -6,18 +6,15 @@
  */
 
 import { Button } from '@zendeskgarden/react-buttons';
-import {
-  getColor,
-  focusStyles,
-  componentStyles,
-  ColorParameters
-} from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IGlobalAlertProps } from '../../types';
+import type { ColorParameters } from '../../theming/types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IGlobalAlertProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 import { colorStyles as basicColorStyles } from './StyledGlobalAlertClose';
-
-const COMPONENT_ID = 'notifications.global_alert.button';
 
 interface IStyledGlobalAlertButtonProps {
   $alertType: IGlobalAlertProps['type'];
@@ -27,7 +24,7 @@ interface IStyledGlobalAlertButtonProps {
 type OffsetOptions = Record<string, ColorParameters['offset']>;
 
 function colorStyles(
-  props: IStyledGlobalAlertButtonProps & ThemeProps<DefaultTheme> & IStyledGlobalAlertButtonProps
+  props: IStyledGlobalAlertButtonProps & IStyledBaseProps & IStyledGlobalAlertButtonProps
 ) {
   const { $alertType, isBasic, theme } = props;
 
@@ -104,7 +101,7 @@ function colorStyles(
   `;
 }
 
-function sizeStyles(props: ThemeProps<DefaultTheme>) {
+function sizeStyles(props: IStyledBaseProps) {
   // Vertically center 32px button while retaining line height
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
@@ -115,10 +112,7 @@ function sizeStyles(props: ThemeProps<DefaultTheme>) {
   `;
 }
 
-export const StyledGlobalAlertButton = styled(Button).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGlobalAlertButtonProps>`
+export const StyledGlobalAlertButton = styled(Button)<IStyledGlobalAlertButtonProps>`
   flex-shrink: 0;
 
   ${sizeStyles};

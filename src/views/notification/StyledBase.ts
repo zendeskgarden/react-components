@@ -5,20 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getLineHeight, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
 
-import { Type } from '../types';
-import { validationTypes } from '../utils/icons';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { Type } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
+import { validationTypes } from '../../utils/notification/icons';
 
-const COMPONENT_ID = 'notifications.base_container';
-
-export interface IStyledBaseProps extends ThemeProps<DefaultTheme> {
+export interface IStyledNotificationBaseProps extends ThemeProps<DefaultTheme> {
   $isFloating?: boolean;
   $type?: Type;
 }
 
-const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
+const colorStyles = ({ theme, $type, $isFloating }: IStyledNotificationBaseProps) => {
   const { space, shadows } = theme;
   let bgVariable;
   let borderVariable;
@@ -71,7 +72,7 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledBaseProps) => {
   `;
 };
 
-const padding = (props: ThemeProps<DefaultTheme>) => {
+const padding = (props: IStyledBaseProps) => {
   const { space } = props.theme;
   const paddingVertical = `${space.base * 5}px`;
   const paddingHorizontal = `${space.base * 10}px`;
@@ -79,10 +80,7 @@ const padding = (props: ThemeProps<DefaultTheme>) => {
   return `${paddingVertical} ${paddingHorizontal}`;
 };
 
-export const StyledBase = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledBaseProps>`
+export const StyledBase = styled.div<IStyledNotificationBaseProps>`
   position: relative;
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.md};

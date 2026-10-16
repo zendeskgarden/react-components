@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Well } from '@zendeskgarden/react-notifications';
-import React from 'react';
 
+import { Well } from '../../src/index';
 import { WellStory } from './stories/WellStory';
 
 export default {
-  title: 'Packages/Notifications/Well',
+  title: 'Components/Well',
   component: Well,
   subcomponents: {
     'Well.Paragraph': Well.Paragraph,

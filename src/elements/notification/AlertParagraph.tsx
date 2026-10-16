@@ -5,16 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes } from 'react';
+import { HTMLAttributes, forwardRef } from 'react';
 
-import { StyledParagraph } from '../../styled';
+import { StyledParagraph } from '../../views/notification/StyledParagraph';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLParagraphElement>
  */
-export const Paragraph = React.forwardRef<
-  HTMLParagraphElement,
-  HTMLAttributes<HTMLParagraphElement>
->((props, ref) => <StyledParagraph ref={ref} {...props} />);
+export const Paragraph = forwardRef<HTMLParagraphElement, HTMLAttributes<HTMLParagraphElement>>(
+  (props, ref) => (
+    <StyledParagraph
+      ref={ref}
+      {...props}
+      data-garden-id={COMPONENT_IDS['notifications.paragraph']}
+      data-garden-version={PACKAGE_VERSION}
+    />
+  )
+);
 
 Paragraph.displayName = 'Alert.Paragraph';

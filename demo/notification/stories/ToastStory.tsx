@@ -5,28 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
-import {
-  Close,
-  IToastOptions,
-  Notification,
-  Title,
-  IToast,
-  useToast
-} from '@zendeskgarden/react-notifications';
-import IconRemove from '@zendeskgarden/svg-icons/src/12/x-stroke.svg';
-import IconAdd from '@zendeskgarden/svg-icons/src/16/notification-stroke.svg';
-import IconRemoveAll from '@zendeskgarden/svg-icons/src/16/x-circle-stroke.svg';
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
+import IconRemove from 'svg-icons-legacy/src/12/x-stroke.svg';
+import IconAdd from 'svg-icons-legacy/src/16/notification-stroke.svg';
+import IconRemoveAll from 'svg-icons-legacy/src/16/x-circle-stroke.svg';
+
+import { Close, IToastOptions, Notification, Title, IToast, useToast } from '../../../src/index';
 
 interface IArgs extends IToastOptions {
   children: string;
 }
 
-export const ToastStory: StoryFn<IArgs> = ({ children, ...args }) => {
+export const ToastStory = ({ children, ...args }: IArgs) => {
   const {
     addToast,
     removeToast,

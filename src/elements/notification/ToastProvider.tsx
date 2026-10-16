@@ -6,9 +6,9 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
+import { useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
 
-import { IToastProviderProps, Placement } from '../../types';
+import { IToastProviderProps, NotificationPlacement } from '../../types/elements';
 import { toasterReducer, getInitialState } from './reducer';
 import { ToastContext } from './ToastContext';
 import { ToastSlot } from './ToastSlot';
@@ -24,7 +24,7 @@ export const ToastProvider = ({
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   const toastsByPlacement = useCallback(
-    (placement: Placement) => {
+    (placement: NotificationPlacement) => {
       let matchingToasts = state.toasts.filter(toast => toast.options.placement === placement);
 
       if (placement === 'bottom' || placement === 'bottom-start' || placement === 'bottom-end') {

@@ -6,11 +6,12 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledGlobalAlertTitle } from '../../styled';
-import { IGlobalAlertTitleProps } from '../../types';
-import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext';
+import { useGlobalAlertContext } from '../../hooks/notification/useGlobalAlertContext';
+import { IGlobalAlertTitleProps } from '../../types/elements';
+import { StyledGlobalAlertTitle } from '../../views/notification/StyledGlobalAlertTitle';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -19,7 +20,16 @@ export const GlobalAlertTitle = forwardRef<HTMLDivElement, IGlobalAlertTitleProp
   ({ isRegular, ...props }, ref) => {
     const { type } = useGlobalAlertContext();
 
-    return <StyledGlobalAlertTitle $alertType={type} $isRegular={isRegular} ref={ref} {...props} />;
+    return (
+      <StyledGlobalAlertTitle
+        $alertType={type}
+        $isRegular={isRegular}
+        ref={ref}
+        {...props}
+        data-garden-id={COMPONENT_IDS['notifications.global_alert.title']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

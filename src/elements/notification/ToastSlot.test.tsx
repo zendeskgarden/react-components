@@ -5,16 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, act, waitFor } from 'garden-test-utils';
-import React from 'react';
+import { act, waitFor } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
 import { config } from 'react-transition-group';
+import { vi } from 'vitest';
 
-import { useToast, ToastProvider } from '../../';
+import { render } from '../../test/render';
+import { ToastProvider } from './ToastProvider';
+import { useToast } from './useToast';
 
 config.disabled = true;
 
-jest.useFakeTimers();
+vi.useFakeTimers({ shouldAdvanceTime: true });
 
 const NotificationExample = () => {
   const { addToast } = useToast();
@@ -46,7 +48,7 @@ describe('ToastSlot', () => {
     await user.hover(getAllByText('notification')[0]);
 
     act(() => {
-      jest.runOnlyPendingTimers();
+      vi.runOnlyPendingTimers();
     });
 
     expect(getAllByText('notification')).toHaveLength(5);
@@ -66,7 +68,7 @@ describe('ToastSlot', () => {
     await user.hover(getAllByText('notification')[0]);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     expect(getAllByText('notification')).toHaveLength(5);
@@ -74,7 +76,7 @@ describe('ToastSlot', () => {
     await user.unhover(getAllByText('notification')[0]);
 
     act(() => {
-      jest.runAllTimers();
+      vi.runAllTimers();
     });
 
     waitFor(() => {

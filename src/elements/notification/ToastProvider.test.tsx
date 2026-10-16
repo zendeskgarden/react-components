@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { userEvent } from '@testing-library/user-event';
+import { FC } from 'react';
 import { config } from 'react-transition-group';
 
-import { useToast, ToastProvider, IToastProviderProps } from '../../';
+import { RTL_THEME, render } from '../../test/render';
+import { IToastProviderProps } from '../../types/elements';
+import { ToastProvider } from './ToastProvider';
+import { useToast } from './useToast';
 config.disabled = true;
 
 const NotificationExample = () => {
@@ -24,7 +26,7 @@ const NotificationExample = () => {
   );
 };
 
-const ToastExample: React.FC<IToastProviderProps> = props => (
+const ToastExample: FC<IToastProviderProps> = props => (
   <ToastProvider {...props}>
     <NotificationExample />
   </ToastProvider>
@@ -51,7 +53,9 @@ describe('ToastProvider', () => {
   });
 
   it('renders toasts in alternative placement when in RTL mode', async () => {
-    const { getByRole, getByText } = renderRtl(<ToastExample />);
+    const { getByRole, getByText } = render(<ToastExample />, {
+      theme: RTL_THEME
+    });
 
     await user.click(getByRole('button'));
     const notificationElement = getByText('notification');

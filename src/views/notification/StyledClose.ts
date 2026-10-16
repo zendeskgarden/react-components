@@ -6,13 +6,13 @@
  */
 
 import { IconButton } from '@zendeskgarden/react-buttons';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Type } from '../../types';
-import { validationTypes } from '../../utils/icons';
-
-const COMPONENT_ID = 'notifications.close';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { Type } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
+import { validationTypes } from '../../utils/notification/icons';
 
 interface IStyledCloseProps {
   $type?: Type;
@@ -21,7 +21,7 @@ interface IStyledCloseProps {
 /**
  * 1. IconButton reset
  */
-const colorStyles = ({ theme, $type }: IStyledCloseProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $type }: IStyledCloseProps & IStyledBaseProps) => {
   let variable;
 
   switch ($type) {
@@ -64,10 +64,7 @@ const colorStyles = ({ theme, $type }: IStyledCloseProps & ThemeProps<DefaultThe
  * 1. Reset for <button> element.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledClose = styled(IconButton).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledCloseProps>`
+export const StyledClose = styled(IconButton)<IStyledCloseProps>`
   position: absolute;
   top: ${props => props.theme.space.base}px;
   right: ${p => !p.theme.rtl && `${p.theme.space.base}px`};

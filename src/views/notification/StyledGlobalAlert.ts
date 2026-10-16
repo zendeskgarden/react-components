@@ -5,17 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  componentStyles,
-  getLineHeight,
-  focusStyles,
-  getColor
-} from '@zendeskgarden/react-theming';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IGlobalAlertProps } from '../../types';
-
-const COMPONENT_ID = 'notifications.global_alert';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
+import { IGlobalAlertProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledGlobalAlertProps {
   $alertType: IGlobalAlertProps['type'];
@@ -24,7 +21,7 @@ interface IStyledGlobalAlertProps {
 /**
  * 1. Shifting :focus-visible from LVHFA order to preserve `color` on hover
  */
-const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGlobalAlertProps) => {
+const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBaseProps) => {
   let borderColor;
   let backgroundColor;
   let foregroundColor;
@@ -104,7 +101,7 @@ const colorStyles = ({ theme, $alertType }: ThemeProps<DefaultTheme> & IStyledGl
   `;
 };
 
-const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledBaseProps) => {
   const { fontSizes, space } = props.theme;
   const minHeight = space.base * 13;
   const padding = space.base * 4;
@@ -118,10 +115,7 @@ const sizeStyles = (props: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledGlobalAlert = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGlobalAlertProps>`
+export const StyledGlobalAlert = styled.div<IStyledGlobalAlertProps>`
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;

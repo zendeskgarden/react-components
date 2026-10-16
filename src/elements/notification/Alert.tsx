@@ -6,29 +6,42 @@
  */
 
 import PropTypes from 'prop-types';
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledAlert, StyledIcon } from '../../styled';
-import { IAlertProps, TYPE } from '../../types';
-import { validationIcons } from '../../utils/icons';
-import { NotificationsContext } from '../../utils/useNotificationsContext';
-import { Close } from './Close';
-import { Paragraph } from './Paragraph';
-import { Title } from './Title';
+import { NotificationsProvider } from '../../context/notification/NotificationsContext';
+import { IAlertProps, NOTIFICATION_TYPE } from '../../types/elements';
+import { validationIcons } from '../../utils/notification/icons';
+import { StyledAlert } from '../../views/notification/StyledAlert';
+import { StyledIcon } from '../../views/notification/StyledIcon';
+import { COMPONENT_IDS } from '../utils';
+import { Close } from './AlertClose';
+import { Paragraph } from './AlertParagraph';
+import { Title } from './AlertTitle';
 
-export const AlertComponent = React.forwardRef<HTMLDivElement, IAlertProps>(
+export const AlertComponent = forwardRef<HTMLDivElement, IAlertProps>(
   ({ role, type, ...props }, ref) => {
     const Icon = validationIcons[type] as any;
 
     return (
-      <NotificationsContext.Provider value={type}>
-        <StyledAlert ref={ref} $type={type} role={role === undefined ? 'alert' : role} {...props}>
-          <StyledIcon $type={type}>
+      <NotificationsProvider value={type}>
+        <StyledAlert
+          ref={ref}
+          $type={type}
+          role={role === undefined ? 'alert' : role}
+          {...props}
+          data-garden-id={COMPONENT_IDS['notifications.alert']}
+          data-garden-version={PACKAGE_VERSION}
+        >
+          <StyledIcon
+            $type={type}
+            data-garden-id={COMPONENT_IDS['notifications.icon']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             <Icon />
           </StyledIcon>
           {props.children}
         </StyledAlert>
-      </NotificationsContext.Provider>
+      </NotificationsProvider>
     );
   }
 );
@@ -36,7 +49,7 @@ export const AlertComponent = React.forwardRef<HTMLDivElement, IAlertProps>(
 AlertComponent.displayName = 'Alert';
 
 AlertComponent.propTypes = {
-  type: PropTypes.oneOf(TYPE).isRequired
+  type: PropTypes.oneOf(NOTIFICATION_TYPE).isRequired
 };
 
 /**

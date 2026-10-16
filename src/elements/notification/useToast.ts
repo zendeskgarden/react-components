@@ -8,7 +8,7 @@
 import { ReactElement, useCallback, useContext } from 'react';
 import { uid } from 'react-uid';
 
-import { Placement } from '../../types';
+import { NotificationPlacement } from '../../types/elements';
 import { ToastContext } from './ToastContext';
 
 export interface IToastOptions {
@@ -17,7 +17,7 @@ export interface IToastOptions {
   /** Determines whether to automatically dismiss the toast. Can be expressed in milliseconds. */
   autoDismiss: boolean | number;
   /** Adjusts the placement of the toast content */
-  placement: Placement;
+  placement: NotificationPlacement;
 }
 
 export type Content = ({ close }: { close: () => void }) => ReactElement;

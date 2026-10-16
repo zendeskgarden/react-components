@@ -5,22 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import PropTypes from 'prop-types';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { TYPE, Type } from '../types';
-import { validationTypes } from '../utils/icons';
-import { StyledTitle } from './content/StyledTitle';
-import { IStyledBaseProps, StyledBase } from './StyledBase';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { NOTIFICATION_TYPE, Type } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
+import { validationTypes } from '../../utils/notification/icons';
+import { IStyledNotificationBaseProps, StyledBase } from './StyledBase';
+import { StyledTitle } from './StyledTitle';
 
-const COMPONENT_ID = 'notifications.notification';
-
-interface IStyledNotificationProps extends IStyledBaseProps {
+interface IStyledNotificationProps extends IStyledNotificationBaseProps {
   $type?: Type;
 }
 
-const colorStyles = (props: IStyledNotificationProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = (props: IStyledNotificationProps & IStyledBaseProps) => {
   const { $type, theme } = props;
 
   let variable;
@@ -52,15 +52,12 @@ const colorStyles = (props: IStyledNotificationProps & ThemeProps<DefaultTheme>)
 /**
  * Supports all `<div>` props
  */
-export const StyledNotification = styled(StyledBase).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledNotificationProps>`
+export const StyledNotification = styled(StyledBase)<IStyledNotificationProps>`
   ${colorStyles}
 
   ${componentStyles};
 `;
 
 StyledNotification.propTypes = {
-  $type: PropTypes.oneOf(TYPE)
+  $type: PropTypes.oneOf(NOTIFICATION_TYPE)
 };

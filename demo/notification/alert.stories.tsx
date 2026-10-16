@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Alert } from '@zendeskgarden/react-notifications';
-import React from 'react';
 
+import { Alert } from '../../src/index';
 import { AlertStory } from './stories/AlertStory';
 
 export default {
-  title: 'Packages/Notifications/Alert',
+  title: 'Components/Notifications/Alert',
   component: Alert,
   subcomponents: {
     'Alert.Close': Alert.Close,

@@ -5,16 +5,24 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef, HTMLAttributes } from 'react';
+import { forwardRef, HTMLAttributes } from 'react';
 
-import { StyledGlobalAlertContent } from '../../styled';
+import { StyledGlobalAlertContent } from '../../views/notification/StyledGlobalAlertContent';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const GlobalAlertContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
   (props, ref) => {
-    return <StyledGlobalAlertContent ref={ref} {...props} />;
+    return (
+      <StyledGlobalAlertContent
+        ref={ref}
+        {...props}
+        data-garden-id={COMPONENT_IDS['notifications.global_alert.content']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    );
   }
 );
 

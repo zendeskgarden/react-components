@@ -45,6 +45,16 @@ export interface IStyledModalProps extends IStyledBaseProps {
 }
 //#endregion
 
+//#region notification
+export interface IStyledTitleProps extends IStyledBaseProps {
+  $isRegular?: boolean;
+}
+export interface IStyledWellProps extends IStyledBaseProps {
+  $isRecessed?: boolean;
+  $isFloating?: boolean;
+}
+//#endregion
+
 //#region pagination
 export interface IStyledIcon extends IStyledBaseProps {
   $type: 'first' | 'next' | 'previous' | 'last';

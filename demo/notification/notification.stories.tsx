@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Notification } from '@zendeskgarden/react-notifications';
-import React from 'react';
 
+import { Notification } from '../../src/index';
 import { NotificationStory } from './stories/NotificationStory';
 
 export default {
-  title: 'Packages/Notifications/Notification',
+  title: 'Components/Notifications/Notification',
   component: Notification,
   subcomponents: {
     'Notification.Close': Notification.Close,

@@ -5,23 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
-import styled, { ThemeProps, css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledWellProps } from '../../types/views';
 import { StyledBase } from './StyledBase';
 
-const COMPONENT_ID = 'notifications.well';
-
-export interface IStyledWellProps {
-  $isRecessed?: boolean;
-  $isFloating?: boolean;
-}
-
-const colorStyles = ({
-  theme,
-  $isFloating,
-  $isRecessed
-}: IStyledWellProps & ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme, $isFloating, $isRecessed }: IStyledWellProps) => {
   let backgroundVariable;
 
   if ($isRecessed) {
@@ -44,10 +35,7 @@ const colorStyles = ({
 /**
  * Supports all `<div>` props
  */
-export const StyledWell = styled(StyledBase).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledWellProps>`
+export const StyledWell = styled(StyledBase)<IStyledWellProps>`
   ${colorStyles}
 
   ${componentStyles};

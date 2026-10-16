@@ -6,11 +6,12 @@
  */
 
 import PropTypes from 'prop-types';
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 
-import { StyledGlobalAlertButton } from '../../styled';
-import { IGlobalAlertButtonProps } from '../../types';
-import { useGlobalAlertContext } from '../../utils/useGlobalAlertContext';
+import { useGlobalAlertContext } from '../../hooks/notification/useGlobalAlertContext';
+import { IGlobalAlertButtonProps } from '../../types/elements';
+import { StyledGlobalAlertButton } from '../../views/notification/StyledGlobalAlertButton';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
@@ -24,6 +25,8 @@ export const GlobalAlertButton = forwardRef<HTMLButtonElement, IGlobalAlertButto
         ref={ref}
         $alertType={type}
         {...props}
+        data-garden-id={COMPONENT_IDS['notifications.global_alert.button']}
+        data-garden-version={PACKAGE_VERSION}
         size="small"
         isPrimary={!isBasic}
         isBasic={isBasic}

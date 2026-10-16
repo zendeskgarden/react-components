@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { GlobalAlert } from '@zendeskgarden/react-notifications';
-import React from 'react';
 
+import { GlobalAlert } from '../../src/index';
 import { GlobalAlertStory } from './stories/GlobalAlertStory';
 
 export default {
-  title: 'Packages/Notifications/GlobalAlert',
+  title: 'Components/Notifications/GlobalAlert',
   component: GlobalAlert,
   subcomponents: {
     'GlobalAlert.Button': GlobalAlert.Button,

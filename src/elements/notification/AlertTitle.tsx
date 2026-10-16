@@ -5,16 +5,23 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React from 'react';
+import { forwardRef } from 'react';
 
-import { StyledTitle } from '../../styled';
-import { ITitleProps } from '../../types';
+import { ITitleProps } from '../../types/elements';
+import { StyledTitle } from '../../views/notification/StyledTitle';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const Title = React.forwardRef<HTMLDivElement, ITitleProps>(
-  ({ isRegular, ...props }, ref) => <StyledTitle ref={ref} $isRegular={isRegular} {...props} />
-);
+export const Title = forwardRef<HTMLDivElement, ITitleProps>(({ isRegular, ...props }, ref) => (
+  <StyledTitle
+    ref={ref}
+    $isRegular={isRegular}
+    {...props}
+    data-garden-id={COMPONENT_IDS['notifications.title']}
+    data-garden-version={PACKAGE_VERSION}
+  />
+));
 
 Title.displayName = 'Alert.Title';

@@ -5,9 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Notification, INotificationProps } from '@zendeskgarden/react-notifications';
-import React from 'react';
+import { Notification, INotificationProps } from '../../../src/index';
 
 interface IArgs extends INotificationProps {
   title?: string;
@@ -16,7 +14,7 @@ interface IArgs extends INotificationProps {
   hasParagraph: boolean;
 }
 
-export const NotificationStory: StoryFn<IArgs> = ({
+export const NotificationStory = ({
   children,
   title,
   hasClose,
@@ -24,7 +22,7 @@ export const NotificationStory: StoryFn<IArgs> = ({
   isRegular,
   'aria-label': ariaLabel,
   ...args
-}) => (
+}: IArgs) => (
   <Notification {...args}>
     {!!title && <Notification.Title isRegular={isRegular}>{title}</Notification.Title>}
     {hasParagraph ? <Notification.Paragraph>{children}</Notification.Paragraph> : children}

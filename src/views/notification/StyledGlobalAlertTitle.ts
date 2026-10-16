@@ -5,22 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { getColor, componentStyles } from '@zendeskgarden/react-theming';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types';
-
-const COMPONENT_ID = 'notifications.global_alert.title';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types/elements';
+import type { IStyledBaseProps } from '../../types/views';
 
 interface IStyledGlobalAlertTitleProps {
   $alertType: IGlobalAlertProps['type'];
   $isRegular?: IGlobalAlertTitleProps['isRegular'];
 }
 
-const colorStyles = ({
-  theme,
-  $alertType
-}: ThemeProps<DefaultTheme> & IStyledGlobalAlertTitleProps) => {
+const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertTitleProps & IStyledBaseProps) => {
   let color;
 
   switch ($alertType) {
@@ -43,10 +40,7 @@ const colorStyles = ({
   `;
 };
 
-export const StyledGlobalAlertTitle = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledGlobalAlertTitleProps>`
+export const StyledGlobalAlertTitle = styled.div<IStyledGlobalAlertTitleProps>`
   display: inline;
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
   font-weight: ${props =>

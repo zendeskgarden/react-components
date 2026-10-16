@@ -5,15 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl } from 'garden-test-utils';
-import React from 'react';
+import { createRef } from 'react';
 
-import { Type } from '../../types';
+import { RTL_THEME, render } from '../../test/render';
+import { Type } from '../../types/elements';
 import { GlobalAlert } from './GlobalAlert';
 
 describe('GlobalAlert', () => {
   it('passes ref to underlying DOM element', () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = createRef<HTMLDivElement>();
     const { container } = render(<GlobalAlert type="success" ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
@@ -49,7 +49,9 @@ describe('GlobalAlert', () => {
     );
 
     it('renders in RTL mode', () => {
-      const { getByText, container } = renderRtl(<TestComponent type="info" />);
+      const { getByText, container } = render(<TestComponent type="info" />, {
+        theme: RTL_THEME
+      });
 
       expect(container.firstChild).toHaveStyleRule('direction', 'rtl');
       expect(getByText('title')).toHaveStyleRule('margin-left', '8px');

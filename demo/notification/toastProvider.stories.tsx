@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ToastProvider } from '@zendeskgarden/react-notifications';
-import React from 'react';
 
+import { ToastProvider } from '../../src/index';
 import { TOAST_PLACEMENT_OPTIONS } from './stories/data';
 import { ToastProviderStory } from './stories/ToastProviderStory';
 
 export default {
-  title: 'Packages/Notifications/ToastProvider',
+  title: 'Components/Notifications/ToastProvider',
   component: ToastProvider
 };
 
