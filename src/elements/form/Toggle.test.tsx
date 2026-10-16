@@ -83,6 +83,9 @@ describe('Toggle', () => {
       getColor({ theme: DEFAULT_THEME, variable: 'border.emphasis' }),
       { modifier: `& ~ ${StyledToggleLabel}::before` }
     );
+    expect(toggle).toHaveStyleRule('background-color', 'transparent', {
+      modifier: `& ~ ${StyledToggleLabel}::before`
+    });
     expect(toggle).toHaveStyleRule(
       'background-color',
       getColor({

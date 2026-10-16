@@ -18,7 +18,7 @@ import { StyledRadioLabel } from './StyledRadioLabel';
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
-  const backgroundColor = 'transparent';
+  const backgroundColor = getColor({ theme, variable: 'background.default' });
   const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
 
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
@@ -100,7 +100,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
     &:disabled ~ ${StyledRadioLabel}::before {
       border-color: ${disabledBorderColor};
-      background-color: ${backgroundColor};
+      background-color: transparent;
     }
 
     &:disabled:checked ~ ${StyledRadioLabel}::before {

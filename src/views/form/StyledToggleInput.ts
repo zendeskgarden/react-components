@@ -45,6 +45,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   return css`
     & ~ ${StyledToggleLabel}::before {
       border-color: ${borderColor};
+      background-color: transparent;
     }
 
     &:not(:checked) ~ ${StyledToggleLabel} > svg {

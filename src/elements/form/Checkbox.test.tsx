@@ -90,9 +90,11 @@ describe('Checkbox', () => {
         getColor({ theme: DEFAULT_THEME, variable: 'border.emphasis' }),
         { modifier: `& ~ ${label}` }
       );
-      expect(checkbox).toHaveStyleRule('background-color', 'transparent', {
-        modifier: `& ~ ${label}`
-      });
+      expect(checkbox).toHaveStyleRule(
+        'background-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'background.default' }),
+        { modifier: `& ~ ${label}` }
+      );
       expect(checkbox).toHaveStyleRule(
         'border-color',
         getColor({ theme: DEFAULT_THEME, variable: 'border.disabled' }),

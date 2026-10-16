@@ -71,10 +71,17 @@ describe('Radio', () => {
     it.each([
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
-    ])('renders the resting border in %s mode', (_, theme) => {
-      expect(renderRadio(theme)).toHaveStyleRule(
+    ])('renders the resting border and fill in %s mode', (_, theme) => {
+      const radio = renderRadio(theme);
+
+      expect(radio).toHaveStyleRule(
         'border-color',
         getColor({ theme, variable: 'border.emphasis' }),
+        { modifier: `& ~ ${label}` }
+      );
+      expect(radio).toHaveStyleRule(
+        'background-color',
+        getColor({ theme, variable: 'background.default' }),
         { modifier: `& ~ ${label}` }
       );
     });
