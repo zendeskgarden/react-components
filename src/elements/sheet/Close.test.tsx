@@ -60,13 +60,16 @@ describe('Sheet.Close', () => {
     const btn = screen.getByRole('button');
 
     expect(btn).toHaveStyleRule('top', `${DEFAULT_THEME.space.base * 2.5}px`);
-    expect(btn).toHaveStyleRule('right', `${DEFAULT_THEME.space.base * 2}px`);
+    expect(btn).toHaveStyleRule('right', `${DEFAULT_THEME.space.base * 2.5}px`);
   });
 
   it('renders RTL styling', () => {
     render(<Close />, { theme: RTL_THEME });
 
-    expect(screen.getByRole('button')).toHaveStyleRule('left', `${DEFAULT_THEME.space.base * 2}px`);
+    expect(screen.getByRole('button')).toHaveStyleRule(
+      'left',
+      `${DEFAULT_THEME.space.base * 2.5}px`
+    );
   });
 
   describe('functionality', () => {

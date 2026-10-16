@@ -13,7 +13,7 @@ import { StyledIconButton } from '../button/StyledIconButton';
 
 const positionStyles = ({ theme }: IStyledBaseProps) => {
   const top = `${theme.space.base * 2.5}px`;
-  const position = `${theme.space.base * 2}px`;
+  const position = `${theme.space.base * 2.5}px`;
 
   return css`
     top: ${top};
