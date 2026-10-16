@@ -7,19 +7,10 @@
 
 import styled from 'styled-components';
 
-import {
-  getTrackHeight,
-  getTrackMargin,
-  StyledRange,
-  IStyledRangeProps
-} from '../common/StyledRange';
+import type { IStyledRangeProps } from '../../types/views';
+import { getTrackHeight, getTrackMargin, StyledRange } from './StyledRange';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_hue';
-
-export const StyledHueRange = styled(StyledRange as 'input').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledRangeProps>`
+export const StyledHueRange = styled(StyledRange as 'input')<IStyledRangeProps>`
   background: linear-gradient(
       to ${props => (props.theme.rtl ? 'left' : 'right')},
       #f00 0%,

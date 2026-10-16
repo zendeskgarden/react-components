@@ -6,10 +6,9 @@
  */
 
 import { Field } from '@zendeskgarden/react-forms';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled, { DefaultTheme } from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_rgb_field';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 const sizeStyles = (theme: DefaultTheme) => {
   const margin = `${theme.space.base * 1.5}px`;
@@ -22,10 +21,7 @@ const sizeStyles = (theme: DefaultTheme) => {
   `;
 };
 
-export const StyledRGBAField = styled(Field as unknown as 'div').attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledRGBAField = styled(Field as unknown as 'div')`
   display: flex;
   flex-direction: column;
   text-align: center;

@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.color_swatch';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * 1. Override Bedrock CSS
  */
-export const StyledColorSwatch = styled.table.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledColorSwatch = styled.table`
   border-collapse: collapse;
   line-height: normal; /* [1] */
 

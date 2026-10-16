@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, renderRtl, fireEvent, screen } from 'garden-test-utils';
-import React, { useState, createRef } from 'react';
+import { fireEvent, screen } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { useState, createRef } from 'react';
 
-import { IColor } from '../../types';
-import { ColorPicker } from './index';
+import { RTL_THEME, render } from '../../test/render';
+import { IColor } from '../../types/elements';
+import { ColorPicker } from './ColorPicker';
 
 describe('ColorPicker', () => {
   const user = userEvent.setup();
@@ -43,7 +44,9 @@ describe('ColorPicker', () => {
       alpha: 'ألفا'
     };
 
-    renderRtl(<ColorPicker defaultColor="#17494d" labels={labels} />);
+    render(<ColorPicker defaultColor="#17494d" labels={labels} />, {
+      theme: RTL_THEME
+    });
 
     const hueSlider = screen.getByLabelText(labels.hueSlider) as HTMLInputElement;
     const alphaSlider = screen.getByLabelText(labels.alphaSlider) as HTMLInputElement;

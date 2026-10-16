@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, screen, act, waitFor } from 'garden-test-utils';
-import React, { createRef } from 'react';
+import { screen, act, waitFor } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
+import { vi } from 'vitest';
 
-import { ColorSwatchDialog } from './index';
+import { render } from '../../test/render';
+import { ColorSwatchDialog } from './ColorSwatchDialog';
 
 const colors = [
   [
@@ -73,7 +75,7 @@ describe('ColorSwatchDialog', () => {
   });
 
   it('calls onDialogChange when the dialog state changes', async () => {
-    const onDialogChange = jest.fn();
+    const onDialogChange = vi.fn();
     const label = 'Choose your favorite color';
 
     render(

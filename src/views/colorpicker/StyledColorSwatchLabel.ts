@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { focusStyles, getColor, componentStyles } from '@zendeskgarden/react-theming';
 import { parseToRgb, readableColor } from 'polished';
 import styled, { DefaultTheme, ThemeProps } from 'styled-components';
 
-import { IRGBColor } from '../../types';
-import { StyledButtonPreview } from '../ColorPickerDialog/StyledButtonPreview';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
+import { getColor } from '../../theming/utils/getColor';
+import { IRGBColor } from '../../types/elements';
+import { StyledButtonPreview } from './StyledButtonPreview';
 
 const COMPONENT_ID = 'colorpickers.color_swatch_label';
 
@@ -41,6 +43,7 @@ const colorStyles = ({ $backgroundColor, theme }: IStyledColorSwatchLabelProps) 
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledColorSwatchLabel = styled(StyledButtonPreview).attrs({
   as: 'label',
   'data-garden-id': COMPONENT_ID,

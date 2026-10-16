@@ -16,6 +16,12 @@ export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
 }
 //#endregion
 
+//#region colorpicker
+export interface IStyledRangeProps extends IStyledBaseProps {
+  $isOpaque?: boolean;
+}
+//#endregion
+
 //#region form
 export interface IStyledClearableInputProps extends IStyledBaseProps {
   $isBare?: boolean;

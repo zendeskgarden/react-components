@@ -6,15 +6,11 @@
  */
 
 import { Label } from '@zendeskgarden/react-forms';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_label';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledLabel = styled(Label as any).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledLabel = styled(Label as any)`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

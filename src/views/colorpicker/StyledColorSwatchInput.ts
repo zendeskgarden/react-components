@@ -5,18 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.color_swatch_input';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * Accessibly hidden checkbox with support for tooltip hover
  */
-export const StyledColorSwatchInput = styled.input.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledColorSwatchInput = styled.input`
   position: absolute;
   opacity: 0;
   z-index: 1;

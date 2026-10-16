@@ -5,18 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 
-import { getTrackHeight, getTrackMargin } from '../common/StyledRange';
-
-const COMPONENT_ID = 'colorpickers.colorpicker_sliders';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
+import { getTrackHeight, getTrackMargin } from './StyledRange';
 
 interface IStyledSlidersProps {
   $isOpaque?: boolean;
 }
 
-const sizeStyles = (props: IStyledSlidersProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledSlidersProps & IStyledBaseProps) => {
   if (props.$isOpaque) {
     return undefined;
   }
@@ -41,10 +40,7 @@ const sizeStyles = (props: IStyledSlidersProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
-export const StyledSliders = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledSlidersProps>`
+export const StyledSliders = styled.div<IStyledSlidersProps>`
   position: relative;
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 2}px;
   width: 100%;

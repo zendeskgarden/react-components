@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ILabeledColor } from '@zendeskgarden/react-colorpickers';
-import { PALETTE } from '@zendeskgarden/react-theming';
+import { ILabeledColor } from '../../../src/index';
+import PALETTE from '../../../src/theming/elements/palette';
 
 type Hue = 'blue' | 'green' | 'red' | 'yellow';
 

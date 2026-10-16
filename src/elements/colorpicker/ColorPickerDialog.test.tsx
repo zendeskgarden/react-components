@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import userEvent from '@testing-library/user-event';
-import { render, fireEvent, screen, waitForElementToBeRemoved, act } from 'garden-test-utils';
-import React, { useState, createRef } from 'react';
+import { fireEvent, screen, waitForElementToBeRemoved, act } from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import { useState, createRef } from 'react';
+import { vi } from 'vitest';
 
-import { ColorPickerDialog } from '.';
-import { IColor } from '../../types';
+import { render } from '../../test/render';
+import { IColor } from '../../types/elements';
+import { ColorPickerDialog } from './ColorPickerDialog';
 
 describe('ColorPickerDialog', () => {
   const user = userEvent.setup();
@@ -28,7 +30,7 @@ describe('ColorPickerDialog', () => {
   });
 
   it('calls onDialogChange when the dialog state changes', async () => {
-    const onDialogChange = jest.fn();
+    const onDialogChange = vi.fn();
     const label = 'Choose your favorite color';
 
     render(

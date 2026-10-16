@@ -5,17 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, StyledBaseIcon } from '@zendeskgarden/react-theming';
-import styled, { DataAttributes } from 'styled-components';
+import styled from 'styled-components';
 
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
-const COMPONENT_ID = 'colorpickers.colorswatch_check';
-
-export const StyledIcon = styled(StyledBaseIcon).attrs<DataAttributes>({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledIcon = styled(StyledBaseIcon)`
   position: absolute;
   top: 0;
   left: 0;

@@ -6,13 +6,13 @@
  */
 
 import { Range } from '@zendeskgarden/react-forms';
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import styled from 'styled-components';
 
-export interface IStyledRangeProps {
-  $isOpaque?: boolean;
-}
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledRangeProps } from '../../types/views';
+import type { IStyledBaseProps } from '../../types/views';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_range';
 
@@ -60,7 +60,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const thumbBackgroundColor = getColor({
     theme,
     variable: 'background.default'
@@ -123,13 +123,13 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const getThumbSize = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+const getThumbSize = (props: IStyledRangeProps) =>
   props.theme.space.base * (props.$isOpaque ? 6 : 4);
 
-export const getTrackHeight = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+export const getTrackHeight = (props: IStyledRangeProps) =>
   props.theme.space.base * (props.$isOpaque ? 6 : 3);
 
-export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) =>
+export const getTrackMargin = (props: IStyledRangeProps) =>
   (getThumbSize(props) - getTrackHeight(props)) / 2 +
   (stripUnit(props.theme.shadowWidths.md) as number);
 
@@ -137,7 +137,7 @@ export const getTrackMargin = (props: IStyledRangeProps & ThemeProps<DefaultThem
  * 1. Firefox reset.
  * 2. Bedrock override.
  */
-const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
+const sizeStyles = (props: IStyledRangeProps) => {
   const thumbSize = getThumbSize(props);
   const trackHeight = getTrackHeight(props);
   const trackMargin = getTrackMargin(props);
@@ -166,6 +166,7 @@ const sizeStyles = (props: IStyledRangeProps & ThemeProps<DefaultTheme>) => {
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledRange = styled(Range as unknown as 'input').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.colorpicker';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 interface IStyledColorPickerProps {
   $isOpaque?: boolean;
@@ -18,10 +17,7 @@ export const getColorPickerWidth = (props: IStyledColorPickerProps) => {
   return props.$isOpaque ? 268 : 312;
 };
 
-export const StyledColorPicker = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})<IStyledColorPickerProps>`
+export const StyledColorPicker = styled.div<IStyledColorPickerProps>`
   width: ${getColorPickerWidth}px;
   min-width: ${getColorPickerWidth}px;
 

@@ -5,11 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
 import styled, { ThemeProps, DefaultTheme } from 'styled-components';
 
-import { IColorPickerDialogProps } from '../../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
+import { IColorPickerDialogProps } from '../../types/elements';
 
 const COMPONENT_ID = 'colorpickers.colordialog_preview';
 
@@ -33,6 +34,7 @@ const background = ({ $backgroundColor, theme }: IStyleButtonPreviewProps) => {
   return retVal;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledButtonPreview = styled.span.attrs<IStyleButtonPreviewProps>(props => ({
   style: {
     background: getCheckeredBackground({

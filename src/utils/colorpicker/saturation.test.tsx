@@ -5,6 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { vi } from 'vitest';
+
 import { getNextHsv, limit } from './saturation';
 
 describe('saturation utility functions', () => {
@@ -12,7 +14,7 @@ describe('saturation utility functions', () => {
 
   beforeEach(() => {
     originalGetBoundingClientRect = Element.prototype.getBoundingClientRect;
-    Element.prototype.getBoundingClientRect = jest.fn(() => {
+    Element.prototype.getBoundingClientRect = vi.fn(() => {
       return {
         bottom: 510,
         height: 234,

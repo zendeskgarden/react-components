@@ -6,13 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ColorPicker } from '@zendeskgarden/react-colorpickers';
-import { PALETTE } from '@zendeskgarden/react-theming';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { ColorPicker } from '../../src/index';
+import PALETTE from '../../src/theming/elements/palette';
+
 export default {
-  title: 'Packages/Colorpickers/ColorPicker',
+  title: 'Components/Colorpickers/ColorPicker',
   component: ColorPicker,
   parameters: {
     design: {

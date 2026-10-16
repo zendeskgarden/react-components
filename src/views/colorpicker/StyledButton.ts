@@ -12,6 +12,7 @@ import styled from 'styled-components';
  * 1. IE11 group width override.
  * 2. Input group border overrides.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledButton = styled(Button as any).attrs({
   isNeutral: true,
   'data-garden-version': PACKAGE_VERSION

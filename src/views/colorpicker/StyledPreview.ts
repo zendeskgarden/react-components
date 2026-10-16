@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getCheckeredBackground } from '@zendeskgarden/react-theming';
 import { rgba } from 'polished';
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled from 'styled-components';
 
-import { IRGBColorProps } from '../types';
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
+import type { IStyledBaseProps } from '../../types/views';
+import { IRGBColorProps } from './types';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_preview_box';
 
@@ -17,7 +19,7 @@ interface IStyledColorPreviewProps extends IRGBColorProps {
   $isOpaque?: boolean;
 }
 
-const background = (props: IStyledColorPreviewProps & ThemeProps<DefaultTheme>) => {
+const background = (props: IStyledColorPreviewProps & IStyledBaseProps) => {
   const alpha = props.$alpha ? props.$alpha / 100 : 0;
   let retVal = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, ${alpha})`;
 
@@ -32,6 +34,7 @@ const background = (props: IStyledColorPreviewProps & ThemeProps<DefaultTheme>) 
   return retVal;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledPreview = styled.div.attrs<IStyledColorPreviewProps>(props => ({
   style: {
     background: background(props)

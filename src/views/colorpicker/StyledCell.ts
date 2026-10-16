@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.swatch_cell';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledCell = styled.td.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledCell = styled.td`
   padding: ${props => props.theme.space.base}px;
   font-size: 0;
 

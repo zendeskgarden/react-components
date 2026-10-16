@@ -7,22 +7,29 @@
 
 import { Field } from '@zendeskgarden/react-forms';
 import PropTypes from 'prop-types';
-import React, { useEffect, useCallback, useReducer, forwardRef, useMemo, useRef } from 'react';
-
 import {
-  StyledHueRange,
-  StyledSliderGroup,
-  StyledLabel,
-  StyledInput,
-  StyledAlphaRange,
-  StyledSliders,
-  StyledHexField,
-  StyledRGBAField,
-  StyledInputGroup,
-  StyledPreview,
-  StyledColorPicker
-} from '../../styled';
-import { IColor, IColorPickerProps, IHSVColor } from '../../types';
+  useEffect,
+  useCallback,
+  useReducer,
+  forwardRef,
+  useMemo,
+  useRef,
+  ChangeEvent
+} from 'react';
+
+import { IColor, IColorPickerProps, IHSVColor } from '../../types/elements';
+import { StyledAlphaRange } from '../../views/colorpicker/StyledAlphaRange';
+import { StyledColorPicker } from '../../views/colorpicker/StyledColorPicker';
+import { StyledHexField } from '../../views/colorpicker/StyledHexField';
+import { StyledHueRange } from '../../views/colorpicker/StyledHueRange';
+import { StyledInput } from '../../views/colorpicker/StyledInput';
+import { StyledInputGroup } from '../../views/colorpicker/StyledInputGroup';
+import { StyledLabel } from '../../views/colorpicker/StyledLabel';
+import { StyledPreview } from '../../views/colorpicker/StyledPreview';
+import { StyledRGBAField } from '../../views/colorpicker/StyledRGBAField';
+import { StyledSliderGroup } from '../../views/colorpicker/StyledSliderGroup';
+import { StyledSliders } from '../../views/colorpicker/StyledSliders';
+import { COMPONENT_IDS } from '../utils';
 import { ColorWell } from './ColorWell';
 import { areColorsEqual, convertStringToColor, getInitialState, reducer } from './reducer';
 
@@ -85,31 +92,31 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
       });
     }, []);
 
-    const handleHueChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleHueChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'HUE_CHANGE', payload: e.target.value });
     }, []);
 
-    const handleAlphaSliderChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleAlphaSliderChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'ALPHA_SLIDER_CHANGE', payload: e.target.value });
     }, []);
 
-    const handleHexChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleHexChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'HEX_CHANGE', payload: e.target.value });
     }, []);
 
-    const handleRedChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleRedChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'RED_CHANGE', payload: e.target.value });
     }, []);
 
-    const handleGreenChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleGreenChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'GREEN_CHANGE', payload: e.target.value });
     }, []);
 
-    const handleBlueChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleBlueChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'BLUE_CHANGE', payload: e.target.value });
     }, []);
 
-    const handleAlphaChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleAlphaChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
       dispatch({ type: 'ALPHA_CHANGE', payload: e.target.value });
     }, []);
 
@@ -118,14 +125,23 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
     }, [computedColor]);
 
     return (
-      <StyledColorPicker ref={ref} $isOpaque={isOpaque} {...props}>
+      <StyledColorPicker
+        ref={ref}
+        $isOpaque={isOpaque}
+        {...props}
+        data-garden-id={COMPONENT_IDS['colorpickers.colorpicker']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         <ColorWell
           hue={computedColor.hue}
           saturation={computedColor.saturation}
           lightness={computedColor.lightness}
           onChange={handleColorWellChange}
         />
-        <StyledSliderGroup>
+        <StyledSliderGroup
+          data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_slider_group']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledPreview
             $red={computedColor.red}
             $green={computedColor.green}
@@ -133,7 +149,11 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             $alpha={computedColor.alpha}
             $isOpaque={isOpaque}
           />
-          <StyledSliders $isOpaque={isOpaque}>
+          <StyledSliders
+            $isOpaque={isOpaque}
+            data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_sliders']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             <Field>
               <Field.Label hidden>{labels.hueSlider || 'Hue slider'}</Field.Label>
               <StyledHueRange
@@ -142,6 +162,8 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                 value={computedColor.hue}
                 $isOpaque={isOpaque}
                 onChange={handleHueChange}
+                data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_hue']}
+                data-garden-version={PACKAGE_VERSION}
               />
             </Field>
             {!isOpaque && (
@@ -160,9 +182,18 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             )}
           </StyledSliders>
         </StyledSliderGroup>
-        <StyledInputGroup>
+        <StyledInputGroup
+          data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_input_group']}
+          data-garden-version={PACKAGE_VERSION}
+        >
           <StyledHexField>
-            <StyledLabel isRegular>{labels.hex || 'Hex'}</StyledLabel>
+            <StyledLabel
+              isRegular
+              data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_label']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              {labels.hex || 'Hex'}
+            </StyledLabel>
             <StyledInput
               isCompact
               maxLength={7}
@@ -174,8 +205,17 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               onChange={handleHexChange}
             />
           </StyledHexField>
-          <StyledRGBAField>
-            <StyledLabel isRegular>{labels.red || 'R'}</StyledLabel>
+          <StyledRGBAField
+            data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_rgb_field']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledLabel
+              isRegular
+              data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_label']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              {labels.red || 'R'}
+            </StyledLabel>
             <StyledInput
               isCompact
               type="number"
@@ -187,8 +227,17 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               onChange={handleRedChange}
             />
           </StyledRGBAField>
-          <StyledRGBAField>
-            <StyledLabel isRegular>{labels.green || 'G'}</StyledLabel>
+          <StyledRGBAField
+            data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_rgb_field']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledLabel
+              isRegular
+              data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_label']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              {labels.green || 'G'}
+            </StyledLabel>
             <StyledInput
               isCompact
               type="number"
@@ -200,8 +249,17 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
               onChange={handleGreenChange}
             />
           </StyledRGBAField>
-          <StyledRGBAField>
-            <StyledLabel isRegular>{labels.blue || 'B'}</StyledLabel>
+          <StyledRGBAField
+            data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_rgb_field']}
+            data-garden-version={PACKAGE_VERSION}
+          >
+            <StyledLabel
+              isRegular
+              data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_label']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              {labels.blue || 'B'}
+            </StyledLabel>
             <StyledInput
               isCompact
               type="number"
@@ -214,8 +272,17 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
             />
           </StyledRGBAField>
           {!isOpaque && (
-            <StyledRGBAField>
-              <StyledLabel isRegular>{labels.alpha || 'A'}</StyledLabel>
+            <StyledRGBAField
+              data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_rgb_field']}
+              data-garden-version={PACKAGE_VERSION}
+            >
+              <StyledLabel
+                isRegular
+                data-garden-id={COMPONENT_IDS['colorpickers.colorpicker_label']}
+                data-garden-version={PACKAGE_VERSION}
+              >
+                {labels.alpha || 'A'}
+              </StyledLabel>
               <StyledInput
                 isCompact
                 type="number"

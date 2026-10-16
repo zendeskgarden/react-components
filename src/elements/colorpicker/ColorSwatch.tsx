@@ -7,11 +7,9 @@
 
 import { useGrid } from '@zendeskgarden/container-grid';
 import { useId } from '@zendeskgarden/container-utilities';
-import { DEFAULT_THEME, useDocument } from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
-import CheckIcon from '@zendeskgarden/svg-icons/src/12/check-sm-fill.svg';
 import PropTypes from 'prop-types';
-import React, {
+import {
   ChangeEventHandler,
   FocusEventHandler,
   InputHTMLAttributes,
@@ -22,15 +20,17 @@ import React, {
 } from 'react';
 import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
+import CheckIcon from 'svg-icons-legacy/src/12/check-sm-fill.svg';
 
-import {
-  StyledCell,
-  StyledColorSwatch,
-  StyledColorSwatchInput,
-  StyledColorSwatchLabel,
-  StyledIcon
-} from '../../styled';
-import { IColorSwatchProps, ILabeledColor } from '../../types';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { useDocument } from '../../theming/utils/useDocument';
+import { IColorSwatchProps, ILabeledColor } from '../../types/elements';
+import { StyledCell } from '../../views/colorpicker/StyledCell';
+import { StyledColorSwatch } from '../../views/colorpicker/StyledColorSwatch';
+import { StyledColorSwatchInput } from '../../views/colorpicker/StyledColorSwatchInput';
+import { StyledColorSwatchLabel } from '../../views/colorpicker/StyledColorSwatchLabel';
+import { StyledIcon } from '../../views/colorpicker/StyledIcon';
+import { COMPONENT_IDS } from '../utils';
 
 /**
  * @extends HTMLAttributes<HTMLTableElement>
@@ -77,7 +77,13 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
     });
 
     return (
-      <StyledColorSwatch role="grid" ref={mergeRefs([gridRef, ref])} {...props}>
+      <StyledColorSwatch
+        role="grid"
+        ref={mergeRefs([gridRef, ref])}
+        {...props}
+        data-garden-id={COMPONENT_IDS['colorpickers.color_swatch']}
+        data-garden-version={PACKAGE_VERSION}
+      >
         <tbody>
           {colors.map((row: ILabeledColor[], _rowIndex: number) => (
             <tr key={row[0].value}>
@@ -136,7 +142,12 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                 };
 
                 return (
-                  <StyledCell key={value} role={role}>
+                  <StyledCell
+                    key={value}
+                    role={role}
+                    data-garden-id={COMPONENT_IDS['colorpickers.swatch_cell']}
+                    data-garden-version={PACKAGE_VERSION}
+                  >
                     <StyledColorSwatchLabel $backgroundColor={value}>
                       <Tooltip content={label} zIndex={1}>
                         <StyledColorSwatchInput
@@ -149,9 +160,14 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
                           onBlur={handleBlur}
                           onChange={handleChange}
                           {...(gridCellProps as InputHTMLAttributes<HTMLInputElement>)}
+                          data-garden-id={COMPONENT_IDS['colorpickers.color_swatch_input']}
+                          data-garden-version={PACKAGE_VERSION}
                         />
                       </Tooltip>
-                      <StyledIcon>
+                      <StyledIcon
+                        data-garden-id={COMPONENT_IDS['colorpickers.colorswatch_check']}
+                        data-garden-version={PACKAGE_VERSION}
+                      >
                         <CheckIcon />
                       </StyledIcon>
                     </StyledColorSwatchLabel>

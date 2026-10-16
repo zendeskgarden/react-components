@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IHSVColor } from '../types';
+import { IHSVColor } from '../../types/elements';
 
 export function limit(value: number, max: number, min = 0) {
   if (value < min) {

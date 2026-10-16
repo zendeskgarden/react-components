@@ -8,10 +8,8 @@
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
-import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
-import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
-import React, {
+import {
   useRef,
   useState,
   useEffect,
@@ -21,15 +19,17 @@ import React, {
   ReactElement
 } from 'react';
 import { useTheme } from 'styled-components';
+import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import {
-  StyledButton,
-  StyledButtonPreview,
-  StyledTooltipDialog,
-  StyledTooltipBody
-} from '../../styled';
-import { IColorSwatchDialogProps } from '../../types';
-import { ColorSwatch } from '../ColorSwatch';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { useText } from '../../theming/utils/useText';
+import { IColorSwatchDialogProps } from '../../types/elements';
+import { StyledButton } from '../../views/colorpicker/StyledButton';
+import { StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
+import { StyledTooltipBody } from '../../views/colorpicker/StyledTooltipBody';
+import { StyledTooltipDialog } from '../../views/colorpicker/StyledTooltipDialog';
+import { COMPONENT_IDS } from '../utils';
+import { ColorSwatch } from './ColorSwatch';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -170,8 +170,13 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
           onClose={closeDialog}
           aria-label={ariaLabelText}
           {...props}
+          data-garden-id={COMPONENT_IDS['colorpickers.colordialog_tooltipdialog']}
+          data-garden-version={PACKAGE_VERSION}
         >
-          <StyledTooltipBody>
+          <StyledTooltipBody
+            data-garden-id={COMPONENT_IDS['colorpickers.colordialog_tooltipdialog_body']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             <ColorSwatch
               name={name}
               colors={colors}

@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import { hsl, rgba } from 'polished';
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import styled from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { IStyledBaseProps } from '../../types/views';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell';
 
@@ -15,7 +17,7 @@ interface IStyledColorWellProps {
   $hue: number;
 }
 
-const background = (props: IStyledColorWellProps & ThemeProps<DefaultTheme>) => {
+const background = (props: IStyledColorWellProps & IStyledBaseProps) => {
   const blackAlpha = rgba(props.theme.palette.black as string, 0.9);
   const black = `linear-gradient(0deg, ${props.theme.palette.black}, ${blackAlpha} 1%, transparent 99%)`;
   const whiteAngle = `${props.theme.rtl ? -90 : 90}deg`;
@@ -26,6 +28,7 @@ const background = (props: IStyledColorWellProps & ThemeProps<DefaultTheme>) => 
   return `${black}, ${white}, ${color}`;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledColorWell = styled.div.attrs<IStyledColorWellProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

@@ -6,18 +6,14 @@
  */
 
 import { TooltipDialog } from '@zendeskgarden/react-modals';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.colordialog_tooltipdialog';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 /**
  * 1. Override default TooltipDialog styling
  */
-export const StyledTooltipDialog = styled(TooltipDialog as any).attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledTooltipDialog = styled(TooltipDialog as any)`
   /* stylelint-disable declaration-no-important */
   width: auto !important; /* [1] */
   /* stylelint-enable declaration-no-important */

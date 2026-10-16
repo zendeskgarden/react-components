@@ -6,14 +6,16 @@
  */
 
 import { Field } from '@zendeskgarden/react-forms';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_hex_field';
 
 /**
  * 1. IE11 reset.
  */
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledHexField = styled(Field as unknown as 'div').attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

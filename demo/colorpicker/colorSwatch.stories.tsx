@@ -6,14 +6,13 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ColorSwatch } from '@zendeskgarden/react-colorpickers';
-import React from 'react';
 import { useArgs } from 'storybook/preview-api';
 
+import { ColorSwatch } from '../../src/index';
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 
 export default {
-  title: 'Packages/Colorpickers/ColorSwatch',
+  title: 'Components/Colorpickers/ColorSwatch',
   component: ColorSwatch,
   args: {
     colors: COLORS,

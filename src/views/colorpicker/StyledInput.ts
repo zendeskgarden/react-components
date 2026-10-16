@@ -6,11 +6,13 @@
  */
 
 import { Input } from '@zendeskgarden/react-forms';
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_input';
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledInput = styled(Input as any).attrs({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

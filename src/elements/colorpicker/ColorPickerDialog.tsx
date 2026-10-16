@@ -8,10 +8,8 @@
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { Button } from '@zendeskgarden/react-buttons';
 import { PLACEMENT } from '@zendeskgarden/react-modals';
-import { DEFAULT_THEME, useText } from '@zendeskgarden/react-theming';
-import Chevron from '@zendeskgarden/svg-icons/src/16/chevron-down-stroke.svg';
 import PropTypes from 'prop-types';
-import React, {
+import {
   useState,
   useRef,
   useEffect,
@@ -21,15 +19,17 @@ import React, {
   ReactElement
 } from 'react';
 import { useTheme } from 'styled-components';
+import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
-import {
-  StyledButton,
-  StyledButtonPreview,
-  StyledTooltipDialog,
-  StyledTooltipBody
-} from '../../styled';
-import { IColor, IColorPickerDialogProps } from '../../types';
-import { ColorPicker } from '../ColorPicker';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { useText } from '../../theming/utils/useText';
+import { IColor, IColorPickerDialogProps } from '../../types/elements';
+import { StyledButton } from '../../views/colorpicker/StyledButton';
+import { StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
+import { StyledTooltipBody } from '../../views/colorpicker/StyledTooltipBody';
+import { StyledTooltipDialog } from '../../views/colorpicker/StyledTooltipDialog';
+import { COMPONENT_IDS } from '../utils';
+import { ColorPicker } from './ColorPicker';
 
 /**
  * @extends HTMLAttributes<HTMLDivElement>
@@ -141,8 +141,13 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
           }}
           aria-label={ariaLabelText}
           {...props}
+          data-garden-id={COMPONENT_IDS['colorpickers.colordialog_tooltipdialog']}
+          data-garden-version={PACKAGE_VERSION}
         >
-          <StyledTooltipBody>
+          <StyledTooltipBody
+            data-garden-id={COMPONENT_IDS['colorpickers.colordialog_tooltipdialog_body']}
+            data-garden-version={PACKAGE_VERSION}
+          >
             <ColorPicker
               autofocus
               color={color}

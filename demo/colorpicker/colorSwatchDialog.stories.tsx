@@ -6,17 +6,16 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ColorSwatchDialog } from '@zendeskgarden/react-colorpickers';
-import React from 'react';
 import { action } from 'storybook/actions';
 import { useArgs } from 'storybook/preview-api';
 
+import { ColorSwatchDialog } from '../../src/index';
 import { ColorSwatchDialogStory } from './stories/ColorSwatchDialogStory';
 import { COLOR_SWATCH_COLORS as COLORS } from './stories/data';
 type Story = StoryObj<typeof ColorSwatchDialogStory>;
 
 export default {
-  title: 'Packages/Colorpickers/ColorSwatchDialog',
+  title: 'Components/Colorpickers/ColorSwatchDialog',
   component: ColorSwatchDialog,
   args: {
     buttonProps: {

@@ -5,9 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles, getColor } from '@zendeskgarden/react-theming';
 import { stripUnit } from 'polished';
-import styled, { DefaultTheme, ThemeProps, css } from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledBaseProps } from '../../types/views';
 
 const COMPONENT_ID = 'colorpickers.colorpicker_colorwell_thumb';
 
@@ -16,7 +19,7 @@ interface IStyledSaturationPointerProps {
   $left: number;
 }
 
-const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, hue: 'white' });
   const boxShadow = `${theme.shadows.xs(getColor({ theme, hue: 'black' }))}`;
 
@@ -26,7 +29,7 @@ const colorStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
-const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
+const sizeStyles = ({ theme }: IStyledBaseProps) => {
   const borderWidth = (stripUnit(theme.borderWidths.sm) as number) * 2;
   const size = theme.space.base * 5;
   const translateValue = size / -2;
@@ -40,6 +43,7 @@ const sizeStyles = ({ theme }: ThemeProps<DefaultTheme>) => {
   `;
 };
 
+// MIGRATE(component-ids): .attrs with non-data props — move them to the element JSX, after the last spread
 export const StyledColorWellThumb = styled.div.attrs<IStyledSaturationPointerProps>(props => ({
   'data-garden-id': COMPONENT_ID,
   'data-garden-version': PACKAGE_VERSION,

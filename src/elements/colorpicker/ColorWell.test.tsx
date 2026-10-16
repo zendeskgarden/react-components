@@ -5,9 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { render, renderRtl, screen } from 'garden-test-utils';
-import React from 'react';
+import { screen } from '@testing-library/react';
 
+import { RTL_THEME, render } from '../../test/render';
 import { ColorWell } from './ColorWell';
 
 describe('Saturation', () => {
@@ -27,12 +27,15 @@ describe('Saturation', () => {
   });
 
   it('initializes thumb on position respective to the current saturation and lightness in RTL', () => {
-    renderRtl(
+    render(
       <ColorWell
         hue={184.44444444444443}
         saturation={53.99999999999999}
         lightness={19.607843137254903}
-      />
+      />,
+      {
+        theme: RTL_THEME
+      }
     );
 
     const thumb = screen.getByTestId('colorwell-thumb');

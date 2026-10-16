@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { componentStyles } from '@zendeskgarden/react-theming';
 import styled from 'styled-components';
 
-const COMPONENT_ID = 'colorpickers.colorpicker_input_group';
+import { componentStyles } from '../../theming/utils/componentStyles';
 
-export const StyledInputGroup = styled.div.attrs({
-  'data-garden-id': COMPONENT_ID,
-  'data-garden-version': PACKAGE_VERSION
-})`
+export const StyledInputGroup = styled.div`
   display: flex;
   justify-content: space-between;
 
