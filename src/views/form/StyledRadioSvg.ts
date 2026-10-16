@@ -6,9 +6,9 @@
  */
 
 import styled from 'styled-components';
-import CircleIcon from 'svg-icons-legacy/src/12/circle-sm-fill.svg';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import CircleIcon from './assets/radio-circle.svg';
 import { StyledRadioInput } from './StyledRadioInput';
 import { StyledRadioLabel } from './StyledRadioLabel';
 

@@ -67,6 +67,27 @@ describe('Checkbox', () => {
     expect(getByTestId('checkbox')).toHaveAttribute('type', 'checkbox');
   });
 
+  it.each([
+    ['check', 'forms.check_svg', 'm3 6 2 2 4-4'],
+    ['dash', 'forms.dash_svg', 'M3 6h6']
+  ])('renders the %s glyph', (_, id, d) => {
+    const { container } = render(
+      <Field>
+        <Checkbox>
+          <Field.Label>label</Field.Label>
+        </Checkbox>
+      </Field>
+    );
+    const svg = container.querySelector(`[data-garden-id="${id}"]`)!;
+    const path = svg.querySelector('path')!;
+
+    expect(svg).toHaveAttribute('viewBox', '0 0 12 12');
+    expect(path).toHaveAttribute('d', d);
+    expect(path).toHaveAttribute('fill', 'none');
+    expect(path).toHaveAttribute('stroke-width', '2');
+    expect(path).toHaveAttribute('stroke-linecap', 'round');
+  });
+
   describe('styling', () => {
     const renderCheckbox = (isCompact?: boolean) =>
       render(

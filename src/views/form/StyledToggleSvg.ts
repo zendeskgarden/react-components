@@ -6,9 +6,9 @@
  */
 
 import styled from 'styled-components';
-import CircleIcon from 'svg-icons-legacy/src/16/circle-sm-fill.svg';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import CircleIcon from './assets/toggle-circle.svg';
 
 export const StyledToggleSvg = styled(CircleIcon)`
   transition: all 0.15s ease-in-out;

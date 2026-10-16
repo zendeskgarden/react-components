@@ -6,9 +6,9 @@
  */
 
 import styled from 'styled-components';
-import CheckIcon from 'svg-icons-legacy/src/12/check-sm-fill.svg';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import CheckIcon from './assets/checkbox-check.svg';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 

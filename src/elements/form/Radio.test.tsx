@@ -56,6 +56,23 @@ describe('Radio', () => {
     expect(getByTestId('radio')).toHaveAttribute('type', 'radio');
   });
 
+  it('renders the dot glyph', () => {
+    const { container } = render(
+      <Field>
+        <Radio>
+          <Field.Label>label</Field.Label>
+        </Radio>
+      </Field>
+    );
+    const svg = container.querySelector('label > svg')!;
+    const circle = svg.querySelector('circle')!;
+
+    expect(svg).toHaveAttribute('viewBox', '0 0 12 12');
+    expect(circle).toHaveAttribute('cx', '6');
+    expect(circle).toHaveAttribute('cy', '6');
+    expect(circle).toHaveAttribute('r', '2');
+  });
+
   describe('styling', () => {
     const renderRadio = (theme?: IGardenTheme) =>
       render(

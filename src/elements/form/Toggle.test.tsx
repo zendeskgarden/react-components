@@ -65,6 +65,23 @@ describe('Toggle', () => {
     expect(getByTestId('toggle')).toHaveAttribute('type', 'checkbox');
   });
 
+  it('renders the thumb glyph', () => {
+    const { container } = render(
+      <Field>
+        <Toggle>
+          <Field.Label>label</Field.Label>
+        </Toggle>
+      </Field>
+    );
+    const svg = container.querySelector('label > svg')!;
+    const circle = svg.querySelector('circle')!;
+
+    expect(svg).toHaveAttribute('viewBox', '0 0 16 16');
+    expect(circle).toHaveAttribute('cx', '8');
+    expect(circle).toHaveAttribute('cy', '8');
+    expect(circle).toHaveAttribute('r', '6');
+  });
+
   it('renders the track and thumb colors', () => {
     const { getByTestId } = render(
       <Field>

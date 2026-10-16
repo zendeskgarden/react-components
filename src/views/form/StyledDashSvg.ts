@@ -6,9 +6,9 @@
  */
 
 import styled from 'styled-components';
-import DashIcon from 'svg-icons-legacy/src/12/dash-fill.svg';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import DashIcon from './assets/checkbox-dash.svg';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
