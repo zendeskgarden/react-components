@@ -1,0 +1,189 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
+import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import PropTypes from 'prop-types';
+import {
+  CSSProperties,
+  MouseEventHandler,
+  forwardRef,
+  useContext,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
+import { createPortal } from 'react-dom';
+import { ThemeContext } from 'styled-components';
+
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { IListboxProps } from '../../types/elements';
+import { StyledFloatingListbox } from '../../views/dropdown/StyledFloatingListbox';
+import { StyledListbox } from '../../views/dropdown/StyledListbox';
+import { COMPONENT_IDS } from '../utils';
+
+export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
+  (
+    {
+      appendToNode,
+      children,
+      isCompact,
+      isExpanded,
+      maxHeight,
+      minHeight,
+      onMouseDown,
+      triggerRef,
+      zIndex,
+      ...props
+    },
+    ref
+  ) => {
+    const floatingRef = useRef<HTMLDivElement>(null);
+    const isMountedRef = useRef(true);
+    const [isVisible, setIsVisible] = useState(false);
+    const [availableHeight, setAvailableHeight] = useState<number>();
+    const [width, setWidth] = useState<number>();
+    /* istanbul ignore next */
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const {
+      refs,
+      placement,
+      update,
+      floatingStyles: { transform }
+    } = useFloating<HTMLElement>({
+      elements: { reference: triggerRef?.current, floating: floatingRef?.current },
+      placement: 'bottom-start',
+      middleware: [
+        offset(theme.space.base),
+        flip(),
+        size({
+          apply: ({ rects, availableHeight: nextAvailableHeight }) => {
+            /* istanbul ignore if */
+            if (rects.reference.width > 0 && isMountedRef.current) {
+              /**
+               * Round to whole pixels and skip no-op updates. At high browser
+               * zoom, subpixel measurements oscillate between Floating UI
+               * updates; writing them straight to state causes a render loop
+               * that presents as listbox flicker.
+               */
+              const nextWidth = Math.round(rects.reference.width);
+
+              setWidth(previous => (previous === nextWidth ? previous : nextWidth));
+
+              if (!(minHeight === null || minHeight === 'fit-content')) {
+                const nextMaxHeight = Math.max(0, Math.floor(nextAvailableHeight));
+
+                setAvailableHeight(previous =>
+                  previous === nextMaxHeight ? previous : nextMaxHeight
+                );
+              }
+            }
+          }
+        })
+      ]
+    });
+    /* Prevent listbox close on scrollbar click */
+    const handleMouseDown: MouseEventHandler = event => event.preventDefault();
+
+    useEffect(() => {
+      isMountedRef.current = true;
+
+      return () => {
+        isMountedRef.current = false;
+      };
+    }, []);
+
+    useEffect(() => {
+      // Only allow listbox positioning updates on expanded combobox.
+      let cleanup: () => void;
+
+      if (isExpanded && refs.reference.current && refs.floating.current) {
+        cleanup = autoUpdate(refs.reference.current, refs.floating.current, update, {
+          elementResize: typeof ResizeObserver === 'function'
+        });
+      }
+
+      return () => cleanup && cleanup();
+    }, [isExpanded, refs.reference, refs.floating, update]);
+
+    useEffect(() => {
+      let timeout: NodeJS.Timeout;
+
+      /* istanbul ignore else */
+      if (isExpanded) {
+        if (isMountedRef.current) {
+          setIsVisible(true);
+        }
+      } else {
+        timeout = setTimeout(() => {
+          if (isMountedRef.current) {
+            setIsVisible(false);
+            setAvailableHeight(undefined);
+          }
+        }, 200 /* match menu opacity transition */);
+      }
+
+      return () => clearTimeout(timeout);
+    }, [isExpanded]);
+
+    const listboxStyle: CSSProperties = {};
+
+    if (availableHeight !== undefined) {
+      /**
+       * Constrain with `max-height` rather than a fixed `height` so the listbox
+       * shrinks naturally when options change, without a state reset cycle.
+       */
+      listboxStyle.maxHeight = maxHeight
+        ? `min(${maxHeight}, ${availableHeight}px)`
+        : availableHeight;
+    }
+
+    const Node = (
+      <StyledFloatingListbox
+        data-garden-animate={isVisible ? 'true' : 'false'}
+        $isHidden={!isExpanded}
+        $position={placement === 'bottom-start' ? 'bottom' : 'top'}
+        style={{ transform, width }}
+        $zIndex={zIndex}
+        data-garden-id={COMPONENT_IDS['dropdowns.combobox.floating']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={floatingRef}
+      >
+        <StyledListbox
+          $isCompact={isCompact}
+          $maxHeight={maxHeight}
+          $minHeight={minHeight}
+          aria-hidden={
+            // Hide from NVDA when collapsed to prevent incorrect / missing announcements caused by animation
+            !isExpanded
+          }
+          onMouseDown={composeEventHandlers(onMouseDown, handleMouseDown)}
+          style={listboxStyle}
+          {...props}
+          data-garden-id={COMPONENT_IDS['dropdowns.combobox.listbox']}
+          data-garden-version={PACKAGE_VERSION}
+          ref={ref}
+        >
+          {!!isVisible && children}
+        </StyledListbox>
+      </StyledFloatingListbox>
+    );
+
+    return appendToNode ? createPortal(Node, appendToNode) : Node;
+  }
+);
+
+Listbox.displayName = 'Listbox';
+
+Listbox.propTypes = {
+  appendToNode: PropTypes.any,
+  isCompact: PropTypes.bool,
+  isExpanded: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  triggerRef: PropTypes.any.isRequired,
+  zIndex: PropTypes.number
+};

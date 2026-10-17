@@ -1,0 +1,42 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import styled, { css } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
+import type { IStyledOptionMetaProps } from '../../types/views';
+
+const colorStyles = ({ theme, $isDisabled }: IStyledOptionMetaProps) => {
+  const variable = $isDisabled ? 'foreground.disabled' : 'foreground.subtle';
+  const color = getColor({ theme, variable });
+
+  return css`
+    color: ${color};
+  `;
+};
+
+const sizeStyles = (props: IStyledOptionMetaProps) => {
+  const lineHeight = props.theme.lineHeights.sm;
+  const fontSize = props.theme.fontSizes.sm;
+
+  return css`
+    line-height: ${lineHeight};
+    font-size: ${fontSize};
+  `;
+};
+
+export const StyledOptionMeta = styled.div<IStyledOptionMetaProps>`
+  transition: color 0.25s ease-in-out;
+  font-weight: ${props => props.theme.fontWeights.regular};
+
+  ${sizeStyles};
+
+  ${colorStyles};
+
+  ${componentStyles};
+`;

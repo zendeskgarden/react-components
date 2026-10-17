@@ -7,8 +7,8 @@
 
 import type { DefaultTheme } from 'styled-components';
 
-import type { IGardenTheme } from '../theming/types';
-import type { Size } from './elements';
+import type { IGardenTheme, MenuPosition } from '../theming/types';
+import type { IListboxProps, OptionType, Size } from './elements';
 
 //#region breadcrumb
 export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
@@ -20,6 +20,41 @@ export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
 export interface IStyledRangeProps extends IStyledBaseProps {
   $isOpaque?: boolean;
   hasLowerTrack?: boolean;
+}
+//#endregion
+
+//#region dropdown
+export interface IStyledFloatingListboxProps extends IStyledBaseProps {
+  $isHidden?: boolean;
+  $position: MenuPosition;
+  $zIndex?: IListboxProps['zIndex'];
+}
+export interface IStyledListboxProps extends IStyledBaseProps {
+  $isCompact?: boolean;
+  $maxHeight?: IListboxProps['maxHeight'];
+  $minHeight?: IListboxProps['minHeight'];
+}
+export interface IStyledOptGroupProps extends IStyledBaseProps {
+  $isCompact?: boolean;
+}
+export interface IStyledOptionProps extends IStyledBaseProps {
+  $isActive?: boolean;
+  $isCompact?: boolean;
+  $type?: OptionType | 'header' | 'group';
+}
+export interface IStyledOptionIconProps extends IStyledBaseProps {
+  $isDisabled?: boolean;
+  $type?: OptionType;
+}
+export interface IStyledOptionMetaProps extends IStyledBaseProps {
+  $isDisabled?: boolean;
+}
+export interface IStyledOptionSelectionIconProps extends IStyledBaseProps {
+  $isCompact?: boolean;
+}
+export interface IStyledOptionTypeIconProps extends IStyledBaseProps {
+  $isCompact?: boolean;
+  $type?: OptionType | 'header';
 }
 //#endregion
 

@@ -41,6 +41,17 @@ export { Draggable } from './elements/draggable/Draggable';
 export { DraggableList } from './elements/draggable/DraggableList';
 export { Dropzone } from './elements/draggable/Dropzone';
 
+/* dropdown */
+export { Combobox } from './elements/dropdown/Combobox';
+export { Field as ComboboxField } from './elements/dropdown/Field';
+export { Item } from './elements/dropdown/Item';
+export { ItemGroup } from './elements/dropdown/ItemGroup';
+export { Menu } from './elements/dropdown/Menu';
+export { OptGroup } from './elements/dropdown/OptGroup';
+export { Option } from './elements/dropdown/Option';
+export { Separator } from './elements/dropdown/Separator';
+export { Tag as ComboboxTag } from './elements/dropdown/Tag';
+
 /* form */
 export { Checkbox } from './elements/form/Checkbox';
 export { ClearableInput } from './elements/form/ClearableInput';
@@ -198,6 +209,10 @@ export {
   type IColorPickerProps,
   type IColorSwatchDialogProps,
   type IColorSwatchProps,
+  type IComboboxLabelProps,
+  type IComboboxMessageProps,
+  type IComboboxProps,
+  type IComboboxTagProps,
   type IDatePickerProps,
   type IDatePickerRangeProps,
   type IDotsProps,
@@ -224,13 +239,18 @@ export {
   type IInlineProps,
   type IInputGroupProps,
   type IInputProps,
+  type IItemGroupProps,
+  type IItemProps,
   type IKbdProps,
   type ILabelProps,
   type ILabeledColor,
   type IMediaInputProps,
+  type IMenuProps,
   type IMessageProps,
   type IModalProps,
   type INotificationProps,
+  type IOptGroupProps,
+  type IOptionProps,
   type IOrderedListProps,
   type IPaginationProps,
   type IPaneProviderProps,
@@ -239,6 +259,8 @@ export {
   type IRadioProps,
   type IRangeProps,
   type ISelectProps,
+  type ISelectedItem,
+  type ISelectedOption,
   type ISheetFooterProps,
   type ISheetProps,
   type ISkeletonProps,
@@ -279,5 +301,6 @@ export {
   type ITypescaleProps as IXXXLProps,
   type IUnorderedListProps,
   type IWellProps,
+  type OptionValue,
   type PageType
 } from './types/elements';
