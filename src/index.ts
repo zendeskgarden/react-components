@@ -26,6 +26,12 @@ export { SplitButton } from './elements/button/SplitButton';
 export { ToggleButton } from './elements/button/ToggleButton';
 export { ToggleIconButton } from './elements/button/ToggleIconButton';
 
+/* colorpicker */
+export { ColorPicker } from './elements/colorpicker/ColorPicker';
+export { ColorPickerDialog } from './elements/colorpicker/ColorPickerDialog';
+export { ColorSwatch } from './elements/colorpicker/ColorSwatch';
+export { ColorSwatchDialog } from './elements/colorpicker/ColorSwatchDialog';
+
 /* datepicker */
 export { DatePicker } from './elements/datepicker/DatePicker';
 export { DatePickerRange } from './elements/datepicker/DatePickerRange';
@@ -187,6 +193,11 @@ export {
   type ICodeBlockProps,
   type ICodeProps,
   type IColProps,
+  type IColor,
+  type IColorPickerDialogProps,
+  type IColorPickerProps,
+  type IColorSwatchDialogProps,
+  type IColorSwatchProps,
   type IDatePickerProps,
   type IDatePickerRangeProps,
   type IDotsProps,
@@ -215,6 +226,7 @@ export {
   type IInputProps,
   type IKbdProps,
   type ILabelProps,
+  type ILabeledColor,
   type IMediaInputProps,
   type IMessageProps,
   type IModalProps,
