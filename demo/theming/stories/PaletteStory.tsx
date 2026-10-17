@@ -5,12 +5,15 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
-import { IGardenTheme, PALETTE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { readableColor } from 'polished';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
+
+import PALETTE from '../../../src/theming/elements/palette';
+import type { IGardenTheme } from '../../../src/theming/types';
+import { getColor } from '../../../src/theming/utils/getColor';
+import mediaQuery from '../../../src/theming/utils/mediaQuery';
 
 const StyledColorHex = styled.figcaption`
   margin-left: auto;
@@ -95,7 +98,7 @@ interface IArgs {
   palette: IGardenTheme['palette'];
 }
 
-export const PaletteStory: StoryFn<IArgs> = ({ palette }) => {
+export const PaletteStory = ({ palette }: IArgs) => {
   const hues = Object.keys(palette).filter(
     hue => hue !== 'black' && hue !== 'white' && hue !== 'product'
   );

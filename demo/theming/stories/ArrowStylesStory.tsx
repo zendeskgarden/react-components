@@ -5,10 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { arrowStyles, getColor, ArrowPosition } from '@zendeskgarden/react-theming';
-import React from 'react';
 import styled from 'styled-components';
+
+import type { ArrowPosition } from '../../../src/theming/types';
+import arrowStyles from '../../../src/theming/utils/arrowStyles';
+import { getColor } from '../../../src/theming/utils/getColor';
 
 interface IArgs {
   position: ArrowPosition;
@@ -41,7 +42,7 @@ const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
     })};
 `;
 
-export const ArrowStylesStory: StoryFn<IArgs> = ({ isAnimated, ...args }) => (
+export const ArrowStylesStory = ({ isAnimated, ...args }: IArgs) => (
   <div style={{ position: 'relative', zIndex: 0 }}>
     <StyledDiv data-garden-animate={isAnimated} {...args} />
   </div>

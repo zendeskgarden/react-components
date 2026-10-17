@@ -6,9 +6,8 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { DEFAULT_THEME } from '@zendeskgarden/react-theming';
-import React from 'react';
 
+import DEFAULT_THEME from '../../src/theming/elements/theme';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
 import { GetColorStory } from './stories/GetColorStory';

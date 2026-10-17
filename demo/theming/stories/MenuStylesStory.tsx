@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { ToggleButton } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
-import { menuStyles, arrowStyles, MenuPosition, ArrowPosition } from '@zendeskgarden/react-theming';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
+
+import type { MenuPosition, ArrowPosition } from '../../../src/theming/types';
+import arrowStyles from '../../../src/theming/utils/arrowStyles';
+import menuStyles from '../../../src/theming/utils/menuStyles';
 
 const TOP: Record<string, string> = {
   right: 'calc(-50% - 8px)',
@@ -65,7 +67,7 @@ interface IArgs {
   isAnimated: boolean;
 }
 
-export const MenuStylesStory: StoryFn<IArgs> = ({ isAnimated, position }) => {
+export const MenuStylesStory = ({ isAnimated, position }: IArgs) => {
   const [isHidden, setIsHidden] = useState(true);
 
   const style = {

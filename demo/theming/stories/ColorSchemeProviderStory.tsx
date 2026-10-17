@@ -5,28 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { IconButton } from '@zendeskgarden/react-buttons';
 import { IMenuProps, Item, ItemGroup, Menu } from '@zendeskgarden/react-dropdowns';
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { Grid } from '@zendeskgarden/react-grid';
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  getColor,
-  IColorSchemeProviderProps,
-  IGardenTheme,
-  useColorScheme,
-  useWindow
-} from '@zendeskgarden/react-theming';
 import { Tooltip } from '@zendeskgarden/react-tooltips';
 import { Code } from '@zendeskgarden/react-typography';
-import SystemIcon from '@zendeskgarden/svg-icons/src/16/monitor-stroke.svg';
-import DarkIcon from '@zendeskgarden/svg-icons/src/16/moon-stroke.svg';
-import LightIcon from '@zendeskgarden/svg-icons/src/16/sun-stroke.svg';
-import ClearIcon from '@zendeskgarden/svg-icons/src/16/x-stroke.svg';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { ThemeProvider, useTheme } from 'styled-components';
+import SystemIcon from 'svg-icons-legacy/src/16/monitor-stroke.svg';
+import DarkIcon from 'svg-icons-legacy/src/16/moon-stroke.svg';
+import LightIcon from 'svg-icons-legacy/src/16/sun-stroke.svg';
+import ClearIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
+
+import { ColorSchemeProvider } from '../../../src/theming/elements/ColorSchemeProvider';
+import type {
+  ColorScheme,
+  IColorSchemeProviderProps,
+  IGardenTheme
+} from '../../../src/theming/types';
+import { getColor } from '../../../src/theming/utils/getColor';
+import { useColorScheme } from '../../../src/theming/utils/useColorScheme';
+import { useWindow } from '../../../src/theming/utils/useWindow';
 
 const StyledGrid = styled(Grid)`
   background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
@@ -122,10 +122,10 @@ const Content = ({
   );
 };
 
-export const ColorSchemeProviderStory: StoryFn<IColorSchemeProviderProps> = ({
+export const ColorSchemeProviderStory = ({
   colorSchemeKey,
   initialColorScheme
-}) => (
+}: IColorSchemeProviderProps) => (
   <ColorSchemeProvider
     key={initialColorScheme}
     colorSchemeKey={colorSchemeKey}

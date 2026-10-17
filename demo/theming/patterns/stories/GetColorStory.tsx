@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
 import { Button } from '@zendeskgarden/react-buttons';
 import { Grid } from '@zendeskgarden/react-grid';
 import { Dots } from '@zendeskgarden/react-loaders';
-import { getColor } from '@zendeskgarden/react-theming';
 import { Code, Paragraph, Span } from '@zendeskgarden/react-typography';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
+
+import { getColor } from '../../../../src/theming/utils/getColor';
 
 const StyledColor = styled.div`
   display: inline-block;
@@ -21,7 +21,7 @@ const StyledColor = styled.div`
   height: 100px;
 `;
 
-export const GetColorStory: StoryFn = () => {
+export const GetColorStory = () => {
   const theme = useTheme();
   const [initialColor, setInitialColor] = useState(
     getColor({ theme, variable: 'foreground.default' })
