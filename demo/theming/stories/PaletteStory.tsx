@@ -5,15 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
 import { readableColor } from 'polished';
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import PALETTE from '../../../src/theming/elements/palette';
-import type { IGardenTheme } from '../../../src/theming/types';
-import { getColor } from '../../../src/theming/utils/getColor';
-import mediaQuery from '../../../src/theming/utils/mediaQuery';
+import { Grid, IGardenTheme, PALETTE, getColor, mediaQuery } from '../../../src/index';
 
 const StyledColorHex = styled.figcaption`
   margin-left: auto;
@@ -103,7 +99,7 @@ export const PaletteStory = ({ palette }: IArgs) => {
     hue => hue !== 'black' && hue !== 'white' && hue !== 'product'
   );
   // Convert the given list of `hues` to column pairs
-  const rows = hues.reduce((retVal: string[][], currentValue, index, array) => {
+  const rows = hues.reduce((retVal: string[][], _currentValue, index, array) => {
     if (index % 2 === 0) {
       const pair: string[] = array.slice(index, index + 2);
 
@@ -117,7 +113,7 @@ export const PaletteStory = ({ palette }: IArgs) => {
     <StyledColorPalette>
       <Grid>
         {rows.map((row, index) => {
-          const hue1 = row[0];
+          const hue1 = row[0]!;
           const hue2 = row[1];
 
           return (

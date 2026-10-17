@@ -7,13 +7,11 @@
 
 import type { StoryObj } from '@storybook/react-vite';
 
-import PALETTE from '../../src/theming/elements/palette';
-import DEFAULT_THEME from '../../src/theming/elements/theme';
-import { ThemeProvider } from '../../src/theming/elements/ThemeProvider';
+import { DEFAULT_THEME, PALETTE, ThemeProvider } from '../../src/index';
 import { PaletteStory } from './stories/PaletteStory';
 
 export default {
-  title: 'Packages/Theming/ThemeProvider',
+  title: 'Theming/ThemeProvider',
   component: ThemeProvider,
 
   subcomponents: {

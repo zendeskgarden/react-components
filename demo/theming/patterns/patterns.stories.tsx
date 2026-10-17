@@ -10,10 +10,10 @@ import type { StoryObj } from '@storybook/react-vite';
 import { GetColorStory } from './stories/GetColorStory';
 
 export default {
-  title: 'Packages/Theming/[patterns]'
+  title: 'Theming/Patterns'
 };
 
 export const GetColorTest: StoryObj<typeof GetColorStory> = {
-  render: args => <GetColorStory {...args} />,
+  render: () => <GetColorStory />,
   name: 'getColor test'
 };

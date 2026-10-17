@@ -7,9 +7,7 @@
 
 import styled from 'styled-components';
 
-import type { ArrowPosition } from '../../../src/theming/types';
-import arrowStyles from '../../../src/theming/utils/arrowStyles';
-import { getColor } from '../../../src/theming/utils/getColor';
+import { ArrowPosition, arrowStyles, getColor } from '../../../src/index';
 
 interface IArgs {
   position: ArrowPosition;

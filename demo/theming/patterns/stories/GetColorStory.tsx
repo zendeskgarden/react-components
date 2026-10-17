@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button } from '@zendeskgarden/react-buttons';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Dots } from '@zendeskgarden/react-loaders';
-import { Code, Paragraph, Span } from '@zendeskgarden/react-typography';
 import { useEffect, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { getColor } from '../../../../src/theming/utils/getColor';
+import { Button, Code, Dots, Grid, Paragraph, Span, getColor } from '../../../../src/index';
 
 const StyledColor = styled.div`
   display: inline-block;
@@ -68,7 +64,7 @@ export const GetColorStory = () => {
       updateColor(getColor({ theme, hue, dark: { hue } }));
       updateColor(getColor({ theme, hue, light: { hue } }));
 
-      const shades = Object.keys(theme.palette[hue]);
+      const shades = Object.keys(theme.palette[hue]!);
 
       shades.forEach(shade => {
         const parameters = { hue, shade: parseInt(shade, 10) };

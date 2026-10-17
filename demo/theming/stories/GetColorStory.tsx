@@ -5,15 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
-import { Tag } from '@zendeskgarden/react-tags';
-import { LG, SM } from '@zendeskgarden/react-typography';
 import { opacify } from 'color2k';
 import styled, { useTheme } from 'styled-components';
 
-import type { ColorParameters, IGardenTheme } from '../../../src/theming/types';
-import { getCheckeredBackground } from '../../../src/theming/utils/getCheckeredBackground';
-import { getColor } from '../../../src/theming/utils/getColor';
+import {
+  ColorParameters,
+  Grid,
+  IGardenTheme,
+  LG,
+  SM,
+  Tag,
+  getCheckeredBackground,
+  getColor
+} from '../../../src/index';
 
 const StyledDiv = styled.div.attrs<{ $background: string }>(p => ({
   style: { background: p.$background }

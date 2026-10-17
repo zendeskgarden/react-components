@@ -5,14 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { ToggleButton } from '@zendeskgarden/react-buttons';
-import { Grid } from '@zendeskgarden/react-grid';
 import { useState } from 'react';
 import styled from 'styled-components';
 
-import type { MenuPosition, ArrowPosition } from '../../../src/theming/types';
-import arrowStyles from '../../../src/theming/utils/arrowStyles';
-import menuStyles from '../../../src/theming/utils/menuStyles';
+import {
+  ArrowPosition,
+  Grid,
+  MenuPosition,
+  ToggleButton,
+  arrowStyles,
+  menuStyles
+} from '../../../src/index';
 
 const TOP: Record<string, string> = {
   right: 'calc(-50% - 8px)',

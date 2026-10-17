@@ -7,11 +7,11 @@
 
 import type { StoryObj } from '@storybook/react-vite';
 
-import { ColorSchemeProvider } from '../../src/theming/elements/ColorSchemeProvider';
+import { ColorSchemeProvider } from '../../src/index';
 import { ColorSchemeProviderStory } from './stories/ColorSchemeProviderStory';
 
 export default {
-  title: 'Packages/Theming/ColorSchemeProvider',
+  title: 'Theming/ColorSchemeProvider',
   component: ColorSchemeProvider
 };
 

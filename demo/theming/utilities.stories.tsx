@@ -7,14 +7,14 @@
 
 import type { StoryObj } from '@storybook/react-vite';
 
-import DEFAULT_THEME from '../../src/theming/elements/theme';
+import { DEFAULT_THEME } from '../../src/index';
 import { ArrowStylesStory } from './stories/ArrowStylesStory';
 import { ARROW_POSITIONS, MENU_POSITIONS } from './stories/data';
 import { GetColorStory } from './stories/GetColorStory';
 import { MenuStylesStory } from './stories/MenuStylesStory';
 
 export default {
-  title: 'Packages/Theming/utilities'
+  title: 'Theming/Utilities'
 };
 
 export const ArrowStyles: StoryObj<typeof ArrowStylesStory> = {

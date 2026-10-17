@@ -1,6 +1,5 @@
 import { Meta, ArgTypes, Canvas, Story, Markdown } from '@storybook/addon-docs/blocks';
-import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import README from '../README.md';
+import { DEFAULT_THEME, PALETTE, ThemeProvider } from '../../src/index';
 import * as Stories from './themeProvider.stories';
 
 <Meta of={Stories} />
@@ -22,5 +21,3 @@ import * as Stories from './themeProvider.stories';
 <Canvas>
   <Story of={Stories.Palette} />
 </Canvas>
-
-<Markdown>{README}</Markdown>
