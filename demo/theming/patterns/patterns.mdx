@@ -5,8 +5,8 @@ import * as Stories from './patterns.stories';
 
 # Patterns
 
-The following stories test the performance of the `getColor` and `getColorV8`
-functions. The original implementations used `JSON.stringify` for argument
+The following stories test the performance of the `getColor`
+function. The original implementations used `JSON.stringify` for argument
 memoization. The updated implementations, introduced in v9.0.1, use `WeakMap`
 object comparison to optimize performance.
 
@@ -14,10 +14,4 @@ object comparison to optimize performance.
 
 <Canvas>
   <Story of={Stories.GetColorTest} />
-</Canvas>
-
-## `getColorV8` test
-
-<Canvas>
-  <Story of={Stories.GetColorV8Test} />
 </Canvas>
