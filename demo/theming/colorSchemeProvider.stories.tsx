@@ -6,13 +6,12 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ColorSchemeProvider } from '@zendeskgarden/react-theming';
-import React from 'react';
 
+import { ColorSchemeProvider } from '../../src/index';
 import { ColorSchemeProviderStory } from './stories/ColorSchemeProviderStory';
 
 export default {
-  title: 'Packages/Theming/ColorSchemeProvider',
+  title: 'Theming/ColorSchemeProvider',
   component: ColorSchemeProvider
 };
 

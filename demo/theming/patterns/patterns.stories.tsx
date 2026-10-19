@@ -6,21 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import React from 'react';
 
 import { GetColorStory } from './stories/GetColorStory';
-import { GetColorV8Story } from './stories/GetColorV8Story';
 
 export default {
-  title: 'Packages/Theming/[patterns]'
+  title: 'Theming/Patterns'
 };
 
 export const GetColorTest: StoryObj<typeof GetColorStory> = {
-  render: args => <GetColorStory {...args} />,
+  render: () => <GetColorStory />,
   name: 'getColor test'
-};
-
-export const GetColorV8Test: StoryObj<typeof GetColorV8Story> = {
-  render: args => <GetColorV8Story {...args} />,
-  name: 'getColorV8 test'
 };

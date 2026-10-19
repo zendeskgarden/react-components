@@ -6,14 +6,14 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { ThemeProvider, DEFAULT_THEME, PALETTE } from '@zendeskgarden/react-theming';
-import React from 'react';
 
+import { DEFAULT_THEME, PALETTE, ThemeProvider } from '../../src/index';
 import { PaletteStory } from './stories/PaletteStory';
 
 export default {
-  title: 'Packages/Theming/ThemeProvider',
+  title: 'Theming/ThemeProvider',
   component: ThemeProvider,
+
   subcomponents: {
     DEFAULT_THEME,
     PALETTE

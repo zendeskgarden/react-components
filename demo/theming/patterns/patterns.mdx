@@ -1,0 +1,17 @@
+import { Meta, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as Stories from './patterns.stories';
+
+<Meta of={Stories} />
+
+# Patterns
+
+The following stories test the performance of the `getColor`
+function. The original implementation used `JSON.stringify` for argument
+memoization. The updated implementation, introduced in v9.0.1, uses `WeakMap`
+object comparison to optimize performance.
+
+## `getColor` test
+
+<Canvas>
+  <Story of={Stories.GetColorTest} />
+</Canvas>

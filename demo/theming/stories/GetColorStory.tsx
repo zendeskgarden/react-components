@@ -5,19 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Tag } from '@zendeskgarden/react-tags';
+import { opacify } from 'color2k';
+import styled, { useTheme } from 'styled-components';
+
 import {
   ColorParameters,
+  Grid,
   IGardenTheme,
+  LG,
+  SM,
+  Tag,
   getCheckeredBackground,
   getColor
-} from '@zendeskgarden/react-theming';
-import { LG, SM } from '@zendeskgarden/react-typography';
-import { opacify } from 'color2k';
-import React from 'react';
-import styled, { useTheme } from 'styled-components';
+} from '../../../src/index';
 
 const StyledDiv = styled.div.attrs<{ $background: string }>(p => ({
   style: { background: p.$background }
@@ -131,7 +131,7 @@ interface IArgs extends Omit<ColorParameters, 'theme'> {
   };
 }
 
-export const GetColorStory: StoryFn<IArgs> = ({
+export const GetColorStory = ({
   dark,
   hue,
   light,
@@ -140,7 +140,7 @@ export const GetColorStory: StoryFn<IArgs> = ({
   theme: _theme,
   transparency,
   variable
-}) => {
+}: IArgs) => {
   const parentTheme = useTheme();
   const theme = {
     ...parentTheme,

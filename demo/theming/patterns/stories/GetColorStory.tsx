@@ -5,14 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Button } from '@zendeskgarden/react-buttons';
-import { Grid } from '@zendeskgarden/react-grid';
-import { Dots } from '@zendeskgarden/react-loaders';
-import { getColor } from '@zendeskgarden/react-theming';
-import { Code, Paragraph, Span } from '@zendeskgarden/react-typography';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import styled, { useTheme } from 'styled-components';
+
+import { Button, Code, Dots, Grid, Paragraph, Span, getColor } from '../../../../src/index';
 
 const StyledColor = styled.div`
   display: inline-block;
@@ -21,7 +17,7 @@ const StyledColor = styled.div`
   height: 100px;
 `;
 
-export const GetColorStory: StoryFn = () => {
+export const GetColorStory = () => {
   const theme = useTheme();
   const [initialColor, setInitialColor] = useState(
     getColor({ theme, variable: 'foreground.default' })
@@ -68,7 +64,7 @@ export const GetColorStory: StoryFn = () => {
       updateColor(getColor({ theme, hue, dark: { hue } }));
       updateColor(getColor({ theme, hue, light: { hue } }));
 
-      const shades = Object.keys(theme.palette[hue]);
+      const shades = Object.keys(theme.palette[hue]!);
 
       shades.forEach(shade => {
         const parameters = { hue, shade: parseInt(shade, 10) };

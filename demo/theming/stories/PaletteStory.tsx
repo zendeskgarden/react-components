@@ -5,12 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { StoryFn } from '@storybook/react-vite';
-import { Grid } from '@zendeskgarden/react-grid';
-import { IGardenTheme, PALETTE, getColor, mediaQuery } from '@zendeskgarden/react-theming';
 import { readableColor } from 'polished';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styled from 'styled-components';
+
+import { Grid, IGardenTheme, PALETTE, getColor, mediaQuery } from '../../../src/index';
 
 const StyledColorHex = styled.figcaption`
   margin-left: auto;
@@ -95,12 +94,12 @@ interface IArgs {
   palette: IGardenTheme['palette'];
 }
 
-export const PaletteStory: StoryFn<IArgs> = ({ palette }) => {
+export const PaletteStory = ({ palette }: IArgs) => {
   const hues = Object.keys(palette).filter(
     hue => hue !== 'black' && hue !== 'white' && hue !== 'product'
   );
   // Convert the given list of `hues` to column pairs
-  const rows = hues.reduce((retVal: string[][], currentValue, index, array) => {
+  const rows = hues.reduce((retVal: string[][], _currentValue, index, array) => {
     if (index % 2 === 0) {
       const pair: string[] = array.slice(index, index + 2);
 
@@ -114,7 +113,7 @@ export const PaletteStory: StoryFn<IArgs> = ({ palette }) => {
     <StyledColorPalette>
       <Grid>
         {rows.map((row, index) => {
-          const hue1 = row[0];
+          const hue1 = row[0]!;
           const hue2 = row[1];
 
           return (
