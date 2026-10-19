@@ -1,0 +1,204 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import {
+  autoPlacement,
+  autoUpdate,
+  flip,
+  offset,
+  platform,
+  size,
+  useFloating
+} from '@floating-ui/react-dom';
+import PropTypes from 'prop-types';
+import { forwardRef, useContext, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ThemeContext } from 'styled-components';
+
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getArrowPosition } from '../../theming/utils/getArrowPosition';
+import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { getMenuPosition } from '../../theming/utils/getMenuPosition';
+import { IMenuListProps, DROPDOWN_PLACEMENT } from '../../types/elements';
+import { StyledFloatingMenu } from '../../views/dropdown/StyledFloatingMenu';
+import { StyledMenu } from '../../views/dropdown/StyledMenu';
+import { COMPONENT_IDS } from '../utils';
+
+const PLACEMENT_DEFAULT = 'bottom-start';
+
+/**
+ * @extends HTMLAttributes<HTMLUListElement>
+ */
+export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
+  (
+    {
+      appendToNode,
+      hasArrow,
+      isCompact,
+      isExpanded,
+      fallbackPlacements: _fallbackPlacements,
+      maxHeight = '400px',
+      minHeight,
+      placement: _placement = PLACEMENT_DEFAULT,
+      triggerRef,
+      zIndex = 1000,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const floatingRef = useRef<HTMLDivElement>(null);
+    const isMountedRef = useRef(true);
+    const [isVisible, setIsVisible] = useState(isExpanded);
+    const [height, setHeight] = useState<number>();
+    /* istanbul ignore next */
+    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(
+      theme,
+      _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,
+      _fallbackPlacements
+    );
+
+    const {
+      refs,
+      placement,
+      update,
+      floatingStyles: { transform }
+    } = useFloating<HTMLElement>({
+      platform: {
+        ...platform,
+        // Defers RTL to Garden
+        // References:
+        // - https://github.com/floating-ui/floating-ui/issues/1530
+        // - https://github.com/floating-ui/floating-ui/blob/master/packages/dom/src/platform/isRTL.ts#L3
+        isRTL: () => theme.rtl
+      },
+      elements: { reference: triggerRef?.current, floating: floatingRef?.current },
+      placement: floatingPlacement,
+      middleware: [
+        offset(theme.space.base * (hasArrow ? 2 : 1)),
+        _placement === 'auto' ? autoPlacement() : flip({ fallbackPlacements }),
+        size({
+          apply: ({ rects, availableHeight }) => {
+            /* istanbul ignore if */
+            if (!(minHeight === null || minHeight === 'fit-content')) {
+              if (rects.floating.height > availableHeight && isMountedRef.current) {
+                setHeight(availableHeight);
+              }
+            }
+          }
+        })
+      ]
+    });
+
+    useEffect(() => {
+      isMountedRef.current = true;
+
+      return () => {
+        isMountedRef.current = false;
+      };
+    }, []);
+
+    useEffect(() => {
+      // Only allow positioning updates on expanded menu.
+      let cleanup: () => void;
+
+      if (isExpanded && refs.reference.current && refs.floating.current) {
+        cleanup = autoUpdate(refs.reference.current, refs.floating.current, update, {
+          elementResize: typeof ResizeObserver === 'function'
+        });
+      }
+
+      return () => cleanup && cleanup();
+    }, [isExpanded, refs.reference, refs.floating, update]);
+
+    useEffect(() => {
+      let timeout: NodeJS.Timeout;
+
+      /* istanbul ignore else */
+      if (isExpanded) {
+        if (isMountedRef.current) {
+          setIsVisible(true);
+        }
+      } else {
+        timeout = setTimeout(() => {
+          if (isMountedRef.current) {
+            setIsVisible(false);
+            setHeight(undefined);
+          }
+        }, 200 /* match menu opacity transition */);
+      }
+
+      return () => clearTimeout(timeout);
+    }, [isExpanded]);
+
+    useEffect(
+      () => {
+        /* istanbul ignore if */
+        if (height) {
+          // Reset height on options change.
+          if (isMountedRef.current) {
+            setHeight(undefined);
+          }
+          update();
+        }
+      },
+      /* eslint-disable-line react-hooks/exhaustive-deps */ [
+        /* height, // prevent height update loop */
+        children,
+        update
+      ]
+    );
+
+    /**
+     * 1. Use whichever value is `false` first to prevent empty menu state
+     */
+    const Node = (
+      <StyledFloatingMenu
+        data-garden-animate={isVisible}
+        $isHidden={!isExpanded || !isVisible} /* [1] */
+        $position={getMenuPosition(placement)}
+        $zIndex={zIndex}
+        style={{ transform }}
+        data-garden-id={COMPONENT_IDS['dropdowns.menu.floating']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={floatingRef}
+      >
+        <StyledMenu
+          data-garden-animate-arrow={isVisible}
+          $arrowPosition={hasArrow ? getArrowPosition(theme, placement) : undefined}
+          $isCompact={isCompact}
+          $minHeight={minHeight}
+          $maxHeight={maxHeight}
+          style={{ height }}
+          {...props}
+          data-garden-id={COMPONENT_IDS['dropdowns.menu']}
+          data-garden-version={PACKAGE_VERSION}
+          ref={ref}
+        >
+          {!!isVisible && children}
+        </StyledMenu>
+      </StyledFloatingMenu>
+    );
+
+    return appendToNode ? createPortal(Node, appendToNode) : Node;
+  }
+);
+
+MenuList.displayName = 'MenuList';
+
+MenuList.propTypes = {
+  appendToNode: PropTypes.any,
+  hasArrow: PropTypes.bool,
+  isCompact: PropTypes.bool,
+  isExpanded: PropTypes.bool,
+  maxHeight: PropTypes.string,
+  minHeight: PropTypes.string,
+  placement: PropTypes.oneOf(DROPDOWN_PLACEMENT),
+  triggerRef: PropTypes.any,
+  zIndex: PropTypes.number
+};
