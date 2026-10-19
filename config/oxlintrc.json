@@ -6,9 +6,32 @@
     "no-restricted-imports": [
       "error",
       {
-        "name": "react",
-        "importNames": ["default"],
-        "message": "Use named imports instead of the default React import."
+        "paths": [
+          {
+            "name": "react",
+            "importNames": ["default"],
+            "message": "Use named imports instead of the default React import."
+          },
+          {
+            "name": "styled-components",
+            "importNames": ["default"],
+            "message": "Use `import { styled } from 'styled-components'`: Node ESM resolves the default import to the CommonJS exports object."
+          },
+          {
+            "name": "react-merge-refs",
+            "message": "Use `mergeRefs` from `src/utils/shared/mergeRefs`: the package is ESM-only and breaks CommonJS consumers."
+          },
+          {
+            "name": "dom-helpers",
+            "message": "Use the helpers in `src/utils/shared/dom`: dom-helpers subpaths break Node ESM and webpack 5."
+          }
+        ],
+        "patterns": [
+          {
+            "group": ["dom-helpers/*"],
+            "message": "Use the helpers in `src/utils/shared/dom`: dom-helpers subpaths break Node ESM and webpack 5."
+          }
+        ]
       }
     ]
   }
