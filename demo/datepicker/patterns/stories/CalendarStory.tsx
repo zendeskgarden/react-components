@@ -8,7 +8,7 @@
 import { Field, Input } from '@zendeskgarden/react-forms';
 import { Paragraph } from '@zendeskgarden/react-typography';
 import { useRef } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { DatePicker } from '../../../../src/index';
 import { getColor } from '../../../../src/theming/utils/getColor';

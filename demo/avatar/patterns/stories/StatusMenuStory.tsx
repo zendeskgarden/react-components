@@ -9,7 +9,7 @@ import { IconButton } from '@zendeskgarden/react-buttons';
 import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { Grid } from '@zendeskgarden/react-grid';
 import { useCallback, useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Avatar, IStatusIndicatorProps, StatusIndicator } from '../../../../src/index';
 

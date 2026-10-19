@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import type { IStyledListboxProps } from '../../types/views';
 import { StyledListboxSeparator } from './StyledListboxSeparator';

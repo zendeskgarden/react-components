@@ -6,7 +6,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import styled, { ThemeProvider, useTheme } from 'styled-components';
+import { styled, ThemeProvider, useTheme } from 'styled-components';
 import SystemIcon from 'svg-icons-legacy/src/16/monitor-stroke.svg';
 import DarkIcon from 'svg-icons-legacy/src/16/moon-stroke.svg';
 import LightIcon from 'svg-icons-legacy/src/16/sun-stroke.svg';

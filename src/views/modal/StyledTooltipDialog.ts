@@ -7,7 +7,7 @@
 
 import { Placement } from '@floating-ui/react-dom';
 import { TransitionStatus } from 'react-transition-group';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import arrowStyles from '../../theming/utils/arrowStyles';
 import { componentStyles } from '../../theming/utils/componentStyles';

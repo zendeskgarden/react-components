@@ -6,7 +6,7 @@
  */
 
 import { forwardRef } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { LabelComponent } from '../../elements/form/Label';
 import { COMPONENT_IDS } from '../../elements/utils';

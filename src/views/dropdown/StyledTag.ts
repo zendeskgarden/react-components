@@ -6,7 +6,7 @@
  */
 
 import { hideVisually } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Tag } from '../../elements/tag/Tag';
 import { componentStyles } from '../../theming/utils/componentStyles';

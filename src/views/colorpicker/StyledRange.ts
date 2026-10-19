@@ -6,7 +6,7 @@
  */
 
 import { stripUnit } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Range } from '../../elements/form/Range';
 import { componentStyles } from '../../theming/utils/componentStyles';

@@ -7,7 +7,7 @@
 
 import { readableColor } from 'polished';
 import { FC } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Grid, IGardenTheme, PALETTE, getColor, mediaQuery } from '../../../src/index';
 

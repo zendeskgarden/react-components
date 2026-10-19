@@ -6,7 +6,7 @@
  */
 
 import { math } from 'polished';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';

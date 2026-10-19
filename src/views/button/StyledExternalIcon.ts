@@ -6,7 +6,7 @@
  */
 
 import ExternalLinkIcon from '@zendeskgarden/svg-icons/src/external-link.svg';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 

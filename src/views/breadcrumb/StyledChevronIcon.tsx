@@ -6,7 +6,7 @@
  */
 
 import { em } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';

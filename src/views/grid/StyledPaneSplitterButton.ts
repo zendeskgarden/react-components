@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled, css, DefaultTheme } from 'styled-components';
 
 import { ChevronButton } from '../../elements/button/ChevronButton';
 import { componentStyles } from '../../theming/utils/componentStyles';

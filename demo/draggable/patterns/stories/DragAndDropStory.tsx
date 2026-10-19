@@ -26,7 +26,7 @@ import {
 } from '@dnd-kit/core';
 import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import styled, { useTheme } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 
 import { useDocument } from '../../../../src/theming/utils/useDocument';
 import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';

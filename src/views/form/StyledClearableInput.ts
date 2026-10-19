@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { InputGroup } from '../../elements/form/InputGroup';
 import type { IStyledClearableInputProps } from '../../types/views';

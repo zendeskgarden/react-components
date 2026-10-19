@@ -6,7 +6,7 @@
  */
 
 import { math, readableColor } from 'polished';
-import styled, { css, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, css, ThemeProps, DefaultTheme } from 'styled-components';
 
 import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';

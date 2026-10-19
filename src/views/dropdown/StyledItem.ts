@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledOption } from './StyledOption';

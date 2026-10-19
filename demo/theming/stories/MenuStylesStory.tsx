@@ -6,7 +6,7 @@
  */
 
 import { useState } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import {
   ArrowPosition,

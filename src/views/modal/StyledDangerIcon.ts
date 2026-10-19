@@ -6,7 +6,7 @@
  */
 
 import ExclamationCircleFillIcon from '@zendeskgarden/svg-icons/src/exclamation-circle-fill.svg';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 

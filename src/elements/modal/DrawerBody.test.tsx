@@ -6,7 +6,7 @@
  */
 
 import { createRef } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { render } from '../../test/render';
 import { COMPONENT_IDS } from '../utils';

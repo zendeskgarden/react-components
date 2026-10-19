@@ -6,7 +6,7 @@
  */
 
 import { math } from 'polished';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';

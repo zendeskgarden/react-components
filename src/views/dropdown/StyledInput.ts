@@ -6,7 +6,7 @@
  */
 
 import { hideVisually, math } from 'polished';
-import styled, { ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';

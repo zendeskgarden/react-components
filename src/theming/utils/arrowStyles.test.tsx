@@ -6,7 +6,7 @@
  */
 
 import { stripUnit } from 'polished';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, ThemeProps, DefaultTheme } from 'styled-components';
 
 import { render } from '../../test/render';
 import { ArrowPosition } from '../types';

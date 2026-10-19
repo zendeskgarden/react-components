@@ -7,7 +7,7 @@
 
 import { em, math } from 'polished';
 import { ButtonHTMLAttributes } from 'react';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusStyles';

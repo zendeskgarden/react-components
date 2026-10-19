@@ -6,7 +6,7 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { getMenuPosition } from '../../theming/utils/getMenuPosition';
 import menuStyles from '../../theming/utils/menuStyles';

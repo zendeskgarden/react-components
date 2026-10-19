@@ -6,7 +6,7 @@
  */
 
 import { parseToRgb, readableColor } from 'polished';
-import styled, { DefaultTheme, ThemeProps } from 'styled-components';
+import { styled, DefaultTheme, ThemeProps } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';

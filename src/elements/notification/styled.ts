@@ -6,7 +6,7 @@
  */
 
 import { hideVisually } from 'polished';
-import styled, { css, DefaultTheme, ThemeProps } from 'styled-components';
+import { styled, css, DefaultTheme, ThemeProps } from 'styled-components';
 
 import { NotificationPlacement } from '../../types/elements';
 
