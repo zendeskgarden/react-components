@@ -7,10 +7,10 @@
 
 import PropTypes from 'prop-types';
 import { HTMLAttributes, MutableRefObject, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
 import { ITabProps } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTab } from '../../views/tab/StyledTab';
 import { COMPONENT_IDS } from '../utils';
 

@@ -6,11 +6,6 @@
  */
 
 import { useModal } from '@zendeskgarden/container-modal';
-import css from 'dom-helpers/css';
-import isWindow from 'dom-helpers/isWindow';
-import ownerDocument from 'dom-helpers/ownerDocument';
-import ownerWindow from 'dom-helpers/ownerWindow';
-import getScrollbarSize from 'dom-helpers/scrollbarSize';
 import PropTypes from 'prop-types';
 import {
   HTMLAttributes,
@@ -23,13 +18,20 @@ import {
   forwardRef
 } from 'react';
 import { createPortal } from 'react-dom';
-import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
 import { ModalProvider } from '../../context/modal/ModalContext';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { IModalProps } from '../../types/elements';
+import {
+  getScrollbarSize,
+  getStyle,
+  isWindow,
+  ownerDocument,
+  ownerWindow
+} from '../../utils/shared/dom';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledBackdrop } from '../../views/modal/StyledBackdrop';
 import { StyledModal } from '../../views/modal/StyledModal';
 import { COMPONENT_IDS } from '../utils';
@@ -103,7 +105,7 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
       if (bodyElement) {
         if (isOverflowing(bodyElement)) {
           const scrollbarSize = getScrollbarSize();
-          const bodyPaddingRight = parseInt(css(bodyElement, 'paddingRight') || '0', 10);
+          const bodyPaddingRight = parseInt(getStyle(bodyElement, 'paddingRight') || '0', 10);
 
           previousBodyPaddingRight = bodyElement.style.paddingRight;
           bodyElement.style.paddingRight = `${bodyPaddingRight + scrollbarSize}px`;

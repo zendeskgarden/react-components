@@ -17,11 +17,11 @@ import {
   SyntheticEvent,
   forwardRef
 } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { ITextareaProps, VALIDATION } from '../../types/elements';
 import { isInvalid } from '../../utils/form/isInvalid';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTextarea } from '../../views/form/StyledTextarea';
 import { COMPONENT_IDS } from '../utils';
 

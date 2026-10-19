@@ -8,7 +8,6 @@
 import { useMenu } from '@zendeskgarden/container-menu';
 import PropTypes from 'prop-types';
 import { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import ChevronIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
@@ -18,6 +17,7 @@ import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useWindow } from '../../theming/utils/useWindow';
 import { DROPDOWN_PLACEMENT, IButtonProps, IMenuProps } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { MenuList } from './MenuList';
 import { toItems } from './menuUtils';
 

@@ -57,7 +57,6 @@
     "@zendeskgarden/container-utilities": "^2.0.5",
     "color2k": "^2.0.3",
     "date-fns": "^4.0.0",
-    "dom-helpers": "^5.2.1",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
     "lodash.isequal": "^4.5.0",
@@ -66,7 +65,6 @@
     "polished": "^4.3.1",
     "prism-react-renderer": "^1.3.5",
     "prop-types": "^15.8.1",
-    "react-merge-refs": "^2.0.0",
     "react-transition-group": "^4.4.2",
     "react-uid": "^2.3.1",
     "use-resize-observer": "^9.1.0"

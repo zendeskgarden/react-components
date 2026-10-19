@@ -8,12 +8,12 @@
 import { composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { useRef, useState, ChangeEvent, MouseEvent, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import ClearIcon from 'svg-icons-legacy/src/16/x-stroke.svg';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { useText } from '../../theming/utils/useText';
 import { IClearableInputProps, VALIDATION } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledClearableInput } from '../../views/form/StyledClearableInput';
 import { IconButton } from '../button/IconButton';
 import { COMPONENT_IDS } from '../utils';

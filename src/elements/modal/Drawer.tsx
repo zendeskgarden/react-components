@@ -6,7 +6,6 @@
  */
 
 import { useModal } from '@zendeskgarden/container-modal';
-import activeElement from 'dom-helpers/activeElement';
 import PropTypes from 'prop-types';
 import {
   HTMLAttributes,
@@ -19,7 +18,6 @@ import {
   forwardRef
 } from 'react';
 import ReactDOM from 'react-dom';
-import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
@@ -27,6 +25,8 @@ import { ModalProvider } from '../../context/modal/ModalContext';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { IDrawerProps } from '../../types/elements';
+import { activeElement } from '../../utils/shared/dom';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledBackdrop } from '../../views/modal/StyledBackdrop';
 import { StyledDrawer } from '../../views/modal/StyledDrawer';
 import { COMPONENT_IDS } from '../utils';

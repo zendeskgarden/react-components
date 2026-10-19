@@ -16,7 +16,6 @@ import {
   HTMLAttributes,
   RefObject
 } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
 import { PaneSplitterProvider } from '../../context/grid/PaneSplitterContext';
@@ -26,6 +25,7 @@ import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { ISplitterProps, ORIENTATION } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledPaneSplitter } from '../../views/grid/StyledPaneSplitter';
 import { COMPONENT_IDS } from '../utils';
 

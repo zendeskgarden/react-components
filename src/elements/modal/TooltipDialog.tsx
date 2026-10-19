@@ -26,7 +26,6 @@ import {
   forwardRef
 } from 'react';
 import { createPortal } from 'react-dom';
-import { mergeRefs } from 'react-merge-refs';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeContext } from 'styled-components';
 
@@ -36,6 +35,7 @@ import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { ITooltipDialogProps, MODAL_PLACEMENT } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTooltipDialog } from '../../views/modal/StyledTooltipDialog';
 import { StyledTooltipDialogBackdrop } from '../../views/modal/StyledTooltipDialogBackdrop';
 import { StyledTooltipWrapper } from '../../views/modal/StyledTooltipWrapper';

@@ -17,7 +17,6 @@ import {
   useRef,
   useState
 } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 import CheckIcon from 'svg-icons-legacy/src/12/check-sm-fill.svg';
 
@@ -25,6 +24,7 @@ import { Tooltip } from '../../elements/tooltip/Tooltip';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { IColorSwatchProps, ILabeledColor } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { getBackground } from '../../views/colorpicker/StyledButtonPreview';
 import { StyledCell } from '../../views/colorpicker/StyledCell';
 import { StyledColorSwatch } from '../../views/colorpicker/StyledColorSwatch';
