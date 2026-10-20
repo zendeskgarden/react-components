@@ -30,7 +30,18 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
-      - run: pnpm build
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - run: pnpm install
+      - run: pnpm build # attw, publint and check:dist fail the build
       - uses: actions/upload-artifact@v7
         with:
           name: dist-artifact
@@ -131,7 +142,7 @@ jobs:
         uses: actions/deploy-pages@v5
 
   publish:
-    needs: [initialize, lint, test]
+    needs: [initialize, build, lint, test]
     runs-on: ubuntu-latest
     if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
     steps:
