@@ -44,7 +44,8 @@ const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
 };
 
 const sizeStyles = (props: IStyledInputIconProps) => {
-  const size = props.theme.iconSizes.md;
+  /* the v10 glyphs render at their native 20px size */
+  const size = `${props.theme.space.base * 5}px`;
   const position = math(`(${getInputHeight(props)} - ${size}) / 2`);
   const margin = `${props.theme.space.base * 2}px`;
   let side;

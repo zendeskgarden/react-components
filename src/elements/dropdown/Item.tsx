@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import CheckedIcon from '@zendeskgarden/svg-icons/src/check.svg';
+import PreviousIcon from '@zendeskgarden/svg-icons/src/chevron-left.svg';
+import NextIcon from '@zendeskgarden/svg-icons/src/chevron-right.svg';
+import AddIcon from '@zendeskgarden/svg-icons/src/plus.svg';
 import PropTypes from 'prop-types';
 import { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
-import CheckedIcon from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
-import PreviousIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
-import NextIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
-import AddIcon from 'svg-icons-legacy/src/16/plus-stroke.svg';
 
 import { ItemProvider } from '../../context/dropdown/ItemContext';
 import { useItemGroupContext } from '../../hooks/dropdown/useItemGroupContext';
