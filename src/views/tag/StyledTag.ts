@@ -105,7 +105,8 @@ const colorStyles = ({ theme, $hue, $isEmphasis }: IStyledTagProps) => {
 };
 
 const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
-  let borderRadius;
+  /* Every size shares the same corner radius; only pill and round override it */
+  let borderRadius = theme.borderRadii.sm;
   let padding;
   let height;
   let fontSize;
@@ -113,19 +114,16 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   let avatarSize;
 
   if ($size === 'small') {
-    borderRadius = theme.borderRadii.sm;
     padding = theme.space.base;
     height = theme.space.base * 4;
     fontSize = theme.fontSizes.xs;
     avatarSize = 0;
   } else if ($size === 'large') {
-    borderRadius = theme.borderRadii.sm;
     padding = theme.space.base * 3;
     height = theme.space.base * 8;
     fontSize = theme.fontSizes.sm;
     avatarSize = theme.space.base * 6;
   } else {
-    borderRadius = theme.borderRadii.sm;
     padding = theme.space.base * 2;
     height = theme.space.base * 5;
     fontSize = theme.fontSizes.sm;
