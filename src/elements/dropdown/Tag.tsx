@@ -16,11 +16,25 @@ import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
 import { IComboboxTagProps } from '../../types/elements';
 import { StyledTag } from '../../views/dropdown/StyledTag';
+import { Close } from '../tag/Close';
 import { COMPONENT_IDS } from '../utils';
 import { TagAvatar } from './TagAvatar';
 
 const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
-  ({ children, option, removeLabel, tooltipZIndex, ...props }, ref) => {
+  (
+    {
+      children,
+      hue,
+      isEmphasis,
+      isPill = false,
+      isRegular,
+      option,
+      removeLabel,
+      tooltipZIndex,
+      ...props
+    },
+    ref
+  ) => {
     const { getTagProps, isCompact, removeSelection } = useComboboxContext();
     const text = option.label || option.value;
     const ariaLabel = useText(
@@ -41,13 +55,17 @@ const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
 
     return (
       <StyledTag
+        $hue={hue}
+        $isEmphasis={isEmphasis}
+        $isPill={isPill}
+        $isRegular={isRegular}
+        $size={isCompact ? 'medium' : 'large'}
         aria-disabled={option.disabled}
         tabIndex={option.disabled ? undefined : 0}
         {...tagProps}
         {...props}
         data-garden-id={COMPONENT_IDS['dropdowns.combobox.tag']}
         data-garden-version={PACKAGE_VERSION}
-        size={isCompact ? 'medium' : 'large'}
         ref={ref}
       >
         {children || <span>{text}</span>}
@@ -55,10 +73,10 @@ const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
           (removeLabel ? (
             /* istanbul ignore next */
             <Tooltip appendToNode={doc?.body} content={removeLabel} zIndex={tooltipZIndex}>
-              <StyledTag.Close aria-label={removeLabel} onClick={handleClick} />
+              <Close aria-label={removeLabel} onClick={handleClick} />
             </Tooltip>
           ) : (
-            <StyledTag.Close onClick={handleClick} />
+            <Close onClick={handleClick} />
           ))}
       </StyledTag>
     );
@@ -69,6 +87,7 @@ TagComponent.displayName = 'Tag';
 
 TagComponent.propTypes = {
   hue: PropTypes.string,
+  isEmphasis: PropTypes.bool,
   isPill: PropTypes.bool,
   isRegular: PropTypes.bool,
   removeLabel: PropTypes.string

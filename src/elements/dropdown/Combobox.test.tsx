@@ -343,6 +343,38 @@ describe('Combobox', () => {
     expect(tag).toHaveTextContent('test');
   });
 
+  it('renders the tag id as expected', () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable>
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+    const tag = getByTestId('tag');
+
+    expect(tag).toHaveAttribute('data-garden-id', 'dropdowns.combobox.tag');
+    expect(tag.querySelector('button')).toHaveAttribute('data-garden-id', 'tags.close');
+  });
+
+  it('renders square tag styling by default', () => {
+    const tagProps = { 'data-test-id': 'tag' } as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId, rerender } = render(
+      <TestCombobox isMultiselectable>
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+
+    expect(getByTestId('tag')).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm);
+
+    rerender(
+      <TestCombobox isMultiselectable>
+        <Option isSelected tagProps={{ ...tagProps, isPill: true }} value="test" />
+      </TestCombobox>
+    );
+
+    expect(getByTestId('tag')).toHaveStyleRule('border-radius', '100px');
+  });
+
   it('portals the listbox as expected', () => {
     const { container, rerender } = render(<TestCombobox />);
 
