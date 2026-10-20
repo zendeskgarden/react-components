@@ -111,7 +111,12 @@ const esmScripts = scripts.filter(file => file.endsWith('.js'));
 const cjsScripts = scripts.filter(file => file.endsWith('.cjs'));
 const declarations = files.filter(file => file.endsWith('.d.ts'));
 const cjsDeclarations = files.filter(file => file.endsWith('.d.cts'));
-const sources = walk(path.join(ROOT, 'src')).filter(file => /(?<!\.test)\.tsx?$/u.test(file));
+/* Test helpers in `src/test/` are not part of the build */
+const sources = walk(path.join(ROOT, 'src')).filter(
+  file =>
+    /(?<!\.test)\.tsx?$/u.test(file) &&
+    !file.startsWith(`${path.join(ROOT, 'src', 'test')}${path.sep}`)
+);
 
 /* Both entry points load through the package `exports` map */
 const esm = Object.keys(await import(NAME)).sort();
