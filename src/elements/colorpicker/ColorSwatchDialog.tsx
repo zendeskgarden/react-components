@@ -6,6 +6,7 @@
  */
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
+import Chevron from '@zendeskgarden/svg-icons/src/chevron-down.svg';
 import PropTypes from 'prop-types';
 import {
   useRef,
@@ -19,7 +20,6 @@ import {
   RefAttributes
 } from 'react';
 import { useTheme } from 'styled-components';
-import Chevron from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
 import { Button } from '../../elements/button/Button';
 import DEFAULT_THEME from '../../theming/elements/theme';
