@@ -119,7 +119,7 @@ describe('Button', () => {
         light: { shade: lightShade },
         dark: { shade: darkShade }
       });
-    const dangerTint = (theme: typeof DEFAULT_THEME, transparency: number) =>
+    const dangerTint = (theme: typeof DEFAULT_THEME, transparency?: number) =>
       getColor({
         theme,
         hue: 'dangerHue',

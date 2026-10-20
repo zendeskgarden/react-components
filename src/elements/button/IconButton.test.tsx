@@ -86,7 +86,7 @@ describe('IconButton', () => {
         light: { shade: lightShade },
         dark: { shade: darkShade }
       });
-    const dangerTint = (theme: typeof DEFAULT_THEME, transparency: number) =>
+    const dangerTint = (theme: typeof DEFAULT_THEME, transparency?: number) =>
       getColor({
         theme,
         hue: 'dangerHue',
@@ -156,14 +156,14 @@ describe('IconButton', () => {
     });
 
     describe.each([
-      ['outline neutral', { isBasic: false, isDanger: false }],
-      ['outline danger', { isBasic: false, isDanger: true }],
-      ['basic', { isBasic: true, isDanger: false }]
-    ])('disabled %s', (_, props) => {
+      ['outline neutral', { isBasic: false, isDanger: false }, 'disabled'],
+      ['outline danger', { isBasic: false, isDanger: true }, 'disabled'],
+      ['basic', { isBasic: true, isDanger: false }, 'transparent']
+    ] as const)('disabled %s', (_label, props, background) => {
       it.each([
         ['light', DEFAULT_THEME],
         ['dark', DARK_THEME]
-      ] as const)('does not react in $0 mode', (_, theme) => {
+      ] as const)('does not react in $0 mode', (_mode, theme) => {
         const { container } = render(
           <IconButton {...props} disabled aria-pressed="true">
             <TestIcon />
@@ -171,18 +171,23 @@ describe('IconButton', () => {
           { theme }
         );
         const foreground = color(theme, 'foreground.disabled');
+        const backgroundColor =
+          background === 'transparent' ? 'transparent' : color(theme, 'background.disabled');
 
-        ['&:hover:disabled', '&:active:disabled', "&[aria-pressed='true']:disabled"].forEach(
-          modifier => {
-            expect(container.firstChild).toHaveStyleRule('border-color', 'transparent', {
-              modifier
-            });
-            expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
-              modifier
-            });
-            expect(container.firstChild).toHaveStyleRule('color', foreground, { modifier });
-          }
-        );
+        [
+          '&:disabled',
+          '&:hover:disabled',
+          '&:active:disabled',
+          "&[aria-pressed='true']:disabled"
+        ].forEach(modifier => {
+          expect(container.firstChild).toHaveStyleRule('border-color', 'transparent', {
+            modifier
+          });
+          expect(container.firstChild).toHaveStyleRule('background-color', backgroundColor, {
+            modifier
+          });
+          expect(container.firstChild).toHaveStyleRule('color', foreground, { modifier });
+        });
       });
     });
 

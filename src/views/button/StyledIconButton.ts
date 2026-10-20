@@ -109,11 +109,15 @@ const iconColorStyles = () => css`
 `;
 
 /**
- * 1. disabled rules follow the hover and active colors, so a disabled icon
- *    button keeps a transparent border and the disabled background
+ * 1. disabled rules follow the hover and active colors. An outline icon
+ *    button takes the disabled fill; a basic one stays transparent. The
+ *    border stays transparent.
  */
 const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   const width = getHeight(props);
+  const disabledBackgroundColor = props.$isBasic
+    ? 'transparent'
+    : getColor({ theme: props.theme, variable: 'background.disabled' });
 
   return css`
     border: ${props.$isBasic && 'none'};
@@ -134,7 +138,7 @@ const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
       &[aria-pressed='true']:disabled,
       &[aria-pressed='mixed']:disabled {
         border-color: transparent;
-        background-color: transparent;
+        background-color: ${disabledBackgroundColor};
         color: ${getColor({ theme: props.theme, variable: 'foreground.disabled' })};
       }
     `}
