@@ -146,7 +146,7 @@ describe('SortableCell', () => {
 
     it('renders two clipped copies of the fill icon', () => {
       const { getByTestId } = renderSortable('asc');
-      const fillWrapper = getByTestId('sortable').querySelectorAll(':scope > div')[1];
+      const fillWrapper = getByTestId('sortable').querySelectorAll(':scope > div')[1]!;
       const arrows = fillWrapper.querySelectorAll('svg');
 
       expect(arrows).toHaveLength(2);
