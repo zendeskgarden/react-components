@@ -119,6 +119,14 @@ describe('Button', () => {
         light: { shade: lightShade },
         dark: { shade: darkShade }
       });
+    const dangerTint = (theme: typeof DEFAULT_THEME, transparency: number) =>
+      getColor({
+        theme,
+        hue: 'dangerHue',
+        light: { shade: 700 },
+        dark: { shade: 500 },
+        transparency
+      });
 
     it.each([
       ['light', DEFAULT_THEME],
@@ -173,6 +181,16 @@ describe('Button', () => {
       expect(container.firstChild).toHaveStyleRule(
         'border-color',
         color(theme, 'border.dangerEmphasis', { light: { offset: 200 }, dark: { offset: -200 } }),
+        { modifier: '&:active' }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        dangerTint(theme, theme.opacity[100]),
+        { modifier: '&:hover' }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        dangerTint(theme, theme.opacity[200]),
         { modifier: '&:active' }
       );
     });

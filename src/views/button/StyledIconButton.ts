@@ -34,7 +34,13 @@ const colorStyles = ({ theme, $isBasic, $isDanger }: IStyledButtonProps & IStyle
       activeBorderColor = getColor({ ...borderOptions, ...offset200 });
     }
 
-    backgroundOptions = { theme, variable: 'background.dangerEmphasis' };
+    /* Dark hover and active use red 500. Light stays on red 700. */
+    backgroundOptions = {
+      theme,
+      hue: 'dangerHue',
+      light: { shade: 700 },
+      dark: { shade: 500 }
+    };
     foregroundOptions = { theme, variable: 'foreground.danger' };
   } else {
     if (!$isBasic) {
