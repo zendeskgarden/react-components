@@ -40,16 +40,18 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc -b && tsdown --config config/tsdown.config.ts",
+    "build": "tsdown --config config/tsdown.config.ts",
     "build:demo": "storybook build --config-dir config/storybook --output-dir .cache/demo",
+    "check:dist": "scripts/check-dist.js",
     "format": "oxfmt --config config/oxfmtrc.json",
-    "lint:ci": "pnpm format --check && pnpm lint && pnpm lint:css && pnpm lint:js",
+    "lint:ci": "pnpm format --check && pnpm lint && pnpm lint:css && pnpm lint:js && pnpm typecheck",
     "lint:css": "stylelint --config config/stylelint.config.js ./src/views/**/*.ts",
     "lint:js": "eslint --config config/eslint.config.js --max-warnings 0 .",
     "lint": "oxlint --config config/oxlintrc.json",
     "start": "storybook dev --config-dir config/storybook --no-version-updates -p 6006",
     "tag": "scripts/tag.js",
-    "test": "vitest --config config/vitest.config.ts"
+    "test": "vitest --config config/vitest.config.ts",
+    "typecheck": "tsc -b"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
