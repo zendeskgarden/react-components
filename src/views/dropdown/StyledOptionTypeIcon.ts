@@ -42,7 +42,7 @@ const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
 
 const sizeStyles = (props: IStyledOptionTypeIconProps) => {
   /* the v10 glyphs render at their native 20px size */
-  const size = `${props.theme.space.base * 5}px`;
+  const size = props.theme.space.md;
   const position = `${props.theme.space.base * 3}px`;
   const top = math(`(${getOptionMinHeight(props)} - ${size}) / 2`);
   let side;

@@ -35,7 +35,7 @@ const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
 
 const sizeStyles = (props: IStyledBaseProps) => {
   /* the v10 glyphs render at their native 20px size */
-  const size = `${props.theme.space.base * 5}px`;
+  const size = props.theme.space.md;
   const marginTop = math(`(${props.theme.lineHeights.md} - ${size}) / 2`);
   const marginHorizontal = `${props.theme.space.base * 2}px`;
 
