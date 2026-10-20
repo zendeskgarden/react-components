@@ -9,7 +9,7 @@ import { userEvent } from '@testing-library/user-event';
 import { createRef, useState } from 'react';
 import { vi, type Mock } from 'vitest';
 
-import { DARK_THEME, render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
 import { IPaginationProps } from '../../types/elements';
@@ -150,6 +150,22 @@ describe('OffsetPagination', () => {
       });
       expect(page).toHaveStyleRule('background-color', styles.currentActive, {
         modifier: '&[aria-current="page"]:active'
+      });
+    });
+  });
+
+  describe('navigation icons', () => {
+    it.each([
+      ['LTR', DEFAULT_THEME],
+      ['RTL', RTL_THEME]
+    ] as const)('sizes the Previous and Next icons to iconSizes.md in %s', (_, theme) => {
+      const { container } = render(<BasicExample currentPage={3} />, { theme });
+
+      container.querySelectorAll('button svg').forEach(svg => {
+        expect(svg).toHaveStyle({
+          width: DEFAULT_THEME.iconSizes.md,
+          height: DEFAULT_THEME.iconSizes.md
+        });
       });
     });
   });

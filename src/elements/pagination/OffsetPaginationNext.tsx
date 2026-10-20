@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/chevron-left.svg';
+import ChevronRightIcon from '@zendeskgarden/svg-icons/src/chevron-right.svg';
 import { ButtonHTMLAttributes, forwardRef, useContext } from 'react';
 import { ThemeContext } from 'styled-components';
-import ChevronLeftIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
-import ChevronRightIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
 
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useText } from '../../theming/utils/useText';

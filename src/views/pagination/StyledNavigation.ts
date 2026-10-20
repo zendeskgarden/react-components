@@ -15,5 +15,10 @@ export const StyledNavigation = styled(StyledPage)`
   align-items: center;
   justify-content: center;
 
+  & svg {
+    width: ${props => props.theme.iconSizes.md};
+    height: ${props => props.theme.iconSizes.md};
+  }
+
   ${componentStyles};
 `;

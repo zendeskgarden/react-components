@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import ChevronDoubleRight from '@zendeskgarden/svg-icons/src/chevron-double-right.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import ChevronDoubleRight from 'svg-icons-legacy/src/16/chevron-double-right-stroke.svg';
 
 import { StyledCursor } from '../../views/pagination/StyledCursor';
 import { StyledIcon } from '../../views/pagination/StyledIcon';
