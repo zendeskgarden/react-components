@@ -88,6 +88,7 @@ const removeDataTestAttributes = {
 };
 
 export default defineConfig({
+  attw: { level: 'error', profile: 'strict' },
   banner: BANNER,
   define: { PACKAGE_VERSION: JSON.stringify(pkg.version) },
   deps: { neverBundle, onlyBundle: false },
