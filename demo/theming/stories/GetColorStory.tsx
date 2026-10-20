@@ -6,7 +6,7 @@
  */
 
 import { opacify } from 'color2k';
-import styled, { useTheme } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 
 import {
   ColorParameters,

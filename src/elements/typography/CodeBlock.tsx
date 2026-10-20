@@ -6,7 +6,7 @@
  */
 
 import { useScrollRegion } from '@zendeskgarden/container-scrollregion';
-import Highlight, { Language, Prism } from 'prism-react-renderer';
+import HighlightModule, { Language, Prism } from 'prism-react-renderer';
 import { useMemo, useRef, forwardRef, type RefObject } from 'react';
 
 import { ThemeProvider } from '../../theming/elements/ThemeProvider';
@@ -16,6 +16,10 @@ import { StyledCodeBlockContainer } from '../../views/typography/StyledCodeBlock
 import { StyledCodeBlockLine } from '../../views/typography/StyledCodeBlockLine';
 import { StyledCodeBlockToken } from '../../views/typography/StyledCodeBlockToken';
 import { COMPONENT_IDS } from '../utils';
+
+/* Node ESM resolves the CJS `module.exports`, not its `default` */
+const Highlight: typeof HighlightModule =
+  (HighlightModule as unknown as { default?: typeof HighlightModule }).default ?? HighlightModule;
 
 /* prism-react-renderer Token type replica */
 interface IToken {

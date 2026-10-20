@@ -6,7 +6,7 @@
  */
 
 import { Children, cloneElement, ReactElement } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { IStyledBaseIconProps } from '../types';
 

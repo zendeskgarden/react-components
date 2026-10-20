@@ -7,7 +7,6 @@
 
 import PropTypes from 'prop-types';
 import { LiHTMLAttributes, MutableRefObject, forwardRef, useMemo } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import CheckedIcon from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
 import PreviousIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
 import NextIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
@@ -17,6 +16,7 @@ import { ItemProvider } from '../../context/dropdown/ItemContext';
 import { useItemGroupContext } from '../../hooks/dropdown/useItemGroupContext';
 import { useMenuContext } from '../../hooks/dropdown/useMenuContext';
 import { IItemProps, OPTION_TYPE, OptionType } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledItem } from '../../views/dropdown/StyledItem';
 import { StyledItemAnchor } from '../../views/dropdown/StyledItemAnchor';
 import { StyledItemContent } from '../../views/dropdown/StyledItemContent';

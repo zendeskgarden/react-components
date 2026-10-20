@@ -6,7 +6,7 @@
  */
 
 import { useEffect, useState } from 'react';
-import styled, { useTheme } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 
 import { Button, Code, Dots, Grid, Paragraph, Span, getColor } from '../../../../src/index';
 

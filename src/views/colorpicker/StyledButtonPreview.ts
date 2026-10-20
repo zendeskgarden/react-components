@@ -6,7 +6,7 @@
  */
 
 import { rgba } from 'polished';
-import styled, { ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, ThemeProps, DefaultTheme } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';

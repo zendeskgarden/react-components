@@ -7,10 +7,10 @@
 
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useState, useEffect, useCallback, useRef, ChangeEvent, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { IRangeProps } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledRangeInput } from '../../views/form/StyledRangeInput';
 import { COMPONENT_IDS } from '../utils';
 

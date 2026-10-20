@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { useTheme } from 'styled-components';
+import { styled, useTheme } from 'styled-components';
 import { describe, expect, it } from 'vitest';
 
 import PALETTE from '../theming/elements/palette';

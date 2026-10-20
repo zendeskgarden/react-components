@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { keyframes, css } from 'styled-components';
+import { styled, keyframes, css } from 'styled-components';
 
 import { dotOneKeyframes, dotTwoKeyframes, dotThreeKeyframes } from '../../utils/loader/animations';
 

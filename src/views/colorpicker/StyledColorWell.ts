@@ -6,7 +6,7 @@
  */
 
 import { hsl, rgba } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import type { IStyledBaseProps } from '../../types/views';

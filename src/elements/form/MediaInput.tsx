@@ -8,11 +8,11 @@
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { useState, useRef, SyntheticEvent, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 
 import { useFieldContext } from '../../hooks/form/useFieldContext';
 import { IMediaInputProps, VALIDATION } from '../../types/elements';
 import { isInvalid } from '../../utils/form/isInvalid';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTextMediaInput } from '../../views/form/StyledTextMediaInput';
 import { COMPONENT_IDS } from '../utils';
 import { FauxInput } from './FauxInput';

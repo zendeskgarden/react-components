@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { ArrowPosition, arrowStyles, getColor } from '../../../src/index';
 

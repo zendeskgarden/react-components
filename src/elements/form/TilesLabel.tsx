@@ -6,9 +6,9 @@
  */
 
 import { HTMLAttributes, useState, useEffect, useRef, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 
 import { useTilesContext } from '../../hooks/form/useTilesContext';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTileLabel } from '../../views/form/StyledTileLabel';
 import { COMPONENT_IDS } from '../utils';
 

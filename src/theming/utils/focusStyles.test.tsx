@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { DARK_THEME, render } from '../../test/render';
 import PALETTE from '../elements/palette';

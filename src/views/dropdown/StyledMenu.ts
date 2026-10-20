@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import type { ArrowPosition } from '../../theming/types';
 import arrowStyles from '../../theming/utils/arrowStyles';

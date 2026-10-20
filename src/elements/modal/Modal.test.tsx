@@ -15,7 +15,10 @@ import { getColor } from '../../theming/utils/getColor';
 import { IModalProps } from '../../types/elements';
 import { Modal } from './Modal';
 
-vi.mock('dom-helpers/scrollbarSize', () => ({ default: () => 15 }));
+vi.mock('../../utils/shared/dom', async importOriginal => ({
+  ...(await importOriginal<typeof import('../../utils/shared/dom')>()),
+  getScrollbarSize: () => 15
+}));
 
 describe('Modal', () => {
   const user = userEvent.setup();

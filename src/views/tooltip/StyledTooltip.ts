@@ -6,7 +6,7 @@
  */
 
 import { Placement } from '@floating-ui/react-dom';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import arrowStyles from '../../theming/utils/arrowStyles';
 import { componentStyles } from '../../theming/utils/componentStyles';

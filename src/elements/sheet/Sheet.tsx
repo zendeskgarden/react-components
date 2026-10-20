@@ -8,10 +8,10 @@
 import { useId } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { useRef, useMemo, useState, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 
 import { SheetProvider } from '../../context/sheet/SheetContext';
 import { ISheetProps, SHEET_PLACEMENT } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { useFocusableMount } from '../../utils/sheet/useFocusableMount';
 import { StyledSheet } from '../../views/sheet/StyledSheet';
 import { StyledSheetWrapper } from '../../views/sheet/StyledSheetWrapper';

@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 import LinkIcon from 'svg-icons-legacy/src/16/link-stroke.svg';
 
 import { componentStyles } from '../../theming/utils/componentStyles';

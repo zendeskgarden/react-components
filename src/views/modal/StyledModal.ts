@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import styled, { css, keyframes } from 'styled-components';
+import { styled, css, keyframes } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';

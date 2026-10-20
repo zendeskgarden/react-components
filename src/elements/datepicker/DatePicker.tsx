@@ -22,13 +22,13 @@ import {
   RefAttributes
 } from 'react';
 import { createPortal } from 'react-dom';
-import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
 import { DatePickerProvider } from '../../context/datepicker/DatePickerContext';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
 import { IDatePickerProps, DATEPICKER_PLACEMENT, WEEK_STARTS_ON } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledMenu } from '../../views/datepicker/StyledMenu';
 import { StyledMenuWrapper } from '../../views/datepicker/StyledMenuWrapper';
 import { COMPONENT_IDS } from '../utils';

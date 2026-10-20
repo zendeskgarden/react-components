@@ -6,7 +6,7 @@
  */
 
 import { math } from 'polished';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { ITableProps } from '../../types/elements';

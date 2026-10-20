@@ -6,7 +6,7 @@
  */
 
 import { createRef } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';

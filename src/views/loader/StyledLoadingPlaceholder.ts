@@ -6,7 +6,7 @@
  */
 
 import { getValueAndUnit } from 'polished';
-import styled, { css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 

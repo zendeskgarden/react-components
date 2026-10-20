@@ -21,12 +21,12 @@ import {
   RefObject
 } from 'react';
 import { createPortal } from 'react-dom';
-import { mergeRefs } from 'react-merge-refs';
 import { ThemeContext } from 'styled-components';
 
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
 import { ITooltipProps, TOOLTIP_PLACEMENT, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTooltip } from '../../views/tooltip/StyledTooltip';
 import { StyledTooltipWrapper } from '../../views/tooltip/StyledTooltipWrapper';
 import { COMPONENT_IDS } from '../utils';

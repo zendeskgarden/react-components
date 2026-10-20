@@ -7,7 +7,6 @@
 
 import PropTypes from 'prop-types';
 import { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import SelectionIcon from 'svg-icons-legacy/src/12/circle-sm-fill.svg';
 import SelectedIcon from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
 import PreviousIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
@@ -17,6 +16,7 @@ import AddIcon from 'svg-icons-legacy/src/16/plus-stroke.svg';
 import { OptionProvider } from '../../context/dropdown/OptionContext';
 import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
 import { IOptionProps, OPTION_TYPE, OptionType } from '../../types/elements';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledOption } from '../../views/dropdown/StyledOption';
 import { StyledOptionContent } from '../../views/dropdown/StyledOptionContent';
 import { StyledOptionIcon } from '../../views/dropdown/StyledOptionIcon';

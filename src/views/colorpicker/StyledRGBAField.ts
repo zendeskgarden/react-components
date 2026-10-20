@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import styled, { DefaultTheme } from 'styled-components';
+import { styled, DefaultTheme } from 'styled-components';
 
 import { Field } from '../../elements/form/Field';
 import { componentStyles } from '../../theming/utils/componentStyles';

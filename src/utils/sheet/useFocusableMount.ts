@@ -5,8 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import activeElement from 'dom-helpers/activeElement';
 import { useEffect, useRef, MutableRefObject } from 'react';
+
+import { activeElement } from '../shared/dom';
 
 export interface IUseFocusableMountProp {
   isMounted?: boolean;

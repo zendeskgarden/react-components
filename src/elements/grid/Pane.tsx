@@ -6,10 +6,10 @@
  */
 
 import { useState, useMemo, useRef, HTMLAttributes, RefObject, forwardRef } from 'react';
-import { mergeRefs } from 'react-merge-refs';
 import useResizeObserver from 'use-resize-observer';
 
 import { PaneProvider } from '../../context/grid/PaneContext';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledPane } from '../../views/grid/StyledPane';
 import { COMPONENT_IDS } from '../utils';
 import { Content } from './Content';
