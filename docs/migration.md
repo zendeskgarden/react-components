@@ -20,6 +20,17 @@ Summary TODO
   `^16.13.0 || ^17.0.0 || ^18.0.0 || ^19.0.0`. Node cannot read the named
   exports of React 16.8 to 16.12 from an ES module, so the ES module build
   fails to load there. Bundlers and Jest are not affected.
+- Components assign `data-garden-id` and `data-garden-version` after all prop
+  spreads, so a `data-garden-id` passed as a prop is always overwritten. In
+  v9, `Button`, `Label`, `Message`, `Hint` and `TextInput` let an incoming id
+  replace theirs.
+
+#### Combobox
+
+- The tag inside a multiselect `Combobox` renders
+  `data-garden-id="dropdowns.combobox.tag"` instead of `tags.tag_view`. The
+  standalone `Tag` keeps `tags.tag_view`. Update selectors and
+  `theme.components['tags.tag_view']` overrides that target combobox tags.
 
 ## v9
 
