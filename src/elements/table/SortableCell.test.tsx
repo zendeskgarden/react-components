@@ -8,8 +8,15 @@
 import { createRef } from 'react';
 import { css } from 'styled-components';
 
-import { render } from '../../test/render';
-import { StyledSortableButton } from '../../views/table/StyledSortableButton';
+import { render, RTL_THEME } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
+import {
+  StyledSortableButton,
+  StyledSortableFillIconWrapper,
+  StyledSortArrowTop,
+  StyledSortArrowBottom
+} from '../../views/table/StyledSortableButton';
 import { Head } from './Head';
 import { HeaderCell } from './HeaderCell';
 import { HeaderRow } from './HeaderRow';
@@ -100,6 +107,94 @@ describe('SortableCell', () => {
     );
 
     expect(getByTestId('sortable').parentElement).toHaveAttribute('aria-sort', 'descending');
+  });
+
+  describe('sort icons', () => {
+    const renderSortable = (sort?: 'asc' | 'desc', rtl = false) =>
+      render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell data-test-id="sortable" sort={sort}>
+                Label
+              </SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>,
+        rtl ? { theme: RTL_THEME } : undefined
+      );
+
+    it('sizes the icon wrappers to iconSizes.md', () => {
+      const { getByTestId } = renderSortable();
+      const wrappers = getByTestId('sortable').querySelectorAll(':scope > div');
+
+      expect(wrappers).toHaveLength(2);
+      wrappers.forEach(wrapper => {
+        expect(wrapper).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md);
+      });
+    });
+
+    it.each([
+      ['LTR', 'padding-right', false],
+      ['RTL', 'padding-left', true]
+    ] as const)('reserves %s end padding for the icon', (_, property, rtl) => {
+      const { getByTestId } = renderSortable(undefined, rtl);
+      const padding = DEFAULT_THEME.space.base + parseInt(DEFAULT_THEME.iconSizes.md, 10);
+
+      expect(getByTestId('sortable')).toHaveStyleRule(property, `${padding}px`);
+    });
+
+    it('renders two clipped copies of the fill icon', () => {
+      const { getByTestId } = renderSortable('asc');
+      const fillWrapper = getByTestId('sortable').querySelectorAll(':scope > div')[1];
+      const arrows = fillWrapper.querySelectorAll('svg');
+
+      expect(arrows).toHaveLength(2);
+      expect(arrows[0]).toHaveStyleRule('clip-path', 'inset(0 0 50% 0)');
+      expect(arrows[1]).toHaveStyleRule('clip-path', 'inset(50% 0 0 0)');
+    });
+
+    it.each([
+      ['asc' as const, true, false],
+      ['desc' as const, false, true]
+    ])('dims the inactive arrow when %s', (sort, topActive, bottomActive) => {
+      const { getByTestId } = renderSortable(sort);
+      const button = getByTestId('sortable');
+      const fgActive = getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' });
+      const fgInactive = getColor({
+        theme: DEFAULT_THEME,
+        variable: 'foreground.subtle',
+        transparency: DEFAULT_THEME.opacity[200]
+      });
+
+      expect(button).toHaveStyleRule('color', topActive ? fgActive : fgInactive, {
+        modifier: css`
+          ${StyledSortableFillIconWrapper} ${StyledSortArrowTop}
+        ` as any
+      });
+      expect(button).toHaveStyleRule('color', bottomActive ? fgActive : fgInactive, {
+        modifier: css`
+          ${StyledSortableFillIconWrapper} ${StyledSortArrowBottom}
+        ` as any
+      });
+    });
+
+    it('keeps both arrows active when unsorted', () => {
+      const { getByTestId } = renderSortable();
+      const button = getByTestId('sortable');
+      const fgActive = getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' });
+
+      expect(button).toHaveStyleRule('color', fgActive, {
+        modifier: css`
+          ${StyledSortableFillIconWrapper} ${StyledSortArrowTop}
+        ` as any
+      });
+      expect(button).toHaveStyleRule('color', fgActive, {
+        modifier: css`
+          ${StyledSortableFillIconWrapper} ${StyledSortArrowBottom}
+        ` as any
+      });
+    });
   });
 
   it('handles truncation as expected', () => {

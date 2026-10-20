@@ -11,6 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { ISortableCellProps } from '../../types/elements';
 import type { IStyledBaseProps } from '../../types/views';
 
@@ -22,10 +23,14 @@ const StyledBaseIconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   opacity: 0;
-  width: ${props => props.theme.iconSizes.sm};
+  width: ${props => props.theme.iconSizes.md};
   height: 100%;
   color: inherit;
-  fill: inherit;
+
+  & > svg {
+    width: ${props => props.theme.iconSizes.md};
+    height: ${props => props.theme.iconSizes.md};
+  }
 `;
 
 export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
@@ -34,6 +39,24 @@ export const StyledSortableStrokeIconWrapper = styled(StyledBaseIconWrapper)`
 
 export const StyledSortableFillIconWrapper = styled(StyledBaseIconWrapper)`
   /* empty-source */
+`;
+
+const sortArrowStyles = css`
+  position: absolute;
+  inset: 0;
+  margin: auto;
+`;
+
+/* The chevron-up-down glyph is a single path, so each arrow gets its own
+   clipped copy with its own color. The top arrow ends at 50% of the artwork. */
+export const StyledSortArrowTop = styled(StyledBaseIcon)`
+  ${sortArrowStyles}
+  clip-path: inset(0 0 50% 0);
+`;
+
+export const StyledSortArrowBottom = styled(StyledBaseIcon)`
+  ${sortArrowStyles}
+  clip-path: inset(50% 0 0 0);
 `;
 
 interface IStyledSortableButtonProps {
@@ -58,26 +81,30 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
     dark: { offset: -100 },
     transparency: theme.opacity[200]
   });
-  let color = fgActive;
-  let fill = fgActive;
+  let topColor = fgActive;
+  let bottomColor = fgActive;
 
   if ($sort === 'asc') {
-    color = fgActive;
-    fill = fgInactive;
+    topColor = fgActive;
+    bottomColor = fgInactive;
   } else if ($sort === 'desc') {
-    color = fgInactive;
-    fill = fgActive;
+    topColor = fgInactive;
+    bottomColor = fgActive;
   }
 
   return css`
     ${StyledSortableStrokeIconWrapper} {
       color: ${fgActive};
-      fill: ${fgActive};
     }
 
     ${StyledSortableFillIconWrapper} {
-      color: ${color};
-      fill: ${fill};
+      ${StyledSortArrowTop} {
+        color: ${topColor};
+      }
+
+      ${StyledSortArrowBottom} {
+        color: ${bottomColor};
+      }
     }
 
     &:hover,
@@ -88,8 +115,14 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
       `
         ${StyledSortableFillIconWrapper} {
           opacity: 1;
-          color: ${fgPrimaryActive};
-          fill: ${fgPrimaryActive};
+
+          ${StyledSortArrowTop} {
+            color: ${fgPrimaryActive};
+          }
+
+          ${StyledSortArrowBottom} {
+            color: ${fgPrimaryActive};
+          }
         }
 
         ${StyledSortableStrokeIconWrapper} {
@@ -100,16 +133,26 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
       ${$sort === 'asc' &&
       `
         ${StyledSortableFillIconWrapper} {
-          color: ${fgPrimaryActive};
-          fill: ${fgPrimaryInactive};
+          ${StyledSortArrowTop} {
+            color: ${fgPrimaryActive};
+          }
+
+          ${StyledSortArrowBottom} {
+            color: ${fgPrimaryInactive};
+          }
         }
       `}
 
       ${$sort === 'desc' &&
       `
         ${StyledSortableFillIconWrapper} {
-          color: ${fgPrimaryInactive};
-          fill: ${fgPrimaryActive};
+          ${StyledSortArrowTop} {
+            color: ${fgPrimaryInactive};
+          }
+
+          ${StyledSortArrowBottom} {
+            color: ${fgPrimaryActive};
+          }
         }
       `}
     }
@@ -131,7 +174,7 @@ export const StyledSortableButton = styled.button<IStyledSortableButtonProps>`
   cursor: pointer;
   padding: 0; /* [1] */
   padding-${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
-    math(`${props.theme.space.base} + ${props.theme.iconSizes.sm}`)};
+    math(`${props.theme.space.base} + ${props.theme.iconSizes.md}`)};
   width: ${props => props.width};
   text-decoration: none; /* [2] */
   color: inherit;

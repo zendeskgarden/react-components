@@ -5,10 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import SortFillIcon from '@zendeskgarden/svg-icons/src/chevron-up-down-fill.svg';
+import SortStrokeIcon from '@zendeskgarden/svg-icons/src/chevron-up-down-stroke.svg';
 import PropTypes from 'prop-types';
 import { forwardRef } from 'react';
-import SortFillIcon from 'svg-icons-legacy/src/12/sort-fill.svg';
-import SortStrokeIcon from 'svg-icons-legacy/src/12/sort-stroke.svg';
 
 import { useTableContext } from '../../hooks/table/useTableContext';
 import { ISortableCellProps, SORT } from '../../types/elements';
@@ -16,7 +16,9 @@ import { StyledHeaderCell } from '../../views/table/StyledHeaderCell';
 import {
   StyledSortableButton,
   StyledSortableStrokeIconWrapper,
-  StyledSortableFillIconWrapper
+  StyledSortableFillIconWrapper,
+  StyledSortArrowTop,
+  StyledSortArrowBottom
 } from '../../views/table/StyledSortableButton';
 import { COMPONENT_IDS } from '../utils';
 
@@ -65,7 +67,12 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
             <SortIcon />
           </StyledSortableStrokeIconWrapper>
           <StyledSortableFillIconWrapper>
-            <SortFillIcon />
+            <StyledSortArrowTop>
+              <SortFillIcon />
+            </StyledSortArrowTop>
+            <StyledSortArrowBottom>
+              <SortFillIcon />
+            </StyledSortArrowBottom>
           </StyledSortableFillIconWrapper>
         </StyledSortableButton>
       </StyledHeaderCell>
