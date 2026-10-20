@@ -83,6 +83,15 @@ describe('Tag', () => {
       );
     });
 
+    it.each(['small', 'medium', 'large'] as const)(
+      'renders the same square border radius for %s size',
+      size => {
+        const { container } = render(<Tag isPill={false} size={size} />);
+
+        expect(container.firstChild).toHaveStyleRule('border-radius', DEFAULT_THEME.borderRadii.sm);
+      }
+    );
+
     it('renders small pill styling', () => {
       const { container } = render(<Tag isPill size="small" />);
 
@@ -286,6 +295,12 @@ describe('Tag', () => {
           modifier: `& ${StyledAvatar}`
         });
         expect(container.firstChild).toHaveStyleRule('margin-right', `-${space}`, {
+          modifier: `& ${StyledClose}`
+        });
+        expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
+          modifier: `& ${StyledClose}`
+        });
+        expect(container.firstChild).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md, {
           modifier: `& ${StyledClose}`
         });
       }

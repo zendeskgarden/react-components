@@ -119,7 +119,7 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
     fontSize = theme.fontSizes.xs;
     avatarSize = 0;
   } else if ($size === 'large') {
-    borderRadius = theme.borderRadii.md;
+    borderRadius = theme.borderRadii.sm;
     padding = theme.space.base * 3;
     height = theme.space.base * 8;
     fontSize = theme.fontSizes.sm;
@@ -178,8 +178,8 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
     & ${StyledClose} {
       margin-${theme.rtl ? 'left' : 'right'}: -${theme.space.base}px;
       border-radius: ${borderRadius};
-      width: ${height}px;
-      height: ${height}px;
+      width: ${theme.iconSizes.md};
+      height: ${theme.iconSizes.md};
     }
   `;
 };

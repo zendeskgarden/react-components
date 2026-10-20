@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import XSmallIcon from '@zendeskgarden/svg-icons/src/x-small.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
-import XIcon from 'svg-icons-legacy/src/12/x-stroke.svg';
 
 import { useText } from '../../theming/utils/useText';
 import { StyledClose } from '../../views/tag/StyledClose';
@@ -26,7 +26,7 @@ const CloseComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         type="button"
         tabIndex={-1}
       >
-        <XIcon />
+        <XSmallIcon />
       </StyledClose>
     );
   }
