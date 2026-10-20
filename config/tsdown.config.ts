@@ -5,6 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { createHash } from 'node:crypto';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
 import { defineConfig, type UserConfig } from 'tsdown';
 import svgr from 'vite-plugin-svgr';
 
@@ -87,6 +91,61 @@ const removeDataTestAttributes = {
   }
 };
 
+const ROOT = fileURLToPath(new URL('..', import.meta.url));
+
+/* The styled-components transform hashes the file content into each `componentId`, so any edit
+   to a file renames its classes. Hash the package name, the source path and the display name
+   instead: a class name then changes only when its file moves or its component is renamed. */
+const stableComponentIds = {
+  name: 'garden:stable-component-ids',
+  renderChunk(code: string, chunk: { modules: Record<string, { code: string | null }> }) {
+    const ids = new Map<string, string>();
+
+    for (const [id, module] of Object.entries(chunk.modules)) {
+      const file = path.relative(ROOT, id).split(path.sep).join('/');
+
+      if (!module.code || !file.startsWith('src/')) {
+        continue;
+      }
+
+      const pairs = [
+        ...module.code.matchAll(/displayName: "(?<name>[^"]+)",\s*componentId: "(?<old>[^"]+)"/gu)
+      ];
+
+      if (pairs.length !== (module.code.match(/componentId: "/gu) || []).length) {
+        throw new Error(`${file}: a \`componentId\` without a \`displayName\``);
+      }
+
+      for (const { groups } of pairs) {
+        const { name, old } = groups as { name: string; old: string };
+        const hash = createHash('sha256')
+          .update(`${pkg.name} ${file} ${name}`)
+          .digest()
+          .readUInt32BE(0)
+          .toString(36);
+
+        if (ids.has(old)) {
+          throw new Error(`${file}: \`componentId\` "${old}" is not unique`);
+        }
+
+        ids.set(old, `sc-${hash}-0`);
+      }
+    }
+
+    if (ids.size === 0) {
+      return null;
+    }
+
+    return {
+      code: code.replace(
+        /componentId: "(?<old>[^"]+)"/gu,
+        (_match, old: string) => `componentId: "${ids.get(old) ?? old}"`
+      ),
+      map: null
+    };
+  }
+};
+
 export default defineConfig({
   attw: { level: 'error', profile: 'strict' },
   banner: BANNER,
@@ -120,7 +179,8 @@ export default defineConfig({
   plugins: [
     svgr({ ...(svgrConfig as any), oxcOptions: { jsx: { runtime: 'classic' } } }),
     removeCoverageHints,
-    removeDataTestAttributes
+    removeDataTestAttributes,
+    stableComponentIds
   ],
   publint: true,
   target: 'es2022'

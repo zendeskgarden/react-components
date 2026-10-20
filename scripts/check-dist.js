@@ -139,7 +139,30 @@ for (const [label, file] of [
   }
 }
 
+/* Class names come from the styled-components `componentId`, so two components must not share one */
+const componentIds = scriptFiles =>
+  scriptFiles.flatMap(file =>
+    [...read(file).matchAll(/componentId: "(?<id>[^"]+)"/gu)].map(match => match.groups.id)
+  );
+const esmComponentIds = componentIds(esmScripts);
+const cjsComponentIds = componentIds(cjsScripts);
+
 const checks = [
+  [
+    'duplicate styled-components `componentId` values (ESM)',
+    esmComponentIds.length - new Set(esmComponentIds).size,
+    0
+  ],
+  [
+    'duplicate styled-components `componentId` values (CJS)',
+    cjsComponentIds.length - new Set(cjsComponentIds).size,
+    0
+  ],
+  [
+    'styled-components `componentId` values in only one of ESM and CJS',
+    new Set(esmComponentIds).symmetricDifference(new Set(cjsComponentIds)).size,
+    0
+  ],
   [
     'files without the license banner',
     scripts.filter(file => !read(file).startsWith('/**\n* Copyright Zendesk')).length,
