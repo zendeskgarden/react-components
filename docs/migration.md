@@ -11,9 +11,11 @@ Summary TODO
 #### All components
 
 - Garden v10 ships a single `@zendeskgarden/react-components` package with all component exports
-- Garden v10 updated the `styled-components` peer dependency to `^6.0.0` in
+- Garden v10 updated the `styled-components` peer dependency to `^6.0.8` in
   order to open CSS support for container queries which [cannot be supported in
-  v5.x](https://github.com/styled-components/styled-components/issues/3911#issuecomment-1386516979)
+  v5.x](https://github.com/styled-components/styled-components/issues/3911#issuecomment-1386516979).
+  Version 6.0.8 is the first to export the `CSSObject` type that Garden's
+  types use.
 
 ## v9
 
