@@ -375,6 +375,38 @@ describe('Combobox', () => {
     expect(getByTestId('tag')).toHaveStyleRule('border-radius', '100px');
   });
 
+  it('renders round tag styling when tagProps sets isRound', () => {
+    // `isRound` is omitted from the tag props type but forwarded at runtime
+    const tagProps = {
+      'data-test-id': 'tag',
+      isRound: true
+    } as unknown as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable>
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+
+    expect(getByTestId('tag')).toHaveStyleRule('border-radius', '50%');
+  });
+
+  it('does not forward a stray size prop to the tag DOM', () => {
+    // the combobox owns tag sizing; a consumer-passed `size` is dropped
+    const tagProps = {
+      'data-test-id': 'tag',
+      size: 'small'
+    } as unknown as HTMLAttributes<HTMLDivElement>;
+    const { getByTestId } = render(
+      <TestCombobox isMultiselectable>
+        <Option isSelected tagProps={tagProps} value="test" />
+      </TestCombobox>
+    );
+    const tag = getByTestId('tag');
+
+    expect(tag).not.toHaveAttribute('size');
+    expect(tag).toHaveStyleRule('height', `${DEFAULT_THEME.space.base * 8}px`);
+  });
+
   it('portals the listbox as expected', () => {
     const { container, rerender } = render(<TestCombobox />);
 

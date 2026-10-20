@@ -14,7 +14,7 @@ import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
 import { useText } from '../../theming/utils/useText';
-import { IComboboxTagProps } from '../../types/elements';
+import { IComboboxTagProps, ITagProps } from '../../types/elements';
 import { StyledTag } from '../../views/dropdown/StyledTag';
 import { Close } from '../tag/Close';
 import { COMPONENT_IDS } from '../utils';
@@ -52,6 +52,17 @@ const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
     const theme = useContext(ThemeContext) || DEFAULT_THEME;
     const doc = useDocument(theme);
     const handleClick = () => removeSelection(option.value);
+    /*
+     * `IComboboxTagProps` omits `isRound` and `size`, but untyped consumers can
+     * still pass them: forward `isRound` to the view and drop `size` — the
+     * combobox owns tag sizing via `isCompact`.
+     */
+    const {
+      isRound,
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      size: _ignoredSize,
+      ...viewProps
+    } = props as typeof props & Pick<ITagProps, 'isRound' | 'size'>;
 
     return (
       <StyledTag
@@ -59,11 +70,12 @@ const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
         $isEmphasis={isEmphasis}
         $isPill={isPill}
         $isRegular={isRegular}
+        $isRound={isRound}
         $size={isCompact ? 'medium' : 'large'}
         aria-disabled={option.disabled}
         tabIndex={option.disabled ? undefined : 0}
         {...tagProps}
-        {...props}
+        {...viewProps}
         data-garden-id={COMPONENT_IDS['dropdowns.combobox.tag']}
         data-garden-version={PACKAGE_VERSION}
         ref={ref}
@@ -90,6 +102,7 @@ TagComponent.propTypes = {
   isEmphasis: PropTypes.bool,
   isPill: PropTypes.bool,
   isRegular: PropTypes.bool,
+  isRound: PropTypes.bool,
   removeLabel: PropTypes.string
 };
 
