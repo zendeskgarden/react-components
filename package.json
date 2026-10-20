@@ -40,7 +40,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsdown --config config/tsdown.config.ts",
+    "build": "tsdown --config config/tsdown.config.ts && pnpm check:dist",
     "build:demo": "storybook build --config-dir config/storybook --output-dir .cache/demo",
     "check:dist": "scripts/check-dist.js",
     "format": "oxfmt --config config/oxfmtrc.json",
