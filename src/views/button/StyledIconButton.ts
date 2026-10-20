@@ -109,8 +109,8 @@ const iconColorStyles = () => css`
 `;
 
 /**
- * 1. placed after the disabled background: disabled icon buttons keep the
- *    hover and active background and border colors
+ * 1. disabled rules follow the hover and active colors, so a disabled icon
+ *    button keeps a transparent border and the disabled background
  */
 const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   const width = getHeight(props);
@@ -122,13 +122,22 @@ const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
     min-width: ${width};
     font-weight: ${props.theme.fontWeights.regular};
 
-    &:disabled {
-      background-color: ${!props.$isPrimary && 'transparent'};
-    }
-
-    /* [1] */
     ${!props.$isPrimary && colorStyles(props)};
     ${!(props.$isPrimary || props.$isDanger) && iconColorStyles()};
+
+    /* [1] */
+    ${!props.$isPrimary &&
+    css`
+      &:disabled,
+      &:hover:disabled,
+      &:active:disabled,
+      &[aria-pressed='true']:disabled,
+      &[aria-pressed='mixed']:disabled {
+        border-color: transparent;
+        background-color: transparent;
+        color: ${getColor({ theme: props.theme, variable: 'foreground.disabled' })};
+      }
+    `}
   `;
 };
 

@@ -68,8 +68,8 @@ export const getHeight = (props: IStyledButtonProps & IStyledBaseProps) => {
  * 6. neutral buttons in an input group share the input's resting border; the
  *    zero-specificity ancestor keeps it at resting precedence, so state rules
  *    (and the icon button's own resting border) apply over it
- * 7. disabled border placed before the hover and active rules: disabled danger
- *    buttons keep their hover and active border colors
+ * 7. disabled rules follow hover, active, and pressed, including on those
+ *    states, so a disabled button keeps its disabled colors
  * 8. subtle icons for neutral buttons; danger buttons keep the danger color on
  *    their icons
  * 9. an unset `$isNeutral` counts as neutral: only `false` opts out
@@ -220,6 +220,8 @@ const colorStyles = ({
         activeBorderColor = getColor({ ...borderOptions, ...offset200 });
       }
 
+      disabledBorderColor = 'transparent';
+
       /* Dark hover and active use red 500. Light stays on red 700. */
       backgroundOptions = {
         theme,
@@ -315,14 +317,6 @@ const colorStyles = ({
         styles: { borderColor: focusBorderColor }
       })}
 
-      ${$isDanger &&
-      css`
-        /* [7] */
-        &:disabled {
-          border-color: transparent;
-        }
-      `}
-
       &:hover {
         border-color: ${hoverBorderColor};
         background-color: ${hoverBackgroundColor};
@@ -337,7 +331,12 @@ const colorStyles = ({
         color: ${activeForegroundColor};
       }
 
-      &:disabled {
+      /* [7] */
+      &:disabled,
+      &:hover:disabled,
+      &:active:disabled,
+      &[aria-pressed='true']:disabled,
+      &[aria-pressed='mixed']:disabled {
         border-color: ${disabledBorderColor};
         background-color: ${disabledBackgroundColor};
         color: ${disabledForegroundColor};

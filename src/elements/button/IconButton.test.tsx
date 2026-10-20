@@ -155,6 +155,37 @@ describe('IconButton', () => {
       );
     });
 
+    describe.each([
+      ['outline neutral', { isBasic: false, isDanger: false }],
+      ['outline danger', { isBasic: false, isDanger: true }],
+      ['basic', { isBasic: true, isDanger: false }]
+    ])('disabled %s', (_, props) => {
+      it.each([
+        ['light', DEFAULT_THEME],
+        ['dark', DARK_THEME]
+      ] as const)('does not react in $0 mode', (_, theme) => {
+        const { container } = render(
+          <IconButton {...props} disabled aria-pressed="true">
+            <TestIcon />
+          </IconButton>,
+          { theme }
+        );
+        const foreground = color(theme, 'foreground.disabled');
+
+        ['&:hover:disabled', '&:active:disabled', "&[aria-pressed='true']:disabled"].forEach(
+          modifier => {
+            expect(container.firstChild).toHaveStyleRule('border-color', 'transparent', {
+              modifier
+            });
+            expect(container.firstChild).toHaveStyleRule('background-color', 'transparent', {
+              modifier
+            });
+            expect(container.firstChild).toHaveStyleRule('color', foreground, { modifier });
+          }
+        );
+      });
+    });
+
     it('renders danger styling without a border if basic', () => {
       const { container } = render(
         <IconButton isDanger>

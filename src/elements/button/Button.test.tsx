@@ -198,6 +198,27 @@ describe('Button', () => {
     it.each([
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
+    ] as const)('keeps a disabled danger outline from reacting in $0 mode', (_, theme) => {
+      const { container } = render(<Button isDanger disabled aria-pressed="true" />, { theme });
+      const background = color(theme, 'background.disabled');
+      const foreground = color(theme, 'foreground.disabled');
+
+      ['&:hover:disabled', '&:active:disabled', "&[aria-pressed='true']:disabled"].forEach(
+        modifier => {
+          expect(container.firstChild).toHaveStyleRule('border-color', 'transparent', {
+            modifier
+          });
+          expect(container.firstChild).toHaveStyleRule('background-color', background, {
+            modifier
+          });
+          expect(container.firstChild).toHaveStyleRule('color', foreground, { modifier });
+        }
+      );
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
     ] as const)('renders danger neutral styling in $0 mode', (_, theme) => {
       const { container } = render(<Button isDanger isNeutral />, { theme });
 
