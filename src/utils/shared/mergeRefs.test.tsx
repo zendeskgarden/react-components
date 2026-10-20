@@ -68,3 +68,38 @@ describe('mergeRefs', () => {
     expect(ref.current).toBe('value');
   });
 });
+
+describe('mergeRefs cleanup', () => {
+  it('runs a callback ref cleanup instead of calling it with null', () => {
+    const cleanup = vi.fn();
+    const ref = vi.fn(() => cleanup);
+    const { unmount } = render(<div ref={mergeRefs([ref])} data-test-id="target" />);
+
+    unmount();
+
+    expect(ref).toHaveBeenCalledTimes(1);
+    expect(cleanup).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls every ref with null before React 19', async () => {
+    vi.resetModules();
+    vi.doMock('react', async () => ({
+      ...(await vi.importActual<typeof import('react')>('react')),
+      version: '18.3.1'
+    }));
+
+    const { mergeRefs: mergeRefsReact18 } = await import('./mergeRefs');
+    const cleanup = vi.fn();
+    const ref = vi.fn(() => cleanup);
+    const merged = mergeRefsReact18([ref]);
+
+    expect(merged(document.createElement('div'))).toBeUndefined();
+
+    merged(null);
+
+    expect(ref).toHaveBeenLastCalledWith(null);
+    expect(cleanup).not.toHaveBeenCalled();
+
+    vi.doUnmock('react');
+  });
+});
