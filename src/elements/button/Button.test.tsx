@@ -119,6 +119,14 @@ describe('Button', () => {
         light: { shade: lightShade },
         dark: { shade: darkShade }
       });
+    const dangerTint = (theme: typeof DEFAULT_THEME, transparency?: number) =>
+      getColor({
+        theme,
+        hue: 'dangerHue',
+        light: { shade: 700 },
+        dark: { shade: 500 },
+        transparency
+      });
 
     it.each([
       ['light', DEFAULT_THEME],
@@ -174,6 +182,37 @@ describe('Button', () => {
         'border-color',
         color(theme, 'border.dangerEmphasis', { light: { offset: 200 }, dark: { offset: -200 } }),
         { modifier: '&:active' }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        dangerTint(theme, theme.opacity[100]),
+        { modifier: '&:hover' }
+      );
+      expect(container.firstChild).toHaveStyleRule(
+        'background-color',
+        dangerTint(theme, theme.opacity[200]),
+        { modifier: '&:active' }
+      );
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('keeps a disabled danger outline from reacting in $0 mode', (_, theme) => {
+      const { container } = render(<Button isDanger disabled aria-pressed="true" />, { theme });
+      const background = color(theme, 'background.disabled');
+      const foreground = color(theme, 'foreground.disabled');
+
+      ['&:hover:disabled', '&:active:disabled', "&[aria-pressed='true']:disabled"].forEach(
+        modifier => {
+          expect(container.firstChild).toHaveStyleRule('border-color', 'transparent', {
+            modifier
+          });
+          expect(container.firstChild).toHaveStyleRule('background-color', background, {
+            modifier
+          });
+          expect(container.firstChild).toHaveStyleRule('color', foreground, { modifier });
+        }
       );
     });
 
