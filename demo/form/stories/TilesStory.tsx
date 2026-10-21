@@ -6,17 +6,17 @@
  */
 
 import { Grid } from '@zendeskgarden/react-grid';
-import Icon10 from 'svg-icons-legacy/src/16/asterisk-stroke.svg';
-import Icon from 'svg-icons-legacy/src/16/box-3d-stroke.svg';
-import Icon08 from 'svg-icons-legacy/src/16/calendar-stroke.svg';
-import Icon02 from 'svg-icons-legacy/src/16/check-box-double-stroke.svg';
-import Icon05 from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
-import Icon01 from 'svg-icons-legacy/src/16/chevron-box-stroke.svg';
-import Icon09 from 'svg-icons-legacy/src/16/credit-card-stroke.svg';
-import Icon07 from 'svg-icons-legacy/src/16/decimal-stroke.svg';
-import Icon04 from 'svg-icons-legacy/src/16/multiline-stroke.svg';
-import Icon06 from 'svg-icons-legacy/src/16/number-stroke.svg';
-import Icon03 from 'svg-icons-legacy/src/16/text-stroke.svg';
+import Icon10 from '@zendeskgarden/svg-icons/src/asterisk.svg';
+import Icon08 from '@zendeskgarden/svg-icons/src/calendar-stroke.svg';
+import Icon02 from '@zendeskgarden/svg-icons/src/check-box-double-stroke.svg';
+import Icon05 from '@zendeskgarden/svg-icons/src/check.svg';
+import Icon01 from '@zendeskgarden/svg-icons/src/chevron-square-stroke.svg';
+import Icon09 from '@zendeskgarden/svg-icons/src/credit-card-stroke.svg';
+import Icon from '@zendeskgarden/svg-icons/src/cube-stroke.svg';
+import Icon07 from '@zendeskgarden/svg-icons/src/decimal.svg';
+import Icon06 from '@zendeskgarden/svg-icons/src/hashtag.svg';
+import Icon04 from '@zendeskgarden/svg-icons/src/multiline.svg';
+import Icon03 from '@zendeskgarden/svg-icons/src/text.svg';
 
 import { ITilesProps, Tiles } from '../../../src/index';
 import { ITile } from './types';
@@ -37,16 +37,17 @@ const TILE_ICONS = [
 interface IArgs extends ITilesProps {
   tiles: ITile[];
   hasDescription: boolean;
+  hasIcon: boolean;
 }
 
-export const TilesStory = ({ tiles, hasDescription, ...args }: IArgs) => (
+export const TilesStory = ({ tiles, hasDescription, hasIcon, ...args }: IArgs) => (
   <Tiles {...args}>
     <Grid gutters={false}>
       <Grid.Row>
         {tiles.map((tile, index) => (
           <Grid.Col key={index} md={3}>
             <Tiles.Tile value={tile.value} disabled={tile.disabled} style={{ margin: 10 }}>
-              <Tiles.Icon>{TILE_ICONS[index] || <Icon />}</Tiles.Icon>
+              {!!hasIcon && <Tiles.Icon>{TILE_ICONS[index] || <Icon />}</Tiles.Icon>}
               <Tiles.Label>{tile.label}</Tiles.Label>
               {!!hasDescription && !!tile.description && (
                 <Tiles.Description>{tile.description}</Tiles.Description>

@@ -9,7 +9,7 @@ import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
 import { vi } from 'vitest';
 
-import { RTL_THEME, render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
 import { Tiles } from './Tiles';
@@ -43,9 +43,10 @@ describe('Tiles', () => {
       getColor({ theme: DEFAULT_THEME, variable: 'foreground.disabled' }),
       { modifier }
     );
+    expect(tile).toHaveStyleRule('box-shadow', 'none', { modifier });
   });
 
-  it('does not apply the checked hover and active fills when disabled', () => {
+  it('does not apply the checked hover and active borders when disabled', () => {
     const { getByText } = render(
       <Tiles name="example" value="item-1">
         <Tiles.Tile value="item-1" disabled>
@@ -54,35 +55,103 @@ describe('Tiles', () => {
       </Tiles>
     );
     const tile = getByText('Item 1').closest('label')!;
-    const checkedHoverBackgroundColor = getColor({
+    const hoverBorderColor = getColor({
       theme: DEFAULT_THEME,
       hue: 'neutralHue',
-      light: { shade: 800 }
-    });
-    const checkedActiveBackgroundColor = getColor({
-      theme: DEFAULT_THEME,
-      hue: 'neutralHue',
-      light: { shade: 700 }
-    });
-    const disabledBackgroundColor = getColor({
-      theme: DEFAULT_THEME,
-      variable: 'background.disabled'
+      light: { shade: 500 }
     });
 
-    expect(tile).not.toHaveStyleRule('background-color', checkedHoverBackgroundColor, {
+    expect(tile).not.toHaveStyleRule('border-color', hoverBorderColor, {
       modifier: '&:hover:has(:checked)'
-    });
-    expect(tile).not.toHaveStyleRule('background-color', checkedActiveBackgroundColor, {
-      modifier: '&:active:has(:checked)'
-    });
-    expect(tile).not.toHaveStyleRule('background-color', disabledBackgroundColor, {
-      modifier: "&[aria-disabled='true']:not(:has(:checked))"
     });
   });
 
-  it('renders the checked fill, hover and active colors when enabled', () => {
+  describe('selected', () => {
+    const renderTile = (theme?: Parameters<typeof render>[1]) =>
+      render(
+        <Tiles name="example" value="item-1">
+          <Tiles.Tile value="item-1">
+            <Tiles.Label>Item 1</Tiles.Label>
+          </Tiles.Tile>
+        </Tiles>,
+        theme
+      );
+
+    it('renders no fill and keeps the text color', () => {
+      const { getByText } = renderTile();
+      const tile = getByText('Item 1').closest('label')!;
+
+      expect(tile).not.toHaveStyleRule('background-color', expect.anything(), {
+        modifier: '&:has(:checked)'
+      });
+      expect(tile).not.toHaveStyleRule('color', expect.anything(), {
+        modifier: '&:has(:checked)'
+      });
+    });
+
+    it('renders a 1px border plus a 1px inset shadow', () => {
+      const { getByText } = renderTile();
+      const tile = getByText('Item 1').closest('label')!;
+      const color = getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 700 } });
+
+      expect(tile).toHaveStyleRule('border-color', color, { modifier: '&:has(:checked)' });
+      expect(tile).toHaveStyleRule('box-shadow', `inset 0 0 0 1px ${color}`, {
+        modifier: '&:has(:checked)'
+      });
+    });
+
+    it('renders the hover and active borders without overriding the tint', () => {
+      const { getByText } = renderTile();
+      const tile = getByText('Item 1').closest('label')!;
+      const color = getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 500 } });
+
+      [
+        "&:hover:has(:checked):not([aria-disabled='true'])",
+        "&:active:has(:checked):not([aria-disabled='true'])"
+      ].forEach(modifier => {
+        expect(tile).toHaveStyleRule('border-color', color, { modifier });
+        expect(tile).toHaveStyleRule('box-shadow', `inset 0 0 0 1px ${color}`, { modifier });
+        expect(tile).not.toHaveStyleRule('background-color', expect.anything(), { modifier });
+      });
+    });
+
+    it('keeps the inset shadow under the focus ring', () => {
+      const { getByText } = renderTile();
+      const tile = getByText('Item 1').closest('label')!;
+      const color = getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 700 } });
+
+      expect(tile).toHaveStyleRule(
+        'box-shadow',
+        expect.stringContaining(`inset 0 0 0 1px ${color}`),
+        { modifier: "&:has(:checked):has(:focus-visible):not([aria-disabled='true'])" }
+      );
+      expect(tile).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DEFAULT_THEME, variable: 'border.primaryEmphasis' }),
+        { modifier: "&:has(:checked):has(:focus-visible):not([aria-disabled='true'])" }
+      );
+    });
+
+    it('renders the dark theme borders', () => {
+      const { getByText } = renderTile({ theme: DARK_THEME });
+      const tile = getByText('Item 1').closest('label')!;
+
+      expect(tile).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DARK_THEME, hue: 'neutralHue', dark: { shade: 400 } }),
+        { modifier: '&:has(:checked)' }
+      );
+      expect(tile).toHaveStyleRule(
+        'border-color',
+        getColor({ theme: DARK_THEME, hue: 'neutralHue', dark: { shade: 600 } }),
+        { modifier: '&:hover' }
+      );
+    });
+  });
+
+  it('renders grey hover and active borders with the primary tint', () => {
     const { getByText } = render(
-      <Tiles name="example" value="item-1">
+      <Tiles name="example">
         <Tiles.Tile value="item-1">
           <Tiles.Label>Item 1</Tiles.Label>
         </Tiles.Tile>
@@ -91,26 +160,49 @@ describe('Tiles', () => {
     const tile = getByText('Item 1').closest('label')!;
 
     expect(tile).toHaveStyleRule(
-      'background-color',
-      getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' }),
-      { modifier: '&:has(:checked)' }
-    );
-    expect(tile).toHaveStyleRule('border-color', 'transparent', { modifier: '&:has(:checked)' });
-    expect(tile).toHaveStyleRule(
-      'color',
-      getColor({ theme: DEFAULT_THEME, variable: 'foreground.onEmphasis' }),
-      { modifier: '&:has(:checked)' }
+      'border-color',
+      getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 500 } }),
+      { modifier: '&:hover' }
     );
     expect(tile).toHaveStyleRule(
+      'border-color',
+      getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 600 } }),
+      { modifier: '&:active' }
+    );
+  });
+
+  it.each([
+    ['light', DEFAULT_THEME, { light: { shade: 700 } }],
+    ['dark', DARK_THEME, { dark: { shade: 500 } }]
+  ])('renders the %s primary tint on hover and active, also when selected', (_, theme, shade) => {
+    const { getByText } = render(
+      <Tiles name="example" value="item-1">
+        <Tiles.Tile value="item-1">
+          <Tiles.Label>Item 1</Tiles.Label>
+        </Tiles.Tile>
+      </Tiles>,
+      { theme }
+    );
+    const tile = getByText('Item 1').closest('label')!;
+    const options = { theme, hue: 'primaryHue', ...shade };
+
+    expect(tile).toHaveStyleRule(
       'background-color',
-      getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 800 } }),
-      { modifier: "&:hover:has(:checked):not([aria-disabled='true'])" }
+      getColor({ theme, variable: 'background.default' })
     );
     expect(tile).toHaveStyleRule(
       'background-color',
-      getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 700 } }),
-      { modifier: "&:active:has(:checked):not([aria-disabled='true'])" }
+      getColor({ ...options, transparency: theme.opacity[100] }),
+      { modifier: '&:hover' }
     );
+    expect(tile).toHaveStyleRule(
+      'background-color',
+      getColor({ ...options, transparency: theme.opacity[200] }),
+      { modifier: '&:active' }
+    );
+    expect(tile).not.toHaveStyleRule('background-color', expect.anything(), {
+      modifier: '&:has(:checked)'
+    });
   });
 
   it('applies ref to the wrapping element', () => {
@@ -208,6 +300,29 @@ describe('Tiles', () => {
 
       expect(getByTestId('tile')).toHaveStyleRule('direction', 'rtl');
     });
+
+    it('lays out a centered tile as a flex column', () => {
+      const { getByTestId } = render(
+        <Tiles name="example" isCentered>
+          <Tiles.Tile data-test-id="tile" />
+        </Tiles>
+      );
+
+      expect(getByTestId('tile')).toHaveStyleRule('display', 'flex');
+      expect(getByTestId('tile')).toHaveStyleRule('flex-direction', 'column');
+      expect(getByTestId('tile')).toHaveStyleRule('gap', '8px');
+    });
+
+    it('lays out a start-aligned tile as a grid', () => {
+      const { getByTestId } = render(
+        <Tiles name="example" isCentered={false}>
+          <Tiles.Tile data-test-id="tile" />
+        </Tiles>
+      );
+
+      expect(getByTestId('tile')).toHaveStyleRule('display', 'grid');
+      expect(getByTestId('tile')).toHaveStyleRule('grid-template-columns', 'auto 1fr');
+    });
   });
 
   describe('Tiles.Icon', () => {
@@ -226,7 +341,7 @@ describe('Tiles', () => {
       expect(getByTestId('icon')).toBe(ref.current);
     });
 
-    it('applies isVertical styling', () => {
+    it('renders a 28px icon in the first grid column when start-aligned', () => {
       const { getByTestId } = render(
         <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
@@ -237,7 +352,26 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      expect(getByTestId('icon')).toHaveStyleRule('position', 'absolute');
+      expect(getByTestId('icon')).toHaveStyleRule('grid-column', '1');
+      expect(getByTestId('icon')).toHaveStyleRule('grid-row', '1 / span 2');
+      expect(getByTestId('icon')).toHaveStyleRule('width', '28px', { modifier: '& > *' });
+      expect(getByTestId('icon')).toHaveStyleRule('height', '28px', { modifier: '& > *' });
+      expect(getByTestId('icon')).not.toHaveStyleRule('position', 'absolute');
+    });
+
+    it('renders a 32px icon when centered', () => {
+      const { getByTestId } = render(
+        <Tiles name="example" isCentered>
+          <Tiles.Tile>
+            <Tiles.Icon data-test-id="icon">
+              <svg />
+            </Tiles.Icon>
+          </Tiles.Tile>
+        </Tiles>
+      );
+
+      expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > *' });
+      expect(getByTestId('icon')).not.toHaveStyleRule('grid-column', '1');
     });
 
     it('applies RTL styling', () => {
@@ -254,7 +388,8 @@ describe('Tiles', () => {
         }
       );
 
-      expect(getByTestId('icon')).toHaveStyleRule('right', '20px');
+      expect(getByTestId('icon')).toHaveStyleRule('margin-left', '20px');
+      expect(getByTestId('icon')).not.toHaveStyleRule('margin-right', '20px');
     });
   });
 
@@ -284,7 +419,7 @@ describe('Tiles', () => {
       expect(getByText('label')).toHaveAttribute('title', 'label');
     });
 
-    it('applies isVertical styling', () => {
+    it('pads the end and uses the second grid column when start-aligned', () => {
       const { getByText } = render(
         <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
@@ -293,10 +428,24 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      expect(getByText('label')).toHaveStyle(`
-        margin-top: 0;
-        margin-left: 52px;
-      `);
+      expect(getByText('label')).toHaveStyleRule('padding-right', '12px');
+      expect(getByText('label')).toHaveStyleRule('grid-column', '2');
+      expect(getByText('label')).not.toHaveStyleRule('padding-left', '12px');
+      expect(getByText('label')).not.toHaveStyleRule('margin-left', '52px');
+    });
+
+    it('pads both sides when centered', () => {
+      const { getByText } = render(
+        <Tiles name="example" isCentered>
+          <Tiles.Tile>
+            <Tiles.Label>label</Tiles.Label>
+          </Tiles.Tile>
+        </Tiles>
+      );
+
+      expect(getByText('label')).toHaveStyleRule('padding-right', '12px');
+      expect(getByText('label')).toHaveStyleRule('padding-left', '12px');
+      expect(getByText('label')).not.toHaveStyleRule('margin-top', '8px');
     });
 
     it('applies RTL styling', () => {
@@ -311,7 +460,8 @@ describe('Tiles', () => {
         }
       );
 
-      expect(getByText('label')).toHaveStyleRule('margin-right', '52px');
+      expect(getByText('label')).toHaveStyleRule('padding-left', '12px');
+      expect(getByText('label')).not.toHaveStyleRule('padding-right', '12px');
     });
   });
 
@@ -329,7 +479,7 @@ describe('Tiles', () => {
       expect(getByText('description')).toBe(ref.current);
     });
 
-    it('applies isVertical styling', () => {
+    it('uses the second grid column and 4px margin when start-aligned', () => {
       const { getByText } = render(
         <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
@@ -338,11 +488,12 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      expect(getByText('description')).toHaveStyleRule('margin-left', '52px');
+      expect(getByText('description')).toHaveStyleRule('grid-column', '2');
       expect(getByText('description')).toHaveStyleRule('margin-top', '4px');
+      expect(getByText('description')).not.toHaveStyleRule('margin-left', '52px');
     });
 
-    it('spaces a centered description 8px from the label', () => {
+    it('leaves spacing to the tile gap when centered', () => {
       const { getByText } = render(
         <Tiles name="example" isCentered>
           <Tiles.Tile>
@@ -351,7 +502,8 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      expect(getByText('description')).toHaveStyleRule('margin-top', '8px');
+      expect(getByText('description')).not.toHaveStyleRule('margin-top', '8px');
+      expect(getByText('description')).not.toHaveStyleRule('grid-column', '2');
     });
 
     it('applies RTL styling', () => {
@@ -366,7 +518,8 @@ describe('Tiles', () => {
         }
       );
 
-      expect(getByText('description')).toHaveStyleRule('margin-right', '52px');
+      expect(getByText('description')).toHaveStyleRule('grid-column', '2');
+      expect(getByText('description')).not.toHaveStyleRule('margin-right', '52px');
     });
   });
 });

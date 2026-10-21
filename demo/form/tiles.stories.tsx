@@ -26,12 +26,17 @@ export default {
     tiles: TILES,
     isCentered: true,
     name: 'name',
-    hasDescription: true
+    hasDescription: true,
+    hasIcon: true
   },
   argTypes: {
     tiles: { name: 'children' },
     hasDescription: {
       name: 'Tiles.Description',
+      table: { category: 'Story' }
+    },
+    hasIcon: {
+      name: 'Tiles.Icon',
       table: { category: 'Story' }
     }
   },
@@ -39,7 +44,7 @@ export default {
     design: {
       allowFullscreen: true,
       type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A37165'
+      url: 'https://www.figma.com/design/KC44NTRKbICRYrQGbzALRr?node-id=5262-110529'
     }
   }
 };

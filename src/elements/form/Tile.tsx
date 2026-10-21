@@ -33,6 +33,7 @@ const TileComponent = forwardRef<HTMLLabelElement, ITilesTileProps>(
       <StyledTile
         ref={ref}
         aria-disabled={disabled}
+        $isCentered={tilesContext?.isCentered}
         {...props}
         data-garden-id={COMPONENT_IDS['forms.tile']}
         data-garden-version={PACKAGE_VERSION}

@@ -10,36 +10,50 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
+import { getFocusBoxShadow } from '../../theming/utils/getFocusBoxShadow';
 import type { IStyledBaseProps } from '../../types/views';
+
+interface IStyledTileProps {
+  $isCentered?: boolean;
+}
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
-  const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
+  const backgroundOptions = {
+    theme,
+    hue: 'primaryHue',
+    light: { shade: 700 },
+    dark: { shade: 500 }
+  };
   const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
-  const hoverBorderColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+  const hoverBorderColor = getColor({
+    theme,
+    hue: 'neutralHue',
+    light: { shade: 500 },
+    dark: { shade: 600 }
+  });
   const activeBackgroundColor = getColor({
     ...backgroundOptions,
     transparency: theme.opacity[200]
   });
-  const focusBorderColor = hoverBorderColor;
-  const activeBorderColor = hoverBorderColor;
-  const checkedBackgroundColor = getColor({ theme, variable: 'foreground.default' });
-  const checkedForegroundColor = getColor({ theme, variable: 'foreground.onEmphasis' });
-  const checkedHoverBackgroundColor = getColor({
+  const activeBorderColor = getColor({
     theme,
     hue: 'neutralHue',
-    light: { shade: 800 },
-    dark: { shade: 200 }
+    light: { shade: 600 },
+    dark: { shade: 500 }
   });
-  const checkedActiveBackgroundColor = getColor({
+  const focusBorderColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+  const checkedBorderColor = getColor({
     theme,
     hue: 'neutralHue',
     light: { shade: 700 },
-    dark: { shade: 100 }
+    dark: { shade: 400 }
   });
+  /* The selected state is 2px wide: a 1px border plus a 1px inset shadow (no layout shift). */
+  const checkedBoxShadow = (color: string) => `inset 0 0 0 ${theme.borderWidths.sm} ${color}`;
   const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
   const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
   const disabledForegroundColor = getColor({ theme, variable: 'foreground.disabled' });
@@ -54,52 +68,73 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
       background-color: ${hoverBackgroundColor};
     }
 
-    ${focusStyles({
-      theme,
-      selector: '&:has(:focus-visible)',
-      styles: { borderColor: focusBorderColor }
-    })};
-
     &:active {
       border-color: ${activeBorderColor};
       background-color: ${activeBackgroundColor};
     }
 
     &:has(:checked) {
-      border-color: transparent;
-      background-color: ${checkedBackgroundColor};
-      color: ${checkedForegroundColor};
+      border-color: ${checkedBorderColor};
+      box-shadow: ${checkedBoxShadow(checkedBorderColor)};
     }
 
-    &:hover:has(:checked):not([aria-disabled='true']) {
-      background-color: ${checkedHoverBackgroundColor};
-    }
-
+    &:hover:has(:checked):not([aria-disabled='true']),
     &:active:has(:checked):not([aria-disabled='true']) {
-      background-color: ${checkedActiveBackgroundColor};
+      border-color: ${hoverBorderColor};
+      box-shadow: ${checkedBoxShadow(hoverBorderColor)};
+    }
+
+    ${focusStyles({
+      theme,
+      selector: '&:has(:focus-visible)',
+      styles: { borderColor: focusBorderColor }
+    })};
+
+    &:has(:checked):has(:focus-visible):not([aria-disabled='true']) {
+      border-color: ${focusBorderColor};
+      box-shadow: ${getFocusBoxShadow({ theme, boxShadow: checkedBoxShadow(checkedBorderColor) })};
     }
 
     &[aria-disabled='true'] {
       border-color: ${disabledBorderColor};
+      box-shadow: none;
       background-color: ${disabledBackgroundColor};
       color: ${disabledForegroundColor};
     }
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCentered }: IStyledTileProps & IStyledBaseProps) => {
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
 
+  /*
+   * 1. Centered tiles stack their content in a column.
+   * 2. Start-aligned tiles are a two-column grid. The icon lives in the first column, which has no
+   *    width when the icon is omitted. The icon spans the label and description rows.
+   */
+  const layout = $isCentered
+    ? css`
+        flex-direction: column; /* [1] */
+        gap: ${theme.space.xs};
+      `
+    : css`
+        grid-template-columns: auto 1fr; /* [2] */
+        grid-template-rows: auto 1fr;
+        align-items: start;
+      `;
+
   return css`
+    display: ${$isCentered ? 'flex' : 'grid'};
     border: ${border};
     padding: ${padding};
     min-width: 132px;
+
+    ${layout};
   `;
 };
 
-export const StyledTile = styled.label`
-  display: block;
+export const StyledTile = styled.label<IStyledTileProps>`
   position: relative;
   /* prettier-ignore */
   transition:

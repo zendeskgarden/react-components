@@ -22,7 +22,6 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   const color = getColor(options);
   const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
   const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
-  const checkedColor = getColor({ theme, variable: 'foreground.onEmphasis' });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
@@ -36,10 +35,6 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
       color: ${activeColor};
     }
 
-    ${StyledTile}:has(:checked) && {
-      color: ${checkedColor};
-    }
-
     ${StyledTile}[aria-disabled='true'] && {
       color: ${disabledColor};
     }
@@ -47,21 +42,20 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 };
 
 const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & IStyledBaseProps) => {
-  const iconSize = math(`${theme.iconSizes.md} * 2`);
-  let position;
-  let top;
-  let horizontal;
+  const iconSize = $isCentered ? math(`${theme.iconSizes.md} * 2`) : `${theme.space.base * 7}px`;
+  let layout;
 
   if (!$isCentered) {
-    position = 'absolute';
-    top = `${theme.space.base * 6}px`;
-    horizontal = `${theme.space.base * 5}px`;
+    /* The icon fills the first grid column and spans the label and description rows. */
+    layout = css`
+      grid-row: 1 / span 2;
+      grid-column: 1;
+      margin-${theme.rtl ? 'left' : 'right'}: ${theme.space.md};
+    `;
   }
 
   return css`
-    position: ${position};
-    top: ${top};
-    ${theme.rtl ? 'right' : 'left'}: ${horizontal};
+    ${layout};
     line-height: 0;
 
     & > * {

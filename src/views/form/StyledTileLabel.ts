@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -17,16 +16,27 @@ interface IStyledTileLabelProps {
 }
 
 const sizeStyles = ({ theme, $isCentered }: IStyledTileLabelProps & IStyledBaseProps) => {
-  const marginTop = $isCentered ? `${theme.space.base * 2}px` : 0;
-  const marginHorizontal = $isCentered
-    ? undefined
-    : math(`(${theme.iconSizes.md} * 2) + ${theme.space.base * 5}px`);
+  const paddingEnd = `${theme.space.sm}`;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
+  let padding;
+  let gridColumn;
+
+  if ($isCentered) {
+    padding = css`
+      padding-right: ${paddingEnd};
+      padding-left: ${paddingEnd};
+    `;
+  } else {
+    gridColumn = 2;
+    padding = css`
+      padding-${theme.rtl ? 'left' : 'right'}: ${paddingEnd};
+    `;
+  }
 
   return css`
-    margin-top: ${marginTop};
-    margin-${theme.rtl ? 'right' : 'left'}: ${marginHorizontal};
+    grid-column: ${gridColumn};
+    ${padding};
     line-height: ${lineHeight};
     font-size: ${fontSize};
   `;
