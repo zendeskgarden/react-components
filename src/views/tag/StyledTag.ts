@@ -104,6 +104,28 @@ const colorStyles = ({ theme, $hue, $isEmphasis }: IStyledTagProps) => {
   `;
 };
 
+/*
+ * Large tag close placement, per the design: the 16px slot sits 4px after the
+ * text and 6px from the tag edge (12px padding less a 6px negative margin).
+ *
+ * A large tag is 32px tall, so its pointer target also grows invisibly to 24px
+ * wide and the full tag height to meet WCAG 2.5.8 (Target Size, Minimum)
+ * without moving the glyph. Small and medium tags are shorter than 24px and
+ * can't grow the same way.
+ */
+const largeCloseStyles = (theme: IGardenTheme) => css`
+  position: relative;
+  overflow: visible; /* the tag's child reset would clip the pointer target */
+  margin-${theme.rtl ? 'right' : 'left'}: ${theme.space.base}px;
+  margin-${theme.rtl ? 'left' : 'right'}: -${theme.space.base * 1.5}px;
+
+  &::after {
+    position: absolute;
+    inset: -${theme.space.base * 2}px -${theme.space.base}px;
+    content: '';
+  }
+`;
+
 const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   /* Every size shares the same corner radius; only pill and round override it */
   let borderRadius = theme.borderRadii.sm;
@@ -178,6 +200,7 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
       border-radius: ${borderRadius};
       width: ${theme.iconSizes.md};
       height: ${theme.iconSizes.md};
+      ${$size === 'large' && largeCloseStyles(theme)}
     }
   `;
 };

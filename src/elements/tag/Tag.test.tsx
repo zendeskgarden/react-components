@@ -283,7 +283,7 @@ describe('Tag', () => {
   describe('Spacing', () => {
     const space = `${DEFAULT_THEME.space.base}px`;
 
-    it.each(['small', 'medium', 'large'] as const)(
+    it.each(['small', 'medium'] as const)(
       'renders the same avatar and close margins for %s size',
       size => {
         const { container } = render(<Tag size={size} />);
@@ -302,6 +302,81 @@ describe('Tag', () => {
         });
         expect(container.firstChild).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md, {
           modifier: `& ${StyledClose}`
+        });
+      }
+    );
+
+    it('renders the large avatar margins and the close slot to the design', () => {
+      const { container } = render(<Tag size="large" />);
+
+      expect(container.firstChild).toHaveStyleRule('margin-left', `-${space}`, {
+        modifier: `& ${StyledAvatar}`
+      });
+      expect(container.firstChild).toHaveStyleRule('margin-right', space, {
+        modifier: `& ${StyledAvatar}`
+      });
+      /* 4px after the text; 6px from the edge (12px padding less 6px) */
+      expect(container.firstChild).toHaveStyleRule('margin-left', space, {
+        modifier: `& ${StyledClose}`
+      });
+      expect(container.firstChild).toHaveStyleRule(
+        'margin-right',
+        `-${DEFAULT_THEME.space.base * 1.5}px`,
+        {
+          modifier: `& ${StyledClose}`
+        }
+      );
+      expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.md, {
+        modifier: `& ${StyledClose}`
+      });
+      expect(container.firstChild).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.md, {
+        modifier: `& ${StyledClose}`
+      });
+    });
+
+    it('mirrors the large close slot margins with RTL locale', () => {
+      const { container } = render(<Tag size="large" />, { theme: RTL_THEME });
+
+      expect(container.firstChild).toHaveStyleRule('margin-right', space, {
+        modifier: `& ${StyledClose}`
+      });
+      expect(container.firstChild).toHaveStyleRule(
+        'margin-left',
+        `-${DEFAULT_THEME.space.base * 1.5}px`,
+        {
+          modifier: `& ${StyledClose}`
+        }
+      );
+    });
+
+    it('expands the close pointer target to 24px wide and the full height for large tags', () => {
+      const { container } = render(<Tag size="large" />);
+      const base = DEFAULT_THEME.space.base;
+
+      expect(container.firstChild).toHaveStyleRule('position', 'relative', {
+        modifier: `& ${StyledClose}`
+      });
+      expect(container.firstChild).toHaveStyleRule('overflow', 'visible', {
+        modifier: `& ${StyledClose}`
+      });
+      expect(container.firstChild).toHaveStyleRule('position', 'absolute', {
+        modifier: `& ${StyledClose}::after`
+      });
+      expect(container.firstChild).toHaveStyleRule('inset', `-${base * 2}px -${base}px`, {
+        modifier: `& ${StyledClose}::after`
+      });
+    });
+
+    it.each(['small', 'medium'] as const)(
+      'does not expand the close pointer target for %s tags',
+      size => {
+        const { container } = render(<Tag size={size} />);
+
+        expect(container.firstChild).not.toHaveStyleRule('position', 'relative', {
+          modifier: `& ${StyledClose}`
+        });
+        expect(container.firstChild).not.toHaveStyleRule('position', 'absolute', {
+          modifier: `& ${StyledClose}::after`
         });
       }
     );
