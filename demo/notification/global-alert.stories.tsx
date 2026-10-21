@@ -8,6 +8,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 
 import { GlobalAlert } from '../../src/index';
+import { NOTIFICATION_TYPE } from '../../src/types/elements';
 import { GlobalAlertStory } from './stories/GlobalAlertStory';
 
 export default {
@@ -85,4 +86,22 @@ export const Example: StoryObj<typeof GlobalAlertStory> = {
       url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=12311%3A50200'
     }
   }
+};
+
+export const BasicButton: StoryObj<typeof GlobalAlertStory> = {
+  render: args => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+      {NOTIFICATION_TYPE.map(type => (
+        <GlobalAlertStory key={type} {...args} type={type} />
+      ))}
+    </div>
+  ),
+  name: 'Basic button',
+  args: {
+    ...Example.args,
+    isBasic: true,
+    isExternal: true
+  },
+  argTypes: Example.argTypes,
+  parameters: Example.parameters
 };
