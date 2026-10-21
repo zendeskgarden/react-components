@@ -136,6 +136,19 @@ describe('Radio', () => {
     it.each([
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
+    ])('restores the hover border on focus-visible in %s mode', (_, theme) => {
+      const radio = renderRadio(theme);
+
+      expect(radio).toHaveStyleRule(
+        'border-color',
+        getColor({ theme, variable: 'border.primaryEmphasis' }),
+        { modifier: `&:focus-visible ~ ${StyledRadioLabel}::before` }
+      );
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
     ])('renders the disabled fill with no border in %s mode', (_, theme) => {
       const radio = renderRadio(theme);
 

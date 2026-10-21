@@ -183,4 +183,24 @@ describe('Toggle', () => {
       });
     }
   );
+
+  it.each([
+    ['light', DEFAULT_THEME],
+    ['dark', DARK_THEME]
+  ])('keeps the resting track border on focus-visible in %s mode', (_, theme) => {
+    const { getByTestId } = render(
+      <Field>
+        <Toggle data-test-id="toggle">
+          <Field.Label>label</Field.Label>
+        </Toggle>
+      </Field>,
+      { theme }
+    );
+
+    expect(getByTestId('toggle')).toHaveStyleRule(
+      'border-color',
+      getColor({ theme, variable: 'border.emphasis' }),
+      { modifier: `&:focus-visible ~ ${StyledRadioLabel}::before` }
+    );
+  });
 });

@@ -74,9 +74,11 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
       background-color: ${hoverBackgroundColor};
     }
 
+    /* focus-visible restores the hover border; checked rules below keep the transparent border */
     ${focusStyles({
       theme,
-      selector: `&:focus-visible ~ ${StyledRadioLabel}::before`
+      selector: `&:focus-visible ~ ${StyledRadioLabel}::before`,
+      styles: { borderColor: hoverBorderColor }
     })}
 
     & ~ ${StyledRadioLabel}:active::before {

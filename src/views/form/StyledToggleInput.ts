@@ -19,6 +19,8 @@ import { StyledToggleLabel } from './StyledToggleLabel';
 /**
  * 1. Checked and indeterminate hover and active keep the track border.
  *    Checkbox and radio use a transparent border on those states.
+ * 2. Focus-visible keeps the resting track border. Checkbox and radio
+ *    restore the hover border inside the focus ring.
  */
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
@@ -104,6 +106,11 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
     &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
       border-color: ${checkedActiveBorderColor};
+    }
+
+    /* [2] */
+    &:focus-visible ~ ${StyledRadioLabel}::before {
+      border-color: ${borderColor};
     }
   `;
 };

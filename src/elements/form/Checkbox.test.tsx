@@ -181,6 +181,26 @@ describe('Checkbox', () => {
     );
 
     it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ])('restores the hover border on focus-visible in %s mode', (_, theme) => {
+      const checkbox = render(
+        <Field>
+          <Checkbox data-test-id="checkbox">
+            <Field.Label>label</Field.Label>
+          </Checkbox>
+        </Field>,
+        { theme }
+      ).getByTestId('checkbox');
+
+      expect(checkbox).toHaveStyleRule(
+        'border-color',
+        getColor({ theme, variable: 'border.primaryEmphasis' }),
+        { modifier: `&:focus-visible ~ ${StyledRadioLabel}::before` }
+      );
+    });
+
+    it.each([
       [false, '8px'],
       [true, '4px']
     ])('spaces a hint after the label with isCompact %s', (isCompact, margin) => {
