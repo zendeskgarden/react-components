@@ -77,8 +77,8 @@ describe('SortableCell', () => {
     });
   });
 
-  describe('accessible name', () => {
-    it('conveys sortability when unsorted', () => {
+  describe('accessible name and description', () => {
+    it('describes sortability when unsorted', () => {
       const { getByRole } = render(
         <Table>
           <Head>
@@ -89,10 +89,11 @@ describe('SortableCell', () => {
         </Table>
       );
 
-      expect(getByRole('button')).toHaveAccessibleName('Updated date sortable');
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+      expect(getByRole('button')).toHaveAccessibleDescription('sortable');
     });
 
-    it('conveys the sort state when ascending', () => {
+    it('describes the sort state when ascending', () => {
       const { getByRole } = render(
         <Table>
           <Head>
@@ -103,10 +104,11 @@ describe('SortableCell', () => {
         </Table>
       );
 
-      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+      expect(getByRole('button')).toHaveAccessibleDescription('sorted ascending');
     });
 
-    it('conveys the sort state when descending', () => {
+    it('describes the sort state when descending', () => {
       const { getByRole } = render(
         <Table>
           <Head>
@@ -117,7 +119,8 @@ describe('SortableCell', () => {
         </Table>
       );
 
-      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted descending');
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+      expect(getByRole('button')).toHaveAccessibleDescription('sorted descending');
     });
 
     it('applies customized text for each state', () => {
@@ -143,9 +146,12 @@ describe('SortableCell', () => {
       );
       const [unsorted, ascending, descending] = getAllByRole('button');
 
-      expect(unsorted).toHaveAccessibleName('Fecha ordenable');
-      expect(ascending).toHaveAccessibleName('Fecha orden ascendente');
-      expect(descending).toHaveAccessibleName('Fecha orden descendente');
+      expect(unsorted).toHaveAccessibleName('Fecha');
+      expect(unsorted).toHaveAccessibleDescription('ordenable');
+      expect(ascending).toHaveAccessibleName('Fecha');
+      expect(ascending).toHaveAccessibleDescription('orden ascendente');
+      expect(descending).toHaveAccessibleName('Fecha');
+      expect(descending).toHaveAccessibleDescription('orden descendente');
     });
 
     it('does not pass sortLabels to the DOM', () => {
@@ -161,6 +167,36 @@ describe('SortableCell', () => {
 
       expect(getByRole('button')).not.toHaveAttribute('sortLabels');
       expect(getByRole('button')).not.toHaveAttribute('sortlabels');
+    });
+
+    it('merges a consumer aria-describedby instead of replacing it', () => {
+      const { getByRole } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell aria-describedby="help">Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+      const button = getByRole('button');
+
+      expect(button.getAttribute('aria-describedby')).toMatch(/^help \S+$/u);
+    });
+
+    it('keeps the hidden text out of the button name', () => {
+      const { getByRole } = render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell sort="asc">Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+      expect(getByRole('button')).not.toHaveAccessibleName(expect.stringContaining('sorted'));
     });
 
     it('requires a non-empty customized text value', () => {

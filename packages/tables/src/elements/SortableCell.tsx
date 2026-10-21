@@ -9,6 +9,7 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
 import SortFillIcon from '@zendeskgarden/svg-icons/src/12/sort-fill.svg';
+import { useId } from '@zendeskgarden/container-utilities';
 import { useText } from '@zendeskgarden/react-theming';
 import { ISortableCellProps, SORT } from '../types';
 import {
@@ -25,7 +26,19 @@ import {
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
-  ({ sort, cellProps = {}, width, sortLabels = {}, children, ...sortableButtonProps }, ref) => {
+  (
+    {
+      sort,
+      cellProps = {},
+      width,
+      sortLabels = {},
+      'aria-describedby': ariaDescribedBy,
+      children,
+      ...sortableButtonProps
+    },
+    ref
+  ) => {
+    const idPrefix = useId(undefined);
     const { isMinimum, isTruncated, hasOverflow, ...otherCellProps } = cellProps;
     let ariaSortValue = 'none';
 
@@ -60,12 +73,18 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
       sort === 'desc'
     );
     let sortLabel = unsortedLabel;
+    let sortKey = 'unsorted';
 
     if (sort === 'asc') {
       sortLabel = ascendingLabel;
+      sortKey = 'ascending';
     } else if (sort === 'desc') {
       sortLabel = descendingLabel;
+      sortKey = 'descending';
     }
+
+    /* A new id (and element) per state makes assistive technology re-read the description */
+    const labelId = `${idPrefix}--${sortKey}`;
 
     return (
       <StyledHeaderCell
@@ -76,9 +95,17 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
         $hasOverflow={hasOverflow}
         {...otherCellProps}
       >
-        <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
+        <StyledSortableButton
+          $sort={sort}
+          ref={ref}
+          {...sortableButtonProps}
+          aria-describedby={[ariaDescribedBy, labelId].filter(Boolean).join(' ')}
+        >
           {children}
-          <StyledSortableLabel>{` ${sortLabel}`}</StyledSortableLabel>
+          {/* aria-hidden keeps the text out of the button name; aria-describedby still reads it */}
+          <StyledSortableLabel key={labelId} id={labelId} aria-hidden="true">
+            {sortLabel}
+          </StyledSortableLabel>
           <StyledSortableStrokeIconWrapper>
             <SortIcon />
           </StyledSortableStrokeIconWrapper>
