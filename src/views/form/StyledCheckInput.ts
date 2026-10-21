@@ -14,13 +14,8 @@ import { StyledCheckLabel } from './StyledCheckLabel';
 import { StyledRadioInput } from './StyledRadioInput';
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
-  const borderOptions = { theme, variable: 'border.primaryEmphasis' };
-
   const indeterminateBackgroundColor = getColor({ theme, variable: 'foreground.default' });
   const indeterminateBorderColor = 'transparent';
-
-  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
-  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
 
   const indeterminateHoverBackgroundColor = getColor({
     theme,
@@ -28,14 +23,14 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
     light: { shade: 800 },
     dark: { shade: 200 }
   });
-  const indeterminateHoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+  const indeterminateHoverBorderColor = indeterminateBorderColor;
   const indeterminateActiveBackgroundColor = getColor({
     theme,
     hue: 'neutralHue',
     light: { shade: 700 },
     dark: { shade: 100 }
   });
-  const indeterminateActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
+  const indeterminateActiveBorderColor = indeterminateBorderColor;
   const indeterminateDisabledBackgroundColor = getColor({
     theme,
     variable: 'background.disabled',

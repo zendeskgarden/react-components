@@ -12,8 +12,14 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import type { IStyledBaseProps } from '../../types/views';
 import { StyledCheckInput } from './StyledCheckInput';
+import { StyledCheckLabel } from './StyledCheckLabel';
+import { StyledRadioLabel } from './StyledRadioLabel';
 import { StyledToggleLabel } from './StyledToggleLabel';
 
+/**
+ * 1. Checked and indeterminate hover and active keep the track border.
+ *    Checkbox and radio use a transparent border on those states.
+ */
 const colorStyles = ({ theme }: IStyledBaseProps) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundOptions = {
@@ -42,6 +48,11 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   });
   const disabledBorderColor = getColor({ theme, variable: 'border.disabled' });
   const disabledIconColor = getColor({ theme, variable: 'background.disabled' });
+  const borderOptions = { theme, variable: 'border.primaryEmphasis' };
+  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
+  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
+  const checkedHoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+  const checkedActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
 
   return css`
     & ~ ${StyledToggleLabel}::before {
@@ -76,6 +87,23 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
     &:disabled:not(:checked) ~ ${StyledToggleLabel} > svg {
       color: ${disabledIconColor};
+    }
+
+    /* [1] */
+    &:enabled:checked ~ ${StyledRadioLabel}:hover::before {
+      border-color: ${checkedHoverBorderColor};
+    }
+
+    &:enabled:checked ~ ${StyledRadioLabel}:active::before {
+      border-color: ${checkedActiveBorderColor};
+    }
+
+    &:enabled:indeterminate ~ ${StyledCheckLabel}:hover::before {
+      border-color: ${checkedHoverBorderColor};
+    }
+
+    &:enabled:indeterminate ~ ${StyledCheckLabel}:active::before {
+      border-color: ${checkedActiveBorderColor};
     }
   `;
 };

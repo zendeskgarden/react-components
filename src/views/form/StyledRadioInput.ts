@@ -39,23 +39,20 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   const checkedBackgroundColor = getColor({ theme, variable: 'foreground.default' });
   const checkedBorderColor = 'transparent';
 
-  const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
-  const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
-
   const checkedHoverBackgroundColor = getColor({
     theme,
     hue: 'neutralHue',
     light: { shade: 800 },
     dark: { shade: 200 }
   });
-  const checkedHoverBorderColor = getColor({ ...borderOptions, ...offset100 });
+  const checkedHoverBorderColor = checkedBorderColor;
   const checkedActiveBackgroundColor = getColor({
     theme,
     hue: 'neutralHue',
     light: { shade: 700 },
     dark: { shade: 100 }
   });
-  const checkedActiveBorderColor = getColor({ ...borderOptions, ...offset200 });
+  const checkedActiveBorderColor = checkedBorderColor;
   const disabledBackgroundColor = getColor({
     theme,
     variable: 'background.disabled',

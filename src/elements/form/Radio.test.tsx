@@ -122,6 +122,20 @@ describe('Radio', () => {
     it.each([
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
+    ])('keeps a transparent border on a checked control in %s mode', (_, theme) => {
+      const radio = renderRadio(theme);
+
+      expect(radio).toHaveStyleRule('border-color', 'transparent', {
+        modifier: `&:enabled:checked ~ ${StyledRadioLabel}:hover::before`
+      });
+      expect(radio).toHaveStyleRule('border-color', 'transparent', {
+        modifier: `&:enabled:checked ~ ${StyledRadioLabel}:active::before`
+      });
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
     ])('renders the disabled fill with no border in %s mode', (_, theme) => {
       const radio = renderRadio(theme);
 
