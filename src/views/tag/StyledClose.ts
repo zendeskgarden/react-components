@@ -29,6 +29,11 @@ export const StyledClose = styled.button`
   font-size: 0; /* [2] */
   appearance: none; /* [1] */
 
+  svg {
+    width: ${props => props.theme.iconSizes.sm};
+    height: ${props => props.theme.iconSizes.sm};
+  }
+
   &:hover {
     opacity: ${props => props.theme.opacity[1100]};
   }

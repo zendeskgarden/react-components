@@ -9,12 +9,10 @@ import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import { useCallback, useState } from 'react';
 import Icon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
 import StartIcon from 'svg-icons-legacy/src/16/search-stroke.svg';
-import Avatar from 'svg-icons-legacy/src/16/user-solo-stroke.svg';
 
 import {
   Combobox,
   ComboboxField as Field,
-  ComboboxTag as Tag,
   Grid,
   IComboboxProps,
   IOptionProps,
@@ -26,10 +24,8 @@ import { IOption, Options } from './types';
 const toLabel = (option: IOption) => option.label || option.value;
 
 const ComboboxOption = ({ icon, meta, ...props }: IOption) => {
-  const Svg = props.tagProps?.isPill ? Avatar : Icon;
-
   return (
-    <Option icon={icon ? <Svg /> : undefined} {...props}>
+    <Option icon={icon ? <Icon /> : undefined} {...props}>
       {!!meta && (
         <>
           <span>{props.children || toLabel(props)}</span>
@@ -100,16 +96,8 @@ export const ComboboxStory = ({
   };
 
   const getTagProps = (option: IOption): IOptionProps['tagProps'] => {
-    const Svg = option.tagProps?.isPill ? Avatar : Icon;
     const children = option.icon ? (
-      <>
-        <Tag.Avatar>
-          <span style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Svg />
-          </span>
-        </Tag.Avatar>{' '}
-        <span>{option.tagProps?.children || toLabel(option)}</span>
-      </>
+      <span>{option.tagProps?.children || toLabel(option)}</span>
     ) : undefined;
 
     return {

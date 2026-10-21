@@ -8,6 +8,7 @@
 import { createRef } from 'react';
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Close } from './Close';
 
 describe('Close', () => {
@@ -15,6 +16,19 @@ describe('Close', () => {
     const { container } = render(<Close />);
 
     expect(container.querySelector('svg')).not.toBeNull();
+  });
+
+  it('renders the x-small icon at the themed slot size', () => {
+    const { container } = render(<Close />);
+    const svg = container.querySelector('svg');
+
+    expect(svg).toHaveAttribute('viewBox', '0 0 20 20');
+    expect(container.firstChild).toHaveStyleRule('width', DEFAULT_THEME.iconSizes.sm, {
+      modifier: 'svg'
+    });
+    expect(container.firstChild).toHaveStyleRule('height', DEFAULT_THEME.iconSizes.sm, {
+      modifier: 'svg'
+    });
   });
 
   it('renders with default aria-label', () => {

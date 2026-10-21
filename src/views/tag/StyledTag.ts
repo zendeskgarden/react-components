@@ -104,8 +104,31 @@ const colorStyles = ({ theme, $hue, $isEmphasis }: IStyledTagProps) => {
   `;
 };
 
+/*
+ * Large tag close placement, per the design: the 16px slot sits 4px after the
+ * text and 6px from the tag edge (12px padding less a 6px negative margin).
+ *
+ * A large tag is 32px tall, so its pointer target also grows invisibly to 24px
+ * wide and the full tag height to meet WCAG 2.5.8 (Target Size, Minimum)
+ * without moving the glyph. Small and medium tags are shorter than 24px and
+ * can't grow the same way.
+ */
+const largeCloseStyles = (theme: IGardenTheme) => css`
+  position: relative;
+  overflow: visible; /* the tag's child reset would clip the pointer target */
+  margin-${theme.rtl ? 'right' : 'left'}: ${theme.space.base}px;
+  margin-${theme.rtl ? 'left' : 'right'}: -${theme.space.base * 1.5}px;
+
+  &::after {
+    position: absolute;
+    inset: -${theme.space.base * 2}px -${theme.space.base}px;
+    content: '';
+  }
+`;
+
 const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
-  let borderRadius;
+  /* Every size shares the same corner radius; only pill and round override it */
+  let borderRadius = theme.borderRadii.sm;
   let padding;
   let height;
   let fontSize;
@@ -113,19 +136,16 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   let avatarSize;
 
   if ($size === 'small') {
-    borderRadius = theme.borderRadii.sm;
     padding = theme.space.base;
     height = theme.space.base * 4;
     fontSize = theme.fontSizes.xs;
     avatarSize = 0;
   } else if ($size === 'large') {
-    borderRadius = theme.borderRadii.md;
     padding = theme.space.base * 3;
     height = theme.space.base * 8;
     fontSize = theme.fontSizes.sm;
     avatarSize = theme.space.base * 6;
   } else {
-    borderRadius = theme.borderRadii.sm;
     padding = theme.space.base * 2;
     height = theme.space.base * 5;
     fontSize = theme.fontSizes.sm;
@@ -178,8 +198,9 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
     & ${StyledClose} {
       margin-${theme.rtl ? 'left' : 'right'}: -${theme.space.base}px;
       border-radius: ${borderRadius};
-      width: ${height}px;
-      height: ${height}px;
+      width: ${theme.iconSizes.md};
+      height: ${theme.iconSizes.md};
+      ${$size === 'large' && largeCloseStyles(theme)}
     }
   `;
 };

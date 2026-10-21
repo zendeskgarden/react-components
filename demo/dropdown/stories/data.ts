@@ -91,7 +91,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -102,7 +101,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -112,7 +110,6 @@ export const OPTIONS: Options = [
         meta: 'Poison',
         icon: true,
         tagProps: {
-          isPill: true,
           removeLabel: 'Remove'
         },
         isDisabled: true
@@ -124,7 +121,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -135,7 +131,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         },
         isHidden: true
@@ -153,7 +148,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -164,7 +158,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -175,7 +168,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -186,7 +178,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       }
@@ -203,7 +194,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -214,7 +204,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -225,7 +214,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -236,7 +224,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       }
@@ -253,7 +240,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -264,7 +250,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -275,7 +260,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       },
@@ -286,7 +270,6 @@ export const OPTIONS: Options = [
         icon: true,
         tagProps: {
           'aria-label': 'Press delete or backspace to remove',
-          isPill: true,
           removeLabel: 'Remove'
         }
       }
