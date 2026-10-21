@@ -7,11 +7,13 @@
 
 import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
+import { css } from 'styled-components';
 import { vi } from 'vitest';
 
 import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
+import { StyledTile } from '../../views/form/StyledTile';
 import { Tiles } from './Tiles';
 
 describe('Tiles', () => {
@@ -322,6 +324,75 @@ describe('Tiles', () => {
 
       expect(getByTestId('tile')).toHaveStyleRule('display', 'grid');
       expect(getByTestId('tile')).toHaveStyleRule('grid-template-columns', 'auto 1fr');
+    });
+  });
+
+  describe('Tiles.Tile check icon', () => {
+    const renderTile = (props = {}, options = {}) =>
+      render(
+        <Tiles name="example" value="item-1">
+          <Tiles.Tile value="item-1" data-test-id="tile" {...props}>
+            <Tiles.Label>Item 1</Tiles.Label>
+          </Tiles.Tile>
+        </Tiles>,
+        options
+      );
+
+    it('renders a hidden check icon with its component id', () => {
+      const { getByTestId } = renderTile();
+      const check = getByTestId('tile').querySelector('[data-garden-id="forms.tile_check"]')!;
+
+      expect(check).toHaveAttribute('aria-hidden', 'true');
+      expect(check).toHaveAttribute('data-garden-version');
+    });
+
+    it('is transparent until the tile is checked', () => {
+      const { getByTestId } = renderTile();
+      const check = getByTestId('tile').querySelector('[data-garden-id="forms.tile_check"]')!;
+
+      expect(check).toHaveStyleRule('opacity', '0');
+      expect(check).toHaveStyleRule('opacity', '1', {
+        modifier: css`
+          ${StyledTile}:has(:checked) &&
+        ` as any
+      });
+    });
+
+    it('uses the default foreground color, and the disabled one when disabled', () => {
+      const { getByTestId } = renderTile({ disabled: true });
+      const check = getByTestId('tile').querySelector('[data-garden-id="forms.tile_check"]')!;
+
+      expect(check).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' })
+      );
+      expect(check).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.disabled' }),
+        {
+          modifier: css`
+            ${StyledTile}[aria-disabled='true'] &&
+          ` as any
+        }
+      );
+    });
+
+    it('is placed in the opposite corner in RTL', () => {
+      const { getByTestId } = renderTile({}, { theme: RTL_THEME });
+      const check = getByTestId('tile').querySelector('[data-garden-id="forms.tile_check"]')!;
+
+      expect(check).toHaveStyleRule('left', '8px');
+      expect(check).not.toHaveStyleRule('right', '8px');
+    });
+
+    it('is placed 8px from the top and end of the tile', () => {
+      const { getByTestId } = renderTile();
+      const check = getByTestId('tile').querySelector('[data-garden-id="forms.tile_check"]')!;
+
+      expect(check).toHaveStyleRule('top', '8px');
+      expect(check).toHaveStyleRule('right', '8px');
+      expect(check).toHaveStyleRule('width', '20px');
+      expect(check).toHaveStyleRule('height', '20px');
     });
   });
 

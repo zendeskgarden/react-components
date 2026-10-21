@@ -11,6 +11,7 @@ import { useRef, forwardRef } from 'react';
 import { useTilesContext } from '../../hooks/form/useTilesContext';
 import { ITilesTileProps } from '../../types/elements';
 import { StyledTile } from '../../views/form/StyledTile';
+import { StyledTileCheck } from '../../views/form/StyledTileCheck';
 import { StyledTileInput } from '../../views/form/StyledTileInput';
 import { COMPONENT_IDS } from '../utils';
 
@@ -39,6 +40,11 @@ const TileComponent = forwardRef<HTMLLabelElement, ITilesTileProps>(
         data-garden-version={PACKAGE_VERSION}
       >
         {children}
+        <StyledTileCheck
+          aria-hidden="true"
+          data-garden-id={COMPONENT_IDS['forms.tile_check']}
+          data-garden-version={PACKAGE_VERSION}
+        />
         <StyledTileInput
           {...inputProps}
           disabled={disabled}

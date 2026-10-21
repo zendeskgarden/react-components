@@ -161,6 +161,7 @@ const componentIds = [
   'forms.select_wrapper',
   'forms.textarea',
   'forms.tile',
+  'forms.tile_check',
   'forms.tile_description',
   'forms.tile_icon',
   'forms.tile_label',
