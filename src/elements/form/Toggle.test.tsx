@@ -7,9 +7,11 @@
 
 import { createRef } from 'react';
 
-import { render } from '../../test/render';
+import { DARK_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
+import { StyledCheckLabel } from '../../views/form/StyledCheckLabel';
+import { StyledRadioLabel } from '../../views/form/StyledRadioLabel';
 import { StyledToggleLabel } from '../../views/form/StyledToggleLabel';
 import { Field } from './Field';
 import { Toggle } from './Toggle';
@@ -142,5 +144,63 @@ describe('Toggle', () => {
       { modifier }
     );
     expect(toggle).toHaveStyleRule('background-color', 'transparent', { modifier });
+  });
+
+  it.each([
+    ['light', DEFAULT_THEME],
+    ['dark', DARK_THEME]
+  ])(
+    'keeps the track border on checked and indeterminate hover and active in %s mode',
+    (_, theme) => {
+      const { getByTestId } = render(
+        <Field>
+          <Toggle data-test-id="toggle">
+            <Field.Label>label</Field.Label>
+          </Toggle>
+        </Field>,
+        { theme }
+      );
+      const toggle = getByTestId('toggle');
+      const border = (offset: 100 | 200) =>
+        getColor({
+          theme,
+          variable: 'border.primaryEmphasis',
+          light: { offset },
+          dark: { offset: -offset }
+        });
+
+      expect(toggle).toHaveStyleRule('border-color', border(100), {
+        modifier: `&:enabled:checked ~ ${StyledRadioLabel}:hover::before`
+      });
+      expect(toggle).toHaveStyleRule('border-color', border(200), {
+        modifier: `&:enabled:checked ~ ${StyledRadioLabel}:active::before`
+      });
+      expect(toggle).toHaveStyleRule('border-color', border(100), {
+        modifier: `&:enabled:indeterminate ~ ${StyledCheckLabel}:hover::before`
+      });
+      expect(toggle).toHaveStyleRule('border-color', border(200), {
+        modifier: `&:enabled:indeterminate ~ ${StyledCheckLabel}:active::before`
+      });
+    }
+  );
+
+  it.each([
+    ['light', DEFAULT_THEME],
+    ['dark', DARK_THEME]
+  ])('keeps the resting track border on focus-visible in %s mode', (_, theme) => {
+    const { getByTestId } = render(
+      <Field>
+        <Toggle data-test-id="toggle">
+          <Field.Label>label</Field.Label>
+        </Toggle>
+      </Field>,
+      { theme }
+    );
+
+    expect(getByTestId('toggle')).toHaveStyleRule(
+      'border-color',
+      getColor({ theme, variable: 'border.emphasis' }),
+      { modifier: `&:focus-visible ~ ${StyledRadioLabel}::before` }
+    );
   });
 });
