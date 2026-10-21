@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import SelectedIcon from '@zendeskgarden/svg-icons/src/check.svg';
+import PreviousIcon from '@zendeskgarden/svg-icons/src/chevron-left.svg';
+import NextIcon from '@zendeskgarden/svg-icons/src/chevron-right.svg';
+import SelectionIcon from '@zendeskgarden/svg-icons/src/circle-fill.svg';
+import AddIcon from '@zendeskgarden/svg-icons/src/plus.svg';
 import PropTypes from 'prop-types';
 import { LiHTMLAttributes, forwardRef, useEffect, useMemo, useRef } from 'react';
-import SelectionIcon from 'svg-icons-legacy/src/12/circle-sm-fill.svg';
-import SelectedIcon from 'svg-icons-legacy/src/16/check-lg-stroke.svg';
-import PreviousIcon from 'svg-icons-legacy/src/16/chevron-left-stroke.svg';
-import NextIcon from 'svg-icons-legacy/src/16/chevron-right-stroke.svg';
-import AddIcon from 'svg-icons-legacy/src/16/plus-stroke.svg';
 
 import { OptionProvider } from '../../context/dropdown/OptionContext';
 import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';

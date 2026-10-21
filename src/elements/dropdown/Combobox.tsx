@@ -6,6 +6,7 @@
  */
 
 import { IUseComboboxReturnValue, useCombobox } from '@zendeskgarden/container-combobox';
+import ChevronIcon from '@zendeskgarden/svg-icons/src/chevron-down.svg';
 import PropTypes from 'prop-types';
 import {
   HTMLAttributes,
@@ -20,7 +21,6 @@ import {
   useState
 } from 'react';
 import { ThemeContext } from 'styled-components';
-import ChevronIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
 import { ComboboxProvider } from '../../context/dropdown/ComboboxContext';
 import { useFieldContext } from '../../hooks/dropdown/useFieldContext';

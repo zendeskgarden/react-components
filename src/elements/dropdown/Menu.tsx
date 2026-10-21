@@ -6,10 +6,10 @@
  */
 
 import { useMenu } from '@zendeskgarden/container-menu';
+import ChevronIcon from '@zendeskgarden/svg-icons/src/chevron-down.svg';
 import PropTypes from 'prop-types';
 import { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
 import { ThemeContext } from 'styled-components';
-import ChevronIcon from 'svg-icons-legacy/src/16/chevron-down-stroke.svg';
 
 import { MenuProvider } from '../../context/dropdown/MenuContext';
 import { Button } from '../../elements/button/Button';

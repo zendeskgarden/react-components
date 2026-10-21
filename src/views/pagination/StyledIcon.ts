@@ -28,4 +28,6 @@ const marginStyles = (props: IStyledIcon) => {
 export const StyledIcon = styled(StyledBaseIcon)<IStyledIcon>`
   ${marginStyles}
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
+  width: ${props => props.theme.iconSizes.md};
+  height: ${props => props.theme.iconSizes.md};
 `;

@@ -65,6 +65,25 @@ describe('CursorPagination', () => {
     });
   });
 
+  describe('icon size', () => {
+    it.each(['First', 'Previous', 'Next', 'Last'] as const)(
+      'sizes the %s icon to iconSizes.md',
+      name => {
+        const Cursor = CursorPagination[name];
+        const { container } = render(
+          <CursorPagination>
+            <Cursor />
+          </CursorPagination>
+        );
+
+        expect(container.querySelector('svg')).toHaveStyle({
+          width: DEFAULT_THEME.iconSizes.md,
+          height: DEFAULT_THEME.iconSizes.md
+        });
+      }
+    );
+  });
+
   describe('icon rotation', () => {
     it.each(['First', 'Previous', 'Next', 'Last'] as const)(
       'does not rotate the %s icon in LTR',
