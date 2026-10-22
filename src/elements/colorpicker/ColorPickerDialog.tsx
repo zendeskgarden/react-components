@@ -25,6 +25,8 @@ import { Button } from '../../elements/button/Button';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { useText } from '../../theming/utils/useText';
 import { IColor, IColorPickerDialogProps, MODAL_PLACEMENT } from '../../types/elements';
+import { getElementRef } from '../../utils/shared/getElementRef';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledButton } from '../../views/colorpicker/StyledButton';
 import { getBackground, StyledButtonPreview } from '../../views/colorpicker/StyledButtonPreview';
 import { StyledTooltipBody } from '../../views/colorpicker/StyledTooltipBody';
@@ -105,20 +107,21 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
       }
     }, [isOpen, isDialogControlled]);
 
+    const trigger = children
+      ? Children.only(
+          children as ReactElement<
+            ButtonHTMLAttributes<HTMLButtonElement> & RefAttributes<HTMLButtonElement>
+          >
+        )
+      : null;
+
     return (
       <>
-        {children ? (
-          cloneElement(
-            Children.only(
-              children as ReactElement<
-                ButtonHTMLAttributes<HTMLButtonElement> & RefAttributes<HTMLButtonElement>
-              >
-            ),
-            {
-              onClick,
-              ref: buttonRef
-            }
-          )
+        {trigger ? (
+          cloneElement(trigger, {
+            onClick: composeEventHandlers(trigger.props.onClick, onClick),
+            ref: mergeRefs([buttonRef, getElementRef<HTMLButtonElement>(trigger)])
+          })
         ) : (
           <StyledButton
             disabled={disabled}

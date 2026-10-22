@@ -18,8 +18,7 @@ import {
   forwardRef,
   Children,
   InputHTMLAttributes,
-  ReactElement,
-  RefAttributes
+  ReactElement
 } from 'react';
 import { createPortal } from 'react-dom';
 import { ThemeContext } from 'styled-components';
@@ -28,6 +27,7 @@ import { DatePickerProvider } from '../../context/datepicker/DatePickerContext';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
 import { IDatePickerProps, DATEPICKER_PLACEMENT, WEEK_STARTS_ON } from '../../types/elements';
+import { getElementRef } from '../../utils/shared/getElementRef';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledMenu } from '../../views/datepicker/StyledMenu';
 import { StyledMenuWrapper } from '../../views/datepicker/StyledMenuWrapper';
@@ -92,8 +92,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     middleware: [_placement === 'auto' ? autoPlacement() : flip()]
   });
 
-  const Child = Children.only(children) as ReactElement<InputHTMLAttributes<HTMLInputElement>> &
-    RefAttributes<HTMLInputElement>;
+  const Child = Children.only(children) as ReactElement<InputHTMLAttributes<HTMLInputElement>>;
 
   useEffect(() => {
     // Only allow positioning updates on visible tooltip.
@@ -182,7 +181,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         value={value}
         onChange={onChange}
         customParseDate={customParseDate}
-        ref={mergeRefs([triggerRef, Child.ref ? Child.ref : null])}
+        ref={mergeRefs([triggerRef, getElementRef(Child)])}
       />
       <DatePickerProvider value={contextValue}>
         {appendToNode ? createPortal(Node, appendToNode) : Node}

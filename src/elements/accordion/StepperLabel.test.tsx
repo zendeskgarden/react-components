@@ -283,14 +283,14 @@ describe('Label', () => {
       expect(text).toHaveAttribute('data-garden-version', PACKAGE_VERSION);
       expect(text).not.toHaveStyleRule('display');
       expect(text).not.toHaveStyleRule('padding');
-      expect(text).not.toHaveStyleRule('word-wrap');
+      expect(text).not.toHaveStyleRule('overflow-wrap');
     });
 
     it('renders horizontal styling', () => {
       const text = renderText({}, true);
 
       expect(text).toHaveStyleRule('padding', `0 ${DEFAULT_THEME.space.base * 3}px`);
-      expect(text).toHaveStyleRule('word-wrap', 'break-word');
+      expect(text).toHaveStyleRule('overflow-wrap', 'break-word');
     });
 
     it('is hidden if requested', () => {

@@ -24,6 +24,8 @@ import {
 } from 'react';
 
 import { useDatePickerRangeContext as useDatePickerContext } from '../../hooks/datepicker/useDatePickerRangeContext';
+import { getElementRef } from '../../utils/shared/getElementRef';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { parseInputValue } from './date-picker-range-reducer';
 
 export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) => {
@@ -95,7 +97,10 @@ export const End = (props: PropsWithChildren<HTMLAttributes<HTMLInputElement>>) 
 
   return cloneElement(childElement, {
     value: state.endInputValue || '',
-    ref: endInputRef as RefObject<HTMLInputElement | null>,
+    ref: mergeRefs([
+      endInputRef as RefObject<HTMLInputElement | null>,
+      getElementRef<HTMLInputElement>(childElement)
+    ]),
     onChange: composeEventHandlers(childElement.props.onChange, onChangeCallback),
     onFocus: composeEventHandlers(childElement.props.onFocus, onFocusCallback),
     onKeyDown: composeEventHandlers(childElement.props.onKeyDown, onKeydownCallback),

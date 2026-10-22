@@ -9,6 +9,7 @@ import { fireEvent } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { KEYS } from '@zendeskgarden/container-utilities';
 import mockDate from 'mockdate';
+import { createRef } from 'react';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
@@ -239,6 +240,31 @@ describe('DatePickerRange', () => {
       await user.type(getByTestId('end'), 'hello');
 
       expect(onKeyDownSpy).toHaveBeenCalled();
+    });
+
+    it('keeps the input ref alongside the internal ref', () => {
+      const ref = createRef<HTMLInputElement>();
+      const RefExample = (props: IDatePickerRangeProps) => (
+        <DatePickerRange {...props}>
+          <DatePickerRange.Start>
+            <input data-test-id="start" />
+          </DatePickerRange.Start>
+          <DatePickerRange.End>
+            <input data-test-id="end" ref={ref} />
+          </DatePickerRange.End>
+          <DatePickerRange.Calendar />
+        </DatePickerRange>
+      );
+
+      const { getByTestId, rerender } = render(
+        <RefExample startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+
+      expect(ref.current).toBe(getByTestId('end'));
+
+      rerender(<RefExample startValue={new Date(2019, 1, 6)} endValue={DEFAULT_END_VALUE} />);
+
+      expect(getByTestId('end')).toHaveFocus();
     });
   });
 });
