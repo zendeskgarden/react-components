@@ -12,7 +12,7 @@ import typescriptPlugin from '@zendeskgarden/eslint-config/plugins/typescript.js
 import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
-  globalIgnores(['.packages', 'dist']),
+  globalIgnores(['dist']),
 
   ...config,
   reactPlugin,
