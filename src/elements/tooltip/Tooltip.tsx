@@ -26,6 +26,7 @@ import { ThemeContext } from 'styled-components';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
 import { ITooltipProps, TOOLTIP_PLACEMENT, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../../types/elements';
+import { getElementRef } from '../../utils/shared/getElementRef';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTooltip } from '../../views/tooltip/StyledTooltip';
 import { StyledTooltipWrapper } from '../../views/tooltip/StyledTooltipWrapper';
@@ -137,7 +138,7 @@ export const TooltipComponent = ({
         Child,
         getTriggerProps({
           ...(Child.props as HTMLAttributes<HTMLElement>),
-          [refKey!]: mergeRefs([triggerRef, Child.ref ? Child.ref : null])
+          [refKey!]: mergeRefs([triggerRef, getElementRef(Child) ?? null])
         })
       )}
       {appendToNode ? createPortal(Node, appendToNode) : Node}

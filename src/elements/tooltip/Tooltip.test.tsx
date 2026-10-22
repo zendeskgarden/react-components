@@ -7,6 +7,7 @@
 
 import { act } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
+import { createRef } from 'react';
 import { vi } from 'vitest';
 
 import { DARK_THEME, RTL_THEME, render } from '../../test/render';
@@ -65,6 +66,22 @@ describe('Tooltip', () => {
     const { getByTestId } = render(<BasicExample appendToNode={document.body} />);
 
     expect(getByTestId('tooltip').parentElement!.parentElement!.tagName).toBe('BODY');
+  });
+
+  it('keeps the trigger ref without reading `element.ref` on React 19', () => {
+    const error = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+    const ref = createRef<HTMLButtonElement>();
+    const { getByTestId } = render(
+      <Tooltip content="Tooltip">
+        <button type="button" ref={ref} data-test-id="trigger">
+          Trigger
+        </button>
+      </Tooltip>
+    );
+
+    expect(ref.current).toBe(getByTestId('trigger'));
+    expect(error.mock.calls.flat().join(' ')).not.toContain('element.ref');
+    error.mockRestore();
   });
 
   it('renders tooltip with RTL styling if provided', async () => {
