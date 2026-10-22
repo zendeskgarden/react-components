@@ -202,6 +202,8 @@ export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
                   $blue={computedColor.blue}
                   hasLowerTrack={false}
                   style={{
+                    // `Range` adds a `backgroundSize` key after the other style keys. React 19 warns on a
+                    // rerender when the `background` shorthand comes before its longhand, so keep this key first.
                     backgroundSize: 'auto',
                     background: alphaBackground({
                       theme,
