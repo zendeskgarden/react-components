@@ -13,10 +13,9 @@ import {
   verticalListSortingStrategy
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { LG, MD } from '@zendeskgarden/react-typography';
 import { RefObject, forwardRef, useEffect, CSSProperties } from 'react';
 
-import { Draggable, DraggableList, Dropzone } from '../../../../src/index';
+import { Draggable, DraggableList, Dropzone, LG, MD } from '../../../../src/index';
 import type { IDraggableItemProps, IDropIndicatorProps, ISortableColumnProps } from './types';
 import { animateLayoutChanges } from './utils';
 

@@ -5,13 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Item, Menu } from '@zendeskgarden/react-dropdowns';
 import { useCallback } from 'react';
 import IconRemove from 'svg-icons-legacy/src/12/x-stroke.svg';
 import IconAdd from 'svg-icons-legacy/src/16/notification-stroke.svg';
 import IconRemoveAll from 'svg-icons-legacy/src/16/x-circle-stroke.svg';
 
-import { Button, Grid, IToast, IToastOptions, Notification, useToast } from '../../../src/index';
+import {
+  Button,
+  Grid,
+  IToast,
+  IToastOptions,
+  Item,
+  Menu,
+  Notification,
+  useToast
+} from '../../../src/index';
 
 interface IArgs extends IToastOptions {
   children: string;

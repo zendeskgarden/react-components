@@ -5,14 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IButtonProps, IconButton } from '@zendeskgarden/react-buttons';
-import { Menu, Item, IMenuProps } from '@zendeskgarden/react-dropdowns';
-import { Grid } from '@zendeskgarden/react-grid';
 import { forwardRef } from 'react';
 import { useTheme } from 'styled-components';
 import Icon from 'svg-icons-legacy/src/16/leaf-stroke.svg';
 
-import { ITooltipProps, Tooltip } from '../../../../src/index';
+import {
+  Grid,
+  IButtonProps,
+  IconButton,
+  IMenuProps,
+  ITooltipProps,
+  Item,
+  Menu,
+  Tooltip
+} from '../../../../src/index';
 import { useDocument } from '../../../../src/theming/utils/useDocument';
 
 interface IMenuButtonProps extends IButtonProps {

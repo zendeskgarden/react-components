@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field, Input } from '@zendeskgarden/react-forms';
-import { Paragraph } from '@zendeskgarden/react-typography';
 import { useRef } from 'react';
 import { styled } from 'styled-components';
 
-import { DatePicker } from '../../../../src/index';
+import { DatePicker, Field, Input, Paragraph } from '../../../../src/index';
 import { getColor } from '../../../../src/theming/utils/getColor';
 
 interface IArgs {

@@ -301,8 +301,13 @@ if __name__ == '__main__':
  */
 
 import React from 'react';
-import { Col, Row } from '@zendeskgarden/react-grid';
-import { Combobox, Field, Option, Tag } from '@zendeskgarden/react-dropdowns';
+import {
+  Combobox,
+  ComboboxField as Field,
+  ComboboxTag as Tag,
+  Grid,
+  Option
+} from '@zendeskgarden/react-components';
 import { ReactComponent as AvatarIcon } from '@zendeskgarden/svg-icons/src/16/user-solo-stroke.svg';
 
 const OPTIONS = [
@@ -342,8 +347,8 @@ const Example = () => {
   };
 
   return (
-    <Row justifyContent="center">
-      <Col sm={5}>
+    <Grid.Row justifyContent="center">
+      <Grid.Col sm={5}>
         <Field>
           <Field.Label>Horticulturalists</Field.Label>
           <Combobox isMultiselectable maxHeight="auto">
@@ -361,8 +366,8 @@ const Example = () => {
             ))}
           </Combobox>
         </Field>
-      </Col>
-    </Row>
+      </Grid.Col>
+    </Grid.Row>
   );
 };
 

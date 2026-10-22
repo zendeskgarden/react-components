@@ -1,7 +1,7 @@
 {
   "extends": ["config:recommended"],
   "rebaseWhen": "behind-base-branch",
-  "ignorePaths": ["**/node_modules/**", ".packages/**"],
+  "ignorePaths": ["**/node_modules/**"],
   "schedule": ["on Monday every 9 weeks of the year starting on the 6th week"],
   "labels": ["PR: Internal :seedling:"],
   "postUpdateOptions": ["pnpmDedupe"],

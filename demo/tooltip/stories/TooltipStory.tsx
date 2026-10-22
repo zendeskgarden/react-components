@@ -5,11 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Button, IconButton } from '@zendeskgarden/react-buttons';
-import { Grid } from '@zendeskgarden/react-grid';
 import Icon from 'svg-icons-legacy/src/16/info-stroke.svg';
 
-import { ITooltipProps, Tooltip } from '../../../src/index';
+import { Button, Grid, IconButton, ITooltipProps, Tooltip } from '../../../src/index';
 import { ITooltipContent } from './types';
 
 interface IArgs extends Omit<ITooltipProps, 'content'> {

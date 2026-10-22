@@ -5,13 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IconButton } from '@zendeskgarden/react-buttons';
-import { Item, Menu } from '@zendeskgarden/react-dropdowns';
-import { Grid } from '@zendeskgarden/react-grid';
 import { useCallback, useState } from 'react';
 import { styled } from 'styled-components';
 
-import { Avatar, IStatusIndicatorProps, StatusIndicator } from '../../../../src/index';
+import {
+  Avatar,
+  Grid,
+  IconButton,
+  IStatusIndicatorProps,
+  Item,
+  Menu,
+  StatusIndicator
+} from '../../../../src/index';
 
 const StyledIconButton = styled(IconButton)`
   overflow: visible;
