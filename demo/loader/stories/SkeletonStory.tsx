@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { LG, MD, SM, XL, XXL, XXXL } from '@zendeskgarden/react-typography';
 import { FC, PropsWithChildren } from 'react';
 
-import { ISkeletonProps, Skeleton } from '../../../src/index';
+import { ISkeletonProps, LG, MD, Skeleton, SM, XL, XXL, XXXL } from '../../../src/index';
 import PALETTE from '../../../src/theming/elements/palette';
 import DEFAULT_THEME from '../../../src/theming/elements/theme';
 import { TYPE_SCALE } from './types';

@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field, Input } from '@zendeskgarden/react-forms';
 import { useState } from 'react';
 
-import { DatePicker } from '../../../../src/index';
+import { DatePicker, Field, Input } from '../../../../src/index';
 
 const DATE_PATTERN = /^(?<day>\d{2})\.(?<month>\d{2})\.(?<year>\d{4})$/u;
 

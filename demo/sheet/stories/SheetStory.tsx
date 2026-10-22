@@ -5,11 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field, Toggle } from '@zendeskgarden/react-forms';
 import { ChangeEventHandler } from 'react';
 import { DefaultTheme } from 'styled-components';
 
-import { Button, Grid, ISheetProps, Sheet } from '../../../src/index';
+import { Button, Field, Grid, ISheetProps, Sheet, Toggle } from '../../../src/index';
 import { ThemeProvider } from '../../../src/theming/elements/ThemeProvider';
 import type { IGardenTheme } from '../../../src/theming/types';
 import { IFooterItem } from './types';

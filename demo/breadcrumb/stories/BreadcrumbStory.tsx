@@ -5,10 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Anchor } from '@zendeskgarden/react-buttons';
 import { HTMLAttributes } from 'react';
 
-import { Breadcrumb } from '../../../src/index';
+import { Anchor, Breadcrumb } from '../../../src/index';
 import { BREADCRUMB_CHILDREN } from './data';
 
 interface IArgs extends HTMLAttributes<HTMLElement> {

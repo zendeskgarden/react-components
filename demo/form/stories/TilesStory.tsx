@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
 import Icon10 from 'svg-icons-legacy/src/16/asterisk-stroke.svg';
 import Icon from 'svg-icons-legacy/src/16/box-3d-stroke.svg';
 import Icon08 from 'svg-icons-legacy/src/16/calendar-stroke.svg';
@@ -18,7 +17,7 @@ import Icon04 from 'svg-icons-legacy/src/16/multiline-stroke.svg';
 import Icon06 from 'svg-icons-legacy/src/16/number-stroke.svg';
 import Icon03 from 'svg-icons-legacy/src/16/text-stroke.svg';
 
-import { ITilesProps, Tiles } from '../../../src/index';
+import { Grid, ITilesProps, Tiles } from '../../../src/index';
 import { ITile } from './types';
 
 const TILE_ICONS = [
