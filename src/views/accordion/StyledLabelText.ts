@@ -15,6 +15,5 @@ interface IStyledLabelTextProps {
 export const StyledLabelText = styled.div<IStyledLabelTextProps>`
   display: ${props => props.$isHidden && 'none'};
   padding: ${props => props.$isHorizontal && `0 ${props.theme.space.base * 3}px`};
-  /* stylelint-disable-next-line property-no-deprecated */
-  word-wrap: ${props => props.$isHorizontal && 'break-word'};
+  overflow-wrap: ${props => props.$isHorizontal && 'break-word'};
 `;
