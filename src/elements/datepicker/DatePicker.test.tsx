@@ -11,7 +11,7 @@ import { KEYS } from '@zendeskgarden/container-utilities';
 import { addDays } from 'date-fns/addDays';
 import { subDays } from 'date-fns/subDays';
 import mockDate from 'mockdate';
-import { useState } from 'react';
+import { createRef, useState } from 'react';
 import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
@@ -266,6 +266,20 @@ describe('DatePicker', () => {
       const { getByTestId } = render(<Example value={DEFAULT_DATE} onChange={onChangeSpy} />);
 
       expect(getByTestId('input')).toHaveValue('February 5, 2019');
+    });
+
+    it('keeps the input ref without reading `element.ref` on React 19', () => {
+      const error = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      const ref = createRef<HTMLInputElement>();
+      const { getByTestId } = render(
+        <DatePicker onChange={onChangeSpy}>
+          <input data-test-id="input" ref={ref} />
+        </DatePicker>
+      );
+
+      expect(ref.current).toBe(getByTestId('input'));
+      expect(error.mock.calls.flat().join(' ')).not.toContain('element.ref');
+      error.mockRestore();
     });
 
     it('displays empty string if no value provided', () => {

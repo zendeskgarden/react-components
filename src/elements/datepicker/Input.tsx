@@ -11,7 +11,6 @@ import { isValid } from 'date-fns/isValid';
 import {
   Dispatch,
   ReactElement,
-  RefAttributes,
   cloneElement,
   forwardRef,
   useRef,
@@ -24,7 +23,7 @@ import { DatePickerAction, IDatePickerState, parseInputValue } from './date-pick
 
 interface IInputProps {
   dispatch: Dispatch<DatePickerAction>;
-  element: ReactElement<InputHTMLAttributes<HTMLInputElement>> & RefAttributes<HTMLInputElement>;
+  element: ReactElement<InputHTMLAttributes<HTMLInputElement>>;
   refKey: string;
   state: IDatePickerState;
   value?: Date;
