@@ -29,6 +29,47 @@ describe('ColorPickerDialog', () => {
     expect(screen.getByTestId('colordialog')).toBe(ref.current);
   });
 
+  it('keeps the ref and onClick of a custom trigger', async () => {
+    const ref = createRef<HTMLButtonElement>();
+    const onClick = vi.fn();
+    const onDialogChange = vi.fn();
+
+    render(
+      <ColorPickerDialog defaultColor="#17494D" onDialogChange={onDialogChange}>
+        <button ref={ref} onClick={onClick}>
+          trigger
+        </button>
+      </ColorPickerDialog>
+    );
+
+    const trigger = screen.getByRole('button');
+
+    expect(ref.current).toBe(trigger);
+
+    await act(async () => {
+      await user.click(trigger);
+    });
+
+    expect(onClick).toHaveBeenCalledTimes(1);
+    expect(onDialogChange).toHaveBeenCalledWith({ isOpen: true });
+  });
+
+  it('does not open the dialog when the custom trigger prevents the click', async () => {
+    const onDialogChange = vi.fn();
+
+    render(
+      <ColorPickerDialog defaultColor="#17494D" onDialogChange={onDialogChange}>
+        <button onClick={event => event.preventDefault()}>trigger</button>
+      </ColorPickerDialog>
+    );
+
+    await act(async () => {
+      await user.click(screen.getByRole('button'));
+    });
+
+    expect(onDialogChange).not.toHaveBeenCalled();
+  });
+
   it('calls onDialogChange when the dialog state changes', async () => {
     const onDialogChange = vi.fn();
     const label = 'Choose your favorite color';
