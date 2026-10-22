@@ -36,7 +36,7 @@ describe('ColorPickerDialog', () => {
 
     render(
       <ColorPickerDialog defaultColor="#17494D" onDialogChange={onDialogChange}>
-        <button ref={ref} onClick={onClick}>
+        <button type="button" ref={ref} onClick={onClick}>
           trigger
         </button>
       </ColorPickerDialog>
@@ -59,7 +59,9 @@ describe('ColorPickerDialog', () => {
 
     render(
       <ColorPickerDialog defaultColor="#17494D" onDialogChange={onDialogChange}>
-        <button onClick={event => event.preventDefault()}>trigger</button>
+        <button type="button" onClick={event => event.preventDefault()}>
+          trigger
+        </button>
       </ColorPickerDialog>
     );
 

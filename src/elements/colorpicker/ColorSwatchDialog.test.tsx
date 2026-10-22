@@ -81,7 +81,7 @@ describe('ColorSwatchDialog', () => {
 
     render(
       <ColorSwatchDialog name="test" colors={colors} onDialogChange={onDialogChange}>
-        <button ref={ref} onClick={onClick}>
+        <button type="button" ref={ref} onClick={onClick}>
           trigger
         </button>
       </ColorSwatchDialog>
@@ -104,7 +104,9 @@ describe('ColorSwatchDialog', () => {
 
     render(
       <ColorSwatchDialog name="test" colors={colors} onDialogChange={onDialogChange}>
-        <button onClick={event => event.preventDefault()}>trigger</button>
+        <button type="button" onClick={event => event.preventDefault()}>
+          trigger
+        </button>
       </ColorSwatchDialog>
     );
 
