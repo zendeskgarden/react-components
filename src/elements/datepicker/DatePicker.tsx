@@ -181,7 +181,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
         value={value}
         onChange={onChange}
         customParseDate={customParseDate}
-        ref={mergeRefs([triggerRef, getElementRef(Child) ?? null])}
+        ref={mergeRefs([triggerRef, getElementRef(Child)])}
       />
       <DatePickerProvider value={contextValue}>
         {appendToNode ? createPortal(Node, appendToNode) : Node}

@@ -138,7 +138,7 @@ export const TooltipComponent = ({
         Child,
         getTriggerProps({
           ...(Child.props as HTMLAttributes<HTMLElement>),
-          [refKey!]: mergeRefs([triggerRef, getElementRef(Child) ?? null])
+          [refKey!]: mergeRefs([triggerRef, getElementRef(Child)])
         })
       )}
       {appendToNode ? createPortal(Node, appendToNode) : Node}
