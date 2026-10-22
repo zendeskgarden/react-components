@@ -55,7 +55,7 @@ v9 packages if they are on the latest v9 release. Wrap the app in the v10
   `index.d.cts`). `require()`, Jest and React 17 consumers can load the package.
 - Components assign `data-garden-id` and `data-garden-version` after all prop
   spreads, so a `data-garden-id` passed as a prop is always overwritten. In v9,
-  `Button`, `Label`, `Message`, `Hint` and `TextInput` let an incoming id
+  `Button`, `Label`, `Message`, `Hint` and `Input` let an incoming id
   replace theirs.
 - Styled component class names, such as `StyledButton-sc-1w7qux1-0`, change only
   when the component's source file moves or the component is renamed. Editing a
