@@ -18,22 +18,11 @@ interface IStyledTileIconProps {
 }
 
 const colorStyles = ({ theme }: IStyledBaseProps) => {
-  const options = { theme, variable: 'foreground.subtle' };
-  const color = getColor(options);
-  const hoverColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
-  const activeColor = getColor({ ...options, dark: { offset: -200 }, light: { offset: 200 } });
+  const color = getColor({ theme, variable: 'foreground.subtle' });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
     color: ${color};
-
-    ${StyledTile}:hover && {
-      color: ${hoverColor};
-    }
-
-    ${StyledTile}:active && {
-      color: ${activeColor};
-    }
 
     ${StyledTile}[aria-disabled='true'] && {
       color: ${disabledColor};
@@ -42,7 +31,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 };
 
 const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & IStyledBaseProps) => {
-  const iconSize = $isCentered ? math(`${theme.iconSizes.md} * 2`) : `${theme.space.base * 7}px`;
+  const iconSize = math(`${theme.iconSizes.md} * 2`);
   let layout;
 
   if (!$isCentered) {

@@ -22,22 +22,11 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
-  const backgroundOptions = {
-    theme,
-    hue: 'primaryHue',
-    light: { shade: 700 },
-    dark: { shade: 500 }
-  };
-  const hoverBackgroundColor = getColor({ ...backgroundOptions, transparency: theme.opacity[100] });
   const hoverBorderColor = getColor({
     theme,
     hue: 'neutralHue',
     light: { shade: 500 },
     dark: { shade: 600 }
-  });
-  const activeBackgroundColor = getColor({
-    ...backgroundOptions,
-    transparency: theme.opacity[200]
   });
   const activeBorderColor = getColor({
     theme,
@@ -65,23 +54,15 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 
     &:hover {
       border-color: ${hoverBorderColor};
-      background-color: ${hoverBackgroundColor};
     }
 
     &:active {
       border-color: ${activeBorderColor};
-      background-color: ${activeBackgroundColor};
     }
 
     &:has(:checked) {
       border-color: ${checkedBorderColor};
       box-shadow: ${checkedBoxShadow(checkedBorderColor)};
-    }
-
-    &:hover:has(:checked):not([aria-disabled='true']),
-    &:active:has(:checked):not([aria-disabled='true']) {
-      border-color: ${hoverBorderColor};
-      box-shadow: ${checkedBoxShadow(hoverBorderColor)};
     }
 
     ${focusStyles({

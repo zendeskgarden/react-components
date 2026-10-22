@@ -48,26 +48,6 @@ describe('Tiles', () => {
     expect(tile).toHaveStyleRule('box-shadow', 'none', { modifier });
   });
 
-  it('does not apply the checked hover and active borders when disabled', () => {
-    const { getByText } = render(
-      <Tiles name="example" value="item-1">
-        <Tiles.Tile value="item-1" disabled>
-          <Tiles.Label>Item 1</Tiles.Label>
-        </Tiles.Tile>
-      </Tiles>
-    );
-    const tile = getByText('Item 1').closest('label')!;
-    const hoverBorderColor = getColor({
-      theme: DEFAULT_THEME,
-      hue: 'neutralHue',
-      light: { shade: 500 }
-    });
-
-    expect(tile).not.toHaveStyleRule('border-color', hoverBorderColor, {
-      modifier: '&:hover:has(:checked)'
-    });
-  });
-
   describe('selected', () => {
     const renderTile = (theme?: Parameters<typeof render>[1]) =>
       render(
@@ -102,18 +82,18 @@ describe('Tiles', () => {
       });
     });
 
-    it('renders the hover and active borders without overriding the tint', () => {
+    it('keeps the selected border and inset shadow on hover and active', () => {
       const { getByText } = renderTile();
       const tile = getByText('Item 1').closest('label')!;
-      const color = getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 500 } });
 
       [
+        '&:hover:has(:checked)',
+        '&:active:has(:checked)',
         "&:hover:has(:checked):not([aria-disabled='true'])",
         "&:active:has(:checked):not([aria-disabled='true'])"
       ].forEach(modifier => {
-        expect(tile).toHaveStyleRule('border-color', color, { modifier });
-        expect(tile).toHaveStyleRule('box-shadow', `inset 0 0 0 1px ${color}`, { modifier });
-        expect(tile).not.toHaveStyleRule('background-color', expect.anything(), { modifier });
+        expect(tile).not.toHaveStyleRule('border-color', expect.anything(), { modifier });
+        expect(tile).not.toHaveStyleRule('box-shadow', expect.anything(), { modifier });
       });
     });
 
@@ -151,7 +131,7 @@ describe('Tiles', () => {
     });
   });
 
-  it('renders grey hover and active borders with the primary tint', () => {
+  it('renders grey hover and active borders', () => {
     const { getByText } = render(
       <Tiles name="example">
         <Tiles.Tile value="item-1">
@@ -174,9 +154,9 @@ describe('Tiles', () => {
   });
 
   it.each([
-    ['light', DEFAULT_THEME, { light: { shade: 700 } }],
-    ['dark', DARK_THEME, { dark: { shade: 500 } }]
-  ])('renders the %s primary tint on hover and active, also when selected', (_, theme, shade) => {
+    ['light', DEFAULT_THEME],
+    ['dark', DARK_THEME]
+  ])('renders no %s background change on hover and active', (_, theme) => {
     const { getByText } = render(
       <Tiles name="example" value="item-1">
         <Tiles.Tile value="item-1">
@@ -186,24 +166,13 @@ describe('Tiles', () => {
       { theme }
     );
     const tile = getByText('Item 1').closest('label')!;
-    const options = { theme, hue: 'primaryHue', ...shade };
 
     expect(tile).toHaveStyleRule(
       'background-color',
       getColor({ theme, variable: 'background.default' })
     );
-    expect(tile).toHaveStyleRule(
-      'background-color',
-      getColor({ ...options, transparency: theme.opacity[100] }),
-      { modifier: '&:hover' }
-    );
-    expect(tile).toHaveStyleRule(
-      'background-color',
-      getColor({ ...options, transparency: theme.opacity[200] }),
-      { modifier: '&:active' }
-    );
-    expect(tile).not.toHaveStyleRule('background-color', expect.anything(), {
-      modifier: '&:has(:checked)'
+    ['&:hover', '&:active', '&:has(:checked)'].forEach(modifier => {
+      expect(tile).not.toHaveStyleRule('background-color', expect.anything(), { modifier });
     });
   });
 
@@ -412,7 +381,7 @@ describe('Tiles', () => {
       expect(getByTestId('icon')).toBe(ref.current);
     });
 
-    it('renders a 28px icon in the first grid column when start-aligned', () => {
+    it('renders a 32px icon in the first grid column when start-aligned', () => {
       const { getByTestId } = render(
         <Tiles name="example" isCentered={false}>
           <Tiles.Tile>
@@ -425,8 +394,8 @@ describe('Tiles', () => {
 
       expect(getByTestId('icon')).toHaveStyleRule('grid-column', '1');
       expect(getByTestId('icon')).toHaveStyleRule('grid-row', '1 / span 2');
-      expect(getByTestId('icon')).toHaveStyleRule('width', '28px', { modifier: '& > *' });
-      expect(getByTestId('icon')).toHaveStyleRule('height', '28px', { modifier: '& > *' });
+      expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > *' });
+      expect(getByTestId('icon')).toHaveStyleRule('height', '32px', { modifier: '& > *' });
       expect(getByTestId('icon')).not.toHaveStyleRule('position', 'absolute');
     });
 
@@ -442,7 +411,36 @@ describe('Tiles', () => {
       );
 
       expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > *' });
+      expect(getByTestId('icon')).toHaveStyleRule('height', '32px', { modifier: '& > *' });
       expect(getByTestId('icon')).not.toHaveStyleRule('grid-column', '1');
+    });
+
+    it('keeps the icon color on hover and active', () => {
+      const { getByTestId } = render(
+        <Tiles name="example">
+          <Tiles.Tile>
+            <Tiles.Icon data-test-id="icon">
+              <svg />
+            </Tiles.Icon>
+          </Tiles.Tile>
+        </Tiles>
+      );
+      const icon = getByTestId('icon');
+
+      expect(icon).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' })
+      );
+      expect(icon).not.toHaveStyleRule('color', expect.anything(), {
+        modifier: css`
+          ${StyledTile}:hover &&
+        `
+      });
+      expect(icon).not.toHaveStyleRule('color', expect.anything(), {
+        modifier: css`
+          ${StyledTile}:active &&
+        `
+      });
     });
 
     it('applies RTL styling', () => {
