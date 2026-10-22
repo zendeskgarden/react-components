@@ -47,7 +47,7 @@ const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & IStyledBasePr
     ${layout};
     line-height: 0;
 
-    & > * {
+    & > svg {
       width: ${iconSize};
       height: ${iconSize};
     }

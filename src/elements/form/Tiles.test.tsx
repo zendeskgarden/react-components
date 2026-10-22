@@ -394,8 +394,8 @@ describe('Tiles', () => {
 
       expect(getByTestId('icon')).toHaveStyleRule('grid-column', '1');
       expect(getByTestId('icon')).toHaveStyleRule('grid-row', '1 / span 2');
-      expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > *' });
-      expect(getByTestId('icon')).toHaveStyleRule('height', '32px', { modifier: '& > *' });
+      expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > svg' });
+      expect(getByTestId('icon')).toHaveStyleRule('height', '32px', { modifier: '& > svg' });
       expect(getByTestId('icon')).not.toHaveStyleRule('position', 'absolute');
     });
 
@@ -410,8 +410,8 @@ describe('Tiles', () => {
         </Tiles>
       );
 
-      expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > *' });
-      expect(getByTestId('icon')).toHaveStyleRule('height', '32px', { modifier: '& > *' });
+      expect(getByTestId('icon')).toHaveStyleRule('width', '32px', { modifier: '& > svg' });
+      expect(getByTestId('icon')).toHaveStyleRule('height', '32px', { modifier: '& > svg' });
       expect(getByTestId('icon')).not.toHaveStyleRule('grid-column', '1');
     });
 
