@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Checkbox, Field } from '@zendeskgarden/react-forms';
 import { useState } from 'react';
 
 import {
-  Table,
-  ITableProps,
+  Checkbox,
+  Field,
   IHeadProps,
   ISortableCellProps,
-  ITableRowProps
+  ITableProps,
+  ITableRowProps,
+  Table
 } from '../../../src/index';
 import { CELL_WIDTH, TABLE_ROW } from './types';
 

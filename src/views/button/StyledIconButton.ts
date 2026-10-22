@@ -34,7 +34,13 @@ const colorStyles = ({ theme, $isBasic, $isDanger }: IStyledButtonProps & IStyle
       activeBorderColor = getColor({ ...borderOptions, ...offset200 });
     }
 
-    backgroundOptions = { theme, variable: 'background.dangerEmphasis' };
+    /* Dark hover and active use red 500. Light stays on red 700. */
+    backgroundOptions = {
+      theme,
+      hue: 'dangerHue',
+      light: { shade: 700 },
+      dark: { shade: 500 }
+    };
     foregroundOptions = { theme, variable: 'foreground.danger' };
   } else {
     if (!$isBasic) {
@@ -103,11 +109,15 @@ const iconColorStyles = () => css`
 `;
 
 /**
- * 1. placed after the disabled background: disabled icon buttons keep the
- *    hover and active background and border colors
+ * 1. disabled rules follow the hover and active colors. An outline icon
+ *    button takes the disabled fill; a basic one stays transparent. The
+ *    border stays transparent.
  */
 const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   const width = getHeight(props);
+  const disabledBackgroundColor = props.$isBasic
+    ? 'transparent'
+    : getColor({ theme: props.theme, variable: 'background.disabled' });
 
   return css`
     border: ${props.$isBasic && 'none'};
@@ -116,13 +126,22 @@ const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
     min-width: ${width};
     font-weight: ${props.theme.fontWeights.regular};
 
-    &:disabled {
-      background-color: ${!props.$isPrimary && 'transparent'};
-    }
-
-    /* [1] */
     ${!props.$isPrimary && colorStyles(props)};
     ${!(props.$isPrimary || props.$isDanger) && iconColorStyles()};
+
+    /* [1] */
+    ${!props.$isPrimary &&
+    css`
+      &:disabled,
+      &:hover:disabled,
+      &:active:disabled,
+      &[aria-pressed='true']:disabled,
+      &[aria-pressed='mixed']:disabled {
+        border-color: transparent;
+        background-color: ${disabledBackgroundColor};
+        color: ${getColor({ theme: props.theme, variable: 'foreground.disabled' })};
+      }
+    `}
   `;
 };
 

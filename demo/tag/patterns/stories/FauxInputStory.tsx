@@ -5,8 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { FauxInput } from '@zendeskgarden/react-forms';
-
+import { FauxInput } from '../../../../src/index';
 import { IArgs as ITagStoryArgs, TagStory } from '../../stories/TagStory';
 
 interface IArgs extends ITagStoryArgs {

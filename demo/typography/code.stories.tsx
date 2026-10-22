@@ -6,10 +6,9 @@
  */
 
 import type { StoryObj } from '@storybook/react-vite';
-import { Anchor } from '@zendeskgarden/react-buttons';
 import { ComponentProps } from 'react';
 
-import { Code } from '../../src/index';
+import { Anchor, Code } from '../../src/index';
 
 type IArgs = ComponentProps<typeof Code> & {
   isAnchor?: boolean;

@@ -5,7 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Grid } from '@zendeskgarden/react-grid';
 import Icon10 from '@zendeskgarden/svg-icons/src/asterisk.svg';
 import Icon08 from '@zendeskgarden/svg-icons/src/calendar-stroke.svg';
 import Icon02 from '@zendeskgarden/svg-icons/src/check-box-double-stroke.svg';
@@ -18,7 +17,7 @@ import Icon06 from '@zendeskgarden/svg-icons/src/hashtag.svg';
 import Icon04 from '@zendeskgarden/svg-icons/src/multiline.svg';
 import Icon03 from '@zendeskgarden/svg-icons/src/text.svg';
 
-import { ITilesProps, Tiles } from '../../../src/index';
+import { Grid, ITilesProps, Tiles } from '../../../src/index';
 import { ITile } from './types';
 
 const TILE_ICONS = [

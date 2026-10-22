@@ -5,12 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Menu, Item } from '@zendeskgarden/react-dropdowns';
-import { Grid } from '@zendeskgarden/react-grid';
 import { useCallback, useState } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Avatar, IAvatarProps } from '../../../../src/index';
+import { Avatar, Grid, IAvatarProps, Item, Menu } from '../../../../src/index';
 import { getColor } from '../../../../src/theming/utils/getColor';
 
 const items: {

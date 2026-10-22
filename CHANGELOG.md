@@ -13,6 +13,44 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v10.0.0-next.3 (2026-10-21)
+
+#### :boom: Breaking Change
+* [#2156](https://github.com/zendeskgarden/react-components/pull/2156) feat(theming)!: port theming to v10 ([@ze-flo](https://github.com/ze-flo))
+
+#### :bug: Bug Fix
+* [#2185](https://github.com/zendeskgarden/react-components/pull/2185) fix(notification): use a per-type text colour for the basic GlobalAlert.Button ([@ze-flo](https://github.com/ze-flo))
+* [#2186](https://github.com/zendeskgarden/react-components/pull/2186) fix(forms): correct checkbox and radio borders ([@Jese310S](https://github.com/Jese310S))
+* [#2183](https://github.com/zendeskgarden/react-components/pull/2183) fix(buttons): correct danger tint and disabled state colors ([@Jese310S](https://github.com/Jese310S))
+* [#2180](https://github.com/zendeskgarden/react-components/pull/2180) fix(build): match the v9 output and add a require entry ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#2181](https://github.com/zendeskgarden/react-components/pull/2181) fix: use the v10 chevron icons ([@ze-flo](https://github.com/ze-flo))
+* [#2182](https://github.com/zendeskgarden/react-components/pull/2182) fix(dropdown,tag): render the combobox tag id, square tags and the x-small close icon ([@ze-flo](https://github.com/ze-flo))
+* [#2179](https://github.com/zendeskgarden/react-components/pull/2179) fix: make imports resolvable in Node ESM and webpack 5 ([@ze-flo](https://github.com/ze-flo))
+* [#2178](https://github.com/zendeskgarden/react-components/pull/2178) chore(deps): update GitHub Actions and lockfile security bumps ([@ze-flo](https://github.com/ze-flo))
+* [#2177](https://github.com/zendeskgarden/react-components/pull/2177) chore(theming): port theming stories to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2175](https://github.com/zendeskgarden/react-components/pull/2175) feat(dropdown): port dropdown components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2174](https://github.com/zendeskgarden/react-components/pull/2174) feat(colorpicker): port colorpicker components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2173](https://github.com/zendeskgarden/react-components/pull/2173) feat(notification): port notification components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2171](https://github.com/zendeskgarden/react-components/pull/2171) feat(form): port form components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2172](https://github.com/zendeskgarden/react-components/pull/2172) feat(table,sheet,skipnav): port table, sheet and skipnav components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2170](https://github.com/zendeskgarden/react-components/pull/2170) feat(modal): port modal components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2169](https://github.com/zendeskgarden/react-components/pull/2169) feat(accordion): port accordion components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2168](https://github.com/zendeskgarden/react-components/pull/2168) feat(grid): port grid components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2167](https://github.com/zendeskgarden/react-components/pull/2167) feat(button): port button components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2166](https://github.com/zendeskgarden/react-components/pull/2166) feat(tag): port tag components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2165](https://github.com/zendeskgarden/react-components/pull/2165) feat(breadcrumb): port breadcrumb components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2164](https://github.com/zendeskgarden/react-components/pull/2164) feat(datepicker): port datepicker components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2163](https://github.com/zendeskgarden/react-components/pull/2163) feat(pagination,draggable): port pagination and draggable components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2162](https://github.com/zendeskgarden/react-components/pull/2162) feat(tab,tooltip): port tab and tooltip components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2159](https://github.com/zendeskgarden/react-components/pull/2159) feat(typography,avatar): port typography and avatar components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2158](https://github.com/zendeskgarden/react-components/pull/2158) feat(loader): port loader components to v10 ([@ze-flo](https://github.com/ze-flo))
+* [#2157](https://github.com/zendeskgarden/react-components/pull/2157) chore: add the dev dependencies the ported stories need ([@ze-flo](https://github.com/ze-flo))
+* [#2155](https://github.com/zendeskgarden/react-components/pull/2155) chore: add dependencies and test setup for the v10 component port ([@ze-flo](https://github.com/ze-flo))
+* [#2145](https://github.com/zendeskgarden/react-components/pull/2145) chore: port v9.15.x–v9.16.x patches into the v10 migration snapshot ([@ze-flo](https://github.com/ze-flo))
+* [#2150](https://github.com/zendeskgarden/react-components/pull/2150) chore(deps): update dependency vitest to v4.1.11 [security] ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## v9.16.1 (2026-09-24)
 
 #### :bug: Bug Fix

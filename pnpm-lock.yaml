@@ -171,30 +171,6 @@ importers:
       '@zendeskgarden/eslint-config':
         specifier: 47.1.0
         version: 47.1.0(@babel/core@7.28.6)(@typescript-eslint/eslint-plugin@8.50.0(@typescript-eslint/parser@8.50.0(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3))(eslint@9.39.4)(typescript@5.9.3)
-      '@zendeskgarden/react-avatars':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-buttons':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-dropdowns':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-forms':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-grid':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-loaders':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-tooltips':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-typography':
-        specifier: 9.16.1
-        version: 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
       '@zendeskgarden/scripts':
         specifier: 2.5.3
         version: 2.5.3
@@ -2697,85 +2673,6 @@ packages:
     resolution: {integrity: sha512-aWo4wPbpg9qvHeWftWJy/1Vq4stUDsTj8KiGFnM3GAP5tpwZFUNY5NNOJ+dTIIgWZgWsTx/aMfGkSHuYa4v7Cw==}
     peerDependencies:
       eslint: ^9.0.0
-
-  '@zendeskgarden/react-avatars@9.16.1':
-    resolution: {integrity: sha512-jFthvyk00xMG7B4SSKEAAm1PBIqNkO7MaYSMUTQF35ikRkk5mjS+ktfxwnvIHQoybgoXgDKaWtQovHiV3vtN4Q==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-buttons@9.16.1':
-    resolution: {integrity: sha512-hF0rmuQf5pNsg8L8gnBo+k4E92etGN+5iORC7LMxxZSk5F9PSdbLEd/OhDaOXKoHKW/Lb0mRFVzd0b7TGDxZlQ==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-dropdowns@9.16.1':
-    resolution: {integrity: sha512-mebxX5b+FgZWI3YaZvLcWiCibOzwtWXbWknw3OEcWNzgKVEy/UVLnwEGw17la7qtEBdd0e9WzXhVGp1TCOGHTA==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-forms@9.16.1':
-    resolution: {integrity: sha512-B08l/M+CEg6wVQsjnONHfBUDbr5UAH5lOVDMA34VVUWFGl0N8Yo31oiIqvKKO6qWIjbDShpkoKRkMwW4ahulCQ==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-grid@9.16.1':
-    resolution: {integrity: sha512-EJwiETjKXEGGNIuJRIACv1kixNPulIGnIdIpfAB4v34mkkfoUnZEBrs0NNZUuayyoQPV7tj6Z4gw+TOHSaXQ+w==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-loaders@9.16.1':
-    resolution: {integrity: sha512-4tAzAA2qMmh4DY5FSmSNfwmuD/NkIVpwagpDS4EdUWJBw64gvsmBQ2JzCFonxtAiFw0FZ4eaN1sCuF/nJF3E8A==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-tags@9.16.1':
-    resolution: {integrity: sha512-NJgMXJMzO17DB+hfQm1vDlo76rIU32/NC7uD61ZHD5Fj4YCYGvxs64dj3ziis9QLsa7XPJS2yUjSrYV+GamEPg==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-theming@9.15.0':
-    resolution: {integrity: sha512-Geo3RuUjuaRhnDbf70ZCNSSqqXZn3wBfAFWphRvol7cC7mqfas5vs9exMWEl2Vh76Zui+E+cLs8U+OdM2Xy4QA==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^4.2.0 || ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-tooltips@9.16.1':
-    resolution: {integrity: sha512-f6x4CQmLSmOhnHazldU0I+Ix+2UUaWTehEUURCNb2BZ9jrX3NUYmPgDrYrbvYWoUbu6H5zPz/DkUNFHh4eOB7w==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
-
-  '@zendeskgarden/react-typography@9.16.1':
-    resolution: {integrity: sha512-FRqQ4dcb/9l+mnrSA/aDh4BEAOKLSgaL5IaTR/9/vfXE/cSper3oFd5OgLLFlnOkYUH+bkqN6pbQe2cP5ZemFQ==}
-    peerDependencies:
-      '@zendeskgarden/react-theming': '>=9.14.0'
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      styled-components: ^5.3.1 || ^6.0.0
 
   '@zendeskgarden/scripts@2.5.3':
     resolution: {integrity: sha512-4lxoAcgSR9DSrVFeXx55hGNFk76exggjpvfxPvpaqlzuP0KlNSlDG8rHWvCVZDimYMdBfadBNcP9uN+/plWjzA==}
@@ -6223,9 +6120,6 @@ packages:
 
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
-
-  react-merge-refs@2.1.1:
-    resolution: {integrity: sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==}
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -9769,130 +9663,6 @@ snapshots:
       - jest
       - supports-color
       - typescript
-
-  '@zendeskgarden/react-avatars@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-typography': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-buttons@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      react-merge-refs: 2.1.1
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-dropdowns@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@floating-ui/react-dom': 2.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-combobox': 2.0.9(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-menu': 2.0.1(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-buttons': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-forms': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-tags': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-tooltips': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      react-merge-refs: 2.1.1
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-forms@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/container-field': 3.0.22(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-buttons': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      lodash.debounce: 4.0.8
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      react-merge-refs: 2.1.1
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-grid@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/container-splitter': 2.0.23(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-buttons': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      '@zendeskgarden/react-tooltips': 9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      react-merge-refs: 2.1.1
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      use-resize-observer: 9.1.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-loaders@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/container-schedule': 2.0.12(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-tags@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@floating-ui/react-dom': 2.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      color2k: 2.0.3
-      lodash.get: 4.4.2
-      lodash.memoize: 4.1.2
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-tooltips@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@floating-ui/react-dom': 2.1.6(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-tooltip': 2.2.2(prop-types@15.8.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/container-utilities': 2.0.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      react-merge-refs: 2.1.1
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-
-  '@zendeskgarden/react-typography@9.16.1(@zendeskgarden/react-theming@9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))':
-    dependencies:
-      '@zendeskgarden/container-scrollregion': 1.0.13(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
-      '@zendeskgarden/react-theming': 9.15.0(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(styled-components@6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4))
-      polished: 4.3.1
-      prism-react-renderer: 1.3.5(react@19.2.4)
-      prop-types: 15.8.1
-      react: 19.2.4
-      react-dom: 19.2.4(react@19.2.4)
-      styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
   '@zendeskgarden/scripts@2.5.3':
     dependencies:
@@ -13853,8 +13623,6 @@ snapshots:
   react-is@17.0.2: {}
 
   react-is@18.3.1: {}
-
-  react-merge-refs@2.1.1: {}
 
   react-transition-group@4.4.5(react-dom@19.2.4(react@19.2.4))(react@19.2.4):
     dependencies:

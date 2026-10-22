@@ -5,10 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { Field, Input } from '@zendeskgarden/react-forms';
-import { Grid } from '@zendeskgarden/react-grid';
-
-import { DatePickerRange, IDatePickerRangeProps } from '../../../src/index';
+import { DatePickerRange, Field, Grid, IDatePickerRangeProps, Input } from '../../../src/index';
 import { DATE_STYLE } from './types';
 
 interface IArgs extends IDatePickerRangeProps {

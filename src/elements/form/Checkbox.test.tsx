@@ -7,7 +7,7 @@
 
 import { createRef } from 'react';
 
-import { render } from '../../test/render';
+import { DARK_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledCheckLabel } from '../../views/form/StyledCheckLabel';
@@ -147,6 +147,56 @@ describe('Checkbox', () => {
         'background-color',
         getColor({ theme: DEFAULT_THEME, hue: 'neutralHue', light: { shade: 800 } }),
         { modifier: `&:enabled:checked ~ ${StyledRadioLabel}:hover::before` }
+      );
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ])(
+      'keeps a transparent border on checked and indeterminate hover and active in %s mode',
+      (_, theme) => {
+        const checkbox = render(
+          <Field>
+            <Checkbox data-test-id="checkbox">
+              <Field.Label>label</Field.Label>
+            </Checkbox>
+          </Field>,
+          { theme }
+        ).getByTestId('checkbox');
+
+        expect(checkbox).toHaveStyleRule('border-color', 'transparent', {
+          modifier: `&:enabled:checked ~ ${StyledRadioLabel}:hover::before`
+        });
+        expect(checkbox).toHaveStyleRule('border-color', 'transparent', {
+          modifier: `&:enabled:checked ~ ${StyledRadioLabel}:active::before`
+        });
+        expect(checkbox).toHaveStyleRule('border-color', 'transparent', {
+          modifier: `&:enabled:indeterminate ~ ${StyledCheckLabel}:hover::before`
+        });
+        expect(checkbox).toHaveStyleRule('border-color', 'transparent', {
+          modifier: `&:enabled:indeterminate ~ ${StyledCheckLabel}:active::before`
+        });
+      }
+    );
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ])('restores the hover border on focus-visible in %s mode', (_, theme) => {
+      const checkbox = render(
+        <Field>
+          <Checkbox data-test-id="checkbox">
+            <Field.Label>label</Field.Label>
+          </Checkbox>
+        </Field>,
+        { theme }
+      ).getByTestId('checkbox');
+
+      expect(checkbox).toHaveStyleRule(
+        'border-color',
+        getColor({ theme, variable: 'border.primaryEmphasis' }),
+        { modifier: `&:focus-visible ~ ${StyledRadioLabel}::before` }
       );
     });
 
