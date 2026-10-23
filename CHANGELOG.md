@@ -13,6 +13,18 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 <!-- DO NOT MODIFY BELOW THIS COMMENT -->
 <!-- insert-new-changelog-here -->
 
+## v10.0.0-next.4 (2026-10-22)
+
+#### :bug: Bug Fix
+* [#2187](https://github.com/zendeskgarden/react-components/pull/2187) fix: keep consumer refs and remove deprecated usage ([@ze-flo](https://github.com/ze-flo))
+
+#### :memo: Documentation
+* [#2189](https://github.com/zendeskgarden/react-components/pull/2189) docs: add the v10 migration guide and update the README ([@ze-flo](https://github.com/ze-flo))
+
+#### :seedling: Internal
+* [#2184](https://github.com/zendeskgarden/react-components/pull/2184) feat(form): apply the new tiles design ([@ze-flo](https://github.com/ze-flo))
+* [#2188](https://github.com/zendeskgarden/react-components/pull/2188) chore(demo): finish the v10 stories cleanup ([@Jese310S](https://github.com/Jese310S))
+
 ## v10.0.0-next.3 (2026-10-21)
 
 #### :boom: Breaking Change
