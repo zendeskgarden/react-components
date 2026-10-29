@@ -130,18 +130,20 @@ const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
     ${!(props.$isPrimary || props.$isDanger) && iconColorStyles()};
 
     /* [1] */
-    ${!props.$isPrimary &&
-    css`
-      &:disabled,
-      &:hover:disabled,
-      &:active:disabled,
-      &[aria-pressed='true']:disabled,
-      &[aria-pressed='mixed']:disabled {
-        border-color: transparent;
-        background-color: ${disabledBackgroundColor};
-        color: ${getColor({ theme: props.theme, variable: 'foreground.disabled' })};
-      }
-    `}
+    ${
+      !props.$isPrimary &&
+      css`
+        &:disabled,
+        &:hover:disabled,
+        &:active:disabled,
+        &[aria-pressed='true']:disabled,
+        &[aria-pressed='mixed']:disabled {
+          border-color: transparent;
+          background-color: ${disabledBackgroundColor};
+          color: ${getColor({ theme: props.theme, variable: 'foreground.disabled' })};
+        }
+      `
+    }
   `;
 };
 

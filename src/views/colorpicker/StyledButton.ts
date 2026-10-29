@@ -20,10 +20,8 @@ export const StyledButton = styled(Button as any)`
 
   &:last-of-type:not(:first-child) {
     /* stylelint-disable */
-    border-top-${props => (props.theme.rtl ? 'left' : 'right')}-radius:
-      ${props => props.theme.borderRadii.md} !important; /* [2] */
-    border-bottom-${props => (props.theme.rtl ? 'left' : 'right')}-radius:
-      ${props => props.theme.borderRadii.md} !important; /* [2] */
+    border-top-${props => (props.theme.rtl ? 'left' : 'right')}-radius: ${props => props.theme.borderRadii.md} !important; /* [2] */
+    border-bottom-${props => (props.theme.rtl ? 'left' : 'right')}-radius: ${props => props.theme.borderRadii.md} !important; /* [2] */
     /* stylelint-enable */
   }
 `;

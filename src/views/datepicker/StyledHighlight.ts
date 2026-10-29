@@ -40,12 +40,14 @@ const sizeStyles = ({ theme, $isEnd, $isStart }: IStyledHighlightProps & IStyled
 
 const colorStyles = ({ $isHighlighted, theme }: IStyledHighlightProps & IStyledBaseProps) => {
   return css`
-    background-color: ${$isHighlighted &&
-    getColor({
-      variable: 'background.primaryEmphasis',
-      transparency: theme.opacity[100],
-      theme
-    })};
+    background-color: ${
+      $isHighlighted &&
+      getColor({
+        variable: 'background.primaryEmphasis',
+        transparency: theme.opacity[100],
+        theme
+      })
+    };
   `;
 };
 

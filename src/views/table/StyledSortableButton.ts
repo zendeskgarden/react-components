@@ -111,8 +111,9 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
     ${SELECTOR_FOCUS_VISIBLE} {
       color: ${fgPrimaryActive};
 
-      ${$sort === undefined &&
-      `
+      ${
+        $sort === undefined &&
+        `
         ${StyledSortableFillIconWrapper} {
           opacity: 1;
 
@@ -128,10 +129,12 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
         ${StyledSortableStrokeIconWrapper} {
           opacity: 0;
         }
-      `};
-
-      ${$sort === 'asc' &&
       `
+      };
+
+      ${
+        $sort === 'asc' &&
+        `
         ${StyledSortableFillIconWrapper} {
           ${StyledSortArrowTop} {
             color: ${fgPrimaryActive};
@@ -141,10 +144,12 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
             color: ${fgPrimaryInactive};
           }
         }
-      `}
-
-      ${$sort === 'desc' &&
       `
+      }
+
+      ${
+        $sort === 'desc' &&
+        `
         ${StyledSortableFillIconWrapper} {
           ${StyledSortArrowTop} {
             color: ${fgPrimaryInactive};
@@ -154,7 +159,8 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
             color: ${fgPrimaryActive};
           }
         }
-      `}
+      `
+      }
     }
 
     ${focusStyles({ theme })}

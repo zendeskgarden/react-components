@@ -12,8 +12,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledHint } from './StyledHint';
 
 export const StyledToggleHint = styled(StyledHint)`
-  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
-    ${props => math(`${props.theme.space.base} * 12px`)};
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => math(`${props.theme.space.base} * 12px`)};
 
   ${componentStyles};
 `;

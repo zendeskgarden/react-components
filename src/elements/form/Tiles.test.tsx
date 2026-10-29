@@ -321,6 +321,7 @@ describe('Tiles', () => {
 
       expect(check).toHaveStyleRule('opacity', '0');
       expect(check).toHaveStyleRule('opacity', '1', {
+        // prettier-ignore
         modifier: css`
           ${StyledTile}:has(:checked) &&
         ` as any
@@ -432,11 +433,13 @@ describe('Tiles', () => {
         getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' })
       );
       expect(icon).not.toHaveStyleRule('color', expect.anything(), {
+        // prettier-ignore
         modifier: css`
           ${StyledTile}:hover &&
         `
       });
       expect(icon).not.toHaveStyleRule('color', expect.anything(), {
+        // prettier-ignore
         modifier: css`
           ${StyledTile}:active &&
         `

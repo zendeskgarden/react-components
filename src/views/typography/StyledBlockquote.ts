@@ -14,8 +14,8 @@ import { THEME_SIZES } from './StyledFont';
 
 export const StyledBlockquote = styled.blockquote<IBlockquoteProps>`
   margin: 0;
-  border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
-    props.theme.shadowWidths.sm} solid;
+  border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.shadowWidths.sm}
+    solid;
   border-color: ${props => getColor({ theme: props.theme, variable: 'border.default' })};
   padding: 0;
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
