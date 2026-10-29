@@ -135,8 +135,9 @@ structure.
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { StyledSubElement } from '../styled';
 
 /* [1] */ export interface IElementSubElementProps extends HTMLAttributes<HTMLElement> {
@@ -185,10 +186,11 @@ listed below document areas of interest.
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { HTMLAttributes, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-/* [1] */ import { SubElement } from './SubElement';
+import React, { HTMLAttributes, forwardRef } from 'react';
+
 import { StyledElement } from '../styled';
+/* [1] */ import { SubElement } from './SubElement';
 
 export interface IElementProps extends HTMLAttributes<HTMLElement> {
   /** Applies compact styling */

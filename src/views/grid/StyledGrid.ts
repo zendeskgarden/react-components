@@ -26,11 +26,13 @@ const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
   return css`
     color-scheme: only ${theme.colors.base};
     /* prettier-ignore */
-    box-shadow: ${$debug &&
-    `
+    box-shadow: ${
+      $debug &&
+      `
       -${borderWidth} 0 0 0 ${borderColor},
       ${borderWidth} 0 0 0 ${borderColor}
-    `};
+    `
+    };
   `;
 };
 

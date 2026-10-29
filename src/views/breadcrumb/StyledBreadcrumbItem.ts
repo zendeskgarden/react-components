@@ -29,8 +29,9 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => css`
 const colorStyles = ({ $isCurrent, theme }: IStyledBreadcrumbItemProps) => css`
   color: ${$isCurrent ? getColor({ variable: 'foreground.subtle', theme }) : 'inherit'};
 
-  ${$isCurrent &&
-  `
+  ${
+    $isCurrent &&
+    `
       & > :link,
       & > :visited,
       & > :link:hover,
@@ -39,7 +40,8 @@ const colorStyles = ({ $isCurrent, theme }: IStyledBreadcrumbItemProps) => css`
       & > :visited:focus {
         color: inherit; /* [1] */
       }
-    `}
+    `
+  }
 `;
 
 export const StyledBreadcrumbItem = styled.li<IStyledBreadcrumbItemProps>`

@@ -28,28 +28,30 @@ export const itemStyles = ({ theme, $isActive, $type }: IStyledOptionProps) => {
   return css`
     border-radius: ${theme.borderRadii.sm};
 
-    ${showStripe &&
-    css`
-      box-shadow: none; /* [1] */
-      overflow: hidden;
+    ${
+      showStripe &&
+      css`
+        box-shadow: none; /* [1] */
+        overflow: hidden;
 
-      &::before {
-        position: absolute;
-        box-sizing: border-box;
-        top: 0;
-        bottom: 0;
-        inset-inline-start: 0;
-        border-inline-end: ${theme.borderWidths.sm} solid
-          ${getColor({ theme, variable: 'background.default' })};
-        background-color: ${getColor({ theme, variable: 'border.primaryEmphasis' })};
-        width: ${theme.space.base}px;
-        pointer-events: none;
-        content: '';
-      }
+        &::before {
+          position: absolute;
+          box-sizing: border-box;
+          top: 0;
+          bottom: 0;
+          inset-inline-start: 0;
+          border-inline-end: ${theme.borderWidths.sm} solid
+            ${getColor({ theme, variable: 'background.default' })};
+          background-color: ${getColor({ theme, variable: 'border.primaryEmphasis' })};
+          width: ${theme.space.base}px;
+          pointer-events: none;
+          content: '';
+        }
 
-      &[aria-disabled='true']::before {
-        display: none; /* [2] */
-      }
-    `}
+        &[aria-disabled='true']::before {
+          display: none; /* [2] */
+        }
+      `
+    }
   `;
 };

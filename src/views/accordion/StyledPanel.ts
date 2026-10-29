@@ -21,9 +21,9 @@ interface IStyledPanel {
 
 const colorStyles = ({ theme, $isBare }: IStyledPanel & IStyledBaseProps) => {
   return css`
-    border-bottom-color: ${$isBare
-      ? 'transparent'
-      : getColor({ theme, variable: 'border.default' })};
+    border-bottom-color: ${
+      $isBare ? 'transparent' : getColor({ theme, variable: 'border.default' })
+    };
   `;
 };
 

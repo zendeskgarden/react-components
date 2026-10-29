@@ -167,9 +167,9 @@ component rendering and application of story args into TypeScript where code can
 be properly maintained. In its basic form, a `Story` looks like this:
 
 ```tsx
-import React from 'react';
 import { Story } from '@storybook/react-vite';
 import { Component, IComponentProps } from '@zendeskgarden/react-package';
+import React from 'react';
 
 interface IArgs extends IComponentProps {
   /* Subcomponent and "Story" arg definitions go here */

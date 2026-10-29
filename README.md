@@ -37,9 +37,9 @@ The package has these peer dependencies:
 Here is a simple example to get you started:
 
 ```jsx
+import { Button, ThemeProvider } from '@zendeskgarden/react-components';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { Button, ThemeProvider } from '@zendeskgarden/react-components';
 
 const App = () => (
   /* Include a ThemeProvider wrapper at the root of your app */

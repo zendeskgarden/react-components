@@ -58,7 +58,7 @@ const sizeStyles = (props: IStyledInputIconProps) => {
 
   return css`
     top: ${position};
-    margin-${side}: ${margin}; 
+    margin-${side}: ${margin};
     width: ${size};
     height: ${size};
   `;

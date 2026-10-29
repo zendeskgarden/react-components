@@ -12,8 +12,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledMessage } from './StyledMessage';
 
 export const StyledRadioMessage = styled(StyledMessage)`
-  padding-${props => (props.theme.rtl ? 'right' : 'left')}:
-    ${props => math(`${props.theme.space.base} * 6px`)};
+  padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => math(`${props.theme.space.base} * 6px`)};
 
   ${componentStyles};
 `;

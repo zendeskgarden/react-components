@@ -154,12 +154,14 @@ const unifiedItemStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => 
       margin-inline-start: ${theme.space.xxs};
     }
 
-    ${$isCompact &&
-    css`
-      & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
-        margin-inline-start: ${theme.space.xs};
-      }
-    `}
+    ${
+      $isCompact &&
+      css`
+        & > [data-garden-id='${COMPONENT_ID}'] + ${ICON_BUTTON_SELECTOR} {
+          margin-inline-start: ${theme.space.xs};
+        }
+      `
+    }
 
     & ${StyledTextInput} {
       align-self: stretch; /* override the container's own centered children */
