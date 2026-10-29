@@ -321,6 +321,8 @@ describe('Tiles', () => {
 
       expect(check).toHaveStyleRule('opacity', '0');
       expect(check).toHaveStyleRule('opacity', '1', {
+        // oxfmt bug (0.57.0+): reformats selector-only `css` fragments and inserts
+        // spaces (`:has(:checked) &&` becomes `: has(: checked) & &`). Keep ignored.
         // prettier-ignore
         modifier: css`
           ${StyledTile}:has(:checked) &&
@@ -433,12 +435,14 @@ describe('Tiles', () => {
         getColor({ theme: DEFAULT_THEME, variable: 'foreground.subtle' })
       );
       expect(icon).not.toHaveStyleRule('color', expect.anything(), {
+        // oxfmt bug (0.57.0+), see the first `prettier-ignore` in this file.
         // prettier-ignore
         modifier: css`
           ${StyledTile}:hover &&
         `
       });
       expect(icon).not.toHaveStyleRule('color', expect.anything(), {
+        // oxfmt bug (0.57.0+), see the first `prettier-ignore` in this file.
         // prettier-ignore
         modifier: css`
           ${StyledTile}:active &&
