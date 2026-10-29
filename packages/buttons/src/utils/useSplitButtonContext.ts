@@ -6,8 +6,16 @@
  */
 
 import { createContext, useContext } from 'react';
+import { ISplitButtonProps } from '../types';
 
-export const SplitButtonContext = createContext<boolean | undefined>(undefined);
+export interface ISplitButtonContext extends Pick<
+  ISplitButtonProps,
+  'isBasic' | 'isDanger' | 'isNeutral' | 'isPill' | 'isPrimary' | 'size'
+> {
+  focusInset: boolean;
+}
+
+export const SplitButtonContext = createContext<ISplitButtonContext | undefined>(undefined);
 
 export const useSplitButtonContext = () => {
   return useContext(SplitButtonContext);

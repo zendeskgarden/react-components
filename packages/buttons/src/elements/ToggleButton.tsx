@@ -14,8 +14,8 @@ import { Button } from './Button';
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const ToggleButton = forwardRef<HTMLButtonElement, IToggleButtonProps>(
-  ({ isPressed, size = 'medium', ...otherProps }, ref) => (
-    <Button aria-pressed={isPressed} size={size} ref={ref} {...otherProps} />
+  ({ isPressed, ...otherProps }, ref) => (
+    <Button aria-pressed={isPressed} ref={ref} {...otherProps} />
   )
 );
 

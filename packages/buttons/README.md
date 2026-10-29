@@ -57,3 +57,18 @@ const MediaButton = ({ children, ...props }) => {
   );
 };
 ```
+
+### Split button
+
+The variant props on `SplitButton` (`isPrimary`, `isDanger`, `isNeutral`,
+`isBasic`, `isPill`, and `size`) style every button inside it. A prop set on a
+button takes precedence.
+
+```jsx
+import { Button, ChevronButton, SplitButton } from '@zendeskgarden/react-buttons';
+
+<SplitButton isPrimary>
+  <Button onClick={() => alert('saved')}>Save</Button>
+  <ChevronButton aria-label="More save options" />
+</SplitButton>;
+```

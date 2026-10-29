@@ -19,7 +19,8 @@ export type {
   IButtonIconProps as IButtonStartIconProps,
   IAnchorProps,
   IIconButtonProps,
-  IIconButtonProps as IChevronButtonProps,
+  IChevronButtonProps,
+  ISplitButtonProps,
   IToggleButtonProps,
   IToggleIconButtonProps
 } from './types';

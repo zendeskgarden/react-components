@@ -7,20 +7,27 @@
 
 import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
-import { Button, ChevronButton, IButtonProps, SplitButton } from '@zendeskgarden/react-buttons';
+import {
+  Button,
+  ChevronButton,
+  ISplitButtonProps,
+  SplitButton
+} from '@zendeskgarden/react-buttons';
 
-interface IArgs extends IButtonProps {
+interface IArgs extends ISplitButtonProps {
+  disabled?: boolean;
   isRotated?: boolean;
 }
 
 export const SplitButtonStory: StoryFn<IArgs> = ({
   children,
   'aria-label': ariaLabel,
+  disabled,
   isRotated,
   ...args
 }) => (
-  <SplitButton>
-    <Button {...args}>{children}</Button>
-    <ChevronButton aria-label={ariaLabel} isRotated={isRotated} {...args} />
+  <SplitButton {...args}>
+    <Button disabled={disabled}>{children}</Button>
+    <ChevronButton aria-label={ariaLabel} disabled={disabled} isRotated={isRotated} />
   </SplitButton>
 );

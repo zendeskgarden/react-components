@@ -34,28 +34,28 @@ export const Example: StoryObj<typeof SplitButtonStory> = {
     },
     isBasic: {
       control: 'boolean',
-      table: { category: 'Button' }
+      table: { category: 'SplitButton' }
     },
     isDanger: {
       control: 'boolean',
-      table: { category: 'Button' }
+      table: { category: 'SplitButton' }
     },
     isNeutral: {
       control: 'boolean',
-      table: { category: 'Button' }
+      table: { category: 'SplitButton' }
     },
     isPill: {
       control: 'boolean',
-      table: { category: 'Button' }
+      table: { category: 'SplitButton' }
     },
     isPrimary: {
       control: 'boolean',
-      table: { category: 'Button' }
+      table: { category: 'SplitButton' }
     },
     size: {
       control: 'radio',
       options: ['small', 'medium', 'large'],
-      table: { category: 'Button' }
+      table: { category: 'SplitButton' }
     },
 
     'aria-label': {

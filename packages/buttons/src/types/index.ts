@@ -5,14 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, SVGAttributes } from 'react';
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, SVGAttributes } from 'react';
 
 export const SIZE = ['small', 'medium', 'large'] as const;
 
 export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** Applies danger styling */
   isDanger?: boolean;
-  /** Specifies the button size */
+  /**
+   * Specifies the button size
+   *
+   * @default medium
+   */
   size?: (typeof SIZE)[number];
   /** Stretches the button fill to its container width */
   isStretched?: boolean;
@@ -30,6 +34,25 @@ export interface IButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   focusInset?: boolean;
 }
 
+/*
+ * Each variant applies to the buttons inside the split button. A button's own
+ * prop takes precedence.
+ */
+export interface ISplitButtonProps extends HTMLAttributes<HTMLDivElement> {
+  /** Applies danger styling to the contained buttons */
+  isDanger?: boolean;
+  /** Specifies the size of the contained buttons */
+  size?: (typeof SIZE)[number];
+  /** Applies neutral styling to the contained buttons */
+  isNeutral?: boolean;
+  /** Applies primary styling to the contained buttons */
+  isPrimary?: boolean;
+  /** Applies basic styling to the contained buttons */
+  isBasic?: boolean;
+  /** Applies pill styling to the contained buttons */
+  isPill?: boolean;
+}
+
 export interface IToggleButtonProps extends IButtonProps {
   /**
    * Determines if the button is pressed. Use "mixed" to indicate that
@@ -39,8 +62,35 @@ export interface IToggleButtonProps extends IButtonProps {
 }
 
 export interface IIconButtonProps extends Omit<IButtonProps, 'isStretched' | 'isLink'> {
+  /**
+   * Applies basic button styling
+   *
+   * @default true
+   */
+  isBasic?: boolean;
+  /**
+   * Applies pill button styling
+   *
+   * @default true
+   */
+  isPill?: boolean;
   /** Rotates icon 180 degrees */
   isRotated?: boolean;
+}
+
+export interface IChevronButtonProps extends IIconButtonProps {
+  /**
+   * Applies basic button styling
+   *
+   * @default false
+   */
+  isBasic?: boolean;
+  /**
+   * Applies pill button styling
+   *
+   * @default false
+   */
+  isPill?: boolean;
 }
 
 export interface IToggleIconButtonProps
