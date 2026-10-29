@@ -1,4 +1,2 @@
 CHANGELOG.md
 lerna.json
-# oxfmt sorts the before/after imports and swaps the examples
-docs/migration.md
