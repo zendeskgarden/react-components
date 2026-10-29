@@ -80,10 +80,11 @@ with the sub-property of its parent component, imported from
 package, so check the package to find the right replacement.
 
 ```tsx
-// After: use <Tabs.TabList>, <Tabs.Tab> and <Tabs.TabPanel>
-import { Tabs } from '@zendeskgarden/react-components';
 // Before
 import { Tabs, Tab, TabList, TabPanel } from '@zendeskgarden/react-tabs';
+
+// After: use <Tabs.TabList>, <Tabs.Tab> and <Tabs.TabPanel>
+import { Tabs } from '@zendeskgarden/react-components';
 ```
 
 The prop types (for example `ITabProps`, `ITabPanelProps` and `ITooltipProps`)
@@ -143,10 +144,11 @@ name once, so these exports have a new name:
 | `PLACEMENT` from `react-modals`        | `MODAL_PLACEMENT`       | `PLACEMENT` is the theming enum. The modal list includes `'auto'`. |
 
 ```ts
-// After
-import { ComboboxField, ComboboxTag } from '@zendeskgarden/react-components';
 // Before
 import { Field, Tag } from '@zendeskgarden/react-dropdowns';
+
+// After
+import { ComboboxField, ComboboxTag } from '@zendeskgarden/react-components';
 ```
 
 > **Note:** Only `IRowProps` fails to compile if you forget to rename it. The
