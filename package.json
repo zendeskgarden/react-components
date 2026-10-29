@@ -131,7 +131,7 @@
     "react-dom": "19.3.1",
     "react-dropzone": "14.4.1",
     "storybook": "10.6.5",
-    "styled-components": "6.3.11",
+    "styled-components": "6.6.0",
     "stylelint": "17.16.0",
     "svg-icons-legacy": "npm:@zendeskgarden/svg-icons@7.6.0",
     "temp": "0.9.4",
