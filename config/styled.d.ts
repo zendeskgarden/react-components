@@ -6,7 +6,6 @@
  */
 
 import 'styled-components';
-
 import type { IGardenTheme } from '../src/theming/types';
 
 declare module 'styled-components' {
