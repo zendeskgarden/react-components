@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { SVGAttributes } from 'react';
+import { FC, SVGAttributes } from 'react';
 
 import { StyledIcon } from '../../views/typography/StyledIcon';
 import { COMPONENT_IDS } from '../utils';
 
-const IconComponent = (props: SVGAttributes<SVGElement>) => (
+const IconComponent: FC<SVGAttributes<SVGElement>> = props => (
   <StyledIcon
     {...props}
     data-garden-id={COMPONENT_IDS['typography.icon']}
