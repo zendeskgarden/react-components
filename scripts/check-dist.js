@@ -167,7 +167,7 @@ const checks = [
     'private or version-specific types in declarations',
     count(
       [...declarations, ...cjsDeclarations],
-      /react\/jsx-runtime|["']prop-types["']|styled-components\/|\bThemeProviderProps\b|\bRuleSet\b|\bIStyledComponent(Base)?\b|\bFastOmit\b|\bStyledComponent\b/gu
+      /react\/jsx-runtime|["']prop-types["']|styled-components\/|\bThemeProviderProps\b|\bRuleSet\b|\bIStyledComponent(?:Base)?\b|\bFastOmit\b|\bStyledComponent\b/gu
     ),
     0
   ],
