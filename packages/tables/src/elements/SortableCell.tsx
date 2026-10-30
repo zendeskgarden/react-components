@@ -9,10 +9,12 @@ import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
 import SortFillIcon from '@zendeskgarden/svg-icons/src/12/sort-fill.svg';
+import { useText } from '@zendeskgarden/react-theming';
 import { ISortableCellProps, SORT } from '../types';
 import {
   StyledHeaderCell,
   StyledSortableButton,
+  StyledSortableLabel,
   StyledSortableStrokeIconWrapper,
   StyledSortableFillIconWrapper
 } from '../styled';
@@ -23,7 +25,7 @@ import {
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
-  ({ sort, cellProps = {}, width, children, ...sortableButtonProps }, ref) => {
+  ({ sort, cellProps = {}, width, sortLabels = {}, children, ...sortableButtonProps }, ref) => {
     const { isMinimum, isTruncated, hasOverflow, ...otherCellProps } = cellProps;
     let ariaSortValue = 'none';
 
@@ -34,6 +36,36 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
     }
 
     const SortIcon = sort === undefined ? SortStrokeIcon : SortFillIcon;
+
+    /* Only the label for the current sort state is evaluated (and validated) */
+    const unsortedLabel = useText(
+      SortableCell,
+      sortLabels,
+      'unsorted',
+      'sortable',
+      sort === undefined
+    );
+    const ascendingLabel = useText(
+      SortableCell,
+      sortLabels,
+      'ascending',
+      'sorted ascending',
+      sort === 'asc'
+    );
+    const descendingLabel = useText(
+      SortableCell,
+      sortLabels,
+      'descending',
+      'sorted descending',
+      sort === 'desc'
+    );
+    let sortLabel = unsortedLabel;
+
+    if (sort === 'asc') {
+      sortLabel = ascendingLabel;
+    } else if (sort === 'desc') {
+      sortLabel = descendingLabel;
+    }
 
     return (
       <StyledHeaderCell
@@ -46,6 +78,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
       >
         <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
           {children}
+          <StyledSortableLabel>{` ${sortLabel}`}</StyledSortableLabel>
           <StyledSortableStrokeIconWrapper>
             <SortIcon />
           </StyledSortableStrokeIconWrapper>
@@ -63,5 +96,6 @@ SortableCell.displayName = 'Table.SortableCell';
 SortableCell.propTypes = {
   sort: PropTypes.oneOf(SORT),
   cellProps: PropTypes.any,
+  sortLabels: PropTypes.any,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
