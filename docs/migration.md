@@ -71,6 +71,10 @@ v9 packages if they are on the latest v9 release. Wrap the app in the v10
 - `theme.borderRadii` has seven keys, from `xs` (2px) to `full` (9999px). The
   new keys are `xs`, `xl`, `xxl` and `full`. `IGardenTheme` has the matching
   types.
+- `StyledBaseIcon` is typed as a plain React component, so TypeScript no longer
+  knows `.attrs`, `.withConfig` and `as` on `StyledBaseIcon` itself. They still
+  work at runtime. Wrap it with `styled(StyledBaseIcon)` to use them with full
+  types.
 
 #### Removed exports
 
