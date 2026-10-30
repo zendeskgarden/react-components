@@ -6,7 +6,6 @@
  */
 
 import 'styled-components';
-import type { ReactNode } from 'react';
 
 import type { IGardenTheme } from '../src/theming/types';
 
@@ -16,10 +15,5 @@ declare module 'styled-components' {
 
   export interface ThemeProps<T> {
     theme: T;
-  }
-
-  export interface ThemeProviderProps<T extends object, U extends object = T> {
-    children?: ReactNode | undefined;
-    theme: T | ((theme: U) => T);
   }
 }
