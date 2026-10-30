@@ -75,6 +75,9 @@ v9 packages if they are on the latest v9 release. Wrap the app in the v10
   knows `.attrs`, `.withConfig` and `as` on `StyledBaseIcon` itself. They still
   work at runtime. Wrap it with `styled(StyledBaseIcon)` to use them with full
   types.
+- `arrowStyles`, `focusStyles` and `menuStyles` return the new `GardenStyles`
+  type instead of styled-components' `RuleSet`. Assigning their result to a
+  `RuleSet` variable is now a type error; use `GardenStyles` instead.
 
 #### Removed exports
 

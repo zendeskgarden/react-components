@@ -8,7 +8,7 @@
 import { css, DefaultTheme, keyframes } from 'styled-components';
 
 import DEFAULT_THEME from '../elements/theme';
-import { MenuPosition } from '../types';
+import { GardenStyles, MenuPosition } from '../types';
 import { getColor } from './getColor';
 
 type MenuOptions = {
@@ -100,7 +100,10 @@ const hiddenStyles = (options: MenuOptions) => {
  * @param {string} [options.animationModifier] A CSS class or attribute selector
  *  which, when applied, animates the menu's appearance.
  */
-export default function menuStyles(position: MenuPosition, options: MenuOptions = {}) {
+export default function menuStyles(
+  position: MenuPosition,
+  options: MenuOptions = {}
+): GardenStyles {
   const theme = options.theme || DEFAULT_THEME;
   let marginProperty;
 

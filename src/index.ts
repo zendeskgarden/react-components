@@ -130,6 +130,7 @@ export {
   type ColorScheme,
   type FocusBoxShadowParameters,
   type FocusStylesParameters,
+  type GardenStyles,
   type HueColorParameters,
   type IColorSchemeContext,
   type IColorSchemeProviderProps,

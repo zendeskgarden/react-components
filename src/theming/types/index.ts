@@ -6,7 +6,7 @@
  */
 
 import { PropsWithChildren, ReactNode, SVGAttributes } from 'react';
-import { CSSObject, DefaultTheme } from 'styled-components';
+import { CSSObject, DefaultTheme, Interpolation } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -74,6 +74,9 @@ export type ColorParameters = {
   transparency?: number;
   variable?: string;
 };
+
+/** Styles returned by `arrowStyles`, `focusStyles` and `menuStyles` */
+export type GardenStyles = Interpolation<object>;
 
 export type FocusStylesParameters = FocusBoxShadowParameters & {
   condition?: boolean;
