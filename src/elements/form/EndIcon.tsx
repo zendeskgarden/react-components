@@ -5,17 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { FC } from 'react';
+
 import { IFauxInputIconProps } from '../../types/elements';
 import { StyledTextMediaFigure } from '../../views/form/StyledTextMediaFigure';
 import { COMPONENT_IDS } from '../utils';
 
-const EndIconComponent = ({
+const EndIconComponent: FC<IFauxInputIconProps> = ({
   isDisabled,
   isFocused,
   isHovered,
   isRotated,
   ...props
-}: IFauxInputIconProps) => (
+}) => (
   <StyledTextMediaFigure
     $position="end"
     $isDisabled={isDisabled}

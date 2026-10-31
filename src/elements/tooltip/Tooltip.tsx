@@ -14,6 +14,7 @@ import {
   useRef,
   useEffect,
   useContext,
+  FC,
   HTMLAttributes,
   Children,
   ReactElement,
@@ -37,7 +38,7 @@ import { toSize } from './utils';
 
 export const PLACEMENT_DEFAULT = 'top';
 
-export const TooltipComponent = ({
+export const TooltipComponent: FC<ITooltipProps> = ({
   id,
   delayMS = 500,
   isLabel,
@@ -56,7 +57,7 @@ export const TooltipComponent = ({
   onFocus,
   onBlur,
   ...props
-}: ITooltipProps) => {
+}) => {
   const theme = useContext(ThemeContext) || DEFAULT_THEME;
   const triggerRef = useRef<HTMLButtonElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);

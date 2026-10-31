@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { SVGAttributes } from 'react';
+import { FC, SVGAttributes } from 'react';
 
 import { StyledAvatar } from '../../views/tag/StyledAvatar';
 import { COMPONENT_IDS } from '../utils';
 
-const AvatarComponent = (props: SVGAttributes<SVGElement>) => (
+const AvatarComponent: FC<SVGAttributes<SVGElement>> = props => (
   <StyledAvatar
     {...props}
     data-garden-id={COMPONENT_IDS['tags.avatar']}

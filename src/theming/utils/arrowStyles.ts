@@ -8,7 +8,7 @@
 import { stripUnit } from 'polished';
 import { css, keyframes } from 'styled-components';
 
-import { ArrowPosition } from '../types';
+import { ArrowPosition, GardenStyles } from '../types';
 
 type ArrowOptions = {
   size?: string;
@@ -133,7 +133,10 @@ const positionStyles = (position: ArrowPosition, size: number, inset: number, sh
  *
  * @component
  */
-export default function arrowStyles(position: ArrowPosition, options: ArrowOptions = {}) {
+export default function arrowStyles(
+  position: ArrowPosition,
+  options: ArrowOptions = {}
+): GardenStyles {
   const inset = stripUnit(options.inset || '0') as number;
   const size = stripUnit(options.size || '6') as number;
   const shift = stripUnit(options.shift || '0') as number;

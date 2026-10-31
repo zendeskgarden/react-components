@@ -5,16 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PropsWithChildren } from 'react';
+import { FC, PropsWithChildren } from 'react';
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 
 import { IGardenTheme, IThemeProviderProps } from '../types';
 import DEFAULT_THEME, { getTheme } from './theme';
 
-export const ThemeProvider = ({
+export const ThemeProvider: FC<PropsWithChildren<IThemeProviderProps>> = ({
   theme = getTheme,
   ...other
-}: PropsWithChildren<IThemeProviderProps>) => {
+}) => {
   const styledTheme =
     typeof theme === 'function'
       ? (outerTheme?: IGardenTheme) => theme(outerTheme ?? DEFAULT_THEME)

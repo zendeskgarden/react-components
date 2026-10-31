@@ -6,19 +6,19 @@
  */
 
 import PropTypes from 'prop-types';
-import { useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
+import { FC, useReducer, useCallback, useMemo, PropsWithChildren } from 'react';
 
 import { IToastProviderProps, NotificationPlacement } from '../../types/elements';
 import { toasterReducer, getInitialState } from './reducer';
 import { ToastContext } from './ToastContext';
 import { ToastSlot } from './ToastSlot';
 
-export const ToastProvider = ({
+export const ToastProvider: FC<PropsWithChildren<IToastProviderProps>> = ({
   limit = 4,
   zIndex,
   placementProps = {},
   children
-}: PropsWithChildren<IToastProviderProps>) => {
+}) => {
   const [state, dispatch] = useReducer(toasterReducer, getInitialState());
 
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);

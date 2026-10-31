@@ -5,8 +5,8 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { PropsWithChildren, SVGAttributes } from 'react';
-import { CSSObject, DefaultTheme, ThemeProviderProps } from 'styled-components';
+import { PropsWithChildren, ReactNode, SVGAttributes } from 'react';
+import { CSSObject, DefaultTheme, Interpolation } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -74,6 +74,9 @@ export type ColorParameters = {
   transparency?: number;
   variable?: string;
 };
+
+/** Styles returned by `arrowStyles`, `focusStyles` and `menuStyles` */
+export type GardenStyles = Interpolation<object>;
 
 export type FocusStylesParameters = FocusBoxShadowParameters & {
   condition?: boolean;
@@ -240,7 +243,8 @@ export interface IColorSchemeProviderProps {
   colorSchemeKey?: string | null;
 }
 
-export interface IThemeProviderProps extends Partial<ThemeProviderProps<IGardenTheme>> {
+export interface IThemeProviderProps {
+  children?: ReactNode;
   /**
    * Provides values for component styling. See styled-components
    * [`ThemeProvider`](https://styled-components.com/docs/api#themeprovider)
