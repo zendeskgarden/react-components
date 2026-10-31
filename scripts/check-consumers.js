@@ -7,6 +7,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+/**
+ * Typechecks the packed package in consumer projects.
+ *
+ * Usage: `pnpm check:consumers <path to tarball>`. Each row of `ROWS` becomes a consumer
+ * project in a temp folder: it installs the tarball alongside React and styled-components,
+ * then typechecks the `APP` source with TypeScript 4.9, 5.9 and 6.0 under `skipLibCheck:
+ * false`, across `node10`, `node16`, `nodenext` and `bundler` module resolution in both ESM
+ * and CJS. One line prints per run, with the error count split by origin. The script fails
+ * only on errors inside `@zendeskgarden/react-components/dist`; errors in the app source or
+ * in a dependency's own types are reported but allowed.
+ */
+
 import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
