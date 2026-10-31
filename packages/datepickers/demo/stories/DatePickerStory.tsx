@@ -8,7 +8,7 @@
 import React from 'react';
 import { StoryFn } from '@storybook/react-vite';
 import { Grid } from '@zendeskgarden/react-grid';
-import { Field, Input } from '@zendeskgarden/react-forms';
+import { ClearableInput, Field } from '@zendeskgarden/react-forms';
 import { DatePicker, IDatePickerProps } from '@zendeskgarden/react-datepickers';
 import { DATE_STYLE } from './types';
 
@@ -18,6 +18,8 @@ interface IArgs extends IDatePickerProps {
   message?: string;
   validation?: 'success' | 'warning' | 'error';
   validationLabel?: string;
+  disabled?: boolean;
+  readOnly?: boolean;
 }
 
 export const DatePickerStory: StoryFn<IArgs> = ({
@@ -27,6 +29,8 @@ export const DatePickerStory: StoryFn<IArgs> = ({
   message,
   validation,
   validationLabel,
+  disabled,
+  readOnly,
   ...args
 }) => {
   const formatDate = (date: Date) =>
@@ -39,7 +43,12 @@ export const DatePickerStory: StoryFn<IArgs> = ({
           <Field>
             <Field.Label hidden>{DatePicker.displayName}</Field.Label>
             <DatePicker {...args} formatDate={formatDate} isCompact={isCompact}>
-              <Input isCompact={isCompact} validation={validation} />
+              <ClearableInput
+                isCompact={isCompact}
+                validation={validation}
+                disabled={disabled}
+                readOnly={readOnly}
+              />
             </DatePicker>
             {!!hasMessage && (
               <Field.Message validation={validation} validationLabel={validationLabel}>

@@ -1,0 +1,153 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import React, { useState } from 'react';
+import userEvent from '@testing-library/user-event';
+import { RenderResult, render } from 'garden-test-utils';
+import mockDate from 'mockdate';
+import { DatePickerRange } from '../DatePickerRange';
+import { IDatePickerRangeProps } from '../../../types';
+
+const CHOOSE_DATE = 'Choose date';
+const DEFAULT_START_VALUE = new Date(2019, 1, 5);
+const DEFAULT_END_VALUE = new Date(2019, 2, 5);
+
+const Example = (props: IDatePickerRangeProps) => (
+  <DatePickerRange {...props}>
+    <DatePickerRange.Start>
+      <input data-test-id="start" />
+    </DatePickerRange.Start>
+    <DatePickerRange.End>
+      <input data-test-id="end" />
+    </DatePickerRange.End>
+    <DatePickerRange.Trigger />
+    <DatePickerRange.Dialog>
+      <DatePickerRange.Calendar />
+    </DatePickerRange.Dialog>
+  </DatePickerRange>
+);
+
+jest.useFakeTimers();
+
+describe('Trigger', () => {
+  const user = userEvent.setup({ delay: null });
+
+  beforeEach(() => {
+    mockDate.set(DEFAULT_START_VALUE);
+  });
+
+  afterEach(() => {
+    mockDate.reset();
+  });
+
+  it('reflects the dialog open state via aria-expanded, and aria-controls references the dialog', () => {
+    const { getByRole } = render(
+      <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
+    const dialog = getByRole('dialog', { hidden: true });
+
+    expect(button).toHaveAttribute('aria-expanded', 'false');
+    expect(button).toHaveAttribute('aria-controls', dialog.id);
+  });
+
+  it('opens the dialog and moves focus onto the selected day when clicked', async () => {
+    const { getAllByRole, getByRole } = render(
+      <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
+
+    await user.click(button);
+
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+    expect(button).toHaveAttribute('aria-expanded', 'true');
+
+    const selectedDay = getAllByRole('gridcell', { selected: true })[0];
+
+    expect(selectedDay).toHaveFocus();
+  });
+
+  it('opens the dialog when activated with the keyboard', async () => {
+    const { getAllByRole, getByRole } = render(
+      <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+    );
+    const button = getByRole('button', { name: CHOOSE_DATE });
+
+    button.focus();
+    await user.keyboard('{Enter}');
+
+    expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+
+    const selectedDay = getAllByRole('gridcell', { selected: true })[0];
+
+    expect(selectedDay).toHaveFocus();
+  });
+
+  it('moves focus onto todays date when no value is selected', async () => {
+    const { getByRole } = render(<Example />);
+
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
+
+    const today = getByRole('gridcell', { current: 'date' });
+
+    expect(today).toHaveFocus();
+  });
+
+  it('opens on a typed, valid start date and focuses/selects it', async () => {
+    const ControlledExample = () => {
+      const [startValue, setStartValue] = useState<Date | undefined>(DEFAULT_START_VALUE);
+      const [endValue, setEndValue] = useState<Date | undefined>(DEFAULT_END_VALUE);
+
+      return (
+        <Example
+          startValue={startValue}
+          endValue={endValue}
+          onChange={value => {
+            setStartValue(value.startValue);
+            setEndValue(value.endValue);
+          }}
+        />
+      );
+    };
+    const { getAllByRole, getByRole, getByTestId } = render(<ControlledExample />);
+    const startInput = getByTestId('start');
+
+    await user.clear(startInput);
+    await user.type(startInput, '1/4/2019', { skipClick: true });
+    await user.click(getByRole('button', { name: CHOOSE_DATE }));
+
+    const selectedDay = getAllByRole('gridcell', { selected: true })[0];
+
+    expect(selectedDay).toHaveTextContent('4');
+    expect(selectedDay).toHaveFocus();
+  });
+
+  it.each([
+    {
+      label: 'the calendar',
+      getOpener: ({ getByRole }: RenderResult) => getByRole('button', { name: CHOOSE_DATE })
+    },
+    { label: 'the Start field', getOpener: ({ getByTestId }: RenderResult) => getByTestId('start') }
+  ])(
+    'closes the dialog when clicked while it is open with focus in $label, returning focus to the Start field',
+    async ({ getOpener }) => {
+      const result = render(
+        <Example startValue={DEFAULT_START_VALUE} endValue={DEFAULT_END_VALUE} />
+      );
+      const { getByRole, getByTestId } = result;
+
+      await user.click(getOpener(result));
+
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'true');
+
+      await user.click(getByRole('button', { name: CHOOSE_DATE }));
+
+      expect(getByRole('dialog', { hidden: true })).toHaveAttribute('data-test-open', 'false');
+      expect(getByTestId('start')).toHaveFocus();
+    }
+  );
+});

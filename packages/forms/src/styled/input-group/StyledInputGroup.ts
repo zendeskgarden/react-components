@@ -30,8 +30,20 @@ interface IStyledInputGroupProps {
   $isCompact?: boolean;
   $isUnified?: boolean;
   $focusInset?: boolean;
+  $isBare?: boolean;
   $validation?: Validation;
 }
+
+/* strips the unified border/background/focus-ring, e.g. for a group nested inside another that already provides them */
+const bareStyles = () => css`
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+
+  &:focus-within {
+    box-shadow: none;
+  }
+`;
 
 /* Input publishes validation via InputGroupContext; $validation is a transient prop and never lands on the DOM */
 const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
@@ -109,6 +121,7 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
     transition: border-color 0.25s ease-in-out, box-shadow 0.1s ease-in-out;
     border: ${theme.borders.sm};
     border-radius: ${theme.borderRadii.md};
+
     border-color: ${borderColor};
     background-color: ${backgroundColor};
     cursor: text;
@@ -129,7 +142,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       padding-inline-end: ${iconButtonPaddingInline};
     }
 
-    /* first-child Input/nested group owns all start spacing; last-child owns all end spacing */
     &:has(> ${StyledTextInput}:first-child),
     &:has(> [data-garden-id='${COMPONENT_ID}']:first-child) {
       padding-inline-start: 0;
@@ -161,7 +173,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       align-self: stretch; /* override the container's own centered children */
     }
 
-    /* base 8px padding on both sides; first/last child overrides to 12px below */
     & > ${StyledTextInput} {
       padding-inline: ${theme.space.xs};
     }
@@ -236,7 +247,6 @@ const unifiedItemStyles = (props: ThemeProps<DefaultTheme> & IStyledInputGroupPr
       }
     }
 
-    /* shrinks a text button's height to fit the container, without touching its own padding */
     & ${BUTTON_SELECTOR} {
       height: ${buttonSize};
       min-height: ${buttonSize};
@@ -351,6 +361,7 @@ export const StyledInputGroup = styled.div.attrs({
   ${props => positionStyles(props)};
   ${props => !props.$isUnified && segmentedItemStyles(props)};
   ${props => props.$isUnified && unifiedItemStyles(props)};
+  ${props => props.$isBare && bareStyles()};
 
   ${componentStyles};
 `;

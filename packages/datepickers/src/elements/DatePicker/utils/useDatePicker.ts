@@ -1,0 +1,599 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { HTMLProps, useCallback, useEffect, useMemo, useReducer, useRef } from 'react';
+import { addDays } from 'date-fns/addDays';
+import { subDays } from 'date-fns/subDays';
+import { addMonths } from 'date-fns/addMonths';
+import { subMonths } from 'date-fns/subMonths';
+import { addYears } from 'date-fns/addYears';
+import { subYears } from 'date-fns/subYears';
+import { startOfWeek } from 'date-fns/startOfWeek';
+import { endOfWeek } from 'date-fns/endOfWeek';
+import { isToday } from 'date-fns/isToday';
+import { isSameDay } from 'date-fns/isSameDay';
+import { isValid } from 'date-fns/isValid';
+import { useFocusJail } from '@zendeskgarden/container-focusjail';
+import { KEYS, composeEventHandlers, useId } from '@zendeskgarden/container-utilities';
+import {
+  ElementProps,
+  IUseDatePickerProps,
+  IUseDatePickerReturnValue,
+  IGetCellPropsOptions
+} from '../../../types';
+import { getStartOfWeek, isDateWithinRange } from '../../../utils/calendar-utils';
+import {
+  composeActionButtonProps,
+  focusIntoDialog,
+  resolveWidgetBlur
+} from '../../../utils/dialog-trigger-utils';
+import {
+  datepickerReducer,
+  formatInputValue,
+  parseInputValue,
+  resolveSettledValue,
+  retrieveInitialState
+} from './date-picker-reducer';
+
+/** Headless state and prop-getters for a single-date picker, following the `@zendeskgarden/container-*` prop-getter convention. */
+export function useDatePicker({
+  idPrefix,
+  value,
+  minValue,
+  maxValue,
+  locale = 'en-US',
+  weekStartsOn,
+  rtl,
+  formatDate,
+  customParseDate,
+  required,
+  hasTrigger = true,
+  keepTypedInput = true,
+  disabled,
+  readOnly,
+  onChange,
+  onValueSettled,
+  inputRef,
+  referenceRef
+}: IUseDatePickerProps): IUseDatePickerReturnValue {
+  const prefix = useId(idPrefix);
+  const menuId = `${prefix}--menu`;
+  const buttonId = `${prefix}--button`;
+  const headingId = `${prefix}--heading`;
+
+  const groupRef = useRef<HTMLDivElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const gridRef = useRef<HTMLTableElement>(null);
+  const shouldFocusDialogRef = useRef(false);
+  const pendingGridFocusRef = useRef(false);
+
+  const { getContainerProps: getFocusJailProps } = useFocusJail({
+    containerRef: dialogRef,
+    focusOnMount: false,
+    restoreFocus: false
+  });
+
+  const [state, dispatch] = useReducer(
+    datepickerReducer,
+    { value, formatDate, locale },
+    retrieveInitialState
+  );
+
+  const preferredWeekStartsOn = weekStartsOn ?? getStartOfWeek(locale);
+  const isDisabledOrReadOnly = !!(disabled || readOnly);
+
+  /** Set once an emptied input has been reported, so leaving it afterwards doesn't report the same clear again. */
+  const isEmptyReportedRef = useRef(false);
+
+  useEffect(() => {
+    isEmptyReportedRef.current = false;
+    dispatch({ type: 'CONTROLLED_VALUE_CHANGE', value, locale, formatDate, customParseDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
+
+  useEffect(() => {
+    dispatch({ type: 'CONTROLLED_LOCALE_CHANGE', value, locale, formatDate });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [locale]);
+
+  const settleValue = useCallback(
+    (inputValue: string = state.inputValue) => {
+      const settled = resolveSettledValue({
+        inputValue,
+        required,
+        minValue,
+        maxValue,
+        customParseDate,
+        inputDate: inputValue === state.inputValue ? state.inputDate : undefined
+      });
+
+      if (!(inputValue === '' && isEmptyReportedRef.current)) {
+        onValueSettled?.(settled);
+      }
+
+      isEmptyReportedRef.current = inputValue === '';
+      dispatch({
+        type: 'VALUE_SETTLED',
+        valid: settled.valid,
+        settledInputValue: keepTypedInput
+          ? undefined
+          : formatInputValue({ date: settled.date ?? value, locale, formatDate }),
+        settledDate: settled.date ?? value
+      });
+    },
+    [
+      state.inputValue,
+      state.inputDate,
+      required,
+      minValue,
+      maxValue,
+      customParseDate,
+      onValueSettled,
+      keepTypedInput,
+      value,
+      locale,
+      formatDate
+    ]
+  );
+
+  const openOrFocusDialog = useCallback(() => {
+    if (isDisabledOrReadOnly) {
+      return;
+    }
+
+    if (state.isOpen) {
+      focusIntoDialog(dialogRef.current);
+    } else {
+      dispatch({ type: 'OPEN', value });
+      shouldFocusDialogRef.current = true;
+    }
+  }, [isDisabledOrReadOnly, state.isOpen, value]);
+
+  const toggleDialog = useCallback(() => {
+    if (state.isOpen) {
+      dispatch({ type: 'CLOSE' });
+      inputRef.current?.focus();
+    } else {
+      openOrFocusDialog();
+    }
+  }, [state.isOpen, inputRef, openOrFocusDialog]);
+
+  /** Closes a calendar that was already open when its input became disabled/read-only. */
+  useEffect(() => {
+    if (isDisabledOrReadOnly && state.isOpen) {
+      dispatch({ type: 'CLOSE' });
+    }
+  }, [isDisabledOrReadOnly, state.isOpen]);
+
+  /** Waits for the dialog to render before moving focus into it. */
+  useEffect(() => {
+    if (state.isOpen && shouldFocusDialogRef.current) {
+      focusIntoDialog(dialogRef.current);
+      shouldFocusDialogRef.current = false;
+    }
+  }, [state.isOpen]);
+
+  /**
+   * Only follows a `focusedDate` change with real DOM focus when it came from
+   * keyboard navigation within the grid - paddle clicks update `focusedDate`
+   * too (for the roving tabindex) but should leave real focus on the paddle.
+   */
+  useEffect(() => {
+    if (!pendingGridFocusRef.current) {
+      return;
+    }
+
+    pendingGridFocusRef.current = false;
+    gridRef.current?.querySelector<HTMLTableCellElement>('[tabindex="0"]')?.focus();
+  }, [state.focusedDate]);
+
+  const handleWidgetBlur = useCallback(
+    (e: React.FocusEvent) => {
+      const { shouldSettle, shouldClose } = resolveWidgetBlur({
+        relatedTarget: e.relatedTarget as Node | null,
+        widgetRefs: [groupRef, inputRef, dialogRef]
+      });
+
+      if (shouldSettle) {
+        settleValue();
+      }
+
+      if (shouldClose && state.isOpen) {
+        dispatch({ type: 'CLOSE' });
+      }
+    },
+    [inputRef, settleValue, state.isOpen]
+  );
+
+  const getGroupProps = useCallback(
+    (props: ElementProps<HTMLDivElement> = {}) => {
+      const { onBlur, onClick, ...other } = props;
+
+      return {
+        ref: groupRef,
+        onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
+        onClick: composeEventHandlers(onClick, () => inputRef.current?.focus()),
+        ...other
+      };
+    },
+    [handleWidgetBlur, inputRef]
+  );
+
+  const getTriggerProps = useCallback(
+    (props: ElementProps<HTMLButtonElement> = {}) => {
+      const { onClick, ...other } = props;
+
+      return {
+        'aria-haspopup': 'dialog' as const,
+        'aria-expanded': state.isOpen,
+        'aria-controls': menuId,
+        disabled: isDisabledOrReadOnly,
+        onClick: composeEventHandlers(onClick, toggleDialog),
+        ...other
+      };
+    },
+    [state.isOpen, menuId, isDisabledOrReadOnly, toggleDialog]
+  );
+
+  const getDialogProps = useCallback(
+    (props: ElementProps<HTMLDivElement> = {}) => {
+      const { onBlur, onKeyDown, ...other } = props;
+
+      const handleKeyDown = (e: React.KeyboardEvent) => {
+        if (e.key === KEYS.ESCAPE) {
+          e.stopPropagation();
+          settleValue();
+          dispatch({ type: 'CLOSE' });
+          inputRef.current?.focus();
+        }
+      };
+
+      const { onKeyDown: focusJailKeyDown } = getFocusJailProps();
+
+      return {
+        ref: dialogRef,
+        id: menuId,
+        role: 'dialog' as const,
+        'aria-modal': 'true' as const,
+        'aria-labelledby': hasTrigger ? buttonId : undefined,
+        onBlur: composeEventHandlers(onBlur, handleWidgetBlur),
+        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown, focusJailKeyDown),
+        ...other
+      };
+    },
+    [menuId, buttonId, hasTrigger, handleWidgetBlur, settleValue, inputRef, getFocusJailProps]
+  );
+
+  const getInputProps = useCallback(
+    (props: HTMLProps<HTMLInputElement> = {}) => {
+      const {
+        onChange: onInputChange,
+        onKeyDown,
+        onMouseDown,
+        onBlur,
+        onClick,
+        autoComplete = 'off',
+        ...other
+      } = props;
+
+      const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const inputValue = e.target.value;
+        const currentDate = parseInputValue({ inputValue, customParseDate });
+
+        if (
+          onChange &&
+          currentDate &&
+          isValid(currentDate) &&
+          isDateWithinRange(currentDate, minValue, maxValue) &&
+          !(value && isSameDay(value, currentDate))
+        ) {
+          onChange(currentDate);
+        } else if (inputValue === '' && state.inputValue !== '') {
+          settleValue(inputValue);
+        }
+
+        if (inputValue !== '') {
+          isEmptyReportedRef.current = false;
+        }
+
+        dispatch({ type: 'MANUALLY_UPDATE_INPUT', value: inputValue });
+      };
+
+      const handleClick = () => {
+        if (state.isOpen) {
+          dispatch({ type: 'CLOSE' });
+        } else if (!isDisabledOrReadOnly) {
+          dispatch({ type: 'OPEN', value });
+        }
+      };
+
+      const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === KEYS.DOWN) {
+          openOrFocusDialog();
+        } else if (
+          (e.key === KEYS.ESCAPE || e.key === KEYS.ENTER || (e.key === KEYS.TAB && !e.shiftKey)) &&
+          state.isOpen
+        ) {
+          if (e.key === KEYS.ESCAPE) {
+            e.stopPropagation();
+          }
+
+          settleValue();
+          dispatch({ type: 'CLOSE' });
+        }
+      };
+
+      return {
+        role: 'combobox' as const,
+        'aria-haspopup': 'dialog' as const,
+        'aria-autocomplete': 'none' as const,
+        'aria-expanded': state.isOpen,
+        'aria-controls': menuId,
+        autoComplete,
+        value: state.inputValue,
+        onChange: composeEventHandlers(onInputChange, handleChange),
+        onMouseDown,
+        // With a trigger, the group's own onBlur already covers the input.
+        onBlur: composeEventHandlers(onBlur, hasTrigger ? undefined : handleWidgetBlur),
+        onClick: composeEventHandlers(onClick, handleClick),
+        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
+        ...other
+      };
+    },
+    [
+      state.isOpen,
+      state.inputValue,
+      menuId,
+      onChange,
+      minValue,
+      maxValue,
+      value,
+      customParseDate,
+      settleValue,
+      hasTrigger,
+      handleWidgetBlur,
+      isDisabledOrReadOnly,
+      openOrFocusDialog
+    ]
+  );
+
+  /** Without a trigger, there's no group - the input itself is the widget, unless `refKey` names another element. */
+  const getReferenceElement = useCallback(
+    () => referenceRef?.current ?? groupRef.current ?? inputRef.current,
+    [referenceRef, groupRef, inputRef]
+  );
+
+  const getCalendarProps = useCallback((props: ElementProps<HTMLDivElement> = {}) => {
+    const { onMouseDown, ...other } = props;
+    const handleMouseDown = (e: React.MouseEvent) => {
+      /** Stop focus from escaping input */
+      e.preventDefault();
+    };
+
+    return {
+      onMouseDown: composeEventHandlers(onMouseDown, handleMouseDown),
+      ...other
+    };
+  }, []);
+
+  const getGridProps = useCallback(
+    (props: ElementProps<HTMLTableElement> = {}) => ({
+      ref: gridRef,
+      role: 'grid' as const,
+      'aria-labelledby': headingId,
+      ...props
+    }),
+    [headingId]
+  );
+
+  const getHeadingProps = useCallback(
+    (props: ElementProps<HTMLHeadingElement> = {}) => ({
+      id: headingId,
+      'aria-live': 'polite' as const,
+      ...props
+    }),
+    [headingId]
+  );
+
+  const getCellProps = useCallback(
+    ({ date, onClick, onKeyDown, ...other }: IGetCellPropsOptions) => {
+      const isDisabled = !isDateWithinRange(date, minValue, maxValue);
+      const isSelected = value !== undefined && !state.isValueInvalid && isSameDay(date, value);
+      const isCurrentDate = isToday(date);
+
+      /** Space selects without closing, per the APG date picker - Enter and clicks select and close. */
+      const handleClick = (keepOpen = false) => {
+        if (isDisabled) {
+          return;
+        }
+
+        if (!(value && isSameDay(value, date))) {
+          onChange?.(date);
+        }
+
+        onValueSettled?.({
+          date,
+          inputValue: formatInputValue({ date, locale, formatDate }),
+          valid: true
+        });
+
+        dispatch({ type: 'SELECT_DATE', value: date, locale, formatDate, keepOpen });
+
+        if (!keepOpen) {
+          inputRef.current?.focus();
+        }
+      };
+
+      const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
+        if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
+          e.preventDefault();
+          handleClick(e.key === KEYS.SPACE);
+
+          return;
+        }
+
+        let targetDate: Date;
+
+        switch (e.key) {
+          case KEYS.RIGHT:
+            targetDate = rtl ? subDays(date, 1) : addDays(date, 1);
+            break;
+          case KEYS.LEFT:
+            targetDate = rtl ? addDays(date, 1) : subDays(date, 1);
+            break;
+          case KEYS.DOWN:
+            targetDate = addDays(date, 7);
+            break;
+          case KEYS.UP:
+            targetDate = subDays(date, 7);
+            break;
+          case KEYS.HOME:
+            targetDate = startOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
+            break;
+          case KEYS.END:
+            targetDate = endOfWeek(date, { weekStartsOn: preferredWeekStartsOn });
+            break;
+          case KEYS.PAGE_DOWN:
+            targetDate = e.shiftKey ? addYears(date, 1) : addMonths(date, 1);
+            break;
+          case KEYS.PAGE_UP:
+            targetDate = e.shiftKey ? subYears(date, 1) : subMonths(date, 1);
+            break;
+          default:
+            return;
+        }
+
+        e.preventDefault();
+        pendingGridFocusRef.current = true;
+        dispatch({ type: 'FOCUS_DATE', value: targetDate });
+      };
+
+      return {
+        tabIndex: isSameDay(date, state.focusedDate) ? 0 : -1,
+        'aria-disabled': isDisabled || undefined,
+        'aria-current': isCurrentDate ? ('date' as const) : undefined,
+        'aria-selected': isSelected,
+        onClick: composeEventHandlers(onClick, () => handleClick()),
+        onKeyDown: composeEventHandlers(onKeyDown, handleKeyDown),
+        'data-test-id': 'day',
+        'data-test-selected': isSelected,
+        'data-test-disabled': isDisabled,
+        'data-test-today': isCurrentDate,
+        ...other
+      };
+    },
+    [
+      minValue,
+      maxValue,
+      value,
+      onChange,
+      onValueSettled,
+      locale,
+      formatDate,
+      inputRef,
+      preferredWeekStartsOn,
+      rtl,
+      state.focusedDate,
+      state.isValueInvalid
+    ]
+  );
+
+  const focusPreviousMonth = useCallback(() => {
+    dispatch({ type: 'FOCUS_DATE', value: subMonths(state.focusedDate, 1) });
+  }, [state.focusedDate]);
+
+  const focusNextMonth = useCallback(() => {
+    dispatch({ type: 'FOCUS_DATE', value: addMonths(state.focusedDate, 1) });
+  }, [state.focusedDate]);
+
+  const focusPreviousYear = useCallback(() => {
+    dispatch({ type: 'FOCUS_DATE', value: subYears(state.focusedDate, 1) });
+  }, [state.focusedDate]);
+
+  const focusNextYear = useCallback(() => {
+    dispatch({ type: 'FOCUS_DATE', value: addYears(state.focusedDate, 1) });
+  }, [state.focusedDate]);
+
+  const getPreviousMonthButtonProps = useCallback(
+    (props?: ElementProps<HTMLButtonElement>) =>
+      composeActionButtonProps(focusPreviousMonth, props),
+    [focusPreviousMonth]
+  );
+
+  const getNextMonthButtonProps = useCallback(
+    (props?: ElementProps<HTMLButtonElement>) => composeActionButtonProps(focusNextMonth, props),
+    [focusNextMonth]
+  );
+
+  const getPreviousYearButtonProps = useCallback(
+    (props?: ElementProps<HTMLButtonElement>) => composeActionButtonProps(focusPreviousYear, props),
+    [focusPreviousYear]
+  );
+
+  const getNextYearButtonProps = useCallback(
+    (props?: ElementProps<HTMLButtonElement>) => composeActionButtonProps(focusNextYear, props),
+    [focusNextYear]
+  );
+
+  return useMemo(
+    () => ({
+      isOpen: state.isOpen,
+      previewDate: state.previewDate,
+      inputValue: state.inputValue,
+      isValueInvalid: state.isValueInvalid,
+      menuId,
+      buttonId,
+      headingId,
+      dialogRef,
+      getGroupProps,
+      getInputProps,
+      getTriggerProps,
+      getDialogProps,
+      getReferenceElement,
+      getCalendarProps,
+      getGridProps,
+      getHeadingProps,
+      getCellProps,
+      getPreviousMonthButtonProps,
+      getNextMonthButtonProps,
+      getPreviousYearButtonProps,
+      getNextYearButtonProps,
+      focusPreviousMonth,
+      focusNextMonth,
+      focusPreviousYear,
+      focusNextYear,
+      settleValue
+    }),
+    [
+      state.isOpen,
+      state.previewDate,
+      state.inputValue,
+      state.isValueInvalid,
+      menuId,
+      buttonId,
+      headingId,
+      getGroupProps,
+      getInputProps,
+      getTriggerProps,
+      getDialogProps,
+      getReferenceElement,
+      getCalendarProps,
+      getGridProps,
+      getHeadingProps,
+      getCellProps,
+      getPreviousMonthButtonProps,
+      getNextMonthButtonProps,
+      getPreviousYearButtonProps,
+      getNextYearButtonProps,
+      focusPreviousMonth,
+      focusNextMonth,
+      focusPreviousYear,
+      focusNextYear,
+      settleValue
+    ]
+  );
+}

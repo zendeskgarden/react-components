@@ -309,7 +309,7 @@ describe('InputGroup', () => {
       expect(getByTestId('input-group')).toHaveStyleRule('border-color', defaultBorderColor);
     });
 
-    it('applies nested Input validation only to the nearest unified group', () => {
+    it('does not apply nested Input validation to a classic (non-unified) ancestor group', () => {
       const { getByTestId } = render(
         <InputGroup data-test-id="outer">
           <InputGroup isUnified data-test-id="inner">
@@ -320,6 +320,19 @@ describe('InputGroup', () => {
 
       expect(getByTestId('inner')).toHaveStyleRule('border-color', errorColor);
       expect(getByTestId('outer')).not.toHaveStyleRule('border-color', errorColor);
+    });
+
+    it('bubbles nested Input validation through an ancestor unified group, for a composed control with its own internal InputGroup', () => {
+      const { getByTestId } = render(
+        <InputGroup isUnified data-test-id="outer">
+          <InputGroup isUnified data-test-id="inner">
+            <Input aria-label="Input" validation="error" />
+          </InputGroup>
+        </InputGroup>
+      );
+
+      expect(getByTestId('inner')).toHaveStyleRule('border-color', errorColor);
+      expect(getByTestId('outer')).toHaveStyleRule('border-color', errorColor);
     });
 
     /* mirrors the useText warning specs in react-theming: save/restore NODE_ENV + console.warn */

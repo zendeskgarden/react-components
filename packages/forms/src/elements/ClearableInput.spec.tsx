@@ -12,7 +12,6 @@ import { DEFAULT_THEME, getColor } from '@zendeskgarden/react-theming';
 import { ClearableInput } from './ClearableInput';
 import { Field } from './common/Field';
 import { IClearableInputProps } from '../types';
-import { StyledInputGroup } from '../styled/input-group/StyledInputGroup';
 
 const ControlledClearableInput = ({
   initialValue = 'hello',
@@ -83,6 +82,38 @@ describe('ClearableInput', () => {
     );
 
     expect(getByRole('group')).toHaveClass('custom-class');
+  });
+
+  it('sets role="group" and aria-labelledby by default when composed with a Field label', () => {
+    const { getByRole } = render(
+      <Field>
+        <Field.Label>Search</Field.Label>
+        <ClearableInput onChange={jest.fn()} />
+      </Field>
+    );
+
+    const wrapper = getByRole('group');
+
+    expect(wrapper).toHaveAttribute('role', 'group');
+    expect(wrapper).toHaveAttribute('aria-labelledby');
+  });
+
+  it('lets wrapperProps override role and aria-labelledby via undefined, unlike other InputGroup props', () => {
+    const wrapperRef = React.createRef<HTMLDivElement>();
+    const { getByRole } = render(
+      <Field>
+        <Field.Label>Search</Field.Label>
+        <ClearableInput
+          onChange={jest.fn()}
+          wrapperRef={wrapperRef}
+          wrapperProps={{ role: undefined, 'aria-labelledby': undefined }}
+        />
+      </Field>
+    );
+
+    expect(getByRole('textbox')).toBeInTheDocument();
+    expect(wrapperRef.current).not.toHaveAttribute('role');
+    expect(wrapperRef.current).not.toHaveAttribute('aria-labelledby');
   });
 
   it('resolves wrapperRef to the InputGroup DOM node', () => {
@@ -452,9 +483,7 @@ describe('ClearableInput', () => {
 
       const wrapper = getByRole('group');
 
-      expect(wrapper).not.toHaveStyleRule('border', 'none', {
-        modifier: `&&${StyledInputGroup}`
-      });
+      expect(wrapper).not.toHaveStyleRule('border', 'none');
     });
 
     it('removes the outer border when the top-level isBare prop is true', () => {
@@ -462,9 +491,7 @@ describe('ClearableInput', () => {
 
       const wrapper = getByRole('group');
 
-      expect(wrapper).toHaveStyleRule('border', 'none', {
-        modifier: `&&${StyledInputGroup}`
-      });
+      expect(wrapper).toHaveStyleRule('border', 'none');
     });
 
     it('suppresses the visible focus indicator when the top-level isBare prop is true', () => {
@@ -474,7 +501,7 @@ describe('ClearableInput', () => {
 
       fireEvent.focus(getByRole('textbox'));
       expect(wrapper).toHaveStyleRule('box-shadow', 'none', {
-        modifier: `&&${StyledInputGroup}:focus-within`
+        modifier: ':focus-within'
       });
     });
   });
