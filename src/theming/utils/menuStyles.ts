@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css, DefaultTheme, keyframes } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 import DEFAULT_THEME from '../elements/theme';
-import { GardenStyles, MenuPosition } from '../types';
+import { GardenStyles, IGardenTheme, MenuPosition } from '../types';
 import { getColor } from './getColor';
 
 type MenuOptions = {
-  theme?: DefaultTheme;
+  theme?: IGardenTheme;
   hidden?: boolean;
   margin?: string;
   zIndex?: number;
@@ -55,7 +55,7 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
   `;
 };
 
-const colorStyles = (theme: DefaultTheme) => {
+const colorStyles = (theme: IGardenTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
   const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
