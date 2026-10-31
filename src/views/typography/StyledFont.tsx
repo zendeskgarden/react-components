@@ -6,8 +6,9 @@
  */
 
 import { hideVisually, math } from 'polished';
-import { styled, css, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
+import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import type { Size } from '../../types/elements';
@@ -15,7 +16,7 @@ import type { IStyledFontProps, WithTheme } from '../../types/views';
 
 type TypographySize = Size | 'extralarge' | '2xlarge' | '3xlarge';
 
-type ThemeSize = keyof DefaultTheme['lineHeights'];
+type ThemeSize = keyof IGardenTheme['lineHeights'];
 
 export const THEME_SIZES: Record<TypographySize, ThemeSize> = {
   small: 'sm',
