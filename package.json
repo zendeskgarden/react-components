@@ -107,6 +107,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/react-transition-group": "4.4.12",
+    "@types/styled-components-5": "npm:@types/styled-components@5.1.36",
     "@vitest/coverage-v8": "4.1.12",
     "@vitest/ui": "4.1.12",
     "@zendeskgarden/eslint-config": "47.1.0",
