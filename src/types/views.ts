@@ -5,8 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import type { DefaultTheme } from 'styled-components';
-
 import type { IGardenTheme, MenuPosition } from '../theming/types';
 import type { IListboxProps, OptionType, Size } from './elements';
 
@@ -127,9 +125,5 @@ export interface IStyledFontProps {
   $hue?: string;
 }
 //#endregion
-
-export interface IStyledBaseProps<T extends DefaultTheme = IGardenTheme> {
-  theme: T;
-}
 
 export type WithTheme<P extends object = object> = P & { theme: IGardenTheme };
