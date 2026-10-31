@@ -19,10 +19,9 @@ import {
   ReactElement,
   RefAttributes
 } from 'react';
-import { useTheme } from 'styled-components';
 
 import { Button } from '../../elements/button/Button';
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { IColor, IColorPickerDialogProps, MODAL_PLACEMENT } from '../../types/elements';
 import { getElementRef } from '../../utils/shared/getElementRef';
@@ -75,7 +74,7 @@ export const ColorPickerDialog = forwardRef<HTMLDivElement, IColorPickerDialogPr
       'aria-label',
       'Color picker'
     );
-    const theme = useTheme() || DEFAULT_THEME;
+    const theme = useGardenTheme();
 
     const openDialog = () => {
       setReferenceElement(buttonRef.current);

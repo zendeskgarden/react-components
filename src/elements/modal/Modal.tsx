@@ -7,21 +7,12 @@
 
 import { useModal } from '@zendeskgarden/container-modal';
 import PropTypes from 'prop-types';
-import {
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useMemo,
-  useContext,
-  useRef,
-  useState,
-  forwardRef
-} from 'react';
+import { HTMLAttributes, RefObject, useEffect, useMemo, useRef, useState, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from 'styled-components';
 
 import { ModalProvider } from '../../context/modal/ModalContext';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { IModalProps } from '../../types/elements';
 import {
@@ -76,7 +67,7 @@ export const ModalComponent = forwardRef<HTMLDivElement, IModalProps>(
     },
     ref
   ) => {
-    const theme = useContext(ThemeContext);
+    const theme = useGardenTheme();
     const modalRef = useRef<HTMLDivElement>(null);
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);

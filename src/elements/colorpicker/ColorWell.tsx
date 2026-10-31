@@ -11,16 +11,14 @@ import {
   useRef,
   useState,
   useCallback,
-  useContext,
   useEffect,
   useMemo,
   FC,
   MouseEvent as ReactMouseEvent,
   memo
 } from 'react';
-import { ThemeContext } from 'styled-components';
 
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IHSVColor } from '../../types/elements';
 import { hslToHsv } from '../../utils/colorpicker/conversion';
 import { getNextHsv, getThumbPosition } from '../../utils/colorpicker/saturation';
@@ -36,7 +34,7 @@ interface IColorWellProps {
 }
 
 export const ColorWell: FC<IColorWellProps> = memo(({ hue, saturation, lightness, onChange }) => {
-  const theme = useContext(ThemeContext) || DEFAULT_THEME;
+  const theme = useGardenTheme();
   const { rtl } = theme;
   const containerRef = useRef<HTMLDivElement>(null);
   const hsv = hslToHsv(hue, saturation, lightness);

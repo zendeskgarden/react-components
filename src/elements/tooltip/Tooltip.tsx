@@ -13,7 +13,6 @@ import {
   cloneElement,
   useRef,
   useEffect,
-  useContext,
   FC,
   HTMLAttributes,
   Children,
@@ -22,10 +21,9 @@ import {
   RefObject
 } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from 'styled-components';
 
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { ITooltipProps, TOOLTIP_PLACEMENT, TOOLTIP_SIZE, TOOLTIP_TYPE } from '../../types/elements';
 import { getElementRef } from '../../utils/shared/getElementRef';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
@@ -58,7 +56,7 @@ export const TooltipComponent: FC<ITooltipProps> = ({
   onBlur,
   ...props
 }) => {
-  const theme = useContext(ThemeContext) || DEFAULT_THEME;
+  const theme = useGardenTheme();
   const triggerRef = useRef<HTMLButtonElement>(null);
   const floatingRef = useRef<HTMLDivElement>(null);
 
