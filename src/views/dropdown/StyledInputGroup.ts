@@ -8,9 +8,9 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const margin = props.theme.shadowWidths.sm;
 
   return css`
@@ -23,7 +23,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledInputGroup = styled.div`
+export const StyledInputGroup = styled.div<WithTheme>`
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;

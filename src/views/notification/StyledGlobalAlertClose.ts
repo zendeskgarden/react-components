@@ -11,14 +11,14 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IGlobalAlertProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledIconButton } from '../button/StyledIconButton';
 
 interface IStyledGlobalAlertCloseProps {
   $alertType: IGlobalAlertProps['type'];
 }
 
-const colorStyles = (props: IStyledGlobalAlertCloseProps & IStyledBaseProps) => {
+const colorStyles = (props: WithTheme<IStyledGlobalAlertCloseProps>) => {
   const { $alertType, theme } = props;
 
   let foregroundColor;
@@ -77,7 +77,7 @@ const colorStyles = (props: IStyledGlobalAlertCloseProps & IStyledBaseProps) => 
   `;
 };
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   // Vertically center 32px icon button while retaining line height
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
@@ -90,7 +90,9 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledGlobalAlertClose = styled(StyledIconButton)<IStyledGlobalAlertCloseProps>`
+export const StyledGlobalAlertClose = styled(StyledIconButton)<
+  WithTheme<IStyledGlobalAlertCloseProps>
+>`
   ${sizeStyles};
 
   ${colorStyles};

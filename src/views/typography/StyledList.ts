@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { IOrderedListProps, IUnorderedListProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const listStyles = (props: { $listType?: string } & IStyledBaseProps) => {
+const listStyles = (props: WithTheme<{ $listType?: string }>) => {
   const rtl = props.theme.rtl;
 
   return css`
@@ -28,7 +28,7 @@ interface IStyledListProps {
   $listType?: IOrderedListProps['type'];
 }
 
-export const StyledOrderedList = styled.ol<IStyledListProps>`
+export const StyledOrderedList = styled.ol<WithTheme<IStyledListProps>>`
   ${listStyles};
 
   ${componentStyles};
@@ -38,7 +38,7 @@ interface IStyledUnorderedListProps {
   $listType?: IUnorderedListProps['type'];
 }
 
-export const StyledUnorderedList = styled.ul<IStyledUnorderedListProps>`
+export const StyledUnorderedList = styled.ul<WithTheme<IStyledUnorderedListProps>>`
   ${listStyles};
 
   ${componentStyles};

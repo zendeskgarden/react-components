@@ -9,8 +9,9 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
-export const StyledSeparator = styled.div`
+export const StyledSeparator = styled.div<WithTheme>`
   display: flex;
   position: relative;
   justify-content: center;

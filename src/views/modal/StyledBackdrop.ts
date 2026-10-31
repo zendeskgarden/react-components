@@ -10,7 +10,7 @@ import { styled, css, keyframes } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBackdropProps } from '../../types/views';
+import type { IStyledBackdropProps, WithTheme } from '../../types/views';
 
 const animationName = keyframes`
   0% {
@@ -35,7 +35,7 @@ const animationStyles = (props: IStyledBackdropProps) => {
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledBackdrop = styled.div<IStyledBackdropProps>`
+export const StyledBackdrop = styled.div<WithTheme<IStyledBackdropProps>>`
   display: flex;
   position: fixed;
   inset: 0;

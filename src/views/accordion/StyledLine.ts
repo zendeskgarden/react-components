@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
-export const StyledLine = styled.div`
+export const StyledLine = styled.div<WithTheme>`
   display: block;
   position: absolute;
   top: ${props => props.theme.space.base * 3}px;

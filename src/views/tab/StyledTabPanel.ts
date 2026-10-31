@@ -8,13 +8,13 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTabPanelProps {
   $isVertical?: boolean;
 }
 
-const sizeStyles = ({ theme, $isVertical }: IStyledTabPanelProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabPanelProps>) => {
   const margin = $isVertical ? `${theme.space.base * 8}px` : undefined;
 
   return css`
@@ -22,7 +22,7 @@ const sizeStyles = ({ theme, $isVertical }: IStyledTabPanelProps & IStyledBasePr
   `;
 };
 
-export const StyledTabPanel = styled.div<IStyledTabPanelProps>`
+export const StyledTabPanel = styled.div<WithTheme<IStyledTabPanelProps>>`
   display: block;
   vertical-align: ${props => props.$isVertical && 'top'};
   color-scheme: only ${p => p.theme.colors.base};

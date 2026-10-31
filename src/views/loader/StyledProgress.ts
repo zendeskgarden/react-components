@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
+import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import { LoaderSize } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const sizeToHeight = ($size: LoaderSize, theme: DefaultTheme) => {
+const sizeToHeight = ($size: LoaderSize, theme: IGardenTheme) => {
   switch ($size) {
     case 'small':
       return theme.space.base / 2;
@@ -24,7 +25,7 @@ const sizeToHeight = ($size: LoaderSize, theme: DefaultTheme) => {
   }
 };
 
-const sizeToBorderRadius = ($size: LoaderSize, theme: DefaultTheme) =>
+const sizeToBorderRadius = ($size: LoaderSize, theme: IGardenTheme) =>
   sizeToHeight($size, theme) / 2;
 
 interface IStyledProgressBackgroundProps {
@@ -35,7 +36,7 @@ interface IStyledProgressBackgroundProps {
 const colorStyles = ({
   theme,
   $color = 'border.successEmphasis'
-}: IStyledProgressBackgroundProps & IStyledBaseProps) => {
+}: WithTheme<IStyledProgressBackgroundProps>) => {
   const backgroundColor = getColor({
     theme,
     transparency: theme.opacity[200],
@@ -50,7 +51,7 @@ const colorStyles = ({
   `;
 };
 
-export const StyledProgressBackground = styled.div<IStyledProgressBackgroundProps>`
+export const StyledProgressBackground = styled.div<WithTheme<IStyledProgressBackgroundProps>>`
   margin: ${props => props.theme.space.base * 2}px 0;
   border-radius: ${props => sizeToBorderRadius(props.$size, props.theme)}px;
 
@@ -64,7 +65,7 @@ interface IStyledProgressIndicatorProps {
   $value: number;
 }
 
-export const StyledProgressIndicator = styled.div<IStyledProgressIndicatorProps>`
+export const StyledProgressIndicator = styled.div<WithTheme<IStyledProgressIndicatorProps>>`
   transition: width 0.1s ease-in-out;
   border-radius: ${props => sizeToBorderRadius(props.$size, props.theme)}px;
   background: currentcolor;

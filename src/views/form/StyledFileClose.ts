@@ -10,12 +10,13 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledFileCloseProps {
   $isCompact?: boolean;
 }
 
-export const StyledFileClose = styled.button<IStyledFileCloseProps>`
+export const StyledFileClose = styled.button<WithTheme<IStyledFileCloseProps>>`
   display: flex;
   flex-shrink: 0;
   align-items: center;

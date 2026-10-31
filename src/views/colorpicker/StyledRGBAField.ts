@@ -5,12 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, DefaultTheme } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { Field } from '../../elements/form/Field';
+import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-const sizeStyles = (theme: DefaultTheme) => {
+const sizeStyles = (theme: IGardenTheme) => {
   const margin = `${theme.space.base * 1.5}px`;
   const width = `${theme.space.base * 12.75}px`;
 
@@ -21,7 +23,7 @@ const sizeStyles = (theme: DefaultTheme) => {
   `;
 };
 
-export const StyledRGBAField = styled(Field as unknown as 'div')`
+export const StyledRGBAField = styled(Field as unknown as 'div')<WithTheme>`
   display: flex;
   flex-direction: column;
   text-align: center;

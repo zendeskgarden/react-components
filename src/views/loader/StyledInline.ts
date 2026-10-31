@@ -9,13 +9,13 @@ import { styled, css, keyframes } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledInlineProps {
   $color: string;
 }
 
-const colorStyles = ({ theme, $color }: IStyledInlineProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $color }: WithTheme<IStyledInlineProps>) => {
   const color = getHueColor({ theme, value: $color });
 
   return css`
@@ -23,7 +23,7 @@ const colorStyles = ({ theme, $color }: IStyledInlineProps & IStyledBaseProps) =
   `;
 };
 
-const retrieveAnimation = ({ theme }: IStyledBaseProps) => keyframes`
+const retrieveAnimation = ({ theme }: WithTheme) => keyframes`
   0%, 100% {
     opacity: ${theme.opacity[200]};
   }
@@ -37,7 +37,7 @@ export const StyledCircle = styled.circle`
   /* empty-source */
 `;
 
-export const StyledInline = styled.svg<IStyledInlineProps>`
+export const StyledInline = styled.svg<WithTheme<IStyledInlineProps>>`
   ${colorStyles};
 
   ${StyledCircle} {

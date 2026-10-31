@@ -8,13 +8,14 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledField } from './StyledField';
 
 interface IStyledFieldsetProps {
   $isCompact?: boolean;
 }
 
-export const StyledFieldset = styled(StyledField as 'fieldset')<IStyledFieldsetProps>`
+export const StyledFieldset = styled(StyledField as 'fieldset')<WithTheme<IStyledFieldsetProps>>`
   ${StyledField} {
     margin-top: ${props => props.theme.space.base * (props.$isCompact ? 1 : 2)}px;
   }

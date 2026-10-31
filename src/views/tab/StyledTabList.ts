@@ -10,13 +10,13 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTabListProps {
   $isVertical?: boolean;
 }
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ theme, variable: 'border.default' });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
@@ -31,7 +31,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 /*
  * 1. List element reset.
  */
-const sizeStyles = ({ theme, $isVertical }: IStyledTabListProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabListProps>) => {
   const marginBottom = $isVertical ? 0 : `${theme.space.base * 5}px`;
   const borderBottom = $isVertical ? undefined : theme.borderWidths.sm;
   const fontSize = theme.fontSizes.md;
@@ -47,7 +47,7 @@ const sizeStyles = ({ theme, $isVertical }: IStyledTabListProps & IStyledBasePro
   `;
 };
 
-export const StyledTabList = styled.div<IStyledTabListProps>`
+export const StyledTabList = styled.div<WithTheme<IStyledTabListProps>>`
   display: ${props => (props.$isVertical ? 'table-cell' : 'block')};
   border-bottom: ${props => (props.$isVertical ? 'none' : props.theme.borderStyles.solid)};
   vertical-align: ${props => (props.$isVertical ? 'top' : undefined)};

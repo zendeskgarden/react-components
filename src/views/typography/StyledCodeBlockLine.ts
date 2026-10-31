@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { Diff, Size } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledFont, THEME_SIZES } from './StyledFont';
 
 export interface IStyledCodeBlockLineProps {
@@ -23,11 +23,7 @@ export interface IStyledCodeBlockLineProps {
   $size?: Size;
 }
 
-const colorStyles = ({
-  theme,
-  $diff,
-  $isHighlighted
-}: IStyledCodeBlockLineProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $diff, $isHighlighted }: WithTheme<IStyledCodeBlockLineProps>) => {
   let backgroundColor;
 
   if ($diff) {
@@ -59,11 +55,7 @@ const colorStyles = ({
   `;
 };
 
-const lineNumberStyles = ({
-  theme,
-  $language,
-  $size
-}: IStyledCodeBlockLineProps & IStyledBaseProps) => {
+const lineNumberStyles = ({ theme, $language, $size }: WithTheme<IStyledCodeBlockLineProps>) => {
   const color = getColor({ theme, variable: 'foreground.subtle', light: { offset: -100 } });
   let padding;
 
@@ -94,7 +86,9 @@ const lineNumberStyles = ({
  * 1. Fix line display for mobile.
  * 2. Match parent padding for overflow scroll.
  */
-export const StyledCodeBlockLine = styled(StyledFont as 'code')<IStyledCodeBlockLineProps>`
+export const StyledCodeBlockLine = styled(StyledFont as 'code')<
+  WithTheme<IStyledCodeBlockLineProps>
+>`
   display: table-row;
   height: ${props => props.theme.lineHeights[THEME_SIZES[props.$size!]]}; /* [1] */
   direction: ltr;

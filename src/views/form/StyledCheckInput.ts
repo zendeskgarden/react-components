@@ -9,11 +9,11 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledCheckLabel } from './StyledCheckLabel';
 import { StyledRadioInput } from './StyledRadioInput';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const indeterminateBackgroundColor = getColor({ theme, variable: 'foreground.default' });
   const indeterminateBorderColor = 'transparent';
 
@@ -60,7 +60,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledCheckInput = styled(StyledRadioInput)`
+export const StyledCheckInput = styled(StyledRadioInput)<WithTheme>`
   & ~ ${StyledCheckLabel}::before {
     border-radius: ${props => props.theme.borderRadii.sm};
   }

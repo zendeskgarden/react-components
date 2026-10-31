@@ -14,7 +14,7 @@ import { getArrowPosition } from '../../theming/utils/getArrowPosition';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { ITooltipProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledParagraph } from './StyledParagraph';
 import { StyledTitle } from './StyledTitle';
 
@@ -25,12 +25,7 @@ interface IStyledTooltipProps {
   $type: ITooltipProps['type'];
 }
 
-const sizeStyles = ({
-  theme,
-  $hasArrow,
-  $placement,
-  $size
-}: IStyledTooltipProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $hasArrow, $placement, $size }: WithTheme<IStyledTooltipProps>) => {
   let margin = `${theme.space.base * 1.5}px`;
   let borderRadius = theme.borderRadii.sm;
   let padding = '0 1em';
@@ -116,7 +111,7 @@ const sizeStyles = ({
   `;
 };
 
-const colorStyles = ({ theme, $type }: IStyledTooltipProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $type }: WithTheme<IStyledTooltipProps>) => {
   let borderColor;
   let boxShadow;
   let backgroundColor;
@@ -164,7 +159,7 @@ const colorStyles = ({ theme, $type }: IStyledTooltipProps & IStyledBaseProps) =
 /**
  * Accepts all `<div>` props
  */
-export const StyledTooltip = styled.div<IStyledTooltipProps>`
+export const StyledTooltip = styled.div<WithTheme<IStyledTooltipProps>>`
   display: inline-block;
   border: ${props => props.theme.borders.sm};
   box-sizing: border-box;

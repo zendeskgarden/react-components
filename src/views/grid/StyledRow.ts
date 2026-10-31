@@ -6,13 +6,14 @@
  */
 
 import { math } from 'polished';
-import { styled, css, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { AlignItems, IGridProps, IGridRowProps, JustifyContent, Wrap } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 
-interface IStyledRowProps extends ThemeProps<DefaultTheme> {
+interface IStyledRowProps {
   $gutters?: IGridProps['gutters'];
   $debug?: IGridProps['debug'];
   $alignItems?: AlignItems;
@@ -35,7 +36,7 @@ interface IStyledRowProps extends ThemeProps<DefaultTheme> {
   $wrapXl?: Wrap;
 }
 
-const colorStyles = ({ theme }: IStyledRowProps) => {
+const colorStyles = ({ theme }: WithTheme<IStyledRowProps>) => {
   const borderColor = getColor({
     theme,
     hue: 'mint',
@@ -91,7 +92,7 @@ const mediaStyles = (
   `;
 };
 
-const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
+const sizeStyles = ({ theme, $gutters }: WithTheme<IStyledRowProps>) => {
   const margin = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
 
   return css`
@@ -100,7 +101,7 @@ const sizeStyles = ({ theme, $gutters }: IStyledRowProps) => {
   `;
 };
 
-export const StyledRow = styled.div<IStyledRowProps>`
+export const StyledRow = styled.div<WithTheme<IStyledRowProps>>`
   display: flex;
   box-sizing: border-box;
 

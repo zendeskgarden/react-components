@@ -8,12 +8,13 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledCalendarProps {
   $isCompact?: boolean;
 }
 
-export const StyledCalendar = styled.div<IStyledCalendarProps>`
+export const StyledCalendar = styled.div<WithTheme<IStyledCalendarProps>>`
   width: ${props =>
     props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;
 

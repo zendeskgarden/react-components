@@ -6,13 +6,14 @@
  */
 
 import { em, math } from 'polished';
-import { styled, css, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
+import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { Validation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
@@ -28,7 +29,7 @@ const BUTTON_SELECTOR = "button[data-garden-id='buttons.button']";
 const ICON_BUTTON_SELECTOR = "button[data-garden-id='buttons.icon_button']";
 
 /* shared between unifiedItemStyles' padding math and its own icon button size override, to keep them in sync */
-const getCompactIconButtonSize = (theme: DefaultTheme) => math(`${theme.space.base}px * 6`);
+const getCompactIconButtonSize = (theme: IGardenTheme) => math(`${theme.space.base}px * 6`);
 
 interface IStyledInputGroupProps {
   $isCompact?: boolean;
@@ -45,7 +46,7 @@ const VALIDATION_BORDER_VARIABLE: Record<Validation, string> = {
 };
 
 /* mirrors MediaInput's own read-only treatment: only the background changes, since a read-only input remains focusable and selectable */
-const readOnlyStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
+const readOnlyStyles = (props: WithTheme<IStyledInputGroupProps>) => {
   const { theme } = props;
   const backgroundColor = getColor({ theme, variable: 'background.disabled' });
 
@@ -57,7 +58,7 @@ const readOnlyStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
 };
 
 /* mirrors MediaInput's own disabled treatment, since a descendant input's disabled state isn't otherwise reflected on this container */
-const disabledStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
+const disabledStyles = (props: WithTheme<IStyledInputGroupProps>) => {
   const { theme } = props;
   const borderColor = getColor({ theme, variable: 'border.disabled' });
   const backgroundColor = getColor({ theme, variable: 'background.disabled' });
@@ -71,7 +72,7 @@ const disabledStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
   `;
 };
 
-const unifiedItemStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
+const unifiedItemStyles = (props: WithTheme<IStyledInputGroupProps>) => {
   const { theme, $isCompact, $focusInset, $validation } = props;
   const fontSize = theme.fontSizes.md;
   const containerSize = $isCompact ? theme.space.lg : theme.space.xl;
@@ -266,7 +267,7 @@ const unifiedItemStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => 
 /**
  * [1] - Override the default `width: 100%` style
  */
-const positionStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
+const positionStyles = (props: WithTheme<IStyledInputGroupProps>) => {
   const topMargin = `${props.theme.space.base * (props.$isCompact ? 1 : 2)}px`;
 
   return css`
@@ -293,7 +294,7 @@ const positionStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
  * 1. remove border overlap in items
  * 2. keep text inputs above other elements for validation states
  */
-const segmentedItemStyles = (props: IStyledInputGroupProps & IStyledBaseProps) => {
+const segmentedItemStyles = (props: WithTheme<IStyledInputGroupProps>) => {
   const startDirection = props.theme.rtl ? 'right' : 'left';
   const endDirection = props.theme.rtl ? 'left' : 'right';
 
@@ -343,7 +344,7 @@ const segmentedItemStyles = (props: IStyledInputGroupProps & IStyledBaseProps) =
   `;
 };
 
-export const StyledInputGroup = styled.div<IStyledInputGroupProps>`
+export const StyledInputGroup = styled.div<WithTheme<IStyledInputGroupProps>>`
   display: inline-flex;
   position: relative;
   flex-wrap: nowrap;

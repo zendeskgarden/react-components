@@ -10,7 +10,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { ICellProps, ITableProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { getRowHeight } from './style-utils';
 import { getLineHeight } from './StyledTable';
 
@@ -27,7 +27,7 @@ const truncatedStyling = css`
   white-space: nowrap;
 `;
 
-const sizeStyling = (props: IStyledCellProps & IStyledBaseProps) => {
+const sizeStyling = (props: WithTheme<IStyledCellProps>) => {
   let boxSizing = 'border-box';
   let padding;
   let width = props.width;
@@ -60,7 +60,7 @@ const sizeStyling = (props: IStyledCellProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledCell = styled.td<IStyledCellProps>`
+export const StyledCell = styled.td<WithTheme<IStyledCellProps>>`
   display: table-cell;
   transition:
     border-color 0.25s ease-in-out,

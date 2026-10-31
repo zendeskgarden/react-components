@@ -9,14 +9,14 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledHeaderPaddleProps {
   $isCompact: boolean;
   'aria-hidden'?: boolean;
 }
 
-const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & IStyledBaseProps) => {
+const sizeStyles = ({ $isCompact, theme }: WithTheme<{ $isCompact?: boolean }>) => {
   const iconSize = theme.iconSizes.md;
   const size = theme.space.base * ($isCompact ? 8 : 10);
 
@@ -31,7 +31,7 @@ const sizeStyles = ({ $isCompact, theme }: { $isCompact?: boolean } & IStyledBas
   `;
 };
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const foreground = getColor({ variable: 'foreground.subtle', theme });
   const foregroundHover = getColor({
     variable: 'foreground.subtle',
@@ -71,7 +71,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledHeaderPaddle = styled.div<IStyledHeaderPaddleProps>`
+export const StyledHeaderPaddle = styled.div<WithTheme<IStyledHeaderPaddleProps>>`
   display: flex;
   align-items: center;
   justify-content: center;

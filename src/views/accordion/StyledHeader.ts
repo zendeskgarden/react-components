@@ -9,6 +9,7 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledButton } from './StyledButton';
 
 interface IStyledHeader {
@@ -16,7 +17,7 @@ interface IStyledHeader {
   $isCollapsible?: boolean;
 }
 
-export const StyledHeader = styled.div<IStyledHeader>`
+export const StyledHeader = styled.div<WithTheme<IStyledHeader>>`
   display: flex;
   align-items: center;
   transition: box-shadow 0.1s ease-in-out;

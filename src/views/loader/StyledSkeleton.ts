@@ -10,7 +10,7 @@ import { styled, keyframes, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 const fadeInAnimation = keyframes`
   0%, 60% {
@@ -46,7 +46,7 @@ interface IStyledSkeletonProps {
   $isLight?: boolean;
 }
 
-const getBackgroundColor = ({ theme, $isLight }: IStyledSkeletonProps & IStyledBaseProps) => {
+const getBackgroundColor = ({ theme, $isLight }: WithTheme<IStyledSkeletonProps>) => {
   let backgroundColor;
 
   if ($isLight) {
@@ -66,7 +66,7 @@ const getBackgroundColor = ({ theme, $isLight }: IStyledSkeletonProps & IStyledB
   return backgroundColor;
 };
 
-const animationStyles = ({ theme }: IStyledBaseProps) => {
+const animationStyles = ({ theme }: WithTheme) => {
   if (theme.rtl) {
     return css`
       animation: ${skeletonRtlAnimation} 1.5s ease-in-out 300ms infinite;
@@ -78,7 +78,7 @@ const animationStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const gradientStyles = (props: IStyledSkeletonProps & IStyledBaseProps) => {
+const gradientStyles = (props: WithTheme<IStyledSkeletonProps>) => {
   return css`
     background-image: linear-gradient(
       ${props.theme.rtl ? '-45deg' : '45deg'},
@@ -89,7 +89,7 @@ const gradientStyles = (props: IStyledSkeletonProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledSkeleton = styled.div<IStyledSkeletonProps>`
+export const StyledSkeleton = styled.div<WithTheme<IStyledSkeletonProps>>`
   display: inline-block;
   position: relative;
   animation: ${fadeInAnimation} 750ms linear;

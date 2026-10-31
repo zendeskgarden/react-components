@@ -5,15 +5,16 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export interface IStyledItemProps extends ThemeProps<DefaultTheme> {
+export interface IStyledItemProps {
   $isHorizontal?: boolean;
 }
 
-const sizeStyles = (props: IStyledItemProps) => {
+const sizeStyles = (props: WithTheme<IStyledItemProps>) => {
   const {
     $isHorizontal,
     theme: { space }
@@ -24,7 +25,7 @@ const sizeStyles = (props: IStyledItemProps) => {
   `;
 };
 
-export const StyledItem = styled.li<IStyledItemProps>`
+export const StyledItem = styled.li<WithTheme<IStyledItemProps>>`
   display: flex;
 
   ${sizeStyles}

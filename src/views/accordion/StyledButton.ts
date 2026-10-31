@@ -10,7 +10,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 export const COMPONENT_ID = 'accordions.button';
 
@@ -26,7 +26,7 @@ const colorStyles = ({
   $isExpanded,
   $isHovered,
   theme
-}: IStyledButton & IStyledBaseProps) => {
+}: WithTheme<IStyledButton>) => {
   const showColor = $isCollapsible || !$isExpanded;
   const color = getColor({
     theme,
@@ -47,7 +47,7 @@ const colorStyles = ({
  * 1. <button> override.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledButton = styled.button<IStyledButton>`
+export const StyledButton = styled.button<WithTheme<IStyledButton>>`
   transition: color 0.1s ease-in-out;
   outline: none;
   border: none;

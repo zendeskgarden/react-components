@@ -8,9 +8,10 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledDatePicker } from './StyledDatePicker';
 
-export const StyledRangeCalendar = styled.div`
+export const StyledRangeCalendar = styled.div<WithTheme>`
   display: flex;
   overflow: auto;
 

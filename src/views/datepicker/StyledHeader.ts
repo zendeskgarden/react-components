@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledHeader = styled.div<{ $isCompact: boolean }>`
+export const StyledHeader = styled.div<WithTheme<{ $isCompact: boolean }>>`
   display: flex;
   width: ${props =>
     props.$isCompact ? props.theme.space.base * 56 : props.theme.space.base * 70}px;

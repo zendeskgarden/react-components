@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledIcon {
   $isActive?: boolean;
@@ -25,7 +25,7 @@ export const StyledIconFlexContainer = styled.div`
   width: 100%;
 `;
 
-const sizeStyles = (props: IStyledIcon & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledIcon>) => {
   const size = `${props.theme.space.base * 6}px`;
   const fontSize = props.theme.fontSizes.sm;
 
@@ -49,7 +49,7 @@ const sizeStyles = (props: IStyledIcon & IStyledBaseProps) => {
   `;
 };
 
-const colorStyles = ({ $isActive, theme }: IStyledIcon & IStyledBaseProps) => {
+const colorStyles = ({ $isActive, theme }: WithTheme<IStyledIcon>) => {
   const foregroundColor = getColor({
     theme,
     variable: $isActive ? 'foreground.onEmphasis' : 'foreground.default'
@@ -70,7 +70,7 @@ const colorStyles = ({ $isActive, theme }: IStyledIcon & IStyledBaseProps) => {
   `;
 };
 
-export const StyledIcon = styled.div<IStyledIcon>`
+export const StyledIcon = styled.div<WithTheme<IStyledIcon>>`
   display: flex;
   align-items: center;
   justify-content: center;

@@ -9,7 +9,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledHeaderCell } from './StyledHeaderCell';
 import { StyledHeaderRow } from './StyledHeaderRow';
 
@@ -20,7 +20,7 @@ interface IStyledHeadProps {
 /*
  * 1. Replace header row border with a box-shadow that maintains position
  */
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ variable: 'border.default', theme });
   const backgroundColor = getColor({ variable: 'background.default', theme });
 
@@ -48,7 +48,7 @@ const stickyStyles = () => {
   `;
 };
 
-export const StyledHead = styled.thead<IStyledHeadProps>`
+export const StyledHead = styled.thead<WithTheme<IStyledHeadProps>>`
   ${props => props.$isSticky && stickyStyles()}
 
   ${colorStyles}

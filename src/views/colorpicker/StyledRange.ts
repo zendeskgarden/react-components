@@ -11,7 +11,7 @@ import { styled } from 'styled-components';
 import { Range } from '../../elements/form/Range';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps, IStyledRangeProps } from '../../types/views';
+import type { IStyledRangeProps, WithTheme } from '../../types/views';
 
 const thumbStyles = (styles: string, modifier = '') => {
   return `
@@ -57,7 +57,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
   `;
 };
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const thumbBackgroundColor = getColor({
     theme,
     variable: 'background.default'
@@ -120,13 +120,13 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const getThumbSize = (props: IStyledRangeProps) =>
+const getThumbSize = (props: WithTheme<IStyledRangeProps>) =>
   props.theme.space.base * (props.$isOpaque ? 6 : 4);
 
-export const getTrackHeight = (props: IStyledRangeProps) =>
+export const getTrackHeight = (props: WithTheme<IStyledRangeProps>) =>
   props.theme.space.base * (props.$isOpaque ? 6 : 3);
 
-export const getTrackMargin = (props: IStyledRangeProps) =>
+export const getTrackMargin = (props: WithTheme<IStyledRangeProps>) =>
   (getThumbSize(props) - getTrackHeight(props)) / 2 +
   (stripUnit(props.theme.shadowWidths.md) as number);
 
@@ -134,7 +134,7 @@ export const getTrackMargin = (props: IStyledRangeProps) =>
  * 1. Firefox reset.
  * 2. Bedrock override.
  */
-const sizeStyles = (props: IStyledRangeProps) => {
+const sizeStyles = (props: WithTheme<IStyledRangeProps>) => {
   const thumbSize = getThumbSize(props);
   const trackHeight = getTrackHeight(props);
   const trackMargin = getTrackMargin(props);
@@ -163,7 +163,7 @@ const sizeStyles = (props: IStyledRangeProps) => {
   `;
 };
 
-export const StyledRange = styled(Range as unknown as 'input')<IStyledRangeProps>`
+export const StyledRange = styled(Range as unknown as 'input')<WithTheme<IStyledRangeProps>>`
   ${sizeStyles};
 
   ${trackStyles(`

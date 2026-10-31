@@ -8,9 +8,9 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-export const sizeStyles = ({ $isCompact, theme }: IStyledCalendarItemProps & IStyledBaseProps) => {
+export const sizeStyles = ({ $isCompact, theme }: WithTheme<IStyledCalendarItemProps>) => {
   let size;
 
   if ($isCompact) {
@@ -29,7 +29,7 @@ interface IStyledCalendarItemProps {
   $isCompact?: boolean;
 }
 
-export const StyledCalendarItem = styled.div<IStyledCalendarItemProps>`
+export const StyledCalendarItem = styled.div<WithTheme<IStyledCalendarItemProps>>`
   display: inline-block;
   position: relative;
   vertical-align: top;

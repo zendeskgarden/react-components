@@ -9,13 +9,13 @@ import { hsl, rgba } from 'polished';
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledColorWellProps {
   $hue: number;
 }
 
-export const background = (props: IStyledColorWellProps & IStyledBaseProps) => {
+export const background = (props: WithTheme<IStyledColorWellProps>) => {
   const blackAlpha = rgba(props.theme.palette.black as string, 0.9);
   const black = `linear-gradient(0deg, ${props.theme.palette.black}, ${blackAlpha} 1%, transparent 99%)`;
   const whiteAngle = `${props.theme.rtl ? -90 : 90}deg`;
@@ -26,7 +26,7 @@ export const background = (props: IStyledColorWellProps & IStyledBaseProps) => {
   return `${black}, ${white}, ${color}`;
 };
 
-export const StyledColorWell = styled.div<IStyledColorWellProps>`
+export const StyledColorWell = styled.div<WithTheme<IStyledColorWellProps>>`
   position: relative;
   margin-bottom: ${props => props.theme.space.base * 2}px;
   cursor: pointer;

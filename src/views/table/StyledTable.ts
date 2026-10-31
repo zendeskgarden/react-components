@@ -9,16 +9,16 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-export const getLineHeight = (props: IStyledBaseProps) => {
+export const getLineHeight = (props: WithTheme) => {
   return `${props.theme.space.base * 5}px`;
 };
 
 /**
  * 1. <table> reset
  */
-export const StyledTable = styled.table`
+export const StyledTable = styled.table<WithTheme>`
   display: table;
   border: none; /* [1] */
   width: 100%; /* [1] */

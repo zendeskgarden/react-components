@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   return css`
     color: ${getColor({ variable: 'foreground.subtle', theme })};
   `;
@@ -21,7 +21,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
  * 1. List reset.
  * 2. Text truncation.
  */
-export const StyledList = styled.ul`
+export const StyledList = styled.ul<WithTheme>`
   direction: ${p => p.theme.rtl && 'rtl'};
   display: flex;
   justify-content: center;

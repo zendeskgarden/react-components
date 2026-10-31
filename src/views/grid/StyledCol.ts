@@ -6,7 +6,7 @@
  */
 
 import { math } from 'polished';
-import { styled, css, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
@@ -18,8 +18,9 @@ import {
   IGridProps,
   TextAlign
 } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 
-interface IStyledColProps extends ThemeProps<DefaultTheme> {
+interface IStyledColProps {
   $columns?: IGridProps['columns'];
   $gutters?: IGridProps['gutters'];
   $sizeAll?: IColProps['size'];
@@ -55,7 +56,7 @@ interface IStyledColProps extends ThemeProps<DefaultTheme> {
   $orderXl?: IColProps['orderXl'];
 }
 
-const colorStyles = ({ theme }: IStyledColProps) => {
+const colorStyles = ({ theme }: WithTheme<IStyledColProps>) => {
   const backgroundColor = getColor({
     theme,
     variable: 'background.primaryEmphasis',
@@ -75,7 +76,7 @@ const flexStyles = (
   textAlign: TextAlign | undefined,
   offset: GridNumber | undefined,
   order: GridNumber | undefined,
-  props: IStyledColProps
+  props: WithTheme<IStyledColProps>
 ) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$columns` may still be undefined here */
@@ -142,7 +143,7 @@ const mediaStyles = (
   textAlign: TextAlign | undefined,
   offset: GridNumber | undefined,
   order: GridNumber | undefined,
-  props: IStyledColProps
+  props: WithTheme<IStyledColProps>
 ) => {
   return css`
     /* stylelint-disable-next-line media-query-no-invalid */
@@ -152,7 +153,7 @@ const mediaStyles = (
   `;
 };
 
-const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
+const sizeStyles = ({ theme, $gutters }: WithTheme<IStyledColProps>) => {
   const padding = $gutters ? math(`${theme.space[$gutters!]} / 2`) : 0;
 
   return css`
@@ -161,7 +162,7 @@ const sizeStyles = ({ theme, $gutters }: IStyledColProps) => {
   `;
 };
 
-export const StyledCol = styled.div<IStyledColProps>`
+export const StyledCol = styled.div<WithTheme<IStyledColProps>>`
   box-sizing: border-box;
   width: 100%;
 

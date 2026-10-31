@@ -8,7 +8,7 @@
 import { css } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledOptionProps } from '../../types/views';
+import type { IStyledOptionProps, WithTheme } from '../../types/views';
 
 /**
  * Menu items (and link items) have rounded corners. An active item shows a
@@ -18,7 +18,7 @@ import type { IStyledOptionProps } from '../../types/views';
  *    corners clip the stripe. Dropdown options keep the inset shadow.
  * 2. A disabled item shows no stripe.
  */
-export const itemStyles = ({ theme, $isActive, $type }: IStyledOptionProps) => {
+export const itemStyles = ({ theme, $isActive, $type }: WithTheme<IStyledOptionProps>) => {
   if ($type === 'group') {
     return undefined;
   }

@@ -11,7 +11,7 @@ import { styled, css, DefaultTheme } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import type { Size } from '../../types/elements';
-import type { IStyledFontProps } from '../../types/views';
+import type { IStyledFontProps, WithTheme } from '../../types/views';
 
 type TypographySize = Size | 'extralarge' | '2xlarge' | '3xlarge';
 
@@ -26,7 +26,7 @@ export const THEME_SIZES: Record<TypographySize, ThemeSize> = {
   '3xlarge': 'xxxl'
 };
 
-const fontStyles = ({ $hue, $isBold, $isMonospace, $size, theme }: IStyledFontProps) => {
+const fontStyles = ({ $hue, $isBold, $isMonospace, $size, theme }: WithTheme<IStyledFontProps>) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$size` may still be undefined here */
   const size = $size ?? 'inherit';
@@ -72,7 +72,7 @@ const fontStyles = ({ $hue, $isBold, $isMonospace, $size, theme }: IStyledFontPr
   `;
 };
 
-export const StyledFont = styled.div<IStyledFontProps>`
+export const StyledFont = styled.div<WithTheme<IStyledFontProps>>`
   ${props => !props.hidden && fontStyles(props)};
 
   &[hidden] {

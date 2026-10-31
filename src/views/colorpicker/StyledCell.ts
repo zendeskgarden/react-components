@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledCell = styled.td`
+export const StyledCell = styled.td<WithTheme>`
   padding: ${props => props.theme.space.base}px;
   font-size: 0;
 

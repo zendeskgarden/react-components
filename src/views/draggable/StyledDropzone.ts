@@ -6,12 +6,13 @@
  */
 
 import { math } from 'polished';
-import { styled, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
-export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
+export interface IStyledDropzoneProps {
   $isActive?: boolean;
   $isVertical?: boolean;
   $isDanger?: boolean;
@@ -21,7 +22,7 @@ export interface IStyledDropzoneProps extends ThemeProps<DefaultTheme> {
   $hasIcon?: boolean;
 }
 
-const colorStyles = (props: IStyledDropzoneProps) => {
+const colorStyles = (props: WithTheme<IStyledDropzoneProps>) => {
   const { $isDanger, $isDisabled, $isActive, $isHighlighted, theme } = props;
 
   const fgVariable = $isDanger ? 'foreground.danger' : 'foreground.primary';
@@ -67,7 +68,7 @@ const colorStyles = (props: IStyledDropzoneProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledDropzoneProps) => {
+const sizeStyles = (props: WithTheme<IStyledDropzoneProps>) => {
   const { theme, $isHighlighted } = props;
   const borderWidth = $isHighlighted ? math(`${theme.borderWidths.sm} * 2`) : theme.borderWidths.sm;
 
@@ -85,7 +86,7 @@ const sizeStyles = (props: IStyledDropzoneProps) => {
 /**
  * 1. Reset margin, e.g. when alternative tag includes native margin
  */
-export const StyledDropzone = styled.div<IStyledDropzoneProps>`
+export const StyledDropzone = styled.div<WithTheme<IStyledDropzoneProps>>`
   display: ${p => (p.$hasMessage || p.$hasIcon) && 'flex'};
   flex-direction: ${p => p.$hasMessage && p.$isVertical && 'column'};
   align-items: ${p => (p.$hasMessage || p.$hasIcon) && 'center'};

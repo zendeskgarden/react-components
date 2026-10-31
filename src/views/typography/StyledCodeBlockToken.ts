@@ -9,7 +9,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledCodeBlock } from './StyledCodeBlock';
 
 /*
@@ -17,7 +17,7 @@ import { StyledCodeBlock } from './StyledCodeBlock';
  * 2. Target opening/closing `<`, `/>`.
  * 3. Override string tokenization of `=` after an attribute name.
  */
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const colors = {
     boolean: getColor({
       theme,
@@ -165,7 +165,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledCodeBlockToken = styled.span`
+export const StyledCodeBlockToken = styled.span<WithTheme>`
   display: inline-block;
 
   &.bold:not(.diff) {

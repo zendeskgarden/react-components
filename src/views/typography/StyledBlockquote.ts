@@ -10,9 +10,10 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IBlockquoteProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { THEME_SIZES } from './StyledFont';
 
-export const StyledBlockquote = styled.blockquote<IBlockquoteProps>`
+export const StyledBlockquote = styled.blockquote<WithTheme<IBlockquoteProps>>`
   margin: 0;
   border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.shadowWidths.sm}
     solid;

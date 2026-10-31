@@ -6,18 +6,19 @@
  */
 
 import { math, stripUnit } from 'polished';
-import { styled, css, DefaultTheme, ThemeProps } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { IKbdProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { StyledCode } from './StyledCode';
 
-interface IStyledKbdProps extends ThemeProps<DefaultTheme> {
+interface IStyledKbdProps {
   $isMonospace?: boolean;
   $size?: IKbdProps['size'];
 }
 
-const sizeStyles = ({ theme, $size }: IStyledKbdProps) => {
+const sizeStyles = ({ theme, $size }: WithTheme<IStyledKbdProps>) => {
   let minWidth;
   let paddingHorizontal;
   let paddingVertical = '0';
@@ -61,7 +62,7 @@ const sizeStyles = ({ theme, $size }: IStyledKbdProps) => {
  * 2. Prevent the monospace stack fallback, which doesn't render individual
  *    keyboard characters well
  */
-export const StyledKbd = styled(StyledCode as 'kbd')<IStyledKbdProps>`
+export const StyledKbd = styled(StyledCode as 'kbd')<WithTheme<IStyledKbdProps>>`
   display: inline-block; /* [1] */
   direction: ltr; /* [1] */
   text-align: center;

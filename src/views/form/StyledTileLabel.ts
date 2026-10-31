@@ -9,13 +9,13 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTileLabelProps {
   $isCentered?: boolean;
 }
 
-const sizeStyles = ({ theme, $isCentered }: IStyledTileLabelProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCentered }: WithTheme<IStyledTileLabelProps>) => {
   const paddingEnd = `${theme.space.sm}`;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
@@ -42,7 +42,7 @@ const sizeStyles = ({ theme, $isCentered }: IStyledTileLabelProps & IStyledBaseP
   `;
 };
 
-export const StyledTileLabel = styled.span<IStyledTileLabelProps>`
+export const StyledTileLabel = styled.span<WithTheme<IStyledTileLabelProps>>`
   display: block;
   text-align: ${props => props.$isCentered && 'center'};
   font-weight: ${props => props.theme.fontWeights.semibold};

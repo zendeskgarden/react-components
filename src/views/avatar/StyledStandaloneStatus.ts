@@ -8,10 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
 import { TRANSITION_DURATION } from './utility';
 
-export const StyledStandaloneStatus = styled.figure<IStyledBaseProps>`
+export const StyledStandaloneStatus = styled.figure`
   display: inline-flex;
   flex-flow: row nowrap;
   transition: all ${TRANSITION_DURATION}s ease-in-out;

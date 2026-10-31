@@ -9,9 +9,10 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { IParagraphProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { THEME_SIZES } from './StyledFont';
 
-export const StyledParagraph = styled.p<IParagraphProps>`
+export const StyledParagraph = styled.p<WithTheme<IParagraphProps>>`
   margin: 0;
   padding: 0;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};

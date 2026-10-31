@@ -10,9 +10,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledOptionProps } from '../../types/views';
+import type { IStyledOptionProps, WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme, $isActive, $type }: IStyledOptionProps) => {
+const colorStyles = ({ theme, $isActive, $type }: WithTheme<IStyledOptionProps>) => {
   let backgroundColor;
   let boxShadow;
 
@@ -50,13 +50,13 @@ const colorStyles = ({ theme, $isActive, $type }: IStyledOptionProps) => {
   `;
 };
 
-export const getMinHeight = (props: IStyledOptionProps) =>
+export const getMinHeight = (props: WithTheme<IStyledOptionProps>) =>
   props.theme.space.base * (props.$isCompact ? 7 : 9);
 
 /*
  * 1. Use px vs. unitless to prevent browser sizing shifts.
  */
-const sizeStyles = (props: IStyledOptionProps) => {
+const sizeStyles = (props: WithTheme<IStyledOptionProps>) => {
   const lineHeight = props.theme.lineHeights.md;
   const minHeight = getMinHeight(props);
   const paddingHorizontal = props.$type === 'group' ? 0 : `${props.theme.space.base * 9}px`;
@@ -70,7 +70,7 @@ const sizeStyles = (props: IStyledOptionProps) => {
   `;
 };
 
-export const StyledOption = styled.li<IStyledOptionProps>`
+export const StyledOption = styled.li<WithTheme<IStyledOptionProps>>`
   display: flex;
   position: relative;
   transition: color 0.25s ease-in-out;

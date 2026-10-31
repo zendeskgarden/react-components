@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledClose, BASE_MULTIPLIERS as styledCloseBaseMultipliers } from './StyledClose';
 
 export const BASE_MULTIPLIERS = {
@@ -16,7 +17,7 @@ export const BASE_MULTIPLIERS = {
   size: styledCloseBaseMultipliers.size
 };
 
-export const StyledDrawerClose = styled(StyledClose)`
+export const StyledDrawerClose = styled(StyledClose)<WithTheme>`
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>
     `${props.theme.space.base * BASE_MULTIPLIERS.side}px`};
 

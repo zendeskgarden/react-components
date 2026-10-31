@@ -12,7 +12,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { getHeaderHeight } from './utils';
 
 const animationStyles = () => {
@@ -40,7 +40,7 @@ const animationStyles = () => {
   `;
 };
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
   const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
@@ -70,7 +70,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const top = math(`${getHeaderHeight(theme)} / 2`);
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
@@ -95,7 +95,7 @@ interface IStyledSkipNavProps {
 /*
  * 1. breaking LVHFA order for `<a>` to underline when focused and hovered
  */
-export const StyledSkipNav = styled.a<IStyledSkipNavProps>`
+export const StyledSkipNav = styled.a<WithTheme<IStyledSkipNavProps>>`
   ${animationStyles()};
 
   display: inline-flex;

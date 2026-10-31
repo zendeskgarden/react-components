@@ -11,76 +11,76 @@ import type { IGardenTheme, MenuPosition } from '../theming/types';
 import type { IListboxProps, OptionType, Size } from './elements';
 
 //#region breadcrumb
-export interface IStyledBreadcrumbItemProps extends IStyledBaseProps {
+export interface IStyledBreadcrumbItemProps {
   $isCurrent?: boolean;
 }
 //#endregion
 
 //#region colorpicker
-export interface IStyledRangeProps extends IStyledBaseProps {
+export interface IStyledRangeProps {
   $isOpaque?: boolean;
   hasLowerTrack?: boolean;
 }
 //#endregion
 
 //#region dropdown
-export interface IStyledFloatingListboxProps extends IStyledBaseProps {
+export interface IStyledFloatingListboxProps {
   $isHidden?: boolean;
   $position: MenuPosition;
   $zIndex?: IListboxProps['zIndex'];
 }
-export interface IStyledListboxProps extends IStyledBaseProps {
+export interface IStyledListboxProps {
   $isCompact?: boolean;
   $maxHeight?: IListboxProps['maxHeight'];
   $minHeight?: IListboxProps['minHeight'];
 }
-export interface IStyledOptGroupProps extends IStyledBaseProps {
+export interface IStyledOptGroupProps {
   $isCompact?: boolean;
 }
-export interface IStyledOptionProps extends IStyledBaseProps {
+export interface IStyledOptionProps {
   $isActive?: boolean;
   $isCompact?: boolean;
   $type?: OptionType | 'header' | 'group';
 }
-export interface IStyledOptionIconProps extends IStyledBaseProps {
+export interface IStyledOptionIconProps {
   $isDisabled?: boolean;
   $type?: OptionType;
 }
-export interface IStyledOptionMetaProps extends IStyledBaseProps {
+export interface IStyledOptionMetaProps {
   $isDisabled?: boolean;
 }
-export interface IStyledOptionSelectionIconProps extends IStyledBaseProps {
+export interface IStyledOptionSelectionIconProps {
   $isCompact?: boolean;
 }
-export interface IStyledOptionTypeIconProps extends IStyledBaseProps {
+export interface IStyledOptionTypeIconProps {
   $isCompact?: boolean;
   $type?: OptionType | 'header';
 }
 //#endregion
 
 //#region form
-export interface IStyledClearableInputProps extends IStyledBaseProps {
+export interface IStyledClearableInputProps {
   $isBare?: boolean;
 }
-export interface IStyledLabelProps extends IStyledBaseProps {
+export interface IStyledLabelProps {
   $isRegular?: boolean;
   $isRadio?: boolean;
 }
-export interface IStyledRadioInputProps extends IStyledBaseProps {
+export interface IStyledRadioInputProps {
   $isCompact?: boolean;
 }
 //#endregion
 
 //#region modal
-export interface IStyledBackdropProps extends IStyledBaseProps {
+export interface IStyledBackdropProps {
   $isCentered?: boolean;
   $isAnimated?: boolean;
 }
-export interface IStyledHeaderProps extends IStyledBaseProps {
+export interface IStyledHeaderProps {
   $isDanger?: boolean;
   $isCloseButtonPresent?: boolean;
 }
-export interface IStyledModalProps extends IStyledBaseProps {
+export interface IStyledModalProps {
   $isLarge?: boolean;
   $isCentered?: boolean;
   $isAnimated?: boolean;
@@ -88,39 +88,39 @@ export interface IStyledModalProps extends IStyledBaseProps {
 //#endregion
 
 //#region notification
-export interface IStyledTitleProps extends IStyledBaseProps {
+export interface IStyledTitleProps {
   $isRegular?: boolean;
 }
-export interface IStyledWellProps extends IStyledBaseProps {
+export interface IStyledWellProps {
   $isRecessed?: boolean;
   $isFloating?: boolean;
 }
 //#endregion
 
 //#region pagination
-export interface IStyledIcon extends IStyledBaseProps {
+export interface IStyledIcon {
   $type: 'first' | 'next' | 'previous' | 'last';
 }
 //#endregion
 
 //#region sheet
-export interface IStyledSheetFooterProps extends IStyledBaseProps {
+export interface IStyledSheetFooterProps {
   /** Sets the SheetFooter padding to half the standard and centers the elements  */
   $isCompact?: boolean;
 }
-export interface IStyledSheetHeaderProps extends IStyledBaseProps {
+export interface IStyledSheetHeaderProps {
   $isCloseButtonPresent?: boolean;
 }
 //#endregion
 
 //#region table
-export interface IStyledBaseRowProps extends IStyledBaseProps {
+export interface IStyledBaseRowProps {
   $isStriped?: boolean;
 }
 //#endregion
 
 //#region typography
-export interface IStyledFontProps extends IStyledBaseProps {
+export interface IStyledFontProps {
   $isBold?: boolean;
   $isMonospace?: boolean;
   $size?: 'inherit' | Size | 'extralarge' | '2xlarge' | '3xlarge';

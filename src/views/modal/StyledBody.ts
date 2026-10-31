@@ -10,8 +10,9 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-export const StyledBody = styled.div`
+export const StyledBody = styled.div<WithTheme>`
   display: block;
   margin: 0;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 10}px`};

@@ -10,7 +10,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { delayedVisibilityKeyframes } from '../../utils/loader/animations';
 
 interface IStyledSVGProps {
@@ -22,7 +22,7 @@ interface IStyledSVGProps {
   $delayShow?: number;
 }
 
-const colorStyles = ({ theme, $color = 'inherit' }: IStyledSVGProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $color = 'inherit' }: WithTheme<IStyledSVGProps>) => {
   const color = getHueColor({ theme, value: $color });
 
   return css`
@@ -63,7 +63,7 @@ const delayedVisibilityStyles = ({ $delayShow }: IStyledSVGProps) => {
   return undefined;
 };
 
-export const StyledSVG = styled.svg<IStyledSVGProps>`
+export const StyledSVG = styled.svg<WithTheme<IStyledSVGProps>>`
   ${sizeStyles};
 
   ${colorStyles};

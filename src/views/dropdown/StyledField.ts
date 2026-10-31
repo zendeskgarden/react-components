@@ -8,12 +8,13 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /*
  * 1. Prevent grid or other container alignment from impacting Combobox label
  *    and value alignemnt.
  */
-export const StyledField = styled.div`
+export const StyledField = styled.div<WithTheme>`
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   text-align: start; /* [1] */
 

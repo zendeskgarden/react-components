@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { Size } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledFont } from './StyledFont';
 import { StyledOrderedList, StyledUnorderedList } from './StyledList';
 
@@ -19,7 +19,7 @@ interface IStyledListItemProps {
   $space?: Size;
 }
 
-const listItemPaddingStyles = (props: IStyledListItemProps & IStyledBaseProps) => {
+const listItemPaddingStyles = (props: WithTheme<IStyledListItemProps>) => {
   const base = props.theme.space.base;
   const paddingTop = props.$space === 'large' ? `${base * 2}px` : `${base}px`;
 
@@ -44,7 +44,7 @@ const listItemPaddingStyles = (props: IStyledListItemProps & IStyledBaseProps) =
   `;
 };
 
-const listItemStyles = (props: IStyledListItemProps & IStyledBaseProps) => {
+const listItemStyles = (props: WithTheme<IStyledListItemProps>) => {
   return css`
     line-height: ${getLineHeight(props.theme.lineHeights.md, props.theme.fontSizes.md)};
 
@@ -52,7 +52,7 @@ const listItemStyles = (props: IStyledListItemProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledOrderedListItem = styled(StyledFont as 'li')<IStyledListItemProps>`
+export const StyledOrderedListItem = styled(StyledFont as 'li')<WithTheme<IStyledListItemProps>>`
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
     math(`${props.theme.space.base} * -1px`)};
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props =>
@@ -63,7 +63,7 @@ export const StyledOrderedListItem = styled(StyledFont as 'li')<IStyledListItemP
   ${componentStyles};
 `;
 
-export const StyledUnorderedListItem = styled(StyledFont as 'li')<IStyledListItemProps>`
+export const StyledUnorderedListItem = styled(StyledFont as 'li')<WithTheme<IStyledListItemProps>>`
   ${listItemStyles};
 
   ${componentStyles};
