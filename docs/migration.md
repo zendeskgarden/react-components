@@ -81,6 +81,12 @@ v9 packages if they are on the latest v9 release. Wrap the app in the v10
 - Components must render inside a `ThemeProvider`, as required since v9. In
   development, a component that renders without one now throws an error instead
   of silently applying the default theme.
+- `componentStyles`, `mediaQuery`, `menuStyles`, `retrieveComponentStyles`,
+  `useDocument` and `useWindow` take the theme as `IGardenTheme` (or
+  `Partial<IGardenTheme>`) instead of styled-components' `DefaultTheme`. A
+  project on styled-components 6 that does not augment `DefaultTheme` and
+  passes `props.theme` must cast it (`props.theme as IGardenTheme`), or keep
+  augmenting `DefaultTheme` as before.
 
 #### Removed exports
 

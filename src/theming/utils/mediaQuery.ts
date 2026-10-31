@@ -6,14 +6,14 @@
  */
 
 import { getValueAndUnit } from 'polished';
-import { DefaultTheme } from 'styled-components';
 
 import DEFAULT_THEME from '../elements/theme';
+import { IGardenTheme } from '../types';
 
 type QUERY = 'up' | 'down' | 'only' | 'between';
 type BREAKPOINT = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-const maxWidth = (breakpoints: DefaultTheme['breakpoints'], breakpoint: BREAKPOINT) => {
+const maxWidth = (breakpoints: IGardenTheme['breakpoints'], breakpoint: BREAKPOINT) => {
   const keys = Object.keys(breakpoints);
   const index = keys.indexOf(breakpoint) + 1;
 
@@ -45,7 +45,7 @@ const maxWidth = (breakpoints: DefaultTheme['breakpoints'], breakpoint: BREAKPOI
 export default function mediaQuery(
   query: QUERY,
   breakpoint: BREAKPOINT | [BREAKPOINT, BREAKPOINT],
-  theme?: DefaultTheme
+  theme?: IGardenTheme
 ) {
   let retVal;
   let min;
