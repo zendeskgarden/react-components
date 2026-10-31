@@ -8,11 +8,10 @@
 import { useTabs } from '@zendeskgarden/container-tabs';
 import { getControlledValue } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import { useState, useContext, useMemo, forwardRef } from 'react';
-import { ThemeContext } from 'styled-components';
+import { useState, useMemo, forwardRef } from 'react';
 
 import { TabsProvider } from '../../context/tab/TabsContext';
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { ITabsProps } from '../../types/elements';
 import { toTabs } from '../../utils/tab/toTabs';
 import { StyledTabs } from '../../views/tab/StyledTabs';
@@ -26,7 +25,7 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     { isVertical = false, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
     ref
   ) => {
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const [internalSelectedItem, setInternalSelectedItem] = useState();
     const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
 

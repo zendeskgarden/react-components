@@ -14,17 +14,15 @@ import {
   LabelHTMLAttributes,
   RefObject,
   forwardRef,
-  useContext,
   useEffect,
   useMemo,
   useRef,
   useState
 } from 'react';
-import { ThemeContext } from 'styled-components';
 
 import { ComboboxProvider } from '../../context/dropdown/ComboboxContext';
 import { useFieldContext } from '../../hooks/dropdown/useFieldContext';
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { useWindow } from '../../theming/utils/useWindow';
 import { IComboboxProps, IOptionProps, VALIDATION } from '../../types/elements';
@@ -113,7 +111,7 @@ export const Combobox = forwardRef<HTMLDivElement, IComboboxProps>(
     const listboxRef = useRef<HTMLUListElement>(null);
     const blurTimeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
     /* istanbul ignore next */
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const environment = useWindow(theme);
     const {
       activeValue,

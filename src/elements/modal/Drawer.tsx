@@ -7,22 +7,13 @@
 
 import { useModal } from '@zendeskgarden/container-modal';
 import PropTypes from 'prop-types';
-import {
-  HTMLAttributes,
-  RefObject,
-  useEffect,
-  useRef,
-  useMemo,
-  useContext,
-  useState,
-  forwardRef
-} from 'react';
+import { HTMLAttributes, RefObject, useEffect, useRef, useMemo, useState, forwardRef } from 'react';
 import ReactDOM from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-import { ThemeContext } from 'styled-components';
 
 import { ModalProvider } from '../../context/modal/ModalContext';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { IDrawerProps } from '../../types/elements';
 import { activeElement } from '../../utils/shared/dom';
@@ -61,7 +52,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, IDrawerProps>(
     const modalRef = useRef<HTMLDivElement | null>(null);
     const transitionRef = useRef<HTMLDivElement>(null);
     const triggerRef = useRef<HTMLElement | null>(null); /* [1:a] */
-    const theme = useContext(ThemeContext);
+    const theme = useGardenTheme();
     const environment = useDocument(theme);
     const [isCloseButtonPresent, setIsCloseButtonPresent] = useState<boolean>(false);
     const [hasHeader, setHasHeader] = useState<boolean>(false);

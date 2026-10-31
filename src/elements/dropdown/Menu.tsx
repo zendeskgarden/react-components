@@ -8,13 +8,12 @@
 import { useMenu } from '@zendeskgarden/container-menu';
 import ChevronIcon from '@zendeskgarden/svg-icons/src/chevron-down.svg';
 import PropTypes from 'prop-types';
-import { RefObject, forwardRef, useContext, useMemo, useRef } from 'react';
-import { ThemeContext } from 'styled-components';
+import { RefObject, forwardRef, useMemo, useRef } from 'react';
 
 import { MenuProvider } from '../../context/dropdown/MenuContext';
 import { Button } from '../../elements/button/Button';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useWindow } from '../../theming/utils/useWindow';
 import { DROPDOWN_PLACEMENT, IButtonProps, IMenuProps } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
@@ -50,7 +49,7 @@ export const Menu = forwardRef<HTMLUListElement, IMenuProps>(
     const menuRef = useRef<HTMLElement>(null);
     const items = toItems(children);
     /* istanbul ignore next */
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const _window = useWindow(theme);
     const _document = useDocument(theme);
 

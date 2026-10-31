@@ -7,8 +7,8 @@
 
 import PropTypes from 'prop-types';
 import { AnchorHTMLAttributes, forwardRef } from 'react';
-import { useTheme } from 'styled-components';
 
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { IAnchorProps } from '../../types/elements';
 import { StyledAnchor } from '../../views/button/StyledAnchor';
@@ -43,7 +43,7 @@ export const Anchor = forwardRef<HTMLAnchorElement, IAnchorProps>(
       isExternal ? 'externalIconLabel' : 'noIconLabel',
       '(opens in a new tab)'
     );
-    const theme = useTheme();
+    const theme = useGardenTheme();
 
     return (
       <StyledAnchor
