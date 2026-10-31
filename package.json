@@ -51,7 +51,7 @@
     "start": "storybook dev --config-dir config/storybook --no-version-updates -p 6006",
     "tag": "scripts/tag.js",
     "test": "vitest --config config/vitest.config.ts",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b && tsc -p config/tsconfig.sc5.json"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
