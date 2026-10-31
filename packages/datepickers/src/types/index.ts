@@ -82,6 +82,18 @@ export interface IDatePickerProps extends Omit<HTMLAttributes<HTMLDivElement>, '
   children: ReactElement;
 }
 
+export interface IDateTimePickerProps extends IDatePickerProps {
+  /**
+   * Sets the minute step interval for the time panel
+   */
+  timeStep?: number;
+  /**
+   * Applies 12-hour format with AM/PM.
+   * When unset, auto-detects from locale.
+   */
+  isAmPm?: boolean;
+}
+
 export interface IDatePickerRangeProps extends Pick<
   IDatePickerProps,
   'locale' | 'weekStartsOn' | 'minValue' | 'maxValue' | 'formatDate' | 'isCompact'

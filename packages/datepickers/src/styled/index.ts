@@ -17,3 +17,7 @@ export { StyledCalendarItem } from './StyledCalendarItem';
 export { StyledDayLabel } from './StyledDayLabel';
 export { StyledHighlight } from './StyledHighlight';
 export { StyledDay } from './StyledDay';
+export { StyledDateTimePicker } from './StyledDateTimePicker';
+export { StyledTimePanel } from './StyledTimePanel';
+export { StyledTimeColumn } from './StyledTimeColumn';
+export { StyledTimeOption } from './StyledTimeOption';
