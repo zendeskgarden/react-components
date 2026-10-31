@@ -7,22 +7,13 @@
 
 import { useSplitter } from '@zendeskgarden/container-splitter';
 import PropTypes from 'prop-types';
-import {
-  useContext,
-  useEffect,
-  forwardRef,
-  useMemo,
-  useRef,
-  HTMLAttributes,
-  RefObject
-} from 'react';
-import { ThemeContext } from 'styled-components';
+import { useEffect, forwardRef, useMemo, useRef, HTMLAttributes, RefObject } from 'react';
 
 import { PaneSplitterProvider } from '../../context/grid/PaneSplitterContext';
 import { usePaneContext } from '../../hooks/grid/usePaneContext';
 import { usePaneProviderContextData } from '../../hooks/grid/usePaneProviderContext';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { ISplitterProps, ORIENTATION } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
@@ -63,7 +54,7 @@ const SplitterComponent = forwardRef<HTMLDivElement, ISplitterProps>(
   ) => {
     const paneProviderContext = usePaneProviderContextData(providerId);
     const paneContext = usePaneContext();
-    const themeContext = useContext(ThemeContext) || DEFAULT_THEME;
+    const themeContext = useGardenTheme();
     const environment = useDocument(themeContext);
     const isRow = orientationToDimension[orientation!] === 'rows';
     const separatorRef = useRef<HTMLDivElement>(null);

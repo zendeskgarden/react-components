@@ -16,23 +16,14 @@ import {
 } from '@floating-ui/react-dom';
 import { useModal } from '@zendeskgarden/container-modal';
 import PropTypes from 'prop-types';
-import {
-  HTMLAttributes,
-  RefObject,
-  useState,
-  useContext,
-  useEffect,
-  useRef,
-  forwardRef
-} from 'react';
+import { HTMLAttributes, RefObject, useState, useEffect, useRef, forwardRef } from 'react';
 import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
-import { ThemeContext } from 'styled-components';
 
 import { TooltipDialogProvider } from '../../context/modal/TooltipDialogContext';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { ITooltipDialogProps, MODAL_PLACEMENT } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
@@ -69,7 +60,7 @@ const TooltipDialogComponent = forwardRef<HTMLDivElement, ITooltipDialogProps>(
     },
     ref
   ) => {
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const environment = useDocument(theme);
     const previousReferenceElementRef = useRef<HTMLElement | null | undefined>(undefined);
     const modalRef = useRef<HTMLDivElement>(null);

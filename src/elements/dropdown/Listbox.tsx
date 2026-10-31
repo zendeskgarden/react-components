@@ -8,19 +8,10 @@
 import { autoUpdate, flip, offset, size, useFloating } from '@floating-ui/react-dom';
 import { composeEventHandlers } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import {
-  CSSProperties,
-  MouseEventHandler,
-  forwardRef,
-  useContext,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import { CSSProperties, MouseEventHandler, forwardRef, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from 'styled-components';
 
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IListboxProps } from '../../types/elements';
 import { StyledFloatingListbox } from '../../views/dropdown/StyledFloatingListbox';
 import { StyledListbox } from '../../views/dropdown/StyledListbox';
@@ -48,7 +39,7 @@ export const Listbox = forwardRef<HTMLUListElement, IListboxProps>(
     const [availableHeight, setAvailableHeight] = useState<number>();
     const [width, setWidth] = useState<number>();
     /* istanbul ignore next */
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const {
       refs,
       placement,

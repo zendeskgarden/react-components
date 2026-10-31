@@ -6,9 +6,10 @@
  */
 
 import { useState, useEffect } from 'react';
-import { DefaultTheme } from 'styled-components';
 
-export const useDocument = (theme?: Partial<DefaultTheme>) => {
+import { IGardenTheme } from '../types';
+
+export const useDocument = (theme?: Partial<IGardenTheme>) => {
   const [controlledDocument, setControlledDocument] = useState<Document>();
 
   /**

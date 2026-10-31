@@ -6,7 +6,7 @@
  */
 
 import { PropsWithChildren, ReactNode, SVGAttributes } from 'react';
-import { CSSObject, DefaultTheme, Interpolation } from 'styled-components';
+import { CSSObject, Interpolation } from 'styled-components';
 
 export const ARROW_POSITION = [
   'top',
@@ -254,5 +254,5 @@ export interface IThemeProviderProps {
 }
 
 export interface IStyledBaseIconProps extends PropsWithChildren<SVGAttributes<SVGElement>> {
-  theme?: DefaultTheme;
+  theme?: Partial<IGardenTheme>;
 }

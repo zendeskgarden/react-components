@@ -5,11 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, useCallback, useContext, useEffect, useState, createRef } from 'react';
+import { HTMLAttributes, useCallback, useEffect, useState, createRef } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { ThemeContext } from 'styled-components';
 
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IToast, NotificationPlacement } from '../../types/elements';
 import { StyledFadeInTransition, StyledTransitionContainer, TRANSITION_CLASS } from './styled';
 import { Toast } from './Toast';
@@ -23,7 +23,7 @@ interface IToastSlotProps extends HTMLAttributes<HTMLDivElement> {
 
 export const ToastSlot = ({ toasts, placement, zIndex, limit, ...props }: IToastSlotProps) => {
   const [pauseTimers, setPauseTimers] = useState(false);
-  const theme = useContext(ThemeContext);
+  const theme = useGardenTheme();
   const environment = useDocument(theme);
 
   const handleVisibilityChange = useCallback((e: Event) => {

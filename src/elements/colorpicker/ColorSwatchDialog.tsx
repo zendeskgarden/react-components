@@ -19,10 +19,9 @@ import {
   ReactElement,
   RefAttributes
 } from 'react';
-import { useTheme } from 'styled-components';
 
 import { Button } from '../../elements/button/Button';
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { IColorSwatchDialogProps, MODAL_PLACEMENT } from '../../types/elements';
 import { getElementRef } from '../../utils/shared/getElementRef';
@@ -70,7 +69,7 @@ export const ColorSwatchDialog = forwardRef<HTMLDivElement, IColorSwatchDialogPr
     const [referenceElement, setReferenceElement] = useState<HTMLButtonElement | null>(null);
     const [rowIndex, setRowIndex] = useState<number | undefined>(defaultSelectedRowIndex);
     const [colIndex, setColIndex] = useState<number | undefined>(defaultSelectedColIndex);
-    const theme = useTheme() || DEFAULT_THEME;
+    const theme = useGardenTheme();
     let backgroundColor;
 
     if (isControlled) {

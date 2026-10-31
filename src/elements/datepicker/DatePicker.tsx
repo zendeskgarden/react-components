@@ -13,7 +13,6 @@ import {
   useReducer,
   useCallback,
   useState,
-  useContext,
   useMemo,
   forwardRef,
   Children,
@@ -21,11 +20,10 @@ import {
   ReactElement
 } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from 'styled-components';
 
 import { DatePickerProvider } from '../../context/datepicker/DatePickerContext';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IDatePickerProps, DATEPICKER_PLACEMENT, WEEK_STARTS_ON } from '../../types/elements';
 import { getElementRef } from '../../utils/shared/getElementRef';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
@@ -60,7 +58,7 @@ export const DatePicker = forwardRef<HTMLDivElement, IDatePickerProps>((props, c
     customParseDate,
     ...menuProps
   } = props;
-  const theme = useContext(ThemeContext) || DEFAULT_THEME;
+  const theme = useGardenTheme();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const memoizedReducer = useCallback(datepickerReducer({ value, formatDate, locale }), [
     value,

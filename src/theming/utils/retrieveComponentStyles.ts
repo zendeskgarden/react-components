@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DefaultTheme } from 'styled-components';
+import { IGardenTheme } from '../types';
 
 /** @deprecated Use `componentStyles` instead. */
 export default function retrieveComponentStyles(
   componentId: string,
-  props: { theme?: Partial<DefaultTheme> }
+  props: { theme?: Partial<IGardenTheme> }
 ) {
   const components = props.theme?.components;
 
