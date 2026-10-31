@@ -42,7 +42,8 @@
   "scripts": {
     "build": "tsdown --config config/tsdown.config.ts && pnpm check:dist",
     "build:demo": "storybook build --config-dir config/storybook --output-dir .cache/demo",
-    "check:dist": "scripts/check-dist.js",
+    "check:consumers": "scripts/check-consumers.js",
+  "check:dist": "scripts/check-dist.js",
     "format": "oxfmt --config config/oxfmtrc.json",
     "lint:ci": "pnpm format --check && pnpm lint && pnpm lint:css && pnpm lint:js && pnpm typecheck",
     "lint:css": "stylelint --config config/stylelint.config.js ./src/views/**/*.ts",
