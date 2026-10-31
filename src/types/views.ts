@@ -131,3 +131,5 @@ export interface IStyledFontProps extends IStyledBaseProps {
 export interface IStyledBaseProps<T extends DefaultTheme = IGardenTheme> {
   theme: T;
 }
+
+export type WithTheme<P extends object = object> = P & { theme: IGardenTheme };
