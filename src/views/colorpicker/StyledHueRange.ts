@@ -7,10 +7,10 @@
 
 import { styled } from 'styled-components';
 
-import type { IStyledRangeProps } from '../../types/views';
+import type { IStyledRangeProps, WithTheme } from '../../types/views';
 import { getTrackHeight, getTrackMargin, StyledRange } from './StyledRange';
 
-export const StyledHueRange = styled(StyledRange as 'input')<IStyledRangeProps>`
+export const StyledHueRange = styled(StyledRange as 'input')<WithTheme<IStyledRangeProps>>`
   background: linear-gradient(
       to ${props => (props.theme.rtl ? 'left' : 'right')},
       #f00 0%,

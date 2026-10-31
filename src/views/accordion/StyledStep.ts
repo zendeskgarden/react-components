@@ -9,6 +9,7 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 import { StyledLine } from './StyledLine';
 import { StyledContent } from './StyledStepperContent';
 
@@ -16,7 +17,7 @@ interface IStyledStep {
   $isHorizontal?: boolean;
 }
 
-export const StyledStep = styled.li<IStyledStep>`
+export const StyledStep = styled.li<WithTheme<IStyledStep>>`
   position: ${props => props.$isHorizontal && 'relative'};
   flex: ${props => props.$isHorizontal && '1'};
   min-width: ${props => props.$isHorizontal && `${props.theme.space.base * 15}px`};

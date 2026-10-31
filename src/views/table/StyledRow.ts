@@ -10,7 +10,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { getRowHeight } from './style-utils';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledCell } from './StyledCell';
@@ -31,7 +31,7 @@ const colorStyles = ({
   $isSelected,
   $isHovered,
   $isReadOnly
-}: IStyledRowProps & IStyledBaseProps) => {
+}: WithTheme<IStyledRowProps>) => {
   const hoveredBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
     transparency: theme.opacity[100],
@@ -114,13 +114,13 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledRowProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
   return css`
     height: ${getRowHeight(props)};
   `;
 };
 
-export const StyledRow = styled(StyledBaseRow)<IStyledRowProps>`
+export const StyledRow = styled(StyledBaseRow)<WithTheme<IStyledRowProps>>`
   ${sizeStyles}
 
   ${colorStyles}

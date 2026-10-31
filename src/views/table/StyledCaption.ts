@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledCaption = styled.caption`
+export const StyledCaption = styled.caption<WithTheme>`
   display: table-caption;
   text-align: ${props => (props.theme.rtl ? 'right' : 'left')};
 

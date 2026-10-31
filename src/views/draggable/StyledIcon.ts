@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-interface IStyledIconProps extends ThemeProps<DefaultTheme> {
+interface IStyledIconProps {
   $isVertical?: boolean;
   $hasMessage?: boolean;
 }
 
-function sizeStyles({ theme, $isVertical }: IStyledIconProps) {
+function sizeStyles({ theme, $isVertical }: WithTheme<IStyledIconProps>) {
   let property;
   let value;
 
@@ -34,7 +35,7 @@ function sizeStyles({ theme, $isVertical }: IStyledIconProps) {
 /**
  * 1. Corrects the vertical text alignment of the icon within a dropzone message.
  */
-export const StyledIcon = styled.div<IStyledIconProps>`
+export const StyledIcon = styled.div<WithTheme<IStyledIconProps>>`
   display: flex;
   width: ${props => props.theme.iconSizes.md};
   height: ${props => props.theme.iconSizes.md};

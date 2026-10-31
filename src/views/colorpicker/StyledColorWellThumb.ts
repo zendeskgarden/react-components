@@ -10,9 +10,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ theme, hue: 'white' });
   const boxShadow = `${theme.shadows.xs(getColor({ theme, hue: 'black' }))}`;
 
@@ -22,7 +22,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const borderWidth = (stripUnit(theme.borderWidths.sm) as number) * 2;
   const size = theme.space.base * 5;
   const translateValue = size / -2;
@@ -36,7 +36,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledColorWellThumb = styled.div`
+export const StyledColorWellThumb = styled.div<WithTheme>`
   position: absolute;
   border: ${props => props.theme.borders.sm};
   border-radius: 50%;

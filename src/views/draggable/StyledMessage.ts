@@ -9,8 +9,9 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-export const StyledMessage = styled.p`
+export const StyledMessage = styled.p<WithTheme>`
   margin: 0;
   line-height: ${p => getLineHeight(p.theme.space.base * 5, p.theme.fontSizes.md)};
   color: inherit;

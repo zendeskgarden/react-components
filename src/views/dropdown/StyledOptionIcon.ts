@@ -11,9 +11,9 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps, IStyledOptionIconProps } from '../../types/views';
+import type { IStyledOptionIconProps, WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
+const colorStyles = ({ theme, $isDisabled, $type }: WithTheme<IStyledOptionIconProps>) => {
   let variable;
 
   if ($isDisabled) {
@@ -33,7 +33,7 @@ const colorStyles = ({ theme, $isDisabled, $type }: IStyledOptionIconProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   /* the v10 glyphs render at their native 20px size */
   const size = props.theme.space.md;
   const marginTop = math(`(${props.theme.lineHeights.md} - ${size}) / 2`);
@@ -47,7 +47,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledOptionIcon = styled(StyledBaseIcon)<IStyledOptionIconProps>`
+export const StyledOptionIcon = styled(StyledBaseIcon)<WithTheme<IStyledOptionIconProps>>`
   flex-shrink: 0;
 
   ${sizeStyles};

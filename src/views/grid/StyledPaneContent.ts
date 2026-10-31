@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledPaneContent = styled.div`
+export const StyledPaneContent = styled.div<WithTheme>`
   height: 100%;
   overflow: auto;
   color-scheme: only ${p => p.theme.colors.base};

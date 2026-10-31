@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { ISheetProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledSheetProps {
   $placement?: ISheetProps['placement'];
@@ -20,7 +20,7 @@ interface IStyledSheetProps {
   $size?: string;
 }
 
-const colorStyles = ({ theme, $isOpen }: IStyledSheetProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $isOpen }: WithTheme<IStyledSheetProps>) => {
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = $isOpen ? getColor({ theme, variable: 'border.default' }) : 'transparent';
 
@@ -30,12 +30,7 @@ const colorStyles = ({ theme, $isOpen }: IStyledSheetProps & IStyledBaseProps) =
   `;
 };
 
-const sizeStyles = ({
-  theme,
-  $isOpen,
-  $placement,
-  $size
-}: IStyledSheetProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isOpen, $placement, $size }: WithTheme<IStyledSheetProps>) => {
   const width = $isOpen ? $size : 0;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
@@ -58,7 +53,7 @@ const sizeStyles = ({
   `;
 };
 
-export const StyledSheet = styled.aside<IStyledSheetProps>`
+export const StyledSheet = styled.aside<WithTheme<IStyledSheetProps>>`
   display: flex;
   order: 1;
   transition: ${props => props.$isAnimated && 'width 250ms ease-in-out'};

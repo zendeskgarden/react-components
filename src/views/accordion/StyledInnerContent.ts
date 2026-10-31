@@ -10,8 +10,9 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-export const StyledInnerContent = styled.div`
+export const StyledInnerContent = styled.div<WithTheme>`
   margin: -${props => props.theme.space.xxs};
   padding: ${props => props.theme.space.xxs};
   overflow: hidden;

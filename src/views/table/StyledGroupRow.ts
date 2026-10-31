@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledCell } from './StyledCell';
 import { IStyledRowProps } from './StyledRow';
@@ -21,7 +21,7 @@ interface IStyledGroupRowProps {
   $size?: ITableProps['size'];
 }
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   return css`
     background-color: ${getColor({
       variable: 'background.subtle',
@@ -33,7 +33,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledRowProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
   const height = `${props.theme.space.base * 8}px`;
   const lineHeight = getLineHeight(props);
 
@@ -48,7 +48,7 @@ const sizeStyles = (props: IStyledRowProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledGroupRow = styled(StyledBaseRow)<IStyledGroupRowProps>`
+export const StyledGroupRow = styled(StyledBaseRow)<WithTheme<IStyledGroupRowProps>>`
   ${sizeStyles}
 
   ${colorStyles}

@@ -10,7 +10,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledCheckInput } from './StyledCheckInput';
 import { StyledCheckLabel } from './StyledCheckLabel';
 import { StyledRadioLabel } from './StyledRadioLabel';
@@ -22,7 +22,7 @@ import { StyledToggleLabel } from './StyledToggleLabel';
  * 2. Focus-visible keeps the resting track border. Checkbox and radio
  *    restore the hover border inside the focus ring.
  */
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundOptions = {
     theme,
@@ -115,7 +115,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const height = `${theme.space.base * 5}px`;
   const width = `${theme.space.base * 10}px`;
   const iconSize = theme.iconSizes.md;
@@ -145,7 +145,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledToggleInput = styled(StyledCheckInput)`
+export const StyledToggleInput = styled(StyledCheckInput)<WithTheme>`
   & ~ ${StyledToggleLabel}::before {
     top: 0;
     /* prettier-ignore */

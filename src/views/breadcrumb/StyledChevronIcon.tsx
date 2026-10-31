@@ -11,8 +11,9 @@ import { styled } from 'styled-components';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { WithTheme } from '../../types/views';
 
-export const StyledChevronIcon = styled(StyledBaseIcon)`
+export const StyledChevronIcon = styled(StyledBaseIcon)<WithTheme>`
   transform: ${p => p.theme.rtl && `rotate(180deg);`};
   margin: 0 ${p => em(p.theme.space.base, p.theme.fontSizes.md)};
   width: ${p => getIconRenderSize(p.theme, true)};

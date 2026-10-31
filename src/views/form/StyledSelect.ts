@@ -10,11 +10,11 @@ import { styled, css } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
 
-const colorStyles = ({ theme }: IStyledTextInputProps & IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme<IStyledTextInputProps>) => {
   const color = getColor({
     theme,
     variable: 'foreground.subtle',
@@ -37,7 +37,7 @@ const colorStyles = ({ theme }: IStyledTextInputProps & IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isBare, $isCompact }: WithTheme<IStyledTextInputProps>) => {
   const iconSize = getIconRenderSize(theme);
   /* keeps the larger chevron centered on the 16px icon position */
   const iconOffset = math(`(${iconSize} - ${theme.iconSizes.md}) / 2`);
@@ -60,7 +60,7 @@ const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & ISty
 /*
  * 1. Select reset.
  */
-export const StyledSelect = styled(StyledTextInput)`
+export const StyledSelect = styled(StyledTextInput)<WithTheme>`
   opacity: 1; /* [1] */
   cursor: pointer;
   text-overflow: ellipsis;

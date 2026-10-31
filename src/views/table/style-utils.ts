@@ -7,9 +7,9 @@
 
 import 'styled-components';
 import { ITableProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-export const getRowHeight = (props: { $size?: ITableProps['size'] } & IStyledBaseProps) => {
+export const getRowHeight = (props: WithTheme<{ $size?: ITableProps['size'] }>) => {
   if (props.$size === 'large') {
     return `${props.theme.space.base * 16}px`;
   } else if (props.$size === 'small') {

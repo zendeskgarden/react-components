@@ -9,11 +9,12 @@ import { hideVisually } from 'polished';
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledTooltipDialogBackdrop = styled.div`
+export const StyledTooltipDialogBackdrop = styled.div<WithTheme>`
   position: fixed;
   inset: 0;
   z-index: 400;

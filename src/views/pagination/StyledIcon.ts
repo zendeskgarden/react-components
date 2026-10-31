@@ -8,9 +8,9 @@
 import { styled, css } from 'styled-components';
 
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledIcon } from '../../types/views';
+import type { IStyledIcon, WithTheme } from '../../types/views';
 
-const marginStyles = (props: IStyledIcon) => {
+const marginStyles = (props: WithTheme<IStyledIcon>) => {
   const { $type, theme } = props;
   const margin = theme.space.base;
 
@@ -25,7 +25,7 @@ const marginStyles = (props: IStyledIcon) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon)<IStyledIcon>`
+export const StyledIcon = styled(StyledBaseIcon)<WithTheme<IStyledIcon>>`
   ${marginStyles}
   transform: ${props => props.theme.rtl && 'rotate(180deg)'};
   width: ${props => props.theme.iconSizes.md};

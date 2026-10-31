@@ -12,7 +12,7 @@ import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { FileValidation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledFileClose } from './StyledFileClose';
 
 interface IStyledFileProps {
@@ -21,7 +21,7 @@ interface IStyledFileProps {
   $validation?: FileValidation;
 }
 
-const colorStyles = ({ theme, $focusInset, $validation }: IStyledFileProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $focusInset, $validation }: WithTheme<IStyledFileProps>) => {
   let borderVariable;
   let focusBorderVariable;
   let foregroundVariable;
@@ -57,7 +57,7 @@ const colorStyles = ({ theme, $focusInset, $validation }: IStyledFileProps & ISt
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledFileProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledFileProps>) => {
   const size = `${theme.space.base * ($isCompact ? 7 : 10)}px`;
   const spacing = `${theme.space.base * ($isCompact ? 2 : 3)}px`;
   const fontSize = theme.fontSizes.md;
@@ -84,7 +84,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledFileProps & IStyledBaseProps) 
   `;
 };
 
-export const StyledFile = styled.div<IStyledFileProps>`
+export const StyledFile = styled.div<WithTheme<IStyledFileProps>>`
   display: flex;
   position: relative;
   flex-wrap: nowrap;

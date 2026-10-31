@@ -6,20 +6,21 @@
  */
 
 import { hideVisually, math } from 'polished';
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-interface IStyledInputProps extends ThemeProps<DefaultTheme> {
+interface IStyledInputProps {
   $isBare?: boolean;
   $isCompact?: boolean;
   $isEditable?: boolean;
   $isMultiselectable?: boolean;
 }
 
-const colorStyles = ({ theme }: IStyledInputProps) => {
+const colorStyles = ({ theme }: WithTheme<IStyledInputProps>) => {
   const placeholderColor = getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
@@ -33,7 +34,7 @@ const colorStyles = ({ theme }: IStyledInputProps) => {
   `;
 };
 
-export const getHeight = (props: IStyledInputProps) => {
+export const getHeight = (props: WithTheme<IStyledInputProps>) => {
   if (props.$isBare && !props.$isMultiselectable) {
     return props.theme.space.base * 5;
   }
@@ -41,7 +42,7 @@ export const getHeight = (props: IStyledInputProps) => {
   return props.theme.space.base * (props.$isCompact ? 5 : 8);
 };
 
-export const sizeStyles = (props: IStyledInputProps) => {
+export const sizeStyles = (props: WithTheme<IStyledInputProps>) => {
   const height = props.theme.space.base * 5;
   const fontSize = props.theme.fontSizes.md;
   const lineHeight = getLineHeight(height, fontSize);
@@ -61,7 +62,7 @@ export const sizeStyles = (props: IStyledInputProps) => {
   `;
 };
 
-export const StyledInput = styled.input<IStyledInputProps>`
+export const StyledInput = styled.input<WithTheme<IStyledInputProps>>`
   flex-basis: 0;
   flex-grow: 1;
   border: none;

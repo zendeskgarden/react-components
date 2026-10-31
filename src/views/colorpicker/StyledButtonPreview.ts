@@ -6,17 +6,18 @@
  */
 
 import { rgba } from 'polished';
-import { styled, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
 import { IColorPickerDialogProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 
-export interface IStyleButtonPreviewProps extends ThemeProps<DefaultTheme> {
+export interface IStyleButtonPreviewProps {
   $backgroundColor?: IColorPickerDialogProps['color'];
 }
 
-const background = ({ $backgroundColor, theme }: IStyleButtonPreviewProps) => {
+const background = ({ $backgroundColor, theme }: WithTheme<IStyleButtonPreviewProps>) => {
   let retVal;
 
   if (typeof $backgroundColor === 'string') {
@@ -32,14 +33,14 @@ const background = ({ $backgroundColor, theme }: IStyleButtonPreviewProps) => {
   return retVal;
 };
 
-export const getBackground = (props: IStyleButtonPreviewProps) =>
+export const getBackground = (props: WithTheme<IStyleButtonPreviewProps>) =>
   getCheckeredBackground({
     theme: props.theme,
     size: 8,
     overlay: background(props)
   });
 
-export const StyledButtonPreview = styled.span<IStyleButtonPreviewProps>`
+export const StyledButtonPreview = styled.span<WithTheme<IStyleButtonPreviewProps>>`
   display: inline-block;
   bottom: ${props => props.theme.space.base}px;
   border-radius: ${props => props.theme.borderRadii.sm};

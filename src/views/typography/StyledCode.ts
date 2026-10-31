@@ -10,10 +10,10 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ICodeProps } from '../../types/elements';
-import type { IStyledBaseProps, IStyledFontProps } from '../../types/views';
+import type { IStyledFontProps, WithTheme } from '../../types/views';
 import { StyledFont } from './StyledFont';
 
-const colorStyles = ({ $hue, theme }: IStyledCodeProps & IStyledBaseProps) => {
+const colorStyles = ({ $hue, theme }: WithTheme<IStyledCodeProps>) => {
   const bgColorArgs: Parameters<typeof getColor>[0] = {
     theme,
     light: { offset: 100 },
@@ -59,7 +59,7 @@ interface IStyledCodeProps extends Omit<IStyledFontProps, 'size'> {
   $size?: ICodeProps['size'];
 }
 
-export const StyledCode = styled(StyledFont as 'code')<IStyledCodeProps>`
+export const StyledCode = styled(StyledFont as 'code')<WithTheme<IStyledCodeProps>>`
   border-radius: ${props => props.theme.borderRadii.sm};
   padding: 1.5px;
 

@@ -8,10 +8,10 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledLabel } from './StyledLabel';
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const size = props.theme.space.base * 4; /* from StyledRadioInput */
   const padding = size + props.theme.space.base * 2;
   const lineHeight = props.theme.space.base * 5;
@@ -30,7 +30,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
 /**
  * 1. Vertical alignment.
  */
-export const StyledRadioLabel = styled(StyledLabel)`
+export const StyledRadioLabel = styled(StyledLabel)<WithTheme>`
   display: inline-block; /* [1] */
   position: relative;
   cursor: pointer;

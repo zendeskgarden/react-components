@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getFocusBoxShadow } from '../../theming/utils/getFocusBoxShadow';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
@@ -63,10 +63,7 @@ const trackLowerStyles = (styles: string, modifier = '') => {
 /*
  * 1. Provide means for styling lower range on WebKit.
  */
-const colorStyles = ({
-  theme,
-  $hasLowerTrack = true
-}: IStyledRangeInputProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $hasLowerTrack = true }: WithTheme<IStyledRangeInputProps>) => {
   const options = { theme, variable: 'background.primaryEmphasis' };
   const thumbBackgroundColor = getColor(options);
   const thumbBorderColor = thumbBackgroundColor;
@@ -183,7 +180,7 @@ const colorStyles = ({
 /*
  * 1. Reset for IE.
  */
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const thumbSize = `${theme.space.base * 5}px`;
   const trackHeight = `${theme.space.base * 1.5}px`;
   const trackBorderRadius = trackHeight;
@@ -223,7 +220,7 @@ interface IStyledRangeInputProps {
   $hasLowerTrack?: boolean;
 }
 
-export const StyledRangeInput = styled.input<IStyledRangeInputProps>`
+export const StyledRangeInput = styled.input<WithTheme<IStyledRangeInputProps>>`
   appearance: none;
   direction: ${props => props.theme.rtl && 'rtl'};
   margin: 0; /* reset for WebKit & Firefox */

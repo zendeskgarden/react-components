@@ -11,9 +11,9 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const disabledColor = getColor({ variable: 'foreground.disabled', theme });
   const defaultColor = getColor({ variable: 'foreground.subtle', theme });
   const hoverForegroundColor = getColor({
@@ -95,7 +95,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const fontSize = props.theme.fontSizes.md;
   const height = `${props.theme.space.base * 8}px`;
   const lineHeight = getLineHeight(height, fontSize);
@@ -113,7 +113,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
  * 1. <button> override.
  * 2. Remove dotted outline from Firefox on focus.
  */
-export const StyledPageBase = styled.button`
+export const StyledPageBase = styled.button<WithTheme>`
   box-sizing: border-box;
   display: inline-block;
   /* prettier-ignore */

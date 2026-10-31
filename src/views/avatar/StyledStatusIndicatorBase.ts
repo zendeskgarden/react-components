@@ -9,6 +9,7 @@ import { styled, css, keyframes } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 import {
   TRANSITION_DURATION,
   getStatusColor,
@@ -27,7 +28,7 @@ const iconFadeIn = keyframes`
   }
 `;
 
-const sizeStyles = (props: IStyledStatusIndicatorProps) => {
+const sizeStyles = (props: WithTheme<IStyledStatusIndicatorProps>) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$size` may still be undefined here */
   const sizeProps = { ...props, $size: props.$size ?? 'medium' };
@@ -70,7 +71,7 @@ const sizeStyles = (props: IStyledStatusIndicatorProps) => {
   `;
 };
 
-const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
+const colorStyles = ({ theme, $type }: WithTheme<IStyledStatusIndicatorProps>) => {
   const foregroundColor = getColor({ variable: 'foreground.onEmphasis', theme });
   let backgroundColor;
   let borderColor;
@@ -90,7 +91,7 @@ const colorStyles = ({ theme, $type }: IStyledStatusIndicatorProps) => {
   `;
 };
 
-export const StyledStatusIndicatorBase = styled.div<IStyledStatusIndicatorProps>`
+export const StyledStatusIndicatorBase = styled.div<WithTheme<IStyledStatusIndicatorProps>>`
   transition: inherit;
 
   ${sizeStyles}

@@ -10,6 +10,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 import { StyledOppositeContent } from './StyledOppositeContent';
 import { StyledSeparator } from './StyledSeparator';
 import { StyledTimelineContent } from './StyledTimelineContent';
@@ -19,7 +20,7 @@ interface IStyledTimelineItem {
   $hasOppositeContent?: boolean;
 }
 
-export const StyledTimelineItem = styled.li<IStyledTimelineItem>`
+export const StyledTimelineItem = styled.li<WithTheme<IStyledTimelineItem>>`
   display: flex;
   position: relative;
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};

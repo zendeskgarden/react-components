@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IGlobalAlertProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { IStyledButtonProps, StyledButton } from '../button/StyledButton';
 import { StyledIcon } from '../button/StyledIcon';
 
@@ -25,11 +25,7 @@ interface IStyledGlobalAlertButtonProps extends IStyledButtonProps {
  *    The primary button is neutral on every type and keeps the button styles.
  * 2. Icons inherit the button foreground, as they do in the close button.
  */
-const colorStyles = ({
-  theme,
-  $alertType,
-  $isBasic
-}: IStyledGlobalAlertButtonProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $alertType, $isBasic }: WithTheme<IStyledGlobalAlertButtonProps>) => {
   if (!$isBasic) {
     return css`
       ${focusStyles({ theme, color: { hue: 'neutralHue', shade: 900 } })}
@@ -75,7 +71,7 @@ const colorStyles = ({
   `;
 };
 
-function sizeStyles(props: IStyledBaseProps) {
+function sizeStyles(props: WithTheme) {
   // Vertically center 32px button while retaining line height
   const marginVertical = `-${props.theme.space.base * 1.5}px`;
   const marginStart = `${props.theme.space.base * 2}px`;
@@ -86,7 +82,9 @@ function sizeStyles(props: IStyledBaseProps) {
   `;
 }
 
-export const StyledGlobalAlertButton = styled(StyledButton)<IStyledGlobalAlertButtonProps>`
+export const StyledGlobalAlertButton = styled(StyledButton)<
+  WithTheme<IStyledGlobalAlertButtonProps>
+>`
   flex-shrink: 0;
 
   ${sizeStyles};

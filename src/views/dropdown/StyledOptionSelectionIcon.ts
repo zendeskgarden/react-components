@@ -11,10 +11,10 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps, IStyledOptionSelectionIconProps } from '../../types/views';
+import type { IStyledOptionSelectionIconProps, WithTheme } from '../../types/views';
 import { getMinHeight as getOptionMinHeight } from './StyledOption';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const color = getColor({ theme, variable: 'foreground.primary' });
 
   return css`
@@ -22,7 +22,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledOptionSelectionIconProps) => {
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledOptionSelectionIconProps>) => {
   const size = theme.iconSizes.sm;
   const position = `${theme.space.base * 3.5}px`;
   const top = math(`(${getOptionMinHeight({ theme, $isCompact })} - ${size}) / 2`);
@@ -36,7 +36,9 @@ const sizeStyles = ({ theme, $isCompact }: IStyledOptionSelectionIconProps) => {
   `;
 };
 
-export const StyledOptionSelectionIcon = styled(StyledBaseIcon)<IStyledOptionSelectionIconProps>`
+export const StyledOptionSelectionIcon = styled(StyledBaseIcon)<
+  WithTheme<IStyledOptionSelectionIconProps>
+>`
   position: absolute;
 
   ${sizeStyles};

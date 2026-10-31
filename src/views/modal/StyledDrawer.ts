@@ -9,11 +9,11 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 const DRAWER_WIDTH = 380;
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = getColor({ variable: 'shadow.large', theme });
@@ -32,7 +32,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
 /**
  * 1. Smooth iOS scrolling.
  */
-export const StyledDrawer = styled.div`
+export const StyledDrawer = styled.div<WithTheme>`
   display: flex;
   position: fixed;
   top: 0;

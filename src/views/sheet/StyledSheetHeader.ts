@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledSheetHeaderProps, IStyledBaseProps } from '../../types/views';
+import type { IStyledSheetHeaderProps, WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ theme, variable: 'border.subtle' });
 
   return css`
@@ -19,7 +19,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCloseButtonPresent }: IStyledSheetHeaderProps) => {
+const sizeStyles = ({ theme, $isCloseButtonPresent }: WithTheme<IStyledSheetHeaderProps>) => {
   const border = theme.borders.sm;
   let padding = `${theme.space.base * 5}px`;
 
@@ -37,7 +37,7 @@ const sizeStyles = ({ theme, $isCloseButtonPresent }: IStyledSheetHeaderProps) =
   `;
 };
 
-export const StyledSheetHeader = styled.header<IStyledSheetHeaderProps>`
+export const StyledSheetHeader = styled.header<WithTheme<IStyledSheetHeaderProps>>`
   ${sizeStyles};
 
   ${colorStyles};

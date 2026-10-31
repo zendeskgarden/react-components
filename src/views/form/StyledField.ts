@@ -8,13 +8,14 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. Set positioning context for absolute contents (Checkbox, Radio, Toggle).
  * 2. Resets for <fieldset>.
  * 3. Normalize block / line-height treatment for consistent height
  */
-export const StyledField = styled.div`
+export const StyledField = styled.div<WithTheme>`
   position: relative; /* [1] */
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   margin: 0; /* [2] */

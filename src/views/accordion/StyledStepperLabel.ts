@@ -10,13 +10,14 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledLabelProps {
   $isActive?: boolean;
   $isHorizontal?: boolean;
 }
 
-export const StyledLabel = styled.div<IStyledLabelProps>`
+export const StyledLabel = styled.div<WithTheme<IStyledLabelProps>>`
   display: ${props => !props.$isHorizontal && 'flex'};
   align-items: ${props => !props.$isHorizontal && 'center'};
   transition:

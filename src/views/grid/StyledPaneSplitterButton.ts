@@ -5,21 +5,22 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, css, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { ChevronButton } from '../../elements/button/ChevronButton';
+import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { Orientation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledSplitterButtonProps {
   $orientation: Orientation;
   $isRotated: boolean;
 }
 
-export const getSize = (theme: DefaultTheme) => theme.space.base * 6;
+export const getSize = (theme: IGardenTheme) => theme.space.base * 6;
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const size = `${getSize(theme)}px`;
 
   return css`
@@ -33,7 +34,7 @@ const transformStyles = ({
   $isRotated,
   $orientation,
   theme
-}: IStyledSplitterButtonProps & IStyledBaseProps) => {
+}: WithTheme<IStyledSplitterButtonProps>) => {
   let degrees = 0;
 
   if ($isRotated) {
@@ -55,7 +56,9 @@ const transformStyles = ({
   `;
 };
 
-export const StyledPaneSplitterButton = styled(ChevronButton)<IStyledSplitterButtonProps>`
+export const StyledPaneSplitterButton = styled(ChevronButton)<
+  WithTheme<IStyledSplitterButtonProps>
+>`
   ${sizeStyles};
 
   & > svg {

@@ -11,12 +11,12 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledLabelProps } from '../../types/views';
+import type { IStyledLabelProps, WithTheme } from '../../types/views';
 
 /**
  * 1. CSS Bedrock override.
  */
-export const StyledLabel = styled.label<IStyledLabelProps>`
+export const StyledLabel = styled.label<WithTheme<IStyledLabelProps>>`
   direction: ${props => props.theme.rtl && 'rtl'};
   vertical-align: middle; /* support label inline with input layout */
   line-height: ${props => getLineHeight(props.theme.space.base * 5, props.theme.fontSizes.md)};

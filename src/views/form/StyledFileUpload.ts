@@ -12,7 +12,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
@@ -22,7 +22,7 @@ interface IStyledFileUploadProps {
   $isCompact?: boolean;
 }
 
-const colorStyles = ({ theme, $isDragging }: IStyledFileUploadProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $isDragging }: WithTheme<IStyledFileUploadProps>) => {
   const borderOptions = { theme, variable: 'border.primaryEmphasis' };
   const backgroundOptions = { theme, variable: 'background.primaryEmphasis' };
   const foregroundOptions = { theme, variable: 'foreground.primary' };
@@ -70,7 +70,7 @@ const colorStyles = ({ theme, $isDragging }: IStyledFileUploadProps & IStyledBas
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledFileUploadProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledFileUploadProps>) => {
   const marginTop = `${theme.space.base * ($isCompact ? 1 : 2)}px`;
   const paddingHorizontal = `${$isCompact ? 2 : 4}em`;
   const paddingVertical = math(
@@ -95,7 +95,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledFileUploadProps & IStyledBaseP
   `;
 };
 
-export const StyledFileUpload = styled.div<IStyledFileUploadProps>`
+export const StyledFileUpload = styled.div<WithTheme<IStyledFileUploadProps>>`
   display: flex;
   align-items: center;
   justify-content: center;

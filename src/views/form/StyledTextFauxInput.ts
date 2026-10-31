@@ -12,7 +12,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledSelect } from './StyledSelect';
 import { StyledTextInput, IStyledTextInputProps } from './StyledTextInput';
 import { StyledTextMediaFigure } from './StyledTextMediaFigure';
@@ -29,7 +29,7 @@ const colorStyles = ({
   $focusInset,
   $isBare,
   $isFocused
-}: IStyledTextFauxInputProps & IStyledBaseProps) => {
+}: WithTheme<IStyledTextFauxInputProps>) => {
   let borderVariable: string | undefined;
   let focusBorderColor: string | undefined;
 
@@ -66,7 +66,7 @@ const colorStyles = ({
  * on each side makes the figure's margin box as high as the row, so that it
  * does not grow the input.
  */
-const figureSizeStyles = ({ theme, $isCompact }: IStyledTextFauxInputProps & IStyledBaseProps) => {
+const figureSizeStyles = ({ theme, $isCompact }: WithTheme<IStyledTextFauxInputProps>) => {
   const height = theme.space.base * ($isCompact ? 8 : 10);
   const paddingVertical = theme.space.base * ($isCompact ? 1.5 : 2.5);
   const rowHeight = math(
@@ -87,7 +87,9 @@ const figureSizeStyles = ({ theme, $isCompact }: IStyledTextFauxInputProps & ISt
  * [3] leaves the `Select` chevron as is: it is absolutely positioned, with a
  *     `top` offset that counts its own margin
  */
-export const StyledTextFauxInput = styled(StyledTextInput as 'div')<IStyledTextFauxInputProps>`
+export const StyledTextFauxInput = styled(StyledTextInput as 'div')<
+  WithTheme<IStyledTextFauxInputProps>
+>`
   display: ${props => (props.$mediaLayout ? 'inline-flex' : 'inline-block')};
   align-items: ${props => props.$mediaLayout && 'baseline'};
   cursor: ${props => (props.$mediaLayout && !props.$isDisabled ? 'text' : 'default')};

@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.recessed' });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
 
@@ -21,7 +21,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledCodeBlock = styled.pre`
+export const StyledCodeBlock = styled.pre<WithTheme>`
   display: table;
   margin: 0;
   padding: ${props => props.theme.space.base * 3}px;

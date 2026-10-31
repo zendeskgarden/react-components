@@ -8,9 +8,9 @@
 import { styled, css } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseRowProps, IStyledBaseProps } from '../../types/views';
+import type { IStyledBaseRowProps, WithTheme } from '../../types/views';
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   return css`
     border-bottom: ${theme.borders.sm};
     vertical-align: top;
@@ -18,7 +18,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const colorStyles = ({ theme, $isStriped }: IStyledBaseRowProps) => {
+const colorStyles = ({ theme, $isStriped }: WithTheme<IStyledBaseRowProps>) => {
   const borderColor = getColor({ variable: 'border.subtle', theme });
   const backgroundColor = getColor({
     variable: 'background.subtle',
@@ -34,7 +34,7 @@ const colorStyles = ({ theme, $isStriped }: IStyledBaseRowProps) => {
   `;
 };
 
-export const StyledBaseRow = styled.tr<IStyledBaseRowProps>`
+export const StyledBaseRow = styled.tr<WithTheme<IStyledBaseRowProps>>`
   display: table-row;
   transition: background-color 0.1s ease-in-out;
 

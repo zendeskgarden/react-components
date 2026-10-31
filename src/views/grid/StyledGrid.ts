@@ -6,13 +6,14 @@
  */
 
 import { math } from 'polished';
-import { styled, css, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IGridProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
+const colorStyles = ({ theme, $debug }: WithTheme<IStyledGridProps>) => {
   const borderColor =
     $debug &&
     getColor({
@@ -36,7 +37,7 @@ const colorStyles = ({ theme, $debug }: IStyledGridProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $gutters }: IStyledGridProps) => {
+const sizeStyles = ({ theme, $gutters }: WithTheme<IStyledGridProps>) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$gutters` may still be undefined here */
   const gutters = $gutters ?? 'md';
@@ -48,12 +49,12 @@ const sizeStyles = ({ theme, $gutters }: IStyledGridProps) => {
   `;
 };
 
-interface IStyledGridProps extends ThemeProps<DefaultTheme> {
+interface IStyledGridProps {
   $debug?: IGridProps['debug'];
   $gutters?: IGridProps['gutters'];
 }
 
-export const StyledGrid = styled.div<IStyledGridProps>`
+export const StyledGrid = styled.div<WithTheme<IStyledGridProps>>`
   direction: ${props => props.theme.rtl && 'rtl'};
   margin-right: auto;
   margin-left: auto;

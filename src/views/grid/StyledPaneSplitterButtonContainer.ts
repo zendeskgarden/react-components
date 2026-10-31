@@ -6,12 +6,13 @@
  */
 
 import { math, stripUnit } from 'polished';
-import { styled, css, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
+import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { Orientation, GRID_PLACEMENT } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledPaneSplitter } from './StyledPaneSplitter';
 import { getSize } from './StyledPaneSplitterButton';
 
@@ -21,7 +22,7 @@ interface IStyledSplitterButtonContainerProps {
   $splitterSize: number;
 }
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const boxShadow = theme.shadows.lg(
     `${theme.space.base}px`,
@@ -40,7 +41,7 @@ const positionStyles = ({
   $orientation,
   $placement,
   $splitterSize
-}: IStyledSplitterButtonContainerProps & IStyledBaseProps) => {
+}: WithTheme<IStyledSplitterButtonContainerProps>) => {
   let top;
   let left;
   let right;
@@ -140,7 +141,7 @@ const positionStyles = ({
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const size = getSize(theme);
 
   return css`
@@ -150,13 +151,15 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const minimumSplitterSize = (theme: DefaultTheme) =>
+const minimumSplitterSize = (theme: IGardenTheme) =>
   stripUnit(math(`${theme.shadowWidths.md} * 2 + ${getSize(theme)}`)) as number;
 
 /**
  * 1. Match focused `Splitter` z-index
  */
-export const StyledPaneSplitterButtonContainer = styled.div<IStyledSplitterButtonContainerProps>`
+export const StyledPaneSplitterButtonContainer = styled.div<
+  WithTheme<IStyledSplitterButtonContainerProps>
+>`
   display: ${props =>
     props.$splitterSize <= minimumSplitterSize(props.theme) ? 'none' : undefined};
   position: absolute;

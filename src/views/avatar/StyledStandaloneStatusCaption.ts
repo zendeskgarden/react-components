@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-function sizeStyles(props: IStyledBaseProps) {
+function sizeStyles(props: WithTheme) {
   const marginRule = `margin-${props.theme.rtl ? 'right' : 'left'}: ${
     props.theme.space.base * 2
   }px;`;
@@ -23,7 +23,7 @@ function sizeStyles(props: IStyledBaseProps) {
   `;
 }
 
-export const StyledStandaloneStatusCaption = styled.figcaption<IStyledBaseProps>`
+export const StyledStandaloneStatusCaption = styled.figcaption<WithTheme>`
   ${sizeStyles}
 
   ${componentStyles};

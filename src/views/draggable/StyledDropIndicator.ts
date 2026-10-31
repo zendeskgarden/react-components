@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
-export interface IStyledDropIndicatorProps extends ThemeProps<DefaultTheme> {
+export interface IStyledDropIndicatorProps {
   $isHorizontal?: boolean;
 }
 
-const colorStyles = (props: IStyledDropIndicatorProps) => {
+const colorStyles = (props: WithTheme<IStyledDropIndicatorProps>) => {
   const { theme } = props;
   const color = getColor({ variable: 'border.primaryEmphasis', theme });
 
@@ -32,7 +33,7 @@ const colorStyles = (props: IStyledDropIndicatorProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledDropIndicatorProps) => {
+const sizeStyles = (props: WithTheme<IStyledDropIndicatorProps>) => {
   const { $isHorizontal, theme } = props;
   const pseudoSize = theme.space.xs;
   const translateX = $isHorizontal ? theme.space.xxs : theme.space.xs;
@@ -60,7 +61,7 @@ const sizeStyles = (props: IStyledDropIndicatorProps) => {
   `;
 };
 
-export const StyledDropIndicator = styled.li<IStyledDropIndicatorProps>`
+export const StyledDropIndicator = styled.li<WithTheme<IStyledDropIndicatorProps>>`
   position: relative;
 
   ${sizeStyles}

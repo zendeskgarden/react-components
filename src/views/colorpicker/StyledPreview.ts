@@ -10,14 +10,14 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { IRGBColorProps } from './types';
 
 interface IStyledColorPreviewProps extends IRGBColorProps {
   $isOpaque?: boolean;
 }
 
-export const background = (props: IStyledColorPreviewProps & IStyledBaseProps) => {
+export const background = (props: WithTheme<IStyledColorPreviewProps>) => {
   const alpha = props.$alpha ? props.$alpha / 100 : 0;
   let retVal = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, ${alpha})`;
 
@@ -32,7 +32,7 @@ export const background = (props: IStyledColorPreviewProps & IStyledBaseProps) =
   return retVal;
 };
 
-export const StyledPreview = styled.div<IStyledColorPreviewProps>`
+export const StyledPreview = styled.div<WithTheme<IStyledColorPreviewProps>>`
   flex-shrink: 0;
   border-radius: ${props => props.theme.borderRadii.md};
   box-shadow: inset 0 0 0 ${props => props.theme.borderWidths.sm}

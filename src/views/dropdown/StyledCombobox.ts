@@ -5,18 +5,19 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
 
-interface IStyledComboboxProps extends ThemeProps<DefaultTheme> {
+interface IStyledComboboxProps {
   $isCompact?: boolean;
 }
 
-const sizeStyles = (props: IStyledComboboxProps) => {
+const sizeStyles = (props: WithTheme<IStyledComboboxProps>) => {
   const minWidth = `${props.$isCompact ? 100 : 144}px`;
   const marginTop = `${props.theme.space.base * (props.$isCompact ? 1 : 2)}px`;
 
@@ -33,7 +34,7 @@ const sizeStyles = (props: IStyledComboboxProps) => {
   `;
 };
 
-export const StyledCombobox = styled.div<IStyledComboboxProps>`
+export const StyledCombobox = styled.div<WithTheme<IStyledComboboxProps>>`
   ${sizeStyles};
 
   ${componentStyles};
