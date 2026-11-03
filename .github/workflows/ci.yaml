@@ -48,6 +48,26 @@ jobs:
           path: dist
           include-hidden-files: true
 
+  consumers:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v5
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - run: pnpm install
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist-artifact
+          path: dist
+
+      - run: pnpm pack
+      - run: pnpm check:consumers zendeskgarden-react-components-*.tgz
+
   lint:
     needs: [initialize]
     runs-on: ubuntu-latest
@@ -142,7 +162,7 @@ jobs:
         uses: actions/deploy-pages@v5
 
   publish:
-    needs: [initialize, build, lint, test]
+    needs: [initialize, build, lint, test, consumers]
     runs-on: ubuntu-latest
     if: contains(needs.initialize.outputs.teams, 'Maintainers') && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/next')
     steps:

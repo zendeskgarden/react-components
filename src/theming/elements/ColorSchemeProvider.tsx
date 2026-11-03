@@ -6,7 +6,15 @@
  */
 
 import PropTypes from 'prop-types';
-import { createContext, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from 'react';
 
 import {
   ColorScheme,
@@ -56,11 +64,11 @@ const useColorScheme = (
 
 export const ColorSchemeContext = createContext<IColorSchemeContext | undefined>(undefined);
 
-export const ColorSchemeProvider = ({
+export const ColorSchemeProvider: FC<PropsWithChildren<IColorSchemeProviderProps>> = ({
   children,
   colorSchemeKey = 'color-scheme',
   initialColorScheme = 'system'
-}: PropsWithChildren<IColorSchemeProviderProps>) => {
+}) => {
   const { isSystem, colorScheme, setColorScheme } = useColorScheme(
     initialColorScheme,
     colorSchemeKey

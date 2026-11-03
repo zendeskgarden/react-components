@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import { PropsWithChildren, useReducer, useCallback, useEffect, useRef, useMemo } from 'react';
+import { FC, PropsWithChildren, useReducer, useCallback, useEffect, useRef, useMemo } from 'react';
 
 import { DatePickerRangeProvider } from '../../context/datepicker/DatePickerRangeContext';
 import { IDatePickerRangeProps } from '../../types/elements';
@@ -15,7 +15,7 @@ import { Calendar } from './DatePickerRangeCalendar';
 import { End } from './End';
 import { Start } from './Start';
 
-const DatePickerRangeComponent = (props: PropsWithChildren<IDatePickerRangeProps>) => {
+const DatePickerRangeComponent: FC<PropsWithChildren<IDatePickerRangeProps>> = props => {
   const {
     startValue,
     locale = 'en-US',

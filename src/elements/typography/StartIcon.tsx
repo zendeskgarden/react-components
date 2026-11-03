@@ -5,12 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { SVGAttributes } from 'react';
+import { FC, SVGAttributes } from 'react';
 
 import { StyledIcon } from '../../views/typography/StyledIcon';
 import { COMPONENT_IDS } from '../utils';
 
-const StartIconComponent = (props: SVGAttributes<SVGElement>) => (
+const StartIconComponent: FC<SVGAttributes<SVGElement>> = props => (
   <StyledIcon
     $isStart
     {...props}

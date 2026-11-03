@@ -5,11 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { FC } from 'react';
+
 import { IButtonIconProps } from '../../types/elements';
 import { StyledIcon } from '../../views/button/StyledIcon';
 import { COMPONENT_IDS } from '../utils';
 
-const EndIconComponent = ({ isRotated, ...props }: IButtonIconProps) => (
+const EndIconComponent: FC<IButtonIconProps> = ({ isRotated, ...props }) => (
   <StyledIcon
     $position="end"
     $isRotated={isRotated}

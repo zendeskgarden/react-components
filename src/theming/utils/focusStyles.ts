@@ -8,7 +8,7 @@
 import { math } from 'polished';
 import { css } from 'styled-components';
 
-import { FocusStylesParameters } from '../types';
+import { FocusStylesParameters, GardenStyles } from '../types';
 import { getFocusBoxShadow } from './getFocusBoxShadow';
 
 export const SELECTOR_FOCUS_VISIBLE = '&:focus-visible';
@@ -49,7 +49,7 @@ export const focusStyles = ({
   styles: { boxShadow, ...styles } = {},
   theme,
   ...options
-}: FocusStylesParameters) => {
+}: FocusStylesParameters): GardenStyles => {
   const _boxShadow = condition
     ? getFocusBoxShadow({ boxShadow, shadowWidth, spacerWidth, theme, ...options })
     : boxShadow;

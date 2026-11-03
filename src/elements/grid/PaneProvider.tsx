@@ -7,7 +7,7 @@
 
 import { useId } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import { useState, useMemo, useCallback } from 'react';
+import { FC, useState, useMemo, useCallback } from 'react';
 
 import { PaneProviderProvider } from '../../context/grid/PaneProviderContext';
 import { usePaneProviderContext } from '../../hooks/grid/usePaneProviderContext';
@@ -28,7 +28,7 @@ const convertToPixels = (values: Record<string, number>, pixelsPerFr: number) =>
   );
 };
 
-export const PaneProvider = ({
+export const PaneProvider: FC<IPaneProviderProps> = ({
   id,
   totalPanesWidth,
   totalPanesHeight,
@@ -38,7 +38,7 @@ export const PaneProvider = ({
   columnValues,
   onChange,
   children
-}: IPaneProviderProps) => {
+}) => {
   const isControlled =
     rowValues !== undefined &&
     rowValues !== null &&
