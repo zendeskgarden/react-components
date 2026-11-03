@@ -11,13 +11,13 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getFocusBoxShadow } from '../../theming/utils/getFocusBoxShadow';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTileProps {
   $isCentered?: boolean;
 }
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const borderColor = getColor({ theme, variable: 'border.default', ...offset100 });
@@ -85,7 +85,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCentered }: IStyledTileProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCentered }: WithTheme<IStyledTileProps>) => {
   const border = theme.borders.sm;
   const padding = `${theme.space.base * 5}px`;
 
@@ -115,7 +115,7 @@ const sizeStyles = ({ theme, $isCentered }: IStyledTileProps & IStyledBaseProps)
   `;
 };
 
-export const StyledTile = styled.label<IStyledTileProps>`
+export const StyledTile = styled.label<WithTheme<IStyledTileProps>>`
   position: relative;
   /* prettier-ignore */
   transition:

@@ -8,10 +8,11 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledOptGroup } from './StyledOptGroup';
 import { StyledSeparator } from './StyledSeparator';
 
-export const StyledItemGroup = styled(StyledOptGroup)`
+export const StyledItemGroup = styled(StyledOptGroup)<WithTheme>`
   > li:not(${StyledSeparator}) + li:not(${StyledSeparator}) {
     margin-block-start: ${props => props.theme.space.base / 2}px;
   }

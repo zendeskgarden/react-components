@@ -11,12 +11,12 @@ import { styled, css, keyframes } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import { IAvatarProps, AVATAR_SIZE } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledStatusIndicator } from './StyledStatusIndicator';
 import { StyledText } from './StyledText';
 import { getStatusColor, TRANSITION_DURATION } from './utility';
 
-const badgeStyles = (props: IStyledAvatarProps & IStyledBaseProps) => {
+const badgeStyles = (props: WithTheme<IStyledAvatarProps>) => {
   const [xxs, xs, s, m, l] = AVATAR_SIZE;
 
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
@@ -66,7 +66,7 @@ const colorStyles = ({
   $surfaceColor = 'background.default',
   $backgroundColor = 'transparent',
   $status
-}: IStyledAvatarProps & IStyledBaseProps) => {
+}: WithTheme<IStyledAvatarProps>) => {
   const statusColor = getStatusColor(theme, $status);
   const backgroundColor = getHueColor({ theme, value: $backgroundColor });
   const foregroundColor = getHueColor({ theme, value: $foregroundColor });
@@ -88,7 +88,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledAvatarProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledAvatarProps>) => {
   let boxShadow;
   let borderRadius;
   let size;
@@ -165,7 +165,7 @@ export interface IStyledAvatarProps {
 /**
  * Accepts all `<figure>` props
  */
-export const StyledAvatar = styled.figure<IStyledAvatarProps>`
+export const StyledAvatar = styled.figure<WithTheme<IStyledAvatarProps>>`
   display: inline-flex;
   position: relative;
   align-items: center;

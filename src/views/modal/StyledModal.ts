@@ -11,7 +11,7 @@ import { styled, css, keyframes } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import mediaQuery from '../../theming/utils/mediaQuery';
-import type { IStyledBaseProps, IStyledModalProps } from '../../types/views';
+import type { IStyledModalProps, WithTheme } from '../../types/views';
 
 const animationName = keyframes`
   0% {
@@ -38,7 +38,7 @@ const animationStyles = (props: IStyledModalProps) => {
   return '';
 };
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const offsetY = `${theme.space.base * 5}px`;
   const blurRadius = `${theme.space.base * 7}px`;
   const shadowColor = getColor({ variable: 'shadow.large', theme });
@@ -54,7 +54,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledModalProps) => {
+const sizeStyles = (props: WithTheme<IStyledModalProps>) => {
   return css`
     ${mediaQuery('up', props.$isLarge ? 'md' : 'sm', props.theme)} {
       width: ${props.$isLarge ? props.theme.breakpoints.md : props.theme.breakpoints.sm};
@@ -65,7 +65,7 @@ const sizeStyles = (props: IStyledModalProps) => {
 /**
  * 1. IE11 centering hack.
  */
-export const StyledModal = styled.div<IStyledModalProps>`
+export const StyledModal = styled.div<WithTheme<IStyledModalProps>>`
   display: flex;
   position: fixed;
   flex-direction: column;

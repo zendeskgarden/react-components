@@ -6,7 +6,7 @@
  */
 
 import { math, readableColor } from 'polished';
-import { styled, css, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -14,10 +14,11 @@ import { SELECTOR_FOCUS_VISIBLE, focusStyles } from '../../theming/utils/focusSt
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { ITagProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { StyledAvatar } from './StyledAvatar';
 import { StyledClose } from './StyledClose';
 
-interface IStyledTagProps extends ThemeProps<DefaultTheme> {
+interface IStyledTagProps {
   $hue?: ITagProps['hue'];
   $isEmphasis?: ITagProps['isEmphasis'];
   $isPill?: ITagProps['isPill'];
@@ -44,7 +45,7 @@ const isNamedHue = (theme: IGardenTheme, hue: string) =>
  * 1. Anchor element reset
  * 2. Tags show focus state whether performed by mouse or keyboard
  */
-const colorStyles = ({ theme, $hue, $isEmphasis }: IStyledTagProps) => {
+const colorStyles = ({ theme, $hue, $isEmphasis }: WithTheme<IStyledTagProps>) => {
   let backgroundColor;
   let foregroundColor;
 
@@ -126,7 +127,7 @@ const largeCloseStyles = (theme: IGardenTheme) => css`
   }
 `;
 
-const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
+const sizeStyles = ({ $isPill, $isRound, $size, theme }: WithTheme<IStyledTagProps>) => {
   /* Every size shares the same corner radius; only pill and round override it */
   let borderRadius = theme.borderRadii.sm;
   let padding;
@@ -205,7 +206,7 @@ const sizeStyles = ({ $isPill, $isRound, $size, theme }: IStyledTagProps) => {
   `;
 };
 
-export const StyledTag = styled.div<IStyledTagProps>`
+export const StyledTag = styled.div<WithTheme<IStyledTagProps>>`
   display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;

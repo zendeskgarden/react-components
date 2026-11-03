@@ -5,20 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { Type } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { validationTypes } from '../../utils/notification/icons';
 
-interface IStyledIconProps extends ThemeProps<DefaultTheme> {
+interface IStyledIconProps {
   $type?: Type;
 }
 
-const sizeStyles = ({ theme }: IStyledIconProps) => {
+const sizeStyles = ({ theme }: WithTheme<IStyledIconProps>) => {
   const { rtl, space } = theme;
   const size = getIconRenderSize(theme);
 
@@ -32,7 +33,7 @@ const sizeStyles = ({ theme }: IStyledIconProps) => {
   `;
 };
 
-const colorStyles = ({ theme, $type }: IStyledIconProps) => {
+const colorStyles = ({ theme, $type }: WithTheme<IStyledIconProps>) => {
   let variable;
 
   switch ($type) {
@@ -60,7 +61,7 @@ const colorStyles = ({ theme, $type }: IStyledIconProps) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon)<IStyledIconProps>`
+export const StyledIcon = styled(StyledBaseIcon)<WithTheme<IStyledIconProps>>`
   position: absolute;
 
   ${sizeStyles}

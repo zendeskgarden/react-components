@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledTitle = styled.strong`
+export const StyledTitle = styled.strong<WithTheme>`
   display: none;
   margin: 0;
   font-weight: ${props => props.theme.fontWeights.semibold};

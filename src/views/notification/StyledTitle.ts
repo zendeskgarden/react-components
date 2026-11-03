@@ -9,12 +9,12 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledTitleProps } from '../../types/views';
+import type { IStyledTitleProps, WithTheme } from '../../types/views';
 
 /**
  * 1. Reset for <h1>, etc.
  */
-export const StyledTitle = styled.div<IStyledTitleProps>`
+export const StyledTitle = styled.div<WithTheme<IStyledTitleProps>>`
   margin: 0; /* [1] */
   color: ${p => getColor({ variable: 'foreground.default', theme: p.theme })};
   font-weight: ${props =>

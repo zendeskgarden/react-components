@@ -9,9 +9,10 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 import { StyledFileClose } from './StyledFileClose';
 
-export const StyledFileDelete = styled(StyledFileClose)`
+export const StyledFileDelete = styled(StyledFileClose)<WithTheme>`
   color: ${props => getColor({ theme: props.theme, variable: 'foreground.danger' })};
 
   ${componentStyles};

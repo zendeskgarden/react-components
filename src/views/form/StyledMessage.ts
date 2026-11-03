@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { Validation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessageIcon } from './StyledMessageIcon';
 
@@ -19,7 +19,7 @@ export interface IStyledMessageProps {
   $validation?: Validation;
 }
 
-const colorStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $validation }: WithTheme<IStyledMessageProps>) => {
   let variable;
 
   if ($validation === 'error') {
@@ -39,7 +39,7 @@ const colorStyles = ({ theme, $validation }: IStyledMessageProps & IStyledBasePr
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const fontSize = theme.fontSizes.sm;
   const lineHeight = getLineHeight(theme.iconSizes.md, theme.fontSizes.sm);
   const marginTop = `${theme.space.base}px`;
@@ -54,7 +54,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledMessage = styled.div<IStyledMessageProps>`
+export const StyledMessage = styled.div<WithTheme<IStyledMessageProps>>`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: ${props => (props.$validation ? 'flex' : 'inline-block')};
   position: relative;

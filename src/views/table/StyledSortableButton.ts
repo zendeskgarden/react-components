@@ -13,9 +13,9 @@ import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusSt
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { ISortableCellProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const StyledBaseIconWrapper = styled.div`
+const StyledBaseIconWrapper = styled.div<WithTheme>`
   display: flex;
   position: absolute;
   top: 0;
@@ -64,7 +64,7 @@ interface IStyledSortableButtonProps {
   width?: ISortableCellProps['width'];
 }
 
-const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $sort }: WithTheme<IStyledSortableButtonProps>) => {
   const fgInactive = getColor({
     variable: 'foreground.subtle',
     transparency: theme.opacity[200],
@@ -171,7 +171,7 @@ const colorStyles = ({ theme, $sort }: IStyledSortableButtonProps & IStyledBaseP
  * 1. Reset for <button> element
  * 2. Reset for <a>nchor element
  */
-export const StyledSortableButton = styled.button<IStyledSortableButtonProps>`
+export const StyledSortableButton = styled.button<WithTheme<IStyledSortableButtonProps>>`
   position: relative;
   transition: box-shadow 0.1s ease-in-out;
   border: none; /* [1] */

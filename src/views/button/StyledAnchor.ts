@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledButton } from './StyledButton';
 import { StyledExternalIcon } from './StyledExternalIcon';
 
@@ -18,7 +19,7 @@ import { StyledExternalIcon } from './StyledExternalIcon';
 /**
  * Accepts all `<a>` props
  */
-export const StyledAnchor = styled(StyledButton)`
+export const StyledAnchor = styled(StyledButton)<WithTheme>`
   direction: ${props => props.theme.rtl && 'rtl'};
 
   & ${StyledExternalIcon} {

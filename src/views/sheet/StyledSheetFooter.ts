@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledSheetFooterProps, IStyledBaseProps } from '../../types/views';
+import type { IStyledSheetFooterProps, WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ theme, variable: 'border.subtle' });
 
   return css`
@@ -19,7 +19,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledSheetFooterProps) => {
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledSheetFooterProps>) => {
   const border = theme.borders.sm;
   const padding = `${theme.space.base * ($isCompact ? 2.5 : 5)}px`;
 
@@ -29,7 +29,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledSheetFooterProps) => {
   `;
 };
 
-export const StyledSheetFooter = styled.footer<IStyledSheetFooterProps>`
+export const StyledSheetFooter = styled.footer<WithTheme<IStyledSheetFooterProps>>`
   display: flex;
   flex-flow: row wrap;
   align-items: center;

@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Used for multi-line Notification content. Supports all `<p>` props
  */
-export const StyledParagraph = styled.p`
+export const StyledParagraph = styled.p<WithTheme>`
   margin: ${props => props.theme.space.base * 2}px 0 0;
 
   ${componentStyles};

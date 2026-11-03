@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledItemTypeIcon } from './StyledItemTypeIcon';
 import { StyledOption } from './StyledOption';
 import { itemStyles } from './utils';
@@ -15,7 +16,7 @@ import { itemStyles } from './utils';
 /*
  * 1. Ensure hover styling doesn't leak through
  */
-export const StyledItemAnchor = styled(StyledOption)`
+export const StyledItemAnchor = styled(StyledOption)<WithTheme>`
   text-decoration: none;
   color: unset;
 

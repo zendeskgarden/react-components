@@ -6,18 +6,21 @@
  */
 
 import { hideVisually } from 'polished';
-import { styled, css, DefaultTheme, ThemeProps } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { NotificationPlacement } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 
 export const TRANSITION_CLASS = 'garden-toast-transition';
 
 const DEFAULT_DURATION = '400ms';
 
-export const StyledFadeInTransition = styled.div<{
-  $isHidden: boolean;
-  $placement: NotificationPlacement;
-}>`
+export const StyledFadeInTransition = styled.div<
+  WithTheme<{
+    $isHidden: boolean;
+    $placement: NotificationPlacement;
+  }>
+>`
   transition: opacity ${DEFAULT_DURATION} ease-in 300ms;
   opacity: ${p => (p.$isHidden ? '0 !important' : 1)};
   margin-bottom: ${p => p.theme.space.base * 2}px;
@@ -73,7 +76,7 @@ interface IStyledTransitionContainerProps {
   $toastZIndex?: number;
 }
 
-const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionContainerProps) => {
+const placementStyles = (props: WithTheme<IStyledTransitionContainerProps>) => {
   const verticalDistance = `${props.theme.space.base * 16}px`;
   const horizontalDistance = `${props.theme.space.base * 3}px`;
 
@@ -144,7 +147,7 @@ const placementStyles = (props: ThemeProps<DefaultTheme> & IStyledTransitionCont
   }
 };
 
-export const StyledTransitionContainer = styled.div<IStyledTransitionContainerProps>`
+export const StyledTransitionContainer = styled.div<WithTheme<IStyledTransitionContainerProps>>`
   position: fixed;
   z-index: ${props => props.$toastZIndex};
 

@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { BASE_MULTIPLIERS } from './StyledDrawerClose';
 import { StyledHeader } from './StyledHeader';
 
@@ -15,7 +16,7 @@ import { StyledHeader } from './StyledHeader';
  * 1. the padding added to the Header is based on the close button size and spacing,
  *    with additional padding (+ 2) between the Header content and Close button
  */
-export const StyledDrawerHeader = styled(StyledHeader)`
+export const StyledDrawerHeader = styled(StyledHeader)<WithTheme>`
   padding: ${props => props.theme.space.base * 5}px;
   ${props =>
     props.$isCloseButtonPresent &&

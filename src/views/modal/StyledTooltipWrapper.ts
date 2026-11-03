@@ -10,6 +10,7 @@ import { styled } from 'styled-components';
 
 import { getMenuPosition } from '../../theming/utils/getMenuPosition';
 import menuStyles from '../../theming/utils/menuStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTooltipWrapperProps {
   $placement: Placement;
@@ -20,7 +21,7 @@ interface IStyledTooltipWrapperProps {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
-export const StyledTooltipWrapper = styled.div<IStyledTooltipWrapperProps>`
+export const StyledTooltipWrapper = styled.div<WithTheme<IStyledTooltipWrapperProps>>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 

@@ -12,14 +12,14 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles, SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { Orientation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledPaneSplitterProps {
   $orientation?: Orientation;
   $isFixed?: boolean;
 }
 
-const colorStyles = ({ theme }: IStyledPaneSplitterProps & IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme<IStyledPaneSplitterProps>) => {
   const color = getColor({ theme, variable: 'border.default' });
   const options = { theme, variable: 'border.primaryEmphasis' };
   const hoverColor = getColor(options);
@@ -46,11 +46,7 @@ const colorStyles = ({ theme }: IStyledPaneSplitterProps & IStyledBaseProps) => 
   `;
 };
 
-const sizeStyles = ({
-  theme,
-  $orientation,
-  $isFixed
-}: IStyledPaneSplitterProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $orientation, $isFixed }: WithTheme<IStyledPaneSplitterProps>) => {
   const size = math(`${theme.shadowWidths.md} * 2`);
   const separatorSize = math(`${theme.borderWidths.sm} * 2`);
   const offset = math(`-${size} / 2`);
@@ -156,7 +152,7 @@ const sizeStyles = ({
  * 2. Stack below splitter button.
  * 3. Stack above other splitters when focused
  */
-export const StyledPaneSplitter = styled.div<IStyledPaneSplitterProps>`
+export const StyledPaneSplitter = styled.div<WithTheme<IStyledPaneSplitterProps>>`
   display: flex;
   position: absolute;
   align-items: center;

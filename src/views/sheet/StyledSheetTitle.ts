@@ -9,8 +9,9 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
-export const StyledSheetTitle = styled.div`
+export const StyledSheetTitle = styled.div<WithTheme>`
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.default' })};
   font-weight: ${props => props.theme.fontWeights.semibold};
 

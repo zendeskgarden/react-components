@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTabsProps {
   $isVertical?: boolean;
@@ -16,7 +17,7 @@ interface IStyledTabsProps {
 /**
  * Accepts all `<div>` props
  */
-export const StyledTabs = styled.div<IStyledTabsProps>`
+export const StyledTabs = styled.div<WithTheme<IStyledTabsProps>>`
   display: ${props => (props.$isVertical ? 'table' : 'block')};
   overflow: hidden;
   direction: ${props => props.theme.rtl && 'rtl'};

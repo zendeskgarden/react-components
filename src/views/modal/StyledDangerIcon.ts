@@ -9,8 +9,9 @@ import ExclamationCircleFillIcon from '@zendeskgarden/svg-icons/src/exclamation-
 import { styled } from 'styled-components';
 
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
+import type { WithTheme } from '../../types/views';
 
-export const StyledDangerIcon = styled(ExclamationCircleFillIcon)`
+export const StyledDangerIcon = styled(ExclamationCircleFillIcon)<WithTheme>`
   position: absolute;
   top: ${props => props.theme.space.md};
   ${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.sm};

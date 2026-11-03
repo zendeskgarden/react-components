@@ -12,14 +12,14 @@ import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { FileValidation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 export interface IStyledFileIconProps {
   $isCompact?: boolean;
   $validation?: FileValidation;
 }
 
-const colorStyles = ({ theme, $validation }: IStyledFileIconProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $validation }: WithTheme<IStyledFileIconProps>) => {
   const color = $validation ? undefined : getColor({ theme, variable: 'foreground.subtle' });
 
   return css`
@@ -27,7 +27,7 @@ const colorStyles = ({ theme, $validation }: IStyledFileIconProps & IStyledBaseP
   `;
 };
 
-const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & IStyledBaseProps) => {
+const sizeStyles = ({ $isCompact, theme }: WithTheme<IStyledFileIconProps>) => {
   const size = getIconRenderSize(theme, $isCompact);
   const margin = `${theme.space.base * 2}px`;
 
@@ -38,7 +38,7 @@ const sizeStyles = ({ $isCompact, theme }: IStyledFileIconProps & IStyledBasePro
   `;
 };
 
-export const StyledFileIcon = styled(StyledBaseIcon)<IStyledFileIconProps>`
+export const StyledFileIcon = styled(StyledBaseIcon)<WithTheme<IStyledFileIconProps>>`
   flex-shrink: 0;
 
   ${sizeStyles};

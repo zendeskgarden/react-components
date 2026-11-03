@@ -13,13 +13,13 @@ import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
 import { Type } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledGlobalAlertIconProps {
   $alertType: Type;
 }
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const size = props.theme.iconSizes.md;
   // Vertically center icon on line height
   const marginTop = math(`(${props.theme.space.base * 5} - ${size}) / 2`);
@@ -33,7 +33,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertIconProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $alertType }: WithTheme<IStyledGlobalAlertIconProps>) => {
   let color;
 
   switch ($alertType) {
@@ -58,7 +58,7 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertIconProps & IStyle
   `;
 };
 
-export const StyledGlobalAlertIcon = styled(StyledBaseIcon)<IStyledGlobalAlertIconProps>`
+export const StyledGlobalAlertIcon = styled(StyledBaseIcon)<WithTheme<IStyledGlobalAlertIconProps>>`
   flex-shrink: 0;
 
   ${sizeStyles};

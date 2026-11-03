@@ -9,12 +9,13 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledFooter {
   $isLarge?: boolean;
 }
 
-export const StyledFooter = styled.div<IStyledFooter>`
+export const StyledFooter = styled.div<WithTheme<IStyledFooter>>`
   display: flex;
   flex-shrink: 0;
   align-items: center;

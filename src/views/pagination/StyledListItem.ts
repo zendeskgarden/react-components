@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledListItem = styled.li`
+export const StyledListItem = styled.li<WithTheme>`
   box-sizing: border-box;
   margin-left: ${props => `${props.theme.space.base}px`};
   user-select: none;

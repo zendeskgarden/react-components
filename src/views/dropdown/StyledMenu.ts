@@ -10,7 +10,7 @@ import { styled } from 'styled-components';
 import type { ArrowPosition } from '../../theming/types';
 import arrowStyles from '../../theming/utils/arrowStyles';
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledListboxProps } from '../../types/views';
+import type { IStyledListboxProps, WithTheme } from '../../types/views';
 import { StyledFloatingMenu } from './StyledFloatingMenu';
 import { StyledListbox } from './StyledListbox';
 import { StyledSeparator } from './StyledSeparator';
@@ -28,7 +28,7 @@ interface IStyledMenuProps extends IStyledListboxProps {
  *    own rules still apply over it.
  * 3. Separators bring their own margin.
  */
-export const StyledMenu = styled(StyledListbox)<IStyledMenuProps>`
+export const StyledMenu = styled(StyledListbox)<WithTheme<IStyledMenuProps>>`
   /* stylelint-disable-next-line declaration-no-important */
   position: static !important; /* [1] */
 

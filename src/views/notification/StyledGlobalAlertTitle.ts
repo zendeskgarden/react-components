@@ -10,14 +10,14 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IGlobalAlertProps, IGlobalAlertTitleProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledGlobalAlertTitleProps {
   $alertType: IGlobalAlertProps['type'];
   $isRegular?: IGlobalAlertTitleProps['isRegular'];
 }
 
-const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertTitleProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $alertType }: WithTheme<IStyledGlobalAlertTitleProps>) => {
   let color;
 
   switch ($alertType) {
@@ -40,7 +40,7 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertTitleProps & IStyl
   `;
 };
 
-export const StyledGlobalAlertTitle = styled.div<IStyledGlobalAlertTitleProps>`
+export const StyledGlobalAlertTitle = styled.div<WithTheme<IStyledGlobalAlertTitleProps>>`
   display: inline;
   margin-${props => (props.theme.rtl ? 'left' : 'right')}: ${props => props.theme.space.base * 2}px;
   font-weight: ${props =>

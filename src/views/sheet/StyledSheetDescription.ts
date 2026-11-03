@@ -10,8 +10,9 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-export const StyledSheetDescription = styled.div`
+export const StyledSheetDescription = styled.div<WithTheme>`
   line-height: ${p => getLineHeight(p.theme.space.base * 4, p.theme.fontSizes.md)};
   color: ${p => getColor({ theme: p.theme, variable: 'foreground.subtle' })};
 

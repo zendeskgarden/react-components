@@ -12,7 +12,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getHueColor } from '../../theming/utils/getHueColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledItemIcon {
   $surfaceColor?: string;
@@ -21,7 +21,7 @@ interface IStyledItemIcon {
 const colorStyles = ({
   $surfaceColor = 'background.default',
   theme
-}: IStyledItemIcon & IStyledBaseProps) => {
+}: WithTheme<IStyledItemIcon>) => {
   const foregroundColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundColor = getHueColor({ theme, value: $surfaceColor });
 
@@ -34,7 +34,7 @@ const colorStyles = ({
 /**
  * 1. Odd sizing allows the timeline line to center respective of the circle icon.
  */
-export const StyledItemIcon = styled(StyledBaseIcon)<IStyledItemIcon>`
+export const StyledItemIcon = styled(StyledBaseIcon)<WithTheme<IStyledItemIcon>>`
   z-index: 1;
   box-sizing: content-box;
   padding: ${props => props.theme.space.base}px 0;

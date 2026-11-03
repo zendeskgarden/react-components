@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledOppositeContent = styled.div`
+export const StyledOppositeContent = styled.div<WithTheme>`
   flex: 1;
   padding: ${props => `${props.theme.space.base * 5}px ${props.theme.space.base * 4}px`};
   text-align: ${props => (props.theme.rtl ? 'left' : 'right')};

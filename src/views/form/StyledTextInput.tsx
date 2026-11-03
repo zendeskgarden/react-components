@@ -13,7 +13,7 @@ import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { Validation } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledHint } from './StyledHint';
 import { StyledLabel } from './StyledLabel';
 import { StyledMessage } from './StyledMessage';
@@ -24,7 +24,7 @@ const colorStyles = ({
   $isHovered,
   $focusInset,
   $validation
-}: IStyledTextInputProps & IStyledBaseProps) => {
+}: WithTheme<IStyledTextInputProps>) => {
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
   const backgroundColor = $isBare
     ? 'transparent'
@@ -123,7 +123,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = ({ theme, $isBare, $isCompact }: IStyledTextInputProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isBare, $isCompact }: WithTheme<IStyledTextInputProps>) => {
   const fontSize = theme.fontSizes.md;
   const paddingHorizontal = `${theme.space.base * 3}px`;
   let height;
@@ -221,7 +221,7 @@ export interface IStyledTextInputProps {
   $validation?: Validation;
 }
 
-export const StyledTextInput = styled.input<IStyledTextInputProps>`
+export const StyledTextInput = styled.input<WithTheme<IStyledTextInputProps>>`
   appearance: none;
   /* prettier-ignore */
   transition:

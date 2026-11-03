@@ -10,9 +10,9 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps, IStyledBreadcrumbItemProps } from '../../types/views';
+import type { IStyledBreadcrumbItemProps, WithTheme } from '../../types/views';
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => css`
+const sizeStyles = ({ theme }: WithTheme) => css`
   line-height: ${getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
   white-space: nowrap;
 
@@ -26,7 +26,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => css`
  * 1. These CSS pseudo-classes are used to match the equivalent of :any-link, which
  *     is not used here because it is not currently supported in Microsoft Edge.
  */
-const colorStyles = ({ $isCurrent, theme }: IStyledBreadcrumbItemProps) => css`
+const colorStyles = ({ $isCurrent, theme }: WithTheme<IStyledBreadcrumbItemProps>) => css`
   color: ${$isCurrent ? getColor({ variable: 'foreground.subtle', theme }) : 'inherit'};
 
   ${
@@ -44,7 +44,7 @@ const colorStyles = ({ $isCurrent, theme }: IStyledBreadcrumbItemProps) => css`
   }
 `;
 
-export const StyledBreadcrumbItem = styled.li<IStyledBreadcrumbItemProps>`
+export const StyledBreadcrumbItem = styled.li<WithTheme<IStyledBreadcrumbItemProps>>`
   font-size: inherit;
 
   ${sizeStyles}

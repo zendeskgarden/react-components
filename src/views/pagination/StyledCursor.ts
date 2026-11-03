@@ -8,12 +8,13 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledPageBase } from './StyledPageBase';
 
 /**
  * 1. Reset CSS from <button>.
  */
-export const StyledCursor = styled(StyledPageBase as 'button')`
+export const StyledCursor = styled(StyledPageBase as 'button')<WithTheme>`
   display: flex;
   align-items: center;
   border: none; /* [1] */

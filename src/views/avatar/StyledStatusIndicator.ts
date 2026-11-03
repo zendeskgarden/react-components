@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IAvatarProps, AVATAR_SIZE } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 import { getStatusBorderOffset, includes, IStyledStatusIndicatorProps } from './utility';
 
@@ -24,7 +24,7 @@ export interface IStatusIndicatorProps extends Omit<IAvatarProps, 'badge' | 'isS
 
 const [xxs, xs, s, m, l] = AVATAR_SIZE;
 
-const sizeStyles = (props: IStatusIndicatorProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStatusIndicatorProps>) => {
   /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves
    * explicitly passed undefined props, so `$size` may still be undefined here */
   const size = props.$size ?? 'medium';
@@ -73,7 +73,7 @@ const colorStyles = ({
   $size,
   $borderColor,
   $surfaceColor
-}: IStatusIndicatorProps & IStyledBaseProps) => {
+}: WithTheme<IStatusIndicatorProps>) => {
   const shadowSize = $size === xxs ? 'xs' : 'sm';
 
   const surfaceColor = $surfaceColor?.includes('.')
@@ -90,7 +90,9 @@ const colorStyles = ({
   `;
 };
 
-export const StyledStatusIndicator = styled(StyledStatusIndicatorBase)<IStatusIndicatorProps>`
+export const StyledStatusIndicator = styled(StyledStatusIndicatorBase)<
+  WithTheme<IStatusIndicatorProps>
+>`
   ${sizeStyles}
   ${colorStyles}
 

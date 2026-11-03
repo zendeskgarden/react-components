@@ -6,15 +6,16 @@
  */
 
 import { math } from 'polished';
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { WithTheme } from '../../types/views';
 import { getHeight as getInputHeight } from './StyledInput';
 import { StyledTrigger } from './StyledTrigger';
 
-interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
+interface IStyledInputIconProps {
   $isCompact?: boolean;
   $isDisabled?: boolean;
   $isEnd?: boolean;
@@ -22,7 +23,7 @@ interface IStyledInputIconProps extends ThemeProps<DefaultTheme> {
   $isRotated?: boolean;
 }
 
-const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
+const colorStyles = ({ theme, $isLabelHovered }: WithTheme<IStyledInputIconProps>) => {
   const options = { theme, variable: 'foreground.subtle' };
   const color = getColor(options);
   const focusColor = getColor({ ...options, dark: { offset: -100 }, light: { offset: 100 } });
@@ -43,7 +44,7 @@ const colorStyles = ({ theme, $isLabelHovered }: IStyledInputIconProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledInputIconProps) => {
+const sizeStyles = (props: WithTheme<IStyledInputIconProps>) => {
   /* the v10 glyphs render at their native 20px size */
   const size = props.theme.space.md;
   const position = math(`(${getInputHeight(props)} - ${size}) / 2`);
@@ -64,7 +65,7 @@ const sizeStyles = (props: IStyledInputIconProps) => {
   `;
 };
 
-export const StyledInputIcon = styled(StyledBaseIcon)<IStyledInputIconProps>`
+export const StyledInputIcon = styled(StyledBaseIcon)<WithTheme<IStyledInputIconProps>>`
   position: sticky;
   flex-shrink: 0;
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};

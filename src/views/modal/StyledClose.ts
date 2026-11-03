@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledIconButton } from '../button/StyledIconButton';
 
 export const BASE_MULTIPLIERS = {
@@ -16,7 +17,7 @@ export const BASE_MULTIPLIERS = {
   size: 10
 };
 
-export const StyledClose = styled(StyledIconButton)`
+export const StyledClose = styled(StyledIconButton)<WithTheme>`
   position: absolute;
   top: ${props => props.theme.space.base * BASE_MULTIPLIERS.top}px;
   ${props => (props.theme.rtl ? 'left' : 'right')}: ${props =>

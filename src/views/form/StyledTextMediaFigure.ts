@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTextMediaFigureProps {
   $isRotated?: boolean;
@@ -26,7 +26,7 @@ const colorStyles = ({
   $isDisabled,
   $isHovered,
   $isFocused
-}: IStyledTextMediaFigureProps & IStyledBaseProps) => {
+}: WithTheme<IStyledTextMediaFigureProps>) => {
   let color;
 
   if ($isDisabled) {
@@ -46,7 +46,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledTextMediaFigureProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledTextMediaFigureProps>) => {
   const size = getIconRenderSize(props.theme);
   const marginFirst = `1px ${props.theme.space.base * 2}px auto 0`;
   const marginLast = `1px 0 auto ${props.theme.space.base * 2}px`;
@@ -65,7 +65,7 @@ const sizeStyles = (props: IStyledTextMediaFigureProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledTextMediaFigure = styled(StyledBaseIcon)<IStyledTextMediaFigureProps>`
+export const StyledTextMediaFigure = styled(StyledBaseIcon)<WithTheme<IStyledTextMediaFigureProps>>`
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   /* prettier-ignore */
   transition:

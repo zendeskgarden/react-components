@@ -5,16 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 import { StyledGrip } from './StyledGrip';
 
-export interface IStyledDraggableProps extends ThemeProps<DefaultTheme> {
+export interface IStyledDraggableProps {
   $focusInset?: boolean;
   $isBare?: boolean;
   $isCompact?: boolean;
@@ -32,7 +33,7 @@ export function getDragShadow(theme: IGardenTheme) {
   return shadows.lg(offsetY, blurRadius, color);
 }
 
-const colorStyles = (props: IStyledDraggableProps) => {
+const colorStyles = (props: WithTheme<IStyledDraggableProps>) => {
   const { $isBare, $isGrabbed, $isDisabled, $isPlaceholder, $focusInset, theme } = props;
 
   const dragShadow = getDragShadow(theme);
@@ -88,7 +89,7 @@ const colorStyles = (props: IStyledDraggableProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledDraggableProps) => {
+const sizeStyles = (props: WithTheme<IStyledDraggableProps>) => {
   const { $isCompact, theme } = props;
   const paddingDefault = theme.space.base * 2.25;
   const paddingCompact = theme.space.base * 1.25;
@@ -117,7 +118,7 @@ const getCursor = (props: IStyledDraggableProps) => {
   return cursor;
 };
 
-export const StyledDraggable = styled.div<IStyledDraggableProps>`
+export const StyledDraggable = styled.div<WithTheme<IStyledDraggableProps>>`
   display: flex;
   flex: 1;
   align-items: center;

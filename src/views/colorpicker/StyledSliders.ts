@@ -8,14 +8,14 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { getTrackHeight, getTrackMargin } from './StyledRange';
 
 interface IStyledSlidersProps {
   $isOpaque?: boolean;
 }
 
-const sizeStyles = (props: IStyledSlidersProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledSlidersProps>) => {
   if (props.$isOpaque) {
     return undefined;
   }
@@ -40,7 +40,7 @@ const sizeStyles = (props: IStyledSlidersProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledSliders = styled.div<IStyledSlidersProps>`
+export const StyledSliders = styled.div<WithTheme<IStyledSlidersProps>>`
   position: relative;
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.base * 2}px;
   width: 100%;

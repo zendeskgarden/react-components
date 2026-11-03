@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledTooltipDialogFooter = styled.div`
+export const StyledTooltipDialogFooter = styled.div<WithTheme>`
   display: flex;
   flex-shrink: 0;
   align-items: center;

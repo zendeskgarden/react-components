@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledHeaderLabel = styled.div<{ $isCompact: boolean }>`
+export const StyledHeaderLabel = styled.div<WithTheme<{ $isCompact: boolean }>>`
   display: flex;
   flex-grow: 1;
   align-items: center;

@@ -11,10 +11,10 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledOptionTypeIconProps } from '../../types/views';
+import type { IStyledOptionTypeIconProps, WithTheme } from '../../types/views';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 
-const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
+const colorStyles = ({ theme, $type }: WithTheme<IStyledOptionTypeIconProps>) => {
   const opacity = $type && $type !== 'danger' ? 1 : 0;
   let color;
 
@@ -40,7 +40,7 @@ const colorStyles = ({ theme, $type }: IStyledOptionTypeIconProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledOptionTypeIconProps) => {
+const sizeStyles = (props: WithTheme<IStyledOptionTypeIconProps>) => {
   /* the v10 glyphs render at their native 20px size */
   const size = props.theme.space.md;
   const position = `${props.theme.space.base * 3}px`;
@@ -61,7 +61,7 @@ const sizeStyles = (props: IStyledOptionTypeIconProps) => {
   `;
 };
 
-export const StyledOptionTypeIcon = styled(StyledBaseIcon)<IStyledOptionTypeIconProps>`
+export const StyledOptionTypeIcon = styled(StyledBaseIcon)<WithTheme<IStyledOptionTypeIconProps>>`
   position: absolute;
   transform: ${props =>
     props.theme.rtl && (props.$type === 'next' || props.$type === 'previous') && 'rotate(180deg)'};

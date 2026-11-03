@@ -8,14 +8,14 @@
 import { styled, css } from 'styled-components';
 
 import { SELECTOR_FOCUS_VISIBLE } from '../../theming/utils/focusStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledSelect } from './StyledSelect';
 import { IStyledTextFauxInputProps, StyledTextFauxInput } from './StyledTextFauxInput';
 
 /*
  * 1. Prevent a 2px height bump between `Select` and `Input` due to the faux wrapper border
  */
-const sizeStyles = ({ theme, $isCompact }: IStyledTextFauxInputProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledTextFauxInputProps>) => {
   const height = `${theme.space.base * ($isCompact ? 8 : 10)}px`;
 
   return css`
@@ -23,7 +23,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledTextFauxInputProps & IStyledBa
   `;
 };
 
-export const StyledSelectWrapper = styled(StyledTextFauxInput)`
+export const StyledSelectWrapper = styled(StyledTextFauxInput)<WithTheme>`
   position: relative;
   padding: 0;
   overflow: visible;

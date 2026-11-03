@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-function sizeStyles({ theme }: IStyledBaseProps) {
+function sizeStyles({ theme }: WithTheme) {
   const property = theme.rtl ? 'margin-left' : 'margin-right';
 
   return css`
@@ -19,7 +19,7 @@ function sizeStyles({ theme }: IStyledBaseProps) {
   `;
 }
 
-export const StyledGrip = styled.div`
+export const StyledGrip = styled.div<WithTheme>`
   display: flex;
   /* prettier-ignore */
   transition: color 0.1s ease-in-out;

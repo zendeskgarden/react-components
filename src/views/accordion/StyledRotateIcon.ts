@@ -11,7 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledRotateIcon {
   $isCompact?: boolean;
@@ -20,7 +20,7 @@ interface IStyledRotateIcon {
   $isCollapsible?: boolean;
 }
 
-const colorStyles = ({ $isCollapsible, $isHovered, $isRotated, theme }: any & IStyledBaseProps) => {
+const colorStyles = ({ $isCollapsible, $isHovered, $isRotated, theme }: WithTheme<any>) => {
   const showColor = $isCollapsible || !$isRotated;
   const color = getColor({
     theme,
@@ -36,7 +36,7 @@ const colorStyles = ({ $isCollapsible, $isHovered, $isRotated, theme }: any & IS
   `;
 };
 
-export const StyledRotateIcon = styled(StyledBaseIcon)<IStyledRotateIcon>`
+export const StyledRotateIcon = styled(StyledBaseIcon)<WithTheme<IStyledRotateIcon>>`
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,

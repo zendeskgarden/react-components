@@ -6,19 +6,20 @@
  */
 
 import { parseToRgb, readableColor } from 'polished';
-import { styled, DefaultTheme, ThemeProps } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IRGBColor } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { StyledButtonPreview } from './StyledButtonPreview';
 
-interface IStyledColorSwatchLabelProps extends ThemeProps<DefaultTheme> {
+interface IStyledColorSwatchLabelProps {
   $backgroundColor: string;
 }
 
-const colorStyles = ({ $backgroundColor, theme }: IStyledColorSwatchLabelProps) => {
+const colorStyles = ({ $backgroundColor, theme }: WithTheme<IStyledColorSwatchLabelProps>) => {
   const { alpha } = parseToRgb($backgroundColor) as IRGBColor;
 
   const returnIfLightColor = getColor({ theme, hue: 'neutralHue', shade: 900 });
@@ -41,7 +42,9 @@ const colorStyles = ({ $backgroundColor, theme }: IStyledColorSwatchLabelProps) 
   `;
 };
 
-export const StyledColorSwatchLabel = styled(StyledButtonPreview)<IStyledColorSwatchLabelProps>`
+export const StyledColorSwatchLabel = styled(StyledButtonPreview)<
+  WithTheme<IStyledColorSwatchLabelProps>
+>`
   position: relative;
   top: 0;
   border-radius: ${props => props.theme.borderRadii.md};

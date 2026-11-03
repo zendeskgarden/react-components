@@ -8,12 +8,13 @@
 import { styled } from 'styled-components';
 
 import { Button } from '../../elements/button/Button';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. IE11 group width override.
  * 2. Input group border overrides.
  */
-export const StyledButton = styled(Button as any)`
+export const StyledButton = styled(Button as any)<WithTheme>`
   padding: 0;
   width: ${props => props.theme.space.base * 17}px;
   max-width: ${props => props.theme.space.base * 17}px; /* [1] */

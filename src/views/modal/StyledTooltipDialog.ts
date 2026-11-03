@@ -12,7 +12,7 @@ import { styled } from 'styled-components';
 import arrowStyles from '../../theming/utils/arrowStyles';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getArrowPosition } from '../../theming/utils/getArrowPosition';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledTooltipDialogClose } from './StyledTooltipDialogClose';
 import { StyledTooltipWrapper } from './StyledTooltipWrapper';
 
@@ -31,7 +31,7 @@ export interface IStyledTooltipDialogProps {
  *    the import, and so the definition order, explicit. `:where()` keeps the rule at resting
  *    specificity, so `componentStyles` and a consumer's own rules still apply over it.
  */
-const sizeStyles = (props: IStyledBaseProps) => `
+const sizeStyles = (props: WithTheme) => `
   :where(${StyledTooltipWrapper}) > & { /* [1] */
     border-radius: ${props.theme.borderRadii.xl};
     padding: ${props.theme.space.base * 5}px;
@@ -45,7 +45,7 @@ const sizeStyles = (props: IStyledBaseProps) => `
   }
 `;
 
-export const StyledTooltipDialog = styled.div<IStyledTooltipDialogProps>`
+export const StyledTooltipDialog = styled.div<WithTheme<IStyledTooltipDialogProps>>`
   ${props => {
     const computedArrowStyles = arrowStyles(getArrowPosition(props.theme, props.$placement), {
       size: `${props.theme.space.base * 2}px`,

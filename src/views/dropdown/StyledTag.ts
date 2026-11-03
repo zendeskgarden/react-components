@@ -9,6 +9,7 @@ import { hideVisually } from 'polished';
 import { styled } from 'styled-components';
 
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 import { StyledTag as StyledTagView } from '../tag/StyledTag';
 
 /*
@@ -16,7 +17,7 @@ import { StyledTag as StyledTagView } from '../tag/StyledTag';
  * `data-garden-id` set on it reaches the DOM. The tag view provides the
  * sizing, coloring and `theme.components` rules.
  */
-export const StyledTag = styled(StyledTagView)`
+export const StyledTag = styled(StyledTagView)<WithTheme>`
   &[aria-disabled='true'] {
     color: ${props =>
       props.$hue ? undefined : getColor({ theme: props.theme, variable: 'foreground.disabled' })};
