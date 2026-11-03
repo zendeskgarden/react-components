@@ -156,5 +156,5 @@ export default function menuStyles(
 
     ${options.animationModifier && animationStyles(position, options)};
     ${options.hidden && hiddenStyles(options)};
-  `;
+  ` as GardenStyles;
 }
