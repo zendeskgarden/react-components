@@ -88,6 +88,30 @@ v9 packages if they are on the latest v9 release. Wrap the app in the v10
   passes `props.theme` must cast it (`props.theme as IGardenTheme`), or keep
   augmenting `DefaultTheme` as before.
 
+#### Typing the theme in your project
+
+How to make `useTheme()` and styled-component templates aware of Garden's
+theme fields depends on what you are building.
+
+**Applications:** augment styled-components' `DefaultTheme` once, and every
+`useTheme()` call and template callback returns `IGardenTheme` with no casts:
+
+```ts
+// styled.d.ts
+import 'styled-components';
+import type { IGardenTheme } from '@zendeskgarden/react-components';
+
+declare module 'styled-components' {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  export interface DefaultTheme extends IGardenTheme {}
+}
+```
+
+**Libraries:** do not augment `DefaultTheme`. The augmentation applies to the
+whole compilation, so a published package would impose Garden's theme shape on
+its own consumers' projects. Cast the theme where you read it instead
+(`useTheme() as IGardenTheme`, `props.theme as IGardenTheme`).
+
 #### Removed exports
 
 v9 deprecated these subcomponent exports and v10 removes them. Replace each one
