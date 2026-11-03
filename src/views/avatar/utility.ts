@@ -6,16 +6,17 @@
  */
 
 import { math } from 'polished';
-import { ThemeProps, DefaultTheme } from 'styled-components';
 
+import type { IGardenTheme } from '../../theming/types';
 import { getColor } from '../../theming/utils/getColor';
 import { AVATAR_SIZE, IAvatarProps } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 
 const [xxs, xs, s, m, l] = AVATAR_SIZE;
 
 export const TRANSITION_DURATION = 0.25;
 
-export interface IStyledStatusIndicatorProps extends ThemeProps<DefaultTheme> {
+export interface IStyledStatusIndicatorProps {
   readonly $size?: IAvatarProps['size'];
   readonly $type?: IAvatarProps['status'] | 'active';
 }
@@ -29,7 +30,7 @@ const StatusColorParams = {
 };
 
 export function getStatusColor(
-  theme: IStyledStatusIndicatorProps['theme'],
+  theme: IGardenTheme,
   type?: IStyledStatusIndicatorProps['$type']
 ): string {
   if (type === undefined) {
@@ -41,13 +42,16 @@ export function getStatusColor(
   return colorArgs ? getColor({ ...colorArgs, theme }) : 'transparent';
 }
 
-export function getStatusBorderOffset(props: IStyledStatusIndicatorProps): string {
+export function getStatusBorderOffset(props: WithTheme<IStyledStatusIndicatorProps>): string {
   return props.$size === xxs
     ? math(`${props.theme.shadowWidths.sm} - 1`)
     : props.theme.shadowWidths.sm;
 }
 
-export function getStatusSize(props: IStyledStatusIndicatorProps, offset: string): string {
+export function getStatusSize(
+  props: WithTheme<IStyledStatusIndicatorProps>,
+  offset: string
+): string {
   const isActive = props.$type === 'active';
 
   switch (props.$size) {

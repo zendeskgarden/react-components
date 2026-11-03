@@ -8,10 +8,10 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledPageBase } from './StyledPageBase';
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const height = props.theme.space.base * 8;
 
   return css`
@@ -24,7 +24,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledPage = styled(StyledPageBase)`
+export const StyledPage = styled(StyledPageBase)<WithTheme>`
   ${props => sizeStyles(props)};
 
   /* prettier-ignore */

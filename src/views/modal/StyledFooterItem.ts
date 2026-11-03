@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledFooterItem = styled.span`
+export const StyledFooterItem = styled.span<WithTheme>`
   display: flex;
   margin-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => props.theme.space.sm};
   min-width: 0;

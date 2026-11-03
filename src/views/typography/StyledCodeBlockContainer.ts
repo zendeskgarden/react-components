@@ -9,8 +9,9 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledCodeBlockContainer = styled.div`
+export const StyledCodeBlockContainer = styled.div<WithTheme>`
   transition: box-shadow 0.1s ease-in-out;
   overflow: auto;
 

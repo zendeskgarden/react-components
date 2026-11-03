@@ -8,10 +8,10 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledCheckLabel } from './StyledCheckLabel';
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const size = props.theme.space.base * 10; /* from StyledToggleInput */
   const padding = size + props.theme.space.base * 2;
 
@@ -24,7 +24,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledToggleLabel = styled(StyledCheckLabel)`
+export const StyledToggleLabel = styled(StyledCheckLabel)<WithTheme>`
   ${props => sizeStyles(props)};
 
   ${componentStyles};

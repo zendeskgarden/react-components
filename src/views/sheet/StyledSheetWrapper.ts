@@ -9,7 +9,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { ISheetProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledSheetWrapperProps {
   $isOpen?: boolean;
@@ -23,7 +23,7 @@ const transformStyles = ({
   $isAnimated,
   $isOpen,
   $placement
-}: IStyledSheetWrapperProps & IStyledBaseProps) => {
+}: WithTheme<IStyledSheetWrapperProps>) => {
   const transition = $isAnimated ? 'transform 250ms ease-in-out' : undefined;
   let transform;
 
@@ -41,7 +41,7 @@ const transformStyles = ({
   `;
 };
 
-export const StyledSheetWrapper = styled.div<IStyledSheetWrapperProps>`
+export const StyledSheetWrapper = styled.div<WithTheme<IStyledSheetWrapperProps>>`
   display: flex;
   position: relative;
   flex-direction: column;

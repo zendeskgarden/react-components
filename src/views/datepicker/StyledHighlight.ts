@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const sizeStyles = ({ theme, $isEnd, $isStart }: IStyledHighlightProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isEnd, $isStart }: WithTheme<IStyledHighlightProps>) => {
   let borderRadius;
 
   const startValue = '0 50% 50% 0;';
@@ -38,7 +38,7 @@ const sizeStyles = ({ theme, $isEnd, $isStart }: IStyledHighlightProps & IStyled
   `;
 };
 
-const colorStyles = ({ $isHighlighted, theme }: IStyledHighlightProps & IStyledBaseProps) => {
+const colorStyles = ({ $isHighlighted, theme }: WithTheme<IStyledHighlightProps>) => {
   return css`
     background-color: ${
       $isHighlighted &&
@@ -57,7 +57,7 @@ interface IStyledHighlightProps {
   $isEnd: boolean;
 }
 
-export const StyledHighlight = styled.div<IStyledHighlightProps>`
+export const StyledHighlight = styled.div<WithTheme<IStyledHighlightProps>>`
   position: absolute;
   top: 0;
   left: 0;

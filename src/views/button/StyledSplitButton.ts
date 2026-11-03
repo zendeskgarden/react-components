@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Accepts all `<div>` props
  */
-export const StyledSplitButton = styled.div`
+export const StyledSplitButton = styled.div<WithTheme>`
   display: inline-flex;
   position: relative;
   z-index: 0;

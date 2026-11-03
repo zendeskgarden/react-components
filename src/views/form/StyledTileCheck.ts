@@ -10,10 +10,10 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledTile } from './StyledTile';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const color = getColor({ theme, variable: 'foreground.default' });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
@@ -26,7 +26,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme }: IStyledBaseProps) => {
+const sizeStyles = ({ theme }: WithTheme) => {
   const inset = `${theme.space.xs}`;
   const size = `${theme.space.md}`;
 
@@ -38,7 +38,7 @@ const sizeStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledTileCheck = styled(CheckCircleFillIcon)`
+export const StyledTileCheck = styled(CheckCircleFillIcon)<WithTheme>`
   position: absolute;
   transition: opacity 0.25s ease-in-out;
   opacity: 0;

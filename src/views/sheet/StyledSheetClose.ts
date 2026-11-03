@@ -8,10 +8,10 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledIconButton } from '../button/StyledIconButton';
 
-const positionStyles = ({ theme }: IStyledBaseProps) => {
+const positionStyles = ({ theme }: WithTheme) => {
   const top = `${theme.space.base * 2.5}px`;
   const position = `${theme.space.base * 2.5}px`;
 
@@ -21,7 +21,7 @@ const positionStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-export const StyledSheetClose = styled(StyledIconButton)`
+export const StyledSheetClose = styled(StyledIconButton)<WithTheme>`
   position: absolute;
 
   ${positionStyles};

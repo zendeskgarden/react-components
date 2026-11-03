@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const backgroundColor = getColor({ theme, variable: 'border.subtle' });
 
   return css`
@@ -19,7 +19,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const margin = `${props.theme.space.base}px`;
   const height = props.theme.borderWidths.sm;
 
@@ -29,7 +29,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledListboxSeparator = styled.li`
+export const StyledListboxSeparator = styled.li<WithTheme>`
   cursor: default;
 
   ${sizeStyles};

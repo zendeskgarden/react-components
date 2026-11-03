@@ -9,9 +9,10 @@ import { math } from 'polished';
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledMessage } from './StyledMessage';
 
-export const StyledRadioMessage = styled(StyledMessage)`
+export const StyledRadioMessage = styled(StyledMessage)<WithTheme>`
   padding-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => math(`${props.theme.space.base} * 6px`)};
 
   ${componentStyles};

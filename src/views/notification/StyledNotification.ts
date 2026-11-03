@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { NOTIFICATION_TYPE, Type } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { validationTypes } from '../../utils/notification/icons';
 import { IStyledNotificationBaseProps, StyledBase } from './StyledBase';
 import { StyledTitle } from './StyledTitle';
@@ -20,7 +20,7 @@ interface IStyledNotificationProps extends IStyledNotificationBaseProps {
   $type?: Type;
 }
 
-const colorStyles = (props: IStyledNotificationProps & IStyledBaseProps) => {
+const colorStyles = (props: WithTheme<IStyledNotificationProps>) => {
   const { $type, theme } = props;
 
   let variable;
@@ -62,7 +62,7 @@ const colorStyles = (props: IStyledNotificationProps & IStyledBaseProps) => {
 /**
  * Supports all `<div>` props
  */
-export const StyledNotification = styled(StyledBase)<IStyledNotificationProps>`
+export const StyledNotification = styled(StyledBase)<WithTheme<IStyledNotificationProps>>`
   padding: ${props => props.theme.space.base * 4}px ${props => props.theme.space.base * 10}px;
 
   ${colorStyles}

@@ -12,7 +12,7 @@ import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { IGlobalAlertProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledGlobalAlertProps {
   $alertType: IGlobalAlertProps['type'];
@@ -23,7 +23,7 @@ interface IStyledGlobalAlertProps {
  * 2. The anchor focus indicator matches the Anchor: an outline that contains
  *    line breaks, offset so it clears the corners, which round only while focused
  */
-const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $alertType }: WithTheme<IStyledGlobalAlertProps>) => {
   let borderColor;
   let backgroundColor;
   let foregroundColor;
@@ -104,7 +104,7 @@ const colorStyles = ({ theme, $alertType }: IStyledGlobalAlertProps & IStyledBas
   `;
 };
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const { fontSizes, space } = props.theme;
   const minHeight = space.base * 13;
   const padding = space.base * 4;
@@ -118,7 +118,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledGlobalAlert = styled.div<IStyledGlobalAlertProps>`
+export const StyledGlobalAlert = styled.div<WithTheme<IStyledGlobalAlertProps>>`
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;

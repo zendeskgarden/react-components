@@ -11,7 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
 
@@ -19,7 +19,7 @@ interface IStyledHeaderRowProps {
   $size?: ITableProps['size'];
 }
 
-const getHeaderRowHeight = (props: IStyledHeaderRowProps & IStyledBaseProps) => {
+const getHeaderRowHeight = (props: WithTheme<IStyledHeaderRowProps>) => {
   if (props.$size === 'large') {
     return `${props.theme.space.base * 18}px`;
   } else if (props.$size === 'small') {
@@ -29,13 +29,13 @@ const getHeaderRowHeight = (props: IStyledHeaderRowProps & IStyledBaseProps) => 
   return `${props.theme.space.base * 12}px`;
 };
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   return css`
     border-bottom-color: ${getColor({ variable: 'border.default', theme })};
   `;
 };
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const rowHeight = getHeaderRowHeight(props);
 
   return css`
@@ -49,7 +49,7 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-export const StyledHeaderRow = styled(StyledBaseRow)<IStyledHeaderRowProps>`
+export const StyledHeaderRow = styled(StyledBaseRow)<WithTheme<IStyledHeaderRowProps>>`
   font-weight: ${props => props.theme.fontWeights.semibold};
 
   ${sizeStyles}

@@ -11,6 +11,7 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getMenuPosition } from '../../theming/utils/getMenuPosition';
 import menuStyles from '../../theming/utils/menuStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledMenuWrapperProps {
   $isAnimated?: boolean;
@@ -22,7 +23,7 @@ interface IStyledMenuWrapperProps {
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
-export const StyledMenuWrapper = styled.div<IStyledMenuWrapperProps>`
+export const StyledMenuWrapper = styled.div<WithTheme<IStyledMenuWrapperProps>>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 

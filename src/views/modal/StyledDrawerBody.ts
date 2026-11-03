@@ -8,9 +8,10 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledBody } from './StyledBody';
 
-export const StyledDrawerBody = styled(StyledBody)`
+export const StyledDrawerBody = styled(StyledBody)<WithTheme>`
   padding: ${props => props.theme.space.base * 5}px;
   color-scheme: only ${p => p.theme.colors.base};
 

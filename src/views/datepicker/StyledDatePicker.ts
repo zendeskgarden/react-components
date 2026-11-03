@@ -9,13 +9,13 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledDatePickerProps {
   $isCompact: boolean;
 }
 
-const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & IStyledBaseProps) => {
+const sizeStyles = ({ $isCompact, theme }: WithTheme<IStyledDatePickerProps>) => {
   const margin = theme.space.base * ($isCompact ? 4 : 5);
 
   return css`
@@ -23,7 +23,7 @@ const sizeStyles = ({ $isCompact, theme }: IStyledDatePickerProps & IStyledBaseP
   `;
 };
 
-const colorStyles = ({ theme }: IStyledDatePickerProps & IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme<IStyledDatePickerProps>) => {
   const foreground = getColor({ variable: 'foreground.default', theme });
 
   return css`
@@ -32,7 +32,7 @@ const colorStyles = ({ theme }: IStyledDatePickerProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledDatePicker = styled.div<IStyledDatePickerProps>`
+export const StyledDatePicker = styled.div<WithTheme<IStyledDatePickerProps>>`
   direction: ${p => p.theme.rtl && 'rtl'};
 
   ${sizeStyles}

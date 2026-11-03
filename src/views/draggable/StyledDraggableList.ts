@@ -5,17 +5,17 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledItem } from './StyledItem';
 
-export interface IStyledDraggableListProps extends ThemeProps<DefaultTheme> {
+export interface IStyledDraggableListProps {
   $isHorizontal?: boolean;
 }
 
-const sizeStyles = (props: IStyledDraggableListProps) => {
+const sizeStyles = (props: WithTheme<IStyledDraggableListProps>) => {
   const {
     $isHorizontal,
     theme: { space }
@@ -40,7 +40,7 @@ const sizeStyles = (props: IStyledDraggableListProps) => {
 /**
  * 1. <ul> reset.
  */
-export const StyledDraggableList = styled.ul<IStyledDraggableListProps & IStyledBaseProps>`
+export const StyledDraggableList = styled.ul<WithTheme<IStyledDraggableListProps>>`
   display: flex;
   flex-direction: ${p => (p.$isHorizontal ? 'row' : 'column')};
   margin: 0; /* [1] */

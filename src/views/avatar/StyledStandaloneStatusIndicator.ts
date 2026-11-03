@@ -8,12 +8,13 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledStatusIndicatorBase } from './StyledStatusIndicatorBase';
 import { getStatusSize, IStyledStatusIndicatorProps } from './utility';
 
-export const StyledStandaloneStatusIndicator = styled(
-  StyledStatusIndicatorBase
-)<IStyledStatusIndicatorProps>`
+export const StyledStandaloneStatusIndicator = styled(StyledStatusIndicatorBase)<
+  WithTheme<IStyledStatusIndicatorProps>
+>`
   position: relative;
   box-sizing: content-box;
   margin-top: ${props => {

@@ -9,12 +9,12 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import menuStyles from '../../theming/utils/menuStyles';
-import type { IStyledFloatingListboxProps } from '../../types/views';
+import type { IStyledFloatingListboxProps, WithTheme } from '../../types/views';
 
 /*
  * 1. Expected to use https://floating-ui.com/docs/misc#subpixel-and-accelerated-positioning
  */
-export const StyledFloatingListbox = styled.div<IStyledFloatingListboxProps>`
+export const StyledFloatingListbox = styled.div<WithTheme<IStyledFloatingListboxProps>>`
   top: 0; /* [1] */
   left: 0; /* [1] */
 

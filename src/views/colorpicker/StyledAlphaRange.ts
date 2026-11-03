@@ -8,11 +8,11 @@
 import { styled } from 'styled-components';
 
 import { getCheckeredBackground } from '../../theming/utils/getCheckeredBackground';
-import type { IStyledBaseProps, IStyledRangeProps } from '../../types/views';
+import type { IStyledRangeProps, WithTheme } from '../../types/views';
 import { getTrackHeight, getTrackMargin, StyledRange } from './StyledRange';
 import { IRGBColorProps } from './types';
 
-export const background = (props: IRGBColorProps & IStyledBaseProps) => {
+export const background = (props: WithTheme<IRGBColorProps>) => {
   const direction = `to ${props.theme.rtl ? 'left' : 'right'}`;
   const fromColor = `rgba(${props.$red}, ${props.$green}, ${props.$blue}, 0)`;
   const toColor = `rgb(${props.$red}, ${props.$green}, ${props.$blue})`;

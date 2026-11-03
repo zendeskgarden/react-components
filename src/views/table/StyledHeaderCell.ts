@@ -9,7 +9,7 @@ import { math } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { getRowHeight } from './style-utils';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
@@ -23,7 +23,7 @@ const truncatedStyling = css`
   }
 `;
 
-const sizeStyles = (props: IStyledCellProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledCellProps>) => {
   let paddingVertical = undefined;
 
   if (!props.$hasOverflow) {
@@ -36,7 +36,7 @@ const sizeStyles = (props: IStyledCellProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledHeaderCell = styled(StyledCell)`
+export const StyledHeaderCell = styled(StyledCell)<WithTheme>`
   text-align: ${props => {
     if (!props.$hasOverflow) {
       if (props.theme.rtl) {

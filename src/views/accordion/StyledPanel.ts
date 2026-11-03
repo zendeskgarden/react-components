@@ -10,7 +10,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledPanel {
   $isBare?: boolean;
@@ -19,7 +19,7 @@ interface IStyledPanel {
   $isAnimated?: boolean;
 }
 
-const colorStyles = ({ theme, $isBare }: IStyledPanel & IStyledBaseProps) => {
+const colorStyles = ({ theme, $isBare }: WithTheme<IStyledPanel>) => {
   return css`
     border-bottom-color: ${
       $isBare ? 'transparent' : getColor({ theme, variable: 'border.default' })
@@ -27,7 +27,7 @@ const colorStyles = ({ theme, $isBare }: IStyledPanel & IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledPanel & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledPanel>) => {
   const { theme, $isCompact, $isExpanded } = props;
   const { base } = theme.space;
   let paddingTop = base * 2;
@@ -54,7 +54,7 @@ const sizeStyles = (props: IStyledPanel & IStyledBaseProps) => {
   `;
 };
 
-export const StyledPanel = styled.section<IStyledPanel>`
+export const StyledPanel = styled.section<WithTheme<IStyledPanel>>`
   display: grid;
   transition: ${props =>
     /* attrs cannot provide this fallback: styled-components >= 6.3.12 preserves

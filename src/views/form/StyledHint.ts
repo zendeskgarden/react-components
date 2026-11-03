@@ -10,8 +10,9 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-export const StyledHint = styled.div`
+export const StyledHint = styled.div<WithTheme>`
   direction: ${props => props.theme.rtl && 'rtl'};
   display: block;
   vertical-align: middle; /* support hint inline with input layout */

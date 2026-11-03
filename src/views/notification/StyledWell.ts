@@ -9,10 +9,10 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledWellProps } from '../../types/views';
+import type { IStyledWellProps, WithTheme } from '../../types/views';
 import { StyledBase } from './StyledBase';
 
-const colorStyles = ({ theme, $isFloating, $isRecessed }: IStyledWellProps) => {
+const colorStyles = ({ theme, $isFloating, $isRecessed }: WithTheme<IStyledWellProps>) => {
   let backgroundVariable;
 
   if ($isRecessed) {
@@ -35,7 +35,7 @@ const colorStyles = ({ theme, $isFloating, $isRecessed }: IStyledWellProps) => {
 /**
  * Supports all `<div>` props
  */
-export const StyledWell = styled(StyledBase)<IStyledWellProps>`
+export const StyledWell = styled(StyledBase)<WithTheme<IStyledWellProps>>`
   ${colorStyles}
 
   ${componentStyles};

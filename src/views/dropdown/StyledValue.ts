@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 import { sizeStyles } from './StyledInput';
 
-interface IStyledValueProps extends ThemeProps<DefaultTheme> {
+interface IStyledValueProps {
   $isAutocomplete?: boolean;
   $isBare?: boolean;
   $isCompact?: boolean;
@@ -21,7 +22,7 @@ interface IStyledValueProps extends ThemeProps<DefaultTheme> {
   $isPlaceholder?: boolean;
 }
 
-const colorStyles = ({ theme, $isPlaceholder }: IStyledValueProps) => {
+const colorStyles = ({ theme, $isPlaceholder }: WithTheme<IStyledValueProps>) => {
   const foregroundColor = $isPlaceholder && getColor({ theme, variable: 'foreground.disabled' });
 
   return css`
@@ -29,7 +30,7 @@ const colorStyles = ({ theme, $isPlaceholder }: IStyledValueProps) => {
   `;
 };
 
-export const StyledValue = styled.div<IStyledValueProps>`
+export const StyledValue = styled.div<WithTheme<IStyledValueProps>>`
   flex-basis: 0;
   flex-grow: 1;
   cursor: ${props => {

@@ -10,13 +10,13 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { IButtonProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { IStyledButtonProps, StyledButton, getHeight } from './StyledButton';
 import { StyledIcon } from './StyledIcon';
 
 export const COMPONENT_ID = 'buttons.icon_button';
 
-const colorStyles = ({ theme, $isBasic, $isDanger }: IStyledButtonProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $isBasic, $isDanger }: WithTheme<IStyledButtonProps>) => {
   const offset100 = { dark: { offset: -100 }, light: { offset: 100 } };
   const offset200 = { dark: { offset: -200 }, light: { offset: 200 } };
   let borderColor;
@@ -113,7 +113,7 @@ const iconColorStyles = () => css`
  *    button takes the disabled fill; a basic one stays transparent. The
  *    border stays transparent.
  */
-const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
+const iconButtonStyles = (props: WithTheme<IStyledButtonProps>) => {
   const width = getHeight(props);
   const disabledBackgroundColor = props.$isBasic
     ? 'transparent'
@@ -150,7 +150,7 @@ const iconButtonStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
 /**
  * 1. Ease opacity transition between embedded icons (i.e. stroke-fill).
  */
-const iconStyles = (props: IButtonProps & IStyledBaseProps) => {
+const iconStyles = (props: WithTheme<IButtonProps>) => {
   const size = props.theme.space.md;
 
   return css`
@@ -163,7 +163,7 @@ const iconStyles = (props: IButtonProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledIconButton = styled(StyledButton)`
+export const StyledIconButton = styled(StyledButton)<WithTheme>`
   ${iconButtonStyles};
 
   & ${StyledIcon} {

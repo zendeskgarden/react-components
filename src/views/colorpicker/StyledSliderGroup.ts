@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledSliderGroup = styled.div`
+export const StyledSliderGroup = styled.div<WithTheme>`
   display: flex;
   justify-content: space-between;
   margin-bottom: ${props => props.theme.space.base * 2}px;

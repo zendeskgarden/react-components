@@ -11,12 +11,12 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps, IStyledRadioInputProps } from '../../types/views';
+import type { IStyledRadioInputProps, WithTheme } from '../../types/views';
 import { StyledHint } from './StyledHint';
 import { StyledMessage } from './StyledMessage';
 import { StyledRadioLabel } from './StyledRadioLabel';
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const borderColor = getColor({ theme, variable: 'border.emphasis' });
   const backgroundColor = getColor({ theme, variable: 'background.default' });
   const iconColor = getColor({ theme, variable: 'foreground.onEmphasis' });
@@ -108,7 +108,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps) => {
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledRadioInputProps>) => {
   const lineHeight = `${theme.space.base * 5}px`; /* from StyledLabel */
   const size = `${theme.space.base * 4}px`;
   const top = math(`(${lineHeight} - ${size}) / 2`);
@@ -148,7 +148,7 @@ const sizeStyles = ({ theme, $isCompact }: IStyledRadioInputProps) => {
   `;
 };
 
-export const StyledRadioInput = styled.input<IStyledRadioInputProps>`
+export const StyledRadioInput = styled.input<WithTheme<IStyledRadioInputProps>>`
   /* hide <input> but retain accessiblity */
   position: absolute;
   opacity: 0;

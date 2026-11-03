@@ -8,13 +8,14 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. <button> element reset
  * 2. text content reset
  */
 
-export const StyledClose = styled.button`
+export const StyledClose = styled.button<WithTheme>`
   display: flex;
   flex-shrink: 0;
   align-items: center;

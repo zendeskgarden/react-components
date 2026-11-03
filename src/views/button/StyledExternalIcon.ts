@@ -9,11 +9,12 @@ import ExternalLinkIcon from '@zendeskgarden/svg-icons/src/external-link.svg';
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Accepts all `<svg>` props
  */
-export const StyledExternalIcon = styled(ExternalLinkIcon)`
+export const StyledExternalIcon = styled(ExternalLinkIcon)<WithTheme>`
   transform: ${props => props.theme.rtl && 'scaleX(-1)'};
   margin-bottom: -0.085em;
   padding-left: 0.25em;

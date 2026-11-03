@@ -8,9 +8,10 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledPage } from './StyledPage';
 
-export const StyledNavigation = styled(StyledPage)`
+export const StyledNavigation = styled(StyledPage)<WithTheme>`
   display: flex;
   align-items: center;
   justify-content: center;

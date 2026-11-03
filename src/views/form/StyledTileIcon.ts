@@ -10,14 +10,14 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledTile } from './StyledTile';
 
 interface IStyledTileIconProps {
   $isCentered?: boolean;
 }
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   const color = getColor({ theme, variable: 'foreground.subtle' });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
 
@@ -30,7 +30,7 @@ const colorStyles = ({ theme }: IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isCentered }: WithTheme<IStyledTileIconProps>) => {
   const iconSize = math(`${theme.iconSizes.md} * 2`);
   let layout;
 
@@ -54,7 +54,7 @@ const sizeStyles = ({ theme, $isCentered }: IStyledTileIconProps & IStyledBasePr
   `;
 };
 
-export const StyledTileIcon = styled.span<IStyledTileIconProps>`
+export const StyledTileIcon = styled.span<WithTheme<IStyledTileIconProps>>`
   display: block;
   transition: color 0.25s ease-in-out;
   text-align: center;

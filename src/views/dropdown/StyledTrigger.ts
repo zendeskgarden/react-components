@@ -6,15 +6,16 @@
  */
 
 import { math } from 'polished';
-import { styled, ThemeProps, DefaultTheme, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ComboboxValidation } from '../../types/elements';
+import type { WithTheme } from '../../types/views';
 import { getHeight as getInputHeight } from './StyledInput';
 
-interface IStyledTriggerProps extends ThemeProps<DefaultTheme> {
+interface IStyledTriggerProps {
   $isAutocomplete?: boolean;
   $isBare?: boolean;
   $isCompact?: boolean;
@@ -32,7 +33,7 @@ const colorStyles = ({
   $isBare,
   $isLabelHovered,
   $focusInset
-}: IStyledTriggerProps) => {
+}: WithTheme<IStyledTriggerProps>) => {
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
   const backgroundColor = $isBare
     ? 'transparent'
@@ -103,7 +104,7 @@ const colorStyles = ({
   `;
 };
 
-const sizeStyles = (props: IStyledTriggerProps) => {
+const sizeStyles = (props: WithTheme<IStyledTriggerProps>) => {
   const inputHeight = getInputHeight(props);
   let minHeight;
   let horizontalPadding;
@@ -134,7 +135,7 @@ const sizeStyles = (props: IStyledTriggerProps) => {
   `;
 };
 
-export const StyledTrigger = styled.div<IStyledTriggerProps>`
+export const StyledTrigger = styled.div<WithTheme<IStyledTriggerProps>>`
   overflow-y: ${props => (props.$isBare && !props.$isMultiselectable ? 'visible' : 'auto')};
   /* prettier-ignore */
   transition:

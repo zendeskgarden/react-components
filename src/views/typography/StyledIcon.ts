@@ -9,13 +9,13 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledIconProps {
   $isStart?: boolean;
 }
 
-const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledIconProps>) => {
   const margin = props.$isStart && `${props.theme.space.base * 2}px`;
   const size = props.theme.iconSizes.md;
 
@@ -26,7 +26,7 @@ const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
   `;
 };
 
-export const StyledIcon = styled(StyledBaseIcon)<IStyledIconProps>`
+export const StyledIcon = styled(StyledBaseIcon)<WithTheme<IStyledIconProps>>`
   position: relative;
   top: -1px;
   vertical-align: middle;

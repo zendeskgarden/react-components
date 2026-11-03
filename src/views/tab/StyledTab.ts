@@ -11,14 +11,14 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledTabProps {
   $isSelected?: boolean;
   $isVertical?: boolean;
 }
 
-const colorStyles = ({ theme, $isSelected }: IStyledTabProps & IStyledBaseProps) => {
+const colorStyles = ({ theme, $isSelected }: WithTheme<IStyledTabProps>) => {
   const borderColor = $isSelected
     ? getColor({ theme, variable: 'border.primaryEmphasis' })
     : 'transparent';
@@ -55,7 +55,7 @@ const colorStyles = ({ theme, $isSelected }: IStyledTabProps & IStyledBaseProps)
   `;
 };
 
-const sizeStyles = ({ theme, $isVertical }: IStyledTabProps & IStyledBaseProps) => {
+const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabProps>) => {
   const borderWidth = theme.borderWidths.md;
   const focusHeight = `calc(100% - ${theme.space.base * ($isVertical ? 2 : 4)}px);`;
   let marginBottom;
@@ -96,7 +96,7 @@ const sizeStyles = ({ theme, $isVertical }: IStyledTabProps & IStyledBaseProps) 
  * 2. Overflow compensation.
  * 3. Override default anchor styling
  */
-export const StyledTab = styled.div<IStyledTabProps>`
+export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
   display: ${props => (props.$isVertical ? 'block' : 'inline-block')};
   position: relative;
   transition: color 0.25s ease-in-out;

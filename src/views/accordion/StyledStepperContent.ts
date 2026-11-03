@@ -8,13 +8,13 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledContent {
   $isActive?: boolean;
 }
 
-const sizeStyles = (props: IStyledContent & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledContent>) => {
   const { rtl, space } = props.theme;
   const paddingBottom = props.$isActive ? space.base * 8 : space.base * 6;
   const paddingRight = rtl ? space.base * 6 : space.base * 5;
@@ -31,7 +31,7 @@ const sizeStyles = (props: IStyledContent & IStyledBaseProps) => {
   `;
 };
 
-export const StyledContent = styled.div<IStyledContent>`
+export const StyledContent = styled.div<WithTheme<IStyledContent>>`
   display: grid;
   grid-template-rows: ${props => (props.$isActive ? 1 : 0)}fr;
   transition: grid-template-rows 0.25s ease-in-out;

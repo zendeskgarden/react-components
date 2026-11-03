@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledSheetFooterItem = styled.div`
+export const StyledSheetFooterItem = styled.div<WithTheme>`
   ${props => `margin-${props.theme.rtl ? 'right' : 'left'}: ${props.theme.space.base * 5}px;`}
 
   ${componentStyles};

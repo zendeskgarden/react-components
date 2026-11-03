@@ -5,12 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, DefaultTheme, ThemeProps, css } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import type { WithTheme } from '../../types/views';
 
-interface IStyledDayProps extends ThemeProps<DefaultTheme> {
+interface IStyledDayProps {
   $isPreviousMonth?: boolean;
   $isToday?: boolean;
   $isCompact: boolean;
@@ -26,7 +27,12 @@ const sizeStyles = () => {
   `;
 };
 
-const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDayProps) => {
+const colorStyles = ({
+  $isToday,
+  $isPreviousMonth,
+  theme,
+  ...props
+}: WithTheme<IStyledDayProps>) => {
   const isSelected = props['aria-selected'];
   const isDisabled = props['aria-disabled'];
 
@@ -88,7 +94,7 @@ const colorStyles = ({ $isToday, $isPreviousMonth, theme, ...props }: IStyledDay
   `;
 };
 
-export const StyledDay = styled.div<IStyledDayProps>`
+export const StyledDay = styled.div<WithTheme<IStyledDayProps>>`
   display: flex;
   position: absolute;
   align-items: center;

@@ -10,8 +10,9 @@ import { styled } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
+import type { WithTheme } from '../../types/views';
 
-export const StyledTooltipDialogBody = styled.div`
+export const StyledTooltipDialogBody = styled.div<WithTheme>`
   display: block;
   margin: 0;
   padding-top: ${props => props.theme.space.xs};

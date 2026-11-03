@@ -7,13 +7,13 @@
 
 import { styled, css } from 'styled-components';
 
-import type { IStyledListboxProps } from '../../types/views';
+import type { IStyledListboxProps, WithTheme } from '../../types/views';
 import { StyledListboxSeparator } from './StyledListboxSeparator';
 import { StyledOptGroup } from './StyledOptGroup';
 import { StyledOption, getMinHeight as getOptionMinHeight } from './StyledOption';
 import { StyledOptionContent } from './StyledOptionContent';
 
-const sizeStyles = (props: IStyledListboxProps) => {
+const sizeStyles = (props: WithTheme<IStyledListboxProps>) => {
   const padding = props.theme.space.base;
   const $minHeight =
     props.$minHeight === undefined
@@ -31,7 +31,7 @@ const sizeStyles = (props: IStyledListboxProps) => {
   `;
 };
 
-export const StyledListbox = styled.ul<IStyledListboxProps>`
+export const StyledListbox = styled.ul<WithTheme<IStyledListboxProps>>`
   overflow-y: auto;
   list-style-type: none;
 

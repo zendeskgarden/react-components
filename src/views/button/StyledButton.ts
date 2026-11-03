@@ -15,7 +15,7 @@ import { getColor } from '../../theming/utils/getColor';
 import { getFocusBoxShadow } from '../../theming/utils/getFocusBoxShadow';
 import { getIconRenderSize } from '../../theming/utils/getIconRenderSize';
 import { IButtonProps } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledIcon } from './StyledIcon';
 import { StyledSplitButton } from './StyledSplitButton';
 
@@ -38,7 +38,7 @@ export interface IStyledButtonProps extends ButtonHTMLAttributes<HTMLButtonEleme
  * Button corners are pill by default. Links get no resting radius: they render
  * with `overflow: hidden`, so any radius truncates the underline at the corners.
  */
-const getBorderRadius = (props: IStyledButtonProps & IStyledBaseProps) => {
+const getBorderRadius = (props: WithTheme<IStyledButtonProps>) => {
   if (props.$isLink) {
     return '0';
   } else if (props.$isPill === false) {
@@ -48,7 +48,7 @@ const getBorderRadius = (props: IStyledButtonProps & IStyledBaseProps) => {
   return props.theme.borderRadii.full;
 };
 
-export const getHeight = (props: IStyledButtonProps & IStyledBaseProps) => {
+export const getHeight = (props: WithTheme<IStyledButtonProps>) => {
   if (props.$size === 'small') {
     return `${props.theme.space.base * 8}px`;
   } else if (props.$size === 'large') {
@@ -82,7 +82,7 @@ const colorStyles = ({
   $isNeutral,
   $isPrimary,
   $focusInset
-}: IStyledButtonProps & IStyledBaseProps) => {
+}: WithTheme<IStyledButtonProps>) => {
   let retVal;
   const isNeutral = $isNeutral !== false; /* [9] */
   const disabledBackgroundColor = getColor({ theme, variable: 'background.disabled' });
@@ -378,7 +378,7 @@ const groupStyles = ({
   $isBasic,
   $isPill,
   $focusInset
-}: IStyledButtonProps & IStyledBaseProps) => {
+}: WithTheme<IStyledButtonProps>) => {
   const { rtl, borderWidths, borders } = theme;
   const startPosition = rtl ? 'right' : 'left';
   const endPosition = rtl ? 'left' : 'right';
@@ -460,7 +460,7 @@ const groupStyles = ({
   `;
 };
 
-const iconStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
+const iconStyles = (props: WithTheme<IStyledButtonProps>) => {
   const $size = props.$size === 'small' ? props.theme.iconSizes.sm : props.theme.iconSizes.md;
   const renderSize = getIconRenderSize(props.theme, props.$size === 'small');
 
@@ -472,7 +472,7 @@ const iconStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledButtonProps>) => {
   let retVal;
 
   if (props.$isLink) {
@@ -521,7 +521,7 @@ const sizeStyles = (props: IStyledButtonProps & IStyledBaseProps) => {
  * attrs fallback would be discarded by styled-components >= 6.3.12 when a
  * caller explicitly passes `type={undefined}`
  */
-export const StyledButton = styled.button<IStyledButtonProps>`
+export const StyledButton = styled.button<WithTheme<IStyledButtonProps>>`
   display: ${props => (props.$isLink ? 'inline' : 'inline-flex')};
   align-items: ${props => !props.$isLink && 'center'};
   justify-content: ${props => !props.$isLink && 'center'};

@@ -9,14 +9,14 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledIconProps {
   $isRotated?: boolean;
   $position?: 'start' | 'end';
 }
 
-const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme<IStyledIconProps>) => {
   let marginProperty;
 
   if (props.$position === 'start') {
@@ -33,7 +33,7 @@ const sizeStyles = (props: IStyledIconProps & IStyledBaseProps) => {
   );
 };
 
-export const StyledIcon = styled(StyledBaseIcon)<IStyledIconProps>`
+export const StyledIcon = styled(StyledBaseIcon)<WithTheme<IStyledIconProps>>`
   transform: ${props => props.$isRotated && `rotate(${props.theme.rtl ? '-' : '+'}180deg)`};
   transition:
     transform 0.25s ease-in-out,

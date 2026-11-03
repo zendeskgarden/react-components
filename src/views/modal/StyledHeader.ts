@@ -10,10 +10,10 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledHeaderProps } from '../../types/views';
+import type { IStyledHeaderProps, WithTheme } from '../../types/views';
 import { BASE_MULTIPLIERS } from './StyledClose';
 
-const colorStyles = ({ $isDanger, theme }: IStyledHeaderProps) => {
+const colorStyles = ({ $isDanger, theme }: WithTheme<IStyledHeaderProps>) => {
   const bottomBorderColor = getColor({ theme, variable: 'border.subtle' });
   const color = getColor({
     theme,
@@ -30,7 +30,7 @@ const colorStyles = ({ $isDanger, theme }: IStyledHeaderProps) => {
  * 1. the padding added to the Header is based on the close button size and spacing,
  *    with additional padding (+ 2) between the Header content and Close button
  */
-export const StyledHeader = styled.div<IStyledHeaderProps>`
+export const StyledHeader = styled.div<WithTheme<IStyledHeaderProps>>`
   display: block;
   position: ${props => props.$isDanger && 'relative'};
   margin: 0;

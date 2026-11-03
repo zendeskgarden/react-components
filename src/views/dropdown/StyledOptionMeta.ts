@@ -9,9 +9,9 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
-import type { IStyledOptionMetaProps } from '../../types/views';
+import type { IStyledOptionMetaProps, WithTheme } from '../../types/views';
 
-const colorStyles = ({ theme, $isDisabled }: IStyledOptionMetaProps) => {
+const colorStyles = ({ theme, $isDisabled }: WithTheme<IStyledOptionMetaProps>) => {
   const variable = $isDisabled ? 'foreground.disabled' : 'foreground.subtle';
   const color = getColor({ theme, variable });
 
@@ -20,7 +20,7 @@ const colorStyles = ({ theme, $isDisabled }: IStyledOptionMetaProps) => {
   `;
 };
 
-const sizeStyles = (props: IStyledOptionMetaProps) => {
+const sizeStyles = (props: WithTheme<IStyledOptionMetaProps>) => {
   const lineHeight = props.theme.lineHeights.sm;
   const fontSize = props.theme.fontSizes.sm;
 
@@ -30,7 +30,7 @@ const sizeStyles = (props: IStyledOptionMetaProps) => {
   `;
 };
 
-export const StyledOptionMeta = styled.div<IStyledOptionMetaProps>`
+export const StyledOptionMeta = styled.div<WithTheme<IStyledOptionMetaProps>>`
   transition: color 0.25s ease-in-out;
   font-weight: ${props => props.theme.fontWeights.regular};
 

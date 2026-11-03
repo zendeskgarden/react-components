@@ -5,21 +5,21 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, css, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
 import { Type } from '../../types/elements';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { validationTypes } from '../../utils/notification/icons';
 
-export interface IStyledNotificationBaseProps extends ThemeProps<DefaultTheme> {
+export interface IStyledNotificationBaseProps {
   $isFloating?: boolean;
   $type?: Type;
 }
 
-const colorStyles = ({ theme, $type, $isFloating }: IStyledNotificationBaseProps) => {
+const colorStyles = ({ theme, $type, $isFloating }: WithTheme<IStyledNotificationBaseProps>) => {
   const { space, shadows } = theme;
   let backgroundColor;
   let borderColor;
@@ -71,7 +71,7 @@ const colorStyles = ({ theme, $type, $isFloating }: IStyledNotificationBaseProps
   `;
 };
 
-const padding = (props: IStyledBaseProps) => {
+const padding = (props: WithTheme) => {
   const { space } = props.theme;
   const paddingVertical = `${space.base * 5}px`;
   const paddingHorizontal = `${space.base * 10}px`;
@@ -79,7 +79,7 @@ const padding = (props: IStyledBaseProps) => {
   return `${paddingVertical} ${paddingHorizontal}`;
 };
 
-export const StyledBase = styled.div<IStyledNotificationBaseProps>`
+export const StyledBase = styled.div<WithTheme<IStyledNotificationBaseProps>>`
   position: relative;
   border: ${props => props.theme.borders.sm};
   border-radius: ${props => props.theme.borderRadii.xl};

@@ -11,10 +11,10 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import getLineHeight from '../../theming/utils/getLineHeight';
-import type { IStyledBaseProps } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 import { StyledListItem } from './StyledListItem';
 
-const sizeStyles = (props: IStyledBaseProps) => {
+const sizeStyles = (props: WithTheme) => {
   const shift = 2;
   const fontSize = math(`${props.theme.fontSizes.md} + ${shift}`);
   const height = `${props.theme.space.base * 8}px`;
@@ -31,13 +31,13 @@ const sizeStyles = (props: IStyledBaseProps) => {
   `;
 };
 
-const colorStyles = ({ theme }: IStyledBaseProps) => {
+const colorStyles = ({ theme }: WithTheme) => {
   return css`
     color: ${getColor({ variable: 'foreground.subtle', theme })};
   `;
 };
 
-export const StyledGapListItem = styled(StyledListItem)`
+export const StyledGapListItem = styled(StyledListItem)<WithTheme>`
   display: inline-block;
   text-align: center;
 

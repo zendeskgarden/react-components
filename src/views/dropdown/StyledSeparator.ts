@@ -8,9 +8,10 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledListboxSeparator } from './StyledListboxSeparator';
 
-export const StyledSeparator = styled(StyledListboxSeparator)`
+export const StyledSeparator = styled(StyledListboxSeparator)<WithTheme>`
   margin: ${props => props.theme.space.xxs} ${props => props.theme.space.xs};
 
   ${componentStyles};

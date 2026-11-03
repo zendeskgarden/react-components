@@ -5,6 +5,6 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DefaultTheme } from 'styled-components';
+import type { IGardenTheme } from '../../theming/types';
 
-export const getHeaderHeight = (theme: DefaultTheme) => `${theme.space.base * 13}px`;
+export const getHeaderHeight = (theme: IGardenTheme) => `${theme.space.base * 13}px`;
