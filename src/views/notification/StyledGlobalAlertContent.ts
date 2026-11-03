@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledGlobalAlertContent = styled.div`
+export const StyledGlobalAlertContent = styled.div<WithTheme>`
   flex-grow: 1;
 
   ${componentStyles};

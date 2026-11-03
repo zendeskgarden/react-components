@@ -6,7 +6,6 @@
  */
 
 import { ChangeEventHandler } from 'react';
-import { DefaultTheme } from 'styled-components';
 
 import { Button, Field, Grid, ISheetProps, Sheet, Toggle } from '../../../src/index';
 import { ThemeProvider } from '../../../src/theming/elements/ThemeProvider';
@@ -92,12 +91,10 @@ export const SheetStory = ({
 }: IArgs) => (
   <>
     <ThemeProvider
-      theme={
-        ((parentTheme: DefaultTheme) => ({
-          ...parentTheme,
-          rtl: parentTheme.rtl ? args.placement === 'start' : args.placement !== 'start'
-        })) as unknown as IGardenTheme
-      }
+      theme={(parentTheme: IGardenTheme) => ({
+        ...parentTheme,
+        rtl: parentTheme.rtl ? args.placement === 'start' : args.placement !== 'start'
+      })}
     >
       <Field>
         <Toggle checked={args.isOpen} onChange={onChange}>

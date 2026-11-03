@@ -8,7 +8,8 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledAccordion = styled.div`
+export const StyledAccordion = styled.div<WithTheme>`
   ${componentStyles};
 `;

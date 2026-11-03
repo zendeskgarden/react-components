@@ -141,7 +141,7 @@ export const GetColorStory = ({
   transparency,
   variable
 }: IArgs) => {
-  const parentTheme = useTheme();
+  const parentTheme = useTheme() as IGardenTheme;
   const theme = {
     ...parentTheme,
     colors: { ..._theme.colors, base: parentTheme.colors.base },

@@ -9,11 +9,12 @@ import { styled } from 'styled-components';
 
 import { Field } from '../../elements/form/Field';
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. IE11 reset.
  */
-export const StyledHexField = styled(Field as unknown as 'div')`
+export const StyledHexField = styled(Field as unknown as 'div')<WithTheme>`
   display: flex;
   flex-basis: 0; /* [1] */
   flex-direction: column;

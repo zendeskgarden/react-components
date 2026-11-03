@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledInputGroup = styled.div`
+export const StyledInputGroup = styled.div<WithTheme>`
   display: flex;
   justify-content: space-between;
 

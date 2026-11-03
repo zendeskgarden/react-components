@@ -8,12 +8,13 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledLabel } from './StyledLabel';
 
 /**
  * 1. Reset for <legend>.
  */
-export const StyledLegend = styled(StyledLabel as 'legend')`
+export const StyledLegend = styled(StyledLabel as 'legend')<WithTheme>`
   padding: 0; /* [1] */
 
   ${componentStyles};

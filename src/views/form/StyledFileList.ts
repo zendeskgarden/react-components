@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. <ul> reset.
  */
-export const StyledFileList = styled.ul`
+export const StyledFileList = styled.ul<WithTheme>`
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */

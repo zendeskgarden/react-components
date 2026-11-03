@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledColorPickerProps {
   $isOpaque?: boolean;
@@ -17,7 +18,7 @@ export const getColorPickerWidth = (props: IStyledColorPickerProps) => {
   return props.$isOpaque ? 268 : 312;
 };
 
-export const StyledColorPicker = styled.div<IStyledColorPickerProps>`
+export const StyledColorPicker = styled.div<WithTheme<IStyledColorPickerProps>>`
   width: ${getColorPickerWidth}px;
   min-width: ${getColorPickerWidth}px;
 

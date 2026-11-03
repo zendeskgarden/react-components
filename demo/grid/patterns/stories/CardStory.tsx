@@ -8,14 +8,14 @@
 import { useTheme } from 'styled-components';
 import useResizeObserver from 'use-resize-observer';
 
-import { PaneProvider, Pane, MD, LG } from '../../../../src/index';
+import { PaneProvider, Pane, MD, LG, IGardenTheme } from '../../../../src/index';
 import { IColumns } from './types';
 
 const Row = ({ panes }: { panes: IColumns['panes'] }) => {
   const {
     rtl,
     space: { base }
-  } = useTheme();
+  } = useTheme() as IGardenTheme;
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
   const gap = base * 3;
 
@@ -79,7 +79,7 @@ export const CardStory = ({ columns }: { columns: IColumns[] }) => {
   const {
     rtl,
     space: { base }
-  } = useTheme();
+  } = useTheme() as IGardenTheme;
   const { ref, width = 1, height = 1 } = useResizeObserver<HTMLDivElement>();
   const gap = base * 3;
 

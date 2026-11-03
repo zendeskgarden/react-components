@@ -9,8 +9,9 @@ import { styled } from 'styled-components';
 
 import { TooltipDialog } from '../../elements/modal/TooltipDialog';
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledTooltipBody = styled(TooltipDialog.Body as unknown as 'div')`
+export const StyledTooltipBody = styled(TooltipDialog.Body as unknown as 'div')<WithTheme>`
   padding: 0;
 
   ${componentStyles};

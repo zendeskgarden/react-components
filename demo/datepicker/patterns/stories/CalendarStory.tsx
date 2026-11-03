@@ -8,14 +8,14 @@
 import { useRef } from 'react';
 import { styled } from 'styled-components';
 
-import { DatePicker, Field, Input, Paragraph } from '../../../../src/index';
+import { DatePicker, Field, IGardenTheme, Input, Paragraph } from '../../../../src/index';
 import { getColor } from '../../../../src/theming/utils/getColor';
 
 interface IArgs {
   appendToNode: boolean;
 }
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div<{ theme: IGardenTheme }>`
   position: relative;
   border: ${p => p.theme.borders.sm};
   border-radius: ${p => p.theme.borderRadii.md};

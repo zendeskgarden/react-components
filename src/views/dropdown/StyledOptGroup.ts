@@ -8,9 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import type { IStyledOptGroupProps } from '../../types/views';
+import type { IStyledOptGroupProps, WithTheme } from '../../types/views';
 
-export const StyledOptGroup = styled.ul<IStyledOptGroupProps>`
+export const StyledOptGroup = styled.ul<WithTheme<IStyledOptGroupProps>>`
   margin: 0;
   padding: 0;
   list-style-type: none;

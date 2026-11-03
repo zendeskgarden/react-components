@@ -5,13 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { RTL_THEME, render } from '../../test/render';
+import type { WithTheme } from '../../types/views';
 import { MenuPosition, MENU_POSITION } from '../types';
 import menuStyles from './menuStyles';
 
-interface IStyledMenuProps extends ThemeProps<DefaultTheme> {
+interface IStyledMenuProps {
   $menuPosition?: MenuPosition;
   $menuHidden?: boolean;
   $menuMargin?: string;
@@ -20,7 +21,7 @@ interface IStyledMenuProps extends ThemeProps<DefaultTheme> {
   $menuChildSelector?: string;
 }
 
-const StyledMenu = styled.div<IStyledMenuProps>`
+const StyledMenu = styled.div<WithTheme<IStyledMenuProps>>`
   ${props =>
     menuStyles(props.$menuPosition || 'top', {
       hidden: props.$menuHidden,

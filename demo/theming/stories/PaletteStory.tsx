@@ -11,17 +11,17 @@ import { styled } from 'styled-components';
 
 import { Grid, IGardenTheme, PALETTE, getColor, mediaQuery } from '../../../src/index';
 
-const StyledColorHex = styled.figcaption`
+const StyledColorHex = styled.figcaption<{ theme: IGardenTheme }>`
   margin-left: auto;
   font-size: ${p => p.theme.fontSizes.sm};
 `;
 
-const StyledColorPalette = styled.div`
+const StyledColorPalette = styled.div<{ theme: IGardenTheme }>`
   margin-top: ${p => p.theme.space.md};
   margin-bottom: ${p => p.theme.space.xl};
 `;
 
-const StyledColorSwatch = styled.figure<{ color: string }>`
+const StyledColorSwatch = styled.figure<{ color: string; theme: IGardenTheme }>`
   display: flex;
   align-items: center;
   margin: 0;
@@ -35,25 +35,25 @@ const StyledColorSwatch = styled.figure<{ color: string }>`
     )};
 `;
 
-const StyledColorTitle = styled.b`
+const StyledColorTitle = styled.b<{ theme: IGardenTheme }>`
   white-space: nowrap;
   font-size: ${p => p.theme.fontSizes.md};
   font-weight: ${p => p.theme.fontWeights.semibold};
 `;
 
-const StyledCol = styled(Grid.Col)`
+const StyledCol = styled(Grid.Col)<{ theme: IGardenTheme }>`
   ${p => mediaQuery('down', 'xs', p.theme)} {
     margin-top: ${p => p.theme.space.md};
   }
 `;
 
-const StyledRow = styled(Grid.Row)`
+const StyledRow = styled(Grid.Row)<{ theme: IGardenTheme }>`
   & + & {
     margin-top: ${p => p.theme.space.md};
   }
 `;
 
-const StyledList = styled.ul`
+const StyledList = styled.ul<{ theme: IGardenTheme }>`
   padding: 0;
   list-style: none;
 

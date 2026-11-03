@@ -32,11 +32,11 @@ import {
   useWindow
 } from '../../../src/index';
 
-const StyledGrid = styled(Grid)`
+const StyledGrid = styled(Grid)<{ theme: IGardenTheme }>`
   background-color: ${p => getColor({ theme: p.theme, variable: 'background.default' })};
 `;
 
-const StyledIconButton = styled(IconButton)`
+const StyledIconButton = styled(IconButton)<{ theme: IGardenTheme }>`
   position: absolute;
   right: ${p => p.theme.space.base * 3}px;
   bottom: ${p => p.theme.space.base}px;

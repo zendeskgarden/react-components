@@ -9,6 +9,7 @@ import { getValueAndUnit } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledLoadingPlaceholderProps {
   $fontSize: string | number;
@@ -37,7 +38,7 @@ const sizeStyles = ({
   `;
 };
 
-export const StyledLoadingPlaceholder = styled.div<IStyledLoadingPlaceholderProps>`
+export const StyledLoadingPlaceholder = styled.div<WithTheme<IStyledLoadingPlaceholderProps>>`
   display: inline-block;
 
   ${sizeStyles};

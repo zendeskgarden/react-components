@@ -124,13 +124,13 @@ export default function menuStyles(
    * 4. Prevent controlling item cursor inheritance.
    * 5. Prevent controlling item whitespace inheritance.
    */
-  return css`
+  return css<{ theme: IGardenTheme }>`
     position: absolute;
     z-index: ${options.zIndex || 0};
     ${marginProperty}: ${options.margin};
     line-height: 0;
     font-size: 0.01px; /* [1] */
-    color-scheme: only ${p => p.theme.colors.base};
+    color-scheme: only ${(p: { theme: IGardenTheme }) => p.theme.colors.base};
 
     & ${options.childSelector || '> *'} {
       display: inline-block;

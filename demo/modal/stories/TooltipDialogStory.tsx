@@ -13,6 +13,7 @@ import {
   Button,
   Grid,
   IconButton,
+  IGardenTheme,
   ITooltipDialogProps,
   TooltipDialog
 } from '../../../src/index';
@@ -57,7 +58,7 @@ export const TooltipDialogStory = ({
 }: IArgs) => {
   const refs = useRef<(HTMLElement | null | undefined)[]>([]);
   const current = refs.current.indexOf(args.referenceElement);
-  const theme = useTheme();
+  const theme = useTheme() as IGardenTheme;
   const isLast = current === refs.current.length - 1;
 
   // Using `aria-label={undefined}` when `hasTitle` is `true` appears to

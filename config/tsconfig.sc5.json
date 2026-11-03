@@ -6,6 +6,6 @@
     "tsBuildInfoFile": null,
     "types": ["node"]
   },
-  "include": ["../src", "./styled.d.ts", "./tsconfig.d.ts"],
+  "include": ["../src", "./tsconfig.d.ts"],
   "exclude": ["../src/**/*.test.*", "../src/**/*.spec.*"]
 }

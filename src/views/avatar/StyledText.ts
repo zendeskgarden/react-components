@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Accepts all `<span>` attributes
  */
-export const StyledText = styled.span`
+export const StyledText = styled.span<WithTheme>`
   overflow: hidden;
   text-align: center;
   white-space: nowrap;

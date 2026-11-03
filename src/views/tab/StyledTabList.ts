@@ -22,7 +22,7 @@ const colorStyles = ({ theme }: WithTheme) => {
 
   return css`
     transition: border-color 0.25s ease-in-out;
-    color-scheme: only ${p => p.theme.colors.base};
+    color-scheme: only ${theme.colors.base};
     border-bottom-color: ${borderColor};
     color: ${foregroundColor};
   `;

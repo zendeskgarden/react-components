@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Accessibly hidden checkbox with support for tooltip hover
  */
-export const StyledColorSwatchInput = styled.input`
+export const StyledColorSwatchInput = styled.input<WithTheme>`
   position: absolute;
   opacity: 0;
   z-index: 1;

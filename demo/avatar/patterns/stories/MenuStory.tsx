@@ -8,7 +8,7 @@
 import { useCallback, useState } from 'react';
 import { useTheme } from 'styled-components';
 
-import { Avatar, Grid, IAvatarProps, Item, Menu } from '../../../../src/index';
+import { Avatar, Grid, IAvatarProps, IGardenTheme, Item, Menu } from '../../../../src/index';
 import { getColor } from '../../../../src/theming/utils/getColor';
 
 const items: {
@@ -53,7 +53,7 @@ export const MenuStory = ({ isCompact }: IArgs) => {
     focusedValue !== undefined && setHighlightedValue(focusedValue);
   }, []);
 
-  const theme = useTheme();
+  const theme = useTheme() as IGardenTheme;
 
   return (
     <Grid>

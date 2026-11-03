@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. Override Bedrock CSS
  */
-export const StyledColorSwatch = styled.table`
+export const StyledColorSwatch = styled.table<WithTheme>`
   border-collapse: collapse;
   line-height: normal; /* [1] */
 

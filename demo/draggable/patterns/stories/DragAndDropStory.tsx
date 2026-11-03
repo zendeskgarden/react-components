@@ -28,6 +28,7 @@ import { arrayMove, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { styled, useTheme } from 'styled-components';
 
+import type { IGardenTheme } from '../../../../src/index';
 import { useDocument } from '../../../../src/theming/utils/useDocument';
 import { DraggableItem, DraggablesColumn, DroppablesColumn } from './components';
 import { IColumns } from './types';
@@ -66,7 +67,7 @@ export const DragAndDropStory = ({
   const [columns, setColumns] = useState<IColumns>(defaultColumns);
   const [isUsingKeyboard, setIsUsingKeyboard] = useState(false);
   const environment = useDocument();
-  const theme = useTheme();
+  const theme = useTheme() as IGardenTheme;
 
   // state fallback for cancelled drag
   const [snapshot, setSnapshot] = useState<IColumns | null>(null);

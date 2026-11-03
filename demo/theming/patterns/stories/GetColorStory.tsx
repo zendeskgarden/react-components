@@ -8,9 +8,18 @@
 import { useEffect, useState } from 'react';
 import { styled, useTheme } from 'styled-components';
 
-import { Button, Code, Dots, Grid, Paragraph, Span, getColor } from '../../../../src/index';
+import {
+  Button,
+  Code,
+  Dots,
+  Grid,
+  IGardenTheme,
+  Paragraph,
+  Span,
+  getColor
+} from '../../../../src/index';
 
-const StyledColor = styled.div`
+const StyledColor = styled.div<{ theme: IGardenTheme }>`
   display: inline-block;
   border-radius: ${p => p.theme.borderRadii.md};
   width: 100px;
@@ -18,7 +27,7 @@ const StyledColor = styled.div`
 `;
 
 export const GetColorStory = () => {
-  const theme = useTheme();
+  const theme = useTheme() as IGardenTheme;
   const [initialColor, setInitialColor] = useState(
     getColor({ theme, variable: 'foreground.default' })
   );

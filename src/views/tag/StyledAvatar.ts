@@ -9,8 +9,9 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { WithTheme } from '../../types/views';
 
-export const StyledAvatar = styled(StyledBaseIcon)`
+export const StyledAvatar = styled(StyledBaseIcon)<WithTheme>`
   flex-shrink: 0;
   font-size: 0; /* text content reset */
 
