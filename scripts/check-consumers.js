@@ -52,6 +52,13 @@ const ROWS = [
     styledComponents: '6.0.8'
   },
   {
+    name: 'r17-sc6',
+    react: '17.0.2',
+    typesReact: '17.0.93',
+    typesReactDom: '17.0.26',
+    styledComponents: '6.6.0'
+  },
+  {
     name: 'r19-sc6',
     react: '19.3.1',
     typesReact: '19.3.0',
