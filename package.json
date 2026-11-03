@@ -51,7 +51,7 @@
     "start": "storybook dev --config-dir config/storybook --no-version-updates -p 6006",
     "tag": "scripts/tag.js",
     "test": "vitest --config config/vitest.config.ts",
-    "typecheck": "tsc -b"
+    "typecheck": "tsc -b && tsc -p config/tsconfig.sc5.json"
   },
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.0",
@@ -107,6 +107,7 @@
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@types/react-transition-group": "4.4.12",
+    "@types/styled-components-5": "npm:@types/styled-components@5.1.36",
     "@vitest/coverage-v8": "4.1.12",
     "@vitest/ui": "4.1.12",
     "@zendeskgarden/eslint-config": "47.1.0",
