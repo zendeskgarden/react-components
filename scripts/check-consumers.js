@@ -14,9 +14,10 @@
  * project in a temp folder: it installs the tarball alongside React and styled-components,
  * then typechecks the `APP` source with TypeScript 4.9, 5.9 and 6.0 under `skipLibCheck:
  * false`, across `node10`, `node16`, `nodenext` and `bundler` module resolution in both ESM
- * and CJS. One line prints per run, with the error count split by origin. The script fails
- * only on errors inside `@zendeskgarden/react-components/dist`; errors in the app source or
- * in a dependency's own types are reported but allowed.
+ * and CJS. One line prints per run, with the error count split by origin. The script fails on
+ * errors inside `@zendeskgarden/react-components/dist` and on a run where `tsc` fails without
+ * file-attributed errors (a bad config or a crash); errors in the app source or in a
+ * dependency's own types are reported but allowed.
  */
 
 import { spawnSync } from 'node:child_process';
@@ -582,24 +583,40 @@ try {
         const lines = `${tsc.stdout}${tsc.stderr}`
           .split('\n')
           .filter(line => line.includes('error TS'));
-        const gardenLines = lines.filter(line => line.includes(`${NAME}/dist`));
+        /* Config and global errors have no file attribution: `error TS5023: ...` */
+        const unattributed = lines.filter(line => line.startsWith('error TS'));
+        const attributed = lines.filter(line => !line.startsWith('error TS'));
+        const gardenLines = attributed.filter(line => line.includes(`${NAME}/dist`));
         const garden = gardenLines.length;
-        const app = lines.filter(line => line.startsWith('app.tsx')).length;
+        const app = attributed.filter(line => line.startsWith('app.tsx')).length;
 
         runs++;
         log(
-          `${row.name.padEnd(10)} ${ts} ${resolution.padEnd(9)} ${kind.padEnd(4)} garden=${garden} app=${app} deps=${lines.length - garden - app}`
+          `${row.name.padEnd(10)} ${ts} ${resolution.padEnd(9)} ${kind.padEnd(4)} garden=${garden} app=${app} deps=${attributed.length - garden - app}`
         );
 
-        if (garden > 0) {
-          failures.push(`${row.name} ${ts} ${resolution} ${kind}:\n  ${gardenLines.join('\n  ')}`);
+        const problems = [...gardenLines, ...unattributed];
+
+        /* A `tsc` crash or config failure must not read as a pass */
+        if (tsc.status !== 0 && lines.length === 0) {
+          problems.push(
+            `tsc exited ${tsc.status} without reporting an error:\n  ${`${tsc.stdout}${tsc.stderr}`
+              .trim()
+              .split('\n')
+              .slice(-10)
+              .join('\n  ')}`
+          );
+        }
+
+        if (problems.length > 0) {
+          failures.push(`${row.name} ${ts} ${resolution} ${kind}:\n  ${problems.join('\n  ')}`);
         }
       }
     }
   }
 
   if (failures.length > 0) {
-    fail(`errors inside ${NAME}/dist:\n${failures.join('\n')}`);
+    fail(`consumer typecheck failures:\n${failures.join('\n')}`);
   }
 
   log(`consumers OK: ${runs} runs, no errors inside ${NAME}/dist`);
