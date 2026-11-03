@@ -9,9 +9,10 @@ import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { StyledBaseIcon } from '../../theming/utils/StyledBaseIcon';
+import type { WithTheme } from '../../types/views';
 import { StyledColorSwatchInput } from './StyledColorSwatchInput';
 
-export const StyledIcon = styled(StyledBaseIcon)`
+export const StyledIcon = styled(StyledBaseIcon)<WithTheme>`
   position: absolute;
   top: 0;
   left: 0;

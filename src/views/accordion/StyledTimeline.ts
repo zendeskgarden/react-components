@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * 1. <ol> reset.
  */
-export const StyledTimeline = styled.ol`
+export const StyledTimeline = styled.ol<WithTheme>`
   margin: 0; /* [1] */
   padding: 0; /* [1] */
   list-style: none; /* [1] */

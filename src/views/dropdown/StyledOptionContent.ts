@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledOptionContent = styled.div`
+export const StyledOptionContent = styled.div<WithTheme>`
   display: flex;
   flex-direction: column;
   flex-grow: 1;

@@ -8,9 +8,10 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledPanel } from './StyledPanel';
 
-export const StyledSection = styled.div`
+export const StyledSection = styled.div<WithTheme>`
   &:last-child ${StyledPanel} {
     border: none;
   }

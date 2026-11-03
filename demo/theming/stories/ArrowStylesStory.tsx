@@ -7,7 +7,7 @@
 
 import { styled } from 'styled-components';
 
-import { ArrowPosition, arrowStyles, getColor } from '../../../src/index';
+import { ArrowPosition, IGardenTheme, arrowStyles, getColor } from '../../../src/index';
 
 interface IArgs {
   position: ArrowPosition;
@@ -18,7 +18,7 @@ interface IArgs {
   inset: number;
 }
 
-const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'>>`
+const StyledDiv = styled.div<Omit<IArgs, 'isAnimated'> & { theme: IGardenTheme }>`
   border: ${p =>
     p.hasBorder &&
     `${p.theme.borders.sm} ${getColor({ theme: p.theme, variable: 'border.default' })}`};

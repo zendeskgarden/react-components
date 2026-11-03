@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledContent = styled.div`
+export const StyledContent = styled.div<WithTheme>`
   flex: 1;
   overflow-wrap: anywhere;
 

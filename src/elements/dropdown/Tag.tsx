@@ -6,13 +6,12 @@
  */
 
 import PropTypes from 'prop-types';
-import { HTMLAttributes, forwardRef, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { HTMLAttributes, forwardRef } from 'react';
 
 import { Tooltip } from '../../elements/tooltip/Tooltip';
 import { useComboboxContext } from '../../hooks/dropdown/useComboboxContext';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { IComboboxTagProps, ITagProps } from '../../types/elements';
 import { StyledTag } from '../../views/dropdown/StyledTag';
@@ -49,7 +48,7 @@ const TagComponent = forwardRef<HTMLDivElement, IComboboxTagProps>(
       option,
       'aria-label': ariaLabel!
     }) as HTMLAttributes<HTMLDivElement>;
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const doc = useDocument(theme);
     const handleClick = () => removeSelection(option.value);
     /*

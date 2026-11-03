@@ -8,7 +8,7 @@
 import { useTheme } from 'styled-components';
 import Icon from 'svg-icons-legacy/src/12/clock-stroke.svg';
 
-import { Span, Timeline, ITimelineProps } from '../../../src/index';
+import { Span, Timeline, ITimelineProps, IGardenTheme } from '../../../src/index';
 import { getColor } from '../../../src/theming/utils/getColor';
 import { ITimelineItem } from './types';
 
@@ -20,7 +20,7 @@ interface IArgs extends ITimelineProps {
 }
 
 export const TimelineStory = ({ items, surfaceColor, ...args }: IArgs) => {
-  const theme = useTheme();
+  const theme = useTheme() as IGardenTheme;
   const backgroundColor = surfaceColor?.includes('.')
     ? getColor({ theme, variable: surfaceColor })
     : surfaceColor;

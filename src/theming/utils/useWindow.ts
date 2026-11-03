@@ -6,9 +6,10 @@
  */
 
 import { useState, useEffect } from 'react';
-import { DefaultTheme } from 'styled-components';
 
-export const useWindow = (theme?: Partial<DefaultTheme>) => {
+import { IGardenTheme } from '../types';
+
+export const useWindow = (theme?: Partial<IGardenTheme>) => {
   const [controlledWindow, setControlledWindow] = useState<Window>();
 
   /**

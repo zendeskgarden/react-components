@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledCursorPagination = styled.nav`
+export const StyledCursorPagination = styled.nav<WithTheme>`
   display: flex;
   justify-content: center;
 

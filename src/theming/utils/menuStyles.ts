@@ -5,14 +5,14 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { css, DefaultTheme, keyframes } from 'styled-components';
+import { css, keyframes } from 'styled-components';
 
 import DEFAULT_THEME from '../elements/theme';
-import { GardenStyles, MenuPosition } from '../types';
+import { GardenStyles, IGardenTheme, MenuPosition } from '../types';
 import { getColor } from './getColor';
 
 type MenuOptions = {
-  theme?: DefaultTheme;
+  theme?: IGardenTheme;
   hidden?: boolean;
   margin?: string;
   zIndex?: number;
@@ -55,7 +55,7 @@ const animationStyles = (position: MenuPosition, options: MenuOptions) => {
   `;
 };
 
-const colorStyles = (theme: DefaultTheme) => {
+const colorStyles = (theme: IGardenTheme) => {
   const backgroundColor = getColor({ theme, variable: 'background.raised' });
   const borderColor = getColor({ theme, variable: 'border.default' });
   const boxShadowColor = getColor({ variable: 'shadow.medium', theme });
@@ -124,13 +124,13 @@ export default function menuStyles(
    * 4. Prevent controlling item cursor inheritance.
    * 5. Prevent controlling item whitespace inheritance.
    */
-  return css`
+  return css<{ theme: IGardenTheme }>`
     position: absolute;
     z-index: ${options.zIndex || 0};
     ${marginProperty}: ${options.margin};
     line-height: 0;
     font-size: 0.01px; /* [1] */
-    color-scheme: only ${p => p.theme.colors.base};
+    color-scheme: only ${(p: { theme: IGardenTheme }) => p.theme.colors.base};
 
     & ${options.childSelector || '> *'} {
       display: inline-block;

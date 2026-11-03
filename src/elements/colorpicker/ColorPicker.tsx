@@ -15,10 +15,9 @@ import {
   useRef,
   ChangeEvent
 } from 'react';
-import { useTheme } from 'styled-components';
 
 import { Field } from '../../elements/form/Field';
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IColor, IColorPickerProps, IHSVColor } from '../../types/elements';
 import {
   background as alphaBackground,
@@ -46,7 +45,7 @@ import { areColorsEqual, convertStringToColor, getInitialState, reducer } from '
  */
 export const ColorPicker = forwardRef<HTMLDivElement, IColorPickerProps>(
   ({ color, defaultColor = '#fff', isOpaque, labels = {}, autofocus, onChange, ...props }, ref) => {
-    const theme = useTheme() || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const [state, dispatch] = useReducer(reducer, getInitialState(color || defaultColor));
     const previousComputedColorRef = useRef<IColor>(state.color);
     const previousStateColorRef = useRef<IColor>(state.color);

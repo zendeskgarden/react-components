@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledOptionContent } from './StyledOptionContent';
 
-export const StyledItemContent = styled(StyledOptionContent)`
+export const StyledItemContent = styled(StyledOptionContent)<WithTheme>`
   ${componentStyles};
 `;

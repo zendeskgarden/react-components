@@ -8,7 +8,8 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledNav = styled.nav`
+export const StyledNav = styled.nav<WithTheme>`
   ${componentStyles};
 `;

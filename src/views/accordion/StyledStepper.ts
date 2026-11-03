@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 interface IStyledStepper {
   $isHorizontal?: boolean;
@@ -16,7 +17,7 @@ interface IStyledStepper {
 /**
  * 1. <ol> reset.
  */
-export const StyledStepper = styled.ol<IStyledStepper>`
+export const StyledStepper = styled.ol<WithTheme<IStyledStepper>>`
   display: ${props => props.$isHorizontal && 'flex'};
   margin: 0; /* [1] */
   padding: 0; /* [1] */

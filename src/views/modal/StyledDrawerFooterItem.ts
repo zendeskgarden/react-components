@@ -8,8 +8,9 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledFooterItem } from './StyledFooterItem';
 
-export const StyledDrawerFooterItem = styled(StyledFooterItem as 'span')`
+export const StyledDrawerFooterItem = styled(StyledFooterItem as 'span')<WithTheme>`
   ${componentStyles};
 `;

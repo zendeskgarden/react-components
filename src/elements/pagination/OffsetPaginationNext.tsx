@@ -7,10 +7,9 @@
 
 import ChevronLeftIcon from '@zendeskgarden/svg-icons/src/chevron-left.svg';
 import ChevronRightIcon from '@zendeskgarden/svg-icons/src/chevron-right.svg';
-import { ButtonHTMLAttributes, forwardRef, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { ButtonHTMLAttributes, forwardRef } from 'react';
 
-import DEFAULT_THEME from '../../theming/elements/theme';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { StyledNavigation } from '../../views/pagination/StyledNavigation';
 import { COMPONENT_IDS } from '../utils';
@@ -18,7 +17,7 @@ import { COMPONENT_IDS } from '../utils';
 const NextComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const ariaLabel = useText(NextComponent, props, 'aria-label', 'Next page');
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
 
     return (
       <StyledNavigation

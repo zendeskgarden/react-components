@@ -9,7 +9,7 @@ import { MouseEventHandler } from 'react';
 import { useTheme } from 'styled-components';
 import Icon from 'svg-icons-legacy/src/16/arrow-left-stroke.svg';
 
-import { Button, Drawer, IDrawerProps } from '../../../src/index';
+import { Button, Drawer, IDrawerProps, IGardenTheme } from '../../../src/index';
 import { IFooterItem } from './types';
 
 interface IArgs extends IDrawerProps {
@@ -41,7 +41,7 @@ export const DrawerStory = ({
   closeAriaLabel,
   ...args
 }: IArgs) => {
-  const theme = useTheme();
+  const theme = useTheme() as IGardenTheme;
 
   // Using `aria-label={undefined}` when `hasHeader` is `true` appears to
   // void the fallback value in Storybook, resulting in no rendered attribute

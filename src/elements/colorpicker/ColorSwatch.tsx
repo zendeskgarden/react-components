@@ -13,16 +13,14 @@ import {
   FocusEventHandler,
   InputHTMLAttributes,
   forwardRef,
-  useContext,
   useRef,
   useState
 } from 'react';
-import { ThemeContext } from 'styled-components';
 import CheckIcon from 'svg-icons-legacy/src/12/check-sm-fill.svg';
 
 import { Tooltip } from '../../elements/tooltip/Tooltip';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { useDocument } from '../../theming/utils/useDocument';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IColorSwatchProps, ILabeledColor } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { getBackground } from '../../views/colorpicker/StyledButtonPreview';
@@ -51,7 +49,7 @@ export const ColorSwatch = forwardRef<HTMLTableElement, IColorSwatchProps>(
     },
     ref
   ) => {
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const environment = useDocument(theme);
     const gridRef = useRef<HTMLTableElement>(null);
     const [rowIndex, setRowIndex] = useState(

@@ -8,11 +8,12 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
 /**
  * Accepts all `<p>` props
  */
-export const StyledParagraph = styled.p`
+export const StyledParagraph = styled.p<WithTheme>`
   margin: 0;
 
   ${componentStyles};

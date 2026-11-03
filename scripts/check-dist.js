@@ -77,6 +77,23 @@ const countStrayComments = files => {
   return total;
 };
 
+/* Names imported from styled-components in declarations: `import { a, type b }` and `import("styled-components").c` */
+const styledTypes = files =>
+  files.flatMap(file => {
+    const text = read(file);
+
+    return [
+      ...[
+        ...text.matchAll(/import (?:type )?\{(?<list>[^}]*)\} from "styled-components"/gu)
+      ].flatMap(({ groups }) =>
+        groups.list.split(',').map(item => item.trim().replace(/^type\s+/u, ''))
+      ),
+      ...[...text.matchAll(/import\("styled-components"\)\.(?<name>\w+)/gu)].map(
+        ({ groups }) => groups.name
+      )
+    ].filter(name => name && !['CSSObject', 'Interpolation'].includes(name));
+  });
+
 /* Names that a declaration file exports: `export { a, b as c }` and `export declare const d` */
 const exportedNames = text => {
   const names = new Set();
@@ -170,6 +187,11 @@ const checks = [
       /react\/jsx-runtime|["']prop-types["']|styled-components\/|\bThemeProviderProps\b|\bRuleSet\b|\bIStyledComponent(?:Base)?\b|\bFastOmit\b|\bStyledComponent\b/gu
     ),
     0
+  ],
+  [
+    'styled-components types that 5 or 6 does not export, in declarations',
+    styledTypes([...declarations, ...cjsDeclarations]).join(),
+    ''
   ],
   [
     'files without the license banner',

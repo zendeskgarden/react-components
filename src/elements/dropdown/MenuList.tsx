@@ -15,14 +15,13 @@ import {
   useFloating
 } from '@floating-ui/react-dom';
 import PropTypes from 'prop-types';
-import { forwardRef, useContext, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ThemeContext } from 'styled-components';
 
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { getArrowPosition } from '../../theming/utils/getArrowPosition';
 import { getFloatingPlacements } from '../../theming/utils/getFloatingPlacements';
 import { getMenuPosition } from '../../theming/utils/getMenuPosition';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { IMenuListProps, DROPDOWN_PLACEMENT } from '../../types/elements';
 import { StyledFloatingMenu } from '../../views/dropdown/StyledFloatingMenu';
 import { StyledMenu } from '../../views/dropdown/StyledMenu';
@@ -56,7 +55,7 @@ export const MenuList = forwardRef<HTMLUListElement, IMenuListProps>(
     const [isVisible, setIsVisible] = useState(isExpanded);
     const [height, setHeight] = useState<number>();
     /* istanbul ignore next */
-    const theme = useContext(ThemeContext) || DEFAULT_THEME;
+    const theme = useGardenTheme();
     const [floatingPlacement, fallbackPlacements] = getFloatingPlacements(
       theme,
       _placement === 'auto' ? PLACEMENT_DEFAULT : _placement!,

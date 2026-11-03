@@ -28,7 +28,7 @@ describe('ThemeProvider', () => {
     let light: IGardenTheme['colors']['variables']['light'] | undefined;
 
     const Test = () => {
-      const theme = useTheme();
+      const theme = useTheme() as IGardenTheme;
 
       dark = theme.colors.variables.dark;
       light = theme.colors.variables.light;
@@ -73,7 +73,7 @@ describe('ThemeProvider', () => {
     let theme: IGardenTheme | undefined;
 
     const Test = () => {
-      theme = useTheme();
+      theme = useTheme() as IGardenTheme;
 
       return <div />;
     };

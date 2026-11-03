@@ -11,6 +11,7 @@ import { styled } from 'styled-components';
 import {
   ArrowPosition,
   Grid,
+  IGardenTheme,
   MenuPosition,
   ToggleButton,
   arrowStyles,
@@ -55,7 +56,11 @@ const StyledMenu = styled.div<{ position: MenuPosition }>`
     })};
 `;
 
-const StyledWrapper = styled.div<{ position: MenuPosition; isHidden: boolean }>`
+const StyledWrapper = styled.div<{
+  position: MenuPosition;
+  isHidden: boolean;
+  theme: IGardenTheme;
+}>`
   ${props =>
     menuStyles(props.position, {
       theme: props.theme,

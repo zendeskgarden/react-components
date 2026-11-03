@@ -6,13 +6,14 @@
  */
 
 import { stripUnit } from 'polished';
-import { styled, ThemeProps, DefaultTheme } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { render } from '../../test/render';
+import type { WithTheme } from '../../types/views';
 import { ArrowPosition } from '../types';
 import arrowStyles from './arrowStyles';
 
-interface IStyledDivProps extends ThemeProps<DefaultTheme> {
+interface IStyledDivProps {
   $arrowPosition: ArrowPosition;
   $arrowSize?: string;
   $arrowInset?: string;
@@ -20,7 +21,7 @@ interface IStyledDivProps extends ThemeProps<DefaultTheme> {
   $arrowAnimationModifier?: string;
 }
 
-const StyledDiv = styled.div<IStyledDivProps>`
+const StyledDiv = styled.div<WithTheme<IStyledDivProps>>`
   ${props =>
     arrowStyles(props.$arrowPosition, {
       size: props.$arrowSize,

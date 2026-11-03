@@ -7,10 +7,10 @@
 
 import { styled } from 'styled-components';
 
-import { PaneProvider, IPaneProviderProps, Pane } from '../../../src/index';
+import { PaneProvider, IGardenTheme, IPaneProviderProps, Pane } from '../../../src/index';
 import { ISplitterPane } from './types';
 
-const StyledPanes = styled.div`
+const StyledPanes = styled.div<{ theme: IGardenTheme }>`
   display: grid;
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
 `;

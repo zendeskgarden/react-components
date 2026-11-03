@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { DefaultTheme } from 'styled-components';
+import type { IGardenTheme } from '../types';
 
 /**
  * CSS for component customizations based on `theme.components[componentId]`.
@@ -16,7 +16,7 @@ import { DefaultTheme } from 'styled-components';
  *
  * @returns component CSS styles
  */
-export const componentStyles = (props: { theme: DefaultTheme; componentId?: string }) => {
+export const componentStyles = (props: { theme: IGardenTheme; componentId?: string }) => {
   let retVal: string | undefined;
   const components = props.theme.components;
   const componentId =
@@ -26,7 +26,7 @@ export const componentStyles = (props: { theme: DefaultTheme; componentId?: stri
     retVal = components[componentId];
 
     if (typeof retVal === 'function') {
-      const fn = retVal as (p: { theme: DefaultTheme } & unknown) => string;
+      const fn = retVal as (p: { theme: IGardenTheme } & unknown) => string;
 
       retVal = fn(props);
     }

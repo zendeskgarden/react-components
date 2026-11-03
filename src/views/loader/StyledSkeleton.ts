@@ -79,7 +79,7 @@ const animationStyles = ({ theme }: WithTheme) => {
 };
 
 const gradientStyles = (props: WithTheme<IStyledSkeletonProps>) => {
-  return css`
+  return css<WithTheme<IStyledSkeletonProps>>`
     background-image: linear-gradient(
       ${props.theme.rtl ? '-45deg' : '45deg'},
       transparent,

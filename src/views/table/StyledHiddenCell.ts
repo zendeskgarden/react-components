@@ -9,8 +9,9 @@ import { hideVisually } from 'polished';
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 
-export const StyledHiddenCell = styled.div`
+export const StyledHiddenCell = styled.div<WithTheme>`
   ${hideVisually()}
 
   ${componentStyles};

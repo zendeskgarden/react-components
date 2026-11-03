@@ -8,13 +8,14 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
 import { StyledPanel } from './StyledPanel';
 
 interface IStyledInnerPanel {
   $isAnimated?: boolean;
 }
 
-export const StyledInnerPanel = styled.div<IStyledInnerPanel>`
+export const StyledInnerPanel = styled.div<WithTheme<IStyledInnerPanel>>`
   overflow: hidden;
   line-height: inherit;
   font-size: inherit;

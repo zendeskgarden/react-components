@@ -11,6 +11,7 @@ import { styled } from 'styled-components';
 import {
   Combobox,
   ComboboxField as Field,
+  IGardenTheme,
   Item,
   Menu,
   Option,
@@ -23,7 +24,7 @@ interface IArgs {
   menuAppendToNode: boolean;
 }
 
-export const StyledContainer = styled.div`
+export const StyledContainer = styled.div<{ theme: IGardenTheme }>`
   position: relative;
   border: ${p => p.theme.borders.sm};
   border-radius: ${p => p.theme.borderRadii.md};
