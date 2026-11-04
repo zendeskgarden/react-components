@@ -53,7 +53,7 @@ describe('Head', () => {
 
     expect(head).toHaveStyleRule('position', 'sticky');
     expect(head).toHaveStyleRule('top', '0');
-    expect(head).toHaveStyleRule('z-index', '1');
+    expect(head).toHaveStyleRule('z-index', '2');
   });
 
   it.each([

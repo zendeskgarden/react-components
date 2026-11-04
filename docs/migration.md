@@ -286,6 +286,9 @@ styles:
   background-colored box shadows on the header cells. The first and last header
   cells extend them 8px past the table edges, which shows when the table sits on
   a different background inside a wider scroll container.
+- With a sticky `Table.Head`, each `Table.GroupRow` sticks below the head
+  (`z-index: 1`) until the next group row reaches it. The head measures its
+  height, including wrapped header cells, and is `z-index: 2` instead of 1.
 - `Table.OverflowButton` has no top margin. The row centers it.
 
 #### Tag

@@ -37,7 +37,8 @@ const sizeStyles = ({ theme }: WithTheme) => {
 };
 
 /*
- * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header
+ * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header,
+ *    and stay above the group rows that stick below it
  * 2. Hide the rows that scroll under the gap and the rounded header corners. A
  *    backing layer inside the head would cover the header cells in Safari and
  *    Firefox, so the cells cast background-colored shadows instead.
@@ -55,7 +56,7 @@ const stickyStyles = ({ theme }: WithTheme) => {
   return css`
     position: sticky;
     top: 0;
-    z-index: 1; /* [1] */
+    z-index: 2; /* [1] */
 
     & > ${StyledHeaderRow} > ${StyledHeaderCell} {
       box-shadow: ${gapShadow}; /* [2] */
