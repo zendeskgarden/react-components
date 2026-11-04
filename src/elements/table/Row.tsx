@@ -11,7 +11,7 @@ import { useState, useMemo, forwardRef } from 'react';
 
 import { useTableContext } from '../../hooks/table/useTableContext';
 import { ITableRowProps } from '../../types/elements';
-import { StyledRow } from '../../views/table/StyledRow';
+import { SELECTED_ROW_ATTRIBUTE, StyledRow } from '../../views/table/StyledRow';
 import { COMPONENT_IDS } from '../utils';
 
 /**
@@ -67,6 +67,7 @@ export const Row = forwardRef<HTMLTableRowElement, ITableRowProps>(
         $isStriped={isStriped}
         $isSelected={isSelected}
         {...otherProps}
+        {...{ [SELECTED_ROW_ATTRIBUTE]: isSelected ? 'true' : undefined }}
         data-garden-id={COMPONENT_IDS['tables.row']}
         data-garden-version={PACKAGE_VERSION}
         tabIndex={isReadOnly ? undefined : -1}

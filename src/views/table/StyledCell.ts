@@ -64,7 +64,8 @@ export const StyledCell = styled.td<WithTheme<IStyledCellProps>>`
   display: table-cell;
   transition:
     border-color 0.25s ease-in-out,
-    box-shadow 0.1s ease-in-out;
+    box-shadow 0.1s ease-in-out,
+    background-color 0.1s ease-in-out;
 
   ${props => sizeStyling(props)};
   ${props => props.$isTruncated && truncatedStyling};

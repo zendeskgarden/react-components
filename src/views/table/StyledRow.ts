@@ -11,10 +11,13 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
-import { getRowHeight } from './style-utils';
+import { CELL_SELECTOR, getRoundedEndStyles, getRowHeight } from './style-utils';
 import { StyledBaseRow } from './StyledBaseRow';
-import { StyledCell } from './StyledCell';
+import { StyledGroupRow } from './StyledGroupRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
+
+/** Marks a selected row, so that adjacent selected rows can join. */
+export const SELECTED_ROW_ATTRIBUTE = 'data-garden-selected';
 
 export interface IStyledRowProps {
   $isStriped?: boolean;
@@ -30,7 +33,8 @@ const colorStyles = ({
   $isFocused,
   $isSelected,
   $isHovered,
-  $isReadOnly
+  $isReadOnly,
+  $isStriped
 }: WithTheme<IStyledRowProps>) => {
   const hoveredBackgroundColor = getColor({
     variable: 'background.primaryEmphasis',
@@ -52,8 +56,8 @@ const colorStyles = ({
   });
   const selectedBorderColor = getColor({
     variable: 'border.primaryEmphasis',
-    light: { offset: -400 },
-    dark: { offset: 300 },
+    transparency: theme.opacity[300],
+    dark: { offset: -100 },
     theme
   });
   const hoveredSelectedBackgroundColor = getColor({
@@ -62,12 +66,18 @@ const colorStyles = ({
     dark: { offset: -100 },
     theme
   });
-  const boxShadowColor = getColor({ variable: 'border.primaryEmphasis', theme });
-  const boxShadow = `inset ${theme.rtl ? '-' : ''}${theme.shadowWidths.md} 0 0 0 ${boxShadowColor}`;
-  let backgroundColor = undefined;
-  let borderColor = undefined;
-  let hoverBorderBottomColor = undefined;
+  const stripedBackgroundColor = getColor({
+    variable: 'background.subtle',
+    transparency: theme.opacity[100],
+    light: { offset: 300 },
+    dark: { offset: -600 },
+    theme
+  });
+  const indicatorColor = getColor({ variable: 'border.primaryEmphasis', theme });
+  let backgroundColor = $isStriped ? stripedBackgroundColor : undefined;
+  let borderColor = getColor({ variable: 'border.subtle', theme });
   let hoverBackgroundColor = undefined;
+  let hoverBorderColor = undefined;
 
   if ($isSelected) {
     if ($isHovered) {
@@ -77,23 +87,41 @@ const colorStyles = ({
     }
 
     borderColor = selectedBorderColor;
-    hoverBorderBottomColor = selectedBorderColor;
     hoverBackgroundColor = hoveredSelectedBackgroundColor;
   } else if ($isHovered) {
     backgroundColor = hoveredBackgroundColor;
     borderColor = hoveredBorderColor;
   } else if (!$isReadOnly) {
-    hoverBorderBottomColor = hoveredBorderColor;
     hoverBackgroundColor = hoveredBackgroundColor;
+    hoverBorderColor = hoveredBorderColor;
   }
 
   return css`
-    border-bottom-color: ${borderColor};
-    background-color: ${backgroundColor};
+    > ${CELL_SELECTOR} {
+      background-color: ${backgroundColor};
+    }
+
+    > :first-child::after {
+      border-bottom-color: ${borderColor};
+    }
+
+    > td:first-of-type::before {
+      background-color: ${indicatorColor};
+      content: ${$isFocused ? "''" : 'none'};
+    }
+
+    > td:first-of-type:focus::before {
+      content: '';
+    }
 
     &:hover {
-      border-bottom-color: ${hoverBorderBottomColor};
-      background-color: ${hoverBackgroundColor};
+      > ${CELL_SELECTOR} {
+        background-color: ${hoverBackgroundColor};
+      }
+
+      > :first-child::after {
+        border-bottom-color: ${hoverBorderColor};
+      }
 
       ${StyledOverflowButton} {
         opacity: 1;
@@ -103,20 +131,59 @@ const colorStyles = ({
     &:focus {
       outline: none;
     }
-
-    ${StyledCell}:first-of-type {
-      box-shadow: ${$isFocused && boxShadow};
-
-      &:focus {
-        box-shadow: ${boxShadow};
-      }
-    }
   `;
 };
 
+/*
+ * 1. The row, not the cell, is the containing block, so that popups inside a
+ *    cell keep their width. The pseudo-elements below are placed against it.
+ * 2. One bottom border for the row, inset from both rounded ends.
+ * 3. The focus indicator stays straight next to the rounded corners.
+ */
 const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
+  const { theme, $isSelected } = props;
+
   return css`
+    position: relative; /* [1] */
     height: ${getRowHeight(props)};
+
+    ${getRoundedEndStyles(props)}
+
+    > :first-child::after {
+      position: absolute;
+      bottom: 0;
+      border-bottom: ${theme.borders.sm};
+      content: '';
+      pointer-events: none;
+      inset-inline: ${theme.space.xs}; /* [2] */
+    }
+
+    &:has(+ ${StyledGroupRow}) > :first-child::after {
+      content: none;
+    }
+
+    > td:first-of-type::before {
+      position: absolute;
+      inset-block: 0 ${theme.borderWidths.sm};
+      inset-inline-start: 0;
+      width: ${theme.shadowWidths.md}; /* [3] */
+      pointer-events: none;
+    }
+
+    ${
+      $isSelected &&
+      css`
+      &:has(+ [${SELECTED_ROW_ATTRIBUTE}]) > ${CELL_SELECTOR} {
+        border-end-start-radius: 0;
+        border-end-end-radius: 0;
+      }
+
+      [${SELECTED_ROW_ATTRIBUTE}] + & > ${CELL_SELECTOR} {
+        border-start-start-radius: 0;
+        border-start-end-radius: 0;
+      }
+    `
+    }
   `;
 };
 

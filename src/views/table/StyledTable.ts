@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled } from 'styled-components';
+import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
@@ -17,13 +17,14 @@ export const getLineHeight = (props: WithTheme) => {
 
 /**
  * 1. <table> reset
+ * 2. Rounded cells require the separate border model.
  */
 export const StyledTable = styled.table<WithTheme>`
   display: table;
   border: none; /* [1] */
   width: 100%; /* [1] */
   table-layout: fixed; /* [1] */
-  border-collapse: collapse; /* [1] */
+  border-collapse: separate; /* [2] */
   border-spacing: 0; /* [1] */
   line-height: ${props => getLineHeight(props)};
   color: ${props => getColor({ variable: 'foreground.default', theme: props.theme })};

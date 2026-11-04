@@ -9,6 +9,8 @@ import { hideVisually } from 'polished';
 import { createRef } from 'react';
 
 import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
 import { Head } from './Head';
 import { HeaderCell } from './HeaderCell';
 import { HeaderRow } from './HeaderRow';
@@ -43,6 +45,30 @@ describe('HeaderCell', () => {
 
     expect(getByTestId('headerCell').nodeName).toBe('TH');
     expect(getByTestId('headerCell')).toHaveAttribute('data-garden-id', 'tables.header_cell');
+  });
+
+  it('renders a rounded subtle background', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head>
+          <HeaderRow>
+            <HeaderCell data-test-id="headerCell" />
+          </HeaderRow>
+        </Head>
+      </Table>
+    );
+    const headerCell = getByTestId('headerCell');
+
+    expect(headerCell).toHaveStyleRule(
+      'background-color',
+      getColor({ variable: 'background.subtle', theme: DEFAULT_THEME })
+    );
+    expect(headerCell).toHaveStyleRule('border-start-start-radius', DEFAULT_THEME.borderRadii.md, {
+      modifier: ':first-child'
+    });
+    expect(headerCell).toHaveStyleRule('border-end-end-radius', DEFAULT_THEME.borderRadii.md, {
+      modifier: ':last-child'
+    });
   });
 
   it('renders RTL styling', () => {

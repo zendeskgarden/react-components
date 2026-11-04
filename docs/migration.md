@@ -255,6 +255,39 @@ these components:
 - `MediaInput` sets `aria-invalid` from `validation`, as `Input` does. In v9 it
   always rendered `aria-invalid="false"`.
 
+#### Table
+
+`Table` has a new design with the same API. These CSS changes can affect custom
+styles:
+
+- The table uses `border-collapse: separate`. Rows paint no borders or
+  backgrounds: the hover, selected and striped colors are on the cells, which
+  have rounded ends. Borders and backgrounds that target `tr`, including
+  `theme.components` overrides for `tables.row`, `tables.header_row` and
+  `tables.group_row`, have no effect. Cell borders no longer collapse, so
+  adjacent cells show both borders.
+- A hovered, selected or striped row paints its color on every cell, `td` and
+  `th`, so it replaces a custom cell background in those states.
+- `Table.Row` is `position: relative`. Absolutely positioned content in a cell,
+  such as a `Menu`, `Tooltip` or `DatePicker` without `appendToNode`, is placed
+  against the row instead of an outer element.
+- The first cell of a row draws the row's bottom border with `::after`, and the
+  first `td` draws the focus indicator with `::before`. Custom `::before` and
+  `::after` styles on those cells conflict.
+- Cells are vertically centered. In v9, body cells aligned to the top and header
+  cells to the bottom, so in a row with wrapped text the other cells now center
+  instead of lining up with the first line.
+- `size="large"` rows are 48px tall instead of 64px. Header rows are 40px for
+  `small` and 48px for `medium` and `large` (72px for `large` in v9), with the
+  same vertical cell padding at every size.
+- The header has no bottom border. `Table.Head` renders a 4px gap below the
+  header rows with a `::after` row.
+- A sticky `Table.Head` hides the rows that scroll under it with
+  background-colored box shadows on the header cells. The first and last header
+  cells extend them 8px past the table edges, which shows when the table sits on
+  a different background inside a wider scroll container.
+- `Table.OverflowButton` has no top margin. The row centers it.
+
 #### Tag
 
 - `Tag` is **pill-shaped by default**. Pass `isPill={false}` for a square tag.

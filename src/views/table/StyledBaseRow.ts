@@ -5,40 +5,12 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { styled, css } from 'styled-components';
+import { styled } from 'styled-components';
 
-import { getColor } from '../../theming/utils/getColor';
-import type { IStyledBaseRowProps, WithTheme } from '../../types/views';
+import type { WithTheme } from '../../types/views';
 
-const sizeStyles = ({ theme }: WithTheme) => {
-  return css`
-    border-bottom: ${theme.borders.sm};
-    vertical-align: top;
-    box-sizing: border-box;
-  `;
-};
-
-const colorStyles = ({ theme, $isStriped }: WithTheme<IStyledBaseRowProps>) => {
-  const borderColor = getColor({ variable: 'border.subtle', theme });
-  const backgroundColor = getColor({
-    variable: 'background.subtle',
-    transparency: theme.opacity[100],
-    light: { offset: 300 },
-    dark: { offset: -600 },
-    theme
-  });
-
-  return css`
-    border-bottom-color: ${borderColor};
-    background-color: ${$isStriped && backgroundColor};
-  `;
-};
-
-export const StyledBaseRow = styled.tr<WithTheme<IStyledBaseRowProps>>`
+export const StyledBaseRow = styled.tr<WithTheme>`
   display: table-row;
-  transition: background-color 0.1s ease-in-out;
-
-  ${sizeStyles}
-
-  ${colorStyles}
+  box-sizing: border-box;
+  vertical-align: middle;
 `;

@@ -9,8 +9,9 @@ import { math } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { getColor } from '../../theming/utils/getColor';
 import type { WithTheme } from '../../types/views';
-import { getRowHeight } from './style-utils';
+import { getHeaderRowHeight } from './style-utils';
 import { StyledCell, IStyledCellProps } from './StyledCell';
 import { StyledSortableButton } from './StyledSortableButton';
 import { getLineHeight } from './StyledTable';
@@ -23,16 +24,38 @@ const truncatedStyling = css`
   }
 `;
 
+const colorStyles = ({ theme }: WithTheme) => {
+  return css`
+    background-color: ${getColor({ variable: 'background.subtle', theme })};
+  `;
+};
+
+/*
+ * 1. The same vertical padding at every table size, from the small header row height.
+ */
 const sizeStyles = (props: WithTheme<IStyledCellProps>) => {
+  const { theme } = props;
   let paddingVertical = undefined;
 
   if (!props.$hasOverflow) {
-    paddingVertical = math(`(${getRowHeight(props)} - ${getLineHeight(props)}) / 2`);
+    paddingVertical = math(
+      `(${getHeaderRowHeight({ theme, $size: 'small' })} - ${getLineHeight(props)}) / 2`
+    );
   }
 
   return css`
-    padding-top: ${paddingVertical};
-    padding-bottom: ${paddingVertical};
+    padding-top: ${paddingVertical}; /* [1] */
+    padding-bottom: ${paddingVertical}; /* [1] */
+
+    &:first-child {
+      border-start-start-radius: ${theme.borderRadii.md};
+      border-end-start-radius: ${theme.borderRadii.md};
+    }
+
+    &:last-child {
+      border-start-end-radius: ${theme.borderRadii.md};
+      border-end-end-radius: ${theme.borderRadii.md};
+    }
   `;
 };
 
@@ -53,6 +76,8 @@ export const StyledHeaderCell = styled(StyledCell)<WithTheme>`
   ${props => sizeStyles(props)}
 
   ${props => props.$isTruncated && truncatedStyling}
+
+  ${colorStyles}
 
   ${componentStyles};
 `;

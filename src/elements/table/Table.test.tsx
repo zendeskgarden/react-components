@@ -17,4 +17,11 @@ describe('Table', () => {
 
     expect(container.firstChild).toBe(ref.current);
   });
+
+  it('uses the separate border model', () => {
+    const { container } = render(<Table />);
+
+    expect(container.firstChild).toHaveStyleRule('border-collapse', 'separate');
+    expect(container.firstChild).toHaveStyleRule('border-spacing', '0');
+  });
 });

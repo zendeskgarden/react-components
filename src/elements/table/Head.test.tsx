@@ -6,8 +6,12 @@
  */
 
 import { createRef } from 'react';
+import { css } from 'styled-components';
 
-import { render } from '../../test/render';
+import { render, RTL_THEME } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
+import { getColor } from '../../theming/utils/getColor';
+import { StyledHeaderCell } from '../../views/table/StyledHeaderCell';
 import { StyledHeaderRow } from '../../views/table/StyledHeaderRow';
 import { Head } from './Head';
 import { HeaderRow } from './HeaderRow';
@@ -45,11 +49,45 @@ describe('Head', () => {
       </Table>
     );
 
-    expect(getByTestId('head')).toHaveStyleRule('position', 'sticky');
-    expect(getByTestId('head')).toHaveStyleRule('top', '0');
-    expect(getByTestId('head')).toHaveStyleRule('z-index', '1');
-    expect(getByTestId('head')).toHaveStyleRule('border-bottom-color', 'transparent', {
-      modifier: `&>${StyledHeaderRow}:last-child`
+    const head = getByTestId('head');
+
+    expect(head).toHaveStyleRule('position', 'sticky');
+    expect(head).toHaveStyleRule('top', '0');
+    expect(head).toHaveStyleRule('z-index', '1');
+  });
+
+  it.each([
+    ['LTR', DEFAULT_THEME, '-8px', '8px'],
+    ['RTL', RTL_THEME, '8px', '-8px']
+  ])('hides scrolled rows under the gap and the corners in %s', (_, theme, start, end) => {
+    const { getByTestId } = render(
+      <Table>
+        <Head data-test-id="head" isSticky>
+          <HeaderRow />
+        </Head>
+      </Table>,
+      { theme }
+    );
+    const head = getByTestId('head');
+    const color = getColor({ variable: 'background.default', theme });
+    const gap = `0 ${theme.space.xxs} 0 ${color}`;
+    const startShadows = `${start} 0 0 ${color},${start} ${theme.space.xxs} 0 ${color}`;
+    const endShadows = `${end} 0 0 ${color},${end} ${theme.space.xxs} 0 ${color}`;
+    /* stylelint-disable */
+    /* prettier-ignore */
+    const cells = css`&>${StyledHeaderRow}>${StyledHeaderCell}`;
+    /* prettier-ignore */
+    const firstCell = css`&>${StyledHeaderRow}>${StyledHeaderCell}:first-child`;
+    /* prettier-ignore */
+    const lastCell = css`&>${StyledHeaderRow}>${StyledHeaderCell}:last-child`;
+    /* stylelint-enable */
+
+    expect(head).toHaveStyleRule('box-shadow', gap, { modifier: cells as any });
+    expect(head).toHaveStyleRule('box-shadow', `${gap},${startShadows}`, {
+      modifier: firstCell as any
+    });
+    expect(head).toHaveStyleRule('box-shadow', `${gap},${endShadows}`, {
+      modifier: lastCell as any
     });
   });
 
@@ -61,5 +99,18 @@ describe('Head', () => {
     );
 
     expect(getByTestId('head')).not.toHaveStyleRule('position', 'sticky');
+  });
+
+  it('separates the header from the body', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Head data-test-id="head" />
+      </Table>
+    );
+
+    expect(getByTestId('head')).toHaveStyleRule('display', 'table-row', { modifier: '::after' });
+    expect(getByTestId('head')).toHaveStyleRule('height', DEFAULT_THEME.space.xxs, {
+      modifier: '::after'
+    });
   });
 });

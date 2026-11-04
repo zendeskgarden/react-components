@@ -8,7 +8,6 @@
 import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
 import { ButtonHTMLAttributes, forwardRef } from 'react';
 
-import { useTableContext } from '../../hooks/table/useTableContext';
 import { StyledIcon } from '../../views/button/StyledIcon';
 import { StyledOverflowButton } from '../../views/table/StyledOverflowButton';
 import { COMPONENT_IDS } from '../utils';
@@ -21,30 +20,25 @@ import { COMPONENT_IDS } from '../utils';
 export const OverflowButton = forwardRef<
   HTMLButtonElement,
   ButtonHTMLAttributes<HTMLButtonElement>
->((props, ref) => {
-  const { size } = useTableContext();
-
-  return (
-    <StyledOverflowButton
-      type="button"
-      $isBasic
-      $isPill
-      $size="medium"
-      $tableSize={size}
-      ref={ref}
-      {...props}
-      data-garden-id={COMPONENT_IDS['tables.overflow_button']}
+>((props, ref) => (
+  <StyledOverflowButton
+    type="button"
+    $isBasic
+    $isPill
+    $size="medium"
+    ref={ref}
+    {...props}
+    data-garden-id={COMPONENT_IDS['tables.overflow_button']}
+    data-garden-version={PACKAGE_VERSION}
+    $focusInset
+  >
+    <StyledIcon
+      data-garden-id={COMPONENT_IDS['buttons.icon']}
       data-garden-version={PACKAGE_VERSION}
-      $focusInset
     >
-      <StyledIcon
-        data-garden-id={COMPONENT_IDS['buttons.icon']}
-        data-garden-version={PACKAGE_VERSION}
-      >
-        <DotsVerticalIcon />
-      </StyledIcon>
-    </StyledOverflowButton>
-  );
-});
+      <DotsVerticalIcon />
+    </StyledIcon>
+  </StyledOverflowButton>
+));
 
 OverflowButton.displayName = 'Table.OverflowButton';

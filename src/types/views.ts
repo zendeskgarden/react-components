@@ -111,12 +111,6 @@ export interface IStyledSheetHeaderProps {
 }
 //#endregion
 
-//#region table
-export interface IStyledBaseRowProps {
-  $isStriped?: boolean;
-}
-//#endregion
-
 //#region typography
 export interface IStyledFontProps {
   $isBold?: boolean;

@@ -12,9 +12,9 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
+import { CELL_SELECTOR, getRoundedEndStyles } from './style-utils';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledCell } from './StyledCell';
-import { IStyledRowProps } from './StyledRow';
 import { getLineHeight } from './StyledTable';
 
 interface IStyledGroupRowProps {
@@ -23,17 +23,13 @@ interface IStyledGroupRowProps {
 
 const colorStyles = ({ theme }: WithTheme) => {
   return css`
-    background-color: ${getColor({
-      variable: 'background.subtle',
-      transparency: theme.opacity[100],
-      light: { offset: 300 },
-      dark: { offset: -600 },
-      theme
-    })};
+    > ${CELL_SELECTOR} {
+      background-color: ${getColor({ variable: 'background.subtle', theme })};
+    }
   `;
 };
 
-const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
+const sizeStyles = (props: WithTheme<IStyledGroupRowProps>) => {
   const height = `${props.theme.space.base * 8}px`;
   const lineHeight = getLineHeight(props);
 
@@ -45,6 +41,8 @@ const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
     ${StyledCell} {
       padding: ${math(`(${height} - ${lineHeight}) / 2`)} ${props.theme.space.base * 3}px;
     }
+
+    ${getRoundedEndStyles(props)}
   `;
 };
 
