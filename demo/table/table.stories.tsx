@@ -9,6 +9,7 @@ import type { StoryObj } from '@storybook/react-vite';
 
 import { Table } from '../../src/index';
 import { TABLE_DATA as DATA } from './stories/data';
+import { StickyStripStory } from './stories/StickyStripStory';
 import { TableStory } from './stories/TableStory';
 
 export default {
@@ -96,5 +97,37 @@ export const Example: StoryObj<typeof TableStory> = {
       type: 'figma',
       url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=102%3A125'
     }
+  }
+};
+
+/**
+ * A sticky `Table.Head` hides the rows that scroll under it with
+ * background-colored box shadows. They extend 8px past the table edges, which
+ * shows when the table sits on a non-default background inside a wider scroll
+ * container.
+ */
+export const StickyStrip: StoryObj<typeof StickyStripStory> = {
+  render: args => <StickyStripStory {...args} />,
+  args: {
+    caption: 'Scrollable growing conditions',
+    data: [...DATA, ...DATA],
+    isBold: true,
+    isSticky: true,
+    containerBackground: 'background.recessed'
+  },
+  argTypes: {
+    containerBackground: {
+      control: 'select',
+      options: [
+        'background.subtle',
+        'background.recessed',
+        'background.raised',
+        'background.primaryEmphasis'
+      ],
+      table: { category: 'Story' }
+    }
+  },
+  parameters: {
+    controls: { include: ['containerBackground'] }
   }
 };
