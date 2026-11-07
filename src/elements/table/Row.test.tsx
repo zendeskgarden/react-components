@@ -22,8 +22,10 @@ import { Row } from './Row';
 import { Table } from './Table';
 
 const CELLS = '>:is(td, th)';
+const CELL_BORDERS = '>:is(td, th)::after';
 const INDICATOR = '>:first-child::before';
-const BORDER = '>:first-child::after';
+const FIRST_BORDER = '>:first-child::after';
+const LAST_BORDER = '>:last-child::after';
 
 describe('Row', () => {
   const user = userEvent.setup();
@@ -53,7 +55,7 @@ describe('Row', () => {
     expect(getByTestId('row')).toHaveAttribute('tabindex', '-1');
   });
 
-  it('positions the row, not its cells', () => {
+  it('positions the cells, not the row', () => {
     const { getByTestId } = render(
       <Table>
         <Body>
@@ -64,11 +66,11 @@ describe('Row', () => {
       </Table>
     );
 
-    expect(getByTestId('row')).toHaveStyleRule('position', 'relative');
-    expect(getByTestId('cell')).not.toHaveStyleRule('position', expect.anything());
+    expect(getByTestId('row')).not.toHaveStyleRule('position', expect.anything());
+    expect(getByTestId('row')).toHaveStyleRule('position', 'relative', { modifier: CELLS });
   });
 
-  it('draws one bottom border, inset from the rounded ends', () => {
+  it('draws a bottom border per cell, inset from the rounded ends', () => {
     const { getByTestId } = render(
       <Table>
         <Body>
@@ -78,12 +80,18 @@ describe('Row', () => {
     );
     const row = getByTestId('row');
 
-    expect(row).toHaveStyleRule('inset-inline', DEFAULT_THEME.space.xs, { modifier: BORDER });
+    expect(row).toHaveStyleRule('inset-inline', '0', { modifier: CELL_BORDERS });
     expect(row).toHaveStyleRule(
       'border-bottom-color',
       getColor({ variable: 'border.subtle', theme: DEFAULT_THEME }),
-      { modifier: BORDER }
+      { modifier: CELL_BORDERS }
     );
+    expect(row).toHaveStyleRule('inset-inline-start', DEFAULT_THEME.space.xs, {
+      modifier: FIRST_BORDER
+    });
+    expect(row).toHaveStyleRule('inset-inline-end', DEFAULT_THEME.space.xs, {
+      modifier: LAST_BORDER
+    });
     expect(row).toHaveStyleRule('border-start-start-radius', DEFAULT_THEME.borderRadii.md, {
       modifier: '>:first-child'
     });
@@ -105,7 +113,7 @@ describe('Row', () => {
     expect(getByTestId('row')).toHaveStyleRule('content', 'none', {
       /* prettier-ignore */
       /* stylelint-disable */
-      modifier: css`:has(+ ${StyledGroupRow})>:first-child::after` as any
+      modifier: css`:has(+ ${StyledGroupRow})>:is(td, th)::after` as any
       /* stylelint-enable */
     });
   });
@@ -245,7 +253,7 @@ describe('Row', () => {
     expect(row).toHaveStyleRule(
       'border-bottom-color',
       rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[200]),
-      { modifier: BORDER }
+      { modifier: CELL_BORDERS }
     );
   });
 
@@ -284,7 +292,7 @@ describe('Row', () => {
       expect(row).toHaveStyleRule(
         'border-bottom-color',
         rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[300]),
-        { modifier: BORDER }
+        { modifier: CELL_BORDERS }
       );
     });
 

@@ -268,12 +268,16 @@ styles:
   adjacent cells show both borders.
 - A hovered, selected or striped row paints its color on every cell, `td` and
   `th`, so it replaces a custom cell background in those states.
-- `Table.Row` is `position: relative`. Absolutely positioned content in a cell,
-  such as a `Menu`, `Tooltip` or `DatePicker` without `appendToNode`, is placed
-  against the row instead of an outer element.
-- The first cell of a row draws the row's bottom border with `::after`, and the
-  first `td` draws the focus indicator with `::before`. Custom `::before` and
-  `::after` styles on those cells conflict.
+- The cells of a body row (`td` and `th` in a `Table.Row`) are
+  `position: relative`. Absolutely positioned content in a cell, such as a
+  `Menu`, `Tooltip` or `DatePicker` without `appendToNode`, is placed against
+  the cell. A cell whose `overflow` is not `visible` (including `isTruncated`)
+  clips it, so use `appendToNode` there.
+- Inside a table, menus and tooltips are `max-content` wide, and a tooltip
+  without `zIndex` is `z-index: 1` so it paints over the rows below.
+- Each body cell draws its part of the row's bottom border with `::after`, and
+  the first cell draws the focus indicator with `::before`. Custom `::before`
+  and `::after` styles on body cells conflict.
 - Cells are vertically centered. In v9, body cells aligned to the top and header
   cells to the bottom, so in a row with wrapped text the other cells now center
   instead of lining up with the first line.

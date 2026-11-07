@@ -101,7 +101,7 @@ const colorStyles = ({
       background-color: ${backgroundColor};
     }
 
-    > :first-child::after {
+    > ${CELL_SELECTOR}::after {
       border-bottom-color: ${borderColor};
     }
 
@@ -119,7 +119,7 @@ const colorStyles = ({
         background-color: ${hoverBackgroundColor};
       }
 
-      > :first-child::after {
+      > ${CELL_SELECTOR}::after {
         border-bottom-color: ${hoverBorderColor};
       }
 
@@ -135,9 +135,10 @@ const colorStyles = ({
 };
 
 /*
- * 1. The row, not the cell, is the containing block, so that popups inside a
- *    cell keep their width. The pseudo-elements below are placed against it.
- * 2. One bottom border for the row, inset from both rounded ends.
+ * 1. The cells, not the row, are positioned: Safari before 27 doesn't make a
+ *    positioned row a containing block. The table keeps inline menus and
+ *    tooltips at their own width (see StyledTable).
+ * 2. One bottom border per cell, inset from the row's rounded ends.
  * 3. The focus indicator takes the first cell's rounded corners, which adjacent
  *    selected rows square, and is clipped to a bar above the bottom border.
  */
@@ -149,21 +150,32 @@ const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
     : `inset(0 ${barInset} ${theme.borderWidths.sm} 0)`;
 
   return css`
-    position: relative; /* [1] */
     height: ${getRowHeight(props)};
 
     ${getRoundedEndStyles(props)}
 
-    > :first-child::after {
+    > ${CELL_SELECTOR} {
+      position: relative; /* [1] */
+    }
+
+    > ${CELL_SELECTOR}::after {
       position: absolute;
       bottom: 0;
       border-bottom: ${theme.borders.sm};
       content: '';
       pointer-events: none;
-      inset-inline: ${theme.space.xs}; /* [2] */
+      inset-inline: 0;
     }
 
-    &:has(+ ${StyledGroupRow}) > :first-child::after {
+    > :first-child::after {
+      inset-inline-start: ${theme.space.xs}; /* [2] */
+    }
+
+    > :last-child::after {
+      inset-inline-end: ${theme.space.xs}; /* [2] */
+    }
+
+    &:has(+ ${StyledGroupRow}) > ${CELL_SELECTOR}::after {
       content: none;
     }
 
