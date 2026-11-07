@@ -287,12 +287,15 @@ styles:
 - The header has no bottom border. `Table.Head` renders a 4px gap below the
   header rows with a `::after` row.
 - A sticky `Table.Head` hides the rows that scroll under it with
-  background-colored box shadows on the header cells. The first and last header
-  cells extend them 8px past the table edges, which shows when the table sits on
-  a different background inside a wider scroll container.
+  `background.default` box shadows on the header cells, which stay inside the
+  table's inline edges. On another surface, the corner notches and the gap below
+  the header show that color. Sticky positioning sticks at the scroll
+  container's padding edge, so block padding on the scroll container lets rows
+  show above the head; put that padding on an inner wrapper instead.
 - With a sticky `Table.Head`, each `Table.GroupRow` sticks below the head
-  (`z-index: 1`) until the next group row reaches it. The head measures its
-  height, including wrapped header cells, and is `z-index: 2` instead of 1.
+  (`z-index: 1`) until the next group row reaches it, and hides the rows under
+  its rounded corners the same way. The head measures its height, including
+  wrapped header cells, and is `z-index: 2` instead of 1.
 - `Table.OverflowButton` has no top margin. The row centers it.
 
 #### Tag
