@@ -25,7 +25,9 @@ interface IStyledGroupRowProps {
 
 /*
  * 1. Fall back to a single header row and the gap until the head is measured.
- * 2. Hide the rows that scroll under the rounded corners (see `StyledHead`).
+ * 2. Hide the rows that scroll under the rounded corners with square shadows
+ *    (see `StyledHead`). Firefox paints the row background under each cell's
+ *    square area, which keeps the rows from showing along the curves.
  */
 const stickyStyles = (props: WithTheme<IStyledGroupRowProps>) => {
   const { theme, $stickyTop } = props;
@@ -34,24 +36,27 @@ const stickyStyles = (props: WithTheme<IStyledGroupRowProps>) => {
   const top = $stickyTop
     ? `${$stickyTop}px`
     : math(`${getHeaderRowHeight(props)} + ${theme.space.xxs}`); /* [1] */
+  const getCornerShadows = (offset: string) =>
+    `${offset} -${radius} 0 -${radius} ${color}, ${offset} ${radius} 0 -${radius} ${color}`;
+  const startShadows = getCornerShadows(theme.rtl ? radius : `-${radius}`);
+  const endShadows = getCornerShadows(theme.rtl ? `-${radius}` : radius);
 
   return css`
     position: sticky;
     top: ${top};
     z-index: 1;
+    background-color: ${color}; /* [2] */
 
     > :first-child {
-      box-shadow: ${theme.rtl ? radius : `-${radius}`} 0 0 ${color}; /* [2] */
+      box-shadow: ${startShadows}; /* [2] */
     }
 
     > :last-child {
-      box-shadow: ${theme.rtl ? `-${radius}` : radius} 0 0 ${color};
+      box-shadow: ${endShadows};
     }
 
     > :first-child:last-child {
-      box-shadow:
-        -${radius} 0 0 ${color},
-        ${radius} 0 0 ${color};
+      box-shadow: ${startShadows}, ${endShadows};
     }
   `;
 };

@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { math } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -40,18 +41,21 @@ const sizeStyles = ({ theme }: WithTheme) => {
  * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header,
  *    and stay above the group rows that stick below it
  * 2. Hide the rows that scroll under the gap and the rounded header corners. A
- *    backing layer inside the head would cover the header cells in Safari and
- *    Firefox, so the cells cast background-colored shadows instead.
+ *    spread of minus the radius squares a shadow's corners, so the first and
+ *    last cells fill their corners without painting past the table's inline
+ *    edges. A backing layer would not work: WebKit doesn't make a sticky thead
+ *    a containing block, and WebKit and Firefox paint the head's negative
+ *    z-index layers over the header cells.
  */
 const stickyStyles = ({ theme }: WithTheme) => {
   const color = getColor({ variable: 'background.default', theme });
   const radius = theme.borderRadii.md;
   const gap = theme.space.xxs;
-  const startOffset = theme.rtl ? radius : `-${radius}`;
-  const endOffset = theme.rtl ? `-${radius}` : radius;
+  const getCornerShadows = (offset: string) =>
+    `${offset} -${radius} 0 -${radius} ${color}, ${offset} ${math(`${gap} + ${radius}`)} 0 -${radius} ${color}`;
   const gapShadow = `0 ${gap} 0 ${color}`;
-  const startShadows = `${startOffset} 0 0 ${color}, ${startOffset} ${gap} 0 ${color}`;
-  const endShadows = `${endOffset} 0 0 ${color}, ${endOffset} ${gap} 0 ${color}`;
+  const startShadows = getCornerShadows(theme.rtl ? radius : `-${radius}`);
+  const endShadows = getCornerShadows(theme.rtl ? `-${radius}` : radius);
 
   return css`
     position: sticky;

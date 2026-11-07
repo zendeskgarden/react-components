@@ -82,6 +82,7 @@ describe('GroupRow', () => {
       const { getByTestId } = render(<GroupedTable />);
 
       expect(getByTestId('groupRow')).not.toHaveStyleRule('position', 'sticky');
+      expect(getByTestId('groupRow')).not.toHaveStyleRule('background-color', expect.anything());
     });
 
     it.each([
@@ -132,6 +133,7 @@ describe('GroupRow', () => {
       rerender(<GroupedTable />);
 
       expect(getByTestId('groupRow')).not.toHaveStyleRule('position', 'sticky');
+      expect(getByTestId('groupRow')).not.toHaveStyleRule('background-color', expect.anything());
     });
 
     it('measures the head without a ResizeObserver', () => {
@@ -160,12 +162,17 @@ describe('GroupRow', () => {
       const groupRow = getByTestId('groupRow');
       const color = getColor({ variable: 'background.default', theme });
 
-      expect(groupRow).toHaveStyleRule('box-shadow', `${start} 0 0 ${color}`, {
-        modifier: '>:first-child'
-      });
-      expect(groupRow).toHaveStyleRule('box-shadow', `${end} 0 0 ${color}`, {
-        modifier: '>:last-child'
-      });
+      expect(groupRow).toHaveStyleRule('background-color', color);
+      expect(groupRow).toHaveStyleRule(
+        'box-shadow',
+        `${start} -8px 0 -8px ${color},${start} 8px 0 -8px ${color}`,
+        { modifier: '>:first-child' }
+      );
+      expect(groupRow).toHaveStyleRule(
+        'box-shadow',
+        `${end} -8px 0 -8px ${color},${end} 8px 0 -8px ${color}`,
+        { modifier: '>:last-child' }
+      );
     });
   });
 });

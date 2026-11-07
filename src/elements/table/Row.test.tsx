@@ -10,7 +10,7 @@ import { rgba } from 'polished';
 import { createRef } from 'react';
 import { css } from 'styled-components';
 
-import { render } from '../../test/render';
+import { render, RTL_THEME } from '../../test/render';
 import PALETTE from '../../theming/elements/palette';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
@@ -22,7 +22,7 @@ import { Row } from './Row';
 import { Table } from './Table';
 
 const CELLS = '>:is(td, th)';
-const INDICATOR = '>td:first-of-type::before';
+const INDICATOR = '>:first-child::before';
 const BORDER = '>:first-child::after';
 
 describe('Row', () => {
@@ -126,7 +126,30 @@ describe('Row', () => {
 
     expect(row).toHaveStyleRule('content', "''", { modifier: INDICATOR });
     expect(row).toHaveStyleRule('background-color', PALETTE.blue[700], { modifier: INDICATOR });
-    expect(row).toHaveStyleRule('width', DEFAULT_THEME.shadowWidths.md, { modifier: INDICATOR });
+    expect(row).toHaveStyleRule('border-start-start-radius', 'inherit', { modifier: INDICATOR });
+    expect(row).toHaveStyleRule('border-end-start-radius', 'inherit', { modifier: INDICATOR });
+    expect(row).toHaveStyleRule(
+      'clip-path',
+      `inset(0 calc(100% - ${DEFAULT_THEME.shadowWidths.md}) ${DEFAULT_THEME.borderWidths.sm} 0)`,
+      { modifier: INDICATOR }
+    );
+  });
+
+  it('mirrors the focus indicator in RTL', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row" isFocused />
+        </Body>
+      </Table>,
+      { theme: RTL_THEME }
+    );
+
+    expect(getByTestId('row')).toHaveStyleRule(
+      'clip-path',
+      `inset(0 0 ${DEFAULT_THEME.borderWidths.sm} calc(100% - ${DEFAULT_THEME.shadowWidths.md}))`,
+      { modifier: INDICATOR }
+    );
   });
 
   it('applies focus styling from the isFocused prop', () => {
@@ -151,7 +174,7 @@ describe('Row', () => {
     );
 
     expect(getByTestId('row')).toHaveStyleRule('content', "''", {
-      modifier: '>td:first-of-type:focus::before'
+      modifier: '>:first-child:focus::before'
     });
   });
 

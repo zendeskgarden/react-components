@@ -1428,7 +1428,11 @@ export interface ITableProps extends TableHTMLAttributes<HTMLTableElement> {
   isReadOnly?: boolean;
 }
 export interface IHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
-  /** Applies sticky header styling */
+  /**
+   * Applies sticky header styling. The head sticks to the top of the nearest
+   * scroll container's padding edge, so the scroll container should not have
+   * top padding.
+   */
   isSticky?: boolean;
 }
 export interface ITableRowProps extends HTMLAttributes<HTMLTableRowElement> {

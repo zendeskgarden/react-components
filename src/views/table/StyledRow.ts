@@ -105,12 +105,12 @@ const colorStyles = ({
       border-bottom-color: ${borderColor};
     }
 
-    > td:first-of-type::before {
+    > :first-child::before {
       background-color: ${indicatorColor};
       content: ${$isFocused ? "''" : 'none'};
     }
 
-    > td:first-of-type:focus::before {
+    > :first-child:focus::before {
       content: '';
     }
 
@@ -138,10 +138,15 @@ const colorStyles = ({
  * 1. The row, not the cell, is the containing block, so that popups inside a
  *    cell keep their width. The pseudo-elements below are placed against it.
  * 2. One bottom border for the row, inset from both rounded ends.
- * 3. The focus indicator stays straight next to the rounded corners.
+ * 3. The focus indicator takes the first cell's rounded corners, which adjacent
+ *    selected rows square, and is clipped to a bar above the bottom border.
  */
 const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
   const { theme, $isSelected } = props;
+  const barInset = `calc(100% - ${theme.shadowWidths.md})`;
+  const indicatorClip = theme.rtl
+    ? `inset(0 0 ${theme.borderWidths.sm} ${barInset})`
+    : `inset(0 ${barInset} ${theme.borderWidths.sm} 0)`;
 
   return css`
     position: relative; /* [1] */
@@ -162,11 +167,14 @@ const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
       content: none;
     }
 
-    > td:first-of-type::before {
+    > :first-child::before {
       position: absolute;
-      inset-block: 0 ${theme.borderWidths.sm};
+      inset-block: 0;
       inset-inline-start: 0;
-      width: ${theme.shadowWidths.md}; /* [3] */
+      border-start-start-radius: inherit; /* [3] */
+      border-end-start-radius: inherit; /* [3] */
+      width: 100%;
+      clip-path: ${indicatorClip}; /* [3] */
       pointer-events: none;
     }
 

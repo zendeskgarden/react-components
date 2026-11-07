@@ -71,8 +71,8 @@ describe('Head', () => {
     const head = getByTestId('head');
     const color = getColor({ variable: 'background.default', theme });
     const gap = `0 ${theme.space.xxs} 0 ${color}`;
-    const startShadows = `${start} 0 0 ${color},${start} ${theme.space.xxs} 0 ${color}`;
-    const endShadows = `${end} 0 0 ${color},${end} ${theme.space.xxs} 0 ${color}`;
+    const startShadows = `${start} -8px 0 -8px ${color},${start} 12px 0 -8px ${color}`;
+    const endShadows = `${end} -8px 0 -8px ${color},${end} 12px 0 -8px ${color}`;
     /* stylelint-disable */
     /* prettier-ignore */
     const cells = css`&>${StyledHeaderRow}>${StyledHeaderCell}`;
