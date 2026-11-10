@@ -6,9 +6,8 @@
  */
 
 import { useTabs } from '@zendeskgarden/container-tabs';
-import { getControlledValue } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
-import { useState, useMemo, forwardRef } from 'react';
+import { useState, useCallback, useMemo, forwardRef } from 'react';
 
 import { TabsProvider } from '../../context/tab/TabsContext';
 import { useGardenTheme } from '../../theming/utils/useGardenTheme';
@@ -22,33 +21,60 @@ import { TabPanel } from './TabPanel';
 
 export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
   (
-    { isVertical = false, children, onChange, selectedItem: controlledSelectedItem, ...otherProps },
+    {
+      isVertical = false,
+      children,
+      onChange,
+      selectedItem: controlledSelectedItem,
+      defaultSelectedItem,
+      ...otherProps
+    },
     ref
   ) => {
     const theme = useGardenTheme();
-    const [internalSelectedItem, setInternalSelectedItem] = useState();
-    const selectedItem = getControlledValue(controlledSelectedItem, internalSelectedItem);
+    const [internalSelectedItem, setInternalSelectedItem] = useState(defaultSelectedItem);
 
     const tabs = useMemo(() => toTabs(children), [children]);
 
+    /*
+     * The selection always has a value, so the first render (server HTML
+     * included) already has a selected tab: a controlled `selectedItem` wins,
+     * then the internal state, then the first enabled tab. Computing the
+     * fallback every render selects the first enabled tab even when the tabs
+     * arrive after the first render.
+     */
+    const selectedItem =
+      controlledSelectedItem ?? internalSelectedItem ?? tabs.find(tab => !tab.disabled)?.value;
+
+    const select = useCallback(
+      (item: any) => {
+        if (controlledSelectedItem === undefined) {
+          setInternalSelectedItem(item);
+        }
+
+        onChange?.(item);
+      },
+      [controlledSelectedItem, onChange]
+    );
+
+    /*
+     * `selectedValue` is always provided, and the explicit
+     * `defaultSelectedValue: undefined` overrides the hook's first-tab
+     * default, so the hook never calls `onSelect` on mount: `onChange` only
+     * fires on user selection.
+     */
     const tabsContextValue = useTabs({
       tabs,
       rtl: theme!.rtl,
       orientation: isVertical ? 'vertical' : 'horizontal',
       selectedValue: selectedItem,
-      defaultSelectedValue: tabs.find(tab => !tab.disabled)?.value,
-      onSelect: item => {
-        if (onChange) {
-          onChange(item);
-        } else {
-          setInternalSelectedItem(item);
-        }
-      }
+      defaultSelectedValue: undefined,
+      onSelect: select
     });
 
     const contextValue = useMemo(
-      () => ({ isVertical, ...tabsContextValue }),
-      [isVertical, tabsContextValue]
+      () => ({ isVertical, ...tabsContextValue, select, tabs }),
+      [isVertical, tabsContextValue, select, tabs]
     );
 
     return (
@@ -70,6 +96,7 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
 TabsComponent.propTypes = {
   isVertical: PropTypes.bool,
   selectedItem: PropTypes.any,
+  defaultSelectedItem: PropTypes.any,
   onChange: PropTypes.func
 };
 

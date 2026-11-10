@@ -8,7 +8,7 @@
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 import type { IUseModalReturnValue } from '@zendeskgarden/container-modal';
-import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
+import type { ITab, IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
 import type { Dispatch, MutableRefObject, ReactNode } from 'react';
 
 import type {
@@ -219,6 +219,10 @@ export interface ISheetContext {
 //#region tab
 export interface ITabsContext extends IUseTabsReturnValue<any> {
   isVertical?: boolean;
+  /** Selects a tab by value; the same handler the hook's `onSelect` calls */
+  select: (item: any) => void;
+  /** The tabs collected from the `Tabs` children, in DOM order */
+  tabs: ITab<any>[];
 }
 //#endregion
 

@@ -7,9 +7,11 @@
 
 import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
+import { renderToString } from 'react-dom/server';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
+import { ThemeProvider } from '../../theming/elements/ThemeProvider';
 import { ITabsProps, ITabProps } from '../../types/elements';
 import { Tabs } from './Tabs';
 
@@ -57,6 +59,68 @@ describe('Tabs', () => {
 
     await user.click(getAllByTestId('tab')[1]!);
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
+  });
+
+  it('does not call onChange on mount', () => {
+    const onChangeSpy = vi.fn();
+
+    render(<BasicExample onChange={onChangeSpy} />);
+
+    expect(onChangeSpy).not.toHaveBeenCalled();
+  });
+
+  it('selects the tab named by defaultSelectedItem on the first render', () => {
+    const { getAllByTestId } = render(<BasicExample defaultSelectedItem="tab-2" />);
+
+    expect(getAllByTestId('tab')[1]).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('prefers selectedItem over defaultSelectedItem', () => {
+    const { getAllByTestId } = render(
+      <BasicExample selectedItem="tab-1" defaultSelectedItem="tab-2" />
+    );
+
+    expect(getAllByTestId('tab')[0]).toHaveAttribute('aria-selected', 'true');
+  });
+
+  it('has a selected tab on the first server render', () => {
+    const html = renderToString(
+      <ThemeProvider>
+        <BasicExample />
+      </ThemeProvider>
+    );
+
+    expect(html).toContain('aria-selected="true"');
+  });
+
+  it('changes the selection of an uncontrolled Tabs that has onChange', async () => {
+    const onChangeSpy = vi.fn();
+
+    const { getAllByTestId } = render(<BasicExample onChange={onChangeSpy} />);
+    const tab = getAllByTestId('tab')[1]!;
+
+    await user.click(tab);
+
+    expect(tab).toHaveAttribute('aria-selected', 'true');
+    expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
+  });
+
+  it('only changes a controlled selection when the consumer updates selectedItem', async () => {
+    const onChangeSpy = vi.fn();
+
+    const { getAllByTestId, rerender } = render(
+      <BasicExample selectedItem="tab-1" onChange={onChangeSpy} />
+    );
+    const tabs = getAllByTestId('tab');
+
+    await user.click(tabs[1]!);
+
+    expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
+    expect(tabs[0]).toHaveAttribute('aria-selected', 'true');
+
+    rerender(<BasicExample selectedItem="tab-2" onChange={onChangeSpy} />);
+
+    expect(tabs[1]).toHaveAttribute('aria-selected', 'true');
   });
 
   it('passes ref to underlying DOM element', () => {

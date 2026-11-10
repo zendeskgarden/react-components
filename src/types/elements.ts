@@ -1678,6 +1678,10 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
    */
   selectedItem?: any;
   /**
+   * Sets the initially selected tab of an uncontrolled `Tabs`. Defaults to the first enabled tab
+   */
+  defaultSelectedItem?: any;
+  /**
    * Handles tab selection
    *
    * @param {String} selectedItem The selected tab's `item` value
