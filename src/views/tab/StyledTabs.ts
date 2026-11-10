@@ -8,15 +8,39 @@
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import mediaQuery from '../../theming/utils/mediaQuery';
 import type { WithTheme } from '../../types/views';
+import { StyledTabListContainer } from './StyledTabListContainer';
 
 interface IStyledTabsProps {
   $isVertical?: boolean;
 }
 
+/*
+ * Vertical tabs sit beside their panels. Below the `sm` breakpoint they stack
+ * above the panels in a single column, and the tab list spans the full width
+ * so every tab stays reachable.
+ */
 const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabsProps>) => {
+  if (!$isVertical) {
+    return undefined;
+  }
+
   return css`
-    gap: ${$isVertical ? theme.space.lg : undefined};
+    gap: ${theme.space.lg};
+    align-items: flex-start;
+
+    ${mediaQuery('down', 'xs', theme)} {
+      flex-direction: column;
+      gap: ${theme.space.md};
+      align-items: stretch;
+
+      & > ${StyledTabListContainer} {
+        flex: none;
+        inline-size: auto;
+        max-inline-size: none;
+      }
+    }
   `;
 };
 

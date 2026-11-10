@@ -11,6 +11,7 @@ import { renderToString } from 'react-dom/server';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { ThemeProvider } from '../../theming/elements/ThemeProvider';
 import { ITabsProps, ITabProps } from '../../types/elements';
 import { Tabs } from './Tabs';
@@ -50,6 +51,14 @@ describe('Tabs', () => {
     const { getByTestId } = render(<BasicExample isVertical />);
 
     expect(getByTestId('container')).toHaveStyleRule('display', 'flex');
+  });
+
+  it('stacks vertical tabs above their panels on small screens', () => {
+    const { getByTestId } = render(<BasicExample isVertical />);
+    const media = `(max-width: ${parseFloat(DEFAULT_THEME.breakpoints.sm) - 0.02}px)`;
+
+    expect(getByTestId('container')).toHaveStyleRule('flex-direction', 'column', { media });
+    expect(getByTestId('container')).toHaveStyleRule('align-items', 'stretch', { media });
   });
 
   it('calls onChange with correct item on selection', async () => {
