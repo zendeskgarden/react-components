@@ -97,12 +97,10 @@ const colorStyles = ({
   }
 
   return css`
+    border-bottom-color: ${borderColor};
+
     > ${CELL_SELECTOR} {
       background-color: ${backgroundColor};
-    }
-
-    > ${CELL_SELECTOR}::after {
-      border-bottom-color: ${borderColor};
     }
 
     > :first-child::before {
@@ -115,12 +113,10 @@ const colorStyles = ({
     }
 
     &:hover {
+      border-bottom-color: ${hoverBorderColor};
+
       > ${CELL_SELECTOR} {
         background-color: ${hoverBackgroundColor};
-      }
-
-      > ${CELL_SELECTOR}::after {
-        border-bottom-color: ${hoverBorderColor};
       }
 
       ${StyledOverflowButton} {
@@ -141,6 +137,9 @@ const colorStyles = ({
  * 2. One bottom border per cell, inset from the row's rounded ends.
  * 3. The focus indicator takes the first cell's rounded corners, which adjacent
  *    selected rows square, and is clipped to a bar above the bottom border.
+ * 4. The row's bottom border style and color, including consumer overrides,
+ *    pass through the cells, which don't paint it, to each cell's border. The
+ *    separate border model doesn't paint the row's own border.
  */
 const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
   const { theme, $isSelected } = props;
@@ -150,18 +149,24 @@ const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
     : `inset(0 ${barInset} ${theme.borderWidths.sm} 0)`;
 
   return css`
+    border-bottom: ${theme.borders.sm}; /* [4] */
     height: ${getRowHeight(props)};
 
     ${getRoundedEndStyles(props)}
 
     > ${CELL_SELECTOR} {
       position: relative; /* [1] */
+      border-bottom-width: 0; /* [4] */
+      border-bottom-style: inherit;
+      border-bottom-color: inherit;
     }
 
     > ${CELL_SELECTOR}::after {
       position: absolute;
       bottom: 0;
-      border-bottom: ${theme.borders.sm};
+      border-bottom-width: ${theme.borderWidths.sm};
+      border-bottom-style: inherit; /* [4] */
+      border-bottom-color: inherit;
       content: '';
       pointer-events: none;
       inset-inline: 0;

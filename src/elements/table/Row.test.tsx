@@ -81,10 +81,12 @@ describe('Row', () => {
     const row = getByTestId('row');
 
     expect(row).toHaveStyleRule('inset-inline', '0', { modifier: CELL_BORDERS });
+    expect(row).toHaveStyleRule('border-bottom-width', DEFAULT_THEME.borderWidths.sm, {
+      modifier: CELL_BORDERS
+    });
     expect(row).toHaveStyleRule(
       'border-bottom-color',
-      getColor({ variable: 'border.subtle', theme: DEFAULT_THEME }),
-      { modifier: CELL_BORDERS }
+      getColor({ variable: 'border.subtle', theme: DEFAULT_THEME })
     );
     expect(row).toHaveStyleRule('inset-inline-start', DEFAULT_THEME.space.xs, {
       modifier: FIRST_BORDER
@@ -98,6 +100,32 @@ describe('Row', () => {
     expect(row).toHaveStyleRule('border-end-end-radius', DEFAULT_THEME.borderRadii.md, {
       modifier: '>:last-child'
     });
+  });
+
+  it('passes the bottom border style and color from the row to the cell borders', () => {
+    const { getByTestId } = render(
+      <Table>
+        <Body>
+          <Row data-test-id="row">
+            <Cell data-test-id="cell" />
+          </Row>
+        </Body>
+      </Table>
+    );
+    const row = getByTestId('row');
+
+    expect(row).toHaveStyleRule('border-bottom', DEFAULT_THEME.borders.sm);
+    expect(row).toHaveStyleRule('border-bottom-width', '0', { modifier: CELLS });
+
+    for (const modifier of [CELLS, CELL_BORDERS]) {
+      expect(row).toHaveStyleRule('border-bottom-style', 'inherit', { modifier });
+      expect(row).toHaveStyleRule('border-bottom-color', 'inherit', { modifier });
+    }
+
+    expect(getByTestId('cell')).toHaveStyleRule(
+      'transition',
+      expect.not.stringContaining('border-color')
+    );
   });
 
   it('drops the bottom border before a group row', () => {
@@ -252,8 +280,7 @@ describe('Row', () => {
     );
     expect(row).toHaveStyleRule(
       'border-bottom-color',
-      rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[200]),
-      { modifier: CELL_BORDERS }
+      rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[200])
     );
   });
 
@@ -265,11 +292,17 @@ describe('Row', () => {
         </Body>
       </Table>
     );
+    const row = getByTestId('row');
 
-    expect(getByTestId('row')).toHaveStyleRule(
+    expect(row).toHaveStyleRule(
       'background-color',
       rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[100]),
       { modifier: `:hover${CELLS}` }
+    );
+    expect(row).toHaveStyleRule(
+      'border-bottom-color',
+      rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[200]),
+      { modifier: ':hover' }
     );
   });
 
@@ -291,8 +324,7 @@ describe('Row', () => {
       );
       expect(row).toHaveStyleRule(
         'border-bottom-color',
-        rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[300]),
-        { modifier: CELL_BORDERS }
+        rgba(PALETTE.blue[700], DEFAULT_THEME.opacity[300])
       );
     });
 

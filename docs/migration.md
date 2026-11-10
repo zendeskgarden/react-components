@@ -266,11 +266,12 @@ border. These changes can affect custom styles:
 
 **Custom styles**
 
-- Garden draws row colors and borders on the cells, not on the `tr`, and the
-  table uses `border-collapse: separate`. A border on a `tr`, including one in a
-  `theme.components` override for `tables.row`, `tables.header_row` or
-  `tables.group_row`, has no effect, so it no longer changes or removes the
-  row's bottom border.
+- Garden draws row colors on the cells, not on the `tr`, and the table uses
+  `border-collapse: separate`. On a body row, the style and color of a `tr`
+  bottom border still apply, also in a `theme.components` override for
+  `tables.row`, so `border-bottom: none` still removes the row's border. The
+  border width and the other sides have no effect, and neither does any `tr`
+  border on header and group rows (`tables.header_row` and `tables.group_row`).
 - A `tr` background still paints under the cells of a body row. It shows
   through cells with no color, mixes with the semi-transparent hover, selected
   and striped colors, and has square corners in Firefox. Move row backgrounds to
