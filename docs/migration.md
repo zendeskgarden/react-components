@@ -5,7 +5,8 @@
 Garden v10 merges every `@zendeskgarden/react-*` package into a single
 `@zendeskgarden/react-components` package and applies the v10 design updates.
 The theme has a new palette and more border radii. `Button` and `Tag` are
-pill-shaped by default. Primary and selected controls use neutral colors. Garden
+pill-shaped by default. `Table` has a new design with rounded rows and a filled
+header. Primary and selected controls use neutral colors. Garden
 removes the exports that v9 deprecated and renames the exports that collided
 when the packages merged.
 
@@ -257,46 +258,83 @@ these components:
 
 #### Table
 
-`Table` has a new design with the same API. These CSS changes can affect custom
-styles:
+`Table` has a new design with the same API. Header cells and group row cells
+are filled with `background.subtle` and have rounded ends, and so do the hover,
+selected and striped colors of body rows. Adjacent selected rows have square
+corners where they meet, and the row above a `Table.GroupRow` has no bottom
+border. These changes can affect custom styles:
 
-- The table uses `border-collapse: separate`. Rows paint no borders or
-  backgrounds: the hover, selected and striped colors are on the cells, which
-  have rounded ends. Borders and backgrounds that target `tr`, including
-  `theme.components` overrides for `tables.row`, `tables.header_row` and
-  `tables.group_row`, have no effect. Cell borders no longer collapse, so
-  adjacent cells show both borders.
-- A hovered, selected or striped row paints its color on every cell, `td` and
-  `th`, so it replaces a custom cell background in those states.
+**Custom styles**
+
+- Garden draws row colors and borders on the cells, not on the `tr`, and the
+  table uses `border-collapse: separate`. A border on a `tr`, including one in a
+  `theme.components` override for `tables.row`, `tables.header_row` or
+  `tables.group_row`, has no effect, so it no longer changes or removes the
+  row's bottom border.
+- A `tr` background still paints under the cells of a body row. It shows
+  through cells with no color, mixes with the semi-transparent hover, selected
+  and striped colors, and has square corners in Firefox. Move row backgrounds to
+  the cells. Header and group row cells are opaque, so a background on their
+  `tr` doesn't show.
+
+  ```tsx
+  // Before
+  const StyledRow = styled(Table.Row)`
+    background-color: ${({ theme }) => getColor({ variable: 'background.subtle', theme })};
+  `;
+
+  // After
+  const StyledRow = styled(Table.Row)`
+    > td {
+      background-color: ${({ theme }) => getColor({ variable: 'background.subtle', theme })};
+    }
+  `;
+  ```
+
+- A hovered, selected or striped row paints its color on every cell (`td` and
+  `th`), so in those states it replaces a custom cell background.
+- Cell borders no longer collapse, so adjacent cells with custom borders show
+  both borders.
+- Garden uses pseudo-elements on body cells for the row border and the focus
+  indicator. Custom pseudo-elements on body cells may conflict.
+- Selected rows render `data-garden-selected="true"`, so DOM snapshots change.
+  The attribute is not part of the public API, so don't rely on it. To select or
+  style selected rows, pass your own attribute along with `isSelected`.
+
+**Sizes and alignment**
+
+- Cells are vertically centered. In v9, body cells aligned to the top and header
+  cells to the bottom, so in a row with wrapped text the other cells now center
+  instead of lining up with the first line.
+- `size="large"` rows are 48px tall instead of 64px. Header rows are 40px for
+  `small` and 48px for `medium` and `large` (72px for `large` in v9). Header
+  cells have the same vertical padding at every size.
+- The header has no bottom border. A 4px gap separates it from the body.
+- `Table.OverflowButton` has no top margin. The row centers it.
+
+**Popups in cells**
+
 - The cells of a body row (`td` and `th` in a `Table.Row`) are
   `position: relative`. Absolutely positioned content in a cell, such as a
   `Menu`, `Tooltip` or `DatePicker` without `appendToNode`, is placed against
   the cell. A cell whose `overflow` is not `visible` (including `isTruncated`)
   clips it, so use `appendToNode` there.
-- Inside a table, menus and tooltips are `max-content` wide, and a tooltip
-  without `zIndex` is `z-index: 1` so it paints over the rows below.
-- Each body cell draws its part of the row's bottom border with `::after`, and
-  the first cell draws the focus indicator with `::before`. Custom `::before`
-  and `::after` styles on body cells conflict.
-- Cells are vertically centered. In v9, body cells aligned to the top and header
-  cells to the bottom, so in a row with wrapped text the other cells now center
-  instead of lining up with the first line.
-- `size="large"` rows are 48px tall instead of 64px. Header rows are 40px for
-  `small` and 48px for `medium` and `large` (72px for `large` in v9), with the
-  same vertical cell padding at every size.
-- The header has no bottom border. `Table.Head` renders a 4px gap below the
-  header rows with a `::after` row.
-- A sticky `Table.Head` hides the rows that scroll under it with
-  `background.default` box shadows on the header cells, which stay inside the
-  table's inline edges. On another surface, the corner notches and the gap below
-  the header show that color. Sticky positioning sticks at the scroll
-  container's padding edge, so block padding on the scroll container lets rows
-  show above the head; put that padding on an inner wrapper instead.
+- Menus and tooltips rendered in the table (without `appendToNode`) are
+  `max-content` wide. A tooltip there without `zIndex` is `z-index: 1`, so it
+  paints over the rows below.
+
+**Sticky head**
+
+- A sticky `Table.Head` is `z-index: 2` instead of 1. It paints
+  `background.default` over the rows that scroll under its rounded corners and
+  the gap below it. On another background color, those areas show as
+  `background.default`.
+- A sticky head sticks at the scroll container's padding edge, so top padding on
+  the scroll container lets rows show above the head. Put that padding on an
+  inner wrapper instead.
 - With a sticky `Table.Head`, each `Table.GroupRow` sticks below the head
-  (`z-index: 1`) until the next group row reaches it, and hides the rows under
-  its rounded corners the same way. The head measures its height, including
-  wrapped header cells, and is `z-index: 2` instead of 1.
-- `Table.OverflowButton` has no top margin. The row centers it.
+  (`z-index: 1`), also when header cells wrap, until the next group row takes
+  its place. It hides the rows under its rounded corners the same way.
 
 #### Tag
 
