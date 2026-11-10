@@ -1385,6 +1385,53 @@ export interface IToast {
 }
 //#endregion
 
+//#region segmented-control
+export const SEGMENTED_CONTROL_SIZE = ['small', 'medium'] as const;
+export interface ISegmentedControlOption {
+  /** Identifies the option. Must be unique and stable. */
+  value: string;
+  /** Provides the localized, non-interactive text label */
+  label: string;
+}
+interface ISegmentedControlBaseProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'defaultValue' | 'children' | 'role' | 'tabIndex'
+> {
+  /** Provides the options to select from. Options with a duplicate `value` are ignored. */
+  options: readonly ISegmentedControlOption[];
+  /** Handles selection changes. Receives the `value` of the selected option. */
+  onChange?: (value: string) => void;
+  /** Adjusts font size, padding and height */
+  size?: (typeof SEGMENTED_CONTROL_SIZE)[number];
+  /** Stretches the control to fill the width of its container */
+  isFullWidth?: boolean;
+}
+/**
+ * Standalone radio group. Toolbar use and native form submission are not
+ * supported. Provide `value` to control selection, or `defaultValue` to set the
+ * initial selection of an uncontrolled control. With neither, nothing is
+ * selected until the user chooses an option. An accessible name is required,
+ * via `aria-label` or `aria-labelledby`.
+ */
+export type ISegmentedControlProps = ISegmentedControlBaseProps &
+  (
+    | {
+        /** Sets the selected option (controlled) */
+        value: string;
+        defaultValue?: never;
+      }
+    | {
+        value?: never;
+        /** Sets the initially selected option (uncontrolled) */
+        defaultValue?: string;
+      }
+  ) &
+  (
+    | { 'aria-label': string; 'aria-labelledby'?: string }
+    | { 'aria-label'?: string; 'aria-labelledby': string }
+  );
+//#endregion
+
 //#region sheet
 export const SHEET_PLACEMENT = ['end', 'start'] as const;
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {

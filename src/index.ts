@@ -100,6 +100,9 @@ export { useToast } from './elements/notification/useToast';
 export { CursorPagination } from './elements/pagination/CursorPagination';
 export { OffsetPagination } from './elements/pagination/OffsetPagination';
 
+/* segmented-control */
+export { SegmentedControl } from './elements/segmented-control/SegmentedControl';
+
 /* sheet */
 export { Sheet } from './elements/sheet/Sheet';
 
@@ -259,6 +262,8 @@ export {
   type IProgressProps,
   type IRadioProps,
   type IRangeProps,
+  type ISegmentedControlOption,
+  type ISegmentedControlProps,
   type ISelectProps,
   type ISelectedItem,
   type ISelectedOption,

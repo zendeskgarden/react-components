@@ -1,0 +1,42 @@
+import { Meta, ArgTypes, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as Stories from './segmented-control.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Demo
+
+Use the toolbar to check right-to-left, dark mode, and Bedrock.
+
+## Uncontrolled
+
+<Canvas>
+  <Story of={Stories.Uncontrolled} />
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story of={Stories.Controlled} />
+</Canvas>
+
+## Sizes
+
+<Canvas>
+  <Story of={Stories.Sizes} />
+</Canvas>
+
+## Full width
+
+<Canvas>
+  <Story of={Stories.FullWidth} />
+</Canvas>
+
+## Long labels
+
+<Canvas>
+  <Story of={Stories.LongLabels} />
+</Canvas>
