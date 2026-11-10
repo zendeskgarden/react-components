@@ -47,7 +47,7 @@ describe('Tabs', () => {
   it('renders vertical mode if provided', () => {
     const { getByTestId } = render(<BasicExample isVertical />);
 
-    expect(getByTestId('container')).toHaveStyleRule('display', 'table');
+    expect(getByTestId('container')).toHaveStyleRule('display', 'flex');
   });
 
   it('calls onChange with correct item on selection', async () => {

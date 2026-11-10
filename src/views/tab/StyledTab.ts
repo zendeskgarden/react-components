@@ -9,7 +9,6 @@ import { stripUnit } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
 import type { WithTheme } from '../../types/views';
 
@@ -18,93 +17,75 @@ interface IStyledTabProps {
   $isVertical?: boolean;
 }
 
-const colorStyles = ({ theme, $isSelected }: WithTheme<IStyledTabProps>) => {
-  const borderColor = $isSelected
-    ? getColor({ theme, variable: 'border.primaryEmphasis' })
-    : 'transparent';
-  const selectedColor = getColor({ theme, variable: 'foreground.primary' });
-  const foregroundColor = $isSelected ? selectedColor : 'inherit';
+const colorStyles = ({ theme }: WithTheme<IStyledTabProps>) => {
+  const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+  const hoverColor = getColor({
+    theme,
+    variable: 'foreground.default',
+    light: { offset: -100 },
+    dark: { offset: 100 }
+  });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
+  const focusColor = getColor({ theme, variable: 'border.primaryEmphasis' });
 
   return css`
-    border-color: ${borderColor};
     color: ${foregroundColor};
 
     &:hover {
-      color: ${selectedColor};
+      color: ${hoverColor};
     }
 
-    ${focusStyles({
-      theme,
-      inset: true,
-      spacerWidth: null,
-      shadowWidth: 'sm',
-      selector: '&:focus-visible::before',
-      styles: { color: selectedColor }
-    })}
-
-    &:active {
-      border-color: currentcolor;
-      color: ${selectedColor};
+    &:focus-visible::before {
+      border-color: ${focusColor};
     }
 
     &[aria-disabled='true'] {
-      border-color: transparent;
       color: ${disabledColor};
+    }
+
+    @media (forced-colors: active) {
+      &:focus-visible::before {
+        border-color: Highlight;
+      }
     }
   `;
 };
 
+/*
+ * The tab is as high as its design height. The label is centered with block
+ * padding, so the focus ring can wrap the label alone.
+ */
 const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabProps>) => {
-  const borderWidth = theme.borderWidths.md;
-  const focusHeight = `calc(100% - ${theme.space.base * ($isVertical ? 2 : 4)}px);`;
-  let marginBottom;
-  let padding;
-
-  if ($isVertical) {
-    marginBottom = `${theme.space.base * 5}px`;
-    padding = `${theme.space.base}px ${theme.space.base * 2}px`;
-  } else {
-    const paddingTop = theme.space.base * 2.5;
-    const paddingHorizontal = theme.space.base * 7;
-    const paddingBottom =
-      paddingTop -
-      (stripUnit(theme.borderWidths.md) as number) -
-      (stripUnit(theme.borderWidths.sm) as number);
-
-    padding = `${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px`;
-  }
+  const height = theme.space.base * ($isVertical ? 8 : 10);
+  const labelHeight = stripUnit(theme.lineHeights.md) as number;
+  const paddingBlock = (height - labelHeight) / 2;
+  const paddingInline = $isVertical ? theme.space.sm : '0';
+  const ringWidth = theme.shadowWidths.sm;
+  const ringInlineInset = $isVertical ? `calc(${theme.space.sm} - ${ringWidth})` : `-${ringWidth}`;
 
   return css`
-    margin-bottom: ${marginBottom};
-    border-width: ${borderWidth};
-    padding: ${padding};
+    padding: ${paddingBlock}px ${paddingInline};
+    height: ${height}px;
 
-    &:focus-visible::before,
-    &[data-garden-focus-visible]::before {
-      height: ${focusHeight};
-    }
-
-    &:last-of-type {
-      margin-bottom: 0;
+    &:focus-visible::before {
+      inset: calc(${paddingBlock}px - ${ringWidth}) ${ringInlineInset};
+      border-width: ${ringWidth};
+      border-radius: calc(${theme.borderRadii.md} - ${theme.borderWidths.sm});
     }
   `;
 };
 
 /*
  * 1. Text truncation (requires `max-width`).
- * 2. Overflow compensation.
- * 3. Override default anchor styling
+ * 2. Override default anchor styling
+ * 3. The focus ring is drawn around the label, outside the tab padding.
  */
 export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
-  display: ${props => (props.$isVertical ? 'block' : 'inline-block')};
+  display: block;
   position: relative;
   transition: color 0.25s ease-in-out;
-  border-bottom: ${props => (props.$isVertical ? undefined : props.theme.borderStyles.solid)};
-  border-${props => (props.theme.rtl ? 'right' : 'left')}: ${props => (props.$isVertical ? props.theme.borderStyles.solid : undefined)};
+  box-sizing: border-box;
   cursor: pointer;
-  overflow: hidden; /* [1] */
-  vertical-align: top; /* [2] */
   user-select: none;
   text-align: ${props => {
     if (props.$isVertical) {
@@ -113,7 +94,7 @@ export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
 
     return 'center';
   }};
-  text-decoration: none; /* [3] */
+  text-decoration: none; /* [2] */
   text-overflow: ellipsis; /* [1] */
 
   ${sizeStyles};
@@ -121,25 +102,15 @@ export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
   ${colorStyles};
 
   &:focus {
+    outline: none;
     text-decoration: none;
   }
 
-  &::before {
-    transition: box-shadow 0.1s ease-in-out;
-    content: '';
-  }
-
   &:focus-visible::before {
-    position: absolute;
-    top: ${props => props.theme.space.base * (props.$isVertical ? 1 : 2.5)}px;
-    right: ${props => props.theme.space.base * (props.$isVertical ? 1 : 6)}px;
-    left: ${props => props.theme.space.base * (props.$isVertical ? 1 : 6)}px;
-    border-radius: ${props => props.theme.borderRadii.md};
+    position: absolute; /* [3] */
+    border-style: solid;
     pointer-events: none;
-  }
-
-  &:active::before {
-    box-shadow: none;
+    content: '';
   }
 
   &[aria-disabled='true'] {

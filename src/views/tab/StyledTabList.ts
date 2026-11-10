@@ -16,14 +16,17 @@ interface IStyledTabListProps {
   $isVertical?: boolean;
 }
 
-const colorStyles = ({ theme }: WithTheme) => {
+/*
+ * 1. The rule sits under the tabs, so the indicator paints on top of it.
+ */
+const colorStyles = ({ theme, $isVertical }: WithTheme<IStyledTabListProps>) => {
   const borderColor = getColor({ theme, variable: 'border.default' });
   const foregroundColor = getColor({ theme, variable: 'foreground.default' });
+  const rule = $isVertical ? undefined : `inset 0 -${theme.borderWidths.sm} 0 ${borderColor}`;
 
   return css`
-    transition: border-color 0.25s ease-in-out;
     color-scheme: only ${theme.colors.base};
-    border-bottom-color: ${borderColor};
+    box-shadow: ${rule}; /* [1] */
     color: ${foregroundColor};
   `;
 };
@@ -32,25 +35,23 @@ const colorStyles = ({ theme }: WithTheme) => {
  * 1. List element reset.
  */
 const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabListProps>) => {
-  const marginBottom = $isVertical ? 0 : `${theme.space.base * 5}px`;
-  const borderBottom = $isVertical ? undefined : theme.borderWidths.sm;
   const fontSize = theme.fontSizes.md;
   const lineHeight = getLineHeight(theme.space.base * 5, fontSize);
+  const gap = $isVertical ? theme.space.xs : theme.space.md;
 
   return css`
-    margin-top: 0; /* [1] */
-    margin-bottom: ${marginBottom};
-    border-bottom-width: ${borderBottom};
+    margin: 0; /* [1] */
     padding: 0; /* [1] */
+    gap: ${gap};
     line-height: ${lineHeight};
     font-size: ${fontSize};
   `;
 };
 
 export const StyledTabList = styled.div<WithTheme<IStyledTabListProps>>`
-  display: ${props => (props.$isVertical ? 'table-cell' : 'block')};
-  border-bottom: ${props => (props.$isVertical ? 'none' : props.theme.borderStyles.solid)};
-  vertical-align: ${props => (props.$isVertical ? 'top' : undefined)};
+  display: flex;
+  position: relative;
+  flex-direction: ${props => (props.$isVertical ? 'column' : 'row')};
   white-space: nowrap;
 
   ${sizeStyles};
