@@ -22,8 +22,17 @@ export default {
     'Tabs.TabList': Tabs.TabList,
     'Tabs.TabPanel': Tabs.TabPanel
   },
-  args: { tabs: TABS },
-  argTypes: { tabs: { table: { category: 'Story' } } },
+  args: { tabs: TABS, tabCount: TABS.length, hasIcon: false, hasTag: false, hasDisabled: false },
+  argTypes: {
+    tabs: { table: { category: 'Story' } },
+    tabCount: {
+      control: { type: 'number', min: 0, max: TABS.length },
+      table: { category: 'Story' }
+    },
+    hasIcon: { table: { category: 'Story' } },
+    hasTag: { table: { category: 'Story' } },
+    hasDisabled: { table: { category: 'Story' } }
+  },
   parameters: {
     design: {
       allowFullscreen: true,
@@ -51,5 +60,32 @@ export const Controlled: Story = {
       });
 
     return <TabsStory {...args} onChange={handleChange} />;
+  }
+};
+
+export const Overflow: Story = {
+  render: args => (
+    <div>
+      <div
+        style={{
+          width: 360,
+          maxWidth: '100%',
+          padding: '8px 0',
+          outline: '1px dashed',
+          resize: 'horizontal',
+          overflow: 'auto'
+        }}
+      >
+        <TabsStory {...args} />
+      </div>
+      <div style={{ marginTop: 32 }}>
+        <TabsStory {...args} isVertical tabListStyle={{ maxHeight: 160 }} />
+      </div>
+    </div>
+  ),
+  args: { onChange: fn(), hasIcon: true, hasTag: true },
+  argTypes: {
+    selectedItem: { control: false },
+    isVertical: { control: false }
   }
 };

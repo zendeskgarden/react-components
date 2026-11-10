@@ -342,6 +342,33 @@ border. These changes can affect custom styles:
   stuck group row, not under them. A `scroll-padding-top` on the scroll
   container adds to this margin.
 
+#### Tabs
+
+`Tabs` has a new design, and tabs that do not fit move into an overflow menu
+instead of being clipped.
+
+- New heights: 40px horizontal tabs, 32px vertical tabs, no inline padding on
+  horizontal tabs. This changes the layout of every page that uses tabs.
+- A sliding indicator element (`tabs.indicator`) replaces the selected tab's
+  border. It is not in server-rendered HTML until the client measures; the
+  selected tab has `aria-selected` from the first render.
+- `Tabs.TabList` renders a container (`tabs.tablist_container`) around the tab
+  list. `className` and `style` go on the container; `ref` and the other props
+  stay on the `role="tablist"` element. Selectors on the list's children
+  (`:last-child`, `children.length`) can see the new elements.
+- Tabs that do not fit move into an overflow menu (`tabs.overflow_button`),
+  horizontally and, when the tab list height is constrained, vertically. Set
+  `renderOverflowLabel` on `Tabs.TabList` to localize the trigger. Set `label`
+  on tabs whose children are not plain text so the menu can name them.
+- `onChange` no longer fires on mount. Use `defaultSelectedItem` or
+  `selectedItem` for the initial tab; without either, the first enabled tab is
+  selected on the first render.
+- The tab list gets `aria-label="Tabs"` unless you set `aria-label` or
+  `aria-labelledby`. Garden warns in development when the default is used.
+- Disabled tabs keep `aria-selected`, `id` and `aria-controls`. Panels are
+  focusable (`tabIndex="0"`).
+- Vertical tabs stack above their panels below the `sm` breakpoint.
+
 #### Tag
 
 - `Tag` is **pill-shaped by default**. Pass `isPill={false}` for a square tag.
