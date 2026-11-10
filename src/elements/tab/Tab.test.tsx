@@ -55,6 +55,51 @@ describe('Tab', () => {
     expect(tab).toHaveAttribute('tabindex', '-1');
   });
 
+  describe('icon and label', () => {
+    const Icon = () => <svg data-test-id="icon" />;
+
+    const renderTab = (props?: { label?: string }) =>
+      render(
+        <Tabs>
+          <Tabs.TabList>
+            <Tabs.Tab item="one" icon={<Icon />} label={props?.label}>
+              One
+            </Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>
+      );
+
+    it('renders the icon before the children', () => {
+      const { getByRole, getByTestId } = renderTab();
+      const tab = getByRole('tab');
+      const iconWrapper = tab.firstElementChild!;
+
+      expect(iconWrapper).toHaveAttribute('data-garden-id', 'tabs.tab.icon');
+      expect(iconWrapper).toContainElement(getByTestId('icon'));
+      expect(tab).toHaveTextContent('One');
+    });
+
+    it('renders the icon at the 20px icon size', () => {
+      const { getByRole } = renderTab();
+
+      expect(getByRole('tab').firstElementChild).toHaveStyleRule('width', '20px', {
+        modifier: '& > svg'
+      });
+    });
+
+    it('keeps the label prop off the DOM', () => {
+      const { getByRole } = renderTab({ label: 'One tab' });
+
+      expect(getByRole('tab')).not.toHaveAttribute('label');
+    });
+
+    it('renders the icon of a standalone tab', () => {
+      const { getByTestId } = render(<Tab icon={<Icon />}>Content</Tab>);
+
+      expect(getByTestId('icon')).toBeInTheDocument();
+    });
+  });
+
   describe('styles', () => {
     it('is 40px high with no inline padding when horizontal', () => {
       const { getByRole } = render(

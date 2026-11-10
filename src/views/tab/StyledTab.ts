@@ -11,6 +11,7 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import type { WithTheme } from '../../types/views';
+import { StyledTabIcon } from './StyledTabIcon';
 
 interface IStyledTabProps {
   $isSelected?: boolean;
@@ -27,12 +28,32 @@ const colorStyles = ({ theme }: WithTheme<IStyledTabProps>) => {
   });
   const disabledColor = getColor({ theme, variable: 'foreground.disabled' });
   const focusColor = getColor({ theme, variable: 'border.primaryEmphasis' });
+  const iconHoverColor = getColor({
+    theme,
+    variable: 'foreground.subtle',
+    light: { offset: 100 },
+    dark: { offset: -100 }
+  });
+  const iconSelectedColor = getColor({
+    theme,
+    variable: 'foreground.subtle',
+    light: { offset: 200 },
+    dark: { offset: -200 }
+  });
 
   return css`
     color: ${foregroundColor};
 
     &:hover {
       color: ${hoverColor};
+
+      ${StyledTabIcon} {
+        color: ${iconHoverColor};
+      }
+    }
+
+    &[aria-selected='true'] ${StyledTabIcon} {
+      color: ${iconSelectedColor};
     }
 
     &:focus-visible::before {
@@ -41,6 +62,10 @@ const colorStyles = ({ theme }: WithTheme<IStyledTabProps>) => {
 
     &[aria-disabled='true'] {
       color: ${disabledColor};
+
+      ${StyledTabIcon} {
+        color: inherit;
+      }
     }
 
     @media (forced-colors: active) {
@@ -66,6 +91,7 @@ const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabProps>) => {
   return css`
     padding: ${paddingBlock}px ${paddingInline};
     height: ${height}px;
+    gap: ${theme.space.xs};
 
     &:focus-visible::before {
       inset: calc(${paddingBlock}px - ${ringWidth}) ${ringInlineInset};
@@ -81,8 +107,10 @@ const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabProps>) => {
  * 3. The focus ring is drawn around the label, outside the tab padding.
  */
 export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
-  display: block;
+  display: flex;
   position: relative;
+  flex-shrink: 0;
+  align-items: center;
   transition: color 0.25s ease-in-out;
   box-sizing: border-box;
   cursor: pointer;

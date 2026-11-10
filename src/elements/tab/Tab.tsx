@@ -12,6 +12,7 @@ import { useTabsContext } from '../../hooks/tab/useTabsContext';
 import { ITabProps } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { StyledTab } from '../../views/tab/StyledTab';
+import { StyledTabIcon } from '../../views/tab/StyledTabIcon';
 import { COMPONENT_IDS } from '../utils';
 
 /**
@@ -20,8 +21,18 @@ import { COMPONENT_IDS } from '../utils';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tab = forwardRef<HTMLDivElement, ITabProps>(
-  ({ disabled, item, ...otherProps }, ref) => {
+  /* `label` is read by `TabList` for the overflow menu; it never lands on the DOM. */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  ({ disabled, item, icon, label, children, ...otherProps }, ref) => {
     const tabsPropGetters = useTabsContext();
+    const tabIcon = icon ? (
+      <StyledTabIcon
+        data-garden-id={COMPONENT_IDS['tabs.tab.icon']}
+        data-garden-version={PACKAGE_VERSION}
+      >
+        {icon}
+      </StyledTabIcon>
+    ) : undefined;
 
     if (!tabsPropGetters) {
       return (
@@ -32,7 +43,10 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
           {...otherProps}
           data-garden-id={COMPONENT_IDS['tabs.tab']}
           data-garden-version={PACKAGE_VERSION}
-        />
+        >
+          {tabIcon}
+          {children}
+        </StyledTab>
       );
     }
 
@@ -54,7 +68,10 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
         data-garden-id={COMPONENT_IDS['tabs.tab']}
         data-garden-version={PACKAGE_VERSION}
         ref={mergeRefs([tabRef, ref])}
-      />
+      >
+        {tabIcon}
+        {children}
+      </StyledTab>
     );
   }
 );
@@ -63,5 +80,7 @@ Tab.displayName = 'Tabs.Tab';
 
 Tab.propTypes = {
   disabled: PropTypes.bool,
-  item: PropTypes.any
+  item: PropTypes.any,
+  icon: PropTypes.element,
+  label: PropTypes.string
 };

@@ -1661,6 +1661,13 @@ export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   disabled?: boolean;
   /** Defines a unique value to identify the tab. Provided to the `onChange` event in the [Tabs](#tabs) component. */
   item?: any;
+  /** Accepts an icon to display before the label */
+  icon?: ReactElement;
+  /**
+   * Provides the text label of the tab in the overflow menu (defaults to string `children`).
+   * Set it when the children are not plain text, for example when they include a `Tag`
+   */
+  label?: string;
 }
 export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
