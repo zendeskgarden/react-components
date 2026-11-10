@@ -1431,7 +1431,8 @@ export interface IHeadProps extends HTMLAttributes<HTMLTableSectionElement> {
   /**
    * Applies sticky header styling. The head sticks to the top of the nearest
    * scroll container's padding edge, so the scroll container should not have
-   * top padding.
+   * top padding. Focused rows scroll into view below the head and any stuck
+   * group row.
    */
   isSticky?: boolean;
 }

@@ -7,10 +7,11 @@
 
 import { userEvent } from '@testing-library/user-event';
 import { rgba } from 'polished';
-import { createRef } from 'react';
+import { act, createRef } from 'react';
 import { css } from 'styled-components';
 
 import { render, RTL_THEME } from '../../test/render';
+import { stubResizeObserver } from '../../test/resizeObserver';
 import PALETTE from '../../theming/elements/palette';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { getColor } from '../../theming/utils/getColor';
@@ -18,6 +19,8 @@ import { StyledGroupRow } from '../../views/table/StyledGroupRow';
 import { Body } from './Body';
 import { Cell } from './Cell';
 import { GroupRow } from './GroupRow';
+import { Head } from './Head';
+import { HeaderRow } from './HeaderRow';
 import { Row } from './Row';
 import { Table } from './Table';
 
@@ -430,6 +433,82 @@ describe('Row', () => {
       );
 
       expect(getByTestId('row')).toHaveStyleRule('height', '48px');
+    });
+  });
+
+  describe('Sticky head', () => {
+    const POPUP = `:is([role='dialog'], [role='listbox'], [role='menu'])`;
+    const FOCUSED_CONTROL = `${CELLS} :focus-visible:not(:is(td, th) ${POPUP}, :is(td, th) ${POPUP} *)`;
+    const GROUP_ROW = `.${StyledGroupRow.styledComponentId}`;
+    const AFTER_GROUP_ROW = `${GROUP_ROW} ~ &`;
+    const AFTER_GROUPED_BODY = `tbody:has(> ${GROUP_ROW}) ~ tbody > &`;
+
+    const StickyTable = ({ isSticky = true }: { isSticky?: boolean }) => (
+      <Table>
+        <Head isSticky={isSticky}>
+          <HeaderRow />
+        </Head>
+        <Body>
+          <Row data-test-id="row" />
+        </Body>
+      </Table>
+    );
+
+    const expectScrollMargin = (row: HTMLElement, margin: string, modifier = '') => {
+      for (const target of [modifier, `${modifier}${CELLS}`, `${modifier}${FOCUSED_CONTROL}`]) {
+        expect(row).toHaveStyleRule('scroll-margin-top', margin, {
+          modifier: (target || undefined) as any
+        });
+      }
+    };
+
+    afterEach(() => {
+      vi.unstubAllGlobals();
+      vi.restoreAllMocks();
+    });
+
+    it('does not set a scroll margin without a sticky head', () => {
+      const { getByTestId } = render(<StickyTable isSticky={false} />);
+
+      expect(getByTestId('row')).not.toHaveStyleRule('scroll-margin-top', expect.anything());
+    });
+
+    it('scrolls clear of the header row and the gap while the head measures 0', () => {
+      const { getByTestId } = render(<StickyTable />);
+
+      expectScrollMargin(getByTestId('row'), '52px');
+    });
+
+    it('scrolls clear of the measured head and follows its resizes', () => {
+      stubResizeObserver();
+      const offsetHeight = vi
+        .spyOn(HTMLElement.prototype, 'offsetHeight', 'get')
+        .mockReturnValue(73);
+      const { getByTestId } = render(<StickyTable />);
+
+      expectScrollMargin(getByTestId('row'), '73px');
+
+      offsetHeight.mockReturnValue(97);
+      act(() => {
+        (
+          window as unknown as { resizeObserverCallback: ResizeObserverCallback }
+        ).resizeObserverCallback(
+          [{ contentRect: { width: 600, height: 97 } } as ResizeObserverEntry],
+          {} as ResizeObserver
+        );
+      });
+
+      expectScrollMargin(getByTestId('row'), '97px');
+    });
+
+    it.each([
+      ['a group row in its body', AFTER_GROUP_ROW],
+      ['a body with a group row', AFTER_GROUPED_BODY]
+    ])('scrolls clear of the stuck group row after %s', (_, modifier) => {
+      vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(73);
+      const { getByTestId } = render(<StickyTable />);
+
+      expectScrollMargin(getByTestId('row'), '105px', modifier);
     });
   });
 

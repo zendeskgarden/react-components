@@ -10,6 +10,7 @@ import PropTypes from 'prop-types';
 import { useState, useMemo, forwardRef } from 'react';
 
 import { useTableContext } from '../../hooks/table/useTableContext';
+import { useTableHeadContext } from '../../hooks/table/useTableHeadContext';
 import { ITableRowProps } from '../../types/elements';
 import { SELECTED_ROW_ATTRIBUTE, StyledRow } from '../../views/table/StyledRow';
 import { COMPONENT_IDS } from '../utils';
@@ -27,6 +28,7 @@ export const Row = forwardRef<HTMLTableRowElement, ITableRowProps>(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const { size, isReadOnly } = useTableContext();
+    const { stickyHeadHeight } = useTableHeadContext();
 
     const computedFocused = useMemo(() => {
       if (typeof focused !== 'undefined') {
@@ -66,6 +68,7 @@ export const Row = forwardRef<HTMLTableRowElement, ITableRowProps>(
         $isHovered={isHovered}
         $isStriped={isStriped}
         $isSelected={isSelected}
+        $stickyHeadHeight={stickyHeadHeight}
         {...otherProps}
         {...{ [SELECTED_ROW_ATTRIBUTE]: isSelected ? 'true' : undefined }}
         data-garden-id={COMPONENT_IDS['tables.row']}

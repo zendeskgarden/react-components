@@ -336,6 +336,11 @@ border. These changes can affect custom styles:
 - With a sticky `Table.Head`, each `Table.GroupRow` sticks below the head
   (`z-index: 1`), also when header cells wrap, until the next group row takes
   its place. It hides the rows under its rounded corners the same way.
+- With a sticky `Table.Head`, body rows and their cells have a
+  `scroll-margin-top`, and so do controls in the cells when they get keyboard
+  focus. Focus and `scrollIntoView` bring them into view below the head and the
+  stuck group row, not under them. A `scroll-padding-top` on the scroll
+  container adds to this margin.
 
 #### Tag
 

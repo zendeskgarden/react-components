@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { math } from 'polished';
 import 'styled-components';
+
 import { ITableProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
 
@@ -26,6 +28,17 @@ export const getHeaderRowHeight = (props: WithTheme<{ $size?: ITableProps['size'
 
   return `${props.theme.space.base * 12}px`;
 };
+
+export const getGroupRowHeight = ({ theme }: WithTheme) => `${theme.space.base * 8}px`;
+
+/**
+ * The height of a sticky head. Falls back to a single header row and the gap
+ * while the head measures 0 (for example, in a hidden table).
+ */
+export const getStickyHeadHeight = (
+  props: WithTheme<{ $size?: ITableProps['size'] }>,
+  height?: number
+) => (height ? `${height}px` : math(`${getHeaderRowHeight(props)} + ${props.theme.space.xxs}`));
 
 export const CELL_SELECTOR = ':is(td, th)';
 

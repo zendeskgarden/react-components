@@ -5,13 +5,20 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { math } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
-import { CELL_SELECTOR, getRoundedEndStyles, getRowHeight } from './style-utils';
+import {
+  CELL_SELECTOR,
+  getGroupRowHeight,
+  getRoundedEndStyles,
+  getRowHeight,
+  getStickyHeadHeight
+} from './style-utils';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledGroupRow } from './StyledGroupRow';
 import { StyledOverflowButton } from './StyledOverflowButton';
@@ -26,6 +33,8 @@ export interface IStyledRowProps {
   $isSelected?: boolean;
   $isReadOnly?: ITableProps['isReadOnly'];
   $size?: ITableProps['size'];
+  /** The sticky head height, which the row scrolls clear of */
+  $stickyHeadHeight?: number;
 }
 
 const colorStyles = ({
@@ -212,8 +221,46 @@ const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
   `;
 };
 
+const POPUP_SELECTOR = `:is([role='dialog'], [role='listbox'], [role='menu'])`;
+
+/*
+ * 1. Keep a row, its cells and the controls focused in them clear of a sticky
+ *    head when they scroll into view, and of the group row stuck below it once a
+ *    group row comes before the row. A stuck group row stays stuck over later
+ *    bodies.
+ * 2. Keyboard focus only: a click on a partly hidden checkbox focuses its input,
+ *    which Firefox would then scroll to the middle of the viewport. Popups in a
+ *    cell, such as an inline menu, keep their own scrolling.
+ */
+const scrollStyles = (props: WithTheme<IStyledRowProps>) => {
+  const headHeight = getStickyHeadHeight(props, props.$stickyHeadHeight);
+  const stackHeight = math(`${headHeight} + ${getGroupRowHeight(props)}`);
+  const getScrollMarginStyles = (margin: string) => css`
+    scroll-margin-top: ${margin}; /* [1] */
+
+    > ${CELL_SELECTOR} {
+      scroll-margin-top: ${margin};
+    }
+
+    > ${CELL_SELECTOR} :focus-visible:not(${CELL_SELECTOR} ${POPUP_SELECTOR}, ${CELL_SELECTOR} ${POPUP_SELECTOR} *) {
+      scroll-margin-top: ${margin}; /* [2] */
+    }
+  `;
+
+  return css`
+    ${getScrollMarginStyles(headHeight)}
+
+    ${StyledGroupRow} ~ &,
+    tbody:has(> ${StyledGroupRow}) ~ tbody > & {
+      ${getScrollMarginStyles(stackHeight)}
+    }
+  `;
+};
+
 export const StyledRow = styled(StyledBaseRow)<WithTheme<IStyledRowProps>>`
   ${sizeStyles}
+
+  ${props => props.$stickyHeadHeight !== undefined && scrollStyles(props)}
 
   ${colorStyles}
 
