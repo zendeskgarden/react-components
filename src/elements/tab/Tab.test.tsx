@@ -33,6 +33,28 @@ describe('Tab', () => {
     expect(tab).not.toHaveAttribute('disabled');
   });
 
+  it('keeps id, aria-selected and aria-controls on a disabled tab', () => {
+    const { getByRole } = render(
+      <Tabs>
+        <Tabs.TabList>
+          <Tabs.Tab item="one" disabled>
+            One
+          </Tabs.Tab>
+          <Tabs.Tab item="two">Two</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="one">Panel one</Tabs.TabPanel>
+        <Tabs.TabPanel item="two">Panel two</Tabs.TabPanel>
+      </Tabs>
+    );
+    const tab = getByRole('tab', { name: 'One' });
+
+    expect(tab).toHaveAttribute('aria-disabled', 'true');
+    expect(tab).toHaveAttribute('id');
+    expect(tab).toHaveAttribute('aria-selected', 'false');
+    expect(tab).toHaveAttribute('aria-controls');
+    expect(tab).toHaveAttribute('tabindex', '-1');
+  });
+
   describe('styles', () => {
     it('is 40px high with no inline padding when horizontal', () => {
       const { getByRole } = render(

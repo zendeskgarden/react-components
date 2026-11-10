@@ -8,6 +8,7 @@
 import { HTMLAttributes, forwardRef, useRef } from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
+import { useText } from '../../theming/utils/useText';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { useTabIndicatorGeometry } from '../../utils/tab/useTabIndicatorGeometry';
 import { useTabIndicatorMotion } from '../../utils/tab/useTabIndicatorMotion';
@@ -26,6 +27,14 @@ export const TabList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
   const isVertical = !!tabsPropGetters?.isVertical;
   const geometry = useTabIndicatorGeometry(listRef, tabsPropGetters?.selectedValue, isVertical);
   const indicatorRef = useTabIndicatorMotion(geometry, isVertical);
+  /* A standalone tab list (no `Tabs`) renders without a default name, as before. */
+  const ariaLabel = useText(
+    TabList,
+    props,
+    'aria-label',
+    'Tabs',
+    !!tabsPropGetters && !props['aria-labelledby']
+  );
 
   if (!tabsPropGetters) {
     return (
@@ -47,6 +56,7 @@ export const TabList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
       $isVertical={tabsPropGetters.isVertical}
       {...tabListProps}
       {...otherProps}
+      aria-label={ariaLabel}
       data-garden-id={COMPONENT_IDS['tabs.tablist']}
       data-garden-version={PACKAGE_VERSION}
       ref={mergeRefs([listRef, ref])}

@@ -185,6 +185,25 @@ describe('Tabs', () => {
 
       expect(getAllByTestId('tab')[0]).toHaveAttribute('aria-selected', 'true');
     });
+
+    it('selects the first enabled tab when the first tab is disabled', () => {
+      const { getAllByTestId } = render(
+        <Tabs>
+          <Tabs.TabList>
+            <Tabs.Tab data-test-id="tab" item="tab-1" disabled>
+              Tab 1
+            </Tabs.Tab>
+            <Tabs.Tab data-test-id="tab" item="tab-2">
+              Tab 2
+            </Tabs.Tab>
+          </Tabs.TabList>
+          <Tabs.TabPanel item="tab-1">Tab 1 content</Tabs.TabPanel>
+          <Tabs.TabPanel item="tab-2">Tab 2 content</Tabs.TabPanel>
+        </Tabs>
+      );
+
+      expect(getAllByTestId('tab')[1]).toHaveAttribute('aria-selected', 'true');
+    });
   });
 
   describe('Tabs.TabPanel', () => {

@@ -26,6 +26,7 @@ export const TabPanel = forwardRef<HTMLDivElement, ITabPanelProps>(
       return (
         <StyledTabPanel
           ref={ref}
+          tabIndex={0}
           {...otherProps}
           data-garden-id={COMPONENT_IDS['tabs.tabpanel']}
           data-garden-version={PACKAGE_VERSION}
@@ -38,9 +39,12 @@ export const TabPanel = forwardRef<HTMLDivElement, ITabPanelProps>(
     }) as HTMLAttributes<HTMLDivElement>;
 
     return (
+      /* A hidden panel is `display: none`, so it cannot receive focus. */
+      /* eslint-disable-next-line jsx-a11y/no-aria-hidden-on-focusable */
       <StyledTabPanel
         aria-hidden={tabsPropGetters.selectedValue !== item}
         $isVertical={tabsPropGetters.isVertical}
+        tabIndex={0}
         {...tabPanelProps}
         {...otherProps}
         data-garden-id={COMPONENT_IDS['tabs.tabpanel']}

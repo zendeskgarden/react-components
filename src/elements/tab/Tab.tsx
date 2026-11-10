@@ -23,13 +23,12 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
   ({ disabled, item, ...otherProps }, ref) => {
     const tabsPropGetters = useTabsContext();
 
-    if (disabled || !tabsPropGetters) {
+    if (!tabsPropGetters) {
       return (
         <StyledTab
           role="tab"
           aria-disabled={disabled}
           ref={ref}
-          $isVertical={tabsPropGetters?.isVertical}
           {...otherProps}
           data-garden-id={COMPONENT_IDS['tabs.tab']}
           data-garden-version={PACKAGE_VERSION}
@@ -37,6 +36,11 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
       );
     }
 
+    /*
+     * `getTabProps` also handles a disabled tab: it strips the interaction
+     * handlers and sets `aria-disabled`, while keeping `id`, `aria-selected`
+     * and `aria-controls`.
+     */
     const { ref: tabRef, ...tabProps } = tabsPropGetters.getTabProps<HTMLDivElement>({
       value: item
     }) as HTMLAttributes<HTMLDivElement> & { ref: MutableRefObject<HTMLDivElement> };

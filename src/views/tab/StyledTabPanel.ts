@@ -8,6 +8,7 @@
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
+import { focusStyles } from '../../theming/utils/focusStyles';
 import type { WithTheme } from '../../types/views';
 
 interface IStyledTabPanelProps {
@@ -22,6 +23,8 @@ export const StyledTabPanel = styled.div<WithTheme<IStyledTabPanelProps>>`
   &[aria-hidden='true'] {
     display: none;
   }
+
+  ${({ theme }) => focusStyles({ theme })};
 
   ${componentStyles};
 `;

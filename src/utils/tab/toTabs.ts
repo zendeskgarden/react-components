@@ -8,6 +8,7 @@
 import { IUseTabsProps } from '@zendeskgarden/container-tabs';
 import { Children, ReactNode, isValidElement } from 'react';
 
+import { TabPanel } from '../../elements/tab/TabPanel';
 import { ITabProps } from '../../types/elements';
 
 /**
@@ -21,7 +22,8 @@ export const toTabs = (children: ReactNode) =>
   Children.toArray(children).reduce((_items: IUseTabsProps<any>['tabs'], child) => {
     const retVal = _items;
 
-    if (isValidElement<ITabProps>(child)) {
+    /* A `TabPanel` also carries an `item` prop; it is not a tab. */
+    if (isValidElement<ITabProps>(child) && child.type !== TabPanel) {
       if ('item' in child.props) {
         const props = child.props;
 
