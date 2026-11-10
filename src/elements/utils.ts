@@ -236,6 +236,7 @@ const componentIds = [
   'tables.row',
   'tables.sortable',
   'tables.table',
+  'tabs.indicator',
   'tabs.tab',
   'tabs.tablist',
   'tabs.tabpanel',

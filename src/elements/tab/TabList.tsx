@@ -5,9 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, forwardRef } from 'react';
+import { HTMLAttributes, forwardRef, useRef } from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
+import { mergeRefs } from '../../utils/shared/mergeRefs';
+import { useTabIndicatorGeometry } from '../../utils/tab/useTabIndicatorGeometry';
+import { useTabIndicatorMotion } from '../../utils/tab/useTabIndicatorMotion';
+import { StyledTabIndicator } from '../../views/tab/StyledTabIndicator';
 import { StyledTabList } from '../../views/tab/StyledTabList';
 import { COMPONENT_IDS } from '../utils';
 
@@ -18,6 +22,10 @@ import { COMPONENT_IDS } from '../utils';
  */
 export const TabList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
   const tabsPropGetters = useTabsContext();
+  const listRef = useRef<HTMLDivElement>(null);
+  const isVertical = !!tabsPropGetters?.isVertical;
+  const geometry = useTabIndicatorGeometry(listRef, tabsPropGetters?.selectedValue, isVertical);
+  const indicatorRef = useTabIndicatorMotion(geometry, isVertical);
 
   if (!tabsPropGetters) {
     return (
@@ -30,6 +38,7 @@ export const TabList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
     );
   }
 
+  const { children, ...otherProps } = props;
   const tabListProps =
     tabsPropGetters.getTabListProps<HTMLDivElement>() as HTMLAttributes<HTMLDivElement>;
 
@@ -37,11 +46,21 @@ export const TabList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>
     <StyledTabList
       $isVertical={tabsPropGetters.isVertical}
       {...tabListProps}
-      {...props}
+      {...otherProps}
       data-garden-id={COMPONENT_IDS['tabs.tablist']}
       data-garden-version={PACKAGE_VERSION}
-      ref={ref}
-    />
+      ref={mergeRefs([listRef, ref])}
+    >
+      {children}
+      <StyledTabIndicator
+        $isVertical={tabsPropGetters.isVertical}
+        aria-hidden="true"
+        hidden={!geometry}
+        ref={indicatorRef}
+        data-garden-id={COMPONENT_IDS['tabs.indicator']}
+        data-garden-version={PACKAGE_VERSION}
+      />
+    </StyledTabList>
   );
 });
 
