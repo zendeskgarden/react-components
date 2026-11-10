@@ -14,6 +14,7 @@ import type { WithTheme } from '../../types/views';
 import { StyledTabIcon } from './StyledTabIcon';
 
 interface IStyledTabProps {
+  $isHidden?: boolean;
   $isSelected?: boolean;
   $isVertical?: boolean;
 }
@@ -111,6 +112,7 @@ export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
   position: relative;
   flex-shrink: 0;
   align-items: center;
+  visibility: ${({ $isHidden }) => ($isHidden ? 'hidden' : undefined)};
   transition: color 0.25s ease-in-out;
   box-sizing: border-box;
   cursor: pointer;

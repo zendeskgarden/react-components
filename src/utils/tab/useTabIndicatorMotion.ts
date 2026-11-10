@@ -8,7 +8,7 @@
 import { useEffect, useLayoutEffect, useRef } from 'react';
 
 import { advanceSpring } from '../shared/spring';
-import type { ITabIndicatorGeometry } from './useTabIndicatorGeometry';
+import type { ITabIndicatorGeometry } from './useTabsOverflow';
 
 interface IMotion {
   offset: number;

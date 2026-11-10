@@ -1656,6 +1656,17 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onC
 //#endregion
 
 //#region tab
+export interface ITabListProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Overrides the label of the overflow menu trigger
+   *
+   * @param {number} hiddenCount The number of tabs in the overflow menu
+   * @param {string} [selectedLabel] The label of the selected tab, when it is in the overflow menu
+   *
+   * @returns {string} a replacement for the "+N tabs" text
+   */
+  renderOverflowLabel?: (hiddenCount: number, selectedLabel?: string) => string;
+}
 export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   /** Indicates that the element is not interactive */
   disabled?: boolean;

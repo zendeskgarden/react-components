@@ -8,8 +8,8 @@
 import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordion';
 import type { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 import type { IUseModalReturnValue } from '@zendeskgarden/container-modal';
-import type { ITab, IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
-import type { Dispatch, MutableRefObject, ReactNode } from 'react';
+import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
+import type { Dispatch, MutableRefObject, ReactNode, SetStateAction } from 'react';
 
 import type {
   DatePickerRangeAction,
@@ -20,6 +20,7 @@ import type {
   IDatePickerState
 } from '../elements/datepicker/date-picker-reducer';
 import type { DateFnsIndex } from '../utils/datepicker/calendar-utils';
+import type { ITabData } from '../utils/tab/toTabs';
 import type {
   GridNumber,
   IAccordionProps,
@@ -222,7 +223,10 @@ export interface ITabsContext extends IUseTabsReturnValue<any> {
   /** Selects a tab by value; the same handler the hook's `onSelect` calls */
   select: (item: any) => void;
   /** The tabs collected from the `Tabs` children, in DOM order */
-  tabs: ITab<any>[];
+  tabs: ITabData[];
+  /** The number of leading tabs that fit outside the overflow menu (written by `TabList`) */
+  visibleCount: number;
+  setVisibleCount: Dispatch<SetStateAction<number>>;
 }
 //#endregion
 

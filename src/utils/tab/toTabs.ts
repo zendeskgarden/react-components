@@ -5,21 +5,28 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { IUseTabsProps } from '@zendeskgarden/container-tabs';
+import { ITab } from '@zendeskgarden/container-tabs';
 import { Children, ReactNode, isValidElement } from 'react';
 
 import { TabPanel } from '../../elements/tab/TabPanel';
 import { ITabProps } from '../../types/elements';
 
+export interface ITabData extends ITab<any> {
+  /** The tab element's props */
+  props: ITabProps;
+}
+
 /**
  * Converts an array of `Tab` children to a valid `tabs` data structure for `useTabs`.
+ * The collected entries are index-aligned with the tab elements of the tab list,
+ * in DOM order.
  *
  * @param children The `children` prop from `Tabs`.
  *
- * @returns A valid `IUseTabsProps['tabs']` data structure.
+ * @returns The collected tabs, each with its `value`, `disabled` flag and `props`.
  */
 export const toTabs = (children: ReactNode) =>
-  Children.toArray(children).reduce((_items: IUseTabsProps<any>['tabs'], child) => {
+  Children.toArray(children).reduce((_items: ITabData[], child) => {
     const retVal = _items;
 
     /* A `TabPanel` also carries an `item` prop; it is not a tab. */
@@ -29,7 +36,8 @@ export const toTabs = (children: ReactNode) =>
 
         retVal.push({
           value: props.item,
-          disabled: props.disabled
+          disabled: props.disabled,
+          props
         });
       } else {
         const childItems = toTabs(child.props.children);

@@ -7,7 +7,7 @@
 
 import { createRef } from 'react';
 
-import { DARK_THEME, render } from '../../test/render';
+import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import { Tab } from './Tab';
 import { Tabs } from './Tabs';
 
@@ -127,6 +127,29 @@ describe('Tab', () => {
 
       expect(tab).toHaveStyleRule('height', '32px');
       expect(tab).toHaveStyleRule('padding', '6px 12px');
+    });
+
+    it('aligns the text of a vertical tab to the start edge', () => {
+      const { getByRole, rerender } = render(
+        <Tabs isVertical>
+          <Tabs.TabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>
+      );
+
+      expect(getByRole('tab')).toHaveStyleRule('text-align', 'left');
+
+      rerender(
+        <Tabs isVertical>
+          <Tabs.TabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>,
+        { theme: RTL_THEME }
+      );
+
+      expect(getByRole('tab')).toHaveStyleRule('text-align', 'right');
     });
 
     it('draws a 2px focus ring around the label', () => {

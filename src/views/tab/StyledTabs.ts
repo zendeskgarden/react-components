@@ -14,16 +14,8 @@ interface IStyledTabsProps {
   $isVertical?: boolean;
 }
 
-/*
- * 1. Room for the focus ring of the first and last horizontal tab, which sit
- *    outside the label. The padding makes room, the margin keeps the layout.
- */
 const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabsProps>) => {
-  const ringWidth = theme.shadowWidths.sm;
-
   return css`
-    margin-inline: ${$isVertical ? undefined : `-${ringWidth}`}; /* [1] */
-    padding-inline: ${$isVertical ? undefined : ringWidth}; /* [1] */
     gap: ${$isVertical ? theme.space.lg : undefined};
   `;
 };
@@ -33,7 +25,6 @@ const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabsProps>) => {
  */
 export const StyledTabs = styled.div<WithTheme<IStyledTabsProps>>`
   display: ${props => (props.$isVertical ? 'flex' : 'block')};
-  overflow: hidden;
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${sizeStyles};

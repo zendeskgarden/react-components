@@ -37,6 +37,26 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     const tabs = useMemo(() => toTabs(children), [children]);
 
     /*
+     * The first render shows every tab, so server HTML has no overflow menu.
+     * `TabList` measures the tab list and writes the count back.
+     */
+    const [visibleCount, setVisibleCount] = useState(tabs.length);
+
+    /*
+     * Overflowed tabs reach the hook as disabled, so arrow navigation never
+     * reaches a tab in the overflow menu. The disabled flag does not change
+     * layout.
+     */
+    const navigableTabs = useMemo(
+      () =>
+        tabs.map((tab, index) => ({
+          value: tab.value,
+          disabled: index >= visibleCount ? true : tab.disabled
+        })),
+      [tabs, visibleCount]
+    );
+
+    /*
      * The selection always has a value, so the first render (server HTML
      * included) already has a selected tab: a controlled `selectedItem` wins,
      * then the internal state, then the first enabled tab. Computing the
@@ -64,7 +84,7 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
      * fires on user selection.
      */
     const tabsContextValue = useTabs({
-      tabs,
+      tabs: navigableTabs,
       rtl: theme!.rtl,
       orientation: isVertical ? 'vertical' : 'horizontal',
       selectedValue: selectedItem,
@@ -73,8 +93,8 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     });
 
     const contextValue = useMemo(
-      () => ({ isVertical, ...tabsContextValue, select, tabs }),
-      [isVertical, tabsContextValue, select, tabs]
+      () => ({ isVertical, ...tabsContextValue, select, tabs, visibleCount, setVisibleCount }),
+      [isVertical, tabsContextValue, select, tabs, visibleCount]
     );
 
     return (

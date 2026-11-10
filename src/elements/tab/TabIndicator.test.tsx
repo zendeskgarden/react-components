@@ -36,45 +36,43 @@ const Example = ({ isVertical, selectedItem }: IExampleProps) => (
   </Tabs>
 );
 
-/* jsdom has no layout. Tabs sit at a fixed step, from the start edge of the list. */
+/* jsdom has no layout. Tabs sit at a fixed step, from the start edge of the container. */
 const mockLayout = ({ isVertical = false, isRtl = false } = {}) =>
-  vi
-    .spyOn(Element.prototype, 'getBoundingClientRect')
-    .mockImplementation(function getRect(this: Element) {
-      const rect = { left: 0, top: 0, width: 0, height: 0, right: 0, bottom: 0, x: 0, y: 0 };
-      let layout = rect;
+  vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function getRect(
+    this: Element
+  ) {
+    const rect = { left: 0, top: 0, width: 0, height: 0, right: 0, bottom: 0, x: 0, y: 0 };
+    let layout = rect;
 
-      if (this.getAttribute('role') === 'tablist') {
+    if (this.getAttribute('data-garden-id') === 'tabs.tablist_container') {
+      layout = {
+        ...rect,
+        width: LIST_SIZE,
+        height: LIST_SIZE,
+        right: LIST_SIZE,
+        bottom: LIST_SIZE
+      };
+    } else if (this.getAttribute('role') === 'tab') {
+      const index = Array.from(this.parentElement!.querySelectorAll('[role="tab"]')).indexOf(this);
+      const start = index * TAB_STEP;
+
+      if (isVertical) {
         layout = {
           ...rect,
-          width: LIST_SIZE,
-          height: LIST_SIZE,
-          right: LIST_SIZE,
-          bottom: LIST_SIZE
+          top: start,
+          bottom: start + TAB_SIZE,
+          height: TAB_SIZE,
+          width: LIST_SIZE
         };
-      } else if (this.getAttribute('role') === 'tab') {
-        const index = Array.from(this.parentElement!.querySelectorAll('[role="tab"]')).indexOf(
-          this
-        );
-        const start = index * TAB_STEP;
+      } else {
+        const left = isRtl ? LIST_SIZE - start - TAB_SIZE : start;
 
-        if (isVertical) {
-          layout = {
-            ...rect,
-            top: start,
-            bottom: start + TAB_SIZE,
-            height: TAB_SIZE,
-            width: LIST_SIZE
-          };
-        } else {
-          const left = isRtl ? LIST_SIZE - start - TAB_SIZE : start;
-
-          layout = { ...rect, left, right: left + TAB_SIZE, width: TAB_SIZE, height: 40 };
-        }
+        layout = { ...rect, left, right: left + TAB_SIZE, width: TAB_SIZE, height: 40 };
       }
+    }
 
-      return layout as DOMRect;
-    });
+    return layout as DOMRect;
+  });
 
 const mockMotionPreference = (reduce: boolean) =>
   vi.spyOn(window, 'matchMedia').mockReturnValue({
@@ -95,15 +93,17 @@ describe('Tabs indicator', () => {
     vi.restoreAllMocks();
   });
 
-  it('renders one hidden-from-assistive-tech indicator inside the tab list', () => {
+  it('renders one hidden-from-assistive-tech indicator inside the tab list container', () => {
     mockLayout();
     render(<Example />);
 
     const indicators = document.querySelectorAll('[data-garden-id="tabs.indicator"]');
+    const container = document.querySelector('[data-garden-id="tabs.tablist_container"]');
 
     expect(indicators).toHaveLength(1);
     expect(indicators[0]).toHaveAttribute('aria-hidden', 'true');
-    expect(screen.getByRole('tablist')).toContainElement(indicators[0] as HTMLElement);
+    expect(container).toContainElement(indicators[0] as HTMLElement);
+    expect(screen.getByRole('tablist')).not.toContainElement(indicators[0] as HTMLElement);
   });
 
   it('snaps under the selected tab on first paint when horizontal', () => {

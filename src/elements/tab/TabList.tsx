@@ -5,73 +5,299 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { HTMLAttributes, forwardRef, useRef } from 'react';
+import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
+import PropTypes from 'prop-types';
+import {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  forwardRef,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState
+} from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
+import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
+import { ITabListProps } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
-import { useTabIndicatorGeometry } from '../../utils/tab/useTabIndicatorGeometry';
+import { ITabData } from '../../utils/tab/toTabs';
 import { useTabIndicatorMotion } from '../../utils/tab/useTabIndicatorMotion';
+import { useTabsOverflow } from '../../utils/tab/useTabsOverflow';
 import { StyledTabIndicator } from '../../views/tab/StyledTabIndicator';
 import { StyledTabList } from '../../views/tab/StyledTabList';
+import { StyledTabListContainer } from '../../views/tab/StyledTabListContainer';
+import {
+  StyledTabOverflow,
+  StyledTabOverflowCircle,
+  StyledTabOverflowTrigger
+} from '../../views/tab/StyledTabOverflow';
+import { StyledTabOverflowSpacer } from '../../views/tab/StyledTabOverflowSpacer';
+import { Item } from '../dropdown/Item';
+import { ItemGroup } from '../dropdown/ItemGroup';
+import { Menu } from '../dropdown/Menu';
+import { Tooltip } from '../tooltip/Tooltip';
 import { COMPONENT_IDS } from '../utils';
+
+const EMPTY_TABS: ITabData[] = [];
+
+/*
+ * The menu label of a tab: `label`, else string children, else the tab
+ * element's text, else the item rendered as a string.
+ */
+const getMenuLabel = (tab: ITabData, element?: HTMLElement) => {
+  if (tab.props.label !== undefined) {
+    return tab.props.label;
+  }
+
+  if (typeof tab.props.children === 'string') {
+    return tab.props.children;
+  }
+
+  const text = element?.textContent?.trim();
+
+  return text ? text : String(tab.props.item);
+};
 
 /**
  * @deprecated use `Tabs.TabList` instead
  *
  * @extends HTMLAttributes<HTMLDivElement>
  */
-export const TabList = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>((props, ref) => {
+export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) => {
+  const { renderOverflowLabel, ...restProps } = props;
   const tabsPropGetters = useTabsContext();
-  const listRef = useRef<HTMLDivElement>(null);
+  const theme = useGardenTheme();
+  const tabs = tabsPropGetters?.tabs ?? EMPTY_TABS;
   const isVertical = !!tabsPropGetters?.isVertical;
-  const geometry = useTabIndicatorGeometry(listRef, tabsPropGetters?.selectedValue, isVertical);
-  const indicatorRef = useTabIndicatorMotion(geometry, isVertical);
+  const visibleCount = Math.min(tabsPropGetters?.visibleCount ?? tabs.length, tabs.length);
+  const hiddenCount = tabs.length - visibleCount;
+  const hiddenTabs = tabs.slice(visibleCount);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null);
+  const overflowRef = useRef<HTMLDivElement>(null);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const [isMenuExpanded, setIsMenuExpanded] = useState(false);
+  const menuGroup = useId();
+
+  const { visibleExtent, hiddenExtent, indicator, pendingFocus } = useTabsOverflow({
+    containerRef,
+    listRef,
+    overflowRef,
+    triggerRef,
+    tabs,
+    selectedItem: tabsPropGetters?.selectedValue,
+    isVertical,
+    theme,
+    visibleCount,
+    setVisibleCount: tabsPropGetters?.setVisibleCount
+  });
+  const indicatorRef = useTabIndicatorMotion(indicator, isVertical);
   /* A standalone tab list (no `Tabs`) renders without a default name, as before. */
   const ariaLabel = useText(
     TabList,
-    props,
+    restProps,
     'aria-label',
     'Tabs',
-    !!tabsPropGetters && !props['aria-labelledby']
+    !!tabsPropGetters && !restProps['aria-labelledby']
   );
+  /* The development warning only fires while tabs overflow. */
+  const overflowText = useText(
+    TabList,
+    { renderOverflowLabel },
+    'renderOverflowLabel',
+    '+{{value}} tabs',
+    !!tabsPropGetters && hiddenCount > 0
+  );
+
+  const getOverflowLabel = (count: number, selectedLabel?: string) => {
+    if (renderOverflowLabel) {
+      return renderOverflowLabel(count, selectedLabel);
+    }
+
+    const base =
+      count === 1 ? '+1 tab' : (overflowText ?? '').replace('{{value}}', count.toString());
+
+    return selectedLabel ? `${base}, ${selectedLabel} selected` : base;
+  };
+
+  const selectedIndex = tabs.findIndex(tab => tab.value === tabsPropGetters?.selectedValue);
+  const selectedHiddenTab = selectedIndex >= visibleCount ? tabs[selectedIndex] : undefined;
+  const isNavigable = (index: number) =>
+    index >= 0 && index < visibleCount && !tabs[index]!.disabled;
+  /* The tab that receives focus when tabs leave the menu: the focused tab,
+   * else the selected tab, else the first navigable one. */
+  const entryIndex =
+    [tabsPropGetters?.focusedValue, tabsPropGetters?.selectedValue]
+      .map(value => tabs.findIndex(tab => tab.value === value))
+      .find(isNavigable) ?? tabs.findIndex((_tab, index) => isNavigable(index));
+
+  /* Focus moves between the tabs, the trigger and the menu as tabs move into
+   * or out of the overflow menu. */
+  useLayoutEffect(() => {
+    const target = pendingFocus.current;
+
+    pendingFocus.current = undefined;
+
+    if (target === 'trigger') {
+      triggerRef.current?.focus();
+    } else if (target === 'tab' && entryIndex >= 0) {
+      listRef.current?.querySelectorAll<HTMLElement>('[role="tab"]')[entryIndex]?.focus();
+    } else if (target === 'menu' && !overflowRef.current?.contains(document.activeElement)) {
+      /* The focused menu item became a visible tab and unmounted: close the
+       * menu and focus the trigger, as Escape would. */
+      setIsMenuExpanded(false);
+      triggerRef.current?.focus();
+    }
+
+    /* The menu unmounts when every tab fits; it must not reopen by itself
+     * when tabs overflow again. */
+    if (hiddenCount === 0 && isMenuExpanded) {
+      setIsMenuExpanded(false);
+    }
+  }, [pendingFocus, entryIndex, hiddenCount, isMenuExpanded]);
 
   if (!tabsPropGetters) {
     return (
       <StyledTabList
         ref={ref}
-        {...props}
+        {...restProps}
         data-garden-id={COMPONENT_IDS['tabs.tablist']}
         data-garden-version={PACKAGE_VERSION}
       />
     );
   }
 
-  const { children, ...otherProps } = props;
+  const { children, className, style, ...otherProps } = restProps;
   const tabListProps =
     tabsPropGetters.getTabListProps<HTMLDivElement>() as HTMLAttributes<HTMLDivElement>;
+  const tabElements = listRef.current
+    ? Array.from(listRef.current.querySelectorAll<HTMLElement>('[role="tab"]'))
+    : [];
+  const overflowLabel = getOverflowLabel(hiddenCount);
+  /* The trigger carries the selection indicator for overflowed tabs, so its
+   * name carries the selection too. */
+  const triggerLabel = selectedHiddenTab
+    ? getOverflowLabel(hiddenCount, getMenuLabel(selectedHiddenTab, tabElements[selectedIndex]))
+    : overflowLabel;
 
   return (
-    <StyledTabList
-      $isVertical={tabsPropGetters.isVertical}
-      {...tabListProps}
-      {...otherProps}
-      aria-label={ariaLabel}
-      data-garden-id={COMPONENT_IDS['tabs.tablist']}
+    <StyledTabListContainer
+      ref={containerRef}
+      className={className}
+      style={style}
+      $isVertical={isVertical}
+      data-garden-id={COMPONENT_IDS['tabs.tablist_container']}
       data-garden-version={PACKAGE_VERSION}
-      ref={mergeRefs([listRef, ref])}
     >
-      {children}
+      <StyledTabList
+        $isVertical={isVertical}
+        $extent={visibleExtent}
+        {...tabListProps}
+        {...otherProps}
+        aria-label={ariaLabel}
+        data-garden-id={COMPONENT_IDS['tabs.tablist']}
+        data-garden-version={PACKAGE_VERSION}
+        ref={mergeRefs([listRef, ref])}
+      >
+        {children}
+      </StyledTabList>
+      {hiddenCount > 0 && (
+        <StyledTabOverflow ref={overflowRef}>
+          <Menu
+            /* eslint-disable-next-line react/no-unstable-nested-components --
+               the `Menu` button API is a render function. */
+            button={({ ref: menuRef, ...triggerProps }) => {
+              const trigger = (
+                <StyledTabOverflowTrigger
+                  {...(triggerProps as ButtonHTMLAttributes<HTMLButtonElement>)}
+                  ref={mergeRefs([menuRef, triggerRef])}
+                  as="button"
+                  aria-label={isVertical && !selectedHiddenTab ? undefined : triggerLabel}
+                  $isVertical={isVertical}
+                  data-selected={selectedHiddenTab ? true : undefined}
+                  data-garden-id={COMPONENT_IDS['tabs.overflow_button']}
+                  data-garden-version={PACKAGE_VERSION}
+                >
+                  {isVertical ? (
+                    overflowLabel
+                  ) : (
+                    <StyledTabOverflowCircle aria-hidden="true">
+                      <DotsVerticalIcon />
+                    </StyledTabOverflowCircle>
+                  )}
+                </StyledTabOverflowTrigger>
+              );
+
+              /* The icon-only trigger gets a tooltip with the count. */
+              return isVertical ? trigger : <Tooltip content={overflowLabel}>{trigger}</Tooltip>;
+            }}
+            placement="bottom-end"
+            isExpanded={isMenuExpanded}
+            selectedItems={
+              selectedHiddenTab ? [{ value: String(selectedIndex), name: menuGroup }] : []
+            }
+            onChange={({ isExpanded, selectedItems }) => {
+              if (isExpanded !== undefined) {
+                setIsMenuExpanded(isExpanded);
+              }
+
+              const selectedValue = selectedItems?.find(item => item.name === menuGroup)?.value;
+
+              if (selectedValue !== undefined) {
+                const tab = tabs[Number(selectedValue)];
+
+                if (tab) {
+                  tabsPropGetters.select(tab.value);
+                }
+              }
+            }}
+          >
+            <ItemGroup type="radio" aria-label={overflowLabel}>
+              {hiddenTabs.map((tab, hiddenIndex) => {
+                const index = visibleCount + hiddenIndex;
+
+                return (
+                  <Item
+                    key={index}
+                    value={String(index)}
+                    label={getMenuLabel(tab, tabElements[index])}
+                    name={menuGroup}
+                    icon={tab.props.icon}
+                    isDisabled={tab.disabled}
+                  >
+                    {tab.props.children}
+                  </Item>
+                );
+              })}
+            </ItemGroup>
+          </Menu>
+        </StyledTabOverflow>
+      )}
+      {hiddenExtent !== undefined && (
+        <StyledTabOverflowSpacer
+          aria-hidden="true"
+          $isVertical={isVertical}
+          $size={hiddenExtent}
+          data-garden-id={COMPONENT_IDS['tabs.overflow_spacer']}
+          data-garden-version={PACKAGE_VERSION}
+        />
+      )}
       <StyledTabIndicator
-        $isVertical={tabsPropGetters.isVertical}
+        $isVertical={isVertical}
         aria-hidden="true"
-        hidden={!geometry}
+        hidden={!indicator}
         ref={indicatorRef}
         data-garden-id={COMPONENT_IDS['tabs.indicator']}
         data-garden-version={PACKAGE_VERSION}
       />
-    </StyledTabList>
+    </StyledTabListContainer>
   );
 });
 
 TabList.displayName = 'Tabs.TabList';
+
+TabList.propTypes = {
+  renderOverflowLabel: PropTypes.func
+};
