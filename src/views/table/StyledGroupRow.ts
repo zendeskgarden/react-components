@@ -24,7 +24,8 @@ interface IStyledGroupRowProps {
 }
 
 /*
- * 1. Fall back to a single header row and the gap until the head is measured.
+ * 1. Fall back to a single header row and the gap while the head measures 0
+ *    (for example, in a hidden table).
  * 2. Hide the rows that scroll under the rounded corners with square shadows
  *    (see `StyledHead`). Firefox paints the row background under each cell's
  *    square area, which keeps the rows from showing along the curves.

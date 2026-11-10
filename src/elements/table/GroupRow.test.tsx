@@ -6,6 +6,8 @@
  */
 
 import { act, createRef } from 'react';
+import { flushSync } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { renderToString } from 'react-dom/server';
 
 import { render, RTL_THEME } from '../../test/render';
@@ -90,7 +92,7 @@ describe('GroupRow', () => {
       ['medium', '52px'],
       ['large', '52px']
     ] as const)(
-      'sticks below the header row and the gap of a %s table before the head is measured',
+      'sticks below the header row and the gap of a %s table while the head measures 0',
       (size, top) => {
         const { getByTestId } = render(<GroupedTable size={size} isSticky />);
         const groupRow = getByTestId('groupRow');
@@ -121,6 +123,36 @@ describe('GroupRow', () => {
       });
 
       expect(getByTestId('groupRow')).toHaveStyleRule('top', '97px');
+    });
+
+    it('sticks in the first committed frame', () => {
+      const actEnvironment = globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean };
+      const isActEnvironment = actEnvironment.IS_REACT_ACT_ENVIRONMENT;
+      const container = document.body.appendChild(document.createElement('div'));
+      const root = createRoot(container);
+
+      vi.spyOn(HTMLElement.prototype, 'offsetHeight', 'get').mockReturnValue(73);
+      /* Outside `act`, which would flush passive effects and their updates first */
+      actEnvironment.IS_REACT_ACT_ENVIRONMENT = false;
+
+      try {
+        flushSync(() =>
+          root.render(
+            <ThemeProvider>
+              <GroupedTable isSticky />
+            </ThemeProvider>
+          )
+        );
+
+        const groupRow = container.querySelector('[data-test-id="groupRow"]');
+
+        expect(groupRow).toHaveStyleRule('position', 'sticky');
+        expect(groupRow).toHaveStyleRule('top', '73px');
+      } finally {
+        flushSync(() => root.unmount());
+        container.remove();
+        actEnvironment.IS_REACT_ACT_ENVIRONMENT = isActEnvironment;
+      }
     });
 
     it('stops sticking when the head is no longer sticky', () => {

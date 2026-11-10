@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { forwardRef, RefObject, useEffect, useRef } from 'react';
+import { forwardRef, RefObject, useLayoutEffect, useRef } from 'react';
 import useResizeObserver from 'use-resize-observer';
 
 import { useTableHeadContext } from '../../hooks/table/useTableHeadContext';
@@ -30,7 +30,7 @@ export const Head = forwardRef<HTMLTableSectionElement, IHeadProps>(
       onResize: () => setStickyHeadHeight(headRef.current?.offsetHeight)
     });
 
-    useEffect(() => {
+    useLayoutEffect(() => {
       if (!isSticky) {
         return undefined;
       }
