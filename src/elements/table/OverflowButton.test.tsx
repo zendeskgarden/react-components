@@ -8,7 +8,6 @@
 import { createRef } from 'react';
 
 import { render } from '../../test/render';
-import DEFAULT_THEME from '../../theming/elements/theme';
 import { Body } from './Body';
 import { OverflowButton } from './OverflowButton';
 import { Row } from './Row';
@@ -33,24 +32,23 @@ describe('OverflowButton', () => {
     expect(button).toHaveAttribute('type', 'button');
   });
 
-  it.each([
-    ['small', 8],
-    ['medium', 10],
-    ['large', 16]
-  ] as const)('centers the %s table row height', (size, rows) => {
-    const { getByTestId } = render(
-      <Table size={size}>
-        <Body>
-          <Row>
-            <OverflowButton data-test-id="overflow" />
-          </Row>
-        </Body>
-      </Table>
-    );
-    const height = DEFAULT_THEME.space.base * rows;
+  it.each(['small', 'medium', 'large'] as const)(
+    'leaves vertical centering in the %s table to the row',
+    size => {
+      const { getByTestId } = render(
+        <Table size={size}>
+          <Body>
+            <Row data-test-id="row">
+              <OverflowButton data-test-id="overflow" />
+            </Row>
+          </Body>
+        </Table>
+      );
 
-    expect(getByTestId('overflow')).toHaveStyleRule('margin-top', `calc(${height / 2}px - 1em)`);
-  });
+      expect(getByTestId('overflow')).not.toHaveStyleRule('margin-top', expect.anything());
+      expect(getByTestId('row')).toHaveStyleRule('vertical-align', 'middle');
+    }
+  );
 
   it('keeps the medium button size in every table size', () => {
     const { getByTestId } = render(

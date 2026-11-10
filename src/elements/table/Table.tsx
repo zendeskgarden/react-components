@@ -6,9 +6,10 @@
  */
 
 import PropTypes from 'prop-types';
-import { useMemo, forwardRef } from 'react';
+import { useMemo, useState, forwardRef } from 'react';
 
 import { TableProvider } from '../../context/table/TableContext';
+import { TableHeadProvider } from '../../context/table/TableHeadContext';
 import { ITableProps, TABLE_SIZE } from '../../types/elements';
 import { StyledTable } from '../../views/table/StyledTable';
 import { COMPONENT_IDS } from '../utils';
@@ -28,19 +29,26 @@ import { SortableCell } from './SortableCell';
  */
 export const TableComponent = forwardRef<HTMLTableElement, ITableProps>(
   ({ isReadOnly, size = 'medium', ...props }, ref) => {
+    const [stickyHeadHeight, setStickyHeadHeight] = useState<number>();
     const tableContextValue = useMemo(
       () => ({ size: size!, isReadOnly: isReadOnly! }),
       [size, isReadOnly]
     );
+    const tableHeadContextValue = useMemo(
+      () => ({ stickyHeadHeight, setStickyHeadHeight }),
+      [stickyHeadHeight]
+    );
 
     return (
       <TableProvider value={tableContextValue}>
-        <StyledTable
-          ref={ref}
-          {...props}
-          data-garden-id={COMPONENT_IDS['tables.table']}
-          data-garden-version={PACKAGE_VERSION}
-        />
+        <TableHeadProvider value={tableHeadContextValue}>
+          <StyledTable
+            ref={ref}
+            {...props}
+            data-garden-id={COMPONENT_IDS['tables.table']}
+            data-garden-version={PACKAGE_VERSION}
+          />
+        </TableHeadProvider>
       </TableProvider>
     );
   }

@@ -12,29 +12,67 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
 import { ITableProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
+import {
+  CELL_SELECTOR,
+  getGroupRowHeight,
+  getRoundedEndStyles,
+  getStickyHeadHeight
+} from './style-utils';
 import { StyledBaseRow } from './StyledBaseRow';
 import { StyledCell } from './StyledCell';
-import { IStyledRowProps } from './StyledRow';
 import { getLineHeight } from './StyledTable';
 
 interface IStyledGroupRowProps {
   $size?: ITableProps['size'];
+  /** The sticky head height, which the row sticks below */
+  $stickyTop?: number;
 }
 
-const colorStyles = ({ theme }: WithTheme) => {
+/*
+ * 1. Hide the rows that scroll under the rounded corners with square shadows
+ *    (see `StyledHead`). Firefox paints the row background under each cell's
+ *    square area, which keeps the rows from showing along the curves.
+ */
+const stickyStyles = (props: WithTheme<IStyledGroupRowProps>) => {
+  const { theme, $stickyTop } = props;
+  const color = getColor({ variable: 'background.default', theme });
+  const radius = theme.borderRadii.md;
+  const top = getStickyHeadHeight(props, $stickyTop);
+  const getCornerShadows = (offset: string) =>
+    `${offset} -${radius} 0 -${radius} ${color}, ${offset} ${radius} 0 -${radius} ${color}`;
+  const startShadows = getCornerShadows(theme.rtl ? radius : `-${radius}`);
+  const endShadows = getCornerShadows(theme.rtl ? `-${radius}` : radius);
+
   return css`
-    background-color: ${getColor({
-      variable: 'background.subtle',
-      transparency: theme.opacity[100],
-      light: { offset: 300 },
-      dark: { offset: -600 },
-      theme
-    })};
+    position: sticky;
+    top: ${top};
+    z-index: 1;
+    background-color: ${color}; /* [1] */
+
+    > :first-child {
+      box-shadow: ${startShadows}; /* [1] */
+    }
+
+    > :last-child {
+      box-shadow: ${endShadows};
+    }
+
+    > :first-child:last-child {
+      box-shadow: ${startShadows}, ${endShadows};
+    }
   `;
 };
 
-const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
-  const height = `${props.theme.space.base * 8}px`;
+const colorStyles = ({ theme }: WithTheme) => {
+  return css`
+    > ${CELL_SELECTOR} {
+      background-color: ${getColor({ variable: 'background.subtle', theme })};
+    }
+  `;
+};
+
+const sizeStyles = (props: WithTheme<IStyledGroupRowProps>) => {
+  const height = getGroupRowHeight(props);
   const lineHeight = getLineHeight(props);
 
   return css`
@@ -45,10 +83,14 @@ const sizeStyles = (props: WithTheme<IStyledRowProps>) => {
     ${StyledCell} {
       padding: ${math(`(${height} - ${lineHeight}) / 2`)} ${props.theme.space.base * 3}px;
     }
+
+    ${getRoundedEndStyles(props)}
   `;
 };
 
 export const StyledGroupRow = styled(StyledBaseRow)<WithTheme<IStyledGroupRowProps>>`
+  ${props => props.$stickyTop !== undefined && stickyStyles(props)}
+
   ${sizeStyles}
 
   ${colorStyles}

@@ -5,30 +5,18 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { math } from 'polished';
 import { styled } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
-import { ITableProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
 import { StyledIconButton } from '../button/StyledIconButton';
-import { getRowHeight } from './style-utils';
-
-interface IStyledOverflowButtonProps {
-  /** Table size, which sets the row height. `$size` stays the button size. */
-  $tableSize?: ITableProps['size'];
-}
 
 const OVERFLOW_BUTTON_SIZE = '2em';
-
-const getHalfRowHeight = ({ $tableSize, theme }: WithTheme<IStyledOverflowButtonProps>) =>
-  math(`${getRowHeight({ $size: $tableSize, theme })} / 2`);
 
 /**
  * 1. Overrides IconButton sizing
  */
-export const StyledOverflowButton = styled(StyledIconButton)<WithTheme<IStyledOverflowButtonProps>>`
-  margin-top: calc(${getHalfRowHeight} - 1em);
+export const StyledOverflowButton = styled(StyledIconButton)<WithTheme>`
   width: 100%; /* [1] */
   min-width: unset; /* [1] */
   height: ${OVERFLOW_BUTTON_SIZE}; /* [1] */

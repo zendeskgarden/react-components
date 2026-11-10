@@ -60,11 +60,16 @@ const sizeStyling = (props: WithTheme<IStyledCellProps>) => {
   `;
 };
 
+/**
+ * 1. No `border-color`: body cells pass the row's border color on (see
+ *    StyledRow), and the row border changes color without a transition.
+ */
 export const StyledCell = styled.td<WithTheme<IStyledCellProps>>`
   display: table-cell;
+  /* [1] */
   transition:
-    border-color 0.25s ease-in-out,
-    box-shadow 0.1s ease-in-out;
+    box-shadow 0.1s ease-in-out,
+    background-color 0.1s ease-in-out;
 
   ${props => sizeStyling(props)};
   ${props => props.$isTruncated && truncatedStyling};

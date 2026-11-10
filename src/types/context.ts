@@ -227,6 +227,12 @@ export interface ITableContext {
   size: NonNullable<ITableProps['size']>;
   isReadOnly: NonNullable<ITableProps['isReadOnly']>;
 }
+
+export interface ITableHeadContext {
+  /** The height of a sticky head, or `undefined` when the head is not sticky */
+  stickyHeadHeight?: number;
+  setStickyHeadHeight: (height?: number) => void;
+}
 //#endregion
 
 //#region typography

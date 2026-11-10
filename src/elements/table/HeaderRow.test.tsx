@@ -39,16 +39,16 @@ describe('HeaderRow', () => {
       expect(getByTestId('headerRow')).toHaveStyleRule('height', '40px');
     });
 
-    it('renders large size styling', () => {
+    it.each(['medium', 'large'] as const)('renders %s size styling', size => {
       const { getByTestId } = render(
-        <Table size="large">
+        <Table size={size}>
           <Head>
             <HeaderRow data-test-id="headerRow" />
           </Head>
         </Table>
       );
 
-      expect(getByTestId('headerRow')).toHaveStyleRule('height', '72px');
+      expect(getByTestId('headerRow')).toHaveStyleRule('height', '48px');
     });
   });
 });

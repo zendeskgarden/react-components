@@ -58,28 +58,28 @@ describe('SortableCell', () => {
     expect(button).toHaveAttribute('type', 'button');
   });
 
-  it.each([
-    ['small', '6px'],
-    ['medium', '10px'],
-    ['large', '22px']
-  ] as const)('applies the %s table size to the vertical padding', (size, padding) => {
-    const { getByTestId } = render(
-      <Table size={size}>
-        <Head>
-          <HeaderRow>
-            <SortableCell data-test-id="sortable" />
-            <HeaderCell data-test-id="header" />
-          </HeaderRow>
-        </Head>
-      </Table>
-    );
-    const sortableCell = getByTestId('sortable').parentElement;
+  it.each(['small', 'medium', 'large'] as const)(
+    'keeps the same vertical padding for the %s table size',
+    size => {
+      const padding = '10px';
+      const { getByTestId } = render(
+        <Table size={size}>
+          <Head>
+            <HeaderRow>
+              <SortableCell data-test-id="sortable" />
+              <HeaderCell data-test-id="header" />
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+      const sortableCell = getByTestId('sortable').parentElement;
 
-    expect(sortableCell).toHaveStyleRule('padding-top', padding);
-    expect(sortableCell).toHaveStyleRule('padding-bottom', padding);
-    expect(getByTestId('header')).toHaveStyleRule('padding-top', padding);
-    expect(getByTestId('header')).toHaveStyleRule('padding-bottom', padding);
-  });
+      expect(sortableCell).toHaveStyleRule('padding-top', padding);
+      expect(sortableCell).toHaveStyleRule('padding-bottom', padding);
+      expect(getByTestId('header')).toHaveStyleRule('padding-top', padding);
+      expect(getByTestId('header')).toHaveStyleRule('padding-bottom', padding);
+    }
+  );
 
   it('applies correct accessibility value when asc', () => {
     const { getByTestId } = render(

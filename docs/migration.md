@@ -5,7 +5,8 @@
 Garden v10 merges every `@zendeskgarden/react-*` package into a single
 `@zendeskgarden/react-components` package and applies the v10 design updates.
 The theme has a new palette and more border radii. `Button` and `Tag` are
-pill-shaped by default. Primary and selected controls use neutral colors. Garden
+pill-shaped by default. `Table` has a new design with rounded rows and a filled
+header. Primary and selected controls use neutral colors. Garden
 removes the exports that v9 deprecated and renames the exports that collided
 when the packages merged.
 
@@ -254,6 +255,92 @@ these components:
 
 - `MediaInput` sets `aria-invalid` from `validation`, as `Input` does. In v9 it
   always rendered `aria-invalid="false"`.
+
+#### Table
+
+`Table` has a new design with the same API. Header cells and group row cells
+are filled with `background.subtle` and have rounded ends, and so do the hover,
+selected and striped colors of body rows. Adjacent selected rows have square
+corners where they meet, and the row above a `Table.GroupRow` has no bottom
+border. These changes can affect custom styles:
+
+**Custom styles**
+
+- Garden draws row colors on the cells, not on the `tr`, and the table uses
+  `border-collapse: separate`. On a body row, the style and color of a `tr`
+  bottom border still apply, also in a `theme.components` override for
+  `tables.row`, so `border-bottom: none` still removes the row's border. The
+  border width and the other sides have no effect, and neither does any `tr`
+  border on header and group rows (`tables.header_row` and `tables.group_row`).
+- A `tr` background still paints under the cells of a body row. It shows
+  through cells with no color, mixes with the semi-transparent hover, selected
+  and striped colors, and has square corners in Firefox. Move row backgrounds to
+  the cells. Header and group row cells are opaque, so a background on their
+  `tr` doesn't show.
+
+  ```tsx
+  // Before
+  const StyledRow = styled(Table.Row)`
+    background-color: ${({ theme }) => getColor({ variable: 'background.subtle', theme })};
+  `;
+
+  // After
+  const StyledRow = styled(Table.Row)`
+    > td {
+      background-color: ${({ theme }) => getColor({ variable: 'background.subtle', theme })};
+    }
+  `;
+  ```
+
+- A hovered, selected or striped row paints its color on every cell (`td` and
+  `th`), so in those states it replaces a custom cell background.
+- Cell borders no longer collapse, so adjacent cells with custom borders show
+  both borders.
+- Garden uses pseudo-elements on body cells for the row border and the focus
+  indicator. Custom pseudo-elements on body cells may conflict.
+- Selected rows render `data-garden-selected="true"`, so DOM snapshots change.
+  The attribute is not part of the public API, so don't rely on it. To select or
+  style selected rows, pass your own attribute along with `isSelected`.
+
+**Sizes and alignment**
+
+- Cells are vertically centered. In v9, body cells aligned to the top and header
+  cells to the bottom, so in a row with wrapped text the other cells now center
+  instead of lining up with the first line.
+- `size="large"` rows are 48px tall instead of 64px. Header rows are 40px for
+  `small` and 48px for `medium` and `large` (72px for `large` in v9). Header
+  cells have the same vertical padding at every size.
+- The header has no bottom border. A 4px gap separates it from the body.
+- `Table.OverflowButton` has no top margin. The row centers it.
+
+**Popups in cells**
+
+- The cells of a body row (`td` and `th` in a `Table.Row`) are
+  `position: relative`. Absolutely positioned content in a cell, such as a
+  `Menu`, `Tooltip` or `DatePicker` without `appendToNode`, is placed against
+  the cell. A cell whose `overflow` is not `visible` (including `isTruncated`)
+  clips it, so use `appendToNode` there.
+- Menus and tooltips rendered in the table (without `appendToNode`) are
+  `max-content` wide. A tooltip there without `zIndex` is `z-index: 1`, so it
+  paints over the rows below.
+
+**Sticky head**
+
+- A sticky `Table.Head` is `z-index: 2` instead of 1. It paints
+  `background.default` over the rows that scroll under its rounded corners and
+  the gap below it. On another background color, those areas show as
+  `background.default`.
+- A sticky head sticks at the scroll container's padding edge, so top padding on
+  the scroll container lets rows show above the head. Put that padding on an
+  inner wrapper instead.
+- With a sticky `Table.Head`, each `Table.GroupRow` sticks below the head
+  (`z-index: 1`), also when header cells wrap, until the next group row takes
+  its place. It hides the rows under its rounded corners the same way.
+- With a sticky `Table.Head`, body rows and their cells have a
+  `scroll-margin-top`, and so do controls in the cells when they get keyboard
+  focus. Focus and `scrollIntoView` bring them into view below the head and the
+  stuck group row, not under them. A `scroll-padding-top` on the scroll
+  container adds to this margin.
 
 #### Tag
 

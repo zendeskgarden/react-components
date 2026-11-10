@@ -5,6 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { math } from 'polished';
 import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
@@ -17,39 +18,72 @@ interface IStyledHeadProps {
   $isSticky?: boolean;
 }
 
-/*
- * 1. Replace header row border with a box-shadow that maintains position
- */
 const colorStyles = ({ theme }: WithTheme) => {
-  const borderColor = getColor({ variable: 'border.default', theme });
-  const backgroundColor = getColor({ variable: 'background.default', theme });
-
   return css`
-    background-color: ${backgroundColor};
+    background-color: ${getColor({ variable: 'background.default', theme })};
+  `;
+};
 
-    & > ${StyledHeaderRow}:last-child {
-      border-bottom-color: transparent; /* [1] */
-
-      & > ${StyledHeaderCell} {
-        box-shadow: inset 0 -${theme.borderWidths.sm} 0 ${borderColor}; /* [1] */
-      }
+/*
+ * 1. Gap between the header and the body
+ */
+const sizeStyles = ({ theme }: WithTheme) => {
+  return css`
+    &::after {
+      display: table-row; /* [1] */
+      height: ${theme.space.xxs};
+      content: '';
     }
   `;
 };
 
 /*
- * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header
+ * 1. Prevent <Checkbox> or <OverflowButton> from leaking over the sticky header,
+ *    and stay above the group rows that stick below it
+ * 2. Hide the rows that scroll under the gap and the rounded header corners. A
+ *    spread of minus the radius squares a shadow's corners, so the first and
+ *    last cells fill their corners without painting past the table's inline
+ *    edges. A backing layer would not work: WebKit doesn't make a sticky thead
+ *    a containing block, and WebKit and Firefox paint the head's negative
+ *    z-index layers over the header cells.
  */
-const stickyStyles = () => {
+const stickyStyles = ({ theme }: WithTheme) => {
+  const color = getColor({ variable: 'background.default', theme });
+  const radius = theme.borderRadii.md;
+  const gap = theme.space.xxs;
+  const getCornerShadows = (offset: string) =>
+    `${offset} -${radius} 0 -${radius} ${color}, ${offset} ${math(`${gap} + ${radius}`)} 0 -${radius} ${color}`;
+  const gapShadow = `0 ${gap} 0 ${color}`;
+  const startShadows = getCornerShadows(theme.rtl ? radius : `-${radius}`);
+  const endShadows = getCornerShadows(theme.rtl ? `-${radius}` : radius);
+
   return css`
     position: sticky;
     top: 0;
-    z-index: 1; /* [1] */
+    z-index: 2; /* [1] */
+
+    & > ${StyledHeaderRow} > ${StyledHeaderCell} {
+      box-shadow: ${gapShadow}; /* [2] */
+
+      &:first-child {
+        box-shadow: ${gapShadow}, ${startShadows};
+      }
+
+      &:last-child {
+        box-shadow: ${gapShadow}, ${endShadows};
+      }
+
+      &:first-child:last-child {
+        box-shadow: ${gapShadow}, ${startShadows}, ${endShadows};
+      }
+    }
   `;
 };
 
 export const StyledHead = styled.thead<WithTheme<IStyledHeadProps>>`
-  ${props => props.$isSticky && stickyStyles()}
+  ${sizeStyles}
+
+  ${props => props.$isSticky && stickyStyles(props)}
 
   ${colorStyles}
 
