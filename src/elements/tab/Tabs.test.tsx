@@ -136,6 +136,31 @@ describe('Tabs', () => {
     expect(onChangeSpy).toHaveBeenCalledWith('tab-2');
   });
 
+  it('treats selectedItem={null} as a controlled value with no selection', async () => {
+    const onChange = vi.fn();
+    const { getAllByRole, rerender } = render(
+      <BasicExample selectedItem={null} onChange={onChange} />
+    );
+
+    getAllByRole('tab').forEach(tab => {
+      expect(tab).toHaveAttribute('aria-selected', 'false');
+    });
+
+    /* The first navigable tab keeps the Tab stop. */
+    const tabs = getAllByRole('tab');
+
+    expect(tabs[0]).toHaveAttribute('tabindex', '0');
+    expect(tabs[1]).toHaveAttribute('tabindex', '-1');
+
+    /* A selection does not change the displayed selection while controlled. */
+    await user.click(tabs[1]!);
+    expect(onChange).toHaveBeenCalledWith('tab-2');
+    expect(tabs[1]).toHaveAttribute('aria-selected', 'false');
+
+    rerender(<BasicExample selectedItem="tab-2" onChange={onChange} />);
+    expect(tabs[1]).toHaveAttribute('aria-selected', 'true');
+  });
+
   it('only changes a controlled selection when the consumer updates selectedItem', async () => {
     const onChangeSpy = vi.fn();
 

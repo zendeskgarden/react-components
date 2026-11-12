@@ -6,6 +6,7 @@
  */
 
 import { useTabs } from '@zendeskgarden/container-tabs';
+import { getControlledValue } from '@zendeskgarden/container-utilities';
 import PropTypes from 'prop-types';
 import { useState, useCallback, useMemo, forwardRef } from 'react';
 
@@ -57,14 +58,15 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     );
 
     /*
-     * The selection always has a value, so the first render (server HTML
-     * included) already has a selected tab: a controlled `selectedItem` wins,
-     * then the internal state, then the first enabled tab. Computing the
-     * fallback every render selects the first enabled tab even when the tabs
-     * arrive after the first render.
+     * The selection has a value from the first render (server HTML
+     * included): a controlled `selectedItem` wins — `null` is a controlled
+     * value and selects nothing — then the internal state, then the first
+     * enabled tab. Computing the fallback every render selects the first
+     * enabled tab even when the tabs arrive after the first render.
      */
+    const controlledValue = getControlledValue(controlledSelectedItem, internalSelectedItem);
     const selectedItem =
-      controlledSelectedItem ?? internalSelectedItem ?? tabs.find(tab => !tab.disabled)?.value;
+      controlledValue === undefined ? tabs.find(tab => !tab.disabled)?.value : controlledValue;
 
     const select = useCallback(
       (item: any) => {
