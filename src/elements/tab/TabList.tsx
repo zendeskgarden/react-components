@@ -5,13 +5,13 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import { useId } from '@zendeskgarden/container-utilities';
 import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
 import PropTypes from 'prop-types';
 import {
   ButtonHTMLAttributes,
   HTMLAttributes,
   forwardRef,
-  useId,
   useLayoutEffect,
   useRef,
   useState
