@@ -61,6 +61,9 @@ const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabsProps>) => {
  */
 export const StyledTabs = styled.div<WithTheme<IStyledTabsProps>>`
   display: ${props => (props.$isVertical ? 'flex' : 'block')};
+  /* A flex or grid item keeps a content-based minimum width without this,
+   * so the tabs would never overflow and would push their siblings out. */
+  min-width: 0;
   direction: ${props => props.theme.rtl && 'rtl'};
 
   ${sizeStyles};

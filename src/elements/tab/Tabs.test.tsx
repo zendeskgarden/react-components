@@ -55,6 +55,12 @@ describe('Tabs', () => {
     expect(getByTestId('container')).toHaveStyleRule('display', 'flex');
   });
 
+  it('lets the tabs shrink in flex and grid layouts', () => {
+    const { getByTestId } = render(<BasicExample />);
+
+    expect(getByTestId('container')).toHaveStyleRule('min-width', '0');
+  });
+
   it('stacks vertical tabs above their panels on small screens', () => {
     const { getByTestId } = render(<BasicExample isVertical />);
     const media = `(max-width: ${parseFloat(DEFAULT_THEME.breakpoints.sm) - 0.02}px)`;
