@@ -89,8 +89,6 @@ export const useTabsOverflow = ({
   const pendingFocus = useRef<PendingTabFocus>(undefined);
   const lastSelected = useRef<{ value: unknown } | undefined>(undefined);
 
-  const measureRef = useRef<() => void>(() => undefined);
-
   const measure = () => {
     const container = containerRef.current;
     const list = listRef.current;
@@ -241,6 +239,8 @@ export const useTabsOverflow = ({
         : { offset, size, isAnimated }
     );
   };
+
+  const measureRef = useRef(measure);
 
   measureRef.current = measure;
 
