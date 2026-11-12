@@ -11,6 +11,7 @@ import type { IGardenTheme } from '../../theming/types';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
+import getLineHeight from '../../theming/utils/getLineHeight';
 import type { WithTheme } from '../../types/views';
 import { StyledTab } from './StyledTab';
 import { getTabSize } from './StyledTabListContainer';
@@ -63,6 +64,16 @@ export const StyledTabOverflowCircle = styled.span<WithTheme>`
 export const StyledTabOverflowTrigger = styled(StyledTab)<
   WithTheme<IStyledTabOverflowTriggerProps>
 >`
+  /* Rendered as a button: reset the UA chrome. The trigger sits outside the
+   * tab list, so the tab font-size and line-height are set explicitly. */
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  line-height: ${({ theme }) => getLineHeight(theme.space.base * 5, theme.fontSizes.md)};
+  font-family: inherit;
+  font-size: ${({ theme }) => theme.fontSizes.md};
+
   ${({ theme, $isVertical }) =>
     !$isVertical &&
     css`

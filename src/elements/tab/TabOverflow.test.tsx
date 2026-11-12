@@ -234,6 +234,21 @@ describe('Tabs overflow', () => {
     expect(getIndicator()).toHaveStyle({ transform: 'translateX(210px)', width: '40px' });
   });
 
+  it('resets the UA button styles of the trigger', () => {
+    mockLayout({ current: 250 });
+    render(<Example />);
+
+    const trigger = screen.getByRole('button', { name: '+3 tabs' });
+
+    expect(trigger).toHaveStyleRule('margin', '0');
+    expect(trigger).toHaveStyleRule('border', '0');
+    expect(trigger).toHaveStyleRule('border-radius', '0');
+    expect(trigger).toHaveStyleRule('background', 'transparent');
+    expect(trigger).toHaveStyleRule('font-family', 'inherit');
+    expect(trigger).toHaveStyleRule('font-size', '14px');
+    expect(trigger).toHaveStyleRule('line-height', '1.4285714285714286');
+  });
+
   it('shows the count in the tooltip of the horizontal trigger', async () => {
     mockLayout({ current: 250 });
     const user = userEvent.setup();
