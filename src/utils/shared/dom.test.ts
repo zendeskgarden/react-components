@@ -49,6 +49,12 @@ describe('dom utility functions', () => {
       expect(detached.defaultView).toBeNull();
       expect(ownerWindow(detached)).toBe(window);
     });
+
+    it('falls back to the global window for a node of a detached document', () => {
+      const detached = document.implementation.createHTMLDocument('detached');
+
+      expect(ownerWindow(detached.createElement('div'))).toBe(window);
+    });
   });
 
   describe('isWindow', () => {

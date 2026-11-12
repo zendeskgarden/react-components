@@ -111,11 +111,9 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const getTabElement = (index: number) => {
     const id = getTabId(tabs[index]?.value);
 
-    return id === undefined
-      ? undefined
-      : Array.from(listRef.current?.querySelectorAll<HTMLElement>('[role="tab"]') ?? []).find(
-          element => element.id === id
-        );
+    return Array.from(listRef.current?.querySelectorAll<HTMLElement>('[role="tab"]') ?? []).find(
+      element => element.id === id
+    );
   };
   const indicatorRef = useTabIndicatorMotion(indicator, isVertical);
   /* A standalone tab list (no `Tabs`) renders without a default name, as before. */
@@ -228,9 +226,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const { children, className, style, ...otherProps } = restProps;
   const tabListProps =
     tabsPropGetters.getTabListProps<HTMLDivElement>() as HTMLAttributes<HTMLDivElement>;
-  const tabElements = tabs.map((_tab, index) =>
-    typeof document === 'undefined' ? undefined : getTabElement(index)
-  );
+  /* On the server the list ref is null, so no element is found. */
+  const tabElements = tabs.map((_tab, index) => getTabElement(index));
   const overflowLabel = getOverflowLabel(hiddenCount);
   /* The trigger carries the selection indicator for overflowed tabs, so its
    * name carries the selection too. */

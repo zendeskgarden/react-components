@@ -50,7 +50,7 @@ interface IUseTabsOverflowOptions {
   visibleCount: number;
   setVisibleCount?: Dispatch<SetStateAction<number>>;
   /** The id the hook gives the tab element of a value */
-  getTabId?: (value: unknown) => string | undefined;
+  getTabId: (value: unknown) => string | undefined;
 }
 
 /**
@@ -110,7 +110,7 @@ export const useTabsOverflow = ({
     /* Pair each collected tab with its element by the id the hook gives it,
      * scoped to this list: collected entries that render no tab (wrapped
      * panels, ghosts) would otherwise shift the pairing. */
-    const byId = new Map(
+    const byId = new Map<string | undefined, HTMLElement>(
       Array.from(list.querySelectorAll<HTMLElement>('[role="tab"]')).map(element => [
         element.id,
         element
@@ -119,8 +119,7 @@ export const useTabsOverflow = ({
     /* Duplicate values map to the same element; claim it once. */
     const claimed = new Set<HTMLElement>();
     const tabElements = tabs.map(tab => {
-      const id = getTabIdRef.current?.(tab.value);
-      const element = id === undefined ? undefined : byId.get(id);
+      const element = byId.get(getTabIdRef.current(tab.value));
 
       if (!element || claimed.has(element)) {
         return undefined;
