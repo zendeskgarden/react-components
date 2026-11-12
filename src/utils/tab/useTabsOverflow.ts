@@ -105,6 +105,12 @@ export const useTabsOverflow = ({
       return;
     }
 
+    /* The list clips overflowed tabs and never scrolls by design, but the
+     * browser scrolls it to reveal a focused tab when it shrinks. Every end
+     * would then be measured off by the scroll offset. */
+    list.scrollLeft = 0;
+    list.scrollTop = 0;
+
     /* Pair each collected tab with its element by the id the hook gives it,
      * scoped to this list: collected entries that render no tab (wrapped
      * panels, ghosts) would otherwise shift the pairing. */

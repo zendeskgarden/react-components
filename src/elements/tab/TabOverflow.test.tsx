@@ -402,6 +402,50 @@ describe('Tabs overflow', () => {
     expect(screen.getByRole('tab', { name: 'Four' })).toHaveFocus();
   });
 
+  it('measures the tab list unscrolled when the browser scrolled it to the focused tab', async () => {
+    const width = { current: 400 };
+
+    /* Like `mockLayout`, with the tabs shifted by the list's scroll offset. */
+    vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function getRect(
+      this: Element
+    ) {
+      const id = this.getAttribute('data-garden-id');
+
+      if (id === 'tabs.tablist_container') {
+        return rect(0, 0, width.current, 40);
+      }
+
+      if (id === 'tabs.tab') {
+        const scroll = this.closest('[role="tablist"]')!.scrollLeft;
+
+        return rect(tabIndex(this) * 80 - scroll, 0, 60, 40);
+      }
+
+      if (id === 'tabs.overflow_button') {
+        return rect(width.current - 40, 0, 40, 40);
+      }
+
+      return rect(0, 0, 0, 0);
+    });
+    const user = userEvent.setup();
+
+    render(<Example defaultSelectedItem="five" />);
+
+    await user.tab();
+    expect(screen.getByRole('tab', { name: 'Five' })).toHaveFocus();
+
+    /* The shrinking list scrolls to keep Five in view, so its end lands on
+     * the new edge. */
+    const list = screen.getByRole('tablist');
+
+    list.scrollLeft = 140;
+    resizeTo(width, 240);
+
+    expect(list.scrollLeft).toBe(0);
+    expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+    expect(screen.getByRole('button', { name: '+3 tabs, Five selected' })).toHaveFocus();
+  });
+
   it('keeps a Tab stop when the focused tab overflows while the selection stays visible', async () => {
     const width = { current: 400 };
     mockLayout(width);
