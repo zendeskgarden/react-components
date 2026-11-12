@@ -22,6 +22,7 @@ import { useDocument } from '../../theming/utils/useDocument';
 import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { ITabListProps } from '../../types/elements';
+import { activeElement, ownerDocument } from '../../utils/shared/dom';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { useBrowserLayoutEffect } from '../../utils/shared/useBrowserLayoutEffect';
 import { ITabData } from '../../utils/tab/toTabs';
@@ -175,6 +176,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
    * or out of the overflow menu. */
   useBrowserLayoutEffect(() => {
     const target = pendingFocus.current;
+    /* The tabs can render in another document (an iframe). */
+    const active = activeElement(ownerDocument(containerRef.current));
 
     pendingFocus.current = undefined;
 
@@ -184,8 +187,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
       getTabElement(entryIndex)?.focus();
     } else if (
       target === 'menu' &&
-      !overflowRef.current?.contains(document.activeElement) &&
-      !menuRef.current?.contains(document.activeElement)
+      !overflowRef.current?.contains(active) &&
+      !menuRef.current?.contains(active)
     ) {
       /* The focused menu item became a visible tab and unmounted: close the
        * menu and focus the trigger, as Escape would. */

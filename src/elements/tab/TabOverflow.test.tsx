@@ -12,6 +12,7 @@ import { styled } from 'styled-components';
 import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
+import DEFAULT_THEME from '../../theming/elements/theme';
 import { Tabs } from './Tabs';
 
 const ITEMS = ['one', 'two', 'three', 'four', 'five'];
@@ -422,6 +423,56 @@ describe('Tabs overflow', () => {
 
     expect(screen.queryByRole('button', { name: /^\+3 tabs/u })).not.toBeInTheDocument();
     expect(screen.getByRole('tab', { name: 'Four' })).toHaveFocus();
+  });
+
+  it('moves focus between the tabs and the trigger when the tabs render in an iframe', () => {
+    const iframe = document.createElement('iframe');
+
+    document.body.appendChild(iframe);
+
+    const frameWindow = iframe.contentWindow! as Window & typeof globalThis;
+    const frameDocument = iframe.contentDocument!;
+    const width = { current: 400 };
+
+    vi.spyOn(frameWindow.Element.prototype, 'getBoundingClientRect').mockImplementation(
+      function getRect(this: Element) {
+        const id = this.getAttribute('data-garden-id');
+
+        if (id === 'tabs.tablist_container') {
+          return rect(0, 0, width.current, 40);
+        }
+
+        if (id === 'tabs.tab') {
+          return rect(tabIndex(this) * 80, 0, 60, 40);
+        }
+
+        return rect(0, 0, 0, 0);
+      }
+    );
+
+    const { getByRole, unmount } = render(<Example defaultSelectedItem="four" />, {
+      container: frameDocument.body.appendChild(frameDocument.createElement('div')),
+      theme: { ...DEFAULT_THEME, document: frameDocument }
+    });
+    const resizeFrame = (next: number) =>
+      act(() => {
+        width.current = next;
+        frameWindow.dispatchEvent(new frameWindow.Event('resize'));
+      });
+
+    act(() => getByRole('tab', { name: 'Four' }).focus());
+    resizeFrame(250);
+
+    expect(frameDocument.activeElement).toBe(
+      getByRole('button', { name: '+3 tabs, Four selected' })
+    );
+
+    resizeFrame(400);
+
+    expect(frameDocument.activeElement).toBe(getByRole('tab', { name: 'Four' }));
+
+    unmount();
+    iframe.remove();
   });
 
   it('measures the tab list unscrolled when the browser scrolled it to the focused tab', async () => {

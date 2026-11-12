@@ -9,6 +9,7 @@ import { type RefObject, useRef, useState } from 'react';
 
 import type { IGardenTheme } from '../../theming/types';
 import { getTabGap, getTabSize } from '../../views/tab/StyledTabListContainer';
+import { activeElement, ownerDocument, ownerWindow } from '../shared/dom';
 import { useBrowserLayoutEffect } from '../shared/useBrowserLayoutEffect';
 import type { ITabData } from './toTabs';
 
@@ -170,8 +171,9 @@ export const useTabsOverflow = ({
 
     /* Keep keyboard focus on a visible control when tabs move into or out
      * of the overflow menu. The menu is portaled, so focus inside it is
-     * not inside the overflow wrapper. */
-    const active = document.activeElement;
+     * not inside the overflow wrapper. The tabs can render in another
+     * document (an iframe), so read focus from theirs. */
+    const active = activeElement(ownerDocument(container));
     const menuHasFocus =
       !!active && !!(overflowRef.current?.contains(active) || menuRef.current?.contains(active));
 
@@ -268,16 +270,19 @@ export const useTabsOverflow = ({
     const onChange = () => measureRef.current();
     const observer =
       typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(onChange);
+    /* The window and document of the tabs, which can be an iframe's. */
+    const win = ownerWindow(container);
+    const doc = ownerDocument(container);
 
     observer?.observe(container);
     list.querySelectorAll('[role="tab"]').forEach(tab => observer?.observe(tab));
-    window.addEventListener('resize', onChange);
-    document.fonts?.addEventListener('loadingdone', onChange);
+    win.addEventListener('resize', onChange);
+    doc.fonts?.addEventListener('loadingdone', onChange);
 
     return () => {
       observer?.disconnect();
-      window.removeEventListener('resize', onChange);
-      document.fonts?.removeEventListener('loadingdone', onChange);
+      win.removeEventListener('resize', onChange);
+      doc.fonts?.removeEventListener('loadingdone', onChange);
     };
   }, [containerRef, listRef, tabsKey]);
 
