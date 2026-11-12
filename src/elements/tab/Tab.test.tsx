@@ -5,7 +5,9 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import PropTypes from 'prop-types';
 import { createRef } from 'react';
+import { vi } from 'vitest';
 
 import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import { Tab } from './Tab';
@@ -97,6 +99,15 @@ describe('Tab', () => {
       const { getByTestId } = render(<Tab icon={<Icon />}>Content</Tab>);
 
       expect(getByTestId('icon')).toBeInTheDocument();
+    });
+
+    it('accepts any icon in its prop types, like the other icon props', () => {
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+
+      PropTypes.checkPropTypes(Tab.propTypes, { icon: 'icon' }, 'prop', 'Tabs.Tab');
+
+      expect(consoleError).not.toHaveBeenCalled();
+      consoleError.mockRestore();
     });
   });
 
