@@ -374,7 +374,9 @@ instead of being clipped.
   ancestors no longer clip it.
 - Tabs must be `Tabs.Tab` elements or components that pass `item` through to
   `Tabs.Tab`: the overflow menu pairs each collected tab with its element. A
-  tab rendered by a component without `item` was already unselectable in v9.
+  tab rendered by a component without `item` could be clicked in v9 but was
+  skipped by the arrow keys. It now also never moves into the overflow menu,
+  so it can be clipped.
 - `onChange` no longer fires on mount. Use `defaultSelectedItem` or
   `selectedItem` for the initial tab; without either, the first enabled tab is
   selected on the first render.
