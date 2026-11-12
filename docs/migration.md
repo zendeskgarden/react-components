@@ -380,6 +380,9 @@ instead of being clipped.
   tab rendered by a component without `item` could be clicked in v9 but was
   skipped by the arrow keys. It now also never moves into the overflow menu,
   so it can be clipped.
+- Tab `item` values must be unique strings or numbers. Object items were
+  already unreliable in v9 (every tab got the same `id`, and the arrow keys
+  focused the last tab); the overflow menu cannot tell them apart either.
 - `onChange` no longer fires on mount. Use `defaultSelectedItem` or
   `selectedItem` for the initial tab; without either, the first enabled tab is
   selected on the first render.
