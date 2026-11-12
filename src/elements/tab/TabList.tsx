@@ -45,12 +45,17 @@ import { COMPONENT_IDS } from '../utils';
 const EMPTY_TABS: ITabData[] = [];
 
 /*
- * The menu label of a tab: `label`, else string children, else the tab
- * element's text, else the item rendered as a string.
+ * The name of a tab in the overflow menu, in the order of its accessible
+ * name: `label`, else `aria-label`, else string children, else the tab
+ * element's text.
  */
-const getMenuLabel = (tab: ITabData, element?: HTMLElement) => {
+const getTabName = (tab: ITabData, element?: HTMLElement) => {
   if (tab.props.label !== undefined) {
     return tab.props.label;
+  }
+
+  if (tab.props['aria-label']) {
+    return tab.props['aria-label'];
   }
 
   if (typeof tab.props.children === 'string') {
@@ -59,7 +64,23 @@ const getMenuLabel = (tab: ITabData, element?: HTMLElement) => {
 
   const text = element?.textContent?.trim();
 
-  return text ? text : String(tab.props.item);
+  return text ? text : undefined;
+};
+
+/*
+ * The menu label of a tab: its name, else a string or number item, else
+ * empty (an object item has no readable text).
+ */
+const getMenuLabel = (tab: ITabData, element?: HTMLElement) => {
+  const name = getTabName(tab, element);
+
+  if (name !== undefined) {
+    return name;
+  }
+
+  const { item } = tab.props;
+
+  return typeof item === 'string' || typeof item === 'number' ? String(item) : '';
 };
 
 /**
@@ -180,7 +201,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   }, [pendingFocus, entryIndex, hiddenCount, isMenuExpanded]);
 
   /* Warns once per tab when the overflow menu can only name a hidden tab by
-   * its item: no `label`, no string children and no element text. */
+   * its item: no `label`, no `aria-label`, no string children and no
+   * element text. */
   const warnedValues = useRef(new Set<unknown>());
 
   useEffect(() => {
@@ -197,12 +219,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
         return;
       }
 
-      const hasName =
-        tab.props.label !== undefined ||
-        typeof tab.props.children === 'string' ||
-        !!getTabElement(index)?.textContent?.trim();
-
-      if (!hasName) {
+      if (getTabName(tab, getTabElement(index)) === undefined) {
         warnedValues.current.add(tab.value);
         // eslint-disable-next-line no-console
         console.warn(

@@ -830,6 +830,63 @@ describe('Tabs overflow', () => {
     expect(screen.getByRole('button', { name: '+3 tabs, three selected' })).toBeInTheDocument();
   });
 
+  it('names a hidden tab by its aria-label, before its children', async () => {
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <Tabs.TabList aria-label="Sections">
+          <Tabs.Tab item="one">One</Tabs.Tab>
+          <Tabs.Tab item="two">Two</Tabs.Tab>
+          <Tabs.Tab item="three" icon={<svg />} aria-label="Third tab" />
+          <Tabs.Tab item="four" aria-label="Fourth tab">
+            Four
+          </Tabs.Tab>
+          <Tabs.Tab item="five">Five</Tabs.Tab>
+        </Tabs.TabList>
+      </Tabs>
+    );
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio')[0]).toHaveTextContent('Third tab');
+
+    await user.click(screen.getAllByRole('menuitemradio')[1]!);
+
+    expect(
+      screen.getByRole('button', { name: '+3 tabs, Fourth tab selected' })
+    ).toBeInTheDocument();
+  });
+
+  it('does not name a hidden tab by an object item', async () => {
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+    const three = { id: 'three' };
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <Tabs.TabList aria-label="Sections">
+          <Tabs.Tab item="one">One</Tabs.Tab>
+          <Tabs.Tab item="two">Two</Tabs.Tab>
+          <Tabs.Tab item={three} icon={<svg />} />
+          <Tabs.Tab item="four">Four</Tabs.Tab>
+          <Tabs.Tab item="five">Five</Tabs.Tab>
+        </Tabs.TabList>
+      </Tabs>
+    );
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    const [item] = screen.getAllByRole('menuitemradio');
+
+    expect(item).not.toHaveTextContent('[object Object]');
+
+    await user.click(item!);
+
+    expect(screen.getByRole('button', { name: '+3 tabs' })).toBeInTheDocument();
+  });
+
   it('renders an empty tab list', () => {
     mockLayout({ current: 400 });
 
@@ -999,12 +1056,17 @@ describe('Tabs overflow', () => {
       console.warn = consoleWarning;
     });
 
-    const NonStringExample = ({ label }: { label?: string }) => (
+    const NonStringExample = ({ label, ariaLabel }: { label?: string; ariaLabel?: string }) => (
       <Tabs defaultSelectedItem="one">
         <Tabs.TabList aria-label="Sections">
           <Tabs.Tab item="one">One</Tabs.Tab>
           <Tabs.Tab item="two">Two</Tabs.Tab>
-          <Tabs.Tab item="three" label={label} icon={<svg data-test-id="icon" />} />
+          <Tabs.Tab
+            item="three"
+            label={label}
+            aria-label={ariaLabel}
+            icon={<svg data-test-id="icon" />}
+          />
           <Tabs.Tab item="four">Four</Tabs.Tab>
           <Tabs.Tab item="five">Five</Tabs.Tab>
         </Tabs.TabList>
@@ -1094,6 +1156,17 @@ describe('Tabs overflow', () => {
       await user.click(screen.getByRole('menuitemradio', { name: 'Third' }));
 
       expect(screen.getByRole('button', { name: '+3 tabs, Third selected' })).toBeInTheDocument();
+    });
+
+    it('does not warn when the tab sets aria-label', () => {
+      const spy = vi.spyOn(console, 'warn');
+      mockLayout({ current: 250 });
+
+      render(<NonStringExample ariaLabel="Third" />);
+
+      expect(
+        spy.mock.calls.filter(call => String(call[0]).includes('without a plain-text label'))
+      ).toHaveLength(0);
     });
   });
 });
