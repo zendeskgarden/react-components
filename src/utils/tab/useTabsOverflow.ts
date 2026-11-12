@@ -89,6 +89,169 @@ export const useTabsOverflow = ({
   const pendingFocus = useRef<PendingTabFocus>(undefined);
   const lastSelected = useRef<{ value: unknown } | undefined>(undefined);
 
+  const measureRef = useRef<() => void>(() => undefined);
+
+  const measure = () => {
+    const container = containerRef.current;
+    const list = listRef.current;
+
+    if (!container || !list) {
+      return;
+    }
+
+    const containerRect = container.getBoundingClientRect();
+
+    /* A tab list with no box (a display: none ancestor) must not write the
+     * shared visible count. */
+    if (containerRect.width === 0 && containerRect.height === 0) {
+      return;
+    }
+
+    /* Pair each collected tab with its element by the id the hook gives it,
+     * scoped to this list: collected entries that render no tab (wrapped
+     * panels, ghosts) would otherwise shift the pairing. */
+    const byId = new Map(
+      Array.from(list.querySelectorAll<HTMLElement>('[role="tab"]')).map(element => [
+        element.id,
+        element
+      ])
+    );
+    /* Duplicate values map to the same element; claim it once. */
+    const claimed = new Set<HTMLElement>();
+    const tabElements = tabs.map(tab => {
+      const id = getTabIdRef.current?.(tab.value);
+      const element = id === undefined ? undefined : byId.get(id);
+
+      if (!element || claimed.has(element)) {
+        return undefined;
+      }
+
+      claimed.add(element);
+
+      const rect = element.getBoundingClientRect();
+
+      /* Ghosts and display: none tabs have no measurable box. */
+      return rect.width > 0 || rect.height > 0 ? element : undefined;
+    });
+    const nextRendered = tabElements.map(Boolean);
+
+    setRendered(previous => (previous?.join() === nextRendered.join() ? previous : nextRendered));
+
+    const available = isVertical ? containerRect.height : containerRect.width;
+    const getEnd = (element: HTMLElement) => {
+      const rect = element.getBoundingClientRect();
+
+      if (isVertical) {
+        return rect.bottom - containerRect.top;
+      }
+
+      return theme.rtl ? containerRect.right - rect.left : rect.right - containerRect.left;
+    };
+    const ends = tabElements.map(element => (element ? getEnd(element) : undefined));
+    const maxEnd = (upTo: number) =>
+      Math.max(0, ...ends.slice(0, upTo).filter((end): end is number => end !== undefined));
+    const lastEnd = maxEnd(ends.length);
+    const fitsAll = lastEnd <= available + 0.5;
+    let nextCount = tabs.length;
+
+    if (!fitsAll) {
+      /* Reserve one trigger so it never pushes the last visible tab out. */
+      const reserve = getTabSize(theme, isVertical) + getTabGap(theme, isVertical);
+
+      nextCount = ends.findIndex(end => end !== undefined && end > available - reserve + 0.5);
+
+      if (nextCount < 0) {
+        nextCount = tabs.length;
+      }
+    }
+
+    /* Keep keyboard focus on a visible control when tabs move into or out
+     * of the overflow menu. The menu is portaled, so focus inside it is
+     * not inside the overflow wrapper. */
+    const active = document.activeElement;
+    const menuHasFocus =
+      !!active && !!(overflowRef.current?.contains(active) || menuRef.current?.contains(active));
+
+    if (nextCount < visibleCount) {
+      const index = tabElements.indexOf(active as HTMLElement);
+
+      if (index >= nextCount) {
+        pendingFocus.current = 'trigger';
+      }
+    } else if (nextCount > visibleCount && menuHasFocus) {
+      if (nextCount === tabs.length) {
+        pendingFocus.current = 'tab';
+      } else if (active !== triggerRef.current) {
+        pendingFocus.current = 'menu';
+      }
+    }
+
+    /* While overflowing, the tab list hugs its visible tabs, so the trigger
+     * follows the last one. */
+    let nextExtent: number | undefined;
+
+    if (!fitsAll) {
+      nextExtent = maxEnd(nextCount);
+    }
+
+    setVisibleExtent(nextExtent);
+    /* The overflowed tabs' size, which the spacer keeps in the container's
+     * intrinsic size (see `StyledTabOverflowSpacer`). */
+    setHiddenExtent(nextExtent === undefined ? undefined : Math.max(lastEnd - nextExtent, 0));
+
+    if (nextCount !== visibleCount) {
+      setVisibleCount?.(nextCount);
+
+      return;
+    }
+
+    const selectedIndex = tabs.findIndex(tab => tab.value === selectedItem);
+    let target: HTMLElement | null | undefined;
+
+    if (selectedIndex < 0) {
+      target = undefined;
+    } else if (selectedIndex < visibleCount) {
+      target = tabElements[selectedIndex];
+    } else {
+      target = triggerRef.current;
+    }
+
+    const rect = target?.getBoundingClientRect();
+    let size = 0;
+
+    if (rect) {
+      size = isVertical ? rect.height : rect.width;
+    }
+
+    if (!rect || size <= 0) {
+      setIndicator(undefined);
+      lastSelected.current = undefined;
+
+      return;
+    }
+
+    const offset = isVertical ? rect.top - containerRect.top : rect.left - containerRect.left;
+    /* Animate selection changes only; resizes and first placement snap. */
+    const isAnimated =
+      lastSelected.current !== undefined && lastSelected.current.value !== selectedItem;
+
+    lastSelected.current = { value: selectedItem };
+    setIndicator(previous =>
+      previous?.offset === offset && previous.size === size && (previous.isAnimated || !isAnimated)
+        ? previous
+        : { offset, size, isAnimated }
+    );
+  };
+
+  measureRef.current = measure;
+
+  /* The structural inputs of a measure: the tab set, the layout, the theme
+   * and the selection. A parent re-render that rebuilds `tabs` with the same
+   * content must not re-measure. */
+  const tabsKey = tabs.map(tab => `${String(tab.value)}:${tab.disabled ? '1' : '0'}`).join(',');
+
+  /* Subscribes the observers once per tab list; re-observes only when the
+   * set of tab elements changes, and calls the latest measure. */
   useBrowserLayoutEffect(() => {
     const container = containerRef.current;
     const list = listRef.current;
@@ -97,180 +260,36 @@ export const useTabsOverflow = ({
       return undefined;
     }
 
-    const measure = () => {
-      const containerRect = container.getBoundingClientRect();
-
-      /* A tab list with no box (a display: none ancestor) must not write the
-       * shared visible count. */
-      if (containerRect.width === 0 && containerRect.height === 0) {
-        return;
-      }
-
-      /* Pair each collected tab with its element by the id the hook gives it,
-       * scoped to this list: collected entries that render no tab (wrapped
-       * panels, ghosts) would otherwise shift the pairing. */
-      const byId = new Map(
-        Array.from(list.querySelectorAll<HTMLElement>('[role="tab"]')).map(element => [
-          element.id,
-          element
-        ])
-      );
-      /* Duplicate values map to the same element; claim it once. */
-      const claimed = new Set<HTMLElement>();
-      const tabElements = tabs.map(tab => {
-        const id = getTabIdRef.current?.(tab.value);
-        const element = id === undefined ? undefined : byId.get(id);
-
-        if (!element || claimed.has(element)) {
-          return undefined;
-        }
-
-        claimed.add(element);
-
-        const rect = element.getBoundingClientRect();
-
-        /* Ghosts and display: none tabs have no measurable box. */
-        return rect.width > 0 || rect.height > 0 ? element : undefined;
-      });
-      const nextRendered = tabElements.map(Boolean);
-
-      setRendered(previous => (previous?.join() === nextRendered.join() ? previous : nextRendered));
-
-      const available = isVertical ? containerRect.height : containerRect.width;
-      const getEnd = (element: HTMLElement) => {
-        const rect = element.getBoundingClientRect();
-
-        if (isVertical) {
-          return rect.bottom - containerRect.top;
-        }
-
-        return theme.rtl ? containerRect.right - rect.left : rect.right - containerRect.left;
-      };
-      const ends = tabElements.map(element => (element ? getEnd(element) : undefined));
-      const maxEnd = (upTo: number) =>
-        Math.max(0, ...ends.slice(0, upTo).filter((end): end is number => end !== undefined));
-      const lastEnd = maxEnd(ends.length);
-      const fitsAll = lastEnd <= available + 0.5;
-      let nextCount = tabs.length;
-
-      if (!fitsAll) {
-        /* Reserve one trigger so it never pushes the last visible tab out. */
-        const reserve = getTabSize(theme, isVertical) + getTabGap(theme, isVertical);
-
-        nextCount = ends.findIndex(end => end !== undefined && end > available - reserve + 0.5);
-
-        if (nextCount < 0) {
-          nextCount = tabs.length;
-        }
-      }
-
-      /* Keep keyboard focus on a visible control when tabs move into or out
-       * of the overflow menu. The menu is portaled, so focus inside it is
-       * not inside the overflow wrapper. */
-      const active = document.activeElement;
-      const menuHasFocus =
-        !!active && !!(overflowRef.current?.contains(active) || menuRef.current?.contains(active));
-
-      if (nextCount < visibleCount) {
-        const index = tabElements.indexOf(active as HTMLElement);
-
-        if (index >= nextCount) {
-          pendingFocus.current = 'trigger';
-        }
-      } else if (nextCount > visibleCount && menuHasFocus) {
-        if (nextCount === tabs.length) {
-          pendingFocus.current = 'tab';
-        } else if (active !== triggerRef.current) {
-          pendingFocus.current = 'menu';
-        }
-      }
-
-      /* While overflowing, the tab list hugs its visible tabs, so the trigger
-       * follows the last one. */
-      let nextExtent: number | undefined;
-
-      if (!fitsAll) {
-        nextExtent = maxEnd(nextCount);
-      }
-
-      setVisibleExtent(nextExtent);
-      /* The overflowed tabs' size, which the spacer keeps in the container's
-       * intrinsic size (see `StyledTabOverflowSpacer`). */
-      setHiddenExtent(nextExtent === undefined ? undefined : Math.max(lastEnd - nextExtent, 0));
-
-      if (nextCount !== visibleCount) {
-        setVisibleCount?.(nextCount);
-
-        return;
-      }
-
-      const selectedIndex = tabs.findIndex(tab => tab.value === selectedItem);
-      let target: HTMLElement | null | undefined;
-
-      if (selectedIndex < 0) {
-        target = undefined;
-      } else if (selectedIndex < visibleCount) {
-        target = tabElements[selectedIndex];
-      } else {
-        target = triggerRef.current;
-      }
-
-      const rect = target?.getBoundingClientRect();
-      let size = 0;
-
-      if (rect) {
-        size = isVertical ? rect.height : rect.width;
-      }
-
-      if (!rect || size <= 0) {
-        setIndicator(undefined);
-        lastSelected.current = undefined;
-
-        return;
-      }
-
-      const offset = isVertical ? rect.top - containerRect.top : rect.left - containerRect.left;
-      /* Animate selection changes only; resizes and first placement snap. */
-      const isAnimated =
-        lastSelected.current !== undefined && lastSelected.current.value !== selectedItem;
-
-      lastSelected.current = { value: selectedItem };
-      setIndicator(previous =>
-        previous?.offset === offset &&
-        previous.size === size &&
-        (previous.isAnimated || !isAnimated)
-          ? previous
-          : { offset, size, isAnimated }
-      );
-    };
-
-    measure();
-
+    const onChange = () => measureRef.current();
     const observer =
-      typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(measure);
+      typeof ResizeObserver === 'undefined' ? undefined : new ResizeObserver(onChange);
 
     observer?.observe(container);
     list.querySelectorAll('[role="tab"]').forEach(tab => observer?.observe(tab));
-    window.addEventListener('resize', measure);
-    document.fonts?.addEventListener('loadingdone', measure);
+    window.addEventListener('resize', onChange);
+    document.fonts?.addEventListener('loadingdone', onChange);
 
     return () => {
       observer?.disconnect();
-      window.removeEventListener('resize', measure);
-      document.fonts?.removeEventListener('loadingdone', measure);
+      window.removeEventListener('resize', onChange);
+      document.fonts?.removeEventListener('loadingdone', onChange);
     };
+  }, [containerRef, listRef, tabsKey]);
+
+  /* Re-measures when a structural input changes. The theme enters by the
+   * values a measure reads, not by identity: a function theme is a new
+   * object on every render. */
+  useBrowserLayoutEffect(() => {
+    measureRef.current();
   }, [
-    containerRef,
-    listRef,
-    overflowRef,
-    triggerRef,
-    menuRef,
-    tabs,
+    tabsKey,
+    theme.rtl,
+    theme.space.base,
+    theme.space.xs,
+    theme.space.md,
     selectedItem,
     isVertical,
-    theme,
-    visibleCount,
-    setVisibleCount
+    visibleCount
   ]);
 
   return { visibleExtent, hiddenExtent, indicator, pendingFocus, rendered };

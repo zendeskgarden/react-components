@@ -126,6 +126,29 @@ const resizeTo = (size: { current: number }, next: number) =>
     window.dispatchEvent(new Event('resize'));
   });
 
+/* A ResizeObserver that records its targets and exposes its callbacks. */
+const mockResizeObserver = () => {
+  const callbacks: (() => void)[] = [];
+  const observe = vi.fn();
+
+  class MockResizeObserver {
+    constructor(callback: () => void) {
+      callbacks.push(callback);
+    }
+
+    observe = observe;
+    unobserve = vi.fn();
+    disconnect = vi.fn();
+  }
+
+  Object.defineProperty(globalThis, 'ResizeObserver', {
+    value: MockResizeObserver,
+    configurable: true
+  });
+
+  return { callbacks, observe };
+};
+
 const mockMotionPreference = (reduce: boolean) =>
   vi.spyOn(window, 'matchMedia').mockReturnValue({
     matches: reduce,
@@ -825,23 +848,32 @@ describe('Tabs overflow', () => {
     expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
   });
 
+  it('does not measure or re-observe when the parent re-renders with the same tabs', () => {
+    const { observe } = mockResizeObserver();
+    const width = { current: 250 };
+    const rectSpy = mockLayout(width);
+
+    const { rerender } = render(<Example />);
+
+    /* Every re-render rebuilds the tab elements, as a parent render would. */
+    rerender(<Example />);
+    rerender(<Example />);
+
+    expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+
+    const measures = rectSpy.mock.calls.length;
+    const observes = observe.mock.calls.length;
+
+    rerender(<Example />);
+    rerender(<Example />);
+
+    expect(rectSpy.mock.calls.length).toBe(measures);
+    expect(observe.mock.calls.length).toBe(observes);
+  });
+
   it('measures again on ResizeObserver and font loading', () => {
-    const callbacks: (() => void)[] = [];
+    const { callbacks } = mockResizeObserver();
 
-    class MockResizeObserver {
-      constructor(callback: () => void) {
-        callbacks.push(callback);
-      }
-
-      observe = vi.fn();
-      unobserve = vi.fn();
-      disconnect = vi.fn();
-    }
-
-    Object.defineProperty(globalThis, 'ResizeObserver', {
-      value: MockResizeObserver,
-      configurable: true
-    });
     Object.defineProperty(document, 'fonts', { value: new EventTarget(), configurable: true });
 
     const width = { current: 400 };
