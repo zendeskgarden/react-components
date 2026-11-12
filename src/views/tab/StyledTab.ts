@@ -112,8 +112,8 @@ export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
   position: relative;
   flex-shrink: 0;
   align-items: center;
-  visibility: ${({ $isHidden }) => ($isHidden ? 'hidden' : undefined)};
   transition: color 0.25s ease-in-out;
+  visibility: ${({ $isHidden }) => ($isHidden ? 'hidden' : undefined)};
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
