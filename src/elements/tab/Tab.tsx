@@ -6,7 +6,7 @@
  */
 
 import PropTypes from 'prop-types';
-import { HTMLAttributes, MutableRefObject, forwardRef, useEffect, useRef } from 'react';
+import { HTMLAttributes, MutableRefObject, forwardRef } from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
 import { ITabProps } from '../../types/elements';
@@ -21,7 +21,19 @@ import { COMPONENT_IDS } from '../utils';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Tab = forwardRef<HTMLDivElement, ITabProps>(
-  ({ disabled, item, icon, label, children, ...otherProps }, ref) => {
+  (
+    {
+      disabled,
+      item,
+      icon,
+      /* `label` only names the tab in the overflow menu; it is not rendered. */
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      label,
+      children,
+      ...otherProps
+    },
+    ref
+  ) => {
     const tabsPropGetters = useTabsContext();
     const visibleCount = tabsPropGetters?.visibleCount ?? 0;
     const position = tabsPropGetters
@@ -30,24 +42,6 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
     /* An overflowed tab stays in the layout (for measurement) but is hidden
      * from assistive technology and focus. */
     const isHidden = position >= visibleCount;
-    const hasWarned = useRef(false);
-
-    /* The overflow menu needs a plain-text label for every hidden tab. */
-    useEffect(() => {
-      if (
-        process.env.NODE_ENV === 'development' &&
-        !hasWarned.current &&
-        isHidden &&
-        label === undefined &&
-        typeof children !== 'string'
-      ) {
-        hasWarned.current = true;
-        // eslint-disable-next-line no-console
-        console.warn(
-          'Warning: a tab in <Tabs.TabList> moved into the overflow menu without a plain-text label. Set the `label` prop on <Tabs.Tab> so the overflow menu can name it.'
-        );
-      }
-    }, [isHidden, label, children]);
 
     const tabIcon = icon ? (
       <StyledTabIcon

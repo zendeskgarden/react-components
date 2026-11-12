@@ -915,20 +915,20 @@ describe('Tabs overflow', () => {
         <Tabs.TabList aria-label="Sections">
           <Tabs.Tab item="one">One</Tabs.Tab>
           <Tabs.Tab item="two">Two</Tabs.Tab>
-          <Tabs.Tab item="three" label={label}>
-            <span>Three</span>
-          </Tabs.Tab>
+          <Tabs.Tab item="three" label={label} icon={<svg data-test-id="icon" />} />
           <Tabs.Tab item="four">Four</Tabs.Tab>
           <Tabs.Tab item="five">Five</Tabs.Tab>
         </Tabs.TabList>
       </Tabs>
     );
 
-    it('warns once when a non-string tab without label moves into the menu', () => {
+    it('warns once when a hidden tab has no plain-text name', () => {
       const spy = vi.spyOn(console, 'warn');
       mockLayout({ current: 250 });
 
-      render(<NonStringExample />);
+      const { rerender } = render(<NonStringExample />);
+
+      rerender(<NonStringExample />);
 
       const labelWarnings = spy.mock.calls.filter(call =>
         String(call[0]).includes('without a plain-text label')
@@ -939,6 +939,55 @@ describe('Tabs overflow', () => {
       expect(
         spy.mock.calls.filter(call => String(call[0]).includes('`renderOverflowLabel`'))
       ).toHaveLength(1);
+    });
+
+    it('does not warn when the menu names the tab by its text', () => {
+      const spy = vi.spyOn(console, 'warn');
+      mockLayout({ current: 250 });
+
+      render(
+        <Tabs defaultSelectedItem="one">
+          <Tabs.TabList aria-label="Sections">
+            <Tabs.Tab item="one">One</Tabs.Tab>
+            <Tabs.Tab item="two">Two</Tabs.Tab>
+            <Tabs.Tab item="three">
+              <span>Three</span>
+            </Tabs.Tab>
+            <Tabs.Tab item="four">Four</Tabs.Tab>
+            <Tabs.Tab item="five">Five</Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>
+      );
+
+      expect(
+        spy.mock.calls.filter(call => String(call[0]).includes('without a plain-text label'))
+      ).toHaveLength(0);
+    });
+
+    it('does not warn when tabs are added while every tab fits', () => {
+      const spy = vi.spyOn(console, 'warn');
+      mockLayout({ current: 400 });
+
+      const DynamicExample = ({ count }: { count: number }) => (
+        <Tabs defaultSelectedItem="one">
+          <Tabs.TabList aria-label="Sections">
+            {ITEMS.slice(0, count).map(item => (
+              <Tabs.Tab key={item} item={item}>
+                <span>{item}</span>
+              </Tabs.Tab>
+            ))}
+          </Tabs.TabList>
+        </Tabs>
+      );
+
+      const { rerender } = render(<DynamicExample count={3} />);
+
+      rerender(<DynamicExample count={5} />);
+
+      expect(screen.getAllByRole('tab')).toHaveLength(5);
+      expect(
+        spy.mock.calls.filter(call => String(call[0]).includes('without a plain-text label'))
+      ).toHaveLength(0);
     });
 
     it('does not warn when the tab sets label, and the trigger uses it', async () => {
@@ -953,7 +1002,7 @@ describe('Tabs overflow', () => {
       ).toHaveLength(0);
 
       await user.click(screen.getByRole('button', { name: '+3 tabs' }));
-      await user.click(screen.getByRole('menuitemradio', { name: 'Three' }));
+      await user.click(screen.getByRole('menuitemradio', { name: 'Third' }));
 
       expect(screen.getByRole('button', { name: '+3 tabs, Third selected' })).toBeInTheDocument();
     });

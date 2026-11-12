@@ -8,7 +8,14 @@
 import { useId } from '@zendeskgarden/container-utilities';
 import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
 import PropTypes from 'prop-types';
-import { ButtonHTMLAttributes, HTMLAttributes, forwardRef, useRef, useState } from 'react';
+import {
+  ButtonHTMLAttributes,
+  HTMLAttributes,
+  forwardRef,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
 import { useDocument } from '../../theming/utils/useDocument';
@@ -173,6 +180,39 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
       setIsMenuExpanded(false);
     }
   }, [pendingFocus, entryIndex, hiddenCount, isMenuExpanded]);
+
+  /* Warns once per tab when the overflow menu can only name a hidden tab by
+   * its item: no `label`, no string children and no element text. */
+  const warnedValues = useRef(new Set<unknown>());
+
+  useEffect(() => {
+    if (process.env.NODE_ENV !== 'development') {
+      return;
+    }
+
+    hiddenIndexes.forEach(index => {
+      const tab = tabs[index]!;
+
+      /* `rendered` comes from a committed measure, so a tab that only
+       * briefly overflows (a new tab before the next measure) never warns. */
+      if (rendered?.[index] !== true || warnedValues.current.has(tab.value)) {
+        return;
+      }
+
+      const hasName =
+        tab.props.label !== undefined ||
+        typeof tab.props.children === 'string' ||
+        !!getTabElement(index)?.textContent?.trim();
+
+      if (!hasName) {
+        warnedValues.current.add(tab.value);
+        // eslint-disable-next-line no-console
+        console.warn(
+          'Warning: a tab in <Tabs.TabList> moved into the overflow menu without a plain-text label. Set the `label` prop on <Tabs.Tab> so the overflow menu can name it.'
+        );
+      }
+    });
+  });
 
   if (!tabsPropGetters) {
     return (
