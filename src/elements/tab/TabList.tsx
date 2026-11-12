@@ -8,20 +8,14 @@
 import { useId } from '@zendeskgarden/container-utilities';
 import DotsVerticalIcon from '@zendeskgarden/svg-icons/src/dots-vertical.svg';
 import PropTypes from 'prop-types';
-import {
-  ButtonHTMLAttributes,
-  HTMLAttributes,
-  forwardRef,
-  useLayoutEffect,
-  useRef,
-  useState
-} from 'react';
+import { ButtonHTMLAttributes, HTMLAttributes, forwardRef, useRef, useState } from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
 import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { ITabListProps } from '../../types/elements';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
+import { useBrowserLayoutEffect } from '../../utils/shared/useBrowserLayoutEffect';
 import { ITabData } from '../../utils/tab/toTabs';
 import { useTabIndicatorMotion } from '../../utils/tab/useTabIndicatorMotion';
 import { useTabsOverflow } from '../../utils/tab/useTabsOverflow';
@@ -135,7 +129,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
 
   /* Focus moves between the tabs, the trigger and the menu as tabs move into
    * or out of the overflow menu. */
-  useLayoutEffect(() => {
+  useBrowserLayoutEffect(() => {
     const target = pendingFocus.current;
 
     pendingFocus.current = undefined;

@@ -5,18 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import {
-  type Dispatch,
-  type RefObject,
-  type SetStateAction,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState
-} from 'react';
+import { type Dispatch, type RefObject, type SetStateAction, useRef, useState } from 'react';
 
 import type { IGardenTheme } from '../../theming/types';
 import { getTabGap, getTabSize } from '../../views/tab/StyledTabListContainer';
+import { useBrowserLayoutEffect } from '../shared/useBrowserLayoutEffect';
 import type { ITabData } from './toTabs';
 
 export interface ITabIndicatorGeometry {
@@ -55,8 +48,6 @@ interface IUseTabsOverflowOptions {
   visibleCount: number;
   setVisibleCount?: Dispatch<SetStateAction<number>>;
 }
-
-const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 /**
  * Measures which leading tabs fit the container's inline size (or block size

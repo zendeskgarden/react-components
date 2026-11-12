@@ -5,9 +5,10 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import { useRef } from 'react';
 
 import { advanceSpring } from '../shared/spring';
+import { useBrowserLayoutEffect } from '../shared/useBrowserLayoutEffect';
 import type { ITabIndicatorGeometry } from './useTabsOverflow';
 
 interface IMotion {
@@ -16,8 +17,6 @@ interface IMotion {
   size: number;
   sizeVelocity: number;
 }
-
-const useBrowserLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 /**
  * Paints the selection indicator. A selection change springs to the new tab;
