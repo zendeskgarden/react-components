@@ -363,6 +363,9 @@ instead of being clipped.
 - Tabs are `display: flex` (they were `inline-block` or `block`), and the 20px
   gap under the horizontal tab list is gone: panel content now touches the
   rule.
+- Tabs no longer clip their content: a `max-width` on a tab no longer
+  truncates its label with an ellipsis. A long label widens the tab, and tabs
+  that do not fit move into the overflow menu.
 - The selected and hovered tab labels keep the default foreground color (they
   were `foreground.primary`), and the pressed (`:active`) style is gone.
   Selection is carried by the indicator.

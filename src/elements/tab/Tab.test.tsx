@@ -180,6 +180,20 @@ describe('Tab', () => {
       expect(getByRole('tab')).not.toHaveStyleRule('border-bottom', expect.anything());
     });
 
+    it('does not clip or truncate its content', () => {
+      const { getByRole } = render(
+        <Tabs>
+          <Tabs.TabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>
+      );
+      const tab = getByRole('tab');
+
+      expect(tab).not.toHaveStyleRule('overflow', expect.anything());
+      expect(tab).not.toHaveStyleRule('text-overflow', expect.anything());
+    });
+
     it('changes the label color on hover', () => {
       const { getByRole } = render(
         <Tabs>

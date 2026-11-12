@@ -103,9 +103,8 @@ const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabProps>) => {
 };
 
 /*
- * 1. Text truncation (requires `max-width`).
- * 2. Override default anchor styling
- * 3. The focus ring is drawn around the label, outside the tab padding.
+ * 1. Override default anchor styling
+ * 2. The focus ring is drawn around the label, outside the tab padding.
  */
 export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
   display: flex;
@@ -124,8 +123,7 @@ export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
 
     return 'center';
   }};
-  text-decoration: none; /* [2] */
-  text-overflow: ellipsis; /* [1] */
+  text-decoration: none; /* [1] */
 
   ${sizeStyles};
 
@@ -137,7 +135,7 @@ export const StyledTab = styled.div<WithTheme<IStyledTabProps>>`
   }
 
   &:focus-visible::before {
-    position: absolute; /* [3] */
+    position: absolute; /* [2] */
     border-style: solid;
     pointer-events: none;
     content: '';
