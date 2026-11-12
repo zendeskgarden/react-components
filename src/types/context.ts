@@ -9,7 +9,7 @@ import type { IUseAccordionReturnValue } from '@zendeskgarden/container-accordio
 import type { IUseFieldReturnValue } from '@zendeskgarden/container-field';
 import type { IUseModalReturnValue } from '@zendeskgarden/container-modal';
 import type { IUseTabsReturnValue } from '@zendeskgarden/container-tabs';
-import type { Dispatch, MutableRefObject, ReactNode, SetStateAction } from 'react';
+import type { Dispatch, MutableRefObject, ReactNode } from 'react';
 
 import type {
   DatePickerRangeAction,
@@ -226,7 +226,7 @@ export interface ITabsContext extends IUseTabsReturnValue<any> {
   tabs: ITabData[];
   /** The number of leading tabs that fit outside the overflow menu (written by `TabList`) */
   visibleCount: number;
-  setVisibleCount: Dispatch<SetStateAction<number>>;
+  setVisibleCount: (count: number) => void;
   /** The index of the tab that holds the Tab stop, or -1 when no tab is navigable */
   entryIndex: number;
 }

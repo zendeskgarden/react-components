@@ -38,10 +38,13 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     const tabs = useMemo(() => toTabs(children), [children]);
 
     /*
-     * The first render shows every tab, so server HTML has no overflow menu.
-     * `TabList` measures the tab list and writes the count back.
+     * Every tab is visible until `TabList` measures the tab list and writes
+     * the count back: server HTML has no overflow menu, and tabs added to a
+     * tab list that cannot be measured (jsdom, a display: none ancestor)
+     * stay visible.
      */
-    const [visibleCount, setVisibleCount] = useState(tabs.length);
+    const [measuredCount, setMeasuredCount] = useState<number>();
+    const visibleCount = measuredCount ?? tabs.length;
 
     /*
      * Overflowed tabs reach the hook as disabled, so arrow navigation never
@@ -120,7 +123,7 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
         select,
         tabs,
         visibleCount,
-        setVisibleCount,
+        setVisibleCount: setMeasuredCount,
         entryIndex
       }),
       [isVertical, tabsContextValue, select, tabs, visibleCount, entryIndex]

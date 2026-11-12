@@ -719,6 +719,29 @@ describe('Tabs overflow', () => {
     expect(screen.queryByRole('button', { name: /tabs/u })).not.toBeInTheDocument();
   });
 
+  it.each([[[]], [ITEMS.slice(0, 2)]])(
+    'keeps tabs added after mount visible when the layout cannot be measured (from %j)',
+    initialItems => {
+      const Dynamic = ({ items }: { items: string[] }) => (
+        <Tabs>
+          <Tabs.TabList aria-label="Sections">
+            {items.map(item => (
+              <Tabs.Tab key={item} item={item}>
+                {item}
+              </Tabs.Tab>
+            ))}
+          </Tabs.TabList>
+        </Tabs>
+      );
+      const { rerender } = render(<Dynamic items={initialItems} />);
+
+      rerender(<Dynamic items={ITEMS} />);
+
+      expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(ITEMS);
+      expect(screen.queryByRole('button', { name: /tabs/u })).not.toBeInTheDocument();
+    }
+  );
+
   it('names a hidden tab with no text by its item in the trigger', async () => {
     mockLayout({ current: 250 });
     const user = userEvent.setup();

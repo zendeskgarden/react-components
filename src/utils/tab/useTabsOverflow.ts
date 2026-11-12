@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import { type Dispatch, type RefObject, type SetStateAction, useRef, useState } from 'react';
+import { type RefObject, useRef, useState } from 'react';
 
 import type { IGardenTheme } from '../../theming/types';
 import { getTabGap, getTabSize } from '../../views/tab/StyledTabListContainer';
@@ -48,7 +48,7 @@ interface IUseTabsOverflowOptions {
   theme: IGardenTheme;
   /** The current number of visible tabs (owned by `Tabs`) */
   visibleCount: number;
-  setVisibleCount?: Dispatch<SetStateAction<number>>;
+  setVisibleCount?: (count: number) => void;
   /** The id the hook gives the tab element of a value */
   getTabId: (value: unknown) => string | undefined;
 }
