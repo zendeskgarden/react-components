@@ -66,8 +66,6 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const tabs = tabsPropGetters?.tabs ?? EMPTY_TABS;
   const isVertical = !!tabsPropGetters?.isVertical;
   const visibleCount = Math.min(tabsPropGetters?.visibleCount ?? tabs.length, tabs.length);
-  const hiddenCount = tabs.length - visibleCount;
-  const hiddenTabs = tabs.slice(visibleCount);
   const containerRef = useRef<HTMLDivElement>(null);
   const listRef = useRef<HTMLDivElement>(null);
   const overflowRef = useRef<HTMLDivElement>(null);
@@ -75,7 +73,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
   const menuGroup = useId();
 
-  const { visibleExtent, hiddenExtent, indicator, pendingFocus } = useTabsOverflow({
+  const getTabId = (value: any) => tabsPropGetters?.getTabProps({ value }).id;
+  const { visibleExtent, hiddenExtent, indicator, pendingFocus, rendered } = useTabsOverflow({
     containerRef,
     listRef,
     overflowRef,
@@ -85,8 +84,27 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
     isVertical,
     theme,
     visibleCount,
-    setVisibleCount: tabsPropGetters?.setVisibleCount
+    setVisibleCount: tabsPropGetters?.setVisibleCount,
+    getTabId
   });
+  /* Collected entries with no rendered tab (wrapped panels, ghosts,
+   * display: none) never enter the menu. */
+  const hiddenIndexes = tabs
+    .map((_tab, index) => index)
+    .filter(index => index >= visibleCount && rendered?.[index] !== false);
+  const hiddenTabs = hiddenIndexes.map(index => tabs[index]!);
+  const hiddenCount = hiddenTabs.length;
+  /* The element of a collected tab, found by the id the hook gives it and
+   * scoped to this list (a second tab list reuses the same ids). */
+  const getTabElement = (index: number) => {
+    const id = getTabId(tabs[index]?.value);
+
+    return id === undefined
+      ? undefined
+      : Array.from(listRef.current?.querySelectorAll<HTMLElement>('[role="tab"]') ?? []).find(
+          element => element.id === id
+        );
+  };
   const indicatorRef = useTabIndicatorMotion(indicator, isVertical);
   /* A standalone tab list (no `Tabs`) renders without a default name, as before. */
   const ariaLabel = useText(
@@ -132,7 +150,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
     if (target === 'trigger') {
       triggerRef.current?.focus();
     } else if (target === 'tab' && entryIndex >= 0) {
-      listRef.current?.querySelectorAll<HTMLElement>('[role="tab"]')[entryIndex]?.focus();
+      getTabElement(entryIndex)?.focus();
     } else if (target === 'menu' && !overflowRef.current?.contains(document.activeElement)) {
       /* The focused menu item became a visible tab and unmounted: close the
        * menu and focus the trigger, as Escape would. */
@@ -161,9 +179,9 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const { children, className, style, ...otherProps } = restProps;
   const tabListProps =
     tabsPropGetters.getTabListProps<HTMLDivElement>() as HTMLAttributes<HTMLDivElement>;
-  const tabElements = listRef.current
-    ? Array.from(listRef.current.querySelectorAll<HTMLElement>('[role="tab"]'))
-    : [];
+  const tabElements = tabs.map((_tab, index) =>
+    typeof document === 'undefined' ? undefined : getTabElement(index)
+  );
   const overflowLabel = getOverflowLabel(hiddenCount);
   /* The trigger carries the selection indicator for overflowed tabs, so its
    * name carries the selection too. */
@@ -235,17 +253,13 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
               const selectedValue = selectedItems?.find(item => item.name === menuGroup)?.value;
 
               if (selectedValue !== undefined) {
-                const tab = tabs[Number(selectedValue)];
-
-                if (tab) {
-                  tabsPropGetters.select(tab.value);
-                }
+                tabsPropGetters.select(tabs[Number(selectedValue)]!.value);
               }
             }}
           >
             <ItemGroup type="radio" aria-label={overflowLabel}>
               {hiddenTabs.map((tab, hiddenIndex) => {
-                const index = visibleCount + hiddenIndex;
+                const index = hiddenIndexes[hiddenIndex]!;
 
                 return (
                   <Item

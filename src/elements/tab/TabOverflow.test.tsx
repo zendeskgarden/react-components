@@ -7,7 +7,8 @@
 
 import { act, screen, waitFor, within } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
-import { FC, ReactElement } from 'react';
+import { FC, ReactElement, ReactNode } from 'react';
+import { styled } from 'styled-components';
 import { vi } from 'vitest';
 
 import { RTL_THEME, render } from '../../test/render';
@@ -449,10 +450,12 @@ describe('Tabs overflow', () => {
     );
   });
 
-  it('ignores collected children that render no tab element', () => {
+  it('ignores collected children that render no tab element', async () => {
     const Ghost: FC<{ item?: any }> = () => null;
 
-    mockLayout({ current: 400 });
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
     render(
       <Tabs defaultSelectedItem="one">
         <Tabs.TabList aria-label="Sections">
@@ -466,8 +469,196 @@ describe('Tabs overflow', () => {
       </Tabs>
     );
 
-    expect(screen.getAllByRole('tab')).toHaveLength(5);
-    expect(screen.queryByRole('button', { name: /tabs/u })).not.toBeInTheDocument();
+    expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio').map(item => item.textContent)).toEqual([
+      'Three',
+      'Four',
+      'Five'
+    ]);
+  });
+
+  it('measures past panels wrapped with styled()', async () => {
+    const StyledPanel = styled(Tabs.TabPanel)`
+      padding-top: 8px;
+    `;
+
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <Tabs.TabList aria-label="Sections">
+          {ITEMS.map((item, index) => (
+            <Tabs.Tab key={item} item={item}>
+              {LABELS[index]}
+            </Tabs.Tab>
+          ))}
+        </Tabs.TabList>
+        {ITEMS.map((item, index) => (
+          <StyledPanel key={item} item={item}>
+            {`${LABELS[index]} panel`}
+          </StyledPanel>
+        ))}
+      </Tabs>
+    );
+
+    expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio').map(item => item.textContent)).toEqual([
+      'Three',
+      'Four',
+      'Five'
+    ]);
+  });
+
+  it('measures past panel wrapper components with an item prop', async () => {
+    const PanelWrapper: FC<{ item: string; children: ReactNode }> = ({ item, children }) => (
+      <Tabs.TabPanel item={item}>{children}</Tabs.TabPanel>
+    );
+
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <Tabs.TabList aria-label="Sections">
+          {ITEMS.map((item, index) => (
+            <Tabs.Tab key={item} item={item}>
+              {LABELS[index]}
+            </Tabs.Tab>
+          ))}
+        </Tabs.TabList>
+        {ITEMS.map((item, index) => (
+          <PanelWrapper key={item} item={item}>
+            {`${LABELS[index]} panel`}
+          </PanelWrapper>
+        ))}
+      </Tabs>
+    );
+
+    expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio').map(item => item.textContent)).toEqual([
+      'Three',
+      'Four',
+      'Five'
+    ]);
+  });
+
+  it('ignores a display: none tab when measuring and building the menu', async () => {
+    /* display: none elements have no box. */
+    vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function getRect(
+      this: Element
+    ) {
+      const id = this.getAttribute('data-garden-id');
+
+      if ((this as HTMLElement).style?.display === 'none') {
+        return rect(0, 0, 0, 0);
+      }
+
+      if (id === 'tabs.tablist_container') {
+        return rect(0, 0, 250, 40);
+      }
+
+      if (id === 'tabs.tab') {
+        return rect(tabIndex(this) * 80, 0, 60, 40);
+      }
+
+      return rect(0, 0, 0, 0);
+    });
+    const user = userEvent.setup();
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <Tabs.TabList aria-label="Sections">
+          {ITEMS.map((item, index) => (
+            <Tabs.Tab
+              key={item}
+              item={item}
+              style={index === ITEMS.length - 1 ? { display: 'none' } : undefined}
+            >
+              {LABELS[index]}
+            </Tabs.Tab>
+          ))}
+        </Tabs.TabList>
+      </Tabs>
+    );
+
+    expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+
+    await user.click(screen.getByRole('button', { name: '+2 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio').map(item => item.textContent)).toEqual([
+      'Three',
+      'Four'
+    ]);
+  });
+
+  it('measures only the visible list when two tab lists share the tabs', async () => {
+    /* A list inside a display: none wrapper has no box. */
+    vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function getRect(
+      this: Element
+    ) {
+      const id = this.getAttribute('data-garden-id');
+
+      if (this.closest('[data-test="hidden-list"]')) {
+        return rect(0, 0, 0, 0);
+      }
+
+      if (id === 'tabs.tablist_container') {
+        return rect(0, 0, 250, 40);
+      }
+
+      if (id === 'tabs.tab') {
+        return rect(tabIndex(this) * 80, 0, 60, 40);
+      }
+
+      return rect(0, 0, 0, 0);
+    });
+    const user = userEvent.setup();
+
+    const tabs = (label: string) => (
+      <Tabs.TabList aria-label={label}>
+        {ITEMS.map((item, index) => (
+          <Tabs.Tab key={item} item={item}>
+            {LABELS[index]}
+          </Tabs.Tab>
+        ))}
+      </Tabs.TabList>
+    );
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <div data-test="hidden-list" style={{ display: 'none' }}>
+          {tabs('Mobile')}
+        </div>
+        {tabs('Desktop')}
+      </Tabs>
+    );
+
+    /* The hidden list must not freeze the page or overwrite the count. */
+    const desktop = document.querySelectorAll('[data-garden-id="tabs.tablist_container"]')[1]!;
+
+    expect(
+      within(desktop as HTMLElement)
+        .getAllByRole('tab')
+        .map(tab => tab.textContent)
+    ).toEqual(['One', 'Two']);
+
+    await user.click(within(desktop as HTMLElement).getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio').map(item => item.textContent)).toEqual([
+      'Three',
+      'Four',
+      'Five'
+    ]);
   });
 
   it('keeps every tab visible when the layout cannot be measured', () => {
