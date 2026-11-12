@@ -227,6 +227,8 @@ export interface ITabsContext extends IUseTabsReturnValue<any> {
   /** The number of leading tabs that fit outside the overflow menu (written by `TabList`) */
   visibleCount: number;
   setVisibleCount: Dispatch<SetStateAction<number>>;
+  /** The index of the tab that holds the Tab stop, or -1 when no tab is navigable */
+  entryIndex: number;
 }
 //#endregion
 

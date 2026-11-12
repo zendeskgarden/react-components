@@ -118,14 +118,9 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
 
   const selectedIndex = tabs.findIndex(tab => tab.value === tabsPropGetters?.selectedValue);
   const selectedHiddenTab = selectedIndex >= visibleCount ? tabs[selectedIndex] : undefined;
-  const isNavigable = (index: number) =>
-    index >= 0 && index < visibleCount && !tabs[index]!.disabled;
-  /* The tab that receives focus when tabs leave the menu: the focused tab,
-   * else the selected tab, else the first navigable one. */
-  const entryIndex =
-    [tabsPropGetters?.focusedValue, tabsPropGetters?.selectedValue]
-      .map(value => tabs.findIndex(tab => tab.value === value))
-      .find(isNavigable) ?? tabs.findIndex((_tab, index) => isNavigable(index));
+  /* The tab that holds the Tab stop and receives focus when tabs leave the
+   * menu, computed once in `Tabs`. */
+  const entryIndex = tabsPropGetters?.entryIndex ?? -1;
 
   /* Focus moves between the tabs, the trigger and the menu as tabs move into
    * or out of the overflow menu. */

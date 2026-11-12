@@ -92,9 +92,36 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
       onSelect: select
     });
 
+    /*
+     * The tab that holds the Tab stop. The hook gives the stop to the focused
+     * tab and keeps pointing at it when the tab is no longer navigable
+     * (overflowed, disabled, or not among the tabs), leaving the tab list
+     * without a stop. The entry tab then is the selected tab when it is
+     * navigable, else the first navigable tab. Computed once so `Tab` and
+     * `TabList` cannot disagree.
+     */
+    const entryIndex = useMemo(() => {
+      const isNavigable = (index: number) =>
+        index >= 0 && index < visibleCount && !tabs[index]!.disabled;
+
+      return (
+        [tabsContextValue.focusedValue, selectedItem]
+          .map(value => tabs.findIndex(tab => tab.value === value))
+          .find(isNavigable) ?? tabs.findIndex((_tab, index) => isNavigable(index))
+      );
+    }, [tabsContextValue.focusedValue, selectedItem, tabs, visibleCount]);
+
     const contextValue = useMemo(
-      () => ({ isVertical, ...tabsContextValue, select, tabs, visibleCount, setVisibleCount }),
-      [isVertical, tabsContextValue, select, tabs, visibleCount]
+      () => ({
+        isVertical,
+        ...tabsContextValue,
+        select,
+        tabs,
+        visibleCount,
+        setVisibleCount,
+        entryIndex
+      }),
+      [isVertical, tabsContextValue, select, tabs, visibleCount, entryIndex]
     );
 
     return (

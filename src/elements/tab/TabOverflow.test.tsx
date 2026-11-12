@@ -363,6 +363,45 @@ describe('Tabs overflow', () => {
     expect(screen.getByRole('tab', { name: 'Four' })).toHaveFocus();
   });
 
+  it('keeps a Tab stop when the focused tab overflows while the selection stays visible', async () => {
+    const width = { current: 400 };
+    mockLayout(width);
+    const user = userEvent.setup();
+
+    render(<Example defaultSelectedItem="one" />);
+
+    /* Focus Two without selecting it: One stays selected. */
+    await user.tab();
+    await user.keyboard('{ArrowRight}');
+
+    const two = screen.getByRole('tab', { name: 'Two' });
+
+    expect(two).toHaveFocus();
+    expect(screen.getByRole('tab', { name: 'One' })).toHaveAttribute('aria-selected', 'true');
+
+    /* Only One still fits, so the focused tab moves into the menu. */
+    resizeTo(width, 130);
+
+    const trigger = screen.getByRole('button', { name: '+4 tabs' });
+
+    expect(trigger).toHaveFocus();
+
+    const visibleTabs = screen.getAllByRole('tab');
+
+    expect(visibleTabs).toHaveLength(1);
+    expect(visibleTabs[0]).toHaveAttribute('tabindex', '0');
+
+    /* Exactly one tab, the visible one, is a Tab stop. */
+    const stops = screen
+      .getAllByRole('tab', { hidden: true })
+      .filter(tab => tab.getAttribute('tabindex') === '0');
+
+    expect(stops).toHaveLength(1);
+
+    await user.tab({ shift: true });
+    expect(visibleTabs[0]).toHaveFocus();
+  });
+
   it('closes the menu and focuses the trigger when the focused menu item becomes a visible tab', async () => {
     const width = { current: 250 };
     mockLayout(width);

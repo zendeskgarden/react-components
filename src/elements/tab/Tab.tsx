@@ -84,35 +84,16 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
     }) as HTMLAttributes<HTMLDivElement> & { ref: MutableRefObject<HTMLDivElement> };
 
     /*
-     * The hook gives no Tab stop when the selected tab is not navigable (in
-     * the overflow menu, disabled, or not among the tabs). Give the stop to
-     * the first navigable tab instead, unless the user already focused a
-     * navigable tab (the hook's `focusedValue`), so the tab list keeps a
-     * single Tab stop.
+     * The hook gives no Tab stop when the selected or focused tab is not
+     * navigable (in the overflow menu, disabled, or not among the tabs), so
+     * the stop goes to the entry tab that `Tabs` computes once.
      */
-    const isNavigable = (index: number) =>
-      index >= 0 && index < visibleCount && !tabsPropGetters.tabs[index]!.disabled;
     let rovingTabIndex = tabProps.tabIndex;
 
     if (isHidden) {
       rovingTabIndex = -1;
-    } else {
-      const selectedIndex = tabsPropGetters.tabs.findIndex(
-        tab => tab.value === tabsPropGetters.selectedValue
-      );
-      const focusedIndex = tabsPropGetters.tabs.findIndex(
-        tab => tab.value === tabsPropGetters.focusedValue
-      );
-
-      if (!isNavigable(selectedIndex) && !isNavigable(focusedIndex)) {
-        const firstNavigableIndex = tabsPropGetters.tabs.findIndex((_tab, index) =>
-          isNavigable(index)
-        );
-
-        if (position === firstNavigableIndex) {
-          rovingTabIndex = 0;
-        }
-      }
+    } else if (position !== -1) {
+      rovingTabIndex = position === tabsPropGetters.entryIndex ? 0 : -1;
     }
 
     return (
