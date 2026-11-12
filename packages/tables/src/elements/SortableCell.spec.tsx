@@ -77,106 +77,110 @@ describe('SortableCell', () => {
     });
   });
 
-  describe('accessible name', () => {
-    it('conveys sortability when unsorted', () => {
-      const { getByRole } = render(
+  describe('accessibility', () => {
+    const renderCell = (props = {}, text = 'Updated date') =>
+      render(
         <Table>
           <Head>
             <HeaderRow>
-              <SortableCell>Updated date</SortableCell>
+              <SortableCell {...props}>{text}</SortableCell>
             </HeaderRow>
           </Head>
         </Table>
       );
 
-      expect(getByRole('button')).toHaveAccessibleName('Updated date sortable');
+    it('keeps the plain column name when unsorted', () => {
+      const { getByRole } = renderCell();
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
     });
 
-    it('conveys the sort state when ascending', () => {
-      const { getByRole } = render(
-        <Table>
-          <Head>
-            <HeaderRow>
-              <SortableCell sort="asc">Updated date</SortableCell>
-            </HeaderRow>
-          </Head>
-        </Table>
-      );
+    it('always conveys that the button sorts, via aria-roledescription', () => {
+      const unsorted = renderCell();
+
+      expect(unsorted.getByRole('button')).toHaveAttribute('aria-roledescription', 'sort button');
+      unsorted.unmount();
+
+      const asc = renderCell({ sort: 'asc' });
+
+      expect(asc.getByRole('button')).toHaveAttribute('aria-roledescription', 'sort button');
+      asc.unmount();
+
+      const desc = renderCell({ sort: 'desc' });
+
+      expect(desc.getByRole('button')).toHaveAttribute('aria-roledescription', 'sort button');
+    });
+
+    it('adds the sort state to the button name when ascending', () => {
+      const { getByRole } = renderCell({ sort: 'asc' });
 
       expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
     });
 
-    it('conveys the sort state when descending', () => {
-      const { getByRole } = render(
-        <Table>
-          <Head>
-            <HeaderRow>
-              <SortableCell sort="desc">Updated date</SortableCell>
-            </HeaderRow>
-          </Head>
-        </Table>
-      );
+    it('adds the sort state to the button name when descending', () => {
+      const { getByRole } = renderCell({ sort: 'desc' });
 
       expect(getByRole('button')).toHaveAccessibleName('Updated date sorted descending');
     });
 
-    it('applies customized text for each state', () => {
-      const sortLabels = {
-        unsorted: 'ordenable',
-        ascending: 'orden ascendente',
-        descending: 'orden descendente'
-      };
-      const { getAllByRole } = render(
-        <Table>
-          <Head>
-            <HeaderRow>
-              <SortableCell sortLabels={sortLabels}>Fecha</SortableCell>
-              <SortableCell sort="asc" sortLabels={sortLabels}>
-                Fecha
-              </SortableCell>
-              <SortableCell sort="desc" sortLabels={sortLabels}>
-                Fecha
-              </SortableCell>
-            </HeaderRow>
-          </Head>
-        </Table>
-      );
-      const [unsorted, ascending, descending] = getAllByRole('button');
+    it('labels only one icon, so the state is announced once', () => {
+      const { getAllByRole } = renderCell({ sort: 'asc' });
 
-      expect(unsorted).toHaveAccessibleName('Fecha ordenable');
-      expect(ascending).toHaveAccessibleName('Fecha orden ascendente');
-      expect(descending).toHaveAccessibleName('Fecha orden descendente');
+      expect(getAllByRole('img')).toHaveLength(1);
     });
 
-    it('does not pass sortLabels to the DOM', () => {
-      const { getByRole } = render(
-        <Table>
-          <Head>
-            <HeaderRow>
-              <SortableCell sortLabels={{ unsorted: 'sortable' }}>Updated date</SortableCell>
-            </HeaderRow>
-          </Head>
-        </Table>
-      );
+    it('does not expose an image when unsorted', () => {
+      const { queryByRole } = renderCell();
 
-      expect(getByRole('button')).not.toHaveAttribute('sortLabels');
-      expect(getByRole('button')).not.toHaveAttribute('sortlabels');
+      expect(queryByRole('img')).not.toBeInTheDocument();
+    });
+
+    it('applies customized text', () => {
+      const props = {
+        roleDescription: 'botón de ordenar',
+        sortLabels: { ascending: 'orden ascendente', descending: 'orden descendente' }
+      };
+      const unsorted = renderCell(props, 'Fecha');
+
+      expect(unsorted.getByRole('button')).toHaveAttribute(
+        'aria-roledescription',
+        'botón de ordenar'
+      );
+      expect(unsorted.getByRole('button')).toHaveAccessibleName('Fecha');
+      unsorted.unmount();
+
+      const asc = renderCell({ ...props, sort: 'asc' }, 'Fecha');
+
+      expect(asc.getByRole('button')).toHaveAccessibleName('Fecha orden ascendente');
+      asc.unmount();
+
+      const desc = renderCell({ ...props, sort: 'desc' }, 'Fecha');
+
+      expect(desc.getByRole('button')).toHaveAccessibleName('Fecha orden descendente');
+    });
+
+    it('does not pass roleDescription or sortLabels to the DOM', () => {
+      const { getByRole } = renderCell({
+        roleDescription: 'sort button',
+        sortLabels: { ascending: 'asc' }
+      });
+      const button = getByRole('button');
+
+      expect(button).not.toHaveAttribute('roledescription');
+      expect(button).not.toHaveAttribute('sortlabels');
+    });
+
+    it('lets an explicit aria-roledescription win', () => {
+      const { getByRole } = renderCell({ 'aria-roledescription': 'custom' });
+
+      expect(getByRole('button')).toHaveAttribute('aria-roledescription', 'custom');
     });
 
     it('requires a non-empty customized text value', () => {
       const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
 
-      expect(() =>
-        render(
-          <Table>
-            <Head>
-              <HeaderRow>
-                <SortableCell sortLabels={{ unsorted: '' }}>Updated date</SortableCell>
-              </HeaderRow>
-            </Head>
-          </Table>
-        )
-      ).toThrow();
+      expect(() => renderCell({ roleDescription: '' })).toThrow();
+      expect(() => renderCell({ sort: 'asc', sortLabels: { ascending: '' } })).toThrow();
 
       spy.mockRestore();
     });

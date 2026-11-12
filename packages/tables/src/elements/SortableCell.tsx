@@ -14,7 +14,6 @@ import { ISortableCellProps, SORT } from '../types';
 import {
   StyledHeaderCell,
   StyledSortableButton,
-  StyledSortableLabel,
   StyledSortableStrokeIconWrapper,
   StyledSortableFillIconWrapper
 } from '../styled';
@@ -25,7 +24,18 @@ import {
  * @extends ButtonHTMLAttributes<HTMLButtonElement>
  */
 export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
-  ({ sort, cellProps = {}, width, sortLabels = {}, children, ...sortableButtonProps }, ref) => {
+  (
+    {
+      sort,
+      cellProps = {},
+      width,
+      sortLabels = {},
+      roleDescription: roleDescriptionProp,
+      children,
+      ...sortableButtonProps
+    },
+    ref
+  ) => {
     const { isMinimum, isTruncated, hasOverflow, ...otherCellProps } = cellProps;
     let ariaSortValue = 'none';
 
@@ -37,14 +47,15 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
 
     const SortIcon = sort === undefined ? SortStrokeIcon : SortFillIcon;
 
-    /* Only the label for the current sort state is evaluated (and validated) */
-    const unsortedLabel = useText(
+    /* Always announces that the button sorts, whatever the sort state */
+    const roleDescription = useText(
       SortableCell,
-      sortLabels,
-      'unsorted',
-      'sortable',
-      sort === undefined
+      { roleDescription: roleDescriptionProp },
+      'roleDescription',
+      'sort button'
     );
+
+    /* Only the label for the current sort state is evaluated (and validated) */
     const ascendingLabel = useText(
       SortableCell,
       sortLabels,
@@ -59,13 +70,18 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
       'sorted descending',
       sort === 'desc'
     );
-    let sortLabel = unsortedLabel;
+    let sortLabel;
 
     if (sort === 'asc') {
       sortLabel = ascendingLabel;
     } else if (sort === 'desc') {
       sortLabel = descendingLabel;
     }
+
+    /* The label is on the icon, so it is part of the button name without an extra element */
+    const iconProps = sortLabel
+      ? { role: 'img', 'aria-label': sortLabel, 'aria-hidden': undefined, focusable: 'false' }
+      : {};
 
     return (
       <StyledHeaderCell
@@ -76,14 +92,18 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
         $hasOverflow={hasOverflow}
         {...otherCellProps}
       >
-        <StyledSortableButton $sort={sort} ref={ref} {...sortableButtonProps}>
+        <StyledSortableButton
+          $sort={sort}
+          ref={ref}
+          aria-roledescription={roleDescription}
+          {...sortableButtonProps}
+        >
           {children}
-          <StyledSortableLabel>{` ${sortLabel}`}</StyledSortableLabel>
           <StyledSortableStrokeIconWrapper>
             <SortIcon />
           </StyledSortableStrokeIconWrapper>
           <StyledSortableFillIconWrapper>
-            <SortFillIcon />
+            <SortFillIcon {...iconProps} />
           </StyledSortableFillIconWrapper>
         </StyledSortableButton>
       </StyledHeaderCell>
@@ -97,5 +117,6 @@ SortableCell.propTypes = {
   sort: PropTypes.oneOf(SORT),
   cellProps: PropTypes.any,
   sortLabels: PropTypes.any,
+  roleDescription: PropTypes.string,
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
