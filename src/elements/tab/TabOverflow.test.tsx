@@ -283,6 +283,16 @@ describe('Tabs overflow', () => {
     expect(await screen.findByRole('tooltip')).toHaveTextContent('+3 tabs');
   });
 
+  it('does not describe the trigger with the tooltip text already in its name', () => {
+    mockLayout({ current: 250 });
+    render(<Example />);
+
+    const trigger = screen.getByRole('button', { name: '+3 tabs' });
+
+    expect(trigger).not.toHaveAttribute('aria-describedby');
+    expect(trigger).toHaveAccessibleDescription('');
+  });
+
   it('keeps the trigger enabled when every hidden tab is disabled', async () => {
     mockLayout({ current: 250 });
     const user = userEvent.setup();

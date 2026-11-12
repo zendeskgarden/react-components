@@ -268,6 +268,9 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
                   ref={mergeRefs([buttonRef, triggerRef])}
                   as="button"
                   aria-label={isVertical && !selectedHiddenTab ? undefined : triggerLabel}
+                  /* The tooltip text is already in the name; it must not
+                   * describe the trigger too. */
+                  aria-describedby={undefined}
                   $isVertical={isVertical}
                   data-selected={selectedHiddenTab ? true : undefined}
                   data-garden-id={COMPONENT_IDS['tabs.overflow_button']}
