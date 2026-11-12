@@ -83,9 +83,13 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
      * the stop goes to the entry tab that `Tabs` computes once.
      */
     let rovingTabIndex = tabProps.tabIndex;
+    let ariaDisabled = tabProps['aria-disabled'];
 
     if (isHidden) {
       rovingTabIndex = -1;
+      /* Overflowed tabs reach the hook as disabled; only a disabled tab is
+       * marked as one. */
+      ariaDisabled = disabled || undefined;
     } else if (position !== -1) {
       rovingTabIndex = position === tabsPropGetters.entryIndex ? 0 : -1;
     }
@@ -97,6 +101,7 @@ export const Tab = forwardRef<HTMLDivElement, ITabProps>(
         $isHidden={isHidden}
         {...tabProps}
         tabIndex={rovingTabIndex}
+        aria-disabled={ariaDisabled}
         {...otherProps}
         data-garden-id={COMPONENT_IDS['tabs.tab']}
         data-garden-version={PACKAGE_VERSION}

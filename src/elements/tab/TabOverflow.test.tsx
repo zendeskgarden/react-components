@@ -293,6 +293,18 @@ describe('Tabs overflow', () => {
     expect(trigger).toHaveAccessibleDescription('');
   });
 
+  it('marks only disabled tabs as disabled among the overflowed tabs', () => {
+    mockLayout({ current: 250 });
+    render(<Example disabled={['four']} />);
+
+    const [three, four, five] = screen.getAllByRole('tab', { hidden: true }).slice(2);
+
+    expect(three).toHaveStyle({ visibility: 'hidden' });
+    expect(three).not.toHaveAttribute('aria-disabled');
+    expect(four).toHaveAttribute('aria-disabled', 'true');
+    expect(five).not.toHaveAttribute('aria-disabled');
+  });
+
   it('keeps the trigger enabled when every hidden tab is disabled', async () => {
     mockLayout({ current: 250 });
     const user = userEvent.setup();
