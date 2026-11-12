@@ -356,15 +356,33 @@ instead of being clipped.
   list. `className` and `style` go on the container; `ref` and the other props
   stay on the `role="tablist"` element. Selectors on the list's children
   (`:last-child`, `children.length`) can see the new elements.
+  `styled(Tabs.TabList)` rules that target the tabs with a child selector
+  (`& > [role='tab']`) no longer match: the tabs are one level deeper. Theme
+  overrides on `components['tabs.tablist']` no longer reach the rule under the
+  tabs or the tab list height; both moved to `tabs.tablist_container`.
+- Tabs are `display: flex` (they were `inline-block` or `block`), and the 20px
+  gap under the horizontal tab list is gone: panel content now touches the
+  rule.
+- The selected and hovered tab labels keep the default foreground color (they
+  were `foreground.primary`), and the pressed (`:active`) style is gone.
+  Selection is carried by the indicator.
 - Tabs that do not fit move into an overflow menu (`tabs.overflow_button`),
   horizontally and, when the tab list height is constrained, vertically. Set
   `renderOverflowLabel` on `Tabs.TabList` to localize the trigger. Set `label`
-  on tabs whose children are not plain text so the menu can name them.
+  on tabs whose children are not plain text so the menu can name them. The
+  menu renders in the document body, so `overflow: hidden` or `overflow: auto`
+  ancestors no longer clip it.
+- Tabs must be `Tabs.Tab` elements or components that pass `item` through to
+  `Tabs.Tab`: the overflow menu pairs each collected tab with its element. A
+  tab rendered by a component without `item` was already unselectable in v9.
 - `onChange` no longer fires on mount. Use `defaultSelectedItem` or
   `selectedItem` for the initial tab; without either, the first enabled tab is
   selected on the first render.
 - The tab list gets `aria-label="Tabs"` unless you set `aria-label` or
-  `aria-labelledby`. Garden warns in development when the default is used.
+  `aria-labelledby`. Garden warns in development when the default is used. An
+  empty `aria-label=""` (or `null`) throws, as it does on every Garden
+  component that requires an accessible name. Set a non-empty label or use
+  `aria-labelledby`.
 - Disabled tabs keep `aria-selected`, `id` and `aria-controls`. Panels are
   focusable (`tabIndex="0"`).
 - Vertical tabs stack above their panels below the `sm` breakpoint.
