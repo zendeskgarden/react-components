@@ -38,6 +38,8 @@ interface IUseTabsOverflowOptions {
   overflowRef: RefObject<HTMLDivElement | null>;
   /** The overflow menu trigger element */
   triggerRef: RefObject<HTMLButtonElement | null>;
+  /** The overflow menu list element, portaled out of the wrapper */
+  menuRef: RefObject<HTMLUListElement | null>;
   /** The collected tabs, in DOM order; entries without a rendered tab element are ignored */
   tabs: ITabData[];
   /** The selected tab value */
@@ -66,6 +68,7 @@ export const useTabsOverflow = ({
   listRef,
   overflowRef,
   triggerRef,
+  menuRef,
   tabs,
   selectedItem,
   isVertical,
@@ -162,8 +165,11 @@ export const useTabsOverflow = ({
       }
 
       /* Keep keyboard focus on a visible control when tabs move into or out
-       * of the overflow menu. */
+       * of the overflow menu. The menu is portaled, so focus inside it is
+       * not inside the overflow wrapper. */
       const active = document.activeElement;
+      const menuHasFocus =
+        !!active && !!(overflowRef.current?.contains(active) || menuRef.current?.contains(active));
 
       if (nextCount < visibleCount) {
         const index = tabElements.indexOf(active as HTMLElement);
@@ -171,7 +177,7 @@ export const useTabsOverflow = ({
         if (index >= nextCount) {
           pendingFocus.current = 'trigger';
         }
-      } else if (nextCount > visibleCount && overflowRef.current?.contains(active)) {
+      } else if (nextCount > visibleCount && menuHasFocus) {
         if (nextCount === tabs.length) {
           pendingFocus.current = 'tab';
         } else if (active !== triggerRef.current) {
@@ -258,6 +264,7 @@ export const useTabsOverflow = ({
     listRef,
     overflowRef,
     triggerRef,
+    menuRef,
     tabs,
     selectedItem,
     isVertical,

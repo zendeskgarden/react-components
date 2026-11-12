@@ -11,6 +11,7 @@ import PropTypes from 'prop-types';
 import { ButtonHTMLAttributes, HTMLAttributes, forwardRef, useRef, useState } from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
+import { useDocument } from '../../theming/utils/useDocument';
 import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { ITabListProps } from '../../types/elements';
@@ -63,6 +64,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const { renderOverflowLabel, ...restProps } = props;
   const tabsPropGetters = useTabsContext();
   const theme = useGardenTheme();
+  const doc = useDocument(theme);
   const tabs = tabsPropGetters?.tabs ?? EMPTY_TABS;
   const isVertical = !!tabsPropGetters?.isVertical;
   const visibleCount = Math.min(tabsPropGetters?.visibleCount ?? tabs.length, tabs.length);
@@ -70,6 +72,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const listRef = useRef<HTMLDivElement>(null);
   const overflowRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
+  /* The menu list element, portaled to the document body. */
+  const menuRef = useRef<HTMLUListElement>(null);
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
   const menuGroup = useId();
 
@@ -79,6 +83,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
     listRef,
     overflowRef,
     triggerRef,
+    menuRef,
     tabs,
     selectedItem: tabsPropGetters?.selectedValue,
     isVertical,
@@ -151,7 +156,11 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
       triggerRef.current?.focus();
     } else if (target === 'tab' && entryIndex >= 0) {
       getTabElement(entryIndex)?.focus();
-    } else if (target === 'menu' && !overflowRef.current?.contains(document.activeElement)) {
+    } else if (
+      target === 'menu' &&
+      !overflowRef.current?.contains(document.activeElement) &&
+      !menuRef.current?.contains(document.activeElement)
+    ) {
       /* The focused menu item became a visible tab and unmounted: close the
        * menu and focus the trigger, as Escape would. */
       setIsMenuExpanded(false);
@@ -215,11 +224,11 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
           <Menu
             /* eslint-disable-next-line react/no-unstable-nested-components --
                the `Menu` button API is a render function. */
-            button={({ ref: menuRef, ...triggerProps }) => {
+            button={({ ref: buttonRef, ...triggerProps }) => {
               const trigger = (
                 <StyledTabOverflowTrigger
                   {...(triggerProps as ButtonHTMLAttributes<HTMLButtonElement>)}
-                  ref={mergeRefs([menuRef, triggerRef])}
+                  ref={mergeRefs([buttonRef, triggerRef])}
                   as="button"
                   aria-label={isVertical && !selectedHiddenTab ? undefined : triggerLabel}
                   $isVertical={isVertical}
@@ -240,6 +249,10 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
               /* The icon-only trigger gets a tooltip with the count. */
               return isVertical ? trigger : <Tooltip content={overflowLabel}>{trigger}</Tooltip>;
             }}
+            /* The menu renders in the document body: any overflow: hidden or
+             * overflow: auto ancestor would squeeze it otherwise. */
+            ref={menuRef}
+            appendToNode={doc?.body}
             placement="bottom-end"
             isExpanded={isMenuExpanded}
             selectedItems={

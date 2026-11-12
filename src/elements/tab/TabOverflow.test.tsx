@@ -731,6 +731,51 @@ describe('Tabs overflow', () => {
     expect(screen.getByRole('tablist', { name: 'Sections' })).toBeInTheDocument();
   });
 
+  it('renders the menu in the document body, out of clipping ancestors', async () => {
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
+    render(
+      <div style={{ overflow: 'hidden' }}>
+        <Example />
+      </div>
+    );
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    const menu = screen.getByRole('menu');
+
+    expect(menu.closest('[data-garden-id="tabs.tabs"]')).toBeNull();
+    expect(menu.closest('[style*="overflow"]')).toBeNull();
+  });
+
+  it('treats focus inside the portaled menu as focus in the menu', async () => {
+    const width = { current: 250 };
+    mockLayout(width);
+    const user = userEvent.setup();
+
+    render(<Example />);
+
+    const trigger = screen.getByRole('button', { name: '+3 tabs' });
+
+    trigger.focus();
+    await user.keyboard('{ArrowDown}');
+
+    const four = screen.getByRole('menuitemradio', { name: 'Four' });
+
+    await user.keyboard('{ArrowDown}');
+    await waitFor(() => expect(four).toHaveFocus());
+
+    /* One tab returns; the focused item stays in the open menu. */
+    resizeTo(width, 330);
+
+    expect(screen.getByRole('button', { name: '+2 tabs' })).toHaveAttribute(
+      'aria-expanded',
+      'true'
+    );
+    expect(four).toHaveFocus();
+  });
+
   it('keeps focus on the trigger when tabs partially return', async () => {
     const width = { current: 250 };
     mockLayout(width);
