@@ -11,6 +11,7 @@ import { componentStyles } from '../../theming/utils/componentStyles';
 import mediaQuery from '../../theming/utils/mediaQuery';
 import type { WithTheme } from '../../types/views';
 import { StyledTabListContainer } from './StyledTabListContainer';
+import { StyledTabPanel } from './StyledTabPanel';
 
 interface IStyledTabsProps {
   $isVertical?: boolean;
@@ -29,6 +30,17 @@ const sizeStyles = ({ theme, $isVertical }: WithTheme<IStyledTabsProps>) => {
   return css`
     gap: ${theme.space.lg};
     align-items: flex-start;
+
+    /* The list keeps the width of its tabs; long panel content wraps instead
+     * of shrinking the list and clipping the labels. */
+    & > ${StyledTabListContainer} {
+      flex-shrink: 0;
+    }
+
+    & > ${StyledTabPanel} {
+      flex: 1 1 0;
+      min-width: 0;
+    }
 
     ${mediaQuery('down', 'xs', theme)} {
       flex-direction: column;

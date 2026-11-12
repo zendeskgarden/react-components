@@ -14,6 +14,8 @@ import { render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { ThemeProvider } from '../../theming/elements/ThemeProvider';
 import { ITabsProps, ITabProps } from '../../types/elements';
+import { StyledTabListContainer } from '../../views/tab/StyledTabListContainer';
+import { StyledTabPanel } from '../../views/tab/StyledTabPanel';
 import { Tabs } from './Tabs';
 
 describe('Tabs', () => {
@@ -59,6 +61,20 @@ describe('Tabs', () => {
 
     expect(getByTestId('container')).toHaveStyleRule('flex-direction', 'column', { media });
     expect(getByTestId('container')).toHaveStyleRule('align-items', 'stretch', { media });
+  });
+
+  it('keeps the vertical tab list from shrinking under its panels', () => {
+    const { getByTestId } = render(<BasicExample isVertical />);
+
+    expect(getByTestId('container')).toHaveStyleRule('flex-shrink', '0', {
+      modifier: `> ${StyledTabListContainer}`
+    });
+    expect(getByTestId('container')).toHaveStyleRule('flex', '1 1 0', {
+      modifier: `> ${StyledTabPanel}`
+    });
+    expect(getByTestId('container')).toHaveStyleRule('min-width', '0', {
+      modifier: `> ${StyledTabPanel}`
+    });
   });
 
   it('calls onChange with correct item on selection', async () => {
