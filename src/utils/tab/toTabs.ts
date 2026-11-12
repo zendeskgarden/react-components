@@ -16,16 +16,7 @@ export interface ITabData extends ITab<any> {
   props: ITabProps;
 }
 
-/**
- * Converts an array of `Tab` children to a valid `tabs` data structure for `useTabs`.
- * The collected entries are index-aligned with the tab elements of the tab list,
- * in DOM order.
- *
- * @param children The `children` prop from `Tabs`.
- *
- * @returns The collected tabs, each with its `value`, `disabled` flag and `props`.
- */
-export const toTabs = (children: ReactNode) =>
+const collectTabs = (children: ReactNode) =>
   Children.toArray(children).reduce((_items: ITabData[], child) => {
     const retVal = _items;
 
@@ -40,7 +31,7 @@ export const toTabs = (children: ReactNode) =>
           props
         });
       } else {
-        const childItems = toTabs(child.props.children);
+        const childItems = collectTabs(child.props.children);
 
         retVal.push(...childItems);
       }
@@ -48,3 +39,34 @@ export const toTabs = (children: ReactNode) =>
 
     return retVal;
   }, []);
+
+/**
+ * Converts an array of `Tab` children to a valid `tabs` data structure for `useTabs`.
+ * The collected entries are index-aligned with the tab elements of the tab list,
+ * in DOM order.
+ *
+ * @param children The `children` prop from `Tabs`.
+ *
+ * @returns The collected tabs, each with its `value`, `disabled` flag and `props`.
+ */
+export const toTabs = (children: ReactNode) => {
+  /*
+   * A value collected more than once (a panel wrapped with `styled()` or in
+   * a component with an `item` prop) is one tab: the first entry keeps its
+   * position and props, and a later disabled entry disables it. An enabled
+   * duplicate would otherwise enable a disabled tab in the hook.
+   */
+  const tabs = new Map<unknown, ITabData>();
+
+  collectTabs(children).forEach(tab => {
+    const first = tabs.get(tab.value);
+
+    if (!first) {
+      tabs.set(tab.value, tab);
+    } else if (tab.disabled && !first.disabled) {
+      tabs.set(tab.value, { ...first, disabled: true });
+    }
+  });
+
+  return Array.from(tabs.values());
+};

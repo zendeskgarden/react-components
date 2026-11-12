@@ -8,6 +8,7 @@
 import { userEvent } from '@testing-library/user-event';
 import { createRef } from 'react';
 import { renderToString } from 'react-dom/server';
+import { styled } from 'styled-components';
 import { vi } from 'vitest';
 
 import { render } from '../../test/render';
@@ -219,6 +220,54 @@ describe('Tabs', () => {
       );
 
       expect(getAllByTestId('tab')[1]).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it.each([
+      ['wrapped with styled()', styled(Tabs.TabPanel)``],
+      [
+        'rendered by a component with an item prop',
+        (props: ITabProps) => <Tabs.TabPanel {...props} />
+      ]
+    ])('keeps a disabled tab disabled when its panel is %s', async (_name, Panel) => {
+      const onChange = vi.fn();
+      const { getByRole } = render(
+        <Tabs onChange={onChange}>
+          <Tabs.TabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+            <Tabs.Tab item="two" disabled>
+              Two
+            </Tabs.Tab>
+          </Tabs.TabList>
+          <Panel item="one">Panel one</Panel>
+          <Panel item="two">Panel two</Panel>
+        </Tabs>
+      );
+      const tab = getByRole('tab', { name: 'Two' });
+
+      expect(tab).toHaveAttribute('aria-disabled', 'true');
+
+      await user.click(tab);
+
+      expect(onChange).not.toHaveBeenCalled();
+      expect(tab).toHaveAttribute('aria-selected', 'false');
+    });
+
+    it('keeps a disabled tab disabled when its wrapped panel comes before the tab list', () => {
+      const Panel = styled(Tabs.TabPanel)``;
+      const { getByRole } = render(
+        <Tabs>
+          <Panel item="one">Panel one</Panel>
+          <Panel item="two">Panel two</Panel>
+          <Tabs.TabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+            <Tabs.Tab item="two" disabled>
+              Two
+            </Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>
+      );
+
+      expect(getByRole('tab', { name: 'Two' })).toHaveAttribute('aria-disabled', 'true');
     });
 
     it('applies custom props if provided', () => {
