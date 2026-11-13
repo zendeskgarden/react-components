@@ -9,33 +9,33 @@ import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 import { fn } from 'storybook/test';
 
-import { type ISegmentedControlProps, SegmentedControl } from '../../src/index';
-import { LONG_OPTIONS, OPTIONS } from './stories/data';
+import { SegmentedControl } from '../../src/index';
+import { LONG_OPTIONS, MANY_OPTIONS, OPTIONS, type IOption } from './stories/data';
 
 type Story = StoryObj<typeof SegmentedControl>;
 
-/*
- * Storybook args are one flat object, so they can't express "`value` or
- * `defaultValue`, never both". Merge the story's own props and cast once here.
- */
-const getProps = (args: Story['args'], props: Partial<ISegmentedControlProps>) =>
-  ({ ...args, ...props }) as ISegmentedControlProps;
+const Segments = ({ options = OPTIONS }: { options?: IOption[] }) =>
+  options.map(({ value, label }) => (
+    <SegmentedControl.Segment key={value} value={value}>
+      {label}
+    </SegmentedControl.Segment>
+  ));
 
 export default {
   title: 'Components/SegmentedControl',
   component: SegmentedControl,
-  args: { options: OPTIONS, 'aria-label': 'Time range' },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/design/Xf6gtTse5Ek2CXeAgZ3Zo8/Flora-Core?node-id=62882-10705'
-    }
+  args: { 'aria-label': 'Time range' },
+  argTypes: {
+    children: { control: false }
   }
 };
 
 export const Uncontrolled: Story = {
-  render: args => <SegmentedControl {...args} />,
+  render: args => (
+    <SegmentedControl {...args}>
+      <Segments />
+    </SegmentedControl>
+  ),
   args: { defaultValue: 'week', onChange: fn() },
   argTypes: {
     value: { control: false }
@@ -48,7 +48,11 @@ export const Controlled: Story = {
 
     const handleChange = (value: string) => updateArgs({ value });
 
-    return <SegmentedControl {...args} onChange={handleChange} />;
+    return (
+      <SegmentedControl {...args} onChange={handleChange}>
+        <Segments />
+      </SegmentedControl>
+    );
   },
   args: { value: 'week' },
   argTypes: {
@@ -56,19 +60,19 @@ export const Controlled: Story = {
   }
 };
 
-export const Sizes: Story = {
+export const Compact: Story = {
   render: args => (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: 16 }}>
-      <SegmentedControl
-        {...getProps(args, { size: 'small', 'aria-label': 'Small', defaultValue: 'week' })}
-      />
-      <SegmentedControl
-        {...getProps(args, { size: 'medium', 'aria-label': 'Medium', defaultValue: 'week' })}
-      />
+      <SegmentedControl {...args} isCompact aria-label="Compact" defaultValue="week">
+        <Segments />
+      </SegmentedControl>
+      <SegmentedControl {...args} isCompact={false} aria-label="Default" defaultValue="week">
+        <Segments />
+      </SegmentedControl>
     </div>
   ),
   argTypes: {
-    size: { control: false },
+    isCompact: { control: false },
     value: { control: false },
     defaultValue: { control: false }
   }
@@ -79,12 +83,16 @@ export const FullWidth: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
       <div style={{ width: 480 }}>
         <p>Fills its container</p>
-        <SegmentedControl {...getProps(args, { isFullWidth: true, defaultValue: 'week' })} />
+        <SegmentedControl {...args} isFullWidth defaultValue="week">
+          <Segments />
+        </SegmentedControl>
       </div>
       {/* Narrower than the labels need; the control keeps its minimum width and overflows */}
       <div style={{ width: 120 }}>
         <p>Never shrinks below its labels</p>
-        <SegmentedControl {...getProps(args, { isFullWidth: true, defaultValue: 'week' })} />
+        <SegmentedControl {...args} isFullWidth defaultValue="week">
+          <Segments />
+        </SegmentedControl>
       </div>
     </div>
   ),
@@ -95,9 +103,42 @@ export const FullWidth: Story = {
   }
 };
 
+export const NoSelection: Story = {
+  render: args => (
+    <SegmentedControl {...args}>
+      <Segments />
+    </SegmentedControl>
+  ),
+  args: { onChange: fn() },
+  argTypes: {
+    value: { control: false },
+    defaultValue: { control: false }
+  }
+};
+
 export const LongLabels: Story = {
-  render: args => <SegmentedControl {...getProps(args, { defaultValue: 'history' })} />,
-  args: { options: LONG_OPTIONS, 'aria-label': 'Section' },
+  render: args => (
+    <SegmentedControl {...args}>
+      <Segments options={LONG_OPTIONS} />
+    </SegmentedControl>
+  ),
+  args: { defaultValue: 'history', 'aria-label': 'Section' },
+  argTypes: {
+    value: { control: false },
+    defaultValue: { control: false }
+  }
+};
+
+export const ManyOptions: Story = {
+  render: args => (
+    /* A 320px viewport is the reflow limit (WCAG 1.4.10); the control must stay usable inside it */
+    <div style={{ width: 320, overflowX: 'auto' }}>
+      <SegmentedControl {...args}>
+        <Segments options={MANY_OPTIONS} />
+      </SegmentedControl>
+    </div>
+  ),
+  args: { defaultValue: 'march', 'aria-label': 'Month' },
   argTypes: {
     value: { control: false },
     defaultValue: { control: false }

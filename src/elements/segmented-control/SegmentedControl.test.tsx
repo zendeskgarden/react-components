@@ -7,13 +7,14 @@
 
 import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { getContrast, mix, parseToRgb } from 'polished';
 import { createRef } from 'react';
-import { css } from 'styled-components';
 
 import { DARK_THEME, RTL_THEME, render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import type { IGardenTheme } from '../../theming/types';
 import { getColor } from '../../theming/utils/getColor';
+import type { ISegmentedControlProps } from '../../types/elements';
 import { StyledSegmentInput } from '../../views/segmented-control/StyledSegmentInput';
 import { SegmentedControl } from './SegmentedControl';
 
@@ -23,17 +24,38 @@ const options = [
   { value: 'banana', label: 'Banana' }
 ];
 
+interface IFruitProps extends Partial<ISegmentedControlProps> {
+  items?: typeof options;
+}
+
+/* Renders the common case: a labeled group of fruit segments */
+const Fruit = ({ items = options, ...props }: IFruitProps) => (
+  <SegmentedControl aria-label="Fruit" {...props}>
+    {items.map(item => (
+      <SegmentedControl.Segment key={item.value} value={item.value}>
+        {item.label}
+      </SegmentedControl.Segment>
+    ))}
+  </SegmentedControl>
+);
+
 /* The visible segment is the sibling that follows the native radio */
 const getSegment = (radio: HTMLElement) => radio.nextElementSibling as HTMLElement;
 
 describe('SegmentedControl', () => {
+  /* Dev-only warnings are tested by stubbing the environment and spying on the console */
+  afterEach(() => {
+    vi.restoreAllMocks();
+    vi.unstubAllEnvs();
+  });
+
   describe('structure', () => {
     it('renders labeled native radios in independent, named groups', async () => {
       const user = userEvent.setup();
       const { getAllByRole, getByRole } = render(
         <>
-          <SegmentedControl options={options} defaultValue="orange" aria-label="First" />
-          <SegmentedControl options={options} defaultValue="orange" aria-label="Second" />
+          <Fruit defaultValue="orange" aria-label="First" />
+          <Fruit defaultValue="orange" aria-label="Second" />
         </>
       );
       const radios = getAllByRole('radio') as HTMLInputElement[];
@@ -57,9 +79,7 @@ describe('SegmentedControl', () => {
     });
 
     it('covers the whole segment with a transparent native radio', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
       const radio = getByRole('radio', { name: 'Orange' });
 
       expect(radio).toHaveStyleRule('position', 'absolute');
@@ -69,28 +89,90 @@ describe('SegmentedControl', () => {
       expect(radio).toHaveStyleRule('opacity', '0');
     });
 
-    it('ignores options with a duplicate value', () => {
-      const { getAllByRole } = render(
-        <SegmentedControl
-          options={[...options, { value: 'apple', label: 'Apple again' }]}
-          defaultValue="apple"
-          aria-label="Fruit"
-        />
+    /* jsdom cannot hit-test, so the rules that make the whole segment the hit area are asserted */
+    it('removes native radio rounding so the full segment is the hit area', () => {
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
+      const radio = getByRole('radio', { name: 'Orange' });
+
+      expect(radio).toHaveStyleRule('appearance', 'none');
+      expect(radio).toHaveStyleRule('border-radius', '0');
+    });
+
+    it('warns in development when two segments share a value', () => {
+      vi.stubEnv('NODE_ENV', 'development');
+
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+      render(<Fruit items={[...options, { value: 'apple', label: 'Apple again' }]} />);
+
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('"apple"'));
+    });
+
+    it('does not warn about unique values', () => {
+      vi.stubEnv('NODE_ENV', 'development');
+
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+      render(<Fruit defaultValue="apple" />);
+
+      expect(warn).not.toHaveBeenCalled();
+    });
+
+    it('warns in development when the group has no accessible name', () => {
+      vi.stubEnv('NODE_ENV', 'development');
+
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+      render(<Fruit aria-label={undefined} />);
+
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('accessible name'));
+    });
+
+    it('does not warn about the name when aria-labelledby is provided', () => {
+      vi.stubEnv('NODE_ENV', 'development');
+
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+
+      render(
+        <>
+          <span id="label">Fruit</span>
+          <Fruit aria-label={undefined} aria-labelledby="label" />
+        </>
       );
 
-      expect(getAllByRole('radio')).toHaveLength(3);
+      expect(warn).not.toHaveBeenCalled();
+    });
+
+    it('requires a segment to be rendered inside a group', () => {
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+
+      expect(() =>
+        render(<SegmentedControl.Segment value="apple">Apple</SegmentedControl.Segment>)
+      ).toThrow('must be rendered inside a <SegmentedControl>');
+    });
+
+    it('forwards a segment ref and passes through other segment props', () => {
+      const ref = createRef<HTMLLabelElement>();
+      const { getByRole } = render(
+        <SegmentedControl aria-label="Fruit">
+          <SegmentedControl.Segment ref={ref} value="apple" data-test-id="segment">
+            Apple
+          </SegmentedControl.Segment>
+        </SegmentedControl>
+      );
+      const radio = getByRole('radio', { name: 'Apple' });
+
+      expect(ref.current).toBe(radio.parentElement);
+      expect(ref.current).toHaveAttribute('data-test-id', 'segment');
+      expect(radio).toHaveAttribute('value', 'apple');
     });
 
     it('forwards its ref and passes through other props', () => {
       const ref = createRef<HTMLDivElement>();
       const { getByRole } = render(
-        <SegmentedControl
-          ref={ref}
-          options={options}
-          defaultValue="orange"
-          aria-label="Fruit"
-          data-test-id="control"
-        />
+        <SegmentedControl ref={ref} defaultValue="orange" aria-label="Fruit" data-test-id="control">
+          <SegmentedControl.Segment value="orange">Orange</SegmentedControl.Segment>
+        </SegmentedControl>
       );
 
       expect(ref.current).toBe(getByRole('radiogroup'));
@@ -99,8 +181,7 @@ describe('SegmentedControl', () => {
 
     it('renders Garden ids and the package version on every part', () => {
       const { container, getByRole } = render(
-        <SegmentedControl
-          options={options}
+        <Fruit
           defaultValue="orange"
           aria-label="Fruit"
           data-garden-id="custom"
@@ -127,10 +208,7 @@ describe('SegmentedControl', () => {
         ...DEFAULT_THEME,
         components: { 'segmented_controls.segmented_control': 'color: rgb(1, 2, 3);' }
       } as IGardenTheme;
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-        { theme }
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, { theme });
 
       expect(getByRole('radiogroup')).toHaveStyleRule('color', 'rgb(1, 2, 3)');
     });
@@ -141,12 +219,7 @@ describe('SegmentedControl', () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
       const { getByRole } = render(
-        <SegmentedControl
-          options={options}
-          defaultValue="missing"
-          aria-label="Fruit"
-          onChange={onChange}
-        />
+        <Fruit defaultValue="missing" aria-label="Fruit" onChange={onChange} />
       );
 
       await user.tab();
@@ -173,9 +246,7 @@ describe('SegmentedControl', () => {
     it('does not let native click activation override a controlled value', async () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
-      const { getByRole } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" onChange={onChange} />
-      );
+      const { getByRole } = render(<Fruit value="orange" aria-label="Fruit" onChange={onChange} />);
       const apple = getByRole('radio', { name: 'Apple' });
 
       await user.click(apple);
@@ -189,12 +260,7 @@ describe('SegmentedControl', () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
       const { getByRole } = render(
-        <SegmentedControl
-          options={options}
-          defaultValue="orange"
-          aria-label="Fruit"
-          onChange={onChange}
-        />
+        <Fruit defaultValue="orange" aria-label="Fruit" onChange={onChange} />
       );
 
       await user.click(getByRole('radio', { name: 'Apple' }));
@@ -206,169 +272,90 @@ describe('SegmentedControl', () => {
 
     it('works uncontrolled without an onChange handler', async () => {
       const user = userEvent.setup();
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
 
       await user.click(getByRole('radio', { name: 'Apple' }));
 
       expect(getByRole('radio', { name: 'Apple' })).toBeChecked();
     });
 
-    it('does not select on press and cancels a gesture that leaves before release', async () => {
+    it('selects on release, not on press', async () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
       const { getByRole } = render(
-        <SegmentedControl
-          options={options}
-          defaultValue="orange"
-          aria-label="Fruit"
-          onChange={onChange}
-        />
+        <Fruit defaultValue="orange" aria-label="Fruit" onChange={onChange} />
       );
       const apple = getByRole('radio', { name: 'Apple' });
 
       await user.pointer({ target: apple, keys: '[MouseLeft>]' });
 
       expect(apple).not.toBeChecked();
+      expect(onChange).not.toHaveBeenCalled();
 
-      fireEvent.pointerLeave(apple);
       await user.pointer({ target: apple, keys: '[/MouseLeft]' });
 
-      expect(onChange).not.toHaveBeenCalled();
-      expect(apple).not.toBeChecked();
-      expect(getByRole('radio', { name: 'Orange' })).toBeChecked();
-
-      await user.click(apple);
-
+      expect(apple).toBeChecked();
       expect(onChange).toHaveBeenCalledExactlyOnceWith('apple');
-    });
-
-    it('shows a pressed state only for the primary button', async () => {
-      const user = userEvent.setup();
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
-      const apple = getByRole('radio', { name: 'Apple' });
-      /* The design's pressed fill: the track's translucent neutral at 16% */
-      const pressed = getColor({
-        theme: DEFAULT_THEME,
-        hue: 'neutralHue',
-        light: { shade: 700 },
-        dark: { hue: 'white' },
-        transparency: DEFAULT_THEME.opacity[200]
-      });
-
-      await user.pointer({ target: apple, keys: '[MouseRight>]' });
-
-      expect(getSegment(apple)).toHaveStyleRule('background-color', 'transparent');
-
-      fireEvent.pointerDown(apple, { button: 0, isPrimary: false });
-
-      expect(getSegment(apple)).toHaveStyleRule('background-color', 'transparent');
-
-      fireEvent.pointerDown(apple, { button: 0, isPrimary: true });
-
-      expect(getSegment(apple)).toHaveStyleRule('background-color', pressed);
-
-      fireEvent.pointerUp(apple);
-
-      expect(getSegment(apple)).toHaveStyleRule('background-color', 'transparent');
-    });
-
-    it('ignores pointer movement that is not part of a press', () => {
-      const onChange = vi.fn();
-      const { getByRole } = render(
-        <SegmentedControl
-          options={options}
-          defaultValue="orange"
-          aria-label="Fruit"
-          onChange={onChange}
-        />
-      );
-      const apple = getByRole('radio', { name: 'Apple' });
-      const banana = getByRole('radio', { name: 'Banana' });
-
-      /* Hovering across segments without pressing */
-      fireEvent.pointerLeave(apple);
-
-      expect(getSegment(apple)).toHaveStyleRule('background-color', 'transparent');
-
-      /* Released over a different segment than the press began on */
-      fireEvent.pointerDown(apple, { button: 0, isPrimary: true });
-      fireEvent.pointerUp(banana);
-
-      /* A press that was already released can no longer be cancelled */
-      fireEvent.pointerUp(apple);
-      fireEvent.pointerLeave(apple);
-      fireEvent.click(apple, { detail: 1 });
-
-      expect(onChange).toHaveBeenCalledExactlyOnceWith('apple');
-    });
-
-    it('cancels a press when the pointer is cancelled or capture is lost', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
-      const apple = getByRole('radio', { name: 'Apple' });
-
-      ['pointerCancel', 'lostPointerCapture'].forEach(type => {
-        fireEvent.pointerDown(apple, { button: 0, isPrimary: true });
-
-        expect(getSegment(apple)).not.toHaveStyleRule('background-color', 'transparent');
-
-        fireEvent[type as 'pointerCancel'](apple);
-
-        expect(getSegment(apple)).toHaveStyleRule('background-color', 'transparent');
-        fireEvent.pointerUp(apple);
-      });
     });
   });
 
   describe('keyboard', () => {
-    it('names the radio group and gives the selected option the only Tab stop', () => {
-      const { getByRole, getAllByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
+    it('names the radio group and gives the selected segment the only Tab stop', async () => {
+      const user = userEvent.setup();
+      const { getByRole } = render(
+        <>
+          <button type="button">Before</button>
+          <Fruit defaultValue="orange" />
+          <button type="button">After</button>
+        </>
       );
 
       expect(getByRole('radiogroup', { name: 'Fruit' })).not.toHaveAttribute('tabindex');
-      expect(getByRole('radio', { name: 'Orange' })).toBeChecked();
-      expect(getAllByRole('radio').map(radio => radio.tabIndex)).toEqual([-1, 0, -1]);
+
+      await user.tab();
+      await user.tab();
+
+      expect(getByRole('radio', { name: 'Orange' })).toHaveFocus();
+
+      await user.tab();
+
+      expect(getByRole('button', { name: 'After' })).toHaveFocus();
     });
 
     it('is named by aria-labelledby', () => {
       const { getByRole } = render(
         <>
           <span id="label">Fruit</span>
-          <SegmentedControl options={options} defaultValue="orange" aria-labelledby="label" />
+          <Fruit defaultValue="orange" aria-labelledby="label" />
         </>
       );
 
       expect(getByRole('radiogroup', { name: 'Fruit' })).toBeInTheDocument();
     });
 
-    it('retains one entry point when the selected option disappears without inventing selection', () => {
-      const { getAllByRole, rerender } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+    it('retains one entry point when the selected segment disappears without inventing selection', async () => {
+      const user = userEvent.setup();
+      const { getAllByRole, getByRole, rerender } = render(<Fruit value="orange" />);
 
-      rerender(
-        <SegmentedControl options={[options[0]!, options[2]!]} value="orange" aria-label="Fruit" />
-      );
+      rerender(<Fruit items={[options[0]!, options[2]!]} value="orange" />);
 
-      expect(getAllByRole('radio').map(radio => radio.tabIndex)).toEqual([0, -1]);
       expect(getAllByRole('radio').every(radio => !(radio as HTMLInputElement).checked)).toBe(true);
+
+      await user.tab();
+
+      expect(getByRole('radio', { name: 'Apple' })).toHaveFocus();
     });
 
     it('starts with nothing selected when given neither value nor defaultValue', async () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
-      const { getAllByRole, getByRole } = render(
-        <SegmentedControl options={options} onChange={onChange} aria-label="Fruit" />
-      );
+      const { getAllByRole, getByRole } = render(<Fruit onChange={onChange} />);
 
       expect(getAllByRole('radio').some(radio => (radio as HTMLInputElement).checked)).toBe(false);
-      expect(getAllByRole('radio').map(radio => radio.tabIndex)).toEqual([0, -1, -1]);
+
+      await user.tab();
+
+      expect(getByRole('radio', { name: 'Apple' })).toHaveFocus();
 
       await user.click(getByRole('radio', { name: 'Banana' }));
 
@@ -381,7 +368,7 @@ describe('SegmentedControl', () => {
       const user = userEvent.setup();
       const { getByRole } = render(
         <>
-          <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
+          <Fruit defaultValue="orange" aria-label="Fruit" />
           <button type="button">Next</button>
         </>
       );
@@ -407,9 +394,7 @@ describe('SegmentedControl', () => {
       ['{ArrowLeft}', 'Apple']
     ])('moves with %s', async (key, expected) => {
       const user = userEvent.setup();
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
 
       await user.tab();
       await user.keyboard(key);
@@ -422,12 +407,7 @@ describe('SegmentedControl', () => {
       const user = userEvent.setup();
       const onChange = vi.fn();
       const { getByRole } = render(
-        <SegmentedControl
-          options={[options[0]!]}
-          defaultValue="apple"
-          aria-label="Fruit"
-          onChange={onChange}
-        />
+        <Fruit items={[options[0]!]} defaultValue="apple" aria-label="Fruit" onChange={onChange} />
       );
 
       await user.tab();
@@ -439,10 +419,9 @@ describe('SegmentedControl', () => {
 
     it('flips the horizontal arrows in RTL', async () => {
       const user = userEvent.setup();
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-        { theme: RTL_THEME }
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, {
+        theme: RTL_THEME
+      });
 
       await user.tab();
       await user.keyboard('{ArrowRight}');
@@ -457,10 +436,9 @@ describe('SegmentedControl', () => {
 
     it('does not flip vertical arrows in RTL', async () => {
       const user = userEvent.setup();
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-        { theme: RTL_THEME }
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, {
+        theme: RTL_THEME
+      });
 
       await user.tab();
       await user.keyboard('{ArrowDown}');
@@ -471,12 +449,7 @@ describe('SegmentedControl', () => {
     it('leaves other keys and modified arrows to the browser', () => {
       const onChange = vi.fn();
       const { getByRole } = render(
-        <SegmentedControl
-          options={options}
-          defaultValue="orange"
-          aria-label="Fruit"
-          onChange={onChange}
-        />
+        <Fruit defaultValue="orange" aria-label="Fruit" onChange={onChange} />
       );
       const orange = getByRole('radio', { name: 'Orange' });
 
@@ -494,12 +467,7 @@ describe('SegmentedControl', () => {
       const onChange = vi.fn();
       const { getByRole, rerender } = render(
         <>
-          <SegmentedControl
-            options={options}
-            value="orange"
-            aria-label="Fruit"
-            onChange={onChange}
-          />
+          <Fruit value="orange" aria-label="Fruit" onChange={onChange} />
           <button type="button">Next</button>
         </>
       );
@@ -518,12 +486,7 @@ describe('SegmentedControl', () => {
 
       rerender(
         <>
-          <SegmentedControl
-            options={options}
-            value="banana"
-            aria-label="Fruit"
-            onChange={onChange}
-          />
+          <Fruit value="banana" aria-label="Fruit" onChange={onChange} />
           <button type="button">Next</button>
         </>
       );
@@ -531,17 +494,12 @@ describe('SegmentedControl', () => {
       expect(getByRole('radio', { name: 'Banana' })).toBeChecked();
     });
 
-    it('calls the consumer onBlur only as focus leaves, keeping focus state while inside', async () => {
+    it('passes blur events from its segments to the consumer onBlur', async () => {
       const user = userEvent.setup();
       const onBlur = vi.fn();
-      const { getByRole, getAllByRole } = render(
+      const { getByRole } = render(
         <>
-          <SegmentedControl
-            options={options}
-            defaultValue="orange"
-            aria-label="Fruit"
-            onBlur={onBlur}
-          />
+          <Fruit defaultValue="orange" aria-label="Fruit" onBlur={onBlur} />
           <button type="button">Next</button>
         </>
       );
@@ -549,31 +507,77 @@ describe('SegmentedControl', () => {
       await user.tab();
       await user.keyboard('{ArrowRight}');
 
-      /* Focus moved between radios, so the entry point follows focus */
-      expect(getAllByRole('radio').map(radio => radio.tabIndex)).toEqual([-1, -1, 0]);
+      /* Focus moved between radios inside the group */
+      expect(onBlur).toHaveBeenCalledTimes(1);
 
       await user.tab();
 
       expect(getByRole('button', { name: 'Next' })).toHaveFocus();
-      expect(onBlur).toHaveBeenCalled();
-      expect(getAllByRole('radio').map(radio => radio.tabIndex)).toEqual([-1, -1, 0]);
+      expect(onBlur).toHaveBeenCalledTimes(2);
+    });
+
+    it('runs the consumer onKeyDown first and lets it cancel navigation', async () => {
+      const user = userEvent.setup();
+      const onKeyDown = vi.fn((event: React.KeyboardEvent) => event.preventDefault());
+      const { getByRole } = render(<Fruit defaultValue="orange" onKeyDown={onKeyDown} />);
+
+      await user.tab();
+      await user.keyboard('{ArrowRight}');
+
+      expect(onKeyDown).toHaveBeenCalled();
+      expect(getByRole('radio', { name: 'Orange' })).toHaveFocus();
+      expect(getByRole('radio', { name: 'Orange' })).toBeChecked();
+    });
+
+    it('ignores arrow keys that do not come from a segment', () => {
+      const onChange = vi.fn();
+      const { getByRole } = render(<Fruit defaultValue="orange" onChange={onChange} />);
+
+      fireEvent.keyDown(getByRole('radiogroup'), { key: 'ArrowRight' });
+
+      expect(onChange).not.toHaveBeenCalled();
+    });
+
+    it('navigates segments in DOM order, through wrappers and conditional segments', async () => {
+      const user = userEvent.setup();
+      const Layout = ({ showBanana }: { showBanana: boolean }) => (
+        <SegmentedControl aria-label="Fruit" defaultValue="apple">
+          <SegmentedControl.Segment value="apple">Apple</SegmentedControl.Segment>
+          <div>
+            <SegmentedControl.Segment value="orange">Orange</SegmentedControl.Segment>
+          </div>
+          {showBanana ? (
+            <SegmentedControl.Segment value="banana">Banana</SegmentedControl.Segment>
+          ) : null}
+        </SegmentedControl>
+      );
+      const { getByRole, rerender } = render(<Layout showBanana={false} />);
+
+      await user.tab();
+      await user.keyboard('{ArrowRight}');
+
+      expect(getByRole('radio', { name: 'Orange' })).toHaveFocus();
+
+      await user.keyboard('{ArrowRight}');
+
+      expect(getByRole('radio', { name: 'Apple' })).toHaveFocus();
+
+      rerender(<Layout showBanana />);
+      await user.keyboard('{ArrowLeft}');
+
+      expect(getByRole('radio', { name: 'Banana' })).toHaveFocus();
     });
   });
 
   describe('styling', () => {
     it.each([
-      ['small', '28px', '6px 10px', '12px', DEFAULT_THEME.lineHeights.sm, '14px'],
-      ['medium', '36px', '8px 12px', '14px', DEFAULT_THEME.lineHeights.md, '18px']
+      ['compact', true, '28px', '6px 10px', '12px', DEFAULT_THEME.lineHeights.sm, '14px'],
+      ['default', false, '36px', '8px 12px', '14px', DEFAULT_THEME.lineHeights.md, '18px']
     ] as const)(
       'renders %s segments',
-      (size, minHeight, padding, fontSize, lineHeight, borderRadius) => {
+      (_, isCompact, minHeight, padding, fontSize, lineHeight, borderRadius) => {
         const { getByRole } = render(
-          <SegmentedControl
-            options={options}
-            defaultValue="orange"
-            aria-label="Fruit"
-            size={size}
-          />
+          <Fruit defaultValue="orange" aria-label="Fruit" isCompact={isCompact} />
         );
         const segment = getSegment(getByRole('radio', { name: 'Orange' }));
 
@@ -586,21 +590,8 @@ describe('SegmentedControl', () => {
       }
     );
 
-    it('renders medium segments by default', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
-
-      expect(getSegment(getByRole('radio', { name: 'Orange' }))).toHaveStyleRule(
-        'min-height',
-        '36px'
-      );
-    });
-
     it('hugs its labels by default', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
       const group = getByRole('radiogroup');
 
       expect(group).toHaveStyleRule('grid-auto-columns', 'max-content');
@@ -609,9 +600,7 @@ describe('SegmentedControl', () => {
     });
 
     it('fills available width without shrinking below the labels', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" isFullWidth />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" isFullWidth />);
       const group = getByRole('radiogroup');
 
       expect(group).toHaveStyleRule('grid-auto-columns', 'minmax(max-content,1fr)');
@@ -623,10 +612,7 @@ describe('SegmentedControl', () => {
       ['light', DEFAULT_THEME],
       ['dark', DARK_THEME]
     ] as const)('renders a translucent track in %s mode', (_, theme) => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-        { theme }
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, { theme });
       const group = getByRole('radiogroup');
 
       expect(group).toHaveStyleRule(
@@ -649,10 +635,7 @@ describe('SegmentedControl', () => {
     ] as const)(
       'casts a centered near-black shadow behind the pill in %s mode',
       (_, theme, opacity, literal) => {
-        const { container } = render(
-          <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-          { theme }
-        );
+        const { container } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, { theme });
         const pill = container.querySelector('[data-garden-id="segmented_controls.pill"]');
 
         /* The design's shadow color is #0c0c0d (neutral 1200) at 16% in light and 88% in dark */
@@ -679,21 +662,51 @@ describe('SegmentedControl', () => {
     );
 
     it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('outlines the pill with 3:1 contrast against the track in %s mode', (_, theme) => {
+      const { container } = render(<Fruit defaultValue="orange" />, { theme });
+      const pill = container.querySelector('[data-garden-id="segmented_controls.pill"]');
+      const border = getColor({
+        theme,
+        hue: 'neutralHue',
+        light: { shade: 700 },
+        dark: { shade: 600 }
+      });
+      /* The track is translucent, so measure what the browser paints: the track over the page */
+      const page = getColor({ theme, variable: 'background.default' });
+      const rgb = parseToRgb(
+        getColor({
+          theme,
+          hue: 'neutralHue',
+          light: { shade: 700 },
+          dark: { hue: 'white' },
+          transparency: theme.opacity[100]
+        })
+      );
+      const alpha = 'alpha' in rgb ? rgb.alpha : 1;
+      const track = mix(alpha, `rgb(${rgb.red}, ${rgb.green}, ${rgb.blue})`, page);
+
+      expect(pill).toHaveStyleRule(
+        'border',
+        `${theme.borderWidths.sm} ${theme.borderStyles.solid} ${border}`
+      );
+      expect(pill).toHaveStyleRule('box-sizing', 'border-box');
+      /* WCAG 1.4.11 non-text contrast */
+      expect(getContrast(border, track)).toBeGreaterThanOrEqual(3);
+    });
+
+    it.each([
       ['ltr', DEFAULT_THEME],
       ['rtl', RTL_THEME]
     ] as const)('lays out %s', (direction, theme) => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-        { theme }
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, { theme });
 
       expect(getByRole('radiogroup')).toHaveStyleRule('direction', direction);
     });
 
     it('paints the selected segment itself until the pill can be placed', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
 
       /* jsdom has no layout, so the pill never measures a width */
       expect(getSegment(getByRole('radio', { name: 'Orange' }))).toHaveStyleRule(
@@ -712,14 +725,10 @@ describe('SegmentedControl', () => {
     ] as const)(
       'tints a hovered, unselected segment, and darkens it while pressed in %s mode',
       (_, theme) => {
-        const { getByRole } = render(
-          <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />,
-          { theme }
-        );
+        const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />, { theme });
         const apple = getByRole('radio', { name: 'Apple' });
-        const modifier = css`
-          ${StyledSegmentInput}:hover:not(:checked) + &
-        `;
+        const hover = `${StyledSegmentInput}:hover:not(:checked) + &`;
+        const active = `${StyledSegmentInput}:active:not(:checked) + &`;
         /* The design tints with the track's own translucent neutral: 8% hovered, 16% pressed */
         const getOverlay = (transparency: number | undefined) =>
           getColor({
@@ -733,27 +742,19 @@ describe('SegmentedControl', () => {
         expect(getSegment(apple)).toHaveStyleRule(
           'background-color',
           getOverlay(theme.opacity[100]),
-          { modifier }
+          { modifier: hover }
         );
-
-        fireEvent.pointerDown(apple, { button: 0, isPrimary: true });
-
+        /* Pressed is plain CSS, so it needs no pointer handlers and cannot get stuck */
         expect(getSegment(apple)).toHaveStyleRule(
           'background-color',
           getOverlay(theme.opacity[200]),
-          { modifier }
-        );
-        expect(getSegment(apple)).toHaveStyleRule(
-          'background-color',
-          getOverlay(theme.opacity[200])
+          { modifier: active }
         );
       }
     );
 
     it('animates background color only when motion is allowed', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
       const apple = getByRole('radio', { name: 'Apple' });
       const media = '(prefers-reduced-motion: no-preference)';
 
@@ -765,18 +766,15 @@ describe('SegmentedControl', () => {
         modifier: `${StyledSegmentInput}:hover + &`
       });
 
-      fireEvent.pointerDown(apple, { button: 0, isPrimary: true });
-
+      /* Pressing responds immediately */
       expect(getSegment(apple)).toHaveStyleRule('transition-duration', '0ms', {
         media,
-        modifier: `${StyledSegmentInput}:hover + &`
+        modifier: `${StyledSegmentInput}:active + &`
       });
     });
 
     it('outlines selection and focus when forced colors are active', () => {
-      const { getByRole } = render(
-        <SegmentedControl options={options} defaultValue="orange" aria-label="Fruit" />
-      );
+      const { getByRole } = render(<Fruit defaultValue="orange" aria-label="Fruit" />);
       const media = '(forced-colors: active)';
 
       expect(getSegment(getByRole('radio', { name: 'Orange' }))).toHaveStyleRule(

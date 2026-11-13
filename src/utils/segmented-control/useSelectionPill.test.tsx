@@ -11,6 +11,7 @@ import userEvent from '@testing-library/user-event';
 import { SegmentedControl } from '../../elements/segmented-control/SegmentedControl';
 import { RTL_THEME, render } from '../../test/render';
 import { stubResizeObserver } from '../../test/resizeObserver';
+import type { ISegmentedControlProps } from '../../types/elements';
 
 stubResizeObserver();
 
@@ -19,6 +20,20 @@ const options = [
   { value: 'orange', label: 'Orange' },
   { value: 'banana', label: 'Banana' }
 ];
+
+interface IFruitProps extends Partial<ISegmentedControlProps> {
+  items?: typeof options;
+}
+
+const Fruit = ({ items = options, ...props }: IFruitProps) => (
+  <SegmentedControl aria-label="Fruit" {...props}>
+    {items.map(item => (
+      <SegmentedControl.Segment key={item.value} value={item.value}>
+        {item.label}
+      </SegmentedControl.Segment>
+    ))}
+  </SegmentedControl>
+);
 
 const PILL = '[data-garden-id="segmented_controls.pill"]';
 
@@ -100,9 +115,7 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104 });
 
       const frames = mockFrames();
-      const { container } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+      const { container } = render(<Fruit value="orange" aria-label="Fruit" />);
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
       expect(pill).toHaveAttribute('aria-hidden', 'true');
@@ -115,18 +128,15 @@ describe('useSelectionPill', () => {
     it('measures the physical offset, so RTL needs no mirroring', () => {
       mockGeometry({ Orange: 104 });
 
-      const { container } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />,
-        { theme: RTL_THEME }
-      );
+      const { container } = render(<Fruit value="orange" aria-label="Fruit" />, {
+        theme: RTL_THEME
+      });
 
       expect(container.querySelector<HTMLElement>(PILL)!.style.transform).toBe('translateX(104px)');
     });
 
     it('stays hidden until the selected segment has a width', () => {
-      const { container } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+      const { container } = render(<Fruit value="orange" aria-label="Fruit" />);
 
       expect(container.querySelector(PILL)).toHaveStyleRule('visibility', 'hidden');
     });
@@ -134,19 +144,15 @@ describe('useSelectionPill', () => {
     it('hides the pill while the selected option is missing, and shows it again', () => {
       mockGeometry({ Orange: 104 });
 
-      const { container, rerender } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+      const { container, rerender } = render(<Fruit value="orange" aria-label="Fruit" />);
 
       expect(container.querySelector(PILL)).toHaveStyleRule('visibility', 'visible');
 
-      rerender(
-        <SegmentedControl options={[options[0]!, options[2]!]} value="orange" aria-label="Fruit" />
-      );
+      rerender(<Fruit items={[options[0]!, options[2]!]} value="orange" aria-label="Fruit" />);
 
       expect(container.querySelector(PILL)).toHaveStyleRule('visibility', 'hidden');
 
-      rerender(<SegmentedControl options={options} value="orange" aria-label="Fruit" />);
+      rerender(<Fruit value="orange" aria-label="Fruit" />);
 
       expect(container.querySelector(PILL)).toHaveStyleRule('visibility', 'visible');
     });
@@ -156,9 +162,7 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104 });
 
       try {
-        const { container } = render(
-          <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-        );
+        const { container } = render(<Fruit value="orange" aria-label="Fruit" />);
 
         expect(container.querySelector<HTMLElement>(PILL)!.style.transform).toBe(
           'translateX(104px)'
@@ -174,11 +178,9 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104 });
 
       const frames = mockFrames();
-      const { container, getByRole, rerender } = render(
-        <SegmentedControl options={options} value="apple" aria-label="Fruit" />
-      );
+      const { container, getByRole, rerender } = render(<Fruit value="apple" aria-label="Fruit" />);
 
-      rerender(<SegmentedControl options={options} value="orange" aria-label="Fruit" />);
+      rerender(<Fruit value="orange" aria-label="Fruit" />);
 
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
@@ -202,15 +204,13 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 300 }, { Orange: 120 });
 
       const frames = mockFrames();
-      const { container, rerender } = render(
-        <SegmentedControl options={options} value={from} aria-label="Fruit" />
-      );
+      const { container, rerender } = render(<Fruit value={from} aria-label="Fruit" />);
       const pill = container.querySelector<HTMLElement>(PILL)!;
       const startWidth = from === 'orange' ? 120 : 80;
       const targetWidth = to === 'orange' ? 120 : 80;
       const target = to === 'orange' ? 300 : 0;
 
-      rerender(<SegmentedControl options={options} value={to} aria-label="Fruit" />);
+      rerender(<Fruit value={to} aria-label="Fruit" />);
 
       expect(pill.style.width).toBe(`${startWidth}px`);
 
@@ -241,13 +241,9 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104 });
 
       const frames = mockFrames();
-      const { container, rerender } = render(
-        <SegmentedControl options={options} value="apple" aria-label="Fruit" />
-      );
+      const { container, rerender } = render(<Fruit value="apple" aria-label="Fruit" />);
 
-      rerender(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" isFullWidth />
-      );
+      rerender(<Fruit value="orange" aria-label="Fruit" isFullWidth />);
 
       expect(container.querySelector<HTMLElement>(PILL)!.style.transform).toBe('translateX(104px)');
       expect(frames.request).not.toHaveBeenCalled();
@@ -258,15 +254,13 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104 });
 
       const frames = mockFrames();
-      const { container, rerender } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+      const { container, rerender } = render(<Fruit value="orange" aria-label="Fruit" />);
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
       expect(pill.style.transform).toBe('translateX(104px)');
       expect(pill.style.width).toBe('100px');
 
-      rerender(<SegmentedControl options={options} value="apple" aria-label="Fruit" />);
+      rerender(<Fruit value="apple" aria-label="Fruit" />);
 
       expect(pill.style.transform).toBe('translateX(0px)');
       expect(frames.request).not.toHaveBeenCalled();
@@ -278,12 +272,10 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104 });
 
       const frames = mockFrames();
-      const { container, rerender } = render(
-        <SegmentedControl options={options} value="apple" aria-label="Fruit" />
-      );
+      const { container, rerender } = render(<Fruit value="apple" aria-label="Fruit" />);
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
-      rerender(<SegmentedControl options={options} value="orange" aria-label="Fruit" />);
+      rerender(<Fruit value="orange" aria-label="Fruit" />);
 
       expect(frames.request).toHaveBeenCalledTimes(1);
       expect(pill.style.transform).toBe('translateX(0px)');
@@ -304,11 +296,9 @@ describe('useSelectionPill', () => {
 
       const cancel = vi.spyOn(window, 'cancelAnimationFrame');
       const removeListener = vi.spyOn(window, 'removeEventListener');
-      const { rerender, unmount } = render(
-        <SegmentedControl options={options} value="apple" aria-label="Fruit" />
-      );
+      const { rerender, unmount } = render(<Fruit value="apple" aria-label="Fruit" />);
 
-      rerender(<SegmentedControl options={options} value="orange" aria-label="Fruit" />);
+      rerender(<Fruit value="orange" aria-label="Fruit" />);
       unmount();
 
       expect(cancel).toHaveBeenCalled();
@@ -321,9 +311,7 @@ describe('useSelectionPill', () => {
       mockGeometry({ Orange: 104, Banana: 208 });
 
       const frames = mockFrames();
-      const { container, getByRole } = render(
-        <SegmentedControl options={options} defaultValue="apple" aria-label="Fruit" />
-      );
+      const { container, getByRole } = render(<Fruit defaultValue="apple" aria-label="Fruit" />);
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
       fireEvent.keyDown(getByRole('radio', { name: 'Apple' }), { key: 'ArrowRight' });
@@ -367,7 +355,7 @@ describe('useSelectionPill', () => {
       const frames = mockFrames();
       const onChange = vi.fn();
       const { container, getByRole, rerender } = render(
-        <SegmentedControl options={options} value="apple" onChange={onChange} aria-label="Fruit" />
+        <Fruit value="apple" onChange={onChange} aria-label="Fruit" />
       );
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
@@ -377,9 +365,7 @@ describe('useSelectionPill', () => {
       expect(getByRole('radio', { name: 'Apple' })).toBeChecked();
       expect(pill.style.transform).toBe('translateX(0px)');
 
-      rerender(
-        <SegmentedControl options={options} value="orange" onChange={onChange} aria-label="Fruit" />
-      );
+      rerender(<Fruit value="orange" onChange={onChange} aria-label="Fruit" />);
 
       expect(getByRole('radio', { name: 'Orange' })).toBeChecked();
       expect(pill.style.transform).toBe('translateX(104px)');
@@ -394,7 +380,7 @@ describe('useSelectionPill', () => {
       const frames = mockFrames();
       const tree = (value: string) => (
         <>
-          <SegmentedControl options={options} value={value} onChange={vi.fn()} aria-label="Fruit" />
+          <Fruit value={value} onChange={vi.fn()} aria-label="Fruit" />
           <button type="button">Next</button>
         </>
       );
@@ -415,9 +401,7 @@ describe('useSelectionPill', () => {
   describe('measuring', () => {
     it('follows size changes reported by a ResizeObserver, ignoring unchanged geometry', () => {
       const geometry = mockGeometry({ Orange: 104 });
-      const { container } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+      const { container } = render(<Fruit value="orange" aria-label="Fruit" />);
       const pill = container.querySelector<HTMLElement>(PILL)!;
 
       expect(pill.style.width).toBe('100px');
@@ -434,9 +418,7 @@ describe('useSelectionPill', () => {
 
     it('follows window resize', () => {
       const geometry = mockGeometry({ Orange: 104 });
-      const { container } = render(
-        <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-      );
+      const { container } = render(<Fruit value="orange" aria-label="Fruit" />);
 
       geometry.width = 150;
       act(() => {
@@ -453,9 +435,7 @@ describe('useSelectionPill', () => {
 
       try {
         const geometry = mockGeometry({ Orange: 104 });
-        const { container, unmount } = render(
-          <SegmentedControl options={options} value="orange" aria-label="Fruit" />
-        );
+        const { container, unmount } = render(<Fruit value="orange" aria-label="Fruit" />);
 
         geometry.width = 150;
         act(() => {

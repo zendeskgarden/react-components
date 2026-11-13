@@ -25,11 +25,11 @@ interface IMotion {
  * segment. Geometry belongs to the decoration; checked state never waits for
  * measurement.
  *
- * @param selectedValue Value of the selected option, if any
+ * @param selectedValue Value of the selected segment, if any
  * @param layoutKey Changes whenever something that moves or resizes segments
- *   changes (labels, size, width, direction). The pill snaps, instead of
- *   springing, across a layout change.
- * @param segments Segment label elements by option value
+ *   changes (density, width, direction). The pill snaps, instead of springing,
+ *   across a layout change.
+ * @param segments Segment label elements by segment value
  * @param consumeKeyboardSelection Reports (once) whether the selection came
  *   from the keyboard, so the pill can keep up with rapid arrow presses
  */
@@ -41,12 +41,21 @@ export const useSelectionPill = (
 ) => {
   const pillRef = useRef<HTMLSpanElement>(null);
   const [isReady, setIsReady] = useState(false);
+  /*
+   * Segments register through refs, so the group cannot see which exist. The
+   * element the pill last tracked is remembered to notice when it goes away
+   * or is replaced, and `refresh` re-runs the effect below.
+   */
+  const tracked = useRef<HTMLLabelElement | undefined>(undefined);
+  const [refresh, setRefresh] = useState(0);
   /* Survives effect runs, so a new target continues from the pill's current motion */
   const motion = useRef<IMotion | undefined>(undefined);
 
   useBrowserLayoutEffect(() => {
     const pill = pillRef.current;
     const selected = selectedValue === undefined ? undefined : segments.current.get(selectedValue);
+
+    tracked.current = selected;
 
     if (!pill || !selected) {
       setIsReady(false);
@@ -153,13 +162,14 @@ export const useSelectionPill = (
       }
     };
     /*
-     * A ResizeObserver reports size, not position. Moves caused by a sibling
-     * changing size are covered by `layoutKey` re-running this effect.
+     * A ResizeObserver reports size, not position. The selected segment moves
+     * when any segment before it changes size, so every segment is observed,
+     * along with the group itself.
      */
     const observer =
       typeof view.ResizeObserver === 'undefined' ? undefined : new view.ResizeObserver(onResize);
 
-    observer?.observe(selected);
+    segments.current.forEach(segment => observer?.observe(segment));
 
     if (selected.parentElement) {
       observer?.observe(selected.parentElement);
@@ -176,7 +186,16 @@ export const useSelectionPill = (
       doc.fonts?.removeEventListener('loadingdone', onResize);
       preference.removeEventListener('change', onPreferenceChange);
     };
-  }, [selectedValue, layoutKey, segments, consumeKeyboardSelection]);
+  }, [selectedValue, layoutKey, segments, consumeKeyboardSelection, refresh]);
+
+  /* After every commit, so a segment added, removed or replaced re-targets the pill */
+  useBrowserLayoutEffect(() => {
+    const current = selectedValue === undefined ? undefined : segments.current.get(selectedValue);
+
+    if (current !== tracked.current) {
+      setRefresh(count => count + 1);
+    }
+  });
 
   return { pillRef, isReady };
 };

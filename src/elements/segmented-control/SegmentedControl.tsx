@@ -6,123 +6,110 @@
  */
 
 import PropTypes from 'prop-types';
-import { forwardRef } from 'react';
+import { forwardRef, useEffect } from 'react';
 
+import { SegmentedControlProvider } from '../../context/segmented-control/SegmentedControlContext';
 import { useGardenTheme } from '../../theming/utils/useGardenTheme';
-import { ISegmentedControlProps, SEGMENTED_CONTROL_SIZE } from '../../types/elements';
+import type { ISegmentedControlProps } from '../../types/elements';
 import { useSegmentedControl } from '../../utils/segmented-control/useSegmentedControl';
 import { useSelectionPill } from '../../utils/segmented-control/useSelectionPill';
 import { StyledPill } from '../../views/segmented-control/StyledPill';
-import { StyledSegment } from '../../views/segmented-control/StyledSegment';
 import { StyledSegmentedControl } from '../../views/segmented-control/StyledSegmentedControl';
-import { StyledSegmentInput } from '../../views/segmented-control/StyledSegmentInput';
-import { StyledSegmentLabel } from '../../views/segmented-control/StyledSegmentLabel';
 import { COMPONENT_IDS } from '../utils';
+import { Segment } from './Segment';
 
-/**
- * @extends HTMLAttributes<HTMLDivElement>
- */
-export const SegmentedControl = forwardRef<HTMLDivElement, ISegmentedControlProps>(
-  ({ options, value, defaultValue, onChange, size = 'medium', isFullWidth, ...other }, ref) => {
+const SegmentedControlComponent = forwardRef<HTMLDivElement, ISegmentedControlProps>(
+  ({ children, value, defaultValue, onChange, isCompact, isFullWidth, ...other }, ref) => {
     const theme = useGardenTheme();
     const {
-      uniqueOptions,
       selectedValue,
-      pressedValue,
-      hasSelection,
+      name,
       segments,
+      registerSegment,
+      select,
       consumeKeyboardSelection,
       handleBlur,
-      getSegmentProps
+      handleKeyDown
     } = useSegmentedControl({
-      options,
       value,
       defaultValue,
       onChange,
       onBlur: other.onBlur,
+      onKeyDown: other.onKeyDown,
       isRtl: theme.rtl
     });
-    /* Only labels and layout props change where segments sit, never option values */
-    const layoutKey = JSON.stringify([
-      uniqueOptions.map(option => option.label),
-      size,
-      isFullWidth,
-      theme.rtl
-    ]);
+    /* Only layout props and direction change where segments sit, never values */
+    const layoutKey = JSON.stringify([isCompact, isFullWidth, theme.rtl]);
     const { pillRef, isReady } = useSelectionPill(
-      hasSelection ? selectedValue : undefined,
+      selectedValue,
       layoutKey,
       segments,
       consumeKeyboardSelection
     );
-    const hasPill = isReady && hasSelection;
+
+    const { 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledBy } = other;
+
+    useEffect(() => {
+      /* A radio group with no name is announced as an unlabeled group */
+      if (process.env.NODE_ENV === 'development' && !ariaLabel && !ariaLabelledBy) {
+        // eslint-disable-next-line no-console
+        console.warn(
+          'Warning: <SegmentedControl> needs an accessible name. Provide `aria-label` or `aria-labelledby`.'
+        );
+      }
+    }, [ariaLabel, ariaLabelledBy]);
 
     return (
-      <StyledSegmentedControl
-        {...other}
-        $isFullWidth={isFullWidth}
-        ref={ref}
-        role="radiogroup"
-        tabIndex={undefined}
-        onBlur={handleBlur}
-        data-garden-id={COMPONENT_IDS['segmented_controls.segmented_control']}
-        data-garden-version={PACKAGE_VERSION}
+      <SegmentedControlProvider
+        value={{
+          name,
+          selectedValue,
+          isCompact,
+          hasPill: isReady,
+          onSelect: select,
+          registerSegment
+        }}
       >
-        <StyledPill
-          $isReady={hasPill}
-          ref={pillRef}
-          aria-hidden="true"
-          data-garden-id={COMPONENT_IDS['segmented_controls.pill']}
+        <StyledSegmentedControl
+          {...other}
+          $isFullWidth={isFullWidth}
+          ref={ref}
+          role="radiogroup"
+          tabIndex={undefined}
+          onBlur={handleBlur}
+          onKeyDown={handleKeyDown}
+          data-garden-id={COMPONENT_IDS['segmented_controls.segmented_control']}
           data-garden-version={PACKAGE_VERSION}
-        />
-        {uniqueOptions.map((option, index) => (
-          <StyledSegmentLabel
-            key={option.value}
-            ref={element => {
-              if (element) {
-                segments.current.set(option.value, element);
-              } else {
-                segments.current.delete(option.value);
-              }
-            }}
-            data-garden-id={COMPONENT_IDS['segmented_controls.segment_label']}
+        >
+          <StyledPill
+            $isReady={isReady}
+            ref={pillRef}
+            aria-hidden="true"
+            data-garden-id={COMPONENT_IDS['segmented_controls.pill']}
             data-garden-version={PACKAGE_VERSION}
-          >
-            {/* The input must precede the segment; sibling selectors style it */}
-            <StyledSegmentInput
-              {...getSegmentProps(option.value, index)}
-              data-garden-id={COMPONENT_IDS['segmented_controls.segment_input']}
-              data-garden-version={PACKAGE_VERSION}
-            />
-            <StyledSegment
-              $hasPill={hasPill}
-              $isPressed={option.value === pressedValue}
-              $isSelected={option.value === selectedValue}
-              $size={size}
-              data-garden-id={COMPONENT_IDS['segmented_controls.segment']}
-              data-garden-version={PACKAGE_VERSION}
-            >
-              {option.label}
-            </StyledSegment>
-          </StyledSegmentLabel>
-        ))}
-      </StyledSegmentedControl>
+          />
+          {children}
+        </StyledSegmentedControl>
+      </SegmentedControlProvider>
     );
   }
 );
 
-SegmentedControl.displayName = 'SegmentedControl';
+SegmentedControlComponent.displayName = 'SegmentedControl';
 
-SegmentedControl.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.string.isRequired,
-      label: PropTypes.string.isRequired
-    }).isRequired
-  ).isRequired,
+SegmentedControlComponent.propTypes = {
   value: PropTypes.string,
   defaultValue: PropTypes.string,
   onChange: PropTypes.func,
-  size: PropTypes.oneOf(SEGMENTED_CONTROL_SIZE),
+  isCompact: PropTypes.bool,
   isFullWidth: PropTypes.bool
 };
+
+/**
+ * @extends HTMLAttributes<HTMLDivElement>
+ */
+export const SegmentedControl = SegmentedControlComponent as typeof SegmentedControlComponent & {
+  Segment: typeof Segment;
+};
+
+SegmentedControl.Segment = Segment;

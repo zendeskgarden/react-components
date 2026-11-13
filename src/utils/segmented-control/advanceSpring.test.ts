@@ -100,15 +100,22 @@ describe('advanceSpring', () => {
   });
 
   it('snaps to rest only when both close and slow', () => {
-    expect(advanceSpring(300.005, 0.005, 300, 0)).toEqual({
+    expect(advanceSpring(300.4, 4, 300, 0)).toEqual({
       position: 300,
       velocity: 0,
       settled: true
     });
-    expect(advanceSpring(300.005, 5, 300, 0)).toEqual({
-      position: 300.005,
-      velocity: 5,
-      settled: false
-    });
+    /* close but still moving fast. The solver's trig math rounds in the last digit. */
+    const fast = advanceSpring(300.4, 50, 300, 0);
+
+    expect(fast.settled).toBe(false);
+    expect(fast.position).toBeCloseTo(300.4);
+    expect(fast.velocity).toBeCloseTo(50);
+    /* slow but still far from the target */
+    const far = advanceSpring(302, 1, 300, 0);
+
+    expect(far.settled).toBe(false);
+    expect(far.position).toBeCloseTo(302);
+    expect(far.velocity).toBeCloseTo(1);
   });
 });

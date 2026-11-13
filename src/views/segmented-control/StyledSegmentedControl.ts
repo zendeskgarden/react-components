@@ -54,9 +54,9 @@ export const StyledSegmentedControl = styled.div<WithTheme<IStyledSegmentedContr
   direction: ${props => (props.theme.rtl ? 'rtl' : 'ltr')};
   font-family: ${props => props.theme.fonts.system};
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   ${componentStyles};
 `;

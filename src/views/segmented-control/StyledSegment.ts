@@ -10,16 +10,14 @@ import { styled, css } from 'styled-components';
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { focusStyles } from '../../theming/utils/focusStyles';
 import { getColor } from '../../theming/utils/getColor';
-import { ISegmentedControlProps } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
 import { getOverlayColor } from './getOverlayColor';
 import { StyledSegmentInput } from './StyledSegmentInput';
 
 interface IStyledSegmentProps {
   $hasPill?: boolean;
-  $isPressed?: boolean;
+  $isCompact?: boolean;
   $isSelected?: boolean;
-  $size?: ISegmentedControlProps['size'];
 }
 
 /* Garden has no motion tokens; these match the design */
@@ -30,32 +28,18 @@ const TRANSITION_TIMING = 'ease-out';
 /*
  * 1. The selected segment only paints its own background until the pill has
  *    been measured and positioned. Selection never waits on measurement.
- * 2. A pressed segment is darker than a hovered one. An unselected, hovered
- *    segment is tinted only while it is not already checked.
+ * 2. A pressed segment is darker than a hovered one. An unselected segment is
+ *    tinted only while it is not already checked. `:active` also applies while
+ *    Space is held, and while the button is held after the pointer leaves.
  * 3. Forced colors drop backgrounds and shadows, so selection and focus are
  *    drawn with outlines instead.
  */
-const colorStyles = ({
-  theme,
-  $hasPill,
-  $isPressed,
-  $isSelected
-}: WithTheme<IStyledSegmentProps>) => {
-  let backgroundColor = 'transparent';
-
-  if ($isSelected) {
-    /* [1] */
-    backgroundColor = $hasPill
-      ? 'transparent'
-      : getColor({ theme, variable: 'background.default' });
-  } else if ($isPressed) {
-    backgroundColor = getOverlayColor(theme, theme.opacity[200]);
-  }
-
-  const hoverBackgroundColor = getOverlayColor(
-    theme,
-    $isPressed ? theme.opacity[200] : theme.opacity[100]
-  );
+const colorStyles = ({ theme, $hasPill, $isSelected }: WithTheme<IStyledSegmentProps>) => {
+  /* [1] */
+  const backgroundColor =
+    $isSelected && !$hasPill ? getColor({ theme, variable: 'background.default' }) : 'transparent';
+  const hoverBackgroundColor = getOverlayColor(theme, theme.opacity[100]);
+  const pressedBackgroundColor = getOverlayColor(theme, theme.opacity[200]);
 
   return css`
     background-color: ${backgroundColor};
@@ -64,6 +48,10 @@ const colorStyles = ({
     /* [2] */
     ${StyledSegmentInput}:hover:not(:checked) + & {
       background-color: ${hoverBackgroundColor};
+    }
+
+    ${StyledSegmentInput}:active:not(:checked) + & {
+      background-color: ${pressedBackgroundColor};
     }
 
     ${focusStyles({
@@ -96,14 +84,13 @@ const colorStyles = ({
  * A concrete radius (half the height) lets the inset focus shadow follow the
  * pill's inner curve.
  */
-const sizeStyles = ({ theme, $size }: WithTheme<IStyledSegmentProps>) => {
-  const isSmall = $size === 'small';
-  const minHeight = theme.space.base * (isSmall ? 7 : 9);
+const sizeStyles = ({ theme, $isCompact }: WithTheme<IStyledSegmentProps>) => {
+  const minHeight = theme.space.base * ($isCompact ? 7 : 9);
   const borderRadius = minHeight / 2;
-  const paddingVertical = theme.space.base * (isSmall ? 1.5 : 2);
-  const paddingHorizontal = theme.space.base * (isSmall ? 2.5 : 3);
-  const fontSize = isSmall ? theme.fontSizes.sm : theme.fontSizes.md;
-  const lineHeight = isSmall ? theme.lineHeights.sm : theme.lineHeights.md;
+  const paddingVertical = theme.space.base * ($isCompact ? 1.5 : 2);
+  const paddingHorizontal = theme.space.base * ($isCompact ? 2.5 : 3);
+  const fontSize = $isCompact ? theme.fontSizes.sm : theme.fontSizes.md;
+  const lineHeight = $isCompact ? theme.lineHeights.sm : theme.lineHeights.md;
 
   return css`
     border-radius: ${borderRadius}px;
@@ -128,15 +115,19 @@ export const StyledSegment = styled.span<WithTheme<IStyledSegmentProps>>`
   font-weight: ${props => props.theme.fontWeights.regular};
   -webkit-tap-highlight-color: transparent;
 
-  ${props => sizeStyles(props)};
+  ${sizeStyles};
 
-  ${props => colorStyles(props)};
+  ${colorStyles};
 
   @media (prefers-reduced-motion: no-preference) {
     transition: background-color ${TRANSITION_DURATION} ${TRANSITION_TIMING};
 
     ${StyledSegmentInput}:hover + & {
-      transition-duration: ${props => (props.$isPressed ? '0ms' : TRANSITION_DURATION_HOVER)};
+      transition-duration: ${TRANSITION_DURATION_HOVER};
+    }
+
+    ${StyledSegmentInput}:active + & {
+      transition-duration: 0ms;
     }
   }
 

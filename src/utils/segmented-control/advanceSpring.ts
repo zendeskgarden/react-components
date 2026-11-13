@@ -6,7 +6,7 @@
  */
 
 /*
- * Spring constants for Flora's subtle selection bounce (unit mass), so that
+ * Spring constants for a subtle selection bounce (unit mass), so that
  * acceleration = -STIFFNESS * displacement - DAMPING * velocity.
  */
 const STIFFNESS = 400;
@@ -26,9 +26,13 @@ const DAMPING = 34;
 const DECAY = DAMPING / 2;
 const OMEGA = Math.sqrt(STIFFNESS - DECAY * DECAY);
 
-/* The spring is at rest when it is this close (px) and this slow (px/s) */
-const REST_DISTANCE = 0.01;
-const REST_VELOCITY = 0.01;
+/*
+ * The spring is at rest when it is this close (px) and this slow (px/s). The
+ * final snap to the target is at most half a pixel, which is not visible, and
+ * it ends the animation loop sooner than a tighter threshold would.
+ */
+const REST_DISTANCE = 0.5;
+const REST_VELOCITY = 5;
 
 /*
  * Longest time step (seconds) the solver evaluates. At 10s the decay factor is
