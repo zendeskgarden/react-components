@@ -30,12 +30,5 @@ export const Example: StoryObj<typeof FileListStory> = {
       control: 'boolean',
       table: { category: 'File' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=5867%3A35626'
-    }
   }
 };

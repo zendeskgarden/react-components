@@ -36,12 +36,5 @@ export const Example: StoryObj<typeof TooltipStory> = {
       control: 'multi-select',
       options: TOOLTIP_PLACEMENT.filter(p => p !== 'auto')
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A25293'
-    }
   }
 };
