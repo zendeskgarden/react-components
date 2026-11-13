@@ -8,6 +8,7 @@
 import { ITab } from '@zendeskgarden/container-tabs';
 import { Children, ReactNode, isValidElement } from 'react';
 
+import { TabList } from '../../elements/tab/TabList';
 import { TabPanel } from '../../elements/tab/TabPanel';
 import { ITabProps } from '../../types/elements';
 
@@ -16,8 +17,16 @@ export interface ITabData extends ITab<ITabProps['item']> {
   props: ITabProps;
 }
 
-const collectTabs = (children: ReactNode) =>
-  Children.toArray(children).reduce((_items: ITabData[], child) => {
+interface ICollectedTab extends ITabData {
+  isInTabList: boolean;
+}
+
+/* `styled()` folds a wrapped styled component, so `target` is the original. */
+const isTabList = (type: unknown) =>
+  type === TabList || (type as { target?: unknown }).target === TabList;
+
+const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] =>
+  Children.toArray(children).reduce((_items: ICollectedTab[], child) => {
     const retVal = _items;
 
     /* A `TabPanel` also carries an `item` prop; it is not a tab. */
@@ -28,10 +37,11 @@ const collectTabs = (children: ReactNode) =>
         retVal.push({
           value: props.item,
           disabled: props.disabled,
-          props
+          props,
+          isInTabList
         });
       } else {
-        const childItems = collectTabs(child.props.children);
+        const childItems = collectTabs(child.props.children, isInTabList || isTabList(child.type));
 
         retVal.push(...childItems);
       }
@@ -50,15 +60,28 @@ const collectTabs = (children: ReactNode) =>
  * @returns The collected tabs, each with its `value`, `disabled` flag and `props`.
  */
 export const toTabs = (children: ReactNode) => {
+  const collected = collectTabs(children);
   /*
-   * A value collected more than once (a panel wrapped with `styled()` or in
-   * a component with an `item` prop) is one tab: the first entry keeps its
-   * position and props, and a later disabled entry disables it. An enabled
-   * duplicate would otherwise enable a disabled tab in the hook.
+   * A panel wrapped with `styled()` or in a component with an `item` prop
+   * is collected too. Outside a tab list, an entry whose value a tab list
+   * holds is that wrapped panel: the tab list gives the tab its position
+   * and props. A custom component that renders the tab list hides it, so
+   * every entry then counts.
+   */
+  const listedValues = new Set(collected.filter(tab => tab.isInTabList).map(tab => tab.value));
+  /*
+   * A value collected more than once (two tab lists, or a wrapped panel
+   * with no tab list found) is one tab: the first entry keeps its position
+   * and props, and a later disabled entry disables it. An enabled duplicate
+   * would otherwise enable a disabled tab in the hook.
    */
   const tabs = new Map<ITabData['value'], ITabData>();
 
-  collectTabs(children).forEach(tab => {
+  collected.forEach(({ isInTabList, ...tab }) => {
+    if (!isInTabList && listedValues.has(tab.value)) {
+      return;
+    }
+
     const first = tabs.get(tab.value);
 
     if (!first) {

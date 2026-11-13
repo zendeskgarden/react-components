@@ -14,7 +14,7 @@ import { vi } from 'vitest';
 import { render } from '../../test/render';
 import DEFAULT_THEME from '../../theming/elements/theme';
 import { ThemeProvider } from '../../theming/elements/ThemeProvider';
-import { ITabsProps, ITabProps } from '../../types/elements';
+import { ITabsProps, ITabPanelProps, ITabProps } from '../../types/elements';
 import { StyledTabListContainer } from '../../views/tab/StyledTabListContainer';
 import { StyledTabPanel } from '../../views/tab/StyledTabPanel';
 import { Tabs } from './Tabs';
@@ -123,6 +123,26 @@ describe('Tabs', () => {
     );
 
     expect(html).toContain('aria-selected="true"');
+  });
+
+  it('selects the first tab of the tab list on the server when a panel comes first', () => {
+    const Panel = (props: ITabPanelProps) => <Tabs.TabPanel {...props} />;
+    const host = document.createElement('div');
+
+    host.innerHTML = renderToString(
+      <ThemeProvider>
+        <Tabs>
+          <Panel item="tab-2">Tab 2 content</Panel>
+          <Tabs.TabList>
+            <Tabs.Tab item="tab-1">Tab 1</Tabs.Tab>
+            <Tabs.Tab item="tab-2">Tab 2</Tabs.Tab>
+          </Tabs.TabList>
+          <Panel item="tab-1">Tab 1 content</Panel>
+        </Tabs>
+      </ThemeProvider>
+    );
+
+    expect(host.querySelector('[role="tab"][aria-selected="true"]')).toHaveTextContent('Tab 1');
   });
 
   it('changes the selection of an uncontrolled Tabs that has onChange', async () => {

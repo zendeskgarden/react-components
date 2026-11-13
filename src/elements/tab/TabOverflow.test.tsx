@@ -707,6 +707,75 @@ describe('Tabs overflow', () => {
     ]);
   });
 
+  describe('panels before the tab list', () => {
+    const PanelWrapper: FC<{ item: string; children: ReactNode }> = ({ item, children }) => (
+      <Tabs.TabPanel item={item}>{children}</Tabs.TabPanel>
+    );
+
+    const renderPanelsFirst = (before: string[]) => {
+      const panels = (items: string[]) =>
+        items.map(item => (
+          <PanelWrapper key={item} item={item}>
+            {`${item} panel`}
+          </PanelWrapper>
+        ));
+
+      return render(
+        <Tabs>
+          {panels(before)}
+          <Tabs.TabList aria-label="Sections">
+            {ITEMS.map((item, index) => (
+              <Tabs.Tab key={item} item={item} icon={<svg data-test-id="icon" />}>
+                {LABELS[index]}
+              </Tabs.Tab>
+            ))}
+          </Tabs.TabList>
+          {panels(ITEMS.filter(item => !before.includes(item)))}
+        </Tabs>
+      );
+    };
+
+    it.each([
+      ['every panel', ITEMS],
+      ['one panel', ['four']]
+    ])(
+      'takes the order and props of the tabs from the tab list when %s comes first',
+      async (_name, before) => {
+        mockLayout({ current: 250 });
+        const user = userEvent.setup();
+
+        renderPanelsFirst(before);
+
+        expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
+        expect(screen.getByRole('tab', { name: 'One' })).toHaveAttribute('aria-selected', 'true');
+
+        await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+        const items = screen.getAllByRole('menuitemradio');
+
+        expect(items.map(item => item.textContent)).toEqual(['Three', 'Four', 'Five']);
+        items.forEach(item => expect(within(item).getByTestId('icon')).toBeInTheDocument());
+
+        await user.click(items[0]!);
+
+        expect(screen.getByRole('button', { name: '+3 tabs, Three selected' })).toBeInTheDocument();
+      }
+    );
+
+    it('keeps the arrow key order of the tab list when a panel comes first', async () => {
+      const user = userEvent.setup();
+
+      renderPanelsFirst(['four']);
+
+      expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(LABELS);
+
+      await user.click(screen.getByRole('tab', { name: 'Three' }));
+      await user.keyboard('{ArrowRight}');
+
+      expect(screen.getByRole('tab', { name: 'Four' })).toHaveFocus();
+    });
+  });
+
   it('ignores a display: none tab when measuring and building the menu', async () => {
     /* display: none elements have no box. */
     vi.spyOn(Element.prototype, 'getBoundingClientRect').mockImplementation(function getRect(
