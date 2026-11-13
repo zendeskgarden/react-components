@@ -10,6 +10,7 @@ import { HTMLAttributes, forwardRef } from 'react';
 
 import { useTabsContext } from '../../hooks/tab/useTabsContext';
 import { ITabPanelProps } from '../../types/elements';
+import { withGardenType } from '../../utils/shared/gardenType';
 import { StyledTabPanel } from '../../views/tab/StyledTabPanel';
 import { COMPONENT_IDS } from '../utils';
 
@@ -56,5 +57,7 @@ export const TabPanel = forwardRef<HTMLDivElement, ITabPanelProps>(
 );
 
 TabPanel.displayName = 'Tabs.TabPanel';
+
+withGardenType(TabPanel, COMPONENT_IDS['tabs.tabpanel']);
 
 TabPanel.propTypes = { item: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) };

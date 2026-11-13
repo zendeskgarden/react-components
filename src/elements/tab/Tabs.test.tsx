@@ -6,7 +6,7 @@
  */
 
 import { userEvent } from '@testing-library/user-event';
-import { ReactNode, createRef } from 'react';
+import { ReactNode, createRef, memo } from 'react';
 import { renderToString } from 'react-dom/server';
 import { styled } from 'styled-components';
 import { vi } from 'vitest';
@@ -288,6 +288,23 @@ describe('Tabs', () => {
       );
 
       expect(getByRole('tab', { name: 'Two' })).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it.each([
+      ['styled()', styled(Tabs.TabPanel)``],
+      ['memo()', memo(Tabs.TabPanel)]
+    ])('selects the first tab when a %s panel without a tab comes first', (_name, Panel) => {
+      const { getByRole } = render(
+        <Tabs>
+          <Panel item="orphan">Orphan panel</Panel>
+          <Tabs.TabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+            <Tabs.Tab item="two">Two</Tabs.Tab>
+          </Tabs.TabList>
+        </Tabs>
+      );
+
+      expect(getByRole('tab', { name: 'One' })).toHaveAttribute('aria-selected', 'true');
     });
 
     it('keeps a disabled tab disabled when its panel wrapper comes before a custom tab list', async () => {

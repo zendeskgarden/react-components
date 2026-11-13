@@ -23,6 +23,7 @@ import { useGardenTheme } from '../../theming/utils/useGardenTheme';
 import { useText } from '../../theming/utils/useText';
 import { ITabListProps } from '../../types/elements';
 import { activeElement, ownerDocument } from '../../utils/shared/dom';
+import { withGardenType } from '../../utils/shared/gardenType';
 import { mergeRefs } from '../../utils/shared/mergeRefs';
 import { useBrowserLayoutEffect } from '../../utils/shared/useBrowserLayoutEffect';
 import { ITabData } from '../../utils/tab/toTabs';
@@ -373,6 +374,8 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
 });
 
 TabList.displayName = 'Tabs.TabList';
+
+withGardenType(TabList, COMPONENT_IDS['tabs.tablist']);
 
 TabList.propTypes = {
   renderOverflowLabel: PropTypes.func

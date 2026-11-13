@@ -8,9 +8,9 @@
 import { ITab } from '@zendeskgarden/container-tabs';
 import { Children, ReactNode, isValidElement } from 'react';
 
-import { TabList } from '../../elements/tab/TabList';
-import { TabPanel } from '../../elements/tab/TabPanel';
+import { COMPONENT_IDS } from '../../elements/utils';
 import { ITabProps } from '../../types/elements';
+import { isGardenType } from '../shared/gardenType';
 
 export interface ITabData extends ITab<ITabProps['item']> {
   /** The tab element's props */
@@ -21,16 +21,12 @@ interface ICollectedTab extends ITabData {
   isInTabList: boolean;
 }
 
-/* `styled()` folds a wrapped styled component, so `target` is the original. */
-const isComponent = (type: unknown, component: unknown) =>
-  type === component || (type as { target?: unknown }).target === component;
-
 const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] =>
   Children.toArray(children).reduce((_items: ICollectedTab[], child) => {
     const retVal = _items;
 
     /* A `TabPanel`, styled or not, also carries an `item` prop; it is not a tab. */
-    if (isValidElement<ITabProps>(child) && !isComponent(child.type, TabPanel)) {
+    if (isValidElement<ITabProps>(child) && !isGardenType(child, COMPONENT_IDS['tabs.tabpanel'])) {
       if ('item' in child.props) {
         const props = child.props;
 
@@ -43,7 +39,7 @@ const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] 
       } else {
         const childItems = collectTabs(
           child.props.children,
-          isInTabList || isComponent(child.type, TabList)
+          isInTabList || isGardenType(child, COMPONENT_IDS['tabs.tablist'])
         );
 
         retVal.push(...childItems);
