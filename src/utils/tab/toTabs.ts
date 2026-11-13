@@ -22,15 +22,15 @@ interface ICollectedTab extends ITabData {
 }
 
 /* `styled()` folds a wrapped styled component, so `target` is the original. */
-const isTabList = (type: unknown) =>
-  type === TabList || (type as { target?: unknown }).target === TabList;
+const isComponent = (type: unknown, component: unknown) =>
+  type === component || (type as { target?: unknown }).target === component;
 
 const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] =>
   Children.toArray(children).reduce((_items: ICollectedTab[], child) => {
     const retVal = _items;
 
-    /* A `TabPanel` also carries an `item` prop; it is not a tab. */
-    if (isValidElement<ITabProps>(child) && child.type !== TabPanel) {
+    /* A `TabPanel`, styled or not, also carries an `item` prop; it is not a tab. */
+    if (isValidElement<ITabProps>(child) && !isComponent(child.type, TabPanel)) {
       if ('item' in child.props) {
         const props = child.props;
 
@@ -41,7 +41,10 @@ const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] 
           isInTabList
         });
       } else {
-        const childItems = collectTabs(child.props.children, isInTabList || isTabList(child.type));
+        const childItems = collectTabs(
+          child.props.children,
+          isInTabList || isComponent(child.type, TabList)
+        );
 
         retVal.push(...childItems);
       }
@@ -62,15 +65,15 @@ const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] 
 export const toTabs = (children: ReactNode) => {
   const collected = collectTabs(children);
   /*
-   * A panel wrapped with `styled()` or in a component with an `item` prop
-   * is collected too. Outside a tab list, an entry whose value a tab list
-   * holds is that wrapped panel: the tab list gives the tab its position
-   * and props. A custom component that renders the tab list hides it, so
-   * every entry then counts.
+   * A panel rendered by a component with an `item` prop is collected too.
+   * Outside a tab list, an entry whose value a tab list holds is that
+   * panel: the tab list gives the tab its position and props. A custom
+   * component that renders the tab list hides it, so every entry then
+   * counts.
    */
   const listedValues = new Set(collected.filter(tab => tab.isInTabList).map(tab => tab.value));
   /*
-   * A value collected more than once (two tab lists, or a wrapped panel
+   * A value collected more than once (two tab lists, or a panel wrapper
    * with no tab list found) is one tab: the first entry keeps its position
    * and props, and a later disabled entry disables it. An enabled duplicate
    * would otherwise enable a disabled tab in the hook.

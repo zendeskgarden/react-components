@@ -712,7 +712,11 @@ describe('Tabs overflow', () => {
       <Tabs.TabPanel item={item}>{children}</Tabs.TabPanel>
     );
 
+    const StyledPanel = styled(Tabs.TabPanel)``;
     const StyledTabList = styled(Tabs.TabList)``;
+    const CustomTabList: FC<{ children: ReactNode }> = ({ children }) => (
+      <Tabs.TabList aria-label="Sections">{children}</Tabs.TabList>
+    );
 
     type Panel = FC<{ item: string; children: ReactNode }>;
     type List = FC<{ 'aria-label': string; children: ReactNode }>;
@@ -747,7 +751,9 @@ describe('Tabs overflow', () => {
     it.each([
       ['every panel comes first', ITEMS, PanelWrapper, Tabs.TabList],
       ['one panel comes first', ['four'], PanelWrapper, Tabs.TabList],
-      ['one panel comes before a styled tab list', ['four'], PanelWrapper, StyledTabList]
+      ['one panel comes before a styled tab list', ['four'], PanelWrapper, StyledTabList],
+      ['styled panels come before a custom tab list', ITEMS, StyledPanel, CustomTabList],
+      ['a styled panel comes before a custom tab list', ['four'], StyledPanel, CustomTabList]
     ] as [string, string[], Panel, List][])(
       'takes the order and props of the tabs from the tab list when %s',
       async (_name, before, Panel, List) => {
