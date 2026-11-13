@@ -105,12 +105,5 @@ export const Example: StoryObj<typeof SheetStory> = {
       control: 'boolean',
       table: { category: 'Sheet.Footer' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=5686%3A38405'
-    }
   }
 };

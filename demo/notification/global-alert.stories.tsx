@@ -78,13 +78,6 @@ export const Example: StoryObj<typeof GlobalAlertStory> = {
       type: 'boolean',
       table: { category: 'GlobalAlert.Title' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=12311%3A50200'
-    }
   }
 };
 

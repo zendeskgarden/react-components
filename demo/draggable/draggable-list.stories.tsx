@@ -41,12 +41,5 @@ export const Example: StoryObj<typeof DraggableListStory> = {
     'aria-label': {
       table: { category: 'DraggableList.DropIndicator' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=14015-52393'
-    }
   }
 };

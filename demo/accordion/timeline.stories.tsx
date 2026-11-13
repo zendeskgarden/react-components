@@ -47,12 +47,5 @@ export const Example: StoryObj<typeof TimelineStory> = {
       name: 'Timeline.Item[]',
       table: { category: 'Story' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=9806%3A43467'
-    }
   }
 };

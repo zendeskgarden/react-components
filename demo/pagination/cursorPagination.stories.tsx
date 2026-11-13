@@ -61,12 +61,5 @@ export const Example: StoryObj<typeof CursorPaginationStory> = {
       name: 'children',
       table: { category: 'CursorPagination.Last' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=172%3A13038'
-    }
   }
 };
