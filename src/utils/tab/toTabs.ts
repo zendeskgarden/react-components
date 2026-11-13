@@ -10,7 +10,7 @@ import { Children, ReactNode, isValidElement } from 'react';
 
 import { COMPONENT_IDS } from '../../elements/utils';
 import { ITabProps } from '../../types/elements';
-import { isGardenType } from '../shared/gardenType';
+import { getGardenType } from '../shared/gardenType';
 
 export interface ITabData extends ITab<ITabProps['item']> {
   /** The tab element's props */
@@ -22,32 +22,26 @@ interface ICollectedTab extends ITabData {
 }
 
 const collectTabs = (children: ReactNode, isInTabList = false): ICollectedTab[] =>
-  Children.toArray(children).reduce((_items: ICollectedTab[], child) => {
-    const retVal = _items;
-
-    /* A `TabPanel`, styled or not, also carries an `item` prop; it is not a tab. */
-    if (isValidElement<ITabProps>(child) && !isGardenType(child, COMPONENT_IDS['tabs.tabpanel'])) {
-      if ('item' in child.props) {
-        const props = child.props;
-
-        retVal.push({
-          value: props.item,
-          disabled: props.disabled,
-          props,
-          isInTabList
-        });
-      } else {
-        const childItems = collectTabs(
-          child.props.children,
-          isInTabList || isGardenType(child, COMPONENT_IDS['tabs.tablist'])
-        );
-
-        retVal.push(...childItems);
-      }
+  Children.toArray(children).flatMap((child): ICollectedTab[] => {
+    if (!isValidElement<ITabProps>(child)) {
+      return [];
     }
 
-    return retVal;
-  }, []);
+    const type = getGardenType(child.type);
+
+    /* A `TabPanel`, styled or not, also carries an `item` prop; it is not a tab. */
+    if (type === COMPONENT_IDS['tabs.tabpanel']) {
+      return [];
+    }
+
+    const { props } = child;
+
+    if ('item' in props) {
+      return [{ value: props.item, disabled: props.disabled, props, isInTabList }];
+    }
+
+    return collectTabs(props.children, isInTabList || type === COMPONENT_IDS['tabs.tablist']);
+  });
 
 /**
  * Converts an array of `Tab` children to a valid `tabs` data structure for `useTabs`.
