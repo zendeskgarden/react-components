@@ -118,7 +118,7 @@ Tab.displayName = 'Tabs.Tab';
 
 Tab.propTypes = {
   disabled: PropTypes.bool,
-  item: PropTypes.any,
+  item: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   icon: PropTypes.any,
   label: PropTypes.string
 };

@@ -11,7 +11,7 @@ import { Children, ReactNode, isValidElement } from 'react';
 import { TabPanel } from '../../elements/tab/TabPanel';
 import { ITabProps } from '../../types/elements';
 
-export interface ITabData extends ITab<any> {
+export interface ITabData extends ITab<ITabProps['item']> {
   /** The tab element's props */
   props: ITabProps;
 }
@@ -56,7 +56,7 @@ export const toTabs = (children: ReactNode) => {
    * position and props, and a later disabled entry disables it. An enabled
    * duplicate would otherwise enable a disabled tab in the hook.
    */
-  const tabs = new Map<unknown, ITabData>();
+  const tabs = new Map<ITabData['value'], ITabData>();
 
   collectTabs(children).forEach(tab => {
     const first = tabs.get(tab.value);

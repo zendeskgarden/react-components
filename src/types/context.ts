@@ -27,6 +27,7 @@ import type {
   IGlobalAlertProps,
   ISplitterProps,
   ITableProps,
+  ITabsProps,
   Orientation,
   Size,
   Space,
@@ -218,10 +219,10 @@ export interface ISheetContext {
 //#endregion
 
 //#region tab
-export interface ITabsContext extends IUseTabsReturnValue<any> {
+export interface ITabsContext extends IUseTabsReturnValue<ITabsProps['selectedItem']> {
   isVertical?: boolean;
   /** Selects a tab by value; the same handler the hook's `onSelect` calls */
-  select: (item: any) => void;
+  select: (item: ITabsProps['selectedItem']) => void;
   /** The tabs collected from the `Tabs` children, in DOM order */
   tabs: ITabData[];
   /** The number of leading tabs that fit outside the overflow menu (written by `TabList`) */

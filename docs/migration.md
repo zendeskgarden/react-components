@@ -383,6 +383,9 @@ instead of being clipped.
 - Tab `item` values must be unique strings or numbers. Object items were
   already unreliable in v9 (every tab got the same `id`, and the arrow keys
   focused the last tab); the overflow menu cannot tell them apart either.
+  `Tabs.Tab` and `Tabs.TabPanel` `item`, and `Tabs` `selectedItem` and
+  `defaultSelectedItem`, are now typed `string | number` (they were `any`).
+  `selectedItem` also accepts `null` to select no tab.
 - `onChange` no longer fires on mount. Use `defaultSelectedItem` or
   `selectedItem` for the initial tab; without either, the first enabled tab is
   selected on the first render.

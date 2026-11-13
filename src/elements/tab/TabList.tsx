@@ -106,7 +106,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   const [isMenuExpanded, setIsMenuExpanded] = useState(false);
   const menuGroup = useId();
 
-  const getTabId = (value: any) => tabsPropGetters?.getTabProps({ value }).id;
+  const getTabId = (value: ITabData['value']) => tabsPropGetters?.getTabProps({ value }).id;
   const { visibleExtent, hiddenExtent, indicator, pendingFocus, rendered } = useTabsOverflow({
     containerRef,
     listRef,

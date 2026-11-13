@@ -51,7 +51,7 @@ interface IUseTabsOverflowOptions {
   visibleCount: number;
   setVisibleCount?: (count: number) => void;
   /** The id the hook gives the tab element of a value */
-  getTabId: (value: unknown) => string | undefined;
+  getTabId: (value: ITabData['value']) => string | undefined;
 }
 
 /**

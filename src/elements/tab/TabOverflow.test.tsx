@@ -910,34 +910,6 @@ describe('Tabs overflow', () => {
     ).toBeInTheDocument();
   });
 
-  it('does not name a hidden tab by an object item', async () => {
-    mockLayout({ current: 250 });
-    const user = userEvent.setup();
-    const three = { id: 'three' };
-
-    render(
-      <Tabs defaultSelectedItem="one">
-        <Tabs.TabList aria-label="Sections">
-          <Tabs.Tab item="one">One</Tabs.Tab>
-          <Tabs.Tab item="two">Two</Tabs.Tab>
-          <Tabs.Tab item={three} icon={<svg />} />
-          <Tabs.Tab item="four">Four</Tabs.Tab>
-          <Tabs.Tab item="five">Five</Tabs.Tab>
-        </Tabs.TabList>
-      </Tabs>
-    );
-
-    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
-
-    const [item] = screen.getAllByRole('menuitemradio');
-
-    expect(item).not.toHaveTextContent('[object Object]');
-
-    await user.click(item!);
-
-    expect(screen.getByRole('button', { name: '+3 tabs' })).toBeInTheDocument();
-  });
-
   it('renders an empty tab list', () => {
     mockLayout({ current: 400 });
 

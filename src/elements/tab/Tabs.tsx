@@ -33,7 +33,8 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
     ref
   ) => {
     const theme = useGardenTheme();
-    const [internalSelectedItem, setInternalSelectedItem] = useState(defaultSelectedItem);
+    const [internalSelectedItem, setInternalSelectedItem] =
+      useState<ITabsProps['selectedItem']>(defaultSelectedItem);
 
     const tabs = useMemo(() => toTabs(children), [children]);
 
@@ -72,7 +73,7 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
       controlledValue === undefined ? tabs.find(tab => !tab.disabled)?.value : controlledValue;
 
     const select = useCallback(
-      (item: any) => {
+      (item: ITabsProps['selectedItem']) => {
         if (controlledSelectedItem === undefined) {
           setInternalSelectedItem(item);
         }
@@ -147,8 +148,8 @@ export const TabsComponent = forwardRef<HTMLDivElement, ITabsProps>(
 
 TabsComponent.propTypes = {
   isVertical: PropTypes.bool,
-  selectedItem: PropTypes.any,
-  defaultSelectedItem: PropTypes.any,
+  selectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  defaultSelectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func
 };
 

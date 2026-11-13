@@ -57,4 +57,4 @@ export const TabPanel = forwardRef<HTMLDivElement, ITabPanelProps>(
 
 TabPanel.displayName = 'Tabs.TabPanel';
 
-TabPanel.propTypes = { item: PropTypes.any };
+TabPanel.propTypes = { item: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) };

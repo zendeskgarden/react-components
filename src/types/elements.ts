@@ -1671,7 +1671,7 @@ export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   /** Indicates that the element is not interactive */
   disabled?: boolean;
   /** Defines a unique value to identify the tab. Provided to the `onChange` event in the [Tabs](#tabs) component. */
-  item?: any;
+  item?: string | number;
   /** Accepts an icon to display before the label */
   icon?: ReactElement;
   /**
@@ -1684,7 +1684,7 @@ export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Defines a value used to match a tab panel with its associated tab
    */
-  item?: any;
+  item?: string | number;
 }
 export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -1692,13 +1692,13 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
    */
   isVertical?: boolean;
   /**
-   * Specifies the currently selected tab
+   * Specifies the currently selected tab. `null` selects no tab
    */
-  selectedItem?: any;
+  selectedItem?: string | number | null;
   /**
    * Sets the initially selected tab of an uncontrolled `Tabs`. Defaults to the first enabled tab
    */
-  defaultSelectedItem?: any;
+  defaultSelectedItem?: string | number;
   /**
    * Handles tab selection
    *
