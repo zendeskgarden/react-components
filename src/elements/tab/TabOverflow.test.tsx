@@ -606,7 +606,7 @@ describe('Tabs overflow', () => {
   });
 
   it('ignores collected children that render no tab element', async () => {
-    const Ghost: FC<{ item?: any }> = () => null;
+    const Ghost: FC<{ item?: string }> = () => null;
 
     mockLayout({ current: 250 });
     const user = userEvent.setup();
@@ -908,6 +908,48 @@ describe('Tabs overflow', () => {
     expect(
       screen.getByRole('button', { name: '+3 tabs, Fourth tab selected' })
     ).toBeInTheDocument();
+  });
+
+  it('names a hidden tab with no text by its number item in the menu', async () => {
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
+    render(
+      <Tabs defaultSelectedItem={1}>
+        <Tabs.TabList aria-label="Sections">
+          <Tabs.Tab item={1}>One</Tabs.Tab>
+          <Tabs.Tab item={2}>Two</Tabs.Tab>
+          <Tabs.Tab item={3} icon={<svg />} />
+          <Tabs.Tab item={4}>Four</Tabs.Tab>
+          <Tabs.Tab item={5}>Five</Tabs.Tab>
+        </Tabs.TabList>
+      </Tabs>
+    );
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio')[0]).toHaveTextContent('3');
+  });
+
+  it('leaves the menu item of a hidden tab with no text and no item empty', async () => {
+    mockLayout({ current: 250 });
+    const user = userEvent.setup();
+
+    render(
+      <Tabs defaultSelectedItem="one">
+        <Tabs.TabList aria-label="Sections">
+          <Tabs.Tab item="one">One</Tabs.Tab>
+          <Tabs.Tab item="two">Two</Tabs.Tab>
+          <Tabs.Tab item={undefined} icon={<svg />} />
+          <Tabs.Tab item="four">Four</Tabs.Tab>
+          <Tabs.Tab item="five">Five</Tabs.Tab>
+        </Tabs.TabList>
+      </Tabs>
+    );
+
+    await user.click(screen.getByRole('button', { name: '+3 tabs' }));
+
+    expect(screen.getAllByRole('menuitemradio')[0]!.textContent).toBe('');
   });
 
   it('renders an empty tab list', () => {

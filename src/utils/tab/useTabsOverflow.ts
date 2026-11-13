@@ -8,6 +8,7 @@
 import { type RefObject, useRef, useState } from 'react';
 
 import type { IGardenTheme } from '../../theming/types';
+import type { ITabsContext } from '../../types/context';
 import { getTabGap, getTabSize } from '../../views/tab/StyledTabListContainer';
 import { activeElement, ownerDocument, ownerWindow } from '../shared/dom';
 import { useBrowserLayoutEffect } from '../shared/useBrowserLayoutEffect';
@@ -44,7 +45,7 @@ interface IUseTabsOverflowOptions {
   /** The collected tabs, in DOM order; entries without a rendered tab element are ignored */
   tabs: ITabData[];
   /** The selected tab value */
-  selectedItem: unknown;
+  selectedItem: ITabsContext['selectedValue'];
   isVertical: boolean;
   theme: IGardenTheme;
   /** The current number of visible tabs (owned by `Tabs`) */
@@ -88,7 +89,7 @@ export const useTabsOverflow = ({
   const [hiddenExtent, setHiddenExtent] = useState<number | undefined>(undefined);
   const [indicator, setIndicator] = useState<ITabIndicatorGeometry | undefined>(undefined);
   const pendingFocus = useRef<PendingTabFocus>(undefined);
-  const lastSelected = useRef<{ value: unknown } | undefined>(undefined);
+  const lastSelected = useRef<{ value: ITabsContext['selectedValue'] } | undefined>(undefined);
 
   const measure = () => {
     const container = containerRef.current;

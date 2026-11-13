@@ -54,7 +54,7 @@ export const Controlled: Story = {
   render: args => {
     const updateArgs = useArgs()[1];
 
-    const handleChange = (selectedItem: any) =>
+    const handleChange = (selectedItem: string) =>
       updateArgs({
         selectedItem
       });

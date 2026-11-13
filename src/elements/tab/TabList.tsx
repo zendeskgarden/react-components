@@ -69,8 +69,8 @@ const getTabName = (tab: ITabData, element?: HTMLElement) => {
 };
 
 /*
- * The menu label of a tab: its name, else a string or number item, else
- * empty (an object item has no readable text).
+ * The menu label of a tab: its name, else its item, else empty. Untyped
+ * consumers can still pass an object item, which has no readable text.
  */
 const getMenuLabel = (tab: ITabData, element?: HTMLElement) => {
   const name = getTabName(tab, element);
@@ -206,7 +206,7 @@ export const TabList = forwardRef<HTMLDivElement, ITabListProps>((props, ref) =>
   /* Warns once per tab when the overflow menu can only name a hidden tab by
    * its item: no `label`, no `aria-label`, no string children and no
    * element text. */
-  const warnedValues = useRef(new Set<unknown>());
+  const warnedValues = useRef(new Set<ITabData['value']>());
 
   useEffect(() => {
     if (process.env.NODE_ENV !== 'development') {
