@@ -6,7 +6,7 @@
  */
 
 import { userEvent } from '@testing-library/user-event';
-import { createRef } from 'react';
+import { ReactNode, createRef } from 'react';
 import { renderToString } from 'react-dom/server';
 import { styled } from 'styled-components';
 import { vi } from 'vitest';
@@ -288,6 +288,33 @@ describe('Tabs', () => {
       );
 
       expect(getByRole('tab', { name: 'Two' })).toHaveAttribute('aria-disabled', 'true');
+    });
+
+    it('keeps a disabled tab disabled when its panel wrapper comes before a custom tab list', async () => {
+      const Panel = (props: ITabPanelProps) => <Tabs.TabPanel {...props} />;
+      const CustomTabList = ({ children }: { children: ReactNode }) => (
+        <Tabs.TabList>{children}</Tabs.TabList>
+      );
+      const onChange = vi.fn();
+      const { getByRole } = render(
+        <Tabs onChange={onChange}>
+          <Panel item="one">Panel one</Panel>
+          <Panel item="two">Panel two</Panel>
+          <CustomTabList>
+            <Tabs.Tab item="one">One</Tabs.Tab>
+            <Tabs.Tab item="two" disabled>
+              Two
+            </Tabs.Tab>
+          </CustomTabList>
+        </Tabs>
+      );
+      const tab = getByRole('tab', { name: 'Two' });
+
+      expect(tab).toHaveAttribute('aria-disabled', 'true');
+
+      await user.click(tab);
+
+      expect(onChange).not.toHaveBeenCalled();
     });
 
     it('applies custom props if provided', () => {
