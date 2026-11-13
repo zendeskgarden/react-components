@@ -712,39 +712,49 @@ describe('Tabs overflow', () => {
       <Tabs.TabPanel item={item}>{children}</Tabs.TabPanel>
     );
 
-    const renderPanelsFirst = (before: string[]) => {
+    const StyledTabList = styled(Tabs.TabList)``;
+
+    type Panel = FC<{ item: string; children: ReactNode }>;
+    type List = FC<{ 'aria-label': string; children: ReactNode }>;
+
+    const renderPanelsFirst = (
+      before: string[],
+      Panel: Panel = PanelWrapper,
+      List: List = Tabs.TabList
+    ) => {
       const panels = (items: string[]) =>
         items.map(item => (
-          <PanelWrapper key={item} item={item}>
+          <Panel key={item} item={item}>
             {`${item} panel`}
-          </PanelWrapper>
+          </Panel>
         ));
 
       return render(
         <Tabs>
           {panels(before)}
-          <Tabs.TabList aria-label="Sections">
+          <List aria-label="Sections">
             {ITEMS.map((item, index) => (
               <Tabs.Tab key={item} item={item} icon={<svg data-test-id="icon" />}>
                 {LABELS[index]}
               </Tabs.Tab>
             ))}
-          </Tabs.TabList>
+          </List>
           {panels(ITEMS.filter(item => !before.includes(item)))}
         </Tabs>
       );
     };
 
     it.each([
-      ['every panel', ITEMS],
-      ['one panel', ['four']]
-    ])(
-      'takes the order and props of the tabs from the tab list when %s comes first',
-      async (_name, before) => {
+      ['every panel comes first', ITEMS, PanelWrapper, Tabs.TabList],
+      ['one panel comes first', ['four'], PanelWrapper, Tabs.TabList],
+      ['one panel comes before a styled tab list', ['four'], PanelWrapper, StyledTabList]
+    ] as [string, string[], Panel, List][])(
+      'takes the order and props of the tabs from the tab list when %s',
+      async (_name, before, Panel, List) => {
         mockLayout({ current: 250 });
         const user = userEvent.setup();
 
-        renderPanelsFirst(before);
+        renderPanelsFirst(before, Panel, List);
 
         expect(screen.getAllByRole('tab').map(tab => tab.textContent)).toEqual(['One', 'Two']);
         expect(screen.getByRole('tab', { name: 'One' })).toHaveAttribute('aria-selected', 'true');
