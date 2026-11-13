@@ -30,5 +30,29 @@ export const TABS: ITab[] = [
     value: 'Boysenberry syrup',
     panel: 'Boysenberry syrup has been discontinued due to low demand.',
     disabled: true
+  },
+  {
+    value: 'Red maple',
+    panel:
+      'The red maple is one of the most common and widespread deciduous trees of eastern North America, adaptable to a very wide range of site conditions.',
+    disabled: false
+  },
+  {
+    value: 'White oak',
+    panel:
+      'The white oak is a long-lived tree whose wood is prized for furniture, flooring, and barrel-making thanks to its strength and resistance to rot.',
+    disabled: false
+  },
+  {
+    value: 'Paper birch',
+    panel:
+      'The paper birch is a short-lived pioneer species easily recognized by its white bark, which peels away in thin, papery strips.',
+    disabled: false
+  },
+  {
+    value: 'Black cherry',
+    panel:
+      'The black cherry is a fast-growing forest tree whose small, dark fruits feed birds and wildlife across eastern North America.',
+    disabled: false
   }
 ];

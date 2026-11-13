@@ -342,6 +342,62 @@ border. These changes can affect custom styles:
   stuck group row, not under them. A `scroll-padding-top` on the scroll
   container adds to this margin.
 
+#### Tabs
+
+`Tabs` has a new design, and tabs that do not fit move into an overflow menu
+instead of being clipped.
+
+- New heights: 40px horizontal tabs, 32px vertical tabs, no inline padding on
+  horizontal tabs. This changes the layout of every page that uses tabs.
+- A sliding indicator element (`tabs.indicator`) replaces the selected tab's
+  border. It is not in server-rendered HTML until the client measures; the
+  selected tab has `aria-selected` from the first render.
+- `Tabs.TabList` renders a container (`tabs.tablist_container`) around the tab
+  list. `className` and `style` go on the container; `ref` and the other props
+  stay on the `role="tablist"` element. Selectors on the list's children
+  (`:last-child`, `children.length`) can see the new elements.
+  `styled(Tabs.TabList)` rules that target the tabs with a child selector
+  (`& > [role='tab']`) no longer match: the tabs are one level deeper. Theme
+  overrides on `components['tabs.tablist']` no longer reach the rule under the
+  tabs or the tab list height; both moved to `tabs.tablist_container`.
+- Tabs are `display: flex` (they were `inline-block` or `block`), and the 20px
+  gap under the horizontal tab list is gone: panel content now touches the
+  rule.
+- Tabs no longer clip their content: a `max-width` on a tab no longer
+  truncates its label with an ellipsis. A long label widens the tab, and tabs
+  that do not fit move into the overflow menu.
+- The selected and hovered tab labels keep the default foreground color (they
+  were `foreground.primary`), and the pressed (`:active`) style is gone.
+  Selection is carried by the indicator.
+- Tabs that do not fit move into an overflow menu (`tabs.overflow_button`),
+  horizontally and, when the tab list height is constrained, vertically. Set
+  `renderOverflowLabel` on `Tabs.TabList` to localize the trigger. Set `label`
+  on tabs whose children are not plain text so the menu can name them. The
+  menu renders in the document body, so `overflow: hidden` or `overflow: auto`
+  ancestors no longer clip it.
+- Tabs must be `Tabs.Tab` elements or components that pass `item` through to
+  `Tabs.Tab`: the overflow menu pairs each collected tab with its element. A
+  tab rendered by a component without `item` could be clicked in v9 but was
+  skipped by the arrow keys. It now also never moves into the overflow menu,
+  so it can be clipped.
+- Tab `item` values must be unique strings or numbers. Object items were
+  already unreliable in v9 (every tab got the same `id`, and the arrow keys
+  focused the last tab); the overflow menu cannot tell them apart either.
+  `Tabs.Tab` and `Tabs.TabPanel` `item`, and `Tabs` `selectedItem` and
+  `defaultSelectedItem`, are now typed `string | number` (they were `any`).
+  `selectedItem` also accepts `null` to select no tab.
+- `onChange` no longer fires on mount. Use `defaultSelectedItem` or
+  `selectedItem` for the initial tab; without either, the first enabled tab is
+  selected on the first render.
+- The tab list gets `aria-label="Tabs"` unless you set `aria-label` or
+  `aria-labelledby`. Garden warns in development when the default is used. An
+  empty `aria-label=""` (or `null`) throws, as it does on every Garden
+  component that requires an accessible name. Set a non-empty label or use
+  `aria-labelledby`.
+- Disabled tabs keep `aria-selected`, `id` and `aria-controls`. Panels are
+  focusable (`tabIndex="0"`).
+- Vertical tabs stack above their panels below the `sm` breakpoint.
+
 #### Tag
 
 - `Tag` is **pill-shaped by default**. Pass `isPill={false}` for a square tag.

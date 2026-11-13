@@ -1656,17 +1656,35 @@ export interface IPaginationProps extends Omit<HTMLAttributes<HTMLElement>, 'onC
 //#endregion
 
 //#region tab
+export interface ITabListProps extends HTMLAttributes<HTMLDivElement> {
+  /**
+   * Overrides the label of the overflow menu trigger
+   *
+   * @param {number} hiddenCount The number of tabs in the overflow menu
+   * @param {string} [selectedLabel] The label of the selected tab, when it is in the overflow menu
+   *
+   * @returns {string} a replacement for the "+N tabs" text
+   */
+  renderOverflowLabel?: (hiddenCount: number, selectedLabel?: string) => string;
+}
 export interface ITabProps extends HTMLAttributes<HTMLDivElement> {
   /** Indicates that the element is not interactive */
   disabled?: boolean;
   /** Defines a unique value to identify the tab. Provided to the `onChange` event in the [Tabs](#tabs) component. */
-  item?: any;
+  item?: string | number;
+  /** Accepts an icon to display before the label */
+  icon?: ReactElement;
+  /**
+   * Provides the text label of the tab in the overflow menu (defaults to string `children`).
+   * Set it when the children are not plain text, for example when they include a `Tag`
+   */
+  label?: string;
 }
 export interface ITabPanelProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Defines a value used to match a tab panel with its associated tab
    */
-  item?: any;
+  item?: string | number;
 }
 export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -1674,13 +1692,17 @@ export interface ITabsProps extends HTMLAttributes<HTMLDivElement> {
    */
   isVertical?: boolean;
   /**
-   * Specifies the currently selected tab
+   * Specifies the currently selected tab. `null` selects no tab
    */
-  selectedItem?: any;
+  selectedItem?: string | number | null;
+  /**
+   * Sets the initially selected tab of an uncontrolled `Tabs`. Defaults to the first enabled tab
+   */
+  defaultSelectedItem?: string | number;
   /**
    * Handles tab selection
    *
-   * @param {String} selectedItem The selected tab's `item` value
+   * @param {string|number} selectedItem The selected tab's `item` value
    */
   onChange?: (selectedItem: any) => void;
 }
