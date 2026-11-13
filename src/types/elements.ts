@@ -1385,6 +1385,34 @@ export interface IToast {
 }
 //#endregion
 
+//#region segmented-control
+/**
+ * Standalone radio group of `SegmentedControl.Segment` children. Toolbar use is
+ * not supported. Provide `value` to control selection, or `defaultValue` to set
+ * the initial selection. With neither, nothing is selected until the user
+ * chooses a segment. Name the group with `aria-label` or `aria-labelledby`.
+ */
+export interface ISegmentedControlProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'defaultValue' | 'role' | 'tabIndex'
+> {
+  /** Sets the selected segment (controlled) */
+  value?: string;
+  /** Sets the initially selected segment (uncontrolled) */
+  defaultValue?: string;
+  /** Handles selection changes. Receives the `value` of the selected segment. */
+  onChange?: (value: string) => void;
+  /** Applies compact styling */
+  isCompact?: boolean;
+  /** Stretches the control to fill the width of its container */
+  isFullWidth?: boolean;
+}
+export interface ISegmentedControlSegmentProps extends HTMLAttributes<HTMLLabelElement> {
+  /** Identifies the segment. Must be unique within the control. */
+  value: string;
+}
+//#endregion
+
 //#region sheet
 export const SHEET_PLACEMENT = ['end', 'start'] as const;
 export interface ISheetProps extends HTMLAttributes<HTMLElement> {
