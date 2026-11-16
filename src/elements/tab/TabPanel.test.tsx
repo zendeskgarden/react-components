@@ -9,6 +9,7 @@ import { createRef } from 'react';
 
 import { render } from '../../test/render';
 import { TabPanel } from './TabPanel';
+import { Tabs } from './Tabs';
 
 describe('TabPanel', () => {
   it('is able to render without parent Tabs component', () => {
@@ -20,5 +21,48 @@ describe('TabPanel', () => {
     const { container } = render(<TabPanel ref={ref} />);
 
     expect(container.firstChild).toBe(ref.current);
+  });
+
+  it('is focusable by default', () => {
+    const { getByRole } = render(
+      <Tabs>
+        <Tabs.TabList>
+          <Tabs.Tab item="one">One</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="one">Panel one</Tabs.TabPanel>
+      </Tabs>
+    );
+
+    expect(getByRole('tabpanel')).toHaveAttribute('tabindex', '0');
+  });
+
+  it('accepts a tabIndex override', () => {
+    const { getByRole } = render(
+      <Tabs>
+        <Tabs.TabList>
+          <Tabs.Tab item="one">One</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="one" tabIndex={-1}>
+          Panel one
+        </Tabs.TabPanel>
+      </Tabs>
+    );
+
+    expect(getByRole('tabpanel')).toHaveAttribute('tabindex', '-1');
+  });
+
+  it('draws a focus ring when focused', () => {
+    const { getByRole } = render(
+      <Tabs>
+        <Tabs.TabList>
+          <Tabs.Tab item="one">One</Tabs.Tab>
+        </Tabs.TabList>
+        <Tabs.TabPanel item="one">Panel one</Tabs.TabPanel>
+      </Tabs>
+    );
+
+    expect(getByRole('tabpanel')).toHaveStyleRule('box-shadow', expect.anything(), {
+      modifier: ':focus-visible'
+    });
   });
 });

@@ -20,12 +20,14 @@ import type {
   IDatePickerState
 } from '../elements/datepicker/date-picker-reducer';
 import type { DateFnsIndex } from '../utils/datepicker/calendar-utils';
+import type { ITabData } from '../utils/tab/toTabs';
 import type {
   GridNumber,
   IAccordionProps,
   IGlobalAlertProps,
   ISplitterProps,
   ITableProps,
+  ITabsProps,
   Orientation,
   Size,
   Space,
@@ -217,8 +219,17 @@ export interface ISheetContext {
 //#endregion
 
 //#region tab
-export interface ITabsContext extends IUseTabsReturnValue<any> {
+export interface ITabsContext extends IUseTabsReturnValue<ITabsProps['selectedItem']> {
   isVertical?: boolean;
+  /** Selects a tab by value; the same handler the hook's `onSelect` calls */
+  select: (item: ITabsProps['selectedItem']) => void;
+  /** The tabs collected from the `Tabs` children, in DOM order */
+  tabs: ITabData[];
+  /** The number of leading tabs that fit outside the overflow menu (written by `TabList`) */
+  visibleCount: number;
+  setVisibleCount: (count: number) => void;
+  /** The index of the tab that holds the Tab stop, or -1 when no tab is navigable */
+  entryIndex: number;
 }
 //#endregion
 

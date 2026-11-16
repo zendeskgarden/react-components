@@ -274,6 +274,7 @@ export {
   type IStatusIndicatorProps,
   type IStepperLabelProps,
   type IStepperProps,
+  type ITabListProps,
   type ITabPanelProps,
   type ITabProps,
   type ITableProps,
