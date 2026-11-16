@@ -38,12 +38,5 @@ export const Example: StoryObj<typeof SkeletonStory> = {
       options: TYPE_SCALE_OPTIONS,
       table: { category: 'Story' }
     }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1502%3A141'
-    }
   }
 };

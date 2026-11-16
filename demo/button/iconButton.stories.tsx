@@ -27,12 +27,5 @@ export const Example: StoryObj<typeof IconButton> = {
     isBasic: true,
     isPill: true
   },
-  argTypes: { disabled: { control: 'boolean' } },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1494%3A11'
-    }
-  }
+  argTypes: { disabled: { control: 'boolean' } }
 };

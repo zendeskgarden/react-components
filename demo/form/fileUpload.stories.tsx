@@ -30,12 +30,5 @@ export const Example: StoryObj<typeof FileUploadStory> = {
     tabIndex: { control: 'number' },
 
     ...commonArgTypes
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=103%3A20268'
-    }
   }
 };
