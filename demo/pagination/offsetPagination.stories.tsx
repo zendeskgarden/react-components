@@ -55,12 +55,5 @@ export const Example: StoryObj<IArgs> = {
     page: { table: { category: 'Label' } },
     next: { table: { category: 'Label' } },
     previous: { table: { category: 'Label' } }
-  },
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=172%3A13037'
-    }
   }
 };

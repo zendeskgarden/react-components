@@ -20,12 +20,5 @@ export const Example: StoryObj<typeof Anchor> = {
     children: 'Text',
     isUnderlined: true
   },
-  name: 'Anchor',
-  parameters: {
-    design: {
-      allowFullscreen: true,
-      type: 'figma',
-      url: 'https://www.figma.com/file/6g87L4FdKZTA3knt3Rsfdx/Garden?node-id=1494%3A0'
-    }
-  }
+  name: 'Anchor'
 };
