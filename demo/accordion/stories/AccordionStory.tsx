@@ -5,9 +5,11 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+import Icon2 from '@zendeskgarden/svg-icons/src/folder-open-stroke.svg';
+import Icon1 from '@zendeskgarden/svg-icons/src/gear-stroke.svg';
+import PencilIcon from '@zendeskgarden/svg-icons/src/pencil-stroke.svg';
+import TrashIcon from '@zendeskgarden/svg-icons/src/trash-stroke.svg';
 import { MouseEventHandler } from 'react';
-import Icon2 from 'svg-icons-legacy/src/16/folder-open-stroke.svg';
-import Icon1 from 'svg-icons-legacy/src/16/gear-stroke.svg';
 
 import { Accordion, IAccordionProps, IconButton, Tooltip } from '../../../src/index';
 import { IAccordionSection } from './types';
@@ -41,7 +43,25 @@ const IconButtons = ({ isCompact }: IProps) => (
   </>
 );
 
+/* `Accordion.Actions` never toggles the section: no `preventDefault` needed. */
+const ActionButtons = () => (
+  <Accordion.Actions>
+    <Tooltip content="Edit">
+      <IconButton aria-label="Edit" isBasic isPill onClick={() => undefined}>
+        <PencilIcon />
+      </IconButton>
+    </Tooltip>
+    <Tooltip content="Delete">
+      <IconButton aria-label="Delete" isBasic isPill onClick={() => undefined}>
+        <TrashIcon />
+      </IconButton>
+    </Tooltip>
+  </Accordion.Actions>
+);
+
 interface IArgs extends IAccordionProps {
+  hasActions: boolean;
+  hasDescription: boolean;
   hasIconButtons: boolean;
   sections: IAccordionSection[];
 }
@@ -51,7 +71,13 @@ export const AccordionStory = ({ sections, ...args }: IArgs) => (
     {sections.map((section, index) => (
       <Accordion.Section key={index}>
         <Accordion.Header>
-          <Accordion.Label>{section.headerLabel}</Accordion.Label>
+          <Accordion.Label>
+            {section.headerLabel}
+            {!!args.hasDescription && !!section.description && (
+              <Accordion.Description>{section.description}</Accordion.Description>
+            )}
+          </Accordion.Label>
+          {!!args.hasActions && <ActionButtons />}
           {!!args.hasIconButtons && <IconButtons isCompact={args.isCompact || false} />}
         </Accordion.Header>
         <Accordion.Panel>{section.panel}</Accordion.Panel>

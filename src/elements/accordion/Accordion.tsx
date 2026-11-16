@@ -13,6 +13,8 @@ import { SectionProvider } from '../../context/accordion/SectionContext';
 import { IAccordionProps } from '../../types/elements';
 import { StyledAccordion } from '../../views/accordion/StyledAccordion';
 import { COMPONENT_IDS } from '../utils';
+import { Actions } from './Actions';
+import { Description } from './Description';
 import { Header } from './Header';
 import { Label } from './Label';
 import { Panel } from './Panel';
@@ -27,6 +29,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       isAnimated = true,
       isExpandable,
       isCollapsible = true,
+      isWell,
       level,
       onChange,
       defaultExpandedSections,
@@ -76,6 +79,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         isCompact,
         isAnimated,
         isCollapsible,
+        isWell,
         getPanelProps,
         getHeaderProps,
         getTriggerProps,
@@ -87,6 +91,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
         isCompact,
         isAnimated,
         isCollapsible,
+        isWell,
         getPanelProps,
         getHeaderProps,
         getTriggerProps,
@@ -115,12 +120,16 @@ AccordionComponent.displayName = 'Accordion';
  * @extends HTMLAttributes<HTMLDivElement>
  */
 export const Accordion = AccordionComponent as typeof AccordionComponent & {
+  Actions: typeof Actions;
+  Description: typeof Description;
   Header: typeof Header;
   Label: typeof Label;
   Panel: typeof Panel;
   Section: typeof Section;
 };
 
+Accordion.Actions = Actions;
+Accordion.Description = Description;
 Accordion.Header = Header;
 Accordion.Label = Label;
 Accordion.Panel = Panel;

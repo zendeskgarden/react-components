@@ -15,7 +15,7 @@ import { COMPONENT_IDS, getInertValue } from '../utils';
 
 const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
   ({ role, children, ...props }, ref) => {
-    const { isAnimated, isBare, isCompact, expandedSections, getPanelProps } =
+    const { isAnimated, isBare, isCompact, isWell, expandedSections, getPanelProps } =
       useAccordionContext();
     const sectionValue = useSectionContext();
     const isExpanded = expandedSections.includes(sectionValue);
@@ -27,6 +27,7 @@ const PanelComponent = forwardRef<HTMLElement, HTMLAttributes<HTMLElement>>(
         $isBare={isBare}
         $isCompact={isCompact}
         $isExpanded={isExpanded}
+        $isWell={isWell}
         {...(getPanelProps({
           role: role === undefined ? null : 'region',
           ref,

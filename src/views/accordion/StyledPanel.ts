@@ -17,7 +17,17 @@ interface IStyledPanel {
   $isCompact?: boolean;
   $isExpanded?: boolean;
   $isAnimated?: boolean;
+  $isWell?: boolean;
 }
+
+/* Well panels have no bottom border (`isBare` is ignored) and sit on the
+ * card with their own background. */
+const wellColorStyles = ({ theme }: WithTheme<IStyledPanel>) => {
+  return css`
+    background-color: ${getColor({ theme, variable: 'background.default' })};
+    color: ${getColor({ theme, variable: 'foreground.default' })};
+  `;
+};
 
 const colorStyles = ({ theme, $isBare }: WithTheme<IStyledPanel>) => {
   return css`
@@ -54,6 +64,31 @@ const sizeStyles = (props: WithTheme<IStyledPanel>) => {
   `;
 };
 
+/* Well padding: 20px top, 40px sides and 40px bottom (20px compact); the
+ * side padding stays while collapsed. */
+const wellSizeStyles = (props: WithTheme<IStyledPanel>) => {
+  const { theme, $isCompact, $isExpanded } = props;
+  const { base } = theme.space;
+  let paddingTop = base * 5;
+  const paddingHorizontal = base * 10;
+  let paddingBottom = $isCompact ? base * 5 : base * 10;
+
+  if ($isExpanded === false) {
+    paddingTop = 0;
+    paddingBottom = 0;
+  }
+
+  return css`
+    border-bottom: none;
+    border-radius: ${theme.borderRadii.xl};
+    padding: ${paddingTop}px ${paddingHorizontal}px ${paddingBottom}px;
+    line-height: ${getLineHeight(base * 5, theme.fontSizes.md)};
+    font-size: ${theme.fontSizes.md};
+    grid-template-rows: ${$isExpanded ? 1 : 0}fr;
+    overflow-wrap: anywhere;
+  `;
+};
+
 export const StyledPanel = styled.section<WithTheme<IStyledPanel>>`
   display: grid;
   transition: ${props =>
@@ -63,8 +98,8 @@ export const StyledPanel = styled.section<WithTheme<IStyledPanel>>`
     'padding 0.25s ease-in-out, grid-template-rows 0.25s ease-in-out'};
   overflow: hidden;
 
-  ${sizeStyles}
-  ${colorStyles}
+  ${props => (props.$isWell ? wellSizeStyles(props) : sizeStyles(props))}
+  ${props => (props.$isWell ? wellColorStyles(props) : colorStyles(props))}
 
   ${componentStyles};
 `;

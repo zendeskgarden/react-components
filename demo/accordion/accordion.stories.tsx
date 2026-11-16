@@ -8,7 +8,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import { Accordion } from '../../src/index';
+import { Accordion, DEFAULT_THEME } from '../../src/index';
 import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 type Story = StoryObj<typeof AccordionStory>;
@@ -17,6 +17,8 @@ export default {
   title: 'Components/Accordion',
   component: Accordion,
   subcomponents: {
+    'Accordion.Actions': Accordion.Actions,
+    'Accordion.Description': Accordion.Description,
     'Accordion.Header': Accordion.Header,
     'Accordion.Label': Accordion.Label,
     'Accordion.Panel': Accordion.Panel,
@@ -24,11 +26,22 @@ export default {
   },
   args: {
     isAnimated: true,
+    isWell: false,
     level: 1,
+    hasActions: false,
+    hasDescription: false,
     hasIconButtons: false,
     sections: SECTIONS
   },
   argTypes: {
+    hasActions: {
+      name: 'Accordion.Actions',
+      table: { category: 'Story' }
+    },
+    hasDescription: {
+      name: 'Accordion.Description',
+      table: { category: 'Story' }
+    },
     hasIconButtons: {
       name: 'Accordion.Header icon buttons',
       table: { category: 'Story' }
@@ -69,5 +82,22 @@ export const Controlled: Story = {
     defaultExpandedSections: { control: false },
     isCollapsible: { control: false },
     isExpandable: { control: false }
+  }
+};
+
+export const Well: Story = {
+  render: args => <AccordionStory {...args} />,
+  args: {
+    isWell: true,
+    isExpandable: true,
+    /* The first section expands by default; wells start collapsed. */
+    defaultExpandedSections: [],
+    hasDescription: true,
+    hasActions: true,
+    /* Wells have no built-in spacing: a flex gap is the recommended recipe. */
+    style: { display: 'flex', flexDirection: 'column', gap: DEFAULT_THEME.space.xl }
+  },
+  argTypes: {
+    expandedSections: { control: false }
   }
 };

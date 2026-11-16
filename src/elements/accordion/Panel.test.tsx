@@ -133,4 +133,67 @@ describe('Panel', () => {
       expect(getByRole('region')).not.toHaveStyleRule('transition');
     });
   });
+
+  describe('Well styling', () => {
+    const { base } = DEFAULT_THEME.space;
+
+    it('renders expanded well padding', () => {
+      const { getByRole } = renderPanel({ isWell: true, defaultExpandedSections: [0] });
+
+      expect(getByRole('region')).toHaveStyleRule(
+        'padding',
+        `${base * 5}px ${base * 10}px ${base * 10}px`
+      );
+    });
+
+    it('renders compact expanded well padding', () => {
+      const { getByRole } = renderPanel({
+        isWell: true,
+        isCompact: true,
+        defaultExpandedSections: [0]
+      });
+
+      expect(getByRole('region')).toHaveStyleRule(
+        'padding',
+        `${base * 5}px ${base * 10}px ${base * 5}px`
+      );
+    });
+
+    it('renders collapsed well padding', () => {
+      const { getByRole } = renderPanel({ isWell: true, defaultExpandedSections: [] });
+
+      expect(getByRole('region', { hidden: true })).toHaveStyleRule(
+        'padding',
+        `0px ${base * 10}px 0px`
+      );
+    });
+
+    it.each([
+      ['light', DEFAULT_THEME],
+      ['dark', DARK_THEME]
+    ] as const)('renders the background, color and radius in %s mode', (_, theme) => {
+      const { getByRole } = renderPanel({ isWell: true }, theme);
+      const panel = getByRole('region');
+
+      expect(panel).toHaveStyleRule(
+        'background-color',
+        getColor({ theme, variable: 'background.default' })
+      );
+      expect(panel).toHaveStyleRule('color', getColor({ theme, variable: 'foreground.default' }));
+      expect(panel).toHaveStyleRule('border-radius', theme.borderRadii.xl);
+      expect(panel).toHaveStyleRule('overflow-wrap', 'anywhere');
+    });
+
+    it('renders no bottom border, even when bare', () => {
+      const { getByRole, unmount } = renderPanel({ isWell: true });
+
+      expect(getByRole('region')).toHaveStyleRule('border-bottom', 'none');
+
+      unmount();
+
+      const { getByRole: getBareByRole } = renderPanel({ isWell: true, isBare: true });
+
+      expect(getBareByRole('region')).toHaveStyleRule('border-bottom', 'none');
+    });
+  });
 });

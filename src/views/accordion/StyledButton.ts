@@ -19,6 +19,7 @@ interface IStyledButton {
   $isHovered?: boolean;
   $isCollapsible?: boolean;
   $isExpanded?: boolean;
+  $isWell?: boolean;
 }
 
 const colorStyles = ({
@@ -43,6 +44,16 @@ const colorStyles = ({
   `;
 };
 
+/* Well labels fill the heading, wrap anywhere and stay `foreground.default`:
+ * no `foreground.primary` hover in well mode. */
+const wellStyles = ({ theme }: WithTheme<IStyledButton>) => css`
+  flex: 1;
+  padding: ${theme.space.md};
+  min-width: 0;
+  color: ${getColor({ theme, variable: 'foreground.default' })};
+  overflow-wrap: anywhere;
+`;
+
 /**
  * 1. <button> override.
  * 2. Remove dotted outline from Firefox on focus.
@@ -63,7 +74,7 @@ export const StyledButton = styled.button<WithTheme<IStyledButton>>`
   font-size: ${props => props.theme.fontSizes.md};
   font-weight: ${props => props.theme.fontWeights.semibold};
 
-  ${colorStyles}
+  ${props => (props.$isWell ? wellStyles(props) : colorStyles(props))}
 
   &::-moz-focus-inner {
     border: 0; /* [2] */

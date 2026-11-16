@@ -56,12 +56,14 @@ export interface IAccordionProps<Value = any> extends Omit<
   isBare?: boolean;
   /** Allows uncontrolled accordion sections to collapse */
   isCollapsible?: boolean;
-  /** Applies compact styling */
+  /** Applies compact styling. With `isWell`, reduces only the panel's bottom padding. */
   isCompact?: boolean;
   /** Animates section expansion and collapse */
   isAnimated?: boolean;
   /** Enables simultaneous expansion of uncontrolled accordion sections */
   isExpandable?: boolean;
+  /** Applies well styling to each section */
+  isWell?: boolean;
   /**
    * Handles accordion expansion changes
    *

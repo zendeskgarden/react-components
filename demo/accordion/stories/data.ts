@@ -10,6 +10,7 @@ import { IAccordionSection, IStepperStep, ITimelineItem } from './types';
 export const ACCORDION_SECTIONS: IAccordionSection[] = [
   {
     headerLabel: 'Turnip greens yarrow',
+    description: 'Harvested 2 days ago',
     panel: `Turnip greens yarrow ricebean rutabaga endive cauliflower sea
     lettuce kohlrabi amaranth water spinach avocado daikon napa cabbage
     asparagus winter purslane kale. Celery potato scallion desert raisin
@@ -20,6 +21,7 @@ export const ACCORDION_SECTIONS: IAccordionSection[] = [
   },
   {
     headerLabel: 'Corn amaranth salsify',
+    description: 'Watered this morning',
     panel: `Corn amaranth salsify bunya nuts nori azuki bean chickweed potato
     bell pepper artichoke. Nori grape silver beet broccoli kombu beet greens
     fava bean potato quandong celery.  Bunya nuts black-eyed pea prairie turnip
@@ -29,6 +31,7 @@ export const ACCORDION_SECTIONS: IAccordionSection[] = [
   },
   {
     headerLabel: 'Celery quandong swiss',
+    description: 'Ready to pick',
     panel: `Celery quandong swiss chard chicory earthnut pea potato. Salsify
     taro catsear garlic gram celery bitterleaf wattle seed collard greens nori.
     Grape wattle seed kombu beetroot horseradish carrot squash brussels sprout
@@ -38,6 +41,7 @@ export const ACCORDION_SECTIONS: IAccordionSection[] = [
   },
   {
     headerLabel: 'Grape silver beet',
+    description: 'Planted last spring',
     panel: `Grape silver beet watercress potato tigernut corn groundnut.
     Chickweed okra winter purslane coriander yarrow sweet pepper radish garlic
     brussels sprout pea groundnut summer purslane earthnut pea tomato spring
@@ -47,6 +51,7 @@ export const ACCORDION_SECTIONS: IAccordionSection[] = [
   },
   {
     headerLabel: 'Soko radicchio bunya',
+    description: 'Needs full sun',
     panel: `Soko radicchio bunya nuts gram dulse silver beet parsnip napa
     cabbage lotus root sea lettuce brussels sprout cabbage. Catsear cauliflower
     garbanzo yarrow salsify chicory garlic bell pepper napa cabbage lettuce

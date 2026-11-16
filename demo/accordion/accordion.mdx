@@ -20,3 +20,52 @@ import * as Stories from './accordion.stories';
 <Canvas>
   <Story of={Stories.Controlled} />
 </Canvas>
+
+## Well
+
+<Markdown>
+  {`Pass \`isWell\` to render each section as a bordered well card. Without
+\`defaultExpandedSections\`, the first section expands by default; the Well
+story starts collapsed.
+
+Wells have no built-in spacing. Add a gap between sections with a flex layout:
+
+\`\`\`tsx
+
+<Accordion
+  isWell
+  isExpandable
+  defaultExpandedSections={[]}
+  style={{ display: 'flex', flexDirection: 'column', gap: theme.space.xl }}
+>
+\`\`\`
+`}
+</Markdown>
+
+<Canvas>
+  <Story of={Stories.Well} />
+</Canvas>
+
+### Accordion.Actions
+
+<Markdown>
+  {`\`Accordion.Actions\` holds header buttons that never toggle the section,
+in any accordion (with or without \`isWell\`). Rendered as a direct child of
+\`Accordion.Header\`, it sits outside the heading, so action labels stay out of
+the heading's accessible name.
+
+- Render it as a direct child of \`Accordion.Header\` (a fragment is fine), so
+  it sits outside the heading. An \`Accordion.Actions\` nested in a consumer
+  component stays inside the heading: it still never toggles, but its labels
+  join the heading name (a development warning flags this).
+- Keep it mounted (even empty) when its contents are conditional and \`isWell\`
+  isn't set. Mounting or unmounting it switches the header layout and focus is
+  lost. With \`isWell\`, the header row is always rendered, so this can't
+  happen.
+- In the row layout, a consumer \`onClick\` on \`Accordion.Header\` doesn't
+  fire for clicks on the actions or the chevron.
+- Consumer \`className\`, \`style\` and \`accordions.header\` theme overrides
+  apply to the heading, not the full row. Use \`accordions.header_row\` for the
+  row.
+  `}
+  </Markdown>
