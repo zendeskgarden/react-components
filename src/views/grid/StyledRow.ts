@@ -10,6 +10,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import mediaQuery from '../../theming/utils/mediaQuery';
 import { AlignItems, IGridProps, IGridRowProps, JustifyContent, Wrap } from '../../types/elements';
 import type { WithTheme } from '../../types/views';
 
@@ -78,15 +79,17 @@ const flexStyles = (alignItems?: AlignItems, justifyContent?: JustifyContent, wr
   `;
 };
 
+type BreakpointKey = Extract<Parameters<typeof mediaQuery>[1], string>;
+
 const mediaStyles = (
-  minWidth: string,
+  breakpoint: BreakpointKey,
+  theme: WithTheme['theme'],
   alignItems?: AlignItems,
   justifyContent?: JustifyContent,
   wrap?: Wrap
 ) => {
   return css`
-    /* stylelint-disable-next-line media-query-no-invalid */
-    @media (min-width: ${minWidth}) {
+    ${mediaQuery('up', breakpoint, theme)} {
       ${flexStyles(alignItems, justifyContent, wrap)};
     }
   `;
@@ -114,44 +117,19 @@ export const StyledRow = styled.div<WithTheme<IStyledRowProps>>`
   ${props => props.$debug && colorStyles(props)};
 
   ${props =>
-    mediaStyles(
-      props.theme.breakpoints.xs,
-      props.$alignItemsXs,
-      props.$justifyContentXs,
-      props.$wrapXs
-    )};
+    mediaStyles('xs', props.theme, props.$alignItemsXs, props.$justifyContentXs, props.$wrapXs)};
 
   ${props =>
-    mediaStyles(
-      props.theme.breakpoints.sm,
-      props.$alignItemsSm,
-      props.$justifyContentSm,
-      props.$wrapSm
-    )};
+    mediaStyles('sm', props.theme, props.$alignItemsSm, props.$justifyContentSm, props.$wrapSm)};
 
   ${props =>
-    mediaStyles(
-      props.theme.breakpoints.md,
-      props.$alignItemsMd,
-      props.$justifyContentMd,
-      props.$wrapMd
-    )};
+    mediaStyles('md', props.theme, props.$alignItemsMd, props.$justifyContentMd, props.$wrapMd)};
 
   ${props =>
-    mediaStyles(
-      props.theme.breakpoints.lg,
-      props.$alignItemsLg,
-      props.$justifyContentLg,
-      props.$wrapLg
-    )};
+    mediaStyles('lg', props.theme, props.$alignItemsLg, props.$justifyContentLg, props.$wrapLg)};
 
   ${props =>
-    mediaStyles(
-      props.theme.breakpoints.xl,
-      props.$alignItemsXl,
-      props.$justifyContentXl,
-      props.$wrapXl
-    )};
+    mediaStyles('xl', props.theme, props.$alignItemsXl, props.$justifyContentXl, props.$wrapXl)};
 
   ${componentStyles};
 `;

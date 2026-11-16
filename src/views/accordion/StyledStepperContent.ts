@@ -35,8 +35,8 @@ export const StyledContent = styled.div<WithTheme<IStyledContent>>`
   display: grid;
   grid-template-rows: ${props => (props.$isActive ? 1 : 0)}fr;
   transition: grid-template-rows 0.25s ease-in-out;
-  /* stylelint-disable-next-line declaration-property-value-keyword-no-deprecated */
-  word-break: break-word;
+  overflow-wrap: anywhere;
+  word-break: normal;
 
   ${sizeStyles}
 

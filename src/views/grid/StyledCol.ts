@@ -10,6 +10,7 @@ import { styled, css } from 'styled-components';
 
 import { componentStyles } from '../../theming/utils/componentStyles';
 import { getColor } from '../../theming/utils/getColor';
+import mediaQuery from '../../theming/utils/mediaQuery';
 import {
   AlignSelf,
   Breakpoint,
@@ -136,8 +137,10 @@ const flexStyles = (
   `;
 };
 
+type BreakpointKey = Extract<Parameters<typeof mediaQuery>[1], string>;
+
 const mediaStyles = (
-  minWidth: string,
+  breakpoint: BreakpointKey,
   size: Breakpoint | undefined,
   alignSelf: AlignSelf | undefined,
   textAlign: TextAlign | undefined,
@@ -146,8 +149,7 @@ const mediaStyles = (
   props: WithTheme<IStyledColProps>
 ) => {
   return css`
-    /* stylelint-disable-next-line media-query-no-invalid */
-    @media (min-width: ${minWidth}) {
+    ${mediaQuery('up', breakpoint, props.theme)} {
       ${flexStyles(size, alignSelf, textAlign, offset, order, props)};
     }
   `;
@@ -184,7 +186,7 @@ export const StyledCol = styled.div<WithTheme<IStyledColProps>>`
 
   ${props =>
     mediaStyles(
-      props.theme.breakpoints.xs,
+      'xs',
       props.$xs,
       props.$alignSelfXs,
       props.$textAlignXs,
@@ -195,7 +197,7 @@ export const StyledCol = styled.div<WithTheme<IStyledColProps>>`
 
   ${props =>
     mediaStyles(
-      props.theme.breakpoints.sm,
+      'sm',
       props.$sm,
       props.$alignSelfSm,
       props.$textAlignSm,
@@ -206,7 +208,7 @@ export const StyledCol = styled.div<WithTheme<IStyledColProps>>`
 
   ${props =>
     mediaStyles(
-      props.theme.breakpoints.md,
+      'md',
       props.$md,
       props.$alignSelfMd,
       props.$textAlignMd,
@@ -217,7 +219,7 @@ export const StyledCol = styled.div<WithTheme<IStyledColProps>>`
 
   ${props =>
     mediaStyles(
-      props.theme.breakpoints.lg,
+      'lg',
       props.$lg,
       props.$alignSelfLg,
       props.$textAlignLg,
@@ -228,7 +230,7 @@ export const StyledCol = styled.div<WithTheme<IStyledColProps>>`
 
   ${props =>
     mediaStyles(
-      props.theme.breakpoints.xl,
+      'xl',
       props.$xl,
       props.$alignSelfXl,
       props.$textAlignXl,
