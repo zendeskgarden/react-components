@@ -81,7 +81,7 @@ export const Controlled: Story = {
   argTypes: {
     defaultExpandedSections: { control: false },
     isCollapsible: { control: false },
-    isExpandable: { control: false }
+    isMultiExpandable: { control: false }
   }
 };
 
@@ -89,7 +89,7 @@ export const Well: Story = {
   render: args => <AccordionStory {...args} />,
   args: {
     isWell: true,
-    isExpandable: true,
+    isMultiExpandable: true,
     /* The first section expands by default; wells start collapsed. */
     defaultExpandedSections: [],
     hasDescription: true,

@@ -407,6 +407,13 @@ instead of being clipped.
   the solid look. A hex `hue`, `hue="white"` and `hue="black"` keep the solid
   fill with or without `isEmphasis`.
 
+#### Accordion
+
+- `isExpandable` is deprecated in favor of `isMultiExpandable`. Both props
+  behave the same: they let several uncontrolled sections stay open at once.
+  `isExpandable` still works, so rename it when it suits your code. It will be
+  removed in a future major release.
+
 ## v9
 
 [Migration Guide](https://github.com/zendeskgarden/react-components/blob/main/docs/migrations/v9.md)

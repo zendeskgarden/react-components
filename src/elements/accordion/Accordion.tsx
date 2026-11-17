@@ -27,6 +27,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       isBare,
       isCompact,
       isAnimated = true,
+      isMultiExpandable,
       isExpandable,
       isCollapsible = true,
       isWell,
@@ -68,7 +69,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       defaultExpandedSections,
       expandedSections: controlledExpandedSections,
       collapsible: isCollapsible,
-      expandable: isExpandable || false,
+      expandable: isMultiExpandable || isExpandable || false,
       onChange
     });
 

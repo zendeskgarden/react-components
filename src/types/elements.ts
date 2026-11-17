@@ -61,6 +61,8 @@ export interface IAccordionProps<Value = any> extends Omit<
   /** Animates section expansion and collapse */
   isAnimated?: boolean;
   /** Enables simultaneous expansion of uncontrolled accordion sections */
+  isMultiExpandable?: boolean;
+  /** @deprecated use `isMultiExpandable` instead */
   isExpandable?: boolean;
   /** Applies well styling to each section */
   isWell?: boolean;

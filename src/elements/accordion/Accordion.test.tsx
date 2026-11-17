@@ -89,9 +89,9 @@ describe('Accordion', () => {
       expect(getByTestId('accordion')).not.toHaveAttribute('isWell');
     });
 
-    it('toggles sections independently with isExpandable', async () => {
+    it('toggles sections independently with isMultiExpandable', async () => {
       render(
-        <Accordion level={3} isWell isExpandable defaultExpandedSections={[]}>
+        <Accordion level={3} isWell isMultiExpandable defaultExpandedSections={[]}>
           {wellSections()}
         </Accordion>
       );
@@ -114,6 +114,22 @@ describe('Accordion', () => {
       expect(corn).toHaveAttribute('aria-expanded', 'true');
     });
 
+    it('still honors the deprecated isExpandable prop', async () => {
+      render(
+        <Accordion level={3} isWell isExpandable defaultExpandedSections={[]}>
+          {wellSections()}
+        </Accordion>
+      );
+      const turnip = screen.getByRole('button', { name: 'Turnip' });
+      const corn = screen.getByRole('button', { name: 'Corn' });
+
+      await user.click(turnip);
+      await user.click(corn);
+
+      expect(turnip).toHaveAttribute('aria-expanded', 'true');
+      expect(corn).toHaveAttribute('aria-expanded', 'true');
+    });
+
     it('supports controlled expandedSections with onChange', async () => {
       const Fixture = () => {
         const [expandedSections, setExpandedSections] = useState<number[]>([0]);
@@ -128,7 +144,7 @@ describe('Accordion', () => {
           <Accordion
             level={3}
             isWell
-            isExpandable
+            isMultiExpandable
             expandedSections={expandedSections}
             onChange={handleChange}
           >
