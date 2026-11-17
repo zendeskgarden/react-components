@@ -267,7 +267,7 @@ describe('Modal', () => {
         'max-height',
         `calc(100vh - ${DEFAULT_THEME.space.base * 12}px)`,
         {
-          media: '(max-height: 399px)'
+          media: '(height <= 399px)'
         }
       );
     });

@@ -89,8 +89,7 @@ export const StyledModal = styled.div<WithTheme<IStyledModalProps>>`
     outline: none;
   }
 
-  /* stylelint-disable-next-line */
-  @media (max-height: 399px) {
+  @media (height <= 399px) {
     top: ${props => props.theme.space.base * 6}px;
     bottom: auto;
     margin-bottom: ${props => props.theme.space.base * 6}px;
