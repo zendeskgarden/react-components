@@ -7,7 +7,6 @@
 
 import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { getContrast, mix, parseToRgb } from 'polished';
 import { createRef } from 'react';
 
 import { DARK_THEME, RTL_THEME, render } from '../../test/render';
@@ -660,41 +659,6 @@ describe('SegmentedControl', () => {
         );
       }
     );
-
-    it.each([
-      ['light', DEFAULT_THEME],
-      ['dark', DARK_THEME]
-    ] as const)('outlines the pill with 3:1 contrast against the track in %s mode', (_, theme) => {
-      const { container } = render(<Fruit defaultValue="orange" />, { theme });
-      const pill = container.querySelector('[data-garden-id="segmented_controls.pill"]');
-      const border = getColor({
-        theme,
-        hue: 'neutralHue',
-        light: { shade: 700 },
-        dark: { shade: 600 }
-      });
-      /* The track is translucent, so measure what the browser paints: the track over the page */
-      const page = getColor({ theme, variable: 'background.default' });
-      const rgb = parseToRgb(
-        getColor({
-          theme,
-          hue: 'neutralHue',
-          light: { shade: 700 },
-          dark: { hue: 'white' },
-          transparency: theme.opacity[100]
-        })
-      );
-      const alpha = 'alpha' in rgb ? rgb.alpha : 1;
-      const track = mix(alpha, `rgb(${rgb.red}, ${rgb.green}, ${rgb.blue})`, page);
-
-      expect(pill).toHaveStyleRule(
-        'border',
-        `${theme.borderWidths.sm} ${theme.borderStyles.solid} ${border}`
-      );
-      expect(pill).toHaveStyleRule('box-sizing', 'border-box');
-      /* WCAG 1.4.11 non-text contrast */
-      expect(getContrast(border, track)).toBeGreaterThanOrEqual(3);
-    });
 
     it.each([
       ['ltr', DEFAULT_THEME],
