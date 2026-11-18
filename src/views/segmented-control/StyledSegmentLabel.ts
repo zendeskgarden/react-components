@@ -1,0 +1,20 @@
+/**
+ * Copyright Zendesk, Inc.
+ *
+ * Use of this source code is governed under the Apache License, Version 2.0
+ * found at http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+import { styled } from 'styled-components';
+
+import { componentStyles } from '../../theming/utils/componentStyles';
+import type { WithTheme } from '../../types/views';
+
+/* Sits above the pill so segment text is never covered by it */
+export const StyledSegmentLabel = styled.label<WithTheme>`
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+
+  ${componentStyles};
+`;

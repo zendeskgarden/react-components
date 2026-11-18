@@ -1,0 +1,74 @@
+import { Meta, ArgTypes, Canvas, Story } from '@storybook/addon-docs/blocks';
+import * as Stories from './segmented-control.stories';
+
+<Meta of={Stories} />
+
+# API
+
+<ArgTypes />
+
+# Usage
+
+Use a segmented control to switch a value or filter that applies to the content already on the
+page, such as a time range. Each segment is a `SegmentedControl.Segment` with a unique `value`.
+
+- Name the group with `aria-label` or `aria-labelledby`. A development warning appears without one.
+- Do not use it to switch between panels of content. Use Tabs for that, which carry the matching
+  tab and panel semantics.
+- Do not navigate in `onChange`. Arrow keys select as they move, so every keypress would navigate.
+  Use links or Tabs for navigation.
+- Keep to a few short labels. The control never shrinks below its labels, so many options overflow
+  narrow containers. Use a Select or Combobox for long lists.
+
+## Keyboard
+
+The segments are a native radio group. Tab enters on the selected segment, or the first when none
+is selected. The arrow keys move focus and select, wrapping at either end (left and right are
+reversed in right-to-left layouts). Space selects the focused segment. Enter does nothing, as for
+any radio group.
+
+# Demo
+
+Use the toolbar to check right-to-left, dark mode, and Bedrock.
+
+## Uncontrolled
+
+<Canvas>
+  <Story of={Stories.Uncontrolled} />
+</Canvas>
+
+## Controlled
+
+<Canvas>
+  <Story of={Stories.Controlled} />
+</Canvas>
+
+## Compact
+
+<Canvas>
+  <Story of={Stories.Compact} />
+</Canvas>
+
+## Full width
+
+<Canvas>
+  <Story of={Stories.FullWidth} />
+</Canvas>
+
+## No selection
+
+<Canvas>
+  <Story of={Stories.NoSelection} />
+</Canvas>
+
+## Long labels
+
+<Canvas>
+  <Story of={Stories.LongLabels} />
+</Canvas>
+
+## Many options
+
+<Canvas>
+  <Story of={Stories.ManyOptions} />
+</Canvas>
