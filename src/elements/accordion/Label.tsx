@@ -16,9 +16,13 @@ import { COMPONENT_IDS } from '../utils';
 const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLButtonElement>>(
   (props, ref) => {
     const sectionValue = useSectionContext();
-    const { isCompact, isCollapsible, expandedSections } = useAccordionContext();
+    const { isCompact, isCollapsible, isWell, expandedSections } = useAccordionContext();
     const isExpanded = expandedSections.includes(sectionValue);
-    const { isHovered, otherTriggerProps } = useHeaderContext();
+    const { isHovered, otherTriggerProps, descriptionId } = useHeaderContext();
+    /* Consumer ids first; the `Accordion.Description` id follows. No
+     * attribute at all when neither exists. */
+    const ariaDescribedBy =
+      [props['aria-describedby'], descriptionId].filter(Boolean).join(' ') || undefined;
 
     return (
       <StyledButton
@@ -27,8 +31,10 @@ const LabelComponent = forwardRef<HTMLButtonElement, ButtonHTMLAttributes<HTMLBu
         $isHovered={isHovered}
         $isExpanded={isExpanded}
         $isCollapsible={isCollapsible}
+        $isWell={isWell}
         {...otherTriggerProps}
         {...props}
+        aria-describedby={ariaDescribedBy}
         data-garden-id={COMPONENT_IDS['accordions.button']}
         data-garden-version={PACKAGE_VERSION}
       />

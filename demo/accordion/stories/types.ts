@@ -8,6 +8,7 @@
 export interface IAccordionSection {
   headerLabel: string;
   panel: string;
+  description?: string;
 }
 
 export interface IStepperStep {

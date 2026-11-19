@@ -124,5 +124,87 @@ describe('Label', () => {
         modifier: '&:hover'
       });
     });
+
+    it('stays foreground.default on hover in well mode', () => {
+      const { getByRole } = renderLabel({ isWell: true });
+
+      fireEvent.mouseOver(getByRole('heading'));
+
+      expect(getByRole('button')).toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.default' })
+      );
+      expect(getByRole('button')).not.toHaveStyleRule(
+        'color',
+        getColor({ theme: DEFAULT_THEME, variable: 'foreground.primary' })
+      );
+    });
+
+    it('renders well padding whatever the density', () => {
+      const { getByRole } = renderLabel({ isWell: true, isCompact: true });
+
+      expect(getByRole('button')).toHaveStyleRule('padding', DEFAULT_THEME.space.md);
+    });
+  });
+
+  describe('Description', () => {
+    const DESCRIPTION = '[data-garden-id="accordions.description"]';
+
+    const renderWithDescription = (labelProps?: Record<string, string>) =>
+      render(
+        <Accordion level={3}>
+          <Accordion.Section>
+            <Accordion.Header>
+              <Accordion.Label {...labelProps}>
+                Ticket details
+                <Accordion.Description>Last updated 2 hours ago</Accordion.Description>
+              </Accordion.Label>
+            </Accordion.Header>
+          </Accordion.Section>
+        </Accordion>
+      );
+
+    it('names the button with the label only and describes it with the description', () => {
+      const { container, getByRole } = renderWithDescription();
+      const button = getByRole('button', { name: 'Ticket details' });
+
+      expect(button).toHaveAccessibleDescription('Last updated 2 hours ago');
+      expect(button).toHaveAttribute('aria-describedby', container.querySelector(DESCRIPTION)!.id);
+    });
+
+    it('combines a consumer aria-describedby with the description id', () => {
+      const { container, getByRole } = renderWithDescription({
+        'aria-describedby': 'consumer-id'
+      });
+
+      expect(getByRole('button')).toHaveAttribute(
+        'aria-describedby',
+        `consumer-id ${container.querySelector(DESCRIPTION)!.id}`
+      );
+    });
+
+    it('removes the attribute when the description unmounts', () => {
+      const { getByRole, rerender } = renderWithDescription();
+
+      expect(getByRole('button')).toHaveAttribute('aria-describedby');
+
+      rerender(
+        <Accordion level={3}>
+          <Accordion.Section>
+            <Accordion.Header>
+              <Accordion.Label>Ticket details</Accordion.Label>
+            </Accordion.Header>
+          </Accordion.Section>
+        </Accordion>
+      );
+
+      expect(getByRole('button')).not.toHaveAttribute('aria-describedby');
+    });
+
+    it('renders no aria-describedby without a description', () => {
+      const { getByRole } = renderLabel();
+
+      expect(getByRole('button')).not.toHaveAttribute('aria-describedby');
+    });
   });
 });

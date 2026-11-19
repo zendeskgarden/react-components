@@ -39,12 +39,18 @@ export interface IAccordionContext<Value>
     Omit<IUseAccordionReturnValue<Value>, 'disabledSections'>,
     Pick<
       IAccordionProps<Value>,
-      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible'
+      'level' | 'isCompact' | 'isAnimated' | 'isBare' | 'isCollapsible' | 'isWell'
     > {}
 
 export interface IHeaderContext {
   isHovered: boolean;
   otherTriggerProps: any;
+  /** The id of the rendered `Accordion.Description`, if any */
+  descriptionId?: string;
+  /** Registers the id of the rendered `Accordion.Description` */
+  setDescriptionId: (id?: string) => void;
+  /** The last native event recorded by `Accordion.Actions`; the header skips the toggle for it */
+  actionEventRef: MutableRefObject<Event | null>;
 }
 
 export interface IStepContext {

@@ -9,8 +9,11 @@ import { version } from 'react';
 
 const componentIds = [
   'accordions.accordion',
+  'accordions.actions',
   'accordions.button',
+  'accordions.description',
   'accordions.header',
+  'accordions.header_row',
   'accordions.panel',
   'accordions.rotate_icon',
   'accordions.section',

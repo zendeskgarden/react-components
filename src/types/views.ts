@@ -92,6 +92,7 @@ export interface IStyledTitleProps {
 export interface IStyledWellProps {
   $isRecessed?: boolean;
   $isFloating?: boolean;
+  $isAnimated?: boolean;
 }
 //#endregion
 
