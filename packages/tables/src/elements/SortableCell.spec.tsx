@@ -135,6 +135,54 @@ describe('SortableCell', () => {
       expect(queryByRole('img')).not.toBeInTheDocument();
     });
 
+    it('keeps the button name in sync when the sort state changes', () => {
+      const tree = (sort?: 'asc' | 'desc') => (
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell sort={sort}>Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+      const { getByRole, rerender } = render(tree('asc'));
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
+
+      rerender(tree('desc'));
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted descending');
+
+      rerender(tree('asc'));
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
+
+      rerender(tree());
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+    });
+
+    it('replaces the labelled icon when the sort state changes', () => {
+      const tree = (sort: 'asc' | 'desc') => (
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell sort={sort}>Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+      const { getByRole, rerender } = render(tree('asc'));
+      const before = getByRole('img');
+
+      rerender(tree('desc'));
+
+      const after = getByRole('img');
+
+      expect(after).not.toBe(before);
+      expect(after).toHaveAttribute('aria-label', 'sorted descending');
+    });
+
     it('applies customized text', () => {
       const props = {
         roleDescription: 'botón de ordenar',

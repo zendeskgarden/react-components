@@ -5,7 +5,7 @@
  * found at http://www.apache.org/licenses/LICENSE-2.0.
  */
 
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import SortStrokeIcon from '@zendeskgarden/svg-icons/src/12/sort-stroke.svg';
 import SortFillIcon from '@zendeskgarden/svg-icons/src/12/sort-fill.svg';
@@ -70,7 +70,7 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
       'sorted descending',
       sort === 'desc'
     );
-    let sortLabel;
+    let sortLabel: string | undefined;
 
     if (sort === 'asc') {
       sortLabel = ascendingLabel;
@@ -79,9 +79,13 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
     }
 
     /* The label is on the icon, so it is part of the button name without an extra element */
-    const iconProps = sortLabel
-      ? { role: 'img', 'aria-label': sortLabel, 'aria-hidden': undefined, focusable: 'false' }
-      : {};
+    const iconProps = useMemo(
+      () =>
+        sortLabel
+          ? { role: 'img', 'aria-label': sortLabel, 'aria-hidden': undefined, focusable: 'false' }
+          : {},
+      [sortLabel]
+    );
 
     return (
       <StyledHeaderCell
@@ -103,7 +107,9 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
             <SortIcon />
           </StyledSortableStrokeIconWrapper>
           <StyledSortableFillIconWrapper>
-            <SortFillIcon {...iconProps} />
+            {/* Re-mount the icon when the sort state changes so assistive technology
+                reads a fresh label instead of a cached one */}
+            <SortFillIcon key={sort || 'none'} {...iconProps} />
           </StyledSortableFillIconWrapper>
         </StyledSortableButton>
       </StyledHeaderCell>
