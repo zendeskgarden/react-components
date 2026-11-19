@@ -66,4 +66,21 @@ export interface ISortableCellProps extends ButtonHTMLAttributes<HTMLButtonEleme
   width?: ICellProps['width'];
   /** Passes props to the cell */
   cellProps?: any;
+  /**
+   * Provides customized, translated text for the sort icon. The text is added
+   * to the button's accessible name when the column is sorted, so assistive
+   * technology conveys the current sort state
+   */
+  sortLabels?: {
+    /** Text for the column that is sorted in ascending order */
+    ascending?: string;
+    /** Text for the column that is sorted in descending order */
+    descending?: string;
+  };
+  /**
+   * Provides customized, translated text for the button's
+   * [`aria-roledescription`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-roledescription)
+   * so assistive technology always conveys that the button sorts the column
+   */
+  roleDescription?: string;
 }
