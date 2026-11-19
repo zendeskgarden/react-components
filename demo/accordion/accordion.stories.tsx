@@ -8,7 +8,7 @@
 import type { StoryObj } from '@storybook/react-vite';
 import { useArgs } from 'storybook/preview-api';
 
-import { Accordion, DEFAULT_THEME } from '../../src/index';
+import { Accordion } from '../../src/index';
 import { AccordionStory } from './stories/AccordionStory';
 import { ACCORDION_SECTIONS as SECTIONS } from './stories/data';
 type Story = StoryObj<typeof AccordionStory>;
@@ -93,9 +93,7 @@ export const Well: Story = {
     /* The first section expands by default; wells start collapsed. */
     defaultExpandedSections: [],
     hasDescription: true,
-    hasActions: true,
-    /* Wells have no built-in spacing: a flex gap is the recommended recipe. */
-    style: { display: 'flex', flexDirection: 'column', gap: DEFAULT_THEME.space.xl }
+    hasActions: true
   },
   argTypes: {
     expandedSections: { control: false }

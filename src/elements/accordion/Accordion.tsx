@@ -104,6 +104,7 @@ const AccordionComponent = forwardRef<HTMLDivElement, IAccordionProps>(
       <AccordionProvider value={accordionContextValue}>
         <StyledAccordion
           ref={ref}
+          $isWell={isWell}
           {...props}
           data-garden-id={COMPONENT_IDS['accordions.accordion']}
           data-garden-version={PACKAGE_VERSION}

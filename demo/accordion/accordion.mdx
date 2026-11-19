@@ -24,21 +24,10 @@ import * as Stories from './accordion.stories';
 ## Well
 
 <Markdown>
-  {`Pass \`isWell\` to render each section as a bordered well card. Without
+  {`Pass \`isWell\` to render each section as a bordered well card. Well
+sections are separated by a built-in 40px (\`space.xl\`) gap. Without
 \`defaultExpandedSections\`, the first section expands by default; the Well
 story starts collapsed.
-
-Wells have no built-in spacing. Add a gap between sections with a flex layout:
-
-\`\`\`tsx
-
-<Accordion
-  isWell
-  isMultiExpandable
-  defaultExpandedSections={[]}
-  style={{ display: 'flex', flexDirection: 'column', gap: theme.space.xl }}
->
-\`\`\`
 `}
 </Markdown>
 

@@ -89,6 +89,31 @@ describe('Accordion', () => {
       expect(getByTestId('accordion')).not.toHaveAttribute('isWell');
     });
 
+    it('separates well sections with a built-in 40px gap', () => {
+      const { getByTestId } = render(
+        <Accordion level={3} isWell data-test-id="accordion">
+          {wellSections()}
+        </Accordion>
+      );
+      const accordion = getByTestId('accordion');
+
+      expect(accordion).toHaveStyleRule('display', 'flex');
+      expect(accordion).toHaveStyleRule('flex-direction', 'column');
+      expect(accordion).toHaveStyleRule('gap', DEFAULT_THEME.space.xl);
+    });
+
+    it('renders no flex gap without isWell', () => {
+      const { getByTestId } = render(
+        <Accordion level={3} data-test-id="accordion">
+          {wellSections()}
+        </Accordion>
+      );
+      const accordion = getByTestId('accordion');
+
+      expect(accordion).not.toHaveStyleRule('display');
+      expect(accordion).not.toHaveStyleRule('gap');
+    });
+
     it('toggles sections independently with isMultiExpandable', async () => {
       render(
         <Accordion level={3} isWell isMultiExpandable defaultExpandedSections={[]}>
