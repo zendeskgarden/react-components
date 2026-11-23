@@ -180,8 +180,8 @@ importers:
         specifier: 47.1.0
         version: 47.1.0(@babel/core@7.28.6)(@typescript-eslint/eslint-plugin@8.50.0(@typescript-eslint/parser@8.50.0(eslint@9.39.5)(typescript@5.9.3))(eslint@9.39.5)(typescript@5.9.3))(eslint@9.39.5)(typescript@5.9.3)
       '@zendeskgarden/scripts':
-        specifier: 2.5.3
-        version: 2.5.3
+        specifier: 2.5.4
+        version: 2.5.4
       '@zendeskgarden/stylelint-config':
         specifier: 23.0.0
         version: 23.0.0(stylelint@17.16.0(typescript@5.9.3))
@@ -1136,6 +1136,13 @@ packages:
     peerDependencies:
       '@emnapi/core': ^1.7.1 || 2.0.0-beta.2
       '@emnapi/runtime': ^1.7.1 || 2.0.0-beta.2
+
+  '@napi-rs/wasm-runtime@1.2.7':
+    resolution: {integrity: sha512-zJccwplOAbgfZju95IUHazLnx9RAPtPN2YGJXI6UbrgeaR9QfPjGrQL6ERkSAtnVCA4Q+83ApGyaX5zdpCaKkQ==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=23.5.0}
+    peerDependencies:
+      '@emnapi/core': ^1.7.1 || 2.0.0-beta.2 || 2.0.0-beta.3
+      '@emnapi/runtime': ^1.7.1 || 2.0.0-beta.2 || 2.0.0-beta.3
 
   '@netlify/api@14.0.9':
     resolution: {integrity: sha512-fKmMheaHDps5K8T3lyidFR+nCkpqEkkFLNz5YGptlaocz7LpgEZvmluv20XwqMEXQ3WBGZzXeJMns87Tdmtw2Q==}
@@ -2627,6 +2634,9 @@ packages:
   '@tybys/wasm-util@0.10.4':
     resolution: {integrity: sha512-W3c4gRigFS0T/Ma4qIYF3GDAc5AQdHb1yL5znJT1Zv1YaD9Kitx656wBjvr19qbiosmZT8lWDM5BEMynUqX65A==}
 
+  '@tybys/wasm-util@0.10.5':
+    resolution: {integrity: sha512-dOGOPxlaNV+G046mZzN+9C0dAcQZeSKcXiVaM0TYy/LM4ttTmgSBDxYfovcYI8Em3+eAbiAYpvWLOv8+ZVRJKA==}
+
   '@tybys/wasm-util@0.9.0':
     resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
 
@@ -3058,8 +3068,8 @@ packages:
     peerDependencies:
       eslint: ^9.0.0
 
-  '@zendeskgarden/scripts@2.5.3':
-    resolution: {integrity: sha512-4lxoAcgSR9DSrVFeXx55hGNFk76exggjpvfxPvpaqlzuP0KlNSlDG8rHWvCVZDimYMdBfadBNcP9uN+/plWjzA==}
+  '@zendeskgarden/scripts@2.5.4':
+    resolution: {integrity: sha512-C7G7MumOiLSN2BWhPnSZv4uZxFlRrRYOTBAFZRVuBe8tBmbXEVoUy91B2QJGEh+uRJGwjOjJPvyEjt5WZ8jC3w==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -4738,8 +4748,8 @@ packages:
     resolution: {integrity: sha512-d5mmoQXdeEqSKMtQQZ9WkiUcO1E3tPbWxluCK9hVgIDPzQa9WsKo3Lbe/sGflTe7TomHEeZaOgwIkyIr1kfzkw==}
     engines: {node: '>=0.10.0'}
 
-  handlebars@4.7.8:
-    resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
+  handlebars@4.7.10:
+    resolution: {integrity: sha512-P5VJMVM7qgBn6vjXMw8WG9uVI+ncf2pi72j4de4yz5ZULLj2RGqLYaKOYGsgyrViQ0tePOVlN1tDCCXXtFqXKg==}
     engines: {node: '>=0.4.7'}
     hasBin: true
 
@@ -7358,6 +7368,9 @@ packages:
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
+  tslib@2.9.1:
+    resolution: {integrity: sha512-a4Ux9VKuIMHsOS7ENbEq6hK2ZGYIT27Rtl0E4eD9KqwxhKiQeMZE/9xb3IdYwWaSOyIBQLExhQgXDTYoiCxnWA==}
+
   tuf-js@4.1.0:
     resolution: {integrity: sha512-50QV99kCKH5P/Vs4E2Gzp7BopNV+KzTXqWeaxrfu5IQJBOULRsTIS9seSsOVT8ZnGXzCyx55nYWAi4qJzpZKEQ==}
     engines: {node: ^20.17.0 || >=22.9.0}
@@ -8658,6 +8671,13 @@ snapshots:
       '@tybys/wasm-util': 0.10.4
     optional: true
 
+  '@napi-rs/wasm-runtime@1.2.7(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)':
+    dependencies:
+      '@emnapi/core': 1.11.0
+      '@emnapi/runtime': 1.11.0
+      '@tybys/wasm-util': 0.10.5
+    optional: true
+
   '@netlify/api@14.0.9':
     dependencies:
       '@netlify/open-api': 2.46.0
@@ -9410,7 +9430,7 @@ snapshots:
 
   '@rolldown/binding-wasm32-wasi@1.0.0-rc.9(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)':
     dependencies:
-      '@napi-rs/wasm-runtime': 1.2.6(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)
+      '@napi-rs/wasm-runtime': 1.2.7(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -9783,6 +9803,11 @@ snapshots:
   '@tybys/wasm-util@0.10.4':
     dependencies:
       tslib: 2.8.1
+    optional: true
+
+  '@tybys/wasm-util@0.10.5':
+    dependencies:
+      tslib: 2.9.1
     optional: true
 
   '@tybys/wasm-util@0.9.0':
@@ -10307,7 +10332,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@zendeskgarden/scripts@2.5.3':
+  '@zendeskgarden/scripts@2.5.4':
     dependencies:
       '@netlify/api': 14.0.9
       '@octokit/graphql': 9.0.2
@@ -10322,7 +10347,7 @@ snapshots:
       fs-extra: 11.3.2
       gh-pages: 6.3.0
       globby: 15.0.0
-      handlebars: 4.7.8
+      handlebars: 4.7.10
       handlebars-helpers: 0.10.0
       is-interactive: 2.0.0
       is-plain-object: 5.0.0
@@ -11055,7 +11080,7 @@ snapshots:
     dependencies:
       conventional-commits-filter: 3.0.0
       dateformat: 3.0.3
-      handlebars: 4.7.8
+      handlebars: 4.7.10
       json-stringify-safe: 5.0.1
       meow: 8.1.2
       semver: 7.7.4
@@ -12232,7 +12257,7 @@ snapshots:
     dependencies:
       '@sindresorhus/merge-streams': 4.0.0
       fast-glob: 3.3.3
-      ignore: 7.0.5
+      ignore: 7.0.14
       path-type: 6.0.0
       slash: 5.1.0
       unicorn-magic: 0.3.0
@@ -12277,7 +12302,7 @@ snapshots:
       for-own: 1.0.0
       get-object: 0.2.0
       get-value: 2.0.6
-      handlebars: 4.7.8
+      handlebars: 4.7.10
       handlebars-helper-create-frame: 0.1.0
       handlebars-utils: 1.0.6
       has-value: 1.0.0
@@ -12304,7 +12329,7 @@ snapshots:
       kind-of: 6.0.3
       typeof-article: 0.1.1
 
-  handlebars@4.7.8:
+  handlebars@4.7.10:
     dependencies:
       minimist: 1.2.8
       neo-async: 2.6.2
@@ -13859,7 +13884,7 @@ snapshots:
       is-unicode-supported: 2.1.0
       log-symbols: 7.0.1
       stdin-discarder: 0.2.2
-      string-width: 8.1.1
+      string-width: 8.3.0
       strip-ansi: 7.1.2
 
   ora@9.4.1:
@@ -15299,6 +15324,9 @@ snapshots:
       - vue-tsc
 
   tslib@2.8.1: {}
+
+  tslib@2.9.1:
+    optional: true
 
   tuf-js@4.1.0:
     dependencies:
