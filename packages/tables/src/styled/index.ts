@@ -14,6 +14,7 @@ export { StyledGroupRow } from './StyledGroupRow';
 export { StyledTable } from './StyledTable';
 export { StyledHeaderCell } from './StyledHeaderCell';
 export { StyledHiddenCell } from './StyledHiddenCell';
+export { StyledSortableStatus } from './StyledSortableStatus';
 export {
   StyledSortableButton,
   StyledSortableFillIconWrapper,

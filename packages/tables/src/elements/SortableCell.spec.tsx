@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { css } from 'styled-components';
+import { hideVisually } from 'polished';
 import { render } from 'garden-test-utils';
 
 import { Table } from './Table';
@@ -181,6 +182,72 @@ describe('SortableCell', () => {
 
       expect(after).not.toBe(before);
       expect(after).toHaveAttribute('aria-label', 'sorted descending');
+    });
+
+    describe('live region', () => {
+      const tree = (props: { sort?: 'asc' | 'desc'; sortLabels?: object } = {}) => (
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell {...props}>Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+      it('renders a polite status region as a sibling of the button', () => {
+        const { getByRole } = render(tree({ sort: 'asc' }));
+        const button = getByRole('button');
+        const status = getByRole('status');
+
+        expect(status).toHaveAttribute('aria-live', 'polite');
+        expect(status.parentElement).toBe(button.parentElement);
+        expect(button).not.toContainElement(status);
+      });
+
+      it('announces the active sort label and is empty when unsorted', () => {
+        const { getByRole, rerender } = render(tree());
+
+        expect(getByRole('status')).toBeEmptyDOMElement();
+
+        rerender(tree({ sort: 'asc' }));
+
+        expect(getByRole('status')).toHaveTextContent('sorted ascending');
+
+        rerender(tree({ sort: 'desc' }));
+
+        expect(getByRole('status')).toHaveTextContent('sorted descending');
+
+        rerender(tree());
+
+        expect(getByRole('status')).toBeEmptyDOMElement();
+      });
+
+      it('keeps the same element across sort changes so the change is announced', () => {
+        const { getByRole, rerender } = render(tree({ sort: 'asc' }));
+        const before = getByRole('status');
+
+        rerender(tree({ sort: 'desc' }));
+
+        expect(getByRole('status')).toBe(before);
+      });
+
+      it('uses customized text', () => {
+        const { getByRole } = render(
+          tree({ sort: 'desc', sortLabels: { descending: 'orden descendente' } })
+        );
+
+        expect(getByRole('status')).toHaveTextContent('orden descendente');
+      });
+
+      it('is visually hidden but not removed from the accessibility tree', () => {
+        const { getByRole } = render(tree({ sort: 'asc' }));
+        const status = getByRole('status');
+
+        expect(status).toHaveStyle(hideVisually());
+        expect(status).not.toHaveAttribute('hidden');
+        expect(status).not.toHaveStyle('display: none');
+      });
     });
 
     it('applies customized text', () => {

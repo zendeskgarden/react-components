@@ -15,7 +15,8 @@ import {
   StyledHeaderCell,
   StyledSortableButton,
   StyledSortableStrokeIconWrapper,
-  StyledSortableFillIconWrapper
+  StyledSortableFillIconWrapper,
+  StyledSortableStatus
 } from '../styled';
 
 /**
@@ -107,11 +108,13 @@ export const SortableCell = forwardRef<HTMLButtonElement, ISortableCellProps>(
             <SortIcon />
           </StyledSortableStrokeIconWrapper>
           <StyledSortableFillIconWrapper>
-            {/* Re-mount the icon when the sort state changes so assistive technology
-                reads a fresh label instead of a cached one */}
+            {/* Re-mount since in-place `aria-label` mutation can leave a stale cached name in the accessibility tree */}
             <SortFillIcon key={sort || 'none'} {...iconProps} />
           </StyledSortableFillIconWrapper>
         </StyledSortableButton>
+        {/* Announces the new sort state while the button keeps focus. VoiceOver with Safari
+            does not announce `aria-sort` changes, and the button name alone is only read on focus */}
+        <StyledSortableStatus aria-live="polite">{sortLabel}</StyledSortableStatus>
       </StyledHeaderCell>
     );
   }
