@@ -7,6 +7,7 @@
 
 import React from 'react';
 import { css } from 'styled-components';
+import { hideVisually } from 'polished';
 import { render } from 'garden-test-utils';
 
 import { Table } from './Table';
@@ -74,6 +75,229 @@ describe('SortableCell', () => {
       modifier: css`
         ${StyledSortableButton}
       ` as any
+    });
+  });
+
+  describe('accessibility', () => {
+    const renderCell = (props = {}, text = 'Updated date') =>
+      render(
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell {...props}>{text}</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+    it('keeps the plain column name when unsorted', () => {
+      const { getByRole } = renderCell();
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+    });
+
+    it('always conveys that the button sorts, via aria-roledescription', () => {
+      const unsorted = renderCell();
+
+      expect(unsorted.getByRole('button')).toHaveAttribute('aria-roledescription', 'sort button');
+      unsorted.unmount();
+
+      const asc = renderCell({ sort: 'asc' });
+
+      expect(asc.getByRole('button')).toHaveAttribute('aria-roledescription', 'sort button');
+      asc.unmount();
+
+      const desc = renderCell({ sort: 'desc' });
+
+      expect(desc.getByRole('button')).toHaveAttribute('aria-roledescription', 'sort button');
+    });
+
+    it('adds the sort state to the button name when ascending', () => {
+      const { getByRole } = renderCell({ sort: 'asc' });
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
+    });
+
+    it('adds the sort state to the button name when descending', () => {
+      const { getByRole } = renderCell({ sort: 'desc' });
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted descending');
+    });
+
+    it('labels only one icon, so the state is announced once', () => {
+      const { getAllByRole } = renderCell({ sort: 'asc' });
+
+      expect(getAllByRole('img')).toHaveLength(1);
+    });
+
+    it('does not expose an image when unsorted', () => {
+      const { queryByRole } = renderCell();
+
+      expect(queryByRole('img')).not.toBeInTheDocument();
+    });
+
+    it('keeps the button name in sync when the sort state changes', () => {
+      const tree = (sort?: 'asc' | 'desc') => (
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell sort={sort}>Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+      const { getByRole, rerender } = render(tree('asc'));
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
+
+      rerender(tree('desc'));
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted descending');
+
+      rerender(tree('asc'));
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date sorted ascending');
+
+      rerender(tree());
+
+      expect(getByRole('button')).toHaveAccessibleName('Updated date');
+    });
+
+    it('replaces the labelled icon when the sort state changes', () => {
+      const tree = (sort: 'asc' | 'desc') => (
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell sort={sort}>Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+      const { getByRole, rerender } = render(tree('asc'));
+      const before = getByRole('img');
+
+      rerender(tree('desc'));
+
+      const after = getByRole('img');
+
+      expect(after).not.toBe(before);
+      expect(after).toHaveAttribute('aria-label', 'sorted descending');
+    });
+
+    describe('live region', () => {
+      const tree = (props: { sort?: 'asc' | 'desc'; sortLabels?: object } = {}) => (
+        <Table>
+          <Head>
+            <HeaderRow>
+              <SortableCell {...props}>Updated date</SortableCell>
+            </HeaderRow>
+          </Head>
+        </Table>
+      );
+
+      it('renders a polite status region as a sibling of the button', () => {
+        const { getByRole } = render(tree({ sort: 'asc' }));
+        const button = getByRole('button');
+        const status = getByRole('status');
+
+        expect(status).toHaveAttribute('aria-live', 'polite');
+        expect(status.parentElement).toBe(button.parentElement);
+        expect(button).not.toContainElement(status);
+      });
+
+      it('announces the active sort label and is empty when unsorted', () => {
+        const { getByRole, rerender } = render(tree());
+
+        expect(getByRole('status')).toBeEmptyDOMElement();
+
+        rerender(tree({ sort: 'asc' }));
+
+        expect(getByRole('status')).toHaveTextContent('sorted ascending');
+
+        rerender(tree({ sort: 'desc' }));
+
+        expect(getByRole('status')).toHaveTextContent('sorted descending');
+
+        rerender(tree());
+
+        expect(getByRole('status')).toBeEmptyDOMElement();
+      });
+
+      it('keeps the same element across sort changes so the change is announced', () => {
+        const { getByRole, rerender } = render(tree({ sort: 'asc' }));
+        const before = getByRole('status');
+
+        rerender(tree({ sort: 'desc' }));
+
+        expect(getByRole('status')).toBe(before);
+      });
+
+      it('uses customized text', () => {
+        const { getByRole } = render(
+          tree({ sort: 'desc', sortLabels: { descending: 'orden descendente' } })
+        );
+
+        expect(getByRole('status')).toHaveTextContent('orden descendente');
+      });
+
+      it('is visually hidden but not removed from the accessibility tree', () => {
+        const { getByRole } = render(tree({ sort: 'asc' }));
+        const status = getByRole('status');
+
+        expect(status).toHaveStyle(hideVisually());
+        expect(status).not.toHaveAttribute('hidden');
+        expect(status).not.toHaveStyle('display: none');
+      });
+    });
+
+    it('applies customized text', () => {
+      const props = {
+        roleDescription: 'botón de ordenar',
+        sortLabels: { ascending: 'orden ascendente', descending: 'orden descendente' }
+      };
+      const unsorted = renderCell(props, 'Fecha');
+
+      expect(unsorted.getByRole('button')).toHaveAttribute(
+        'aria-roledescription',
+        'botón de ordenar'
+      );
+      expect(unsorted.getByRole('button')).toHaveAccessibleName('Fecha');
+      unsorted.unmount();
+
+      const asc = renderCell({ ...props, sort: 'asc' }, 'Fecha');
+
+      expect(asc.getByRole('button')).toHaveAccessibleName('Fecha orden ascendente');
+      asc.unmount();
+
+      const desc = renderCell({ ...props, sort: 'desc' }, 'Fecha');
+
+      expect(desc.getByRole('button')).toHaveAccessibleName('Fecha orden descendente');
+    });
+
+    it('does not pass roleDescription or sortLabels to the DOM', () => {
+      const { getByRole } = renderCell({
+        roleDescription: 'sort button',
+        sortLabels: { ascending: 'asc' }
+      });
+      const button = getByRole('button');
+
+      expect(button).not.toHaveAttribute('roledescription');
+      expect(button).not.toHaveAttribute('sortlabels');
+    });
+
+    it('lets an explicit aria-roledescription win', () => {
+      const { getByRole } = renderCell({ 'aria-roledescription': 'custom' });
+
+      expect(getByRole('button')).toHaveAttribute('aria-roledescription', 'custom');
+    });
+
+    it('requires a non-empty customized text value', () => {
+      const spy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
+
+      expect(() => renderCell({ roleDescription: '' })).toThrow();
+      expect(() => renderCell({ sort: 'asc', sortLabels: { ascending: '' } })).toThrow();
+
+      spy.mockRestore();
     });
   });
 });
